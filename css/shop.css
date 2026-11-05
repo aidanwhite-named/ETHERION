@@ -1,0 +1,131 @@
+/* ETHERION — 상점(조직도)과 파칭코. 테마: 밤하늘과 금빛 룬 (style.css의 변수를 쓴다) */
+
+/* ===================== 지갑 칩 (상단 바) ===================== */
+.gold-chip { display: inline-flex; align-items: baseline; gap: 6px; padding: 4px 10px; border: 1px solid var(--line-gold); border-radius: 3px; background: linear-gradient(180deg, rgba(217, 180, 106, .14), rgba(217, 180, 106, .04)); font-size: 13px; color: var(--ink-2); }
+.gold-chip b { font-family: var(--caps); color: var(--gold-hi); letter-spacing: .04em; }
+.gold-chip::before { content: "◈"; color: var(--gold); font-size: 11px; align-self: center; }
+
+/* ===================== 상점 ===================== */
+.shop { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 18px; padding-block: 18px 30px; padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px)); align-items: start; }
+.shop-tree { position: sticky; top: 74px; background: var(--panel); border: 1px solid var(--line); padding: 14px 10px 16px; overflow: auto; max-height: calc(100dvh - 90px); }
+.shop-main { background: var(--panel); border: 1px solid var(--line); padding: 16px 18px 24px; min-width: 0; }
+
+/* 조직도: 상점 → 진영 → 단체. 세로 트리, 금빛 연결선 */
+.org { display: grid; justify-items: center; gap: 0; }
+.org-row { display: flex; justify-content: center; width: 100%; }
+.org-row.facs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; position: relative; padding-top: 14px; }
+.org-row.facs::before { content: ""; position: absolute; left: 16.66%; right: 16.66%; top: 0; border-top: 1px solid var(--line-gold); }
+.org-col { display: grid; justify-items: center; align-content: start; gap: 0; position: relative; min-width: 0; }
+.org-col::before { content: ""; position: absolute; top: -14px; left: 50%; height: 14px; border-left: 1px solid var(--line-gold); }
+.org-tee { width: 0; height: 14px; border-left: 1px solid var(--line-gold); }
+.org-tee.top { height: 14px; }
+.org-kids { display: grid; gap: 6px; width: 100%; position: relative; padding-top: 10px; animation: orgIn .25s ease-out; }
+.org-kids::before { content: ""; position: absolute; left: 50%; top: 0; height: 10px; border-left: 1px solid var(--line-gold); }
+@keyframes orgIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+.org-node { --fc: var(--gc, var(--gold)); position: relative; display: flex; flex-direction: column; align-items: center; gap: 3px; text-align: center; width: 100%; padding: 10px 6px 9px; background: rgba(255, 255, 255, .02); border: 1px solid var(--line); border-radius: 5px; color: var(--ink); transition: border-color .15s, background .15s, transform .15s, box-shadow .15s; min-width: 0; cursor: pointer; }
+.org-node:hover { border-color: var(--fc); transform: translateY(-2px); }
+.org-node.on { border-color: var(--fc); background: color-mix(in srgb, var(--fc) 14%, transparent); box-shadow: 0 0 0 1px var(--fc) inset, 0 0 22px color-mix(in srgb, var(--fc) 28%, transparent); }
+.org-node b { font-size: 13.5px; word-break: keep-all; line-height: 1.25; }
+.org-node .en { font-family: var(--caps); font-size: 9px; letter-spacing: .1em; color: var(--fc); text-transform: uppercase; }
+.org-node .role { font-size: 10.5px; color: var(--muted); word-break: keep-all; }
+.org-node .emblem { width: 40px; height: 40px; }
+.org-node .emblem.big { width: 52px; height: 52px; }
+.org-node.root { width: auto; min-width: 190px; padding: 12px 22px; border-color: var(--line-gold); background: linear-gradient(180deg, rgba(217, 180, 106, .12), rgba(217, 180, 106, .03)); }
+.org-node.root b { font-size: 16px; letter-spacing: .02em; }
+.org-node.root .emblem.q { font-size: 24px; }
+.org-node.faction { padding-top: 12px; }
+.org-node.faction .caret { position: absolute; right: 7px; top: 6px; font-style: normal; font-size: 12px; color: var(--fc); opacity: .8; }
+.org-node.group { padding: 8px 4px 8px; }
+.org-node.group .emblem { width: 34px; height: 34px; }
+.org-node.group b { font-size: 12.5px; }
+.org-node.group .role { font-size: 10px; }
+
+/* 카드 목록 */
+.shop-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-bottom: 1px solid var(--line-gold); padding-bottom: 12px; margin-bottom: 12px; }
+.shop-head h2 { font-size: 24px; margin: 2px 0 0; }
+.shop-head h2 small { font-family: var(--caps); font-size: 12px; color: var(--muted); letter-spacing: .12em; margin-left: 8px; }
+.shop-wallet { text-align: right; }
+.shop-wallet b { display: block; font-family: var(--caps); font-size: 22px; color: var(--gold-hi); text-shadow: 0 0 18px rgba(240, 200, 120, .35); }
+.shop-filters { display: grid; gap: 8px; margin-bottom: 14px; }
+.shop .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.shop .chip { font-size: 12px; padding: 4px 10px; border: 1px solid var(--line); border-radius: 3px; background: rgba(255, 255, 255, .02); color: var(--ink-2); cursor: pointer; }
+.shop .chip:hover { border-color: var(--line-gold); color: var(--ink); }
+.shop .chip.on { border-color: var(--gold); color: var(--gold-hi); background: rgba(217, 180, 106, .12); }
+.shop-cards { display: flex; flex-wrap: wrap; gap: 18px 12px; padding-top: 6px; }
+.shop-card { display: grid; justify-items: center; gap: 6px; width: 138px; }
+.shop-card .card { --cw: 138px; cursor: pointer; transition: transform .15s; }
+.shop-card .card:hover { transform: translateY(-3px); }
+.shop-card.full .card { filter: saturate(.75) brightness(.85); }
+.sc-foot { display: flex; justify-content: space-between; width: 100%; font-size: 11.5px; color: var(--muted); padding: 0 2px; }
+.sc-price { font-family: var(--caps); color: var(--gold-hi); letter-spacing: .03em; }
+.sc-own.ok { color: var(--good); }
+.sc-buy { width: 100%; }
+.shop-card.bought .card { animation: scBought .7s ease-out; }
+@keyframes scBought { 0% { box-shadow: 0 0 0 0 rgba(246, 226, 168, .9); } 100% { box-shadow: 0 0 0 18px rgba(246, 226, 168, 0); } }
+@media (max-width: 900px) {
+  .shop { grid-template-columns: minmax(0, 1fr); }
+  .shop-tree { position: static; max-height: none; }
+}
+
+/* 경기 결과의 정산 */
+.res-gold { display: grid; gap: 4px; justify-items: center; margin-top: 6px; padding: 10px 16px; border: 1px solid var(--line-gold); background: rgba(217, 180, 106, .06); font-size: 13px; color: var(--ink-2); }
+.res-gold b { font-family: var(--caps); color: var(--gold-hi); font-size: 20px; letter-spacing: .04em; }
+.res-gold .rg-rows { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; font-size: 12px; color: var(--muted); }
+.res-gold .rg-rows i { font-style: normal; color: var(--ink-2); }
+
+/* ===================== 파칭코 ===================== */
+.pach { position: relative; width: 100%; user-select: none; font-family: var(--caps); margin-bottom: 12px; }
+.side-col { display: grid; gap: 0; align-content: start; }
+.wheel-host { min-height: 0; }
+.pach-cab { position: relative; border: 1px solid var(--line-gold); border-radius: 8px; padding: 7px 10px 8px; background:
+  linear-gradient(180deg, rgba(30, 26, 40, .95), rgba(10, 10, 18, .96)), var(--night-2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .55), inset 0 1px 0 rgba(255, 255, 255, .06), inset 0 0 0 1px rgba(217, 180, 106, .08); }
+.pach.armed .pach-cab { box-shadow: 0 2px 10px rgba(0, 0, 0, .55), inset 0 1px 0 rgba(255, 255, 255, .06), 0 0 18px rgba(217, 180, 106, .18); }
+.pach-top { display: flex; justify-content: space-between; align-items: baseline; font-size: 8.5px; letter-spacing: .22em; color: var(--gold); margin-bottom: 4px; }
+.pach-gold { letter-spacing: .04em; color: var(--gold-hi); font-size: 10.5px; }
+.pach-win { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; height: 34px; max-width: 170px; margin: 0 auto; padding: 0 2px; border-radius: 3px; background: #05060a; box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .25), inset 0 6px 10px rgba(0, 0, 0, .8), inset 0 -6px 10px rgba(0, 0, 0, .8); overflow: hidden; }
+.pach-reel { position: relative; height: 34px; overflow: hidden; }
+.pach-strip { will-change: transform; }
+.pach-sym { height: 34px; display: grid; place-items: center; color: var(--sc, var(--gold)); }
+.pach-sym svg { width: 24px; height: 24px; filter: drop-shadow(0 0 4px color-mix(in srgb, var(--sc) 55%, transparent)); }
+.pach-sym.faction svg { width: 25px; height: 25px; }
+.pach-reel.blur .pach-sym { filter: blur(1.2px); opacity: .85; }
+.pach-reel.stop { animation: reelStop .22s ease-out; }
+@keyframes reelStop { 0% { transform: translateY(-2px); } 60% { transform: translateY(1.5px); } 100% { transform: none; } }
+.pach-line { position: absolute; left: 0; right: 0; top: 50%; height: 0; border-top: 1px solid rgba(217, 180, 106, .35); pointer-events: none; }
+.pach-glass { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(0, 0, 0, .7), transparent 32%, transparent 68%, rgba(0, 0, 0, .7)), linear-gradient(100deg, transparent 40%, rgba(255, 255, 255, .05) 50%, transparent 60%); }
+.pach-foot { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 5px; }
+.pach-msg { font-family: var(--serif, inherit); font-size: 10.5px; color: var(--muted); letter-spacing: 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pach-msg.win { color: var(--gold-hi); }
+.pach-msg.win.big { color: #fff6d6; text-shadow: 0 0 10px rgba(246, 226, 168, .7); }
+.pach-btn { position: relative; flex: none; display: inline-flex; align-items: center; gap: 5px; height: 22px; padding: 0 9px 0 7px; border-radius: 11px; border: 1px solid #b48a3c; background: linear-gradient(180deg, #e6c47c, #b48a3c); color: #1c1407; font-family: var(--caps); font-size: 9.5px; font-weight: 700; letter-spacing: .16em; cursor: pointer; box-shadow: 0 2px 0 #6e5220, 0 3px 8px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .45); transition: transform .06s, box-shadow .06s, filter .15s; }
+.pach-btn i { width: 8px; height: 8px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, #ef6a5c 55%, #7a2420); box-shadow: 0 0 5px rgba(239, 106, 92, .7); }
+.pach-btn:not(:disabled):hover { filter: brightness(1.08); }
+.pach-btn:not(:disabled):active { transform: translateY(2px); box-shadow: 0 0 0 #6e5220, 0 1px 3px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .3); }
+.pach-btn:disabled { cursor: default; filter: grayscale(.7) brightness(.6); box-shadow: 0 1px 0 #3a3020; }
+.pach.armed .pach-btn i { animation: pachPulse 1.2s ease-in-out infinite; }
+@keyframes pachPulse { 0%, 100% { box-shadow: 0 0 4px rgba(239, 106, 92, .5); } 50% { box-shadow: 0 0 10px rgba(239, 106, 92, 1); } }
+.pach.spinning .pach-win { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .5), inset 0 6px 10px rgba(0, 0, 0, .8), inset 0 -6px 10px rgba(0, 0, 0, .8); }
+.pach.hit-group .pach-win { box-shadow: inset 0 0 0 1px var(--gold), 0 0 12px rgba(217, 180, 106, .45); }
+.pach.hit-faction .pach-cab, .pach.hit-card .pach-cab { animation: pachGlow 1.6s ease-out; }
+@keyframes pachGlow { 0% { box-shadow: 0 0 0 2px #fff6d6, 0 0 40px rgba(246, 226, 168, .8); } 100% { box-shadow: 0 2px 10px rgba(0, 0, 0, .55); } }
+.pach-fx { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+.pach-fx i { position: absolute; left: 50%; top: 42%; width: 5px; height: 5px; border-radius: 1px; transform: translate(-50%, -50%); }
+.pach-fx b { position: absolute; inset: 0; border-radius: 6px; background: radial-gradient(circle, rgba(255, 246, 214, .9), transparent 70%); opacity: 0; }
+@media (max-width: 760px) { .pach { display: none; } }
+.pach-top .pach-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* v1.0: 대기실 오른쪽 열 = 수레바퀴 + 채팅 */
+.side-col { position: sticky; top: 74px; }
+.side-col .chat { position: static; height: min(520px, calc(100vh - 300px)); }
+/* v1.4.3: 구매 · 판매 두 버튼 */
+.sc-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; width: 100%; }
+.sc-btns .btn { width: 100%; }
+.sc-sell { background: rgba(255, 255, 255, .04); border-color: rgba(217, 180, 106, .45); color: var(--gold-hi); }
+.sc-sell:disabled { opacity: .4; }
+
+/* v1.6: 카드 등급 — 구매·판매 버튼 왼쪽 칸. 색은 js/grades.js의 GRADES */
+.sc-btns { grid-template-columns: auto 1fr 1fr; gap: 4px; }
+.sc-grade { display: grid; place-items: center; padding: 0 5px; min-width: 30px; font-size: 11px; font-weight: 700; letter-spacing: .02em; white-space: nowrap; color: var(--gr); border: 1px solid color-mix(in srgb, var(--gr) 65%, transparent); border-radius: 3px; background: color-mix(in srgb, var(--gr) 12%, transparent); text-shadow: 0 0 8px color-mix(in srgb, var(--gr) 45%, transparent); }
+.grade-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0; font-size: 12px; }
+.grade-legend i { font-style: normal; font-weight: 700; color: var(--gr); padding: 1px 7px; border: 1px solid color-mix(in srgb, var(--gr) 55%, transparent); border-radius: 3px; background: color-mix(in srgb, var(--gr) 10%, transparent); }

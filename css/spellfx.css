@@ -1,0 +1,124 @@
+/* ETHERION v1.9.5 — 마법 연출(js/spellfx.js) · 코인 수치 팝업 · 코인 창 크기
+   색은 docs/STYLE_GUIDE.md 2.9 의 이름 붙은 값만 쓴다 */
+:root {
+  --coin-up: #a6f04a;      /* 코인으로 오른 값 +N (연두) */
+  --coin-down: #ff4b3e;    /* 코인으로 내린 값 −N (빨강) */
+  --fx-blood: #e0344a;     /* 피·대가 */
+  --fx-shield: #9be8ff;    /* 보호막 방울 */
+  --fx-heal: #7fe39c;      /* 회복 */
+  --fx-spark: #ffd27a;     /* 폭발 불티 */
+}
+
+/* ---------- 코인 창: 1.5배 (화면이 작으면 js에서 --csz를 줄인다) ---------- */
+.coinstage { transform: translate(-50%, -50%) scale(var(--csz, 1)); width: min(980px, 64vw); }
+@media (max-width: 760px) { .coinstage { width: 96vw; } }
+.cs-coin.ching { animation: csChing .5s cubic-bezier(.2, .8, .3, 1); }
+@keyframes csChing { 0% { scale: 1; filter: brightness(1); } 30% { scale: 1.2; filter: brightness(1.6); } 100% { scale: 1; filter: brightness(1); } }
+.cs-coin.ching::after { content: ""; position: absolute; inset: -14%; border-radius: 50%; pointer-events: none;
+  background: conic-gradient(from 0deg, transparent 0 20%, rgba(255, 246, 210, .95) 25%, transparent 30% 70%, rgba(255, 246, 210, .9) 75%, transparent 80%);
+  mask: radial-gradient(circle, transparent 52%, #000 54%, #000 62%, transparent 64%); -webkit-mask: radial-gradient(circle, transparent 52%, #000 54%, #000 62%, transparent 64%);
+  animation: csGlint .55s ease-out forwards; }
+@keyframes csGlint { from { opacity: 1; rotate: 0deg; } to { opacity: 0; rotate: 140deg; } }
+
+/* ---------- 코인으로 바뀐 값: 캐릭터 위에 +N(연두) / −N(빨강) ---------- */
+.float.cpop { font-family: var(--caps); font-weight: 900; font-size: max(34px, calc(var(--cw) * .27)); color: var(--coin-up); z-index: 86;
+  -webkit-text-stroke: 1.5px rgba(12, 34, 0, .9); text-shadow: 0 3px 0 #1d3a06, 0 5px 12px #000, 0 0 20px rgba(166, 240, 74, .75);
+  margin-top: calc(var(--pi, 0) * 1.02em); animation: cPop 2.2s cubic-bezier(.2, .8, .3, 1) both; animation-delay: calc(var(--pi, 0) * 120ms); }
+.float.cpop.down { color: var(--coin-down); -webkit-text-stroke-color: rgba(44, 0, 0, .9); text-shadow: 0 3px 0 #4a0a06, 0 5px 12px #000, 0 0 20px rgba(255, 75, 62, .75); animation-name: cDrop; }
+.float.cpop .sti { width: .7em; height: .7em; vertical-align: -.04em; margin-right: .08em; }
+@keyframes cPop {
+  0% { opacity: 0; transform: translate(-50%, -10%) scale(.3); }
+  12% { opacity: 1; transform: translate(-50%, -62%) scale(1.5); }
+  22% { transform: translate(-50%, -48%) scale(.9); }
+  30% { transform: translate(-50%, -53%) scale(1.07); }
+  38% { transform: translate(-50%, -52%) scale(1); }
+  78% { opacity: 1; transform: translate(-50%, -100%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -150%) scale(.96); }
+}
+@keyframes cDrop {
+  0% { opacity: 0; transform: translate(-50%, -115%) scale(.3); }
+  12% { opacity: 1; transform: translate(-50%, -40%) scale(1.5); }
+  20% { transform: translate(-50%, -52%) scale(.92); }
+  26% { transform: translate(-58%, -50%) scale(1); }
+  32% { transform: translate(-42%, -50%) scale(1); }
+  38% { transform: translate(-53%, -50%) scale(1); }
+  44% { transform: translate(-50%, -50%) scale(1); }
+  78% { opacity: 1; transform: translate(-50%, -28%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, 10%) scale(.96); }
+}
+
+/* ---------- 마법 연출 조각 ----------
+   transform-origin 0 0 + translate(-50%,-50%): left/top 점이 조각의 가운데. rotate·scale도 그 점을 축으로 돈다 */
+.sfx { position: fixed; pointer-events: none; z-index: 79; transform: translate(-50%, -50%); transform-origin: 0 0; }
+.sfx-svg { position: fixed; left: 0; top: 0; pointer-events: none; z-index: 80; overflow: visible; }
+.sfx-svg path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.sfx-svg .bolt-glow { stroke: var(--c); opacity: .6; filter: blur(3px); }
+.sfx-svg .bolt-core { stroke: var(--c); }
+.sfx-svg .crack { stroke: var(--c); }
+.sfx-svg .crack-glow { stroke: var(--c); opacity: .5; filter: blur(2px); }
+.sfx-screen { left: 0 !important; top: 0 !important; width: 100vw; height: 100vh; transform: none; z-index: 78; mix-blend-mode: screen;
+  background: radial-gradient(circle at 50% 30%, color-mix(in srgb, var(--c) 45%, transparent), color-mix(in srgb, var(--c) 10%, transparent) 65%); }
+
+/* 입자 */
+.sfx-p { width: var(--z); height: var(--z); border-radius: 50%; background: var(--c); box-shadow: 0 0 6px var(--c); }
+.sfx-p.p-ember { background: radial-gradient(circle, #fff3c0, var(--c) 60%); box-shadow: 0 0 8px var(--c), 0 0 2px #fff; }
+.sfx-p.p-sq { border-radius: 2px; box-shadow: 0 1px 3px rgba(0, 0, 0, .5); }
+.sfx-p.p-dia { border-radius: 1px; background: linear-gradient(135deg, #fff, var(--c)); box-shadow: none; clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); filter: brightness(1.2); }
+.sfx-p.p-leaf { border-radius: 0 80% 0 80%; background: linear-gradient(135deg, #c8f29a, var(--c) 60%, #2f6a2a); box-shadow: none; }
+.sfx-p.p-ring { background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, .8), transparent 38%); border: 1.5px solid var(--c); box-shadow: 0 0 5px var(--c); }
+.sfx-p.p-wisp { background: radial-gradient(circle, var(--c), transparent 70%); box-shadow: none; filter: blur(1px); }
+.sfx-p.p-streak { width: calc(var(--z) * 3.2); height: max(2px, calc(var(--z) * .45)); border-radius: 3px; background: linear-gradient(90deg, transparent, var(--c), #fff); box-shadow: none; }
+.sfx-p.p-drop { border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%; background: radial-gradient(circle at 40% 35%, #ff9aa6, var(--c) 55%, #5a0612); box-shadow: none; }
+.sfx-p.p-smoke { background: radial-gradient(circle, color-mix(in srgb, var(--c) 80%, transparent), color-mix(in srgb, var(--c) 35%, transparent) 45%, transparent 70%); box-shadow: none; }
+
+/* 빛·고리 */
+.sfx-flash { width: var(--s); height: var(--s); border-radius: 50%; mix-blend-mode: screen;
+  background: radial-gradient(circle, #fff 0%, var(--c) 28%, color-mix(in srgb, var(--c) 40%, transparent) 52%, transparent 70%); }
+.sfx-ring { width: var(--s); height: var(--s); border-radius: 50%; border: max(2px, calc(var(--s) * .03)) solid var(--c); box-shadow: 0 0 18px var(--c), inset 0 0 14px var(--c); }
+.sfx-ring.ell { height: calc(var(--s) * .32); }
+.sfx-ring.dark { border-color: var(--c); box-shadow: 0 0 26px #8b5cf6, inset 0 0 22px #000; background: radial-gradient(circle, rgba(10, 4, 20, .55), transparent 70%); }
+.sfx-ring.ell.dark { box-shadow: 0 0 20px rgba(0, 0, 0, .8); background: radial-gradient(ellipse, rgba(20, 12, 8, .7), transparent 70%); }
+.sfx-ring.swirl { border-style: dashed; border-width: max(2px, calc(var(--s) * .04)); }
+.sfx-star { width: var(--s); height: var(--s); mix-blend-mode: screen; filter: drop-shadow(0 0 8px var(--c));
+  background: radial-gradient(circle, #fff 0 7%, transparent 8%), linear-gradient(90deg, transparent 48%, #fff 50%, transparent 52%), linear-gradient(0deg, transparent 48%, #fff 50%, transparent 52%); }
+.sfx-runes { width: var(--s); height: var(--s); color: var(--c); mix-blend-mode: screen; filter: drop-shadow(0 0 5px var(--c)) drop-shadow(0 0 14px var(--c)); z-index: 59; }
+.sfx-runes svg { display: block; width: 100%; height: 100%; overflow: visible; }
+
+/* 발사체 */
+.sfx-shell { width: var(--z); height: var(--z); border-radius: 50%; background: radial-gradient(circle at 35% 30%, #9a9aa2, #2a2a30 58%, #101012); box-shadow: 0 0 10px #ff8a3a, 0 2px 4px #000; }
+.sfx-shell::after { content: ""; position: absolute; right: -14%; top: -14%; width: 40%; height: 40%; border-radius: 50%; background: radial-gradient(circle, #fff, #ffb340 45%, transparent 70%); }
+.sfx-meteor { width: var(--z); height: var(--z); border-radius: 50%; background: radial-gradient(circle at 60% 50%, #fffbe6, #ffc04d 35%, #ff5a2a 66%, transparent 72%); filter: drop-shadow(0 0 10px #ff6b3d) drop-shadow(0 0 24px #ff6b3d); }
+.sfx-meteor::before { content: ""; position: absolute; right: 50%; top: 20%; height: 60%; width: calc(var(--z) * 4.6); border-radius: 50% 0 0 50%; background: linear-gradient(90deg, transparent, rgba(255, 90, 42, .45) 45%, #ffcf6e); }
+.sfx-meteor.small::before { width: calc(var(--z) * 2.6); }
+.sfx-rivet { width: calc(var(--z) * 2.8); height: calc(var(--z) * .75); border-radius: 2px 50% 50% 2px; background: linear-gradient(180deg, #f3f6fa, #9aa4b2 55%, #4a525d); box-shadow: 0 0 8px rgba(255, 255, 255, .55); }
+.sfx-rivet::before { content: ""; position: absolute; right: 90%; top: 30%; height: 40%; width: calc(var(--z) * 5); background: linear-gradient(90deg, transparent, rgba(230, 237, 245, .55)); border-radius: 2px; }
+.sfx-rock { width: var(--z); height: calc(var(--z) * .86); border-radius: 46% 54% 38% 62% / 55% 40% 60% 45%; background: radial-gradient(circle at 35% 30%, #dcb98f, #8a6440 55%, #3e2a18); box-shadow: 0 5px 10px rgba(0, 0, 0, .6), inset -3px -4px 6px rgba(0, 0, 0, .35); }
+.sfx-orb { width: var(--z); height: var(--z); border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, #b5e6ff 26%, var(--c) 58%, color-mix(in srgb, var(--c) 30%, transparent) 72%, transparent 74%); filter: drop-shadow(0 0 10px var(--c)); }
+.sfx-void { width: var(--z); height: var(--z); border-radius: 50%; background: radial-gradient(circle, #050208 28%, #2a1050 52%, var(--c) 66%, transparent 72%); filter: drop-shadow(0 0 12px var(--c)); }
+.sfx-crescent { width: var(--z); height: var(--z); border-radius: 50%; box-shadow: inset calc(var(--z) * .16) 0 0 0 var(--c); filter: drop-shadow(0 0 8px var(--c)) drop-shadow(0 0 2px #fff); }
+.sfx-crescent.wind { box-shadow: inset calc(var(--z) * .12) 0 0 0 var(--c), inset calc(var(--z) * .05) 0 0 0 #fff; opacity: .92; }
+.sfx-arrow { width: var(--w); height: 3px; border-radius: 2px; background: linear-gradient(90deg, #9fd27a 0 16%, #8a6a3a 16%); filter: drop-shadow(0 1px 2px #000); }
+.sfx-arrow::after { content: ""; position: absolute; right: -7px; top: -4px; border-left: 10px solid #e9ecf2; border-top: 5.5px solid transparent; border-bottom: 5.5px solid transparent; }
+.sfx-spear { width: var(--w); height: 6px; border-radius: 3px; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--c) 40%, transparent) 30%, #fff6cf 85%, #fff); filter: drop-shadow(0 0 8px var(--c)) drop-shadow(0 0 18px var(--c)); }
+.sfx-spear::after { content: ""; position: absolute; right: -12px; top: -5px; border-left: 16px solid #fff; border-top: 8px solid transparent; border-bottom: 8px solid transparent; }
+.sfx-mote { width: 12px; height: 12px; border-radius: 50%; background: radial-gradient(circle, #fff, var(--c) 55%, transparent 72%); filter: drop-shadow(0 0 8px var(--c)); }
+.sfx-mote.dark { background: radial-gradient(circle, #1a0b2a 30%, var(--c) 60%, transparent 72%); }
+
+/* 기둥·가시·물마루·방울 */
+.sfx.sfx-pillar { transform: none; transform-origin: 50% 0; width: var(--w); height: var(--h); mix-blend-mode: screen; filter: blur(1px); border-radius: 0 0 45% 45% / 0 0 8% 8%;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--c) 40%, transparent) 30%, var(--c) 82%, #fff); }
+.sfx-col { width: var(--w); height: var(--h); transform: translate(-50%, -100%); mix-blend-mode: screen; filter: blur(2px); border-radius: 40% 40% 8px 8px / 30% 30% 8px 8px;
+  background: linear-gradient(0deg, color-mix(in srgb, var(--c) 75%, transparent), color-mix(in srgb, var(--c) 22%, transparent) 55%, transparent); }
+.sfx-col.down { transform: translate(-50%, 0); mix-blend-mode: normal; border-radius: 8px 8px 40% 40% / 8px 8px 30% 30%;
+  background: linear-gradient(180deg, rgba(26, 8, 44, .85), color-mix(in srgb, var(--c) 30%, rgba(40, 12, 70, .55)) 50%, transparent); }
+.sfx-thorn { width: var(--w); height: var(--h); transform: translate(-50%, -100%); clip-path: polygon(50% 0, 62% 40%, 100% 100%, 0 100%, 38% 40%);
+  background: linear-gradient(0deg, #3a2812, #4f8a32 50%, #b4ea7c); }
+.sfx-wave { width: var(--w); height: var(--h); border-radius: 70% 30% 10% 10% / 90% 80% 10% 10%; filter: drop-shadow(0 0 10px var(--c));
+  background: linear-gradient(180deg, #f0fcff 0 7%, #8fd8ff 16%, var(--c) 46%, color-mix(in srgb, var(--c) 20%, transparent) 90%, transparent); }
+.sfx-bubble { width: var(--s); height: var(--s); border-radius: 50%; overflow: hidden; border: 2px solid color-mix(in srgb, var(--c) 80%, #fff);
+  background: radial-gradient(circle at 34% 26%, rgba(255, 255, 255, .6), transparent 20%), radial-gradient(circle, transparent 52%, color-mix(in srgb, var(--c) 30%, transparent) 74%, color-mix(in srgb, var(--c) 70%, transparent));
+  box-shadow: 0 0 22px var(--c), inset 0 0 26px color-mix(in srgb, var(--c) 50%, transparent); }
+.sfx-bubble::after { content: ""; position: absolute; inset: -20%; background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, .55) 50%, transparent 60%); animation: sfxSheen .9s ease-out .15s both; }
+@keyframes sfxSheen { from { translate: -70% 0; } to { translate: 70% 0; } }
+
+@media (prefers-reduced-motion: reduce) { .sfx, .sfx-svg { display: none; } .float.cpop { animation-duration: 1.4s; } }

@@ -1,0 +1,133 @@
+/* ETHERION v1.9 — 전투 화면 (battle-ui.css 다음에 읽는다)
+   - 셔플 명판: 크게, 룬 인장 + 양 끝이 뾰족한 문양 명판
+   - 턴 시간: 모래시계와 경과 시간 (셔플·드로우 동안 멈춤)
+   - 드로우하는 동안 핸드는 마우스에 반응하지 않는다(.hand-locked)
+   - 핸드 카드 설명: 세 줄로 자르지 않고 글자를 줄여 다 보이게
+   - 확대 보기: 장착 아이템 설명 글씨를 크게
+   - 장착한 유닛: 아이템 카드를 비틀지 않고 똑바로 겹친다 */
+
+/* ---------- 셔플 명판 ---------- */
+.shuffle-btn.v19 { --sh-h: 46px; --sh-tip: 15px;
+  top: calc(100% + 8px); right: 0; left: 0; height: var(--sh-h); padding: 0 calc(var(--sh-tip) + 6px) 0 calc(var(--sh-h) + 14px); gap: 10px; justify-content: flex-start;
+  background: none; border: 0; border-radius: 0; box-shadow: none; isolation: isolate; overflow: visible;
+  color: var(--gold-hi); filter: drop-shadow(0 6px 14px rgba(0, 0, 0, .6)) drop-shadow(0 0 12px rgba(143, 111, 214, .28)); }
+/* 테두리 층(금)과 바탕 층(보라): 양 끝이 뾰족한 명판 */
+.shuffle-btn.v19::before, .shuffle-btn.v19::after { content: ""; position: absolute; z-index: -1;
+  clip-path: polygon(var(--sh-tip) 0, calc(100% - var(--sh-tip)) 0, 100% 50%, calc(100% - var(--sh-tip)) 100%, var(--sh-tip) 100%, 0 50%); }
+.shuffle-btn.v19::before { inset: 0; background: linear-gradient(180deg, #f2d792, #8a6a2a 55%, #d9b46a); }
+.shuffle-btn.v19::after { inset: 1.5px; background:
+  radial-gradient(120% 140% at 30% 0%, rgba(190, 160, 255, .28), transparent 55%),
+  linear-gradient(180deg, #3b2b63 0%, #24193f 50%, #150f27 100%); }
+/* 가운데 띠 장식: 위아래 얇은 금선 */
+.shuffle-btn.v19 .sh-txt::before, .shuffle-btn.v19 .sh-txt::after { content: ""; position: absolute; left: calc(var(--sh-h) + 6px); right: calc(var(--sh-tip) + 4px); height: 1px; background: linear-gradient(90deg, rgba(217, 180, 106, .5), rgba(217, 180, 106, .08)); pointer-events: none; }
+.shuffle-btn.v19 .sh-txt::before { top: 5px; }
+.shuffle-btn.v19 .sh-txt::after { bottom: 5px; }
+/* 룬 인장: 명판 왼쪽 끝에 겹쳐 앉은 둥근 보주 */
+.shuffle-btn.v19 .sh-seal { position: absolute; left: -6px; top: 50%; width: calc(var(--sh-h) + 10px); height: calc(var(--sh-h) + 10px); transform: translateY(-50%); display: grid; place-items: center; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #c9b4ff 0%, #8f6fd6 30%, #4a2f8a 68%, #1d1236 100%);
+  border: 2px solid #e9cf8f; box-shadow: 0 0 0 2px rgba(20, 12, 34, .9), 0 0 18px rgba(143, 111, 214, .65), inset 0 -4px 8px rgba(0, 0, 0, .45), inset 0 2px 3px rgba(255, 255, 255, .35); }
+.shuffle-btn.v19 .sh-ring { position: absolute; inset: 4px; border-radius: 50%; border: 1.5px dashed rgba(246, 226, 168, .7); animation: shRing 14s linear infinite; }
+@keyframes shRing { to { transform: rotate(360deg); } }
+.shuffle-btn.v19 .sh-seal .ui-ico { position: relative; width: 24px; height: 24px; color: #fff6dc; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .7)); transition: transform .5s cubic-bezier(.3, .7, .3, 1.2); }
+.shuffle-btn.v19 .sh-txt { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.05; }
+.shuffle-btn.v19 .sh-t { font-family: var(--kfont, var(--body)), serif; font-size: 18px; font-weight: 800; letter-spacing: .12em;
+  background: linear-gradient(180deg, #fff6d6, #f0d48c 45%, #b8893a 70%, #f7e1a0); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .8)); }
+.shuffle-btn.v19 .sh-txt small { font-family: var(--caps); font-size: 8.5px; font-weight: 700; letter-spacing: .32em; color: rgba(246, 226, 168, .55); margin-top: 2px; }
+.shuffle-btn.v19 .sh-cost { margin-left: auto; font-size: 12px; padding: 2px 8px; border-radius: 10px; }
+.shuffle-btn.v19 kbd { font-size: 10px; padding: 1px 5px; margin-right: 4px; opacity: .75; }
+.shuffle-btn.v19:hover:not(:disabled) { box-shadow: none; filter: brightness(1.18) drop-shadow(0 6px 14px rgba(0, 0, 0, .6)) drop-shadow(0 0 16px rgba(190, 160, 255, .55)); }
+.shuffle-btn.v19:hover:not(:disabled) .ui-ico { transform: rotate(180deg); }
+.shuffle-btn.v19:hover:not(:disabled) .sh-ring { animation-duration: 3s; }
+.shuffle-btn.v19.used { opacity: .5; filter: grayscale(.85) drop-shadow(0 4px 10px rgba(0, 0, 0, .5)); }
+.shuffle-btn.v19.used .sh-ring { animation: none; }
+@media (max-width: 760px) { .shuffle-btn.v19 { position: relative; top: auto; left: auto; --sh-h: 40px; margin-left: 14px; min-width: 150px; } }
+
+/* ---------- 턴 시간: 모래시계 ---------- */
+.turn-clock { position: absolute; top: calc(100% + 8px); right: calc(100% + 12px); z-index: 6; height: 46px; display: inline-flex; align-items: center; gap: 8px; padding: 0 12px 0 8px; border-radius: 5px; white-space: nowrap; pointer-events: auto;
+  background: linear-gradient(180deg, rgba(30, 27, 46, .92), rgba(13, 12, 22, .92)); border: 1px solid rgba(217, 180, 106, .45); box-shadow: 0 4px 12px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .06); }
+.turn-clock .tc-glass { width: 26px; height: 36px; flex: none; overflow: visible; }
+.turn-clock .tc-num { font-family: var(--caps); font-size: 20px; font-weight: 700; letter-spacing: .04em; color: var(--gold-hi); min-width: 3.1em; font-variant-numeric: tabular-nums; text-shadow: 0 0 10px rgba(246, 226, 168, .3); }
+.turn-clock .tc-state { position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); font-size: 9.5px; letter-spacing: .1em; padding: 0 6px; border-radius: 6px; background: #1a1526; border: 1px solid rgba(143, 220, 255, .45); color: var(--ether); opacity: 0; transition: opacity .2s; }
+.turn-clock.paused .tc-state { opacity: 1; }
+.turn-clock.paused .tc-num { color: var(--ink-2); text-shadow: none; }
+/* 모래: 위 칸은 줄고 아래 칸은 차며, 다 떨어지면 모래시계가 뒤집힌다. 시간이 멈추면 모래도 멈춘다 */
+.tc-glass .tc-flip { transform-origin: 13px 18px; animation: tcFlip var(--tc-period, 8s) linear infinite; animation-delay: var(--tc-delay, 0s); }
+.tc-glass .tc-top { transform-origin: 13px 17px; animation: tcTop var(--tc-period, 8s) linear infinite; animation-delay: var(--tc-delay, 0s); }
+.tc-glass .tc-bot { transform-origin: 13px 31px; animation: tcBot var(--tc-period, 8s) linear infinite; animation-delay: var(--tc-delay, 0s); }
+.tc-glass .tc-stream { animation: tcStream var(--tc-period, 8s) linear infinite; animation-delay: var(--tc-delay, 0s); }
+.turn-clock.paused .tc-glass * { animation-play-state: paused !important; }
+.turn-clock.paused .tc-stream { opacity: 0 !important; }
+@keyframes tcFlip { 0%, 93% { transform: rotate(0deg); } 100% { transform: rotate(180deg); } }
+@keyframes tcTop { 0% { transform: scaleY(1); } 92%, 100% { transform: scaleY(0); } }
+@keyframes tcBot { 0% { transform: scaleY(0); } 92%, 100% { transform: scaleY(1); } }
+@keyframes tcStream { 0%, 90% { opacity: 1; } 92%, 100% { opacity: 0; } }
+@media (max-width: 760px) { .turn-clock { position: relative; top: auto; right: auto; height: 38px; margin-right: 8px; } }
+
+/* ---------- 드로우하는 동안 핸드는 마우스에 반응하지 않는다 ---------- */
+#board.hand-locked .hand-me { pointer-events: none; }
+#board.hand-locked .hand-me .hand-slot .hand-card { transform: translateY(var(--y)) rotate(var(--r)) !important; }
+/* 덱에서 날아오는 카드: 뒷면이 먼저 보이고 반쯤 와서 앞면으로 뒤집힌다 (drawFly) */
+.draw-fly { position: fixed; z-index: 70; pointer-events: none; perspective: 900px; }
+.draw-fly .df-in { position: absolute; inset: 0; transform-style: preserve-3d; }
+.draw-fly .df-face, .draw-fly .df-back { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.draw-fly .df-face > .card { width: 100%; height: 100%; }
+.draw-fly .df-back { transform: rotateY(180deg); }
+.draw-fly .df-back .card-back { width: 100%; height: 100%; }
+.draw-fly .df-trail { position: absolute; inset: -10%; border-radius: 12%; background: radial-gradient(closest-side, rgba(190, 160, 255, .55), rgba(143, 220, 255, .18) 60%, transparent); filter: blur(6px); }
+.hand-slot.drawing { visibility: hidden; }
+
+/* ---------- 핸드 카드 설명: 자르지 않고 글자를 줄여 다 보이게 (fitDescs) ---------- */
+.c-desc.d-short { top: 30%; overflow: hidden; padding-right: 27%; }
+.c-desc.d-short p { display: block; -webkit-line-clamp: unset; font-size: .74em; line-height: 1.22; }
+
+/* ---------- 확대 보기: 장착 아이템 설명 글씨 크게 ---------- */
+.zoom .d-body { width: 270px; }
+.zoom .d-body p { font-size: 15.5px; line-height: 1.5; margin: 0 0 7px; }
+.zoom .d-body p b { color: var(--gold-hi); }
+.zoom .d-body .d-equip { font-size: 16.5px; font-weight: 700; color: var(--gold-hi); padding-bottom: 6px; border-bottom: 1px solid rgba(217, 180, 106, .3); }
+.zoom .d-body .d-equip span { display: block; font-weight: 400; color: var(--ink); margin-top: 4px; font-size: 15.5px; }
+/* 핸드 카드를 눌렀을 때도 같은 확대 보기 */
+.zoom.pinned { border-color: rgba(246, 226, 168, .6); }
+
+/* ---------- 장착한 유닛: 아이템 카드를 비틀지 않고 똑바로 아래에 겹친다 ---------- */
+.card.equipped::before { transform: translateY(.34em); }
+
+/* v1.9.1: 마법 글 속 [특수 능력] — 마우스를 올리면 뜻이 뜬다 */
+.kw { cursor: help; border-bottom: 1px dotted currentColor; pointer-events: auto; }
+.kw:hover { color: var(--gold-hi, #f3d98a); }
+
+/* ---------- v1.9.3: 장착한 유닛 — 아래에 깔린 아이템 카드를 누를 수 있게, 특수 능력은 캐릭터 아래 띠로 ---------- */
+/* 예전 ::before 그림자 대신 진짜 카드 조각(.c-under). 삐져나온 띠에 아이템 이름이 보이고, 마우스를 올리거나 누르면 그 아이템 카드가 크게 뜬다 */
+.card.equipped::before { content: none; }
+.c-under { position: absolute; inset: 0; transform: translateY(1.05em); border-radius: .55em; cursor: zoom-in;
+  background: linear-gradient(165deg, #3a3222, #1c1912 55%, #0e0d0a); border: .12em solid #b99b5a;
+  box-shadow: 0 .3em .7em rgba(0, 0, 0, .6), inset 0 0 0 .08em rgba(246, 226, 168, .12);
+  display: flex; align-items: flex-end; justify-content: center; transition: border-color .15s, filter .15s; }
+.c-under > span { display: block; max-width: 92%; font-size: .72em; line-height: 1.3; padding: .08em 0;
+  color: #e9cd8c; font-weight: 700; letter-spacing: .02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; pointer-events: none; }
+/* 내 줄(아래)은 핸드가 카드 아래를 덮으므로, 아이템 카드가 위(가운데 띠 쪽)로 삐져나온다. 상대 줄은 아래(가운데 띠 쪽)로 */
+.frow-bot .c-under { transform: translateY(-1.05em); align-items: flex-start; }
+.c-under:hover { border-color: #f6e2a8; filter: brightness(1.25); }
+.slot > .card.equipped { z-index: 1; }
+/* 끄는 동안·사라지는 동안에는 아래 카드도 함께 */
+.card.equipped.drag-src .c-under, .card.equipped.char-out .c-under { opacity: 0; }
+
+/* 특수 능력 띠: 캐릭터 그림 바로 아래(카드 아래쪽), 능력마다 한 칸 */
+.c-equip { display: flex; flex-wrap: wrap; gap: .18em; justify-content: center; margin-top: .14em; flex: none; }
+.c-eq-ab { font-size: .74em; line-height: 1.25; color: #1b1406; background: linear-gradient(180deg, #f1dcaa, #cfa85e); border: .06em solid #8a6a32;
+  border-radius: .3em; padding: .02em .38em; white-space: nowrap; font-weight: 800; cursor: help; pointer-events: auto; }
+.c-eq-ab::before { content: "◆"; font-size: .8em; margin-right: .2em; color: #6b4e1c; }
+.c-eq-ab:hover { filter: brightness(1.12); box-shadow: 0 0 .5em rgba(246, 226, 168, .6); }
+
+/* ---------- v1.9.4: 아래 카드는 진짜 아이템 카드. 누르면 아이템이 앞으로, 유닛이 뒤로 ---------- */
+.c-under { background: none; border: 0; box-shadow: none; }
+.c-under > .card { position: absolute; inset: 0; width: 100%; pointer-events: none; }
+.c-under > .card > .c-frame { box-shadow: 0 .3em .7em rgba(0, 0, 0, .6); }
+.c-under > .u-name { position: absolute; left: 0; right: 0; bottom: 0; margin: 0 auto; text-align: center; max-width: 100%;
+  background: linear-gradient(180deg, rgba(28, 25, 18, .2), rgba(28, 25, 18, .92) 40%); border-radius: 0 0 .7em .7em; }
+.frow-bot .c-under > .u-name { top: 0; bottom: auto; background: linear-gradient(0deg, rgba(28, 25, 18, .2), rgba(28, 25, 18, .92) 40%); border-radius: .7em .7em 0 0; }
+.card.item-front > .c-under { transform: none; z-index: 3; cursor: pointer; }
+.card.item-front > .c-under > .u-name { opacity: 0; }
+.card.item-front > .c-frame { transform: translateY(1.05em); filter: brightness(.7); cursor: pointer; }
+.frow-bot .card.item-front > .c-frame { transform: translateY(-1.05em); }
+.card.item-front:not(.selected) > .c-under > .card > .c-frame { box-shadow: 0 0 0 .1em rgba(246, 226, 168, .55), 0 .3em .9em rgba(0, 0, 0, .6); }

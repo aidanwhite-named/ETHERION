@@ -1,0 +1,313 @@
+/* ETHERION — 성채 UI 층 (v1.2). 메뉴 화면(입장·대기실·덱 조정실·교역소·원정·관리자·창)을 한 가지 문법으로 묶는다.
+   문법은 넷뿐이다. 새 화면도 이것만 쓴다 (docs/STYLE_GUIDE.md 2.5).
+   1) 고서 액자: 금빛 실선 + 안쪽 실선 한 겹 + 네 모서리 꺾쇠          → 모든 패널과 창
+   2) 문양 명판: 모서리를 깎은 버튼 (전장의 .rb와 같은 모양)         → 모든 버튼·칩
+   3) 마름모 머리: ◆ 제목 ───── 부제                                 → 모든 패널 제목
+   4) 문장 띠: 왼쪽 날개(길) · 가운데 쐐기돌 문장 · 오른쪽 날개(모험가) → 상단바
+   전장(.screen-game)의 고유 장치(제단·군기·준비 완료 명판)는 건드리지 않는다. */
+:root {
+  --bar-h: 58px;
+  --crest-drop: 18px;
+  --stick-top: calc(var(--bar-h) + var(--crest-drop) + 12px);
+  --edge-gold: linear-gradient(180deg, rgba(242, 215, 146, .9), rgba(125, 93, 36, .6));
+  --fill-night: linear-gradient(180deg, #1d1f31, #10111b);
+  --orn-tl: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' fill='none' stroke='%23d9b46a'%3E%3Cpath d='M1.5 15V1.5H15' stroke-opacity='.8'/%3E%3Cpath d='M5 10V5h5' stroke-opacity='.38'/%3E%3Cpath d='M1.5 1.5 5 5' stroke-opacity='.5'/%3E%3Cpath d='M1.5 18.5v1M18.5 1.5h1' stroke-opacity='.6'/%3E%3C/svg%3E");
+  --orn-tr: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' fill='none' stroke='%23d9b46a'%3E%3Cg transform='matrix(-1 0 0 1 22 0)'%3E%3Cpath d='M1.5 15V1.5H15' stroke-opacity='.8'/%3E%3Cpath d='M5 10V5h5' stroke-opacity='.38'/%3E%3Cpath d='M1.5 1.5 5 5' stroke-opacity='.5'/%3E%3Cpath d='M1.5 18.5v1M18.5 1.5h1' stroke-opacity='.6'/%3E%3C/g%3E%3C/svg%3E");
+  --orn-bl: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' fill='none' stroke='%23d9b46a'%3E%3Cg transform='matrix(1 0 0 -1 0 22)'%3E%3Cpath d='M1.5 15V1.5H15' stroke-opacity='.8'/%3E%3Cpath d='M5 10V5h5' stroke-opacity='.38'/%3E%3Cpath d='M1.5 1.5 5 5' stroke-opacity='.5'/%3E%3Cpath d='M1.5 18.5v1M18.5 1.5h1' stroke-opacity='.6'/%3E%3C/g%3E%3C/svg%3E");
+  --orn-br: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22' fill='none' stroke='%23d9b46a'%3E%3Cg transform='matrix(-1 0 0 -1 22 22)'%3E%3Cpath d='M1.5 15V1.5H15' stroke-opacity='.8'/%3E%3Cpath d='M5 10V5h5' stroke-opacity='.38'/%3E%3Cpath d='M1.5 1.5 5 5' stroke-opacity='.5'/%3E%3Cpath d='M1.5 18.5v1M18.5 1.5h1' stroke-opacity='.6'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ================= 1) 고서 액자 ================= */
+.decks, .chat, .deck-view, .ed-deck, .ed-pool, .ed-preview, .vault-preview, .vault-fac, .users,
+.shop-tree, .shop-main, .xp-head, .xp-route, .xp-card, .modal, .gate {
+  --tint: rgba(217, 180, 106, .055);
+  border: 1px solid rgba(217, 180, 106, .34);
+  border-radius: 3px;
+  background:
+    var(--orn-tl) top 4px left 4px / 22px no-repeat,
+    var(--orn-tr) top 4px right 4px / 22px no-repeat,
+    var(--orn-bl) bottom 4px left 4px / 22px no-repeat,
+    var(--orn-br) bottom 4px right 4px / 22px no-repeat,
+    radial-gradient(120% 70% at 50% 0%, var(--tint), transparent 70%),
+    linear-gradient(180deg, rgba(20, 22, 35, .93), rgba(10, 11, 19, .95));
+  box-shadow: inset 0 0 0 3px rgba(6, 7, 12, .55), inset 0 0 0 4px rgba(217, 180, 106, .1), 0 18px 46px rgba(0, 0, 0, .42);
+}
+.decks, .chat, .deck-view, .ed-deck, .ed-pool, .shop-main, .xp-card { padding: 18px 18px 20px; }
+.vault-fac { border-top: 1px solid rgba(217, 180, 106, .34); --tint: color-mix(in srgb, var(--fc) 14%, transparent); }
+.xp-head, .xp-card { --tint: color-mix(in srgb, var(--gc, var(--gold)) 15%, transparent); }
+.xp-route { border-radius: 3px; }
+.users .utable { background: transparent; }
+.users { padding: 12px; }
+
+/* 패널 사이 장식 구분선: 가운데 마름모 */
+.realm-rule, .modal > h3:first-child::after {
+  content: ""; display: block; height: 9px; margin: 10px auto 0; width: min(260px, 70%);
+  background:
+    linear-gradient(45deg, transparent 42%, var(--gold) 42% 58%, transparent 58%) center / 9px 9px no-repeat,
+    linear-gradient(90deg, transparent, rgba(217, 180, 106, .55) 30%, transparent 46%, transparent 54%, rgba(217, 180, 106, .55) 70%, transparent) center / 100% 1px no-repeat;
+}
+
+/* ================= 2) 문양 명판 (버튼) ================= */
+.btn:not(.rb) {
+  --c: 7px;
+  --edge: var(--edge-gold);
+  --fill: var(--fill-night);
+  --shape: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c));
+  position: relative; isolation: isolate;
+  background: none !important; border-color: transparent !important; border-radius: 0; box-shadow: none;
+  letter-spacing: .05em;
+}
+.btn:not(.rb)::before, .btn:not(.rb)::after { content: ""; position: absolute; z-index: -1; clip-path: var(--shape); transition: filter .15s; }
+.btn:not(.rb)::before { inset: 0; background: var(--edge); }
+.btn:not(.rb)::after { inset: 1px; background: var(--fill); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06); }
+.btn:not(.rb):hover:not(:disabled) { filter: brightness(1.18); }
+.btn:not(.rb):focus-visible { outline-offset: 3px; }
+.btn.sm:not(.rb) { --c: 5px; }
+.btn.xs:not(.rb) { --c: 4px; }
+.btn.wide:not(.rb) { --c: 9px; }
+.btn.primary:not(.rb) { --edge: linear-gradient(180deg, #fff3cc, #8f6a28); --fill: linear-gradient(180deg, #ecd08e, #c39645 55%, #9a7230); color: #1c1407; text-shadow: 0 1px 0 rgba(255, 240, 200, .35); }
+.btn.primary:not(.rb):hover:not(:disabled) { filter: brightness(1.07) drop-shadow(0 0 10px rgba(240, 200, 110, .35)); }
+.btn.primary.alt:not(.rb) { --edge: linear-gradient(180deg, #ded0ff, #4a2f86); --fill: linear-gradient(180deg, #8f6fd6, #5b3fa0); color: #f6f1ff; text-shadow: none; }
+.btn.gold:not(.rb):not(.primary) { --edge: linear-gradient(180deg, #fff0c4, #a27a32); color: var(--gold-hi); }
+.btn.danger:not(.rb) { --edge: linear-gradient(180deg, #ffa497, #7a2a20); --fill: linear-gradient(180deg, #34191b, #170c0f); color: #ffb9ad; }
+.btn.ghost:not(.rb) { --edge: linear-gradient(180deg, rgba(217, 180, 106, .5), rgba(217, 180, 106, .16)); --fill: linear-gradient(180deg, rgba(22, 22, 34, .75), rgba(12, 12, 20, .75)); color: var(--ink-2); }
+.btn.xs.on:not(.rb) { --edge: linear-gradient(180deg, #fff0c4, #a27a32); --fill: linear-gradient(180deg, #2b2533, #17141d); color: var(--gold-hi); }
+
+/* 칩(거르기): 작은 명판. 켜진 것만 금빛 */
+.chip, .shop .chip {
+  --c: 5px;
+  --edge: linear-gradient(180deg, rgba(217, 180, 106, .34), rgba(217, 180, 106, .14));
+  --fill: linear-gradient(180deg, rgba(20, 21, 33, .92), rgba(11, 12, 19, .92));
+  --shape: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c));
+  position: relative; isolation: isolate; border-color: transparent !important; border-radius: 0 !important; background: none !important; padding: 4px 12px;
+}
+.chip::before, .chip::after { content: ""; position: absolute; z-index: -1; clip-path: var(--shape); }
+.chip::before { inset: 0; background: var(--edge); }
+.chip::after { inset: 1px; background: var(--fill); }
+.chip:hover { --edge: linear-gradient(180deg, rgba(242, 215, 146, .7), rgba(125, 93, 36, .4)); color: var(--ink); }
+.chip.on, .shop .chip.on { --edge: var(--edge-gold); --fill: linear-gradient(180deg, #2c2717, #18150e); color: var(--gold-hi); }
+
+/* 입력칸: 새김 홈 */
+input:not([type=checkbox]):not([type=radio]):not([type=range]) { background: rgba(5, 6, 11, .75); border: 1px solid rgba(217, 180, 106, .22); border-radius: 2px; box-shadow: inset 0 1px 4px rgba(0, 0, 0, .65); }
+input:not([type=checkbox]):not([type=radio]):not([type=range]):focus { border-color: var(--gold); box-shadow: inset 0 1px 4px rgba(0, 0, 0, .65), 0 0 0 3px rgba(217, 180, 106, .12); }
+
+/* 탭: 새긴 글자 + 켜진 탭 아래 마름모 */
+.tabs { gap: 4px; border-bottom: 0; padding-bottom: 6px; background: linear-gradient(90deg, transparent, rgba(217, 180, 106, .45) 15%, rgba(217, 180, 106, .45) 85%, transparent) bottom / 100% 1px no-repeat; justify-content: center; flex-wrap: wrap; }
+.tab { position: relative; border-bottom: 0; padding: 9px 18px 11px; letter-spacing: .12em; transition: color .15s; }
+.tab:hover { color: var(--ink); }
+.tab::after { content: ""; position: absolute; left: 50%; bottom: -10px; width: 8px; height: 8px; transform: translateX(-50%) rotate(45deg) scale(0); background: linear-gradient(135deg, #fff3cc, #a27a32); box-shadow: 0 0 10px rgba(246, 226, 168, .7); transition: transform .2s; }
+.tab.on { color: var(--gold-hi); text-shadow: 0 0 14px rgba(246, 226, 168, .35); }
+.tab.on::after { transform: translateX(-50%) rotate(45deg) scale(1); }
+.admin > .tabs { justify-content: flex-start; margin-bottom: 16px; }
+
+/* ================= 3) 마름모 머리 ================= */
+.panel-title { display: flex; align-items: center; gap: 10px; font-size: 14px; letter-spacing: .22em; color: var(--gold-hi); margin: 0 0 14px; }
+.panel-title::before { content: ""; flex: none; width: 7px; height: 7px; transform: rotate(45deg); background: linear-gradient(135deg, #fff3cc, #8a6a2a); box-shadow: 0 0 8px rgba(217, 180, 106, .55); }
+.panel-title::after { content: ""; order: 2; flex: 1 1 24px; min-width: 16px; height: 1px; background: linear-gradient(90deg, rgba(217, 180, 106, .55), rgba(217, 180, 106, 0)); }
+.panel-title small { order: 3; letter-spacing: .02em; }
+.chat-head { align-items: center; gap: 10px; margin-bottom: 4px; }
+.chat-head .panel-title { flex: 1; margin: 0; }
+.pool-head .panel-title { flex: 1 1 340px; margin-bottom: 8px; }
+
+/* 창(모달): 제목은 가운데, 아래 장식선 */
+.modal { padding: 26px 26px 22px; gap: 12px; }
+.modal > h3:first-child { text-align: center; letter-spacing: .14em; color: var(--gold-hi); font-size: 19px; margin-bottom: 4px; }
+.modal-btns { padding-top: 14px; margin-top: 6px; background: linear-gradient(90deg, transparent, rgba(217, 180, 106, .3), transparent) top / 100% 1px no-repeat; }
+.modal-wrap { background: radial-gradient(circle at 50% 40%, rgba(20, 16, 34, .7), rgba(3, 4, 8, .86)); }
+
+/* 알림: 작은 명판 */
+.toast { position: relative; border-radius: 0; border-left: 0; border-right: 0; padding: 10px 28px; background: linear-gradient(90deg, rgba(14, 14, 22, .9), rgba(28, 27, 42, .97) 20%, rgba(28, 27, 42, .97) 80%, rgba(14, 14, 22, .9)); }
+.toast::before, .toast::after { content: ""; position: absolute; top: 50%; width: 7px; height: 7px; margin-top: -3.5px; transform: rotate(45deg); background: var(--gold); box-shadow: 0 0 8px rgba(246, 226, 168, .6); }
+.toast::before { left: 9px; } .toast::after { right: 9px; }
+
+/* ================= 4) 문장 띠 (상단바) ================= */
+.topbar.realm { background: linear-gradient(180deg, rgba(15, 15, 25, .97), rgba(8, 9, 15, .95)); border-bottom: 0; box-shadow: 0 12px 30px rgba(0, 0, 0, .4); }
+.topbar.realm::before, .topbar.realm::after { content: ""; position: absolute; left: 0; right: 0; pointer-events: none; }
+.topbar.realm::after { bottom: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(217, 180, 106, .6) 18%, rgba(217, 180, 106, .6) 82%, transparent); }
+.topbar.realm::before { bottom: 3px; height: 1px; background: linear-gradient(90deg, transparent 8%, rgba(217, 180, 106, .16) 30%, rgba(217, 180, 106, .16) 70%, transparent 92%); }
+.tb-inner.realm { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 14px; min-height: var(--bar-h); padding-block: 0; }
+.tb-wing { display: flex; align-items: center; gap: 2px; min-width: 0; }
+.tbw-right { justify-content: flex-end; gap: 12px; }
+.tb-div { flex: none; width: 4px; height: 4px; transform: rotate(45deg); background: rgba(217, 180, 106, .45); margin: 0 4px; }
+.m-ico { width: 18px; height: 18px; flex: none; }
+
+/* 길(메뉴) */
+.tb-nav { appearance: none; position: relative; display: inline-flex; align-items: center; gap: 7px; height: 40px; padding: 0 12px; border: 0; background: none; color: var(--ink-2); font-size: 14px; font-weight: 700; letter-spacing: .1em; white-space: nowrap; transition: color .15s; }
+.tb-nav .m-ico { color: var(--gold); opacity: .75; transition: opacity .15s, filter .15s; }
+.tb-nav::before { content: ""; position: absolute; inset: 6px 2px; border-radius: 50%; background: radial-gradient(closest-side, rgba(217, 180, 106, .16), transparent); opacity: 0; transition: opacity .2s; }
+.tb-nav::after { content: ""; position: absolute; left: 50%; bottom: 1px; width: 6px; height: 6px; transform: translateX(-50%) rotate(45deg) scale(0); background: linear-gradient(135deg, #fff3cc, #a27a32); box-shadow: 0 0 9px rgba(246, 226, 168, .8); transition: transform .2s; }
+.tb-nav:hover { color: var(--gold-hi); }
+.tb-nav:hover::before, .tb-nav.on::before { opacity: 1; }
+.tb-nav:hover .m-ico, .tb-nav.on .m-ico { opacity: 1; filter: drop-shadow(0 0 5px rgba(246, 226, 168, .55)); }
+.tb-nav.on { color: var(--gold-hi); }
+.tb-nav.on::after { transform: translateX(-50%) rotate(45deg) scale(1); }
+.tb-exit { color: var(--muted); padding: 0 8px; font-size: 13px; }
+.tb-exit .m-ico { color: currentColor; }
+
+/* 가운데 쐐기돌 문장: 띠 아래로 늘어뜨린 금테 방패꼴 */
+.tb-crest { --shape: polygon(0 0, 100% 0, 96% 62%, 54% 100%, 46% 100%, 4% 62%);
+  position: relative; isolation: isolate; align-self: start; width: 236px; height: calc(var(--bar-h) + var(--crest-drop)); margin-bottom: calc(var(--crest-drop) * -1);
+  display: grid; align-content: center; justify-items: center; gap: 2px; padding: 0 0 14px; border: 0; background: none; filter: drop-shadow(0 8px 14px rgba(0, 0, 0, .6)); transition: filter .2s; }
+.tb-crest::before, .tb-crest::after { content: ""; position: absolute; z-index: -1; clip-path: var(--shape); }
+.tb-crest::before { inset: 0; background: linear-gradient(180deg, rgba(217, 180, 106, .25), #f2d792 55%, #6b4f1c); }
+.tb-crest::after { inset: 0 1.5px 1.5px; background: radial-gradient(90% 70% at 50% 0%, rgba(155, 123, 255, .16), transparent 70%), linear-gradient(180deg, #171628, #0b0b14); }
+.tb-crest:hover { filter: drop-shadow(0 8px 14px rgba(0, 0, 0, .6)) drop-shadow(0 0 12px rgba(240, 200, 120, .25)); }
+.crest-word { font-family: var(--display); font-weight: 900; font-size: 21px; line-height: 1; letter-spacing: .14em; padding-left: .14em; background: linear-gradient(180deg, #fff6d6 0%, #f0d48c 40%, #b8893a 64%, #f7e1a0 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.crest-sub { display: flex; align-items: center; gap: 7px; font-size: 11px; letter-spacing: .3em; padding-left: .3em; color: var(--ink-2); white-space: nowrap; }
+.crest-sub::before, .crest-sub::after { content: ""; width: 4px; height: 4px; transform: rotate(45deg); background: var(--gold); opacity: .7; }
+
+/* 오른쪽 날개: 지갑 · 모험가 인장 */
+.tbw-right .gold-chip { border-radius: 0; border: 0; padding: 5px 14px; clip-path: polygon(6px 0, calc(100% - 6px) 0, 100% 50%, calc(100% - 6px) 100%, 6px 100%, 0 50%);
+  background: linear-gradient(90deg, rgba(217, 180, 106, .05), rgba(217, 180, 106, .16), rgba(217, 180, 106, .05)); box-shadow: inset 0 1px 0 rgba(217, 180, 106, .35), inset 0 -1px 0 rgba(217, 180, 106, .35); }
+.user-chip.seal { display: inline-flex; align-items: center; gap: 9px; min-width: 0; }
+.seal-mark { flex: none; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-family: var(--caps); font-weight: 900; font-size: 15px; color: var(--gold-hi);
+  background: radial-gradient(circle at 50% 35%, #463468, #1a1328 62%, #0d0a14); box-shadow: 0 0 0 1.5px #c99a48, 0 0 0 3px rgba(8, 9, 15, .92), 0 0 0 4px rgba(217, 180, 106, .45); text-shadow: 0 0 8px rgba(246, 226, 168, .5); }
+.seal-txt { display: grid; line-height: 1.2; min-width: 0; }
+.seal-txt b { font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 12em; }
+.seal-txt small { font-size: 11px; color: var(--muted); }
+.seal-txt .admin-badge { justify-self: start; font-size: 8px; padding: 1px 5px; margin-bottom: 1px; }
+
+/* 상단바 높이가 바뀌었으니 고정 패널의 위치도 맞춘다 */
+.chat, .ed-preview, .vault-preview, .shop-tree, .side-col { top: var(--stick-top); }
+.shop-tree { max-height: calc(100dvh - var(--stick-top) - 16px); }
+.lobby, .editor, .shop, .admin { padding-top: calc(var(--crest-drop) + 14px); }
+.ed-bar + .editor { padding-top: 16px; }
+.xp { padding-top: calc(var(--crest-drop) + 14px); }
+
+/* ================= 화면별 구조 ================= */
+/* 입장: 아치 관문. 위는 둥근 아치, 꼭대기에 쐐기 마름모, 아래 두 모서리만 꺾쇠 */
+.gate { border-radius: 50% 50% 4px 4px / 120px 120px 4px 4px; padding-top: 70px;
+  background:
+    var(--orn-bl) bottom 4px left 4px / 22px no-repeat,
+    var(--orn-br) bottom 4px right 4px / 22px no-repeat,
+    radial-gradient(80% 50% at 50% 0%, rgba(155, 123, 255, .12), transparent 70%),
+    linear-gradient(180deg, rgba(20, 22, 35, .93), rgba(10, 11, 19, .95)); }
+.gate::before { border-radius: inherit; inset: 7px; border-color: rgba(217, 180, 106, .16); }
+.gate::after { content: ""; position: absolute; left: 50%; top: -9px; width: 16px; height: 16px; transform: translateX(-50%) rotate(45deg); background: linear-gradient(135deg, #fff3cc, #8a6a2a); box-shadow: 0 0 0 3px var(--night), 0 0 0 4px rgba(217, 180, 106, .5), 0 0 18px rgba(246, 226, 168, .5); }
+.gate-title { font-size: 32px; color: var(--gold-hi); text-shadow: 0 0 22px rgba(240, 200, 120, .25); }
+.gate-lead::after { content: ""; display: block; height: 9px; margin: 14px auto 0; width: min(240px, 70%);
+  background: linear-gradient(45deg, transparent 42%, var(--gold) 42% 58%, transparent 58%) center / 9px 9px no-repeat, linear-gradient(90deg, transparent, rgba(217, 180, 106, .5) 30%, transparent 46%, transparent 54%, rgba(217, 180, 106, .5) 70%, transparent) center / 100% 1px no-repeat; }
+
+/* 단체 고르기 칸: 진영 머리 + 명판 타일 */
+.grp-fac { letter-spacing: .14em; }
+.grp-tile { border-radius: 2px; }
+
+/* 대기실 — 왼쪽: 덱 보관함(서고). 진영마다 문장 머리 */
+.df-head { align-items: center; gap: 8px; font-size: 12.5px; margin-top: 10px; }
+.df-head::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, color-mix(in srgb, var(--fc) 60%, transparent), transparent); }
+.df-crest { width: 18px; height: 18px; flex: none; color: var(--fc); filter: drop-shadow(0 0 4px color-mix(in srgb, var(--fc) 50%, transparent)); }
+.df-crest svg { width: 100%; height: 100%; display: block; }
+.deck-tile { position: relative; border-radius: 2px; border-color: rgba(255, 255, 255, .06); border-left-width: 2px; background: linear-gradient(90deg, color-mix(in srgb, var(--fc) 7%, transparent), rgba(255, 255, 255, .015)); }
+.deck-tile.on { border-color: color-mix(in srgb, var(--fc) 70%, transparent); background: linear-gradient(90deg, color-mix(in srgb, var(--fc) 22%, transparent), color-mix(in srgb, var(--fc) 6%, transparent)); box-shadow: inset 2px 0 0 var(--fc), 0 0 18px color-mix(in srgb, var(--fc) 18%, transparent); }
+.deck-tile.on::after { content: ""; position: absolute; right: -5px; top: 50%; width: 8px; height: 8px; transform: translateY(-50%) rotate(45deg); background: linear-gradient(135deg, #fff3cc, #a27a32); box-shadow: 0 0 8px rgba(246, 226, 168, .7); }
+
+/* 대기실 — 가운데: 덱 머리는 제비꼬리 군기 */
+.dv-head { --gcx: var(--gc, var(--fc, var(--gold))); position: relative; padding: 14px 40px 14px 18px; margin: -4px -4px 0;
+  background: linear-gradient(100deg, color-mix(in srgb, var(--gcx) 20%, transparent), color-mix(in srgb, var(--gcx) 5%, transparent) 65%, transparent);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 20px) 50%, 100% 100%, 0 100%); box-shadow: inset 3px 0 0 color-mix(in srgb, var(--gcx) 80%, transparent); }
+.dv-head .emblem.big { position: relative; box-shadow: 0 0 0 2px var(--night), 0 0 0 3px color-mix(in srgb, var(--fc) 70%, transparent), 0 0 24px color-mix(in srgb, var(--fc) 35%, transparent); }
+.dv-head .emblem.big::after { content: ""; position: absolute; inset: -9px; border-radius: 50%; border: 1px dashed rgba(217, 180, 106, .4); animation: spin 40s linear infinite; }
+.dv-title h2 { letter-spacing: .04em; color: #f5ecd4; }
+.dv-curve { padding: 6px 8px 2px; border: 1px solid rgba(217, 180, 106, .18); background: rgba(5, 6, 11, .45); height: 64px; }
+.dv-meta { border-block: 0; padding: 10px 2px; background:
+  linear-gradient(90deg, rgba(217, 180, 106, .4), rgba(217, 180, 106, .08)) top / 100% 1px no-repeat,
+  linear-gradient(90deg, rgba(217, 180, 106, .08), rgba(217, 180, 106, .4)) bottom / 100% 1px no-repeat; }
+
+/* 대기실 — 출정의 단: 왼쪽은 준비(덱 조정실), 오른쪽은 세 관문 */
+.dv-actions.altar { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: stretch; gap: 14px; padding-top: 18px; position: relative; justify-content: stretch; }
+.dv-actions.altar::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 9px;
+  background: linear-gradient(45deg, transparent 42%, var(--gold) 42% 58%, transparent 58%) center / 9px 9px no-repeat,
+    linear-gradient(90deg, transparent, rgba(217, 180, 106, .5) 20%, rgba(217, 180, 106, .5) 47%, transparent 48%, transparent 52%, rgba(217, 180, 106, .5) 53%, rgba(217, 180, 106, .5) 80%, transparent) center / 100% 1px no-repeat; }
+.altar-gates { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.btn.rite-side:not(.rb) { --c: 10px; flex-direction: column; gap: 4px; padding: 10px 18px; font-size: 13px; }
+.btn.rite-side .m-ico { width: 22px; height: 22px; color: var(--gold); }
+.btn.rite:not(.rb) { --c: 11px; display: grid; justify-items: center; align-content: center; gap: 2px; min-height: 70px; padding: 10px 14px; white-space: normal; text-align: center; }
+.btn.rite .m-ico { width: 22px; height: 22px; margin-bottom: 1px; }
+.btn.rite b { font-size: 15px; letter-spacing: .06em; }
+.btn.rite small { font-family: var(--caps); font-size: 9.5px; font-weight: 700; letter-spacing: .28em; padding-left: .28em; opacity: .7; }
+/* 세 관문 중 원정만 금빛, 나머지는 어두운 명판에 색 테두리 (한 줄에 금 하나) */
+.altar .btn.rite#go-ai { --edge: var(--edge-gold); --fill: var(--fill-night); color: var(--ink); text-shadow: none; }
+.altar .btn.rite#go-ai .m-ico { color: var(--gold); }
+.altar .btn.rite#go-pvp { --edge: linear-gradient(180deg, #ded0ff, #4a2f86); --fill: linear-gradient(180deg, #221a38, #110d1c); color: #efe8ff; }
+.altar .btn.rite#go-pvp .m-ico { color: #b9a0f0; }
+.altar .btn.rite#go-exp { color: #1c1407; }
+
+/* 덱 조정실 머리: 단체 색 군기 띠 */
+.ed-bar { background: linear-gradient(90deg, color-mix(in srgb, var(--gc, var(--fc)) 18%, transparent), transparent 65%), rgba(8, 9, 15, .6); border-bottom: 0; box-shadow: inset 0 -1px 0 rgba(217, 180, 106, .3); margin-top: calc(var(--crest-drop) + 6px); }
+.dl-row { border-radius: 0; border-color: rgba(255, 255, 255, .05); }
+
+/* 교역소 */
+.shop-tree { padding: 18px 12px 18px; }
+
+/* 원정 */
+.xp-node .emblem { box-shadow: 0 0 0 2px var(--night), 0 0 0 3px color-mix(in srgb, var(--gc) 55%, transparent), 0 0 14px color-mix(in srgb, var(--gc) 30%, transparent); }
+.xp-rule { border-radius: 0; background: rgba(0, 0, 0, .3); }
+
+/* 결과·화면 넘기기: 같은 장식선 */
+.res-sub::after, .handoff h2::after { content: ""; display: block; height: 9px; margin: 12px auto 0; width: min(260px, 70vw);
+  background: linear-gradient(45deg, transparent 42%, var(--gold) 42% 58%, transparent 58%) center / 9px 9px no-repeat, linear-gradient(90deg, transparent, rgba(217, 180, 106, .55) 30%, transparent 46%, transparent 54%, rgba(217, 180, 106, .55) 70%, transparent) center / 100% 1px no-repeat; }
+
+/* ================= 좁은 화면 ================= */
+@media (max-width: 1100px) {
+  .tb-nav span { display: none; }
+  .tb-nav { padding: 0 10px; }
+  .seal-txt small { display: none; }
+}
+@media (max-width: 760px) {
+  :root { --crest-drop: 0px; --bar-h: 46px; }
+  .tb-inner.realm { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "crest crest" "left right"; gap: 0 8px; padding-bottom: 4px; }
+  .tb-crest { grid-area: crest; justify-self: center; width: 200px; height: 46px; margin: 0; padding: 0 0 6px; }
+  .crest-word { font-size: 17px; }
+  .tbw-left { grid-area: left; } .tbw-right { grid-area: right; gap: 6px; }
+  .tb-div { margin: 0 1px; }
+  .seal-txt { display: none; }
+  .tb-exit span { display: none; }
+  .chat, .ed-preview, .vault-preview, .shop-tree, .side-col { top: 104px; }
+  .lobby, .editor, .shop, .admin, .xp { padding-top: 14px; }
+  .dv-actions.altar { grid-template-columns: minmax(0, 1fr); }
+  .btn.rite-side:not(.rb) { flex-direction: row; }
+  .altar-gates { grid-template-columns: minmax(0, 1fr); }
+  .btn.rite:not(.rb) { min-height: 56px; grid-template-columns: auto auto; column-gap: 10px; justify-content: center; }
+  .btn.rite .m-ico { grid-row: span 2; }
+  .gate { border-radius: 50% 50% 4px 4px / 70px 70px 4px 4px; padding-top: 52px; }
+  .dv-head { padding-right: 30px; }
+}
+
+/* 전장의 코인 멈추기 버튼도 같은 명판. 빛은 모양을 따라가도록 그림자 대신 drop-shadow */
+.btn.cs-stop:not(.rb) { --c: 13px; animation: plaqueGlow 1.6s ease-in-out infinite; }
+@keyframes plaqueGlow { 50% { filter: drop-shadow(0 0 12px rgba(240, 200, 110, .7)); } }
+.coinstage.stopping .btn.cs-stop, .coinstage.deciding .btn.cs-stop { animation: none; }
+
+/* ================= 전장 연출: 마법 이름 띠 (v1.2, js/game.js spellTitle) =================
+   마법이 뒤집히면 화면 가운데 조금 위에 이름이 뜬다. 모양은 메뉴와 같은 문법(마름모 + 사라지는 선) */
+.spell-title { position: fixed; left: 50%; top: 36%; z-index: 64; pointer-events: none; display: grid; justify-items: center; gap: 4px; padding: 10px 46px 12px; white-space: nowrap; opacity: 0;
+  background: radial-gradient(closest-side, rgba(10, 9, 18, .82), rgba(10, 9, 18, 0)); }
+.spell-title small { display: flex; align-items: center; gap: 8px; font-family: var(--caps); font-size: 11px; font-weight: 700; letter-spacing: .4em; padding-left: .4em; color: color-mix(in srgb, var(--el, #c9b5ff) 55%, #e8dcff); }
+.spell-title small::before, .spell-title small::after { content: ""; width: 5px; height: 5px; transform: rotate(45deg); background: currentColor; }
+.spell-title b { font-family: var(--kfont, var(--body)), serif; font-size: clamp(22px, 3.2vw, 34px); font-weight: 800; letter-spacing: .08em; color: #fbf3dc;
+  text-shadow: 0 0 18px color-mix(in srgb, var(--el, #c9b5ff) 70%, transparent), 0 2px 0 rgba(0, 0, 0, .8); }
+.spell-title::after { content: ""; display: block; width: min(320px, 60vw); height: 1px; margin-top: 4px; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--el, #c9b5ff) 70%, transparent), transparent); }
+
+/* ================= v1.4.3: 길 글자 두 배 · 가운데 ETHERION 크게 · 지도는 오른쪽 날개 ================= */
+:root { --bar-h: 70px; --crest-drop: 22px; }
+.tb-nav { height: 56px; padding: 0 14px; gap: 10px; font-size: 28px; letter-spacing: .06em; }
+.tb-nav .m-ico { width: 28px; height: 28px; }
+.tb-nav::after { bottom: 2px; }
+.tbw-right .tb-nav { margin-right: 4px; }
+.tb-crest { width: 360px; }
+.crest-word { font-size: 36px; letter-spacing: .12em; }
+.crest-sub { font-size: 13px; }
+.tb-exit { font-size: 15px; height: 40px; }
+.tb-exit .m-ico { width: 18px; height: 18px; }
+@media (max-width: 1600px) { .tb-nav { font-size: 22px; padding: 0 10px; } .tb-nav .m-ico { width: 24px; height: 24px; } .tb-crest { width: 300px; } .crest-word { font-size: 30px; } }
+@media (max-width: 1300px) { .tb-nav { font-size: 18px; } .tb-crest { width: 250px; } .crest-word { font-size: 25px; } }
+@media (max-width: 1100px) { .tb-nav { padding: 0 10px; } }
+@media (max-width: 760px) {
+  :root { --crest-drop: 0px; --bar-h: 46px; }
+  .tb-nav { height: 40px; } .tb-nav .m-ico { width: 20px; height: 20px; }
+  .tb-crest { width: 200px; } .crest-word { font-size: 18px; }
+}
+.tb-nav.tb-exit { font-size: 15px; height: 40px; padding: 0 8px; }
+.gate-form[hidden] { display: none !important; }
+/* v1.6.1 코인 창이 둘로 나뉘어, 멈춘 창의 명판 빛만 끈다 */
+.cs-side.stopping .btn.cs-stop { animation: none; }

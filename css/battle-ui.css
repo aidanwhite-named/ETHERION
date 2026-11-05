@@ -1,0 +1,62 @@
+/* ETHERION v1.8 — 전투 화면 다듬기 (style.css 다음에 읽는다)
+   - 카드 설명: 핸드 카드는 짧게(세 줄), 전장 카드는 전체가 그림 위에 보인다 (view.js cardHTML의 desc, fitDescs)
+   - 전장 칸 단축키(Q W E R T): 체력 숫자와 겹치지 않게 칸의 오른쪽 아래 모서리에 걸친 꼬리표로
+   - 라운드 표시 (공격 턴 + 방어 턴 = 1 라운드)
+   - 결정화 가능 에테르·소각장을 크게, 화면 양 끝에 여백
+   - 확대 보기는 화면 가운데 */
+
+/* ---------- 카드 설명 (노멀 카드 그림 위에 겹침) ---------- */
+.c-desc { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; display: flex; align-items: flex-end; padding: .9em .32em .28em; pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(6, 6, 11, .78) 1.1em, rgba(6, 6, 11, .9)); }
+.c-desc p { margin: 0; width: 100%; font-family: var(--kfont, var(--body)), serif; font-size: .74em; line-height: 1.28; font-weight: 700; color: #f6ecd6; text-align: left; word-break: keep-all; overflow-wrap: anywhere; text-shadow: 0 1px 2px #000; }
+/* 핸드: 세 줄까지. 오른쪽은 다음 카드에 가려지므로 비워 둔다(맨 끝 카드는 꽉 채움) */
+.c-desc.d-short { padding-right: 20%; }
+.hand-slot:last-child .c-desc.d-short { padding-right: .32em; }
+.c-desc.d-short p { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+/* 전장: 글 전체. 넘치면 fitDescs()가 글자를 줄인다 */
+.c-desc.d-full { top: 0; overflow: hidden; }
+.c-desc.d-full p { font-size: .78em; }
+.card.has-desc .c-tags { top: .2em; bottom: auto; }
+.card.has-desc .c-art > svg { transform: translateY(-18%); }
+.slot .card.has-desc .c-art > svg { opacity: .55; }
+
+/* ---------- 전장 칸 단축키: 오른쪽 아래 모서리에 걸친 꼬리표 ---------- */
+.hk-slot { left: auto; top: auto; right: -.55em; bottom: -.55em; z-index: 8; opacity: .85; font-size: max(10px, calc(var(--cw) * .072)); padding: .16em .38em; border-radius: 4px;
+  background: rgba(14, 12, 20, .92); color: var(--gold-hi); border: 1px solid rgba(217, 180, 106, .55); box-shadow: 0 2px 6px rgba(0, 0, 0, .6); }
+.slot:not(:has(.card, .card-back)) .hk-slot { opacity: .5; }
+.slot.valid .hk-slot, .slot.valid-equip .hk-slot, .slot.valid-move .hk-slot { opacity: 1; background: linear-gradient(180deg, #f6e2a8, #c99a48); color: #1b1406; }
+
+/* ---------- 라운드 ---------- */
+.midbar.v7 .ph-round { align-items: center; cursor: help; }
+.rd-steps { display: inline-flex; gap: 4px; margin-left: 2px; }
+.rd-steps i { width: 7px; height: 7px; transform: rotate(45deg); border: 1px solid rgba(217, 180, 106, .6); }
+.rd-steps i.done { background: rgba(217, 180, 106, .55); }
+.rd-steps i.now { background: var(--gold-hi); box-shadow: 0 0 8px var(--gold-hi); }
+
+/* ---------- 화면 양 끝 여백 ---------- */
+.screen-game { --edge-x: clamp(20px, 2.6vw, 64px); }
+.b-main { padding-left: max(var(--edge-x), env(safe-area-inset-left, 0px)); padding-right: max(var(--edge-x), env(safe-area-inset-right, 0px)); }
+@media (min-width: 761px) {
+  .screen-game { --cw: clamp(54px, min(calc((100dvh - 64px) / 5.42), calc((100vw - 2 * var(--edge-x) - 12px) / 9.6)), 260px); }
+}
+@media (max-width: 760px) { .screen-game { --edge-x: 8px; } }
+
+/* ---------- 소각장을 크게 (왼쪽 열) ---------- */
+@media (min-width: 761px) {
+  .f-well .zone.burn { width: calc(var(--cw) * .92); }
+  .f-well .zone.burn .zone-label { font-size: max(13px, calc(var(--cw) * .09)); font-weight: 700; top: 6px; padding: 2px 10px; color: #ffd8cc; }
+  .f-well .zone.burn .zone-count { font-size: calc(var(--cw) * .22); border-width: 2px; }
+}
+
+/* ---------- 결정화 가능 에테르: 제단을 크게, 글씨도 크게 ---------- */
+.prow-bot .pside { height: min(calc(var(--cw) * 1.3), calc(var(--hand-vis) - 16px)); margin-bottom: 8px; }
+.prow-bot .nameplate.banner { flex: 0 0 34%; min-width: 0; }
+.prow-bot .ether.altar { flex: 1 1 auto; }
+.prow-bot .eth-ring { width: min(100cqw, calc(100cqh - 30px)); }
+.prow-bot .cry-state { font-size: clamp(13px, calc(var(--cw) * .085), 17px); padding: 2px 11px; border-radius: 11px; font-weight: 700; }
+.prow-bot .cry-state.ok { border-width: 1.5px; }
+.prow-bot .ether-sub { font-size: clamp(12px, calc(var(--cw) * .075), 15px); }
+
+/* ---------- 확대 보기: 화면 가운데 ---------- */
+.zoom { animation: zoomCenter .18s ease-out; }
+@keyframes zoomCenter { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }

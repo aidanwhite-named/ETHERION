@@ -1,0 +1,7 @@
+# 로컬 백업과 임시 파일
+_backup_*/
+_to_delete/
+_ld_tmp.js
+node_modules/
+.DS_Store
+Thumbs.db
