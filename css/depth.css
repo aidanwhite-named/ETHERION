@@ -1,0 +1,166 @@
+/* ETHERION — 입체감 층 (v2.0, docs/STYLE_GUIDE.md 2.10). 맨 마지막에 읽어 기존 화면 위에 깊이만 더한다.
+   - 메뉴: 패널은 두께 있는 판. 양옆 패널은 안쪽으로 꺾인 세 폭 병풍(기울기는 js/depth.js).
+   - 전장: 탁자처럼 뒤로 눕고, 덱은 쌓인 더미, 소각장은 파인 구덩이, 에테르는 제단 위에 뜬 구슬.
+   - 그래도 글자가 먼저다: 좁은 화면과 "움직임 줄이기"에서는 기울이지 않는다. */
+:root {
+  --slab-edge: 0 1px 0 #4a3d24, 0 2px 0 #362c1a, 0 3px 0 #272013, 0 4px 0 #1b160d, 0 5px 0 #120f08;
+  --d3-pos: 1700px;
+}
+
+/* ---------- 배경이 비치도록 ---------- */
+.screen-game {
+  background:
+    radial-gradient(60% 45% at 50% 50%, rgba(217, 180, 106, .05), transparent 70%),
+    radial-gradient(90% 62% at 50% 50%, rgba(20, 22, 40, .34), rgba(8, 9, 16, .62) 76%);
+}
+.screen-game::before { opacity: .3; }
+
+/* ---------- 두께 있는 판 ---------- */
+.decks, .chat, .deck-view, .ed-deck, .ed-pool, .ed-preview, .vault-preview, .vault-fac, .users,
+.shop-tree, .shop-main, .xp-head, .xp-route, .xp-card, .gate {
+  background:
+    var(--orn-tl) top 4px left 4px / 22px no-repeat,
+    var(--orn-tr) top 4px right 4px / 22px no-repeat,
+    var(--orn-bl) bottom 4px left 4px / 22px no-repeat,
+    var(--orn-br) bottom 4px right 4px / 22px no-repeat,
+    linear-gradient(180deg, rgba(255, 240, 205, .045), transparent 90px),
+    radial-gradient(120% 70% at 50% 0%, var(--tint), transparent 70%),
+    linear-gradient(180deg, rgba(20, 22, 35, .8), rgba(9, 10, 18, .86));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 238, 200, .2),
+    inset 0 0 0 3px rgba(6, 7, 12, .5), inset 0 0 0 4px rgba(217, 180, 106, .1),
+    var(--slab-edge),
+    0 26px 46px -8px rgba(0, 0, 0, .78), 0 60px 90px -20px rgba(0, 0, 0, .55);
+  will-change: transform;
+}
+.gate {
+  background:
+    var(--orn-bl) bottom 4px left 4px / 22px no-repeat,
+    var(--orn-br) bottom 4px right 4px / 22px no-repeat,
+    radial-gradient(80% 50% at 50% 0%, rgba(155, 123, 255, .12), transparent 70%),
+    linear-gradient(180deg, rgba(20, 22, 35, .82), rgba(9, 10, 18, .88));
+}
+.modal {
+  box-shadow: inset 0 1px 0 rgba(255, 238, 200, .2), inset 0 0 0 3px rgba(6, 7, 12, .55), inset 0 0 0 4px rgba(217, 180, 106, .1), var(--slab-edge), 0 40px 90px rgba(0, 0, 0, .8);
+}
+
+/* 패널이 멀리서 다가온다 */
+@keyframes d3Rise { from { opacity: 0; transform: perspective(var(--d3-pos)) translate3d(0, 34px, -300px) rotateX(9deg); } }
+.decks, .chat, .deck-view, .ed-deck, .ed-pool, .ed-preview, .vault-preview, .users, .shop-tree, .shop-main, .xp-head, .xp-route, .xp-card, .gate { animation: d3Rise .72s cubic-bezier(.16, .84, .24, 1) backwards; }
+.deck-view, .ed-pool, .shop-main, .xp-route { animation-delay: .07s; }
+.chat, .ed-preview, .vault-preview, .xp-card { animation-delay: .14s; }
+
+/* 창: 앞으로 튀어나왔다 자리 잡는다 */
+.modal-wrap { perspective: 1400px; }
+@keyframes d3Modal { from { opacity: 0; transform: translate3d(0, 26px, -220px) rotateX(-12deg); } }
+.modal { animation: d3Modal .34s cubic-bezier(.2, .85, .25, 1) backwards; }
+
+/* 상단 띠: 앞으로 튀어나온 처마 */
+.topbar.realm { box-shadow: 0 1px 0 #2e2616, 0 2px 0 #1e190f, 0 16px 34px rgba(0, 0, 0, .62); }
+.tb-crest { filter: drop-shadow(0 1px 0 #6b4f1c) drop-shadow(0 2px 0 #3d2d10) drop-shadow(0 12px 14px rgba(0, 0, 0, .7)); }
+.tb-crest:hover { filter: drop-shadow(0 1px 0 #6b4f1c) drop-shadow(0 2px 0 #3d2d10) drop-shadow(0 12px 14px rgba(0, 0, 0, .7)) drop-shadow(0 0 12px rgba(240, 200, 120, .28)); }
+
+/* 명판: 눌리는 돌 단추 */
+.btn:not(.rb):not(.cs-stop) { filter: drop-shadow(0 2px 0 rgba(0, 0, 0, .75)) drop-shadow(0 5px 6px rgba(0, 0, 0, .4)); transition: transform .12s ease-out, filter .12s; }
+.btn:not(.rb):not(.cs-stop):hover:not(:disabled) { transform: translateY(-2px); filter: brightness(1.16) drop-shadow(0 3px 0 rgba(0, 0, 0, .75)) drop-shadow(0 9px 9px rgba(0, 0, 0, .45)); }
+.btn:not(.rb):not(.cs-stop):active:not(:disabled) { transform: translateY(2px); filter: brightness(.96) drop-shadow(0 0 0 rgba(0, 0, 0, .75)) drop-shadow(0 1px 2px rgba(0, 0, 0, .5)); }
+
+/* 덱 보관함 타일: 고른 덱은 앞으로 나온다 */
+.deck-tile { transition: transform .22s cubic-bezier(.2, .8, .3, 1), box-shadow .22s, border-color .15s; transform: perspective(700px) translateZ(0); }
+.deck-tile:hover { transform: perspective(700px) translateZ(14px) rotateX(1.5deg); box-shadow: 0 10px 18px rgba(0, 0, 0, .5); }
+.deck-tile.on { transform: perspective(700px) translateZ(22px); box-shadow: inset 2px 0 0 var(--fc), 0 0 18px color-mix(in srgb, var(--fc) 18%, transparent), 0 1px 0 #3a3019, 0 2px 0 #241e10, 0 14px 22px rgba(0, 0, 0, .6); }
+
+/* ---------- 카드 ---------- */
+/* 낮은 우선순위(:where)로 두께를 준다. 고름·공격·장착 같은 상태의 그림자가 늘 이긴다 */
+:where(.screen, .modal, .mull-card) .card > .c-frame {
+  box-shadow: 0 .04em 0 #5a4a2b, 0 .09em 0 #3b3120, 0 .14em 0 #211b10, 0 .55em 1em rgba(0, 0, 0, .62), inset 0 .07em 0 rgba(255, 255, 255, .14), inset 0 0 0 .1em rgba(255, 255, 255, .06);
+}
+.c-frame.d3-tilt { transition: transform .1s ease-out, box-shadow .15s; will-change: transform; z-index: 3; }
+.c-frame.d3-back { transition: transform .32s cubic-bezier(.2, .8, .3, 1); }
+.d3-glare { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 9; mix-blend-mode: screen;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 244, 214, .3), rgba(255, 244, 214, .07) 32%, transparent 62%); }
+@keyframes d3Deal { from { opacity: 0; transform: perspective(900px) translate3d(0, 26px, -180px) rotateX(24deg); } }
+.deck-view .card, .ed-pool .card, .shop-main .card { animation: d3Deal .46s cubic-bezier(.2, .85, .25, 1) backwards; }
+.deck-view .card:nth-child(1), .ed-pool .card:nth-child(1), .shop-main .card:nth-child(1) { animation-delay: .1s; }
+.deck-view .card:nth-child(2), .ed-pool .card:nth-child(2), .shop-main .card:nth-child(2) { animation-delay: .14s; }
+.deck-view .card:nth-child(3), .ed-pool .card:nth-child(3), .shop-main .card:nth-child(3) { animation-delay: .18s; }
+.deck-view .card:nth-child(4), .ed-pool .card:nth-child(4), .shop-main .card:nth-child(4) { animation-delay: .22s; }
+.deck-view .card:nth-child(n+5), .ed-pool .card:nth-child(n+5), .shop-main .card:nth-child(n+5) { animation-delay: .26s; }
+
+/* ---------- 타이틀 ---------- */
+.screen-title { perspective: 1100px; perspective-origin: 50% 46%; }
+.screen-title .t-ring { transform: translate(-50%, -50%) rotateX(16deg); }
+.t-title { filter: drop-shadow(0 1px 0 #8a6a2a) drop-shadow(0 2px 0 #5d4518) drop-shadow(0 3px 0 #3a2a0d) drop-shadow(0 14px 18px rgba(0, 0, 0, .75)); }
+.screen-title.awaken .t-title { filter: none; }
+
+/* ---------- 전장: 뒤로 누운 탁자 ---------- */
+.frow { transform: perspective(1500px) rotateX(7deg); transform-origin: 50% 50%; }
+/* 탁자가 쌓임 층을 만들므로, 공격·마법 연출 중인 줄은 위로 올린다 (카드가 맞은편 줄과 핸드 위로 날아가게) */
+.frow:has(.acting, .countering, .revealing, .targeted, .dying) { z-index: 40; }
+
+/* 칸: 판에 파인 홈 */
+.slot { border: 1px solid rgba(217, 180, 106, .17);
+  background: radial-gradient(circle at 50% 42%, rgba(217, 180, 106, .045), rgba(5, 6, 11, .62) 78%);
+  box-shadow: inset 0 calc(var(--cw) * .05) calc(var(--cw) * .13) rgba(0, 0, 0, .9), inset 0 -1px 0 rgba(217, 180, 106, .16), 0 1px 0 rgba(255, 235, 190, .1), 0 2px 0 rgba(0, 0, 0, .5); }
+:where(.frow .slot) > .card > .c-frame {
+  box-shadow: 0 .05em 0 #5a4a2b, 0 .1em 0 #3b3120, 0 .16em 0 #211b10, 0 .75em 1.05em rgba(0, 0, 0, .78), inset 0 .07em 0 rgba(255, 255, 255, .14), inset 0 0 0 .1em rgba(255, 255, 255, .06);
+}
+
+/* 덱: 진짜로 쌓인 더미. 장수가 줄면 낮아진다 */
+.zone.deck { perspective: calc(var(--cw) * 3.4); perspective-origin: 50% 12%; }
+.deck-stack { transform-style: preserve-3d; transform: translateY(calc(var(--cw) * .05)) rotateX(42deg) rotateZ(-7deg) scale(.84); }
+.deck-card { transform: translateZ(calc(var(--i) * var(--cw) * .019)) !important; transform-style: preserve-3d; box-shadow: none; border-color: #6b5426; }
+.deck-card:last-child { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .28), 0 0 calc(var(--cw) * .05) rgba(155, 123, 255, .28); }
+.deck-card:first-child { box-shadow: 0 calc(var(--cw) * .08) calc(var(--cw) * .16) rgba(0, 0, 0, .85); }
+.zone.deck { box-shadow: none; }
+.zone.deck .deck-n { bottom: 4%; box-shadow: 0 3px 8px rgba(0, 0, 0, .7); }
+
+/* 소각장: 판을 파 내려간 불 구덩이 */
+.zone.burn { perspective: calc(var(--cw) * 1.5); perspective-origin: 50% 42%; background: #060302; overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .7), 0 1px 0 rgba(255, 200, 150, .14), 0 2px 0 rgba(0, 0, 0, .55), 0 10px 22px rgba(0, 0, 0, .5); }
+.pit { --pd: calc(var(--cw) * .78); position: absolute; inset: 0; transform-style: preserve-3d; pointer-events: none; }
+.pit-floor, .pit-w { position: absolute; backface-visibility: visible; }
+.pit-floor { inset: 0; transform: translateZ(calc(var(--pd) * -1)); background: radial-gradient(70% 60% at 50% 55%, #e89a58 0, #c44a1b 26%, #5e1b0a 58%, #160704 100%); animation: pitGlow 2.6s ease-in-out infinite; }
+.pit-floor .burn-top { inset: 9%; opacity: .78; position: absolute; }
+.pit-floor .burn-top .card { position: absolute; inset: 0; width: auto; }
+.pit-w { background-image: linear-gradient(var(--dir), rgba(0, 0, 0, .92) 0, rgba(45, 15, 7, .92) 42%, rgba(208, 80, 28, .88) 100%), repeating-linear-gradient(90deg, rgba(0, 0, 0, .5) 0 1px, transparent 1px calc(var(--cw) * .12)), repeating-linear-gradient(0deg, rgba(0, 0, 0, .45) 0 1px, transparent 1px calc(var(--cw) * .12)); background-color: #150705; }
+.pit-w.l { --dir: 90deg; left: 0; top: 0; bottom: 0; width: var(--pd); transform-origin: 0 50%; transform: rotateY(90deg); }
+.pit-w.r { --dir: 270deg; right: 0; top: 0; bottom: 0; width: var(--pd); transform-origin: 100% 50%; transform: rotateY(-90deg); }
+.pit-w.t { --dir: 180deg; left: 0; right: 0; top: 0; height: var(--pd); transform-origin: 50% 0; transform: rotateX(-90deg); }
+.pit-w.b { --dir: 0deg; left: 0; right: 0; bottom: 0; height: var(--pd); transform-origin: 50% 100%; transform: rotateX(90deg); }
+.pit-spark { position: absolute; left: var(--x); top: var(--y); width: calc(var(--cw) * .028); height: calc(var(--cw) * .028); border-radius: 50%; background: #ffd9a0; box-shadow: 0 0 calc(var(--cw) * .05) #ff7a2c; opacity: 0; animation: pitSpark var(--t) var(--d) linear infinite; }
+@keyframes pitGlow { 50% { filter: brightness(1.28); } }
+@keyframes pitSpark {
+  0% { opacity: 0; transform: translate3d(0, 0, calc(var(--pd) * -.96)); }
+  12% { opacity: 1; }
+  78% { opacity: .85; }
+  100% { opacity: 0; transform: translate3d(var(--dx), calc(var(--cw) * -.1), calc(var(--pd) * .3)); }
+}
+.zone.burn .embers { display: none; }
+.zone.burn .zone-label, .zone.burn .zone-count { box-shadow: 0 3px 8px rgba(0, 0, 0, .75); }
+.zone.burn .zone-count { top: auto; bottom: 6%; transform: translateX(-50%); }
+
+/* 에테르: 바닥에 누운 마법진 위로 뜬 구슬. 구슬·보석은 늘 정면을 본다 */
+.eth-ring { transform-style: preserve-3d; transform: perspective(calc(var(--cw) * 6)) rotateX(62deg) scale(1.1); container-type: inline-size; }
+.eth-circle { filter: drop-shadow(0 0 6px rgba(143, 220, 255, .25)); }
+.eth-ring::before { content: ""; position: absolute; inset: 15%; border-radius: 50%; background: radial-gradient(circle, rgba(143, 220, 255, .42), rgba(30, 90, 140, .18) 52%, transparent 72%); }
+.eth-ring .gem { transform: translate(-50%, -50%) rotate(var(--a)) translateY(-42.5cqw) rotate(calc(-1 * var(--a))) translateZ(2.6cqw) rotateX(-62deg) rotate(45deg); }
+.eth-ring .gem.essence { transform: translate(-50%, -50%) rotate(var(--a)) translateY(-42.5cqw) rotate(calc(-1 * var(--a))) translateZ(2.6cqw) rotateX(-62deg); }
+.eth-ring .eth-orb { transform-style: preserve-3d; transform: translateZ(26cqw) rotateX(-62deg) scale(1.08); }
+.eth-ring .eth-orb::before, .eth-ring .eth-orb::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+.eth-ring .eth-orb::before { inset: -20%; border: 1.5px dashed rgba(246, 226, 168, .75); animation: d3Orbit 11s linear infinite; }
+.eth-ring .eth-orb::after { inset: -34%; border: 1px dotted rgba(143, 220, 255, .85); animation: d3Orbit2 17s linear infinite; }
+@keyframes d3Orbit { from { transform: rotateX(74deg) rotateY(14deg) rotateZ(0); } to { transform: rotateX(74deg) rotateY(14deg) rotateZ(360deg); } }
+@keyframes d3Orbit2 { from { transform: rotateX(68deg) rotateY(-22deg) rotateZ(360deg); } to { transform: rotateX(68deg) rotateY(-22deg) rotateZ(0); } }
+
+/* ---------- 좁은 화면 · 움직임 줄이기: 눕히지 않는다 ---------- */
+@media (max-width: 900px) {
+  .frow { transform: none; }
+  .decks, .chat, .deck-view, .ed-deck, .ed-pool, .ed-preview, .vault-preview, .users, .shop-tree, .shop-main, .xp-head, .xp-route, .xp-card, .gate { will-change: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .decks, .chat, .deck-view, .ed-deck, .ed-pool, .ed-preview, .vault-preview, .users, .shop-tree, .shop-main, .xp-head, .xp-route, .xp-card, .gate, .modal, .deck-view .card, .ed-pool .card, .shop-main .card { animation: none; }
+  .pit-floor, .pit-spark, .eth-ring .eth-orb::before, .eth-ring .eth-orb::after { animation: none; }
+  .pit-spark { display: none; }
+  .deck-tile, .deck-tile:hover { transition: none; }
+}

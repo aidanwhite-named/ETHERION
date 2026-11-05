@@ -669,6 +669,10 @@ const uidEl = uid => (boardEl ? boardEl.querySelector(`[data-uid="${uid}"]`) : n
 const fxLayer = () => $("#fx-layer");
 const ctrOf = r => ({ x: r.left + r.width / 2, y: r.top + r.height / 2 });
 
+/* 소각장 구덩이(css/depth.css): 네 벽 + 불 바닥 위의 마지막 카드 + 떠오르는 불티 */
+const PIT_SPARKS = [[22, 62, 3.1, 0, 8], [70, 48, 3.8, 1.1, -7], [46, 70, 2.7, .6, 4], [34, 40, 4.3, 2, -5], [62, 66, 3.4, 1.7, 9], [52, 34, 4.9, .3, -9]].map(([x, y, t, d, dx]) => `<i class="pit-spark" style="--x:${x}%;--y:${y}%;--t:${t}s;--d:-${d}s;--dx:${dx}px"></i>`).join("");
+const pitHTML = top => `<div class="pit"><div class="pit-floor">${top ? `<div class="burn-top">${cardHTML(top, { size: "md", cls: "ashen" })}</div>` : ""}</div><i class="pit-w l"></i><i class="pit-w r"></i><i class="pit-w t"></i><i class="pit-w b"></i>${PIT_SPARKS}</div>`;
+
 function mountBoard() {
   $("#app").innerHTML = `<section class="screen screen-game" id="game"><div id="board"></div><div id="fx-layer" aria-hidden="true"></div><div id="zoom" class="zoom" hidden></div></section>`;
   boardEl = $("#board");
@@ -1102,9 +1106,9 @@ function fieldRowHTML(p, isMe, ctrlAll) {
   }).join("");
   const top = p.burn.length ? CARDS[p.burn[p.burn.length - 1]] : null;
   const burn = `<div class="zone burn${ctrl && sel ? " valid" : ""}" id="burn${p.idx}" data-act="burn" data-p="${p.idx}" title="소각장 ${p.burn.length}장">
-      ${top ? `<div class="burn-top">${cardHTML(top, { size: "md", cls: "ashen" })}</div>` : ""}<div class="embers"></div>
+      ${pitHTML(top)}
       <div class="zone-label">소각장</div><div class="zone-count">${p.burn.length}</div></div>`;
-  const n = p.deck.length, layers = Math.min(7, Math.ceil(n / 6));
+  const n = p.deck.length, layers = Math.min(20, Math.ceil(n / 2));
   const deck = `<div class="zone deck${n ? "" : " empty"}" id="deck${p.idx}" title="덱 ${n}장">
       <div class="deck-stack">${Array.from({ length: layers }, (_, i) => `<div class="deck-card" style="--i:${i}"></div>`).join("")}</div>
       <div class="zone-label">덱</div><div class="deck-n">${n}</div></div>`;

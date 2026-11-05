@@ -38,6 +38,7 @@
 html, body { height: 100%; }
 body { margin: 0; background: var(--night); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 body::before { content: ""; position: fixed; inset: 0; z-index: -2; background: radial-gradient(120% 80% at 50% 0%, #1a1630 0%, #0b0d17 45%, var(--night) 100%); }
+#titans-canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
 #bg-canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; transition: opacity 1s; pointer-events: none; }
 #app { min-height: 100%; }
 button, input, select { font: inherit; color: inherit; }

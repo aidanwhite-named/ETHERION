@@ -20,12 +20,23 @@ const Bg = {
     for (let i = 0; i < 90; i++) this.motes.push(this.mote(true));
     const loop = () => { this.draw(); this.raf = requestAnimationFrame(loop); };
     loop();
+    if (typeof Titans !== "undefined") Titans.init(); /* 배경의 세 존재 (js/titans.js) */
   },
   mote(any) {
     const hues = ["255,214,140", "140,220,255", "200,170,255", "255,180,120"];
     return { x: Math.random() * this.w, y: any ? Math.random() * this.h : this.h + 10, r: Math.random() * 2.2 + 0.4, v: Math.random() * 0.45 + 0.12, sway: Math.random() * 6.28, c: pick(hues), a: Math.random() * 0.6 + 0.25 };
   },
-  set(mode) { this.mode = mode; this.cv.style.opacity = mode === "off" ? 0 : mode === "calm" ? 0.55 : 1; },
+  /* 빛방울 그림은 색마다 한 번만 만든다 (프레임마다 그라데이션을 새로 만들면 느리다) */
+  moteSprite(c) {
+    this.sprites = this.sprites || {};
+    if (this.sprites[c]) return this.sprites[c];
+    const cv = document.createElement("canvas"); cv.width = cv.height = 64;
+    const x = cv.getContext("2d"), g = x.createRadialGradient(32, 32, 0, 32, 32, 32);
+    g.addColorStop(0, `rgba(${c},1)`); g.addColorStop(1, `rgba(${c},0)`);
+    x.fillStyle = g; x.fillRect(0, 0, 64, 64);
+    return this.sprites[c] = cv;
+  },
+  set(mode) { this.mode = mode; this.cv.style.opacity = mode === "off" ? 0 : mode === "calm" ? 0.55 : 1; if (typeof Titans !== "undefined") Titans.mode(mode); },
   draw() {
     const { ctx, w, h } = this;
     if (this.mode === "off") return;
@@ -57,9 +68,7 @@ const Bg = {
       }
       if (m.y < -10 && pl <= 0.01) Object.assign(m, this.mote(false));
       const px = m.x + this.mx * 18 * m.r, py = m.y + this.my * 12 * m.r;
-      const g = ctx.createRadialGradient(px, py, 0, px, py, m.r * 6);
-      g.addColorStop(0, `rgba(${m.c},${m.a})`); g.addColorStop(1, `rgba(${m.c},0)`);
-      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(px, py, m.r * 6, 0, 6.283); ctx.fill();
+ctx.globalAlpha = m.a; const R = m.r * 6; ctx.drawImage(this.moteSprite(m.c), px - R, py - R, R * 2, R * 2); ctx.globalAlpha = 1;
     }
     ctx.globalCompositeOperation = "source-over";
   }
