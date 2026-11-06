@@ -41,6 +41,10 @@ const CARD_GRADES = {
   /* G2 */ "G2-04": "uncommon", "G2-26": "uncommon", "G2-36": "uncommon", "G2-39": "uncommon", "MC-11": "uncommon", "MG-14": "uncommon", "SG2-08": "uncommon", "SG2-09": "uncommon", "IG2-6": "uncommon",
   /* G3 */ "G3-20": "uncommon", "G3-30": "uncommon", "G3-32": "uncommon", "IG3-6": "uncommon",
 };
+/* v2.9 스페셜 카드(js/specials.js)는 모두 스페셜 등급 */
+if (typeof SPECIAL_UNITS !== "undefined") for (const c of SPECIAL_UNITS.concat(SPECIAL_ITEMS)) CARD_GRADES[c.id] = "special";
+/* v3.2 유니크 카드(js/uniques.js)는 모두 유니크 등급 */
+if (typeof UNIQUE_UNITS !== "undefined") for (const c of UNIQUE_UNITS) CARD_GRADES[c.id] = "unique";
 
 function gradeOf(c) { const id = typeof c === "string" ? c : c && c.id; return CARD_GRADES[id] || "common"; }
 for (const c of CARD_LIST) c.grade = gradeOf(c);

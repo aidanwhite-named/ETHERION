@@ -1,0 +1,146 @@
+/* ETHERION v2.5 — 정면과 질감 (docs/STYLE_GUIDE.md 2.12)
+   기울이지 않는다. 전장 줄 · 덱 · 파친코 · 소각장 글씨는 정면을 본다.
+   입체감은 기울기 대신 두께(겹친 진한 선) · 결(돌 · 금속 · 가죽 · 벽돌) · 빛(왼쪽 위에서)으로 낸다.
+   relics.css 뒤에 읽어 앞의 규칙을 덮어쓴다. 그리는 코드: js/game.js etherDiscSVG · js/view.js CARD_BACK_SVG · js/minigames.js CASTLE_SVG */
+
+/* ───────── 0. 전장 줄을 눕히지 않는다 (v2.0의 rotateX(7deg)를 뺌) ───────── */
+.frow { transform: none; }
+
+/* ───────── 1. 카드의 코인: 밝은 금화 ───────── */
+.coin-dot, .cg .coin-dot, .coin-dot.neg, .cg .coin-dot.neg {
+  color: #3a2400;
+  background: radial-gradient(circle at 34% 28%, #fffef6 0, #fff3c0 18%, #ffd866 46%, #f3b032 74%, #c27f1c 100%);
+  box-shadow: 0 0 .3em rgba(255, 214, 110, .8), inset 0 0 0 .06em rgba(255, 255, 255, .65), inset 0 -.1em .12em rgba(150, 90, 10, .45);
+}
+.cg .coin-dot { border-color: rgba(96, 56, 4, .95); }
+.cg small { color: #fff0b8; }
+
+/* ───────── 2. 핸드 번호: 평소 숨김 · 마우스를 올린 카드 · 고른 카드 · 숫자 키를 누른 뒤 2.4초 ───────── */
+.hk-hand { top: -1.05em; opacity: 0; transform: translate(-50%, .35em) scale(.85); transition: opacity .16s, transform .16s;
+  color: var(--gold-hi); background: linear-gradient(180deg, #342e44, #120f1c); border: 1px solid rgba(217, 180, 106, .75);
+  box-shadow: 0 .12em 0 #050409, 0 .25em .5em rgba(0, 0, 0, .6), inset 0 1px 0 rgba(255, 240, 200, .25); border-radius: .3em; }
+.hand-me .hand-slot:hover .hk-hand, .hand-me .hand-slot.selected .hk-hand, #board.keys-on .hk-hand { opacity: 1; transform: translate(-50%, 0) scale(1); }
+/* 숫자 키로 고를 수 있다는 작은 표시 (핸드 줄 왼쪽 아래) */
+.hand-keys { position: absolute; left: 0; bottom: 10px; z-index: 70; display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px 4px 7px;
+  font-family: var(--caps); font-size: 13px; font-weight: 700; letter-spacing: .06em; color: rgba(246, 226, 168, .78);
+  background: linear-gradient(180deg, rgba(30, 27, 42, .9), rgba(10, 9, 16, .9)); border: 1px solid rgba(217, 180, 106, .32); border-radius: 6px;
+  box-shadow: 0 2px 0 #050409, 0 4px 10px rgba(0, 0, 0, .5); cursor: help; opacity: .8; transition: opacity .15s; }
+.hand-keys:hover, #board.keys-on .hand-keys { opacity: 1; color: var(--gold-hi); border-color: rgba(217, 180, 106, .7); }
+.hand-keys svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; }
+.hand-keys svg rect { stroke-width: 1.6; }
+@media (hover: none) { .hand-keys { display: none; } }
+
+/* ───────── 3. 카드 뒷면: 진짜 카드 (그림은 js/view.js CARD_BACK_SVG) ───────── */
+.card-back:not(.field-back) {
+  background: var(--card-back) center / 100% 100% no-repeat; border: 0; border-radius: 6.8% / 4.86%;
+  box-shadow: 0 1px 0 #7a5f2c, 0 2px 0 #3a2c12, 0 3px 0 #140e06, 0 8px 14px rgba(0, 0, 0, .7);
+}
+.card-back:not(.field-back) > span { display: none; }
+.opp-back .card-back { box-shadow: 0 1px 0 #7a5f2c, 0 2px 0 #3a2c12, 0 3px 0 #140e06, 0 10px 18px rgba(0, 0, 0, .75); }
+
+/* ───────── 4. 덱: 정면의 네모난 더미. 맨 위는 카드 뒷면, 아래로 금박 옆면과 진한 선이 장수만큼 쌓인다 ───────── */
+.zone.deck { perspective: none; overflow: visible; }
+.zone.deck .deck-stack { position: absolute; inset: 0; transform: translateY(calc(var(--n, 1) * var(--cw) * -.008)); transform-style: flat; }
+.zone.deck .deck-card { position: absolute; inset: 0; border-radius: 6.8% / 4.86%;
+  transform: translate(calc((var(--n) - 1 - var(--i)) * var(--cw) * .0035), calc((var(--n) - 1 - var(--i)) * var(--cw) * .016)) !important;
+  background: linear-gradient(180deg, #ffe6a3 0, #d9a94e 30%, #9a6c22 80%, #6b4612 100%); border: 1.6px solid #07050c; box-shadow: none; }
+.zone.deck .deck-card:first-child { box-shadow: 0 calc(var(--cw) * .04) calc(var(--cw) * .08) rgba(0, 0, 0, .8), 0 0 0 1px rgba(0, 0, 0, .4); }
+.zone.deck .deck-card:last-child { background: var(--card-back) center / 100% 100% no-repeat; border: 0; box-shadow: 0 0 0 1.6px #07050c, inset 0 0 0 1px rgba(255, 240, 200, .1); }
+.zone.deck .deck-card:only-child { box-shadow: 0 0 0 1.6px #07050c, 0 calc(var(--cw) * .04) calc(var(--cw) * .08) rgba(0, 0, 0, .8); }
+.zone.deck.empty::before { content: ""; position: absolute; inset: 0; border-radius: 6.8% / 4.86%; border: 2px dashed rgba(217, 180, 106, .3); background: rgba(5, 6, 11, .5); }
+.zone.deck .zone-label { top: -14px; background: rgba(8, 9, 16, .86); border: 1px solid rgba(217, 180, 106, .4); color: var(--ink); }
+.zone.deck .deck-n { bottom: calc(var(--n, 1) * var(--cw) * -.008 - 4px); background: linear-gradient(180deg, #2a2436, #0d0b14); border: 1px solid rgba(217, 180, 106, .75); color: #f6e2a8; box-shadow: 0 2px 0 #050409, 0 4px 10px rgba(0, 0, 0, .75); }
+
+/* ───────── 5. 에테르 원반 (용을 뺌). 금속 고리 · 결정 소켓 · 안개가 도는 구슬 ───────── */
+.eth-ring { transform: none; perspective: none; transform-style: flat; border-radius: 50%; overflow: visible; }
+.eth-ring::before, .eth-ring::after { display: none; }
+.prow-bot .eth-ring { width: min(100cqw, calc(100cqh - 32px)); }
+.ed-svg { position: absolute; inset: -4%; width: 108%; height: 108%; overflow: visible; filter: drop-shadow(0 7px 10px rgba(0, 0, 0, .7)); }
+.eth-ring .eth-orb { position: absolute; inset: 22%; width: auto; height: auto; max-height: none; transform: none; background: none; box-shadow: none; animation: none; display: grid; place-items: center; align-content: center; pointer-events: none; }
+.eth-ring .eth-orb::before, .eth-ring .eth-orb::after { display: none; }
+.eth-ring .eth-orb b { font-size: 24cqw; line-height: .95; color: #fff; text-shadow: 0 2px 4px rgba(0, 20, 40, .95), 0 0 16px rgba(143, 220, 255, .75); }
+.eth-ring .eth-orb span { font-size: 8cqw; color: #e2f6ff; text-shadow: 0 1px 3px rgba(0, 20, 40, .95); }
+.prow-top .eth-ring .eth-orb b { font-size: 26cqw; }
+.ed-mist { transform-origin: 100px 100px; animation: edSpin 28s linear infinite; }
+.ed-mist2 { transform-origin: 100px 100px; animation: edSpin 43s linear infinite reverse; }
+@keyframes edSpin { to { transform: rotate(360deg); } }
+.ed-halo { opacity: .7; transition: opacity .3s; }
+.ed-hole { fill: #03050b; stroke: rgba(217, 180, 106, .5); stroke-width: .9; }
+.ed-sock .ed-gem { stroke: rgba(143, 220, 255, .22); stroke-width: .9; stroke-linejoin: round; }
+.ed-sock .ed-facet { fill: none; stroke: none; }
+.ed-sock.on .ed-gem { stroke: #e4f7ff; filter: drop-shadow(0 0 3px rgba(143, 220, 255, .95)); }
+.ed-sock.on .ed-facet { stroke: rgba(255, 255, 255, .55); stroke-width: .7; }
+.ed-sock.on.used .ed-gem { fill: #1d3a4d; stroke: #3d6a82; filter: none; }
+.ed-sock.on.used .ed-facet { stroke: rgba(255, 255, 255, .12); }
+.ed-sock.ess .ed-hole { stroke: rgba(246, 226, 168, .85); }
+.ed-sock.ess.on .ed-gem { stroke: #fff3c9; filter: drop-shadow(0 0 4px rgba(255, 220, 130, .95)); }
+.ed-sock.ess.on.used .ed-gem { fill: #5a4a20; stroke: #8a6a2a; filter: none; }
+/* 지금 결정화할 수 있는 자리: 다음 빈 소켓에 + 결정이 숨 쉰다 */
+.ed-sock.ghost .ed-hole { stroke: rgba(191, 234, 255, .85); }
+.ed-sock.ghost .ed-gem { stroke: #bfeaff; stroke-width: 1.1; stroke-dasharray: 2.2 1.6; animation: edGhost 1.6s ease-in-out infinite; }
+.ed-sock.ghost .ed-plus { fill: none; stroke: #f2fcff; stroke-width: 1.8; stroke-linecap: round; filter: drop-shadow(0 0 2px #8fdcff); animation: edGhost 1.6s ease-in-out infinite; }
+@keyframes edGhost { 50% { opacity: .3; } }
+/* 상태: 모자람(붉은 구슬) · 보너스(초록 빛) · 카드를 골라 결정화할 수 있음 · 끌어 놓는 중 */
+.ether.altar.short .ed-orb { fill: url(#ed0-orbred); }
+.ether.altar.short[data-p="1"] .ed-orb { fill: url(#ed1-orbred); }
+.ether.altar.boosted .ed-orb-g { filter: drop-shadow(0 0 12px rgba(127, 227, 156, .9)); }
+.ether.altar.valid .eth-ring { animation: none; cursor: pointer; }
+.ether.altar.valid .ed-halo { opacity: 1; animation: edHalo 1.3s ease-in-out infinite; }
+.ether.altar.valid .ed-rim { filter: drop-shadow(0 0 4px rgba(143, 220, 255, .95)); }
+.ether.altar.valid .ed-sock.ghost .ed-gem, .ether.altar.valid .ed-sock.ghost .ed-plus { animation-duration: .8s; }
+@keyframes edHalo { 50% { opacity: .45; } }
+.ether.altar.drop-hover .eth-ring { box-shadow: none; }
+.ether.altar.drop-hover .ed-svg { filter: drop-shadow(0 0 16px rgba(143, 220, 255, .95)); }
+.prow-top .ed-sock .ed-facet, .prow-top .ed-mist2 { display: none; }
+
+/* 결정화 표시: 줄 그은 글자 대신 에테르 결정 아이콘 */
+.ether.altar .eth-foot { gap: 6px; overflow: visible; }
+.cry-badge { display: inline-flex; align-items: center; gap: .34em; padding: .2em .72em .2em .5em; border-radius: 999px; white-space: nowrap; cursor: help;
+  font-size: clamp(12px, calc(var(--cw) * .08), 16px); line-height: 1.1; color: rgba(191, 228, 245, .7); }
+.cry-badge b { font-weight: 700; letter-spacing: .03em; }
+.cry-badge em { font-style: normal; font-family: var(--caps); font-weight: 900; font-size: 1.08em; }
+.cb-ico { width: 1.15em; height: 1.35em; flex: none; overflow: visible; }
+.cb-gem { fill: rgba(143, 220, 255, .08); stroke: rgba(143, 220, 255, .55); stroke-width: 1.4; stroke-linejoin: round; }
+.cb-facet { fill: none; stroke: rgba(143, 220, 255, .3); stroke-width: .9; }
+/* 할 수 있음: 빛나는 결정 + 더하기, 숨 쉬는 에테르 빛 */
+.cry-badge.ok { color: #effbff; text-shadow: 0 0 8px rgba(143, 220, 255, .95), 0 1px 2px #000;
+  background: radial-gradient(120% 160% at 22% 50%, rgba(143, 220, 255, .32), rgba(12, 40, 64, .78) 62%, rgba(6, 14, 26, .85));
+  border: 1px solid rgba(160, 228, 255, .85); box-shadow: 0 0 14px rgba(143, 220, 255, .45), inset 0 1px 0 rgba(255, 255, 255, .25), 0 3px 8px rgba(0, 0, 0, .6);
+  animation: cbBreath 2.2s ease-in-out infinite; }
+.cry-badge.ok .cb-gem { fill: #8fdcff; stroke: #f2fcff; filter: drop-shadow(0 0 4px #8fdcff); }
+.cry-badge.ok .cb-facet { stroke: rgba(255, 255, 255, .7); }
+.cry-badge.ok .cb-dot { fill: #0c3350; stroke: #f2fcff; stroke-width: 1.3; }
+.cry-badge.ok .cb-plus { stroke: #fff; stroke-width: 1.7; stroke-linecap: round; }
+@keyframes cbBreath { 50% { box-shadow: 0 0 22px rgba(143, 220, 255, .75), inset 0 1px 0 rgba(255, 255, 255, .3), 0 3px 8px rgba(0, 0, 0, .6); } }
+/* 다 씀: 빈 결정 윤곽 + 옅은 안개 글자 (다음 턴에 다시 생긴다) */
+.cry-badge.rest { color: rgba(170, 214, 236, .62); background: radial-gradient(100% 160% at 50% 50%, rgba(143, 220, 255, .08), transparent 70%); }
+.cry-badge.rest .cb-gem { stroke-dasharray: 2.4 2; }
+.cry-badge.max { color: var(--gold-hi); border: 1px solid rgba(217, 180, 106, .55); background: rgba(40, 30, 10, .5); }
+.cry-badge.max .cb-gem { fill: #f0c95a; stroke: #fff3c9; filter: drop-shadow(0 0 3px rgba(255, 220, 130, .9)); }
+.cry-badge.wait { opacity: .7; }
+.ether.altar .ether-sub { font-size: clamp(11px, calc(var(--cw) * .065), 14px); }
+
+/* ───────── 6. 파친코 = 정면의 성 (그림은 js/minigames.js CASTLE_SVG) ───────── */
+.arcade.castle { overflow: visible; isolation: isolate; border: 0; border-radius: 0; background: none; box-shadow: none; padding: 0 15.8%; }
+.arc-castle { position: absolute; left: -2.632%; top: -13%; width: 105.263%; height: 113%; z-index: -1; overflow: visible; pointer-events: none; filter: drop-shadow(0 8px 12px rgba(0, 0, 0, .7)); }
+.arc-castle .ac-out { fill: none; stroke: #050409; stroke-width: 2.2px; vector-effect: non-scaling-stroke; stroke-linejoin: miter; }
+.arc-castle .ac-seam { fill: none; stroke: #0a0810; stroke-width: 1.8px; vector-effect: non-scaling-stroke; }
+.arc-castle .ac-seam-hi { stroke: rgba(255, 240, 210, .16); stroke-width: 1px; vector-effect: non-scaling-stroke; }
+.arc-castle .ac-machi { stroke: #07060b; stroke-width: 2px; vector-effect: non-scaling-stroke; }
+.arc-castle .ac-trim { fill: none; stroke: rgba(236, 204, 134, .9); stroke-width: 1.5px; vector-effect: non-scaling-stroke; }
+.arc-castle .ac-slit { fill: #040307; stroke: rgba(217, 180, 106, .4); stroke-width: .8px; vector-effect: non-scaling-stroke; }
+.arc-castle .ac-win { fill: #f0b44c; stroke: #050409; stroke-width: 1.2px; vector-effect: non-scaling-stroke; filter: drop-shadow(0 0 3px rgba(240, 180, 76, .9)); animation: acWin 3.6s ease-in-out infinite; }
+@keyframes acWin { 50% { opacity: .72; } }
+.arc-castle .ac-gate { stroke: none; }
+.arc-castle .ac-grid { fill: none; stroke: rgba(217, 180, 106, .32); stroke-width: 1px; vector-effect: non-scaling-stroke; }
+.arc-castle .ac-arch { fill: none; stroke: #07060b; stroke-width: 3px; vector-effect: non-scaling-stroke; }
+.arc-castle .ac-arch + .ac-key { fill: #d9b46a; stroke: #07060b; stroke-width: 1px; vector-effect: non-scaling-stroke; }
+.castle .arc-tabs { margin-top: calc(var(--cw) * .085); background: linear-gradient(180deg, rgba(6, 5, 10, .9), rgba(22, 19, 32, .92)); border: 1px solid rgba(217, 180, 106, .38); border-radius: 3px; box-shadow: inset 0 2px 4px rgba(0, 0, 0, .8), 0 1px 0 rgba(255, 240, 210, .08); }
+.castle .arc-pane { padding: .5em .1em .55em; }
+.castle .sm-win { border-radius: 1.6em 1.6em .25em .25em / 1.1em 1.1em .25em .25em; padding: .5em .25em .25em; background: #040509;
+  box-shadow: 0 0 0 2px #07060b, inset 0 0 0 1px rgba(217, 180, 106, .5), inset 0 6px 10px rgba(0, 0, 0, .9); }
+.castle .sm-top, .castle .seed-top { display: none; }
+.castle .sm-msg, .castle .seed-msg { color: var(--ink-2); text-shadow: 0 1px 2px #000; }
+@media (prefers-reduced-motion: reduce) {
+  .ed-mist, .ed-mist2, .ed-sock.ghost .ed-gem, .ed-sock.ghost .ed-plus, .cry-badge.ok, .arc-castle .ac-win, .ether.altar.valid .ed-halo { animation: none !important; }
+}

@@ -1,0 +1,37 @@
+/* ETHERION — 타이틀 그림 (docs/STYLE_GUIDE.md 0.2 · 2.17, 게임 v3.5)
+   그림 한 장(js/screens.js TITLE_ART)이 배경 · 세 존재 · ETHERION 로고를 모두 담는다.
+   그래서 이 그림이 있으면 코드로 그린 고리 · 로고 · 윗줄 글귀 · 산 그림자는 숨기고, 부제와 시작 단추만 아래에 둔다. */
+.t-art { position: absolute; inset: 0; background: #07080d var(--art) center / cover no-repeat; transform-origin: var(--fx, 50%) var(--fy, 50%);
+  animation: artIn 1.8s ease-out both, artDrift 60s 1.8s ease-in-out infinite alternate; }
+/* 세로 화면: cover면 로고 양끝이 잘린다. 그림을 가로폭의 2.05배(로고가 다 들어오는 크기)로 두고, 위아래 빈 곳은 같은 그림을 흐리게 깐다.
+   크기 · 자리(2.05, 49%, 45%)는 js/screens.js의 입장 문 자리 계산과 같아야 한다 */
+@media (max-aspect-ratio: 1/1) {
+  .t-art { background: #07080d; }
+  .t-art::before { content: ""; position: absolute; inset: -40px; background: var(--art) center / cover no-repeat; filter: blur(22px) brightness(.38); }
+  .t-art::after { content: ""; position: absolute; width: 205vw; aspect-ratio: 1672 / 941; left: calc(-105vw * .49); top: calc((100% - 205vw * 941 / 1672) * .45);
+    background: var(--art) center / 100% 100% no-repeat;
+    -webkit-mask-image: linear-gradient(transparent, #000 14%, #000 86%, transparent); mask-image: linear-gradient(transparent, #000 14%, #000 86%, transparent); }
+}
+@keyframes artIn { from { opacity: 0; filter: brightness(.35); } to { opacity: 1; filter: none; } }
+@keyframes artDrift { from { transform: scale(1); } to { transform: scale(1.045); } }
+
+.screen-title.has-art .t-ring,
+.screen-title.has-art .t-mountains,
+.screen-title.has-art .t-eyebrow,
+.screen-title.has-art .t-title { display: none; }
+.screen-title.has-art::after { height: 34vh; background: linear-gradient(0deg, rgba(7, 8, 13, .92), rgba(7, 8, 13, .55) 45%, transparent); }
+.screen-title.has-art .t-center { align-self: end; margin: 0 0 max(54px, 9vh); gap: 10px; }
+.screen-title.has-art .t-sub { animation-delay: 1.1s; text-shadow: 0 1px 6px #000, 0 0 18px rgba(7, 8, 13, .9); }
+.screen-title.has-art .t-start { margin-top: 14px; background: rgba(10, 10, 18, .62); animation-delay: 1.5s, 2.7s; }
+
+/* 입장: 그림이 로고 쪽으로 빨려 들며 어두워진다(그 자리에 js/portal.js의 문이 열린다) */
+.screen-title.awaken .t-art { animation: artDive 2.6s cubic-bezier(.55, 0, .85, .35) forwards; }
+@keyframes artDive { 0% { transform: scale(1.02); } 40% { transform: scale(1.12); filter: brightness(1.15); } 100% { transform: scale(2.6); filter: brightness(.25) blur(3px); opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .t-art, .screen-title.awaken .t-art { animation: none; }
+  .screen-title.has-art .t-sub, .screen-title.has-art .t-start { animation-delay: 0s; }
+}
+
+/* v3.7.2 전장 배경 그림: 같은 타이틀 그림을 화면 전체에 옅게(불투명도 20%) 깐다. 카드 · 글자보다 앞에 나오지 않게 판(#board) 아래 층 */
+.screen-game > .g-art { position: absolute; inset: 0; z-index: 0; pointer-events: none; background: url("../img/title/title_art.jpg") center / cover no-repeat; opacity: .2; }

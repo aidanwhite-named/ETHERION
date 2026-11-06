@@ -81,7 +81,7 @@ const Exp = {
   choose(id) {
     const e = this.get(), u = Store.user(); if (!e || !e.pending || !e.pending.includes(id)) return;
     e.deck[id] = (e.deck[id] || 0) + 1; e.got.push(id); e.pending = null;
-    if (!u.admin) Store.grantCard(u, id);
+    if (!Store.allCards(u)) Store.grantCard(u, id);
     if (e.over && e.won && !e.rewarded) { e.rewarded = true; Store.addGold(u, EXP_BONUS_GOLD, "원정 완주"); }
     Store.save();
   }
@@ -113,7 +113,7 @@ function showExpedition(f) {
   } else if (e.pending) {
     body = `<div class="xp-card xp-reward">
       <h3>${e.won ? "원정 완주!" : `${e.stage}번째 관문 통과`}</h3>
-      <p>카드 3장 중 <b>1장</b>을 골라 원정 덱에 더하세요. ${u.admin ? "" : "고른 카드는 보유 목록에도 남습니다."}${e.won ? ` 완주 보상으로 <b>${fmtGold(EXP_BONUS_GOLD)}</b>도 받습니다.` : ""}</p>
+      <p>카드 3장 중 <b>1장</b>을 골라 원정 덱에 더하세요. ${Store.allCards(u) ? "" : "고른 카드는 보유 목록에도 남습니다."}${e.won ? ` 완주 보상으로 <b>${fmtGold(EXP_BONUS_GOLD)}</b>도 받습니다.` : ""}</p>
       <div class="xp-picks">${e.pending.map(id => `<button type="button" class="xp-pick" data-pick="${id}">${cardHTML(CARDS[id], { size: "md" })}<span class="xp-pick-btn">이 카드</span></button>`).join("")}</div></div>`;
   } else if (e.over) {
     body = `<div class="xp-card xp-over ${e.won ? "won" : "lost"}">

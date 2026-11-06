@@ -5,7 +5,8 @@
    - 마우스를 움직이면 카메라가 움직여 가까운 것(용)이 먼 것(신)보다 크게 밀린다(시차).
    - 은은한 배경이라 작게 그려 늘려 쓴다(해상도 SCALE, 안티에일리어싱 없음). 내장 그래픽을 기준으로 맞췄다.
    - 게임이 느려지면 스스로 덜 그린다(QUALITY: 1초에 20장 → 10장 → 4장, 해상도도 함께 내림). 게임 조작이 배경보다 먼저다.
-   - 움직임 줄이기 설정이면 한 장만 그린다. WebGL2가 없으면 조용히 빠진다(별 배경만 남음). */
+   - 움직임 줄이기 설정이면 한 장만 그린다. WebGL2가 없으면 조용히 빠진다(별 배경만 남음).
+   - 전장(대전 화면)에서는 그리지 않는다(v3.5.9, 게임이 버벅이지 않게). */
 "use strict";
 
 const Titans = (() => {
@@ -16,7 +17,12 @@ const Titans = (() => {
     dragon: [[.035, .07, .045], [.44, .68, .33], [.72, .95, .55]]    /* #6fae55 */
   };
   const QUALITY = [{ ms: 50, scale: .72 }, { ms: 100, scale: .6 }, { ms: 250, scale: .5 }];
-  const MAT = { smooth: 0, rock: 1, scale: 2, membrane: 3, glow: 4, robe: 5 };
+  const MAT = { smooth: 0, rock: 1, scale: 2, membrane: 3, glow: 4, robe: 5, violet: 7, gem: 8 };   /* 6은 바닥 */
+  /* 용 목덜미의 일곱 보석: 머리 쪽부터 대지 · 바람 · 화염 · 물 · 숲 · 금속 · 번개 (가이드 1.2 원소색, 2.15와 같은 순서) */
+  const GEM = ["#b88a5a", "#9fe3d6", "#ff6b3d", "#4fb3ff", "#58b85f", "#a9b4c2", "#ffd84a"];
+  /* 바닥 칠룡의 고리 여덟 자리(atan(z, x) 기준 45°마다: 0 = 동). 동쪽은 비었다. 남동 화염 · 남 물 · 남서 숲 · 서 금속 · 북서 번개 · 북 대지 · 북동 바람 */
+  const SEAT = ["", "#ff6b3d", "#4fb3ff", "#58b85f", "#a9b4c2", "#ffd84a", "#b88a5a", "#9fe3d6"];
+  const rgb = h => h ? [1, 3, 5].map(i => parseInt(h.substr(i, 2), 16) / 255) : [0, 0, 0];
 
   /* ---------- 고정 시드 난수와 잡음: 다시 그려도 같은 모습 (가이드 5.1과 같은 mulberry32) ---------- */
   function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
@@ -115,33 +121,65 @@ const Titans = (() => {
     }
   }
 
-  /* ---------- 거인: 산처럼 웅크린 바위 몸, 어깨에 솟은 아다만트 결정, 틈으로 비치는 심장불 ---------- */
+  /* ---------- 거인: 갑옷 없이 산맥에서 반쯤 일어난 몸 (세계관 4-1: 잠든 몸이 산맥이 되었다) ----------
+     - 허리 아래는 땅(자기 몸이 된 산)에 묻혀 있고, 두 주먹으로 땅을 짚어 몸을 일으킨다.
+     - 등뼈가 그대로 산맥이 되어 왼쪽 화면 밖으로 이어진다. 어깨에도 봉우리가 솟는다.
+     - 상단 문장(가이드 2.15)과 같은 얼굴: 성탑처럼 각진 돌 관, 돌 수염, 화로처럼 타는 눈.
+     - 갈라진 틈의 빛은 아다만트 광맥 세 빛(뼈 회색 · 피 검붉은색 · 숨 푸른빛, 셰이더).
+     - 왼쪽 어깨 비탈을 따라 갱도의 등불이 지그재그로 오른다: 필멸자(아다만트)가 거인의 몸을 캔다. */
   function buildGiant() {
     const m = new Mesh(), R = MAT.rock, rock = (c, r, o = {}) => m.blob(c, r, { mat: R, disp: .55, lat: 26, lon: 36, ...o });
-    rock([0, -2.7, 0], [1.75, 1.2, 1.2]);
-    rock([0, -1.3, .12], [1.75, 1.5, 1.2]);
+    const r = rng(20261105);
+    /* 땅: 거인을 둘러싼 산. 허리 아래가 앞쪽 봉우리 절벽 사이로 사라진다 */
+    rock([.3, -4.4, -1.2], [5.4, 1.7, 2.4], { disp: .95, lat: 22, lon: 40 });
+    rock([-5.0, -3.4, -1.8], [3.0, 2.2, 2.2], { disp: .95 });
+    for (let k = 0; k < 10; k++) {
+      const x = -6.2 + k * 1.3 + r() * .4, z = 1.0 + r() * .7 - Math.abs(x) * .1, h = 1.7 + r() * 1.5 - (Math.abs(x - .2) < 2.2 ? .9 : 0);
+      m.cone([x, -5.6, z], [x + (r() - .5) * .6, -5.6 + h + 1.2, z + .1], 1.05 + r() * .5, { mat: R, around: 7, disp: .4 });
+    }
+    rock([0, -1.5, .12], [1.95, 1.55, 1.25]);                            /* 허리 */
     rock([0, .45, .1], [2.5, 1.85, 1.45]);
     for (const s of [-1, 1]) {
       rock([s * 1.15, .85, .95], [1.25, .95, .68], { disp: .34 });       /* 가슴 */
       rock([s * .95, 1.75, -.2], [1.25, .8, .85]);                        /* 승모 */
       rock([s * 3.0, 1.4, 0], [1.5, 1.32, 1.35]);                         /* 어깨 */
-      m.tube([[s * 3.1, 1.0, 0, 1.1], [s * 3.8, -.9, .15, .92], [s * 4.05, -2.2, .55, 1.04], [s * 3.8, -3.6, .85, .78]], { mat: R, disp: .5, steps: 26, around: 22 });
-      rock([s * 3.8, -4.4, .95], [1.05, 1.05, .95]);                      /* 주먹 */
-      m.tube([[s * 1.05, -3.2, 0, 1.15], [s * 1.45, -5.2, .2, 1.1], [s * 1.5, -8, .2, 1.0]], { mat: R, disp: .5, steps: 22, around: 22 });
+      /* 팔: 바깥으로 벌려 땅을 짚는다. 주먹은 반쯤 땅에 박힌다 */
+      m.tube([[s * 3.1, 1.0, 0, 1.1], [s * 3.95, -.55, .3, .92], [s * 4.35, -1.85, .8, 1.0], [s * 4.25, -2.85, 1.1, .82]], { mat: R, disp: .5, steps: 26, around: 22 });
+      rock([s * 4.25, -3.25, 1.2], [1.12, .92, 1.0]);                     /* 주먹 */
+    }
+    /* 등뼈 = 산맥: 머리 뒤에서 왼쪽 바깥으로 낮아지며 이어지는 봉우리 */
+    for (let k = 0; k < 11; k++) {
+      const x = -1.1 - k * 1.0 + r() * .3, z = -1.5 - k * .32, y = 1.7 - k * .5, h = 2.5 - k * .12 + r() * .9;
+      m.cone([x, y, z], [x - .25 - r() * .4, y + h, z - .2], .95 + r() * .55, { mat: R, around: 7, disp: .32 });
+    }
+    m.cone([1.2, 1.9, -1.3], [1.05, 4.4, -1.6], 1.0, { mat: R, around: 7, disp: .3 });   /* 오른쪽 등 봉우리(가운데 쪽은 낮게) */
+    /* 어깨 봉우리 */
+    for (let k = 0; k < 12; k++) {
+      const s = k % 3 ? -1 : 1, base = [s * (2.4 + r() * 1.5), 2.0 + r() * .5, -.6 + r() * .9];
+      const h = (s < 0 ? 1.2 : .7) + r() * (s < 0 ? 1.4 : .6);
+      m.cone(base, add(base, [s * (.2 + r() * .4), h, -.2]), .42 + r() * .3, { mat: R, around: 6, disp: .18 });
     }
     rock([0, 3.05, .55], [.92, 1.08, .95], { disp: .3 });                 /* 머리 */
-    rock([0, 3.42, 1.22], [.82, .24, .32], { disp: .12 });                /* 눈썹뼈 */
+    rock([0, 3.42, 1.22], [.86, .26, .34], { disp: .12 });                /* 눈썹뼈 */
     rock([0, 2.42, 1.0], [.72, .46, .56], { disp: .2 });                  /* 턱 */
     rock([0, 2.95, 1.46], [.2, .34, .2], { disp: .08 });                  /* 코 */
-    for (const s of [-1, 1]) m.blob([s * .4, 3.2, 1.42], [.13, .065, .06], { mat: MAT.glow, lat: 6, lon: 8 });
-    /* 아다만트 결정: 어깨와 등에서 솟는다 */
-    const r = rng(20261105);
-    for (let k = 0; k < 34; k++) {
-      const s = k % 2 ? 1 : -1, a = r() * 2.4 - .4, h = .75 + r() * 1.5;
-      const base = [s * (2.0 + r() * 1.9), 1.5 + Math.sin(a) * .9, -.6 + r() * .9];
-      const dir = norm([s * (.35 + r() * .7), .9, -.25 + r() * .3]);
-      m.cone(base, add(base, mul(dir, h)), .15 + r() * .26, { mat: R, around: 5 });
+    /* 돌 수염: 턱에서 아래로 늘어진 바위 */
+    rock([0, 1.95, 1.18], [.62, .6, .42], { disp: .2 });
+    for (const x of [-.46, -.17, .14, .43]) m.cone([x, 2.15, 1.15 + Math.abs(x) * -.2], [x * 1.25, .95 - Math.abs(x) * .4, 1.42], .27, { mat: R, around: 6 });
+    /* 성탑처럼 각진 돌 관: 머리 둘레의 네모 돌, 높낮이를 번갈아 */
+    for (let k = 0; k < 9; k++) {
+      const a = k / 9 * Math.PI * 2 + .17, x = Math.sin(a) * .8, z = .55 + Math.cos(a) * .78, h = k % 2 ? .3 : .62;
+      m.tube([[x, 3.62, z, .2], [x, 4.12 + h, z, .2]], { mat: R, steps: 2, around: 4, up: [0, 0, 1] });
     }
+    for (const s of [-1, 1]) m.blob([s * .4, 3.2, 1.42], [.15, .07, .06], { mat: MAT.glow, lat: 6, lon: 8 });   /* 화로처럼 타는 눈 */
+    /* 갱도의 등불: 왼쪽 어깨 비탈을 따라 지그재그로, 끝에 용광로 불 하나 */
+    const S = [-3.0, 1.4, 0], SR = [1.5, 1.32, 1.35];
+    for (let k = 0; k < 9; k++) {
+      const th = .42 + k * .1, ph = (k % 2 ? .62 : .98) + k * .05, d = [-Math.sin(th) * Math.cos(ph) * .55, Math.cos(th), Math.sin(th) * Math.sin(ph)];
+      const p = add(S, [d[0] * SR[0] * 1.2, d[1] * SR[1] * 1.2, d[2] * SR[2] * 1.2]);
+      m.blob(p, [.045, .045, .045], { mat: MAT.glow, lat: 4, lon: 6 });
+    }
+    m.blob([-2.35, .25, 1.2], [.13, .09, .08], { mat: MAT.glow, lat: 6, lon: 8 });
     return m;
   }
 
@@ -201,6 +239,23 @@ const Titans = (() => {
       const base = add([0, 3.85, -1.05], mul(dir, a));
       m.cone(base, add([0, 3.85, -1.05], mul(dir, b)), long ? .07 : .04, { mat: MAT.glow, w: -.05, around: 4, up: [0, 0, 1] });
     }
+    /* 다섯 꼭짓점 별(신 다섯의 뜻, 가이드 2.12): 위가 꼭짓점, 보랏빛 선 + 안쪽 오각형, 꼭짓점에 금빛 점.
+       머리가 별의 빈 가운데에 온다 — 한가운데는 아르케의 자리라 아무것도 그리지 않는다 */
+    const line = (a, b, r) => { const from = m.count; m.tube([[...a, r], [...b, r]], { mat: MAT.violet, steps: 1, around: 4, up: [0, 0, 1] }); for (let i = from; i < m.count; i++) m.v[i * 10 + 8] = 0; };
+    const SR = 2.35, SI = SR * .382, sc = [0, 3.85, -.95], pt = (k, R) => { const a = Math.PI / 2 + k * Math.PI / 5; return add(sc, [Math.cos(a) * R, Math.sin(a) * R, 0]); };
+    for (let k = 0; k < 10; k++) line(pt(k, k % 2 ? SI : SR), pt(k + 1, (k + 1) % 2 ? SI : SR), .028);
+    for (let k = 0; k < 10; k += 2) { line(pt(k + 1, SI), pt(k + 3, SI), .016); m.blob(pt(k, SR), [.075, .075, .075], { mat: MAT.glow, lat: 6, lon: 8 }); }
+    /* 성스러운 도형: 몸을 비스듬히 감는 보랏빛 궤도 둘(점선) */
+    const orbit = (cy, R, tilt, roll, dash) => {
+      const seg = 140, around = 4, ct = Math.cos(tilt), st = Math.sin(tilt), cr = Math.cos(roll), sr = Math.sin(roll);
+      for (let a = 0; a <= seg; a++) {
+        const th = a / seg * Math.PI * 2, x = Math.cos(th) * R, z0 = Math.sin(th) * R * .8, y0 = z0 * st, c = [x * cr - y0 * sr, cy + x * sr + y0 * cr, z0 * ct];
+        for (let b = 0; b <= around; b++) { const ph = b / around * Math.PI * 2, n = [Math.cos(ph), Math.sin(ph), 0]; m.vert(add(c, mul(n, .022)), n, MAT.violet, 0, a / seg * dash, b / around); }
+      }
+      m.grid(seg, around);
+    };
+    orbit(.6, 2.3, .62, .32, 0);
+    orbit(-1.6, 3.3, -.5, -.26, 46);
     return m;
   }
 
@@ -217,8 +272,16 @@ const Titans = (() => {
       const h = (.16 + Math.sin(k * Math.PI) * .46) * (s % 10 ? .7 : 1);
       m.cone(add(f.p, mul(out, f.r * .75)), add(add(f.p, mul(out, f.r + h)), mul(f.ta, -h * .5)), f.r * .24 + .03, { around: 5 });
     }
-    /* 머리 */
-    const H = [-2.5, 4.72, .25];
+    /* 목덜미 바깥 선의 일곱 원소 보석 (가이드 2.15): 머리 쪽부터, 보는 쪽으로 반쯤 드러나게 */
+    GEM.forEach((_, i) => {
+      const f = fr[Math.round((.955 - i * .036) * (fr.length - 1))], front = [0, .35, 1];
+      const d = norm(add(mul(norm(sub(front, mul(f.ta, dot(front, f.ta)))), .8), mul(f.up, .2)));
+      const from = m.count;
+      m.blob(add(f.p, mul(d, f.r * .9)), [.13, .13, .13].map(x => x * (1.15 - i * .03)), { mat: MAT.gem, lat: 8, lon: 10 });
+      for (let j = from; j < m.count; j++) m.v[j * 10 + 8] = i;
+    });
+    /* 머리: 마지막에 1.4배로 키운다(참고 그림처럼 머리가 또렷하게) */
+    const head0 = m.count, H = [-2.5, 4.72, .25];
     m.blob(H, [.72, .42, .42], { roll: .1, lat: 16, lon: 22 });
     m.blob([-3.32, 4.46, .28], [.68, .23, .29], { roll: .18, lat: 14, lon: 18 });
     m.blob([-3.02, 4.14, .28], [.68, .11, .22], { roll: -.1, lat: 10, lon: 16 });        /* 아래턱 */
@@ -229,6 +292,7 @@ const Titans = (() => {
       m.cone([-1.95, 4.6, .25 + s * .36], [-1.2, 4.8, .25 + s * .85], .07, {});
     }
     for (let k = 0; k < 6; k++) m.cone([-3.75 + k * .17, 4.28, .46], [-3.76 + k * .17, 4.1, .47], .03, { around: 4, mat: MAT.smooth });
+    for (let j = head0, P = [-1.95, 4.75, .22]; j < m.count; j++) for (let a = 0; a < 3; a++) m.v[j * 10 + a] = P[a] + (m.v[j * 10 + a] - P[a]) * 1.4;
     /* 앞다리 */
     const toes = [[-.42, -1.98, 2.0], [-.15, -2.05, 2.15], [.12, -2.0, 2.05]];
     m.tube([[1.4, -.3, .85, .44], [.35, -.85, 1.65, .32], [-.1, -1.55, 1.9, .2]], { mat: MAT.scale, steps: 16, around: 12 });
@@ -294,7 +358,7 @@ const Titans = (() => {
   const FS = `#version 300 es
   precision highp float;
   in vec3 vW, vN, vL; in vec4 vM;
-  uniform vec3 uCam, uBody, uRim, uHot; uniform float uT, uK, uFogN, uFogF; uniform sampler2D uNoise;
+  uniform vec3 uCam, uBody, uRim, uHot, uGem[7]; uniform float uT, uK, uFogN, uFogF; uniform sampler2D uNoise;
   out vec4 o;
   void main() {
     float m = vM.x;
@@ -311,13 +375,27 @@ const Titans = (() => {
       gap = (vM.z > 0. && vM.y != 0.) ? smoothstep(.1, .3, gap) : 1.;
       o = vec4(uHot * uK * .62 * gap, 0.); return;
     }
-    if (m > .5 && m < 1.5) {               /* 틈으로 비치는 심장불 */
+    if (m > 6.5 && m < 7.5) {              /* 신의 보랏빛 선: 별 · 궤도. vM.z > 0이면 점선 */
+      float gap = vM.z > 0. ? smoothstep(.15, .35, abs(sin(vM.z * 3.1416))) : 1.;
+      o = vec4(mix(uRim, uHot, .18) * uK * .8 * gap, 0.); return;
+    }
+    if (m > 7.5) {                         /* 용의 일곱 보석: 머리에서 꼬리로 차례로 반짝인다 */
+      vec3 g = uGem[int(vM.z + .5)];
+      float tw = .62 + .38 * pow(.5 + .5 * sin(uT * 1.1 - vM.z * .9), 3.);
+      o = vec4((g * (.45 + nv * .9) + vec3(.25) * nv * nv * nv) * uK * tw, .5 * uK); return;
+    }
+    if (m > .5 && m < 1.5) {               /* 틈으로 비치는 아다만트 광맥: 뼈 회색 · 피 검붉은색 · 숨 푸른빛, 가슴께는 심장불 */
       vec2 q1 = vL.xy * .115, q2 = vL.zy * .115 + .37;
       float n1 = texture(uNoise, q1).r * .6 + texture(uNoise, q2).r * .4;
       float crack = 1. - smoothstep(.0, .009, abs(n1 - .5));
       float heart = 1. - smoothstep(.3, 4.6, length(vL - vec3(0., .4, .5)));
-      emis = crack * (.1 + heart * .85) * (.8 + .2 * sin(uT * .9));
+      float sel = texture(uNoise, vL.xy * .045 + vec2(.31, .77)).r;
+      vec3 vein = mix(vec3(.62, .64, .7), vec3(.7, .1, .12), smoothstep(.42, .5, sel));
+      vein = mix(vein, vec3(.38, .66, 1.), smoothstep(.56, .64, sel));
+      emis = crack * (.16 + heart * .75) * (.8 + .2 * sin(uT * .9));
       col *= .55 + texture(uNoise, q1 * 4.3).r * 1.05 + key * .55;
+      col += mix(vein, uHot, heart * heart) * emis;
+      emis = 0.;
     } else if (m < 2.5 && m > 1.5) {       /* 비늘 */
       float u = vM.z * 150., v = vM.w * 24.;
       vec2 c = vec2(fract(u) - .5, fract(v + mod(floor(u), 2.) * .5) - .5);
@@ -344,18 +422,44 @@ const Titans = (() => {
   const FS_FLOOR = `#version 300 es
   precision highp float;
   in vec3 vW;
-  uniform vec3 uCam; uniform float uT, uK;
+  uniform vec3 uCam, uSeat[8]; uniform float uT, uK; uniform sampler2D uNoise;
   out vec4 o;
   float ring(float r, float R) { return 1. - smoothstep(.0, .018 + r * .0014, abs(r - R)); }
+  float blob(vec2 p, vec2 c, float R) { vec2 d = (p - c) / R; return max(0., 1. - dot(d, d)); }
   void main() {
     vec3 V = normalize(uCam - vW);
-    float r = length(vW.xz), a = atan(vW.z, vW.x);
+    vec2 p = vW.xz;
+    float r = length(p), a = atan(p.y, p.x);
+    /* 동쪽 너머의 빈 땅: 색이 빠지고 고리의 선도 지워진다 */
+    float voidM = smoothstep(.0, .7, blob(p, vec2(17., -4.), 8.5));
     float b = ring(r, 7.) + ring(r, 13.5) * 1.5 + ring(r, 20.) + ring(r, 26.5);
     float tick = smoothstep(.72, .98, cos(a * 56. + uT * .03)) * (1. - smoothstep(.0, .26, abs(r - 13.98)));
     float spoke = smoothstep(.994, 1., cos(a * 7. - uT * .02)) * smoothstep(5., 8., r) * (1. - smoothstep(12., 34., r)) * .45;
-    float L = (b + tick + spoke) * (1. - smoothstep(8., 40., r)) * .3 + (1. - smoothstep(0., 26., r)) * .035;
-    float sky = smoothstep(.0, .12, V.y);
-    o = vec4(vec3(.85, .7, .42) * L * uK * sky, L * .5 * uK * sky);
+    float L = (b + tick + spoke) * (1. - smoothstep(8., 40., r)) * .3 * (1. - voidM * .9) + (1. - smoothstep(0., 26., r)) * .035;
+    vec3 col = vec3(.85, .7, .42) * L;
+    /* 칠룡의 고리 여덟 자리: 원소색 빛 일곱, 동쪽은 빈 점선 홈 */
+    float k = mod(floor(a / .7854 + .5), 8.);
+    vec2 seat = 13.5 * vec2(cos(k * .7854), sin(k * .7854));
+    float d = length(p - seat);
+    if (k < .5) {
+      col += vec3(.55) * (1. - smoothstep(.0, .09, abs(d - .75))) * step(.5, fract(atan(p.y - seat.y, p.x - seat.x) * 1.9)) * .5;
+    } else {
+      float pulse = .8 + .2 * sin(uT * .7 + k * 1.3);
+      col += uSeat[int(k)] * ((1. - smoothstep(.0, .42, d)) * 1.6 + (1. - smoothstep(.0, 2.4, d)) * .35) * pulse;
+    }
+    /* 고리 안의 필멸자 땅: 서북 아다만트의 용광로 불 · 서남 푸른숲의 숲빛 · 동 비술의 흰 첨탑 불빛 */
+    vec2 g = p * 1.25, c = floor(g), f = fract(g) - .5;
+    float h1 = fract(texture(uNoise, (c + .5) / 61.).r * 31.7), h2 = fract(texture(uNoise, (c + .5) / 47. + .5).r * 23.3);
+    float dotL = (1. - smoothstep(.03, .12, length(f - (vec2(h1, h2) - .5) * .6))) * step(.55, h1 * h2 * 2.);
+    float adam = blob(p, vec2(-7., -7.5), 4.8), verd = blob(p, vec2(-7., 2.5), 4.6), arc = blob(p, vec2(6.5, -3.), 4.2);
+    float fl = .7 + .3 * sin(uT * 2.3 + h1 * 40.);
+    col += dotL * (vec3(1., .55, .2) * adam * fl + vec3(.45, .8, .4) * verd + vec3(.85, .78, 1.) * arc * (.85 + .15 * sin(uT + h2 * 30.))) * 1.3;
+    col += vec3(.75, .4, .16) * adam * adam * .05 + vec3(.25, .45, .2) * verd * verd * .04 + vec3(.45, .38, .7) * arc * arc * .05;
+    /* 빈 땅: 회색 번짐과 잔금 */
+    float n = texture(uNoise, p * .05).r;
+    col = mix(col, vec3(.3, .3, .32) * (.08 + (1. - smoothstep(.0, .012, abs(n - .5))) * .35), voidM * .85);
+    float sky = smoothstep(.0, .12, V.y), A = max(L, max(col.r, max(col.g, col.b)) * .6);
+    o = vec4(col * uK * sky, A * .5 * uK * sky);
   }`;
 
   /* ---------- 행렬 ---------- */
@@ -372,7 +476,7 @@ const Titans = (() => {
   };
 
   /* ---------- 상태 ---------- */
-  let gl, cv, prog, progF, progD, U = {}, UF = {}, UD = {}, parts = [], k = 0, kTo = 0, mx = 0, my = 0, tx = 0, ty = 0, last = 0, W = 0, H = 0, reduced = false, raf = 0, ready = false, q = 0, prevRaf = 0, slowSum = 0, slowN = 0;
+  let gl, cv, prog, progF, progD, U = {}, UF = {}, UD = {}, parts = [], k = 0, kTo = 0, mx = 0, my = 0, tx = 0, ty = 0, last = 0, W = 0, H = 0, reduced = false, raf = 0, ready = false, q = 0, prevRaf = 0, slowSum = 0, slowN = 0, asleep = false;
 
   function upload(mesh) {
     const vao = gl.createVertexArray(); gl.bindVertexArray(vao);
@@ -449,7 +553,7 @@ const Titans = (() => {
     const place = {
       floor:  () => model(0, -6.4, -3, 1, 0),
       god:    () => model(.0, -.9 + Math.sin(t * .3) * .12, -11, 1.34, Math.sin(t * .11) * .05),
-      giant:  () => model(-6.5 * spread, -.3 + breath * .05, -1.5, .92, .36 + Math.sin(t * .09) * .018, .03 + breath * .006),
+      giant:  () => model(-6.5 * spread, .55 + breath * .05, -1.5, 1.0, .36 + Math.sin(t * .09) * .018, .03 + breath * .006),
       dragon: () => model(5.55 * spread, .3 + Math.sin(t * .37) * .1, .2, .84, -.16 + Math.sin(t * .13) * .03, 0, Math.sin(t * .23) * .008)
     };
     for (const p of parts) {
@@ -487,8 +591,10 @@ const Titans = (() => {
       /* 그래픽 칩이 느려도 게임은 먼저 뜬다: 컴파일이 끝나면 모형을 하나씩 지어 서서히 나타난다 */
       whenLinked([prog, progF, progD], () => {
         for (const q of [prog, progF, progD]) if (!gl.getProgramParameter(q, gl.LINK_STATUS)) { console.warn("Titans:", gl.getProgramInfoLog(q), gl.getShaderInfoLog(q._s[0]), gl.getShaderInfoLog(q._s[1])); cv = null; return; }
-        for (const u of ["uVP", "uM", "uT", "uFlap", "uRot", "uCam", "uBody", "uRim", "uHot", "uK", "uFogN", "uFogF"]) U[u] = gl.getUniformLocation(prog, u);
-        for (const u of ["uVP", "uM", "uT", "uCam", "uK"]) UF[u] = gl.getUniformLocation(progF, u);
+        for (const u of ["uVP", "uM", "uT", "uFlap", "uRot", "uCam", "uBody", "uRim", "uHot", "uK", "uFogN", "uFogF", "uGem"]) U[u] = gl.getUniformLocation(prog, u);
+        for (const u of ["uVP", "uM", "uT", "uCam", "uK", "uSeat"]) UF[u] = gl.getUniformLocation(progF, u);
+        gl.useProgram(prog); gl.uniform3fv(U.uGem, GEM.flatMap(rgb));
+        gl.useProgram(progF); gl.uniform3fv(UF.uSeat, SEAT.flatMap(rgb));
         for (const u of ["uVP", "uM", "uT", "uFlap", "uRot"]) UD[u] = gl.getUniformLocation(progD, u);
         gl.enable(gl.DEPTH_TEST); gl.depthFunc(gl.LEQUAL); gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
         noiseTexture();
@@ -501,7 +607,8 @@ const Titans = (() => {
           cv.addEventListener("webglcontextlost", e => { e.preventDefault(); cancelAnimationFrame(raf); });
           cv.addEventListener("webglcontextrestored", () => location.reload());
           ready = true;
-          if (reduced) { k = kTo; frame(performance.now(), true); } else raf = requestAnimationFrame(frame);
+          if (asleep) cv.style.display = "none";
+          else if (reduced) { k = kTo; frame(performance.now(), true); } else raf = requestAnimationFrame(frame);
         };
         next();
       });
@@ -509,6 +616,17 @@ const Titans = (() => {
     /* 지금 품질 단계 (점검용) */
     get quality() { return q; },
     /* Bg.set이 부른다 */
-    mode(m) { kTo = typeof m === "number" ? m : STRENGTH[m] ?? STRENGTH.calm; if (ready && reduced) { k = kTo; frame(performance.now(), true); } }
+    mode(m) {
+      /* v3.5.9: 전장("off")에서는 아예 그리지 않는다 — 캔버스를 숨기고 그리기 고리를 멈춘다. 다른 화면으로 나가면 다시 그린다 */
+      const sleep = m === "off";
+      if (sleep !== asleep) {
+        asleep = sleep;
+        if (cv) cv.style.display = sleep ? "none" : "";
+        if (sleep) { cancelAnimationFrame(raf); raf = 0; }
+        else if (ready && !reduced && !raf) raf = requestAnimationFrame(frame);
+      }
+      kTo = typeof m === "number" ? m : STRENGTH[m] ?? STRENGTH.calm;
+      if (ready && reduced && !asleep) { k = kTo; frame(performance.now(), true); }
+    }
   };
 })();

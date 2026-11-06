@@ -8,12 +8,15 @@ const STORE_KEY = "etherion.v3";   // v3: 덱이 진영이 아니라 단체(9개
 /* 시험 모드: 로그인 화면을 건너뛰고 관리자(9개 단체 덱·모든 카드 보유)로 바로 들어간다. 정식 계정 흐름으로 돌리려면 false
    v1.4.4: false — 새 모험가는 진영마다 깃발 하나(모두 셋)만 쓴다. 관리자는 admin / etherion으로 로그인한다 */
 const OPEN_PLAY = false;
+/* v2.1 손님 입장: 로그인 화면의 "로그인 없이 시작"으로 들어오는 계정. 등록·암호 없이 9개 단체 덱과 모든 카드를 쓴다.
+   관리자와 달리 보관소·ADMIN 표시는 없다. 진행(승패·환석 조각)은 이 브라우저에 남는다 */
+const GUEST_ID = "손님";
 
 /* 신규 모험가의 보유 카드: 고른 단체의 기본 덱 40장 + 그 단체의 다른 카드 1장씩 */
 function starterCollection(g) {
   const col = {};
   for (const k in STARTER_DECKS[g]) col[k] = STARTER_DECKS[g][k];
-  for (const c of cardsOfGroup(g)) col[c.id] = Math.min(maxCopiesOf(c), Math.max(col[c.id] || 0, 1));
+  for (const c of cardsOfGroup(g)) if (!c.special) col[c.id] = Math.min(maxCopiesOf(c), Math.max(col[c.id] || 0, 1));   // v2.9 기본 덱 밖의 스페셜은 시작 카드에서 뺀다 (v3.2: 기본 덱의 유니크 · 스페셜 1장씩은 위에서 들어간다)
   return col;
 }
 const starterDeckName = g => (typeof DECK_LISTS !== "undefined" && DECK_LISTS[g] ? DECK_LISTS[g].name : GROUPS[g].name + " 기본 덱");
@@ -33,6 +36,9 @@ const Store = {
   },
   user() { return this.data.session ? this.data.users[this.data.session] : null; },
   isAdmin(u) { u = u || this.user(); return !!(u && u.admin); },
+  isGuest(u) { u = u || this.user(); return !!(u && u.guest); },
+  /* 모든 카드를 가진 계정(관리자 · 손님) */
+  allCards(u) { u = u || this.user(); return !!(u && (u.admin || u.guest)); },
 
   /* 계정 */
   /* 새 모험가 (v1.4.4): 세 진영에서 깃발(단체)을 하나씩, 모두 셋을 고른다. 고른 단체의 덱만 쓸 수 있다.
@@ -41,7 +47,7 @@ const Store = {
     id = (id || "").trim();
     groups = Array.isArray(groups) ? groups : [groups];
     if (id.length < 2 || id.length > 16) return "이름은 2~16자로 정해 주세요.";
-    if (id.toLowerCase() === ADMIN_ID) return "이 이름은 쓸 수 없습니다.";
+    if (id.toLowerCase() === ADMIN_ID || id === GUEST_ID) return "이 이름은 쓸 수 없습니다.";
     if (this.data.users[id]) return "이미 있는 이름입니다. 로그인해 주세요.";
     if (!pw || pw.length < 2) return "암호는 2자 이상으로 정해 주세요.";
     if (!groups.length || groups.some(g => !GROUPS[g])) return "진영마다 깃발을 하나씩 골라 주세요.";
@@ -72,17 +78,27 @@ const Store = {
       this.data.session = ADMIN_ID; this.save(); return null;
     }
     const u = this.data.users[id];
-    if (!u) return "등록되지 않은 이름입니다. '새 모험가'로 등록해 주세요.";
+    if (!u || u.guest) return "등록되지 않은 이름입니다. '새 모험가'로 등록하거나 '로그인 없이 시작'을 눌러 주세요.";
     if (u.pw !== pw) return "암호가 맞지 않습니다.";
     this.data.session = id; this.save(); return null;
+  },
+  /* 로그인 없이 시작: 손님 계정을 (없으면 만들고) 연다 */
+  guest() {
+    let u = this.data.users[GUEST_ID];
+    if (!u) {
+      const decks = {}, owned = {};
+      for (const g of GROUP_IDS) { decks[g] = freshDeck(g); owned[g] = true; }
+      u = this.data.users[GUEST_ID] = { id: GUEST_ID, pw: null, admin: false, guest: true, created: Date.now(), group: "B1", owned, collection: {}, decks, stats: { w: 0, l: 0 }, gold: ECON.startGold };
+    }
+    this.data.session = GUEST_ID; this.save(); return null;
   },
   logout() { this.data.session = null; this.save(); },
   /* 시험 모드: 관리자 세션이 아니면 관리자로 들어간다 */
   ensureOpen() { if (OPEN_PLAY && !this.isAdmin()) this.login(ADMIN_ID, ADMIN_PW); },
 
   /* 컬렉션: 관리자는 모든 카드를 최대 장수만큼 가진다 */
-  ownedCount(u, cardId) { return u.admin ? maxCopiesOf(cardId) : Math.min(maxCopiesOf(cardId), u.collection[cardId] || 0); },
-  ownsGroup(u, g) { return u.admin || !!u.owned[g]; },
+  ownedCount(u, cardId) { return this.allCards(u) ? maxCopiesOf(cardId) : Math.min(maxCopiesOf(cardId), u.collection[cardId] || 0); },
+  ownsGroup(u, g) { return this.allCards(u) || !!u.owned[g]; },
   deck(u, g) {
     if (!u.decks[g] && this.ownsGroup(u, g)) u.decks[g] = freshDeck(g);
     return u.decks[g];
@@ -107,15 +123,41 @@ const Store = {
     if (!v.ok) return v;
     const clean = {}; for (const k in cards) if (cards[k] > 0) clean[k] = cards[k];
     u.decks[f] = { name: (name || "").trim() || GROUPS[f].name + " 덱", cards: clean, savedAt: Date.now() };
+    if (u.drafts) delete u.drafts[f];   // v3.0 저장하면 초안은 덱이 된다
     this.save();
     return { ok: true };
+  },
+  /* v3.0 덱 초안: 덱 조정실에서 고치는 중인(아직 저장하지 않은) 덱. 교역소에 다녀오거나 다른 화면에 가도 남는다.
+     저장(saveDeck)하면 덱이 되고, 되돌리기(clearDraft)하면 지워진다. 대전에는 저장한 덱만 나간다 */
+  draft(u, g) { return (u.drafts && u.drafts[g]) || null; },
+  setDraft(u, g, cards, name) {
+    const d = this.deck(u, g), clean = {};
+    for (const k in cards) if (cards[k] > 0) clean[k] = cards[k];
+    const same = (name || "") === (d.name || "") && JSON.stringify(Object.keys(clean).sort().map(k => [k, clean[k]])) === JSON.stringify(Object.keys(d.cards).filter(k => d.cards[k] > 0).sort().map(k => [k, d.cards[k]]));
+    u.drafts = u.drafts || {};
+    if (same) delete u.drafts[g]; else u.drafts[g] = { cards: clean, name: name || "", at: Date.now() };
+    this.save();
+  },
+  clearDraft(u, g) { if (u.drafts && u.drafts[g]) { delete u.drafts[g]; this.save(); } },
+  /* 교역소에서 산 카드를 그 단체의 덱 초안에 넣는다 (40장 · 같은 카드 최대 장수 · 쓸 수 있는 장수 안에서).
+     돌려주는 값: { g, added, why } — why: "full"(40장이 찼다) · "copies"(같은 카드 최대) · "group"(쓸 수 없는 단체) */
+  draftAdd(u, id, n) {
+    const c = CARDS[id]; if (!c) return { added: 0, why: "none" };
+    const g = c.group;
+    if (!GROUPS[g] || !this.ownsGroup(u, g)) return { g, added: 0, why: "group" };
+    const cur = this.draft(u, g) || this.deck(u, g);
+    const cards = Object.assign({}, cur.cards), inDeck = cards[id] || 0;
+    const room = RULES.deckSize - countMap(cards), cap = Math.min(maxCopiesOf(c), this.ownedCount(u, id)) - inDeck;
+    const add = Math.max(0, Math.min(n || 1, room, cap));
+    if (add) { cards[id] = inDeck + add; this.setDraft(u, g, cards, cur.name); }
+    return { g, added: add, why: add ? "" : room <= 0 ? "full" : "copies" };
   },
   deckPlayable(u, f) {
     const d = u.decks[f];
     return !!(d && this.ownsGroup(u, f) && this.validateDeck(u, f, d.cards).ok);
   },
   grantCard(u, cardId) {
-    if (u.admin) return false;
+    if (this.allCards(u)) return false;
     const now = u.collection[cardId] || 0;
     if (now >= maxCopiesOf(cardId)) return false;
     u.collection[cardId] = now + 1; this.save(); return true;

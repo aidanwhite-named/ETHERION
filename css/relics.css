@@ -1,0 +1,146 @@
+/* ETHERION v2.4 — 전장의 네 성물: 에테르(용의 또아리) · 소각장(귀환의 불) · 덱(아치 감실) · 생명(심장석)
+   style.css · depth.css 뒤에 읽혀 그 규칙을 덮어쓴다. 그리는 코드는 js/game.js의 dragonCoilSVG · pyreHTML · SHRINE_SVG · heartGemSVG.
+   세계관: 에테르는 몸(거인)·뜻(신)·힘(용)의 세 갈래. 에테르 = 힘이니 용이 감싸고, 소각은 에테르로 돌려보내는 불이다. */
+
+/* ───────── 1. 에테르 — 용의 또아리 ───────── */
+.eth-ring { transform: none; perspective: none; border-radius: 50%; overflow: visible; }
+.eth-ring::before { display: none; }
+.dr-svg { position: absolute; inset: -9%; width: 118%; height: 118%; overflow: visible; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .6)); }
+.eth-ring .eth-orb { position: absolute; inset: 27%; width: auto; height: auto; max-height: none; transform: none; background: none; box-shadow: none; display: grid; place-items: center; align-content: center; pointer-events: none; }
+.eth-ring .eth-orb::before, .eth-ring .eth-orb::after { display: none; }
+.eth-ring .eth-orb b { font-size: 21cqw; line-height: 1; color: #fff; text-shadow: 0 2px 6px rgba(0, 30, 60, .95), 0 0 14px rgba(143, 220, 255, .6); }
+.eth-ring .eth-orb span { font-size: 7.5cqw; color: #d8f4ff; }
+
+.dr-body { stroke: rgba(143, 220, 255, .5); stroke-width: .7; stroke-linejoin: round; }
+.dr-plates { fill: none; stroke: #000; stroke-opacity: .42; stroke-width: .8; }
+.dr-belly { fill: none; stroke: #5c5478; stroke-opacity: .55; stroke-width: 1.4; stroke-linecap: round; }
+.dr-ridge { fill: none; stroke: #8fdcff; stroke-opacity: .7; stroke-width: 1.3; stroke-linecap: round; }
+.dr-front .dr-body { filter: drop-shadow(0 -2px 3px rgba(0, 0, 0, .7)); }
+.dr-orb { filter: drop-shadow(0 0 10px rgba(143, 220, 255, .55)); transition: filter .3s; }
+.dr-orb-hi { fill: #fff; opacity: .55; }
+.dr-halo { opacity: .8; }
+/* 등의 결정 */
+.dr-sp .sp-body { fill: #0c1a26; stroke: rgba(143, 220, 255, .28); stroke-width: .7; stroke-linejoin: round; transition: fill .3s, filter .3s; }
+.dr-sp .sp-edge { fill: none; stroke: rgba(255, 255, 255, .12); stroke-width: .5; }
+.dr-sp.on .sp-body { fill: #5fc3f0; stroke: #e4f7ff; filter: drop-shadow(0 0 3px rgba(143, 220, 255, .95)); }
+.dr-sp.on .sp-edge { stroke: rgba(255, 255, 255, .7); }
+.dr-sp.on.used .sp-body { fill: #23485c; stroke: #3d6a82; filter: none; }
+.dr-sp.on.used .sp-edge { stroke: rgba(255, 255, 255, .15); }
+/* 위대한 정수 (입에 문 금 보석) */
+.dr-ess .ess-body { stroke: #ffe7a8; stroke-width: .8; stroke-linejoin: round; filter: drop-shadow(0 0 4px rgba(255, 220, 130, .9)); }
+.dr-ess .ess-edge { fill: none; stroke: rgba(255, 255, 255, .6); stroke-width: .5; }
+.dr-ess.used .ess-body { fill: #5a4a20; filter: none; stroke: #8a6a2a; }
+/* 머리·발톱 */
+.dr-head path, .dr-palm { fill: #17131f; stroke: rgba(143, 220, 255, .5); stroke-width: .7; stroke-linejoin: round; }
+.dr-horn { fill: #0f0c16 !important; stroke: rgba(217, 180, 106, .5) !important; }
+.dr-jawline { fill: none !important; stroke: rgba(0, 0, 0, .55) !important; stroke-width: .9 !important; }
+.dr-teeth { fill: #e9e1d2 !important; stroke: none !important; }
+.dr-brow { fill: none !important; stroke: rgba(143, 220, 255, .5) !important; }
+.dr-nostril { fill: none !important; stroke: rgba(0, 0, 0, .6) !important; }
+.dr-eye { fill: #bfeaff; stroke: none !important; filter: drop-shadow(0 0 3px #8fdcff); } /* v3.7.7: 눈 깜빡임(drEye) 뺌 */
+.dr-pupil { fill: #061018; stroke: none !important; }
+.dr-talon { fill: none; stroke: #17131f; stroke-width: 3.4; stroke-linecap: round; paint-order: stroke; }
+.dr-tip circle { fill: #d9d0bf; }
+.dr-claws::after { content: none; }
+@keyframes drEye { 0%, 100% { opacity: 1; } 50% { opacity: .65; } }
+/* 상태: 모자람(붉은 구슬) · 보너스(초록 빛) · 결정화 가능(맥동) */
+.ether.altar.short .dr-orb { fill: url(#dr0-orbred); }
+.ether.altar.short[data-p="1"] .dr-orb { fill: url(#dr1-orbred); }
+.ether.altar.short .dr-halo { opacity: .4; }
+.ether.altar.boosted .dr-orb { filter: drop-shadow(0 0 14px rgba(127, 227, 156, .85)); }
+.ether.altar.valid .eth-ring { animation: none; }
+.ether.altar.valid .dr-orb { animation: drPulse 1.4s ease-in-out infinite; }
+@keyframes drPulse { 50% { filter: drop-shadow(0 0 22px rgba(143, 220, 255, .95)); } }
+.ether.altar.drop-hover .eth-ring { box-shadow: none; }
+.ether.altar.drop-hover .dr-orb { filter: drop-shadow(0 0 0 3px var(--gold-hi)) drop-shadow(0 0 24px rgba(143, 220, 255, .9)); }
+.prow-top .eth-ring .eth-orb b { font-size: 22cqw; }
+.prow-top .dr-plates, .prow-top .dr-sp .sp-edge, .prow-top .dr-ess .ess-edge, .prow-top .dr-orb-hi { display: none; }
+
+/* ───────── 2. 소각장 — 귀환의 불 (성화대) ───────── */
+.zone.burn { perspective: none; background: none; border: 0; box-shadow: none; overflow: visible; container-type: inline-size; }
+.zone.burn.valid { border: 0; box-shadow: none; animation: none; }
+.pyre { position: absolute; inset: 0; pointer-events: none; }
+.py-svg { position: absolute; left: -12%; top: -6%; width: 124%; height: 112%; overflow: visible; }
+.py-halo { opacity: .7; }
+.pyre:not(.lit) .py-halo { opacity: .18; }
+.py-fire { mix-blend-mode: screen; }
+.py-fl { transform-origin: 50px 100px; }
+.py-front { mix-blend-mode: screen; }
+.py-fl.f1 { opacity: .72 !important; }
+.py-fl.f2 { opacity: .9; }
+/* v3.7.6: 불꽃이 흔들리던 움직임(pyFlame) · 후광 숨쉬기(pyHalo) · 떠오르는 불티(pySpark)를 뺐다. 멈춘 불 그림만 남는다(GPU 부담) */
+.pyre:not(.lit) .py-fl { transform: scale(.55, .3); opacity: .55; animation: none; }
+.pyre:not(.lit) .py-fl.f1 { opacity: .35; }
+@keyframes pyFlame { 0%, 100% { transform: scale(1, 1) skewX(0); } 30% { transform: scale(1.04, 1.07) skewX(2.5deg); } 65% { transform: scale(.97, .95) skewX(-2deg); } }
+@keyframes pyHalo { 50% { opacity: .85; transform: scale(1.06); } }
+/* 마지막으로 태운 카드: 불 속에 서서 위부터 타 들어간다 */
+.pyre .burn-top { position: absolute; left: 29%; top: 27%; width: 42%; opacity: 1; transform: rotate(-3deg); transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, .4) 18%, #000 45%, #000 100%); mask-image: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, .4) 18%, #000 45%, #000 100%); }
+.pyre .burn-top .card { --cw: 42cqw; position: relative; inset: auto; width: var(--cw); }
+.pyre .burn-top .card .c-frame { filter: grayscale(.9) brightness(.42) sepia(.4) contrast(1.15); }
+/* 불티: 주황으로 떠올라 하늘빛으로 식는다 (에테르로 돌아간다) */
+.py-spark { position: absolute; left: var(--x); top: 58%; width: calc(var(--cw) * .028); height: calc(var(--cw) * .028); border-radius: 50%; background: #ffd9a0; box-shadow: 0 0 calc(var(--cw) * .05) #ff7a2c; opacity: 0; animation: pySpark var(--t) var(--d) linear infinite; }
+.pyre:not(.lit) .py-spark { display: none; }
+@keyframes pySpark {
+  0% { opacity: 0; transform: translate(0, 0) scale(1); background: #ffd9a0; box-shadow: 0 0 6px #ff7a2c; }
+  12% { opacity: 1; }
+  60% { background: #cfefff; box-shadow: 0 0 6px #8fdcff; }
+  100% { opacity: 0; transform: translate(var(--dx), calc(var(--cw) * -.85)) scale(.5); background: #8fdcff; box-shadow: 0 0 8px #8fdcff; }
+}
+/* 이름표·장수 */
+.zone.burn .zone-label { top: -4px; background: rgba(8, 9, 16, .78); border: 1px solid rgba(217, 180, 106, .35); color: #ffd8cc; box-shadow: 0 3px 8px rgba(0, 0, 0, .7); }
+.zone.burn .zone-count { top: auto; bottom: 2%; left: auto; right: -6%; transform: none; font-size: calc(var(--cw) * .17) !important; background: linear-gradient(180deg, #2a2436, #0d0b14); border: 1px solid rgba(217, 180, 106, .7); color: #f6e2a8; box-shadow: 0 3px 8px rgba(0, 0, 0, .75), inset 0 0 0 1px rgba(0, 0, 0, .6); }
+.zone.burn.valid { cursor: pointer; }
+.zone.burn.valid .py-halo { opacity: 1; }
+.zone.burn.valid .py-rim { stroke: var(--gold-hi); filter: drop-shadow(0 0 6px rgba(246, 226, 168, .9)); }
+.zone.burn.drop-hover { transform: scale(1.04); box-shadow: none !important; }
+.zone.burn.drop-hover .py-halo { opacity: 1; }
+
+/* ───────── 3. 덱 — 정면의 네모난 카드 더미 (v3.7.6) ─────────
+   기울이지 않고 카드 한 장 모양 그대로. 맨 위 카드(마지막 자식)는 카드 뒷면, 그 아래 장들은 오른쪽 아래로 조금씩 비켜
+   두께만 보인다(--n = 보이는 장수, 덱 장수에 따라 1~5). 아치 감실 · 룬 고리 · 등불은 뺐다. 움직이는 것 없음 */
+.zone.deck { overflow: visible; perspective: none; box-shadow: none; }
+.zone.deck .deck-stack { position: absolute; inset: 0; transform: none; transform-style: flat; }
+.zone.deck .deck-card { position: absolute; inset: 0; border-radius: calc(var(--cw) * .05);
+  transform: translate(calc((var(--n) - 1 - var(--i)) * 2px), calc((var(--n) - 1 - var(--i)) * 2.5px)) !important;
+  background: linear-gradient(180deg, #3a2f1c, #1a1409); border: 1px solid #6b5426; box-shadow: none; }
+.zone.deck .deck-card:first-child { box-shadow: 0 6px 14px rgba(0, 0, 0, .7); }
+.zone.deck .deck-card:last-child {
+  background: radial-gradient(circle at 50% 50%, transparent 0 22%, rgba(217, 180, 106, .5) 23% 24%, transparent 25% 34%, rgba(217, 180, 106, .3) 35% 36%, transparent 37%), repeating-linear-gradient(45deg, rgba(217, 180, 106, .06) 0 5px, transparent 5px 10px), radial-gradient(circle, #2c2244, #120e1d 70%);
+  border: 1px solid var(--gold-deep); box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .22); }
+.zone.deck .deck-card:only-child { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .22), 0 6px 14px rgba(0, 0, 0, .7); }
+.zone.deck.empty { border: 2px dashed rgba(217, 180, 106, .25); background: rgba(5, 6, 11, .4); }
+.zone.deck .deck-n { bottom: 6%; background: linear-gradient(180deg, #2a2436, #0d0b14); border: 1px solid rgba(217, 180, 106, .7); color: #f6e2a8; box-shadow: 0 3px 8px rgba(0, 0, 0, .75), inset 0 0 0 1px rgba(0, 0, 0, .6); }
+.zone.deck .zone-label { top: 6px; background: rgba(8, 9, 16, .82); border: 1px solid rgba(217, 180, 106, .35); }
+.f-piles .arc-host { position: relative; z-index: 2; }
+
+/* ───────── 4. 생명 — 심장석 ───────── */
+.pl { grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto auto; column-gap: 12px; row-gap: 2px; align-items: center; }
+.hgem { grid-row: 1 / 4; width: clamp(36px, calc(var(--cw) * .42), 58px); height: auto; overflow: visible; filter: drop-shadow(0 0 7px rgba(255, 70, 95, .5)); }
+.hg-claw path { fill: #d9b46a; stroke: #7a5418; stroke-width: .5; }
+.hg-crack { opacity: 0; transition: opacity .4s; }
+.hg-blood, .hg-surf { transition: y .5s ease, height .5s ease; }
+.pl-head { grid-column: 2; align-self: end; }
+.pl-head span { color: #f0a9b1; }
+.pl-val { grid-column: 2; align-self: start; }
+.pl-ticks { grid-column: 2; display: flex; gap: 4px; align-items: center; margin-top: 2px; }
+.pl-ticks i { width: 9px; height: 9px; transform: rotate(45deg); background: rgba(255, 255, 255, .06); box-shadow: inset 0 0 0 1px rgba(255, 140, 155, .22); transition: background .3s, box-shadow .3s; }
+.pl-ticks i.on { background: linear-gradient(135deg, #ff8a99, #c42340); box-shadow: 0 0 6px rgba(255, 70, 95, .6), inset 0 0 0 1px rgba(255, 200, 210, .4); }
+.pl-ticks i.half { background: linear-gradient(135deg, #ff8a99 50%, rgba(255, 255, 255, .08) 50%); box-shadow: inset 0 0 0 1px rgba(255, 140, 155, .35); }
+.pinfo.low .hgem { animation: hgLow 1.6s ease-in-out infinite; }
+.pinfo.low .hg-crack { opacity: .6; }
+@keyframes hgLow { 50% { filter: drop-shadow(0 0 16px rgba(255, 60, 85, .95)); } }
+.pinfo.hit .hgem { filter: drop-shadow(0 0 14px rgba(255, 90, 110, 1)) brightness(1.4); }
+/* 상대(위 줄, 가로 배치) */
+.pv-top .pl { grid-template-columns: auto auto auto; grid-template-rows: auto; column-gap: 7px; }
+.pv-top .hgem { grid-row: auto; width: clamp(22px, calc(var(--top-h) * .46), 30px); }
+.pv-top .pl-head { display: none; }
+.pv-top .pl-val { grid-column: auto; }
+.pv-top .pl-ticks { grid-column: auto; gap: 3px; margin: 0; }
+.pv-top .pl-ticks i { width: 6px; height: 6px; }
+@media (max-width: 1180px) { .pv-top .pl-ticks { display: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .py-fl, .py-halo, .py-spark, .sh-rune, .sh-lamp, .dr-eye, .dr-orb, .hgem { animation: none !important; }
+  .py-spark { display: none; }
+}

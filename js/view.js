@@ -82,22 +82,63 @@ function levelPips(c) {
   const key = c.type === "item" ? "item" : c.group;
   let h = "";
   for (let i = 0; i < c.lv; i++) h += `<i class="pip${i >= full ? " pip-up" : ""}">${pipSVG(key, i >= full)}</i>`;
-  return `<div class="c-pips" style="--lvn:${Math.max(1, c.lv)}" data-tip="${esc(`레벨 아이콘 ${c.lv}개 = 레벨 ${c.lv} · 소환 비용 에테르 ${c.lv}` + (up ? `\n속이 빈 아이콘 ${up}개 = 유지비 ${up}` : ""))}">${h}</div>`;
+  return `<div class="c-pips" style="--lvn:${Math.max(1, c.lv)}" data-tip="${esc(lvTip(c))}" data-tip-kw>${h}</div>`;
 }
 
-/* 오른쪽 위 배지: 정사각형 = 카드 종류 (마법 = 칼·방패, 아이템 = 보석). 유닛에는 없다. (v1.0: 클래스 동그라미는 뺐다) */
+/* 오른쪽 위 배지: 정사각형 = 마법 종류 (칼·방패). 동그라미 = 클래스 (v2.3: 유닛과 아이템).
+   유닛은 자기 클래스, 아이템은 장착할 수 있는 클래스 (여럿이면 여럿, 모두면 빈 동그라미 하나).
+   유닛과 아이템의 동그라미가 하나라도 같으면 장착된다 (cards.js canEquip) */
+const CLASS_ICON = {   // viewBox 0 0 24 24
+  // 무도: 쥔 주먹 (손가락 넷 + 가로지른 엄지)
+  "무도": '<rect x="4.6" y="5.2" width="3.7" height="8" rx="1.85"/><rect x="8.3" y="4" width="3.7" height="9" rx="1.85"/><rect x="12" y="4.4" width="3.7" height="8.6" rx="1.85"/><rect x="15.7" y="5.8" width="3.5" height="7.4" rx="1.75"/><path d="M4.6 10.5h14.6v6.3c0 2.8-2.2 4.7-5 4.7H9.6c-2.8 0-5-1.9-5-4.7z"/><path d="M8.3 6.5v5M12 5.5v6M15.7 6.5v5" stroke="#000" stroke-opacity=".42" stroke-width="1.1"/><path d="M5.6 14.6h7.6a1.9 1.9 0 010 3.8H7.4" fill="none" stroke="#000" stroke-opacity=".45" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>',
+  // 무장: 엇갈린 두 검 (날 · 가드 · 손잡이 · 폼멜)
+  "무장": '<g fill="none" stroke="currentColor" stroke-linecap="round"><path d="M7.6 16.4 20.6 3.4" stroke-width="2.3"/><path d="M16.4 16.4 3.4 3.4" stroke-width="2.3"/><path d="M5.2 14 10 18.8M18.8 14 14 18.8" stroke-width="2"/><path d="M7.4 16.6 4.4 19.6M16.6 16.6l3 3" stroke-width="2.5"/></g><circle cx="3.6" cy="20.4" r="1.6"/><circle cx="20.4" cy="20.4" r="1.6"/>',
+  // 마도: 네 갈래 마력의 별 + 작은 별
+  "마도": '<path d="M11 2.5c.7 5.3 3.2 7.8 8.5 8.5-5.3.7-7.8 3.2-8.5 8.5-.7-5.3-3.2-7.8-8.5-8.5 5.3-.7 7.8-3.2 8.5-8.5z"/><path d="M19 15.2c.3 2.1 1.2 3 3.3 3.3-2.1.3-3 1.2-3.3 3.3-.3-2.1-1.2-3-3.3-3.3 2.1-.3 3-1.2 3.3-3.3z"/><circle cx="19.2" cy="4.6" r="1.3"/>',
+  // 기도: 모은 두 손과 그 위의 빛
+  "기도": '<path d="M11.4 6.2c-1.5 1.4-2.6 4.3-3 7.6l-3.6 4.4 3.4 3.4 3.2-3.5z"/><path d="M12.6 6.2c1.5 1.4 2.6 4.3 3 7.6l3.6 4.4-3.4 3.4-3.2-3.5z"/><path d="M12 6.6v11.4" stroke="#000" stroke-opacity=".45" stroke-width="1"/><path d="M12 1.2v2.6M7.6 2.8l1.2 1.8M16.4 2.8l-1.2 1.8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".85"/>'
+};
+const CLASS_INFO = {
+  "무도": "자기 몸에서 나오는 힘. 골렘·수인·트렌트·정령·맹수",
+  "무장": "무기와 도구의 힘. 병사·사수·기사·창·검",
+  "마도": "자기 마력의 힘. 마법사·술사·학자",
+  "기도": "초월자에게 빌린 힘. 사제·무녀·사도·계약자"
+};
+function cardClasses(c) {
+  if (c.type === "unit") return c.cl ? [c.cl] : [];
+  if (c.type === "item") return isAllClass(c) ? ["공용"] : itemClasses(c).filter(k => CLASS_ICON[k]);
+  return [];
+}
+function classTip(c, cl) {
+  if (c.type === "unit") return `${cl} 유닛\n${CLASS_INFO[cl]}.\n장착할 수 있는 아이템: 이 아이콘(${cl})이 있는 아이템, 빈 동그라미의 공용 아이템.`;
+  if (cl === "공용") return "공용 아이템\n모든 클래스의 유닛이 장착할 수 있습니다.";
+  const all = itemClasses(c);
+  return `${all.join(", ")} 전용 아이템\n${all.join(" · ")} 유닛만 장착할 수 있습니다. 유닛 오른쪽 위의 동그라미 아이콘이 이 아이템과 같아야 합니다.`;
+}
+function classCircleHTML(c, cl) {
+  return `<i class="c-clsb clc-${cl}" data-tip="${esc(classTip(c, cl))}">${CLASS_ICON[cl] ? `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${CLASS_ICON[cl]}</svg>` : ""}</i>`;
+}
+/* 이름 + 클래스 꼬리표 (": [무도]", ": [무장, 기도 전용]") */
+function nameHTML(c, extra) {
+  const tag = classTagText(c);
+  return `<span class="c-name"><span class="c-nm">${esc(c.name)}</span>${tag ? `<span class="c-cltag">: ${esc(tag)}</span>` : ""}${extra || ""}</span>`;
+}
 const ITEM_KIND_ICON = '<path d="M32 5 57 25 32 59 7 25z"/><path d="M7 25h50M20 25l12 34 12-34M20 25l12-20 12 20" fill="none" stroke="#000" stroke-opacity=".42" stroke-width="2.6" stroke-linejoin="round"/>';
 function itemKindTip(c) {
-  return `아이템 · ${c.cat}\n내 유닛에 장착해서 쓰는 카드입니다. 장착한 유닛에게 아래 띠의 값과 능력이 붙습니다.\n어느 유닛에나 하나씩, 유지비 없음. 유닛이 쓰러지면 함께 소각.`;
+  return `아이템 · ${c.cat}\n내 유닛에 장착해서 쓰는 카드입니다. 장착한 유닛에게 왼쪽 열의 값과 능력이 붙습니다.\n${equipWho(c)} 하나씩, 유지비 없음. 유닛이 쓰러지면 함께 소각.`;
+}
+function equipWho(c) {
+  return isAllClass(c) ? "내 유닛 아무에게나" : `내 ${itemClasses(c).join("·")} 유닛에게만`;
 }
 function kindBadgeHTML(c) {
   if (c.type === "unit") return "";
-  if (c.type === "item") return `<i class="c-kind kind-item" data-tip="${esc(itemKindTip(c))}"><svg viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">${ITEM_KIND_ICON}</svg></i>`;
+  if (c.type === "item") return "";   // v2.3: 아이템의 보석 배지는 뺐다. 그 자리에 장착 클래스 동그라미
   return `<i class="c-kind kind-${c.type}" data-tip="${esc(RITE_TIP[c.type])}"><svg viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">${RITE_ICON[c.type]}</svg></i>`;
 }
 function classIconHTML(c) {
-  const kind = kindBadgeHTML(c);
-  return kind ? `<div class="c-clsico">${kind}</div>` : "";
+  const cs = cardClasses(c), kind = kindBadgeHTML(c);
+  if (!cs.length && !kind) return "";
+  return `<div class="c-clsico">${cs.map(cl => classCircleHTML(c, cl)).join("")}${kind}</div>`;
 }
 
 /* 마법 종류 아이콘: 공격 = 칼, 방어 = 방패, 공용(둘 다) = 칼과 방패가 겹친 모양 (viewBox 0 0 64 64) */
@@ -125,6 +166,8 @@ const STAT_SVG = {
   d: '<path d="M12 2.2 4 5v6.2c0 5.1 3.4 8.9 8 10.6z"/><path d="M12 2.2 20 5v6.2c0 5.1-3.4 8.9-8 10.6z" opacity=".5"/><path d="M12 2.2 20 5v6.2c0 5.1-3.4 8.9-8 10.6-4.6-1.7-8-5.5-8-10.6V5z" fill="none" stroke="currentColor" stroke-width="1.2"/>',
   h: '<path d="M12 2.5c3.2 4.6 7 8.7 7 12.6a7 7 0 01-14 0c0-3.9 3.8-8 7-12.6z"/><path d="M9.2 13.8a3.4 3.4 0 002.4 4.6" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round"/>'
 };
+/* 고정 표시 (v2.3): 자물쇠. 고정된 스탯 숫자 옆에 금빛으로 */
+const LOCK_SVG = '<svg class="st-lock" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 11V8a4.5 4.5 0 019 0v3" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/><rect x="4.5" y="10.2" width="15" height="11.3" rx="2.4" fill="currentColor"/><path d="M12 14.2v3.4" stroke="#1a1408" stroke-width="2.4" stroke-linecap="round"/></svg>';
 const statIco = k => `<svg class="sti sti-${k}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${STAT_SVG[k]}</svg>`;
 /* 코인 묶음: 앞면 값 글자(+ · +2 · −2) 뒤에 겹쳐 쌓은 빈 동전. 동전 수 = 코인 수, 앞의 글자 = 앞면마다 붙는 값.
    v1.9.1: 값을 동전 안(②)에 새기던 것을 동전 앞 글자로 옮겼다 — ②가 "코인 2개"로 읽혀서.
@@ -142,9 +185,12 @@ function itemVstatsHTML(c, full) {
   const cells = ["a", "d", "h"].map(k => {
     const marks = coinMarks(it.co, k), coins = coinGroupsHTML(marks);
     const val = it.set ? it.set[k] : it[k] ? sgnNum(it[k]) : "";
-    if (val === "" && !coins) return `<span class="st st-${k} st-empty">${full ? statIco(k) : ""}<b>·</b></span>`;
-    const tip = it.set ? `장착하면 ${STAT_KO[k]}이(가) ${it.set[k]}이 됩니다` : `장착한 유닛 ${STAT_KO[k]} ${val || "+0"}` + (marks.length ? "\n" + marks.map(m => `코인 ${m.n}개 · 앞면마다 ${STAT_KO[k]} ${sgnNum(m.v)}`).join("\n") : "");
-    return `<span class="st st-${k}${it.set ? " st-set" : ""}" data-tip="${esc(tip)}">${full ? statIco(k) : ""}<b>${val}</b>${coins ? `<em class="cm">${coins}</em>` : ""}</span>`;
+    const locked = !!(it.set || (it.lock && it.lock[k]));
+    const lockTip = locked ? `\n[고정] ${STAT_KO[k]}이(가) 마법·코인·저주를 받아도 이 값 아래로 내려가지 않습니다.` : "";
+    // v2.3: 붙는 값이 없는 스탯은 "·" 대신 흐린 +0 ("·"이 고정 표시로 읽혀서)
+    if (val === "" && !coins) return `<span class="st st-${k} st-empty${locked ? " st-locked" : ""}" data-tip="${esc(`장착해도 ${STAT_KO[k]}은(는) 그대로입니다 (+0)` + lockTip)}">${full ? statIco(k) : ""}<b>+0</b>${locked ? LOCK_SVG : ""}</span>`;
+    const tip = (it.set ? `장착하면 ${STAT_KO[k]}이(가) ${it.set[k]}이 됩니다` : `장착한 유닛 ${STAT_KO[k]} ${val || "+0"}`) + (marks.length ? "\n" + marks.map(m => `코인 ${m.n}개 · 앞면마다 ${STAT_KO[k]} ${sgnNum(m.v)}`).join("\n") : "") + lockTip;
+    return `<span class="st st-${k}${it.set ? " st-set" : ""}${locked ? " st-locked" : ""}" data-tip="${esc(tip)}">${full ? statIco(k) : ""}<b>${val}</b>${locked ? LOCK_SVG : ""}${coins ? `<em class="cm">${coins}</em>` : ""}</span>`;
   }).join("");
   return `<div class="c-vstats c-istats">${cells}</div>`;
 }
@@ -154,9 +200,10 @@ function statCellHTML(c, k, live, co, full) {
   let val = base, cls = "";
   if (live) { val = k === "h" ? live.h : live[k]; if (val > base) cls = " up"; else if (val < base) cls = " down"; if (k === "h" && live.h < live.max) cls = " hurt"; }
   const marks = coinMarks(co || c.co, k);
-  const tip = `${STAT_KO[k]} ${val}` + (marks.length ? "\n" + marks.map(m => `코인 ${m.n}개 · 앞면마다 ${STAT_KO[k]} ${sgnNum(m.v)}`).join("\n") : "");
+  const locked = !!(c.lock && c.lock[k]);
+  const tip = `${STAT_KO[k]} ${val}` + (marks.length ? "\n" + marks.map(m => `코인 ${m.n}개 · 앞면마다 ${STAT_KO[k]} ${sgnNum(m.v)}`).join("\n") : "") + (locked ? `\n[고정] 마법·코인·저주를 받아도 카드에 적힌 값 아래로 내려가지 않습니다.` : "");
   const coins = coinGroupsHTML(marks);
-  return `<span class="st st-${k}${cls}" data-tip="${esc(tip)}">${full ? statIco(k) : ""}<b>${val}</b>${coins ? `<em class="cm">${coins}</em>` : ""}</span>`;
+  return `<span class="st st-${k}${cls}${locked ? " st-locked" : ""}" data-tip="${esc(tip)}">${full ? statIco(k) : ""}<b>${val}</b>${locked ? LOCK_SVG : ""}${coins ? `<em class="cm">${coins}</em>` : ""}</span>`;
 }
 
 /* 카드 HTML — 카드는 세 단계로 보인다 (README "카드 표시 단계")
@@ -179,16 +226,19 @@ function cardHTML(c, opts) {
   }
   let tag = c.type === "item" ? `<span class="c-cls c-cat" data-tip="${esc(itemKindTip(c))}">${esc(c.cat)}</span>` : "";
   // v1.6.1: 노멀(핸드) 크기에서도 아이템 능력 이름이 보인다. 뜻은 마우스를 올리면 (큰 카드에는 설명 글로 나온다)
+  // v2.9 스페셜 유닛의 타고난 능력도 같은 꼬리표로
+  if (c.type === "unit" && c.gift && size === "md") tag += itemGrants(c.gift).map(raw => `<span class="c-cls c-ab" data-tip="${esc(raw + " " + (itemKwDesc(raw) || c.gift.evText || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");
   if (c.type === "item" && size === "md") tag += itemAbilities(c.item).map(raw => `<span class="c-cls c-ab" data-tip="${esc(raw + " " + (itemKwDesc(raw) || c.item.evText || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");
+  // v3.7.8: 줄마다 따로 kwHTML — 통째로 바꾸면 [능력] 말풍선(data-tip) 속 줄바꿈까지 <br>이 된다 (v2.4.3에서 고친 것이 되돌아갔던 것)
   // 설명 글은 큰 카드(lg)에만. 노멀·컴팩트에는 보이지 않는다
   const kw = size === "lg" ? cardKwShort(c) : "";
-  const text = kw ? `<div class="c-text">${kwHTML(kw)}</div>` : "";
+  const text = kw ? `<div class="c-text">${kw.split("\n").map(kwHTML).join("<br>")}</div>` : "";
   // v1.8: 노멀 카드도 opts.desc가 있으면 그림 위에 설명이 겹쳐 보인다. "short" = 핸드(세 줄까지) · "full" = 전장(전체, fitDescs가 글자를 줄여 맞춤)
   const dk = opts.desc && size === "md" ? cardKwShort(c) : "";
-  const desc = dk ? `<div class="c-desc d-${opts.desc}"><p>${kwHTML(dk)}</p></div>` : "";
+  const desc = dk ? `<div class="c-desc d-${opts.desc}"><p>${dk.split("\n").map(kwHTML).join("<br>")}</p></div>` : "";
   return `<div class="card size-${size} ${c.faction ? "fac-" + c.faction : "fac-item"} type-${c.type}${c.legend ? " legend" : ""}${dk ? " has-desc" : ""}${opts.cls ? " " + opts.cls : ""}" style="--el:${el.color}" ${opts.attrs || ""} data-card="${c.id}">${opts.under || ""}
     <div class="c-frame">
-      <div class="c-head"><span class="c-lv" data-tip="${esc(lvTip(c))}">${c.lv}</span><span class="c-name">${esc(c.name)}</span></div>
+      <div class="c-head"><span class="c-lv" data-tip="${esc(lvTip(c))}" data-tip-kw>${c.lv}</span>${nameHTML(c)}</div>
       ${classIconHTML(c)}
       <div class="c-mid">
         <div class="c-side">${levelPips(c)}${vstats}</div>
@@ -211,8 +261,10 @@ function fitDescs(root) {
     for (let i = 0; i < 14 && d.scrollHeight > d.clientHeight + 1 && f > min; i++) { f -= 0.04; p.style.fontSize = f + "em"; }
   });
 }
+/* 레벨 아이콘·레벨 구슬 말풍선 (v2.3). 레벨과 유지비는 줄을 나눈다 (data-tip-kw: 두 줄을 같은 크기로) */
 function lvTip(c) {
-  return `레벨 ${c.lv} · 소환 비용 에테르 ${c.lv}` + (c.type === "unit" && c.up ? `\n유지비 ${c.up} — 살아남으면 다음 턴부터 에테르가 ${c.up}만큼 빠집니다.` : "");
+  const up = c.type === "unit" ? c.up || 0 : 0;
+  return `[레벨 ${c.lv}] 소환할 때 에테르를 ${c.lv}만큼 소비합니다.` + (up ? `\n[유지비 ${up}] 전장에 올라와 있는 동안 매 턴 에테르를 ${up}만큼 소비합니다.` : "");
 }
 /* 아이템 아래 띠: 붙는 스탯과 코인 (⚔+2 +C1) */
 function itemModsHTML(c) {
@@ -239,18 +291,22 @@ function cardFullHTML(c, opts) {
   const typeName = TYPES[c.type].name;
   const typeLine = [
     c.type === "unit" ? "유닛" : c.type === "item" ? `아이템 · ${esc(c.cat)}` : typeName,
-    `레벨 ${c.lv}${c.type === "unit" && c.up ? ` · 유지비 ${c.up}` : ""}`
+    `레벨 ${c.lv}`   // v2.3: 유지비는 레벨 아이콘(속 빈 아이콘)과 그 말풍선으로만
   ];
   const L = [];
   if (c.type === "unit") {
     // 공·방·체와 코인은 왼쪽 세로 열에 이미 있으므로 글로 다시 적지 않는다
-    if (c.up) L.push(`<p class="f-rule">유지비 ${c.up}: 레벨 아이콘 ${c.lv}개 중 속이 빈 ${c.up}개. 살아남으면 다음 턴부터 에테르가 ${c.up}만큼 빠집니다.</p>`);
-    L.push(`<p class="f-flavor">${esc(G.blurb)}</p>`);
+    // v2.9 스페셜 유닛: 타고난 능력과 그 뜻, 카드 고유 설명
+    for (const s of giftSummary(c)) L.push(`<p class="f-grant">${kwHTML(s)}</p>`);
+    if (c.gift) for (const [k, v] of itemKwGenList(c.gift)) L.push(`<p class="f-kw"><b>${esc(k)}</b> ${esc(v)}</p>`);
+    if (c.limit) L.push(`<p class="f-rule f-dim">덱에 ${c.limit}장까지.</p>`);
+    L.push(`<p class="f-flavor">${esc(c.flavor || G.blurb)}</p>`);
     // v1.4.5: 시뮬레이터 승률·교전 승률·이전 수치(v0.7·v1.2) 같은 균형 작업용 값은 카드에 보이지 않는다 (data.js에만 남는다)
   } else if (c.type === "item") {
-    // 붙는 값(⚔+4 등)은 그림 위 띠에 있으므로 글에는 능력과 그 뜻만 (이름을 두 번 적지 않는다)
-    for (const [k, v] of itemKwList(c.item)) L.push(`<p class="f-kw">${k ? `<b>${esc(k)}</b> ` : ""}${esc(v)}</p>`);
-    L.push(`<p class="f-rule f-dim">내 유닛 아무에게나 장착. 유닛 하나에 하나, 유지비 없음. 유닛이 쓰러지면 함께 소각.</p>`);
+    // 붙는 값(⚔+4 등)은 왼쪽 세로 열에 있으므로 글에는 능력만. v2.2: 위 = 아이템이 하는 일("[관통] 능력 부여"), 아래 = 그 능력의 일반 뜻
+    for (const s of itemSummary(c.item)) L.push(`<p class="f-grant">${kwHTML(s)}</p>`);
+    for (const [k, v] of itemKwGenList(c.item)) L.push(`<p class="f-kw"><b>${esc(k)}</b> ${esc(v)}</p>`);
+    L.push(`<p class="f-rule f-dim">${equipWho(c)} 장착. 유닛 하나에 하나, 유지비 없음. 유닛이 쓰러지면 함께 소각.${c.limit ? ` 덱에 ${c.limit}장까지.` : ""}</p>`);
     if (c.flavor) L.push(`<p class="f-flavor">${esc(c.flavor)}</p>`);
   } else {
     L.push(`<p class="f-rule f-big">${kwHTML(c.text)}</p>`);
@@ -260,7 +316,7 @@ function cardFullHTML(c, opts) {
   }
   return `<div class="card size-full ${c.faction ? "fac-" + c.faction : "fac-item"} type-${c.type}${c.legend ? " legend" : ""}${opts.cls ? " " + opts.cls : ""}" style="--el:${el.color}" ${opts.attrs || ""} data-card="${c.id}">${opts.under || ""}
     <div class="c-frame">
-      <div class="c-head"><span class="c-lv" data-tip="${esc(lvTip(c))}">${c.lv}</span><span class="c-name">${esc(c.name)}${c.legend ? ' <small class="f-star">★</small>' : ""}</span></div>
+      <div class="c-head"><span class="c-lv" data-tip="${esc(lvTip(c))}" data-tip-kw>${c.lv}</span>${nameHTML(c, c.legend ? ' <small class="f-star">★</small>' : "")}</div>
       ${classIconHTML(c)}
       <div class="c-mid">
         <div class="c-side">${levelPips(c)}${vstats}</div>
@@ -299,16 +355,17 @@ function cardDetailBody(c, inst) {
   const tags = [];
   if (c.group) tags.push(`<span class="tag grp" style="--gc:${GROUPS[c.group].color}">${GROUPS[c.group].name} · ${GROUPS[c.group].role}</span>`);
   if (c.faction) tags.push(`<span class="tag fac-${c.faction}">${FACTIONS[c.faction].name}</span>`);
-  if (c.type === "item") tags.push(`<span class="tag">${esc(c.cat)}</span>`);
+  if (c.type === "item") tags.push(`<span class="tag">${esc(c.cat)} · ${esc(classTagText(c))}</span>`);
+  if (c.type === "unit" && c.cl) tags.push(`<span class="tag">${esc(c.cl)}</span>`);
   const lines = [];
   if (c.type === "unit") {
-    if (c.up) lines.push(`<p class="d-coin">레벨 아이콘 ${c.lv}개 중 속이 빈 아이콘 ${c.up}개 = 유지비 ${c.up}. 소환할 때 에테르 ${c.lv}를 내고, 살아남으면 다음 턴부터 에테르가 ${c.up}만큼 빠집니다.</p>`);
-    lines.push(`<p class="d-flavor">${esc(GROUPS[c.group].blurb)}</p>`);
+    for (const s of giftSummary(c)) lines.push(`<p class="d-rules">${kwHTML(s)}</p>`);
+    if (c.gift) for (const [k, v] of itemKwGenList(c.gift)) lines.push(`<p class="d-type"><b>${esc(k)}</b> ${esc(v)}</p>`);
+    lines.push(`<p class="d-flavor">${esc(c.flavor || GROUPS[c.group].blurb)}</p>`);
   } else if (c.type === "item") {
-    const ab = itemAbilityText(c.item); if (ab) lines.push(`<p class="d-rules">${esc(ab)}</p>`);
-    for (const raw of itemAbilities(c.item)) { const d = itemKwDesc(raw); if (d) lines.push(`<p class="d-type"><b>${esc(raw)}</b> ${esc(d)}</p>`); }
-    if (c.item.evText && !(c.item.evName && itemKwDesc(`[${c.item.evName}]`))) lines.push(`<p class="d-type">${esc(c.item.evText)}</p>`);
-    lines.push(`<p class="d-coin">공격·방어 준비 어느 때나 내 유닛 아무에게나 장착합니다. 유닛 하나에 하나, 유지비 없음. 유닛이 쓰러지면 함께 소각.</p>`);
+    for (const s of itemSummary(c.item)) lines.push(`<p class="d-rules">${kwHTML(s)}</p>`);
+    for (const [k, v] of itemKwGenList(c.item)) lines.push(`<p class="d-type"><b>${esc(k)}</b> ${esc(v)}</p>`);
+    lines.push(`<p class="d-coin">공격·방어 준비 어느 때나 ${equipWho(c)} 장착합니다. 유닛 하나에 하나, 유지비 없음. 유닛이 쓰러지면 함께 소각.</p>`);
     if (c.flavor) lines.push(`<p class="d-flavor">${esc(c.flavor)}</p>`);
   } else {
     lines.push(`<p class="d-rules">${kwHTML(c.text.replace(/\s*\[장전 \d+\]/g, ""))}${c.cost.ether ? ` ${kwHTML("[장전 " + c.cost.ether + "]")} 다음 턴 에테르 −${c.cost.ether}.` : ""}</p>`);
@@ -395,7 +452,12 @@ const Tip = {
       const t = e.target.closest && e.target.closest("[data-tip]");
       if (!t) { this.el.hidden = true; return; }
       const lines = t.dataset.tip.split("\n");
-      this.el.innerHTML = `<b>${esc(lines[0])}</b>${lines.slice(1).map(l => `<span>${esc(l)}</span>`).join("")}`;
+      // data-tip-kw: 줄마다 같은 크기로, 줄 앞의 [이름]만 금빛 굵게 (레벨·유지비 말풍선)
+      const kw = t.hasAttribute("data-tip-kw");
+      this.el.classList.toggle("tip-kw", kw);
+      this.el.innerHTML = kw
+        ? lines.map(l => `<span>${esc(l).replace(/^(\[[^\]]+\])/, "<b>$1</b>")}</span>`).join("")
+        : `<b>${esc(lines[0])}</b>${lines.slice(1).map(l => `<span>${esc(l)}</span>`).join("")}`;
       this.el.hidden = false;
       const r = t.getBoundingClientRect(), w = this.el.offsetWidth, h = this.el.offsetHeight;
       let x = r.left + r.width / 2 - w / 2, y = r.top - h - 8;
@@ -409,3 +471,53 @@ const Tip = {
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => Tip.init()); else Tip.init();
 
 function fmtTime(t) { const d = new Date(t); return String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0"); }
+
+/* ───────── v2.5 카드 뒷면 그림 (css/texture.css의 --card-back) ─────────
+   상대 핸드 · 덱 맨 위 · 뽑힐 때 날아오는 카드가 함께 쓴다. 진짜 카드처럼: 검은 테두리 → 두꺼운 금테(금속 결) →
+   남보라 바탕의 마름모 격자 → 안쪽 금 실선과 점선 · 네 모서리 꺾쇠 → 가운데 칠룡의 고리 메달(일곱 보석) 안의 에테르 결정 → 비스듬한 광택.
+   글자는 넣지 않는다(그림 속 글꼴은 따로 불러올 수 없음). */
+const CARD_BACK_SVG = (() => {
+  const gems = Array.from({ length: 7 }, (_, k) => { const a = (-90 + k * 360 / 7) * Math.PI / 180, x = 125 + 57 * Math.cos(a), y = 175 + 57 * Math.sin(a); return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4.6" fill="url(#cbE)" stroke="#f6e2a8" stroke-width="1.4"/>`; }).join("");
+  const corner = (sx, sy) => { const x = sx < 0 ? 230 : 20, y = sy < 0 ? 330 : 20, X = v => x + (sx < 0 ? -v : v), Y = v => y + (sy < 0 ? -v : v);
+    return `<path d="M${X(0)} ${Y(34)}V${Y(0)}H${X(34)}" fill="none" stroke="url(#cbG)" stroke-width="3.2"/><path d="M${X(7)} ${Y(22)}V${Y(7)}H${X(22)}" fill="none" stroke="#d9b46a" stroke-opacity=".55" stroke-width="1.1"/><path d="M${X(14)} ${Y(8.5)}L${X(19.5)} ${Y(14)} ${X(14)} ${Y(19.5)} ${X(8.5)} ${Y(14)}Z" fill="url(#cbG)" stroke="#07050c" stroke-width=".9"/>`; };
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 350">
+<defs>
+<radialGradient id="cbB" cx="50%" cy="50%" r="72%"><stop offset="0" stop-color="#3a2d66"/><stop offset=".5" stop-color="#1c1638"/><stop offset="1" stop-color="#0a0816"/></radialGradient>
+<pattern id="cbL" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="translate(125 175) rotate(45)"><path d="M0 0H22M0 0V22" stroke="#d9b46a" stroke-opacity=".11" stroke-width="1.3"/><circle cx="11" cy="11" r="1.3" fill="#d9b46a" fill-opacity=".16"/></pattern>
+<linearGradient id="cbG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3cc"/><stop offset=".22" stop-color="#e2bd70"/><stop offset=".48" stop-color="#7a5418"/><stop offset=".7" stop-color="#f0d088"/><stop offset="1" stop-color="#6b4f1c"/></linearGradient>
+<radialGradient id="cbM" cx="50%" cy="45%" r="55%"><stop offset="0" stop-color="#1f3358"/><stop offset=".65" stop-color="#14112a"/><stop offset="1" stop-color="#08070f"/></radialGradient>
+<radialGradient id="cbH" cx="50%" cy="50%" r="50%"><stop offset=".45" stop-color="#8fdcff" stop-opacity=".38"/><stop offset="1" stop-color="#8fdcff" stop-opacity="0"/></radialGradient>
+<linearGradient id="cbC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4fdff"/><stop offset=".4" stop-color="#8fdcff"/><stop offset=".75" stop-color="#2f8ec4"/><stop offset="1" stop-color="#0f3d63"/></linearGradient>
+<radialGradient id="cbE" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#9fe2ff"/><stop offset="1" stop-color="#1c6a99"/></radialGradient>
+<linearGradient id="cbS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset=".32" stop-color="#fff" stop-opacity="0"/><stop offset=".66" stop-color="#fff" stop-opacity="0"/><stop offset=".8" stop-color="#fff" stop-opacity=".07"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+</defs>
+<rect width="250" height="350" rx="17" fill="#07050c"/>
+<rect x="4" y="4" width="242" height="342" rx="14" fill="url(#cbG)"/>
+<rect x="5.5" y="5.5" width="239" height="339" rx="13" fill="none" stroke="#fff6da" stroke-opacity=".5" stroke-width="1"/>
+<rect x="12" y="12" width="226" height="326" rx="8" fill="url(#cbB)"/>
+<rect x="12" y="12" width="226" height="326" rx="8" fill="url(#cbL)"/>
+<rect x="12" y="12" width="226" height="326" rx="8" fill="none" stroke="#07050c" stroke-width="2.6"/>
+<rect x="24" y="24" width="202" height="302" rx="3" fill="none" stroke="#d9b46a" stroke-opacity=".7" stroke-width="1.4"/>
+<rect x="29" y="29" width="192" height="292" rx="2" fill="none" stroke="#d9b46a" stroke-opacity=".32" stroke-width="1" stroke-dasharray="2 3.2"/>
+${corner(1, 1)}${corner(-1, 1)}${corner(1, -1)}${corner(-1, -1)}
+<path d="M125 40V96M125 254V310" stroke="url(#cbG)" stroke-width="2.4"/>
+<path d="M125 36 131 44 125 52 119 44Z M125 298 131 306 125 314 119 306Z" fill="url(#cbG)" stroke="#07050c" stroke-width="1"/>
+<path d="M54 175H60M190 175H196" stroke="#d9b46a" stroke-opacity=".6" stroke-width="2"/>
+<circle cx="125" cy="175" r="92" fill="url(#cbH)"/>
+<circle cx="125" cy="175" r="69" fill="#07050c"/>
+<circle cx="125" cy="175" r="66" fill="url(#cbM)" stroke="url(#cbG)" stroke-width="6"/>
+<circle cx="125" cy="175" r="62.6" fill="none" stroke="#07050c" stroke-width="1.2"/>
+<circle cx="125" cy="175" r="57" fill="none" stroke="#d9b46a" stroke-opacity=".45" stroke-width="1" stroke-dasharray="1.6 3"/>
+${gems}
+<path d="M125 129 157 175 125 221 93 175Z M96 146 154 146 154 204 96 204Z" fill="none" stroke="#d9b46a" stroke-opacity=".5" stroke-width="1.3"/>
+<path d="M125 134 140 158 136 194 125 214 114 194 110 158Z" fill="url(#cbC)" stroke="#07050c" stroke-width="1.6"/>
+<path d="M125 134V214M110 158 125 165 140 158M114 194 125 186 136 194" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="1"/>
+<path d="M118 150 125 140 129 152Z" fill="#fff" fill-opacity=".55"/>
+<rect x="4" y="4" width="242" height="342" rx="14" fill="url(#cbS)"/>
+</svg>`;
+  return svg;
+})();
+(function setCardBack() {
+  const url = `url("data:image/svg+xml;charset=utf-8,${encodeURIComponent(CARD_BACK_SVG)}")`;
+  document.documentElement.style.setProperty("--card-back", url);
+})();

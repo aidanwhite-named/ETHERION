@@ -212,6 +212,39 @@ input:not([type=checkbox]):not([type=radio]):not([type=range]):focus { border-co
 .dv-meta { border-block: 0; padding: 10px 2px; background:
   linear-gradient(90deg, rgba(217, 180, 106, .4), rgba(217, 180, 106, .08)) top / 100% 1px no-repeat,
   linear-gradient(90deg, rgba(217, 180, 106, .08), rgba(217, 180, 106, .4)) bottom / 100% 1px no-repeat; }
+/* v3.7.5 덱 보기 거르기 — 윗줄 = 종류 명판(전체 · 유닛 · 마법 · 아이템 + 장수), 아랫줄 = 그 종류 안의 등급 칸(등급 색 + 장수).
+   종류 마름모 색은 덱 계기판(--k-unit · --k-spell · --k-item, 2.14), 등급 색은 js/grades.js의 GRADES(--gr). 켜진 종류만 금테 */
+.dv-meta.dv-filter { display: grid; gap: 8px; }
+.dv-kinds, .dv-grades { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.dv-k, .dv-g { --c: 6px; --edge: linear-gradient(180deg, rgba(217, 180, 106, .34), rgba(217, 180, 106, .14)); --fill: linear-gradient(180deg, rgba(20, 21, 33, .92), rgba(11, 12, 19, .92));
+  --shape: polygon(var(--c) 0, calc(100% - var(--c)) 0, 100% var(--c), 100% calc(100% - var(--c)), calc(100% - var(--c)) 100%, var(--c) 100%, 0 calc(100% - var(--c)), 0 var(--c));
+  position: relative; isolation: isolate; display: inline-flex; align-items: baseline; gap: 7px; border: 0; background: none; cursor: pointer; font: inherit; color: var(--ink-2); line-height: 1.2; }
+.dv-k::before, .dv-k::after, .dv-g::before, .dv-g::after { content: ""; position: absolute; z-index: -1; clip-path: var(--shape); }
+.dv-k::before, .dv-g::before { inset: 0; background: var(--edge); }
+.dv-k::after, .dv-g::after { inset: 1px; background: var(--fill); }
+.dv-k { padding: 6px 14px 6px 12px; font-size: 14px; }
+.dv-k b, .dv-g b { font-family: var(--caps); color: var(--ink); }
+.dv-k b { font-size: 16px; }
+.dv-k small { font-family: var(--caps); font-size: 12px; color: var(--muted); margin-left: -3px; }
+.dv-k span::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 7px; transform: translateY(-1px) rotate(45deg); background: var(--kc, var(--gold)); box-shadow: 0 0 6px color-mix(in srgb, var(--kc, var(--gold)) 55%, transparent); }
+.dv-k.k-all { --kc: var(--ink-2); } .dv-k.k-unit { --kc: var(--k-unit); } .dv-k.k-spell { --kc: var(--k-spell); } .dv-k.k-item { --kc: var(--k-item); }
+.dv-k:hover:not(:disabled), .dv-g:hover { --edge: linear-gradient(180deg, rgba(242, 215, 146, .7), rgba(125, 93, 36, .4)); color: var(--ink); }
+.dv-k.on { --edge: var(--edge-gold); --fill: linear-gradient(180deg, #2c2717, #18150e); color: var(--gold-hi); }
+.dv-k.on b { color: var(--gold-hi); }
+.dv-k:disabled { opacity: .4; cursor: default; }
+.dv-kinds .dv-st { margin-left: auto; font-size: 13px; }
+.dv-gl { font-size: 12px; color: var(--muted); letter-spacing: .04em; margin-right: 2px; }
+.dv-g { --c: 4px; padding: 3px 10px; font-size: 13px; }
+.dv-g:not(.g-all) { --edge: color-mix(in srgb, var(--gr) 45%, transparent); color: var(--gr); }
+.dv-g:not(.g-all) b { color: color-mix(in srgb, var(--gr) 70%, #fff); }
+.dv-g:not(.g-all):hover { --edge: color-mix(in srgb, var(--gr) 80%, transparent); color: var(--gr); }
+.dv-g.on:not(.g-all) { --edge: linear-gradient(180deg, color-mix(in srgb, var(--gr) 95%, #fff), color-mix(in srgb, var(--gr) 55%, #000)); --fill: linear-gradient(180deg, color-mix(in srgb, var(--gr) 24%, #15141c), color-mix(in srgb, var(--gr) 10%, #0c0c12)); text-shadow: 0 0 8px color-mix(in srgb, var(--gr) 50%, transparent); }
+.dv-g.g-all.on { --edge: linear-gradient(180deg, rgba(242, 215, 146, .7), rgba(125, 93, 36, .45)); color: var(--gold-hi); }
+/* v3.7.6 덱 조정실 보유 카드의 등급 칸도 같은 모양(.dv-g) */
+.ed-grades { margin-top: 6px; gap: 6px; }
+.ed-grades .dv-g { --c: 5px; padding: 4px 12px; line-height: 1.55; }   /* 옆 칩(.chip)과 같은 높이 */
+.dv-cards .card.dv-off { display: none; }
+.deck-view.dv-fit .dv-cards.dv-filtered { align-content: start; }
 
 /* 대기실 — 출정의 단: 왼쪽은 준비(덱 조정실), 오른쪽은 세 관문 */
 .dv-actions.altar { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: stretch; gap: 14px; padding-top: 18px; position: relative; justify-content: stretch; }
@@ -311,3 +344,69 @@ input:not([type=checkbox]):not([type=radio]):not([type=range]):focus { border-co
 .gate-form[hidden] { display: none !important; }
 /* v1.6.1 코인 창이 둘로 나뉘어, 멈춘 창의 명판 빛만 끈다 */
 .cs-side.stopping .btn.cs-stop { animation: none; }
+
+/* v2.1 입장 관문을 크게: 폭 720 → 980px, 글자 약 1.4배. 다른 화면에는 영향 없음(.gate 안에서만) */
+.screen-login { padding-block: 56px; }
+.gate { width: min(980px, 100%); padding: 96px clamp(20px, 5vw, 64px) 44px; font-size: 18px; border-radius: 50% 50% 4px 4px / 150px 150px 4px 4px; }
+.gate .gate-eyebrow { font-size: 16px; }
+.gate .gate-title { font-size: clamp(36px, 5vw, 52px); margin: 10px 0 8px; }
+.gate .gate-lead { font-size: 20px; margin-bottom: 30px; }
+.gate .tabs { margin-bottom: 28px; }
+.gate .tab { font-size: 22px; padding: 12px 28px 14px; }
+.gate .gate-form { gap: 20px; }
+.gate .gate-form label { font-size: 18px; gap: 8px; }
+.gate input { font-size: 20px; padding: 14px 16px; }
+.gate .err { font-size: 17px; }
+.gate .pick-label { font-size: 17px; line-height: 1.6; }
+.gate .pick-sum { font-size: 17px; }
+.gate .btn.wide { font-size: 21px; padding: 16px; letter-spacing: .08em; }
+.gate .grp-pick { gap: 14px; }
+.gate .grp-fac { font-size: 16px; }
+.gate .grp-fac small { font-size: 11px; }
+.gate .grp-tile { padding: 14px 8px; gap: 5px; }
+.gate .grp-tile .emblem { width: 58px; height: 58px; }
+.gate .grp-tile b { font-size: 18px; }
+.gate .grp-tile .en { font-size: 11.5px; }
+.gate .grp-tile .role { font-size: 14px; }
+.gate .grp-tile .motto { font-size: 14px; }
+/* 로그인 없이 시작: "또는" 구분선 아래 보라 명판 */
+.gate-or { display: flex; align-items: center; gap: 14px; margin: 26px 0 18px; color: var(--muted); font-size: 16px; letter-spacing: .2em; }
+.gate-or::before, .gate-or::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(217, 180, 106, .45)); }
+.gate-or::after { background: linear-gradient(90deg, rgba(217, 180, 106, .45), transparent); }
+.gate .btn.gate-guest { display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--gold-hi); }
+.btn.gate-guest:not(.rb) { --edge: linear-gradient(180deg, #ded0ff, #4a2f86); --fill: linear-gradient(180deg, #3b2b63, #1a1230); }
+.gate-guest small { font-size: 15px; letter-spacing: 0; color: var(--ink-2); font-weight: 400; }
+@media (max-width: 900px) {
+  .gate { border-radius: 50% 50% 4px 4px / 80px 80px 4px 4px; padding-top: 64px; }
+}
+@media (max-width: 560px) {
+  .gate { font-size: 16px; padding-inline: 16px; }
+  .gate .tab { font-size: 19px; padding-inline: 16px; }
+  .gate .gate-lead { font-size: 17px; }
+}
+
+/* v3.5.4 상단 띠 오른쪽 날개가 1440px 이하에서 넘쳐 인장(손님) 글자와 "나가기"가 겹치던 것.
+   날개에 필요한 폭이 남는 폭보다 커서 인장이 찌그러졌다 → 인장은 줄어들지 않게, 사이를 좁히고, 나가기는 아이콘만(이름은 말풍선 title) */
+.tbw-right .user-chip.seal { flex: none; }
+@media (max-width: 1440px) {
+  .tbw-right { gap: 8px; }
+  .tbw-right .tb-nav { margin-right: 0; }
+  .tb-nav.tb-exit { padding: 0 6px; }
+  .tb-nav.tb-exit span { display: none; }
+}
+/* 1000px 이하: 인장은 머리글자 봉인만, 지갑 · 날씨는 조금 작게. 860px 이하: 날씨는 아이콘만 */
+@media (max-width: 1000px) and (min-width: 761px) {
+  .tbw-right { gap: 6px; }
+  .seal-txt { display: none; }
+  .tbw-right .gold-chip, .tbw-right .weather-chip { padding-inline: 9px; }
+}
+@media (max-width: 860px) and (min-width: 761px) { .tbw-right .weather-chip b { display: none; } .tbw-right .weather-chip { padding-inline: 8px; } .tbw-right .tb-nav { padding: 0 6px; } }
+/* v3.5.4 대기실 채팅: 칸 안의 줄(머리 · 기록 · 입력)이 칸보다 넓게 잡혀 오른쪽으로 삐져나오던 것(화면이 옆으로 몇 px 넘침, "오프라인" 잘림) */
+.chat { grid-template-columns: minmax(0, 1fr); }
+.chat-form input { min-width: 0; }
+/* v3.5.4 한글이 낱말 가운데서 줄을 바꾸지 않게("아다만트 연 / 합") — 들어가지 않을 만큼 긴 낱말만 쪼갠다 */
+body { word-break: keep-all; overflow-wrap: break-word; }
+/* v3.5.4 덱 보관함의 덱 상자: 좁은 칸(1440px 이하)에서 "40/40 · 출전 가능"이 상자 밖으로 잘리던 것 → 계기판 아래로 내리고, 긴 덱 이름은 두 줄로 */
+.deck-tile.rq .dt-body { min-width: 0; }
+.deck-tile.rq .dt-state { flex-wrap: wrap; row-gap: 3px; }
+.deck-tile.rq .dt-body > b { white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.2; }

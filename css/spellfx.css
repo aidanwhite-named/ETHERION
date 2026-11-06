@@ -9,7 +9,7 @@
   --fx-spark: #ffd27a;     /* 폭발 불티 */
 }
 
-/* ---------- 코인 창: 1.5배 (화면이 작으면 js에서 --csz를 줄인다) ---------- */
+/* ---------- 코인 창: 1.25배 (v2.4.2, 화면이 작으면 js에서 --csz를 줄인다) ---------- */
 .coinstage { transform: translate(-50%, -50%) scale(var(--csz, 1)); width: min(980px, 64vw); }
 @media (max-width: 760px) { .coinstage { width: 96vw; } }
 .cs-coin.ching { animation: csChing .5s cubic-bezier(.2, .8, .3, 1); }
@@ -122,3 +122,10 @@
 @keyframes sfxSheen { from { translate: -70% 0; } to { translate: 70% 0; } }
 
 @media (prefers-reduced-motion: reduce) { .sfx, .sfx-svg { display: none; } .float.cpop { animation-duration: 1.4s; } }
+
+/* ---------- v2.4.5 코인 앞면: 칠룡환 문장 (js/game.js COIN_CREST) ---------- */
+.cs-crest { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+/* 도는 동안은 양면 모두 "?" 그대로 — 앞면 문장·뒷면 그림은 코인이 선 뒤에만 보인다 */
+.cs-coin.spinning .cs-crest { visibility: hidden; }
+/* v2.4.6 뒷면: 빈 자리 (js/game.js COIN_BACK). 그림이 뒷면임을 알려 주므로 공·방·체가 함께 붙은 코인의 "뒷면" 글자는 뺀다 */
+.cs-coin.multi .cs-tails::before { content: none; }

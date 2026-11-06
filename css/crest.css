@@ -1,0 +1,53 @@
+/* ETHERION — 상단 문장: 키 아트 띠 (js/crest.js, 가이드 2.15, 게임 v3.5.1)
+   그림 img/ui/etherion_keyart.jpg (1672×600, 가로세로 2.787:1).
+   --kv-avail = 양쪽 날개(길 · 지갑) 사이에 남는 폭, --kv-w = 단추(그림) 폭, --kv-h = 큰 띠 높이.
+   대기실 맨 위 = 큰 띠(그림 전체), 내리거나 다른 화면 = 작은 띠(띠 높이 안에 글자 둘레만). */
+:root { --crest-drop: 34px; --kv-avail: max(640px, min(100vw - 1040px, 880px)); --kv-w: min(var(--kv-avail), 697px); --kv-h: calc(var(--kv-w) / 2.787); }
+@media (max-width: 1600px) { :root { --crest-drop: 26px; --kv-avail: max(544px, min(100vw - 1040px, 748px)); } }
+@media (max-width: 1440px) { :root { --crest-drop: 12px; --kv-avail: 410px; } }
+@media (max-width: 1300px) { :root { --crest-drop: 22px; --kv-avail: 256px; } }
+
+.tb-crest.has-art { z-index: 2; width: var(--kv-w); height: calc(var(--bar-h) + var(--crest-drop)); padding: 0; filter: drop-shadow(0 12px 18px rgba(0, 0, 0, .6)); }
+.tb-crest.has-art::before, .tb-crest.has-art::after { display: none; }
+.tb-crest.has-art:hover { filter: drop-shadow(0 12px 18px rgba(0, 0, 0, .6)) drop-shadow(0 0 14px rgba(240, 200, 120, .25)); }
+.tb-crest.has-art:hover .cr-kv { filter: brightness(1.08) saturate(1.05); }
+/* 글자는 그림 안에 있다 — HTML 글자는 화면 읽기용 */
+.tb-crest.has-art .crest-word { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* 그림: 양끝 · 아래가 밤하늘로 녹아든다 */
+.cr-kv { --kv-cur: calc(var(--bar-h) + var(--crest-drop)); position: absolute; left: 50%; top: 0; z-index: -1; width: min(var(--kv-w), calc(var(--kv-cur) * 6.19)); height: var(--kv-cur); translate: -50% 0; pointer-events: none;
+  background: url("../img/ui/etherion_keyart.jpg") 50% 100% / auto calc(var(--kv-cur) * 2.222) no-repeat;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent), linear-gradient(180deg, #000 72%, transparent);
+  -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent), linear-gradient(180deg, #000 72%, transparent); mask-composite: intersect;
+  transition: height .45s cubic-bezier(.3, .05, .15, 1), width .45s cubic-bezier(.3, .05, .15, 1), background-size .45s cubic-bezier(.3, .05, .15, 1); }
+/* 지금 화면 이름: 그림 아래 끝에 걸린 작은 명판 */
+.tb-crest.has-art .crest-sub { position: absolute; left: 50%; top: calc(var(--bar-h) + var(--crest-drop) - 10px); translate: -50% 0; z-index: 1; padding: 3px 14px 4px; font-size: 13px;
+  background: linear-gradient(180deg, rgba(16, 15, 28, .92), rgba(8, 8, 15, .92)); border: 1px solid rgba(217, 180, 106, .45); clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0 50%); color: var(--gold-hi); transition: top .45s cubic-bezier(.3, .05, .15, 1); }
+@media (max-width: 1300px) { .tb-crest.has-art .crest-sub { top: calc(var(--bar-h) + var(--crest-drop) - 2px); font-size: 11px; } }
+
+/* 띠의 가는 그림자 선(box-shadow)은 브라우저가 자식 위에 그려 그림을 가로지른다 → 그림이 있으면 띠의 ::after/::before로 옮긴다 */
+.topbar.realm:has(.tb-crest.has-art) { box-shadow: none; }
+.topbar.realm:has(.tb-crest.has-art)::after { box-shadow: 0 1px 0 #2e2616, 0 2px 0 #1e190f; }
+.topbar.realm:has(.tb-crest.has-art)::before { box-shadow: 0 14px 30px 8px rgba(0, 0, 0, .5); }
+
+/* 문장이 넓어져도 오른쪽 날개의 글자가 두 줄로 꺾이지 않게 */
+.tbw-right .gold-chip, .tbw-right .weather-chip, .tbw-right .wx-chip, .seal-txt b, .seal-txt small { white-space: nowrap; }
+
+@media (max-width: 760px) {
+  :root { --crest-drop: 0px; }
+  .tb-crest.has-art { width: 200px; height: 46px; padding: 0 0 6px; align-content: center; gap: 2px; }
+  .tb-crest.has-art .crest-word { position: static; width: auto; height: auto; overflow: visible; clip-path: none; font-size: 18px; }
+  .tb-crest.has-art .crest-sub { position: static; translate: none; padding: 0; background: none; border: 0; clip-path: none; font-size: 11px; color: var(--ink-2); }
+  .tb-crest.has-art::before, .tb-crest.has-art::after { display: block; }
+  .cr-kv { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .cr-kv, .tb-crest.has-art .crest-sub { transition: none; } }
+
+/* v3.7.3 대기실에는 ETHERION 그림을 두지 않는다(상단 띠의 작은 문장도 숨김). 덱 보관함 · 덱 보기 · 수레바퀴/채팅은 띠 바로 밑(18px)에서 함께 시작한다.
+   덱 보기 판은 덱 보관함 판과 세로 크기가 같다(js/screens.js fitLobbyCards가 카드를 키우고 높이를 맞춘다). */
+.screen-lobby .tb-crest.has-art { visibility: hidden; }
+.screen-lobby .lobby { padding-top: 18px; }
+.screen-lobby .side-col { top: calc(var(--bar-h) + 18px); }
+.deck-view.dv-fit { grid-template-rows: auto auto 1fr auto; }
+.deck-view.dv-fit .dv-cards { align-content: center; }
+@media (max-width: 760px) { .screen-lobby .tb-crest.has-art { visibility: visible; } .screen-lobby .lobby { padding-top: 14px; } }

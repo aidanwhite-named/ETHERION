@@ -1,0 +1,124 @@
+/* ETHERION — 성물함 명판과 덱 보관함 (가이드 2.16, v3.1)
+   대기실 덱 보관함 · 교역소 계보 · 덱 조정실 덱 이름판이 같은 명판을 쓴다.
+   명판 = 왼쪽 위 · 오른쪽 아래 모서리를 깎은 판. 테두리 층(::before)은 금빛 + 단체색, 바탕 층(::after)은 남색 + 왼쪽에서 번지는 단체색.
+   깎은 모서리에 금 마름모 못. 고르면 테두리가 밝아지고 판 둘레가 빛난다. */
+
+/* ---------- 명판 (공통) ---------- */
+.rq { --cut: 12px; --c: var(--gc, var(--fc, var(--gold))); position: relative; isolation: isolate; border: 0 !important; background: none !important; box-shadow: none !important; }
+.rq > .rq-plate { position: absolute; inset: 0; z-index: -2; pointer-events: none; transition: filter .25s; }
+.rq > .rq-plate::before, .rq > .rq-plate::after { content: ""; position: absolute; clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut)); }
+.rq > .rq-plate::before { inset: 0;
+  background: linear-gradient(105deg, color-mix(in srgb, var(--c) 70%, #f6e2a8) 0%, color-mix(in srgb, var(--c) 55%, transparent) 22%, rgba(217, 180, 106, .2) 55%, color-mix(in srgb, var(--c) 45%, transparent) 100%); transition: background .25s; }
+.rq > .rq-plate::after { inset: 1px; --cut: 11.6px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M5 0 10 5 5 10 0 5z' fill='%23d9b46a'/%3E%3C/svg%3E") 2.5px 2.5px / 6px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M5 0 10 5 5 10 0 5z' fill='%23d9b46a'/%3E%3C/svg%3E") right 2.5px bottom 2.5px / 6px no-repeat,
+    linear-gradient(180deg, rgba(255, 255, 255, .055), transparent 26%),
+    radial-gradient(130% 160% at 0% 50%, color-mix(in srgb, var(--c) 20%, transparent), transparent 62%),
+    linear-gradient(180deg, rgba(22, 24, 38, .94), rgba(9, 10, 18, .96));
+  transition: background .25s; }
+.rq:hover > .rq-plate { filter: brightness(1.12); }
+.rq.on > .rq-plate { filter: drop-shadow(0 0 10px color-mix(in srgb, var(--c) 45%, transparent)) drop-shadow(0 6px 10px rgba(0, 0, 0, .5)); }
+.rq.on > .rq-plate::before { background: linear-gradient(105deg, #fff3cc 0%, color-mix(in srgb, var(--c) 60%, #f6e2a8) 18%, color-mix(in srgb, var(--c) 55%, #8a6a2a) 55%, #f2d792 100%); }
+.rq.on > .rq-plate::after { inset: 1.5px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M5 0 10 5 5 10 0 5z' fill='%23fff3cc'/%3E%3C/svg%3E") 2.5px 2.5px / 6px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M5 0 10 5 5 10 0 5z' fill='%23fff3cc'/%3E%3C/svg%3E") right 2.5px bottom 2.5px / 6px no-repeat,
+    linear-gradient(180deg, rgba(255, 255, 255, .07), transparent 30%),
+    radial-gradient(130% 170% at 0% 50%, color-mix(in srgb, var(--c) 34%, transparent), transparent 66%),
+    linear-gradient(180deg, rgba(26, 26, 42, .94), rgba(11, 11, 20, .96)); }
+.rq.locked > .rq-plate { filter: grayscale(.85) brightness(.75); }
+
+/* ---------- 대기실: 덱 보관함 ---------- */
+.decks { gap: 8px; }
+/* 진영 머리: 마름모 틀 속 진영 문장 + 단체색 띠 + 끝의 마름모 */
+.deck-fac { gap: 8px; }
+.df-head { position: relative; margin-top: 14px; padding: 5px 0 5px 2px; gap: 10px; letter-spacing: .16em; }
+.df-head::after { height: 9px; background:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M5 0 10 5 5 10 0 5z' fill='%23d9b46a' fill-opacity='.7'/%3E%3C/svg%3E") right center / 7px no-repeat,
+  linear-gradient(90deg, color-mix(in srgb, var(--fc) 65%, transparent), rgba(217, 180, 106, .18) 70%, transparent calc(100% - 9px)) left center / calc(100% - 9px) 1px no-repeat; }
+.df-crest { position: relative; width: 30px; height: 30px; display: grid; place-items: center; }
+.df-crest::before { content: ""; position: absolute; inset: 1px; transform: rotate(45deg) scale(.78); border: 1px solid color-mix(in srgb, var(--fc) 55%, transparent);
+  background: radial-gradient(circle, color-mix(in srgb, var(--fc) 26%, transparent), rgba(8, 9, 15, .9) 75%); box-shadow: 0 0 0 2px rgba(8, 9, 15, .9), 0 0 0 3px rgba(217, 180, 106, .28); }
+.df-crest svg { position: relative; width: 70%; height: 70%; }
+
+/* 덱 상자 */
+.deck-tile.rq { --cut: 14px; overflow: hidden; padding: 12px 18px 12px 12px !important; gap: 16px !important; min-height: 96px; }
+.deck-tile.rq.on::after { right: 4px; z-index: 2; }
+.deck-tile.rq::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 240, 205, .1) 48%, rgba(255, 240, 205, .03) 54%, transparent 62%) -120% 0 / 260% 100% no-repeat; transition: background-position 0s; }
+.deck-tile.rq:hover::before { background-position: 160% 0; transition: background-position .9s cubic-bezier(.3, .6, .2, 1); }
+/* 물자국처럼 비치는 단체 문양 */
+.dt-mark { position: absolute; right: -14px; top: 50%; width: 112px; height: 112px; translate: 0 -50%; rotate: -10deg; z-index: -1; color: var(--c); opacity: .08; pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 55%); mask-image: linear-gradient(90deg, transparent, #000 55%); transition: opacity .3s, rotate .5s; }
+.dt-mark svg { width: 100%; height: 100%; display: block; }
+.deck-tile.rq:hover .dt-mark { opacity: .13; rotate: -6deg; }
+.deck-tile.rq.on .dt-mark { opacity: .2; }
+/* 문장 + 뒤에 펼친 카드 뒷면 셋 + 고르면 도는 점선 고리 */
+.dt-seal { position: relative; flex: none; width: 62px; height: 62px; display: grid; place-items: center; margin: 8px 0 0 4px; }
+.dt-seal .emblem { position: relative; z-index: 1; width: 50px !important; height: 50px !important; background: radial-gradient(circle at 38% 32%, color-mix(in srgb, var(--c) 34%, #1a1a2a), #0b0b14 72%); border: 1.5px solid color-mix(in srgb, var(--c) 75%, transparent);
+  box-shadow: 0 0 0 2.5px rgba(8, 9, 15, .95), 0 0 0 3.5px rgba(217, 180, 106, .5), 0 4px 10px rgba(0, 0, 0, .6), inset 0 0 12px color-mix(in srgb, var(--c) 30%, transparent); }
+.dt-seal .emblem svg { filter: drop-shadow(0 0 4px color-mix(in srgb, var(--c) 70%, transparent)); }
+.dt-fan { position: absolute; inset: 0; pointer-events: none; }
+.dt-fan > i { position: absolute; left: 50%; top: 50%; width: 32px; height: 44px; margin: -36px 0 0 -16px; border-radius: 3px; transform-origin: 50% 100%;
+  background: radial-gradient(circle at 50% 42%, transparent 5px, rgba(217, 180, 106, .45) 5.5px 6.3px, transparent 7px), repeating-linear-gradient(45deg, rgba(122, 95, 208, .18) 0 1.5px, transparent 1.5px 4px), radial-gradient(circle at 50% 40%, #2a2140, #110e1b);
+  border: 1px solid rgba(217, 180, 106, .7); box-shadow: 0 2px 5px rgba(0, 0, 0, .6); transition: transform .35s cubic-bezier(.2, .8, .3, 1); }
+.dt-fan > i:nth-child(1) { transform: rotate(-30deg) translateY(-3px); }
+.dt-fan > i:nth-child(2) { transform: rotate(0deg) translateY(-7px); }
+.dt-fan > i:nth-child(3) { transform: rotate(30deg) translateY(-3px); }
+.deck-tile.rq:hover .dt-fan > i:nth-child(1), .deck-tile.rq.on .dt-fan > i:nth-child(1) { transform: rotate(-40deg) translateY(-5px); }
+.deck-tile.rq:hover .dt-fan > i:nth-child(2), .deck-tile.rq.on .dt-fan > i:nth-child(2) { transform: rotate(0deg) translateY(-11px); }
+.deck-tile.rq:hover .dt-fan > i:nth-child(3), .deck-tile.rq.on .dt-fan > i:nth-child(3) { transform: rotate(40deg) translateY(-5px); }
+.dt-ring { position: absolute; inset: -4px; width: calc(100% + 8px); height: calc(100% + 8px); z-index: 2; color: #f2d792; opacity: 0; transition: opacity .3s; pointer-events: none; }
+.deck-tile.rq.on .dt-ring { opacity: .85; animation: dtRing 40s linear infinite; }
+@keyframes dtRing { to { transform: rotate(360deg); } }
+
+/* 글자 */
+.deck-tile.rq .dt-body { position: relative; gap: 4px; }
+.deck-tile.rq .dt-body b { color: var(--ink); text-shadow: 0 1px 0 rgba(0, 0, 0, .7); letter-spacing: .02em; }
+.deck-tile.rq.on .dt-body b { color: var(--gold-hi); text-shadow: 0 0 14px rgba(240, 200, 120, .3), 0 1px 0 rgba(0, 0, 0, .7); }
+.deck-tile.rq .dt-body .en { color: color-mix(in srgb, var(--c) 80%, #fff); }
+.deck-tile.rq .dt-state { display: flex; align-items: center; gap: 10px; margin-top: 2px; }
+.dt-st { font-size: .92em; color: var(--ink-2); white-space: nowrap; }
+.dt-st b { font-family: var(--caps); font-size: 1.08em; color: var(--ether); }
+.dt-st.ok { color: var(--good); } .dt-st.ok b { color: var(--gold-hi); }
+.dt-st.bad { color: var(--warn); }
+.dt-st.lock { color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+.dt-st .lk { width: 1.05em; height: 1.05em; }
+
+/* 덱 장수 계기판: 10칸, −14° 기운 판 (덱 조정실 2.14와 같은 짜임) */
+.dt-gauge { display: inline-flex; gap: 2px; flex: none; padding: 3px 5px; background: rgba(5, 6, 11, .7); box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .22); }
+.dt-gauge > i { width: 7px; height: 12px; transform: skewX(-14deg); background: linear-gradient(0deg, var(--ether) calc(var(--f) * 100%), rgba(143, 220, 255, .09) 0); box-shadow: inset 0 0 0 1px rgba(143, 220, 255, .16); }
+.dt-gauge > i:nth-child(5) { margin-right: 3px; }
+.dt-gauge.full > i { background: linear-gradient(180deg, #fff3c9, #d6aa52 55%, #8a6220); box-shadow: 0 0 5px rgba(240, 200, 110, .45); }
+
+/* 잠긴 덱 */
+.deck-tile.rq.locked { opacity: .62; filter: none; }
+.deck-tile.rq.locked .dt-seal, .deck-tile.rq.locked .dt-body { filter: grayscale(.9) brightness(.8); }
+
+/* depth.css 의 사각 그림자는 깎은 명판에 맞지 않아 끈다(빛은 .rq-plate 가 맡는다) */
+.deck-tile.rq, .deck-tile.rq:hover, .deck-tile.rq.on { box-shadow: none !important; }
+
+/* ---------- 교역소: 계보 칸 ---------- */
+.org-node.rq { --cut: 10px; }
+.org-node.rq .emblem { background: radial-gradient(circle at 38% 32%, color-mix(in srgb, var(--c) 32%, #1a1a2a), #0b0b14 72%); border: 1.5px solid color-mix(in srgb, var(--c) 70%, transparent); box-shadow: 0 0 0 2.5px rgba(8, 9, 15, .95), 0 0 0 3.5px rgba(217, 180, 106, .45); }
+.org-node.rq.root { --c: var(--gold); --cut: 14px; }
+.org-node.rq.root b { color: var(--gold-hi); }
+.org-node.rq:hover { transform: translateY(-2px); }
+
+/* ---------- 덱 조정실: 덱 이름판 · 운명의 서 줄 ---------- */
+.ed-name.rq { --cut: 12px; padding: 8px 14px 8px 10px; }
+.ed-name.rq input { background: transparent; border-color: transparent; }
+.ed-name.rq input:focus { border-color: rgba(217, 180, 106, .4); background: rgba(5, 6, 11, .5); }
+.dl-row { --cut: 8px; clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut)); border: 0 !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .045), transparent 40%),
+    radial-gradient(120% 180% at 0% 50%, color-mix(in srgb, var(--el) 20%, transparent), transparent 62%),
+    linear-gradient(180deg, rgba(22, 24, 38, .9), rgba(10, 11, 19, .92)) !important;
+  box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .14); }
+.dl-row:hover { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--bad) 65%, transparent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .deck-tile.rq.on .dt-ring { animation: none; }
+  .deck-tile.rq::before, .dt-fan > i, .dt-mark { transition: none; }
+}

@@ -63,9 +63,11 @@ const TYPES = {
   item: { name: "아이템",    en: "Relic" }
 };
 
-/* ---------- v1.0: 클래스 제거 ----------
-   클래스(무도·무장·마도·기도)는 게임 규칙에서 빠졌다. 데이터(js/data.js)의 cl·cls 값은 그대로 두되 게임은 읽지 않는다.
-   - 아이템: 같은 단체의 어느 유닛에나 장착한다.
+/* ---------- 클래스 ----------
+   v1.0에서 클래스(무도·무장·마도·기도)를 규칙에서 뺐다가, v2.3에서 아이템 장착에만 되살렸다.
+   - 유닛은 클래스 하나(data.js의 cl). 아이템은 장착할 수 있는 클래스 목록(data.js의 cls, "공용"이면 모두).
+   - 아이템은 클래스가 맞는 유닛에만 장착한다 (canEquip). 카드 오른쪽 위 동그라미 아이콘이 겹치면 장착된다.
+   - 마법은 그대로: "아군/상대 ○○ 유닛 전체"를 겨냥하던 마법 21장은 "맨 앞 2기"를 겨냥한다 (v1.0).
    - "아군/상대 ○○ 유닛 전체"를 겨냥하던 마법 21장은 "맨 앞 2기"를 겨냥한다 (클래스 60% 덱에서 재던 범위와 비슷한 크기이고, 대기열 규칙과 바로 이어진다).
    원문은 카드의 prevText 뒤에 "v0.9:"로 남긴다. */
 function declassSpell(s) {
@@ -88,7 +90,9 @@ for (const u of SIM_UNITS) {
   const G = GROUPS[u.g];
   CARD_LIST.push({ id: u.id, type: "unit", name: u.n, group: u.g, faction: G.faction, el: G.el, lv: u.lv, up: u.up,
     a: u.a, d: u.d, h: u.h, co: u.co, w: u.w, orig: u.orig || null, origCo: u.origCo || null, v12: u.v12 || null, v12Co: u.v12Co || null,
-    team: u.team == null ? null : u.team, rev: u.rev || "", legend: u.lv === 8 && u.up >= 2, lock: u.lock || null });
+    team: u.team == null ? null : u.team, rev: u.rev || "", legend: u.lv === 8 && u.up >= 2, lock: u.lock || null, cl: u.cl || "무도",
+    // v2.9 스페셜 유닛(js/specials.js): 타고난 능력 gift(아이템 능력과 같은 꼴), 덱에 1장(limit), 설명 글
+    gift: u.gift || null, limit: u.limit || 0, special: !!u.special, unique: !!u.unique, flavor: u.desc || "" });   // v3.2 유니크(js/uniques.js)
 }
 for (const s of SIM_SPELLS) {
   const G = GROUPS[s.g];
@@ -101,17 +105,20 @@ for (const s of SIM_SPELLS) {
 for (const it of SIM_ITEMS) {
   const G = GROUPS[it.g];
   CARD_LIST.push({ id: it.id, type: "item", name: it.n, group: it.g, faction: G.faction, el: G.el, lv: it.lv, up: 0,
-    a: it.a || 0, d: it.d || 0, h: it.h || 0, co: it.co || [], item: it, cat: it.cat, flavor: it.desc || "" });
+    a: it.a || 0, d: it.d || 0, h: it.h || 0, co: it.co || [], item: it, cat: it.cat, cls: (it.cls && it.cls.length) ? it.cls.slice() : ["공용"], flavor: it.desc || "",
+    limit: it.limit || 0, special: !!it.special });
 }
 const CARDS = {};
 CARD_LIST.forEach(c => { CARDS[c.id] = c; });
-/* v1.4 소환물: 마법이 부르는 유닛과 작은 마법. CARDS에만 있고 덱·상점·보관함(CARD_LIST)에는 없다 */
+/* v1.4 소환물: 마법이 부르는 유닛과 작은 마법. CARDS에만 있고 덱·상점·보관함(CARD_LIST)에는 없다
+   v2.3: 소환물 유닛의 클래스 (08 문서 이름 기준: 맹수·골렘·정령·악마 → 무도, 기사 → 무장) */
+const TOKEN_CL = { "TK-G1-1": "무도", "TK-G1-2": "무도", "TK-B2-1": "무도", "TK-A2-1": "무장", "TK-A1-1": "무도", "TK-G3-1": "무도", "TK-G2-1": "무도" };
 for (const t of (typeof SIM_TOKENS !== "undefined" ? SIM_TOKENS : [])) {
   const G = GROUPS[t.g];
   const base = { id: t.id, name: t.n, group: t.g, faction: G.faction, el: G.el, lv: t.lv, up: 0, tok: true, flavor: t.desc || "" };
   CARDS[t.id] = t.kind
     ? Object.assign(base, { type: t.kind === "com" ? "any" : t.kind, a: 0, d: 0, h: 0, co: [], ops: t.ops, cost: {}, gain: {}, text: t.text })
-    : Object.assign(base, { type: "unit", a: t.a, d: t.d, h: t.h, co: t.co || [], lock: t.lock || null, w: null, rev: "", legend: false });
+    : Object.assign(base, { type: "unit", a: t.a, d: t.d, h: t.h, co: t.co || [], lock: t.lock || null, w: null, rev: "", legend: false, cl: t.cl || TOKEN_CL[t.id] || "무도" });
 }
 
 /* 소환 비용 = 레벨 (규칙 문서 6. 소환 자원). 유닛·마법·아이템 모두 같다 */
@@ -155,14 +162,25 @@ function itemAbilities(it) {
   if (it.evName) out.push(`[${it.evName}]`);
   return out;
 }
-/* 아이템 능력만 (붙는 공·방·체와 코인은 빼고). 카드 위 설명 글에 쓴다 — 붙는 값은 아래 띠 아이콘이 보여 준다 */
-function itemAbilityText(it) {
-  const parts = [];
-  if (it.set) parts.push("[고정] 장착한 유닛의 공·방·체가 이 값이 된다.");
-  const ab = itemAbilities(it); if (ab.length) parts.push(ab.join(" "));
-  if (it.evText) parts.push(it.evText);
-  return parts.join(" ");
+/* v2.2: 아이템 글은 두 단계다.
+   ① 아이템이 하는 일: "[관통] 능력 부여" (유닛에게 주는 특수 능력), "장착할 때 [치유 3]" (장착하는 순간 한 번)
+   ② 그 능력의 뜻: "[가호 N] 매 턴 처음 받는 피해를 N만큼 줄인다." — 숫자 자리는 N, 고정할 스탯 자리는 "스탯"
+   ①은 itemSummary, ②는 itemKwGenList. 숫자를 넣은 문장(itemKwDesc)은 마우스를 올린 말풍선에 쓴다 */
+const ON_EQUIP_KW = /^\[치유/;   // 유닛에게 남지 않고 장착하는 순간 한 번 일어나는 능력
+function itemGrants(it) {
+  const g = itemAbilities(it).filter(r => !ON_EQUIP_KW.test(r));
+  if (it.set) g.unshift(`[고정 ${it.set.a}/${it.set.d}/${it.set.h}]`);
+  return g;
 }
+function itemSummary(it) {
+  const out = [], g = itemGrants(it), e = itemAbilities(it).filter(r => ON_EQUIP_KW.test(r));
+  if (g.length) out.push(g.join(" ") + " 능력 부여");
+  if (e.length) out.push("장착할 때 " + e.join(" "));
+  if (it.evText && !it.evName) out.push(it.evText);
+  return out;
+}
+/* 아이템 능력만 (붙는 공·방·체와 코인은 빼고). 카드 위 설명 글에 쓴다 — 붙는 값은 왼쪽 세로 열이 보여 준다. 줄은 \n으로 나눈다 */
+function itemAbilityText(it) { return itemSummary(it).join("\n"); }
 function itemText(it) {
   const parts = [];
   if (it.set) parts.push(`[고정 ${it.set.a}/${it.set.d}/${it.set.h}] 장착한 유닛의 공·방·체가 이 값이 된다 (유닛 코인은 쓰지 않음).`);
@@ -170,39 +188,67 @@ function itemText(it) {
     const m = ["a", "d", "h"].filter(k => it[k]).map(k => `${STAT_KO[k]} ${sgnNum(it[k])}`);
     if (m.length) parts.push(m.join(", ") + ".");
   }
-  const ab = itemAbilities(it); if (ab.length) parts.push(ab.join(" "));
+  for (const s of itemSummary(it).filter(s => !it.set || !s.startsWith("[고정 " + it.set.a))) parts.push(s + ".");
   if (it.co && it.co.length) parts.push("코인 " + coinList(it.co) + ".");
   return parts.join(" ");
 }
 /* 아이템 능력의 뜻 (v1.4.6: 적힌 숫자를 넣어 그 카드에 맞는 문장으로 보인다. {n} = 능력 이름 뒤의 숫자).
    문장은 실제 규칙(engine.js)과 같아야 한다: 사격 throwPhase, 투척 attackOne, 마력 공격·관통·치명·가시·원거리 attackOne, 가호·보호막 hurt */
 const ITEM_KW = {
-  "관통": "맞붙어 공격하면, 맞선 상대 유닛의 방어가 이번 턴 동안 내 공격력만큼 깎인다.",
-  "마력 공격": "맞붙어 공격할 때 상대 방어를 {n}만큼 무시한다. 반격할 때는 적용되지 않는다.",
-  "마력 공격 전부": "맞붙어 공격할 때 상대 방어를 모두 무시한다. 반격할 때는 적용되지 않는다.",
+  "관통": "공격하면, 상대 유닛의 방어가 이번 턴 동안 내 공격력만큼 줄어든다(0까지만).",
+  "마력 공격": "공격할 때 상대 방어를 {n}만큼 무시한다. 반격할 때는 적용되지 않는다.",
+  "마력 공격 전부": "공격할 때 상대 방어를 모두 무시한다. 반격할 때는 적용되지 않는다.",
   "치명": "맞붙어 공격해 피해를 줄 때마다 코인 1개를 던져, 앞면이면 그 피해가 2배.",
-  "투척": "이 아이템을 장착한 그 턴에 한 번, 이 유닛이 공격을 시작할 때 맞선 유닛 말고 다른 상대 유닛 하나의 체력을 함께 {n} 깎는다(쓰러뜨릴 수 있는 유닛 중 레벨이 가장 높은 유닛, 없으면 그다음 맨 앞 유닛). 맞선 유닛뿐이면 그 유닛에게 투척 {n}을 먼저 맞히고 이어서 공격한다.",
+  "투척": "이 아이템을 장착한 그 턴에 한 번, 이 유닛이 공격을 시작할 때 맞선 유닛 말고 다른 상대 유닛 하나의 체력을 함께 {n} 깎는다(쓰러뜨릴 수 있는 유닛 중 레벨이 가장 높은 유닛, 없으면 그다음 맨 앞 유닛). 맞선 유닛뿐이면 그 유닛에게 투척 피해를 먼저 주고 이어서 공격한다.",
   "사격": "내 공격 턴마다, 맞붙기 전에 상대 유닛 하나의 체력을 {n} 깎는다. 대상: 이 피해로 쓰러뜨릴 수 있는 유닛 중 레벨이 가장 높은 유닛, 없으면 상대의 맨 앞 유닛.",
   "원거리": "맞붙어 공격해도 상대의 반격을 받지 않는다.",
   "가호": "매 턴 처음 받는 피해를 {n}만큼 줄인다.",
   "보호막 코인": "매 턴 시작에 코인을 던져 앞면이면, 그 턴 처음 받는 피해 한 번을 통째로 막는다.",
-  "고정": "{s}은(는) 마법·코인·저주를 받아도 카드와 아이템에 적힌 값 아래로 내려가지 않는다.",
+  "고정": "{S} 마법·코인·저주를 받아도 카드와 아이템에 적힌 값 아래로 내려가지 않는다.",
   "가시": "이 유닛을 맞붙어 공격한 상대 유닛은 체력이 {n} 깎인다.",
   "증폭": "이 유닛이 전장에 있으면 내 공격 마법의 피해가 {n} 늘어난다.",
   "치유": "장착하는 순간 내 생명이 {n} 늘어난다."
+};
+/* 카드에 적는 일반 뜻이 말풍선 문장과 달라야 하는 것만 (나머지는 ITEM_KW의 {n}을 N으로 바꿔 쓴다) */
+const ITEM_KW_GEN = {
+  "치유": "내 생명이 {n} 늘어난다.",
+  "고정 세트": "장착한 유닛의 공·방·체가 적힌 값이 된다. 유닛 코인은 던지지 않는다."
 };
 /* "[사격 2]" → 그 카드에 맞는 뜻 문장 */
 function itemKwDesc(raw) {
   const name = raw.replace(/[\[\]]/g, "").trim();
   if (name === "마력 공격 전부") return ITEM_KW["마력 공격 전부"];
+  if (/^고정 \d/.test(name)) return ITEM_KW_GEN["고정 세트"].replace("적힌 값", `적힌 값(${name.slice(3)})`);
   const key = Object.keys(ITEM_KW).find(x => name === x || name.startsWith(x + " ") || name.startsWith(x + ":"));
   if (!key) return "";
   const n = parseInt((name.slice(key.length).match(/\d+/) || [""])[0], 10);
   const st = (name.split(":")[1] || "그 스탯").trim();
-  return ITEM_KW[key].replace(/\{s\}/g, st).replace(/\{n\}/g, isNaN(n) ? "" : n).replace(/\{m\}/g, isNaN(n) ? "" : Math.max(0, 4 - n));
+  return ITEM_KW[key].replace(/\{S\}/g, st + josaEunNeun(st)).replace(/\{n\}/g, isNaN(n) ? "" : n).replace(/\{m\}/g, isNaN(n) ? "" : Math.max(0, 4 - n));
 }
 
-/* 아이템 능력과 그 뜻: [[이름, 뜻]] (원본 카드·고른 카드 패널에서 쓴다) */
+/* 받침이 있으면 "은", 없으면 "는" (방어는 · 체력은) */
+function josaEunNeun(w) { const ch = w.charCodeAt(w.length - 1); return ch >= 0xAC00 && ch <= 0xD7A3 && (ch - 0xAC00) % 28 ? "은" : "는"; }
+/* "[가호 2]" → ["[가호 N]", "매 턴 처음 받는 피해를 N만큼 줄인다."] (카드에 적는 일반 뜻) */
+function itemKwGeneric(raw) {
+  const name = raw.replace(/[\[\]]/g, "").trim();
+  if (name === "마력 공격 전부") return ["[마력 공격 전부]", ITEM_KW["마력 공격 전부"]];
+  if (/^고정 \d/.test(name)) return ["[고정 공/방/체]", ITEM_KW_GEN["고정 세트"]];
+  const key = Object.keys(ITEM_KW).find(x => name === x || name.startsWith(x + " ") || name.startsWith(x + ":"));
+  if (!key) return null;
+  const rest = name.slice(key.length), num = /\d/.test(rest), colon = rest.trim().startsWith(":");
+  const label = `[${key}${num ? " N" : ""}${colon ? ": 스탯" : ""}]`;
+  const text = (ITEM_KW_GEN[key] || ITEM_KW[key]).replace(/\{S\}/g, "고정한 스탯은").replace(/\{n\}/g, "N").replace(/\{m\}/g, "4 − N");
+  return [label, text];
+}
+/* 아이템 능력의 일반 뜻 목록 [[이름, 뜻]] — 같은 능력은 한 번만 */
+function itemKwGenList(it) {
+  const out = [], seen = new Set();
+  for (const raw of itemGrants(it).concat(itemAbilities(it).filter(r => ON_EQUIP_KW.test(r)))) {
+    const g = itemKwGeneric(raw); if (!g || seen.has(g[0])) continue; seen.add(g[0]); out.push(g);
+  }
+  return out;
+}
+/* 아이템 능력과 그 뜻: [[이름, 뜻]] (숫자를 넣은 문장. 장착한 유닛의 설명·말풍선에서 쓴다) */
 function itemKwList(it) {
   const out = [];
   if (it.set) out.push(["[고정]", "장착한 유닛의 공·방·체가 이 값이 된다 (유닛 코인은 쓰지 않음)."]);
@@ -214,11 +260,20 @@ function itemKwList(it) {
   return out;
 }
 
+/* v2.9 스페셜 유닛의 타고난 능력: 아이템 능력 글을 그대로 쓴다 ("[가호 2] 타고난 능력") */
+function giftSummary(c) {
+  if (!c || !c.gift) return [];
+  const g = itemGrants(c.gift), out = [];
+  if (g.length) out.push(g.join(" ") + " 타고난 능력");
+  if (c.gift.evText && !c.gift.evName) out.push(c.gift.evText);
+  return out;
+}
+function giftText(c) { return giftSummary(c).join("\n"); }
 /* 카드 본문 */
 function cardRules(c) {
   if (c.type === "item") return itemText(c.item) + (c.item.evText ? " " + c.item.evText : "");
   if (c.type !== "unit") return c.text + spellCostText(c);
-  return `유닛.${c.up ? ` 유지비 ${c.up}: 살아남으면 다음 턴부터 에테르가 ${c.up}만큼 빠진다.` : ""}`;
+  return c.gift ? "유닛. " + giftSummary(c).join(". ") + "." : "유닛.";
 }
 function spellCostText(c) {
   const t = [];
@@ -235,6 +290,7 @@ const SPELL_KW = {
 };
 function spellKwDesc(inner) {
   const name = inner.trim();
+  if (/^고정 \d/.test(name)) return itemKwDesc("[" + name + "]");
   const key = Object.keys(SPELL_KW).find(x => name === x || name.startsWith(x + " "));
   if (key) { const n = parseInt((name.slice(key.length).match(/\d+/) || [""])[0], 10); return SPELL_KW[key].replace(/\{n\}/g, isNaN(n) ? "" : n); }
   return itemKwDesc("[" + name + "]");
@@ -243,11 +299,12 @@ function spellKwDesc(inner) {
 function kwHTML(text) {
   return esc(text).replace(/\[([^\[\]]+)\]/g, (m, inner) => {
     const d = spellKwDesc(inner);
-    return d ? `<span class="kw" data-tip="${esc("[" + inner.trim() + "]\n" + d)}">${m}</span>` : m;
+    return d ? `<span class="kw" title="" data-tip="${esc("[" + inner.trim() + "]\n" + d)}">${m}</span>` : m;
   });
 }
 function cardKwShort(c) {
   if (c.type === "item") return itemAbilityText(c.item);
+  if (c.type === "unit") return giftText(c);
   // v1.9: 카드 글에 이미 [장전 N]이 적혀 있으면 다시 붙이지 않는다 (예: 대포격이 "[장전 2] [장전 2]"로 두 번 보이던 문제)
   if (c.type !== "unit") return c.text + (c.cost && c.cost.ether && !/\[장전 \d+\]/.test(c.text) ? ` [장전 ${c.cost.ether}]` : "");
   return "";
@@ -262,8 +319,19 @@ function deckable(c, g) { return c.group === g; }
 function cardsOfGroup(g) { return CARD_LIST.filter(c => c.group === g); }
 function groupOf(id) { return GROUPS[id] ? GROUPS[id] : null; }
 function countMap(m) { return Object.values(m).reduce((a, b) => a + b, 0); }
-/* v1.0: 아이템은 어느 유닛에나 장착할 수 있다 (덱이 한 단체라 단체 제한은 저절로 지켜진다) */
-function canEquip(itemCard, unitCard) { return !!(itemCard && unitCard); }
+/* v2.3: 아이템은 클래스가 맞는 유닛에만 장착한다. [공용]은 누구나.
+   카드 오른쪽 위 동그라미(클래스 아이콘)가 유닛과 아이템에서 하나라도 같으면 장착된다 */
+const CLASS_NAMES = ["무도", "무장", "마도", "기도"];
+function itemClasses(itemCard) { return (itemCard && itemCard.cls) || ["공용"]; }
+function isAllClass(itemCard) { const cs = itemClasses(itemCard); return cs.includes("공용") || CLASS_NAMES.every(k => cs.includes(k)); }
+function classFits(itemCard, unitCard) { return !!(itemCard && unitCard) && (isAllClass(itemCard) || itemClasses(itemCard).includes(unitCard.cl)); }
+function canEquip(itemCard, unitCard) { return classFits(itemCard, unitCard); }
+/* 이름 옆 클래스 꼬리표: 유닛 [무도] · 아이템 [무장 전용] / [무장, 기도 전용] / [공용] */
+function classTagText(c) {
+  if (c.type === "unit") return c.cl ? `[${c.cl}]` : "";
+  if (c.type === "item") return isAllClass(c) ? "[공용]" : `[${itemClasses(c).join(", ")} 전용]`;
+  return "";
+}
 
 /* ---------- 기본 덱 (단체마다 40장) ----------
    DECK_LISTS(js/decks.js)에 시뮬레이터로 맞춘 덱이 있으면 그것을 쓰고, 없으면 아래 규칙으로 만든다. */

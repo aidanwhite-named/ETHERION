@@ -1,0 +1,300 @@
+/* ETHERION v3.0 — 장면 배경(js/scenes.js) · 교역소 재고와 연동 · 덱 조정실(넣고 빼기 · 40장 계기판 · 경보) · 상단 문장 입체
+   색은 docs/STYLE_GUIDE.md 2.2의 변수와 1장의 진영·원소색만 쓴다. 새 색은 아래 :root에 이름을 붙였다(가이드 2.14). */
+:root {
+  --k-unit: #d9b46a;    /* 덱 계기판: 유닛 = 금 */
+  --k-spell: #a57ae6;   /* 마법 = 비술 보라 */
+  --k-item: #c3cfe2;    /* 아이템 = 무장 은빛(1.3 클래스 무장) */
+  --sil: #05060b;       /* 장면의 실루엣 */
+}
+
+/* ======================= 장면 공통 ======================= */
+.scene { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; --mx: 0; --my: 0;
+  animation: scIn 1.4s ease-out both; }
+@keyframes scIn { from { opacity: 0; } }
+.sc-svg { position: absolute; left: -3%; width: 106%; bottom: 0; height: 100%; overflow: visible;
+  transform: translate(calc(var(--mx) * -14px), calc(var(--my) * -6px)); transition: transform .9s cubic-bezier(.2, .7, .3, 1); }
+
+/* 메뉴 판이 장면을 조금 비치게 */
+.screen-shop .shop-main, .screen-editor .ed-pool { background:
+    var(--orn-tl) top 4px left 4px / 22px no-repeat, var(--orn-tr) top 4px right 4px / 22px no-repeat,
+    var(--orn-bl) bottom 4px left 4px / 22px no-repeat, var(--orn-br) bottom 4px right 4px / 22px no-repeat,
+    radial-gradient(120% 70% at 50% 0%, var(--tint), transparent 70%),
+    linear-gradient(180deg, rgba(20, 22, 35, .8), rgba(10, 11, 19, .7)); }
+
+/* ======================= 교역소: 밤의 린데어 ======================= */
+.scene-shop { opacity: .78; }
+.sh-sky { opacity: .5; }
+.sh-wheel { fill: none; stroke: rgba(217, 180, 106, .32); stroke-width: 1.2; animation: shSpin 160s linear infinite; }
+.sh-wheel .sh-star { fill: #f6e2a8; stroke: none; animation: shTw 4s ease-in-out infinite alternate; }
+.sh-thread { fill: none; stroke: rgba(246, 226, 168, .22); stroke-width: 1; stroke-dasharray: 2 6; }
+@keyframes shSpin { to { transform: rotate(360deg); } }
+@keyframes shTw { from { opacity: .35; } to { opacity: 1; } }
+.sh-road { fill: none; stroke: rgba(143, 220, 255, .28); stroke-width: 1.4; stroke-dasharray: 3 11; animation: shRoad 9s linear infinite; }
+@keyframes shRoad { to { stroke-dashoffset: -140; } }
+.sh-gate { transform-box: fill-box; transform-origin: center; animation: shBreath 5.5s ease-in-out infinite; }
+@keyframes shBreath { 0%, 100% { opacity: .55; transform: scale(.92); } 50% { opacity: 1; transform: scale(1.08); } }
+.sh-stones rect { fill: #1a1f33; stroke: rgba(143, 220, 255, .55); stroke-width: 1.2; }
+.sh-city { fill: var(--sil); }
+.sh-win { fill: #f0b44c; opacity: .75; animation: shWin 7s var(--d) ease-in-out infinite; }
+@keyframes shWin { 0%, 100% { opacity: .75; } 46% { opacity: .75; } 50% { opacity: .2; } 56% { opacity: .8; } }
+.sh-glint { fill: rgba(143, 220, 255, .22); }
+.sh-refl { fill: #f0b44c; opacity: .35; animation: shRefl 3.6s var(--d) ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes shRefl { 0%, 100% { opacity: .1; transform: scaleX(.6); } 50% { opacity: .45; transform: scaleX(1.25); } }
+.sh-gate-refl { fill: rgba(143, 220, 255, .07); filter: blur(10px); animation: shBreath 5.5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.sh-ships path { fill: var(--sil); }
+.sh-ship { animation: shBob 6s var(--d) ease-in-out infinite; }
+@keyframes shBob { 0%, 100% { translate: 0 0; rotate: -.6deg; } 50% { translate: 0 3px; rotate: .8deg; } }
+.sh-lamp { fill: #ffd27a; filter: drop-shadow(0 0 6px #f0b44c); }
+
+/* 등불 줄 (화면 위 양 모서리에서 늘어진다) */
+.sh-string { position: absolute; top: 96px; width: 34vw; height: 120px; }
+.sh-string.l { left: -2vw; } .sh-string.r { right: -2vw; transform: scaleX(-1); }
+.sh-string::before { content: ""; position: absolute; inset: 0 0 auto; height: 70px; border-bottom: 1px solid rgba(217, 180, 106, .35); border-radius: 0 0 50% 50% / 0 0 100% 100%; }
+.sh-string .ln { position: absolute; top: calc(30px + sin(calc(var(--k) * 30deg)) * 38px); left: calc(6% + var(--k) * 16%);
+  width: 12px; height: 18px; border-radius: 5px 5px 7px 7px; transform-origin: 50% -14px;
+  background: radial-gradient(circle at 50% 40%, #fff3c9, #f0b44c 45%, #8a3c10); box-shadow: 0 0 18px 4px rgba(240, 180, 76, .45);
+  animation: lnSway 4.2s var(--d) ease-in-out infinite alternate; }
+.sh-string .ln::before { content: ""; position: absolute; left: 50%; top: -14px; height: 14px; border-left: 1px solid rgba(217, 180, 106, .45); }
+@keyframes lnSway { from { transform: rotate(-7deg); } to { transform: rotate(7deg); } }
+
+/* 세 진영의 깃발 (아래 왼쪽 부두) */
+.sh-flags { position: absolute; left: 2.5vw; bottom: 14vh; display: flex; gap: 14px; opacity: .8; }
+.sh-flag { position: relative; display: grid; place-items: center; width: 34px; height: 46px; padding-bottom: 8px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--fc) 75%, #000), color-mix(in srgb, var(--fc) 40%, #000));
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%); transform-origin: 50% 0;
+  animation: flWave 3.4s calc(var(--i) * -.9s) ease-in-out infinite alternate; }
+.sh-flag svg { width: 22px; height: 22px; opacity: .85; }
+@keyframes flWave { from { transform: skewY(-4deg) scaleX(.94); } to { transform: skewY(4deg) scaleX(1.02); } }
+
+/* 떠오르는 환석 조각 */
+.sh-shard { position: absolute; left: var(--x); bottom: -20px; width: calc(10px * var(--s)); height: calc(14px * var(--s));
+  background: linear-gradient(135deg, #f2fcff, #8fdcff 45%, #1c6a99); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  filter: drop-shadow(0 0 6px rgba(143, 220, 255, .9)); opacity: 0;
+  animation: shardUp var(--t) var(--d) linear infinite; }
+@keyframes shardUp { 0% { opacity: 0; transform: translateY(0) rotate(0); } 12% { opacity: .55; } 80% { opacity: .35; } 100% { opacity: 0; transform: translateY(-92vh) rotate(540deg); } }
+.fly-shard { position: fixed; z-index: 400; width: 11px; height: 15px; pointer-events: none;
+  background: linear-gradient(135deg, #f2fcff, #8fdcff 45%, #1c6a99); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  filter: drop-shadow(0 0 8px #8fdcff); }
+
+/* ======================= 교역소 UI ======================= */
+.shop-wallet.admin b { color: #ffe9a8; }
+.shop-wallet.admin b small { font-size: 12px; letter-spacing: .2em; color: var(--gold); margin-left: 6px; vertical-align: middle; }
+.shop-link { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: -2px 0 12px; padding: 8px 10px;
+  border: 1px dashed rgba(217, 180, 106, .28); background: rgba(217, 180, 106, .04); }
+.shop-link .btn { gap: 6px; } .shop-link .m-ico { width: 16px; height: 16px; }
+.shop-link b.ok { color: var(--good); } .shop-link b.bad { color: var(--warn); }
+.grade-legend i small { font-family: var(--caps); opacity: .75; margin-left: 2px; }
+.shop-cards { gap: 22px 14px; }
+.shop-card { position: relative; width: 146px; padding: 8px 4px 6px; border-radius: 4px; transition: background .2s; }
+.shop-card::before { content: ""; position: absolute; left: 6%; right: 6%; top: 47%; height: 28%; z-index: -1; border-radius: 50%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--gr) 30%, transparent), transparent); opacity: .0; transition: opacity .3s; }
+.shop-card:hover::before { opacity: 1; }
+.sc-face { position: relative; cursor: zoom-in; }
+.sc-face .card { --cw: 138px; transition: transform .25s cubic-bezier(.2, .8, .3, 1), filter .2s; }
+.shop-card:hover .sc-face .card { transform: translateY(-5px) rotate(-.6deg); filter: drop-shadow(0 10px 14px rgba(0, 0, 0, .6)) drop-shadow(0 0 14px rgba(240, 180, 76, .25)); }
+.shop-card.soldout .sc-face .card { filter: grayscale(.85) brightness(.55); }
+.sc-sold { position: absolute; left: 50%; top: 40%; transform: translate(-50%, -50%) rotate(-14deg); padding: 3px 14px; font-weight: 900; letter-spacing: .3em;
+  color: #ffb4a8; border: 2px solid var(--bad); background: rgba(40, 8, 8, .82); }
+.sc-new, .pc-new { position: absolute; top: -6px; right: -6px; z-index: 3; padding: 2px 7px; font: 900 10px/1.3 var(--caps); letter-spacing: .14em; color: #10200f;
+  background: linear-gradient(180deg, #c8f5b0, var(--good)); border: 1px solid #e4ffd6; border-radius: 2px; box-shadow: 0 0 12px rgba(127, 212, 154, .7); animation: newPulse 1.8s ease-in-out infinite; }
+@keyframes newPulse { 50% { box-shadow: 0 0 2px rgba(127, 212, 154, .3); } }
+.sc-price { display: inline-flex; align-items: center; gap: 4px; }
+.shard { display: inline-block; width: 8px; height: 11px; background: linear-gradient(135deg, #f2fcff, #8fdcff 45%, #1c6a99); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+.sc-stock { display: grid; gap: 2px; width: 100%; font-size: 10.5px; color: var(--muted); }
+.sc-stock i { display: block; height: 3px; background: rgba(255, 255, 255, .07); position: relative; overflow: hidden; }
+.sc-stock i::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--p); background: linear-gradient(90deg, color-mix(in srgb, var(--gr) 55%, #000), var(--gr)); box-shadow: 0 0 6px var(--gr); }
+.sc-stock em { font-style: normal; text-align: right; } .sc-stock b { font-family: var(--caps); color: var(--ink); }
+.sc-stock.empty em { color: var(--bad); }
+.shop-card.bought .sc-face .card { animation: scBought .9s ease-out; }
+.shop-card.fresh { background: radial-gradient(80% 50% at 50% 0%, rgba(127, 212, 154, .08), transparent); }
+
+/* ======================= 덱 조정실: 운명의 감실 ======================= */
+.scene-editor { opacity: .9; }
+.ed-pillars path, .ed-arch { fill: var(--sil); }
+.ed-arch { stroke: color-mix(in srgb, var(--gc) 35%, rgba(217, 180, 106, .4)); stroke-width: 1.2; }
+.ed-floor { fill: #06070d; }
+.ed-shafts path { animation: shaft 14s ease-in-out infinite alternate; transform-origin: 50% 0; }
+@keyframes shaft { from { opacity: .5; transform: skewX(-3deg); } to { opacity: 1; transform: skewX(3deg); } }
+
+/* 단체 깃발 (양옆 위에서 늘어진다) */
+.ed-banner { position: absolute; top: 88px; width: 74px; height: 230px; transform-origin: 50% 0; animation: bnSway 6s ease-in-out infinite alternate; opacity: .75; }
+.ed-banner.l { left: 3vw; } .ed-banner.r { right: 3vw; animation-delay: -3s; }
+.ed-banner::before { content: ""; position: absolute; left: -10px; right: -10px; top: 0; height: 4px; background: linear-gradient(90deg, #8a6a2a, #f6e2a8, #8a6a2a); border-radius: 2px; }
+.bn-cloth { position: absolute; inset: 4px 0 0; display: flex; flex-direction: column; align-items: center; gap: 10px; padding-top: 18px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, .35), transparent 30%, transparent 70%, rgba(0, 0, 0, .35)), linear-gradient(180deg, color-mix(in srgb, var(--gc) 62%, #000), color-mix(in srgb, var(--gc) 30%, #050608));
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 86%, 0 100%); box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .4); }
+.bn-cloth .emblem { transform: scale(1.15); }
+.bn-cloth b { writing-mode: vertical-rl; font-size: 13px; letter-spacing: .3em; color: #f6e2a8; text-shadow: 0 1px 0 #000; opacity: .85; }
+@keyframes bnSway { from { transform: rotate(-1.4deg) skewX(-1deg); } to { transform: rotate(1.4deg) skewX(1deg); } }
+
+/* 바닥의 마법진: 눈금 40개 = 덱 장수 */
+.ed-circle { position: absolute; left: 50%; bottom: -15vh; width: min(92vh, 900px); aspect-ratio: 1; translate: -50% 0;
+  transform: perspective(1200px) rotateX(64deg) translateX(calc(var(--mx) * 20px)); }
+.ed-circle svg { width: 100%; height: 100%; overflow: visible; }
+.rc-l { fill: none; stroke: rgba(217, 180, 106, .42); stroke-width: 1.4; }
+.rc-l.dim { stroke: rgba(217, 180, 106, .2); }
+.rc-spin { animation: shSpin 90s linear infinite; }
+.rc-glow { fill: none; stroke: color-mix(in srgb, var(--gc) 60%, #8fdcff); stroke-width: 26; opacity: calc(.04 + var(--fill, 0) * .18); filter: blur(10px); transition: opacity .5s, stroke .5s; }
+.rc-core { fill: rgba(7, 8, 13, .8); stroke: rgba(243, 223, 166, .6); stroke-width: 2; }
+.tk { stroke: rgba(217, 180, 106, .18); stroke-width: 5; stroke-linecap: round; transition: stroke .35s, filter .35s; }
+.tk.on { stroke: #8fdcff; filter: drop-shadow(0 0 4px #8fdcff); }
+.scene-editor.full .tk.on { stroke: #f6e2a8; filter: drop-shadow(0 0 6px #f0b44c); }
+.scene-editor.full .rc-glow { stroke: #f0b44c; opacity: .32; }
+.scene-editor.full .rc-spin { animation-duration: 30s; }
+.scene-editor.full .rc-l { stroke: rgba(246, 226, 168, .65); }
+.scene-editor.over .tk.on { stroke: var(--bad); filter: drop-shadow(0 0 5px var(--bad)); }
+.scene-editor.over .rc-glow { stroke: var(--bad); opacity: .3; animation: overPulse 1s ease-in-out infinite; }
+@keyframes overPulse { 50% { opacity: .1; } }
+.scene-editor.sealed .ed-circle::after { content: ""; position: absolute; inset: 4%; border-radius: 50%; border: 3px solid #fff3c9;
+  box-shadow: 0 0 40px 10px rgba(240, 180, 76, .7), inset 0 0 40px 10px rgba(240, 180, 76, .5); animation: seal 1.4s ease-out forwards; }
+@keyframes seal { from { opacity: 1; transform: scale(1.15); } to { opacity: 0; transform: scale(.55); } }
+
+/* 촛불 여덟 = 레벨 1~8 (불꽃 크기 = 그 레벨 장수) */
+.ed-candles { position: absolute; left: 50%; bottom: 3vh; translate: -50% 0; display: flex; gap: clamp(30px, 6vw, 96px); align-items: flex-end; }
+.cd { --f: 0; position: relative; display: grid; justify-items: center; width: 16px; }
+.cd-wax { display: block; width: 12px; height: 46px; border-radius: 3px 3px 1px 1px;
+  background: linear-gradient(90deg, #3a3326, #b9a77d 40%, #6b5d40); box-shadow: 0 6px 10px rgba(0, 0, 0, .6); }
+.cd small { margin-top: 4px; font: 700 11px var(--caps); color: rgba(217, 180, 106, .55); }
+.cd-flame { position: absolute; bottom: calc(100% - 14px); left: 50%; width: 14px; height: 28px; translate: -50% 0; transform-origin: 50% 100%;
+  scale: calc(.45 + var(--f) * 1.7); border-radius: 50% 50% 45% 45% / 65% 65% 35% 35%;
+  background: radial-gradient(60% 55% at 50% 72%, #fffbe8, #ffd27a 40%, #f0b44c 60%, rgba(255, 122, 44, 0) 75%);
+  filter: drop-shadow(0 0 calc(4px + var(--f) * 16px) rgba(240, 180, 76, .85)); opacity: .25; transition: scale .5s cubic-bezier(.3, 1.4, .5, 1), opacity .4s;
+  animation: flick 1.6s calc(var(--i) * -.23s) ease-in-out infinite alternate; }
+.cd.lit .cd-flame { opacity: 1; }
+.cd.lit small { color: var(--gold-hi); }
+@keyframes flick { 0% { transform: rotate(-3deg) scaleY(.94); } 50% { transform: rotate(2deg) scaleY(1.06); } 100% { transform: rotate(-1deg) scaleY(.98); } }
+
+/* ======================= 덱 조정실 UI ======================= */
+/* 위 띠의 40칸 계기판 */
+.ed-gauge { display: flex; align-items: center; gap: 12px; padding: 6px 14px 6px 10px; min-width: 330px;
+  border: 1px solid rgba(217, 180, 106, .3); background: linear-gradient(180deg, rgba(8, 9, 15, .75), rgba(14, 16, 26, .75)); border-radius: 3px; position: relative; }
+.g-num { display: flex; align-items: baseline; gap: 4px; font-family: var(--caps); }
+.g-num b { font-size: 34px; line-height: 1; font-weight: 900; color: var(--ether); text-shadow: 0 0 14px rgba(143, 220, 255, .45); transition: color .3s; }
+.g-num span { font-size: 16px; color: var(--muted); }
+.g-body { display: grid; gap: 4px; }
+.g-cells { display: flex; gap: 2px; }
+.g-cell { width: 6px; height: 15px; transform: skewX(-14deg); background: rgba(255, 255, 255, .06); box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .14); transition: background .25s, box-shadow .25s; }
+.g-cell.notch { margin-right: 5px; }
+.g-cell.k-unit { background: linear-gradient(180deg, #fff3c9, var(--k-unit)); }
+.g-cell.k-spell { background: linear-gradient(180deg, #e4d4ff, var(--k-spell)); }
+.g-cell.k-item { background: linear-gradient(180deg, #ffffff, var(--k-item)); }
+.g-cell.over { background: var(--bad) !important; box-shadow: 0 0 6px var(--bad); }
+.g-msg { font-style: normal; font-size: 12.5px; font-weight: 700; color: var(--ink-2); }
+.ed-gauge.st-need .g-msg { color: var(--ether); }
+.ed-gauge.st-ready { border-color: var(--gold); box-shadow: 0 0 18px rgba(240, 200, 120, .25); }
+.ed-gauge.st-ready .g-num b, .ed-gauge.st-ok .g-num b { color: var(--gold-hi); text-shadow: 0 0 14px rgba(240, 180, 76, .6); }
+.ed-gauge.st-ready .g-msg { color: var(--gold-hi); }
+.ed-gauge.st-ok .g-msg { color: var(--good); }
+.ed-gauge.st-bad { border-color: var(--bad); box-shadow: 0 0 18px rgba(239, 106, 92, .35); }
+.ed-gauge.st-bad .g-num b, .ed-gauge.st-bad .g-msg { color: var(--bad); }
+.ed-gauge.shake { animation: gShake .5s cubic-bezier(.36, .07, .19, .97); border-color: var(--bad); }
+@keyframes gShake { 10%, 90% { translate: -2px 0; } 20%, 80% { translate: 4px 0; } 30%, 50%, 70% { translate: -7px 0; } 40%, 60% { translate: 7px 0; } }
+.ed-gauge.complete::after { content: ""; position: absolute; inset: -2px; border: 2px solid #fff3c9; pointer-events: none; animation: gDone 1s ease-out forwards; }
+@keyframes gDone { from { opacity: 1; box-shadow: 0 0 30px rgba(240, 180, 76, .9); } to { opacity: 0; inset: -14px; } }
+
+.ed-save small { font-size: .72em; opacity: .85; margin-left: 4px; }
+.ed-save.ready { animation: saveGlow 1.8s ease-in-out infinite; }
+@keyframes saveGlow { 50% { filter: brightness(1.25) drop-shadow(0 0 10px rgba(240, 200, 120, .8)); } }
+
+/* 경보 띠 */
+.ed-alarm { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; padding: 8px 12px; font-size: 13px; line-height: 1.4;
+  color: #ffd9cf; background: linear-gradient(90deg, rgba(70, 12, 12, .92), rgba(40, 8, 8, .85)); border: 1px solid var(--bad); box-shadow: 0 0 18px rgba(239, 106, 92, .35); }
+.ed-alarm.warn { color: #ffe7b8; background: linear-gradient(90deg, rgba(60, 40, 8, .92), rgba(34, 22, 6, .85)); border-color: var(--warn); box-shadow: 0 0 16px rgba(240, 180, 76, .3); }
+.ed-alarm b { color: #fff; }
+.al-ico { flex: none; display: grid; place-items: center; width: 22px; height: 22px; font: 900 14px var(--caps); font-style: normal; color: #1a0606;
+  background: var(--bad); clip-path: polygon(50% 0, 100% 100%, 0 100%); padding-top: 5px; }
+.ed-alarm.warn .al-ico { background: var(--warn); }
+.ed-alarm.ring { animation: alIn .35s cubic-bezier(.2, 1.4, .4, 1), alBlink .9s .35s 2; }
+@keyframes alIn { from { opacity: 0; transform: translateY(-8px) scale(.97); } }
+@keyframes alBlink { 50% { box-shadow: 0 0 2px rgba(239, 106, 92, .1); filter: brightness(1.3); } }
+
+/* 운명의 서 (덱 목록) */
+.screen-editor .ed-deck { --tint: color-mix(in srgb, var(--gc, var(--gold)) 14%, transparent); position: relative; }
+.screen-editor .ed-deck::after { content: ""; position: absolute; top: -1px; right: 22px; width: 16px; height: 42px; pointer-events: none;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--gc, var(--gold)) 80%, #000), color-mix(in srgb, var(--gc, var(--gold)) 45%, #000));
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%); box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .5); }
+.ed-mix span { display: inline-flex; align-items: center; gap: 5px; }
+.ed-mix span::before { content: ""; width: 7px; height: 11px; transform: skewX(-14deg); }
+.ed-mix .k-unit::before { background: var(--k-unit); } .ed-mix .k-spell::before { background: var(--k-spell); } .ed-mix .k-item::before { background: var(--k-item); }
+/* 촛대 레벨 곡선 */
+.ed-curve { display: grid; grid-template-columns: repeat(8, 1fr); gap: 3px; height: 74px; margin: 0 0 10px; padding: 0 2px 2px; border-bottom: 1px solid rgba(217, 180, 106, .25); }
+.cv-col { display: grid; grid-template-rows: 1fr auto auto; justify-items: center; align-items: end; padding: 0; background: none; border: 0; cursor: pointer; min-width: 0; }
+.cv-col b { font: 700 10px var(--caps); color: var(--ink-2); height: 12px; }
+.cv-col small { font: 700 9px var(--caps); color: var(--muted); }
+.cv-col.on small { color: var(--gold-hi); }
+.cv-candle { position: relative; align-self: end; width: 9px; height: max(3px, calc(var(--h) * .44)); border-radius: 2px 2px 0 0;
+  background: linear-gradient(90deg, #4a4130, #d9c89a 45%, #7b6b48); transition: height .4s cubic-bezier(.3, 1.3, .5, 1); }
+.cv-flame { position: absolute; left: 50%; bottom: 100%; width: 7px; height: 12px; translate: -50% 1px; border-radius: 50% 50% 45% 45% / 65% 65% 35% 35%;
+  background: radial-gradient(60% 55% at 50% 72%, #fffbe8, #ffd27a 45%, rgba(240, 180, 76, 0) 75%); filter: drop-shadow(0 0 4px #f0b44c);
+  animation: flick 1.4s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+.cv-col:hover .cv-candle { filter: brightness(1.25); }
+/* 덱 줄: − ×n + */
+.dl-row { grid-template-columns: minmax(0, 1fr) auto; padding: 0; gap: 0; position: relative; }
+.dl-row::before { content: ""; position: absolute; left: 0; top: 3px; bottom: 3px; width: 3px; background: var(--k-unit); opacity: .8; }
+.dl-row.k-spell::before { background: var(--k-spell); } .dl-row.k-item::before { background: var(--k-item); }
+.dl-main { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 7px; align-items: center; text-align: left; padding: 5px 4px 5px 9px; background: none; border: 0; color: inherit; cursor: pointer; min-width: 0; }
+.dl-main:hover .dl-name { color: #ffb4a8; text-decoration: line-through rgba(239, 106, 92, .6); }
+.dl-row:hover .dl-n::after { content: none; }
+.dl-ctl { display: flex; align-items: center; gap: 2px; padding-right: 4px; }
+.dl-b { width: 20px; height: 20px; padding: 0; display: grid; place-items: center; font: 900 14px/1 var(--caps); color: var(--gold-hi); background: rgba(0, 0, 0, .35); border: 1px solid rgba(217, 180, 106, .28); border-radius: 2px; cursor: pointer; }
+.dl-b:hover:not(:disabled) { border-color: var(--gold); background: rgba(217, 180, 106, .18); }
+.dl-b[data-rm]:hover { border-color: var(--bad); background: rgba(239, 106, 92, .25); color: #fff; }
+.dl-b:disabled { opacity: .25; cursor: not-allowed; }
+.dl-n { min-width: 26px; text-align: center; }
+.dl-row.flash { animation: dlFlash .7s ease-out; }
+@keyframes dlFlash { from { background: rgba(246, 226, 168, .35); box-shadow: 0 0 14px rgba(246, 226, 168, .6); } }
+.dl-row[draggable="true"] { cursor: grab; }
+.ed-deck-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(217, 180, 106, .15); }
+.ed-deck .empty { text-align: center; line-height: 1.7; padding: 24px 6px; color: var(--muted); border: 1px dashed rgba(217, 180, 106, .25); }
+/* 끌어다 놓기 */
+.screen-editor.dragging-add .ed-deck { outline: 2px dashed rgba(143, 220, 255, .45); outline-offset: 3px; }
+.screen-editor.dragging-rm .ed-pool { outline: 2px dashed rgba(239, 106, 92, .45); outline-offset: 3px; }
+.ed-deck.drop-on { box-shadow: 0 0 0 2px var(--ether), 0 0 30px rgba(143, 220, 255, .35); }
+.ed-pool.drop-on { box-shadow: 0 0 0 2px var(--bad), 0 0 30px rgba(239, 106, 92, .3); }
+
+/* 보유 카드 */
+.ed-help { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 2px 0 10px; font-size: 11.5px; color: var(--muted); }
+.ed-help kbd { font: 700 10px var(--caps); padding: 1px 5px; margin-right: 3px; color: var(--gold-hi); border: 1px solid rgba(217, 180, 106, .35); border-bottom-width: 2px; border-radius: 3px; background: rgba(0, 0, 0, .3); }
+.ed-help b { color: var(--gold); }
+.chip.has-new { border-color: var(--good); color: #c8f5b0; }
+.chip.ghost { border-style: dashed; }
+.pool-card { position: relative; }
+.pc-face { position: relative; cursor: copy; }
+.pc-face .card { transition: transform .22s cubic-bezier(.2, .8, .3, 1), filter .2s; }
+.pool-card:hover .pc-face { transform: none; }
+.pool-card:hover .pc-face .card { transform: translateY(-4px); filter: drop-shadow(0 8px 12px rgba(0, 0, 0, .55)) drop-shadow(0 0 10px rgba(143, 220, 255, .25)); }
+.pc-face:active .card { transform: translateY(0) scale(.97); }
+.pool-card.in-deck .pc-face .card { filter: drop-shadow(0 0 6px rgba(246, 226, 168, .45)); }
+.pc-badge { position: absolute; left: -6px; top: -6px; z-index: 3; display: grid; place-items: center; width: 26px; height: 26px; font: 900 14px var(--caps); color: #1c1407;
+  background: radial-gradient(circle at 35% 30%, #fff3c9, #d6aa52 55%, #7d5a1c); border-radius: 50%; box-shadow: 0 0 0 1px #f2d792, 0 2px 6px rgba(0, 0, 0, .6); animation: badgePop .3s cubic-bezier(.3, 1.8, .5, 1); }
+@keyframes badgePop { from { transform: scale(.4); } }
+.pc-zoom { position: absolute; right: -6px; top: -6px; z-index: 3; width: 24px; height: 24px; padding: 0; display: grid; place-items: center; font-size: 15px; line-height: 1;
+  color: var(--gold-hi); background: rgba(8, 9, 15, .9); border: 1px solid rgba(217, 180, 106, .45); border-radius: 50%; opacity: 0; transition: opacity .15s; cursor: zoom-in; }
+.pool-card:hover .pc-zoom, .pc-zoom:focus-visible { opacity: 1; }
+.pool-card.fresh .pc-zoom { top: 18px; }
+.pc-pips { display: flex; gap: 3px; }
+.pip { width: 13px; height: 13px; padding: 0; transform: rotate(45deg); border: 1px solid rgba(217, 180, 106, .5); background: rgba(0, 0, 0, .4); cursor: pointer; transition: background .15s, box-shadow .15s; }
+.pip.on { background: linear-gradient(135deg, #fff3c9, #d6aa52 55%, #7d5a1c); box-shadow: 0 0 6px rgba(240, 180, 76, .6); border-color: #f2d792; }
+.pip:hover:not(:disabled) { box-shadow: 0 0 0 2px rgba(143, 220, 255, .55); }
+.pip.no { opacity: .2; cursor: not-allowed; }
+.pool-card.out .pc-face { opacity: .45; cursor: not-allowed; }
+.pool-card.locked .pc-face { cursor: default; }
+.pool-card.locked .pc-face .card { filter: grayscale(.9) brightness(.42); }
+.pc-lock { position: absolute; left: 50%; top: 42%; translate: -50% -50%; white-space: nowrap; padding: 3px 9px; font-size: 11px; font-weight: 700; color: var(--ink-2); background: rgba(8, 9, 15, .9); border: 1px solid rgba(217, 180, 106, .35); }
+.pc-shop { width: 100%; }
+.pool-card.focus .pc-face .card { animation: pcFocus .8s ease-in-out 3; }
+@keyframes pcFocus { 50% { filter: drop-shadow(0 0 16px #8fdcff) brightness(1.2); transform: translateY(-6px); } }
+.ed-fly { position: fixed; z-index: 400; pointer-events: none; transform-origin: 0 0; }
+.ed-fly > .card { margin: 0; }
+
+/* ======================= 상단 문장 ETHERION 입체 (가이드 2.14) ======================= */
+.crest-word { position: relative; filter: url(#ethBevelCrest); }
+
+@media (max-width: 900px) {
+  .ed-gauge { min-width: 0; flex-wrap: wrap; } .g-cell { width: 4px; }
+  .ed-banner, .ed-candles, .sh-string { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scene, .scene *, .ed-alarm.ring, .ed-gauge.shake, .ed-save.ready, .pool-card.focus .pc-face .card, .cv-flame { animation: none !important; }
+  .sc-svg, .ed-circle { transform: none; }
+}

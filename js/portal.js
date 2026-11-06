@@ -148,6 +148,7 @@ const Portal = {
     if (typeof FEEL === "undefined") return;
     const lv = FEEL.vol[FEEL.level]; if (!lv) return;
     const ac = FEEL.ctx(); if (!ac) return;
+    FEEL.mark();   // v3.7.2 시작 단추의 메뉴 소리와 겹치지 않게
     const t = ac.currentTime + 0.03, P = PORTAL_T, at = ms => t + ms / 1000;
     const noiseBuf = sec => { const n = Math.floor(ac.sampleRate * sec), b = ac.createBuffer(1, n, ac.sampleRate), d = b.getChannelData(0); for (let i = 0; i < n; i++) d[i] = Math.random() * 2 - 1; return b; };
     const osc = (type, f, start, stop) => { const o = ac.createOscillator(); o.type = type; o.frequency.setValueAtTime(f, start); o.start(start); o.stop(stop); return o; };

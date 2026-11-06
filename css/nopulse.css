@@ -1,0 +1,21 @@
+/* ETHERION — 빛 맥박 끄기 (v3.5.9)
+   빛이 커졌다 작아지기를 되풀이하는 효과(box-shadow · drop-shadow · text-shadow · brightness 맥박)를 모두 멈춘다.
+   이런 효과는 브라우저가 매 프레임 다시 칠해야 해서 대전이 버벅였다. 테두리 · 바탕 같은 멈춘 모양은 그대로 남는다.
+   되돌리려면 index.html에서 이 파일 한 줄을 빼면 된다. 반드시 다른 css보다 뒤에 읽는다(같은 선택자를 덮어쓴다). */
+
+/* 전장: 놓을 수 있는 칸 · 소각장 · 에테르 · 준비 단추 · 코인 멈춤 단추 · 생명이 적을 때 */
+.slot.valid, .slot.valid-move, .burn.valid, .ether.valid,
+.eth-orb, .ready, .cs-stop, .btn.cs-stop:not(.rb), .ready-wrap,
+.ether.altar.valid .eth-ring, .ether.altar.valid .dr-orb,
+.pinfo.low .pl-num:not(.bump), .pinfo.low .hgem,
+.pit-floor { animation: none; }
+
+/* 작은 게임 · 상점 · 원정 · 덱 조정실 · 소리 단추 */
+.arc-tab.ready::before, .slot-m.armed .sm-btn i, .pach.armed .pach-btn i,
+.xp-node.cur .emblem, .sc-new, .pc-new, .ed-save.ready,
+.snd-btn.blocked { animation: none; }
+
+/* 타이틀: 등장 연출은 그대로, 뒤에 붙은 반짝임 · 숨쉬기만 뺀다 */
+.t-title span { animation-name: letterIn, none; }
+.t-title .lg { animation-name: lgGlow, none; }
+.t-start { animation-name: fadeUp, none; }

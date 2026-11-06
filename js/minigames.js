@@ -11,13 +11,63 @@
 
 const ARCADE_PRIZE = { crystal: 300, crystalTurns: 5 };
 
+/* v2.5: 작은 게임 상자는 기울이지 않고 정면으로 선 성(城). 양쪽 탑(위가 바깥으로 내민 돌림띠 + 성가퀴) · 가운데 성문 탑 · 톱니 성벽 ·
+   돌벽돌 · 화살 구멍 · 아래 성문(내린 쇠살문 앞에 SPIN 명판). 상자 비율(폭 = 카드 .70, 높이 = 카드 .924)이 늘 같으므로
+   viewBox를 그 비율(76 × 100)로 잡는다. 탑 머리는 상자 위로 13만큼 솟는다(위의 셔플 명판·모래시계에 닿지 않게). */
+const CASTLE_SVG = (() => {
+  const f = n => +n.toFixed(2);
+  /* x0~x1 구간의 성가퀴: y선 위로 높이 h인 톱니를 양 끝이 톱니가 되게 고르게 */
+  const crenel = (x0, x1, y, h, mw, gw) => {
+    const n = Math.max(1, Math.round((x1 - x0 + gw) / (mw + gw))), w = (x1 - x0 - (n - 1) * gw) / n;
+    let d = "", x = x0;
+    for (let i = 0; i < n; i++) { d += `L${f(x)} ${f(y - h)}L${f(x + w)} ${f(y - h)}`; x += w; if (i < n - 1) { d += `L${f(x)} ${f(y)}L${f(x + gw)} ${f(y)}`; x += gw; } }
+    return d;
+  };
+  const T = 14, W = 76, O = 1.6;           /* 탑 폭 · 상자 폭 · 탑 머리가 내민 만큼 */
+  const sil = `M0 100L0 -1.5L${-O} -3.5L${-O} -6${crenel(-O, T + O, -6, 5, 3, 2.1)}L${T + O} -6L${T + O} -3.5L${T} -1.5L${T} 6${crenel(T, 27, 6, 3.6, 2.6, 2)}L27 6L27 -1${crenel(27, 49, -1, 4, 3, 2.2)}L49 -1L49 6${crenel(49, W - T, 6, 3.6, 2.6, 2)}L${W - T} 6L${W - T} -1.5L${W - T - O} -3.5L${W - T - O} -6${crenel(W - T - O, W + O, -6, 5, 3, 2.1)}L${W + O} -6L${W + O} -3.5L${W} -1.5L${W} 100Z`;
+  const slit = (x, y) => `<path class="ac-slit" d="M${x} ${y + 1.4}a1 1 0 0 1 2 0V${y + 9}h-2Z"/>`;
+  const machi = x0 => Array.from({ length: 5 }, (_, i) => `M${f(x0 + 1.4 + i * 3.1)} -3.4V-1.8`).join("");
+  const gate = "M23 100V90.5C23 83.5 29.5 79 38 79C46.5 79 53 83.5 53 90.5V100Z";
+  const grid = [27, 31, 35, 39, 43, 47, 51].map(x => `M${x} 80V100`).join("") + [85, 90, 95].map(y => `M23 ${y}H53`).join("");
+  return `<svg class="arc-castle" viewBox="-2 -13 80 113" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <pattern id="ac-brick" width="7" height="4.4" patternUnits="userSpaceOnUse">
+        <rect width="7" height="4.4" fill="#3b3550"/>
+        <rect x=".25" y=".3" width="3" height="1.75" fill="#4a4363"/><rect x="3.75" y=".3" width="3" height="1.75" fill="#433c5a"/>
+        <rect x="-1.5" y="2.5" width="3" height="1.75" fill="#45405e"/><rect x="2" y="2.5" width="3" height="1.75" fill="#4d4668"/><rect x="5.5" y="2.5" width="3" height="1.75" fill="#45405e"/>
+        <path d="M0 .15H7M0 2.35H7M3.5 .15V2.35M0 .15V2.35M1.75 2.35V4.55M5.25 2.35V4.55" stroke="#120f1a" stroke-width=".42"/>
+        <path d="M.4 .55H3M3.9 .55H6.5M2.2 2.75H4.8" stroke="#fff" stroke-opacity=".12" stroke-width=".3"/>
+      </pattern>
+      <linearGradient id="ac-sh" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".14"/><stop offset=".17" stop-color="#000" stop-opacity=".18"/><stop offset=".19" stop-color="#fff" stop-opacity=".06"/><stop offset=".5" stop-color="#000" stop-opacity=".05"/><stop offset=".81" stop-color="#000" stop-opacity=".26"/><stop offset=".83" stop-color="#fff" stop-opacity=".02"/><stop offset="1" stop-color="#000" stop-opacity=".5"/></linearGradient>
+      <linearGradient id="ac-v" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe2a0" stop-opacity=".2"/><stop offset=".18" stop-color="#000" stop-opacity="0"/><stop offset=".7" stop-color="#000" stop-opacity=".25"/><stop offset="1" stop-color="#000" stop-opacity=".55"/></linearGradient>
+      <linearGradient id="ac-gate" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a0812"/><stop offset="1" stop-color="#030205"/></linearGradient>
+      <clipPath id="ac-gclip"><path d="${gate}"/></clipPath>
+    </defs>
+    <path class="ac-sil" d="${sil}" fill="url(#ac-brick)"/>
+    <path d="${sil}" fill="url(#ac-sh)"/>
+    <path d="${sil}" fill="url(#ac-v)"/>
+    <path class="ac-seam" d="M${T} 6V100M${W - T} 6V100M0 -1.5H${T}M${W - T} -1.5H${W}"/>
+    <path class="ac-seam-hi" d="M${T + .6} 6V100M${W - T + .6} 6V100"/>
+    <path class="ac-machi" d="${machi(0)}${machi(W - T)}"/>
+    <path class="ac-trim" d="M${-O} -6H${T + O}M${W - T - O} -6H${W + O}M${T} 6H27M49 6H${W - T}M27 -1H49"/>
+    <path class="ac-win" d="M35.6 7.6V3.6A2.4 2.4 0 0 1 40.4 3.6V7.6Z"/>
+    ${slit(6, 22)}${slit(6, 52)}${slit(W - 8, 22)}${slit(W - 8, 52)}
+    <path class="ac-gate" d="${gate}" fill="url(#ac-gate)"/>
+    <path class="ac-grid" d="${grid}" clip-path="url(#ac-gclip)"/>
+    <path class="ac-arch" d="M21.6 100V90.3C21.6 82.4 29 77.6 38 77.6C47 77.6 54.4 82.4 54.4 90.3V100"/>
+    <path class="ac-key" d="M38 75.6 40 78.2 38 80.8 36 78.2Z"/>
+    <path class="ac-out" d="${sil}"/>
+  </svg>`;
+})();
+
 const Arcade = {
   el: null, tab: "slot",
   TABS: [["slot", "파친코"], ["seed", "결정"]],
   build() {
     const el = document.createElement("div");
+    // v3.7.6: 성 그림(CASTLE_SVG)은 뺐다. 그 모양을 잡던 css/texture.css가 읽히지 않아 그림이 상자 위를 차지하고 탭·SPIN을 아래로 밀어냈다
     el.className = "arcade";
-    el.innerHTML = `<div class="arc-tabs" role="tablist">${this.TABS.map(([k, l]) => `<button type="button" class="arc-tab${k === this.tab ? " on" : ""}" data-tab="${k}" role="tab">${l}</button>`).join("")}<span class="arc-weather"></span></div>
+    el.innerHTML = `<div class="arc-tabs" role="tablist">${this.TABS.map(([k, l]) => `<button type="button" class="arc-tab${k === this.tab ? " on" : ""}" data-tab="${k}" role="tab">${l}</button>`).join("")}</div>
       <div class="arc-body">${this.TABS.map(([k]) => `<div class="arc-pane" data-pane="${k}"${k === this.tab ? "" : " hidden"}></div>`).join("")}</div>`;
     for (const ev of ["click", "pointerdown", "dblclick", "mouseover"]) el.addEventListener(ev, e => e.stopPropagation());
     el.querySelector(".arc-tabs").addEventListener("click", e => { const b = e.target.closest("[data-tab]"); if (b) this.show(b.dataset.tab); });

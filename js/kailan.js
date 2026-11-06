@@ -3,7 +3,7 @@
      1) 타이틀 고리의 빈 자리(동쪽 "?", ETHERION의 O 안쪽)를 세 번 누른다.
      2) 게임 중이 아닐 때 키보드로 kailan 을 친다.
    지도 안에서 고리의 빈 자리를 누르면 세계관의 마지막 장(여덟 번째 자리)이 열린다.
-   지명·설정은 세계관 문서 00~04를 따른다 (모두 가칭). 지도는 이 파일이 SVG로 그린다 (좌표 1200×900).
+   지명·설정은 세계관 v3(docs/WORLD.md)를 따른다 (모두 가칭). 긴 이야기는 연대기(js/chronicle.js)에 있다. 지도는 이 파일이 SVG로 그린다 (좌표 1200×900).
    발견 여부는 localStorage "etherion.kailan"에 저장한다. */
 "use strict";
 
@@ -397,7 +397,7 @@ const Kailan = (() => {
     const eighthCh = st.eighth
       ? `<section class="kl-ch${st.justFound ? " reveal" : ""}" id="kl-ch6"><p class="num">VI</p><h3>여덟 번째 자리</h3>
         <p>일곱 용이 절대 입에 올리지 않는 이름이 있다고 한다.</p>
-        <p>칠룡의 고리는 원래 여덟 자리였고, 지금 빈 땅이 된 동쪽이 여덟 번째 용의 자리였다는 소문이 있다. 용들은 그쪽을 바라보지 않는다. 칠룡환 문장을 새기는 장인들은 아무도 시키지 않았는데도 그 자리를 비워 두고, 물음표 하나를 새겨 넣는다.</p>
+        <p>칠룡의 고리는 원래 여덟 자리였고, 지금 빈 땅이 된 동쪽이 여덟 번째 용의 자리였다는 소문이 있다. 용들은 그쪽을 바라보지 않는다. 에테리온 문장을 새기는 장인들은 아무도 시키지 않았는데도 용의 고리 동쪽 자리를 비워 두고, 물음표 하나를 새겨 넣는다.</p>
         <p>황혼의 장벽 위에서 동쪽을 지키는 성광 기사들은, 에테르가 없어 죽어 있어야 할 빈 땅의 관문에서 가끔 빛이 새어 나온다고 말한다.</p>
         <h4>아직 답이 없는 물음</h4>
         <ul class="kl-rel"><li>여덟 번째 용은 누구였고, 어디로 갔는가?</li><li>동쪽 자리는 비어 있는 것인가, 지워진 것인가?</li><li>대륙 하나를 가라앉힌 두 용의 싸움. 그 두 용은 누구였는가?</li><li>빈 땅 관문의 빛은 누가 켜는가?</li></ul></section>`
@@ -417,7 +417,7 @@ const Kailan = (() => {
         <p class="muted">거인과 신과 용은 동격이며, 셋 사이의 우열은 밝혀지지 않았다. 빛과 암흑은 신의 영역이고, 나머지 일곱 원소가 용의 것이다.</p></section>
       <section class="kl-ch"><p class="num">III</p><h3>칠룡의 고리</h3>
         <p>일곱 용의 영역이 필멸자의 땅을 고리처럼 둘러싸고 있다. 용들은 서로 싸우지 않고 서로의 영역에 들어가지 않기로 맹세했다. 칠룡의 서약이다. 아주 먼 옛날 두 용이 싸웠을 때 대륙 하나가 바다에 가라앉았고, 칠룡은 그 땅을 함께 봉인했다. 잠긴 왕국 네레아다.</p>
-        <p>필멸자도 용역에는 함부로 들어가지 않는다. 그래서 고리는 문명의 국경이 되었다. 에테리온 어디서나 보이는 칠룡환 문장은 이 고리의 방위를 그대로 옮긴 것이다.</p>
+        <p>필멸자도 용역에는 함부로 들어가지 않는다. 그래서 고리는 문명의 국경이 되었다. 에테리온 어디서나 보이는 에테리온 문장의 가운데 고리는 이 고리의 방위를 그대로 옮긴 것이다. 그 바깥 테에는 잠든 거인 일곱의 돌을, 안쪽에는 다섯 신의 별을 새겨 몸과 힘과 뜻을 한 문장에 담는다.</p>
         <ul class="kl-list">${RING.map(dragonRow).join("")}</ul>
         <p>고리의 동쪽은 비어 있다. 용들은 그쪽을 바라보지 않는다.</p></section>
       <section class="kl-ch"><p class="num">IV</p><h3>세 진영, 아홉 단체</h3>
@@ -438,7 +438,7 @@ const Kailan = (() => {
           <dt>누르엘</dt><dd>속삭이는 자. 필멸자의 꿈에 말을 걸어 숭배자를 만든다.</dd></dl>
         <p>빈 땅 깊은 곳의 회색 감옥에 무엇이 갇혀 있는지는 어떤 기록에도 없다.</p></section>
       ${eighthCh}
-      <p class="kl-note">모든 이름은 가칭입니다. 원본 설정은 ETHERION 프로젝트의 세계관 문서 00~04에 있습니다.</p>`;
+      <p class="kl-note">모든 이름은 가칭입니다. 더 긴 이야기는 <button type="button" class="kl-back" style="margin:0" data-chronicle>에테리온 연대기</button>에 있습니다.</p>`;
   }
 
   /* ---------- 장소 (장소 탭) ---------- */
@@ -556,6 +556,7 @@ const Kailan = (() => {
   function onClick(e) {
     const t = e.target;
     if (t.closest("[data-close]")) return close();
+    if (t.closest("[data-chronicle]")) { close(); if (typeof Chronicle !== "undefined") setTimeout(() => Chronicle.open(), 120); return; }   /* v3.7 연대기 */
     const tb = t.closest("[data-tab]"); if (tb) return setTab(tb.dataset.tab);
     const z = t.closest("[data-z]");
     if (z) { const k = z.dataset.z; if (k === "all") flyTo(full.x + full.w / 2, full.y + full.h / 2, full.w); else zoomBy(k === "in" ? .7 : 1 / .7); return; }

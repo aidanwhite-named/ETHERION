@@ -37,7 +37,8 @@
 .screen-game { --edge-x: clamp(20px, 2.6vw, 64px); }
 .b-main { padding-left: max(var(--edge-x), env(safe-area-inset-left, 0px)); padding-right: max(var(--edge-x), env(safe-area-inset-right, 0px)); }
 @media (min-width: 761px) {
-  .screen-game { --cw: clamp(54px, min(calc((100dvh - 64px) / 5.42), calc((100vw - 2 * var(--edge-x) - 12px) / 9.6)), 260px); }
+  /* v3.7.2: 가운데 설정칸이 40px 높아져(css/style.css .toolbar) 그만큼 빼고 카드 폭을 정한다 (64 → 104px) */
+  .screen-game { --cw: clamp(54px, min(calc((100dvh - 104px) / 5.42), calc((100vw - 2 * var(--edge-x) - 12px) / 9.6)), 260px); }
 }
 @media (max-width: 760px) { .screen-game { --edge-x: 8px; } }
 

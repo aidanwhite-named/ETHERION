@@ -1,0 +1,105 @@
+/* ETHERION — 모험가 레벨 (v3.6, js/level.js) · 가이드 2.18
+   가운데 아래 판: 문양 명판(모서리 깎음) 안에 금 구슬(레벨) + 환석 조각 + 경험치 막대.
+   막대 = 에테르 하늘빛이 아니라 금(경험치는 쌓이는 조각의 빛). 메뉴 화면에서만 보인다. */
+:root { --lv-w: 380px; --lv-c: 10px; }
+
+.lv-hud {
+  position: fixed; left: 50%; bottom: 12px; z-index: 89; transform: translateX(-50%);
+  width: min(var(--lv-w), calc(100vw - 132px)); display: flex; align-items: center; gap: 12px;
+  padding: 8px 18px 9px 10px; color: var(--ink); isolation: isolate; cursor: default;
+  animation: lvIn .5s ease-out;
+}
+.lv-hud[hidden] { display: none; }
+/* 테두리 층 + 바탕 층 (realm 명판과 같은 짜임) */
+.lv-hud::before, .lv-hud::after { content: ""; position: absolute; z-index: -1; pointer-events: none;
+  clip-path: polygon(var(--lv-c) 0, calc(100% - var(--lv-c)) 0, 100% 50%, calc(100% - var(--lv-c)) 100%, var(--lv-c) 100%, 0 50%); }
+.lv-hud::before { inset: 0; background: linear-gradient(180deg, #f2d792, var(--gold-deep) 55%, #f2d792); opacity: .75; }
+.lv-hud::after { inset: 1px; background: linear-gradient(180deg, rgba(28, 32, 51, .97), rgba(12, 14, 23, .97)); box-shadow: inset 0 0 18px rgba(217, 180, 106, .08); }
+@keyframes lvIn { from { opacity: 0; transform: translate(-50%, 14px); } to { opacity: 1; transform: translate(-50%, 0); } }
+
+/* 금 구슬 (가이드 2.4 레벨 구슬) */
+.lv-orb, .rx-orb {
+  flex: none; position: relative; display: grid; place-items: center; align-content: center;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #fff3c9 0%, #d6aa52 48%, #7d5a1c 100%);
+  box-shadow: 0 0 0 1px rgba(242, 215, 146, .7), 0 0 0 4px rgba(13, 16, 25, .9), 0 0 0 5px rgba(217, 180, 106, .45), 0 0 14px rgba(240, 200, 120, .35);
+  color: #2a1c06; font-family: var(--caps); line-height: 1; text-shadow: 0 1px 0 rgba(255, 240, 200, .55);
+}
+.lv-orb small, .rx-orb small { font-size: 8px; font-weight: 700; letter-spacing: .14em; margin-bottom: 1px; }
+.lv-orb b, .rx-orb b { font-size: 18px; font-weight: 800; font-variant-numeric: tabular-nums; }
+
+.lv-body { flex: 1; min-width: 0; display: grid; gap: 5px; }
+.lv-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; white-space: nowrap; }
+.lv-gold { display: inline-flex; align-items: baseline; gap: 6px; min-width: 0; }
+.lv-gold .shard { align-self: center; width: 10px; height: 14px; filter: drop-shadow(0 0 4px rgba(143, 220, 255, .6)); }
+.lv-gold b { font-family: var(--caps); font-size: 19px; font-weight: 700; color: var(--gold-hi); letter-spacing: .03em; font-variant-numeric: tabular-nums; }
+.lv-gold small { font-size: 12px; color: var(--ink-2); }
+.lv-next { font-size: 11px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; }
+
+/* 경험치 막대: 가는 홈 + 금빛 채움 + 끝의 반짝 */
+.lv-bar, .rx-bar { position: relative; display: block; height: 6px; border-radius: 3px; overflow: hidden;
+  background: rgba(7, 8, 13, .85); box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .28); }
+.lv-bar i, .rx-bar i { position: absolute; inset: 0; transform-origin: 0 50%; transform: scaleX(var(--p, 0));
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold) 70%, var(--gold-hi));
+  transition: transform .9s cubic-bezier(.22, .8, .3, 1); }
+.lv-bar i::after, .rx-bar i::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 0 70%, rgba(255, 248, 220, .55) 92%, transparent);
+  animation: lvShine 3.2s ease-in-out infinite; }
+@keyframes lvShine { 0%, 55% { opacity: 0; } 75% { opacity: 1; } 100% { opacity: 0; } }
+.lv-hud.top .lv-bar i { background: linear-gradient(90deg, #b8893a, var(--gold-hi), #b8893a); }
+
+/* 레벨이 오른 순간: 판이 한 번 빛남 */
+.lv-hud.up .lv-orb { animation: lvPop .8s ease-out; }
+.lv-hud.up::before { animation: lvGlow 1.6s ease-out; }
+@keyframes lvPop { 0% { transform: scale(1); } 30% { transform: scale(1.28); box-shadow: 0 0 0 1px #fff3c9, 0 0 30px 8px rgba(246, 226, 168, .7); } 100% { transform: scale(1); } }
+@keyframes lvGlow { 0% { opacity: .75; filter: none; } 25% { opacity: 1; filter: brightness(1.6) drop-shadow(0 0 10px rgba(246, 226, 168, .8)); } 100% { opacity: .75; filter: none; } }
+
+/* 판이 가리지 않게 메뉴 화면 아래에 자리를 둔다 */
+body.lv-on #app > .screen { padding-bottom: 76px; }
+
+/* ---------- 레벨 업 띠 (메뉴 화면) ---------- */
+.lv-banner { position: fixed; inset: 0; z-index: 130; display: grid; place-items: center; pointer-events: auto; cursor: pointer;
+  background: linear-gradient(180deg, transparent 22%, rgba(5, 5, 10, .9) 36%, rgba(14, 12, 26, .94) 50%, rgba(5, 5, 10, .9) 64%, transparent 78%); animation: fadeIn .35s; }
+.lv-banner.out { opacity: 0; transition: opacity .45s; }
+.lvb-inner { display: grid; justify-items: center; gap: 4px; text-align: center; padding: 26px 70px 22px; position: relative; animation: lvbIn .7s cubic-bezier(.2, 1.3, .4, 1); }
+.lvb-inner::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; z-index: -1;
+  background: linear-gradient(90deg, transparent, rgba(217, 180, 106, .7) 25%, rgba(217, 180, 106, .7) 75%, transparent); box-shadow: 0 0 40px 18px rgba(240, 200, 120, .12); }
+.lvb-eye { margin: 0; font-family: var(--caps); font-size: 12px; letter-spacing: .4em; color: var(--gold); }
+.lvb-title { font-family: var(--display); font-weight: 900; font-size: clamp(42px, 7vw, 76px); letter-spacing: .08em; line-height: 1.05;
+  background: linear-gradient(180deg, #fff6d6, #f0d48c 40%, #b8893a 65%, #f7e1a0); -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 0 24px rgba(240, 200, 120, .5)); }
+.lvb-lv { margin: 2px 0 0; display: flex; align-items: center; gap: 14px; font-family: var(--caps); font-variant-numeric: tabular-nums; }
+.lvb-lv span { font-size: 22px; color: var(--muted); }
+.lvb-lv i { font-style: normal; color: var(--gold); }
+.lvb-lv b { font-size: 34px; color: var(--gold-hi); text-shadow: 0 0 18px rgba(246, 226, 168, .6); }
+.lvb-sub { margin: 0; font-size: 14px; color: var(--ink-2); }
+@keyframes lvbIn { from { opacity: 0; transform: scale(.82); letter-spacing: .3em; } to { opacity: 1; transform: none; } }
+
+/* ---------- 결과 화면의 경험치 ---------- */
+.res-xp { position: relative; display: flex; align-items: center; gap: 12px; width: min(420px, 100%); margin-top: 2px; padding: 10px 16px 10px 12px;
+  border: 1px solid var(--line-gold); background: rgba(217, 180, 106, .06); text-align: left; }
+.res-xp .rx-orb { width: 40px; height: 40px; }
+.res-xp .rx-orb b { font-size: 16px; }
+.rx-body { flex: 1; min-width: 0; display: grid; gap: 6px; }
+.rx-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-size: 13px; color: var(--ink-2); white-space: nowrap; }
+.rx-top b { font-family: var(--caps); color: var(--gold-hi); font-size: 17px; letter-spacing: .03em; }
+.rx-next { font-size: 11px; color: var(--muted); }
+.res-xp .rx-bar { height: 8px; border-radius: 4px; }
+.res-xp.instant .rx-bar i { transition: none; }
+.res-xp.pop .rx-orb { animation: lvPop .7s ease-out; }
+.rx-up { position: absolute; right: 10px; top: -11px; padding: 1px 10px; font-family: var(--caps); font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  color: #1c1407; background: linear-gradient(180deg, #e6c47c, #b48a3c); border: 1px solid #f2d792; opacity: 0; transform: translateY(4px); transition: opacity .3s, transform .3s; }
+.rx-up b { letter-spacing: .04em; }
+.res-xp.leveled .rx-up { opacity: 1; transform: none; }
+
+@media (max-width: 760px) {
+  :root { --lv-w: 320px; }
+  .lv-hud { bottom: 8px; padding: 6px 14px 7px 8px; gap: 9px; width: min(var(--lv-w), calc(100vw - 104px)); }
+  .lv-orb { width: 36px; height: 36px; } .lv-orb b { font-size: 15px; } .lv-orb small { font-size: 7px; }
+  .lv-gold b { font-size: 16px; }
+  .lv-next { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lv-hud, .lvb-inner { animation: none; }
+  .lv-bar i, .rx-bar i { transition: none; }
+  .lv-bar i::after, .rx-bar i::after { animation: none; }
+}

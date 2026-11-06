@@ -12,6 +12,16 @@
 
 const C = it => CARDS[it.id];
 const itemOf = it => (it && it.item ? CARDS[it.item.id].item : null);
+/* v2.9 전투 능력 = 장착 아이템 능력 + 스페셜 유닛의 타고난 능력(gift). 수치는 더하고, 있음/없음은 하나만 있어도 된다.
+   [사격]은 snipe, [증폭]은 amp로 모은다. [투척](장착한 턴 한 번)은 아이템에만 있으므로 itemOf로 따로 본다 */
+function abilOf(it) {
+  const im = itemOf(it) || {}, g = (it && C(it).gift) || {};
+  const num = k => (+im[k] || 0) + (+g[k] || 0), any = k => !!(im[k] || g[k]);
+  const amp = o => (o.evName && /^증폭/.test(o.evName) ? parseInt(o.evName.replace(/\D/g, "")) || 0 : 0);
+  return { shield: any("shield"), ward: num("ward"), thorns: num("thorns"), shred: any("shred"), crit: any("crit"), ranged: any("ranged"),
+    magic: (im.magic === true || g.magic === true) ? true : num("magic"),
+    snipe: (im.every ? +im.throw || 0 : 0) + (g.every ? +g.throw || 0 : 0), amp: amp(im) + amp(g) };
+}
 const isUnit = it => it && C(it).type === "unit";
 const isSpell = it => it && !isUnit(it);
 const hit = (a, d) => (a > d ? a - d : 0);
@@ -67,17 +77,19 @@ function floorOf(it) {
 function applyFloor(u) { const f = u.t.floor; for (const k in f) if (u.t[k] < f[k]) u.t[k] = f[k]; }
 
 /* 턴이 시작될 때: 피해 회복, 마법 효과 해제, 보호막 코인.
-   코인은 여기서 던지지 않는다 — 유닛끼리 맞붙을 때마다 새로 던진다(clashCoins). 그 전까지는 적힌 값 그대로 */
+   코인은 여기서 던지지 않는다 — 유닛끼리 맞붙을 때 던진다(clashCoins). 그 전까지는 적힌 값 그대로.
+   v3.5.6: 방어하는 쪽 유닛은 한 전투에서 코인이 한 번 정해지면 그 전투가 끝날 때까지 다시 던지지 않는다.
+   v3.5.7: 한 번 정해진 코인은 마법(코인 뒷면 · 운명)으로도 바뀌지 않는다 */
 function resetTurn(it) {
-  const b = baseStats(it, true), im = itemOf(it);
+  const b = baseStats(it, true), ab = abilOf(it);
   it.t = { a: b.a, d: b.d, h: b.h, rb: b, floor: floorOf(it), dmg: 0, alive: true,
-    shield: !!(im && im.shield && flip()), ward: im ? im.ward || 0 : 0, wardUsed: false,
-    thorns: im ? im.thorns || 0 : 0, taunt: false, lock: false, rest: false, thrown: false,
+    shield: !!(ab.shield && flip()), ward: ab.ward, wardUsed: false,
+    thorns: ab.thorns, taunt: false, lock: false, rest: false, thrown: false,
     cb: { a: 0, d: 0, h: 0 }, coins: coinDefs(it), noCoin: false };
 }
 const hpLeft = u => u.t.h - u.t.dmg;
 
-/* ---------- 코인: 유닛과 유닛이 맞붙을 때마다 던진다 ----------
+/* ---------- 코인: 유닛과 유닛이 맞붙을 때 던진다 (방어 쪽은 전투마다 한 번, X.defFix) ----------
    coinDefs: 이 유닛이 가진 코인(카드 코인 + 아이템 코인). heads가 null이면 아직 던지지 않은 것 */
 const COIN_MAX = 5;
 function coinDefs(it) {
@@ -108,11 +120,15 @@ function applyCoins(u, coins) {
   return delta;
 }
 /* 맞붙을 때 코인을 던진다. 동전(g)마다 한 번 던지고, 그 동전에 묶인 공·방·체 코인이 같은 면을 받는다.
-   X.over["교전번호:유닛uid:동전번호"]에 값이 있으면 그 동전은 그 값으로 (코인 뒤집기) */
-function clashCoins(X, u) {
+   X.over["교전번호:유닛uid:동전번호"]에 값이 있으면 그 동전은 그 값으로 (코인 뒤집기).
+   keep = 방어하는 쪽: v3.5.6 이 전투에서 이미 정해진 코인(다시 던진 결과 포함)이 있으면 그대로 쓰고 새로 던지지 않는다.
+   v3.5.7: 그 사이 마법(코인 뒷면 · 운명)을 받아도 정해진 코인은 그대로 */
+function clashCoins(X, u, keep) {
+  const fix = keep && X.defFix ? X.defFix : null;
+  if (fix && fix[u.uid]) return fix[u.uid].map(k => Object.assign({}, k, { kept: true }));
   const defs = coinDefs(u), face = {}, sum = {};
   for (const k of defs) sum[k.g] = (sum[k.g] || 0) + k.v;
-  return defs.map(k => {
+  const out = defs.map(k => {
     if (face[k.g] == null) {
       let heads = u.t.noCoin ? false : flip();
       const key = X.clashN + ":" + u.uid + ":" + k.g;
@@ -120,14 +136,18 @@ function clashCoins(X, u) {
       if (u.t.fate && !u.t.noCoin) heads = sum[k.g] > 0;   // [운명]: 합이 + 인 동전은 앞면, − 동전은 뒷면
       face[k.g] = heads;
     }
-    return { st: k.st, v: k.v, src: k.src, g: k.g, heads: face[k.g] };
+    // v2.4.4 앞면 확률 p: 보통 RULES.coinP(50%). 코인 뒷면 마법은 −50%라 0%, [운명]은 + 동전 100% · − 동전 0%
+    const p = u.t.noCoin ? 0 : u.t.fate ? (sum[k.g] > 0 ? 1 : 0) : RULES.coinP;
+    return { st: k.st, v: k.v, src: k.src, g: k.g, heads: face[k.g], p, clean: !!u.t.noCoin, fate: !!u.t.fate && !u.t.noCoin };
   });
+  if (fix && out.length) fix[u.uid] = out.map(k => Object.assign({}, k));
+  return out;
 }
 
 /* 동전 단위로 묶은 코인 [{g, heads, parts:[{st, v}]}] — 화면과 기록이 쓴다 */
 function coinGroups(cs) {
   const out = [], at = {};
-  for (const k of cs || []) { const g = k.g != null ? k.g : out.length; if (at[g] == null) { at[g] = out.length; out.push({ g, heads: k.heads, parts: [] }); } const ps = out[at[g]].parts, same = ps.find(x => x.st === k.st); if (same) same.v += k.v; else ps.push({ st: k.st, v: k.v }); }
+  for (const k of cs || []) { const g = k.g != null ? k.g : out.length; if (at[g] == null) { at[g] = out.length; out.push({ g, heads: k.heads, p: k.p != null ? k.p : RULES.coinP, parts: [] }); } const ps = out[at[g]].parts, same = ps.find(x => x.st === k.st); if (same) same.v += k.v; else ps.push({ st: k.st, v: k.v }); }
   out.sort((x, y) => x.g - y.g);
   return out;
 }
@@ -140,7 +160,7 @@ function coinLogText(cs) {
 function ctx(P, ai, turn, rec, opts) {
   opts = opts || {};
   RNG = opts.seed != null ? mulberry32(opts.seed) : Math.random;
-  return { P, ai, turn, rec, floats: [], logs: [], direct: 0, broke: [false, false], broken: [], clashN: 0, over: opts.over || null, rules: opts.rules || {}, toks: {}, tokN: 0 };
+  return { P, ai, turn, rec, floats: [], logs: [], direct: 0, broke: [false, false], broken: [], clashN: 0, defFix: {}, over: opts.over || null, rules: opts.rules || {}, toks: {}, tokN: 0 };
 }
 /* 전투로 부서진 카드(유닛 결투·마법 사용·마법으로 파괴) 기록. 소각장으로 보낸 것은 적지 않는다 (economy.js가 돈으로 바꾼다) */
 function brokeCard(X, p, id, how) { if (X.rec) X.broken.push({ p: p.idx, id, how }); }
@@ -196,7 +216,7 @@ function coinX(op) {
   return x;
 }
 /* [증폭 N]: 이 유닛이 전장에 있으면 내 공격 마법의 피해 +N */
-function amplify(p) { return liveUnits(p).reduce((s, u) => { const im = itemOf(u); return s + (im && im.evName && /^증폭/.test(im.evName) ? parseInt(im.evName.replace(/\D/g, "")) || 0 : 0); }, 0); }
+function amplify(p) { return liveUnits(p).reduce((s, u) => s + abilOf(u).amp, 0); }
 
 function castSpell(X, caster, it, k) {
   const c = C(it), p = X.P[caster], o = X.P[1 - caster];
@@ -243,9 +263,10 @@ function castSpell(X, caster, it, k) {
         case "lock": u.t.lock = true; if (u.t.d < u.t.rb.d) u.t.d = u.t.rb.d; fl(X, u.uid, "고정", "shield"); break;
         case "destroy": if (!op.coin || x > 0) { u.t.alive = false; u.t.dmg = u.t.h; fl(X, u.uid, "파괴", "dmg big"); lg(X, `${C(u).name} 파괴`, "bad"); } break;
         case "clean": {
-          // 코인을 모두 뒷면으로: 지금 적용된 코인 몫을 빼고, 이 턴에는 더 이상 앞면이 나오지 않는다
+          // 코인을 모두 뒷면으로: 이 턴에 던지는 코인은 앞면이 나오지 않는다.
+          // v3.5.7 이미 던져 정해진 코인은 마법으로 바뀌지 않는다 (예전에는 앞면 몫을 빼고 뒷면으로 돌렸다)
+          if ((u.t.coins || []).some(c => c.heads != null)) { fl(X, u.uid, "코인 고정", "miss"); break; }
           u.t.noCoin = true;
-          applyCoins(u, coinDefs(u).map(k => Object.assign(k, { heads: false })));
           fl(X, u.uid, "코인 뒷면", "debuff"); break; }
         case "rest": u.t.rest = true; fl(X, u.uid, "행동 불가", "debuff"); break;
         case "strip": u.t.shield = false; u.t.thorns = 0; u.t.lock = false; u.t.taunt = false; fl(X, u.uid, "강화 해제", "debuff"); break;
@@ -264,13 +285,13 @@ function throwTarget(D, n, foes) {
 function throwPhase(X) {
   const A = X.P[X.ai], D = X.P[1 - X.ai];
   for (const u of liveUnits(A)) {
-    const im = itemOf(u); if (!im || !im.throw || !im.every || u.t.rest) continue;
+    const sn = abilOf(u).snipe; if (!sn || u.t.rest) continue;
     const foes = liveUnits(D); if (!foes.length) return;
-    const tg = throwTarget(D, im.throw, foes);
-    step(X, { act: u.uid, tgt: tg.uid }, 380);
-    hurt(X, tg, im.throw, "사격");
-    lg(X, `${C(u).name}의 [사격 ${im.throw}] → ${C(tg).name}`);
-    step(X, { act: u.uid, tgt: tg.uid, hit: true }, 520);
+    const tg = throwTarget(D, sn, foes);
+    step(X, { act: u.uid, tgt: tg.uid, sn: 1 }, 380);   // sn: 화면이 [사격] 소리를 고르는 표시 (규칙과 무관)
+    hurt(X, tg, sn, "사격");
+    lg(X, `${C(u).name}의 [사격 ${sn}] → ${C(tg).name}`);
+    step(X, { act: u.uid, tgt: tg.uid, hit: true, sn: 1 }, 520);
   }
 }
 
@@ -291,15 +312,17 @@ function attackOne(X, Au) {
     step(X, { act: Au.uid, tgt: "life" + D.idx, hit: true }, 560);
     return;
   }
-  const cd = C(Du), im = itemOf(Au);
-  // 유닛과 유닛이 맞붙는다: 양쪽 코인을 새로 던진다. 화면에서는 돌고 있는 코인을 사용자가 멈추면 결과가 드러나고,
-  // 그 결과대로 스탯이 바뀐 뒤에 공격·반격이 이어진다 (결과 자체는 여기서 이미 정해진다)
+  const cd = C(Du), im = itemOf(Au), ab = abilOf(Au);
+  // 유닛과 유닛이 맞붙는다: 공격 쪽 코인을 던진다. 방어 쪽은 이 전투에서 처음 맞붙을 때만 던지고,
+  // 그 뒤로는 전투가 끝날 때까지 정해진 코인 그대로 (v3.5.6, clashCoins의 keep).
+  // 화면에서는 돌고 있는 코인을 사용자가 멈추면 결과가 드러나고, 그 결과대로 스탯이 바뀐 뒤에 공격·반격이 이어진다
   X.clashN++;
-  const ca_ = clashCoins(X, Au), cd_ = clashCoins(X, Du);
-  if (ca_.length || cd_.length) {
-    step(X, { coin: { n: X.clashN, a: Au.uid, d: Du.uid, coinsA: ca_, coinsD: cd_, pa: A.idx, pd: D.idx } }, 0);
+  const ca_ = clashCoins(X, Au), cd_ = clashCoins(X, Du, true);
+  const keptD = cd_.length > 0 && !!cd_[0].kept;
+  if (ca_.length || (cd_.length && !keptD)) {
+    step(X, { coin: { n: X.clashN, a: Au.uid, d: Du.uid, coinsA: ca_, coinsD: cd_, keptD, pa: A.idx, pd: D.idx } }, 0);
     for (const [u, cs] of [[Au, ca_], [Du, cd_]]) {
-      if (!cs.length) continue;
+      if (!cs.length || (u === Du && keptD)) continue;   // 고정된 방어 코인은 이미 스탯에 들어가 있다
       const dl = applyCoins(u, cs);
       const hn = cs.filter(k => k.heads).length;
       // v1.9.5 바뀐 스탯마다 따로: 오르면 +N(연두, cpop up), 내리면 −N(빨강, cpop down) — 화면이 캐릭터 위에 쌓아 띄운다
@@ -308,7 +331,7 @@ function attackOne(X, Au) {
       if (!any) fl(X, u.uid, hn ? "코인 그대로" : "코인 뒷면", "miss");
     }
     for (const u of [Au, Du]) if (!u.t.alive && u.t.coinDeath) { fl(X, u.uid, "코인에 쓰러짐", "dmg big"); lg(X, `${C(u).name}이(가) 코인 때문에 쓰러짐`, "bad"); }
-    lg(X, `코인: ${ca.name} ${coinLogText(ca_)} · ${cd.name} ${coinLogText(cd_)}`, "sys");
+    lg(X, `코인: ${ca.name} ${coinLogText(ca_)} · ${cd.name} ${coinLogText(cd_)}${keptD ? " (방어 코인 고정)" : ""}`, "sys");
     // v1.9.5 코인으로 바뀐 숫자를 볼 틈 (공격이 시작되기 전에)
     step(X, { coinRes: true }, 440);
     if (!Au.t.alive) return;
@@ -330,19 +353,19 @@ function attackOne(X, Au) {
     lg(X, `${ca.name}의 [투척 ${im.throw}] → ${C(thr).name}${thr === Du ? " (맞선 유닛뿐이라 함께 맞힘)" : ""}`);
   }
   let dd = Du.t.d;
-  if (im && im.magic) dd = dd > 0 ? Math.max(0, dd - (im.magic === true ? 99 : im.magic)) : dd;
+  if (ab.magic) dd = dd > 0 ? Math.max(0, dd - (ab.magic === true ? 99 : ab.magic)) : dd;
   let dealt = hit(Au.t.a, dd), crit = false, got = 0;
   if (!Du.t.alive) lg(X, `${cd.name}이(가) 투척에 쓰러져 공격은 빗나갔다`, "sys");
   else {
-    if (im && im.crit && dealt > 0 && flip()) { dealt *= 2; crit = true; }
+    if (ab.crit && dealt > 0 && flip()) { dealt *= 2; crit = true; }
     got = dealt > 0 ? hurt(X, Du, dealt, crit ? "치명" : "") : (fl(X, Du.uid, "0", "miss"), 0);
-    if (im && im.shred && Du.t.d > 0) { const red = Math.min(Au.t.a, Du.t.d); Du.t.d -= red; applyFloor(Du); if (red) fl(X, Du.uid, "관통 ⛨−" + red, "debuff"); }
+    if (ab.shred && Du.t.d > 0) { const red = Math.min(Au.t.a, Du.t.d); Du.t.d -= red; applyFloor(Du); if (red) fl(X, Du.uid, "관통 ⛨−" + red, "debuff"); }
     lg(X, `${ca.name}(공 ${Au.t.a}) → ${cd.name}(방 ${dd}): 피해 ${got}${crit ? " (치명)" : ""}`);
     if (Du.t.thorns && Au.t.alive) { const t = hurt(X, Au, Du.t.thorns, "가시"); if (t) lg(X, `[가시] ${ca.name} 피해 ${t}`); }
   }
   step(X, thr ? { act: Au.uid, tgt: Du.uid, hit: true, thr: thr.uid } : { act: Au.uid, tgt: Du.uid, hit: true }, 520);
   if (Du.t.alive && Au.t.alive && !Du.t.rest) {
-    if (im && im.ranged) { lg(X, `[원거리] ${ca.name}은(는) 반격을 받지 않는다`, "sys"); return; }
+    if (ab.ranged) { lg(X, `[원거리] ${ca.name}은(는) 반격을 받지 않는다`, "sys"); return; }
     const back = hit(Du.t.a, Au.t.d);
     const g = back > 0 ? hurt(X, Au, back, "반격") : (fl(X, Au.uid, "반격 0", "miss"), 0);
     lg(X, `↺ ${cd.name}의 반격 → ${ca.name}: 피해 ${g}`);
@@ -559,7 +582,7 @@ const SPELL_OPS = {
     u.t.taunt = true; if (op.d && !u.t.lock) u.t.d += op.d;
     fl(X, u.uid, "수호" + (op.d ? " ⛨+" + op.d : ""), "shield");
   },
-  /* [운명] 이번 턴 아군 코인: + 코인은 앞면, − 코인은 뒷면 */
+  /* [운명] 이번 턴 아군 코인: + 코인은 앞면, − 코인은 뒷면. 이미 던져 정해진 코인은 그대로 (v3.5.7) */
   fate(X, caster, it, k, op) {
     for (const u of liveUnits(X.P[caster])) { u.t.fate = true; fl(X, u.uid, "운명", "buff"); }
   }

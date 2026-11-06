@@ -95,6 +95,10 @@
 /* v1.9.1: 마법 글 속 [특수 능력] — 마우스를 올리면 뜻이 뜬다 */
 .kw { cursor: help; border-bottom: 1px dotted currentColor; pointer-events: auto; }
 .kw:hover { color: var(--gold-hi, #f3d98a); }
+/* v2.4.3: 핸드 카드는 통째로 pointer-events: none이고, 올린 카드 위로 마우스 받는 칸(.hand-slot:hover::after)이 덮는다.
+   카드를 그 칸 위로 올리고, 아이템 능력 칩·종류 칩·[능력]만 마우스를 받게 해 말풍선이 뜨게 한다 */
+.hand-me .hand-slot .hand-card { position: relative; z-index: 1; }
+.hand-card .c-cls[data-tip], .hand-card .kw { pointer-events: auto; cursor: help; }
 
 /* ---------- v1.9.3: 장착한 유닛 — 아래에 깔린 아이템 카드를 누를 수 있게, 특수 능력은 캐릭터 아래 띠로 ---------- */
 /* 예전 ::before 그림자 대신 진짜 카드 조각(.c-under). 삐져나온 띠에 아이템 이름이 보이고, 마우스를 올리거나 누르면 그 아이템 카드가 크게 뜬다 */
@@ -131,3 +135,40 @@
 .card.item-front > .c-frame { transform: translateY(1.05em); filter: brightness(.7); cursor: pointer; }
 .frow-bot .card.item-front > .c-frame { transform: translateY(-1.05em); }
 .card.item-front:not(.selected) > .c-under > .card > .c-frame { box-shadow: 0 0 0 .1em rgba(246, 226, 168, .55), 0 .3em .9em rgba(0, 0, 0, .6); }
+
+/* ---------- v2.4.3: 핸드를 차분하게 — 덜 높이, 덜 크게, 조금 느리게, 튕김(넘침) 없이 ----------
+   (v2.6: 아래 핸드 자세·곡선은 css/hand.css 가 덮어쓴다. 올린 상태는 :hover 가 아니라 JS 의 .hov) */
+.hand-me .hand-slot:hover .hand-card { transform: translateY(calc(var(--hand-vis) - var(--hw) * 1.2 - 10px)) rotate(0deg) scale(1.26); }
+.hand-slot.selected .hand-card { transform: translateY(calc(var(--cw) * -.2)) rotate(0deg) scale(1.04); }
+@media (min-width: 761px) {
+  .hand-me .hand-slot:hover .hand-card { transform: translateY(calc(var(--hw) * -.07)) rotate(0deg) scale(1.17); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hand-card { transition: transform .38s cubic-bezier(.25, .7, .3, 1), filter .26s; }
+  .hand-me .hand-slot:hover .hand-card { transition: transform .32s cubic-bezier(.25, .7, .3, 1), filter .24s; }
+  .hand-slot.selected .hand-card { transition: transform .4s cubic-bezier(.25, .7, .3, 1), filter .26s; }
+}
+
+/* ---------- v3.7.7 가운데 띠: 준비 완료(왼쪽) · 설정칸(오른쪽) · 셔플은 내 덱 아래 ----------
+   준비 완료 명판은 설정칸(.toolbar, 80px)과 같은 높이. 턴 시간은 명판 왼쪽에 나란히. */
+@media (min-width: 761px) {
+  .rd-wrap { align-items: center; gap: 12px; }
+  .rd-wrap .turn-clock { position: relative; top: auto; right: auto; }
+  .ready-btn { height: 80px; min-width: 250px; padding: 0 18px 0 22px; gap: 14px; border-radius: 10px; font-size: 21px; }
+  .ready-btn .rd-ico { width: 32px; height: 32px; }
+  .ready-btn kbd { font-size: 11px; padding: 3px 7px; }
+  .ready-btn.rd-wait { font-size: 17px; }
+  .f-piles { position: relative; }
+  .f-piles > .shuffle-btn.v19 { top: calc(100% + 12px); left: auto; right: 0; width: max(100%, 230px); z-index: 30; }
+}
+/* 1600px보다 좁은 창: 가운데 띠의 단계 글씨가 눌리지 않게 명판 · 시간 · 설정칸 단추를 조금 줄인다 */
+@media (min-width: 761px) and (max-width: 1599px) {
+  .rd-wrap { gap: 8px; }
+  .ready-btn { min-width: 0; padding: 0 14px 0 16px; gap: 10px; font-size: 17px; }
+  .ready-btn .rd-ico { width: 26px; height: 26px; }
+  .ready-btn kbd { display: none; }
+  .rd-wrap .turn-clock { height: 40px; padding: 0 8px 0 4px; gap: 4px; }
+  .rd-wrap .turn-clock .tc-num { font-size: 17px; min-width: 2.8em; }
+  .toolbar .tb-btn { min-width: 50px; padding: 0 7px; }
+  .toolbar .tb-sep { margin: 0 3px; }
+}

@@ -858,6 +858,12 @@ body.is-dragging .focus { display: none; }
 .cs-who { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 800; color: #fff3d6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
 .cs-who i { font-style: normal; color: var(--gold-hi); }
 .cs-who small { font-size: 12px; color: var(--muted); font-weight: 400; }
+/* v2.4.4 코인 확률 */
+.cs-prob { font-size: 13px; color: var(--muted); letter-spacing: .02em; white-space: nowrap; }
+.cs-prob b { color: var(--gold-hi); font-weight: 800; }
+.cs-prob em { font-style: normal; color: #ff8a7a; font-weight: 700; }
+.cs-prob small { font-size: 11px; opacity: .8; }
+.cs-prob.is-zero b.zero { color: #ff6b5c; }
 .cs-a .cs-who i { color: var(--rite-atk); } .cs-d .cs-who i { color: var(--rite-def); }
 .cs-coins { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; min-height: 76px; align-items: center; perspective: 700px; }
 .cs-none { color: var(--muted); font-size: 13px; }
@@ -1001,6 +1007,10 @@ html[data-font="system"] { --kfont: "Batang", "바탕", "AppleMyungjo"; }
 .f-text .f-big { font-size: 1.12em; font-weight: 700; }
 .f-text b.cm { font-family: var(--caps); color: var(--gold-hi); margin-right: .2em; }
 .f-kw { color: var(--ink-2); } .f-kw b { color: var(--gold-hi); }
+/* v2.2: 아이템이 하는 일 ("[관통] 능력 부여"). 그 아래 .f-kw가 능력의 뜻 */
+.f-grant { font-size: 1.1em; font-weight: 700; color: var(--ink); }
+.f-grant .kw { color: var(--gold-hi); }
+.f-grant + .f-kw { margin-top: .15em; padding-top: .45em; border-top: 1px solid color-mix(in srgb, var(--gold-hi) 30%, transparent); }
 .f-dim { color: var(--muted); font-size: .92em; }
 .f-flavor { color: var(--muted); font-style: italic; font-size: .92em; border-left: .15em solid color-mix(in srgb, var(--fc) 45%, transparent); padding-left: .6em; }
 .f-meta { color: var(--muted); font-size: .8em; margin-top: auto !important; }
@@ -1236,14 +1246,23 @@ html[data-font="system"] { --kfont: "Batang", "바탕", "AppleMyungjo"; }
 .tb-speed .ui-ico { width: 16px; height: 16px; }
 .tb-speed span { min-width: 2.3em; text-align: left; color: var(--gold-hi); }
 .tb-sep { width: 1px; height: 18px; background: rgba(217, 180, 106, .24); margin: 0 3px; flex: none; }
+/* v3.7.2 가운데 설정칸을 세로 두 배(40 → 80px)로, 아이콘도 칸에 맞게 두 배. 소리 단추 둘(배경음 · 효과음)이 이 안에 들어온다 */
+.toolbar { height: 80px; padding: 0 7px; border-radius: 10px; }
+.tb-btn { height: 66px; min-width: 58px; padding: 0 11px; border-radius: 8px; gap: 9px; font-size: 21px; }
+.tb-btn .ui-ico, .tb-btn > svg { width: 34px; height: 34px; flex: none; }
+.tb-speed { padding: 0 14px 0 10px; }
+.tb-speed .ui-ico { width: 30px; height: 30px; }
+.tb-sep { height: 38px; margin: 0 5px; }
+.tb-snd { position: relative; }
+.tb-snd .snd-slash { position: absolute; left: 50%; top: 50%; width: 34px; height: 34px; translate: -50% -50%; color: #e07a6a; }
+.tb-btn.tb-snd.off { color: var(--muted); }
+.tb-btn.tb-snd.blocked { color: var(--gold-hi); background: rgba(217, 180, 106, .14); box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .4); }
 
-/* 준비 완료: 샴페인 금 명판 하나. 빛이 가끔 한 번 스친다 */
+/* 준비 완료: 샴페인 금 명판 하나. v3.7.7: 스치던 빛(rdShine)은 뺐다 — 멈춘 명판 */
 .ready-btn { position: relative; isolation: isolate; overflow: hidden; flex: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 42px; min-width: 200px; padding: 0 12px 0 16px; border-radius: 7px; cursor: pointer;
   border: 1px solid #f8e5ad; background: linear-gradient(180deg, #f5e1a7 0%, #dab468 48%, #b78a3d 100%); color: #1d1406;
   font-family: var(--kfont, var(--body)), serif; font-size: 15px; font-weight: 800; letter-spacing: .05em;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, .55), inset 0 1px 0 rgba(255, 255, 255, .6), inset 0 -2px 0 rgba(90, 60, 15, .35), 0 8px 20px rgba(0, 0, 0, .45), 0 0 26px rgba(240, 200, 110, .26); transition: filter .15s, transform .1s; }
-.ready-btn::after { content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%; z-index: -1; background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .55), transparent); animation: rdShine 4.2s ease-in-out infinite; }
-@keyframes rdShine { 0%, 62% { left: -60%; } 88%, 100% { left: 130%; } }
 .ready-btn:hover { filter: brightness(1.08); }
 .ready-btn:active { transform: translateY(1px); }
 .rd-ico { width: 18px; height: 18px; flex: none; }
@@ -1374,7 +1393,7 @@ html[data-font="system"] { --kfont: "Batang", "바탕", "AppleMyungjo"; }
   .pv-bot .ps span { font-size: 11px; }
 }
 @media (max-width: 960px) {
-  .toolbar .tb-btn { min-width: 30px; padding: 0 5px; }
+  .toolbar .tb-btn { min-width: 44px; padding: 0 6px; }
   .ready-btn kbd { display: none; }
 }
 .focus.v7 .f-box { width: auto; align-self: stretch; }
@@ -1763,3 +1782,25 @@ body.is-dragging .hand-me .hand-slot .hand-card { transition: transform .2s ease
   box-shadow: 0 0 18px rgba(246, 226, 168, .55), inset 0 0 22px rgba(246, 226, 168, .3); }
 .suck-ring.hit { border-color: #fff3c9; background: radial-gradient(closest-side, rgba(255, 243, 205, .42), rgba(246, 226, 168, .1) 70%, transparent); }
 .slot.drop-hover.swap-hover { transform: none; }
+
+/* ---------- v2.3: 클래스 동그라미 · 이름 옆 클래스 꼬리표 · 고정 자물쇠 · 레벨 말풍선 ---------- */
+/* 동그라미 = 클래스 (유닛: 자기 클래스, 아이템: 장착할 수 있는 클래스). 색은 1.3 표의 클래스 색(.clc-*) */
+.c-clsico i.c-clsb { cursor: help; }
+.c-clsico i.c-clsb svg { width: 70%; height: 70%; }
+.c-clsico i.clc-공용 { background: rgba(0, 0, 0, .35); border-width: .14em; box-shadow: 0 0 .45em color-mix(in srgb, var(--clc) 45%, transparent), inset 0 0 0 .16em rgba(0, 0, 0, .55), inset 0 0 0 .24em color-mix(in srgb, var(--clc) 35%, transparent); }
+/* 이름 옆 ": [무도]" — 작은 카드에서도 보인다. 이름이 길면 이름이 줄어들고 꼬리표는 남는다 */
+.c-cltag { font-size: .78em; font-weight: 700; color: var(--gold); white-space: nowrap; letter-spacing: -.02em; }
+/* 이름과 꼬리표는 한 흐름으로 이어지고, 좁으면 두 줄로 넘어간다 (꼬리표는 쪼개지지 않음) */
+.c-name { word-break: keep-all; }
+.size-sm .c-name, .size-md .c-name, .size-lg .c-name { white-space: normal; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; line-height: 1.1; }
+.size-sm .c-cltag, .size-md .c-cltag, .size-lg .c-cltag { font-size: .76em; white-space: normal; }
+.size-full .c-cltag { font-size: .68em; }
+/* 고정 = 금빛 자물쇠 + 금빛 숫자 */
+.st-lock { width: .82em; height: .82em; margin-left: .12em; color: #ffd36b; filter: drop-shadow(0 0 .18em rgba(255, 196, 80, .85)); vertical-align: -.06em; flex: none; }
+.st.st-locked b { color: #ffe08a; text-shadow: 0 0 .3em rgba(255, 196, 80, .55); }
+.c-istats .st-empty b { opacity: .38; font-size: .82em; }
+.c-istats .st-empty.st-locked b { opacity: .7; }
+/* 레벨·유지비 말풍선: 두 줄을 같은 크기로, [이름]만 금빛 */
+#tip.tip-kw { gap: 6px; }
+#tip.tip-kw span { color: var(--ink); }
+#tip.tip-kw b { font-size: inherit; margin-right: .3em; }

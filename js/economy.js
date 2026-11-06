@@ -21,8 +21,22 @@ const ECON = {
     card: { p: 0.0001 }                // 세 진영 문장이 모두 다르게 — 카드 1장 (어떤 카드로 할지는 미정: 지금은 무작위)
   }
 };
-/* 특별한 카드의 가격을 따로 정할 때 여기 적는다. 예: { "B1-40": 1200 } */
+/* 특별한 카드의 가격을 따로 정할 때 여기 적는다. 예: { "B1-40": 1200 } (교역소 값과 전투 보상 모두에 쓴다) */
 const PRICE_OVERRIDE = {};
+
+/* v3.0 교역소 값과 재고 — 나중에 바꿀 때는 여기만 고친다
+   - SHOP_FLAT: 교역소에서 사고파는 값. 지금은 모든 카드 100 조각. null로 두면 예전처럼 레벨 공식(cardPrice)을 쓴다.
+     전투 보상(부서진 카드 2%, 정산)은 그대로 cardPrice(레벨 공식)를 쓴다.
+   - SHOP_STOCK: 등급마다 교역소가 처음 채워 두는 장수. 희귀한 등급일수록 적다. */
+const SHOP_FLAT = 100;
+const SHOP_STOCK = { common: 100, uncommon: 80, rare: 50, epic: 30, unique: 10, special: 5 };
+function shopPrice(c) {
+  c = typeof c === "string" ? CARDS[c] : c;
+  if (!c) return 0;
+  if (PRICE_OVERRIDE[c.id] != null) return PRICE_OVERRIDE[c.id];
+  return SHOP_FLAT != null ? SHOP_FLAT : cardPrice(c);
+}
+function stockMax(c) { c = typeof c === "string" ? CARDS[c] : c; return c ? (SHOP_STOCK[gradeOf(c)] ?? SHOP_STOCK.common) : 0; }
 
 function cardPrice(c) {
   c = typeof c === "string" ? CARDS[c] : c;
@@ -50,34 +64,55 @@ Object.assign(Store, {
     this.save();
     return u.gold;
   },
-  /* 상점 구매: 가격만큼 빼고 1장 지급. 관리자도 지갑은 줄어든다 */
-  buyCard(u, id) {
-    u = u || this.user(); const c = CARDS[id];
+  /* v3.0 교역소 구매: 재고(stockLeft)에서 n장을 꺼내 보관함(collection)에 넣는다.
+     - 관리자는 무엇이든 살 수 있다: 지갑을 보지 않고(줄지도 않는다), 최대 장수 제한도 없다. 재고만 줄어든다.
+     - 다른 계정은 값 × n을 내고, 같은 카드는 최대 장수(maxCopiesOf)까지만 산다.
+     - opts.toDeck: 산 카드를 그 단체의 덱 초안(덱 조정실)에 바로 넣는다(40장 · 같은 카드 장수 안에서). */
+  buyCard(u, id, n, opts) {
+    u = u || this.user(); const c = CARDS[id]; n = Math.max(1, Math.floor(n || 1)); opts = opts || {};
     if (!u || !c) return { ok: false, msg: "없는 카드입니다." };
-    const price = cardPrice(c);
-    if (this.gold(u) < price) return { ok: false, msg: `돈이 부족합니다. (${fmtGold(price)} 필요, 지갑 ${fmtGold(this.gold(u))})` };
+    const price = shopPrice(c), admin = this.isAdmin(u), stock = this.stockLeft(id);
+    if (stock <= 0) return { ok: false, msg: `「${c.name}」 재고가 없습니다.${admin ? " 재고 채우기를 누르세요." : ""}` };
+    if (n > stock) n = stock;
     const have = u.collection[id] || 0;
-    if (have >= maxCopiesOf(c)) return { ok: false, msg: `이미 ${maxCopiesOf(c)}장을 가지고 있습니다.` };
-    u.collection[id] = have + 1;
-    this.addGold(u, -price, "구매 " + c.name);
-    return { ok: true, price, have: u.collection[id] };
+    if (!admin) {
+      const room = maxCopiesOf(c) - this.shopOwned(u, id);
+      if (room <= 0) return { ok: false, msg: `이미 ${maxCopiesOf(c)}장을 가지고 있습니다.` };
+      if (n > room) n = room;
+      if (this.gold(u) < price * n) {
+        n = Math.floor(this.gold(u) / price);
+        if (n < 1) return { ok: false, msg: `환석 조각이 부족합니다. (${fmtGold(price)} 필요, 지갑 ${fmtGold(this.gold(u))})` };
+      }
+    }
+    u.collection[id] = have + n;
+    this.data.stock = this.data.stock || {}; this.data.stock[id] = stock - n;
+    u.fresh = u.fresh || {}; u.fresh[id] = Date.now();
+    if (admin) { u.ledger = u.ledger || []; u.ledger.push({ at: Date.now(), n: 0, why: `관리자 구매 ${c.name} ×${n}` }); this.save(); }
+    else this.addGold(u, -price * n, `구매 ${c.name} ×${n}`);
+    const put = opts.toDeck ? this.draftAdd(u, id, n) : null;
+    return { ok: true, n, price: price * n, have: u.collection[id], stock: stock - n, put };
   },
-  /* 상점 판매 (v1.4.3): 산 값 그대로(cardPrice) 돌려받는다. 덱에 넣어 둔 장수만큼은 팔 수 없다 (덱이 깨지지 않게) */
+  /* 상점 판매 (v1.4.3): 산 값 그대로 돌려받는다. 덱에 넣어 둔 장수만큼은 팔 수 없다 (덱이 깨지지 않게). v3.0 판 카드는 재고로 돌아간다 */
   deckUse(u, id) { const c = CARDS[id], d = c && u.decks && u.decks[c.group]; return d && d.cards ? d.cards[id] || 0 : 0; },
-  sellable(u, id) { const have = u.collection[id] || 0; return Math.max(0, have - (u.admin ? 0 : this.deckUse(u, id))); },
+  sellable(u, id) { const have = u.collection[id] || 0; return Math.max(0, have - (Store.allCards(u) ? 0 : this.deckUse(u, id))); },
   sellCard(u, id) {
     u = u || this.user(); const c = CARDS[id];
     if (!u || !c) return { ok: false, msg: "없는 카드입니다." };
     const have = u.collection[id] || 0;
     if (!have) return { ok: false, msg: "가지고 있지 않은 카드입니다." };
     if (!this.sellable(u, id)) return { ok: false, msg: `덱에 ${this.deckUse(u, id)}장이 들어 있어 팔 수 없습니다. 덱 조정실에서 빼고 파세요.` };
-    const price = cardPrice(c);
+    const price = shopPrice(c);
     u.collection[id] = have - 1;
-    this.addGold(u, price, "판매 " + c.name);
-    return { ok: true, price, have: u.collection[id] };
+    if (!u.collection[id]) { delete u.collection[id]; if (u.fresh) delete u.fresh[id]; }
+    this.data.stock = this.data.stock || {}; this.data.stock[id] = Math.min(stockMax(c), this.stockLeft(id) + 1);
+    if (this.isAdmin(u)) this.save(); else this.addGold(u, price, "판매 " + c.name);
+    return { ok: true, price: this.isAdmin(u) ? 0 : price, have: u.collection[id] || 0 };
   },
-  /* 보유 장수 (관리자는 컬렉션에 적힌 값 — 상점에서 산 것 — 을 보여 주되, 쓸 때는 항상 최대) */
-  shopOwned(u, id) { return u.admin ? Math.min(maxCopiesOf(id), u.collection[id] || 0) : this.ownedCount(u, id); }
+  /* 보유 장수 (교역소에서 산 장수). 관리자 · 손님은 덱에서는 모든 카드를 최대 장수만큼 쓸 수 있다 */
+  shopOwned(u, id) { return Store.allCards(u) ? (u.collection[id] || 0) : this.ownedCount(u, id); },
+  /* v3.0 교역소 재고: 이 브라우저의 모든 계정이 같은 재고를 나눠 쓴다. 등급마다 처음 채우는 장수가 다르다(SHOP_STOCK) */
+  stockLeft(id) { const s = this.data.stock && this.data.stock[id]; return s == null ? stockMax(id) : s; },
+  restock(ids) { if (!this.data.stock) return; if (ids) for (const id of ids) delete this.data.stock[id]; else this.data.stock = {}; this.save(); }
 });
 
 /* ---------- 한 판의 경제 기록 (game.js의 G.econ) ---------- */

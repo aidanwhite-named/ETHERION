@@ -1,0 +1,68 @@
+/* ETHERION v2.6 — 묵직한 핸드 (맨 마지막에 읽는다. js/game.js setHov·applyHov·syncHov·handHTML)
+   핸드 카드의 자세(transform)·곡선(transition)·그림자는 모두 여기서 정한다.
+   style.css(v3·v4·v1.1·v1.7·761px 절)와 battle-v19.css(v2.4.3 절)의 핸드 transform·transition 규칙은 이 파일이 덮어쓴다.
+
+   원리
+   - 올린 상태는 브라우저의 :hover 가 아니라 JS가 붙이는 .hov 다. 화면을 다시 그린 직후에도 자세가 바로 정해져서,
+     누를 때마다 :hover 가 한 프레임 늦게 붙어 생기던 들썩임(내려갔다 올라오기)이 없다. :hover 는 반응 영역(::after)에만 쓴다.
+   - 카드마다 --sk (펴기 보정)·--pk (밀림 계수)를 JS가 준다. 둘 다 카드 폭(--hw)의 배수.
+     --sk: 기울어진 카드를 0°로 펼 때 회전축이 아래 가운데라 윗부분이 옆으로 쓸리던 것을, 가운데가 제자리에 있도록 되돌린다 (sin(r)·0.7).
+     --pk: 올린 카드의 이웃이 바깥으로 밀려나는 양. 바로 옆 1, 둘째 .45, 셋째 .2, 그 밖 .1 (× .11 × hw). 고른 카드만 있을 때는 절반.
+   - 곡선: 들어 올리기는 바로 반응하되 길게 멈추고(.44s), 내려놓기·이웃 복귀는 천천히 출발해 길게 멈춘다(.44s). 끝에서 넘치지 않는다.
+     이웃은 30ms 늦게 따라와 무게가 전해지는 느낌. 그림자는 들릴수록 멀고 흐려진다 */
+
+/* ---------- 자세 ---------- */
+.hand-me .hand-slot .hand-card { transform-origin: 50% 100%;
+  transform: translate(calc(var(--hw) * var(--pk, 0)), var(--y, 0%)) rotate(var(--r, 0deg)); }
+/* 고른 카드: 손에 쥔 듯 조금 들려 똑바로 */
+.hand-me .hand-slot.selected .hand-card {
+  transform: translate(calc(var(--hw) * (var(--pk, 0) + var(--sk, 0))), calc(var(--cw) * -.2)) rotate(0deg) scale(1.06); }
+/* 올린 카드: 좁은 화면에서는 가려진 아래쪽이 다 보이도록 높이 */
+.hand-me .hand-slot.hov .hand-card {
+  transform: translate(calc(var(--hw) * (var(--pk, 0) + var(--sk, 0))), calc(var(--hand-vis) - var(--hw) * 1.2 - 10px)) rotate(0deg) scale(1.26); }
+@media (min-width: 761px) {
+  .hand-me .hand-slot.selected .hand-card {
+    transform: translate(calc(var(--hw) * (var(--pk, 0) + var(--sk, 0))), calc(var(--hw) * -.09)) rotate(0deg) scale(1.08); }
+  .hand-me .hand-slot.hov .hand-card {
+    transform: translate(calc(var(--hw) * (var(--pk, 0) + var(--sk, 0))), calc(var(--hw) * -.11)) rotate(0deg) scale(1.17); }
+}
+/* 예전 :hover 규칙이 .hov 없이 홀로 맞을 때(다시 그린 직후 한 프레임 등)는 바닥 자세 그대로 */
+.hand-me .hand-slot:hover:not(.hov):not(.selected) .hand-card { transform: translate(calc(var(--hw) * var(--pk, 0)), var(--y, 0%)) rotate(var(--r, 0deg)); }
+/* 끄는 동안·드로우하는 동안은 모두 바닥 자세 (JS가 .hov 와 --pk 도 지운다) */
+body.is-dragging .hand-me .hand-slot .hand-card,
+#board.hand-locked .hand-me .hand-slot .hand-card { transform: translate(calc(var(--hw) * var(--pk, 0)), var(--y, 0%)) rotate(var(--r, 0deg)) !important; }
+
+/* 쌓임: 올린 카드가 고른 카드보다 위 */
+.hand-me .hand-slot.selected { z-index: 60 !important; }
+.hand-me .hand-slot.hov { z-index: 61 !important; }
+/* 반응 영역: 올라간 자리까지 (style.css 의 :hover::after 와 같은 상자를 .hov 에도) */
+.hand-me .hand-slot.hov::after { content: ""; position: absolute; left: -22%; right: -22%; top: calc(var(--cw) * -.8); bottom: -10%; }
+
+/* ---------- 그림자: 들릴수록 멀고 흐리게 ----------
+   네 겹을 늘 같은 순서로 둔다(안쪽 테 · 먼 그림자 · 가까운 그림자(고르면 금 테) · 금빛 무리(전설 카드·고른 카드)) — 순서가 같아야 그림자가 끊기지 않고 이어진다 */
+.hand-me .hand-card .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .06), 0 .5em 1.4em rgba(0, 0, 0, .7), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(233, 198, 111, 0); }
+.hand-me .hand-card .card.legend .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .06), 0 .5em 1.4em rgba(0, 0, 0, .7), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 1em rgba(233, 198, 111, .35); }
+.hand-me .hand-slot.hov .hand-card .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .1), 0 1.15em 2.4em rgba(0, 0, 0, .74), 0 .3em .6em rgba(0, 0, 0, .4), 0 0 0 0 rgba(233, 198, 111, 0); }
+.hand-me .hand-slot.hov .hand-card .card.legend .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .1), 0 1.15em 2.4em rgba(0, 0, 0, .74), 0 .3em .6em rgba(0, 0, 0, .4), 0 0 1.2em rgba(233, 198, 111, .45); }
+.hand-me .hand-slot.selected .hand-card .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .08), 0 .9em 2em rgba(0, 0, 0, .6), 0 0 0 .2em var(--gold-hi), 0 0 2em rgba(246, 226, 168, .7); }
+.hand-me .hand-slot.selected.hov .hand-card .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .1), 0 1.15em 2.4em rgba(0, 0, 0, .7), 0 0 0 .2em var(--gold-hi), 0 0 2em rgba(246, 226, 168, .7); }
+/* 막 고른 카드(.fresh-sel, 다시 그린 새 요소라 transition 이 없다): 금 테와 무리가 올린 카드의 그림자에서 떠오른다 */
+.hand-me .hand-slot.selected.fresh-sel .hand-card .c-frame { animation: handSelIn .38s cubic-bezier(.22, .55, .12, 1); }
+@keyframes handSelIn { from { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .1), 0 1.15em 2.4em rgba(0, 0, 0, .74), 0 0 0 0 rgba(246, 226, 168, 0), 0 0 0 0 rgba(246, 226, 168, 0); } }
+
+/* ---------- 곡선 ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  /* 내려놓기 · 이웃이 제자리로: 천천히 출발해 길게 멈춤 */
+  .hand-me .hand-slot .hand-card { transition: transform .44s cubic-bezier(.3, .05, .15, 1), filter .3s; }
+  .hand-me .hand-card .c-frame { transition: box-shadow .44s cubic-bezier(.3, .05, .15, 1), border-color .2s; }
+  /* 들어 올리기 · 고르기: 바로 반응하되 길게 멈춤 */
+  .hand-me .hand-slot.hov .hand-card, .hand-me .hand-slot.selected .hand-card { transition: transform .44s cubic-bezier(.22, .55, .12, 1), filter .25s; }
+  .hand-me .hand-slot.hov .hand-card .c-frame, .hand-me .hand-slot.selected .hand-card .c-frame { transition: box-shadow .44s cubic-bezier(.22, .55, .12, 1), border-color .2s; }
+  /* 밀려나는 이웃: 조금 늦게, 더 천천히 */
+  .hand-me.has-hov .hand-slot:not(.hov) .hand-card { transition: transform .5s cubic-bezier(.25, .1, .1, 1) 30ms, filter .3s; }
+  /* 끄는 동안 바닥으로 돌아갈 때 */
+  body.is-dragging .hand-me .hand-slot .hand-card { transition: transform .3s cubic-bezier(.3, .05, .15, 1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hand-me .hand-slot .hand-card, .hand-me .hand-card .c-frame { transition: none !important; animation: none !important; }
+}

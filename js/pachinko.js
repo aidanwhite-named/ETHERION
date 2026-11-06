@@ -70,6 +70,7 @@ const Pachinko = {
   },
   blip(freq, dur, vol, type) {
     const ac = this.ctx(); if (!ac) return;
+    if (typeof FEEL !== "undefined") FEEL.mark();   // v3.7.2 메뉴 단추 소리와 겹치지 않게
     if (ac.state === "suspended") ac.resume();
     const o = ac.createOscillator(), g = ac.createGain();
     o.type = type || "square"; o.frequency.setValueAtTime(freq, ac.currentTime);
