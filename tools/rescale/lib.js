@@ -12,4 +12,7 @@ const HMIN=1;
 function attack(OA,OB){let wa=0,wb=0;for(const x of OA)for(const y of OB){const p=x.p*y.p;const dmg=Math.max(0,x.a-y.d);if(dmg>=Math.max(HMIN,y.h)){wa+=p;continue;}const c=Math.max(0,y.a-x.d);if(c>=Math.max(HMIN,x.h))wb+=p;}return [wa,wb];}
 function duel(OA,OB){const [a1,b1]=attack(OA,OB);const [b2,a2]=attack(OB,OA);const wa=(a1+a2)/2,wb=(b1+b2)/2;return {w:wa+(1-wa-wb)/2,kill:(a1+b2)/2,decide:(a1+b1+a2+b2)/2};}
 function winVs(u,pool,cache){const OA=outcomes(u);let s=0,n=0;for(const v of pool){if(v===u)continue;const OB=cache?cache.get(v)||(cache.set(v,outcomes(v)),cache.get(v)):outcomes(v);s+=duel(OA,OB).w;n++;}return s/n*100;}
-module.exports={loadUnits,outcomes,attack,duel,winVs};
+// 유지비 상한 (v3.12.7): 유지비 ≤ 레벨 − 1. 카드를 만들거나 고치는 도구는 이 값을 넘는 유지비를 만들지 않는다
+const maxUp=lv=>Math.max(0,lv-1);
+function checkUpkeep(units){const bad=units.filter(u=>(u.up||0)>maxUp(u.lv));if(bad.length)throw new Error('유지비 상한(레벨 − 1)을 넘는 카드: '+bad.map(u=>u.id+' Lv'+u.lv+' 유지'+u.up).join(', ')+' — tools/upcap/upcap.js로 고친다');return true;}
+module.exports={loadUnits,outcomes,attack,duel,winVs,maxUp,checkUpkeep};

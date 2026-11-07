@@ -66,15 +66,17 @@ const PIP = {
   G1: "M4 1.5c6 2.5 8.5 8 4.5 13.5C9 10 7.5 5.5 4 1.5z",                                         // 바위송곳니: 송곳니
   G2: "M14 2C6.5 2 2 6.5 2 14c7.5 0 12-4.5 12-12z",                                              // 고목: 잎
   G3: "M8 1C5.2 5.6 3 8 3 10.6a5 5 0 0010 0C13 8 10.8 5.6 8 1z",                                // 샘물: 물방울
-  A1: "M10.5 1.2a7 7 0 100 13.6A5.8 5.8 0 0110.5 1.2z",                                         // 심연: 초승달
+  A1: "M10.5 1.2a7 7 0 100 13.6A8.6 8.6 0 0110.5 1.2z",                                         // 심연: 초승달 (v3.12.7 안쪽 호를 펴서 도톰하게, 전 A5.8)
   A2: "M8 .5l1.9 5.6L15.5 8l-5.6 1.9L8 15.5 6.1 9.9.5 8l5.6-1.9z",                              // 성광: 빛 십자성
   A3: "M1.5 2.5h13l-3 3.2h-7zM3.5 7.2h9.5l-2.8 3H6.2zM6 11.7h5l-2.5 3z",                        // 폭풍탑: 회오리
   item: "M8 1l6 7-6 7-6-7z"                                                                       // 아이템: 마름모
 };
+/* v3.12.7: 유지비 칸 = 어두운 속 + 에테르 하늘빛 테두리(매 턴 에테르를 먹는 칸). 꽉 찬 금빛 소환 칸과 색으로 갈린다.
+   (전에는 같은 금빛 테두리뿐이라 초승달 · 송곳니처럼 가는 모양은 속이 비어도 티가 안 났다.) 소환 칸보다 튀지 않게 테두리는 가늘게 */
 function pipSVG(key, hollow) {
   const d = PIP[key] || PIP.item;
   return `<svg viewBox="0 0 16 16" aria-hidden="true">${hollow
-    ? `<path d="${d}" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>`
+    ? `<path d="${d}" fill="#07101e" fill-opacity=".9" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>`
     : `<path d="${d}" fill="currentColor"/>`}</svg>`;
 }
 function levelPips(c) {

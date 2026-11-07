@@ -203,3 +203,12 @@
 @keyframes counterSlash { 0% { transform: translateY(-50%) rotate(-14deg) scaleX(0); opacity: 1; } 60% { transform: translateY(-50%) rotate(-14deg) scaleX(1); opacity: 1; } 100% { transform: translateY(-50%) rotate(-14deg) scaleX(1); opacity: 0; } }
 @keyframes counterUp { 0% { opacity: 0; transform: translate(-50%, -50%) scale(1.8); } 12% { opacity: 1; transform: translate(-50%, -50%) scale(.92); } 22% { transform: translate(-50%, -52%) scale(1.04); } 32% { transform: translate(-50%, -54%) scale(1); } 100% { opacity: 0; transform: translate(-50%, -160%) scale(1); } }
 @media (prefers-reduced-motion: reduce) { .float.counter .fl-tag::before { animation: none; display: none; } }
+
+/* ───────── v3.12.7 "대가" 떠오르는 글자: 반격 명판과 같은 틀(Hahmlet 800 · 양옆 선 + 마름모 · 찍히는 움직임), 색만 핏빛.
+   마법을 쓰며 생명을 낼 때(js/game.js · js/engine.js "대가 −N"). 사선은 붉게, 숫자는 피해 숫자 그대로 */
+.float.counter.toll .fl-tag b { background: linear-gradient(180deg, #fff4ee 0%, #ffc2b0 34%, #f0644c 50%, #8e1a12 58%, #e0705a 78%, #ffd8cc 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 1px 0 #3a0806) drop-shadow(0 0 1.5px #1a0302) drop-shadow(0 3px 5px rgba(0, 0, 0, .85)) drop-shadow(0 0 12px rgba(255, 70, 50, .6)); }
+.float.counter.toll .fl-tag i { background: linear-gradient(90deg, transparent, #f08c7a); }
+.float.counter.toll .fl-tag i:last-child { background: linear-gradient(270deg, transparent, #f08c7a); }
+.float.counter.toll .fl-tag i::after { background: linear-gradient(135deg, #ffd6c9, #c8402f 60%, #5e0e08); border-color: #2a0604; }
+.float.counter.toll .fl-tag::before { background: linear-gradient(90deg, transparent, rgba(255, 120, 100, 0) 10%, #ffd0c4 50%, rgba(200, 30, 20, 0) 90%, transparent); filter: blur(.5px) drop-shadow(0 0 6px rgba(255, 60, 40, .9)); }

@@ -40,15 +40,26 @@ body.is-dragging .hand-me .hand-slot .hand-card,
 
 /* ---------- 그림자: 들릴수록 멀고 흐리게 ----------
    네 겹을 늘 같은 순서로 둔다(안쪽 테 · 먼 그림자 · 가까운 그림자(고르면 금 테) · 금빛 무리(전설 카드·고른 카드)) — 순서가 같아야 그림자가 끊기지 않고 이어진다 */
-.hand-me .hand-card .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .06), 0 .5em 1.4em rgba(0, 0, 0, .7), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(233, 198, 111, 0); }
-.hand-me .hand-card .card.legend .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .06), 0 .5em 1.4em rgba(0, 0, 0, .7), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 1em rgba(233, 198, 111, .35); }
-.hand-me .hand-slot.hov .hand-card .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .1), 0 1.15em 2.4em rgba(0, 0, 0, .74), 0 .3em .6em rgba(0, 0, 0, .4), 0 0 0 0 rgba(233, 198, 111, 0); }
-.hand-me .hand-slot.hov .hand-card .card.legend .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .1), 0 1.15em 2.4em rgba(0, 0, 0, .74), 0 .3em .6em rgba(0, 0, 0, .4), 0 0 1.2em rgba(233, 198, 111, .45); }
-.hand-me .hand-slot.selected .hand-card .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .08), 0 .9em 2em rgba(0, 0, 0, .6), 0 0 0 .2em var(--gold-hi), 0 0 2em rgba(246, 226, 168, .7); }
-.hand-me .hand-slot.selected.hov .hand-card .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .1), 0 1.15em 2.4em rgba(0, 0, 0, .7), 0 0 0 .2em var(--gold-hi), 0 0 2em rgba(246, 226, 168, .7); }
+.hand-me .hand-card .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .06), 0 .5em 1.4em rgba(0, 0, 0, .7), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(233, 198, 111, 0), var(--ok-ring); }
+.hand-me .hand-card .card.legend .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .06), 0 .5em 1.4em rgba(0, 0, 0, .7), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 1em rgba(233, 198, 111, .35), var(--ok-ring); }
+.hand-me .hand-slot.hov .hand-card .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .1), 0 1.15em 2.4em rgba(0, 0, 0, .74), 0 .3em .6em rgba(0, 0, 0, .4), 0 0 0 0 rgba(233, 198, 111, 0), var(--ok-ring); }
+.hand-me .hand-slot.hov .hand-card .card.legend .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .1), 0 1.15em 2.4em rgba(0, 0, 0, .74), 0 .3em .6em rgba(0, 0, 0, .4), 0 0 1.2em rgba(233, 198, 111, .45), var(--ok-ring); }
+.hand-me .hand-slot.selected .hand-card .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .08), 0 .9em 2em rgba(0, 0, 0, .6), 0 0 0 .2em var(--gold-hi), 0 0 2em rgba(246, 226, 168, .7), var(--ok-ring); }
+.hand-me .hand-slot.selected.hov .hand-card .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .1), 0 1.15em 2.4em rgba(0, 0, 0, .7), 0 0 0 .2em var(--gold-hi), 0 0 2em rgba(246, 226, 168, .7), var(--ok-ring); }
 /* 막 고른 카드(.fresh-sel, 다시 그린 새 요소라 transition 이 없다): 금 테와 무리가 올린 카드의 그림자에서 떠오른다 */
 .hand-me .hand-slot.selected.fresh-sel .hand-card .c-frame { animation: handSelIn .38s cubic-bezier(.22, .55, .12, 1); }
-@keyframes handSelIn { from { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .1), 0 1.15em 2.4em rgba(0, 0, 0, .74), 0 0 0 0 rgba(246, 226, 168, 0), 0 0 0 0 rgba(246, 226, 168, 0); } }
+@keyframes handSelIn { from { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .1), 0 1.15em 2.4em rgba(0, 0, 0, .74), 0 0 0 0 rgba(246, 226, 168, 0), 0 0 0 0 rgba(246, 226, 168, 0), var(--ok-ring-off); } }
+
+/* ---------- v3.13.1 등급 테두리 · 낼 수 있는 카드 ----------
+   테두리(border .2em) = 등급 색(js/grades.js GRADES, --gr) — 전장 카드(css/slim.css v3.9.9)와 같다. 일반은 흰빛을 조금 눌러 다른 등급이 도드라지게.
+   낼 수 있는 카드 = 테두리 바깥의 초록 고리(어두운 틈 .06em + 초록 .24em). 등급 색에 초록이 없어 서로 헷갈리지 않는다.
+   낼 수 없는 카드 = 고리 없음 + 어둡게(style.css .unplayable). 고른 카드는 금 테가 고리 자리를 대신한다.
+   고리는 위 그림자 목록 맨 끝 두 겹(--ok-ring)이라 들어 올리기 · 고르기 곡선과 함께 부드럽게 바뀐다 */
+.hand-me .hand-slot { --ok-ring-off: 0 0 0 0 rgba(8, 10, 14, 0), 0 0 0 0 rgba(95, 209, 127, 0);
+  --ok-ring: 0 0 0 .06em rgba(8, 10, 14, .92), 0 0 0 .24em #5fd17f; }
+.hand-me .hand-slot.unplayable, .hand-me .hand-slot.selected { --ok-ring: var(--ok-ring-off); }
+.hand-me .hand-card .card.slim > .c-frame { border-width: .2em; border-color: var(--gr, #f4f1ea); }
+.hand-me .hand-card .card.slim.grade-common > .c-frame { border-color: color-mix(in srgb, var(--gr) 78%, #000); }
 
 /* ---------- 곡선 ---------- */
 @media (prefers-reduced-motion: no-preference) {

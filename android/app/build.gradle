@@ -1,0 +1,40 @@
+// ETHERION 안드로이드 앱 (Android Studio로 만들 때). SDK 없이 만드는 길은 tools/android/build_apk.py
+plugins { id "com.android.application" }
+
+// 버전은 docs/CHANGELOG.md 맨 위 "## vA.B(.C)" 에서 (build_apk.py 와 같은 규칙)
+def etherionVersion() {
+    def m = (new File(rootDir.parentFile, "docs/CHANGELOG.md").text =~ /(?m)^##\s*v(\d+)\.(\d+)(?:\.(\d+))?/)
+    if (!m.find()) return ["0.0", 1]
+    def a = m.group(1) as int, b = m.group(2) as int, c = (m.group(3) ?: "0") as int
+    return [m.group(3) ? "$a.$b.$c" : "$a.$b", a * 10000 + b * 100 + c]
+}
+def (vName, vCode) = etherionVersion()
+
+android {
+    namespace "com.etherion.game"
+    compileSdk 35
+    defaultConfig {
+        applicationId "com.etherion.game"
+        minSdk 24
+        targetSdk 34
+        versionCode vCode
+        versionName vName
+    }
+    buildTypes {
+        release { minifyEnabled false }
+    }
+    sourceSets {
+        main { assets.srcDirs = ["$buildDir/generated/etherion-web"] }
+    }
+    androidResources { noCompress += ["ogg", "png", "jpg", "ttf"] }
+}
+
+// 게임 파일을 폴더 바깥(ETHERION 폴더)에서 앱의 assets/ 로 복사한다. build_apk.py 의 web_files() 와 같은 규칙
+def syncWeb = tasks.register("syncEtherionWeb", Sync) {
+    from(rootDir.parentFile) {
+        include "index.html", "css/**", "js/**", "img/**", "audio/**", "fonts/**"
+        exclude "**/*.mp3", "**/*.md", "**/*.txt", "**/*.wav", "img/ui/src/**", "**/.*"
+    }
+    into "$buildDir/generated/etherion-web"
+}
+tasks.named("preBuild") { dependsOn syncWeb }

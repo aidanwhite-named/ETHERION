@@ -106,7 +106,7 @@ const SpellFX = (() => {
     const f = mk("sfx-screen", 0, 0, { "--c": col });
     anim(f, [{ opacity: op }, { opacity: 0 }], ms * K(), { easing: "ease-out" });
   }
-  function shake(el, n) { if (el && typeof shakeEl === "function") shakeEl(el, n); }
+  function shake(el, n) { if (el && typeof shakeEl === "function") shakeEl(el, n); if (typeof IMPACT !== "undefined") IMPACT.spell(el, n); }   // v3.14 맞는 순간 번쩍 · 밀려남 · 쿵
   function quakeScreen(n) { if (typeof shakeScreen === "function") shakeScreen(n); }
   function glow(el, col, ms, dark) {
     if (!el || !el.animate) return;
@@ -187,7 +187,9 @@ const SpellFX = (() => {
   function block(b, cw, el) {
     ring(b.x, b.y, cw * 0.9, "#c9d2de", 380, { from: 0.4, to: 1.1 });
     sparks(b.x, b.y, { n: 8, col: "#e8eef5", size: 3, dist: cw * 0.55, dur: 360, cls: "p-streak", face: true });
-    shake(el, 4); snd("sp_block");
+    if (el && typeof shakeEl === "function") shakeEl(el, 4);
+    if (typeof IMPACT !== "undefined") IMPACT.block(null, el);   // v3.14 막힘 "캉!" + 빛 반달
+    snd("sp_block");
   }
 
   /* ---------- 원소별 피해 연출: at(o) = 맞기까지 ms, run(a, b, r, el, o) ---------- */

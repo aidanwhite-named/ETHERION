@@ -13,3 +13,13 @@ __pycache__/
 
 # Claude 작업 산출물
 Claude outputs/
+
+# 안드로이드 앱: 만든 APK · 빌드 찌꺼기 · 서명 열쇠(따로 백업! android/README.md)
+android/apk/
+android/signing/
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+*.iml

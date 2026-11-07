@@ -445,7 +445,8 @@ input:focus { border-color: var(--gold); outline: none; }
 .c-pips .pip, .size-sm .c-pips .pip { display: block; width: 100%; height: 100%; min-height: 0; transform: none; background: none; box-shadow: none; border: 0; opacity: 1; }
 .c-pips .pip svg { display: block; width: 100%; height: 100%; filter: drop-shadow(0 0 .2em rgba(255, 210, 120, .8)) drop-shadow(0 .05em .04em #000); }
 .c-pips .pip.pip-up { background: none; box-shadow: none; }
-.c-pips .pip.pip-up svg { filter: drop-shadow(0 .05em .05em #000); opacity: .9; }
+.c-pips .pip.pip-up { color: #7fc8e8; }   /* v3.12.7 유지비 칸: 에테르 하늘빛 테두리 + 어두운 속 (view.js pipSVG) */
+.c-pips .pip.pip-up svg { overflow: visible; filter: drop-shadow(0 0 .1em rgba(143, 220, 255, .5)) drop-shadow(0 .05em .05em #000); opacity: 1; }
 .c-vstats { position: static; display: flex; flex-direction: column; gap: .1em; }
 .c-vstats .st { width: 100%; height: 1.12em; padding: 0 .14em 0 .12em; justify-content: space-between; align-items: center; background: rgba(6, 6, 12, .86); border: .07em solid rgba(255, 255, 255, .18); border-radius: .3em; box-shadow: 0 .08em .25em rgba(0, 0, 0, .65); }
 .c-vstats .st i { font-size: .56em; opacity: 1; }
@@ -568,7 +569,7 @@ input:focus { border-color: var(--gold); outline: none; }
 .hand-me .hand-slot:hover .hand-card { transform: translateY(calc(var(--hand-vis) - var(--hw) * 1.4 - 12px)) rotate(0deg) scale(1.38); }
 .hand-slot.unplayable .card { filter: saturate(.4) brightness(.72); }
 .hand-slot.unplayable:hover .card, .hand-slot.unplayable.selected .card { filter: saturate(.75) brightness(.9); }
-.hand-slot:not(.unplayable) .c-frame { border-color: color-mix(in srgb, #7fe39c 70%, var(--fc)); }
+/* v3.13.1: 낼 수 있는 카드의 초록 테두리는 없앴다 — 테두리는 등급 색, 낼 수 있음은 테두리 바깥 초록 고리(css/hand.css --ok-ring) */
 body.is-dragging .hand-me .hand-slot .hand-card { transform: translateY(var(--y)) rotate(var(--r)) !important; }
 .drag-src { opacity: 0 !important; }
 .hand-opp { --bw: calc(var(--cw) * .6); }
@@ -720,6 +721,15 @@ body.is-dragging .hand-me .hand-slot .hand-card { transform: translateY(var(--y)
 .grp-pick.small .grp-tile .emblem { width: 34px; height: 34px; }
 .grp-pick.small .grp-tile b { font-size: 13px; }
 .modal.wide-modal { width: min(720px, 100%); }
+/* v3.16 컴퓨터 대전 난이도 */
+.ai-diff { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 4px 0 12px; }
+.ai-diff-btn { --fc: var(--ether, #8fdcff); display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 9px 8px; background: rgba(255, 255, 255, .02); border: 1px solid var(--line); border-radius: 6px; color: var(--ink); transition: border-color .15s, background .15s, box-shadow .15s; }
+.ai-diff-btn.hard { --fc: #e0625a; }
+.ai-diff-btn b { font-size: 15px; letter-spacing: .08em; }
+.ai-diff-btn small { font-size: 11px; color: var(--muted); word-break: keep-all; }
+.ai-diff-btn:hover { border-color: var(--fc); }
+.ai-diff-btn.on { border-color: var(--fc); background: color-mix(in srgb, var(--fc) 14%, transparent); box-shadow: 0 0 0 1px var(--fc) inset, 0 0 18px color-mix(in srgb, var(--fc) 28%, transparent); }
+.ai-diff-btn.on b { color: var(--fc); }
 @media (max-width: 560px) { .grp-pick { grid-template-columns: minmax(0, 1fr); } }
 .deck-fac { display: grid; gap: 6px; }
 .df-head { margin: 6px 0 0; font-size: 12px; letter-spacing: .14em; color: var(--fc); display: flex; gap: 6px; align-items: baseline; }
@@ -1469,8 +1479,15 @@ html[data-font="system"] { --kfont: "Batang", "바탕", "AppleMyungjo"; }
 .cs-coin.is-heads .cs-tails { visibility: hidden; }
 .cs-coin.can-flip .cs-tails { box-shadow: 0 0 0 3px var(--ether), 0 0 22px rgba(143, 220, 255, .75), inset 0 0 0 4px rgba(255, 255, 255, .08); filter: brightness(1.2); }
 .cs-coin.is-tails.can-flip { filter: none; }
+/* v3.12.5 − 코인은 앞면을 다시 굴린다: 앞면 쪽에 같은 에테르 테 */
+.cs-coin.is-heads.can-flip .cs-heads { box-shadow: 0 0 0 3px var(--ether), 0 0 22px rgba(143, 220, 255, .75); }
+.cf-hint b.neg { color: #ff8a7a; }
 @keyframes canFlip { 50% { transform: rotateY(180deg) scale(1.1); } }
 .cs-coin.reflip { animation: csSpin .32s linear infinite; }
+/* v3.12.6 가린 상대 코인: 결과를 숨긴 채 천천히 돈다 (내 선택이 끝나면 열린다) */
+.cs-coin.spinning.veiled { animation-duration: 1.8s; }
+.cs-coin.veiled .cs-face { opacity: .7; }
+.cs-side.cs-veiled .cs-res { color: var(--muted); font-size: 22px; font-weight: 800; }
 .coinstage.deciding .cs-stop { opacity: 1; pointer-events: auto; animation: none; }
 
 /* 멀리건 */

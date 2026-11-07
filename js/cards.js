@@ -85,9 +85,13 @@ function declassSpell(s) {
 }
 
 /* ---------- 카드 만들기 ---------- */
+/* 유지비 상한 (v3.12.7): 유지비는 레벨 − 1까지. 레벨 아이콘(개수 = 레벨) 가운데 유지비만큼이 유지비 칸이라,
+   적어도 한 칸은 꽉 찬 소환 칸으로 남아야 한다. 1레벨은 유지비 0뿐. 넘는 카드는 경고하고 상한으로 자른다 */
+const maxUpkeep = lv => Math.max(0, (lv | 0) - 1);
 const CARD_LIST = [];
 for (const u of SIM_UNITS) {
   const G = GROUPS[u.g];
+  if ((u.up || 0) > maxUpkeep(u.lv)) { console.error(`[유지비 상한] ${u.id} ${u.n}: 레벨 ${u.lv}에 유지비 ${u.up} → ${maxUpkeep(u.lv)}로 자름. 카드 수치를 고칠 것 (tools/upcap)`); u.up = maxUpkeep(u.lv); }
   CARD_LIST.push({ id: u.id, type: "unit", name: u.n, group: u.g, faction: G.faction, el: G.el, lv: u.lv, up: u.up,
     a: u.a, d: u.d, h: u.h, co: u.co, w: u.w, orig: u.orig || null, origCo: u.origCo || null, v12: u.v12 || null, v12Co: u.v12Co || null,
     team: u.team == null ? null : u.team, rev: u.rev || "", legend: u.lv === 8 && u.up >= 2, lock: u.lock || null, cl: u.cl || "무도",
@@ -153,6 +157,7 @@ function itemAbilities(it) {
   if (it.shred) out.push("[관통]");
   if (it.magic) out.push(`[마력 공격 ${it.magic === true ? "전부" : it.magic}]`);
   if (it.crit) out.push("[치명]");
+  if (it.chain) out.push("[연쇄]");
   if (it.throw) out.push(it.every ? `[사격 ${it.throw}]` : `[투척 ${it.throw}]`);
   if (it.ranged) out.push("[원거리]");
   if (it.ward) out.push(`[가호 ${it.ward}]`);
@@ -193,12 +198,13 @@ function itemText(it) {
   return parts.join(" ");
 }
 /* 아이템 능력의 뜻 (v1.4.6: 적힌 숫자를 넣어 그 카드에 맞는 문장으로 보인다. {n} = 능력 이름 뒤의 숫자).
-   문장은 실제 규칙(engine.js)과 같아야 한다: 사격 throwPhase, 투척 attackOne, 마력 공격·관통·치명·가시·원거리 attackOne, 가호·보호막 hurt */
+   문장은 실제 규칙(engine.js)과 같아야 한다: 사격 throwPhase, 투척 attackOne, 마력 공격·관통·치명·연쇄·가시·원거리 attackOne, 가호·보호막 hurt */
 const ITEM_KW = {
   "관통": "공격하면, 상대 유닛의 방어가 이번 턴 동안 내 공격력만큼 줄어든다(0까지만).",
   "마력 공격": "공격할 때 상대 방어를 {n}만큼 무시한다. 반격할 때는 적용되지 않는다.",
   "마력 공격 전부": "공격할 때 상대 방어를 모두 무시한다. 반격할 때는 적용되지 않는다.",
   "치명": "맞붙어 공격해 피해를 주면, 맞은 유닛이 쓰러지지 않았을 때 남은 체력이 1이 된다.",
+  "연쇄": "맞붙어 공격해 상대 유닛을 쓰러뜨리고 피해가 남으면, 남은 피해로 그 뒤의 상대 유닛 하나를 친다(그 유닛의 방어만큼 줄어든다. 마력 공격은 여기에도 적용, 반격은 없다).",
   "투척": "이 아이템을 장착한 그 턴에 한 번, 이 유닛이 공격을 시작할 때 맞선 유닛 말고 다른 상대 유닛 하나의 체력을 함께 {n} 깎는다(쓰러뜨릴 수 있는 유닛 중 레벨이 가장 높은 유닛, 없으면 그다음 맨 앞 유닛). 맞선 유닛뿐이면 그 유닛에게 투척 피해를 먼저 주고 이어서 공격한다.",
   "사격": "내 공격 턴마다, 맞붙기 전에 상대 유닛 하나의 체력을 {n} 깎는다. 대상: 이 피해로 쓰러뜨릴 수 있는 유닛 중 레벨이 가장 높은 유닛, 없으면 상대의 맨 앞 유닛. 사격으로 상대 유닛이 모두 쓰러지면 이번 전투에서는 아무도 생명을 직접 공격하지 않는다.",
   "원거리": "맞붙어 공격해도 상대의 반격을 받지 않는다.",

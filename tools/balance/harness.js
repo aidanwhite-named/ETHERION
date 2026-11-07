@@ -20,6 +20,8 @@ function load(dir, extra) {
     function render(){} function floatAt(){} function queueCurse(){} function mountBoard(){} function showResult(){}
     async function playHeadless(cfg){ const g=startMatch(Object.assign({mode:"ai",speed:0,headless:true},cfg)); await loop(g); return g; }
     this.playHeadless=playHeadless; this.getG=()=>G;`, ctx, { filename: 'game.js' });
+  // v3.13 컴퓨터 '어려움' (js/aihard.js)
+  if (fs.existsSync(path.join(dir, 'aihard.js'))) vm.runInContext(fs.readFileSync(path.join(dir, 'aihard.js'), 'utf8'), ctx, { filename: 'aihard.js' });
   if (extra) vm.runInContext(extra, ctx);
   ctx.ev = s => vm.runInContext(s, ctx);
   ctx.seed = v => { _s = (v * 2654435761) >>> 0 || 1; };

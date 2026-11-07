@@ -560,11 +560,21 @@ async function startVsAI(f) {
   const u = Store.user();
   if (!Store.deckPlayable(u, f)) { toast("저장된 40장 덱이 있어야 대전할 수 있습니다.", "warn"); return; }
   let get;
-  const ok = await modal(`<h3>컴퓨터와 대전</h3><p class="muted">상대 단체를 고르세요. 컴퓨터는 그 단체의 기본 덱을 씁니다. 난이도: 보통</p>${groupGridHTML({ small: true, random: true })}`,
-    [{ label: "취소", value: false }, { label: "전투 시작", value: true, cls: "primary" }], { cls: "wide-modal", onOpen: w => { get = bindGroupGrid(w, "random"); } });
+  /* v3.16 난이도: 보통(예전 컴퓨터) · 어려움(js/aihard.js — 모든 수를 전투로 미리 굴려 본다). 마지막 고른 것을 기억한다 */
+  let diff = Prefs.get("aiDiff", "normal") === "hard" ? "hard" : "normal";
+  const diffHTML = `<div class="ai-diff" role="radiogroup" aria-label="난이도">
+      <button type="button" class="ai-diff-btn${diff === "normal" ? " on" : ""}" data-d="normal" role="radio"><b>보통</b><small>가끔 실수하는 상대</small></button>
+      <button type="button" class="ai-diff-btn hard${diff === "hard" ? " on" : ""}" data-d="hard" role="radio"><b>어려움</b><small>모든 수를 미리 굴려 보고 둔다</small></button>
+    </div>`;
+  const ok = await modal(`<h3>컴퓨터와 대전</h3>${diffHTML}<p class="muted">상대 단체를 고르세요. 컴퓨터는 그 단체의 기본 덱을 씁니다.</p>${groupGridHTML({ small: true, random: true })}`,
+    [{ label: "취소", value: false }, { label: "전투 시작", value: true, cls: "primary" }], { cls: "wide-modal", onOpen: w => {
+      get = bindGroupGrid(w, "random");
+      w.addEventListener("click", e => { const b = e.target.closest(".ai-diff-btn"); if (!b) return; diff = b.dataset.d; w.querySelectorAll(".ai-diff-btn").forEach(x => { x.classList.toggle("on", x === b); x.setAttribute("aria-checked", x === b); }); });
+    } });
   if (!ok) return;
+  Prefs.set("aiDiff", diff);
   let ag = get(); if (ag === "random") ag = pick(GROUP_IDS.filter(g => g !== f));
-  launch({ mode: "ai", p0: { name: u.id, group: f, cards: Store.deck(u, f).cards }, p1: { name: GROUPS[ag].ai, group: ag, cards: STARTER_DECKS[ag], isAI: true } });
+  launch({ mode: "ai", p0: { name: u.id, group: f, cards: Store.deck(u, f).cards }, p1: { name: GROUPS[ag].ai, group: ag, cards: STARTER_DECKS[ag], isAI: true, ai: diff } });
 }
 async function startPvP(f) {
   const u = Store.user();

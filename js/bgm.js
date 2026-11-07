@@ -130,15 +130,35 @@ const BGM = {
   /* 음량을 ms 동안 to까지. end면 다 줄어든 뒤 멈추고 버린다 */
   fade(item, to, ms, end) {
     /* setInterval: 화면 그리기(requestAnimationFrame)가 멈춰도 음량은 끝까지 바뀐다 */
+    clearInterval(item.duckTimer); item.ducking = false;   // v3.14 누르던 중이면 그만 누르고 페이드가 맡는다
+    item.fading = true;
     const el = item.el, from = el.volume, t0 = performance.now();
     clearInterval(item.fadeTimer);
     item.fadeTimer = setInterval(() => {
       const k = Math.min(1, (performance.now() - t0) / ms);
       el.volume = Math.max(0, Math.min(1, from + (to - from) * k));
       if (k < 1) return;
-      clearInterval(item.fadeTimer);
+      clearInterval(item.fadeTimer); item.fading = false;
       if (end) { el.pause(); el.removeAttribute("src"); el.load(); }
     }, 40);
+  },
+
+  /* v3.14 타격감: 센 타격 순간 배경음을 depth(0~1)만큼 눌렀다가 ms 동안 되돌린다 (사이드체인 덕킹). 페이드 중에는 하지 않는다 */
+  duck(depth, ms) {
+    const it = this.cur;
+    if (!it || it.leaving || it.fading || this.level === "off" || !it.el || it.el.paused) return;
+    const base = this.vol[this.level]; if (!base) return;
+    clearInterval(it.duckTimer);
+    const low = base * (1 - Math.max(0, Math.min(0.9, depth))), t0 = performance.now(), dur = Math.max(120, ms || 300);
+    if (!it.ducking || it.el.volume > low) it.el.volume = low;
+    it.ducking = true;
+    const from = it.el.volume;
+    it.duckTimer = setInterval(() => {
+      if (this.cur !== it || it.fading) { clearInterval(it.duckTimer); it.ducking = false; return; }
+      const k = Math.min(1, (performance.now() - t0) / dur);
+      it.el.volume = Math.max(0, Math.min(1, from + (this.vol[this.level] - from) * k * k));
+      if (k >= 1) { clearInterval(it.duckTimer); it.ducking = false; }
+    }, 30);
   },
 
   setLevel(v) {

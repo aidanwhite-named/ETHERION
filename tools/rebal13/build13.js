@@ -31,6 +31,9 @@ for(const u of out){if(!seen.has(key(u))){seen.add(key(u));continue;}ndup++;
 for(const u of out){const p=O[u.id];if(p.a!==u.a||p.d!==u.d||p.h!==u.h||JSON.stringify(p.co)!==JSON.stringify(u.co)){u.v12=[p.a,p.d,p.h];u.v12Co=p.co;}else{delete u.v12;delete u.v12Co;}}
 // 1:1 승률 다시 (같은 환산 레벨, 유지비 0 유닛 상대)
 for(const u of out){const pool=out.filter(v=>v.lv===PL(u)&&v.up===0);u.w=+L.winVs(u,pool,cache).toFixed(1);}
+// v3.12.7 유지비 상한: units_v13.json에는 옛 유지비가 남아 있다. 지금 data.js에서 upcap으로 고친 카드(preUp)를 그대로 가져온다
+{const cur=JSON.parse(base.match(/const SIM_UNITS=(\[.*?\]);/s)[1]);for(const c of cur){if(!c.preUp)continue;const u=out.find(x=>x.id===c.id);if(u)Object.assign(u,{up:c.up,a:c.a,d:c.d,h:c.h,co:c.co,w:c.w,preUp:c.preUp});}}
+L.checkUpkeep(out);
 const a=base.indexOf('const SIM_UNITS=');const b=base.indexOf('];',a)+2;
 let txt=base.slice(0,a)+'const SIM_UNITS='+JSON.stringify(out)+';'+base.slice(b);
 if(!txt.includes('v1.3: 음수 방어'))txt=txt.replace('카드별 1:1 재조정(v0.3 단체 밸런스로 벗어난 몫은 레벨 단위로 옮김). tools/rescale 참고.','카드별 1:1 재조정(v0.3 단체 밸런스로 벗어난 몫은 레벨 단위로 옮김). tools/rescale 참고.\n       v1.3: 음수 방어 없앰(방어 −1 = 체력 1), 가격표 공 1.2 · 방어 계단(0 아래 1.0, 0→1 1.3, 그 위 1.5) · 체력 1로 체력 재조정, 단체 체력 보정. v12/v12Co = 바꾸기 전 값. tools/rebal13');

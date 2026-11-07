@@ -5,10 +5,13 @@
    data.js 다음에 읽는다(균형 도구가 data.js를 다시 써도 이 파일은 그대로 남는다). names.js 다음, cards.js 앞.
 
    유닛 카드에는 원래 특수능력이 없다(능력은 아이템에만). 스페셜 유닛은 "타고난 능력"(gift)을 가진다 — 규칙을 바꾸는 효과.
-   gift는 아이템 능력과 같은 이름을 쓴다: ward 가호 · shield 보호막 코인 · thorns 가시 · shred 관통 · crit 치명 · magic 마력 공격 ·
+   gift는 아이템 능력과 같은 이름을 쓴다: ward 가호 · shield 보호막 코인 · thorns 가시 · shred 관통 · crit 치명 · chain 연쇄 · magic 마력 공격 ·
    ranged 원거리 · throw+every 사격 · evName "증폭 N". 장착한 아이템 능력과 겹치면 수치는 더하고, 있음/없음은 하나만 있어도 된다(engine.js abilOf).
    수치 잣대(docs/BALANCE_v1.3.md 가격표): 같은 레벨 유지비 2 유닛의 가격 ≈ 22.6점, 스페셜은 스탯 ≈ 22~24점 + 능력 2~5점 ≈ 25~26점.
    대전 결과: docs/SPECIALS_v2.9.md, 도구 tools/specials/
+   v3.13.2: 마력 공격(방어 무시) + 치명(남은 체력 1)은 거의 모든 상대를 체력 1로 만들어 빼고, 공격 11~12에서 치명이 남는 피해로 버려지던 것을
+     [연쇄](쓰러뜨리고 남은 피해를 뒤 유닛 하나에게)로 바꿈 — 아즈라 치명 → 연쇄, 카르노 치명 → 연쇄(관통은 그대로: 못 쓰러뜨리면 관통, 쓰러뜨리면 연쇄),
+     하르간의 양손검 치명 → 방어 +1. gift chain = 연쇄.
    v2.9.1: 잿갈기 카르노 · 그림자 없는 아즈라 · 별을 푼 이사크 방어 0 → 1 (공격형 능력이 8레벨에서 남는 피해로 버려져 약했다) */
 "use strict";
 const SPECIAL_UNITS = [
@@ -22,7 +25,7 @@ const SPECIAL_UNITS = [
     gift: { magic: 2, evName: "증폭 1", evText: "이 유닛이 전장에 있으면 내 공격 마법의 피해 +1." },
     desc: "번개 노움이 만든 일곱 번째 시제품. 어느 날 스스로 생각하기 시작했다. 기계가 승천할 수 있는가 — 세계가 아직 답하지 못했다." },
   { id: "SP-G1", n: "잿갈기 카르노", g: "G1", lv: 8, up: 2, a: 11, d: 1, h: 10, co: [["a", 1, 2], ["h", 1, 2]], cl: "무도",
-    gift: { crit: 1, shred: 1 },
+    gift: { chain: 1, shred: 1 },
     desc: "백 번의 결투 끝에 대지의 용 고르바스에게 인정받은 오크. 지금도 강한 자를 찾아 결투를 청한다." },
   { id: "SP-G2", n: "은월 리시엘", g: "G2", lv: 8, up: 2, a: 8, d: 1, h: 12, co: [["h", 1, 2], ["h", 1, 1]], cl: "무도",
     gift: { thorns: 2, ward: 1 },
@@ -31,7 +34,7 @@ const SPECIAL_UNITS = [
     gift: { shield: 1, ward: 1 },
     desc: "물의 대정령 넬리아와 하나가 된 셀레네아의 무녀장. 칼이 물을 벨 수 없듯 그녀도 벨 수 없다." },
   { id: "SP-A1", n: "그림자 없는 아즈라", g: "A1", lv: 8, up: 2, a: 12, d: 1, h: 9, co: [["a", 1, 2], ["h", 1, 1]], cl: "기도",
-    gift: { magic: true, crit: 1 },
+    gift: { magic: true, chain: 1 },
     desc: "모르카스와 거래해 승천한 마족. 무엇을 내주었는지 아무도 모른다. 해가 떠도 그 발밑에는 그림자가 없다." },
   { id: "SP-A2", n: "솔란테의 첫 기사", g: "A2", lv: 8, up: 2, a: 7, d: 2, h: 9, co: [["a", 1, 1]], cl: "무장",
     gift: { shield: 1, ward: 2 },
@@ -43,7 +46,7 @@ const SPECIAL_UNITS = [
 /* 삼좌 유물: 신보다 위인 근원의 세 존재(이벨 · 하르간 · 세렌)의 물건. 신에게서 힘을 받는 비술 성회에 하나씩 */
 const SPECIAL_ITEMS = [
   { id: "SR-A1", n: "하르간의 양손검", g: "A1", lv: 4, cat: "무구·성물", cls: ["무장", "기도"], icon: "sword",
-    a: 4, d: 0, h: 4, co: [["a", 1, 2]], crit: 1, magic: true,
+    a: 4, d: 1, h: 4, co: [["a", 1, 2]], magic: true,
     desc: "심판자 하르간의 검. 단 한 번, 신을 벌할 때 뽑혔다고 한다. 판결 앞에서 갑옷은 의미가 없다." },
   { id: "SR-A2", n: "세렌의 활", g: "A2", lv: 4, cat: "무구", cls: ["무장"], icon: "bow",
     a: 3, d: 0, h: 3, co: [["a", 1, 2]], throw: 2, every: 1, ranged: 1, ward: 1,

@@ -1,0 +1,46 @@
+/* ETHERION — 타격감 (v3.14, js/impact.js)
+   캔버스 파티클 · 화면 덮개(번쩍 · 임팩트 프레임 · 붉은 가장자리) · 막기 반달 · 피해 숫자의 쾅 찍힘 */
+.imp-canvas { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 81; }
+.imp-ov { position: fixed; pointer-events: none; }
+.imp-glow { inset: 0; z-index: 87; background: radial-gradient(ellipse at center, var(--c) 0%, transparent 75%); mix-blend-mode: screen; }
+/* 한두 프레임 고대비 흑백: 맞는 순간 세상이 멈춘 듯 */
+.imp-frame { inset: 0; z-index: 84; -webkit-backdrop-filter: grayscale(1) contrast(1.9) brightness(.82); backdrop-filter: grayscale(1) contrast(1.9) brightness(.82); }
+.imp-vig { inset: 0; z-index: 86; background: radial-gradient(ellipse at center, transparent 42%, var(--c) 100%); box-shadow: inset 0 0 120px var(--c); }
+/* 막기: 맞은 쪽 앞에 서는 빛의 반달 */
+.imp-shield { z-index: 82; translate: -50% -50%; border-radius: 50%;
+  background: radial-gradient(closest-side, transparent 62%, color-mix(in srgb, var(--c) 35%, transparent) 72%, #fff 78%, var(--c) 82%, transparent 90%);
+  -webkit-mask: linear-gradient(90deg, #000 0 50%, transparent 50%); mask: linear-gradient(90deg, #000 0 50%, transparent 50%);
+  filter: drop-shadow(0 0 10px var(--c)) drop-shadow(0 0 24px var(--c)); mix-blend-mode: screen; }
+
+/* 피해 숫자: 크게 찍혔다 눌리고 튀어 오른다. --pw(0~1) = 피해 크기, 클수록 크고 세게 */
+.float.dmg.imp-num { --pw: 0; font-size: calc(max(28px, calc(var(--cw) * .22)) * (1 + var(--pw) * .6));
+  text-shadow: -2px 0 rgba(0, 210, 255, .45), 2px 0 rgba(255, 0, 70, .55), 0 3px 8px #000, 0 0 18px currentColor;
+  animation: impNum 1.6s cubic-bezier(.2, .8, .3, 1) forwards; }
+.float.dmg.big.imp-num { font-size: calc(max(46px, calc(var(--cw) * .38)) * (1 + var(--pw) * .35)); }
+@keyframes impNum {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(2.8) rotate(var(--rz, 0deg)); filter: brightness(3) blur(2px); }
+  7% { opacity: 1; transform: translate(-50%, -50%) scale(.78) rotate(var(--rz, 0deg)); filter: brightness(2); }
+  13% { transform: translate(calc(-50% + 4px), -52%) scale(1.22) rotate(calc(var(--rz, 0deg) * -.5)); filter: brightness(1.4); }
+  18% { transform: translate(calc(-50% - 3px), -54%) scale(.96) rotate(0deg); }
+  24% { transform: translate(-50%, -56%) scale(1.04); filter: none; }
+  30% { transform: translate(-50%, -58%) scale(1); }
+  70% { opacity: 1; transform: translate(-50%, -100%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -165%) scale(.92); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .imp-canvas, .imp-ov { display: none; }
+  .float.dmg.imp-num { animation: floatUp 1.6s ease-out forwards; text-shadow: 0 3px 8px #000; }
+}
+
+/* v3.16.3 부서지는 카드 (js/game.js shatterCard): 방사형으로 금 → 모양이 제각각인 조각이 3D로 뒤집히며 떨어짐 */
+.shatter.sh3 { perspective: 700px; }
+.sh3 .sh-shard { position: absolute; inset: 0; will-change: transform, opacity; backface-visibility: visible; }
+.sh3 .sh-shard > .card, .sh3 .sh-shard > .card-back { position: absolute; inset: 0; width: 100%; }
+/* 조각마다 빛 받는 정도가 달라 보이게: 한쪽은 밝게, 반대쪽은 어둡게 (필터 없이 덮개 한 장) */
+.sh3 .sh-shard::after { content: ""; position: absolute; inset: 0; z-index: 5; pointer-events: none;
+  background: linear-gradient(var(--la, 135deg), rgba(255, 246, 220, var(--hi, .1)), transparent 45%, rgba(0, 0, 0, var(--sh, .25))); }
+.sh3 .sh-crack { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 6; overflow: visible; pointer-events: none; }
+.sh3 .sh-crack path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.sh3 .sh-cg { stroke: rgba(255, 200, 120, .55); stroke-width: 4; }
+.sh3 .sh-cl { stroke: #fffaf0; stroke-width: 1.3; }
+.sh3 .sh-flash { position: absolute; inset: 0; z-index: 7; border-radius: 6%; background: radial-gradient(circle, rgba(255, 252, 240, .95), rgba(255, 230, 180, .4) 70%); opacity: 0; pointer-events: none; }

@@ -2,7 +2,7 @@
    - 생명·덱 40, 시작 핸드 6장(생명 34). 매 턴 두 플레이어 모두 6장까지 보충(뽑은 장수만큼, 최소 1 생명 감소)
    - 공격 준비 → 방어 준비 → 전투 → 정리
    - 에테르 = 위대한 정수 1 + 결정 수. 결정화는 턴마다 1장씩 쌓이는 한도 안에서(안 쓰면 다음 턴으로 넘어감), 결정 최대 9. Lv N 카드 비용은 에테르 N (규칙 문서 6)
-   - 유지비: 레벨 아이콘 중 빈 칸의 수. 소환할 때는 레벨만큼 내고, 살아남으면 다음 턴부터 에테르가 유지비만큼 빠진다.
+   - 유지비: 레벨 아이콘 중 빈 칸(하늘빛 테두리)의 수, 최대 레벨 − 1. 소환할 때는 레벨만큼 내고, 살아남으면 다음 턴부터 에테르가 유지비만큼 빠진다.
      준비를 마칠 때 에테르가 모자라면 유지비가 큰 유닛부터 소각된다
    - 아이템: 공격·방어 준비 때 전장의 내 유닛 하나에 장착 (유닛 하나에 하나)
    - 마법은 뒷면으로 놓여 상대에게 보이지 않는다 (v3.11: 준비 단계에서만. 전투가 시작되면 앞면으로 보인다)
@@ -52,7 +52,7 @@ function mkPlayer(idx, cfg) {
   for (const id in cfg.cards) for (let i = 0; i < cfg.cards[id]; i++) deck.push(id);
   shuffleG(deck);
   const group = cfg.group || null;
-  return { idx, name: cfg.name, group, faction: group ? GROUPS[group].faction : cfg.faction, isAI: !!cfg.isAI, deck, hand: [], field: Array(RULES.slots).fill(null),
+  return { idx, name: cfg.name, group, faction: group ? GROUPS[group].faction : cfg.faction, isAI: !!cfg.isAI, ai: cfg.isAI ? (cfg.ai || "normal") : null, deck, hand: [], field: Array(RULES.slots).fill(null),
     burn: [], crystals: [], life: RULES.startLife, made: 0, crysBank: 0, spent: 0, reload: 0, reloadNow: 0, bonus: 0, bonusNow: 0 };
 }
 
@@ -335,7 +335,7 @@ function checkEnd() {
 }
 
 /* 전투: 엔진으로 끝까지 계산하면서 단계마다 기록하고, 기록을 차례로 보여 준다.
-   v1.0 코인 뒤집기: 맞붙을 때 코인이 멈춘 뒤, 그 유닛의 주인은 에테르 1을 내고 뒷면 코인 하나를 다시 던질 수 있다(교전마다 한 번).
+   v1.0 코인 뒤집기: 맞붙을 때 코인이 멈춘 뒤, 그 유닛의 주인은 에테르 1을 내고 손해 본 코인(뒷면 + 코인 · 앞면 − 코인) 하나를 다시 던질 수 있다(교전마다 한 번).
    엔진은 실제 상태의 복제본 위에서 시드 난수로 돌므로, 뒤집은 뒤 같은 시드로 처음부터 다시 굴리면 그 교전까지는 똑같이 흘러가고
    그 코인만 바뀐 채 이어진다. 화면은 새 기록의 그 지점부터 이어서 보여 준다. */
 function cloneForCombat(p) {
@@ -367,7 +367,7 @@ async function runCombat() {
       s.dur = Math.round(s.dur * PACE);
       const prevSnap = i > 0 ? rec[i - 1].snap : null;
       applySnap(s.snap);
-      G.fx = Object.assign({ dying: [] }, s.fx, { dur: s.dur });
+      G.fx = Object.assign({ dying: [] }, s.fx, { dur: s.dur, imp: impOf(s) });   // v3.14 imp: 대상마다 받은 피해 · 쓰러짐 (js/impact.js 세기)
       for (const [t, c] of s.logs) log(t, c);
       // v1.9.5 마법 연출: 원소에 맞는 효과가 날아가 맞는 순간에 숫자가 뜬다 (js/spellfx.js)
       if (s.fx.reveal) { const sp = G.reg[s.fx.reveal]; casting = sp ? { uid: sp.uid, id: sp.id } : null; }
@@ -574,6 +574,8 @@ async function aiPrep(p) {
   render(); await T(350);
 }
 
+/* 어려움(p.ai === "hard")은 js/aihard.js — aiPrepHard · aiMulliganHard (v3.16) */
+
 /* ---------- 경기 시작/흐름 ---------- */
 function startMatch(cfg) {
   UID = 0;
@@ -630,6 +632,7 @@ async function mulliganUI(p) {
   if (r === "swap" && picked.size) { actMulligan(p, [...picked]); toast(`${picked.size}장을 새로 뽑았습니다.`, "good"); }
 }
 function aiMulligan(p) {
+  if (p.ai === "hard") return aiMulliganHard(p);
   const back = p.hand.filter(it => C(it).lv >= 6).map(it => it.uid);
   if (back.length) actMulligan(p, back);
 }
@@ -667,7 +670,7 @@ async function loop(myG, deal) {
     if (!G.cfg.headless && G.speed !== 0 && bk !== shown && G.phase !== "over") { shown = bk; const b = bannerFor(G.phase); if (b) await phaseBanner(b[0], b[1], b[2], 0, G.phase === "atkPrep" || G.phase === "defPrep" ? 3 : 1); if (G !== myG) break; }
     if (G.phase === "atkPrep" || G.phase === "defPrep") {
       const p = G.players[prepIdx()];
-      if (p.isAI) { G.control = null; await aiPrep(p); }
+      if (p.isAI) { G.control = null; await (p.ai === "hard" ? aiPrepHard(p) : aiPrep(p)); }
       else if (isRemote(p)) await Online.remotePrep(p);   // v3.10 상대 기기에서 온 수를 차례로 둔다
       else { await humanPrep(p); if (G === myG && G.online && G.phase !== "over") Online.send({ t: "ready" }); }
       if (G !== myG || G.phase === "over") break;
@@ -1021,6 +1024,24 @@ function bannerFor(phase) {
 }
 function instOfEl(el) { const u = el.closest("[data-uid]"); return u && G ? G.reg[+u.dataset.uid] : null; }
 function statGlyphs(text) { return esc(String(text)).replace(/⚔/g, statIco("a")).replace(/⛨/g, statIco("d")).replace(/♥/g, statIco("h")); }
+/* v3.14 타격감: 이 수에서 대상마다 받은 것 { dmg, kill, crit, blocked, life } — 숫자(floats)와 이 수의 상태(snap)로 센다. 연출에만 쓴다 */
+function impOf(s) {
+  const m = {};
+  for (const [tg, text, cls] of s.floats || []) {
+    const k = String(tg), c = cls || "", o = m[k] || (m[k] = { dmg: 0 });
+    if (/\bdmg\b/.test(c)) { if (/치명/.test(text)) o.crit = true; else { const n = String(text).match(/(\d+)\s*$/); if (n) o.dmg += +n[1]; } }
+    else if (/\b(miss|shield)\b/.test(c)) o.stopped = true;
+  }
+  const U = (s.snap && s.snap.units) || {};
+  for (const k in m) {
+    const o = m[k];
+    if (U[k] && U[k].alive === false) o.kill = true;
+    if (!o.dmg && !o.crit && o.stopped) o.blocked = true;
+    if (/^life/.test(k)) o.life = true;
+  }
+  return m;
+}
+const impInfo = key => (G && G.fx && G.fx.imp && G.fx.imp[String(key)]) || {};
 function floatAt(target, text, cls) {
   if (!G || G.cfg.headless || G.speed === 0) return;
   const el = typeof target === "number" ? uidEl(target) : $("#" + target);
@@ -1034,6 +1055,9 @@ function floatAt(target, text, cls) {
   // v3.12.3 "반격": 글씨만 기본 글꼴로 뜨던 것을 금빛 명판(◆ 반격 ◆ + 베는 빛줄기) 아래 숫자로
   const cm = /^반격(?:\s+(.*))?$/.exec(String(text));
   if (cm) { f.classList.add("counter"); f.innerHTML = `<span class="fl-tag"><i></i><b>반격</b><i></i></span>` + (cm[1] ? `<span class="fl-num">${statGlyphs(cm[1])}</span>` : ""); }
+  // v3.12.7 "대가": 마법의 생명 대가도 같은 명판(Hahmlet) — 금빛 대신 핏빛
+  const tm = /^대가(?:\s+(.*))?$/.exec(String(text));
+  if (tm) { f.classList.add("counter", "toll"); f.innerHTML = `<span class="fl-tag"><i></i><b>대가</b><i></i></span>` + (tm[1] ? `<span class="fl-num">${statGlyphs(tm[1])}</span>` : ""); }
   if (/\bcpop\b/.test(cls || "")) {
     // v1.9.5 코인으로 바뀐 값: 캐릭터 위에 +N(연두) / −N(빨강). 같은 카드에 여러 개면 아래로 쌓고 0.12초씩 늦게
     const now = performance.now(), st = FX.popStack || (FX.popStack = {}), key = String(target);
@@ -1057,6 +1081,8 @@ function floatAt(target, text, cls) {
     setTimeout(() => f.remove(), 1700);
     return;
   }
+  // v3.14 피해 숫자는 크게 찍혔다 눌리고 튄다(css/impact.css). 피해가 클수록 크게
+  if (/\bdmg\b/.test(cls || "") && !cm) { const n = +((String(text).match(/(\d+)\s*$/) || [])[1] || 0); f.classList.add("imp-num"); f.style.setProperty("--pw", Math.min(1, n / 8).toFixed(2)); f.style.setProperty("--rz", (Math.random() * 16 - 8).toFixed(1) + "deg"); }
   f.style.left = (r.left + r.width / 2 + (Math.random() * 20 - 10)) + "px";
   f.style.top = (r.top + r.height * 0.42 + (Math.random() * 20 - 10)) + "px";
   layer.appendChild(f);
@@ -1067,9 +1093,12 @@ function floatAt(target, text, cls) {
    v1.6.1: 내 코인 창과 상대 코인 창이 따로 마주 선다 (내 창은 왼쪽, 상대 창은 오른쪽).
    결과는 엔진이 이미 정했다. 각 창의 코인은 그 주인이 세운다: 사람은 "운명 봉인"을 누르고(Space · Enter),
    컴퓨터는 스스로 잠시 뒤에 세운다. 누구든 6.5초가 지나면 저절로 멈춘다(창 아래 모래띠가 줄어든다, v1.9: 5초 → 8초, v1.9.1: 6.5초).
-   양쪽이 다 멈추면 "코인 뒤집기": 뒷면이 나온 코인을 그 유닛의 주인이 누르면 에테르 1을 내고 그 코인만 다시 던진다 (교전마다 한 번).
+   양쪽이 다 멈추면 "코인 뒤집기": 손해 본 코인(+ 코인은 뒷면, v3.12.5 − 코인은 앞면)을 그 유닛의 주인이 누르면 에테르 1을 내고 그 코인만 다시 던진다 (교전마다 한 번).
    뒤집지 않으려면 "운명 수락". 컴퓨터도 같은 규칙으로 뒤집는다. 돌려주는 값: 뒤집은 코인 목록 [{p, uid, idx, heads}] */
 const COIN_LIMIT_MS = 6500;   // v1.9: 5초 → 8초, v1.9.1: 8초 → 6.5초
+/* v3.12.5 − 동전: 같은 동전에 묶인 공·방·체 값의 합이 − 이면 앞면이 손해다 → 다시 굴릴 수 있는 면이 앞면 */
+function coinNeg(o) { return o.parts.reduce((s, k) => s + k.v, 0) < 0; }
+function coinBad(o) { return coinNeg(o) ? !!o.heads : !o.heads; }
 function canReflip(pIdx) { const p = G.players[pIdx]; return !!p && ether(p) >= 1; }
 /* v2.7 코인 앞면: 에테리온 문장(SIGIL과 같은 짜임). 바깥 구슬 테에 거인의 돌 일곱 · 고리에 용의 보석 일곱(동쪽은 빈 홈에 ?) · 가운데 신의 다섯 꼭짓점 별 · 한가운데 아르케(빈 원).
    금화(.cs-heads) 위에 판 무늬(어두운 홈 + 오른쪽 아래 밝은 턱), 색은 보석에만. viewBox -50..50 */
@@ -1206,6 +1235,12 @@ function coinClash(info) {
     sides.forEach(sd => { sd.human = human(sd.p); sd.stopped = false; sd.landed = false; sd.groups = coinGroups(sd.coins); });
     // v3.5.6 방어 쪽 코인이 이 전투에서 이미 정해졌으면 돌리지 않고 정해진 면을 그대로 보여 준다 (다시 던지기도 없음)
     sides[1].kept = !!info.keptD && sides[1].coins.length > 0;
+    /* v3.12.6 같이 굴리는 상대 코인은 가린다: 내가 다시 굴릴지 정하기 전에 상대 결과를 보고 고르면 반칙이다.
+       사람 창에 이번에 굴리는 코인이 있으면, 상대(사람이 아닌 창)의 이번 코인은 멈춰도 결과를 숨기고(천천히 돌며),
+       상대의 다시 굴리기도 조용히 한 뒤, 모두 정하고 나서 한꺼번에 보여 준다. 이미 정해진 방어 코인(kept)은 그대로 보인다.
+       한 화면에서 둘이 하는 대전(둘 다 사람)은 가리지 않는다 */
+    const humanRolls = sides.some(sd => sd.human && sd.coins.length && !sd.kept);
+    sides.forEach(sd => { sd.hide = humanRolls && !sd.human && !sd.kept && sd.coins.length > 0; });
     // 내 창이 왼쪽: 컴퓨터전이면 나(0번), 둘이 하면 지금 화면을 보는 사람
     const meIdx = G.mode === "ai" ? 0 : G.online ? G.me : (G.viewer != null ? G.viewer : 0);
     const ckey = sd => `${G.turn}:${info.n}:${sd.who}`;   // v3.10 온라인: 이 교전의 다시 던지기 결정을 주고받는 열쇠
@@ -1244,7 +1279,8 @@ function coinClash(info) {
     layer.appendChild(st);
     // v1.9.5 코인 창 1.5배. 화면이 작아 넘치면 들어갈 만큼만 키운다 (폭 760px 이하는 1배)
     // v2.4.2: 너무 커서 전체를 1.2배 줄임 (1.5배 → 1.25배)
-    const fitStage = () => { const z = Math.max(0.5, Math.min(innerWidth <= 760 ? 1 : 1.5, innerWidth * 0.97 / st.offsetWidth, innerHeight * 0.95 / st.offsetHeight) / 1.2); st.style.setProperty("--csz", z.toFixed(3)); };
+    // v3.16.2 폰 · 앱(html.mobile): 창은 css/mobile.css에서 좁고 납작하게, 배율도 1.25배 → 1배 (코인은 조금만 작아진다)
+    const fitStage = () => { const cap = innerWidth <= 760 ? 1 : document.documentElement.classList.contains("mobile") ? 1.2 : 1.5; const z = Math.max(0.5, Math.min(cap, innerWidth * 0.97 / st.offsetWidth, innerHeight * 0.95 / st.offsetHeight) / 1.2); st.style.setProperty("--csz", z.toFixed(3)); };
     fitStage();
     const panel = sd => st.querySelector(`.cs-side.cs-${sd.who}`);
     st.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200 * k, easing: "ease-out" });
@@ -1287,7 +1323,20 @@ function coinClash(info) {
     /* 한쪽 창의 코인을 세운다. quick = 사람이 "운명 봉인"을 눌렀을 때: 기다림 없이 바로 결과 (v3.10.3) */
     const landSide = (sd, quick) => {
       if (sd.stopped || finished) return; sd.stopped = true;
-      const el = panel(sd); el.classList.add("stopping");
+      const el = panel(sd);
+      if (sd.hide) {   // v3.12.6 결과는 가린 채 봉인만 (코인은 천천히 계속 돈다)
+        el.querySelectorAll(".cs-coin").forEach(c => c.classList.add("veiled"));
+        later(() => {
+          if (!st.isConnected) return;
+          el.classList.add("done", "cs-veiled");
+          const cs = el.querySelector(".cs-cpu-state"); if (cs) cs.textContent = "운명이 봉인되었다 — 결과는 가려져 있다";
+          el.querySelector(".cs-res").textContent = "?";
+          sd.landed = true;
+          if (sides.every(s => s.landed)) { st.classList.add("done"); decide(); }
+        }, quick ? 0 : 640 * k);
+        return;
+      }
+      el.classList.add("stopping");
       Array.from(el.querySelectorAll(".cs-coin")).forEach((c, i) => quick ? snapAnim(c, sd.groups[i].heads) : landAnim(c, sd.groups[i].heads, 620 * k));
       const settle = () => {
         if (!st.isConnected) return;
@@ -1312,6 +1361,24 @@ function coinClash(info) {
       sd.pick = i;
       panel(sd).querySelectorAll(".cs-coin").forEach(c => c.classList.toggle("picked", +c.dataset.i === i));
     };
+    /* v3.12.6 가린 창을 연다: 코인을 마지막 면(다시 굴린 결과 포함)으로 세운다 */
+    const revealSide = sd => {
+      if (!sd.hide) return 0;
+      sd.hide = false;
+      const el = panel(sd); el.classList.remove("cs-veiled"); el.classList.add("revealed");
+      const cs = Array.from(el.querySelectorAll(".cs-coin"));
+      cs.forEach((c, i) => { c.classList.remove("veiled"); landAnim(c, sd.groups[i].heads, 620 * k); });
+      later(() => {
+        if (!st.isConnected) return;
+        cs.forEach((c, i) => c.classList.add(sd.groups[i].heads ? "is-heads" : "is-tails"));
+        coinRing(el, sd.groups.map(o => o.heads)); resText(sd); fitStage();
+        const s2 = el.querySelector(".cs-cpu-state"); if (s2) s2.textContent = "운명이 드러났다";
+        if (sd.reflipped) { floatAt("crys" + sd.p, "에테르 −1", "debuff"); el.querySelector(".cs-flip").innerHTML = `<span class="cf-hint ai">에테르 1로 코인 하나를 다시 던졌다</span>`; }
+        burstOn(sd, "slam", 220);
+      }, 640 * k);
+      return 640 + 200;
+    };
+    const revealAll = () => sides.reduce((m, sd) => Math.max(m, revealSide(sd)), 0);
     const decide = () => {
       phase = "decide";
       const pending = [];
@@ -1320,7 +1387,9 @@ function coinClash(info) {
         el.classList.remove("stopping");
         const ctl = el.querySelector(".cs-ctl");
         if (sd.kept) continue;   // v3.5.6 고정된 방어 코인은 다시 던질 수 없다
-        const tails = sd.groups.map((o, i) => (!o.heads && o.p > 0 && o.p < 1 ? i : -1)).filter(i => i >= 0);   // v2.4.4 확률 0%인 동전은 다시 던져도 뒷면
+        /* v3.12.5 손해 본 동전만 다시 굴린다: + 동전은 뒷면, − 동전(공·방·체 합이 −)은 앞면이 손해 (심연 마족의 − 코인 등).
+           v2.4.4 확률 0% · 100%인 동전은 다시 던져도 같은 면이라 빼다 */
+        const tails = sd.groups.map((o, i) => (coinBad(o) && o.p > 0 && o.p < 1 ? i : -1)).filter(i => i >= 0);
         if (!tails.length || !canReflip(sd.p) || (noFlip && sd.human)) {
           if (sd.human && ctl) ctl.innerHTML = "";
           if (G.online && sd.human && tails.length && canReflip(sd.p)) Online.send({ t: "coin", k: ckey(sd), flip: null });   // 건너뛰기도 알린다
@@ -1330,22 +1399,24 @@ function coinClash(info) {
         pending.push(sd);
         // 값이 가장 큰 뒷면 코인 (공격 때는 공격 코인, 방어 때는 방어·체력 코인을 먼저)
         const pref = sd.who === "a" ? { a: 2, h: 1, d: 0 } : { d: 2, h: 2, a: 0 };
-        const worth = i => sd.groups[i].parts.reduce((s, k) => s + k.v + (k.v > 0 ? pref[k.st] : 0), 0);
+        const worth = i => { const o = sd.groups[i], g = coinNeg(o) ? -1 : 1; return o.parts.reduce((s, k) => s + g * k.v + (g * k.v > 0 ? pref[k.st] : 0), 0); };
         const best = tails.slice().sort((x, y) => worth(y) - worth(x))[0];
         if (sd.human) {
           /* v3.9.3 "다시 굴리기"와 "굴리지 않고 넘어가기" 두 단추. 다시 굴릴 코인은 값이 가장 큰 뒷면 코인을 먼저 골라 두고,
              뒷면 코인이 여럿이면 코인을 눌러 바꾼다. 고른 코인을 한 번 더 누르면 바로 다시 굴린다(예전처럼) */
           tails.forEach(i => el.querySelector(`.cs-coin[data-i="${i}"]`).classList.add("can-flip"));
           pickCoin(sd, best);
+          const negs = tails.filter(i => coinNeg(sd.groups[i])).length;
+          const what = !negs ? "뒷면 코인을" : negs === tails.length ? "앞면이 나온 <b class=\"neg\">− 코인</b>을" : "뒷면 + 코인 · 앞면 − 코인을";
           box.innerHTML = tails.length > 1
-            ? `<span class="cf-hint"><i class="cf-eth"></i>뒷면 코인을 <b>에테르 1</b>로 다시 굴릴 수 있습니다. 굴릴 코인은 눌러서 바꿉니다 <small>(남은 에테르 ${ether(p)} · 한 번)</small></span>`
-            : `<span class="cf-hint"><i class="cf-eth"></i>뒷면 코인을 <b>에테르 1</b>로 다시 굴릴 수 있습니다 <small>(남은 에테르 ${ether(p)} · 한 번)</small></span>`;
+            ? `<span class="cf-hint"><i class="cf-eth"></i>${what} <b>에테르 1</b>로 다시 굴릴 수 있습니다. 굴릴 코인은 눌러서 바꿉니다 <small>(남은 에테르 ${ether(p)} · 한 번)</small></span>`
+            : `<span class="cf-hint"><i class="cf-eth"></i>${what} <b>에테르 1</b>로 다시 굴릴 수 있습니다 <small>(남은 에테르 ${ether(p)} · 한 번)</small></span>`;
           ctl.innerHTML = `<div class="cs-choice"><button type="button" class="btn primary cs-stop cs-reflip" data-side="${sd.who}"><span><i class="cf-eth"></i>다시 굴리기</span><small>에테르 1 · R</small></button>`
             + `<button type="button" class="btn ghost cs-stop cs-pass" data-side="${sd.who}">굴리지 않고 넘어가기<small>에테르 안 씀 · Space · Enter</small></button></div>`
             + `<label class="cs-auto cs-noflip"><input type="checkbox"> 이제 묻지 않기</label>`;
         } else if (G.online) {
           // v3.10 상대 기기의 결정을 기다린다 (다시 굴린 결과도 그쪽에서 정해 보낸다)
-          box.innerHTML = `<span class="cf-hint ai">${esc(p.name)}이(가) 다시 굴릴지 정하는 중…</span>`;
+          if (!sd.hide) box.innerHTML = `<span class="cf-hint ai">${esc(p.name)}이(가) 다시 굴릴지 정하는 중…</span>`;   // v3.12.6 가린 창은 아무 말 없이
           Online.next("coin").then(m => {
             if (finished || !st.isConnected) return;
             if (m && m.k !== ckey(sd)) Online.desync("coin " + m.k + " ≠ " + ckey(sd));
@@ -1354,16 +1425,24 @@ function coinClash(info) {
           });
         } else {
           if (worth(best) <= 0) { pending.pop(); box.innerHTML = ""; continue; }   // − 동전은 다시 던지지 않는다
-          box.innerHTML = `<span class="cf-hint ai">${esc(p.name)}이(가) 코인을 다시 던집니다…</span>`;
+          if (!sd.hide) box.innerHTML = `<span class="cf-hint ai">${esc(p.name)}이(가) 코인을 다시 던집니다…</span>`;
           later(() => { if (!finished && st.isConnected) doFlip(sd, best); }, 650 * k);
         }
       }
       // v1.9.5 결과를 보여 주는 시간 2배: 1.1초 → 2.2초
-      if (!pending.length) { later(() => { if (G === myG) finish(); else { st.remove(); res([]); } }, 2200 * k); return; }
+      if (!pending.length) { const rv = revealAll(); later(() => { if (G === myG) finish(); else { st.remove(); res(flips); } }, (2200 + rv) * k); return; }
       st.classList.add("deciding");
       left = new Set(pending.map(sd => sd.who));
       // v1.9.5 다시 던진 결과도 2배(0.9 → 1.8초). 사람이 "넘기기"를 누른 것은 그대로 0.9초
-      const done = (who, ms) => { left.delete(who); if (!left.size) later(() => { if (G === myG) finish(); else { st.remove(); res(flips); } }, (ms || 1800) * k); };
+      const done = (who, ms) => {
+        left.delete(who);
+        if (!left.size) {
+          const rv = revealAll();   // v3.12.6 모두 정한 뒤에 가린 상대 코인을 연다
+          later(() => { if (G === myG) finish(); else { st.remove(); res(flips); } }, ((rv ? Math.max(ms || 1800, 2200) : (ms || 1800)) + rv) * k);
+        } else if (sides.some(s => s.hide) && !order.some(s => s.human && left.has(s.who))) {
+          const me = order.find(s => s.human && s.coins.length); if (me) { const b = panel(me).querySelector(".cs-flip"); if (b && !b.innerHTML) b.innerHTML = `<span class="cf-hint ai">상대의 결정을 기다리는 중…</span>`; }
+        }
+      };
       skipSide = sd => {
         if (!sd.human || !left.has(sd.who) || sd.decided) return;
         sd.decided = true;   // v3.10 다시 굴리는 연출 중에 '넘기기'가 한 번 더 들어오지 않게
@@ -1377,6 +1456,12 @@ function coinClash(info) {
         if (!left.has(sd.who) || sd.decided) return;
         const el = panel(sd), c = el.querySelector(`.cs-coin[data-i="${i}"]`); if (!c) return;
         sd.decided = true;
+        if (sd.hide) {   // v3.12.6 가린 상대는 조용히 다시 던진다 (결과와 에테르는 창을 열 때 보인다)
+          const o = sd.groups[i], heads = forced != null ? !!forced : Math.random() < o.p; o.heads = heads;
+          sd.coins = sd.coins.map(x => x.g === o.g ? Object.assign({}, x, { heads }) : x);
+          flips.push({ p: sd.p, uid: sd.u.uid, idx: o.g, heads }); sd.reflipped = true;
+          done(sd.who, 900); return;
+        }
         el.querySelectorAll(".can-flip, .picked").forEach(e => e.classList.remove("can-flip", "picked"));
         if (sd.human) el.querySelector(".cs-ctl").innerHTML = "";
         const o = sd.groups[i], heads = forced != null ? !!forced : Math.random() < o.p; o.heads = heads;
@@ -1389,9 +1474,10 @@ function coinClash(info) {
         later(() => {
           if (!st.isConnected) return;
           landAnim(c, heads, 620 * k);
+          const good = coinNeg(o) ? !heads : heads;   // v3.12.5 − 동전은 뒷면이 좋은 결과
           later(() => { c.classList.add(heads ? "is-heads" : "is-tails"); c.classList.remove("reflip"); resText(sd); coinRing(null, [heads], [c]);
-            el.querySelector(".cs-flip").innerHTML = `<span class="cf-hint ${heads ? "ok" : ""}">${heads ? "앞면! 값이 붙습니다" : "또 뒷면…"}</span>`;
-            burstOn(sd, heads ? "slam" : "hit", 200); done(sd.who); }, 640 * k);
+            el.querySelector(".cs-flip").innerHTML = `<span class="cf-hint ${good ? "ok" : ""}">${coinNeg(o) ? (heads ? "또 앞면… 그대로 깎입니다" : "뒷면! 깎이지 않습니다") : (heads ? "앞면! 값이 붙습니다" : "또 뒷면…")}</span>`;
+            burstOn(sd, good ? "slam" : "hit", 200); done(sd.who); }, 640 * k);
         }, 520 * k);
       };
       if (auto && pending.some(sd => sd.human)) later(() => pending.forEach(sd => skipSide(sd)), 3000 * k);
@@ -1441,29 +1527,96 @@ function coinClash(info) {
     const guard = setInterval(() => { if (G !== myG) { clearInterval(guard); clearAll(); st.remove(); FX.coinStop = null; FX.coinReflip = null; if (!finished) { finished = true; res([]); } } else if (finished) clearInterval(guard); }, 200);
   });
 }
-/* 부서지는 카드: 조각으로 갈라져 흩어진다 (쓰러진 유닛, 쓴 마법) */
+/* 부서지는 카드: 조각으로 갈라져 흩어진다 (쓰러진 유닛, 쓴 마법)
+   v3.16.3 더 실감나게: 맞은 자리에서 금이 방사형으로 번지고(선이 자라남) → 그 금을 따라 모양이 제각각인 조각(방사 쐐기 + 안쪽 고리)으로
+   갈라져 → 바깥으로 튀었다가 무게로 떨어지며 3D로 뒤집힌다. 조각마다 빛 받는 면이 달라 명암이 다르다. 폰(html.mobile)은 조각 수를 줄임 */
 function shatterCard(b) {
   const layer = fxLayer(); if (!layer) return;
-  const r = b.r, k = kSpeed();
+  const r = b.r, k = kSpeed(), W = r.width, H = r.height;
   const g = document.createElement("div");
-  g.className = "shatter";
-  Object.assign(g.style, { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" });
-  const cols = 3, rows = 4;
-  let h = "";
-  for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) {
-    const x0 = x / cols * 100, x1 = (x + 1) / cols * 100, y0 = y / rows * 100, y1 = (y + 1) / rows * 100;
-    const jx = (Math.random() * 10 - 5).toFixed(1), jy = (Math.random() * 10 - 5).toFixed(1);
-    h += `<div class="sh-piece" style="clip-path:polygon(${x0}% ${y0}%, ${x1}% ${(+y0 + +jy).toFixed(1)}%, ${(+x1 + +jx).toFixed(1)}% ${y1}%, ${x0}% ${y1}%);--dx:${((x - 1) * 60 + Math.random() * 40 - 20).toFixed(0)}px;--dy:${((y - 1.5) * 40 + 80 + Math.random() * 60).toFixed(0)}px;--rz:${(Math.random() * 80 - 40).toFixed(0)}deg;--dl:${(Math.random() * 90).toFixed(0)}ms">${b.html}</div>`;
-  }
-  g.innerHTML = h;
-  g.querySelectorAll(".card, .card-back").forEach(c => { c.removeAttribute("data-uid"); ["acting", "targeted", "countering", "revealing", "selected", "flying", "drag-src", "fresh", "char-out", "struck", "dying"].forEach(x => c.classList.remove(x)); c.style.setProperty("--cw", r.width + "px"); });
-  layer.appendChild(g);
-  g.style.setProperty("--k", k);
+  g.className = "shatter sh3";
+  Object.assign(g.style, { left: r.left + "px", top: r.top + "px", width: W + "px", height: H + "px" });
   const c = ctrOf(r);
-  burst(c.x, c.y, "burn", r.width * 1.5);
-  shakeScreen(4);
+  const strip = el => el.querySelectorAll(".card, .card-back").forEach(cd => { cd.removeAttribute("data-uid"); ["acting", "targeted", "countering", "revealing", "selected", "flying", "drag-src", "fresh", "char-out", "struck", "dying"].forEach(x => cd.classList.remove(x)); cd.style.setProperty("--cw", W + "px"); });
+  if (typeof IMPACT !== "undefined") IMPACT.shatter(c, W, null, /\btype-unit\b/.test(b.html || "")); else shakeScreen(4);   // v3.13
   sfx("shatter"); // v3.5.5 부서지는 소리 (여러 장이 한꺼번에 부서지면 한 번만 난다)
-  setTimeout(() => g.remove(), 1100 * k + 150);
+  if (RM()) {   // 움직임 줄이기: 조각 없이 흐려지기만
+    g.innerHTML = `<div class="sh-shard">${b.html}</div>`; strip(g); layer.appendChild(g);
+    g.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 400, fill: "forwards" }).onfinish = () => g.remove();
+    return;
+  }
+  burst(c.x, c.y, "burn", W * 1.2);
+  const lite = document.documentElement.classList.contains("mobile");
+  const TAU = Math.PI * 2, rnd = (a, z) => a + Math.random() * (z - a);
+  // 맞은 자리(금의 중심): 가운데 근처에서 조금씩 다르게
+  const P = { x: W * rnd(0.36, 0.64), y: H * rnd(0.34, 0.62) };
+  const nR = lite ? 6 : 8, base = Math.random() * TAU;
+  const angs = Array.from({ length: nR }, (_, i) => base + (i + rnd(-0.28, 0.28)) * TAU / nR);
+  const hit = a => { const dx = Math.cos(a), dy = Math.sin(a); let t = 1e9;
+    if (dx > 1e-6) t = Math.min(t, (W - P.x) / dx); if (dx < -1e-6) t = Math.min(t, -P.x / dx);
+    if (dy > 1e-6) t = Math.min(t, (H - P.y) / dy); if (dy < -1e-6) t = Math.min(t, -P.y / dy);
+    return { x: P.x + dx * t, y: P.y + dy * t }; };
+  const E = angs.map(hit);
+  const R = angs.map((a, i) => { const f = rnd(0.3, 0.52); return { x: P.x + (E[i].x - P.x) * f, y: P.y + (E[i].y - P.y) * f }; });
+  const norm = (a, from) => { while (a < from) a += TAU; while (a >= from + TAU) a -= TAU; return a; };
+  const corners = [[0, 0], [W, 0], [W, H], [0, H]].map(([x, y]) => ({ x, y, a: Math.atan2(y - P.y, x - P.x) }));
+  const polys = [];
+  for (let i = 0; i < nR; i++) {
+    const j = (i + 1) % nR, a0 = angs[i], a1 = norm(angs[j], a0);
+    const cs = corners.filter(q => { const qa = norm(q.a, a0); return qa > a0 && qa < a1; }).sort((p, q) => norm(p.a, a0) - norm(q.a, a0));
+    polys.push({ pts: [P, R[i], R[j]], inner: true });
+    polys.push({ pts: [R[i], E[i], ...cs, E[j], R[j]], inner: false });
+  }
+  // 금(선): 중심 → 테두리 방사선 + 안쪽 고리. 조각이 갈라지기 전에 자라난다
+  const ring = R.map((q, i) => `${i ? "L" : "M"}${q.x.toFixed(1)} ${q.y.toFixed(1)}`).join("") + "Z";
+  const rays = E.map(q => `M${P.x.toFixed(1)} ${P.y.toFixed(1)}L${q.x.toFixed(1)} ${q.y.toFixed(1)}`).join("");
+  const light = rnd(110, 160);   // 빛이 오는 방향(도) — 조각마다 면 기울기에 따라 밝기가 다르다
+  let h = "";
+  polys.forEach((pl, n) => {
+    const cl = pl.pts.map(q => `${(q.x / W * 100).toFixed(2)}% ${(q.y / H * 100).toFixed(2)}%`).join(", ");
+    const cx = pl.pts.reduce((s, q) => s + q.x, 0) / pl.pts.length, cy = pl.pts.reduce((s, q) => s + q.y, 0) / pl.pts.length;
+    pl.c = { x: cx, y: cy };
+    const sh = rnd(0.05, 0.42).toFixed(2), hi = rnd(0, 0.22).toFixed(2);
+    h += `<div class="sh-shard" style="clip-path:polygon(${cl});transform-origin:${cx.toFixed(1)}px ${cy.toFixed(1)}px;--sh:${sh};--hi:${hi};--la:${(light + rnd(-40, 40)).toFixed(0)}deg">${b.html}</div>`;
+  });
+  h += `<svg class="sh-crack" viewBox="0 0 ${W.toFixed(1)} ${H.toFixed(1)}" aria-hidden="true"><path class="sh-cg" d="${rays}${ring}"/><path class="sh-cl" d="${rays}${ring}"/></svg><div class="sh-flash"></div>`;
+  g.innerHTML = h;
+  strip(g);
+  layer.appendChild(g);
+  // 1) 금이 번짐 (0 → crackMs): 선이 중심에서 바깥으로 자란다, 카드가 한 번 하얗게
+  const crackMs = 90 * k;
+  g.querySelectorAll(".sh-crack path").forEach(pa => {
+    const L = pa.getTotalLength ? pa.getTotalLength() : 600;
+    pa.style.strokeDasharray = L; pa.style.strokeDashoffset = L;
+    pa.animate([{ strokeDashoffset: L, opacity: 1 }, { strokeDashoffset: 0, opacity: 1, offset: 0.55 }, { strokeDashoffset: 0, opacity: 0 }], { duration: crackMs * 2.6, easing: "ease-out", fill: "forwards" });
+  });
+  g.querySelector(".sh-flash").animate([{ opacity: 0 }, { opacity: 0.55, offset: 0.25 }, { opacity: 0 }], { duration: crackMs * 1.6, easing: "ease-out", fill: "forwards" });
+  // 2) 조각이 갈라져 튄다: 중심에서 바깥으로 + 위로 살짝 → 무게로 떨어지며 돈다
+  const gpx = 1700, steps = lite ? 6 : 10;
+  let end = 0;
+  g.querySelectorAll(".sh-shard").forEach((el, n) => {
+    const pl = polys[n], dx = pl.c.x - P.x, dy = pl.c.y - P.y, d = Math.hypot(dx, dy) || 1, ux = dx / d, uy = dy / d;
+    const sp = (pl.inner ? rnd(70, 150) : rnd(130, 260)) * (0.8 + d / W * 0.9);
+    const vx = ux * sp + rnd(-30, 30), vy = uy * sp * 0.75 - rnd(120, 230);
+    const T = rnd(0.62, 0.9), rz = rnd(-260, 260), rx = rnd(-320, 320), ry = rnd(-320, 320);
+    const gap = pl.inner ? 1.2 : 2.4;   // 금이 갈라질 때 벌어지는 틈
+    const fr = [];
+    for (let s = 0; s <= steps; s++) {
+      const u = s / steps, t = T * u;
+      const x = ux * gap + vx * t, y = uy * gap + vy * t + 0.5 * gpx * t * t;
+      fr.push({ transform: `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) rotateX(${(rx * t).toFixed(0)}deg) rotateY(${(ry * t).toFixed(0)}deg) rotate(${(rz * t).toFixed(0)}deg)`, opacity: u < 0.6 ? 1 : Math.max(0, 1 - (u - 0.6) / 0.4) });
+    }
+    const delay = crackMs + (pl.inner ? 0 : rnd(0, 40) * k);
+    el.style.transform = fr[0].transform;
+    el.animate(fr, { duration: T * 1000 * k, delay, easing: "linear", fill: "both" });
+    end = Math.max(end, delay + T * 1000 * k);
+  });
+  // 3) 금 사이로 날리는 가루 (IMPACT 캔버스)
+  if (typeof IMPACT !== "undefined") {
+    const px = r.left + P.x, py = r.top + P.y;
+    setTimeout(() => IMPACT.sparks(px, py, { n: lite ? 10 : 18, speed: 260, size: 1.6, col: "#d9c9a8", kind: "chunk", g: 1300, drag: 0.93, life: 0.7 }), crackMs);
+  }
+  setTimeout(() => g.remove(), end + 120);
 }
 
 /* ---------- 조각별 HTML ---------- */
@@ -1604,7 +1757,7 @@ function nameplateHTML(p) {
       <svg class="np-frame" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="np-cloth" d="${cloth}"/><path class="np-trim" d="${trim}"/><path class="np-rod" d="${rod}"/></svg>
       ${emb}<div class="np-meta">
         <b class="np-id">${esc(p.name)}</b>
-        <small class="np-sub">${gr ? gr.name : FACTIONS[p.faction].name}${p.isAI ? " · 컴퓨터" : ""}</small>
+        <small class="np-sub">${gr ? gr.name : FACTIONS[p.faction].name}${p.isAI ? (p.ai === "hard" ? " · 컴퓨터 (어려움)" : " · 컴퓨터") : ""}</small>
         <span class="pi-role ${isAtk ? "r-atk" : "r-def"}">${isAtk ? "공격" : "방어"}</span>
       </div></div>`;
 }
@@ -2004,6 +2157,7 @@ function animFrom(el, from, to, rotDeg, kind, delay) {
     setTimeout(() => {
       if (!el.isConnected) return;
       sfx("place");
+      if (typeof IMPACT !== "undefined") IMPACT.land(el);   // v3.14 묵직한 쿵 + 먼지 고리
       const r = el.getBoundingClientRect(), c = ctrOf(r);
       burst(c.x, c.y + r.height * 0.3, "slam", r.width * 1.6);
       shakeScreen(3);
@@ -2022,6 +2176,7 @@ function animFrom(el, from, to, rotDeg, kind, delay) {
     setTimeout(() => {
       if (!el.isConnected) return;
       sfx("place");
+      if (typeof IMPACT !== "undefined") IMPACT.land(el);   // v3.14 묵직한 쿵 + 먼지 고리
       const r = el.getBoundingClientRect(), c = ctrOf(r);
       burst(c.x, c.y + r.height * 0.3, "slam", r.width * 1.5);
       shakeScreen(2.5);
@@ -2315,7 +2470,9 @@ function slash(x, y, size, color) {
   layer.appendChild(s);
   setTimeout(() => s.remove(), 800);
 }
-function shakeScreen(px) {
+function shakeScreen(px, dir) {
+  if (typeof IMPACT !== "undefined") { IMPACT.shake(IMPACT.pxToTrauma(px), dir); return; }   // v3.14 트라우마 흔들림 (js/impact.js)
+  return;   // v3.16.3 화면 전체 흔들림은 끔 (IMPACT가 없을 때의 예전 흔들림도)
   const g = $("#game"); if (!g || RM() || !px) return;
   g.animate([{ translate: "0 0" }, { translate: `${-px}px ${px * 0.5}px` }, { translate: `${px * 0.8}px ${-px * 0.6}px` }, { translate: `${-px * 0.5}px ${px * 0.3}px` }, { translate: `${px * 0.3}px 0px` }, { translate: "0 0" }], { duration: 320, easing: "ease-out" });
 }
@@ -2379,7 +2536,8 @@ function strikeOut(actUid, tgt, dur, kind) {
     { translate: `${dx}px ${dy}px`, scale: "2", rotate: `${22 * dir}deg` }
   ], { duration: dur * 0.95, easing: "cubic-bezier(.45,0,.6,1)", fill: "forwards" });
   trail(s.el, dur);
-  setTimeout(() => atkSfx(actUid, "out", 0.8, kind), dur * (kind === "shot" ? 0.12 : 0.3));   // v3.7.1 휘두름 · 총성 · 마법 차오름
+  setTimeout(() => atkSfx(actUid, "out", 0.8, kind), dur * (kind === "shot" ? 0.12 : 0.3));
+  if (typeof IMPACT !== "undefined") { const L = Math.hypot(dx, dy) || 1; setTimeout(() => IMPACT.launch(a, { x: dx / L, y: dy / L }), dur * 0.22); }   // v3.14 발밑 먼지 + 묵직한 휙   // v3.7.1 휘두름 · 총성 · 마법 차오름
   FX.sprite = { el: s.el, uid: actUid, dx, dy, dir, an };
 }
 /* v1.6.2 [투척]: 공격하러 나가는 순간 같은 유닛에서 던진 것이 날아간다. 맞선 유닛과 같으면 그 유닛에게 */
@@ -2405,6 +2563,7 @@ function throwHit(tgt, actUid) {
   const r = t.getBoundingClientRect(), c = ctrOf(r);
   burst(c.x, c.y, "hit", Math.max(100, r.width * 1.6));
   shakeEl(t, 8);
+  if (typeof IMPACT !== "undefined") IMPACT.strike(uidEl(actUid), t, Object.assign({ light: true }, impInfo(tgt)));   // v3.13
 }
 function strikeHit(actUid, tgt, dur, kind) {
   const t = targetEl(tgt);
@@ -2416,10 +2575,12 @@ function strikeHit(actUid, tgt, dur, kind) {
   const isLife = typeof tgt !== "number";
   slash(c.x, c.y, Math.max(140, tr.width * 1.5), col);
   burst(c.x, c.y, "hit", Math.max(120, tr.width * 2));
-  shakeEl(isLife ? $("#pinfo" + String(tgt).replace("life", "")) : t, isLife ? 14 : 10);
-  shakeScreen(isLife ? 14 : 6);
+  const hitEl = isLife ? ($("#pinfo" + String(tgt).replace("life", "")) || t) : t;
+  shakeEl(hitEl, isLife ? 14 : 10);
   atkSfx(actUid, "hit", isLife ? 1.1 : 1, kind);   // v3.7.1 공격 종류에 맞는 소리
   if (isLife) sfx("hitBig", 0.7);
+  // v3.14 타격감: 번쩍 · 밀려남 · 충격파 · 트라우마 흔들림 · 바닥 소리. 히트 스톱 길이는 세기(피해 · 쓰러짐 · 치명)를 따른다
+  const hs = typeof IMPACT !== "undefined" ? IMPACT.strike(uidEl(actUid), hitEl, Object.assign({ col, life: isLife }, impInfo(tgt))) : (shakeScreen(isLife ? 14 : 6), FT.hitStop * kSpeed());
   if (!s) return;
   s.an.cancel();
   // 맞는 순간 아주 잠깐 멈칫(히트 스톱): 캐릭터를 맞은 자리에 붙잡아 두었다가 튕겨 나간다
@@ -2433,8 +2594,10 @@ function strikeHit(actUid, tgt, dur, kind) {
     { offset: 0.34, translate: `${s.dx * 0.94}px ${s.dy * 0.94}px`, scale: "1.8", rotate: "0deg" },
     { offset: 0.7, translate: `${(s.dx + back[0]) * 0.4}px ${(s.dy + back[1]) * 0.4 - 50}px`, scale: "1.35", rotate: `${-10 * s.dir}deg` },
     { translate: `${back[0]}px ${back[1]}px`, scale: "1", rotate: "0deg", opacity: 0.9 }
-  ], { duration: Math.max(dur * 1.05, 380 * kSpeed()), delay: FT.hitStop * kSpeed(), easing: "cubic-bezier(.3,.6,.3,1)", fill: "forwards" });
-  setTimeout(() => trail(s.el, dur), FT.hitStop * kSpeed());
+  ], { duration: Math.max(dur * 1.05, 380 * kSpeed()), delay: hs, easing: "cubic-bezier(.3,.6,.3,1)", fill: "forwards" });
+  // v3.14 멈춰 있는 동안 캐릭터가 맞은 자리에서 부르르 떤다
+  if (hs > 40 && !RM()) s.el.animate([{ translate: "0px 0px" }, { translate: "3px -2px" }, { translate: "-3px 2px" }, { translate: "2px 1px" }, { translate: "0px 0px" }], { duration: hs, composite: "add" });
+  setTimeout(() => trail(s.el, dur), hs);
   const mine = s; FX.sprite = null;
   ret.onfinish = () => { mine.el.remove(); setCharOut(mine.uid, false); };
 }
@@ -2443,6 +2606,7 @@ function counterStrike(defUid, atkUid, dur) {
   if (!d || !a) return;
   const s = makeSprite(d); if (!s) return;
   setCharOut(defUid, true);
+  const info = impInfo(atkUid);   // v3.13
   const ar = a.getBoundingClientRect(), from = ctrOf(s.r), to = ctrOf(ar);
   const dx = (to.x - from.x) * 0.84, dy = (to.y - from.y) * 0.84, dir = dx >= 0 ? 1 : -1;
   const an = s.el.animate([
@@ -2459,6 +2623,10 @@ function counterStrike(defUid, atkUid, dur) {
     burst(c.x, c.y, "hit", r.width * 1.6);
     shakeEl(a2, 8);
     atkSfx(defUid, "hit", 0.85);   // v3.7.1 반격도 반격하는 유닛의 공격 종류로
+    if (typeof IMPACT !== "undefined") {   // v3.14 반격도 맞는 순간 멈칫(히트 스톱) · 번쩍 · 밀려남
+      const hs = IMPACT.strike(uidEl(defUid), a2, Object.assign({ col: s.el.style.getPropertyValue("--el") }, info));
+      if (hs > 30 && an.playState === "running") { an.pause(); setTimeout(() => { if (an.playState === "paused") an.play(); }, hs); }
+    }
   }, dur * 0.45);
   an.onfinish = () => { s.el.remove(); setCharOut(defUid, false); };
 }
@@ -3132,7 +3300,7 @@ function showRules() {
     <li><b>공격 준비</b> — 공격자가 유닛·공격 마법·공용 마법을 빈 칸에 올립니다 (핸드 더블클릭 = 왼쪽부터 빈 칸). 아이템은 공격·방어 준비 어느 때나 클래스가 맞는 내 유닛에 장착하며(아이템 이름 옆 [○○ 전용]이 유닛 오른쪽 위 동그라미와 같으면 장착, [공용]은 누구에게나), 유지비가 없습니다.</li>
     <li><b>방어 준비</b> — 방어자가 공격자의 유닛 배치를 보고 유닛·방어 마법·공용 마법을 올립니다. 마법은 뒷면이라 상대에게 보이지 않습니다.</li>
     <li><b>전투</b> — 공격 유닛이 1번 칸부터 차례로 상대의 맨 앞 유닛과 싸웁니다. <b>맞붙을 때마다 공격하는 유닛의 코인을 던집니다</b>(앞면 50%). <b>방어하는 유닛의 코인은 그 전투에서 처음 맞붙을 때 한 번만</b> 던지고, 전투가 끝날 때까지 그 결과를 그대로 씁니다. <b>한 번 정해진 코인은 마법으로도 바뀌지 않습니다</b>(코인 뒷면 · 운명은 아직 던지지 않은 코인에만). 유닛의 공격·방어·체력 코인은 순번이 같으면 동전 하나라 함께 앞·뒷면이 됩니다(공격 2개·방어 1개면 동전 2개). 장착한 아이템의 코인도 함께 세고, 동전은 최대 5개입니다. 내 코인은 내가 <b>"운명 봉인"</b>으로, 상대 코인은 상대가 세웁니다(5초가 지나면 저절로 멈춤). 양쪽이 멈추면 나온 대로 스탯이 바뀐 뒤 공격 → 반격이 이어집니다. 피해 = 공격 − 방어(최소 0). 쓰러진 유닛과 쓴 마법은 그 자리에서 부서지고 남은 카드는 바로 왼쪽으로 당겨집니다. 피해는 그 턴 안에서만 쌓이고, 턴이 끝나면 회복됩니다.</li>
-    <li><b>코인 뒤집기</b> — 코인이 멈춘 뒤, 내 유닛의 <b>뒷면 코인을 누르면 에테르 1</b>을 내고 그 코인만 다시 던집니다. 맞붙을 때마다 한 번(이미 정해진 방어 코인은 다시 던질 수 없음). 준비 단계에서 남겨 둔 에테르를 여기에 씁니다 (남은 에테르는 다음 턴으로 넘어가지 않습니다).</li>
+    <li><b>코인 뒤집기</b> — 코인이 멈춘 뒤, 내 유닛의 <b>뒷면 코인</b>(− 코인은 <b>앞면 코인</b>)<b>을 누르면 에테르 1</b>을 내고 그 코인만 다시 던집니다. 맞붙을 때마다 한 번(이미 정해진 방어 코인은 다시 던질 수 없음). 준비 단계에서 남겨 둔 에테르를 여기에 씁니다 (남은 에테르는 다음 턴으로 넘어가지 않습니다).</li>
     <li><b>멀리건</b> — 경기 시작 때 한 번, 시작 핸드에서 고른 카드를 덱에 되돌리고 같은 장수를 새로 뽑습니다. 생명은 줄지 않습니다.</li>
     <li><b>마법 발동</b> — 마법도 대기열의 한 자리입니다. "뒤 N칸"은 마법이 놓인 칸 다음부터 N칸입니다.</li>
     <li><b>마법 피해와 물리 피해</b> — 마법의 "피해"는 방어를 무시하고 체력을 깎습니다. "물리 피해"는 공격처럼 방어를 거칩니다(피해 − 방어). 마법이 부른 유닛의 공격도 물리입니다.</li>

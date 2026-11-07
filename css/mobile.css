@@ -1,0 +1,41 @@
+/* v3.15 폰 · 태블릿 손질 (js/mobile.js 가 <html class="mobile"> 을 붙일 때만) */
+html.mobile { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overscroll-behavior: none; }
+html.mobile, html.mobile body { -webkit-tap-highlight-color: transparent; }
+/* 길게 누르면 글자가 골라지거나 그림 저장 메뉴가 뜨던 것: 입력 칸만 남긴다 */
+html.mobile body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+html.mobile input, html.mobile textarea, html.mobile [contenteditable] { -webkit-user-select: text; user-select: text; }
+html.mobile img { -webkit-user-drag: none; }
+/* 두 번 눌러 확대 · 확대 손짓 대신 바로 반응 */
+html.mobile button, html.mobile a, html.mobile #board { touch-action: manipulation; }
+
+/* v3.16.1 폰 · 앱에서 맞는 순간 연출을 가볍게 (js/impact.js 의 lite()와 짝). PC는 css/impact.css 그대로
+   - 화면 전체 backdrop-filter(흑백 번쩍임) → 반투명 어두운 막 한 번
+   - 화면 전체 mix-blend-mode · 큰 inset box-shadow → 일반 합성 그라데이션만 */
+html.mobile .imp-frame { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(8, 6, 12, .42); }
+html.mobile .imp-glow { mix-blend-mode: normal; background: radial-gradient(ellipse at center, var(--c) 0%, transparent 60%); }
+html.mobile .imp-vig { box-shadow: none; background: radial-gradient(ellipse at center, transparent 34%, var(--c) 100%); }
+html.mobile .imp-shield { mix-blend-mode: normal; filter: none; }
+html.mobile .sfx-screen { mix-blend-mode: normal; }
+
+/* v3.16.2 폰 · 앱: 전투 코인 창을 절반쯤으로 (js/game.js coinClash의 fitStage도 폰에서는 배율 1배)
+   창 폭 980 × 1.25 → 600 × 1, 안쪽 여백 · 빈 높이를 줄인다. 코인은 89 → 72px 정도로 조금만 작아진다 */
+html.mobile .coinstage { width: 600px; gap: 12px; }
+html.mobile .cs-side { padding: 10px 12px 14px; gap: 5px; }
+html.mobile .cs-side::before { inset: 4px; }
+html.mobile .cs-coins { min-height: 74px; gap: 10px; }
+html.mobile .cs-ctl { min-height: 0; gap: 5px; }
+html.mobile .cs-res { min-height: 1.2em; }
+html.mobile .cs-mid { gap: 6px; }
+html.mobile .cs-mid::before, html.mobile .cs-mid::after { height: 34px; }
+html.mobile .cs-vs { font-size: 26px; }
+html.mobile .cs-stop { padding: 8px 20px; font-size: 16px; }
+html.mobile .cs-sand { bottom: 7px; }
+
+/* v3.16.2 폰 · 앱: 핸드 카드를 조금 크게(카드 폭 1.03 → 1.16배, 핸드 줄 높이 안에 들어간다) + 숫자 · 이름을 크게 */
+html.mobile .screen-game { --hw: calc(var(--cw) * 1.16); }
+html.mobile .hand-me .card.slim .c-vstats { font-size: 1.04em; }   /* 공 · 방 · 체 숫자 .7em → 약 1.5배 */
+html.mobile .hand-me .card.slim .c-name { font-size: 1em; }        /* 이름 .78em → 약 1.3배 */
+html.mobile .hand-me .card.slim .c-pips { font-size: .8em; }
+html.mobile .hand-me .card.slim .c-clsico { font-size: .72em; }
+html.mobile .hand-me .card.slim .c-cls { font-size: .66em; }
+html.mobile .hand-me .hand-slot { top: calc(var(--cw) * -.1); }   /* 커진 만큼 살짝 올려 부채꼴 바깥 카드 아래(숫자)가 화면 밖으로 잘리지 않게 */

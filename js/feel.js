@@ -10,7 +10,8 @@
    - v3.8 고르기 · 누르기 · 집기 · 놓기 · 장착 · 메뉴 · 창 소리를 쇠가 쇠에 닿고 긁히는 소리로 바꿈: 낮은 몸통(사인 쿵)을 높이고 줄이고,
      쇠 울림 clang(어긋난 배음 + 맥놀이)과 쇠 마찰 scrape(붙었다 미끄러지는 잡음을 좁은 띠로 거름)를 앞에 둔다.
    - v3.8.1 더 날카롭고 쫀득하게: 맨 앞에 snap(0.5ms 만에 솟는 짝 + 뚝 떨어지는 딸깍), 쇠 울림 꼬리 약 절반, 석조 울림 절반.
-     공격 · 마법 · 부서짐 소리는 그대로 */
+     공격 · 마법 · 부서짐 소리는 그대로
+   - v3.14 타격감: 모든 소리가 압축 · 리미터 버스(bus)를 지난다. 맞는 순간의 바닥 소리 imp_* (킥 · 왜곡 몸통 · 부서지는 결)는 js/impact.js가 낸다 */
 "use strict";
 
 const FEEL = {
@@ -84,7 +85,7 @@ const FEEL = {
     if (this.last[name] && now - this.last[name] < 45) return;
     this.last[name] = now;
     const ac = this.ctx(); if (!ac) return;
-    const out = ac.createGain(); out.gain.value = lv * (v == null ? 1 : v) * (this.TRIM[name] || 1); out.connect(ac.destination);
+    const out = ac.createGain(); out.gain.value = lv * (v == null ? 1 : v) * (this.TRIM[name] || 1); out.connect(this.bus(ac));   // v3.14 모든 소리는 압축 · 리미터 버스를 지난다
     if (this.HALL[name]) { const send = ac.createGain(); send.gain.value = this.HALL[name]; out.connect(send).connect(this.hall(ac)); }   // v3.7.2 석조 전당 울림
     const t = ac.currentTime + 0.002;
     const j = pj || 1;   // v3.7.1 높이 배율 (공격 소리: 레벨이 높을수록 낮고 무겁게, 칠 때마다 조금씩 다르게)
@@ -218,22 +219,22 @@ const FEEL = {
         this.tone(ac, out, t + 0.26, 300, 220, 0.08, "sine", 0.04); break;
       case "swing":    // 뛰쳐나감: 바람 가르는 소리
         this.noise(ac, out, t, 0.16, 900, 1.6, 0.05, 2600); break;
-      case "shatter": { // 카드가 부서짐 (v3.7.2 "콰작", 묵직하게): 갈라지는 폭음 → 무너지는 몸통과 땅울림 → 와지끈 부서지는 결 → 낮게 흩어지는 파편
-        this.noise(ac, out, t, 0.04, 3000, 0.7, 0.2);                   // 콰: 갈라지는 순간
-        this.noise(ac, out, t, 0.09, 900, 0.6, 0.16, 400);
-        this.tone(ac, out, t, 140, 38, 0.32, "sine", 0.3);              // 작: 무너지는 몸통
-        this.tone(ac, out, t + 0.01, 70, 34, 0.42, "sine", 0.2);        // 땅울림
-        for (let i = 0; i < 10; i++) {                                    // 와지끈: 촘촘히 부서지는 결
-          const dt = i * 0.011 + Math.random() * 0.008;
-          this.noise(ac, out, t + 0.012 + dt, 0.012 + Math.random() * 0.01, 1200 + Math.random() * 2800, 1.6, 0.1 - i * 0.006);
+      case "shatter": { // v3.16.3 카드가 부서짐 "파사삭": 쩍 갈라지는 순간 → 잘게 바스러지는 결 두 번 → 짤랑 떨어지는 조각들. 묵직한 몸통은 작게
+        const r = 0.95 + Math.random() * 0.1;
+        this.snap(ac, out, t, 4200 * r, 0.12);                           // 파: 쩍 갈라짐
+        this.noise(ac, out, t, 0.025, 5200 * r, 0.8, 0.16);
+        this.noise(ac, out, t + 0.002, 0.05, 1600 * r, 0.9, 0.08, 700);
+        this.tone(ac, out, t, 190 * r, 60, 0.13, "sine", 0.12);         // 작은 몸통 (예전 콰작보다 가볍게)
+        this.crackle(ac, out, t + 0.006, 0.16, 90, 2400, 0.34, 2.2);     // 사: 촘촘히 바스러짐
+        this.crackle(ac, out, t + 0.07, 0.2, 55, 1700, 0.22, 1.6);       // 삭: 한 번 더, 조금 낮고 성기게
+        this.noise(ac, out, t + 0.03, 0.22, 3800, 0.7, 0.03, 1800);      // 모래처럼 흩어지는 쉭
+        for (let i = 0; i < 7; i++) {                                    // 짤랑: 떨어진 조각이 바닥에 튐 (점점 드물고 작게)
+          const d = 0.11 + i * 0.045 + Math.random() * 0.04 + i * i * 0.006;
+          const f = (2600 + Math.random() * 3400) * r;
+          this.noise(ac, out, t + d, 0.006, f * 1.4, 1.2, 0.05 * (1 - i * 0.11));
+          this.bell(ac, out, t + d, f, 0.07 + Math.random() * 0.05, 0.012 * (1 - i * 0.1), [1, 1.73, 2.61], [1, 0.45, 0.2]);
         }
-        this.bell(ac, out, t + 0.01, 760, 0.25, 0.02, [1, 2.32, 4.07], [1, 0.5, 0.25]);
-        this.noise(ac, out, t + 0.05, 0.38, 300, 0.5, 0.08, 120);       // 흩어지는 낮은 와르르
-        for (let i = 0; i < 5; i++) {                                    // 떨어지는 조각: 낮고 드문드문
-          const dt = 0.1 + i * 0.06 + Math.random() * 0.03;
-          this.noise(ac, out, t + dt, 0.02, 1800 + Math.random() * 1700, 3, 0.045 * (1 - i * 0.15));
-        }
-        this.buzz(30); break; }
+        this.buzz(24); break; }
       case "coinHeads": { // v3.7.1 앞면: 쇠 동전이 판에 떨어져 "칭—" 울리고, 한 번 더 튀어 "칭", 돌며 잦아드는 쇠 떨림
         const f = 2480;
         const coin = [1, 1.59, 2.14, 2.65, 2.92, 3.5], camp = [1, 0.72, 0.55, 0.4, 0.3, 0.18];   // 원판이 떠는 어긋난 배음
@@ -490,6 +491,55 @@ const FEEL = {
       case "sp_block":  // 막힘: 작은 쨍
         this.tone(ac, out, t, 1800, 1600, 0.05, "square", 0.018);
         this.noise(ac, out, t, 0.03, 4200, 2, 0.05); break;
+
+      /* ---------- v3.14 타격감(js/impact.js): 공격 종류 소리(atk_*) · 마법 소리(sp_*) 밑에 깔리는 "맞는 순간의 바닥".
+         딱(첫 샘플부터 최대인 틱) → 쿵(사인이 뚝 떨어지는 킥, 왜곡을 걸어 작은 스피커에서도 들림) → 와작(왜곡 잡음이 닫히는 결).
+         v = 세기(피해가 클수록 크고 길다) ---------- */
+      case "imp_hit": {   // 유닛이 맞음 "딱-쿵-와작"
+        const p = v == null ? 1 : Math.min(1.3, v);
+        this.burst(ac, out, t, 0.005, 1800, 0.5);
+        this.kick(ac, out, t, 190 * j, 46, 0.2 + p * 0.1, 0.7, 2.2);
+        this.tone(ac, out, t, 420 * j, 120, 0.05, "triangle", 0.16);
+        this.crunch(ac, out, t + 0.002, 0.08 + p * 0.06, 3800, 380, 0.32, 4);
+        this.buzz(20); break; }
+      case "imp_kill": {  // 쓰러뜨림 · 카드가 부서짐 "콰-쾅-우르르": 더 낮고 길게, 갈라지는 틱 두 번, 낮게 퍼지는 땅울림
+        this.burst(ac, out, t, 0.006, 1500, 0.6);
+        this.kick(ac, out, t, 160, 34, 0.5, 0.85, 2.6);
+        this.kick(ac, out, t + 0.012, 72, 28, 0.62, 0.42, 0);
+        this.crunch(ac, out, t, 0.17, 4200, 300, 0.42, 5);
+        this.burst(ac, out, t + 0.038, 0.01, 3000, 0.28);
+        this.noise(ac, out, t + 0.02, 0.55, 260, 0.5, 0.13, 90);
+        this.buzz(36); break; }
+      case "imp_life": {  // 생명을 직접 침 "쿠웅-두근": 가슴을 치는 깊은 킥 + 뒤따르는 심장 두근 + 낮은 울림
+        this.burst(ac, out, t, 0.006, 1200, 0.55);
+        this.kick(ac, out, t, 140, 30, 0.44, 0.9, 2.8);
+        this.crunch(ac, out, t, 0.14, 2600, 200, 0.36, 5);
+        this.kick(ac, out, t + 0.17, 105, 32, 0.3, 0.46, 2);
+        this.noise(ac, out, t + 0.02, 0.6, 180, 0.6, 0.12, 70);
+        this.buzz([30, 90, 20]); break; }
+      case "imp_crit": {  // 치명 "칭!": 날이 긁히고 높은 쇠가 운다 + 갈라지는 틱
+        this.snap(ac, out, t, 3600, 0.08);
+        this.scrape(ac, out, t, 0.12, 5200, 2400, 0.08, 0.3);
+        this.clang(ac, out, t + 0.005, 1480, 0.5, 0.06, 7, 1);
+        this.burst(ac, out, t + 0.012, 0.008, 4000, 0.3); break; }
+      case "imp_block": { // 막힘 "캉!": 두꺼운 쇠 방패가 받아 내는 울림 + 짧은 쿵 + 보호막의 맑은 반짝
+        this.snap(ac, out, t, 2600, 0.09);
+        this.clang(ac, out, t, 620, 0.55, 0.11, 7, 1.2);
+        this.clang(ac, out, t, 1310, 0.3, 0.05, 5, 0);
+        this.kick(ac, out, t, 150, 70, 0.1, 0.45, 1.5);
+        this.ring(ac, out, t + 0.01, 2900, 0.35, 0.025, [1, 1.5, 2.2], [1, 0.5, 0.3], 4);
+        this.noise(ac, out, t, 0.05, 5000, 1, 0.1);
+        this.buzz(14); break; }
+      case "imp_spell": { // 마법이 맞음: 쿵 + 공기가 터지는 훅
+        this.burst(ac, out, t, 0.005, 1500, 0.35);
+        this.kick(ac, out, t, 170, 40, 0.28, 0.6, 2);
+        this.noise(ac, out, t, 0.24, 1600, 0.6, 0.1, 300); break; }
+      case "imp_land":    // 카드가 칸에 내려앉음: 묵직한 쿵 (place의 쇠 소리 밑)
+        this.kick(ac, out, t, 150, 55, 0.14, 0.42, 1.6);
+        this.noise(ac, out, t, 0.08, 500, 0.7, 0.07, 180); break;
+      case "imp_whoosh":  // 뛰쳐나감: 낮고 무거운 휙
+        this.noise(ac, out, t, 0.22, 380, 1.2, 0.12, 1800);
+        this.tone(ac, out, t, 90, 60, 0.18, "sine", 0.12); break;
     }
   },
   /* v1.9.5 종소리: 배음(ratio)마다 사인파를 겹쳐 길게 울린다 */
@@ -573,21 +623,76 @@ const FEEL = {
     g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
     hp.connect(g).connect(out); s.start(t0); s.stop(t0 + dur + 0.02);
   },
+  /* v3.16.3 바스러지는 결: 아주 짧은 딸깍 n개를 한 버퍼에 흩뿌린다(앞쪽이 촘촘). 노드 하나라 가볍다.
+     hp = 이 높이 아래는 깎음, curve가 클수록 앞쪽에 몰린다 */
+  crackle(ac, out, t0, dur, n, hp, vol, curve) {
+    const sr = ac.sampleRate, len = Math.max(1, Math.floor(sr * dur));
+    const buf = ac.createBuffer(1, len, sr), d = buf.getChannelData(0);
+    for (let i = 0; i < n; i++) {
+      const u = Math.pow(Math.random(), curve || 1.5), pos = Math.floor(u * len * 0.92);
+      const amp = (1 - u * 0.75) * (0.35 + Math.random() * 0.65) * (Math.random() < 0.5 ? -1 : 1);
+      const gl = Math.floor(sr * (0.00025 + Math.random() * 0.0011)), tau = gl * 0.3;
+      for (let k = 0; k < gl && pos + k < len; k++) d[pos + k] += (Math.random() * 1.4 - 0.4) * amp * Math.exp(-k / tau);
+    }
+    const s = ac.createBufferSource(), f = ac.createBiquadFilter(), pk = ac.createBiquadFilter(), g = ac.createGain();
+    s.buffer = buf; f.type = "highpass"; f.frequency.value = hp || 2000; f.Q.value = 0.7;
+    pk.type = "peaking"; pk.frequency.value = (hp || 2000) * 2.2; pk.Q.value = 0.9; pk.gain.value = 5;
+    g.gain.value = vol;
+    s.connect(f).connect(pk).connect(g).connect(out); s.start(t0); s.stop(t0 + dur + 0.02);
+  },
   bell(ac, out, t0, f, dur, vol, ratios, amps) {
     (ratios || [1]).forEach((r, i) => this.tone(ac, out, t0, f * r, f * r, dur * (1 - i * 0.18), "sine", vol * ((amps && amps[i]) != null ? amps[i] : 1)));
   },
   /* v3.7.2 석조 전당 울림: 메뉴 · 창 소리에만 조금 섞는다(이름별 세기). 1.1초 잔향을 한 번 만들어 같이 쓴다 */
   /* v3.8 쇠 소리로 바꾸며 높아진 만큼 귀에 더 크게 들려서, 예전 소리와 비슷한 크기로 맞추는 배율 (v3.8.1 다시 맞춤) */
-  TRIM: { deny: 0.39, equip: 0.69, move: 0.63, place: 0.73, select: 0.8, ui_card: 0.8, ui_click: 0.65, ui_close: 0.67, ui_deck: 0.76, ui_open: 0.79, unselect: 0.7 },
+  TRIM: { imp_kill: 0.8, imp_life: 0.75, deny: 0.39, equip: 0.69, move: 0.63, place: 0.73, select: 0.8, ui_card: 0.8, ui_click: 0.65, ui_close: 0.67, ui_deck: 0.76, ui_open: 0.79, unselect: 0.7 },
   HALL: { draw: 0.08, shatter: 0.18, place: 0.07, confirm: 0.12, equip: 0.08, handHover: 0.025, ui_click: 0.08, ui_card: 0.09, ui_deck: 0.09, ui_open: 0.14, ui_close: 0.14, select: 0.06, unselect: 0.05, pick: 0.03, move: 0.03, deny: 0.02 },   // v3.8.1 손으로 하는 소리는 울림 절반: 퍼지지 않고 붙게
   hallNode: null,
+  /* v3.14 버스: 압축(느린 시작 3ms → 맞는 순간의 머리는 살리고 몸통을 눌러 단단하게) → 보정 → 리미터(겹쳐도 깨지지 않게) */
+  busNode: null,
+  bus(ac) {
+    if (this.busNode && this.busNode.context === ac) return this.busNode;
+    const c = ac.createDynamicsCompressor(), mk = ac.createGain(), lim = ac.createDynamicsCompressor();
+    c.threshold.value = -16; c.knee.value = 8; c.ratio.value = 3.5; c.attack.value = 0.003; c.release.value = 0.14;
+    mk.gain.value = 1.12;
+    lim.threshold.value = -1.5; lim.knee.value = 0; lim.ratio.value = 20; lim.attack.value = 0.001; lim.release.value = 0.08;
+    c.connect(mk).connect(lim).connect(ac.destination);
+    return (this.busNode = c);
+  },
+  /* v3.14 왜곡(tanh): 낮은 소리에 배음을 붙여 노트북 · 휴대폰 스피커에서도 "쿵"이 들리게 */
+  curves: {},
+  drive(ac, out, amt) {
+    const k = Math.round(amt * 10);
+    if (!this.curves[k]) { const n = 1024, c = new Float32Array(n), a = k / 10, d = Math.tanh(a); for (let i = 0; i < n; i++) { const x = i / (n - 1) * 2 - 1; c[i] = Math.tanh(x * a) / d; } this.curves[k] = c; }
+    const ws = ac.createWaveShaper(); ws.curve = this.curves[k]; ws.oversample = "2x"; ws.connect(out); return ws;
+  },
+  /* v3.14 킥: 사인이 f0 → f1로 뚝 떨어진다(앞 35%에서). 머리는 2ms 만에 솟고 잠깐 버틴 뒤 사라진다. drv > 0이면 왜곡 */
+  kick(ac, out, t0, f0, f1, dur, vol, drv) {
+    const dst = drv ? this.drive(ac, out, drv) : out;
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = "sine";
+    o.frequency.setValueAtTime(f0, t0); o.frequency.exponentialRampToValueAtTime(f1, t0 + dur * 0.35);
+    g.gain.setValueAtTime(0.0001, t0); g.gain.exponentialRampToValueAtTime(vol, t0 + 0.002);
+    g.gain.setValueAtTime(vol, t0 + dur * 0.12); g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+    o.connect(g).connect(dst); o.start(t0); o.stop(t0 + dur + 0.02);
+  },
+  /* v3.14 와작: 빨리 사라지는 잡음을 왜곡하고, 저역 필터를 f0 → f1로 닫는다(부서지며 가라앉는 결) */
+  crunch(ac, out, t0, dur, f0, f1, vol, drv) {
+    const sr = ac.sampleRate, n = Math.max(1, Math.floor(sr * dur)), buf = ac.createBuffer(1, n, sr), d = buf.getChannelData(0);
+    for (let i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * Math.exp(-i / (n * 0.3));
+    const s = ac.createBufferSource(), lp = ac.createBiquadFilter(), g = ac.createGain();
+    s.buffer = buf; lp.type = "lowpass"; lp.Q.value = 1.2;
+    lp.frequency.setValueAtTime(f0, t0); lp.frequency.exponentialRampToValueAtTime(f1, t0 + dur);
+    g.gain.value = vol;
+    s.connect(lp).connect(g).connect(this.drive(ac, out, drv || 3)); s.start(t0);
+  },
   hall(ac) {
     if (this.hallNode && this.hallNode.context === ac) return this.hallNode;
     const len = Math.floor(ac.sampleRate * 1.1), ir = ac.createBuffer(2, len, ac.sampleRate);
     for (let c = 0; c < 2; c++) { const d = ir.getChannelData(c); for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3.2); }
     const cv = ac.createConvolver(), lp = ac.createBiquadFilter();
     cv.buffer = ir; lp.type = "lowpass"; lp.frequency.value = 4200; lp.Q.value = 0.4;   // v3.8 2600 → 4200: 쇠 울림의 꼬리가 먹먹하지 않게
-    cv.connect(lp).connect(ac.destination);
+    cv.connect(lp).connect(this.bus(ac));
     return (this.hallNode = cv);
   },
   /* v3.7.1 쇠 울림: 배음마다 사인파 둘을 beat Hz 어긋나게 겹쳐(맥놀이) 쇠가 우는 떨림을 만든다. 높은 배음일수록 빨리 사라진다 */
