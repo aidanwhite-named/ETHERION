@@ -14,6 +14,14 @@
    카드 번쩍임에 drop-shadow 없음 · 화면 기울기와 판 눌림 없음. 화면 덮개의 가벼운 모양은 css/mobile.css. PC는 그대로 */
 "use strict";
 
+/* v3.17 연출 가볍게/화려하게 (설정 창). 가볍게(기본)면 <html class="fx-lite"> — 폰과 같은 가벼운 방식 + 큰 흐림 · 그림자 필터를 뺀다.
+   css/impact.css 'fx-lite' 절, js/game.js arenaArt · trail · shatterCard, js/titans.js 와 짝 */
+function applyFx(v) {
+  v = v || (typeof Prefs !== "undefined" ? Prefs.get("fx", "lite") : "lite");
+  document.documentElement.classList.toggle("fx-lite", v !== "rich");
+}
+applyFx();
+
 const IMPACT = (() => {
   const TUNE = {
     stopMin: 55, stopMax: 170, stopKill: 40,  // 히트 스톱 ms (배속을 따른다)
@@ -21,12 +29,13 @@ const IMPACT = (() => {
     shake: 26,                               // 화면 흔들림 최대 px (트라우마 1)
     tilt: 1.4,                               // 화면 기울기 최대 도
     duck: 0.55,                              // 배경음을 누르는 깊이 (0~1)
-    screenMove: false                        // v3.16.3 화면 전체 흔들림 · 판 눌림 (끔)
+    screenMove: false,                       // v3.16.3 화면 전체 흔들림 · 판 눌림 (끔)
+    killFlash: false                         // v3.16.5 부서질 때 화면 전체 번쩍임(흑백 임팩트 프레임 · 밝은 빛) (끔)
   };
   const live = () => typeof G !== "undefined" && G && G.cfg && !G.cfg.headless && G.speed !== 0;
   const RMx = () => typeof RM === "function" ? RM() : !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
   const on = () => live() && !RMx();
-  const lite = () => document.documentElement.classList.contains("mobile");   // v3.16.1 폰 · 안드로이드 앱
+  const lite = () => { const c = document.documentElement.classList; return c.contains("mobile") || c.contains("fx-lite"); };   // v3.16.1 폰 · 안드로이드 앱, v3.17 설정 '연출: 가볍게'(기본)
   const K = () => (typeof kSpeed === "function" ? Math.max(0.35, kSpeed()) : 1);
   const layer = () => document.getElementById("fx-layer");
   const ctr = r => ({ x: r.left + r.width / 2, y: r.top + r.height / 2 });
@@ -151,7 +160,7 @@ const IMPACT = (() => {
   /* 불꽃 줄기 n개. ang/spread(도)로 방향을 모은다 */
   function sparks(x, y, o) {
     if (!canvas()) return;
-    const n = o.n || 12, sp = o.speed || 600;
+    const n = Math.ceil((o.n || 12) * (LITE_NOW || lite() ? 0.6 : 1)), sp = o.speed || 600;   // v3.17 가볍게: 불꽃 · 파편 60%
     for (let i = 0; i < n; i++) {
       const a = (o.ang != null ? o.ang + rnd(-1, 1) * (o.spread || 180) / 2 : rnd(0, 360)) * Math.PI / 180;
       const v = sp * rnd(0.35, 1.1);
@@ -275,9 +284,11 @@ const IMPACT = (() => {
     if (p > 0.55) sparks(c.x, c.y + r.height * 0.1, { n: Math.round(p * 7), ang: ang - 20, spread: 160, speed: 380 + p * 260, size: cw * 0.035 + 2, col: "#2a211c", kind: "chunk", g: 1500, drag: 0.94, life: 0.8 });
     // 3) 흔들림 · 화면
     shake(0.18 + p * 0.42 + (o.life ? 0.15 : 0), dir);
-    if (o.kill || o.crit || (o.life && p > 0.7)) setTimeout(() => impactFrame(o.kill ? 110 : 80), 0);
-    if (o.life) vignette("rgba(190,10,20,.75)", 520 + p * 200, Math.min(1, 0.55 + p * 0.3));
-    if (p >= 0.9 || o.kill) screenFlash(o.life ? "rgba(255,70,60,.5)" : "rgba(255,248,225,.5)", 0.55, 200);
+    const kf = !o.kill || TUNE.killFlash;   // v3.16.5 쓰러뜨리는 타격은 화면 전체 번쩍임 없음 (카드 번쩍임 · 충격파는 그대로)
+    if (kf && !o.life && (o.kill || o.crit)) setTimeout(() => impactFrame(o.kill ? 110 : 80), 0);   // v3.17.3 생명 타격은 흑백 프레임 없음
+    const red = o.life && !o.foeLife;   // v3.17.3 내가 상대 생명을 칠 때는 빨간 화면 없음 (내 생명이 맞을 때만)
+    if (red) vignette("rgba(190,10,20,.75)", 520 + p * 200, Math.min(1, 0.55 + p * 0.3));
+    if (kf && (p >= 0.9 || o.kill) && !o.foeLife) screenFlash(red ? "rgba(255,70,60,.5)" : "rgba(255,248,225,.5)", 0.55, 200);
     punchBoard(p);
     // 4) 소리 · 진동
     snd(o.life ? "imp_life" : o.kill ? "imp_kill" : "imp_hit", clamp(0.45 + p * 0.55, 0.4, 1.25));
@@ -343,7 +354,7 @@ const IMPACT = (() => {
     sparks(c.x, c.y, { n: 18, speed: 700, size: 2.6, len: 40, col: col || "#ffb070", g: 800, life: 0.45 });
     sparks(c.x, c.y, { n: 8, speed: 220, size: 3, col: "#ffdf9a", kind: "ember", g: -120, drag: 0.9, life: 0.9 });
     shake(0.42, { x: 0, y: 1 });
-    impactFrame(90);
+    if (TUNE.killFlash) impactFrame(90);   // v3.16.5 끔
     snd("imp_kill", 0.45);   // v3.16.3 묵직한 쿵은 줄이고 파사삭(js/feel.js shatter)이 들리게
     duck(TUNE.duck, 450);
   }

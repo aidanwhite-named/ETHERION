@@ -84,6 +84,15 @@ function declassSpell(s) {
   return { ops, text, changed: true };
 }
 
+/* v3.17.1 상대 "뒤 N칸" → "맨 뒤 N기": 상대 쪽 범위는 상대 대기열의 맨 뒤 N기를 겨냥한다(engine.js pickTargets).
+   data.js · names.js의 글은 옛 표현 그대로 두고 여기서 바꾼다(균형 도구가 data.js를 다시 써도 남도록) */
+function foeBackText(t) {
+  return String(t || "")
+    .replace(/상대 뒤 1칸의 유닛/g, "상대 맨 뒤 유닛")
+    .replace(/상대 뒤 (\d)칸의 유닛은/g, "상대 맨 뒤 $1기는")
+    .replace(/상대 뒤 (\d)칸의 유닛/g, "상대 맨 뒤 $1기");
+}
+
 /* ---------- 카드 만들기 ---------- */
 /* 유지비 상한 (v3.12.7): 유지비는 레벨 − 1까지. 레벨 아이콘(개수 = 레벨) 가운데 유지비만큼이 유지비 칸이라,
    적어도 한 칸은 꽉 찬 소환 칸으로 남아야 한다. 1레벨은 유지비 0뿐. 넘는 카드는 경고하고 상한으로 자른다 */
@@ -102,7 +111,7 @@ for (const s of SIM_SPELLS) {
   const G = GROUPS[s.g];
   const dc = declassSpell(s);
   CARD_LIST.push({ id: s.id, type: s.kind === "com" ? "any" : s.kind, name: s.n, group: s.g, faction: CAMP_TO_FACTION[s.camp], el: G.el,
-    lv: s.lv, up: 0, a: 0, d: 0, h: 0, co: [], ops: dc.ops, cost: s.cost || {}, gain: s.gain || {}, text: dc.text, e: s.e,
+    lv: s.lv, up: 0, a: 0, d: 0, h: 0, co: [], ops: dc.ops, cost: s.cost || {}, gain: s.gain || {}, text: foeBackText(dc.text), e: s.e,
     classSpell: null, anchor: s.anchor || "", limit: s.limit || 0, comeback: !!s.comeback, eB: s.eB, eA: s.eA,
     prevText: "" });   // v1.4.5: 옛 문구(옛 클래스·이름이 들어 있음)는 어디에도 쓰지 않아 비운다. 원문은 data.js의 prevText에만 남는다
 }
@@ -121,7 +130,7 @@ for (const t of (typeof SIM_TOKENS !== "undefined" ? SIM_TOKENS : [])) {
   const G = GROUPS[t.g];
   const base = { id: t.id, name: t.n, group: t.g, faction: G.faction, el: G.el, lv: t.lv, up: 0, tok: true, flavor: t.desc || "" };
   CARDS[t.id] = t.kind
-    ? Object.assign(base, { type: t.kind === "com" ? "any" : t.kind, a: 0, d: 0, h: 0, co: [], ops: t.ops, cost: {}, gain: {}, text: t.text })
+    ? Object.assign(base, { type: t.kind === "com" ? "any" : t.kind, a: 0, d: 0, h: 0, co: [], ops: t.ops, cost: {}, gain: {}, text: foeBackText(t.text) })
     : Object.assign(base, { type: "unit", a: t.a, d: t.d, h: t.h, co: t.co || [], lock: t.lock || null, w: null, rev: "", legend: false, cl: t.cl || TOKEN_CL[t.id] || "무도" });
 }
 
@@ -198,7 +207,7 @@ function itemText(it) {
   return parts.join(" ");
 }
 /* 아이템 능력의 뜻 (v1.4.6: 적힌 숫자를 넣어 그 카드에 맞는 문장으로 보인다. {n} = 능력 이름 뒤의 숫자).
-   문장은 실제 규칙(engine.js)과 같아야 한다: 사격 throwPhase, 투척 attackOne, 마력 공격·관통·치명·연쇄·가시·원거리 attackOne, 가호·보호막 hurt */
+   문장은 실제 규칙(engine.js)과 같아야 한다: 사격 snipeOne, 투척 attackOne, 마력 공격·관통·치명·연쇄·가시·원거리 attackOne, 가호·보호막 hurt */
 const ITEM_KW = {
   "관통": "공격하면, 상대 유닛의 방어가 이번 턴 동안 내 공격력만큼 줄어든다(0까지만).",
   "마력 공격": "공격할 때 상대 방어를 {n}만큼 무시한다. 반격할 때는 적용되지 않는다.",
@@ -206,7 +215,7 @@ const ITEM_KW = {
   "치명": "맞붙어 공격해 피해를 주면, 맞은 유닛이 쓰러지지 않았을 때 남은 체력이 1이 된다.",
   "연쇄": "맞붙어 공격해 상대 유닛을 쓰러뜨리고 피해가 남으면, 남은 피해로 그 뒤의 상대 유닛 하나를 친다(그 유닛의 방어만큼 줄어든다. 마력 공격은 여기에도 적용, 반격은 없다).",
   "투척": "이 아이템을 장착한 그 턴에 한 번, 이 유닛이 공격을 시작할 때 맞선 유닛 말고 다른 상대 유닛 하나의 체력을 함께 {n} 깎는다(쓰러뜨릴 수 있는 유닛 중 레벨이 가장 높은 유닛, 없으면 그다음 맨 앞 유닛). 맞선 유닛뿐이면 그 유닛에게 투척 피해를 먼저 주고 이어서 공격한다.",
-  "사격": "내 공격 턴마다, 맞붙기 전에 상대 유닛 하나의 체력을 {n} 깎는다. 대상: 이 피해로 쓰러뜨릴 수 있는 유닛 중 레벨이 가장 높은 유닛, 없으면 상대의 맨 앞 유닛. 사격으로 상대 유닛이 모두 쓰러지면 이번 전투에서는 아무도 생명을 직접 공격하지 않는다.",
+  "사격": "내 공격 턴에 이 유닛의 차례가 오면, 맞붙기 바로 전에 상대 유닛 하나의 체력을 {n} 깎는다. 대상: 이 피해로 쓰러뜨릴 수 있는 유닛 중 레벨이 가장 높은 유닛, 없으면 상대의 맨 앞 유닛. 사격으로 상대 유닛이 모두 쓰러지면 이번 전투에서는 아무도 생명을 직접 공격하지 않는다.",
   "원거리": "맞붙어 공격해도 상대의 반격을 받지 않는다.",
   "가호": "매 턴 처음 받는 피해를 {n}만큼 줄인다.",
   "보호막 코인": "매 턴 시작에 코인을 던져 앞면이면, 그 턴 처음 받는 피해 한 번을 통째로 막는다.",

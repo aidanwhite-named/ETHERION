@@ -212,3 +212,55 @@
 .float.counter.toll .fl-tag i:last-child { background: linear-gradient(270deg, transparent, #f08c7a); }
 .float.counter.toll .fl-tag i::after { background: linear-gradient(135deg, #ffd6c9, #c8402f 60%, #5e0e08); border-color: #2a0604; }
 .float.counter.toll .fl-tag::before { background: linear-gradient(90deg, transparent, rgba(255, 120, 100, 0) 10%, #ffd0c4 50%, rgba(200, 30, 20, 0) 90%, transparent); filter: blur(.5px) drop-shadow(0 0 6px rgba(255, 60, 40, .9)); }
+
+/* ---------- v3.17.2 코인 창 높이 줄임 (js/game.js coinClash) ----------
+   창이 전장 두 줄의 공·방·체 열을 가렸다. 창마다 글(이름 · 확률 · 봉인 버튼)과 코인(코인 · 결과)을
+   양옆 두 칸으로 놓아 높이를 약 절반으로. 코인 칸은 VS 쪽. 폰(html.mobile) · 좁은 화면은 예전처럼 세로로 쌓는다(.cs-info/.cs-roll = contents) */
+.cs-info, .cs-roll { display: contents; }
+@media (min-width: 761px) {
+  html:not(.mobile) .coinstage { top: 50%; }
+  html:not(.mobile) .cs-side { grid-template-columns: minmax(0, 1fr) auto; align-items: center; align-content: center; column-gap: 14px; padding: 10px 16px 14px; }
+  html:not(.mobile) .cs-right { grid-template-columns: auto minmax(0, 1fr); }
+  html:not(.mobile) .cs-right .cs-roll { order: -1; }
+  html:not(.mobile) .cs-info, html:not(.mobile) .cs-roll { display: grid; justify-items: center; align-content: center; position: relative; min-width: 0; }
+  html:not(.mobile) .cs-info { gap: 4px; }
+  html:not(.mobile) .cs-roll { gap: 2px; }
+  html:not(.mobile) .cs-coins { min-height: 76px; max-width: 280px; gap: 10px; }
+  html:not(.mobile) .cs-res { min-height: 1.3em; font-size: 13px; }
+  html:not(.mobile) .cs-flip { min-height: 0; }
+  html:not(.mobile) .cs-ctl { min-height: 0; gap: 3px 12px; grid-template-columns: auto auto; margin-top: 2px; }
+  html:not(.mobile) .cs-ctl > .cs-stop, html:not(.mobile) .cs-ctl > .cs-cpu-state { grid-column: 1 / -1; }
+  html:not(.mobile) .cs-ctl > .cs-stop { padding: 7px 22px; font-size: 16px; }
+  html:not(.mobile) .cs-sand { bottom: 6px; }
+  html:not(.mobile) .cs-mid { gap: 6px; }
+  html:not(.mobile) .cs-mid::before, html:not(.mobile) .cs-mid::after { height: 30px; }
+}
+
+/* ---------- v3.17.4 다시 굴리기 화면이 잘리던 것 (js/game.js coinClash) ----------
+   v3.17.2에서 .cs-flip이 코인 칸(auto 폭) 안에 있어, 긴 안내가 코인 칸을 300px까지 넓히고 글 칸을 좁혀
+   .cs-ctl의 두 단추(줄바꿈 없음)가 창 밖으로 밀려 잘렸다. 이제 .cs-flip은 .cs-side 바로 아래 줄로 창 폭 전체를 쓰고,
+   다시 굴리기 안내 · 단추 · 체크도 모두 .cs-flip에 들어간다(.cs-ctl은 비움). 폰은 예전처럼 코인 → 안내 → 단추 차례 */
+.cs-flip { display: grid; justify-items: center; gap: 8px; }
+.cs-info > .cs-ctl { order: 1; }   /* 폰(.cs-info = contents): 단추 칸은 코인 · 안내 아래 */
+@media (min-width: 761px) {
+  html:not(.mobile) .cs-side > .cs-flip { grid-column: 1 / -1; }
+  html:not(.mobile) .cs-side > .cs-flip:empty { display: none; }
+  html:not(.mobile) .cs-side > .cs-flip .cf-hint { max-width: 420px; }
+}
+
+/* ---------- v3.17.6 한 창에 코인이 3개 이상이면 코인을 조금 줄인다 (PC만) ----------
+   코인 칸이 넓어져 옆 글 칸(이름 · 공격/방어)이 잘리던 것. 3개: 72 → 60px, 4개 이상: 52px (여러 값 코인 84 → 70 / 62px) */
+@media (min-width: 761px) {
+  html:not(.mobile) .coinstage .cs-coins:has(> .cs-coin:nth-child(3)) { gap: 8px; }
+  html:not(.mobile) .coinstage .cs-coins:has(> .cs-coin:nth-child(3)) > .cs-coin { width: 60px; height: 60px; }
+  html:not(.mobile) .coinstage .cs-coins:has(> .cs-coin:nth-child(3)) > .cs-coin.multi { width: 70px; height: 70px; }
+  html:not(.mobile) .coinstage .cs-coins:has(> .cs-coin:nth-child(3)) .cs-face b { font-size: 17px; }
+  html:not(.mobile) .coinstage .cs-coins:has(> .cs-coin:nth-child(4)) { gap: 6px; }
+  html:not(.mobile) .coinstage .cs-coins:has(> .cs-coin:nth-child(4)) > .cs-coin { width: 52px; height: 52px; }
+  html:not(.mobile) .coinstage .cs-coins:has(> .cs-coin:nth-child(4)) > .cs-coin.multi { width: 62px; height: 62px; }
+  html:not(.mobile) .coinstage .cs-coins:has(> .cs-coin:nth-child(4)) .cs-face b { font-size: 15px; }
+  html:not(.mobile) .coinstage .cs-coins:has(> .cs-coin:nth-child(3)) .cs-coin.multi .cs-face b { font-size: 13px; }
+  html:not(.mobile) .coinstage .cs-coins:has(> .cs-coin:nth-child(3)) .cs-coin.multi .cs-face i { font-size: 11px; }
+  html:not(.mobile) .coinstage .cs-coins:has(> .cs-coin:nth-child(4)) .cs-coin.multi .cs-face b { font-size: 11px; }
+  html:not(.mobile) .coinstage .cs-coins:has(> .cs-coin:nth-child(3)) .cs-tails b { font-size: 11px; }
+}

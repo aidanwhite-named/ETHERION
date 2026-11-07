@@ -17,6 +17,7 @@ const Titans = (() => {
     dragon: [[.035, .07, .045], [.44, .68, .33], [.72, .95, .55]]    /* #6fae55 */
   };
   const QUALITY = [{ ms: 50, scale: .72 }, { ms: 100, scale: .6 }, { ms: 250, scale: .5 }];
+  const LITE_Q = 1;   /* v3.17 연출 '가볍게'(기본)는 QUALITY[1](1초에 10장)부터 */
   const MAT = { smooth: 0, rock: 1, scale: 2, membrane: 3, glow: 4, robe: 5, violet: 7, gem: 8 };   /* 6은 바닥 */
   /* 용 목덜미의 일곱 보석: 머리 쪽부터 대지 · 바람 · 화염 · 물 · 숲 · 금속 · 번개 (가이드 1.2 원소색, 2.15와 같은 순서) */
   const GEM = ["#b88a5a", "#9fe3d6", "#ff6b3d", "#4fb3ff", "#58b85f", "#a9b4c2", "#ffd84a"];
@@ -587,6 +588,7 @@ const Titans = (() => {
       gl = cv.getContext("webgl2", { alpha: true, premultipliedAlpha: true, antialias: false, depth: true, powerPreference: "low-power" });
       if (!gl) { cv = null; return; }
       reduced = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+      if (document.documentElement.classList.contains("fx-lite")) q = LITE_Q;   // v3.17 연출 가볍게: 1초에 10장 · 해상도 낮게부터
       prog = program(VS, FS); progF = program(VS, FS_FLOOR); progD = program(VS, FS_DEPTH);
       /* 그래픽 칩이 느려도 게임은 먼저 뜬다: 컴파일이 끝나면 모형을 하나씩 지어 서서히 나타난다 */
       whenLinked([prog, progF, progD], () => {
@@ -615,6 +617,7 @@ const Titans = (() => {
     },
     /* 지금 품질 단계 (점검용) */
     get quality() { return q; },
+    lite(on) { const q0 = on ? LITE_Q : 0; if (on ? q < q0 : q !== q0) { q = q0; slowSum = slowN = 0; if (cv) resize(); } },   // v3.17 설정 창에서 바꿀 때
     /* Bg.set이 부른다 */
     mode(m) {
       /* v3.5.9: 전장("off")에서는 아예 그리지 않는다 — 캔버스를 숨기고 그리기 고리를 멈춘다. 다른 화면으로 나가면 다시 그린다 */

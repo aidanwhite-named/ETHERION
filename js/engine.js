@@ -207,7 +207,9 @@ function pickTargets(X, caster, side, area, k) {
   let out = [];
   for (const P of pools) {
     let L = liveUnits(P);
-    if (area.t === "back") L = L.filter(u => { const c = colOf(P, u); return c > k && c <= k + area.n; });
+    if (area.t === "back") L = P === theirs   // v3.17.1: 상대 쪽 "뒤 N"은 상대 대기열의 맨 뒤 N기 (마법을 놓은 칸과 상관없음)
+      ? queueOf(P).slice(-area.n)
+      : L.filter(u => { const c = colOf(P, u); return c > k && c <= k + area.n; });   // 아군 쪽은 그대로: 이 마법이 놓인 칸 다음부터 N칸
     else if (area.t === "front") L = queueOf(P).slice(0, area.n);
     else if (area.t === "maxA") L = L.slice().sort((x, y) => y.t.a - x.t.a || C(y).lv - C(x).lv || colOf(P, x) - colOf(P, y)).slice(0, area.n);
     else if (area.t === "minH") L = L.slice().sort((x, y) => hpLeft(x) - hpLeft(y) || C(x).lv - C(y).lv || colOf(P, x) - colOf(P, y)).slice(0, area.n);   // v3.11 남은 체력이 가장 낮은 n기
@@ -319,25 +321,21 @@ function throwTarget(D, n, foes) {
   const kill = foes.filter(f => !f.t.shield && hpLeft(f) <= n - (f.t.wardUsed ? 0 : f.t.ward)).sort((a, b) => C(b).lv - C(a).lv)[0];
   return kill || queueOf(D).find(f => foes.includes(f));
 }
-/* [사격]: 공격 턴마다 맞붙기 전에 상대 유닛 하나에게 방어 무시 피해.
+/* [사격]: 공격 턴에 이 유닛의 차례가 오면, 맞붙기 바로 전에 상대 유닛 하나에게 방어 무시 피해.
+   v3.17.5 예전에는 전투가 시작되자마자 모든 사격 유닛이 한꺼번에 쐈다(앞 칸 유닛이 싸우기도 전에). 이제 자기 칸 차례에 쏜다.
    v1.6.2: [투척]은 여기서 빠지고, 그 유닛이 공격을 시작할 때 함께 던진다 (attackOne) */
-function throwPhase(X) {
+function snipeOne(X, u) {
   const A = X.P[X.ai], D = X.P[1 - X.ai];
-  // v3.12.4 사격이 상대 유닛을 모두 쓰러뜨리면 X.sniped: 이번 전투에서는 직접 공격(생명 피해)을 하지 않는다 (attackOne)
-  const had = liveUnits(D).length > 0;
-  try { throwOnce(X, A, D); } finally { if (had && !liveUnits(D).length) X.sniped = true; }
-}
-function throwOnce(X, A, D) {
-  for (const u of liveUnits(A)) {
-    const sn = abilOf(u).snipe; if (!sn || u.t.rest) continue;
-    const foes = liveUnits(D); if (!foes.length) return;
-    const tg = throwTarget(D, sn, foes);
-    fl(X, tg.uid, "◎ " + C(tg).name, "aim");   // v3.9.11 겨눌 때 대상 이름을 카드 위에 띄운다 (맞고 부서져 칸이 당겨져도 무엇을 맞혔는지 보이게)
-    step(X, { act: u.uid, tgt: tg.uid, sn: 1 }, 380);   // sn: 화면이 [사격] 소리를 고르는 표시 (규칙과 무관)
-    lg(X, `${C(u).name}의 [사격 ${sn}] → ${C(tg).name}`);
-    hurt(X, tg, sn, "사격");
-    step(X, { act: u.uid, tgt: tg.uid, hit: true, sn: 1 }, 520);
-  }
+  const sn = abilOf(u).snipe; if (!sn || u.t.rest || !u.t.alive) return;
+  const foes = liveUnits(D); if (!foes.length) return;
+  const tg = throwTarget(D, sn, foes);
+  fl(X, tg.uid, "◎ " + C(tg).name, "aim");   // v3.9.11 겨눌 때 대상 이름을 카드 위에 띄운다 (맞고 부서져 칸이 당겨져도 무엇을 맞혔는지 보이게)
+  step(X, { act: u.uid, tgt: tg.uid, sn: 1 }, 380);   // sn: 화면이 [사격] 소리를 고르는 표시 (규칙과 무관)
+  lg(X, `${C(u).name}의 [사격 ${sn}] → ${C(tg).name}`);
+  hurt(X, tg, sn, "사격");
+  step(X, { act: u.uid, tgt: tg.uid, hit: true, sn: 1 }, 520);
+  // v3.12.4 사격이 남은 상대 유닛을 모두 쓰러뜨리면 X.sniped: 이번 전투에서는 직접 공격(생명 피해)을 하지 않는다 (attackOne)
+  if (!liveUnits(D).length) X.sniped = true;
 }
 
 function attackOne(X, Au) {
@@ -491,14 +489,16 @@ function runCombatCore(X) {
     }
   };
   fire(false);
-  if (!dead()) { throwPhase(X); sweep(); }
   // v1.4: 공격 순서를 그때그때 다시 읽는다 — 마법이 부른 유닛도 차례가 오면 공격한다
   for (;;) {
     if (dead()) break;
     const Au = A.field.find(u => isUnit(u) && u.t.alive && !acted.has(u));
     if (!Au) break;
     acted.add(Au);
-    if (!Au.t.rest) { attackOne(X, Au); sweep(); }
+    if (!Au.t.rest) {
+      if (abilOf(Au).snipe) { snipeOne(X, Au); sweep(); if (dead()) break; }   // v3.17.5 [사격]은 자기 차례에, 맞붙기 바로 전에
+      if (Au.t.alive) { attackOne(X, Au); sweep(); }
+    }
     fire(false);
   }
   if (dead()) { lg(X, "생명이 다해 전투가 그 자리에서 끝났다", "bad"); step(X, {}, 300); return X.direct; }

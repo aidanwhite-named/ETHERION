@@ -934,6 +934,8 @@ async function showSettings() {
   const html = `<h3>설정</h3>
     <p class="pick-label">연출 속도 <small class="muted">— 전투 장면·카드 이동·띠 모두 같이 빨라지거나 느려집니다 (전투 중에도 바꿀 수 있음)</small></p>
     <div class="speed set-speed">${SPEEDS.map(s => `<button type="button" class="btn xs ${G && G.speed === s ? "on" : ""}" data-sp="${s}">×${s}</button>`).join("")}</div>
+    <p class="pick-label">연출 <small class="muted">— 가볍게: 컴퓨터 부담을 줄인 연출(흐림 · 빛 그림자 줄임, 파편 적게, 타이틀 배경 덜 그림). 화려하게: 예전 연출 그대로</small></p>
+    <div class="speed set-fx">${[["lite", "가볍게"], ["rich", "화려하게"]].map(([v, n]) => `<button type="button" class="btn xs ${Prefs.get("fx", "lite") === v ? "on" : ""}" data-fx="${v}">${n}</button>`).join("")}</div>
     <p class="pick-label">전장 배경 <small class="muted">— 대전 화면의 배경 일러스트</small></p>
     <div class="speed set-battle-bg">${[["default", "칠룡환 (기본)"], ["war", "3파전 (거인·용·신)"], ["random", "무작위"]].map(([v, n]) => `<button type="button" class="btn xs ${curBg === v ? "on" : ""}" data-bbg="${v}">${n}</button>`).join("")}</div>
     <p class="pick-label">효과음 <small class="muted">— 누르기·놓기·맞기 소리 (파일 없이 합성, 터치 기기에서는 짧은 진동)</small></p>
@@ -952,6 +954,8 @@ async function showSettings() {
         w.querySelectorAll("[data-bbg]").forEach(x => x.classList.toggle("on", x.dataset.bbg === bbg.dataset.bbg));
         applyBattleBg();
       }
+      const fx = e.target.closest("[data-fx]");
+      if (fx) { Prefs.set("fx", fx.dataset.fx); if (typeof applyFx === "function") applyFx(fx.dataset.fx); if (typeof Titans !== "undefined" && Titans.lite) Titans.lite(fx.dataset.fx !== "rich"); w.querySelectorAll("[data-fx]").forEach(x => x.classList.toggle("on", x.dataset.fx === fx.dataset.fx)); }
       const f = e.target.closest("[data-sfx]");
       if (f && typeof FEEL !== "undefined") { FEEL.setLevel(f.dataset.sfx); w.querySelectorAll("[data-sfx]").forEach(x => x.classList.toggle("on", x.dataset.sfx === FEEL.level)); }
       const m = e.target.closest("[data-bgm]");
@@ -1266,12 +1270,12 @@ function coinClash(info) {
       return `<div class="cs-prob${c0.clean ? " is-zero" : ""}" title="코인이 앞면으로 나올 확률">코인 확률 ${body}</div>`;
     };
     const sideHTML = (sd, pos) => `<div class="cs-side cs-${sd.who} cs-${pos} ${sd.human ? "cs-human" : "cs-cpu"}${sd.coins.length ? "" : " no-coin"}" style="--cs-limit:${COIN_LIMIT_MS}ms">
-      <div class="cs-banner">${esc(G.players[sd.p].name)}</div>
+      <div class="cs-info"><div class="cs-banner">${esc(G.players[sd.p].name)}</div>
       <div class="cs-who"><i>${statIco(sd.who === "a" ? "a" : "d")}</i>${esc(C(sd.u).name)}<small>${sd.who === "a" ? "공격" : "방어"}</small></div>
       ${probHTML(sd)}
-      <div class="cs-coins">${sd.groups.length ? sd.groups.map((o, i) => coinHTML(sd, o, i)).join("") : `<div class="cs-none">코인 없음</div>`}</div>
-      <div class="cs-res"></div><div class="cs-flip"></div>
-      <div class="cs-ctl">${ctlHTML(sd)}</div>
+      <div class="cs-ctl">${ctlHTML(sd)}</div></div>
+      <div class="cs-roll"><div class="cs-coins">${sd.groups.length ? sd.groups.map((o, i) => coinHTML(sd, o, i)).join("") : `<div class="cs-none">코인 없음</div>`}</div>
+      <div class="cs-res"></div></div><div class="cs-flip"></div>
       ${sd.coins.length ? `<div class="cs-sand"><i></i></div>` : ""}</div>`;
     const st = document.createElement("div");
     st.className = "coinstage";
@@ -1408,10 +1412,12 @@ function coinClash(info) {
           pickCoin(sd, best);
           const negs = tails.filter(i => coinNeg(sd.groups[i])).length;
           const what = !negs ? "뒷면 코인을" : negs === tails.length ? "앞면이 나온 <b class=\"neg\">− 코인</b>을" : "뒷면 + 코인 · 앞면 − 코인을";
-          box.innerHTML = tails.length > 1
+          /* v3.17.4 안내 · 두 단추 · 체크는 .cs-flip 한 칸에 (창 폭 전체를 쓰는 줄). 예전처럼 .cs-ctl에 넣으면 v3.17.2의 좁은 글 칸에서 단추가 잘렸다 */
+          ctl.innerHTML = "";
+          box.innerHTML = (tails.length > 1
             ? `<span class="cf-hint"><i class="cf-eth"></i>${what} <b>에테르 1</b>로 다시 굴릴 수 있습니다. 굴릴 코인은 눌러서 바꿉니다 <small>(남은 에테르 ${ether(p)} · 한 번)</small></span>`
-            : `<span class="cf-hint"><i class="cf-eth"></i>${what} <b>에테르 1</b>로 다시 굴릴 수 있습니다 <small>(남은 에테르 ${ether(p)} · 한 번)</small></span>`;
-          ctl.innerHTML = `<div class="cs-choice"><button type="button" class="btn primary cs-stop cs-reflip" data-side="${sd.who}"><span><i class="cf-eth"></i>다시 굴리기</span><small>에테르 1 · R</small></button>`
+            : `<span class="cf-hint"><i class="cf-eth"></i>${what} <b>에테르 1</b>로 다시 굴릴 수 있습니다 <small>(남은 에테르 ${ether(p)} · 한 번)</small></span>`)
+            + `<div class="cs-choice"><button type="button" class="btn primary cs-stop cs-reflip" data-side="${sd.who}"><span><i class="cf-eth"></i>다시 굴리기</span><small>에테르 1 · R</small></button>`
             + `<button type="button" class="btn ghost cs-stop cs-pass" data-side="${sd.who}">굴리지 않고 넘어가기<small>에테르 안 씀 · Space · Enter</small></button></div>`
             + `<label class="cs-auto cs-noflip"><input type="checkbox"> 이제 묻지 않기</label>`;
         } else if (G.online) {
@@ -1546,7 +1552,7 @@ function shatterCard(b) {
     return;
   }
   burst(c.x, c.y, "burn", W * 1.2);
-  const lite = document.documentElement.classList.contains("mobile");
+  const lite = fxLite();   // v3.17 가볍게(PC 포함)도 조각 수를 줄임
   const TAU = Math.PI * 2, rnd = (a, z) => a + Math.random() * (z - a);
   // 맞은 자리(금의 중심): 가운데 근처에서 조금씩 다르게
   const P = { x: W * rnd(0.36, 0.64), y: H * rnd(0.34, 0.62) };
@@ -1640,17 +1646,17 @@ function fieldCardHTML(it, p, s) {
   if (isUnit(it) && it.t && !it.t.alive) cls.push("dying");
   let badges = "";
   if (isUnit(it) && it.t) {
-    if (it.t.shield) badges += '<span class="bd bd-shield" title="보호막">◈</span>';
-    if (it.t.taunt) badges += `<span class="bd bd-guard" title="수호">${statIco("d")}</span>`;
-    if (it.t.lock) badges += '<span class="bd bd-lock" title="저주 면역: 이번 턴 방어가 바뀌지 않음 (피해는 받음)">⚓</span>';
-    if (it.t.thorns) badges += `<span class="bd bd-thorn" title="가시">✶${it.t.thorns}</span>`;
-    if (it.t.rest) badges += '<span class="bd bd-rest" title="이번 턴 행동 불가">✖</span>';
-    if (c.tok) badges += `<span class="bd bd-tok" title="마법이 부른 유닛${it.tokTemp ? " · 이번 턴만" : ""}">✧</span>`;
-    if (it.t.endure) badges += '<span class="bd bd-shield" title="불굴: 이번 턴 쓰러질 피해를 처음 받으면 체력 1로 버틴다">✚</span>';   // v3.11
-    if (it.t.pierce) badges += '<span class="bd bd-thorn" title="꿰뚫기: 맞선 유닛 바로 뒤의 유닛도 같은 공격을 받는다">➶</span>';   // v3.11
-    if (it.t.stolen) badges += '<span class="bd bd-tok" title="빼앗은 유닛 · 전투가 끝나면 흩어져 원래 주인의 소각장으로">☾</span>';   // v3.11
-    if (c.lock) badges += `<span class="bd bd-lock" title="저주 면역: ${Object.keys(c.lock).map(k => STAT_KO[k]).join("·")}은(는) 깎이지 않음 (피해는 받음)">${Object.keys(c.lock).map(k => STAT_KO[k][0]).join("")}*</span>`;
-    if (it.mod && !(FX.curse && FX.curse.has(it.uid))) badges += `<span class="bd bd-mod" title="이 카드에 걸린 변화 (이 판 내내)${(it.modBy || []).filter(m => m.src).map(m => " · 「" + esc(m.src) + "」").join("")}">${Object.keys(it.mod).filter(k => it.mod[k]).map(k => STAT_KO[k][0] + sgnNum(it.mod[k])).join(" ")}</span>`;
+    if (it.t.shield) badges += `<span class="bd bd-shield" data-tip="◈ 보호막\n${esc(SPELL_KW["보호막"])}">◈</span>`;
+    if (it.t.taunt) badges += `<span class="bd bd-guard" data-tip="수호\n${esc(SPELL_KW["수호"])}">${statIco("d")}</span>`;
+    if (it.t.lock) badges += '<span class="bd bd-lock" data-tip="⚓ 저주 면역\n이번 턴 방어가 바뀌지 않는다 (피해는 받는다)">⚓</span>';
+    if (it.t.thorns) badges += `<span class="bd bd-thorn" data-tip="${esc(`✶${it.t.thorns} 가시 ${it.t.thorns}\n${itemKwDesc("[가시 " + it.t.thorns + "]")}\n유닛 · 장착한 아이템 · 마법에서 받은 가시를 합친 값`)}">✶${it.t.thorns}</span>`;
+    if (it.t.rest) badges += '<span class="bd bd-rest" data-tip="✖ 행동 불가\n이번 턴에는 공격하지 못한다">✖</span>';
+    if (c.tok) badges += `<span class="bd bd-tok" data-tip="✧ 마법이 부른 유닛${it.tokTemp ? "\n이번 턴만 전장에 있다" : ""}">✧</span>`;
+    if (it.t.endure) badges += `<span class="bd bd-shield" data-tip="✚ 불굴\n${esc(SPELL_KW["불굴"])}">✚</span>`;   // v3.11
+    if (it.t.pierce) badges += `<span class="bd bd-thorn" data-tip="➶ 꿰뚫기\n${esc(SPELL_KW["꿰뚫기"])}">➶</span>`;   // v3.11
+    if (it.t.stolen) badges += '<span class="bd bd-tok" data-tip="☾ 빼앗은 유닛\n전투가 끝나면 흩어져 원래 주인의 소각장으로 간다">☾</span>';   // v3.11
+    if (c.lock) badges += `<span class="bd bd-lock" data-tip="저주 면역\n${Object.keys(c.lock).map(k => STAT_KO[k]).join("·")}은(는) 깎이지 않음 (피해는 받음)">${Object.keys(c.lock).map(k => STAT_KO[k][0]).join("")}*</span>`;
+    if (it.mod && !(FX.curse && FX.curse.has(it.uid))) badges += `<span class="bd bd-mod" data-tip="이 카드에 걸린 변화\n이 판 내내 남는다${(it.modBy || []).filter(m => m.src).map(m => "\n「" + esc(m.src) + "」").join("")}">${Object.keys(it.mod).filter(k => it.mod[k]).map(k => STAT_KO[k][0] + sgnNum(it.mod[k])).join(" ")}</span>`;
   }
   const live = isUnit(it) && it.t ? { a: it.t.a, d: it.t.d, h: Math.max(0, hpLeft(it)), max: it.t.h } : null;
   const cq = live && FX.curse && FX.curse.get(it.uid);   // v3.9.10 저주 발동 연출 전: 아직 깎이지 않은 값
@@ -2482,6 +2488,7 @@ function shakeEl(el, px) {
   el.classList.add("struck");
 }
 /* 잔상: 움직이는 캐릭터 뒤로 흐릿한 그림자를 남긴다 */
+const fxLite = () => document.documentElement.classList.contains("fx-lite") || document.documentElement.classList.contains("mobile");   // v3.17 설정 '연출: 가볍게'
 function trail(sp, ms) {
   const layer = fxLayer(); if (!layer) return;
   const t0 = performance.now();
@@ -2494,7 +2501,7 @@ function trail(sp, ms) {
     g.innerHTML = sp.innerHTML;
     layer.appendChild(g);
     setTimeout(() => g.remove(), 320);
-  }, 42);
+  }, fxLite() ? 90 : 42);   // v3.17 가볍게: 잔상 절반
 }
 
 /* ---------- 전투 연출: 카드 속 캐릭터가 뛰쳐나가 상대를 친다 ---------- */
@@ -2580,7 +2587,7 @@ function strikeHit(actUid, tgt, dur, kind) {
   atkSfx(actUid, "hit", isLife ? 1.1 : 1, kind);   // v3.7.1 공격 종류에 맞는 소리
   if (isLife) sfx("hitBig", 0.7);
   // v3.14 타격감: 번쩍 · 밀려남 · 충격파 · 트라우마 흔들림 · 바닥 소리. 히트 스톱 길이는 세기(피해 · 쓰러짐 · 치명)를 따른다
-  const hs = typeof IMPACT !== "undefined" ? IMPACT.strike(uidEl(actUid), hitEl, Object.assign({ col, life: isLife }, impInfo(tgt))) : (shakeScreen(isLife ? 14 : 6), FT.hitStop * kSpeed());
+  const hs = typeof IMPACT !== "undefined" ? IMPACT.strike(uidEl(actUid), hitEl, Object.assign({ col, life: isLife, foeLife: isLife && hitEl.classList.contains("pv-top") }, impInfo(tgt))) : (shakeScreen(isLife ? 14 : 6), FT.hitStop * kSpeed());
   if (!s) return;
   s.an.cancel();
   // 맞는 순간 아주 잠깐 멈칫(히트 스톱): 캐릭터를 맞은 자리에 붙잡아 두었다가 튕겨 나간다
@@ -2674,6 +2681,15 @@ function arenaArt(uid, kind, ms) {
   layer.appendChild(a); FX.arena = a;
   ms = Math.max(700, ms);
   const dir = kind === "counter" ? -1 : 1;
+  if (fxLite()) {   // v3.17 가볍게: 흐림 필터 없이 투명도 · 크기만 (큰 그림에 흐림을 매 프레임 다시 걸던 것이 공격 연출에서 가장 무거웠다)
+    a.animate([
+      { opacity: 0, transform: `translate(-50%, -50%) scale(.7) rotate(${-6 * dir}deg)` },
+      { opacity: 0.3, transform: "translate(-50%, -50%) scale(1) rotate(0deg)", offset: 0.3 },
+      { opacity: 0.26, transform: "translate(-50%, -50%) scale(1.05) rotate(0deg)", offset: 0.72 },
+      { opacity: 0, transform: `translate(-50%, -50%) scale(1.18) rotate(${4 * dir}deg)` }
+    ], { duration: ms, easing: "ease-in-out", fill: "forwards" }).onfinish = () => { a.remove(); if (FX.arena === a) FX.arena = null; };
+    return;
+  }
   const an = a.animate([
     { opacity: 0, transform: `translate(-50%, -50%) scale(.6) rotate(${-6 * dir}deg)`, filter: "blur(18px)" },
     { opacity: 0.42, transform: "translate(-50%, -50%) scale(1) rotate(0deg)", filter: "blur(3px)", offset: 0.3 },
@@ -3302,7 +3318,7 @@ function showRules() {
     <li><b>전투</b> — 공격 유닛이 1번 칸부터 차례로 상대의 맨 앞 유닛과 싸웁니다. <b>맞붙을 때마다 공격하는 유닛의 코인을 던집니다</b>(앞면 50%). <b>방어하는 유닛의 코인은 그 전투에서 처음 맞붙을 때 한 번만</b> 던지고, 전투가 끝날 때까지 그 결과를 그대로 씁니다. <b>한 번 정해진 코인은 마법으로도 바뀌지 않습니다</b>(코인 뒷면 · 운명은 아직 던지지 않은 코인에만). 유닛의 공격·방어·체력 코인은 순번이 같으면 동전 하나라 함께 앞·뒷면이 됩니다(공격 2개·방어 1개면 동전 2개). 장착한 아이템의 코인도 함께 세고, 동전은 최대 5개입니다. 내 코인은 내가 <b>"운명 봉인"</b>으로, 상대 코인은 상대가 세웁니다(5초가 지나면 저절로 멈춤). 양쪽이 멈추면 나온 대로 스탯이 바뀐 뒤 공격 → 반격이 이어집니다. 피해 = 공격 − 방어(최소 0). 쓰러진 유닛과 쓴 마법은 그 자리에서 부서지고 남은 카드는 바로 왼쪽으로 당겨집니다. 피해는 그 턴 안에서만 쌓이고, 턴이 끝나면 회복됩니다.</li>
     <li><b>코인 뒤집기</b> — 코인이 멈춘 뒤, 내 유닛의 <b>뒷면 코인</b>(− 코인은 <b>앞면 코인</b>)<b>을 누르면 에테르 1</b>을 내고 그 코인만 다시 던집니다. 맞붙을 때마다 한 번(이미 정해진 방어 코인은 다시 던질 수 없음). 준비 단계에서 남겨 둔 에테르를 여기에 씁니다 (남은 에테르는 다음 턴으로 넘어가지 않습니다).</li>
     <li><b>멀리건</b> — 경기 시작 때 한 번, 시작 핸드에서 고른 카드를 덱에 되돌리고 같은 장수를 새로 뽑습니다. 생명은 줄지 않습니다.</li>
-    <li><b>마법 발동</b> — 마법도 대기열의 한 자리입니다. "뒤 N칸"은 마법이 놓인 칸 다음부터 N칸입니다.</li>
+    <li><b>마법 발동</b> — 마법도 대기열의 한 자리입니다. "상대 맨 뒤 N기"는 상대 대기열의 끝에서 N기, "아군 뒤 N칸"은 마법이 놓인 칸 다음부터 N칸입니다.</li>
     <li><b>마법 피해와 물리 피해</b> — 마법의 "피해"는 방어를 무시하고 체력을 깎습니다. "물리 피해"는 공격처럼 방어를 거칩니다(피해 − 방어). 마법이 부른 유닛의 공격도 물리입니다.</li>
     <li><b>소환 · 메아리</b> — 소환 마법은 부서지며 그 칸에 유닛을 부르고, 공격 턴이면 차례가 왔을 때 그 유닛도 공격합니다("이번 턴만"은 전투가 끝나면 사라짐). 메아리 마법은 작은 마법을 불러 이어서 발동합니다. 부른 유닛은 부서져도 카드가 남지 않습니다.</li>
     <li><b>계략 마법</b> — 핸드를 겨냥하는 마법. 공격·방어 준비 어느 때나, 칸 없이 내는 즉시 발동하고 소각 더미로 갑니다. 핸드 카드에 건 스탯 변화는 그 카드가 전장에 나와도 이 판 내내 남습니다.</li>

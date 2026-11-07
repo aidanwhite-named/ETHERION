@@ -57,3 +57,6 @@
    글자 · 카드가 잘 읽히게 위에 어두운 막을 덮는다 */
 .screen-editor > .ed-art { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: #07080d url("../img/title/title_art.jpg") center / cover no-repeat; }
 .screen-editor > .ed-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7, 8, 13, .55), rgba(7, 8, 13, .7)); }
+
+/* v3.17 연출 '가볍게'(기본, js/impact.js applyFx): 타이틀 그림이 60초 동안 아주 천천히 커지는 움직임은 뺀다(화면 전체를 1초에 60번 다시 합성하던 것) */
+html.fx-lite .t-art { animation: artIn 1.8s ease-out both; }

@@ -2,7 +2,8 @@
    - 타이틀 · 입장 화면(배경 "title"): audio/bgm/title — 약 50초짜리 짧은 곡을 이어서 반복
    - 대기실 · 교역소 · 덱 조정실 · 원정 · 보관소(배경 "calm"): 아홉 단체 테마(audio/bgm/flag_<단체ID>)를 무작위로 이어 튼다.
      방금 나온 세 곡은 다시 고르지 않는다. 곡이 끝나기 4초 전부터 다음 곡과 겹쳐 넘어간다
-   - 대전(배경 "off"): v3.9.1부터 대전 곡 둘(audio/bgm/bgm_reminiscence · bgm_long_ago)을 번갈아 이어 튼다(끝나기 4초 전부터 겹쳐 넘어감).
+   - 대전(배경 "off"): 대전 곡 다섯(audio/bgm/bgm_reminiscence · bgm_long_ago, v3.17 bgm_last_oath · bgm_ashen_banner · bgm_fallen_star)을
+     무작위로 이어 튼다. 방금 나온 두 곡은 다시 고르지 않는다(끝나기 4초 전부터 겹쳐 넘어감).
      대전이 끝나 대기실로 돌아오면 단체 테마 새 곡으로 다시 시작. (예전에는 대전에서 멈춰서, ♪를 켜도 소리가 안 났다)
    - 화면 바뀜은 Bg.set(배경 모드)을 감싸서 안다(js/screens.js를 고치지 않음). 그래서 이 파일은 screens.js 뒤에 읽는다
    - 음량: 설정에서 끄기 / 작게 / 보통 (localStorage etherion.pref.bgm, 기본 보통). 효과음 설정과 따로
@@ -20,11 +21,11 @@
 
 const BGM = {
   dir: "audio/bgm/",
-  ver: "o4",          // 음원을 바꾸면 올린다(브라우저가 옛 파일을 기억하지 않게) — v3.9.13 오케스트라판
+  ver: "o5",          // 음원을 바꾸면 올린다(브라우저가 옛 파일을 기억하지 않게) — v3.17 대전 곡 셋 더함
   titleTrack: "title",
   flags: ["B1", "B2", "B3", "G1", "G2", "G3", "A1", "A2", "A3"],
-  battleTracks: ["bgm_reminiscence", "bgm_long_ago"],
-  battleIdx: -1,
+  battleTracks: ["bgm_reminiscence", "bgm_long_ago", "bgm_last_oath", "bgm_ashen_banner", "bgm_fallen_star"],
+  battleRecent: [],    // v3.17 방금 나온 대전 곡(두 곡까지) — 다시 고르지 않는다
   vol: { off: 0, low: 0.22, mid: 0.5, user: 0.5 },
   MAXV: 0.8,           // 슬라이더 100일 때의 실제 음량
   level: "mid",
@@ -81,9 +82,11 @@ const BGM = {
   },
 
   pick(scene) {
-    if (scene === "battle") {   // 대전 곡: 처음은 무작위, 그다음부터 번갈아
-      this.battleIdx = this.battleIdx < 0 ? Math.floor(Math.random() * this.battleTracks.length) : (this.battleIdx + 1) % this.battleTracks.length;
-      return this.battleTracks[this.battleIdx];
+    if (scene === "battle") {   // 대전 곡: 무작위, 방금 나온 두 곡은 건너뜀 (v3.17)
+      const pool = this.battleTracks.filter(n => !this.battleRecent.includes(n));
+      const n = pool[Math.floor(Math.random() * pool.length)];
+      this.battleRecent.push(n); if (this.battleRecent.length > 2) this.battleRecent.shift();
+      return n;
     }
     const pool = this.flags.filter(g => !this.recent.includes(g));
     const g = pool[Math.floor(Math.random() * pool.length)];
