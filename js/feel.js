@@ -6,7 +6,11 @@
    - v3.7.2 메뉴 · 창 소리(FEEL_UI, 이 파일 맨 아래): 메뉴 단추 · 카드 · 덱 고르기 · 창 열고 닫기에 묵직한 쇠 소리("철크럭")를
      저절로 붙인다. 다른 코드가 이미 소리를 냈으면 겹쳐 내지 않는다(FEEL.lastAny)
    - v3.7.1 코인 앞면은 쇠 동전 소리(ring: 어긋난 배음 + 맥놀이). 카드가 카드를 칠 때는 공격 종류(ATK_SND, 이 파일 아래)에 맞는
-     소리를 낸다: 찢기·베기·찍기·찌르기·후려치기·때리기·내려치기·쇠 타격·사격·폭발·바람·번개·물·어둠·빛·대지 */
+     소리를 낸다: 찢기·베기·찍기·찌르기·후려치기·때리기·내려치기·쇠 타격·사격·폭발·바람·번개·물·어둠·빛·대지
+   - v3.8 고르기 · 누르기 · 집기 · 놓기 · 장착 · 메뉴 · 창 소리를 쇠가 쇠에 닿고 긁히는 소리로 바꿈: 낮은 몸통(사인 쿵)을 높이고 줄이고,
+     쇠 울림 clang(어긋난 배음 + 맥놀이)과 쇠 마찰 scrape(붙었다 미끄러지는 잡음을 좁은 띠로 거름)를 앞에 둔다.
+   - v3.8.1 더 날카롭고 쫀득하게: 맨 앞에 snap(0.5ms 만에 솟는 짝 + 뚝 떨어지는 딸깍), 쇠 울림 꼬리 약 절반, 석조 울림 절반.
+     공격 · 마법 · 부서짐 소리는 그대로 */
 "use strict";
 
 const FEEL = {
@@ -80,109 +84,121 @@ const FEEL = {
     if (this.last[name] && now - this.last[name] < 45) return;
     this.last[name] = now;
     const ac = this.ctx(); if (!ac) return;
-    const out = ac.createGain(); out.gain.value = lv * (v == null ? 1 : v); out.connect(ac.destination);
+    const out = ac.createGain(); out.gain.value = lv * (v == null ? 1 : v) * (this.TRIM[name] || 1); out.connect(ac.destination);
     if (this.HALL[name]) { const send = ac.createGain(); send.gain.value = this.HALL[name]; out.connect(send).connect(this.hall(ac)); }   // v3.7.2 석조 전당 울림
     const t = ac.currentTime + 0.002;
     const j = pj || 1;   // v3.7.1 높이 배율 (공격 소리: 레벨이 높을수록 낮고 무겁게, 칠 때마다 조금씩 다르게)
     switch (name) {
-      case "select":   // 핸드 고르기 (v3.7.2 묵직하게): 낮은 탁 + 쇠 닿는 짧은 척 + 장갑 쇠마디의 작은 울림
-        this.tone(ac, out, t, 240, 118, 0.075, "sine", 0.1);
-        this.noise(ac, out, t, 0.014, 3200, 1.8, 0.055);
-        this.bell(ac, out, t + 0.003, 980, 0.09, 0.014, [1, 2.76], [1, 0.4]); break;
-      case "unselect": // 풀기: 한 음 낮게
-        this.tone(ac, out, t, 190, 95, 0.07, "sine", 0.09);
-        this.noise(ac, out, t, 0.014, 2400, 1.8, 0.045);
-        this.bell(ac, out, t + 0.003, 740, 0.08, 0.012, [1, 2.76], [1, 0.4]); break;
+      /* ---------- v3.8 손으로 하는 소리는 쇠가 쇠에 닿고 스치는 소리로: 낮은 몸통은 줄이고(높이 ↑ · 크기 ↓),
+         어긋난 배음의 쇠 울림(clang)과 쇠끼리 긁히는 마찰(scrape)을 앞에 둔다
+         v3.8.1 더 날카롭고 쫀득하게: 맨 앞에 짝 달라붙는 snap(0.5ms 만에 솟는 높은 짝 + 높이가 뚝 떨어지는 딸깍),
+         쇠 울림은 짧게 끊고(꼬리 약 절반), 석조 울림도 절반으로 줄여 소리가 퍼지지 않고 붙는다 ---------- */
+      /* v3.11.1 카드 고르기는 맑고 경쾌한 쇠 방울 소리로(예전 "짝-칭"은 둔탁했다): 낮은 몸통(사인 쿵) · 긁힘을 빼고,
+         작은 방울 몇 개가 찰랑 흔들린 뒤(jingle) 맑은 종이 팅(chime). 높이는 칠 때마다 조금씩 다르다 */
+      case "select": { // 핸드 고르기 "찰랑-팅"
+        const r = 0.97 + Math.random() * 0.06;
+        this.jingle(ac, out, t, 3, 4600 * r, 0.022, 0.016);
+        this.chime(ac, out, t + 0.03, 1760 * r, 0.42, 0.05); break; }
+      case "unselect": { // 풀기: 낮게 · 짧게 "찰-통"
+        const r = 0.97 + Math.random() * 0.06;
+        this.jingle(ac, out, t, 2, 3800 * r, 0.018, 0.012);
+        this.chime(ac, out, t + 0.022, 1318 * r, 0.26, 0.04); break; }
 
-      case "handHover": { // v3.7.2 핸드 카드 위에 마우스가 오름: 두꺼운 카드가 스치는 낮은 스윽 (훑고 지나가면 장마다 조금씩 다른 높이)
+      case "handHover": { // 핸드 카드 위에 마우스가 오름: 아주 작은 쇠 틱 (훑고 지나가면 장마다 조금씩 다른 높이)
         const j = 0.92 + Math.random() * 0.16;
-        this.noise(ac, out, t, 0.055, 1700 * j, 1.2, 0.04, 850 * j);
-        this.tone(ac, out, t + 0.006, 190 * j, 120 * j, 0.06, "sine", 0.045);
-        this.bell(ac, out, t + 0.01, 1180 * j, 0.05, 0.005, [1, 2.76], [1, 0.4]); break; }
+        this.snap(ac, out, t, 3000 * j, 0.015);
+        this.clang(ac, out, t, 2000 * j, 0.035, 0.008, 4, 0); break; }
 
-      /* ---------- v3.7.2 메뉴 · 창 소리: 경박하지 않게, 갑옷과 쇠 걸쇠처럼 묵직하게 ---------- */
-      case "ui_click": // 메뉴 단추 "척": 몸통 쿵 + 쇠 닿는 순간 + 짧은 쇠 울림 + 걸쇠가 맞물리는 끝
-        this.tone(ac, out, t, 165, 62, 0.13, "sine", 0.17);
-        this.noise(ac, out, t, 0.018, 2900, 1.6, 0.085);
-        this.bell(ac, out, t + 0.004, 520, 0.16, 0.022, [1, 2.76, 5.4], [1, 0.5, 0.25]);
-        this.noise(ac, out, t + 0.03, 0.03, 1500, 1.2, 0.04, 700); break;
-      case "ui_card":  // 메뉴에서 카드를 누름: 두꺼운 종이 스침 + 묵직한 탁 + 장갑 쇠마디
-        this.noise(ac, out, t, 0.06, 2200, 1.1, 0.05, 900);
-        this.tone(ac, out, t + 0.008, 210, 80, 0.11, "sine", 0.14);
-        this.noise(ac, out, t + 0.008, 0.016, 3600, 2, 0.06);
-        this.bell(ac, out, t + 0.012, 880, 0.12, 0.013, [1, 2.76], [1, 0.4]); break;
-      case "ui_deck":  // 덱 고르기 "찰칵": 날카로운 걸쇠(찰) 뒤에 묵직하게 맞물림(칵)
-        this.noise(ac, out, t, 0.016, 4200, 2.2, 0.09);
-        this.bell(ac, out, t, 1320, 0.07, 0.02, [1, 2.76, 5.4], [1, 0.45, 0.2]);
-        { const k = t + 0.06;
-          this.noise(ac, out, k, 0.022, 2600, 1.8, 0.12);
-          this.tone(ac, out, k, 230, 78, 0.12, "sine", 0.17);
-          this.bell(ac, out, k + 0.003, 690, 0.22, 0.03, [1, 2.76, 5.4, 8.93], [1, 0.55, 0.3, 0.12]);
-          this.noise(ac, out, k + 0.02, 0.06, 1200, 1, 0.03, 500); }
+      case "ui_click": // 메뉴 단추 "짝-칵": 단단히 붙는 짝 + 짧은 쇠 울림 + 바로 뒤 걸쇠의 작은 칵
+        this.snap(ac, out, t, 2200, 0.06);
+        this.clang(ac, out, t, 1050, 0.12, 0.04, 7, 0);
+        this.tone(ac, out, t, 380, 200, 0.035, "sine", 0.06);
+        this.snap(ac, out, t + 0.028, 2800, 0.022);
+        this.clang(ac, out, t + 0.028, 2000, 0.035, 0.012, 3, 0); break;
+      case "ui_card": { // 메뉴 · 교역소 · 덱 조정실에서 카드를 누름 "찰랑-팅-링": 방울 찰랑 + 맑은 종 두 음(5도 위로)
+        const r = 0.97 + Math.random() * 0.06;
+        this.jingle(ac, out, t, 4, 5000 * r, 0.02, 0.016);
+        this.chime(ac, out, t + 0.03, 1568 * r, 0.4, 0.045);
+        this.chime(ac, out, t + 0.075, 2349 * r, 0.32, 0.028); break; }
+      case "ui_deck":  // 덱 고르기 "찰칵": 높은 걸쇠(찰) 뒤에 단단히 맞물림(칵)
+        this.snap(ac, out, t, 3200, 0.03);
+        this.clang(ac, out, t, 2400, 0.035, 0.018, 3, 0);
+        { const k = t + 0.05;
+          this.snap(ac, out, k, 2000, 0.07);
+          this.clang(ac, out, k, 950, 0.16, 0.05, 7, 0);
+          this.tone(ac, out, k, 340, 170, 0.045, "sine", 0.07); }
         this.buzz(10); break;
-      case "ui_open":  // 창 열림 "철크럭": 쇠가 미끄러져 오름 → 철(쇠 울림) → 크럭(사슬 고리 셋이 차례로 걸림) → 마지막 걸림
-        this.noise(ac, out, t, 0.1, 900, 1.2, 0.035, 2600);
-        { const c = t + 0.07;
-          this.tone(ac, out, c, 150, 52, 0.24, "sine", 0.22);
-          this.noise(ac, out, c, 0.02, 3100, 1.6, 0.1);
-          this.bell(ac, out, c + 0.004, 392, 0.42, 0.04, [1, 2.76, 5.4, 8.93], [1, 0.6, 0.32, 0.14]);
-          [0.075, 0.115, 0.15].forEach((d, i) => { this.noise(ac, out, c + d, 0.02, 2400 - i * 300, 2.4, 0.06 - i * 0.012); this.tone(ac, out, c + d, 300 - i * 40, 180 - i * 30, 0.05, "triangle", 0.03 - i * 0.006); });
-          this.tone(ac, out, c + 0.17, 120, 58, 0.14, "sine", 0.12); }
+      case "ui_open":  // 창 열림 "스릉-짝-차락": 쇠가 미끄러져 오름 → 짝 붙음 → 사슬 고리 셋이 촘촘히 걸림 → 마지막 칵
+        this.scrape(ac, out, t, 0.08, 2200, 3800, 0.04, 0.5);
+        { const c = t + 0.06;
+          this.snap(ac, out, c, 1800, 0.07);
+          this.tone(ac, out, c, 300, 150, 0.06, "sine", 0.09);
+          this.clang(ac, out, c, 720, 0.26, 0.05, 7, 0);
+          [0.05, 0.075, 0.098].forEach((d, i) => { this.snap(ac, out, c + d, 3000 - i * 200, 0.015); this.clang(ac, out, c + d, 1700 - i * 130, 0.03, 0.016 - i * 0.003, 3, 0); });
+          this.snap(ac, out, c + 0.12, 2600, 0.03);
+          this.clang(ac, out, c + 0.12, 1150, 0.06, 0.014, 5, 0); }
         this.buzz(12); break;
-      case "ui_close": // 창 닫힘 "짤각-쿵": 사슬이 먼저 짤각, 투구 면갑이 내려와 묵직하게 닫힘
-        [0, 0.035].forEach((d, i) => this.noise(ac, out, t + d, 0.018, 2200 + i * 400, 2.2, 0.045));
-        { const s = t + 0.06;
-          this.tone(ac, out, s, 128, 40, 0.28, "sine", 0.25);
-          this.noise(ac, out, s, 0.024, 2400, 1.4, 0.11);
-          this.noise(ac, out, s + 0.01, 0.12, 1100, 0.8, 0.06, 350);
-          this.bell(ac, out, s + 0.004, 294, 0.36, 0.035, [1, 2.76, 5.4], [1, 0.5, 0.22]); }
+      case "ui_close": // 창 닫힘 "짤각-짝": 사슬이 먼저 짤각, 쇠 면갑이 내려와 단단히 붙음
+        [0, 0.03].forEach((d, i) => { this.snap(ac, out, t + d, 3000, 0.015); this.clang(ac, out, t + d, 2000 + i * 300, 0.03, 0.014, 3, 0); });
+        { const s = t + 0.055;
+          this.snap(ac, out, s, 1600, 0.08);
+          this.tone(ac, out, s, 280, 130, 0.07, "sine", 0.1);
+          this.clang(ac, out, s, 560, 0.24, 0.055, 7, 0);
+          this.scrape(ac, out, s + 0.01, 0.04, 3000, 2000, 0.02, 0.6); }
         this.buzz(14); break;
-      case "pick":     // 카드를 집어 듦: 종이 스침 + 위로 오르는 음
-        this.noise(ac, out, t, 0.06, 3200, 1.2, 0.05);
-        this.tone(ac, out, t, 520, 780, 0.07, "sine", 0.045); break;
-      case "hover":    // 놓을 자리에 닿음: 아주 작은 딸깍
-        this.tone(ac, out, t, 2100, 2100, 0.022, "sine", 0.035); break;
+      case "pick":     // 카드를 집어 듦: 쇠 테두리가 위로 스치다 짝 떨어짐
+        this.scrape(ac, out, t, 0.045, 3000, 4800, 0.04, 0.5);
+        this.snap(ac, out, t + 0.03, 3000, 0.025);
+        this.clang(ac, out, t + 0.03, 1800, 0.04, 0.012, 4, 0); break;
+      case "hover":    // 놓을 자리에 닿음: 아주 작은 쇠 틱
+        this.snap(ac, out, t, 3400, 0.02);
+        this.clang(ac, out, t, 3000, 0.025, 0.01, 3, 0); break;
       case "suck":     // 칸이 빨아들임 (v3.7.2 또렷하게): 위로 좁아지며 빨려 드는 바람 + 따라 오르는 휘음 + 바닥의 당김
         this.noise(ac, out, t, 0.22, 520, 1.4, 0.075, 3800);
         this.tone(ac, out, t + 0.02, 230, 690, 0.19, "sine", 0.03);
         this.tone(ac, out, t + 0.03, 85, 140, 0.17, "sine", 0.06); break;
-      case "place":    // 전장에 착지 (v3.7.2 "철크럭"): 또렷한 쿵·척 → 철(쇠 울림) → 크럭(걸쇠 고리가 차례로 걸림) → 마지막 맞물림
-        this.tone(ac, out, t, 170, 52, 0.18, "sine", 0.24);
-        this.noise(ac, out, t, 0.02, 3000, 1.6, 0.12);
-        this.noise(ac, out, t + 0.006, 0.05, 1500, 1, 0.05, 700);
-        this.bell(ac, out, t + 0.004, 430, 0.35, 0.045, [1, 2.76, 5.4, 8.93], [1, 0.6, 0.32, 0.14]);
-        [0.05, 0.085, 0.115].forEach((d, i) => { this.noise(ac, out, t + d, 0.018, 2600 - i * 400, 2.4, 0.07 - i * 0.015); this.tone(ac, out, t + d, 340 - i * 50, 200 - i * 30, 0.045, "triangle", 0.03 - i * 0.007); });
-        this.tone(ac, out, t + 0.13, 140, 70, 0.1, "sine", 0.1);
-        this.noise(ac, out, t + 0.13, 0.03, 1400, 1.2, 0.04);
+      case "place":    // 전장에 착지 "짝-차락-칵": 쇠가 짝 붙고 → 걸쇠 고리가 촘촘히 걸리고 → 마지막 칵. 무게는 조금 남김
+        this.snap(ac, out, t, 1900, 0.09);
+        this.tone(ac, out, t, 300, 130, 0.08, "sine", 0.12);
+        this.clang(ac, out, t, 760, 0.24, 0.06, 7, 0);
+        [0.04, 0.065, 0.088].forEach((d, i) => { this.snap(ac, out, t + d, 3000 - i * 200, 0.02); this.clang(ac, out, t + d, 1900 - i * 170, 0.03, 0.018 - i * 0.004, 3, 0); });
+        this.snap(ac, out, t + 0.11, 2400, 0.035);
+        this.tone(ac, out, t + 0.11, 380, 210, 0.035, "sine", 0.05);
+        this.clang(ac, out, t + 0.11, 1250, 0.07, 0.016, 5, 0);
         this.buzz(16); break;
-      case "move":     // 자리 바꾸기: 가볍게 미끄러짐
-        this.noise(ac, out, t, 0.09, 1400, 1.4, 0.045, 700);
-        this.tone(ac, out, t + 0.05, 240, 150, 0.06, "sine", 0.07); break;
+      case "move":     // 자리 바꾸기: 쇠판이 미끄러지다 짝
+        this.scrape(ac, out, t, 0.06, 2400, 3400, 0.035, 0.6);
+        this.snap(ac, out, t + 0.045, 2400, 0.04);
+        this.clang(ac, out, t + 0.045, 1200, 0.06, 0.02, 5, 0);
+        this.tone(ac, out, t + 0.045, 380, 230, 0.03, "sine", 0.04); break;
       case "crystal":  // 결정화: 맑은 두 음
         this.tone(ac, out, t, 1320, 1760, 0.18, "sine", 0.05);
         this.tone(ac, out, t + 0.05, 1980, 2640, 0.22, "sine", 0.03); break;
-      case "equip":    // 장착 (v3.7.2 "스르릉-철컥"): 쇠가 미끄러져 들어가고, 죔쇠가 묵직하게 물리고, 걸쇠가 딸깍
-        this.noise(ac, out, t, 0.14, 2400, 3, 0.05, 5200);
-        this.tone(ac, out, t, 1800, 2600, 0.12, "sine", 0.008);
-        { const c = t + 0.13;
-          this.noise(ac, out, c, 0.02, 2800, 1.6, 0.12);
-          this.tone(ac, out, c, 200, 70, 0.14, "sine", 0.18);
-          this.bell(ac, out, c + 0.004, 620, 0.3, 0.045, [1, 2.76, 5.4, 8.93], [1, 0.55, 0.3, 0.12]);
-          this.noise(ac, out, c + 0.06, 0.015, 1800, 2.4, 0.06); }
+      case "equip":    // 장착 "스릉-짝-칵": 칼이 칼집을 긁으며 들어가고, 죔쇠가 짝 물리고, 걸쇠가 칵
+        this.scrape(ac, out, t, 0.11, 2800, 5200, 0.05, 0.5);
+        { const c = t + 0.1;
+          this.snap(ac, out, c, 1900, 0.09);
+          this.tone(ac, out, c, 320, 140, 0.07, "sine", 0.11);
+          this.clang(ac, out, c, 900, 0.22, 0.06, 7, 0);
+          this.snap(ac, out, c + 0.045, 3200, 0.03);
+          this.clang(ac, out, c + 0.045, 2300, 0.03, 0.02, 3, 0); }
         this.buzz(14); break;
       case "burn":     // 소각: 불 붙는 바람 소리
         this.noise(ac, out, t, 0.26, 600, 0.8, 0.09, 2400); break;
-      case "deny":     // 안 됨: 낮게 두 번 툭툭 (거슬리지 않게)
-        this.tone(ac, out, t, 150, 120, 0.06, "triangle", 0.08);
-        this.tone(ac, out, t + 0.085, 130, 100, 0.07, "triangle", 0.07); break;
-      case "confirm":  // 준비 완료 (v3.7.2 경쾌한 쇠): 칼날이 맞부딪는 "챙-챙!" 위로 4도 + 받쳐 주는 낮은 탁 + 반짝임
-        this.tone(ac, out, t, 180, 90, 0.08, "sine", 0.08);
-        this.noise(ac, out, t, 0.015, 5200, 2, 0.08);
-        this.bell(ac, out, t, 1046, 0.35, 0.065, [1, 2.76, 5.4], [1, 0.45, 0.2]);
-        this.tone(ac, out, t, 262, 262, 0.2, "triangle", 0.04);
-        this.noise(ac, out, t + 0.075, 0.015, 6000, 2, 0.07);
-        this.bell(ac, out, t + 0.075, 1397, 0.5, 0.065, [1, 2.76, 5.4], [1, 0.45, 0.2]);
-        this.noise(ac, out, t + 0.08, 0.3, 9000, 4, 0.015); break;
+      case "deny":     // 안 됨: 무딘 쇠 두 번 탁탁 (짧게 끊되 높지 않게 — 거슬리지 않게)
+        this.snap(ac, out, t, 1200, 0.03);
+        this.tone(ac, out, t, 300, 200, 0.035, "sine", 0.06);
+        this.clang(ac, out, t, 620, 0.045, 0.028, 4, 0);
+        this.snap(ac, out, t + 0.075, 1050, 0.028);
+        this.tone(ac, out, t + 0.075, 270, 180, 0.035, "sine", 0.055);
+        this.clang(ac, out, t + 0.075, 520, 0.045, 0.026, 4, 0); break;
+      case "confirm":  // 준비 완료: 칼날이 맞부딪는 "챙-챙!" 위로 4도. 앞은 짝 붙고, 울림은 남겨 둠
+        this.snap(ac, out, t, 2600, 0.06);
+        this.tone(ac, out, t, 320, 170, 0.05, "sine", 0.06);
+        this.clang(ac, out, t, 1046, 0.3, 0.05, 7, 0);
+        this.snap(ac, out, t + 0.07, 3000, 0.06);
+        this.clang(ac, out, t + 0.07, 1397, 0.42, 0.05, 7, 0);
+        this.noise(ac, out, t + 0.075, 0.2, 9000, 4, 0.01); break;
       case "hit":      // 공격이 맞음
         this.tone(ac, out, t, 130, 45, 0.16, "sine", 0.24);
         this.noise(ac, out, t, 0.12, 900, 0.7, 0.13, 300);
@@ -191,11 +207,12 @@ const FEEL = {
         this.tone(ac, out, t, 110, 38, 0.24, "sine", 0.3);
         this.noise(ac, out, t, 0.2, 700, 0.6, 0.16, 200);
         this.buzz(28); break;
-      case "draw":     // v1.9 덱에서 한 장 튀어 오름: 종이가 휙 스치는 소리 + 위로 오르는 작은 음
+      case "draw":     // 덱에서 한 장 튀어 오름: 종이가 휙 스치는 소리 + 위로 오르는 작은 음 + (v3.8.1) 쇠 테두리의 작은 짝
         this.noise(ac, out, t, 0.11, 2600, 1.3, 0.1, 5200);              // v3.7.2 더 또렷하게 (첫 손패 드로우에서 장마다 들리게)
         this.tone(ac, out, t + 0.02, 640, 980, 0.08, "sine", 0.045);
-        this.tone(ac, out, t, 260, 140, 0.06, "sine", 0.07);
-        this.noise(ac, out, t, 0.014, 3800, 2, 0.05); break;
+        this.tone(ac, out, t, 360, 220, 0.05, "sine", 0.04);
+        this.snap(ac, out, t + 0.03, 3200, 0.015);
+        this.clang(ac, out, t + 0.03, 2100, 0.04, 0.01, 4, 0); break;
       case "shuffle":  // v1.9 섞기: 촤라락 (짧은 종이 소리 여러 번)
         for (let i = 0; i < 7; i++) this.noise(ac, out, t + i * 0.035, 0.03, 2800 + i * 120, 1.6, 0.045);
         this.tone(ac, out, t + 0.26, 300, 220, 0.08, "sine", 0.04); break;
@@ -476,18 +493,100 @@ const FEEL = {
     }
   },
   /* v1.9.5 종소리: 배음(ratio)마다 사인파를 겹쳐 길게 울린다 */
+  /* v3.8 쇠가 쇠를 치는 소리: 쇠판·쇠막대가 떠는 어긋난 배음 + 짝 배음의 맥놀이(쇠가 우는 떨림) + 닿는 순간의 짧은 틱.
+     높은 배음일수록 빨리 사라진다. v3.8.1 0.6ms 만에 솟는다. f = 바탕음, n = 배음 수(1~7), tick = 닿는 틱의 세기(0이면 없음) */
+  METAL: [1, 1.48, 2.06, 2.62, 3.37, 4.21, 5.33],
+  METAL_A: [1, 0.75, 0.6, 0.45, 0.32, 0.22, 0.14],
+  clang(ac, out, t0, f, dur, vol, n, tick) {
+    const k = Math.min(n || 5, this.METAL.length);
+    for (let i = 0; i < k; i++) {
+      const fr = f * this.METAL[i]; if (fr > 12000) break;
+      const d = dur / (1 + i * 0.55), a = vol * this.METAL_A[i];
+      [[fr, a], [fr * 1.004 + 2.5, a * 0.5]].forEach(([q, amp]) => {
+        const o = ac.createOscillator(), g = ac.createGain();
+        o.frequency.value = q;
+        g.gain.setValueAtTime(0.0001, t0);
+        g.gain.exponentialRampToValueAtTime(amp, t0 + 0.0006);
+        g.gain.exponentialRampToValueAtTime(0.0001, t0 + d);
+        o.connect(g).connect(out); o.start(t0); o.stop(t0 + d + 0.02);
+      });
+    }
+    if (tick) this.burst(ac, out, t0, 0.004, 4500, vol * 1.6 * tick);
+  },
+  /* v3.8.1 닿는 순간의 짧은 잡음: 첫 샘플부터 최대, 아주 빨리 꺼짐(noise()는 6ms에 걸쳐 솟아서 무르다). hp = 이 높이 아래는 자름 */
+  burst(ac, out, t0, dur, hp, vol) {
+    const sr = ac.sampleRate, n = Math.max(1, Math.floor(sr * dur)), buf = ac.createBuffer(1, n, sr), d = buf.getChannelData(0);
+    const k = sr * dur * 0.22;
+    for (let i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * Math.exp(-i / k);
+    const s = ac.createBufferSource(), f = ac.createBiquadFilter(), g = ac.createGain();
+    s.buffer = buf; f.type = "highpass"; f.frequency.value = hp; f.Q.value = 0.7; g.gain.value = vol;
+    s.connect(f).connect(g).connect(out); s.start(t0);
+  },
+  /* v3.11.1 맑은 종: 유리 · 작은 쇠 종의 배음(1 · 2.76 · 5.4 · 8.9)을 맥놀이와 함께. 처음 2ms의 아주 높은 틱이 또렷함을 준다 */
+  chime(ac, out, t0, f, dur, vol) {
+    this.burst(ac, out, t0, 0.002, 7000, vol * 0.5);
+    this.ring(ac, out, t0, f, dur, vol, [1, 2.76, 5.4, 8.9], [1, 0.42, 0.2, 0.08], 3.2);
+  },
+  /* v3.11.1 찰랑: 작은 방울 n개가 gap초 안팎 간격으로 흔들린다. 높이와 간격을 조금씩 어긋나게 해 같은 소리처럼 들리지 않는다 */
+  jingle(ac, out, t0, n, f, gap, vol) {
+    for (let i = 0; i < n; i++) {
+      const at = t0 + i * gap * (0.7 + Math.random() * 0.6), q = f * (0.88 + Math.random() * 0.3), a = vol * (1 - i * 0.12);
+      this.burst(ac, out, at, 0.0015, 8000, a * 0.6);
+      this.ring(ac, out, at, q, 0.09 + Math.random() * 0.05, a, [1, 1.53, 2.31], [1, 0.5, 0.25], 6);
+    }
+  },
+  /* v3.8.1 짝 달라붙는 순간: 높은 잡음 짝(3ms) + 높이가 f×2.4 → f×0.8로 뚝 떨어지는 딸깍(12ms).
+     쇠 걸쇠가 맞물리거나 자석이 붙는 그 한순간. f가 높을수록 날카롭다 */
+  snap(ac, out, t0, f, vol) {
+    this.burst(ac, out, t0, 0.003, 5000, vol * 1.4);
+    const o = ac.createOscillator(), g = ac.createGain();
+    o.type = "triangle";
+    o.frequency.setValueAtTime(f * 2.4, t0);
+    o.frequency.exponentialRampToValueAtTime(f * 0.8, t0 + 0.012);
+    g.gain.setValueAtTime(0.0001, t0);
+    g.gain.exponentialRampToValueAtTime(vol, t0 + 0.0005);
+    g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.022);
+    o.connect(g).connect(out); o.start(t0); o.stop(t0 + 0.04);
+  },
+  /* v3.8 쇠끼리 긁히는 마찰: 붙었다 미끄러졌다 하는 거친 잡음을 좁은 띠 셋(어긋난 높이)에 걸러 f0 → f1로 민다.
+     grit = 0~1 거칠기 */
+  scrape(ac, out, t0, dur, f0, f1, vol, grit) {
+    const sr = ac.sampleRate, n = Math.max(1, Math.floor(sr * dur)), gr = grit == null ? 0.5 : grit;
+    const buf = ac.createBuffer(1, n, sr), d = buf.getChannelData(0);
+    let a = 1, next = 0;
+    for (let i = 0; i < n; i++) {
+      if (i >= next) { a = Math.random() < 0.3 ? 0.15 : 0.5 + Math.random() * 0.5; next = i + Math.floor(sr * (0.0012 + Math.random() * 0.0035)); }
+      d[i] = (Math.random() * 2 - 1) * (1 - gr + gr * a);
+    }
+    const s = ac.createBufferSource(), hp = ac.createBiquadFilter(), g = ac.createGain();
+    s.buffer = buf; hp.type = "highpass"; hp.frequency.value = Math.min(f0, f1) * 0.6;
+    [[1, 1], [1.73, 0.6], [2.61, 0.35]].forEach(([r, amp]) => {
+      const bp = ac.createBiquadFilter(), bg = ac.createGain();
+      bp.type = "bandpass"; bp.Q.value = 14;
+      bp.frequency.setValueAtTime(Math.min(f0 * r, 15000), t0);
+      bp.frequency.exponentialRampToValueAtTime(Math.min(f1 * r, 15000), t0 + dur);
+      bg.gain.value = amp * 4;
+      s.connect(bp).connect(bg).connect(hp);
+    });
+    g.gain.setValueAtTime(0.0001, t0);
+    g.gain.linearRampToValueAtTime(vol, t0 + dur * 0.25);
+    g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+    hp.connect(g).connect(out); s.start(t0); s.stop(t0 + dur + 0.02);
+  },
   bell(ac, out, t0, f, dur, vol, ratios, amps) {
     (ratios || [1]).forEach((r, i) => this.tone(ac, out, t0, f * r, f * r, dur * (1 - i * 0.18), "sine", vol * ((amps && amps[i]) != null ? amps[i] : 1)));
   },
   /* v3.7.2 석조 전당 울림: 메뉴 · 창 소리에만 조금 섞는다(이름별 세기). 1.1초 잔향을 한 번 만들어 같이 쓴다 */
-  HALL: { draw: 0.08, shatter: 0.18, place: 0.12, confirm: 0.16, equip: 0.14, handHover: 0.05, ui_click: 0.16, ui_card: 0.14, ui_deck: 0.18, ui_open: 0.26, ui_close: 0.26, select: 0.08, unselect: 0.08 },
+  /* v3.8 쇠 소리로 바꾸며 높아진 만큼 귀에 더 크게 들려서, 예전 소리와 비슷한 크기로 맞추는 배율 (v3.8.1 다시 맞춤) */
+  TRIM: { deny: 0.39, equip: 0.69, move: 0.63, place: 0.73, select: 0.8, ui_card: 0.8, ui_click: 0.65, ui_close: 0.67, ui_deck: 0.76, ui_open: 0.79, unselect: 0.7 },
+  HALL: { draw: 0.08, shatter: 0.18, place: 0.07, confirm: 0.12, equip: 0.08, handHover: 0.025, ui_click: 0.08, ui_card: 0.09, ui_deck: 0.09, ui_open: 0.14, ui_close: 0.14, select: 0.06, unselect: 0.05, pick: 0.03, move: 0.03, deny: 0.02 },   // v3.8.1 손으로 하는 소리는 울림 절반: 퍼지지 않고 붙게
   hallNode: null,
   hall(ac) {
     if (this.hallNode && this.hallNode.context === ac) return this.hallNode;
     const len = Math.floor(ac.sampleRate * 1.1), ir = ac.createBuffer(2, len, ac.sampleRate);
     for (let c = 0; c < 2; c++) { const d = ir.getChannelData(c); for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3.2); }
     const cv = ac.createConvolver(), lp = ac.createBiquadFilter();
-    cv.buffer = ir; lp.type = "lowpass"; lp.frequency.value = 2600; lp.Q.value = 0.4;
+    cv.buffer = ir; lp.type = "lowpass"; lp.frequency.value = 4200; lp.Q.value = 0.4;   // v3.8 2600 → 4200: 쇠 울림의 꼬리가 먹먹하지 않게
     cv.connect(lp).connect(ac.destination);
     return (this.hallNode = cv);
   },
@@ -548,13 +647,14 @@ if (typeof document !== "undefined") document.addEventListener("DOMContentLoaded
    - 창이 열리고 닫히는 것은 body의 자식이 붙고 떨어지는 것으로 안다. 창을 여는 누름은 단추 소리 대신 여는 소리 하나만 난다.
    - 전장(#board) 안에서는 단추만 맡는다. 카드 · 칸 · 성물은 js/game.js가 제 소리를 낸다 */
 const FEEL_UI = {
-  WIN: ".modal-wrap,.snd-pop,.kl-overlay,.result,.lv-banner",
+  WIN: ".modal-wrap,.snd-pop,.kl-overlay,.result,.lv-banner,.help-wrap",   // v3.9 튜토리얼 · 매뉴얼 창(js/manual.js)
   QUIET_OPEN: ".lv-banner",   // 열릴 때 제 소리(levelUp)가 있다
   DECK: ".deck-tile,.grp-tile,.fac-tile",
   CARD: "[data-card],.mull-card,.pc-face,.xp-card,[data-pick],.card,.hand-card",
   CLOSE: "[data-close],.kl-close,.f-x",
   BTN: 'button,.btn,a[href],[role="button"],[role="tab"],[data-act],[data-nav],[data-go],[data-tab],[data-x],[data-r],[data-z],select,summary,input[type="checkbox"],input[type="radio"]',
   closed: new WeakSet(),
+  cardAt: 0,
   init() {
     if (typeof document === "undefined" || !document.body) return;
     addEventListener("click", e => this.onClick(e), true);
@@ -585,6 +685,7 @@ const FEEL_UI = {
     if (FEEL.level === "off") return;
     const name = this.pick(e.target); if (!name) return;
     const t0 = performance.now();
+    if (name === "ui_card") this.cardAt = t0;   // v3.11.1 카드를 눌러 원본 카드 창이 열리면 여는 소리 대신 카드 소리
     setTimeout(() => { if (FEEL.lastAny < t0) FEEL.play(name); }, 0);
   },
   onKey(e) {
@@ -600,7 +701,7 @@ const FEEL_UI = {
       for (const n of r.addedNodes) if (n.nodeType === 1 && n.matches(this.WIN) && !n.matches(this.QUIET_OPEN)) open = true;
       for (const n of r.removedNodes) if (n.nodeType === 1 && n.matches(this.WIN) && !this.closed.has(n)) { this.closed.add(n); close = true; }
     }
-    if (open) FEEL.play("ui_open"); else if (close) FEEL.play("ui_close");
+    if (open) FEEL.play(this.cardAt && performance.now() - this.cardAt < 400 ? "ui_card" : "ui_open"); else if (close) FEEL.play("ui_close");
   }
 };
 if (typeof document !== "undefined") document.addEventListener("DOMContentLoaded", () => FEEL_UI.init());

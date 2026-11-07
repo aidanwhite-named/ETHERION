@@ -14,6 +14,7 @@ const Bg = {
       this.w = innerWidth; this.h = innerHeight;
       this.cv.width = this.w * dpr; this.cv.height = this.h * dpr; this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       this.stars = Array.from({ length: Math.round(this.w * this.h / 5200) }, () => ({ x: Math.random() * this.w, y: Math.random() * this.h * 0.8, r: Math.random() * 1.2 + 0.2, p: Math.random() * 6.28, s: Math.random() * 0.02 + 0.005 }));
+      this.stillDrawn = false;   // 멈춘 하늘도 창 크기가 바뀌면 한 번 다시 그린다
     };
     rs(); addEventListener("resize", rs);
     addEventListener("pointermove", e => { this.mx = e.clientX / this.w - 0.5; this.my = e.clientY / this.h - 0.5; });
@@ -36,10 +37,13 @@ const Bg = {
     x.fillStyle = g; x.fillRect(0, 0, 64, 64);
     return this.sprites[c] = cv;
   },
-  set(mode) { this.mode = mode; this.cv.style.opacity = mode === "off" ? 0 : mode === "calm" ? 0.55 : 1; if (typeof Titans !== "undefined") Titans.mode(mode); },
+  set(mode) { this.still = false; this.mode = mode; this.cv.style.opacity = mode === "off" ? 0 : mode === "calm" ? 0.55 : 1; if (typeof Titans !== "undefined") Titans.mode(mode); },
+  /* v3.9 멈춘 하늘(교역소): 별과 입자를 지금 자리에서 한 번만 그리고 더는 그리지 않는다. 다음 Bg.set에서 풀린다 */
+  freeze() { this.still = true; this.stillDrawn = false; },
   draw() {
     const { ctx, w, h } = this;
     if (this.mode === "off") return;
+    if (this.still) { if (this.stillDrawn) return; this.stillDrawn = true; }
     ctx.clearRect(0, 0, w, h);
     const t = performance.now() / 1000;
     const wp = this.warp || 0, pl = this.pull || 0, cx = this.cx || w / 2, cy = this.cy || h * 0.46;
@@ -59,7 +63,7 @@ const Bg = {
     }
     ctx.globalCompositeOperation = "lighter";
     for (const m of this.motes) {
-      if (!this.reduced) { m.y -= m.v; m.sway += 0.01; m.x += Math.sin(m.sway) * 0.3; }
+      if (!this.reduced && !this.still) { m.y -= m.v; m.sway += 0.01; m.x += Math.sin(m.sway) * 0.3; }
       if (pl > 0.01) {
         /* 입장 연출: 에테르 입자가 소용돌이치며 문으로 빨려 든다 */
         const dx = cx - m.x, dy = cy - m.y, dist = Math.hypot(dx, dy) || 1, f = pl * (2 + 900 / (dist + 60));
@@ -178,12 +182,15 @@ function showTitle() {
       <h1 class="t-title" aria-label="${word}">${typeof LOGO !== "undefined" ? LOGO.html(word) : [...word].map((ch, i) => { const c = (word.length - 1) / 2; return `<span style="--i:${i};--d:${(c - Math.abs(i - c)).toFixed(1)};--dx:${((c - i) * 14).toFixed(0)}px">${ch}</span>`; }).join("")}</h1>
       <p class="t-sub"><span>The Land Where Ether Flows</span><span class="ko">에테르가 흐르는 땅, 카일란</span></p>
       <button class="t-start" id="t-start" type="button">Press to Begin</button>
+      ${typeof BGM !== "undefined" ? `<div class="t-snd" id="t-snd">${BGM.tbHTML()}</div>` : ""}
     </div>
     <p class="t-foot">Prototype v1.0${OPEN_PLAY ? " · 시험 모드: 로그인 없이 모든 카드 사용" : ""} · 모든 이름은 가칭</p>
   </section>`;
   /* 누르면 이세계 입장 연출(js/portal.js): 고리가 깨어나고 가운데 문으로 들어간다 */
   const go = () => {
     if (App.screen !== "title") return;
+    /* v3.9.7 브라우저가 소리를 막아 둔 채 처음 누르면: 그 누름으로 타이틀 음악만 켜고 타이틀에 머문다(js/bgm.js unlockedAt) */
+    if (typeof BGM !== "undefined" && performance.now() - (BGM.unlockedAt || 0) < 700) return;
     App.screen = "leaving";
     const ring = $("#title .t-ring").getBoundingClientRect();
     let at = { x: ring.left + ring.width / 2, y: ring.top + ring.height / 2 };
@@ -199,6 +206,13 @@ function showTitle() {
   };
   if (typeof LOGO !== "undefined" && LOGO.tilt) LOGO.tilt($("#title .t-title"));
   $("#t-start").addEventListener("click", go);
+  /* v3.9.7 소리 단추 둘(시작 단추 바로 아래): 오른쪽 아래 떠 있는 단추 대신 */
+  const snd = $("#t-snd");
+  if (snd) snd.addEventListener("click", e => {
+    const b = e.target.closest("[data-act^='snd-']"); if (!b) return;
+    e.stopPropagation();
+    if (b.dataset.act === "snd-music") BGM.toggleMusic(); else BGM.toggleSfx();
+  });
   $("#title").addEventListener("click", e => { if (!e.target.closest("button")) go(); });
   App.titleGo = go;
 }
@@ -294,7 +308,7 @@ function showLogin(tab) {
 
 /* ---------- 대기실 ---------- */
 function sortDeckCards(ids) {
-  const order = { unit: 0, atk: 1, def: 2, any: 3, item: 4 };
+  const order = { unit: 0, atk: 1, def: 2, any: 3, hand: 4, item: 5 };   /* v3.10.8 계략(hand)이 빠져 순서가 섞이던 것 */
   return ids.sort((a, b) => { const x = CARDS[a], y = CARDS[b]; return order[x.type] - order[y.type] || x.lv - y.lv || a.localeCompare(b); });
 }
 function expandDeck(cards) { const out = []; for (const id in cards) for (let i = 0; i < cards[id]; i++) out.push(id); return sortDeckCards(out); }
@@ -310,11 +324,41 @@ const MENU_ICON = {
   quill: '<path d="M19.5 4.5C12.8 5 8 10 6.6 17.4L5.2 20.5"/><path d="M19.5 4.5c-.4 6.3-5.3 11-11.1 12.2M10.2 13.6l-2.6-.4"/>',
   duel: '<path d="M5 4l9.6 9.6M19 4l-9.6 9.6M4.2 19.8l3.3-3.3M19.8 19.8l-3.3-3.3M6.3 14.3l3.4 3.4M17.7 14.3l-3.4 3.4"/>',
   ring: '<circle cx="12" cy="12" r="7.6"/><circle cx="12" cy="4.4" r="1.7" fill="currentColor"/><circle cx="19.6" cy="12" r="1.7" fill="currentColor"/><circle cx="4.4" cy="12" r="1.7" fill="currentColor"/><circle cx="12" cy="19.6" r="1.7" fill="#0d0e17" stroke-dasharray="1.2 1.2"/>',
-  banners: '<path d="M3.5 5h7v6.4c0 3.1-3.5 5.1-3.5 5.1s-3.5-2-3.5-5.1z"/><path d="M13.5 7.5h7v6.4c0 3.1-3.5 5.1-3.5 5.1s-3.5-2-3.5-5.1z"/>'
+  banners: '<path d="M3.5 5h7v6.4c0 3.1-3.5 5.1-3.5 5.1s-3.5-2-3.5-5.1z"/><path d="M13.5 7.5h7v6.4c0 3.1-3.5 5.1-3.5 5.1s-3.5-2-3.5-5.1z"/>',
+  guide: '<path d="M12 3v18M8.5 21h7"/><path d="M12 5.2h6.4l2.1 2.3-2.1 2.3H12"/><path d="M12 11.6H5.6l-2.1 2.3 2.1 2.3H12"/><circle cx="12" cy="3" r=".9" fill="currentColor"/>',   /* v3.9 튜토리얼 = 갈림길 이정표 */
+  tome: '<path d="M5.5 4.5h11a2 2 0 012 2V20h-11a2 2 0 01-2-2z"/><path d="M5.5 18a2 2 0 012-2h11"/><path d="M12 7.4l1.9 1.9-1.9 1.9-1.9-1.9z"/>'   /* v3.9 매뉴얼 = 닫힌 규칙서(가운데 마름모) */
 };
 const menuIcon = k => `<svg class="m-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${MENU_ICON[k]}</svg>`;
 
 /* 상단 문장 띠: 왼쪽 날개 = 길(메뉴), 가운데 = 늘어뜨린 쐐기돌 문장(로고 + 지금 있는 곳), 오른쪽 날개 = 지갑 · 모험가 인장 · 나가기 */
+/* v3.9.15 모험가 인장 = 레벨 판: 구슬에 레벨(머리글자 대신), 이름 옆에 전적 · 승률, 그 아래 경험치 막대.
+   환석 조각은 인장 바로 왼쪽(.tb-shard, 누르면 교역소). 지도 · 연대기는 길이라 왼쪽 날개로 옮겼다(오른쪽 날개 폭 확보). 값이 바뀌면 js/level.js LevelUI.paint가 고쳐 쓴다 */
+function sealRecord(u) {
+  const w = u.stats.w || 0, l = u.stats.l || 0, n = w + l;
+  return { w, l, n, rate: n ? Math.round(w / n * 100) : null };
+}
+function sealHTML(u) {
+  const R = sealRecord(u), I = typeof LEVEL !== "undefined" ? LEVEL.info(Store.xp(u)) : null;
+  const num = x => x.toLocaleString("ko-KR");
+  return `<span class="user-chip seal${I ? " lv" : ""}${I && I.top ? " top" : ""}" title="${esc(sealTitle(u, R, I))}">
+          <i class="seal-mark" aria-hidden="true">${I ? `<small>LV</small><b class="sl-lv">${I.lv}</b>` : esc([...u.id][0] || "?").toUpperCase()}</i>
+          <span class="seal-txt">
+            <span class="seal-row">${u.admin ? '<span class="admin-badge">ADMIN</span>' : ""}<b class="sl-name">${esc(u.id)}</b><span class="seal-rec"><span><em class="sl-w">${num(R.w)}</em>승 <em class="sl-l">${num(R.l)}</em>패</span><i aria-hidden="true"></i><span><span class="sl-rl">승률 </span><em class="sl-rate">${R.rate == null ? "—" : R.rate + "%"}</em></span></span></span>
+            ${I ? `<span class="seal-xp" aria-hidden="true"><i style="--p:${I.p.toFixed(4)}"></i></span>` : ""}
+          </span>
+        </span>`;
+}
+function sealTitle(u, R, I) {
+  const num = x => Math.round(x).toLocaleString("ko-KR");
+  return `${u.id}${u.admin ? " (관리자)" : ""}${I ? ` · 모험가 레벨 ${I.lv}${I.top ? " (최대)" : ""}` : ""}\n`
+    + `${num(R.w)}승 ${num(R.l)}패 · 승률 ${R.rate == null ? "— (아직 대전 기록 없음)" : R.rate + "%"}`
+    + (I ? `\n경험치 ${I.top ? "최대 레벨" : `${num(I.into)} / ${num(I.need)} · 다음 레벨까지 ${num(I.left)}`}\n벌어들인 환석 조각이 곧 경험치입니다. 카드를 사도 줄지 않고, 판 값은 경험치가 되지 않습니다.` : "");
+}
+function shardChipHTML(u) {
+  const admin = Store.isAdmin(u);
+  return `<button type="button" class="tb-shard" data-nav="shop" title="환석 조각 ${admin ? "∞ (관리자)" : fmtGold(Store.gold(u))}\n전투 · 수레바퀴 · 원정으로 모아 교역소에서 카드를 삽니다. 누르면 교역소로.">
+          <i class="shard" aria-hidden="true"></i><b>${admin ? "∞" : Store.gold(u).toLocaleString("ko-KR")}</b><small>조각</small></button>`;
+}
 function headerHTML(title) {
   const u = Store.user();
   const cur = { lobby: "lobby", shop: "shop", admin: "admin" }[App.screen] || (title === "관리자 보관소" ? "admin" : "");
@@ -323,14 +367,14 @@ function headerHTML(title) {
   return `<header class="topbar realm">
     <div class="tb-inner realm">
       <nav class="tb-wing tbw-left" aria-label="주 메뉴">
-        ${nav("lobby", "hall", "대기실")}${div}${nav("shop", "shop", "교역소", "린데어 교역소")}${u.admin ? div + nav("admin", "vault", "보관소", "관리자 보관소") : ""}
+        ${nav("lobby", "hall", "대기실")}${div}${nav("shop", "shop", "교역소", "린데어 교역소")}${u.admin ? div + nav("admin", "vault", "보관소", "관리자 보관소") : ""}${div}${nav("map", "map", "지도", "카일란 대륙 전도")}${nav("chronicle", "book", "연대기", "에테리온 연대기")}
       </nav>
       <button type="button" class="tb-crest${typeof CREST !== "undefined" ? " has-art" : ""}" data-nav="lobby" title="대기실로">${typeof CREST !== "undefined" ? CREST.svg() : ""}<span class="crest-word">ETHERION</span>${title ? `<span class="crest-sub">${title}</span>` : ""}</button>
       <div class="tb-wing tbw-right">
-        ${nav("map", "map", "지도", "카일란 대륙 전도")}${nav("chronicle", "book", "연대기", "에테리온 연대기")}
         <button type="button" class="tb-nav tb-sound" data-nav="sound" title="소리 — 배경음 · 효과음 켜기/끄기와 음량" aria-label="소리">${typeof BGM !== "undefined" ? BGM.navIcon() : ""}</button>
         ${typeof Weather !== "undefined" ? Weather.chipHTML() : ""}
-        <span class="user-chip seal" title="${esc(u.id)}${typeof LEVEL !== "undefined" ? " · Lv " + Store.level(u) : ""} · ${u.stats.w}승 ${u.stats.l}패"><i class="seal-mark" aria-hidden="true">${esc([...u.id][0] || "?").toUpperCase()}</i><span class="seal-txt">${u.admin ? '<span class="admin-badge">ADMIN</span>' : ""}<b>${esc(u.id)}</b><small>${u.stats.w}승 ${u.stats.l}패</small></span></span>
+        ${typeof LevelUI !== "undefined" ? shardChipHTML(u) : ""}
+        ${sealHTML(u)}
         <button type="button" class="tb-nav tb-exit" data-nav="logout" title="${OPEN_PLAY ? "처음으로" : "나가기"}">${menuIcon("exit")}<span>${OPEN_PLAY ? "처음으로" : "나가기"}</span></button>
       </div>
     </div>
@@ -399,9 +443,11 @@ function showLobby() {
       </aside>
       </aside>
     </div>
-  </section>`;
+    ${typeof Help !== "undefined" ? Help.dockHTML() : ""}
+  </section>`;   /* v3.9 오른쪽 아래 튜토리얼 · 매뉴얼 (js/manual.js) */
   const root = $(".screen-lobby");
   bindHeader(root);
+  if (typeof Help !== "undefined") Help.bindDock(root);
   $$(".deck-tile", root).forEach(b => b.addEventListener("click", () => {
     if (b.classList.contains("locked")) { toast("보유하지 않은 덱입니다.", "warn"); return; }
     App.lobbyGroup = b.dataset.g; showLobby();
@@ -433,7 +479,7 @@ function renderDeckView() {
         <span class="dv-st ${playable ? "ok" : "bad"}">${playable ? "저장된 덱 · 출전 가능" : "출전 불가 · 덱 조정실에서 40장을 저장하세요"}</span></div>
       <div class="dv-grades" id="dv-grades" role="group" aria-label="등급으로 거르기"></div>
     </div>
-    <div class="dv-cards" id="dv-cards">${ids.map(id => cardHTML(CARDS[id], { size: "md" })).join("")}</div>
+    <div class="dv-cards" id="dv-cards">${ids.map(id => cardHTML(CARDS[id], { size: "md", brief: true })).join("")}</div>
     <div class="dv-actions altar">
       <button class="btn rite-side" id="go-edit">${menuIcon("quill")}<span>덱 조정실</span></button>
       <div class="altar-gates">
@@ -525,10 +571,12 @@ async function startPvP(f) {
   if (!Store.deckPlayable(u, f)) { toast("저장된 40장 덱이 있어야 대전할 수 있습니다.", "warn"); return; }
   let get;
   const ok = await modal(`<h3>대전</h3>
-    <div class="notice">온라인 대전 서버가 아직 연결되지 않았습니다. 지금은 <b>한 화면에서 두 사람이 번갈아</b> 플레이합니다. 준비 단계가 바뀔 때마다 화면을 넘겨주세요.</div>
+    <button type="button" class="ol-entry" id="go-online"><b>온라인 대전</b><span>친구와 각자의 컴퓨터에서 · 방 코드로 연결</span></button>
+    <div class="notice">아래는 <b>한 화면에서 두 사람이 번갈아</b> 하는 대전입니다. 준비 단계가 바뀔 때마다 화면을 넘겨주세요.</div>
     <label class="field">상대 이름<input id="p2-name" maxlength="16" value="도전자"></label>
     <p class="pick-label">상대 단체 (기본 덱 사용)</p>${groupGridHTML({ small: true })}`,
-    [{ label: "취소", value: false }, { label: "대전 시작", value: true, cls: "primary" }], { cls: "wide-modal", onOpen: w => { get = bindGroupGrid(w, f === "G1" ? "B1" : "G1"); } });
+    [{ label: "취소", value: false }, { label: "대전 시작", value: true, cls: "primary" }], { cls: "wide-modal", onOpen: w => { get = bindGroupGrid(w, f === "G1" ? "B1" : "G1");
+      const ob = w.querySelector("#go-online"); if (ob) ob.addEventListener("click", () => { w.remove(); startOnline(f); }); } });
   if (!ok) return;
   const pg = get() || "G1";
   const name = ($("#p2-name") ? $("#p2-name").value : "") || "도전자";
@@ -564,19 +612,37 @@ function onMatchEnd(g) {
    - 빼기: 오른쪽 누르기(우클릭) · 덱 목록의 − 또는 줄 누르기 · 덱 줄을 보유 카드 쪽으로 끌어다 놓기
    - 40장 규칙: 위 띠의 40칸 계기판. 40장이 넘게 넣으려 하면 경보(붉은 띠 · 흔들림 · 소리). 정확히 40장일 때만 저장 단추가 켜진다
    - 덱 초안(Store.draft): 고치는 중인 덱은 저장 전에도 남는다. 교역소에서 산 카드도 이 초안에 들어온다(js/shop.js)
-   - 배경: 운명의 감실(js/scenes.js) — 바닥의 마법진 눈금 40개가 덱 장수만큼 켜지고, 촛불 여덟 개가 레벨별 장수만큼 탄다 */
+   - 배경: v3.10.7부터 타이틀 그림(img/title/title_art.jpg) 한 장을 멈춘 채 깐다(css/title-art.css .ed-art). 예전의 운명의 감실(js/scenes.js)은 쓰지 않는다 */
+/* v3.10.8 카드 보관함 종류 거르기: 한 줄에 하나만 켜진다. 공격 · 방어 · 공용 · 계략은 '마법' 칸에 붙은 작은 칸.
+   예전에는 종류(전체 · 유닛 · 마법 · 아이템)와 마법 종류(모든 마법 · 공격 …)가 따로 켜져서, 유닛을 켠 채 공격을 누르면 0장이 나왔다 */
 const POOL_TYPES = [["all", "전체"], ["unit", "유닛"], ["spell", "마법"], ["item", "아이템"]];
-const SPELL_KINDS = [["all", "모든 마법"], ["atk", "공격"], ["def", "방어"], ["any", "공용"], ["hand", "계략"]];
+const SPELL_KINDS = [["atk", "공격", "내 공격 턴에만"], ["def", "방어", "내 방어 턴에만"], ["any", "공용", "어느 턴에든"], ["hand", "계략", "칸 없이 바로 발동"]];
+/* 보관함 묶음 제목 (여러 종류가 함께 보일 때) */
+const POOL_SECS = { unit: ["유닛", ""], atk: ["공격 마법", "내 공격 턴 · 뒷면으로 칸에"], def: ["방어 마법", "내 방어 턴 · 뒷면으로 칸에"], any: ["공용 마법", "어느 턴이든 · 뒷면으로 칸에"], hand: ["계략 마법", "칸 없이 내는 즉시 발동"], item: ["아이템", ""] };
+function poolTypeMatch(c, type, kind) {
+  if (type === "unit") return c.type === "unit";
+  if (type === "item") return c.type === "item";
+  if (type === "spell") return c.type !== "unit" && c.type !== "item" && (kind === "all" || c.type === kind);
+  return true;
+}
 function poolMatch(c, E) {
-  if (E.type === "unit" && c.type !== "unit") return false;
-  if (E.type === "spell" && (c.type === "unit" || c.type === "item")) return false;
-  if (E.type === "item" && c.type !== "item") return false;
-  if (E.kind !== "all" && c.type !== E.kind) return false;
+  if (!poolTypeMatch(c, E.type, E.kind)) return false;
   if (E.lv && c.lv !== E.lv) return false;
   if (E.q && !c.name.includes(E.q)) return false;
   return true;
 }
 const kindOf = c => c.type === "unit" ? "unit" : c.type === "item" ? "item" : "spell";
+/* v3.12.1 덱 점수: 카드 한 장 = 등급 점수 + 레벨. 덱 점수 = 덱에 든 카드(장수만큼)의 합.
+   등급이 오를수록 같은 레벨에서도 강하므로 등급 점수가 크고, 레벨은 1~8점을 더한다.
+   덱 평가(S~D)는 그 단체 기본 덱 점수에 견준 비율이다(기본 덱 = B 한가운데). 나눈 법은 docs/GRADES.md */
+const DECK_GRADE_PT = { common: 6, uncommon: 10, rare: 15, epic: 21, unique: 28, special: 36 };
+const DECK_TIERS = [[1.25, "S"], [1.12, "A"], [0.95, "B"], [0.8, "C"], [0, "D"]];
+const cardScore = c => (DECK_GRADE_PT[gradeOf(c)] || 6) + (c.lv || 0);
+function deckScore(cards) {
+  let g = 0, l = 0, n = 0;
+  for (const id in cards) { const c = CARDS[id], k = cards[id] || 0; if (!c || k <= 0) continue; g += k * (DECK_GRADE_PT[gradeOf(c)] || 6); l += k * (c.lv || 0); n += k; }
+  return { total: g + l, grade: g, lv: l, n };
+}
 /* 40칸 계기판: 칸마다 유닛(금) · 마법(보라) · 아이템(황동) 색, 10칸마다 마디. 넘친 칸은 붉게 */
 function deckGaugeHTML(cards) {
   const ids = sortDeckCards(Object.keys(cards).filter(k => cards[k] > 0)), seq = [];
@@ -588,11 +654,11 @@ function deckGaugeHTML(cards) {
 function showEditor(f, focusId) {
   let u = Store.user();
   if (!Store.ownsGroup(u, f)) { toast("보유하지 않은 덱입니다.", "warn"); return; }
-  App.screen = "editor"; Bg.set("calm"); if (typeof Titans !== "undefined") Titans.mode(.3);
+  App.screen = "editor"; Bg.set("calm"); Bg.freeze(); Bg.cv.style.opacity = 0; if (typeof Titans !== "undefined") Titans.mode("off");   /* v3.10.7 움직이는 하늘 · 세 존재 · 감실 장면 대신 타이틀 그림 한 장(컴퓨터 자원) */
   const all = Store.allCards(u);
   const fromStore = () => { const d = Store.draft(u, f) || Store.deck(u, f); return { cards: Object.assign({}, d.cards), name: d.name || Store.deck(u, f).name }; };
   const st = fromStore();
-  const E = { f, cards: st.cards, name: st.name, type: "all", kind: "all", lv: 0, grade: "", q: "", hideOut: false, own: "have" };
+  const E = { f, cards: st.cards, name: st.name, type: "all", kind: "all", lv: 0, grade: "", q: "", hideOut: false, own: "have", scope: "pool", dType: "all", dKind: "all", dGrade: "" };
   const dirty = () => !!Store.draft(u, f);
   const persist = () => Store.setDraft(u, f, E.cards, E.name);
   const F = GROUPS[f];
@@ -603,7 +669,7 @@ function showEditor(f, focusId) {
     : [["have", "가진 카드"], ["fresh", `새로 산 카드 ${freshN()}`], ["every", "모든 카드 (못 가진 것도)"]])
     .map(([k, l]) => `<button class="chip${E.own === k ? " on" : ""}${k === "fresh" && freshN() ? " has-new" : ""}" data-own="${k}">${l}</button>`).join("");
   $("#app").innerHTML = `<section class="screen screen-editor">
-    ${typeof Scenes !== "undefined" ? Scenes.html("editor", { f }) : ""}
+    <div class="ed-art" aria-hidden="true"></div>
     ${headerHTML("덱 조정실")}
     <div class="ed-bar fac-${F.faction}" style="--gc:${F.color}">
       <div class="ed-name rq" style="--gc:${F.color}"><i class="rq-plate" aria-hidden="true"></i>${groupEmblem(f)}<label class="sr" for="ed-name">덱 이름</label><input id="ed-name" maxlength="24" value="${esc(E.name)}"></div>
@@ -629,16 +695,23 @@ function showEditor(f, focusId) {
         <div class="pool-head"><h3 class="panel-title">${all ? "카드 보관함" : "보유 카드"} <small>${F.name}의 유닛·마법·아이템만 넣을 수 있습니다</small></h3>
           <input id="ed-q" class="ed-q" placeholder="이름 검색" aria-label="카드 이름 검색"></div>
         <div class="chips" id="ed-own">${ownChips()}<span class="sep"></span><button class="chip ghost" data-goshop="1" title="이 단체의 카드를 교역소에서 삽니다">교역소에서 사기 →</button></div>
-        <div class="chips" id="ed-filter">
-          ${POOL_TYPES.map(([k, l]) => `<button class="chip ${k === "all" ? "on" : ""}" data-k="${k}">${l}</button>`).join("")}
-          <span class="sep"></span>
-          ${SPELL_KINDS.map(([k, l]) => `<button class="chip ${k === "all" ? "on" : ""}" data-sk="${k}">${l}</button>`).join("")}
-        </div>
-        <div class="chips dv-grades ed-grades" id="ed-grades" role="group" aria-label="등급으로 거르기"></div>
-        <div class="chips" id="ed-filter2">
-          <button class="chip on" data-lv="0">모든 레벨</button>${[1, 2, 3, 4, 5, 6, 7, 8].map(l => `<button class="chip" data-lv="${l}">Lv${l}</button>`).join("")}
-          <span class="sep"></span>
-          <label class="chip tog"><input type="checkbox" id="ed-hideout"> 남은 카드만</label>
+        <div class="ed-filts">
+          <div class="ed-filt ed-filt-pool" id="ed-filt-pool">
+            <div class="edf-head"><button type="button" class="edf-tab" data-scope="pool">카드 보관함</button><small>가진 카드 전체</small></div>
+            <div class="dv-kinds ed-kinds" id="ed-filter" role="group" aria-label="카드 종류로 거르기"></div>
+            <div class="chips dv-grades ed-grades" id="ed-grades" role="group" aria-label="등급으로 거르기"></div>
+            <div class="chips" id="ed-filter2">
+              <button class="chip on" data-lv="0">모든 레벨</button>${[1, 2, 3, 4, 5, 6, 7, 8].map(l => `<button class="chip" data-lv="${l}">Lv${l}</button>`).join("")}
+              <span class="sep"></span>
+              <label class="chip tog"><input type="checkbox" id="ed-hideout"> 남은 카드만</label>
+            </div>
+          </div>
+          <div class="ed-filt ed-filt-deck" id="ed-filt-deck">
+            <div class="edf-head"><button type="button" class="edf-tab" data-scope="deck">내 덱</button><small>운명의 서에 든 카드만</small></div>
+            <div class="ed-score" id="ed-score" role="status" aria-live="polite"></div>
+            <div class="dv-kinds ed-kinds" id="ed-dfilter" role="group" aria-label="내 덱 카드 종류로 거르기"></div>
+            <div class="chips dv-grades ed-grades" id="ed-dgrades" role="group" aria-label="내 덱 카드 등급으로 거르기"></div>
+          </div>
         </div>
         <p class="ed-help"><span><kbd>누르기</kbd> 1장 넣기</span><span><kbd>Shift</kbd>+누르기 가득</span><span><kbd>우클릭</kbd> 1장 빼기</span><span><b>◆</b> 마름모로 장수 맞추기</span><span>끌어서 왼쪽 서에 놓기</span><span><b>⌕</b> 크게 보기</span></p>
         <div id="ed-pool" class="pool-grid"></div>
@@ -648,7 +721,6 @@ function showEditor(f, focusId) {
   const root = $(".screen-editor");
   bindHeader(root);
   bindPreview($("#ed-deck-list"));
-  if (typeof Scenes !== "undefined") Scenes.bind(root, "editor", { f });
 
   let lastN = -1;
   const draw = () => {
@@ -681,19 +753,66 @@ function showEditor(f, focusId) {
         <button class="dl-main" data-rm="${id}" title="누르면 1장 뺍니다"><span class="dl-lv">${c.lv}</span><span class="dl-name">${esc(c.name)}</span><span class="dl-type">${sub}</span></button>
         <span class="dl-ctl"><button class="dl-b" data-rm="${id}" aria-label="${esc(c.name)} 1장 빼기">−</button><span class="dl-n">×${E.cards[id]}</span><button class="dl-b" data-add="${id}" ${canAdd ? "" : "disabled"} aria-label="${esc(c.name)} 1장 넣기">+</button></span></div>`;
     }).join("") || '<p class="empty">운명의 서가 비어 있습니다.<br>오른쪽 카드를 누르거나 끌어 오세요.</p>';
-    const order = { unit: 0, atk: 1, def: 2, any: 3, item: 4 };
-    const base = cardsOfGroup(f).filter(c => poolMatch(c, E))
+    const order = { unit: 0, atk: 1, def: 2, any: 3, hand: 4, item: 5 };
+    /* v3.10.8 종류 칸의 수: 종류를 뺀 다른 거르기(보유 · 레벨 · 검색 · 남은 카드 · 등급)를 거친 카드 중 그 종류의 수 = 누르면 보일 장수 */
+    const pre = cardsOfGroup(f).filter(c => poolMatch(c, { type: "all", kind: "all", lv: E.lv, q: E.q }))
       .filter(c => E.own === "every" ? true : E.own === "bought" ? (u.collection[c.id] || 0) > 0 : E.own === "fresh" ? !!(u.fresh && u.fresh[c.id]) : Store.ownedCount(u, c.id) > 0)
       .filter(c => !E.hideOut || Store.ownedCount(u, c.id) - (E.cards[c.id] || 0) > 0);
-    /* v3.7.6 등급 칸: 다른 거르기(종류 · 마법 종류 · 레벨 · 보유 · 검색)를 다 거친 카드 안의 등급과 그 카드 수. 고른 등급이 사라지면 '모든 등급'으로 */
-    const gN = {}; for (const c of base) { const g = gradeOf(c); gN[g] = (gN[g] || 0) + 1; }
-    if (E.grade && !gN[E.grade]) E.grade = "";
-    $("#ed-grades").innerHTML = `<span class="dv-gl">등급</span><button type="button" class="dv-g g-all${E.grade ? "" : " on"}" data-gr="" aria-pressed="${!E.grade}"><span>모든 등급</span><b>${base.length}</b></button>`
-      + GRADE_IDS.filter(g => gN[g]).map(g => { const G = GRADES[g], on = E.grade === g;
-        return `<button type="button" class="dv-g grade-${g}${on ? " on" : ""}" data-gr="${g}" style="--gr:${G.color}" aria-pressed="${on}" title="${G.name} (${G.en}) ${gN[g]}종만 보기"><span>${G.name}</span><b>${gN[g]}</b></button>`; }).join("");
-    const pool = base.filter(c => !E.grade || gradeOf(c) === E.grade)
+    /* v3.12.1 종류 · 등급 줄 그리기 (카드 보관함과 내 덱이 같은 모양을 쓴다).
+       cnt = 장수 셈법(보관함은 종 수, 내 덱은 덱에 든 장수), pkA · grA = 누르기 속성, unit = 제목의 단위 */
+    const filterRows = (list, cnt, S, kindSel, gradeSel, pkA, grA, unit) => {
+      const sum = arr => arr.reduce((s, c) => s + cnt(c), 0);
+      const base = list.filter(c => poolTypeMatch(c, S.type, S.kind));
+      const preG = list.filter(c => !S.grade || gradeOf(c) === S.grade);
+      const btn = (t, k, label, tip, cls) => { const n = sum(preG.filter(c => poolTypeMatch(c, t, k || "all"))), on = S.type === t && (t !== "spell" || S.kind === (k || "all"));
+        return `<button type="button" class="dv-k ${cls}${on ? " on" : ""}" data-${pkA}="${t}${k ? ":" + k : ""}" aria-pressed="${on}" ${n || on ? "" : "disabled"} title="${tip}"><span>${label}</span><b>${n}</b></button>`; };
+      $(kindSel).innerHTML = `<span class="dv-gl">종류</span>`
+        + btn("all", "", "전체", "모든 종류", "k-all") + btn("unit", "", "유닛", "유닛만 보기", "k-unit")
+        + `<span class="ed-spell-grp${S.type === "spell" ? " on" : ""}">${btn("spell", "", "마법", "모든 마법 보기", "k-spell")}<span class="ed-sub">${SPELL_KINDS.map(([k, l, tip]) => btn("spell", k, l, `${l} 마법만 보기 — ${tip}`, "k-" + k)).join("")}</span></span>`
+        + btn("item", "", "아이템", "아이템만 보기", "k-item");
+      /* v3.7.6 등급 칸: 다른 거르기를 다 거친 카드 안의 등급과 그 수. 고른 등급이 사라지면 '모든 등급'으로 */
+      const gN = {}; for (const c of base) { const g = gradeOf(c); gN[g] = (gN[g] || 0) + cnt(c); }
+      if (S.grade && !gN[S.grade]) S.grade = "";
+      $(gradeSel).innerHTML = `<span class="dv-gl">등급</span><button type="button" class="dv-g g-all${S.grade ? "" : " on"}" data-${grA}="" aria-pressed="${!S.grade}"><span>모든 등급</span><b>${sum(base)}</b></button>`
+        + GRADE_IDS.filter(g => gN[g]).map(g => { const G = GRADES[g], on = S.grade === g;
+          return `<button type="button" class="dv-g grade-${g}${on ? " on" : ""}" data-${grA}="${g}" style="--gr:${G.color}" aria-pressed="${on}" title="${G.name} (${G.en}) ${gN[g]}${unit}만 보기"><span>${G.name}</span><b>${gN[g]}</b></button>`; }).join("");
+      return base.filter(c => !S.grade || gradeOf(c) === S.grade);
+    };
+    const PS = { type: E.type, kind: E.kind, grade: E.grade };
+    const poolSel = filterRows(pre, () => 1, PS, "#ed-filter", "#ed-grades", "pk", "gr", "종");
+    E.grade = PS.grade;
+    /* v3.12.1 내 덱 거르기: 덱에 든 카드만 (검색은 함께 적용, 레벨 · 보유 · 남은 카드는 쓰지 않는다). 수는 덱에 든 장수 */
+    const deckList = ids.map(id => CARDS[id]).filter(c => c && (!E.q || c.name.includes(E.q)));
+    const DS = { type: E.dType, kind: E.dKind, grade: E.dGrade };
+    const deckSel = filterRows(deckList, c => E.cards[c.id] || 0, DS, "#ed-dfilter", "#ed-dgrades", "dpk", "dgr", "장");
+    E.dGrade = DS.grade;
+    {
+      const sc = deckScore(E.cards), st = deckScore(Store.starter(f).cards), full = sc.n === N;
+      const ratio = st.total ? sc.total * (N / Math.max(1, sc.n)) / st.total : 1;   /* 40장이 안 되면 같은 평균으로 채웠다고 보고 견준다 */
+      const tier = sc.n ? DECK_TIERS.find(([r]) => ratio >= r)[1] : "–";
+      const diff = Math.round((ratio - 1) * 100);
+      $("#ed-score").innerHTML = `<span class="sc-tier t-${tier === "–" ? "none" : tier}" title="덱 평가 — 기본 덱(${st.total}점)에 견준 비율"><i>${tier}</i></span>
+        <span class="sc-main"><em>덱 점수</em><b>${sc.total}</b><small>점${full ? "" : ` · ${sc.n}/${N}장`}</small></span>
+        <span class="sc-sub"><span>등급 <b>${sc.grade}</b> + 레벨 <b>${sc.lv}</b></span><span>기본 덱 ${st.total}점 ${sc.n ? (diff >= 0 ? "대비 +" : "대비 ") + diff + "%" : ""}</span></span>`;
+      $("#ed-score").title = `카드 한 장 점수 = 등급 점수 + 레벨\n등급 점수: ${GRADE_IDS.map(g => GRADES[g].name + " " + DECK_GRADE_PT[g]).join(" · ")}\n평가: 기본 덱 대비 S 125%↑ · A 112%↑ · B 95%↑ · C 80%↑ · D 그 아래${full ? "" : "\n(40장이 안 되면 지금 평균으로 40장을 채웠다고 보고 평가)"}`;
+    }
+    $("#ed-filt-pool").classList.toggle("active", E.scope === "pool");
+    $("#ed-filt-deck").classList.toggle("active", E.scope === "deck");
+    $$(".edf-tab", root).forEach(b => b.setAttribute("aria-pressed", b.dataset.scope === E.scope));
+    $("#ed-pool-panel").classList.toggle("scope-deck", E.scope === "deck");
+    const pool = (E.scope === "deck" ? deckSel : poolSel)
       .sort((a, b) => order[a.type] - order[b.type] || a.lv - b.lv || a.id.localeCompare(b.id));
+    /* v3.10.8 여러 종류가 함께 보이면 종류마다 제목 줄을 넣는다 (유닛 → 공격 → 방어 → 공용 → 계략 → 아이템). 내 덱에서는 장수 */
+    const secN = {}; for (const c of pool) secN[c.type] = (secN[c.type] || 0) + (E.scope === "deck" ? E.cards[c.id] || 0 : 1);
+    const showSec = Object.keys(secN).length > 1;
+    let lastSec = "";
     $("#ed-pool").innerHTML = pool.map(c => {
+      let head = "";
+      if (showSec && c.type !== lastSec) { lastSec = c.type; const [t, sub] = POOL_SECS[c.type] || [c.type, ""];
+        head = `<div class="pool-sec k-${c.type}"><span class="ps-name">${t}</span><b>${secN[c.type]}</b>${sub ? `<small>${sub}</small>` : ""}</div>`; }
+      return head + poolCardHTML(c);
+    }).join("") || `<p class="empty">${E.scope === "deck" ? (countMap(E.cards) ? "내 덱에 이 조건의 카드가 없습니다." : "운명의 서가 비어 있습니다. 카드 보관함에서 카드를 넣으세요.") : E.own === "fresh" ? "새로 산 카드가 없습니다. 교역소에서 카드를 사면 여기 NEW로 나옵니다." : E.own === "bought" ? "교역소에서 산 이 단체의 카드가 없습니다." : "조건에 맞는 카드가 없습니다."}</p>`;
+    function poolCardHTML(c) {
       const own = Store.ownedCount(u, c.id), inDeck = E.cards[c.id] || 0, cap = Math.min(maxCopiesOf(c), own), left = own - inDeck;
       const bought = u.collection[c.id] || 0, fresh = u.fresh && u.fresh[c.id];
       if (!own) return `<div class="pool-card locked" data-pc="${c.id}">
@@ -709,7 +828,7 @@ function showEditor(f, focusId) {
           <button class="pc-btn pc-plus" data-add="${c.id}" ${left <= 0 || inDeck >= cap ? "disabled" : ""} aria-label="${esc(c.name)} 덱에 1장 넣기">+</button>
         </div>
         <span class="pc-meta">${all ? (bought ? `교역소에서 산 것 <b>${bought}</b>` : "관리자 카드") : `남음 <b>${Math.max(0, left)}</b> · 보유 ${bought}`}</span></div>`;
-    }).join("") || `<p class="empty">${E.own === "fresh" ? "새로 산 카드가 없습니다. 교역소에서 카드를 사면 여기 NEW로 나옵니다." : E.own === "bought" ? "교역소에서 산 이 단체의 카드가 없습니다." : "조건에 맞는 카드가 없습니다."}</p>`;
+    }
     $("#ed-own").innerHTML = ownChips() + '<span class="sep"></span><button class="chip ghost" data-goshop="1" title="이 단체의 카드를 교역소에서 삽니다">교역소에서 사기 →</button>';
     if (typeof Scenes !== "undefined") Scenes.editorState(n, lvN);
     if (lastN !== -1 && n === N && lastN !== N) { $("#ed-gauge").classList.add("complete"); if (typeof FEEL !== "undefined") FEEL.play("confirm", .55); }
@@ -785,13 +904,23 @@ function showEditor(f, focusId) {
     if (set) { const k = +set.dataset.k, cur = E.cards[set.dataset.set] || 0; setCount(set.dataset.set, k === cur ? k - 1 : k); return; }
     const rm = e.target.closest("[data-rm]"); if (rm) { rmCard(rm.dataset.rm); return; }
     const add = e.target.closest("[data-add]"); if (add) { if (e.shiftKey) fillCard(add.dataset.add); else addCard(add.dataset.add); return; }
+    const top = () => { const pg = $("#ed-pool"); if (pg) pg.scrollTop = 0; };
+    /* v3.12.1 카드 보관함 쪽 거르기를 누르면 보관함을, 내 덱 쪽을 누르면 내 덱만 보인다 */
+    const sc = e.target.closest("[data-scope]");
+    if (sc) { E.scope = sc.dataset.scope; top(); draw(); return; }
     const own = e.target.closest("[data-own]");
-    if (own) { E.own = own.dataset.own; draw(); return; }
+    if (own) { E.own = own.dataset.own; E.scope = "pool"; draw(); return; }
     const gr = e.target.closest("[data-gr]");
-    if (gr) { E.grade = E.grade === gr.dataset.gr ? "" : gr.dataset.gr; draw(); return; }
-    const chip = (attr, key, conv) => { const b = e.target.closest(`[data-${attr}]`); if (!b) return false; E[key] = conv(b.dataset[attr]); if (b.classList.contains("cv-col") && E[key] && E[key] === +$(`#ed-filter2 .chip.on`, root).dataset.lv) E[key] = 0; $$(`#ed-filter [data-${attr}], #ed-filter2 [data-${attr}]`, root).forEach(x => x.classList.toggle("on", x.dataset[attr] == E[key])); draw(); return true; };
-    if (chip("k", "type", String)) return;
-    if (chip("sk", "kind", String)) return;
+    if (gr) { E.grade = E.scope === "pool" && E.grade === gr.dataset.gr ? "" : gr.dataset.gr; E.scope = "pool"; draw(); return; }
+    const pk = e.target.closest("[data-pk]");
+    if (pk) { const [t, k] = pk.dataset.pk.split(":"); const again = E.scope === "pool" && t === "spell" && k && E.type === "spell" && E.kind === k;
+      E.type = t; E.kind = t === "spell" && k && !again ? k : "all"; E.scope = "pool"; top(); draw(); return; }
+    const dgr = e.target.closest("[data-dgr]");
+    if (dgr) { E.dGrade = E.scope === "deck" && E.dGrade === dgr.dataset.dgr ? "" : dgr.dataset.dgr; E.scope = "deck"; top(); draw(); return; }
+    const dpk = e.target.closest("[data-dpk]");
+    if (dpk) { const [t, k] = dpk.dataset.dpk.split(":"); const again = E.scope === "deck" && t === "spell" && k && E.dType === "spell" && E.dKind === k;
+      E.dType = t; E.dKind = t === "spell" && k && !again ? k : "all"; E.scope = "deck"; top(); draw(); return; }
+    const chip = (attr, key, conv) => { const b = e.target.closest(`[data-${attr}]`); if (!b) return false; E.scope = "pool"; E[key] = conv(b.dataset[attr]); if (b.classList.contains("cv-col") && E[key] && E[key] === +$(`#ed-filter2 .chip.on`, root).dataset.lv) E[key] = 0; $$(`#ed-filter [data-${attr}], #ed-filter2 [data-${attr}]`, root).forEach(x => x.classList.toggle("on", x.dataset[attr] == E[key])); draw(); return true; };
     if (chip("lv", "lv", Number)) return;
   });
   // 우클릭 = 1장 빼기 (보유 카드 · 덱 줄)
@@ -829,7 +958,7 @@ function showEditor(f, focusId) {
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "s") { e.preventDefault(); $("#ed-save").click(); }
   };
   addEventListener("keydown", onKey);
-  $("#ed-hideout").addEventListener("change", e => { E.hideOut = e.target.checked; draw(); });
+  $("#ed-hideout").addEventListener("change", e => { E.hideOut = e.target.checked; E.scope = "pool"; draw(); });
   $("#ed-q").addEventListener("input", e => { E.q = e.target.value.trim(); draw(); });
   $("#ed-name").addEventListener("input", e => { E.name = e.target.value; persist(); draw(); });
   $("#ed-save").addEventListener("click", () => {

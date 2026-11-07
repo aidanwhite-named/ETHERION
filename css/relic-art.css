@@ -1,0 +1,77 @@
+/* ETHERION v3.9.14 — 전장의 그림들 (docs/STYLE_GUIDE.md 0.1 · 0.2 · 2.11 · 2.17)
+   성화대 · 에테르 제단 · 심장석 · 카드 뒷면 · 전장 배경을 그림 파일(img/ui/)로 바꾼다.
+   게임 값(불의 상태 · 결정 칸 · 정수 · 구슬 숫자 · 생명 차오름 · 장수)은 코드가 그 위에 얹는다.
+   맨 마지막에 읽어 relics.css · texture.css · title-art.css를 덮어쓴다. 그림 원본(SVG · 그리는 스크립트)은 img/ui/src와 img/ui/pyre/pyre.svg */
+
+/* ───────── 1. 소각장 — 성화대 그림 세 층 (img/ui/pyre) ───────── */
+.pyre-art .py-img { position: absolute; left: -12%; top: -6%; width: 124%; height: 112%; pointer-events: none; user-select: none; }
+.pyre-art .py-front { mix-blend-mode: normal; }
+.pyre-art .py-fire { mix-blend-mode: screen; transform-origin: 50% 69%; transition: transform .45s ease, opacity .45s ease; }
+.pyre-art .py-glow { position: absolute; left: -32%; top: -24%; width: 164%; height: 140%; pointer-events: none; border-radius: 50%;
+  background: radial-gradient(closest-side at 50% 58%, rgba(255, 154, 60, .45), rgba(196, 74, 27, .16) 45%, rgba(0, 0, 0, 0) 100%); opacity: .75; transition: opacity .4s; }
+/* 비어 있으면 잔불만: 불꽃을 낮고 흐리게, 후광도 거의 끈다 */
+.pyre-art:not(.lit) .py-fire { transform: scale(.5, .26); opacity: .55; }
+.pyre-art:not(.lit) .py-glow { opacity: .16; }
+/* 타는 카드는 불꽃 · 앞 테두리 아래에 선다 (relics.css의 .burn-top 자리 그대로) */
+.pyre-art .burn-top { z-index: auto; }
+/* 떨어뜨릴 수 있을 때: 불이 커지고 테두리가 밝아진다 (붉은 테두리 맥동은 쓰지 않는다) */
+.zone.burn.valid .pyre-art .py-glow, .zone.burn.drop-hover .pyre-art .py-glow { opacity: 1; }
+.zone.burn.valid .pyre-art .py-fire { transform: scale(1.06, 1.1); }
+.zone.burn.valid .pyre-art:not(.lit) .py-fire { transform: scale(.7, .5); opacity: .8; }
+.zone.burn.valid .pyre-art .py-front { filter: drop-shadow(0 0 5px rgba(246, 226, 168, .9)); }
+
+/* ───────── 2. 에테르 — 제단 그림 (img/ui/ether, v3.10.2) ─────────
+   뒤 그림(ether_back) → 코드: 구슬 → 앞 그림(ether_front, 있으면) → 코드: 결정 9칸 · 위대한 정수(늘 맨 위).
+   그림 모양은 자유. 결정 · 정수 자리는 js/game.js ETHER_SLOTS */
+.et-art { pointer-events: none; }
+.ether.altar.short .et-art-back { filter: saturate(.6) brightness(.85); }
+/* 결정: 깎은 얼음빛 수정처럼 (그림 위에서도 읽히게 조금 더 진하게) */
+.et-cr .cr-body { fill: rgba(8, 18, 30, .85); stroke: rgba(143, 220, 255, .35); }
+.et-cr.on .cr-body { fill: #7fd3f7; stroke: #f0fbff; stroke-width: .8; filter: drop-shadow(0 0 3.5px rgba(143, 220, 255, 1)); }
+.et-cr.on .cr-edge { stroke: #fff; stroke-opacity: .85; stroke-width: .6; }
+.et-cr.on.used .cr-body { fill: #1e3d50; stroke: #4d7d96; filter: none; }
+
+/* 에테르 구슬 확대 및 텍스트 비율 */
+.eth-ring .eth-orb { inset: 17%; }
+.eth-ring .eth-orb b { font-size: 26cqw; }
+.eth-ring .eth-orb span { font-size: 9cqw; }
+
+/* 아래 결정화 버튼/라벨: 용 꼬리 그림에 가리지 않도록 위치를 더 아래로 내리고 z-index 보장 */
+.ether.altar { justify-content: flex-start; }
+.ether.altar .eth-foot {
+  position: relative;
+  z-index: 5;
+  margin-top: 10px;
+}
+.ether.altar .cry-state {
+  position: relative;
+  z-index: 5;
+  background: rgba(7, 10, 18, .88);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .75);
+}
+
+/* ───────── 3. 생명 — 심장석 그림 세 장 (img/ui/life) ─────────
+   그림 48×60 = 보석 40×52 둘레로 4씩 여유. 상자는 보석 비율(40:52), 그림은 그만큼 밖으로 나온다 */
+.hgem.hg-art { display: block; position: relative; aspect-ratio: 40 / 52; }
+.hg-art .hg-img { position: absolute; left: -10%; top: -7.69%; width: 120%; height: 115.38%; pointer-events: none; user-select: none; }
+.hg-art .hg-blood { clip-path: inset(var(--cut) 0 0 0); transition: clip-path .5s ease; }
+/* 핏빛 윗면: 보석 모양 안에서만 보이는 밝은 선 */
+.hg-art .hg-surf { position: absolute; inset: 0; pointer-events: none; clip-path: polygon(50% 3.85%, 90% 26.92%, 90% 57.69%, 50% 96.15%, 10% 57.69%, 10% 26.92%); }
+.hg-art .hg-surf::before { content: ""; position: absolute; left: 0; right: 0; top: var(--lvl); height: 2.6%; background: #ffd0d6; opacity: .75; box-shadow: 0 0 4px #ff7d8e; transition: top .5s ease; }
+.hg-art .hg-crack-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+
+/* ───────── 4. 카드 뒷면 · 덱 — 그림은 js/view.js setCardBack이 --card-back으로 (img/ui/deck/card_back.png) ─────────
+   상대 핸드 · 덱 맨 위 · 뽑혀 날아오는 카드 · 전장에 뒷면으로 놓인 상대 마법(.field-back, v3.12.2)이 함께 쓴다 */
+.card-back, .card-back.field-back { background: var(--card-back) center / 100% 100% no-repeat; border: 0; border-radius: 6.8% / 4.86%; box-shadow: 0 1px 0 #7a5f2c, 0 2px 0 #3a2c12, 0 3px 0 #140e06, 0 8px 14px rgba(0, 0, 0, .7); }
+.card-back > span, .card-back > em { display: none; }
+.zone.deck .deck-card:last-child { background: var(--card-back) center / 100% 100% no-repeat; border: 0; box-shadow: 0 0 0 1.5px #07050c, 0 6px 14px rgba(0, 0, 0, .7); }
+.zone.deck .deck-card:not(:last-child) { background: linear-gradient(180deg, #e9c77a, #9a6c22 70%, #5a3f12); border: 1px solid #07050c; border-radius: 6.8% / 4.86%; }
+
+/* ───────── 5. 전장 배경 (기본: battle_bg.jpg / 3파전: battle_bg_war.jpg) ─────────
+   칠룡의 고리가 새겨진 돌 광장(기본) 또는 거인 · 용 · 신의 3파전 격돌 전장. 가운데는 카드가 먼저 읽히게 어둡게 그렸다 */
+.screen-game > .g-art { background-image: var(--battle-bg, url("../img/ui/battle/battle_bg.jpg")); background-position: center 60%; background-size: cover; opacity: .9; }
+.screen-game > .g-art.bg-war { background-image: var(--battle-bg, url("../img/ui/battle/battle_bg_war.jpg")); }
+
+/* 타는 카드가 불꽃 그림 속에서도 보이게: 불꽃을 조금 비치게, 잿빛 카드를 조금 밝게 */
+.pyre-art.lit:has(.burn-top) .py-fire { opacity: .78; }
+.pyre-art .burn-top .card .c-frame { filter: grayscale(.85) brightness(.62) sepia(.45) contrast(1.15); }

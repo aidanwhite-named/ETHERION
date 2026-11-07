@@ -129,3 +129,14 @@
 .sc-grade { display: grid; place-items: center; padding: 0 5px; min-width: 30px; font-size: 11px; font-weight: 700; letter-spacing: .02em; white-space: nowrap; color: var(--gr); border: 1px solid color-mix(in srgb, var(--gr) 65%, transparent); border-radius: 3px; background: color-mix(in srgb, var(--gr) 12%, transparent); text-shadow: 0 0 8px color-mix(in srgb, var(--gr) 45%, transparent); }
 .grade-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0; font-size: 12px; }
 .grade-legend i { font-style: normal; font-weight: 700; color: var(--gr); padding: 1px 7px; border: 1px solid color-mix(in srgb, var(--gr) 55%, transparent); border-radius: 3px; background: color-mix(in srgb, var(--gr) 10%, transparent); }
+
+/* v3.11.3 교역소 거르기: 글씨 · 칸을 키우고 줄마다 이름표, 등급 칸은 등급 색 */
+.shop-filters { gap: 10px; }
+.shop-filters .chips { gap: 8px; align-items: center; }
+.shop-filters .sf-label { min-width: 44px; font-size: 15px; color: var(--muted); letter-spacing: .04em; }
+.shop .shop-filters .chip { font-size: 16px; padding: 7px 16px; }
+.shop .shop-filters .chip.sf-grade { --edge: color-mix(in srgb, var(--gr) 45%, transparent); color: var(--gr); }
+.shop .shop-filters .chip.sf-grade:hover { --edge: color-mix(in srgb, var(--gr) 80%, transparent); }
+.shop .shop-filters .chip.sf-grade.on { --edge: linear-gradient(180deg, color-mix(in srgb, var(--gr) 95%, #fff), color-mix(in srgb, var(--gr) 55%, #000)); --fill: linear-gradient(180deg, color-mix(in srgb, var(--gr) 24%, #15141c), color-mix(in srgb, var(--gr) 10%, #0c0c12)); color: var(--gr); text-shadow: 0 0 8px color-mix(in srgb, var(--gr) 50%, transparent); }
+.shop .shop-filters .chip small { font-family: var(--caps); font-size: 13px; opacity: .75; margin-left: 3px; }
+.shop .shop-filters .chip:disabled { opacity: .35; cursor: default; }

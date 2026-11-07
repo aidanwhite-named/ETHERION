@@ -290,6 +290,17 @@
 /* ======================= 상단 문장 ETHERION 입체 (가이드 2.14) ======================= */
 .crest-word { position: relative; filter: url(#ethBevelCrest); }
 
+/* ======================= v3.9 교역소 배경 = 멈춘 그림 한 장 =======================
+   사용자 요청(컴퓨터 자원): 교역소 장면의 반복 움직임을 모두 끈다 — 물레 회전 · 성로 흐름 · 환석 숨쉬기 · 창 불빛 · 물결 반사 · 배 흔들림 ·
+   등불 줄 · 깃발 · 떠오르는 조각(js/scenes.js에서 뺌) · 마우스 따라 움직이기. 각자 움직임의 한가운데 모습으로 멈춘다.
+   같은 화면의 하늘(#bg-canvas)도 한 번만 그리고 멈추며(js/screens.js Bg.freeze), 배경의 세 존재(js/titans.js)는 그리지 않는다(js/shop.js). */
+.scene-shop.sc-still *, .scene-shop.sc-still *::before, .scene-shop.sc-still *::after { animation: none !important; transition: none !important; }
+.scene-shop.sc-still .sc-svg { transform: none; transition: none; }
+.scene-shop.sc-still .sh-gate, .scene-shop.sc-still .sh-gate-refl { opacity: .8; }
+.scene-shop.sc-still .sh-refl { opacity: .3; }
+.scene-shop.sc-still .sh-win { opacity: .75; }
+.scene-shop.sc-still .sh-wheel .sh-star { opacity: .7; }
+
 @media (max-width: 900px) {
   .ed-gauge { min-width: 0; flex-wrap: wrap; } .g-cell { width: 4px; }
   .ed-banner, .ed-candles, .sh-string { display: none; }

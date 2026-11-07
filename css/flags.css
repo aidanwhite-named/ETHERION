@@ -41,8 +41,8 @@
 .prow-bot .bn-h .np-sub { font-size: clamp(11px, calc(var(--cw) * .075), 15px); }
 .prow-bot .bn-h .pi-role { font-size: clamp(10px, calc(var(--cw) * .065), 13px); padding: 0 7px; }
 /* 에테르 칸 폭 = 원형 지름. 원형은 칸 높이에서 아래 이름표(결정화 가능 · 완료) 자리만 뺀 만큼 */
-.prow-bot .ether.altar { flex: 0 0 auto; width: calc(var(--hand-vis) - 12px - 32px); align-self: stretch; padding-inline: 0; }
-.prow-bot .eth-ring { width: min(100cqw, calc(100cqh - 32px)); }
+.prow-bot .ether.altar { flex: 0 0 auto; width: calc(var(--hand-vis) - 12px - 28px); align-self: stretch; padding-inline: 0; }
+.prow-bot .eth-ring { width: min(100cqw, calc(100cqh - 38px)); }
 
 /* ---------- 좁은 화면(760px 이하): 칸이 좁으니 방패를 빼고 아이디 칸을 넓힌다 ---------- */
 @media (max-width: 760px) {

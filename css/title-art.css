@@ -35,3 +35,25 @@
 
 /* v3.7.2 전장 배경 그림: 같은 타이틀 그림을 화면 전체에 옅게(불투명도 20%) 깐다. 카드 · 글자보다 앞에 나오지 않게 판(#board) 아래 층 */
 .screen-game > .g-art { position: absolute; inset: 0; z-index: 0; pointer-events: none; background: url("../img/title/title_art.jpg") center / cover no-repeat; opacity: .2; }
+
+/* v3.9.7 시작 단추: 더 위로 올리고, 움직이지 않게(마우스 따라 기울기 · 떠오르며 등장 없이 제자리에서 나타나기만).
+   그 바로 아래에 소리 단추 둘(배경음 · 효과음, js/screens.js #t-snd) — 오른쪽 아래 떠 있는 단추는 타이틀에서 숨는다(css/bgm.css) */
+.screen-title.has-art .t-center { margin-bottom: max(120px, 19vh); transform: none; }
+.screen-title.has-art:not(.awaken) .t-start { animation: tFade 1.2s 1.5s both; transform: none; }
+.screen-title.has-art:not(.awaken) .t-sub { animation: tFade 1.4s 1.1s both; }
+.t-snd { display: flex; gap: 4px; margin-top: 2px; padding: 3px; border-radius: 999px;
+  background: rgba(10, 10, 18, .55); border: 1px solid var(--line-gold, rgba(217, 180, 106, .38));
+  animation: tFade 1.2s 1.7s both; }
+.t-snd .tb-btn { height: 30px; min-width: 32px; padding: 0 6px; border-radius: 999px; color: var(--gold-hi, #f6e2a8); }
+.t-snd .tb-btn svg { width: 18px; height: 18px; }
+.t-snd .tb-btn.tb-snd.off { color: var(--muted, #8a8577); }
+.t-snd .snd-slash { width: 30px; height: 30px; }
+.screen-title.awaken .t-snd { transition: opacity .5s; opacity: 0; animation: none; }
+@keyframes tFade { from { opacity: 0; } }
+@media (max-aspect-ratio: 1/1) { .screen-title.has-art .t-center { margin-bottom: max(90px, 14vh); } }
+@media (prefers-reduced-motion: reduce) { .screen-title.has-art:not(.awaken) .t-start, .screen-title.has-art:not(.awaken) .t-sub, .t-snd { animation: none; } }
+
+/* v3.10.7 덱 조정실 배경: 움직이던 감실 장면 · 별 · 입자 · 세 존재 대신 타이틀 그림 한 장(움직이지 않음, 컴퓨터 자원).
+   글자 · 카드가 잘 읽히게 위에 어두운 막을 덮는다 */
+.screen-editor > .ed-art { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: #07080d url("../img/title/title_art.jpg") center / cover no-repeat; }
+.screen-editor > .ed-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7, 8, 13, .55), rgba(7, 8, 13, .7)); }

@@ -1,53 +1,55 @@
-/* ETHERION — 상단 문장: 키 아트 띠 (js/crest.js, 가이드 2.15, 게임 v3.5.1)
-   그림 img/ui/etherion_keyart.jpg (1672×600, 가로세로 2.787:1).
-   --kv-avail = 양쪽 날개(길 · 지갑) 사이에 남는 폭, --kv-w = 단추(그림) 폭, --kv-h = 큰 띠 높이.
-   대기실 맨 위 = 큰 띠(그림 전체), 내리거나 다른 화면 = 작은 띠(띠 높이 안에 글자 둘레만). */
-:root { --crest-drop: 34px; --kv-avail: max(640px, min(100vw - 1040px, 880px)); --kv-w: min(var(--kv-avail), 697px); --kv-h: calc(var(--kv-w) / 2.787); }
-@media (max-width: 1600px) { :root { --crest-drop: 26px; --kv-avail: max(544px, min(100vw - 1040px, 748px)); } }
-@media (max-width: 1440px) { :root { --crest-drop: 12px; --kv-avail: 410px; } }
-@media (max-width: 1300px) { :root { --crest-drop: 22px; --kv-avail: 256px; } }
+/* ETHERION — 상단 문장: ETHERION 글자 (js/crest.js, 가이드 2.15, 게임 v3.9)
+   그림 없이 타이틀 로고와 같은 글자(js/logo.js LOGO)만, 멈춘 채로. 글자는 상단 띠(--bar-h) 높이 안에 들어간다 — 띠 위아래로 넘치지 않는다.
+   글자 svg 하나의 높이 = 1.16em(로고 좌표 VB_H 1160 / 1000)이므로 글자 크기 = 띠 높이 × .72 → 글자 높이 ≈ 띠 높이의 84%.
+   지금 화면 이름(.crest-sub)은 대기실 밖의 메뉴 화면에서만, 띠 아래 끝에 걸린 작은 명판으로 보인다. 대기실에서는 숨긴다.
+   v3.5.1 ~ v3.7.9의 키 아트 그림 띠(.cr-kv)와 대기실에서 문장을 숨기던 규칙은 지웠다. */
+:root { --crest-drop: 34px; --crest-fs: calc(var(--bar-h) * .72); }
+@media (max-width: 1600px) { :root { --crest-drop: 26px; } }
+@media (max-width: 1500px) { :root { --crest-fs: calc(var(--bar-h) * .64); } }
+@media (max-width: 1440px) { :root { --crest-drop: 12px; } }
+@media (max-width: 1300px) { :root { --crest-drop: 22px; --crest-fs: calc(var(--bar-h) * .6); } }
 
-.tb-crest.has-art { z-index: 2; width: var(--kv-w); height: calc(var(--bar-h) + var(--crest-drop)); padding: 0; filter: drop-shadow(0 12px 18px rgba(0, 0, 0, .6)); }
+.tb-crest.has-art { z-index: 2; width: auto; height: var(--bar-h); padding: 0 6px; display: grid; place-items: center; overflow: visible;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, .55)); }
 .tb-crest.has-art::before, .tb-crest.has-art::after { display: none; }
-.tb-crest.has-art:hover { filter: drop-shadow(0 12px 18px rgba(0, 0, 0, .6)) drop-shadow(0 0 14px rgba(240, 200, 120, .25)); }
-.tb-crest.has-art:hover .cr-kv { filter: brightness(1.08) saturate(1.05); }
-/* 글자는 그림 안에 있다 — HTML 글자는 화면 읽기용 */
+.tb-crest.has-art:hover { filter: drop-shadow(0 3px 5px rgba(0, 0, 0, .55)) drop-shadow(0 0 10px rgba(240, 200, 120, .3)); }
+/* 화면 읽기용 글자 */
 .tb-crest.has-art .crest-word { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
-/* 그림: 양끝 · 아래가 밤하늘로 녹아든다 */
-.cr-kv { --kv-cur: calc(var(--bar-h) + var(--crest-drop)); position: absolute; left: 50%; top: 0; z-index: -1; width: min(var(--kv-w), calc(var(--kv-cur) * 6.19)); height: var(--kv-cur); translate: -50% 0; pointer-events: none;
-  background: url("../img/ui/etherion_keyart.jpg") 50% 100% / auto calc(var(--kv-cur) * 2.222) no-repeat;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent), linear-gradient(180deg, #000 72%, transparent);
-  -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent), linear-gradient(180deg, #000 72%, transparent); mask-composite: intersect;
-  transition: height .45s cubic-bezier(.3, .05, .15, 1), width .45s cubic-bezier(.3, .05, .15, 1), background-size .45s cubic-bezier(.3, .05, .15, 1); }
-/* 지금 화면 이름: 그림 아래 끝에 걸린 작은 명판 */
-.tb-crest.has-art .crest-sub { position: absolute; left: 50%; top: calc(var(--bar-h) + var(--crest-drop) - 10px); translate: -50% 0; z-index: 1; padding: 3px 14px 4px; font-size: 13px;
-  background: linear-gradient(180deg, rgba(16, 15, 28, .92), rgba(8, 8, 15, .92)); border: 1px solid rgba(217, 180, 106, .45); clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0 50%); color: var(--gold-hi); transition: top .45s cubic-bezier(.3, .05, .15, 1); }
-@media (max-width: 1300px) { .tb-crest.has-art .crest-sub { top: calc(var(--bar-h) + var(--crest-drop) - 2px); font-size: 11px; } }
+/* 글자 / 이미지: 그림(img/ui/crest/crest_logo.png)이 있으면 그림을 쓰고, 없으면 코드로 된 로고(js/logo.js)를 쓴다 */
+.cr-wrap { position: relative; display: flex; align-items: center; justify-content: center; height: 100%; }
+.cr-img { height: calc(var(--bar-h) * .84); width: auto; max-width: 340px; object-fit: contain; display: none; pointer-events: none;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, .6)); transition: filter .2s; }
+.cr-wrap.has-img .cr-img { display: block; }
+.cr-wrap.has-img .cr-word { display: none; }
+.tb-crest.has-art:hover .cr-img { filter: drop-shadow(0 2px 5px rgba(0, 0, 0, .6)) drop-shadow(0 0 10px rgba(240, 200, 120, .4)); }
 
-/* 띠의 가는 그림자 선(box-shadow)은 브라우저가 자식 위에 그려 그림을 가로지른다 → 그림이 있으면 띠의 ::after/::before로 옮긴다 */
-.topbar.realm:has(.tb-crest.has-art) { box-shadow: none; }
-.topbar.realm:has(.tb-crest.has-art)::after { box-shadow: 0 1px 0 #2e2616, 0 2px 0 #1e190f; }
-.topbar.realm:has(.tb-crest.has-art)::before { box-shadow: 0 14px 30px 8px rgba(0, 0, 0, .5); }
+.cr-word { display: flex; align-items: center; font-size: var(--crest-fs); line-height: 1; pointer-events: none; }
+.cr-word .lg { display: block; flex: none; overflow: visible; }
+.cr-word .lg-line { display: none; }
+.cr-word .lg-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* 지금 화면 이름: 띠 아래 끝에 걸린 작은 명판 (대기실 밖) */
+.tb-crest.has-art .crest-sub { position: absolute; left: 50%; top: calc(var(--bar-h) - 9px); translate: -50% 0; z-index: 1; padding: 3px 14px 4px; font-size: 13px; white-space: nowrap;
+  background: linear-gradient(180deg, rgba(16, 15, 28, .94), rgba(8, 8, 15, .94)); border: 1px solid rgba(217, 180, 106, .45); clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0 50%); color: var(--gold-hi); }
+@media (max-width: 1300px) { .tb-crest.has-art .crest-sub { font-size: 11px; } }
+.screen-lobby .tb-crest.has-art .crest-sub { display: none; }
 
 /* 문장이 넓어져도 오른쪽 날개의 글자가 두 줄로 꺾이지 않게 */
 .tbw-right .gold-chip, .tbw-right .weather-chip, .tbw-right .wx-chip, .seal-txt b, .seal-txt small { white-space: nowrap; }
 
 @media (max-width: 760px) {
-  :root { --crest-drop: 0px; }
-  .tb-crest.has-art { width: 200px; height: 46px; padding: 0 0 6px; align-content: center; gap: 2px; }
-  .tb-crest.has-art .crest-word { position: static; width: auto; height: auto; overflow: visible; clip-path: none; font-size: 18px; }
-  .tb-crest.has-art .crest-sub { position: static; translate: none; padding: 0; background: none; border: 0; clip-path: none; font-size: 11px; color: var(--ink-2); }
-  .tb-crest.has-art::before, .tb-crest.has-art::after { display: block; }
-  .cr-kv { display: none; }
+  :root { --crest-drop: 0px; --crest-fs: 26px; }
+  .tb-crest.has-art { width: auto; height: 46px; padding: 0; }
+  .tb-crest.has-art .crest-sub { display: none; }
+  .cr-img { height: 36px; max-width: 200px; }
 }
-@media (prefers-reduced-motion: reduce) { .cr-kv, .tb-crest.has-art .crest-sub { transition: none; } }
 
-/* v3.7.3 대기실에는 ETHERION 그림을 두지 않는다(상단 띠의 작은 문장도 숨김). 덱 보관함 · 덱 보기 · 수레바퀴/채팅은 띠 바로 밑(18px)에서 함께 시작한다.
-   덱 보기 판은 덱 보관함 판과 세로 크기가 같다(js/screens.js fitLobbyCards가 카드를 키우고 높이를 맞춘다). */
-.screen-lobby .tb-crest.has-art { visibility: hidden; }
+/* v3.7.3 대기실: 덱 보관함 · 덱 보기 · 수레바퀴/채팅은 띠 바로 밑(18px)에서 함께 시작한다.
+   덱 보기 판은 덱 보관함 판과 세로 크기가 같다(js/screens.js fitLobbyCards가 카드를 키우고 높이를 맞춘다).
+   v3.9: 상단 띠 가운데에 ETHERION 글자가 다시 보인다(띠 높이 안). */
 .screen-lobby .lobby { padding-top: 18px; }
 .screen-lobby .side-col { top: calc(var(--bar-h) + 18px); }
 .deck-view.dv-fit { grid-template-rows: auto auto 1fr auto; }
 .deck-view.dv-fit .dv-cards { align-content: center; }
-@media (max-width: 760px) { .screen-lobby .tb-crest.has-art { visibility: visible; } .screen-lobby .lobby { padding-top: 14px; } }
+@media (max-width: 760px) { .screen-lobby .lobby { padding-top: 14px; } }

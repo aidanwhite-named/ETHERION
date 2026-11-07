@@ -493,5 +493,12 @@ const SpellFX = (() => {
     return out;
   }
 
-  return { themeOf, reveal, cast };
+  /* v3.9.10 핸드에서 걸린 저주가 전장에서 드러날 때(js/game.js curseFx): 약화와 같은 어둠 + 암흑 원소색 */
+  function hex(el) {
+    if (off() || !el || !el.isConnected) return;
+    curse(el, el.getBoundingClientRect(), { col: EL_COL.dark, el: "dark" });
+    snd("sp_debuff", 0.9);
+  }
+
+  return { themeOf, reveal, cast, hex };
 })();

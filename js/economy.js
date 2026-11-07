@@ -135,7 +135,7 @@ function econBreak(g, items) {
 function econSettle(g) {
   if (!g || !g.econ || g.econ.settled) return g && g.econ ? g.econ.settled : null;
   const u = Store.user(); if (!u || g.cfg.headless) return null;
-  const won = g.winner === 0;
+  const won = g.winner === (g.online ? g.me : 0);   // v3.10 온라인: 내 자리
   const bonus = Math.round(g.econ.broken * (won ? ECON.winMul : ECON.loseMul));
   if (bonus) Store.addGold(u, bonus, won ? "승리 정산" : "패배 정산");
   g.econ.settled = { won, bonus, broken: g.econ.broken, earned: g.econ.earned, pach: g.econ.pach, total: bonus + g.econ.earned + g.econ.pach };

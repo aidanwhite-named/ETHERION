@@ -8,7 +8,7 @@
          산 카드는 덱 조정실의 덱 초안에 바로 들어간다(켜고 끌 수 있음). 배경은 밤의 린데어 항구(js/scenes.js). */
 "use strict";
 
-const SHOP = { node: "root", type: "all", lv: 0, open: {}, toDeck: true };
+const SHOP = { node: "root", type: "all", lv: 0, grade: "", open: {}, toDeck: true };
 try { const v = localStorage.getItem("etherion.pref.shopToDeck"); if (v != null) SHOP.toDeck = v === "1"; } catch (e) {}
 
 function shopNodeHTML(kind, id, extra) {
@@ -30,12 +30,13 @@ function shopTreeHTML() {
     </div>`).join("")}</div>
   </div>`;
 }
-function shopCards() {
+function shopCards(noGrade) {
   let list = SHOP.node === "root" ? CARD_LIST : FACTIONS[SHOP.node] ? CARD_LIST.filter(c => c.faction === SHOP.node) : cardsOfGroup(SHOP.node);
   if (SHOP.type === "unit") list = list.filter(c => c.type === "unit");
   if (SHOP.type === "spell") list = list.filter(c => isSpellType(c.type));
   if (SHOP.type === "item") list = list.filter(c => c.type === "item");
   if (SHOP.lv) list = list.filter(c => c.lv === SHOP.lv);
+  if (SHOP.grade && !noGrade) list = list.filter(c => gradeOf(c) === SHOP.grade);
   const order = { unit: 0, atk: 1, def: 2, any: 3, item: 4 };
   return list.slice().sort((a, b) => GROUP_IDS.indexOf(a.group) - GROUP_IDS.indexOf(b.group) || order[a.type] - order[b.type] || a.lv - b.lv || a.id.localeCompare(b.id));
 }
@@ -50,7 +51,7 @@ function shopCardTile(c, u) {
   const fresh = u.fresh && u.fresh[c.id];
   const why = !left ? "재고가 없습니다" : full ? "최대 장수를 모두 가지고 있습니다" : poor ? "환석 조각이 부족합니다" : `${fmtGold(price)}에 1장 구매${SHOP.toDeck ? " · 덱 초안에 바로 넣음" : ""}`;
   return `<div class="shop-card${full ? " full" : ""}${left ? "" : " soldout"}${fresh ? " fresh" : ""}" data-card="${c.id}" style="--gr:${GRADES[gradeOf(c)].color}">
-    <div class="sc-face">${cardHTML(c, { size: "md" })}${fresh ? '<span class="sc-new">NEW</span>' : ""}${left ? "" : '<span class="sc-sold">품절</span>'}</div>
+    <div class="sc-face">${cardHTML(c, { size: "md", brief: true })}${fresh ? '<span class="sc-new">NEW</span>' : ""}${left ? "" : '<span class="sc-sold">품절</span>'}</div>
     <div class="sc-foot"><span class="sc-price" title="교역소 값 (지금은 모든 카드 같은 값)"><i class="shard" aria-hidden="true"></i>${Math.round(price).toLocaleString("ko-KR")}</span><span class="sc-own ${own ? "ok" : ""}">보유 ${own}${admin ? "" : "/" + mx}</span></div>
     ${shopStockHTML(c)}
     <div class="sc-btns">
@@ -69,7 +70,8 @@ function shopTitle() {
 function showShop() {
   Store.ensureOpen();
   const u = Store.user(); if (!u) return showLogin();
-  App.screen = "shop"; Bg.set("calm"); if (typeof Titans !== "undefined") Titans.mode(.34);
+  /* v3.9 교역소 배경은 멈춘 그림 한 장: 하늘은 한 번만 그리고(Bg.freeze), 배경의 세 존재(3D)는 그리지 않는다("off" = 캔버스를 숨기고 그리기를 멈춤) */
+  App.screen = "shop"; Bg.set("calm"); Bg.freeze(); if (typeof Titans !== "undefined") Titans.mode("off");
   $("#app").innerHTML = `<section class="screen screen-shop">
     ${typeof Scenes !== "undefined" ? Scenes.html("shop") : ""}
     ${headerHTML("린데어 교역소")}
@@ -104,16 +106,23 @@ function showShop() {
     if (buy) { shopBuy(buy.dataset.buy, 1, buy); return; }
     const sell = e.target.closest("[data-sell]");
     if (sell) { shopSell(sell.dataset.sell); return; }
-    const chip = e.target.closest("[data-shop-type],[data-shop-lv]");
-    if (chip) { if (chip.dataset.shopType) SHOP.type = chip.dataset.shopType; else SHOP.lv = +chip.dataset.shopLv; renderShopMain(); return; }
+    const chip = e.target.closest("[data-shop-type],[data-shop-lv],[data-shop-gr]");
+    if (chip) {
+      if (chip.dataset.shopType) SHOP.type = chip.dataset.shopType;
+      else if (chip.dataset.shopGr != null) SHOP.grade = chip.dataset.shopGr;
+      else SHOP.lv = +chip.dataset.shopLv;
+      renderShopMain(); return;
+    }
     const card = e.target.closest(".sc-face");
     if (card) shopCardModal(card.closest("[data-card]").dataset.card);
   });
 }
 function renderShop() { $("#shop-tree").innerHTML = shopTreeHTML(); renderShopMain(); }
 function renderShopMain() {
+  /* v3.11.3 등급 칸의 장수: 단체 · 종류 · 레벨을 거친 카드 안에서 센다. 고른 등급이 0장이 되면 '모든 등급'으로 */
+  const gN = {}; for (const c of shopCards(true)) { const g = gradeOf(c); gN[g] = (gN[g] || 0) + 1; }
+  if (SHOP.grade && !gN[SHOP.grade]) SHOP.grade = "";
   const u = Store.user(), list = shopCards(), T = shopTitle(), admin = Store.isAdmin(u);
-  const sum = list.reduce((s, c) => s + shopPrice(c), 0);
   const deckG = GROUPS[SHOP.node] ? SHOP.node : null;
   const dk = deckG && Store.ownsGroup(u, deckG) ? (Store.draft(u, deckG) || Store.deck(u, deckG)) : null, dn = dk ? countMap(dk.cards) : 0;
   $("#shop-main").innerHTML = `
@@ -127,10 +136,9 @@ function renderShopMain() {
       ${admin ? '<button type="button" class="btn xs ghost" id="shop-restock" title="모든 카드의 재고를 등급별 처음 장수로">재고 모두 채우기</button>' : ""}
     </div>
     <div class="shop-filters">
-      <div class="chips">${[["all", "전체"], ["unit", "유닛"], ["spell", "마법"], ["item", "아이템"]].map(([k, l]) => `<button type="button" class="chip${SHOP.type === k ? " on" : ""}" data-shop-type="${k}">${l}</button>`).join("")}</div>
-      <div class="chips">${[0, 1, 2, 3, 4, 5, 6, 7, 8].map(l => `<button type="button" class="chip${SHOP.lv === l ? " on" : ""}" data-shop-lv="${l}">${l ? "Lv " + l : "모든 레벨"}</button>`).join("")}</div>
-      <p class="grade-legend small"><span class="muted">등급 · 재고</span>${GRADE_IDS.map(g => `<i style="--gr:${GRADES[g].color}">${GRADES[g].name} <small>${SHOP_STOCK[g]}</small></i>`).join("")}</p>
-      <p class="muted small">값: ${SHOP_FLAT != null ? `모든 카드 ${fmtGold(SHOP_FLAT)} (임시 일괄 값)` : `유닛 = 레벨 × ${ECON.unitPerLv} 조각 · 아이템 ${Math.round(ECON.itemMul * 100)}% · 마법 ${Math.round(ECON.spellMul * 100)}%`} · 여기 있는 카드를 한 장씩 모두 사면 ${fmtGold(sum)}${admin ? "" : ` · 같은 카드는 ${RULES.maxCopies}장까지`}</p>
+      <div class="chips"><span class="sf-label">종류</span>${[["all", "전체"], ["unit", "유닛"], ["spell", "마법"], ["item", "아이템"]].map(([k, l]) => `<button type="button" class="chip${SHOP.type === k ? " on" : ""}" data-shop-type="${k}">${l}</button>`).join("")}</div>
+      <div class="chips"><span class="sf-label">레벨</span>${[0, 1, 2, 3, 4, 5, 6, 7, 8].map(l => `<button type="button" class="chip${SHOP.lv === l ? " on" : ""}" data-shop-lv="${l}">${l ? "Lv " + l : "모든 레벨"}</button>`).join("")}</div>
+      <div class="chips"><span class="sf-label">등급</span><button type="button" class="chip${SHOP.grade ? "" : " on"}" data-shop-gr="">모든 등급</button>${GRADE_IDS.map(g => `<button type="button" class="chip sf-grade${SHOP.grade === g ? " on" : ""}" data-shop-gr="${g}" style="--gr:${GRADES[g].color}" ${gN[g] ? "" : "disabled"} title="${GRADES[g].name} 등급 ${gN[g] || 0}종">${GRADES[g].name} <small>${gN[g] || 0}</small></button>`).join("")}</div>
     </div>
     <div class="shop-cards" id="shop-cards">${list.map(c => shopCardTile(c, u)).join("")}</div>`;
 }

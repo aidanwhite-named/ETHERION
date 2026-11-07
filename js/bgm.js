@@ -2,7 +2,8 @@
    - 타이틀 · 입장 화면(배경 "title"): audio/bgm/title — 약 50초짜리 짧은 곡을 이어서 반복
    - 대기실 · 교역소 · 덱 조정실 · 원정 · 보관소(배경 "calm"): 아홉 단체 테마(audio/bgm/flag_<단체ID>)를 무작위로 이어 튼다.
      방금 나온 세 곡은 다시 고르지 않는다. 곡이 끝나기 4초 전부터 다음 곡과 겹쳐 넘어간다
-   - 대전(배경 "off"): 천천히 줄어들며 멈춘다. 대전이 끝나 대기실로 돌아오면 새 곡으로 다시 시작
+   - 대전(배경 "off"): v3.9.1부터 대전 곡 둘(audio/bgm/bgm_reminiscence · bgm_long_ago)을 번갈아 이어 튼다(끝나기 4초 전부터 겹쳐 넘어감).
+     대전이 끝나 대기실로 돌아오면 단체 테마 새 곡으로 다시 시작. (예전에는 대전에서 멈춰서, ♪를 켜도 소리가 안 났다)
    - 화면 바뀜은 Bg.set(배경 모드)을 감싸서 안다(js/screens.js를 고치지 않음). 그래서 이 파일은 screens.js 뒤에 읽는다
    - 음량: 설정에서 끄기 / 작게 / 보통 (localStorage etherion.pref.bgm, 기본 보통). 효과음 설정과 따로
    - 화면 오른쪽 아래의 소리 단추 둘(모든 화면): ♪ = 배경음, 스피커 = 효과음. 따로 끄고 켠다.
@@ -19,12 +20,15 @@
 
 const BGM = {
   dir: "audio/bgm/",
+  ver: "o4",          // 음원을 바꾸면 올린다(브라우저가 옛 파일을 기억하지 않게) — v3.9.13 오케스트라판
   titleTrack: "title",
   flags: ["B1", "B2", "B3", "G1", "G2", "G3", "A1", "A2", "A3"],
+  battleTracks: ["bgm_reminiscence", "bgm_long_ago"],
+  battleIdx: -1,
   vol: { off: 0, low: 0.22, mid: 0.5, user: 0.5 },
   MAXV: 0.8,           // 슬라이더 100일 때의 실제 음량
   level: "mid",
-  want: null,          // 지금 화면이 원하는 것: "title" | "town" | null
+  want: null,          // 지금 화면이 원하는 것: "title" | "town" | "battle" | null
   cur: null,           // { el, name, scene }
   recent: [],
   blocked: false,
@@ -66,7 +70,7 @@ const BGM = {
 
   /* 배경 모드 → 음악 */
   scene(mode) {
-    const want = mode === "title" ? "title" : mode === "calm" ? "town" : null;
+    const want = mode === "title" ? "title" : mode === "calm" ? "town" : mode === "off" ? "battle" : null;
     this.closePanel();
     if (this.box) this.box.classList.toggle("in-battle", mode === "off");   // 대전 화면: 생명 판과 겹치지 않게 구석으로
     if (want === this.want) return;
@@ -76,7 +80,11 @@ const BGM = {
     this.start(want);
   },
 
-  pick() {
+  pick(scene) {
+    if (scene === "battle") {   // 대전 곡: 처음은 무작위, 그다음부터 번갈아
+      this.battleIdx = this.battleIdx < 0 ? Math.floor(Math.random() * this.battleTracks.length) : (this.battleIdx + 1) % this.battleTracks.length;
+      return this.battleTracks[this.battleIdx];
+    }
     const pool = this.flags.filter(g => !this.recent.includes(g));
     const g = pool[Math.floor(Math.random() * pool.length)];
     this.recent.push(g); if (this.recent.length > 3) this.recent.shift();
@@ -85,21 +93,21 @@ const BGM = {
 
   start(scene) {
     if (this.level === "off") { this.stop(); return; }
-    const name = scene === "title" ? this.titleTrack : this.pick();
-    const el = new Audio(this.dir + name + "." + this.ext);
+    const name = scene === "title" ? this.titleTrack : this.pick(scene);
+    const el = new Audio(this.dir + name + "." + this.ext + "?v=" + this.ver);
     el.preload = "auto";
     el.loop = scene === "title";
     el.volume = 0;
     const item = { el, name, scene };
-    if (scene === "town") {
+    if (scene !== "title") {   // 대기실 · 대전: 곡이 끝나기 4초 전부터 다음 곡으로 겹쳐 넘어감
       el.addEventListener("timeupdate", () => {
         if (this.cur !== item || item.leaving || !el.duration) return;
-        if (el.duration - el.currentTime < 4) { item.leaving = true; this.start("town"); }
+        if (el.duration - el.currentTime < 4) { item.leaving = true; this.start(scene); }
       });
-      el.addEventListener("ended", () => { if (this.cur === item && !item.leaving) this.start("town"); });
+      el.addEventListener("ended", () => { if (this.cur === item && !item.leaving) this.start(scene); });
     }
     el.addEventListener("error", () => { if (this.cur === item) this.cur = null; });
-    if (this.cur) this.fade(this.cur, 0, scene === "town" && this.cur.scene === "town" ? 4000 : this.fadeMs, true);
+    if (this.cur) this.fade(this.cur, 0, scene !== "title" && this.cur.scene === scene ? 4000 : this.fadeMs, true);
     this.cur = item;
     this.play(item);
   },

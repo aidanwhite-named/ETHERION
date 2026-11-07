@@ -1,0 +1,29 @@
+/* ETHERION v3.10 — 온라인 대전 창 (js/online.js · js/screens.js startPvP)
+   성채 UI 문법(스타일 가이드 2.5)을 따른다: 남색 패널 + 금빛 선, 코드 글자는 Cinzel 금빛, 에테르(연결)는 하늘빛 */
+.ol-entry { display: grid; gap: 3px; width: 100%; margin: 4px 0 12px; padding: 14px 16px; text-align: left; cursor: pointer;
+  background: linear-gradient(180deg, rgba(91, 63, 160, .34), rgba(26, 18, 48, .7)); border: 1px solid rgba(222, 208, 255, .45); border-radius: 3px; color: var(--ink); font: inherit; }
+.ol-entry b { font-size: 19px; color: var(--gold-hi); letter-spacing: .04em; }
+.ol-entry span { font-size: 13px; color: var(--ink-2); }
+.ol-entry:hover { border-color: var(--gold); box-shadow: 0 0 0 1px var(--line-gold), 0 0 18px rgba(143, 111, 214, .35); }
+
+.modal.ol-modal { width: min(560px, 100%); }
+.ol-choose { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0 10px; }
+.ol-pick { display: grid; align-content: start; gap: 6px; padding: 14px; text-align: left; background: rgba(13, 16, 25, .7); border: 1px solid var(--line-gold); border-radius: 3px; color: var(--ink); font: inherit; }
+button.ol-pick { cursor: pointer; }
+button.ol-pick:hover { border-color: var(--gold); background: rgba(217, 180, 106, .08); }
+.ol-pick b { font-size: 18px; color: var(--gold-hi); }
+.ol-pick span { font-size: 13px; color: var(--ink-2); }
+.ol-join input { font-family: "Cinzel", serif; font-size: 22px; letter-spacing: .3em; text-align: center; text-transform: uppercase; padding: 6px 8px;
+  background: var(--night); border: 1px solid var(--line-gold); color: var(--gold-hi); border-radius: 2px; width: 100%; box-sizing: border-box; }
+.ol-join input:focus { outline: none; border-color: var(--ether); box-shadow: 0 0 0 1px rgba(143, 220, 255, .35); }
+.ol-note { font-size: 12.5px; color: var(--muted); margin: 4px 0 0; }
+
+.ol-code-box { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 12px 0; padding: 14px; border: 1px solid var(--line-gold); background: rgba(7, 8, 13, .6); border-radius: 3px; }
+.ol-code-label { font-size: 13px; color: var(--ink-2); }
+.ol-code { font-family: "Cinzel", serif; font-size: 40px; font-weight: 700; letter-spacing: .32em; color: var(--gold-hi); text-shadow: 0 0 14px rgba(217, 180, 106, .45); user-select: all; }
+.ol-status { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ether); margin: 10px 0 0; }
+.ol-status.bad { color: var(--bad); }
+.ol-spin { width: 14px; height: 14px; border: 2px solid rgba(143, 220, 255, .25); border-top-color: var(--ether); border-radius: 50%; animation: ol-spin 1s linear infinite; flex: none; }
+@keyframes ol-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .ol-spin { animation: none; } }
+@media (max-width: 560px) { .ol-choose { grid-template-columns: 1fr; } .ol-code { font-size: 30px; } }

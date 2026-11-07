@@ -5,3 +5,11 @@ _ld_tmp.js
 node_modules/
 .DS_Store
 Thumbs.db
+
+# 그림 AI 도구의 작업물 · 바꾸기 전 그림
+tools/art/out/
+_backup_art/
+__pycache__/
+
+# Claude 작업 산출물
+Claude outputs/

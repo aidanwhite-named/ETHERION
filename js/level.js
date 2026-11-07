@@ -88,49 +88,33 @@ Object.assign(Store, {
   Store.save = function () { save.call(this); LevelUI.paint(); };
 })();
 
-/* ---------- 화면: 가운데 아래의 조각 · 레벨 판, 레벨 업 연출, 결과 화면 ---------- */
+/* ---------- 화면: 상단 띠의 모험가 인장(레벨 · 경험치 · 전적) + 교역소 옆 조각, 레벨 업 연출, 결과 화면 ----------
+   v3.9.15: 가운데 아래 떠 있던 판(.lv-hud)을 없앴다. 인장 · 조각은 js/screens.js sealHTML · shardChipHTML이 그리고,
+   값이 바뀌면(Store.save) 여기 paint가 숫자와 막대만 고쳐 쓴다 → 막대가 이전 값에서 차오른다 */
 const LevelUI = {
-  el: null, on: false, raf: 0,
-  mount() {
-    if (this.el || !document.body) return;
-    const el = document.createElement("div");
-    el.className = "lv-hud"; el.hidden = true;
-    el.innerHTML = `<span class="lv-orb" aria-hidden="true"><small>LV</small><b></b></span>
-      <span class="lv-body">
-        <span class="lv-top"><span class="lv-gold"><i class="shard" aria-hidden="true"></i><b></b><small>조각</small></span><span class="lv-next"></span></span>
-        <span class="lv-bar" aria-hidden="true"><i></i></span>
-      </span>`;
-    document.body.appendChild(el);
-    this.el = el;
-    this.paint(true);
-  },
-  /* 메뉴 화면(배경 모드 calm: 대기실 · 교역소 · 덱 조정실 · 원정 · 보관소)에서만 보인다. 타이틀 · 입장 · 전장에서는 숨김 */
-  scene(mode) {
-    this.on = mode === "calm";
-    this.paint(true);
-  },
+  raf: 0,
+  mount() {},
+  scene() { this.paint(); },
   paint(now) {
-    if (!now) { if (!this.raf) this.raf = requestAnimationFrame(() => { this.raf = 0; this.paint(true); }); return; }
-    const el = this.el; if (!el) return;
-    const u = Store.user(), show = this.on && !!u;
-    el.hidden = !show;
-    document.body.classList.toggle("lv-on", show);
-    if (!show) return;
-    const admin = Store.isAdmin(u), I = LEVEL.info(Store.xp(u));
-    el.querySelector(".lv-orb b").textContent = I.lv;
-    el.querySelector(".lv-gold b").textContent = admin ? "∞" : fmtNum(Store.gold(u));
-    el.querySelector(".lv-next").textContent = I.top ? "최대 레벨" : `다음 레벨까지 ${fmtNum(I.left)}`;
-    el.querySelector(".lv-bar i").style.setProperty("--p", I.p.toFixed(4));
-    el.classList.toggle("top", I.top);
-    el.title = `모험가 레벨 ${I.lv}${I.top ? " (최대)" : ` · ${fmtNum(I.into)} / ${fmtNum(I.need)}`}\n`
-      + `지갑 ${admin ? "∞ (관리자)" : fmtGold(Store.gold(u))} · 누적 경험치 ${fmtNum(I.xp)}\n`
-      + `벌어들인 환석 조각이 곧 경험치입니다. 카드를 사도 경험치는 줄지 않고, 판 값은 경험치가 되지 않습니다.`;
+    if (!now) { if (!this.raf && typeof requestAnimationFrame === "function") this.raf = requestAnimationFrame(() => { this.raf = 0; this.paint(true); }); return; }
+    const u = Store.user(); if (!u || typeof document === "undefined") return;
+    const I = LEVEL.info(Store.xp(u)), R = typeof sealRecord === "function" ? sealRecord(u) : null;
+    document.querySelectorAll(".topbar .user-chip.seal.lv").forEach(el => {
+      const set = (sel, v) => { const x = el.querySelector(sel); if (x && x.textContent !== String(v)) x.textContent = v; };
+      set(".sl-lv", I.lv);
+      if (R) { set(".sl-w", fmtNum(R.w)); set(".sl-l", fmtNum(R.l)); set(".sl-rate", R.rate == null ? "—" : R.rate + "%"); }
+      const bar = el.querySelector(".seal-xp i"); if (bar) bar.style.setProperty("--p", I.p.toFixed(4));
+      el.classList.toggle("top", I.top);
+      if (R && typeof sealTitle === "function") el.title = sealTitle(u, R, I);
+    });
+    const admin = Store.isAdmin(u);
+    document.querySelectorAll(".topbar .tb-shard b").forEach(b => { const v = admin ? "∞" : fmtNum(Store.gold(u)); if (b.textContent !== v) b.textContent = v; });
   },
-  /* 레벨이 오름: 메뉴 화면이면 가운데에 띠, 전장이면 결과 화면이 대신 보여 준다 */
+  /* 레벨이 오름: 메뉴 화면이면 인장 구슬이 빛나고 가운데에 띠, 전장이면 결과 화면이 대신 보여 준다 */
   levelUp(r) {
     this.paint();
     if (typeof App !== "undefined" && App.screen === "game") return;
-    if (this.el) { this.el.classList.remove("up"); void this.el.offsetWidth; this.el.classList.add("up"); setTimeout(() => this.el && this.el.classList.remove("up"), 1800); }
+    document.querySelectorAll(".topbar .user-chip.seal.lv").forEach(el => { el.classList.remove("up"); void el.offsetWidth; el.classList.add("up"); setTimeout(() => el.classList.remove("up"), 1800); });
     this.banner(r.lvBefore, r.lv);
   },
   banner(from, to) {
@@ -184,10 +168,4 @@ const LevelUI = {
   }
 };
 
-LevelUI.mount();
-if (!LevelUI.el) document.addEventListener("DOMContentLoaded", () => LevelUI.mount());
-if (typeof Bg !== "undefined" && !Bg.levelHooked) {
-  const set = Bg.set;
-  Bg.set = function (mode) { set.call(this, mode); LevelUI.scene(mode); };
-  Bg.levelHooked = true;
-}
+

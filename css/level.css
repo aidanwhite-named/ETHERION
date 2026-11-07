@@ -53,8 +53,7 @@
 @keyframes lvPop { 0% { transform: scale(1); } 30% { transform: scale(1.28); box-shadow: 0 0 0 1px #fff3c9, 0 0 30px 8px rgba(246, 226, 168, .7); } 100% { transform: scale(1); } }
 @keyframes lvGlow { 0% { opacity: .75; filter: none; } 25% { opacity: 1; filter: brightness(1.6) drop-shadow(0 0 10px rgba(246, 226, 168, .8)); } 100% { opacity: .75; filter: none; } }
 
-/* 판이 가리지 않게 메뉴 화면 아래에 자리를 둔다 */
-body.lv-on #app > .screen { padding-bottom: 76px; }
+/* v3.9.15: 가운데 아래 판(.lv-hud)은 쓰지 않는다 — 레벨 · 경험치는 상단 띠 인장(css/hud.css 3), 조각은 교역소 옆. 아래 .lv-hud 규칙은 남은 옛 모양 */
 
 /* ---------- 레벨 업 띠 (메뉴 화면) ---------- */
 .lv-banner { position: fixed; inset: 0; z-index: 130; display: grid; place-items: center; pointer-events: auto; cursor: pointer;

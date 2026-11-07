@@ -6,7 +6,7 @@
 /* 전장: 놓을 수 있는 칸 · 소각장 · 에테르 · 준비 단추 · 코인 멈춤 단추 · 생명이 적을 때 */
 .slot.valid, .slot.valid-move, .burn.valid, .ether.valid,
 .eth-orb, .ready, .cs-stop, .btn.cs-stop:not(.rb), .ready-wrap,
-.ether.altar.valid .eth-ring, .ether.altar.valid .dr-orb,
+.ether.altar.valid .eth-ring, .ether.altar.valid .et-orb,
 .pinfo.low .pl-num:not(.bump), .pinfo.low .hgem,
 .pit-floor { animation: none; }
 

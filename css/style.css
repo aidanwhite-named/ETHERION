@@ -680,6 +680,8 @@ body.is-dragging .hand-me .hand-slot .hand-card { transform: translateY(var(--y)
 .float.shield { color: #9be8ff; font-family: var(--body); font-size: max(20px, calc(var(--cw) * .14)); }
 .float.miss { color: #b9b9c8; font-size: max(18px, calc(var(--cw) * .12)); }
 .float.debuff { color: #c9a2ff; font-family: var(--body); font-size: max(18px, calc(var(--cw) * .13)); }
+/* v3.9.11 [사격] 겨눔: 대상 이름 */
+.float.aim { color: #ffe08a; font-family: var(--body); font-weight: 800; font-size: max(15px, calc(var(--cw) * .11)); -webkit-text-stroke: 0; text-shadow: 0 2px 4px #000, 0 0 10px rgba(0, 0, 0, .9), 0 0 14px rgba(255, 196, 80, .55); }
 @keyframes floatUp { 0% { opacity: 0; transform: translate(-50%, -20%) scale(.4); } 14% { opacity: 1; transform: translate(-50%, -50%) scale(1.35); } 26% { transform: translate(-50%, -55%) scale(1); } 100% { opacity: 0; transform: translate(-50%, -190%) scale(1); } }
 
 /* 좁은 화면 */
@@ -813,7 +815,7 @@ body.is-dragging .hand-me .hand-slot .hand-card { transform: translateY(var(--y)
 .eth-foot { display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: center; }
 .cry-state { font-size: 11px; padding: 1px 7px; border-radius: 9px; border: 1px solid rgba(143, 220, 255, .3); color: var(--muted); white-space: nowrap; }
 .cry-state.ok { color: #c9f0ff; border-color: var(--ether); background: rgba(143, 220, 255, .14); box-shadow: 0 0 10px rgba(143, 220, 255, .25); }
-.cry-state.done { color: var(--muted); border-color: rgba(255, 255, 255, .15); text-decoration: line-through; }
+.cry-state.done { color: var(--muted); border-color: rgba(255, 255, 255, .15); }  /* v3.9.3: 취소선 뺌(다 썼다는 뜻이었지만 잘못된 것처럼 보였다) */
 .cry-state.max { color: var(--gold-hi); border-color: var(--gold); }
 .prow-top .eth-foot, .prow-top .eth-label small { display: none; }
 .ether-sub { font-size: 11px; }
@@ -937,10 +939,9 @@ html[data-font="system"] { --kfont: "Batang", "바탕", "AppleMyungjo"; }
 .btn.shuffle { flex: none; display: inline-flex; flex-direction: column; gap: 0; padding: 6px 12px; font-size: 13px; line-height: 1.15; border-radius: 10px; }
 .btn.shuffle small { font-family: var(--caps); font-size: 9px; letter-spacing: .1em; opacity: .7; }
 .btn.shuffle.used { opacity: .45; }
-/* 돌고 있는 코인은 양면 모두 "?" — 멈춰야 앞·뒷면이 보인다 */
+/* v3.10.5 돌고 있는 코인은 처음부터 문양이 새겨진 진짜 코인 — 앞면(금 · 에테리온 문장)과 뒷면(잿빛 · 빈 자리)이 번갈아 보인다.
+   값 글자(공+1 등)만 멈춘 뒤에 나온다. (예전: 양면 모두 민무늬 금화 + "?") */
 .cs-coin.spinning .cs-face i, .cs-coin.spinning .cs-face b { visibility: hidden; }
-.cs-coin.spinning .cs-face::after { content: "?"; position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--caps); font-weight: 900; font-size: 30px; color: inherit; }
-.cs-coin.spinning .cs-tails { background: radial-gradient(circle at 35% 30%, #fff3c9, #e0b34f 55%, #8a6220); color: #2a1c04; }
 /* 오른쪽(생명·장수) 열은 왼쪽(명판·에테르)보다 좁게 */
 .prow { grid-template-columns: var(--side-w) minmax(0, 1fr) calc(var(--side-w) * .62); }
 .eth-label small { font-size: 11px; }

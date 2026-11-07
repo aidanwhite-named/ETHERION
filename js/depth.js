@@ -32,7 +32,7 @@ const Depth = (() => {
       const ry = -side * SIDE_DEG + mx * FOLLOW_DEG * k, rx = -my * FOLLOW_DEG * .8 * k;
       el.style.transform = `perspective(1700px) translate3d(${(-mx * 7).toFixed(2)}px,${(-my * 4).toFixed(2)}px,0) rotateX(${rx.toFixed(3)}deg) rotateY(${ry.toFixed(3)}deg)`;
     });
-    const logo = document.querySelector(".screen-title:not(.awaken) .t-center"), ring = document.querySelector(".screen-title:not(.awaken) .t-ring");
+    const logo = document.querySelector(".screen-title:not(.awaken):not(.has-art) .t-center"), ring = document.querySelector(".screen-title:not(.awaken) .t-ring");
     if (logo) logo.style.transform = `rotateX(${(-my * 5).toFixed(2)}deg) rotateY(${(mx * 7).toFixed(2)}deg) translateZ(40px)`;
     if (ring) ring.style.transform = `translate(-50%,-50%) rotateX(${(16 - my * 8).toFixed(2)}deg) rotateY(${(mx * 10).toFixed(2)}deg)`;
   }

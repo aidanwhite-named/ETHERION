@@ -160,19 +160,22 @@ function coinLogText(cs) {
 function ctx(P, ai, turn, rec, opts) {
   opts = opts || {};
   RNG = opts.seed != null ? mulberry32(opts.seed) : Math.random;
-  return { P, ai, turn, rec, floats: [], logs: [], direct: 0, broke: [false, false], broken: [], clashN: 0, defFix: {}, over: opts.over || null, rules: opts.rules || {}, toks: {}, tokN: 0 };
+  return { P, ai, turn, rec, floats: [], logs: [], direct: 0, broke: [false, false], broken: [], clashN: 0, defFix: {}, over: opts.over || null, rules: opts.rules || {}, toks: {}, tokN: 0, deaths: [] };
 }
 /* 전투로 부서진 카드(유닛 결투·마법 사용·마법으로 파괴) 기록. 소각장으로 보낸 것은 적지 않는다 (economy.js가 돈으로 바꾼다) */
 function brokeCard(X, p, id, how) { if (X.rec) X.broken.push({ p: p.idx, id, how }); }
 function fl(X, target, text, cls) { if (X.rec) X.floats.push([target, text, cls]); }
 function lg(X, text, cls) { if (X.rec) X.logs.push([text, cls || ""]); }
+/* v3.9.11 "OO 쓰러짐"은 그 수의 다른 기록(공격 · 사격 · 반격 줄) 뒤에 남긴다. 피해를 먼저 계산하고 원인 줄을 나중에 쓰는 곳이 많아
+   예전에는 "쓰러짐"이 원인보다 먼저 찍혔다. step이 기록을 넘길 때 맨 뒤에 붙인다 */
+function lgDeath(X, u) { if (X.rec) X.deaths.push([`${C(u).name} 쓰러짐`, "bad"]); }
 function step(X, fx, dur) {
   if (!X.rec) return;
   const units = {};
   for (const p of X.P) for (const it of p.field) if (it && it.t) units[it.uid] = JSON.parse(JSON.stringify(it.t));
-  X.rec.push({ fx: Object.assign({}, fx), dur: dur || 450, floats: X.floats, logs: X.logs,
+  X.rec.push({ fx: Object.assign({}, fx), dur: dur || 450, floats: X.floats, logs: X.logs.concat(X.deaths),
     snap: { players: X.P.map(p => ({ field: p.field.map(i => (i ? i.uid : null)), life: p.life, crystals: p.crystals.slice(), burn: p.burn.slice(), reload: p.reload, bonus: p.bonus || 0 })), units, toks: Object.assign({}, X.toks) } });
-  X.floats = []; X.logs = [];
+  X.floats = []; X.logs = []; X.deaths = [];
 }
 
 function hurt(X, u, x, tag) {
@@ -184,7 +187,9 @@ function hurt(X, u, x, tag) {
   }
   u.t.dmg += x;
   fl(X, u.uid, (tag ? tag + " " : "") + "−" + x, "dmg");
-  if (hpLeft(u) <= 0) { u.t.alive = false; lg(X, `${C(u).name} 쓰러짐`, "bad"); }
+  // v3.11 [불굴]: 이번 턴 쓰러질 피해를 처음 받으면 체력 1로 버틴다 (한 번)
+  if (hpLeft(u) <= 0 && u.t.endure) { u.t.endure = false; u.t.dmg = u.t.h - 1; fl(X, u.uid, "불굴 ♥1", "shield"); lg(X, `[불굴] ${C(u).name}이(가) 체력 1로 버텼다`, "good"); return x; }
+  if (hpLeft(u) <= 0) { u.t.alive = false; lgDeath(X, u); }
   return x;
 }
 
@@ -205,15 +210,25 @@ function pickTargets(X, caster, side, area, k) {
     if (area.t === "back") L = L.filter(u => { const c = colOf(P, u); return c > k && c <= k + area.n; });
     else if (area.t === "front") L = queueOf(P).slice(0, area.n);
     else if (area.t === "maxA") L = L.slice().sort((x, y) => y.t.a - x.t.a || C(y).lv - C(x).lv || colOf(P, x) - colOf(P, y)).slice(0, area.n);
-    else if (area.t === "behind") L = L.filter(u => colOf(P, u) > k).sort((x, y) => colOf(P, x) - colOf(P, y)).slice(0, 1);
+    else if (area.t === "minH") L = L.slice().sort((x, y) => hpLeft(x) - hpLeft(y) || C(x).lv - C(y).lv || colOf(P, x) - colOf(P, y)).slice(0, area.n);   // v3.11 남은 체력이 가장 낮은 n기
+    else if (area.t === "behind") L =L.filter(u => colOf(P, u) > k).sort((x, y) => colOf(P, x) - colOf(P, y)).slice(0, 1);
     out = out.concat(L);
   }
   return out;
 }
-function coinX(op) {
+/* faces: 미리 던진 코인 면 [true/false ...] (castSpell이 넘긴다). 없으면 여기서 던진다 */
+function coinX(op, faces) {
   let x = op.x || 0;
-  if (op.coin) for (let i = 0; i < op.coin[0]; i++) if (flip()) x += op.coin[1];
+  if (op.coin) for (let i = 0; i < op.coin[0]; i++) if (faces ? faces[i] : flip()) x += op.coin[1];
   return x;
+}
+/* v3.9.2 마법 코인 창에 적는 이름. gate = 앞면이 하나라도 나와야 효과가 나는 코인 */
+function spellCoinLabel(op) {
+  if (op.op === "dmg") return { label: "피해" };
+  if (op.op === "mod") return { label: STAT_KO[op.cs || "a"] };
+  if (op.op === "thorns") return { label: "가시" };
+  const g = { shield: "보호막", destroy: "파괴", atk0: "공격 0" }[op.op];
+  return g ? { label: g, gate: true } : { label: "효과" };
 }
 /* [증폭 N]: 이 유닛이 전장에 있으면 내 공격 마법의 피해 +N */
 function amplify(p) { return liveUnits(p).reduce((s, u) => s + abilOf(u).amp, 0); }
@@ -221,11 +236,26 @@ function amplify(p) { return liveUnits(p).reduce((s, u) => s + abilOf(u).amp, 0)
 function castSpell(X, caster, it, k) {
   const c = C(it), p = X.P[caster], o = X.P[1 - caster];
   lg(X, `✦ ${p.name}: ${c.name} 발동 (${k}번 칸) — ${c.text}`, "spell");
+  const ops = c.ops.filter(op => op.op !== "lock").concat(c.ops.filter(op => op.op === "lock"));
+  /* v3.9.2 마법 코인은 효과마다 한 번, 효과를 내기 전에 먼저 던진다(대상 모두 같은 값 — 문서 07 마법 "코인 표기").
+     예전에는 coinX 안에서 조용히 던져 화면에 코인이 돌지 않았다. 이제 결과를 기록(spellCoin)으로 넘겨 화면이 돌려 보인다.
+     대상이 없는 효과의 코인은 던지되 보이지 않는다. 마법 코인은 에테르로 다시 던지지 않는다 */
+  const faces = new Map(), sets = [];
+  for (const op of ops) {
+    if (!op.coin || SPELL_OPS[op.op] || op.op === "copy") continue;
+    const fs = [];
+    for (let i = 0; i < op.coin[0]; i++) fs.push(flip());
+    faces.set(op, fs);
+    if (pickTargets(X, caster, op.side, op.area, k).length) sets.push(Object.assign({ v: op.coin[1], faces: fs }, spellCoinLabel(op)));
+  }
+  if (sets.length) {
+    lg(X, `코인: ${sets.map(o => { const h = o.faces.filter(Boolean).length; return `${o.label} ${o.gate ? "" : sgnNum(o.v) + " "}× ${o.faces.length} → ${h ? "앞면 " + h : "모두 뒷면"}`; }).join(" · ")}`, "sys");
+    step(X, { spellCoin: { uid: it.uid, id: it.id, sets } }, 1400);
+  }
   if (c.cost.life) { p.life -= c.cost.life; fl(X, "life" + p.idx, "대가 −" + c.cost.life, "dmg"); }
   if (c.cost.ether) { p.reload += c.cost.ether; lg(X, `[장전 ${c.cost.ether}] ${p.name}의 다음 턴 에테르 −${c.cost.ether}`, "sys"); }
   if (c.gain.life) { const b = p.life; p.life = Math.min(RULES.lifeCap, p.life + c.gain.life); if (p.life > b) fl(X, "life" + p.idx, "+" + (p.life - b), "heal"); }
   const amp = c.type === "atk" ? amplify(p) : 0;
-  const ops = c.ops.filter(op => op.op !== "lock").concat(c.ops.filter(op => op.op === "lock"));
   for (const op of ops) {
     if (SPELL_OPS[op.op]) { SPELL_OPS[op.op](X, caster, it, k, op); continue; }
     if (op.op === "copy") {
@@ -240,7 +270,7 @@ function castSpell(X, caster, it, k) {
       continue;
     }
     const T = pickTargets(X, caster, op.side, op.area, k);
-    const x = coinX(op) + (op.op === "dmg" && op.side === "foe" ? amp : 0);
+    const x = coinX(op, faces.get(op)) + (op.op === "dmg" && op.side === "foe" ? amp : 0);
     for (const u of T) {
       switch (op.op) {
         case "dmg": if (op.phys) { const r = hit(x, u.t.d); if (r > 0) hurt(X, u, r, "물리"); else fl(X, u.uid, "막음", "miss"); } else hurt(X, u, x); break;
@@ -251,7 +281,7 @@ function castSpell(X, caster, it, k) {
           if (md && !u.t.lock) u.t.d += md;
           if (mh) u.t.h += mh;
           applyFloor(u);
-          if (hpLeft(u) <= 0) { u.t.alive = false; lg(X, `${C(u).name} 쓰러짐`, "bad"); }
+          if (hpLeft(u) <= 0) { u.t.alive = false; lgDeath(X, u); }
           const tx = [ma ? "⚔" + sgnNum(ma) : "", md && !u.t.lock ? "⛨" + sgnNum(md) : "", mh ? "♥" + sgnNum(mh) : ""].filter(Boolean).join(" ");
           if (tx) fl(X, u.uid, tx, ma < 0 || md < 0 || mh < 0 ? "debuff" : "buff");
           break; }
@@ -260,7 +290,7 @@ function castSpell(X, caster, it, k) {
         case "shield": if (!op.coin || x > 0) { u.t.shield = true; fl(X, u.uid, "보호막", "shield"); } break;
         case "thorns": u.t.thorns += x; fl(X, u.uid, "가시 +" + x, "buff"); break;
         case "taunt": u.t.taunt = true; break;
-        case "lock": u.t.lock = true; if (u.t.d < u.t.rb.d) u.t.d = u.t.rb.d; fl(X, u.uid, "고정", "shield"); break;
+        case "lock": u.t.lock = true; if (u.t.d < u.t.rb.d) u.t.d = u.t.rb.d; fl(X, u.uid, "저주 면역", "shield"); break;
         case "destroy": if (!op.coin || x > 0) { u.t.alive = false; u.t.dmg = u.t.h; fl(X, u.uid, "파괴", "dmg big"); lg(X, `${C(u).name} 파괴`, "bad"); } break;
         case "clean": {
           // 코인을 모두 뒷면으로: 이 턴에 던지는 코인은 앞면이 나오지 않는다.
@@ -270,6 +300,15 @@ function castSpell(X, caster, it, k) {
           fl(X, u.uid, "코인 뒷면", "debuff"); break; }
         case "rest": u.t.rest = true; fl(X, u.uid, "행동 불가", "debuff"); break;
         case "strip": u.t.shield = false; u.t.thorns = 0; u.t.lock = false; u.t.taunt = false; fl(X, u.uid, "강화 해제", "debuff"); break;
+        /* v3.11 새 효과 (소환 마법을 바꾼 카드들) */
+        case "def0": if (!u.t.lock) { u.t.d = Math.max(0, u.t.floor.d || 0); fl(X, u.uid, "방어 0", "debuff"); } else fl(X, u.uid, "저주 면역", "miss"); break;
+        case "d2a": { const v = Math.max(0, u.t.d); if (v) { u.t.a += v; fl(X, u.uid, "⚔+" + v, "buff"); } break; }
+        case "endure": u.t.endure = true; fl(X, u.uid, "불굴", "shield"); break;
+        case "pierce": u.t.pierce = true; fl(X, u.uid, "꿰뚫기", "buff"); break;
+        case "rage": {   // 체력을 1로, 깎인 만큼 공격 + (이번 턴 · 받은 피해처럼 턴이 끝나면 돌아온다)
+          const cut = hpLeft(u) - 1;
+          if (cut > 0) { u.t.dmg += cut; u.t.a += cut; fl(X, u.uid, "♥1 ⚔+" + cut, "buff"); }
+          break; }
       }
     }
   }
@@ -284,13 +323,19 @@ function throwTarget(D, n, foes) {
    v1.6.2: [투척]은 여기서 빠지고, 그 유닛이 공격을 시작할 때 함께 던진다 (attackOne) */
 function throwPhase(X) {
   const A = X.P[X.ai], D = X.P[1 - X.ai];
+  // v3.12.4 사격이 상대 유닛을 모두 쓰러뜨리면 X.sniped: 이번 전투에서는 직접 공격(생명 피해)을 하지 않는다 (attackOne)
+  const had = liveUnits(D).length > 0;
+  try { throwOnce(X, A, D); } finally { if (had && !liveUnits(D).length) X.sniped = true; }
+}
+function throwOnce(X, A, D) {
   for (const u of liveUnits(A)) {
     const sn = abilOf(u).snipe; if (!sn || u.t.rest) continue;
     const foes = liveUnits(D); if (!foes.length) return;
     const tg = throwTarget(D, sn, foes);
+    fl(X, tg.uid, "◎ " + C(tg).name, "aim");   // v3.9.11 겨눌 때 대상 이름을 카드 위에 띄운다 (맞고 부서져 칸이 당겨져도 무엇을 맞혔는지 보이게)
     step(X, { act: u.uid, tgt: tg.uid, sn: 1 }, 380);   // sn: 화면이 [사격] 소리를 고르는 표시 (규칙과 무관)
-    hurt(X, tg, sn, "사격");
     lg(X, `${C(u).name}의 [사격 ${sn}] → ${C(tg).name}`);
+    hurt(X, tg, sn, "사격");
     step(X, { act: u.uid, tgt: tg.uid, hit: true, sn: 1 }, 520);
   }
 }
@@ -299,6 +344,13 @@ function attackOne(X, Au) {
   const A = X.P[X.ai], D = X.P[1 - X.ai];
   const Du = queueOf(D)[0];
   const ca = C(Au);
+  if (!Du && X.sniped) {
+    // v3.12.4 이번 전투의 상대는 유닛이었는데 [사격]에 모두 쓰러졌다 → 공격할 대상이 없을 뿐, 생명을 치지 않는다
+    lg(X, `${ca.name}: 맞설 유닛이 [사격]에 모두 쓰러져 공격할 대상이 없다`, "sys");
+    fl(X, Au.uid, "대상 없음", "miss");
+    step(X, {}, 300);
+    return;
+  }
   if (!Du) {
     const dmg = ca.lv;
     step(X, { act: Au.uid, tgt: "life" + D.idx }, 380);
@@ -313,6 +365,7 @@ function attackOne(X, Au) {
     return;
   }
   const cd = C(Du), im = itemOf(Au), ab = abilOf(Au);
+  const behind = Au.t.pierce ? queueOf(D).find(f => f !== Du) : null;   // v3.11 [꿰뚫기]: 맞선 유닛 바로 뒤의 유닛
   // 유닛과 유닛이 맞붙는다: 공격 쪽 코인을 던진다. 방어 쪽은 이 전투에서 처음 맞붙을 때만 던지고,
   // 그 뒤로는 전투가 끝날 때까지 정해진 코인 그대로 (v3.5.6, clashCoins의 keep).
   // 화면에서는 돌고 있는 코인을 사용자가 멈추면 결과가 드러나고, 그 결과대로 스탯이 바뀐 뒤에 공격·반격이 이어진다
@@ -357,10 +410,17 @@ function attackOne(X, Au) {
   let dealt = hit(Au.t.a, dd), crit = false, got = 0;
   if (!Du.t.alive) lg(X, `${cd.name}이(가) 투척에 쓰러져 공격은 빗나갔다`, "sys");
   else {
-    if (ab.crit && dealt > 0 && flip()) { dealt *= 2; crit = true; }
-    got = dealt > 0 ? hurt(X, Du, dealt, crit ? "치명" : "") : (fl(X, Du.uid, "0", "miss"), 0);
+    got = dealt > 0 ? hurt(X, Du, dealt) : (fl(X, Du.uid, "0", "miss"), 0);
+    // v3.9.6 [치명]: 코인 없이, 피해가 들어갔고(보호막 · 가호에 다 막히지 않음) 상대가 살아 있으면 남은 체력을 1로.
+    // 원래 피해로 쓰러지면 그대로 쓰러진다. 예전에는 코인 앞면이면 피해 2배라 공격이 큰 유닛에게 너무 셌다
+    if (ab.crit && got > 0 && Du.t.alive && hpLeft(Du) > 1) { const cut = hpLeft(Du) - 1; Du.t.dmg += cut; got += cut; crit = true; fl(X, Du.uid, "치명 ♥1", "dmg big"); }
     if (ab.shred && Du.t.d > 0) { const red = Math.min(Au.t.a, Du.t.d); Du.t.d -= red; applyFloor(Du); if (red) fl(X, Du.uid, "관통 ⛨−" + red, "debuff"); }
     lg(X, `${ca.name}(공 ${Au.t.a}) → ${cd.name}(방 ${dd}): 피해 ${got}${crit ? " (치명)" : ""}`);
+    if (behind && behind.t.alive) {
+      const pr = hit(Au.t.a, behind.t.d);
+      lg(X, `[꿰뚫기] ${ca.name}의 공격이 ${C(behind).name}까지 꿰뚫었다 (공 ${Au.t.a} → 방 ${behind.t.d})`);
+      if (pr > 0) hurt(X, behind, pr, "꿰뚫기"); else fl(X, behind.uid, "막음", "miss");
+    }
     if (Du.t.thorns && Au.t.alive) { const t = hurt(X, Au, Du.t.thorns, "가시"); if (t) lg(X, `[가시] ${ca.name} 피해 ${t}`); }
   }
   step(X, thr ? { act: Au.uid, tgt: Du.uid, hit: true, thr: thr.uid } : { act: Au.uid, tgt: Du.uid, hit: true }, 520);
@@ -376,9 +436,12 @@ function attackOne(X, Au) {
 /* 한 턴의 전투 전체.
    쓰러진 유닛과 쓴 마법은 그 자리에서 부서지고(sweep), 남은 카드는 바로 좌측으로 당겨진다.
    마법의 "앞 칸·뒤 N칸"은 정렬 뒤에도 같은 카드 순서를 가리킨다 (k를 새 칸 번호로 고친다) */
+/* v3.11 빼앗긴 카드(from = 원래 주인 번호)는 부서지면 원래 주인의 소각장으로 간다 */
+function ownerOf(X, it, p) { return it && it.from != null ? (X.P.find(q => q.idx === it.from) || p) : p; }
 function runCombatCore(X) {
   const A = X.P[X.ai], D = X.P[1 - X.ai];
   const pend = [];
+  X.pend = pend; X.A = A;   // v3.11 빼앗기(steal)가 대기 중인 마법의 주인을 바꿀 때 쓴다
   for (const [p, who] of [[A, "atk"], [D, "def"]]) p.field.forEach((it, i) => { if (isSpell(it)) pend.push({ p, it, who, k: i + 1 }); });
   const acted = new Set();
   // v1.9: 누구든 생명이 0 이하가 되는 순간 전투(와 경기)는 그 자리에서 끝난다. 남은 공격·마법은 하지 않는다
@@ -390,7 +453,7 @@ function runCombatCore(X) {
   const sweep = (extraUids, dur) => {
     const gone = extraUids ? extraUids.slice() : [];
     for (const p of X.P) {
-      p.field.forEach((it, s) => { if (isUnit(it) && !it.t.alive) { gone.push(it.uid); p.field[s] = null; if (!C(it).tok) { p.burn.push(it.id); brokeCard(X, p, it.id, "unit"); } if (it.item) { p.burn.push(it.item.id); brokeCard(X, p, it.item.id, "item"); } } });
+      p.field.forEach((it, s) => { if (isUnit(it) && !it.t.alive) { gone.push(it.uid); p.field[s] = null; const bp = ownerOf(X, it, p); if (!C(it).tok) { bp.burn.push(it.id); brokeCard(X, bp, it.id, "unit"); } if (it.item) { bp.burn.push(it.item.id); brokeCard(X, bp, it.item.id, "item"); } } });
       const xs = p.field.filter(Boolean);
       p.field = xs.concat(Array(RULES.slots - xs.length).fill(null));
     }
@@ -410,7 +473,7 @@ function runCombatCore(X) {
       castSpell(X, q.p.idx, q.it, q.k);
       step(X, { spell: q.it.id, shown: q.it.uid }, 800);   // 효과 숫자를 볼 틈 (v1.2: 650 → 800)
       const s = q.p.field.indexOf(q.it); if (s >= 0) q.p.field[s] = null;
-      q.p.burn.push(q.it.id); brokeCard(X, q.p, q.it.id, "spell");
+      const bp = ownerOf(X, q.it, q.p); bp.burn.push(q.it.id); brokeCard(X, bp, q.it.id, "spell");
       sweep([q.it.uid], 560);
     }
   };
@@ -430,7 +493,7 @@ function runCombatCore(X) {
   sweep();
   // "이번 턴만" 부른 유닛은 전투가 끝나면 사라진다
   let fade = false;
-  for (const p of X.P) for (const u of p.field) if (isUnit(u) && u.tokTemp && u.t.alive) { u.t.alive = false; fade = true; lg(X, `${C(u).name}이(가) 사라졌다`, "sys"); }
+  for (const p of X.P) for (const u of p.field) if (isUnit(u) && u.tokTemp && u.t.alive) { u.t.alive = false; fade = true; lg(X, u.from != null ? `빼앗은 ${C(u).name}이(가) 그림자로 흩어져 원래 주인의 소각장으로 갔다` : `${C(u).name}이(가) 사라졌다`, "sys"); }
   if (fade) sweep();
   step(X, {}, 300);
   return X.direct;
@@ -581,6 +644,49 @@ const SPELL_OPS = {
     const u = L[0]; if (!u) return;
     u.t.taunt = true; if (op.d && !u.t.lock) u.t.d += op.d;
     fl(X, u.uid, "수호" + (op.d ? " ⛨+" + op.d : ""), "shield");
+  },
+  /* v3.11 아군 유닛 수 × per 만큼 상대 유닛 전체에게 피해: { per, side } */
+  perAlly(X, caster, it, k, op) {
+    const n = liveUnits(X.P[caster]).length, x = n * (op.per || 1) + (C(it).type === "atk" ? amplify(X.P[caster]) : 0);
+    lg(X, `아군 유닛 ${n}기 × ${op.per || 1} → 피해 ${x}`, "sys");
+    if (!x) return;
+    for (const u of sideUnits(X, caster, op.side || "foe")) hurt(X, u, x);
+  },
+  /* v3.11 빼앗기: 아군 맨 앞 유닛과 같은 칸 번호에 놓인 상대 카드를 이 마법의 칸으로 가져온다.
+     유닛이면 이번 턴 내 유닛이 되고(공격 턴이면 아직 공격하지 않은 그 유닛이 내 차례에 공격한다), 전투가 끝나면 흩어져 원래 주인의 소각장으로 간다.
+     뒷면 마법이면 내 마법으로 발동한다(쓴 뒤 원래 주인의 소각장으로) */
+  steal(X, caster, it, k, op) {
+    const p = X.P[caster], o = X.P[1 - caster];
+    const front = p.field.find(u => isUnit(u) && u.t && u.t.alive);
+    if (!front) { lg(X, "아군 유닛이 없어 빼앗을 칸을 정하지 못했다", "sys"); return; }
+    const col = p.field.indexOf(front), tg = o.field[col];
+    if (!tg || (isUnit(tg) && !(tg.t && tg.t.alive))) { lg(X, `상대 ${col + 1}번 칸이 비어 빼앗을 카드가 없다`, "sys"); return; }
+    let s = it.echo ? -1 : p.field.indexOf(it);
+    if (s < 0) s = p.field.indexOf(null);
+    if (s < 0) { lg(X, "내 전장에 놓을 칸이 없어 빼앗지 못했다", "bad"); return; }
+    o.field[col] = null;
+    p.field[s] = tg;
+    tg.from = o.idx;
+    if (isUnit(tg)) { tg.tokTemp = true; if (tg.t) tg.t.stolen = true; }   // 빼앗은 유닛은 이번 턴만 내 편 — 전투가 끝나면 흩어져 원래 주인의 소각장으로
+    if (isSpell(tg) && X.pend) {
+      const q = X.pend.find(z => z.it === tg);
+      if (q) { q.p = p; q.who = p === X.A ? "atk" : "def"; q.k = s + 1; }
+    }
+    fl(X, tg.uid, "빼앗김", "debuff");
+    lg(X, `${p.name}이(가) 상대 ${col + 1}번 칸의 ${isSpell(tg) ? "마법 " : ""}${C(tg).name}을(를) 빼앗아 왔다`, "good");
+    step(X, { act: tg.uid }, 520);
+  },
+  /* v3.11 대칭: 상대 전장의 카드 배치를 좌우로 뒤집는다 (맨 앞 ↔ 맨 뒤). 대기 중인 마법의 칸도 함께 바뀐다 */
+  mirror(X, caster, it, k, op) {
+    const o = X.P[1 - caster];
+    const xs = o.field.filter(Boolean);
+    if (xs.length < 2) { lg(X, "상대 전장에 카드가 둘보다 적어 바뀌지 않았다", "sys"); return; }
+    xs.reverse();
+    o.field = xs.concat(Array(RULES.slots - xs.length).fill(null));
+    if (X.pend) for (const q of X.pend) q.k = q.p.field.indexOf(q.it) + 1;
+    for (const u of xs) if (isUnit(u)) fl(X, u.uid, "⇄", "debuff");
+    lg(X, `${o.name}의 전장 배치가 거꾸로 뒤집혔다`, "sys");
+    step(X, {}, 520);
   },
   /* [운명] 이번 턴 아군 코인: + 코인은 앞면, − 코인은 뒷면. 이미 던져 정해진 코인은 그대로 (v3.5.7) */
   fate(X, caster, it, k, op) {

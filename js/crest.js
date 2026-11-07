@@ -1,21 +1,17 @@
-/* ETHERION — 상단 문장: 키 아트 띠 (가이드 2.15, 게임 v3.5.1)
-   그림 = img/ui/etherion_keyart.jpg — 사용자가 고른 키 아트(이미지 생성 AI)의 위쪽 띠(1672×600, 거인 · 신 · 용 · ETHERION 글자).
-   가이드 0.2의 세 번째 예외(2026-11-06 사용자 결정, 타이틀 그림과 같은 키 아트). 코드로 그리던 예전 문장(v3.1 · v3.4)은 지웠다.
-   대기실 맨 위에서는 크게(1920px 화면에서 697×250), 아래로 내리거나 다른 화면에서는 작게(글자 둘레만) 보인다.
-   ETHERION 글자는 그림 안에 있으므로 HTML 글자(.crest-word)는 화면 읽기용으로만 남긴다. */
+/* ETHERION — 상단 문장: ETHERION 글자 / 이미지 (가이드 2.15, 게임 v3.10)
+   img/ui/crest/crest_logo.png 그림이 있으면 그 그림을 쓰고, 없으면 코드로 된 ETHERION 글자(LOGO)를 쓴다.
+   타이틀 로고와 같은 글자(js/logo.js LOGO: T = 거인의 돌, I = 신의 빛기둥, O = 에테리온 문장,
+   E · H · R · N = Cinzel Decorative Black 윤곽, 입체 필터)를 상단 띠 높이 안에 멈춘 채로 넣는다.
+   대기실 · 교역소 · 덱 조정실 · 보관소 모두 같은 문장. 띠 위아래로 넘치지 않는다(css/crest.css). */
 const CREST = (() => {
-  const SRC = "img/ui/etherion_keyart.jpg";
-  const svg = () => `<span class="cr-kv" aria-hidden="true"></span>`;
-  /* 대기실을 아래로 내리면 띠가 작아진다(가려지는 내용이 없게) */
-  let compact = null;
-  const sync = () => {
-    const y = window.scrollY || (document.scrollingElement && document.scrollingElement.scrollTop) || 0;
-    const c = y > 24;
-    if (c !== compact) { compact = c; document.documentElement.classList.toggle("crest-compact", c); }
+  let cache = "";
+  const SRC = "img/ui/crest/crest_logo.png";
+  const svg = () => {
+    if (!cache) cache = typeof LOGO !== "undefined" ? LOGO.html("ETHERION") : "";
+    return `<span class="cr-wrap">` +
+      `<img class="cr-img" src="${SRC}" alt="ETHERION" onload="var p=this.parentElement;if(p)p.classList.add('has-img')" onerror="var p=this.parentElement;if(p)p.classList.remove('has-img');this.style.display='none'">` +
+      `<span class="cr-word" aria-hidden="true">${cache}</span>` +
+    `</span>`;
   };
-  if (typeof window !== "undefined" && typeof document !== "undefined") {
-    window.addEventListener("scroll", sync, { passive: true });
-    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", sync); else sync();
-  }
-  return { svg, SRC };
+  return { svg };
 })();

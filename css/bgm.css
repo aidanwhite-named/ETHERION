@@ -33,3 +33,5 @@
 @media (prefers-reduced-motion: reduce) { .snd-btn.blocked { animation: none; } }
 /* v3.7.2 전장은 가운데 설정칸(툴바)의 소리 단추를 쓴다 — 오른쪽 아래 단추는 숨긴다 */
 body:has(.tb-snd) .snd-ctl { display: none; }
+/* v3.9.7 타이틀은 시작 단추 바로 아래의 소리 단추(#t-snd)를 쓴다 */
+body:has(.screen-title) .snd-ctl { display: none; }

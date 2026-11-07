@@ -7,6 +7,8 @@
      - 하늘의 크로네아의 물레: 린데어에 신전이 있는, 어느 편도 들지 않는 운명의 신. 천천히 돈다
      - 항구 도시와 돛대, 물결에 비친 등불 · 세 진영의 깃발(세 진영이 유일하게 마주치는 곳)
      - 떠오르는 환석 조각(돈): 카드를 사고팔면 조각이 지갑과 카드 사이를 날아간다(shards)
+     v3.9: 교역소 배경은 움직이지 않는 그림 한 장 — 물레 · 환석 · 창 불빛 · 배 · 등불 · 깃발의 반복 움직임, 떠오르는 조각, 마우스를 따라 움직이기를 모두 뺐다
+     (css/scenes.css v3.9 절, 사용자 요청: 컴퓨터 자원). 사고팔 때 날아가는 조각(shards)은 그대로
    덱 조정실 = 운명의 감실 (전장의 덱 = "아직 오지 않은 운명"을 모신 아치 감실, STYLE_GUIDE 2.11)
      - 양옆 고딕 아치 열주와 단체 깃발(단체 색 · 문장)
      - 바닥의 마법진: 눈금 40개가 덱 장수만큼 켜진다. 40장이면 금빛으로 완성되어 돈다, 넘치면 붉다
@@ -71,8 +73,7 @@ const Scenes = (() => {
   }
   function shopHTML() {
     const fl = Object.keys(FACTIONS).map((f, i) => `<i class="sh-flag" style="--fc:${FACTIONS[f].color};--i:${i}">${typeof factionCrestSVG === "function" ? factionCrestSVG(f) : ""}</i>`).join("");
-    const shards = [...Array(14)].map((_, k) => `<i class="sh-shard" style="--x:${(4 + k * 7 + rnd() * 4).toFixed(1)}%;--d:${(rnd() * 14).toFixed(1)}s;--t:${(11 + rnd() * 9).toFixed(1)}s;--s:${(.6 + rnd() * .8).toFixed(2)}"></i>`).join("");
-    return `<div class="scene scene-shop" aria-hidden="true">${harbor()}${lanterns("l")}${lanterns("r")}<div class="sh-flags">${fl}</div>${shards}</div>`;
+    return `<div class="scene scene-shop sc-still" aria-hidden="true">${harbor()}${lanterns("l")}${lanterns("r")}<div class="sh-flags">${fl}</div></div>`;   /* v3.9 떠오르는 조각은 뺐다 */
   }
 
   /* ---------- 덱 조정실: 운명의 감실 ---------- */
@@ -146,8 +147,8 @@ const Scenes = (() => {
     bind(root, kind) {
       const sc = root.querySelector(".scene"); if (!sc) return;
       if (kind === "editor") edRoot = sc;
-      // 마우스를 따라 아주 조금 움직인다(가까운 것일수록 많이)
-      if (typeof Bg !== "undefined" && Bg.reduced) return;
+      // 마우스를 따라 아주 조금 움직인다(가까운 것일수록 많이). v3.9: 교역소는 멈춘 그림이라 따라 움직이지 않는다
+      if (kind === "shop" || (typeof Bg !== "undefined" && Bg.reduced)) return;
       const mv = e => { if (!sc.isConnected) { removeEventListener("pointermove", mv); return; } sc.style.setProperty("--mx", (e.clientX / innerWidth - .5).toFixed(3)); sc.style.setProperty("--my", (e.clientY / innerHeight - .5).toFixed(3)); };
       addEventListener("pointermove", mv);
     },

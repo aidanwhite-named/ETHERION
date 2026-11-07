@@ -1,0 +1,119 @@
+/* ETHERION v3.9.3 — 전장 왼쪽 열 자리 바꿈 (맨 마지막에 읽는다. js/game.js render · fieldRowHTML · burnHTML · placeFocus)
+   넓은 화면(761px~)에서만. 좁은 화면은 예전 배치(js/game.js wideBoard가 false면 .lay-swap이 붙지 않음).
+   - 깃발(아이디) + 에테르(결정화 원형)는 전장 줄 왼쪽 칸(.f-flag), 소각장은 핸드 줄 왼쪽 칸(.p-well)
+     왼쪽 열 차례: 상대 소각장 · 상대 깃발/에테르 · 최근 기록/고른 카드 패널 · 내 깃발/에테르 · 내 소각장
+   - 전장 줄 양옆 칸(--fl-w)은 카드 칸 다섯이 들어갈 만큼만 넓힌다 → 깃발 · 에테르가 카드 칸을 넘지 않는다
+   - 핸드 줄은 양옆이 같은 폭(--pile-w) → 핸드가 다시 가운데
+   - 소각장 이름표는 그림에 붙인다: 내 것은 그림 위, 상대 것은 그림 아래
+   - 덱은 카드 폭 × .9(나 · 상대 같은 크기), 파친코와 띄움. 셔플은 덱 바로 아래, 덱 폭만큼
+   - 생명은 더 크게(나: 보석 · 숫자 · 눈금, 상대: 두 줄로 크게) */
+
+/* 첫 판 안내가 핸드를 가리킬 때 핸드 칸에 두르던 깜빡이는 금 테두리는 뺀다(말풍선 화살표만) */
+.hand-me.guide-target { outline: 0; animation: none; }
+
+@media (min-width: 761px) {
+  /* 전장 줄 양옆 칸: 깃발 + 에테르가 들어갈 폭. 단, 가운데 카드 칸 다섯(5 × 카드 폭 + 틈 4)이 늘 들어가게 줄어든다 */
+  .b-main.lay-swap { --fl-w: min(calc(var(--pile-w) + var(--cw) * 1.15), calc((100% - var(--cw) * 5 - var(--gap) * 6) / 2 - 2px)); }
+  .b-main.lay-swap .frow { grid-template-columns: var(--fl-w) minmax(0, 1fr) var(--fl-w); }
+  .b-main.lay-swap .prow-top { grid-template-columns: var(--fl-w) minmax(0, 1fr) var(--fl-w); }
+  .b-main.lay-swap .prow-bot { grid-template-columns: var(--pile-w) minmax(0, 1fr) var(--pile-w); }
+  /* 핸드 펼치는 폭을 v3.7.9 이전으로(깃발이 빠져 칸이 넓어짐) */
+  .b-main.lay-swap .prow-bot .hand-me .hand-slot { left: calc(50% - var(--hw) / 2 + var(--k) * min(var(--hw) * .8, (100% - var(--hw)) / var(--d))); }
+
+  /* ---------- 전장 줄 왼쪽: 깃발 + 에테르 ---------- */
+  .lay-swap .f-flag { display: flex; min-width: 0; align-self: stretch; }
+  .lay-swap .f-flag > .pside { flex: 1 1 auto; min-width: 0; height: 100%; margin: 0; display: flex; align-items: center; justify-content: flex-start; gap: 0; }
+  /* 깃발은 세로로 쌓는다: 방패 → 아이디 → 단체 → 공격/방어. 폭이 좁아도 아이디 칸이 깃발 폭을 다 쓴다 */
+  .lay-swap .f-flag .nameplate.banner.bn-h { flex: 1 1 auto; min-width: 0; flex-direction: column; align-items: stretch; justify-content: center; }
+  .lay-swap .f-flag .bn-h .np-shield { flex: none; align-self: flex-start; width: auto; }
+  .lay-swap .f-flag .bn-h .np-meta { flex: 0 0 auto; width: 100%; }
+  .lay-swap .f-flag .bn-h .np-sub { display: block; }
+  /* 에테르 원형은 깃발 끝 제비꼬리 홈에 살짝 걸친다(깃발 글자 칸을 넓히려고) */
+  .lay-swap .f-flag .ether.altar { flex: 0 0 auto; margin: 0 0 0 calc(var(--cw) * -.065); padding: 0; border-radius: 0; }
+
+  /* 나(아래) */
+  .lay-swap .frow-bot .nameplate.banner.bn-h { height: calc(var(--cw) * .95); gap: calc(var(--cw) * .035); padding: 0 calc(var(--cw) * .15) 0 calc(var(--cw) * .08); }
+  .lay-swap .frow-bot .bn-h .np-shield { height: calc(var(--cw) * .27); }
+  .lay-swap .frow-bot .bn-h .np-meta { gap: 3px; }
+  .lay-swap .frow-bot .bn-h .np-id { --fs: clamp(15px, calc(var(--cw) * .13), 26px); }
+  .lay-swap .frow-bot .bn-h .np-sub { font-size: clamp(11px, calc(var(--cw) * .075), 15px); }
+  .lay-swap .frow-bot .bn-h .pi-role { font-size: clamp(10px, calc(var(--cw) * .065), 13px); padding: 0 7px; }
+  /* 에테르: 줄 높이에서 아래 이름표(결정화 가능 · 완료) 자리만 뺀 지름 */
+  .lay-swap .frow-bot .ether.altar { width: min(calc(var(--cw) * 1.08), 46%); height: 100%; align-self: stretch; }  /* 46%: 칸이 좁아지는 4:3 화면에서 깃발 몫을 남긴다 */
+  .lay-swap .frow-bot .eth-ring { width: min(100cqw, calc(100cqh - 30px)); }
+  .lay-swap .frow-bot .cry-state { font-size: clamp(12px, calc(var(--cw) * .08), 16px); padding: 2px 10px; border-radius: 11px; font-weight: 700; }
+  .lay-swap .frow-bot .cry-state.ok { border-width: 1.5px; }
+  .lay-swap .frow-bot .ether-sub { font-size: clamp(11px, calc(var(--cw) * .07), 14px); }
+
+  /* 상대(위): 깃발은 더 작게, 에테르(결정화 원형)는 예전(띠 높이)보다 크게 */
+  /* 깃발 폭은 내 깃발과 같게(높이만 낮게): 에테르가 작아진 만큼(1.08 → .8 카드 폭) 오른쪽을 비운다 */
+  .lay-swap .frow-top .f-flag > .pside { padding-right: min(calc(var(--cw) * .28), 12%); }
+  .lay-swap .frow-top .nameplate.banner.bn-h { flex: 1 1 auto; height: calc(var(--cw) * .66); gap: calc(var(--cw) * .025); padding: 0 calc(var(--cw) * .15) 0 calc(var(--cw) * .08); }
+  .lay-swap .frow-top .bn-h .np-shield { height: calc(var(--cw) * .2); }
+  .lay-swap .frow-top .bn-h .np-meta { gap: 2px; }
+  .lay-swap .frow-top .bn-h .np-id { --fs: clamp(13px, calc(var(--cw) * .11), 22px); }
+  .lay-swap .frow-top .bn-h .np-sub { font-size: clamp(10px, calc(var(--cw) * .068), 13px); }
+  .lay-swap .frow-top .bn-h .pi-role { font-size: 11px; padding: 0 6px; }
+  .lay-swap .frow-top .ether.altar { width: min(calc(var(--cw) * .8), 39%); aspect-ratio: 1; height: auto; align-self: center; }
+  .lay-swap .frow-top .eth-ring { width: min(100cqw, 100cqh); }
+  .lay-swap .frow-top .eth-foot { display: none; }
+
+  /* ---------- 핸드 줄 왼쪽: 소각장 ---------- */
+  .lay-swap .p-well { position: relative; z-index: 3; min-width: 0; width: var(--pile-w); display: flex; justify-content: center; }
+  .lay-swap .p-well .zone.burn { flex: none; }
+  .lay-swap .p-well .zone.burn .zone-label { left: 50%; transform: translateX(-50%); }
+  /* 나: 성화대 위에 이름표. 불이 없으면 잔불 바로 위, 불이 붙으면 불꽃 끝 위 */
+  .lay-swap .prow-bot .p-well { align-self: stretch; align-items: center; }
+  .lay-swap .prow-bot .p-well .zone.burn { width: calc(var(--cw) * .8); }
+  .lay-swap .prow-bot .p-well .zone-label { top: auto; bottom: 45%; font-size: clamp(11px, calc(var(--cw) * .075), 15px); padding: 1px 10px; }
+  .lay-swap .prow-bot .p-well .zone.burn:has(.pyre.lit) .zone-label { bottom: 79%; }
+  /* 상대: 작은 성화대, 이름표는 그림 바로 아래. 띠 아래 빈 자리(상대 깃발 위)까지 조금 내려온다 */
+  .lay-swap .prow-top .p-well { align-self: start; }
+  .lay-swap .prow-top .p-well .zone.burn { width: calc(var(--cw) * .5); }
+  .lay-swap .prow-top .p-well .zone-label { top: calc(100% + 1px); bottom: auto; font-size: 11px; padding: 0 7px; }
+  .lay-swap .prow-top .p-well .zone-count { font-size: clamp(13px, calc(var(--cw) * .12), 22px) !important; right: -16%; }
+
+  /* ---------- 오른쪽: 덱(나 · 상대 같은 크기) · 파친코와 띄움 · 셔플은 덱 아래 ---------- */
+  .lay-swap .f-piles { gap: calc(var(--cw) * .16); }
+  .lay-swap .f-piles .zone.deck { width: calc(var(--cw) * .9); }
+  .lay-swap .f-piles .zone.deck .zone-label { font-size: max(11px, calc(var(--cw) * .07)); }
+  .lay-swap .f-piles .zone.deck .deck-n { font-size: calc(var(--cw) * .16); }
+  .lay-swap .frow-bot .f-piles { align-self: start; }
+  /* v3.9.9: 셔플 명판 높이 40px → 카드 폭 × .36(44~56px), 폭은 덱 폭(카드 폭 × .9) → 카드 폭 × .8, 덱 아래 가운데 */
+  .lay-swap .f-piles > .shuffle-btn.v19 { --sh-h: clamp(44px, calc(var(--cw) * .36), 56px); --sh-tip: 13px; --sh-w: calc(var(--cw) * .8);
+    top: calc(100% + 8px); left: auto; right: calc(var(--cw) * .05); width: var(--sh-w); min-width: 0;
+    padding: 0 calc(var(--sh-tip) + 2px) 0 calc(var(--sh-h) + 3px); gap: 6px; }
+  .lay-swap .f-piles > .shuffle-btn.v19 .sh-seal { left: -12px; }  /* 폭이 줄어든 만큼 인장을 왼쪽 끝 밖으로 조금 더 */
+  /* 덱 폭에 들어가게: 영문 RESHUFFLE · S 표시 · 오른쪽 ♥−1 칩은 빼고, 셔플 글자 아래에 작은 "♥ −1" */
+  .lay-swap .f-piles > .shuffle-btn.v19 kbd, .lay-swap .f-piles > .shuffle-btn.v19 .sh-cost { display: none; }
+  .lay-swap .f-piles > .shuffle-btn.v19 .sh-txt small { font-size: 0; letter-spacing: 0; margin-top: 1px; }
+  .lay-swap .f-piles > .shuffle-btn.v19:not(.used) .sh-txt small::after { content: "♥ −1"; font-family: var(--caps); font-size: 12px; font-weight: 800; letter-spacing: .04em; color: #ffc2ca; }
+  .lay-swap .f-piles > .shuffle-btn.v19 .sh-t { font-size: 17px; letter-spacing: .06em; white-space: nowrap; }
+  .lay-swap .f-piles > .shuffle-btn.v19 .sh-seal .ui-ico { width: 21px; height: 21px; }
+  .lay-swap .f-piles > .shuffle-btn.v19.used .sh-t { font-size: 14px; letter-spacing: .04em; }
+
+  /* ---------- 생명: 나(오른쪽 아래) — 칸을 채우게 크게 ---------- */
+  .lay-swap .prow-bot .pinfo.pv-bot { height: calc(var(--cw) * 1.3); margin-bottom: 12px; padding: 12px 14px 10px; }
+  .lay-swap .pv-bot .pl { column-gap: 12px; }
+  .lay-swap .pv-bot .hgem { width: clamp(40px, calc(var(--cw) * .42), 84px); }
+  .lay-swap .pv-bot .pl-head span { font-size: clamp(10px, calc(var(--cw) * .072), 14px); }
+  .lay-swap .pv-bot .pl-num { font-size: clamp(36px, calc(var(--cw) * .4), 80px); }
+  .lay-swap .pv-bot .pl-val small { font-size: clamp(13px, calc(var(--cw) * .1), 20px); }
+  .lay-swap .pv-bot .pl-ticks { gap: 5px; margin-top: 4px; }
+  .lay-swap .pv-bot .pl-ticks i { width: clamp(8px, calc(var(--cw) * .058), 12px); height: clamp(8px, calc(var(--cw) * .058), 12px); }
+  .lay-swap .pv-bot .ps .ui-ico { width: 20px; height: 20px; }
+  .lay-swap .pv-bot .ps b { font-size: clamp(20px, calc(var(--cw) * .17), 32px); }
+  .lay-swap .pv-bot .ps span { font-size: 13px; }
+
+  /* ---------- 생명: 상대(오른쪽 위) — 보석 · 숫자를 크게, 눈금은 숫자 아래 ---------- */
+  .lay-swap .prow-top .pinfo.pv-top { width: max-content; max-width: 100%; justify-self: end; height: calc(var(--top-h) + 6px); padding: 5px 12px 5px 12px; gap: 12px; }
+  .lay-swap .pv-top .pl { grid-template-columns: auto auto; grid-template-rows: auto auto; column-gap: 9px; row-gap: 3px; }
+  .lay-swap .pv-top .hgem { grid-row: 1 / 3; width: calc(var(--top-h) * .62); }
+  .lay-swap .pv-top .pl-val { grid-column: 2; align-self: end; }
+  .lay-swap .pv-top .pl-num { font-size: clamp(26px, calc(var(--top-h) * .55), 42px); }
+  .lay-swap .pv-top .pl-val small { display: inline; font-size: 13px; }
+  .lay-swap .pv-top .pl-ticks { grid-column: 2; display: flex; align-self: start; gap: 4px; margin: 0; }
+  .lay-swap .pv-top .pl-ticks i { width: 8px; height: 8px; }
+  .lay-swap .pv-top .ps .ui-ico { width: 16px; height: 16px; }
+  .lay-swap .pv-top .ps b { font-size: clamp(17px, calc(var(--top-h) * .32), 24px); }
+}

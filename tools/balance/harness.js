@@ -17,7 +17,7 @@ function load(dir, extra) {
   let g = fs.readFileSync(path.join(dir, 'game.js'), 'utf8');
   g = g.slice(0, g.indexOf('/* ---------- 화면 ----------'));
   vm.runInContext(g + `
-    function render(){} function floatAt(){} function mountBoard(){} function showResult(){}
+    function render(){} function floatAt(){} function queueCurse(){} function mountBoard(){} function showResult(){}
     async function playHeadless(cfg){ const g=startMatch(Object.assign({mode:"ai",speed:0,headless:true},cfg)); await loop(g); return g; }
     this.playHeadless=playHeadless; this.getG=()=>G;`, ctx, { filename: 'game.js' });
   if (extra) vm.runInContext(extra, ctx);

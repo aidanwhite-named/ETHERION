@@ -125,7 +125,81 @@
 
 /* ---------- v2.4.5 코인 앞면: 칠룡환 문장 (js/game.js COIN_CREST) ---------- */
 .cs-crest { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-/* 도는 동안은 양면 모두 "?" 그대로 — 앞면 문장·뒷면 그림은 코인이 선 뒤에만 보인다 */
-.cs-coin.spinning .cs-crest { visibility: hidden; }
+/* v3.10.5: 도는 동안에도 앞면 문장 · 뒷면 그림을 보인다 (style.css의 같은 날짜 주석) */
 /* v2.4.6 뒷면: 빈 자리 (js/game.js COIN_BACK). 그림이 뒷면임을 알려 주므로 공·방·체가 함께 붙은 코인의 "뒷면" 글자는 뺀다 */
 .cs-coin.multi .cs-tails::before { content: none; }
+
+/* ---------- v3.9.2 마법 코인 (js/game.js spellCoinFx) — 마법이 발동할 때 효과마다 던진 코인 ---------- */
+.spellcoin { position: fixed; left: 50%; top: 40%; transform: translate(-50%, -50%); z-index: 92; pointer-events: none; display: grid; gap: 12px; justify-items: center;
+  min-width: 240px; max-width: calc(100vw - 32px); padding: 14px 24px 16px; border-radius: 14px; border: 1px solid rgba(217, 180, 106, .45);
+  background: radial-gradient(ellipse at 50% 0%, rgba(62, 46, 20, .94), rgba(14, 12, 20, .94) 75%);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .6), 0 0 30px rgba(217, 180, 106, .16); }
+.spellcoin .sc-title { font-family: var(--caps); font-weight: 800; font-size: 18px; color: var(--gold-hi); letter-spacing: .04em; }
+.spellcoin .sc-title small { font-size: 12px; font-weight: 700; opacity: .65; margin-left: 6px; }
+.spellcoin .sc-row { display: grid; gap: 8px; justify-items: center; }
+.spellcoin .sc-what { font-size: 14px; color: #e9dcc0; }
+.spellcoin .sc-what b { color: var(--gold-hi); margin: 0 2px; }
+.spellcoin .sc-what small { opacity: .7; margin-left: 2px; }
+.spellcoin .cs-coins { min-height: 0; gap: 10px; }
+.spellcoin .cs-coin { width: 56px; height: 56px; }
+.spellcoin .sc-res { min-height: 1.3em; font-size: 14px; font-weight: 700; color: var(--gold-hi); opacity: 0; transition: opacity .25s; }
+.spellcoin .sc-res.on { opacity: 1; }
+@media (max-width: 760px) { .spellcoin .cs-coin { width: 44px; height: 44px; } }
+
+/* ---------- v3.9.3 코인 다시 굴리기: 두 단추 · 고른 코인 (js/game.js coinClash decide) ---------- */
+.cs-choice { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.cs-choice .cs-stop { padding: 10px 18px; font-size: 15px; }
+.cs-choice .cs-reflip span { display: inline-flex; align-items: center; gap: 6px; }
+.cs-choice .cs-reflip .cf-eth { width: 13px; height: 13px; }
+/* 코인(.cs-coin)에 opacity를 걸면 3D가 평면으로 눌려 뒷면이 사라진다 — 면에만 건다 */
+.cs-coin.can-flip:not(.picked) .cs-face { opacity: .6; }
+.cs-coin.picked { animation: canFlip 1.1s ease-in-out infinite; }
+.cs-coin.picked::before { content: ""; position: absolute; inset: -9px; border-radius: 50%; border: 2px solid var(--ether); box-shadow: 0 0 16px rgba(143, 220, 255, .8); pointer-events: none; }
+
+/* ---------- v3.9.10 저주 발동 (js/game.js curseFx · curseTitle · chipNum) ----------
+   핸드에서 걸린 저주가 전장에 오를 때. 암흑 원소색 #8b5cf6 · 저주 어둠 #3a1858 (STYLE_GUIDE 2.9), 깎인 값은 --coin-down */
+.curse-title { position: fixed; z-index: 66; pointer-events: none; display: grid; justify-items: center; gap: .18em; white-space: nowrap;
+  transform: translate(-50%, -50%); padding: .35em 1.1em .45em; font-size: var(--fs, 22px);
+  background: radial-gradient(ellipse at center, rgba(28, 8, 46, .88) 0%, rgba(28, 8, 46, .62) 55%, transparent 78%); }
+.curse-title small { font-family: var(--caps); font-size: .42em; font-weight: 700; letter-spacing: .45em; padding-left: .45em; color: #c9b0ff; opacity: .9;
+  text-shadow: 0 0 .6em #8b5cf6; }
+.curse-title b { display: flex; font-weight: 800; letter-spacing: .04em; color: #efe4ff; }
+.curse-title b i { font-style: normal; display: inline-block; opacity: 0;
+  text-shadow: 0 0 .25em #b48cff, 0 0 .7em #8b5cf6, 0 0 1.4em #3a1858, 0 .08em 0 #12051f;
+  animation: curseRune calc(1800ms * var(--k, 1)) cubic-bezier(.2,.7,.3,1) forwards; animation-delay: calc(var(--i) * 55ms * var(--k, 1)); }
+.curse-title em { font-style: normal; font-family: var(--caps); font-weight: 900; font-size: .78em; color: var(--coin-down, #ff4b3e);
+  -webkit-text-stroke: 1px rgba(40, 0, 0, .9); text-shadow: 0 0 .5em rgba(255, 75, 62, .7); display: flex; align-items: center; gap: .15em;
+  opacity: 0; animation: curseSub calc(1800ms * var(--k, 1)) ease-out forwards; animation-delay: calc(380ms * var(--k, 1)); }
+.curse-title em svg { width: .8em; height: .8em; }
+@keyframes curseRune {
+  0% { opacity: 0; transform: translateY(.45em) scale(1.5); filter: blur(6px) brightness(2.2); color: #fff; }
+  22% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0) brightness(1.4); }
+  60% { opacity: 1; transform: none; filter: none; color: #efe4ff; }
+  100% { opacity: .9; transform: translateY(-.1em); filter: none; }
+}
+@keyframes curseSub { 0% { opacity: 0; transform: translateY(-.4em) scale(1.4); } 25% { opacity: 1; transform: none; } 100% { opacity: 1; } }
+.curse-chip { position: fixed; z-index: 67; pointer-events: none; text-align: center; font-weight: 900; color: var(--coin-down, #ff4b3e);
+  -webkit-text-stroke: 1px rgba(40, 0, 0, .85); text-shadow: 0 0 6px rgba(255, 75, 62, .8), 0 0 12px rgba(139, 92, 246, .7); }
+@media (prefers-reduced-motion: reduce) { .curse-title, .curse-chip { display: none; } }
+
+/* ───────── v3.12.3 "반격" 떠오르는 글자: 금빛 명판 + 아래 숫자 (js/game.js floatAt) ─────────
+   글씨는 Hahmlet 800(제목용 명조, Google Fonts — 없으면 바탕), 금속 광택 그라데이션(2.4 금빛 글자), 양옆 금선 + 마름모.
+   뒤로 금빛 사선이 한 번 베고 지나간다(되받아 치는 칼). 숫자는 예전 피해 숫자 그대로(빨강, Cinzel) */
+.float.counter { display: flex; flex-direction: column; align-items: center; gap: .02em; line-height: 1; -webkit-text-stroke: 0; text-shadow: none; animation-name: counterUp; animation-duration: 1.8s; }
+.float.counter .fl-tag { position: relative; display: flex; align-items: center; gap: .3em; font-size: max(17px, calc(var(--cw) * .135)); padding: .12em .2em; isolation: isolate; }
+.float.counter .fl-tag b { font-family: "Hahmlet", "Song Myung", var(--body); font-weight: 800; letter-spacing: .14em; margin-right: -.14em; font-size: 1.4em;
+  background: linear-gradient(180deg, #fffdf2 0%, #ffe9a8 34%, #f2c66a 50%, #b98432 58%, #f0cf7c 78%, #fff6d0 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 1px 0 #3a2208) drop-shadow(0 0 1.5px #1a0e02) drop-shadow(0 3px 5px rgba(0, 0, 0, .85)) drop-shadow(0 0 12px rgba(255, 180, 70, .6)); }
+.float.counter .fl-tag i { position: relative; width: 1.3em; height: 2px; background: linear-gradient(90deg, transparent, #f0d48c); box-shadow: 0 1px 2px #000; }
+.float.counter .fl-tag i:last-child { background: linear-gradient(270deg, transparent, #f0d48c); }
+.float.counter .fl-tag i::after { content: ""; position: absolute; top: 50%; width: .42em; height: .42em; background: linear-gradient(135deg, #fff3c9, #c8963f 60%, #7a5418); border: 1px solid #2a1806; transform: translate(-50%, -50%) rotate(45deg); }
+.float.counter .fl-tag i:first-child::after { right: 0; transform: translate(50%, -50%) rotate(45deg); }
+.float.counter .fl-tag i:last-child::after { left: 0; }
+.float.counter .fl-tag::before { content: ""; position: absolute; z-index: -1; left: -30%; right: -30%; top: 50%; height: .22em; border-radius: 50%;
+  background: linear-gradient(90deg, transparent, rgba(255, 214, 130, .0) 10%, #fff3c9 50%, rgba(255, 150, 60, .0) 90%, transparent); filter: blur(.5px) drop-shadow(0 0 6px rgba(255, 180, 70, .9));
+  transform: translateY(-50%) rotate(-14deg) scaleX(0); transform-origin: 0 50%; animation: counterSlash .5s .06s cubic-bezier(.2, .9, .3, 1) forwards; }
+.float.counter .fl-num { color: #ff5e4d; font-family: var(--caps); font-weight: 900; font-size: max(28px, calc(var(--cw) * .22)); -webkit-text-stroke: 1px rgba(0, 0, 0, .6); text-shadow: 0 3px 8px #000, 0 0 16px currentColor; }
+.float.counter.miss .fl-num { color: #b9b9c8; font-size: max(20px, calc(var(--cw) * .15)); }
+@keyframes counterSlash { 0% { transform: translateY(-50%) rotate(-14deg) scaleX(0); opacity: 1; } 60% { transform: translateY(-50%) rotate(-14deg) scaleX(1); opacity: 1; } 100% { transform: translateY(-50%) rotate(-14deg) scaleX(1); opacity: 0; } }
+@keyframes counterUp { 0% { opacity: 0; transform: translate(-50%, -50%) scale(1.8); } 12% { opacity: 1; transform: translate(-50%, -50%) scale(.92); } 22% { transform: translate(-50%, -52%) scale(1.04); } 32% { transform: translate(-50%, -54%) scale(1); } 100% { opacity: 0; transform: translate(-50%, -160%) scale(1); } }
+@media (prefers-reduced-motion: reduce) { .float.counter .fl-tag::before { animation: none; display: none; } }

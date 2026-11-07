@@ -158,7 +158,7 @@ function itemAbilities(it) {
   if (it.ward) out.push(`[가호 ${it.ward}]`);
   if (it.shield) out.push("[보호막 코인]");
   if (it.thorns) out.push(`[가시 ${it.thorns}]`);
-  if (it.lock && !it.set) out.push("[고정: " + Object.keys(it.lock).map(k => STAT_KO[k]).join("·") + "]");
+  if (it.lock && !it.set) out.push("[저주 면역: " + Object.keys(it.lock).map(k => STAT_KO[k]).join("·") + "]");
   if (it.evName) out.push(`[${it.evName}]`);
   return out;
 }
@@ -198,13 +198,13 @@ const ITEM_KW = {
   "관통": "공격하면, 상대 유닛의 방어가 이번 턴 동안 내 공격력만큼 줄어든다(0까지만).",
   "마력 공격": "공격할 때 상대 방어를 {n}만큼 무시한다. 반격할 때는 적용되지 않는다.",
   "마력 공격 전부": "공격할 때 상대 방어를 모두 무시한다. 반격할 때는 적용되지 않는다.",
-  "치명": "맞붙어 공격해 피해를 줄 때마다 코인 1개를 던져, 앞면이면 그 피해가 2배.",
+  "치명": "맞붙어 공격해 피해를 주면, 맞은 유닛이 쓰러지지 않았을 때 남은 체력이 1이 된다.",
   "투척": "이 아이템을 장착한 그 턴에 한 번, 이 유닛이 공격을 시작할 때 맞선 유닛 말고 다른 상대 유닛 하나의 체력을 함께 {n} 깎는다(쓰러뜨릴 수 있는 유닛 중 레벨이 가장 높은 유닛, 없으면 그다음 맨 앞 유닛). 맞선 유닛뿐이면 그 유닛에게 투척 피해를 먼저 주고 이어서 공격한다.",
-  "사격": "내 공격 턴마다, 맞붙기 전에 상대 유닛 하나의 체력을 {n} 깎는다. 대상: 이 피해로 쓰러뜨릴 수 있는 유닛 중 레벨이 가장 높은 유닛, 없으면 상대의 맨 앞 유닛.",
+  "사격": "내 공격 턴마다, 맞붙기 전에 상대 유닛 하나의 체력을 {n} 깎는다. 대상: 이 피해로 쓰러뜨릴 수 있는 유닛 중 레벨이 가장 높은 유닛, 없으면 상대의 맨 앞 유닛. 사격으로 상대 유닛이 모두 쓰러지면 이번 전투에서는 아무도 생명을 직접 공격하지 않는다.",
   "원거리": "맞붙어 공격해도 상대의 반격을 받지 않는다.",
   "가호": "매 턴 처음 받는 피해를 {n}만큼 줄인다.",
   "보호막 코인": "매 턴 시작에 코인을 던져 앞면이면, 그 턴 처음 받는 피해 한 번을 통째로 막는다.",
-  "고정": "{S} 마법·코인·저주를 받아도 카드와 아이템에 적힌 값 아래로 내려가지 않는다.",
+  "저주 면역": "{S} 마법·코인·저주로 깎이지 않는다(카드와 아이템에 적힌 값 아래로 내려가지 않는다). 피해는 그대로 받으므로, 받은 피해가 체력만큼 쌓이면 쓰러진다.",
   "가시": "이 유닛을 맞붙어 공격한 상대 유닛은 체력이 {n} 깎인다.",
   "증폭": "이 유닛이 전장에 있으면 내 공격 마법의 피해가 {n} 늘어난다.",
   "치유": "장착하는 순간 내 생명이 {n} 늘어난다."
@@ -237,7 +237,7 @@ function itemKwGeneric(raw) {
   if (!key) return null;
   const rest = name.slice(key.length), num = /\d/.test(rest), colon = rest.trim().startsWith(":");
   const label = `[${key}${num ? " N" : ""}${colon ? ": 스탯" : ""}]`;
-  const text = (ITEM_KW_GEN[key] || ITEM_KW[key]).replace(/\{S\}/g, "고정한 스탯은").replace(/\{n\}/g, "N").replace(/\{m\}/g, "4 − N");
+  const text = (ITEM_KW_GEN[key] || ITEM_KW[key]).replace(/\{S\}/g, "그 스탯은").replace(/\{n\}/g, "N").replace(/\{m\}/g, "4 − N");
   return [label, text];
 }
 /* 아이템 능력의 일반 뜻 목록 [[이름, 뜻]] — 같은 능력은 한 번만 */
@@ -284,23 +284,57 @@ function spellCostText(c) {
 const SPELL_KW = {
   "보호막": "그 턴에 처음 받는 피해 한 번을 통째로 막는다. 막고 나면 사라진다.",
   "가시": "이 유닛을 맞붙어 공격한 상대 유닛은 체력이 {n} 깎인다.",
-  "고정": "이번 턴 동안 방어가 마법으로 바뀌지 않고, 이미 깎인 방어는 원래 값으로 돌아온다.",
+  "저주 면역": "이번 턴 동안 방어가 마법·코인으로 바뀌지 않고, 이미 깎인 방어는 원래 값으로 돌아온다. 피해는 그대로 받는다.",
   "수호": "상대의 공격이 맨 앞 유닛보다 먼저 이 유닛에게 향한다.",
-  "장전": "이 마법을 쓰면 다음 턴 에테르가 {n} 줄어든다."
+  "장전": "이 마법을 쓰면 다음 턴 에테르가 {n} 줄어든다.",
+  "불굴": "이번 턴, 쓰러질 만큼의 피해를 처음 받으면 쓰러지지 않고 체력 1로 버틴다(한 번). 파괴 · 코인에는 통하지 않는다.",
+  "꿰뚫기": "이번 턴, 맞붙어 공격하면 맞선 유닛 바로 뒤의 상대 유닛도 같은 공격을 받는다(그 유닛의 방어를 뺀 피해, 반격은 없음)."
 };
 function spellKwDesc(inner) {
   const name = inner.trim();
   if (/^고정 \d/.test(name)) return itemKwDesc("[" + name + "]");
   const key = Object.keys(SPELL_KW).find(x => name === x || name.startsWith(x + " "));
-  if (key) { const n = parseInt((name.slice(key.length).match(/\d+/) || [""])[0], 10); return SPELL_KW[key].replace(/\{n\}/g, isNaN(n) ? "" : n); }
+  if (key) {
+    const n = parseInt((name.slice(key.length).match(/\d+/) || [""])[0], 10);
+    let d = SPELL_KW[key].replace(/\{n\}/g, isNaN(n) ? "" : n);
+    // v3.9.12: [가시 1 +1C×2]처럼 능력 값에 코인이 붙으면 그 뜻도 (코인 2개, 앞면마다 +1 → 가시 1~3)
+    const cm = name.match(/([+−])(\d+)C(?:×(\d+))?/);
+    if (cm) { const k = +(cm[3] || 1), v = +cm[2]; d += `\n코인 ${k}개를 던져 앞면마다 ${key} ${cm[1]}${v}` + (!isNaN(n) && cm[1] === "+" ? ` → ${key} ${n}~${n + k * v}` : "") + "."; }
+    return d;
+  }
   return itemKwDesc("[" + name + "]");
 }
 /* 글을 안전하게 적고, 뜻이 있는 [능력]에는 마우스를 올리면 설명이 뜨는 표시를 붙인다 */
 function kwHTML(text) {
-  return esc(text).replace(/\[([^\[\]]+)\]/g, (m, inner) => {
+  return coinNoteHTML(esc(text).replace(/\[([^\[\]]+)\]/g, (m, inner) => {
     const d = spellKwDesc(inner);
-    return d ? `<span class="kw" title="" data-tip="${esc("[" + inner.trim() + "]\n" + d)}">${m}</span>` : m;
-  });
+    return d ? `<span class="kw" title="" data-tip="${esc("[" + coinNotePlain(inner.trim()) + "]\n" + d)}">${m}</span>` : m;
+  }));
+}
+/* v3.9.12: 마법 글의 코인 표기. 데이터(data.js)에는 "+1C×2"(= 코인 2개, 앞면마다 +1)로 적혀 있다.
+   화면에는 유닛 카드 숫자 옆과 같은 코인 모양(+●●)으로 바꿔 보이고, 마우스를 올리면 뜻이 뜬다.
+   coinNoteHTML은 이미 HTML이 된 글의 태그 밖 글자만 바꾼다 (말풍선 data-tip 속은 그대로) */
+const COIN_NOTE = /([+−])(\d+)C(?:×(\d+))?/g;
+function coinNotePlain(s) { return String(s).replace(COIN_NOTE, (m, sg, v, n) => sg + (+v > 1 ? v : "") + "●".repeat(+(n || 1))); }
+function coinNoteHTML(html) {
+  if (typeof coinGroupsHTML !== "function") return html;
+  return html.split(/(<[^>]*>)/).map((s, i) => i % 2 ? s : s.replace(COIN_NOTE, (m, sg, v, n) => {
+    n = +(n || 1);
+    const tip = `코인 ${n}개 — 마법을 쓸 때 던져서 앞면이 나올 때마다 ${sg}${v}`;
+    return `<span class="coin-note" data-tip="${esc(tip)}">${coinGroupsHTML([{ v: (sg === "−" ? -1 : 1) * +v, n }])}</span>`;
+  })).join("");
+}
+/* 원본 카드 · 상세 창: 글에 코인이 있으면 아래에 코인 읽는 법을 한 줄. 예는 글의 첫 코인으로 (피해 2 +●● = 피해 2~4) */
+function spellCoinNoteHTML(text, tag) {
+  if (!/[+−]\d+C/.test(text || "")) return "";
+  const m = text.match(/([가-힣]+)\s+([+−]?\d+)\s+([+−])(\d+)C(?:×(\d+))?/);
+  let ex = "";
+  if (m) {
+    const sgn = m[2][0] === "−" ? -1 : 1, base = sgn * +m[2].replace(/^[+−]/, ""), s = m[3] === "−" ? -1 : 1, v = +m[4], n = +(m[5] || 1);
+    const hi = base + s * v * n, f = x => (/^[+−]/.test(m[2]) ? (x < 0 ? "−" : "+") : x < 0 ? "−" : "") + Math.abs(x);
+    ex = ` 예: ${m[1]} ${esc(m[2])} ${coinNoteHTML(m[3] + m[4] + "C" + (m[5] ? "×" + m[5] : ""))} = ${m[1]} ${f(Math.min(base, hi))}~${f(Math.max(base, hi))}.`;
+  }
+  return `<p class="${tag || "f-kw"} coin-howto"><b>코인</b> <span class="coin-note"><span class="cg"><i class="coin-dot"></i></span></span> 하나가 코인 하나입니다. 마법을 쓸 때 던져서 앞면이 나올 때마다 그 값을 더합니다.${ex}</p>`;
 }
 function cardKwShort(c) {
   if (c.type === "item") return itemAbilityText(c.item);
