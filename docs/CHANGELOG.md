@@ -3,6 +3,10 @@
 버전마다 바뀐 것과 바뀐 파일을 적는다. 새 버전은 맨 위에 쓴다.
 맨 아래 `실행`·`v0.3`·`계정`·`덱`·`규칙`·`파일` 절은 v0.3 무렵의 설명을 그대로 남긴 것이라 지금과 다른 곳이 있다(예: 클래스는 v1.0에서 규칙에서 빠짐). 지금 상태는 `README.md`를 본다.
 
+## v3.16.4 — 덱 조정실 카드에도 마법 짧은 문구
+규칙 · 균형은 그대로. 바뀐 파일 `js/screens.js`(`poolCardHTML`의 `cardHTML`에 `brief: true`), `index.html`(캐시 번호 screens.js `pb1`). 이전 상태는 `_backup_v3.16.4_poolbrief`.
+- 덱 조정실의 **카드 보관함 · 내 덱** 목록에서 마법 카드에 짧은 문구(`js/briefs.js`)가 나오지 않던 것을 고침. 대기실 덱 보기 · 교역소와 같은 모양. 가지고 있지 않은 카드(잠긴 카드)에도 나온다.
+
 ## v3.16.3 — 화면 흔들림 끔 · 카드 부서짐 "파사삭"
 규칙 · 균형은 그대로(연출과 소리만, 판의 결과에 쓰는 난수는 건드리지 않음). 바뀐 파일 `js/impact.js`(`TUNE.screenMove`), `js/game.js`(`shatterCard` 새로 씀, `shakeScreen` 끔), `js/feel.js`(`shatter` 소리 새로, 새 조각 `crackle`), `css/impact.css`(`.shatter.sh3`), `index.html`(캐시 번호 `im3` · `sh1`). 이전 상태는 `_backup_v3.16.3_shatter`.
 - **화면 전체가 움직이는 연출을 끔 (PC · 폰 모두)**: 맞을 때 · 마법 · 부서짐의 화면 흔들림과 기울기, 센 타격의 판 전체 확대. 맞은 카드가 밀려나는 것 · 번쩍임 · 충격파는 그대로. 다시 켜려면 `js/impact.js` `TUNE.screenMove = true`(그때는 `js/game.js` `shakeScreen` 첫 줄의 `return;`도 지운다).

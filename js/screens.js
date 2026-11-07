@@ -826,11 +826,11 @@ function showEditor(f, focusId) {
       const own = Store.ownedCount(u, c.id), inDeck = E.cards[c.id] || 0, cap = Math.min(maxCopiesOf(c), own), left = own - inDeck;
       const bought = u.collection[c.id] || 0, fresh = u.fresh && u.fresh[c.id];
       if (!own) return `<div class="pool-card locked" data-pc="${c.id}">
-        <div class="pc-face" aria-label="${esc(c.name)} (가지고 있지 않음)">${cardHTML(c, { size: "md" })}<span class="pc-lock">가지고 있지 않음</span></div>
+        <div class="pc-face" aria-label="${esc(c.name)} (가지고 있지 않음)">${cardHTML(c, { size: "md", brief: true })}<span class="pc-lock">가지고 있지 않음</span></div>
         <button class="btn xs gold pc-shop" data-goshop="${c.id}">교역소에서 사기</button></div>`;
       const pips = Array.from({ length: maxCopiesOf(c) }, (_, k) => `<button class="pip${k < inDeck ? " on" : ""}${k >= cap ? " no" : ""}" data-set="${c.id}" data-k="${k + 1}" ${k >= cap ? "disabled" : ""} aria-label="덱에 ${k + 1}장으로"></button>`).join("");
       return `<div class="pool-card${left <= 0 ? " out" : ""}${inDeck ? " in-deck" : ""}${fresh ? " fresh" : ""}" data-pc="${c.id}">
-        <button class="pc-face" data-add="${c.id}" draggable="true" title="누르기: 1장 넣기 · Shift: 가득 · 우클릭: 1장 빼기" aria-label="${esc(c.name)} 덱에 넣기">${cardHTML(c, { size: "md" })}${inDeck ? `<span class="pc-badge">${inDeck}</span>` : ""}${fresh ? '<span class="pc-new">NEW</span>' : ""}</button>
+        <button class="pc-face" data-add="${c.id}" draggable="true" title="누르기: 1장 넣기 · Shift: 가득 · 우클릭: 1장 빼기" aria-label="${esc(c.name)} 덱에 넣기">${cardHTML(c, { size: "md", brief: true })}${inDeck ? `<span class="pc-badge">${inDeck}</span>` : ""}${fresh ? '<span class="pc-new">NEW</span>' : ""}</button>
         <button class="pc-zoom" data-show="${c.id}" aria-label="${esc(c.name)} 크게 보기" title="크게 보기">⌕</button>
         <div class="pc-ctrl">
           <button class="pc-btn pc-minus" data-rm="${c.id}" ${inDeck ? "" : "disabled"} aria-label="${esc(c.name)} 덱에서 1장 빼기">−</button>
