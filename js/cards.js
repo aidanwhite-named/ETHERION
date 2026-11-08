@@ -399,3 +399,6 @@ function buildStarter(g) {
 }
 const STARTER_DECKS = {};
 for (const g of GROUP_IDS) STARTER_DECKS[g] = (typeof DECK_LISTS !== "undefined" && DECK_LISTS[g]) ? Object.assign({}, DECK_LISTS[g].cards) : buildStarter(g);
+/* v3.19.3 컴퓨터 '어려움'의 정예 덱: HARD_DECK_LISTS(js/decks.js)가 있으면 그것, 없으면 기본 덱 */
+const HARD_DECKS = {};
+for (const g of GROUP_IDS) HARD_DECKS[g] = Object.assign({}, (typeof HARD_DECK_LISTS !== "undefined" && HARD_DECK_LISTS[g]) ? HARD_DECK_LISTS[g].cards : STARTER_DECKS[g]);

@@ -73,7 +73,7 @@
 | `js/specials.js` | 스페셜 카드(승천자 9 · 삼좌 유물 3). 덱에 1장, 기본 덱마다 1장. 대전 결과 `docs/SPECIALS_v2.9.md` |
 | `js/uniques.js` | 유니크 카드(단체마다 유닛 1, 모두 9). 덱에 1장, 기본 덱마다 1장. 대전 결과 `docs/UNIQUES_v3.2.md` |
 | `js/highcards.js` | 레어 · 에픽 · 유니크 추가 카드(단체마다 레어 아이템 1 · 에픽 유닛 3 · 유니크 마법 2, 모두 54). 기본 덱 밖 — 교역소 · 원정 · 보상으로. `docs/HIGHCARDS_v3.18.md` |
-| `js/decks.js` | 단체별 기본 덱 9개 (v3.2부터 유니크 1 · 스페셜 1 포함) |
+| `js/decks.js` | 단체별 기본 덱 9개 (v3.2부터 유니크 1 · 스페셜 1 포함) · 컴퓨터 어려움의 정예 덱 9개(`HARD_DECK_LISTS`, v3.19.3) |
 | `js/cards.js` | 규칙 상수, 진영·단체, 카드 모델, 덱 규칙 |
 | `js/grades.js` | 카드 등급 |
 | `js/scenes.js` | 메뉴 화면의 장면 배경(교역소 = 밤의 린데어, 덱 조정실 = 운명의 감실) |
@@ -114,6 +114,7 @@
 ## 균형 도구
 
 - `node tools/balance/rr.js js 50` — 화면 없이 단체 덱끼리 컴퓨터 대전 (`tools/balance/README.md`)
+- `node tools/balance/harddeck.js` — 컴퓨터 '어려움'의 정예 덱 다듬기(v3.19.3). 결과 `hard.json`을 `js/decks.js` `HARD_DECK_LISTS`로 옮긴다. `node tools/balance/harddeck_check.js` 로 어려움 컴퓨터가 몰 때 기본 덱과 비교
 - `node tools/balance/vs.js js 5` — 컴퓨터 난이도끼리(어려움 vs 보통) 9 × 9 단체로 붙여 승률. v3.16 어려움은 보통에게 약 80% 승
 - `node tools/cardsim/cardsim.js` → `node tools/cardsim/report.js` — 카드별 대전 값·사용 통계 (`tools/cardsim/README.md`)
 - `node tools/level/measure.js 300` — 한 판 수입(= 경험치) 측정, `tools/level/fit2.py` — 레벨 곡선 맞추기
@@ -123,6 +124,7 @@
 
 | 버전 | 내용 |
 |---|---|
+| v3.19.3 | 컴퓨터 대전 **어려움**은 정예 덱 — 단체의 모든 카드(레어 · 에픽 · 유니크 · 스페셜 포함)로 시뮬레이션 언덕 오르기로 다듬은 40장. 9단체 기본 덱 상대 승률(어려움끼리) 53.7% → 70.2% (`js/decks.js` `HARD_DECK_LISTS`, `tools/balance/harddeck.js`) |
 | v3.19.2 | 결정화한 카드는 소각장으로(나중에 되살리기 마법의 대상) · 카드 뒷면에 ETHERION 글씨(`tools/art/cardback_text.py`) |
 | v3.19 | 판타지 마스터즈식 카드 배치(왼쪽 위 종류 아이콘 · 왼쪽 세로 레벨 · 그림 아래 글 상자 · 오른쪽 아래 클래스와 공방체, `css/fmcard.css`) · 핸드를 겹치지 않는 똑바른 한 줄로(`css/hand-row.css`) |
 | v3.18 | 레어 · 에픽 · 유니크 카드 54장(`js/highcards.js`) — 단체마다 레어 아이템 1 · 에픽 유닛 3 · 유니크 마법 2, 새 마법 효과 유폭 · 방어의 합 · 결투 · 능력 부여 (`docs/HIGHCARDS_v3.18.md`) |
