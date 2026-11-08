@@ -1,0 +1,166 @@
+/* ETHERION v3.19 — 판타지 마스터즈식 카드 배치 (js/view.js cardHTML · cardFullHTML, 가이드 3.1 · 3.3)
+   ┌──────────────────────┐
+   │[종류] 이름            │  머리: 왼쪽 위 = 카드 종류 아이콘(유닛 · 마법 종류 · 아이템), 그 옆 = 이름
+   │ ◆ ┌────────────────┐ │
+   │ ◆ │      그림       │ │  가운데: 왼쪽 세로 = 레벨 아이콘(금빛 = 소환, 하늘빛 테 = 유지비), 오른쪽 = 그림
+   │ ◇ └────────────────┘ │
+   │ 단체         등급 │(cl)│  종족 줄 · 오른쪽 열 맨 위 = 클래스 아이콘
+   │┌───────────────┐│ 7 │  글 상자 = 코인 줄 · 특수 능력 · 마법 짧은 문구 · 설명
+   ││ ⚔+2●  ♥+●     ││ 0 │  오른쪽 열 = 공 · 방 · 체 (위에서부터)
+   │└───────────────┘│ 8 │
+   └──────────────────────┘
+   크기는 모두 em(= 카드 폭의 10%). 노멀 · 핸드 · 전장 · 원본 카드가 같은 짜임이고, 작으면 설명(c-flv)만 숨는다(@container).
+   맨 마지막에 읽는다 (style.css · slim.css · mobile.css의 옛 카드 규칙을 덮는다) */
+
+.card.fm { font-size: calc(var(--cw) * .1); container: fmcard / inline-size; }
+.card.fm > .c-frame { padding: .26em .28em .28em; gap: .16em; }
+
+/* ---- 머리: 종류 아이콘 + 이름 ---- */
+.card.fm .c-head { flex: none; height: 1.5em; min-height: 0; padding: 0; gap: .26em; align-items: center; position: relative; z-index: 3; }
+.card.fm .c-lv, .card.fm .c-cltag { display: none; }
+.card.fm .c-type { flex: none; width: 1.38em; height: 1.38em; display: grid; place-items: center; border-radius: .24em; font-style: normal; cursor: help;
+  color: var(--tc, var(--gold-hi)); background: radial-gradient(circle at 35% 28%, rgba(255, 255, 255, .16), rgba(0, 0, 0, .78) 75%), #0b0a10;
+  border: .08em solid color-mix(in srgb, var(--tc, var(--gold)) 70%, #000);
+  box-shadow: 0 0 .45em color-mix(in srgb, var(--tc, var(--gold)) 38%, transparent), inset 0 0 .25em rgba(0, 0, 0, .7); }
+.card.fm .c-type svg { width: 76%; height: 76%; filter: drop-shadow(0 0 .12em currentColor); }
+.card.fm .c-type.t-unit { --tc: var(--k-unit, #d9b46a); }
+.card.fm .c-type.t-item { --tc: #d8c48e; }
+.card.fm .c-type.t-atk { --tc: var(--rite-atk, #e0674f); }
+.card.fm .c-type.t-def { --tc: var(--rite-def, #5aa2e6); }
+.card.fm .c-type.t-any { --tc: var(--rite-any, #5fc9b0); }
+.card.fm .c-type.t-hand { --tc: var(--rite-hand, #c9a2ff); }
+.card.fm .c-name { flex: 1; min-width: 0; font-size: .9em; line-height: 1.1; letter-spacing: -.03em; color: #fbf3e2;
+  white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; word-break: keep-all;
+  text-shadow: 0 .06em .1em #000, 0 0 .35em rgba(0, 0, 0, .9); }
+.card.fm .c-clsico { position: static; }
+
+/* ---- 가운데: 레벨 아이콘 세로 열 + 그림 ---- */
+.card.fm .c-mid { flex: none; height: 6.6em; margin: 0; gap: .2em; display: flex; min-height: 0; }
+.card.fm .c-side { flex: none; width: .98em; min-width: 0; display: flex; flex-direction: column; justify-content: flex-start; gap: 0; }
+.card.fm .c-pips { display: flex; flex-direction: column; align-items: center; gap: .06em; width: 100%; padding: .04em 0 0; min-height: 0; }
+.card.fm .c-pips .pip { flex: none; width: .74em; height: .74em; }
+.card.fm .c-art { position: relative; inset: auto; flex: 1; margin: 0; border-radius: .3em; min-height: 0; z-index: 0;
+  box-shadow: inset 0 0 0 .06em rgba(0, 0, 0, .7), 0 0 0 .05em color-mix(in srgb, var(--fc) 45%, rgba(217, 180, 106, .35)); }
+.card.fm .c-art::before { content: none; }
+.card.fm .c-art > svg, .card.fm.has-brief .c-art > svg, .card.fm.has-desc .c-art > svg { width: 62%; height: 62%; transform: none; }
+.card.fm .c-badges { left: auto; right: .2em; top: .2em; bottom: auto; flex-direction: column; align-items: flex-end; z-index: 3; }
+
+/* ---- 아래: 종족 줄 + 글 상자 | 오른쪽 열 ---- */
+.card.fm .c-low { flex: 1; min-height: 0; display: flex; gap: .18em; }
+.card.fm .c-lowl { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: .12em; }
+.card.fm .c-race { flex: none; display: flex; justify-content: space-between; align-items: center; gap: .4em; height: 1.5em; padding: 0 .2em;
+  font-size: .6em; line-height: 1; white-space: nowrap; color: var(--ink-2);
+  border-bottom: .08em solid color-mix(in srgb, var(--fc) 40%, rgba(217, 180, 106, .3)); }
+.card.fm .c-race .r-l { min-width: 0; overflow: hidden; text-overflow: ellipsis; font-weight: 700; }
+.card.fm .c-race .r-g { flex: none; color: var(--gr); font-weight: 800; letter-spacing: .02em; text-shadow: 0 0 .4em color-mix(in srgb, var(--gr) 35%, transparent); }
+.card.fm .c-box { flex: 1; min-height: 0; overflow: hidden; padding: .16em .22em;
+  border-radius: .22em; background: linear-gradient(180deg, rgba(4, 5, 10, .72), rgba(10, 11, 19, .62));
+  box-shadow: inset 0 0 0 .05em rgba(217, 180, 106, .2), inset 0 .1em .3em rgba(0, 0, 0, .6); }
+/* 넘치는 글은 잘라 내지 않고 아래쪽에서 흐려지게 (전문은 원본 카드에) */
+.card.fm .c-boxin { height: 100%; display: flex; flex-direction: column; gap: .12em; overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - .5em), transparent); mask-image: linear-gradient(180deg, #000 calc(100% - .5em), transparent); }
+
+/* 오른쪽 열: 클래스 아이콘 + 공 · 방 · 체 (판타지 마스터즈처럼 굵은 숫자가 세로로) */
+.card.fm .c-rcol { flex: none; width: 1.8em; display: flex; flex-direction: column; align-items: center; gap: .08em; padding: .1em 0 .06em;
+  border-radius: .22em; background: linear-gradient(180deg, rgba(4, 5, 10, .8), rgba(10, 11, 19, .7)); box-shadow: inset 0 0 0 .05em rgba(217, 180, 106, .22); }
+.card.fm .c-rcol .c-clsico { display: flex; flex-direction: column; gap: .08em; }
+.card.fm .c-rcol .c-clsico i { width: 1.36em; height: 1.36em; border-radius: 50%; }   /* v3.19.1: 클래스는 동그라미 */
+.card.fm .c-vstats { flex: 1; min-height: 0; width: 100%; display: flex; flex-direction: column; justify-content: space-around; align-items: center; gap: 0; font-size: 1em; position: static; }
+.card.fm .c-vstats .st { width: auto; height: auto; padding: 0; gap: .05em; justify-content: center; align-items: center; background: none; border: 0; box-shadow: none; white-space: nowrap; }
+.card.fm .c-vstats .st b { font-family: var(--caps); font-weight: 900; font-size: 1.12em; line-height: 1; letter-spacing: -.04em;
+  text-shadow: 0 .06em .1em #000, 0 0 .3em rgba(0, 0, 0, .9); }
+.card.fm .c-vstats .st i, .card.fm .c-vstats .st .sti { display: none; }
+.card.fm .c-vstats .st em.cm { display: none !important; }   /* 코인은 글 상자의 코인 줄에 */
+.card.fm .c-vstats .st-lock { width: .5em; height: .5em; }
+.card.fm .c-istats .st b { font-size: 1em; }
+.card.fm .c-istats .st-empty { opacity: .4; }
+
+/* 글 상자 속 */
+.card.fm .c-coinline { display: flex; flex-wrap: wrap; align-items: center; gap: .1em .38em; font-size: .92em; line-height: 1.1; }
+.card.fm .c-coinline .cl-s { display: inline-flex; align-items: center; gap: .08em; cursor: help; }
+.card.fm .c-coinline .sti { width: 1.05em; height: 1.05em; }
+.card.fm .c-coinline .cl-a .sti { color: #ff9a7a; } .card.fm .c-coinline .cl-d .sti { color: #8fc0ff; } .card.fm .c-coinline .cl-h .sti { color: #ff6f82; }
+.card.fm .c-coinline .cg small { font-family: var(--caps); font-weight: 900; color: #ffe08a; margin-right: .04em; }
+.card.fm .c-coinline .cg.neg small { color: #ff9c90; }
+.card.fm .c-coinline .coin-dot { width: .78em; height: .78em; }
+.card.fm .c-chips { display: flex; flex-wrap: wrap; gap: .12em; }
+.card.fm .c-box .c-cls { font-size: .6em; padding: .08em .38em; position: static; }
+.card.fm .f-grant.f-plain { color: var(--ink-2); }
+/* 일반공격 칩: 특수 능력 칩과 같은 규격, 색만 수수하게 */
+.card.fm .c-box .c-cls.c-plain { color: var(--ink-2); border-color: rgba(255, 255, 255, .2); background: rgba(255, 255, 255, .04); font-weight: 700; }
+.card.fm .c-box .c-equip { position: static; display: flex; flex-wrap: wrap; gap: .12em; margin: 0; font-size: 1em; }
+.card.fm .c-stext { margin: 0; font-size: .6em; line-height: 1.32; color: var(--ink); word-break: keep-all; }
+.card.fm .c-flv { margin: auto 0 0; font-size: .54em; line-height: 1.35; color: var(--muted); word-break: keep-all;
+  -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+/* 마법 짧은 문구는 그림 위에 겹치지 않고 글 상자 안에 */
+.card.fm .c-box .c-brief { position: static; inset: auto; padding: 0; gap: .1em; background: none; border: 0; box-shadow: none; border-radius: 0; font-size: .78em; }
+.card.fm .c-box .c-desc { position: static; inset: auto; background: none; padding: 0; margin: 0; font-size: .7em; }
+/* 작은 카드: 설명 숨김. 카드 폭 170px 이상이면 설명(분위기 글)이 글 상자 아래쪽에 */
+.card.fm .c-flv { display: none; }
+@container fmcard (min-width: 170px) { .card.fm .c-flv { display: -webkit-box; } }
+.card.fm.size-sm .c-race { font-size: .56em; }
+
+/* ---- 핸드 · 전장(slim): 같은 짜임. 옛 slim 규칙(그림이 카드 전체 · 칩을 그림 위에)을 덮는다 ---- */
+.card.fm.slim .c-head { padding: 0; }
+.card.fm.slim .c-name { font-size: .88em; }
+.card.fm.slim .c-pips { font-size: 1em; }
+.card.fm.slim .c-vstats { font-size: 1em; gap: 0; }
+html.mobile .hand-me .card.fm.slim .c-vstats { font-size: 1em; }
+html.mobile .hand-me .card.fm.slim .c-name { font-size: .96em; }
+html.mobile .hand-me .card.fm.slim .c-pips { font-size: 1em; }
+html.mobile .hand-me .card.fm.slim .c-clsico { font-size: 1em; }
+html.mobile .hand-me .card.fm.slim .c-cls { font-size: .66em; }
+.c-under .card.fm.slim .c-name { visibility: visible; }
+
+/* 살아 있는 값 색 (전장): 오르면 초록 · 내리면 붉게 — 원래 규칙을 그대로 따른다 */
+.card.fm .c-vstats .st-a b { color: #ffd2bf; } .card.fm .c-vstats .st-d b { color: #d3e6ff; } .card.fm .c-vstats .st-h b { color: #ffc9d1; }
+.card.fm .c-vstats .st.up b { color: var(--good); } .card.fm .c-vstats .st.down b, .card.fm .c-vstats .st.hurt b { color: var(--bad); }
+.card.fm .c-vstats .st-locked b { color: #ffe08a; }
+
+/* ---- 원본 카드 (size-full): 같은 짜임, 키는 글 길이에 따라 ---- */
+.card.fm.size-full { font-size: calc(var(--cw) * .041); }
+.card.fm.size-full > .c-frame { padding: .6em .65em .55em; gap: .4em; }
+.card.fm.size-full .c-head { height: auto; min-height: 2.2em; gap: .45em; padding: 0; }
+.card.fm.size-full .c-type { width: 2.1em; height: 2.1em; }
+.card.fm.size-full .c-name { font-size: 1.4em; -webkit-line-clamp: unset; display: block; overflow: visible; }
+.card.fm.size-full .c-mid { height: calc(var(--cw) * .42); gap: .45em; }
+.card.fm.size-full .c-side { width: 1.6em; }
+.card.fm.size-full .c-pips { gap: .14em; }
+.card.fm.size-full .c-pips .pip { width: 1.25em; height: 1.25em; }
+.card.fm.size-full .c-low { flex: none; gap: .4em; }
+.card.fm.size-full .c-lowl { gap: .3em; }
+.card.fm.size-full .f-type { margin: 0; padding: 0 .2em .25em; border-bottom: .06em solid color-mix(in srgb, var(--fc) 40%, rgba(217, 180, 106, .3)); }
+.card.fm.size-full .c-box { flex: none; overflow: visible; padding: .45em .55em; display: flex; flex-direction: column; gap: .35em; }
+.card.fm.size-full .c-boxin { height: auto; overflow: visible; gap: .35em; -webkit-mask-image: none; mask-image: none; }
+.card.fm.size-full .c-box .f-text { margin: 0; }
+.card.fm.size-full .c-coinline { font-size: 1.05em; gap: .2em .7em; }
+.card.fm.size-full .c-rcol { width: 2.9em; padding: .35em 0; gap: .3em; }
+.card.fm.size-full .c-rcol .c-clsico i { width: 2.4em; height: 2.4em; }
+.card.fm.size-full .c-vstats { justify-content: flex-start; gap: .45em; }
+.card.fm.size-full .c-vstats .st { flex-direction: column; gap: .05em; }
+.card.fm.size-full .c-vstats .st .sti { display: block; width: 1.1em; height: 1.1em; }
+.card.fm.size-full .c-vstats .st-a .sti { color: #ff9a7a; } .card.fm.size-full .c-vstats .st-d .sti { color: #8fc0ff; } .card.fm.size-full .c-vstats .st-h .sti { color: #ff6f82; }
+.card.fm.size-full .c-vstats .st b { font-size: 1.75em; }
+.card.fm.size-full .c-vstats .st-lock { width: .8em; height: .8em; }
+.card.fm.size-full .c-en { margin-top: auto; }
+
+/* ---- v3.19.1 원본 카드: 그림을 크게, 글은 줄임 ----
+   머리 = 종류 아이콘 · 이름 · (오른쪽 위) 등급 칩. 유닛은 종류 줄 없음(단체 이름 · 레벨 글자 · 맨 아래 단체 줄도 뺌).
+   그림 자리가 카드 키(폭 × 1.4)에서 글 상자 · 오른쪽 열이 쓰고 남은 자리를 모두 차지한다 */
+.card.fm.size-full .c-head { align-items: center; }
+.card.fm.size-full .c-hname { flex: 1; min-width: 0; display: flex; align-items: center; cursor: help; }
+.card.fm.size-full .c-hname .c-name { flex: 1; }
+.card.fm .c-head .c-hgrade { flex: none; align-self: center; padding: .1em .55em; border: 1px solid color-mix(in srgb, var(--gr) 70%, transparent); border-radius: .3em;
+  color: var(--gr); background: color-mix(in srgb, var(--gr) 12%, rgba(0, 0, 0, .35)); font-weight: 800; font-size: .95em; letter-spacing: .02em; line-height: 1.2; white-space: nowrap;
+  text-shadow: 0 0 .4em color-mix(in srgb, var(--gr) 35%, transparent); }
+.card.fm.size-full .c-mid { flex: 1 0 calc(var(--cw) * .6); height: auto; min-height: calc(var(--cw) * .6); }
+.zoom.side .card.fm.size-full { min-height: calc(var(--cw) * 1.32); }
+.zoom.side .card.fm.size-full .c-mid { flex-basis: calc(var(--cw) * .62); min-height: calc(var(--cw) * .62); }
+.card.fm.size-full .c-box { padding: .35em .5em; gap: .28em; }
+.card.fm.size-full .c-box .f-text { display: flex; flex-direction: column; gap: .3em; }
+.card.fm.size-full .c-box .f-text > p { margin: 0; }
+/* 오른쪽 열: 맨 위 클래스 동그라미, 공 · 방 · 체는 아래로 붙여 한 줄씩(아이콘 + 숫자) */
+.card.fm.size-full .c-rcol { width: 3.5em; padding: .35em 0 .4em; gap: .3em; }
+.card.fm.size-full .c-vstats { justify-content: flex-end; gap: .25em; }
+.card.fm.size-full .c-vstats .st { flex-direction: row; gap: .14em; }
+.card.fm.size-full .c-vstats .st b { font-size: 1.6em; min-width: 1.05em; text-align: center; }

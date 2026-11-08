@@ -24,9 +24,9 @@
     },
     {
       "id": "card_back", "set": "deck", "title": "카드 뒷면 · 덱 맨 위",
-      "out": "img/ui/deck/card_back.png", "size": [1000, 1400], "format": "png", "background": "opaque",
+      "out": "img/ui/deck/card_back_plain.png", "size": [1000, 1400], "format": "png", "background": "opaque",
       "refs": ["tools/art/ref/card_back.png"], "post": { "fit": "cover" },
-      "note": "덱 맨 위 · 상대 핸드 · 뽑혀 날아오는 카드가 함께 쓴다(5:7). 덱 옆면(금박)과 장수는 코드. 모서리는 CSS가 둥글게 자른다.",
+      "note": "글씨 없는 원본(card_back_plain.png). 만든 뒤 python tools/art/cardback_text.py 로 ETHERION 글씨를 얹어 card_back.png를 굽는다(v3.19.2). 덱 맨 위 · 상대 핸드 · 뽑혀 날아오는 카드가 함께 쓴다(5:7). 덱 옆면(금박)과 장수는 코드. 모서리는 CSS가 둥글게 자른다.",
       "prompt": [
         "The back side of a playing card, portrait 5:7, filling the whole image edge to edge (no background around the card).",
         "Thin black outer edge, then a hammered gold border, inside a deep indigo-violet nebula field with a faint diamond lattice and tiny stars, ornate gold corner brackets with small sky-blue gems in the four corners, small gold diamonds at top and bottom centre.",

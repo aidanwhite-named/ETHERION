@@ -182,36 +182,60 @@
   -webkit-text-stroke: 1px rgba(40, 0, 0, .85); text-shadow: 0 0 6px rgba(255, 75, 62, .8), 0 0 12px rgba(139, 92, 246, .7); }
 @media (prefers-reduced-motion: reduce) { .curse-title, .curse-chip { display: none; } }
 
-/* ───────── v3.12.3 "반격" 떠오르는 글자: 금빛 명판 + 아래 숫자 (js/game.js floatAt) ─────────
-   글씨는 Hahmlet 800(제목용 명조, Google Fonts — 없으면 바탕), 금속 광택 그라데이션(2.4 금빛 글자), 양옆 금선 + 마름모.
-   뒤로 금빛 사선이 한 번 베고 지나간다(되받아 치는 칼). 숫자는 예전 피해 숫자 그대로(빨강, Cinzel) */
-.float.counter { display: flex; flex-direction: column; align-items: center; gap: .02em; line-height: 1; -webkit-text-stroke: 0; text-shadow: none; animation-name: counterUp; animation-duration: 1.8s; }
-.float.counter .fl-tag { position: relative; display: flex; align-items: center; gap: .3em; font-size: max(17px, calc(var(--cw) * .135)); padding: .12em .2em; isolation: isolate; }
-.float.counter .fl-tag b { font-family: "Hahmlet", "Song Myung", var(--body); font-weight: 800; letter-spacing: .14em; margin-right: -.14em; font-size: 1.4em;
-  background: linear-gradient(180deg, #fffdf2 0%, #ffe9a8 34%, #f2c66a 50%, #b98432 58%, #f0cf7c 78%, #fff6d0 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
-  filter: drop-shadow(0 1px 0 #3a2208) drop-shadow(0 0 1.5px #1a0e02) drop-shadow(0 3px 5px rgba(0, 0, 0, .85)) drop-shadow(0 0 12px rgba(255, 180, 70, .6)); }
-.float.counter .fl-tag i { position: relative; width: 1.3em; height: 2px; background: linear-gradient(90deg, transparent, #f0d48c); box-shadow: 0 1px 2px #000; }
-.float.counter .fl-tag i:last-child { background: linear-gradient(270deg, transparent, #f0d48c); }
-.float.counter .fl-tag i::after { content: ""; position: absolute; top: 50%; width: .42em; height: .42em; background: linear-gradient(135deg, #fff3c9, #c8963f 60%, #7a5418); border: 1px solid #2a1806; transform: translate(-50%, -50%) rotate(45deg); }
-.float.counter .fl-tag i:first-child::after { right: 0; transform: translate(50%, -50%) rotate(45deg); }
-.float.counter .fl-tag i:last-child::after { left: 0; }
-.float.counter .fl-tag::before { content: ""; position: absolute; z-index: -1; left: -30%; right: -30%; top: 50%; height: .22em; border-radius: 50%;
-  background: linear-gradient(90deg, transparent, rgba(255, 214, 130, .0) 10%, #fff3c9 50%, rgba(255, 150, 60, .0) 90%, transparent); filter: blur(.5px) drop-shadow(0 0 6px rgba(255, 180, 70, .9));
+/* ───────── v3.18.1 효과 명판: 한글 낱말이 든 떠오르는 글자는 모두 이 틀 (js/game.js floatAt · plateParts, 스타일 가이드 2.9) ─────────
+   v3.12.3 "반격"(금) · v3.12.7 "대가"(핏빛) 명판을 모든 효과 글자(수호 · 보호막 · 불굴 · 빼앗김 · 강화 해제 · 가시 −2 …)로 넓혔다.
+   위 = 명판 낱말: Hahmlet 800(css/fonts-hahmlet.css — 게임 폴더에 담아 인터넷 없이도 나옴), 금속 광택 그라데이션, 양옆 선과 마름모, 뒤로 베고 지나가는 사선.
+   아래 = 숫자 · 스탯 기호(Cinzel 900). 명판 빛깔은 t-* 클래스, 숫자 색은 원래 cls(dmg · buff · shield · debuff · heal · miss)를 따른다.
+   새 빛깔은 --pl-* 변수만 정하면 된다 */
+.float.plate { --pl-g: linear-gradient(180deg, #fffdf2 0%, #ffe9a8 34%, #f2c66a 50%, #b98432 58%, #f0cf7c 78%, #fff6d0 100%);
+  --pl-edge: #3a2208; --pl-glow: rgba(255, 180, 70, .6); --pl-line: #f0d48c; --pl-gem: linear-gradient(135deg, #fff3c9, #c8963f 60%, #7a5418); --pl-gem-b: #2a1806;
+  --pl-slash: #fff3c9; --pl-slash-glow: rgba(255, 180, 70, .9); --pl-num: var(--gold-hi);
+  display: flex; flex-direction: column; align-items: center; gap: .02em; line-height: 1; -webkit-text-stroke: 0; text-shadow: none; animation-name: counterUp; animation-duration: 1.8s; }
+.float.plate .fl-tag { position: relative; display: flex; align-items: center; gap: .3em; font-size: max(17px, calc(var(--cw) * .135)); padding: .12em .2em; isolation: isolate; }
+.float.plate.big .fl-tag { font-size: max(21px, calc(var(--cw) * .17)); }
+.float.plate .fl-tag b { font-family: "Hahmlet", "Song Myung", var(--body); font-weight: 800; letter-spacing: .14em; margin-right: -.14em; font-size: 1.4em;
+  background: var(--pl-g); -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 1px 0 var(--pl-edge)) drop-shadow(0 0 1.5px #050302) drop-shadow(0 3px 5px rgba(0, 0, 0, .85)) drop-shadow(0 0 12px var(--pl-glow)); }
+.float.plate.long .fl-tag b { letter-spacing: .03em; margin-right: -.03em; font-size: 1.12em; }   /* 다섯 글자 넘는 낱말(다음 턴 에테르 · 소환 · 이번 턴): 자간을 좁히고 양옆 선을 줄여 카드 폭 안팎에 */
+.float.plate.long .fl-tag { gap: .2em; }
+.float.plate.long .fl-tag i { width: .7em; }
+.float.plate .fl-tag i { position: relative; width: 1.3em; height: 2px; background: linear-gradient(90deg, transparent, var(--pl-line)); box-shadow: 0 1px 2px #000; }
+.float.plate .fl-tag i:last-child { background: linear-gradient(270deg, transparent, var(--pl-line)); }
+.float.plate .fl-tag i::after { content: ""; position: absolute; top: 50%; width: .42em; height: .42em; background: var(--pl-gem); border: 1px solid var(--pl-gem-b); transform: translate(-50%, -50%) rotate(45deg); }
+.float.plate .fl-tag i:first-child::after { right: 0; transform: translate(50%, -50%) rotate(45deg); }
+.float.plate .fl-tag i:last-child::after { left: 0; }
+.float.plate .fl-tag::before { content: ""; position: absolute; z-index: -1; left: -30%; right: -30%; top: 50%; height: .22em; border-radius: 50%;
+  background: linear-gradient(90deg, transparent, transparent 10%, var(--pl-slash) 50%, transparent 90%, transparent); filter: blur(.5px) drop-shadow(0 0 6px var(--pl-slash-glow));
   transform: translateY(-50%) rotate(-14deg) scaleX(0); transform-origin: 0 50%; animation: counterSlash .5s .06s cubic-bezier(.2, .9, .3, 1) forwards; }
-.float.counter .fl-num { color: #ff5e4d; font-family: var(--caps); font-weight: 900; font-size: max(28px, calc(var(--cw) * .22)); -webkit-text-stroke: 1px rgba(0, 0, 0, .6); text-shadow: 0 3px 8px #000, 0 0 16px currentColor; }
-.float.counter.miss .fl-num { color: #b9b9c8; font-size: max(20px, calc(var(--cw) * .15)); }
+.float.plate .fl-num { color: var(--pl-num); font-family: var(--caps); font-weight: 900; font-size: max(28px, calc(var(--cw) * .22)); -webkit-text-stroke: 1px rgba(0, 0, 0, .6); text-shadow: 0 3px 8px #000, 0 0 16px currentColor; }
+.float.plate.big .fl-num { font-size: max(34px, calc(var(--cw) * .28)); }
+.float.plate .fl-num .sti { width: .7em; height: .7em; vertical-align: -.04em; margin-right: .06em; }
+/* 숫자 색 = 원래 cls */
+.float.plate.dmg { --pl-num: #ff5e4d; }
+.float.plate.heal { --pl-num: #7fe39c; }
+.float.plate.shield { --pl-num: #9be8ff; }
+.float.plate.debuff { --pl-num: #c9a2ff; }
+.float.plate.miss { --pl-num: #b9b9c8; }
+.float.plate.miss .fl-num { font-size: max(20px, calc(var(--cw) * .15)); }
+/* 명판 빛깔 (금 t-gold는 위 기본값) */
+.float.plate.t-blood { --pl-g: linear-gradient(180deg, #fff4ee 0%, #ffc2b0 34%, #f0644c 50%, #8e1a12 58%, #e0705a 78%, #ffd8cc 100%);
+  --pl-edge: #3a0806; --pl-glow: rgba(255, 70, 50, .6); --pl-line: #f08c7a; --pl-gem: linear-gradient(135deg, #ffd6c9, #c8402f 60%, #5e0e08); --pl-gem-b: #2a0604;
+  --pl-slash: #ffd0c4; --pl-slash-glow: rgba(255, 60, 40, .9); }
+.float.plate.t-ice { --pl-g: linear-gradient(180deg, #ffffff 0%, #e2f8ff 34%, #8fdcff 50%, #2b6f9c 58%, #9fe0ff 78%, #f0fcff 100%);
+  --pl-edge: #062033; --pl-glow: rgba(110, 205, 255, .65); --pl-line: #9be8ff; --pl-gem: linear-gradient(135deg, #f2fcff, #5fbfe8 60%, #1c5a80); --pl-gem-b: #041a2a;
+  --pl-slash: #e6fbff; --pl-slash-glow: rgba(120, 210, 255, .95); }
+.float.plate.t-hex { --pl-g: linear-gradient(180deg, #fbf5ff 0%, #e6d2ff 34%, #b48cff 50%, #4e2a8e 58%, #c4a4ff 78%, #f3eaff 100%);
+  --pl-edge: #1c0a33; --pl-glow: rgba(150, 100, 255, .65); --pl-line: #c9a2ff; --pl-gem: linear-gradient(135deg, #f0e4ff, #8b5cf6 60%, #3a1a6e); --pl-gem-b: #140628;
+  --pl-slash: #efe4ff; --pl-slash-glow: rgba(150, 100, 255, .95); }
+.float.plate.t-heal { --pl-g: linear-gradient(180deg, #f4fff6 0%, #d0f7da 34%, #7fe39c 50%, #1f6b3a 58%, #9ff0b6 78%, #ebfff1 100%);
+  --pl-edge: #062012; --pl-glow: rgba(110, 230, 150, .6); --pl-line: #8fe8aa; --pl-gem: linear-gradient(135deg, #eafff0, #4fbf74 60%, #14502a); --pl-gem-b: #04180c;
+  --pl-slash: #e6ffee; --pl-slash-glow: rgba(100, 230, 140, .9); }
+.float.plate.t-silver { --pl-g: linear-gradient(180deg, #ffffff 0%, #e8e8f0 34%, #b9b9c8 50%, #565668 58%, #cfcfdc 78%, #f6f6fa 100%);
+  --pl-edge: #14141c; --pl-glow: rgba(200, 200, 220, .35); --pl-line: #c8c8d6; --pl-gem: linear-gradient(135deg, #ffffff, #9a9aac 60%, #44444f); --pl-gem-b: #15151c;
+  --pl-slash: #ffffff; --pl-slash-glow: rgba(220, 220, 240, .7); }
 @keyframes counterSlash { 0% { transform: translateY(-50%) rotate(-14deg) scaleX(0); opacity: 1; } 60% { transform: translateY(-50%) rotate(-14deg) scaleX(1); opacity: 1; } 100% { transform: translateY(-50%) rotate(-14deg) scaleX(1); opacity: 0; } }
 @keyframes counterUp { 0% { opacity: 0; transform: translate(-50%, -50%) scale(1.8); } 12% { opacity: 1; transform: translate(-50%, -50%) scale(.92); } 22% { transform: translate(-50%, -52%) scale(1.04); } 32% { transform: translate(-50%, -54%) scale(1); } 100% { opacity: 0; transform: translate(-50%, -160%) scale(1); } }
-@media (prefers-reduced-motion: reduce) { .float.counter .fl-tag::before { animation: none; display: none; } }
-
-/* ───────── v3.12.7 "대가" 떠오르는 글자: 반격 명판과 같은 틀(Hahmlet 800 · 양옆 선 + 마름모 · 찍히는 움직임), 색만 핏빛.
-   마법을 쓰며 생명을 낼 때(js/game.js · js/engine.js "대가 −N"). 사선은 붉게, 숫자는 피해 숫자 그대로 */
-.float.counter.toll .fl-tag b { background: linear-gradient(180deg, #fff4ee 0%, #ffc2b0 34%, #f0644c 50%, #8e1a12 58%, #e0705a 78%, #ffd8cc 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
-  filter: drop-shadow(0 1px 0 #3a0806) drop-shadow(0 0 1.5px #1a0302) drop-shadow(0 3px 5px rgba(0, 0, 0, .85)) drop-shadow(0 0 12px rgba(255, 70, 50, .6)); }
-.float.counter.toll .fl-tag i { background: linear-gradient(90deg, transparent, #f08c7a); }
-.float.counter.toll .fl-tag i:last-child { background: linear-gradient(270deg, transparent, #f08c7a); }
-.float.counter.toll .fl-tag i::after { background: linear-gradient(135deg, #ffd6c9, #c8402f 60%, #5e0e08); border-color: #2a0604; }
-.float.counter.toll .fl-tag::before { background: linear-gradient(90deg, transparent, rgba(255, 120, 100, 0) 10%, #ffd0c4 50%, rgba(200, 30, 20, 0) 90%, transparent); filter: blur(.5px) drop-shadow(0 0 6px rgba(255, 60, 40, .9)); }
+@media (prefers-reduced-motion: reduce) { .float.plate .fl-tag::before { animation: none; display: none; } }
 
 /* ---------- v3.17.2 코인 창 높이 줄임 (js/game.js coinClash) ----------
    창이 전장 두 줄의 공·방·체 열을 가렸다. 창마다 글(이름 · 확률 · 봉인 버튼)과 코인(코인 · 결과)을

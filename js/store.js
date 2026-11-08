@@ -16,9 +16,11 @@ const GUEST_ID = "손님";
 function starterCollection(g) {
   const col = {};
   for (const k in STARTER_DECKS[g]) col[k] = STARTER_DECKS[g][k];
-  for (const c of cardsOfGroup(g)) if (!c.special) col[c.id] = Math.min(maxCopiesOf(c), Math.max(col[c.id] || 0, 1));   // v2.9 기본 덱 밖의 스페셜은 시작 카드에서 뺀다 (v3.2: 기본 덱의 유니크 · 스페셜 1장씩은 위에서 들어간다)
+  for (const c of cardsOfGroup(g)) if (!c.special && !isHighGrade(c)) col[c.id] = Math.min(maxCopiesOf(c), Math.max(col[c.id] || 0, 1));   // v2.9 기본 덱 밖의 스페셜은 시작 카드에서 뺀다 (v3.2: 기본 덱의 유니크 · 스페셜 1장씩은 위에서 들어간다)
   return col;
 }
+/* v3.18 레어 이상(레어 · 에픽 · 유니크 · 스페셜)은 기본 덱에 든 것 말고는 시작 카드에 넣지 않는다 — 교역소 · 원정 · 보상으로 얻는다 (docs/GRADES.md 2장) */
+function isHighGrade(c) { return typeof gradeOf === "function" && GRADES[gradeOf(c)].rank >= 3; }
 const starterDeckName = g => (typeof DECK_LISTS !== "undefined" && DECK_LISTS[g] ? DECK_LISTS[g].name : GROUPS[g].name + " 기본 덱");
 const freshDeck = g => ({ name: starterDeckName(g), cards: Object.assign({}, STARTER_DECKS[g]), savedAt: Date.now() });
 

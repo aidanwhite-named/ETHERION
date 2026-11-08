@@ -144,6 +144,35 @@ function classIconHTML(c) {
   return `<div class="c-clsico">${cs.map(cl => classCircleHTML(c, cl)).join("")}${kind}</div>`;
 }
 
+/* ---------- v3.19 판타지 마스터즈식 카드 배치 (css/fmcard.css) ----------
+   왼쪽 위 = 카드 종류 아이콘, 그 옆 = 이름 / 왼쪽 세로 = 레벨 아이콘(소환 · 유지비) / 가운데 = 그림
+   그림 아래 = 종족 줄(단체 · 등급) → 글 상자(코인 · 특수 능력 · 짧은 문구 · 설명) / 오른쪽 아래 열 = 클래스 아이콘 + 공 · 방 · 체 */
+const TYPE_ICON_UNIT = '<path d="M12 2.4c-3.7 0-6.1 2.7-6.1 6.3v3.1l1.7 1.4V9.6h8.8v3.6l1.7-1.4V8.7c0-3.6-2.4-6.3-6.1-6.3z"/><path d="M8.7 10.9h6.6v2.9c0 2-1.5 3.6-3.3 3.6s-3.3-1.6-3.3-3.6z"/><path d="M3.8 21.6c.7-3.1 3.2-4.7 5.5-5L12 19.2l2.7-2.6c2.3.3 4.8 1.9 5.5 5z"/>';
+const TYPE_KO = { unit: "유닛", item: "아이템" };
+/* 공격 기술 줄 (v3.19, 판타지 마스터즈처럼): 유닛은 늘 한 줄 — 특수 능력이 있으면 그 이름(사격 2 · 투척 2 …), 없으면 "일반공격" */
+const NORMAL_ATK_TIP = "일반공격\n특수 능력이 없는 공격입니다. 전투에서 자기 차례가 오면 상대 대기열 맨 앞 유닛과 맞붙고, 막을 유닛이 없으면 생명을 공격합니다.";
+const normalAtkChip = () => `<span class="c-cls c-ab c-plain" data-tip="${esc(NORMAL_ATK_TIP)}">일반공격</span>`;
+function typeIconHTML(c) {
+  if (c.type === "unit") return `<i class="c-type t-unit" data-tip="유닛\n전장의 칸에 소환합니다. 레벨만큼 에테르, 살아남으면 매 턴 유지비."><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${TYPE_ICON_UNIT}</svg></i>`;
+  if (c.type === "item") return `<i class="c-type t-item" data-tip="${esc(itemKindTip(c))}"><svg viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">${ITEM_KIND_ICON}</svg></i>`;
+  return `<i class="c-type t-${c.type} c-kind kind-${c.type}" data-tip="${esc(RITE_TIP[c.type] || "마법")}"><svg viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">${RITE_ICON[c.type] || RITE_SWORD}</svg></i>`;
+}
+/* 코인 줄: 공 · 방 · 체 아이콘 + 그 스탯의 코인 (+2● +●) — 판타지 마스터즈의 "+2C1 / =C1 / +C1" 자리 */
+function coinLineHTML(co) {
+  const parts = ["a", "d", "h"].map(k => {
+    const marks = coinMarks(co, k); if (!marks.length) return "";
+    const tip = marks.map(m => `코인 ${m.n}개 · 앞면마다 ${STAT_KO[k]} ${sgnNum(m.v)}`).join("\n");
+    return `<span class="cl-s cl-${k}" data-tip="${esc(tip)}">${statIco(k)}${coinGroupsHTML(marks)}</span>`;
+  }).filter(Boolean);
+  return parts.length ? `<div class="c-coinline">${parts.join("")}</div>` : "";
+}
+/* 종족 줄(그림 바로 아래): 왼쪽 = 유닛은 단체 · 아이템은 종류와 장착 클래스 · 마법은 마법 종류, 오른쪽 = 등급 */
+function raceLineHTML(c, gr) {
+  const G = GROUPS[c.group];
+  const left = c.type === "unit" ? (G ? G.name : "") : c.type === "item" ? `${c.cat || "아이템"} · ${classTagText(c).replace(/[\[\]]/g, "")}` : (RITE_TIP[c.type] || "마법");
+  return `<div class="c-race"><span class="r-l">${esc(left)}</span><span class="r-g" style="--gr:${gr.color}">${esc(gr.name)}</span></div>`;
+}
+
 /* 마법 종류 아이콘: 공격 = 칼, 방어 = 방패, 공용(둘 다) = 칼과 방패가 겹친 모양 (viewBox 0 0 64 64) */
 const RITE_SWORD = '<path d="M52 4h8v8L31 41l-8-8z"/><path d="M15 35l14 14-4 4-3.5-3.5-7.5 7.5-4-4 7.5-7.5L14 42z"/>';
 const RITE_SHIELD = '<path d="M32 4 55 12v16c0 15-9.5 26-23 33C18.5 54 9 43 9 28V12z"/><path d="M32 12v41M18 26h28" stroke="#000" stroke-opacity=".35" stroke-width="3"/>';
@@ -231,37 +260,35 @@ function cardHTML(c, opts) {
   } else if (c.type === "item") {
     vstats = itemVstatsHTML(c, false);   // v1.4.5: 아이템도 유닛처럼 왼쪽 세로 열 (아래 띠는 뺐다)
   }
-  // v3.9.8 slim: 전장 화면의 핸드 · 전장 카드. 그림이 카드 전체를 채우고, 특수 능력 칩만 보인다
-  //   (레벨 구슬 · 클래스 꼬리표 · 아이템 종류 · 설명 글은 숨김 — 카드를 누르면 상대 전장 옆의 원본 카드에 다 나온다)
+  // slim = 전장 화면의 핸드 · 전장 카드 (v3.19부터 노멀 카드와 같은 판타지 마스터즈식 배치, 글 상자에 설명 대신 짧은 문구만)
   const slim = !!opts.slim && size === "md";
   const gr = cardGrade(c);
-  let tag = c.type === "item" && !slim ? `<span class="c-cls c-cat" data-tip="${esc(itemKindTip(c))}">${esc(c.cat)}</span>` : "";
-  // v1.6.1: 노멀(핸드) 크기에서도 아이템 능력 이름이 보인다. 뜻은 마우스를 올리면 (큰 카드에는 설명 글로 나온다)
-  // v2.9 스페셜 유닛의 타고난 능력도 같은 꼬리표로
-  if (c.type === "unit" && c.gift && size === "md") tag += itemGrants(c.gift).map(raw => `<span class="c-cls c-ab" data-tip="${esc(raw + " " + (itemKwDesc(raw) || c.gift.evText || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");
-  if (c.type === "item" && size === "md") tag += itemAbilities(c.item).map(raw => `<span class="c-cls c-ab" data-tip="${esc(raw + " " + (itemKwDesc(raw) || c.item.evText || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");
-  if (slim && c.type !== "unit" && c.type !== "item") tag += spellKwList(c).map(raw => `<span class="c-cls c-ab" data-tip="${esc(coinNotePlain(raw) + " " + (spellKwDesc(raw.replace(/^\[|\]$/g, "")) || ""))}">${coinNoteHTML(esc(raw.replace(/^\[|\]$/g, "")))}</span>`).join("");   // v3.9.12: [가시 1 +1C×2] → 가시 1 +●●
-  // v3.7.8: 줄마다 따로 kwHTML — 통째로 바꾸면 [능력] 말풍선(data-tip) 속 줄바꿈까지 <br>이 된다 (v2.4.3에서 고친 것이 되돌아갔던 것)
-  // 설명 글은 큰 카드(lg)에만. 노멀·컴팩트에는 보이지 않는다
-  const kw = size === "lg" ? cardKwShort(c) : "";
-  const text = kw ? `<div class="c-text">${kw.split("\n").map(kwHTML).join("<br>")}</div>` : "";
   // v1.8: 노멀 카드도 opts.desc가 있으면 그림 위에 설명이 겹쳐 보인다. "short" = 핸드(세 줄까지) · "full" = 전장(전체, fitDescs가 글자를 줄여 맞춤)
   const dk = opts.desc && size === "md" && !slim ? cardKwShort(c) : "";
   const desc = dk ? `<div class="c-desc d-${opts.desc}"><p>${dk.split("\n").map(kwHTML).join("<br>")}</p></div>` : "";
-  // v3.9.9: 핸드 · 전장의 마법 카드는 효과를 짧게 (js/briefs.js). 전문은 원본 카드에
-  // v3.11.1: opts.brief — 교역소처럼 slim이 아닌 노멀 카드에도 짧은 문구를 겹쳐 보인다
-  const brief = (slim || (opts.brief && size === "md")) && c.type !== "unit" && c.type !== "item" ? spellBriefHTML(c) : "";
-  return `<div class="card size-${size} ${c.faction ? "fac-" + c.faction : "fac-item"} type-${c.type}${c.legend ? " legend" : ""}${dk ? " has-desc" : ""}${slim ? " slim" : ""}${brief ? " has-brief" : ""} grade-${gr.id}${opts.cls ? " " + opts.cls : ""}" style="--el:${el.color};--gr:${gr.color}" ${opts.attrs || ""} data-card="${c.id}">${opts.under || ""}
+  // v3.19 판타지 마스터즈식 배치 (css/fmcard.css). 글 상자에 코인 · 특수 능력 · 마법 짧은 문구 · 설명(큰 카드만)
+  const isU = c.type === "unit", isI = c.type === "item", isS = !isU && !isI;
+  let chips = "";
+  if (isU && c.gift) chips += itemGrants(c.gift).map(raw => `<span class="c-cls c-ab" data-tip="${esc(raw + " " + (itemKwDesc(raw) || c.gift.evText || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");
+  if (isU && !chips) chips = normalAtkChip();   // 특수 능력이 없어도 같은 규격으로 "일반공격"
+  if (isI) chips += itemAbilities(c.item).map(raw => `<span class="c-cls c-ab" data-tip="${esc(raw + " " + (itemKwDesc(raw) || c.item.evText || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");
+  if (isS) chips += spellKwList(c).map(raw => `<span class="c-cls c-ab" data-tip="${esc(coinNotePlain(raw) + " " + (spellKwDesc(raw.replace(/^\[|\]$/g, "")) || ""))}">${coinNoteHTML(esc(raw.replace(/^\[|\]$/g, "")))}</span>`).join("");
+  const sBrief = isS && size !== "lg" ? spellBriefHTML(c) : "";   // 큰 카드(lg)는 마법 글 전문
+  const sText = isS && !sBrief ? `<p class="c-stext">${kwHTML(c.text || "")}</p>` : "";
+  const flv = c.flavor || "";   // 카드 고유의 분위기 글만 (단체 소개 글은 원본 카드에)
+  const box = (isU ? coinLineHTML(c.co) : isI && c.item ? coinLineHTML(c.item.co) : "") + (chips ? `<div class="c-chips">${chips}</div>` : "") + sBrief + sText + desc + (opts.extra || "") + (flv ? `<p class="c-flv">${esc(flv)}</p>` : "");
+  const rcol = isU ? `<div class="c-rcol">${classIconHTML(c)}${vstats}</div>` : isI && vstats ? `<div class="c-rcol">${vstats}</div>` : "";
+  return `<div class="card fm size-${size} ${c.faction ? "fac-" + c.faction : "fac-item"} type-${c.type}${c.legend ? " legend" : ""}${dk ? " has-desc" : ""}${slim ? " slim" : ""}${sBrief ? " has-brief" : ""}${rcol ? " has-rcol" : ""} grade-${gr.id}${opts.cls ? " " + opts.cls : ""}" style="--el:${el.color};--gr:${gr.color}" ${opts.attrs || ""} data-card="${c.id}">${opts.under || ""}
     <div class="c-frame">
-      <div class="c-head"><span class="c-lv" data-tip="${esc(lvTip(c))}" data-tip-kw>${c.lv}</span>${nameHTML(c)}</div>
-      ${classIconHTML(c)}
+      <div class="c-head">${typeIconHTML(c)}${nameHTML(c)}</div>
       <div class="c-mid">
-        <div class="c-side">${levelPips(c)}${vstats}</div>
-        <div class="c-art">${artHTML(c)}${tag && size !== "sm" ? `<div class="c-tags">${tag}</div>` : ""}${opts.badges ? `<div class="c-badges">${opts.badges}</div>` : ""}${desc}${brief}</div>
+        <div class="c-side">${levelPips(c)}</div>
+        <div class="c-art">${artHTML(c)}${opts.badges ? `<div class="c-badges">${opts.badges}</div>` : ""}</div>
       </div>
-      ${size === "lg" ? `<div class="c-en">${esc(cardSubtitle(c))}</div>` : ""}
-      ${text}
-      ${opts.extra || ""}
+      <div class="c-low">
+        <div class="c-lowl">${raceLineHTML(c, gr)}<div class="c-box"><div class="c-boxin">${box}</div></div></div>
+        ${rcol}
+      </div>
       ${foot}
     </div>${opts.count != null ? `<span class="c-count">×${opts.count}</span>` : ""}
   </div>`;
@@ -332,16 +359,16 @@ function cardFullHTML(c, opts) {
   const typeName = TYPES[c.type].name;
   const gr = cardGrade(c);
   // v3.9.9: 종류 글자 옆에 등급(일반 · 고급 · 레어 · 에픽 · 유니크 · 스페셜)을 등급 색으로
-  const grTag = `<b class="f-grade grade-${gr.id}" style="--gr:${gr.color}" title="등급: ${gr.name} (${gr.en})">${gr.name}</b>`;
-  const typeLine = [
-    (c.type === "unit" ? "유닛" : c.type === "item" ? `아이템 · ${esc(c.cat)}` : typeName) + " " + grTag,
-    `레벨 ${c.lv}`   // v2.3: 유지비는 레벨 아이콘(속 빈 아이콘)과 그 말풍선으로만
-  ];
+  const grTag = `<b class="f-grade c-hgrade grade-${gr.id}" style="--gr:${gr.color}" title="등급: ${gr.name} (${gr.en})">${gr.name}</b>`;   // v3.19.1: 오른쪽 위
+  // v3.19.1: 종류 줄은 마법 · 아이템만(유닛은 왼쪽 위 아이콘으로 충분). 단체 이름 · 레벨 글자는 뺐다 — 레벨은 레벨 아이콘, 등급은 오른쪽 위
+  const typeLine = c.type === "unit" ? [] : [c.type === "item" ? `아이템 · ${esc(c.cat)}` : typeName];
   const L = [];
   if (c.type === "unit") {
     // 공·방·체와 코인은 왼쪽 세로 열에 이미 있으므로 글로 다시 적지 않는다
     // v2.9 스페셜 유닛: 타고난 능력과 그 뜻, 카드 고유 설명
-    for (const s of giftSummary(c)) L.push(`<p class="f-grant">${kwHTML(s)}</p>`);
+    const gifts = giftSummary(c);
+    for (const s of gifts) L.push(`<p class="f-grant">${kwHTML(s)}</p>`);
+    // v3.19.1: 특수 능력이 없는 유닛은 원본 카드에 "일반공격" 줄 · 뜻을 적지 않는다 (작은 카드의 일반공격 칩 말풍선에만)
     if (c.gift) for (const [k, v] of itemKwGenList(c.gift)) L.push(`<p class="f-kw"><b>${esc(k)}</b> ${esc(v)}</p>`);
     if (c.limit) L.push(`<p class="f-rule f-dim">덱에 ${c.limit}장까지.</p>`);
     L.push(`<p class="f-flavor">${esc(c.flavor || G.blurb)}</p>`);
@@ -356,20 +383,30 @@ function cardFullHTML(c, opts) {
     L.push(`<p class="f-rule f-big">${kwHTML(c.text)}</p>`);
     L.push(spellCoinNoteHTML(c.text));   // v3.9.12: +●● 코인 읽는 법
     if (c.cost && c.cost.ether) L.push(`<p class="f-kw"><b>[장전 ${c.cost.ether}]</b> 다음 턴 에테르 −${c.cost.ether}.</p>`);
-    { const rule = (RITE_TIP[c.type] || "").split("\n")[1]; if (rule) L.push(`<p class="f-rule f-dim">${rule}</p>`); }   // v3.11.1: v3.10.6에 RITE_TIP이 한 줄이 되어 둘째 줄이 "undefined"로 나왔다   // v3.9.9: "뒤 N칸" 설명은 뺐다 — 카드 글("뒤 3칸")만으로 읽힌다. 규칙은 매뉴얼에
+    { const rule = (RITE_TIP[c.type] || "").split("\n")[1]; if (rule) L.push(`<p class="f-rule f-dim">${rule}</p>`); }
+    if (c.limit && !c.comeback) L.push(`<p class="f-rule f-dim">덱에 ${c.limit}장까지.</p>`);   // v3.18 유니크 마법
+    if (c.flavor) L.push(`<p class="f-flavor">${esc(c.flavor)}</p>`);   // v3.11.1: v3.10.6에 RITE_TIP이 한 줄이 되어 둘째 줄이 "undefined"로 나왔다   // v3.9.9: "뒤 N칸" 설명은 뺐다 — 카드 글("뒤 3칸")만으로 읽힌다. 규칙은 매뉴얼에
     // 역전 마법 표시·환산 레벨·이전 문구는 보이지 않는다 (v1.4.5)
   }
-  return `<div class="card size-full ${c.faction ? "fac-" + c.faction : "fac-item"} type-${c.type}${c.legend ? " legend" : ""} grade-${gr.id}${opts.cls ? " " + opts.cls : ""}" style="--el:${el.color};--gr:${gr.color}" ${opts.attrs || ""} data-card="${c.id}">${opts.under || ""}
+  // v3.19 판타지 마스터즈식 배치: 이름 → 레벨 아이콘 | 그림 → 종류 줄 → 글 상자(코인 · 능력 · 설명) | 오른쪽 열(클래스 · 공방체)
+  const isU = c.type === "unit", isI = c.type === "item";
+  const coinLine = isU ? coinLineHTML(c.co) : isI && c.item ? coinLineHTML(c.item.co) : "";
+  const rcol = isU ? `<div class="c-rcol">${classIconHTML(c)}${vstats}</div>` : isI && vstats ? `<div class="c-rcol">${vstats}</div>` : "";
+  const idTip = `${G.name} · ${G.en} · ${FACTIONS[c.faction].name}\n카드 ID ${c.id}`;   // v3.19.1: 맨 아래 단체 줄을 빼고 이름 말풍선으로
+  return `<div class="card fm size-full ${c.faction ? "fac-" + c.faction : "fac-item"} type-${c.type}${c.legend ? " legend" : ""}${rcol ? " has-rcol" : ""} grade-${gr.id}${opts.cls ? " " + opts.cls : ""}" style="--el:${el.color};--gr:${gr.color}" ${opts.attrs || ""} data-card="${c.id}">${opts.under || ""}
     <div class="c-frame">
-      <div class="c-head"><span class="c-lv" data-tip="${esc(lvTip(c))}" data-tip-kw>${c.lv}</span>${nameHTML(c, c.legend ? ' <small class="f-star">★</small>' : "")}</div>
-      ${classIconHTML(c)}
+      <div class="c-head">${typeIconHTML(c)}<span class="c-hname" data-tip="${esc(idTip)}">${nameHTML(c, c.legend ? ' <small class="f-star">★</small>' : "")}</span>${grTag}</div>
       <div class="c-mid">
-        <div class="c-side">${levelPips(c)}${vstats}</div>
+        <div class="c-side">${levelPips(c)}</div>
         <div class="c-art">${artHTML(c)}</div>
       </div>
-      <div class="f-type">${typeLine.map(t => `<span>${t}</span>`).join("")}</div>
-      <div class="f-text">${L.join("")}</div>
-      <div class="c-en">${esc(G.name)} · ${esc(G.en)} · ${esc(FACTIONS[c.faction].name)} <span class="f-id">${c.id}</span></div>
+      <div class="c-low">
+        <div class="c-lowl">
+          ${typeLine.length ? `<div class="f-type">${typeLine.map(t => `<span>${t}</span>`).join("")}</div>` : ""}
+          <div class="c-box">${coinLine}<div class="f-text">${L.join("")}</div></div>
+        </div>
+        ${rcol}
+      </div>
     </div>
   </div>`;
 }
@@ -415,6 +452,7 @@ function cardDetailBody(c, inst) {
   } else {
     lines.push(`<p class="d-rules">${kwHTML(c.text.replace(/\s*\[장전 \d+\]/g, ""))}${c.cost.ether ? ` ${kwHTML("[장전 " + c.cost.ether + "]")} 다음 턴 에테르 −${c.cost.ether}.` : ""}</p>`);
     lines.push(spellCoinNoteHTML(c.text, "d-type"));
+    if (c.flavor) lines.push(`<p class="d-flavor">${esc(c.flavor)}</p>`);   // v3.18 유니크 마법
   }
   lines.push(instLines(inst));
   if (Store.isAdmin()) lines.push(`<p class="d-type">그림 파일: <code>img/cards/${c.id}.png</code>${Art.has(c.id) ? "" : " (아직 없음 — 넣으면 자동으로 보입니다)"}</p>`);   // 관리자에게만
@@ -565,7 +603,8 @@ ${gems}
 (function setCardBack() {
   // v3.9.14: 카드 뒷면은 그림 한 장(img/ui/deck/card_back.png — 에테리온 문장 메달, 원본 img/ui/src/cardback.js).
   // 위의 CARD_BACK_SVG(v2.5 코드 그림)는 되돌릴 때를 위해 남겨 두고 쓰지 않는다. 주소는 문서 기준 절대 주소로(사용자 지정 속성 안의 상대 주소가 css 파일 기준으로 풀리지 않게)
-  const art = new URL("img/ui/deck/card_back.png", document.baseURI).href;
+  // v3.19.2: 그림 아래쪽에 ETHERION 글씨를 구워 넣었다(원본 card_back_plain.png + tools/art/cardback_text.py). ?v= 는 예전 그림 캐시를 피하려고
+  const art = new URL("img/ui/deck/card_back.png?v=2", document.baseURI).href;
   const url = `url("${art}")`;
   document.documentElement.style.setProperty("--card-back", url);
 })();

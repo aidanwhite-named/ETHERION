@@ -66,6 +66,8 @@
 .card-back > span, .card-back > em { display: none; }
 .zone.deck .deck-card:last-child { background: var(--card-back) center / 100% 100% no-repeat; border: 0; box-shadow: 0 0 0 1.5px #07050c, 0 6px 14px rgba(0, 0, 0, .7); }
 .zone.deck .deck-card:not(:last-child) { background: linear-gradient(180deg, #e9c77a, #9a6c22 70%, #5a3f12); border: 1px solid #07050c; border-radius: 6.8% / 4.86%; }
+/* v3.19.2: 뒷면 아래쪽에 ETHERION 글씨가 들어가 덱 장수는 가운데 문장(아르케의 빈 원) 위로 옮긴다 — 아래쪽 글씨를 가리지 않게 */
+.zone.deck .deck-n { top: 49.3%; bottom: auto; transform: translate(-50%, -50%); }
 
 /* ───────── 5. 전장 배경 (기본: battle_bg.jpg / 3파전: battle_bg_war.jpg) ─────────
    칠룡의 고리가 새겨진 돌 광장(기본) 또는 거인 · 용 · 신의 3파전 격돌 전장. 가운데는 카드가 먼저 읽히게 어둡게 그렸다 */

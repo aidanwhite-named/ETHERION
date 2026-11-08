@@ -113,13 +113,13 @@ for (const s of SIM_SPELLS) {
   CARD_LIST.push({ id: s.id, type: s.kind === "com" ? "any" : s.kind, name: s.n, group: s.g, faction: CAMP_TO_FACTION[s.camp], el: G.el,
     lv: s.lv, up: 0, a: 0, d: 0, h: 0, co: [], ops: dc.ops, cost: s.cost || {}, gain: s.gain || {}, text: foeBackText(dc.text), e: s.e,
     classSpell: null, anchor: s.anchor || "", limit: s.limit || 0, comeback: !!s.comeback, eB: s.eB, eA: s.eA,
-    prevText: "" });   // v1.4.5: 옛 문구(옛 클래스·이름이 들어 있음)는 어디에도 쓰지 않아 비운다. 원문은 data.js의 prevText에만 남는다
+    prevText: "", unique: !!s.unique, flavor: s.desc || "", opening: !!s.opening });   // v3.18 유니크 마법(js/highcards.js)의 설명 글. v1.4.5: 옛 문구(옛 클래스·이름이 들어 있음)는 어디에도 쓰지 않아 비운다. 원문은 data.js의 prevText에만 남는다
 }
 for (const it of SIM_ITEMS) {
   const G = GROUPS[it.g];
   CARD_LIST.push({ id: it.id, type: "item", name: it.n, group: it.g, faction: G.faction, el: G.el, lv: it.lv, up: 0,
     a: it.a || 0, d: it.d || 0, h: it.h || 0, co: it.co || [], item: it, cat: it.cat, cls: (it.cls && it.cls.length) ? it.cls.slice() : ["공용"], flavor: it.desc || "",
-    limit: it.limit || 0, special: !!it.special });
+    limit: it.limit || 0, special: !!it.special, unique: !!it.unique });
 }
 const CARDS = {};
 CARD_LIST.forEach(c => { CARDS[c.id] = c; });

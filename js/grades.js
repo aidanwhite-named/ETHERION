@@ -46,6 +46,9 @@ if (typeof SPECIAL_UNITS !== "undefined") for (const c of SPECIAL_UNITS.concat(S
 /* v3.2 유니크 카드(js/uniques.js)는 모두 유니크 등급 */
 if (typeof UNIQUE_UNITS !== "undefined") for (const c of UNIQUE_UNITS) CARD_GRADES[c.id] = "unique";
 
+/* v3.18 레어 · 에픽 · 유니크 추가 카드(js/highcards.js): 아이템 레어 · 유닛 에픽 · 마법 유니크 */
+if (typeof HIGH_GRADES !== "undefined") Object.assign(CARD_GRADES, HIGH_GRADES);
+
 function gradeOf(c) { const id = typeof c === "string" ? c : c && c.id; return CARD_GRADES[id] || "common"; }
 for (const c of CARD_LIST) c.grade = gradeOf(c);
 function gradeBadgeHTML(c, cls) { const G = GRADES[gradeOf(c)]; return `<span class="${cls || "grade-badge"} grade-${G.id}" style="--gr:${G.color}" title="등급: ${G.name} (${G.en})">${G.name}</span>`; }

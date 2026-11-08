@@ -107,15 +107,15 @@ const Help = (() => {
   /* 카드 읽기: 지금 덱의 실제 카드 한 장 위에 번호를 붙인다 */
   function sampleCard() {
     const g = (typeof App !== "undefined" && App.lobbyGroup) || "B1";
-    const L = CARD_LIST.filter(c => c.type === "unit" && c.group === g && !c.special && !c.unique);
+    const L = CARD_LIST.filter(c => c.type === "unit" && c.group === g && !c.special && !c.unique && !c.gift);
     return L.find(c => c.up > 0 && c.co && c.co.length && c.lv >= 3) || L.find(c => c.co && c.co.length) || L[0] || CARD_LIST[0];
   }
-  const READ_PTS = [
-    [".c-lv", "레벨 = 소환 비용", "Lv N 카드는 에테르 N으로 낸다."],
-    [".c-pips", "레벨 아이콘 · 유지비", "아이콘 수 = 레벨. <b>하늘빛 테두리의 빈 아이콘 수 = 유지비</b> — 살아남으면 다음 턴부터 매 턴 그만큼 에테르가 빠진다. 유지비는 레벨 − 1까지(금빛 아이콘이 적어도 하나)."],
-    [".c-vstats", "공격 · 방어 · 체력", "위부터 공 · 방 · 체. 숫자 옆 <b>+</b>와 겹친 동전이 코인 — 앞면이면 그 값이 붙는다. <b>+2●</b>는 앞면마다 +2. 별(4*)이 붙은 값은 아래로 내려가지 않는다."],
-    [".c-clsico", "클래스", "오른쪽 위 동그라미(무도 · 무장 · 마도 · 기도). 아이템 이름 옆의 [○○ 전용]과 같아야 장착된다."],
-    [".c-name", "이름", "카드에 마우스를 올리거나 누르면 크게 보이고 설명이 나온다. [능력]에 마우스를 올리면 뜻."]
+  const READ_PTS = [   // v3.19 판타지 마스터즈식 배치 (css/fmcard.css)
+    [".c-type", "카드 종류", "왼쪽 위 네모 = 유닛(투구) · 마법(칼 · 방패 · 눈 — 공격 · 방어 · 공용 · 계략) · 아이템(보석). 그 옆이 이름."],
+    [".c-pips", "레벨 · 유지비", "왼쪽 세로 아이콘 수 = 레벨 = 소환 비용(에테르). <b>하늘빛 테두리의 빈 아이콘 수 = 유지비</b> — 살아남으면 다음 턴부터 매 턴 그만큼 에테르가 빠진다. 유지비는 레벨 − 1까지(금빛 아이콘이 적어도 하나)."],
+    [".c-box", "코인 · 특수 능력", "그림 아래 글 상자. 맨 위 줄이 코인 — 공 · 방 · 체 아이콘 뒤의 <b>+</b>와 겹친 동전. 앞면이면 그 값이 붙는다(<b>+2●</b>는 앞면마다 +2). 그 아래 공격 기술 — 유닛은 늘 한 줄로, 특수 능력이 있으면 그 이름(사격 2 · 투척 2 …), 없으면 <b>일반공격</b>. 마법은 효과. [능력]에 마우스를 올리면 뜻."],
+    [".c-clsico", "클래스", "오른쪽 아래 열 맨 위 동그라미(무도 · 무장 · 마도 · 기도). 아이템의 [○○ 전용]과 같아야 장착된다."],
+    [".c-vstats", "공격 · 방어 · 체력", "오른쪽 아래 세로 숫자, 위부터 공 · 방 · 체. 금빛 숫자 · 자물쇠는 아래로 깎이지 않는 값."]
   ];
   function cardReadHTML() {
     const c = sampleCard();
@@ -131,8 +131,8 @@ const Help = (() => {
         const t = box.querySelector(sel); if (!t) return;
         const r = t.getBoundingClientRect();
         const p = document.createElement("span"); p.className = "hx-pin"; p.textContent = i + 1;
-        const right = sel === ".c-clsico";
-        const name = sel === ".c-name";
+        const right = sel === ".c-clsico" || sel === ".c-vstats";
+        const name = sel === ".c-type";
         p.style.left = (right ? r.right - br.left + 4 : name ? r.left - br.left + Math.min(r.width / 2, 60) - 10 : r.left - br.left - 22) + "px";
         p.style.top = (name ? r.top - br.top - 22 : sel === ".c-vstats" || sel === ".c-pips" ? r.top - br.top + r.height / 2 - 10 : r.top - br.top + Math.max(0, r.height / 2 - 10)) + "px";
         box.appendChild(p);
@@ -195,7 +195,7 @@ const Help = (() => {
       <p><b>덱 조정실</b>은 덱을 고치는 곳입니다. 왼쪽 카드 보관함에서 눌러 넣고, 오른쪽 덱에서 눌러 뺍니다. 바닥 마법진의 눈금 ${RULES.deckSize}개가 장수만큼 켜지고, 촛불 여덟이 레벨 곡선을 보여 줍니다. <b>저장</b>해야 출전할 수 있습니다.</p>
       <p><b>교역소</b>(린데어 자유시)는 카드를 사고파는 곳입니다. 왼쪽 계보에서 진영 · 단체를 고르면 그 카드가 값 · 재고와 함께 나옵니다.</p>
       <h3>전장</h3>
-      <p>위가 상대, 아래가 나. 소각장은 맨 왼쪽, 덱은 오른쪽, 내 에테르(결정)는 왼쪽 아래, 핸드는 아래 부채꼴. 가운데 띠에 지금 단계 · 턴 시간 · <b>준비 완료</b> · 설정칸(속도 · 설정 · 기록 · 규칙 · 소리 · 항복).</p>` },
+      <p>위가 상대, 아래가 나. 소각장은 맨 왼쪽, 덱은 오른쪽, 내 에테르(결정)는 왼쪽 아래, 핸드는 아래 한 줄. 가운데 띠에 지금 단계 · 턴 시간 · <b>준비 완료</b> · 설정칸(속도 · 설정 · 기록 · 규칙 · 소리 · 항복).</p>` },
 
     { id: "cards", t: "카드", en: "Cards", body: () => `
       <h3>종류</h3>${typeChips()}
@@ -205,7 +205,7 @@ const Help = (() => {
       <p>카드 이름 아래 · 교역소 단추 옆의 색이 등급입니다. 희귀할수록 교역소 재고가 적습니다. 유니크 · 스페셜은 덱에 한 장만 넣을 수 있습니다.</p>
       <table class="mn-table mn-grades"><tr><th>등급</th><th></th><th>카드</th><th>교역소 재고</th></tr>${gradeRows()}</table>
       <h3>클래스</h3>
-      <p>유닛은 클래스 하나(<span class="mn-cl cl-1">무도</span> <span class="mn-cl cl-2">무장</span> <span class="mn-cl cl-3">마도</span> <span class="mn-cl cl-4">기도</span>)를 가집니다. 클래스는 <b>아이템 장착에만</b> 쓰입니다 — 유닛 오른쪽 위 동그라미가 아이템 이름 옆의 <b>[○○ 전용]</b>에 들어 있으면 장착됩니다. <span class="mn-cl cl-0">공용</span> 아이템은 누구에게나. 아이템에는 클래스 아이콘이 없습니다.</p>` },
+      <p>유닛은 클래스 하나(<span class="mn-cl cl-1">무도</span> <span class="mn-cl cl-2">무장</span> <span class="mn-cl cl-3">마도</span> <span class="mn-cl cl-4">기도</span>)를 가집니다. 클래스는 <b>아이템 장착에만</b> 쓰입니다 — 유닛 오른쪽 아래 열 맨 위의 클래스 아이콘이 아이템 이름 옆의 <b>[○○ 전용]</b>에 들어 있으면 장착됩니다. <span class="mn-cl cl-0">공용</span> 아이템은 누구에게나. 아이템에는 클래스 아이콘이 없습니다.</p>` },
 
     { id: "deck", t: "덱 만들기", en: "Building a Deck", body: () => `
       <table class="mn-table"><tr><th>장수</th><td>정확히 <b>${RULES.deckSize}장</b>.</td></tr>
@@ -234,7 +234,7 @@ const Help = (() => {
       ${etherFig()}
       <table class="mn-table"><tr><th>에테르</th><td>카드를 내는 힘. <b>위대한 정수 ${RULES.essence} + 결정 수</b>가 매 턴 들어옵니다. 남은 에테르는 다음 턴으로 넘어가지 않습니다.</td></tr>
       <tr><th>비용</th><td><b>Lv N 카드 = 에테르 N</b> (유닛 · 마법 · 아이템 모두).</td></tr>
-      <tr><th>결정화</th><td>준비 단계에 핸드 1장을 내 에테르(왼쪽 아래 원)에 놓으면 <b>결정</b>이 되어 매 턴 에테르가 1 늘어납니다. 한 턴에 ${RULES.crystalsPerTurn}장씩 한도가 쌓이므로, 세 턴 쉬었다면 한 번에 세 장도 됩니다. 결정은 최대 ${RULES.maxCrystals}개(에테르 최대 ${RULES.essence + RULES.maxCrystals}).</td></tr>
+      <tr><th>결정화</th><td>준비 단계에 핸드 1장을 내 에테르(왼쪽 아래 원)에 놓으면 <b>결정</b>이 되어 매 턴 에테르가 1 늘어납니다. 바친 카드는 <b>소각장</b>으로 갑니다(결정은 그대로 남습니다). 한 턴에 ${RULES.crystalsPerTurn}장씩 한도가 쌓이므로, 세 턴 쉬었다면 한 번에 세 장도 됩니다. 결정은 최대 ${RULES.maxCrystals}개(에테르 최대 ${RULES.essence + RULES.maxCrystals}).</td></tr>
       <tr><th>유지비</th><td>레벨 아이콘 중 <b>하늘빛 테두리의 빈 칸 수</b>(최대 레벨 − 1). 소환할 때는 레벨만큼 내고, 살아남으면 <b>다음 턴부터 매 턴</b> 그만큼 에테르가 빠집니다. 준비를 마칠 때 모자라면 유지비가 큰 유닛부터 소각됩니다.</td></tr>
       <tr><th>직접 공격 보너스</th><td>막지 못해 생명을 맞은 쪽은 <b>다음 턴에만 에테르 +1</b> (한 턴에 한 번).</td></tr>
       <tr><th>장전</th><td>[장전 N]이 붙은 마법을 쓰면 다음 턴 에테르가 N 줄어듭니다.</td></tr></table>
@@ -277,7 +277,7 @@ const Help = (() => {
 
     { id: "relics", t: "아이템", en: "Relics", body: () => `
       <ul class="mn-ul"><li>공격 · 방어 준비 어느 때나 <b>전장의 내 유닛 하나</b>에 장착합니다(핸드에서 유닛 위로 끌어 놓기). 유닛 하나에 하나.</li>
-      <li><b>클래스가 맞아야</b> 합니다 — 아이템 이름 옆 <b>[마도 전용]</b>처럼 적힌 클래스가 유닛 오른쪽 위 동그라미와 같으면 장착. [공용]은 누구에게나.</li>
+      <li><b>클래스가 맞아야</b> 합니다 — 아이템 이름 옆 <b>[마도 전용]</b>처럼 적힌 클래스가 유닛 오른쪽 아래 열 맨 위의 클래스 아이콘과 같으면 장착. [공용]은 누구에게나.</li>
       <li>비용은 레벨만큼, <b>유지비는 없습니다.</b> 아이템의 공 · 방 · 체와 코인이 유닛에 더해지고, [능력]이 생깁니다.</li>
       <li>[고정 공/방/체] 아이템은 유닛의 값을 적힌 값으로 바꿉니다(유닛 코인은 던지지 않음).</li>
       <li>유닛이 부서지면 아이템도 함께 부서집니다.</li></ul>

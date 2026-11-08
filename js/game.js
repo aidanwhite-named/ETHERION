@@ -1,7 +1,7 @@
 /* ETHERION — 대전 흐름, 전장 화면, 컴퓨터 인공지능
    - 생명·덱 40, 시작 핸드 6장(생명 34). 매 턴 두 플레이어 모두 6장까지 보충(뽑은 장수만큼, 최소 1 생명 감소)
    - 공격 준비 → 방어 준비 → 전투 → 정리
-   - 에테르 = 위대한 정수 1 + 결정 수. 결정화는 턴마다 1장씩 쌓이는 한도 안에서(안 쓰면 다음 턴으로 넘어감), 결정 최대 9. Lv N 카드 비용은 에테르 N (규칙 문서 6)
+   - 에테르 = 위대한 정수 1 + 결정 수. 결정화한 카드는 소각장으로(v3.19.2). 결정화는 턴마다 1장씩 쌓이는 한도 안에서(안 쓰면 다음 턴으로 넘어감), 결정 최대 9. Lv N 카드 비용은 에테르 N (규칙 문서 6)
    - 유지비: 레벨 아이콘 중 빈 칸(하늘빛 테두리)의 수, 최대 레벨 − 1. 소환할 때는 레벨만큼 내고, 살아남으면 다음 턴부터 에테르가 유지비만큼 빠진다.
      준비를 마칠 때 에테르가 모자라면 유지비가 큰 유닛부터 소각된다
    - 아이템: 공격·방어 준비 때 전장의 내 유닛 하나에 장착 (유닛 하나에 하나)
@@ -147,9 +147,10 @@ function actCrystal(p, uid) {
   if (p.crystals.length >= RULES.maxCrystals) { if (!p.isAI) toast(`결정은 최대 ${RULES.maxCrystals}개입니다.`, "warn"); return false; }
   const i = p.hand.findIndex(x => x.uid === uid); if (i < 0) return false;
   const it = p.hand.splice(i, 1)[0];
-  p.crystals.push(it.id); p.made++; p.crysBank = crysLeft(p) - 1;
+  // v3.19.2: 결정화한 카드 자체는 소각장으로 간다(결정은 남는다). 나중에 소각장에서 핸드로 되살리는 마법이 이 카드도 고를 수 있다
+  p.crystals.push(it.id); p.burn.push(it.id); p.made++; p.crysBank = crysLeft(p) - 1;
   if (G.leave) G.leave[it.uid] = "crys" + p.idx;
-  log(`${p.name}: 카드 1장을 결정화 (결정 ${p.crystals.length})`);
+  log(`${p.name}: 「${C(it).name}」 결정화 (결정 ${p.crystals.length}) — 카드는 소각장으로`);
   return true;
 }
 function actBurnHand(p, uid) {
@@ -705,8 +706,8 @@ const Guide = {
     const me = p.idx;
     if (phase === "atkPrep" || phase === "defPrep") {
       const L = [];
-      if (!this.seen.hand) L.push({ key: "hand", sel: ".hand-me", side: "top", title: "핸드", text: "카드를 <b>누르면</b> 상대 전장 오른쪽에 크게(설명까지) 보이고, <b>더블클릭</b>하면 전장에 올라갑니다. 카드 왼쪽 세로 숫자는 위부터 공격 · 방어 · 체력. 숫자 옆 <b>+</b>와 겹친 동전은 맞붙을 때마다 던지는 코인 — 동전 하나에 앞면이면 +1, <b>+2●</b>처럼 앞에 숫자가 있으면 앞면마다 그 값입니다(동전 수가 곧 코인 수). 공격·방어·체력에 동전이 하나씩 있으면 <b>동전 하나</b>를 던져 셋에 함께 붙습니다." });
-      if (!this.seen.ether) L.push({ key: "ether", sel: "#crys" + me, side: "right", title: "에테르", text: "카드를 내는 힘입니다. <b>레벨 N 카드 = 에테르 N</b>. 핸드 1장을 여기로 끌어 놓으면 <b>결정</b>이 되어 매 턴 에테르가 1 늘어납니다 (턴마다 1장씩 할 수 있고, 안 하면 쌓여서 나중에 한꺼번에 해도 됩니다). 쓰지 않은 에테르는 다음 턴으로 넘어가지 않으니, 전투 때 <b>코인 뒤집기</b>에 쓰세요." });
+      if (!this.seen.hand) L.push({ key: "hand", sel: ".hand-me", side: "top", title: "핸드", text: "카드를 <b>누르면</b> 상대 전장 오른쪽에 크게(설명까지) 보이고, <b>더블클릭</b>하면 전장에 올라갑니다. 카드 오른쪽 아래 세로 숫자는 위부터 공격 · 방어 · 체력. 그림 아래 글 상자 맨 위 줄의 <b>+</b>와 겹친 동전은 맞붙을 때마다 던지는 코인 — 동전 하나에 앞면이면 +1, <b>+2●</b>처럼 앞에 숫자가 있으면 앞면마다 그 값입니다(동전 수가 곧 코인 수). 공격·방어·체력에 동전이 하나씩 있으면 <b>동전 하나</b>를 던져 셋에 함께 붙습니다." });
+      if (!this.seen.ether) L.push({ key: "ether", sel: "#crys" + me, side: "right", title: "에테르", text: "카드를 내는 힘입니다. <b>레벨 N 카드 = 에테르 N</b>. 핸드 1장을 여기로 끌어 놓으면 <b>결정</b>이 되어 매 턴 에테르가 1 늘어납니다. 바친 카드는 소각장으로 갑니다 (턴마다 1장씩 할 수 있고, 안 하면 쌓여서 나중에 한꺼번에 해도 됩니다). 쓰지 않은 에테르는 다음 턴으로 넘어가지 않으니, 전투 때 <b>코인 뒤집기</b>에 쓰세요." });
       if (!this.seen.front) L.push({ key: "front", sel: `.frow-bot .slot[data-s="0"]`, side: "top", title: "맞붙는 순서", text: "내 유닛은 <b>1번 칸부터</b> 차례로 <b>상대의 맨 앞 유닛</b>과 맞붙습니다 (같은 번호끼리가 아닙니다). 피해 = 공격 − 방어. 체력이 0이 되면 쓰러지고, 남은 피해는 턴이 끝나면 낫습니다." });
       if (phase === "defPrep" && !this.seen.def) L.push({ key: "def", sel: ".frow-top .slots", side: "bottom", title: "방어", text: "상대의 배치가 보입니다. 상대 1번 칸 유닛이 내 맨 앞 유닛과 먼저 맞붙습니다. 막지 못한 공격은 생명으로 가지만, 대신 <b>다음 턴 에테르 +1</b>을 받습니다." });
       if (!this.seen.ready) L.push({ key: "ready", sel: ".ready-btn", side: "left", title: "준비 완료", text: "다 놓았으면 누르세요 (Enter). 양쪽이 준비를 마치면 전투가 자동으로 진행됩니다." });
@@ -757,7 +758,7 @@ if (typeof addEventListener === "function") addEventListener("resize", () => Gui
      상대 전장: 소각장(맨 왼쪽) · 칸 1~5 · 덱(오른쪽)
      가운데 띠: 단계 · 안내 · 준비 완료 · 메뉴
      내 전장: 소각장(맨 왼쪽) · 칸 1~5 · 덱(오른쪽)
-     하단 줄: 내 에테르(좌측 하단) · 내 핸드(부채꼴) · 내 정보
+     하단 줄: 내 에테르(좌측 하단) · 내 핸드(한 줄) · 내 정보
    연출: 화면을 다시 그릴 때 카드 위치를 기억했다가(FLIP) 이전 자리에서 새 자리로 부드럽게 옮긴다.
          덱에서 뽑힌 카드는 덱에서 날아오고, 소각·결정화된 카드는 그 자리로 날아간다. */
 let boardEl = null;
@@ -1046,6 +1047,19 @@ function impOf(s) {
   return m;
 }
 const impInfo = key => (G && G.fx && G.fx.imp && G.fx.imp[String(key)]) || {};
+/* v3.18.1 떠오르는 글자를 명판으로 띄울지와 그 모양. 한글이 없거나(숫자 · 기호뿐) 코인 수치(cpop) · 겨눔(aim)이면 null.
+   "수호 ⛨+2" → 명판 "수호" + 숫자 "⛨+2". "소환 · 이번 턴"처럼 숫자가 없으면 명판만.
+   빛깔: 반격 = 금(피해여도), 대가 = 핏빛, 그 밖은 cls — dmg 핏빛 · heal 초록 · shield 하늘 · debuff 보라 · miss 은 · buff와 나머지 금 */
+function plateParts(text, cls) {
+  const s = String(text), c = cls || "";
+  if (!/[가-힣]/.test(s) || /\b(cpop|aim)\b/.test(c)) return null;
+  const m = /^([가-힣][가-힣\s·]*?)\s*([^가-힣\s·][^가-힣]*)?$/.exec(s);
+  const tag = m ? m[1].trim() : s.trim(), num = m && m[2] ? m[2].trim() : "";
+  const tone = tag === "반격" ? "t-gold" : tag === "대가" ? "t-blood"
+    : /\bdmg\b/.test(c) ? "t-blood" : /\bheal\b/.test(c) ? "t-heal" : /\bshield\b/.test(c) ? "t-ice"
+    : /\bdebuff\b/.test(c) ? "t-hex" : /\bmiss\b/.test(c) ? "t-silver" : "t-gold";
+  return { tag, num, tone };
+}
 function floatAt(target, text, cls) {
   if (!G || G.cfg.headless || G.speed === 0) return;
   const el = typeof target === "number" ? uidEl(target) : $("#" + target);
@@ -1056,12 +1070,14 @@ function floatAt(target, text, cls) {
   f.className = "float " + (cls || "");
   // v1.4.4: 떠오르는 글자 속 ⚔ ⛨ ♥ 기호는 카드와 같은 아이콘(칼 · 음영 방패 · 핏방울)으로
   f.innerHTML = statGlyphs(text);
-  // v3.12.3 "반격": 글씨만 기본 글꼴로 뜨던 것을 금빛 명판(◆ 반격 ◆ + 베는 빛줄기) 아래 숫자로
-  const cm = /^반격(?:\s+(.*))?$/.exec(String(text));
-  if (cm) { f.classList.add("counter"); f.innerHTML = `<span class="fl-tag"><i></i><b>반격</b><i></i></span>` + (cm[1] ? `<span class="fl-num">${statGlyphs(cm[1])}</span>` : ""); }
-  // v3.12.7 "대가": 마법의 생명 대가도 같은 명판(Hahmlet) — 금빛 대신 핏빛
-  const tm = /^대가(?:\s+(.*))?$/.exec(String(text));
-  if (tm) { f.classList.add("counter", "toll"); f.innerHTML = `<span class="fl-tag"><i></i><b>대가</b><i></i></span>` + (tm[1] ? `<span class="fl-num">${statGlyphs(tm[1])}</span>` : ""); }
+  // v3.18.1 효과 명판: 한글 낱말이 든 떠오르는 글자는 모두 명판(Hahmlet 800 금속 광택 · 양옆 선과 마름모 · 찍히는 움직임 · 베는 사선) 위에,
+  //   뒤따르는 숫자 · 스탯 기호는 그 아래에 띄운다. 빛깔은 plateParts가 cls로 고른다(v3.12.3 "반격" · v3.12.7 "대가" 명판을 모든 효과로 넓힘).
+  //   새 효과 글자도 따로 할 일 없이 여기서 명판이 된다 — 한글을 Cinzel · 바탕체 맨 글씨로 띄우지 않는다 (스타일 가이드 2.9)
+  const pm = plateParts(text, cls);
+  if (pm) {
+    f.classList.add("plate", pm.tone); if (pm.tag.length > 4) f.classList.add("long");
+    f.innerHTML = `<span class="fl-tag"><i></i><b>${esc(pm.tag)}</b><i></i></span>` + (pm.num ? `<span class="fl-num">${statGlyphs(pm.num)}</span>` : "");
+  }
   if (/\bcpop\b/.test(cls || "")) {
     // v1.9.5 코인으로 바뀐 값: 캐릭터 위에 +N(연두) / −N(빨강). 같은 카드에 여러 개면 아래로 쌓고 0.12초씩 늦게
     const now = performance.now(), st = FX.popStack || (FX.popStack = {}), key = String(target);
@@ -1086,7 +1102,7 @@ function floatAt(target, text, cls) {
     return;
   }
   // v3.14 피해 숫자는 크게 찍혔다 눌리고 튄다(css/impact.css). 피해가 클수록 크게
-  if (/\bdmg\b/.test(cls || "") && !cm) { const n = +((String(text).match(/(\d+)\s*$/) || [])[1] || 0); f.classList.add("imp-num"); f.style.setProperty("--pw", Math.min(1, n / 8).toFixed(2)); f.style.setProperty("--rz", (Math.random() * 16 - 8).toFixed(1) + "deg"); }
+  if (/\bdmg\b/.test(cls || "") && !pm) { const n = +((String(text).match(/(\d+)\s*$/) || [])[1] || 0); f.classList.add("imp-num"); f.style.setProperty("--pw", Math.min(1, n / 8).toFixed(2)); f.style.setProperty("--rz", (Math.random() * 16 - 8).toFixed(1) + "deg"); }
   f.style.left = (r.left + r.width / 2 + (Math.random() * 20 - 10)) + "px";
   f.style.top = (r.top + r.height * 0.42 + (Math.random() * 20 - 10)) + "px";
   layer.appendChild(f);
@@ -1744,7 +1760,7 @@ function etherHTML(p, isMe, ctrlAll) {
     : myTurn ? `<span class="cry-state ok" title="핸드를 에테르로 끌어 놓거나 C 키로 결정화. 한 턴에 ${RULES.crystalsPerTurn}장씩 쌓이고, 안 쓰면 다음 턴으로 넘어갑니다">결정화 가능 ${crysLeft(p)}</span>`
     : `<span class="cry-state" title="자기 준비 단계에만 결정화할 수 있습니다. 한 턴에 ${RULES.crystalsPerTurn}장씩 쌓입니다">결정화 ${crysLeft(p)}</span>`;
   // 에테르 제단: 가운데 정수 구슬(남은/이번 턴 에테르), 둘레의 마법진에 정수 1 + 결정 9칸이 박힌다
-  return `<div class="ether altar${canCrys ? " valid" : ""}${left < 0 ? " short" : ""}${p.bonusNow ? " boosted" : ""}" data-act="ether" data-p="${p.idx}" id="crys${p.idx}" data-tip="${esc(`에테르 ${left} / ${tot}\n가운데 = 이번 턴 남은 에테르 / 이번 턴 에테르\n맨 위 금 보석 = 위대한 정수 1(깨지지 않음) · 둘레 = 결정 ${p.crystals.length}/${RULES.maxCrystals}\n빛나는 결정 = 쓸 수 있음 · 어두운 결정 = 이번 턴에 씀\n결정화: 핸드 1장을 여기로 끌어 놓기 (한 턴 ${RULES.crystalsPerTurn}장)`)}">
+  return `<div class="ether altar${canCrys ? " valid" : ""}${left < 0 ? " short" : ""}${p.bonusNow ? " boosted" : ""}" data-act="ether" data-p="${p.idx}" id="crys${p.idx}" data-tip="${esc(`에테르 ${left} / ${tot}\n가운데 = 이번 턴 남은 에테르 / 이번 턴 에테르\n맨 위 금 보석 = 위대한 정수 1(깨지지 않음) · 둘레 = 결정 ${p.crystals.length}/${RULES.maxCrystals}\n빛나는 결정 = 쓸 수 있음 · 어두운 결정 = 이번 턴에 씀\n결정화: 핸드 1장을 여기로 끌어 놓기 (한 턴 ${RULES.crystalsPerTurn}장, 카드는 소각장으로)`)}">
       <div class="eth-ring">
         ${etherAltarSVG(p.idx, slots)}
         <div class="eth-orb"><b>${left}</b><span>/${tot}</span></div>
@@ -1810,7 +1826,7 @@ function handHTML(p, hidden, ctrl) {
     if ((FX.drag && FX.drag.uid === it.uid) || FX.returning === it.uid) cls.push("drag-src");
     if (FX.drawing.has(it.uid)) cls.push("drawing");
     const modTag = it.mod ? `<span class="hand-mod" title="이 카드에 걸린 변화 (이 판 내내)">${Object.keys(it.mod).filter(k => it.mod[k]).map(k => statIco(k) + sgnNum(it.mod[k])).join(" ")}</span>` : "";
-    return `<div class="${cls.join(" ")}" data-act="hand" data-uid="${it.uid}" data-zone="hand" data-p="${p.idx}" data-rot="${rot}" style="--k:${k};--d:${d};--r:${rot}deg;--y:${y}%;--sk:${straightK(rot)};--pk:${pushK(i, act, pw)};z-index:${i + 1}" title="${why && ctrl ? esc(why) : "누르면 크게 보기 · 끌어서 내기"}"><div class="hand-card">${cardHTML(c, { size: "md", slim: true, live: handLive(it) })}${modTag}${i < 9 ? `<span class="hk hk-hand">${i + 1}</span>` : ""}</div></div>`;
+    return `<div class="${cls.join(" ")}" data-act="hand" data-uid="${it.uid}" data-zone="hand" data-p="${p.idx}" data-rot="${rot}" style="--i:${i};--n:${n};--k:${k};--d:${d};--r:${rot}deg;--y:${y}%;--sk:${straightK(rot)};--pk:${pushK(i, act, pw)};z-index:${i + 1}" title="${why && ctrl ? esc(why) : "누르면 크게 보기 · 끌어서 내기"}"><div class="hand-card">${cardHTML(c, { size: "md", slim: true, live: handLive(it) })}${modTag}${i < 9 ? `<span class="hk hk-hand">${i + 1}</span>` : ""}</div></div>`;
   }).join("") || '<div class="hand-empty">핸드 없음</div>'}</div>`;
 }
 /* ---------- v2.6 묵직한 핸드 (css/hand.css) ----------
@@ -1843,7 +1859,7 @@ function applyHov() {
   hand.classList.toggle("has-hov", hovI >= 0);
 }
 /* 마지막 마우스 자리 아래의 핸드 카드를 올린다. 화면을 다시 그린 뒤·드로우 잠금이 풀린 뒤에 부른다.
-   (카드가 나가 핸드가 다시 부채꼴로 모이면 마우스 아래 카드가 바뀔 수 있다) */
+   (카드가 나가 핸드가 다시 가운데로 모이면 마우스 아래 카드가 바뀔 수 있다) */
 function syncHov() {
   if (!boardEl) return;
   if (FX.drag || FX.mx < 0 || handLocked()) { setHov(null); return; }
@@ -1940,7 +1956,7 @@ function focusHTML(me, ctrl) {
       const maxed = me.crystals.length >= RULES.maxCrystals, done = crysLeft(me) <= 0;
       if (c.type !== "item") main = `<button type="button" class="f-cta" data-act="do-place"${why ? " disabled" : ""}>${uiIcon("place")}<span>전장에 올리기</span><em class="f-cost" title="에테르 ${costOf(c)}"><i></i>${costOf(c)}</em></button>`;
       btns = [
-        fSub("do-crystal", "결정화", "C", "f-cry", maxed || done, "crystal", maxed ? "결정이 최대입니다." : done ? `결정화할 수 있는 장수를 다 썼습니다.\n한 턴에 ${RULES.crystalsPerTurn}장씩 쌓입니다.` : `이 카드를 결정으로 바칩니다.\n다음 턴부터 에테르 +1\n(지금 ${crysLeft(me)}장 더 할 수 있음)`),
+        fSub("do-crystal", "결정화", "C", "f-cry", maxed || done, "crystal", maxed ? "결정이 최대입니다." : done ? `결정화할 수 있는 장수를 다 썼습니다.\n한 턴에 ${RULES.crystalsPerTurn}장씩 쌓입니다.` : `이 카드를 결정으로 바칩니다.\n다음 턴부터 에테르 +1 · 카드는 소각장으로\n(지금 ${crysLeft(me)}장 더 할 수 있음)`),
         fSub("do-burn", "소각", "X", "f-burn", false, "burn", "이 카드를 소각장에 버립니다.")
       ];
       bad = !!why;
@@ -2421,7 +2437,7 @@ function ghostAt(r, html) {
   fxLayer().appendChild(g);
   return g;
 }
-/* 사라진 카드: 소각장·에테르·장착한 유닛으로 날아간다 */
+/* 사라진 카드: 소각장·에테르·장착한 유닛으로 날아간다. v3.19.2: 결정화한 카드는 에테르에서 빛을 남기고 소각장으로 이어 날아간다 */
 function vanish(uid, b) {
   const layer = fxLayer(); if (!layer) return;
   if (G.fx && G.fx.shatter && G.fx.shatter.includes(+uid)) { shatterCard(b); return; }
@@ -2447,8 +2463,27 @@ function vanish(uid, b) {
   an.onfinish = () => {
     sfx(kind === "crys" ? "crystal" : kind === "equip" ? "equip" : kind === "burn" ? "burn" : "move", 0.9);
     if (kind === "burn") g.animate([{ opacity: 0.85, filter: filt }, { opacity: 0, filter: "brightness(3) blur(6px)" }], { duration: 260 * k, fill: "forwards" }).onfinish = () => g.remove();
+    else if (kind === "crys") crysToBurn(g, from, dx, dy, b.p, k);
     else g.remove();
     burst(t.x, t.y, kind, tr.width * (kind === "burn" ? 1.6 : 1.3));
+  };
+}
+
+/* v3.19.2 결정화 뒤: 에테르에 닿은 유령 카드가 다시 보이며 소각장으로 날아가 타 든다. 소각장이 화면에 없으면 그 자리에서 사라진다 */
+function crysToBurn(g, from, dx, dy, p, k) {
+  const pyre = $("#burn" + p);
+  if (!pyre) { g.remove(); return; }
+  const tr = pyre.getBoundingClientRect(), a = ctrOf(from), t = ctrOf(tr);
+  const ex = t.x - a.x, ey = t.y - a.y, sc = Math.max(0.5, tr.width / from.width * 0.85);
+  const fire = "sepia(1) saturate(5) hue-rotate(-28deg) brightness(1.15)";
+  g.animate([
+    { translate: `${dx}px ${dy}px`, scale: "0.32", opacity: 0.1, filter: "brightness(1.9) saturate(.3) hue-rotate(170deg)" },
+    { offset: 0.25, translate: `${dx}px ${dy}px`, scale: "0.42", opacity: 0.75, filter: "brightness(.8) saturate(.4)" },
+    { translate: `${ex}px ${ey}px`, scale: String(sc), opacity: 0.85, filter: fire }
+  ], { duration: FT.away * 0.9 * k, easing: "cubic-bezier(.4,0,.25,1)", fill: "forwards" }).onfinish = () => {
+    sfx("burn", 0.6);
+    burst(t.x, t.y, "burn", tr.width * 1.4);
+    g.animate([{ opacity: 0.85, filter: fire }, { opacity: 0, filter: "brightness(3) blur(6px)" }], { duration: 260 * k, fill: "forwards" }).onfinish = () => g.remove();
   };
 }
 
@@ -3313,7 +3348,7 @@ function showRules() {
     <li><b>보충</b> — 턴이 시작되면 두 플레이어 모두 핸드를 6장까지 뽑고, 뽑은 장수만큼(최소 1) 생명이 줄어듭니다.</li>
     <li><b>에테르</b> — 위대한 정수가 매 턴 에테르 1을 주고, 핸드를 결정으로 바치면(턴당 1장, 최대 9개) 결정마다 매 턴 에테르 1을 더 냅니다. Lv N 카드의 비용은 에테르 N. 남은 에테르는 넘어가지 않습니다.</li>
     <li><b>유지비</b> — 레벨 아이콘의 빈 칸 수가 유지비입니다. 소환할 때는 레벨만큼 에테르를 내고, 유닛이 살아남으면 다음 턴부터 에테르가 유지비만큼 빠집니다. 준비를 마칠 때 모자라면 유지비가 큰 유닛부터 소각됩니다.</li>
-    <li><b>공격 준비</b> — 공격자가 유닛·공격 마법·공용 마법을 빈 칸에 올립니다 (핸드 더블클릭 = 왼쪽부터 빈 칸). 아이템은 공격·방어 준비 어느 때나 클래스가 맞는 내 유닛에 장착하며(아이템 이름 옆 [○○ 전용]이 유닛 오른쪽 위 동그라미와 같으면 장착, [공용]은 누구에게나), 유지비가 없습니다.</li>
+    <li><b>공격 준비</b> — 공격자가 유닛·공격 마법·공용 마법을 빈 칸에 올립니다 (핸드 더블클릭 = 왼쪽부터 빈 칸). 아이템은 공격·방어 준비 어느 때나 클래스가 맞는 내 유닛에 장착하며(아이템 이름 옆 [○○ 전용]이 유닛 오른쪽 아래 열의 클래스 아이콘과 같으면 장착, [공용]은 누구에게나), 유지비가 없습니다.</li>
     <li><b>방어 준비</b> — 방어자가 공격자의 유닛 배치를 보고 유닛·방어 마법·공용 마법을 올립니다. 마법은 뒷면이라 상대에게 보이지 않습니다.</li>
     <li><b>전투</b> — 공격 유닛이 1번 칸부터 차례로 상대의 맨 앞 유닛과 싸웁니다. <b>맞붙을 때마다 공격하는 유닛의 코인을 던집니다</b>(앞면 50%). <b>방어하는 유닛의 코인은 그 전투에서 처음 맞붙을 때 한 번만</b> 던지고, 전투가 끝날 때까지 그 결과를 그대로 씁니다. <b>한 번 정해진 코인은 마법으로도 바뀌지 않습니다</b>(코인 뒷면 · 운명은 아직 던지지 않은 코인에만). 유닛의 공격·방어·체력 코인은 순번이 같으면 동전 하나라 함께 앞·뒷면이 됩니다(공격 2개·방어 1개면 동전 2개). 장착한 아이템의 코인도 함께 세고, 동전은 최대 5개입니다. 내 코인은 내가 <b>"운명 봉인"</b>으로, 상대 코인은 상대가 세웁니다(5초가 지나면 저절로 멈춤). 양쪽이 멈추면 나온 대로 스탯이 바뀐 뒤 공격 → 반격이 이어집니다. 피해 = 공격 − 방어(최소 0). 쓰러진 유닛과 쓴 마법은 그 자리에서 부서지고 남은 카드는 바로 왼쪽으로 당겨집니다. 피해는 그 턴 안에서만 쌓이고, 턴이 끝나면 회복됩니다.</li>
     <li><b>코인 뒤집기</b> — 코인이 멈춘 뒤, 내 유닛의 <b>뒷면 코인</b>(− 코인은 <b>앞면 코인</b>)<b>을 누르면 에테르 1</b>을 내고 그 코인만 다시 던집니다. 맞붙을 때마다 한 번(이미 정해진 방어 코인은 다시 던질 수 없음). 준비 단계에서 남겨 둔 에테르를 여기에 씁니다 (남은 에테르는 다음 턴으로 넘어가지 않습니다).</li>

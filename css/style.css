@@ -682,7 +682,7 @@ body.is-dragging .hand-me .hand-slot .hand-card { transform: translateY(var(--y)
 .float.miss { color: #b9b9c8; font-size: max(18px, calc(var(--cw) * .12)); }
 .float.debuff { color: #c9a2ff; font-family: var(--body); font-size: max(18px, calc(var(--cw) * .13)); }
 /* v3.9.11 [사격] 겨눔: 대상 이름 */
-.float.aim { color: #ffe08a; font-family: var(--body); font-weight: 800; font-size: max(15px, calc(var(--cw) * .11)); -webkit-text-stroke: 0; text-shadow: 0 2px 4px #000, 0 0 10px rgba(0, 0, 0, .9), 0 0 14px rgba(255, 196, 80, .55); }
+.float.aim { color: #ffe08a; font-family: "Hahmlet", "Song Myung", var(--body); font-weight: 800; font-size: max(15px, calc(var(--cw) * .11)); -webkit-text-stroke: 0; text-shadow: 0 2px 4px #000, 0 0 10px rgba(0, 0, 0, .9), 0 0 14px rgba(255, 196, 80, .55); }
 @keyframes floatUp { 0% { opacity: 0; transform: translate(-50%, -20%) scale(.4); } 14% { opacity: 1; transform: translate(-50%, -50%) scale(1.35); } 26% { transform: translate(-50%, -55%) scale(1); } 100% { opacity: 0; transform: translate(-50%, -190%) scale(1); } }
 
 /* 좁은 화면 */

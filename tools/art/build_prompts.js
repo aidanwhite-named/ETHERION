@@ -1,5 +1,5 @@
 /* ETHERION — 그림 AI용 프롬프트 만들기 (v3.9.15, 스타일 가이드 6.7)
-   게임 데이터(js/data.js · names.js · specials.js · uniques.js · cards.js …)를 그대로 읽어
+   게임 데이터(js/data.js · names.js · specials.js · uniques.js · highcards.js · cards.js …)를 그대로 읽어
    카드마다 프롬프트 하나를 만든다. 카드 이름 · 설명을 고치면 이 스크립트를 다시 돌린다.
 
    실행 (게임 폴더 맨 위에서):  node tools/art/build_prompts.js
@@ -26,7 +26,7 @@ function loadGame() {
   };
   ctx.window = ctx; vm.createContext(ctx);
   let src = "";
-  for (const f of ["data", "names", "briefs", "specials", "uniques", "decks", "cards", "grades"])
+  for (const f of ["data", "names", "briefs", "specials", "uniques", "highcards", "decks", "cards", "grades"])
     src += fs.readFileSync(path.join(ROOT, "js", f + ".js"), "utf8") + "\n;\n";
   src += "this.__o = { CARDS, GROUPS, FACTIONS };";
   vm.runInContext(src, ctx, { filename: "etherion-data" });

@@ -14,8 +14,16 @@ const C = it => CARDS[it.id];
 const itemOf = it => (it && it.item ? CARDS[it.item.id].item : null);
 /* v2.9 전투 능력 = 장착 아이템 능력 + 스페셜 유닛의 타고난 능력(gift). 수치는 더하고, 있음/없음은 하나만 있어도 된다.
    [사격]은 snipe, [증폭]은 amp로 모은다. [투척](장착한 턴 한 번)은 아이템에만 있으므로 itemOf로 따로 본다 */
+/* v3.18 능력 합치기: 수치는 더하고(마력 공격 전부 = true는 그대로), 있음/없음은 하나만 있어도 */
+function mergeAbil(a, b) {
+  const o = Object.assign({}, a);
+  for (const k in b) { const v = b[k]; if (v === true || o[k] === true) o[k] = true; else if (typeof v === "number") o[k] = (+o[k] || 0) + v; else if (v) o[k] = v; }
+  return o;
+}
 function abilOf(it) {
-  const im = itemOf(it) || {}, g = (it && C(it).gift) || {};
+  const im = itemOf(it) || {}, g0 = (it && C(it).gift) || {};
+  // v3.18 마법이 이번 턴 걸어 준 능력(t.gx, 효과 grant)은 타고난 능력과 같은 자리에서 더한다. 턴이 바뀌면 resetTurn이 지운다
+  const gx = it && it.t && it.t.gx, g = gx ? mergeAbil(g0, gx) : g0;
   const num = k => (+im[k] || 0) + (+g[k] || 0), any = k => !!(im[k] || g[k]);
   const amp = o => (o.evName && /^증폭/.test(o.evName) ? parseInt(o.evName.replace(/\D/g, "")) || 0 : 0);
   return { shield: any("shield"), ward: num("ward"), thorns: num("thorns"), shred: any("shred"), crit: any("crit"), chain: any("chain"), ranged: any("ranged"),
@@ -81,6 +89,7 @@ function applyFloor(u) { const f = u.t.floor; for (const k in f) if (u.t[k] < f[
    v3.5.6: 방어하는 쪽 유닛은 한 전투에서 코인이 한 번 정해지면 그 전투가 끝날 때까지 다시 던지지 않는다.
    v3.5.7: 한 번 정해진 코인은 마법(코인 뒷면 · 운명)으로도 바뀌지 않는다 */
 function resetTurn(it) {
+  if (it.t) it.t.gx = null;   // v3.18 지난 턴 마법이 걸어 준 능력은 남지 않는다
   const b = baseStats(it, true), ab = abilOf(it);
   it.t = { a: b.a, d: b.d, h: b.h, rb: b, floor: floorOf(it), dmg: 0, alive: true,
     shield: !!(ab.shield && flip()), ward: ab.ward, wardUsed: false,
@@ -224,6 +233,13 @@ function coinX(op, faces) {
   if (op.coin) for (let i = 0; i < op.coin[0]; i++) if (faces ? faces[i] : flip()) x += op.coin[1];
   return x;
 }
+/* v3.18 grant 효과가 카드 위에 띄우는 글 */
+const GRANT_KO = { crit: "치명", chain: "연쇄", shred: "관통", ranged: "원거리", magic: "마력 공격" };
+function grantLabel(op) {
+  const xs = Object.keys(op.ab || {}).map(k => GRANT_KO[k] || k);
+  if (op.ward) xs.push("가호 " + op.ward);
+  return xs.join(" · ");
+}
 /* v3.9.2 마법 코인 창에 적는 이름. gate = 앞면이 하나라도 나와야 효과가 나는 코인 */
 function spellCoinLabel(op) {
   if (op.op === "dmg") return { label: "피해" };
@@ -307,6 +323,11 @@ function castSpell(X, caster, it, k) {
         case "d2a": { const v = Math.max(0, u.t.d); if (v) { u.t.a += v; fl(X, u.uid, "⚔+" + v, "buff"); } break; }
         case "endure": u.t.endure = true; fl(X, u.uid, "불굴", "shield"); break;
         case "pierce": u.t.pierce = true; fl(X, u.uid, "꿰뚫기", "buff"); break;
+        /* v3.18 유니크 마법 (js/highcards.js) */
+        case "grant": {   // 이번 턴 능력을 걸어 준다: { ab: {crit, chain, magic, ranged, shred ...}, ward: N }
+          if (op.ab) u.t.gx = mergeAbil(u.t.gx || {}, op.ab);
+          if (op.ward) u.t.ward = (u.t.ward || 0) + op.ward;
+          fl(X, u.uid, grantLabel(op), "buff"); break; }
         case "rage": {   // 체력을 1로, 깎인 만큼 공격 + (이번 턴 · 받은 피해처럼 턴이 끝나면 돌아온다)
           const cut = hpLeft(u) - 1;
           if (cut > 0) { u.t.dmg += cut; u.t.a += cut; fl(X, u.uid, "♥1 ⚔+" + cut, "buff"); }
@@ -457,7 +478,8 @@ function runCombatCore(X) {
   const acted = new Set();
   // v1.9: 누구든 생명이 0 이하가 되는 순간 전투(와 경기)는 그 자리에서 끝난다. 남은 공격·마법은 하지 않는다
   const dead = () => X.P.some(p => p.life <= 0);
-  const ready = q => q.who === "atk"
+  // v3.18.2 opening 마법(수비형 깃발의 유니크 공격 마법)은 놓인 칸과 상관없이 전투가 시작될 때 먼저 발동한다
+  const ready = q => C(q.it).opening ? true : q.who === "atk"
     ? A.field.every((u, i) => !isUnit(u) || i + 1 >= q.k || acted.has(u) || !u.t.alive)
     : !D.field.some((u, i) => isUnit(u) && u.t.alive && i + 1 < q.k);
   // 부서진 카드 치우고 좌측 정렬. 치운 게 있으면 한 수로 기록한다
@@ -578,17 +600,19 @@ const dmgOf = (u, x, phys) => (phys ? hit(x, u.t.d) : x);
 const SPELL_OPS = {
   /* 무작위 대상에게 n번: { side, n, x, phys } */
   multi(X, caster, it, k, op) {
+    // v3.18.3 [증폭]: 공격 마법이 상대를 칠 때 한 번 맞을 때마다 +N (메테오의 화염탄 · 별똥별 조각도 공격 마법)
+    const amp = C(it).type === "atk" && (op.side || "foe") === "foe" ? amplify(X.P[caster]) : 0;
     for (let i = 0; i < op.n; i++) {
       const L = sideUnits(X, caster, op.side || "foe"); if (!L.length) break;
-      const u = L[Math.floor(RNG() * L.length)], r = dmgOf(u, op.x, op.phys);
+      const u = L[Math.floor(RNG() * L.length)], r = dmgOf(u, op.x + amp, op.phys);
       if (r > 0) hurt(X, u, r, op.phys ? "물리" : ""); else fl(X, u.uid, "막음", "miss");
       step(X, {}, 260);
     }
   },
   /* 상대 대기열 맨 앞부터 차례로: { xs: [3, 2, 1], phys } */
   chain(X, caster, it, k, op) {
-    const Q = queueOf(X.P[1 - caster]);
-    op.xs.forEach((v, i) => { const u = Q[i]; if (!u || !u.t.alive) return; const r = dmgOf(u, v, op.phys); if (r > 0) hurt(X, u, r, "연쇄"); step(X, {}, 240); });
+    const Q = queueOf(X.P[1 - caster]), amp = C(it).type === "atk" ? amplify(X.P[caster]) : 0;   // v3.18.3 [증폭]: 맞는 유닛마다 +N
+    op.xs.forEach((v, i) => { const u = Q[i]; if (!u || !u.t.alive) return; const r = dmgOf(u, v + amp, op.phys); if (r > 0) hurt(X, u, r, "연쇄"); step(X, {}, 240); });
   },
   /* 이 마법이 작은 마법 k장을 불러 바로 발동: { id: 작은 마법 카드 ID, k } */
   echo(X, caster, it, k, op) {
@@ -700,6 +724,59 @@ const SPELL_OPS = {
     for (const u of xs) if (isUnit(u)) fl(X, u.uid, "⇄", "debuff");
     lg(X, `${o.name}의 전장 배치가 거꾸로 뒤집혔다`, "sys");
     step(X, {}, 520);
+  },
+  /* v3.18 유폭: 상대 맨 앞 유닛에게 피해 x. 그 유닛이 쓰러지면 남은 상대 유닛 전체에게 피해 splash { x, splash } */
+  blast(X, caster, it, k, op) {
+    const amp = C(it).type === "atk" ? amplify(X.P[caster]) : 0;
+    const u = queueOf(X.P[1 - caster])[0]; if (!u) return;
+    hurt(X, u, op.x + amp);
+    if (u.t.alive) return;
+    step(X, {}, 260);
+    lg(X, `↳ 유폭 — 상대 유닛 전체에게 피해 ${op.splash + amp}`, "spell");
+    for (const v of liveUnits(X.P[1 - caster])) hurt(X, v, op.splash + amp, "유폭");
+  },
+  /* v3.18 아군 유닛 방어의 합만큼 상대 맨 앞 유닛에게 피해. 쓰러뜨리고 남은 피해는 대기열의 다음 유닛에게 넘어간다 { mul } */
+  sumDef(X, caster, it, k, op) {
+    const n = liveUnits(X.P[caster]).reduce((s, u) => s + Math.max(0, u.t.d), 0) * (op.mul || 1);
+    let x = n + (C(it).type === "atk" ? amplify(X.P[caster]) : 0);
+    lg(X, `아군 방어의 합 → 피해 ${x}`, "sys");
+    for (const u of queueOf(X.P[1 - caster])) {
+      if (x <= 0) break;
+      const need = hpLeft(u) + (u.t.ward && !u.t.wardUsed ? u.t.ward : 0);
+      const blocked = u.t.shield;
+      hurt(X, u, x, "강철");
+      if (blocked || u.t.alive) break;   // 보호막에 막히거나 버티면 거기서 멈춘다
+      x -= need; step(X, {}, 240);
+    }
+  },
+  /* v3.18.2 아군 유닛 수에 비례한 강화: 대상마다 공격 +(아군 유닛 수 × a) { side, area, a } */
+  rally(X, caster, it, k, op) {
+    const n = liveUnits(X.P[caster]).length, x = n * (op.a || 1);
+    lg(X, `아군 유닛 ${n}기 → 공격 +${x}`, "sys");
+    if (!x) return;
+    for (const u of pickTargets(X, caster, op.side || "ally", op.area || { t: "all" }, k)) { u.t.a += x; fl(X, u.uid, "⚔+" + x, "buff"); }
+  },
+  /* v3.18.2 대상마다 공격 +(자기 남은 체력 ÷ div, 올림) { side, area, div } */
+  hp2a(X, caster, it, k, op) {
+    for (const u of pickTargets(X, caster, op.side || "ally", op.area || { t: "all" }, k)) {
+      const x = Math.ceil(Math.max(0, hpLeft(u)) / (op.div || 2));
+      if (x > 0) { u.t.a += x; fl(X, u.uid, "⚔+" + x, "buff"); }
+    }
+  },
+  /* v3.18 결투: 아군 맨 앞 유닛 공격 +a. 그 뒤 그 유닛이 상대 유닛 중 공격이 가장 높은 1기를 먼저 치고(물리), 살아남으면 그 유닛이 되친다 { a } */
+  duel(X, caster, it, k, op) {
+    const me = queueOf(X.P[caster])[0], foe = pickTargets(X, caster, "foe", { t: "maxA", n: 1 }, k)[0];
+    if (!me) { lg(X, "아군 유닛이 없어 결투가 열리지 않았다", "sys"); return; }
+    if (op.a) { me.t.a += op.a; fl(X, me.uid, "⚔+" + op.a, "buff"); }
+    if (!foe) return;
+    step(X, { act: me.uid, tgt: foe.uid }, 380);
+    lg(X, `결투: ${C(me).name}(공 ${me.t.a}) → ${C(foe).name}(공 ${foe.t.a})`, "spell");
+    const x1 = hit(me.t.a, foe.t.d);
+    if (x1 > 0) hurt(X, foe, x1, "결투"); else fl(X, foe.uid, "막음", "miss");
+    step(X, { act: me.uid, tgt: foe.uid, hit: true }, 420);
+    if (!foe.t.alive || foe.t.rest) return;
+    const x2 = hit(foe.t.a, me.t.d);
+    if (x2 > 0) hurt(X, me, x2, "결투"); else fl(X, me.uid, "막음", "miss");
   },
   /* [운명] 이번 턴 아군 코인: + 코인은 앞면, − 코인은 뒷면. 이미 던져 정해진 코인은 그대로 (v3.5.7) */
   fate(X, caster, it, k, op) {

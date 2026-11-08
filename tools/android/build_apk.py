@@ -27,6 +27,7 @@ MIN_SDK, TARGET_SDK = 24, 34
 WEB_DIRS = ["css", "js", "img", "audio", "fonts"]
 SKIP_EXT = {".mp3", ".md", ".txt", ".wav", ".psd", ".bak"}
 SKIP_DIRS = {os.path.join("img", "ui", "src")}          # 그림을 만드는 스크립트 (게임에서 안 씀)
+SKIP_FILES = {"img/ui/deck/card_back_plain.png"}       # v3.19.2 글씨 없는 카드 뒷면 원본 (tools/art/cardback_text.py 재료, 게임에서 안 씀)
 STORE_EXT = {".png", ".jpg", ".jpeg", ".webp", ".ogg", ".mp3", ".ttf", ".woff2", ".gif"}   # 이미 압축된 것
 
 
@@ -41,7 +42,10 @@ def web_files():
                 if fn.startswith(".") or os.path.splitext(fn)[1].lower() in SKIP_EXT:
                     continue
                 full = os.path.join(dp, fn)
-                out.append((os.path.relpath(full, ROOT).replace(os.sep, "/"), full))
+                rel = os.path.relpath(full, ROOT).replace(os.sep, "/")
+                if rel in SKIP_FILES:
+                    continue
+                out.append((rel, full))
     return out
 
 
