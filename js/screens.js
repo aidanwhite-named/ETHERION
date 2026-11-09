@@ -165,7 +165,7 @@ function ringSVG() {
 }
 /* 타이틀 그림 (가이드 0.2 · 2.17): 배경 · 세 존재 · 로고가 모두 들어 있는 그림 한 장. null이면 예전 타이틀(코드로 그린 고리와 로고).
    w · h는 그림의 비율, focus는 그림 속 로고 가운데(0~1) — 입장 연출의 문이 여기서 열린다. 더 큰 그림으로 바꿀 때 비율이 같으면 src만 고친다 */
-const TITLE_ART = { src: "img/title/title_art.jpg", w: 1672, h: 941, focus: [.49, .5] };
+const TITLE_ART = { src: "img/title/title_art.jpg?v=4k", w: 3840, h: 2160, focus: [.49, .5] };
 function showTitle() {
   App.screen = "title"; Bg.set("title");
   if (TITLE_ART && typeof Titans !== "undefined") Titans.mode(0);   /* 그림이 덮으므로 3D 세 존재는 쉬게 한다 */
