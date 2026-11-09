@@ -2,12 +2,12 @@
    그림은 모두 코드(SVG · CSS)로 그린다(docs/STYLE_GUIDE.md 0장). 하늘(별 · 에테르 입자 · 세 존재)은 그대로 두고,
    그 아래에 그 화면이 "어디인지"를 그린다. 글자와 카드보다 눈에 띄지 않게(불투명도 .35~.6).
 
-   교역소 = 밤의 린데어 자유시 (docs/WORLD.md 10장 · 지도의 "린데어 자유시" · "린데어 환석")
+   상점 = 밤의 린데어 자유시 (docs/WORLD.md 10장 · 지도의 "린데어 자유시" · "린데어 환석")
      - 언덕 위 환석(돌고리 관문): 성로의 중심 관문. 하늘빛 에테르가 숨 쉬고, 보이지 않는 길(성로)이 점선으로 뻗는다
      - 하늘의 크로네아의 물레: 린데어에 신전이 있는, 어느 편도 들지 않는 운명의 신. 천천히 돈다
      - 항구 도시와 돛대, 물결에 비친 등불 · 세 진영의 깃발(세 진영이 유일하게 마주치는 곳)
      - 떠오르는 환석 조각(돈): 카드를 사고팔면 조각이 지갑과 카드 사이를 날아간다(shards)
-     v3.9: 교역소 배경은 움직이지 않는 그림 한 장 — 물레 · 환석 · 창 불빛 · 배 · 등불 · 깃발의 반복 움직임, 떠오르는 조각, 마우스를 따라 움직이기를 모두 뺐다
+     v3.9: 상점 배경은 움직이지 않는 그림 한 장 — 물레 · 환석 · 창 불빛 · 배 · 등불 · 깃발의 반복 움직임, 떠오르는 조각, 마우스를 따라 움직이기를 모두 뺐다
      (css/scenes.css v3.9 절, 사용자 요청: 컴퓨터 자원). 사고팔 때 날아가는 조각(shards)은 그대로
    덱 조정실 = 운명의 감실 (전장의 덱 = "아직 오지 않은 운명"을 모신 아치 감실, STYLE_GUIDE 2.11)
      - 양옆 고딕 아치 열주와 단체 깃발(단체 색 · 문장)
@@ -20,7 +20,7 @@ const Scenes = (() => {
   const f1 = n => +n.toFixed(1);
   const rnd = (() => { let s = 7; return () => (s = (s * 16807) % 2147483647) / 2147483647; })();   // 고정 시드 (매번 같은 도시)
 
-  /* ---------- 교역소: 밤의 린데어 ---------- */
+  /* ---------- 상점: 밤의 린데어 ---------- */
   function harbor() {
     // 도시 지붕선 (가운데는 크로네아 신전의 둥근 지붕)
     let roofs = "M0,700", x = 0, wins = "";
@@ -124,7 +124,7 @@ const Scenes = (() => {
     return `<div class="scene scene-editor" aria-hidden="true" style="--gc:${G.color}">${colonnade()}${banner("l")}${banner("r")}${circle40()}${candles()}</div>`;
   }
 
-  /* ---------- 날아가는 환석 조각 (교역소: 지갑 ↔ 카드) ---------- */
+  /* ---------- 날아가는 환석 조각 (상점: 지갑 ↔ 카드) ---------- */
   function shards(from, to, n) {
     if (!from || !to || (typeof Bg !== "undefined" && Bg.reduced)) return;
     const a = from.getBoundingClientRect(), b = to.getBoundingClientRect();
@@ -147,7 +147,7 @@ const Scenes = (() => {
     bind(root, kind) {
       const sc = root.querySelector(".scene"); if (!sc) return;
       if (kind === "editor") edRoot = sc;
-      // 마우스를 따라 아주 조금 움직인다(가까운 것일수록 많이). v3.9: 교역소는 멈춘 그림이라 따라 움직이지 않는다
+      // 마우스를 따라 아주 조금 움직인다(가까운 것일수록 많이). v3.9: 상점은 멈춘 그림이라 따라 움직이지 않는다
       if (kind === "shop" || (typeof Bg !== "undefined" && Bg.reduced)) return;
       const mv = e => { if (!sc.isConnected) { removeEventListener("pointermove", mv); return; } sc.style.setProperty("--mx", (e.clientX / innerWidth - .5).toFixed(3)); sc.style.setProperty("--my", (e.clientY / innerHeight - .5).toFixed(3)); };
       addEventListener("pointermove", mv);

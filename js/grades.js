@@ -50,6 +50,8 @@ if (typeof UNIQUE_UNITS !== "undefined") for (const c of UNIQUE_UNITS) CARD_GRAD
 if (typeof HIGH_GRADES !== "undefined") Object.assign(CARD_GRADES, HIGH_GRADES);
 /* v3.20 스탯 표시 카드(js/pincards.js): 유닛 일반 · 고급 · 레어 · 에픽, 아이템 유니크, 마법 일반 · 고급 */
 if (typeof PIN_GRADES !== "undefined") Object.assign(CARD_GRADES, PIN_GRADES);
+/* v3.24 레어 마법(js/rarespells.js): 깃발마다 공격 · 방어 · 공용 1장씩, 모두 레어 */
+if (typeof RARE_GRADES !== "undefined") Object.assign(CARD_GRADES, RARE_GRADES);
 
 function gradeOf(c) { const id = typeof c === "string" ? c : c && c.id; return CARD_GRADES[id] || "common"; }
 for (const c of CARD_LIST) c.grade = gradeOf(c);

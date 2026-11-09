@@ -123,6 +123,11 @@ for (const it of SIM_ITEMS) {
 }
 const CARDS = {};
 CARD_LIST.forEach(c => { CARDS[c.id] = c; });
+/* v3.20.7 뺀 카드(js/retired.js): CARDS에는 남기고(예전에 저장한 덱이 깨지지 않게) CARD_LIST에서는 뺀다 —
+   상점 · 보관함 · 덱 조정실 · 시작 카드 · 원정 · 컴퓨터 덱은 모두 CARD_LIST에서 고른다 */
+if (typeof RETIRED_CARDS !== "undefined") {
+  for (let i = CARD_LIST.length - 1; i >= 0; i--) if (RETIRED_CARDS[CARD_LIST[i].id]) { CARD_LIST[i].retired = true; CARD_LIST.splice(i, 1); }
+}
 /* v1.4 소환물: 마법이 부르는 유닛과 작은 마법. CARDS에만 있고 덱·상점·보관함(CARD_LIST)에는 없다
    v2.3: 소환물 유닛의 클래스 (08 문서 이름 기준: 맹수·골렘·정령·악마 → 무도, 기사 → 무장) */
 const TOKEN_CL = { "TK-G1-1": "무도", "TK-G1-2": "무도", "TK-B2-1": "무도", "TK-A2-1": "무장", "TK-A1-1": "무도", "TK-G3-1": "무도", "TK-G2-1": "무도" };

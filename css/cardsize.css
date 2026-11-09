@@ -1,4 +1,4 @@
-/* v3.9.12 — 대기실 덱 보기 · 교역소 카드를 1.5배로 (138px → 207px)
+/* v3.9.12 — 대기실 덱 보기 · 상점 카드를 1.5배로 (138px → 207px)
    카드가 커져 한 화면에 다 들어가지 않으면 화면을 아래로 스크롤해서 본다(가로로 넘치지 않게 줄을 바꾼다).
    카드 글자 · 아이콘은 카드 폭(--cw)을 따라 같이 커진다. 좁은 화면(폰)에서는 화면 폭의 44%까지만. */
 :root { --card-big: min(207px, 44vw); }
@@ -6,7 +6,7 @@
 /* 대기실 덱 보기 (덱 보관함에서 고른 덱의 40장) */
 .screen-lobby .dv-cards { --card-md: var(--card-big); gap: 20px 14px; }
 
-/* 교역소 */
+/* 상점 */
 .shop-cards { gap: 26px 16px; }
 .shop-card { width: calc(var(--card-big) + 12px); }
 .shop-card .card, .sc-face .card { --cw: var(--card-big); }

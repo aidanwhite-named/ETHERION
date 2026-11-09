@@ -134,7 +134,7 @@
 .grade-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0; font-size: 12px; }
 .grade-legend i { font-style: normal; font-weight: 700; color: var(--gr); padding: 1px 7px; border: 1px solid color-mix(in srgb, var(--gr) 55%, transparent); border-radius: 3px; background: color-mix(in srgb, var(--gr) 10%, transparent); }
 
-/* v3.11.3 교역소 거르기: 글씨 · 칸을 키우고 줄마다 이름표, 등급 칸은 등급 색 */
+/* v3.11.3 상점 거르기: 글씨 · 칸을 키우고 줄마다 이름표, 등급 칸은 등급 색 */
 .shop-filters { gap: 10px; }
 .shop-filters .chips { gap: 8px; align-items: center; }
 .shop-filters .sf-label { min-width: 44px; font-size: 15px; color: var(--muted); letter-spacing: .04em; }

@@ -32,8 +32,15 @@
 ## 카드 이름과 세계관
 - 세 진영의 힘의 근원(거인·용·신)과 거인 일곱은 `docs/WORLD.md`에 있다. 카드 이름을 짓거나 고칠 때 따른다.
 - **카드 이름·설명 고침은 `js/names.js`에 카드 ID로 적는다.** `js/data.js`는 균형 도구가 옛 백업에서 다시 써서 직접 고친 이름이 사라진다.
+- **카드를 게임에서 뺄 때는 `js/retired.js`에 카드 ID로 적는다**(v3.20.7, 같은 까닭으로 `data.js`에서 지우지 않음). 새 일반 카드는 같은 깃발 · 같은 레벨 카드와 이름 · 역할이 겹치지 않는지, 깃발의 강점 · 원소(`docs/WORLD.md` 6장)에 맞는지 먼저 본다. 뺀 까닭은 `docs/RETIRED_v3.20.7.md`.
 - 마법 카드의 핸드용 짧은 문구는 `js/briefs.js`(`SPELL_BRIEF`)에 카드 ID로 적는다. 마법 글(`text`)을 고치거나 새 마법을 만들면 짧은 문구도 함께 쓴다(적는 법은 파일 맨 위).
 - 이름 짓기 원칙(새 고유명사는 천천히, 마법 이름 6글자 이하, 익숙한 마법은 그대로)은 `docs/WORLD.md` 7장.
+
+## 상점 · 교역소 (v3.21)
+- 카드를 사고파는 곳은 **상점**(`js/shop.js`, 예전 이름 교역소). **교역소**는 모험가끼리 카드 · 조각을 맞바꾸는 곳(`js/trade.js` 규칙 · 서버 흉내, `js/trade-live.js` 실시간 방, `js/trade-ui.js` 화면, `css/trade.css`). 연대기 · 세계관 글의 "교역소"(린데어의 장소)는 그대로 둔다.
+- 화면은 `TradeAPI`만 부른다(Promise). 거래가 보유 카드 · 지갑을 고치는 곳은 `Store.escrowTake` · `escrowGive`뿐 — 다른 곳에서 `u.collection`을 직접 고쳐 거래를 흉내 내지 않는다. 서버로 옮길 때는 `TradeAPI.backend`만 바꾼다(`docs/TRADE_API.md`).
+- 덱 보호: 거래에 걸 수 있는 장수는 `Store.tradeable`(보유 − 저장한 덱 · 초안). 새로 카드가 빠지는 기능을 만들면 같은 함수를 쓴다.
+- 거래로 오가는 조각의 장부 이유는 "거래…"로 시작한다(경험치에서 빠짐, `js/level.js` `noXp`).
 
 ## 온라인 대전 (v3.10)
 - 두 기기가 같은 시드로 같은 판을 계산한다(`js/online.js`). **판의 결과를 바꾸는 난수는 `GRand()` · `shuffleG()`만 쓴다.** `Math.random`은 연출(흔들림 · 소리)에만.
@@ -44,12 +51,21 @@
 - 사용자가 "로그를 봐 달라"고 하면 고른 폴더(예: `logs/`)의 `ETHERION_전투_*.txt`를 읽는다. 게임 버전을 올리면 `BLOG_VER`도 고친다.
 - 서버로 옮길 때 바꿀 곳은 `docs/SERVER_PLAN.md`.
 
+## 서버 (v3.22)
+- 서버는 `server/server.js`(Node 기본 기능만, npm 꾸러미 없음), 게임 쪽 연결은 `js/net.js`, 설명과 규칙은 **`docs/SERVER.md`**. `ETHERION 서버.bat`으로 켜면 `http://localhost:8787`에서 온라인 모드, 파일로 열면 예전처럼 로컬.
+- 서버는 게임의 규칙 파일을 그대로 읽는다(`server/rules.js`: index.html의 `js/data.js` ~ `js/economy.js` + `js/trade.js` · `js/level.js`). **규칙을 서버에 따로 짜지 않는다** — Store · TradeLocal을 고치면 서버도 같다. 새 카드 데이터 파일은 index.html의 그 사이에 넣는다.
+- **보유 카드 · 지갑 · 덱 · 초안 · NEW는 Store 함수로만 고친다.** 화면에서 `u.collection` · `u.gold` · `u.decks`를 바로 고치면 서버에 가지 않고 되돌아간다.
+- 데이터를 바꾸는 Store 함수를 새로 만들면 `server/server.js` `OPS`와 `js/net.js` `NET_SYNC_OPS`(결과를 바로 씀) · `NET_ASYNC_OPS`(먼저 하고 알림)에 이름을 넣는다. 서버만 바꾸는 새 칸은 `PROTECTED`(server.js) · `NET_PROTECTED`(net.js) 두 곳. 새 교역소 요청 함수는 `TRADE_FNS`와 net.js의 TradeHttp 목록.
+- `server/data/`(모험가 데이터)와 `server/config.json`(관리자 암호)은 지우지 않고 git에 올리지 않는다. 시험은 `node server/server.js --no-open --port 다른번호 --data 다른곳/db.json`.
+- 게임 js나 서버 코드를 고치면 서버를 껐다 켠다(켤 때 규칙 파일을 읽는다). 맥미니 · 클라우드로 옮기는 법은 `docs/SERVER.md` 7장.
+
 ## 스탯 표시 (v3.20)
 - 공 · 방 · 체 옆 표시는 셋: 🔒 고정(L, 체력에는 없음) · ▲ 버팀(U) · ▼ 눌림(D). 카드 데이터 `pin`, 아이템은 `pin` + 절대값 `to`. 규칙은 `js/cards.js` `pinModesOf` · `js/engine.js` `floorOf`, 설명은 `docs/PINS_v3.20.md`. 옛 `lock`은 버팀으로 읽는다.
 - 마법이 스탯을 직접 바꾸면 `addStat` · `setStats`(engine.js)를 쓴다 — 표시를 지키고, 체력 0이면 쓰러뜨리고, 실제 바뀐 값을 띄운다. 새 카드는 `js/pincards.js`.
 
 ## 카드 등급
 - 등급(일반·고급·레어·에픽·유니크·스페셜)과 카드별 등급은 `js/grades.js`, 나눈 방법과 새 카드 기준은 `docs/GRADES.md`.
+- 레어 마법(v3.24)은 `js/rarespells.js`(깃발마다 공격 · 방어 · 공용 1장). 새 마법의 세기는 마법 실험실 `node tools/highcards/lab_rare.js 2000 [카드 ID,...]`로 같은 레벨 기존 마법 · 유니크와 견준다(레어 목표는 `docs/RARESPELLS_v3.24.md` 2장). 새 카드 데이터 파일을 만들면 `index.html`(data.js ~ economy.js 사이)과 `tools/balance/harness.js`의 파일 목록에 함께 넣는다.
 
 ## PC 앱 — Electron (v3.20.2)
 - PC 앱은 게임 폴더를 그대로 담는 Electron 껍데기다. 창 · 단축키 · 개발자 도구 막기는 `desktop/main.js`, 만들기는 `tools/desktop/build_exe.py`(파이썬 표준 라이브러리만, 사용법은 파일 맨 위). 게임 코드를 고치면 껍데기는 고칠 것 없고 exe만 다시 만든다.

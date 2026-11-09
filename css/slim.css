@@ -71,7 +71,7 @@
    핸드 · 전장의 마법 카드(slim)에 효과를 짧게: 그림 아래쪽에 반투명 남색 판 + 위 금빛 선. 한 줄 = 효과 하나.
    줄 앞 대상 칩 색: 적 = --bad · 아군/나/뒤 아군 = --ether · 양쪽 = --gold · 대가(생명) = 짙은 붉은 · 핸드 = --gold-hi.
    전문은 카드를 누르면 원본 카드에 나온다 */
-/* v3.11.1 교역소(slim이 아닌 노멀 카드)의 마법: 왼쪽 레벨 열을 좁혀 그림 · 짧은 문구 칸을 넓힌다 */
+/* v3.11.1 상점(slim이 아닌 노멀 카드)의 마법: 왼쪽 레벨 열을 좁혀 그림 · 짧은 문구 칸을 넓힌다 */
 .card.has-brief:not(.slim):not(.size-full) .c-side { width: auto; min-width: 0; }
 .card.has-brief .c-art > svg { width: 52%; height: 52%; transform: translateY(-24%); }
 .card.has-brief .c-brief { position: absolute; left: .22em; right: .22em; bottom: .26em; z-index: 3; pointer-events: none;

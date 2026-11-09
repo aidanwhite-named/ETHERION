@@ -1,6 +1,6 @@
 /* ETHERION — 상단 띠 손보기 (v3.1.4)
    1) '지도' 옆 소리 아이콘(.tb-sound)과 소리 창(.snd-pop: 배경음 · 효과음 켜기/끄기 + 음량 슬라이더) — js/bgm.js
-   2) 환석 조각은 화면 아래 가운데(.gold-dock) — js/screens.js headerHTML. v3.9.15부터 상단 띠 교역소 옆(.tb-shard)
+   2) 환석 조각은 화면 아래 가운데(.gold-dock) — js/screens.js headerHTML. v3.9.15부터 상단 띠 상점 옆(.tb-shard)
    3) 모험가 인장(손님 · 이름)을 '대기실' 길 글자 체급으로, 전적 칸은 큰 숫자도 들어가게 여유 있게.
       v3.9.15: 인장이 레벨 판을 겸한다 — 구슬 = 레벨, 이름 옆 전적 · 승률, 아래 경험치 막대
    이 파일은 realm.css · crest.css 뒤에 읽는다 */
@@ -92,7 +92,7 @@ body:has(.tb-sound) .snd-ctl { display: none; }
 /* 레벨이 오른 순간 구슬이 한 번 빛남 (lvPop은 css/level.css) */
 .user-chip.seal.up .seal-mark { animation: lvPop .8s ease-out; }
 
-/* 환석 조각: 오른쪽 날개 인장 바로 왼쪽 (누르면 교역소) */
+/* 환석 조각: 오른쪽 날개 인장 바로 왼쪽 (누르면 상점) */
 .tb-shard { appearance: none; display: inline-flex; align-items: baseline; gap: 7px; padding: 6px 16px; border: 0; color: var(--ink-2, #b9b2a0); cursor: pointer;
   clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0 50%);
   background: linear-gradient(90deg, rgba(217, 180, 106, .05), rgba(217, 180, 106, .16), rgba(217, 180, 106, .05));

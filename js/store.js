@@ -1,12 +1,14 @@
 /* ETHERION — 로컬 저장소: 계정, 컬렉션, 덱, 채팅
-   지금은 브라우저 localStorage에 저장한다. 서버가 생기면 Store/ChatNet의 내부만 바꾸면 된다. */
+   파일로 열면 브라우저 localStorage에 저장한다. v3.22: 서버(ETHERION 서버.bat)로 열면 js/net.js가 이 Store 함수들을 감싸 서버로 보내고,
+   서버는 이 파일을 그대로 읽어(server/rules.js) 같은 규칙으로 처리한다. 그래서 Store에 새 함수를 만들면 서버에도 저절로 있다
+   — 데이터를 바꾸는 함수라면 server/server.js의 OPS와 js/net.js의 NET_SYNC_OPS · NET_ASYNC_OPS에 이름을 넣는다(docs/SERVER.md). */
 "use strict";
 
 const ADMIN_ID = "admin";
 const ADMIN_PW = "etherion";   // 로컬 시제품용. 실제 서비스에서는 서버 인증으로 교체할 것.
 const STORE_KEY = "etherion.v3";   // v3: 덱이 진영이 아니라 단체(9개) 단위가 되면서 저장 형식을 새로 시작
 /* 시험 모드: 로그인 화면을 건너뛰고 관리자(9개 단체 덱·모든 카드 보유)로 바로 들어간다. 정식 계정 흐름으로 돌리려면 false
-   v1.4.4: false — 새 모험가는 진영마다 깃발 하나(모두 셋)만 쓴다. 관리자는 admin / etherion으로 로그인한다 */
+   v1.4.4: false — 새 모험가는 고른 깃발(v3.23: 진영마다 하나까지, 1~3개)만 쓴다. 관리자는 admin / etherion으로 로그인한다 */
 const OPEN_PLAY = false;
 /* v2.1 손님 입장: 로그인 화면의 "로그인 없이 시작"으로 들어오는 계정. 등록·암호 없이 9개 단체 덱과 모든 카드를 쓴다.
    관리자와 달리 보관소·ADMIN 표시는 없다. 진행(승패·환석 조각)은 이 브라우저에 남는다 */
@@ -19,7 +21,7 @@ function starterCollection(g) {
   for (const c of cardsOfGroup(g)) if (!c.special && !isHighGrade(c)) col[c.id] = Math.min(maxCopiesOf(c), Math.max(col[c.id] || 0, 1));   // v2.9 기본 덱 밖의 스페셜은 시작 카드에서 뺀다 (v3.2: 기본 덱의 유니크 · 스페셜 1장씩은 위에서 들어간다)
   return col;
 }
-/* v3.18 레어 이상(레어 · 에픽 · 유니크 · 스페셜)은 기본 덱에 든 것 말고는 시작 카드에 넣지 않는다 — 교역소 · 원정 · 보상으로 얻는다 (docs/GRADES.md 2장) */
+/* v3.18 레어 이상(레어 · 에픽 · 유니크 · 스페셜)은 기본 덱에 든 것 말고는 시작 카드에 넣지 않는다 — 상점 · 원정 · 보상으로 얻는다 (docs/GRADES.md 2장) */
 function isHighGrade(c) { return typeof gradeOf === "function" && GRADES[gradeOf(c)].rank >= 3; }
 const starterDeckName = g => (typeof DECK_LISTS !== "undefined" && DECK_LISTS[g] ? DECK_LISTS[g].name : GROUPS[g].name + " 기본 덱");
 const freshDeck = g => ({ name: starterDeckName(g), cards: Object.assign({}, STARTER_DECKS[g]), savedAt: Date.now() });
@@ -43,8 +45,8 @@ const Store = {
   allCards(u) { u = u || this.user(); return !!(u && (u.admin || u.guest)); },
 
   /* 계정 */
-  /* 새 모험가 (v1.4.4): 세 진영에서 깃발(단체)을 하나씩, 모두 셋을 고른다. 고른 단체의 덱만 쓸 수 있다.
-     groups = [아다만트의 단체, 푸른숲의 단체, 비술의 단체] (문자열 하나를 주면 예전처럼 그 단체 하나) */
+  /* 새 모험가 (v1.4.4, v3.23): 깃발(단체)을 1~3개 무료로 고른다 — 진영마다 하나까지. 고른 단체의 덱만 쓸 수 있다.
+     groups = [단체, …] (문자열 하나를 주면 그 단체 하나) */
   register(id, pw, groups) {
     id = (id || "").trim();
     groups = Array.isArray(groups) ? groups : [groups];
@@ -52,9 +54,11 @@ const Store = {
     if (id.toLowerCase() === ADMIN_ID || id === GUEST_ID) return "이 이름은 쓸 수 없습니다.";
     if (this.data.users[id]) return "이미 있는 이름입니다. 로그인해 주세요.";
     if (!pw || pw.length < 2) return "암호는 2자 이상으로 정해 주세요.";
-    if (!groups.length || groups.some(g => !GROUPS[g])) return "진영마다 깃발을 하나씩 골라 주세요.";
-    const facs = Object.keys(FACTIONS);
-    if (groups.length !== facs.length || facs.some(f => groups.filter(g => GROUPS[g].faction === f).length !== 1)) return "세 진영에서 깃발을 하나씩, 모두 셋을 골라 주세요.";
+    groups = groups.filter((g, i) => groups.indexOf(g) === i);
+    if (!groups.length) return "깃발을 하나 이상 골라 주세요. (최대 3개까지 무료)";
+    if (groups.some(g => !GROUPS[g])) return "없는 깃발입니다. 다시 골라 주세요.";
+    if (groups.length > 3) return "깃발은 3개까지 고를 수 있습니다.";
+    if (Object.keys(FACTIONS).some(f => groups.filter(g => GROUPS[g].faction === f).length > 1)) return "한 진영에서는 깃발을 하나만 고를 수 있습니다.";
     const collection = {}, owned = {}, decks = {};
     for (const g of groups) { Object.assign(collection, starterCollection(g)); owned[g] = true; decks[g] = freshDeck(g); }
     this.data.users[id] = {
@@ -129,7 +133,7 @@ const Store = {
     this.save();
     return { ok: true };
   },
-  /* v3.0 덱 초안: 덱 조정실에서 고치는 중인(아직 저장하지 않은) 덱. 교역소에 다녀오거나 다른 화면에 가도 남는다.
+  /* v3.0 덱 초안: 덱 조정실에서 고치는 중인(아직 저장하지 않은) 덱. 상점에 다녀오거나 다른 화면에 가도 남는다.
      저장(saveDeck)하면 덱이 되고, 되돌리기(clearDraft)하면 지워진다. 대전에는 저장한 덱만 나간다 */
   draft(u, g) { return (u.drafts && u.drafts[g]) || null; },
   setDraft(u, g, cards, name) {
@@ -141,7 +145,7 @@ const Store = {
     this.save();
   },
   clearDraft(u, g) { if (u.drafts && u.drafts[g]) { delete u.drafts[g]; this.save(); } },
-  /* 교역소에서 산 카드를 그 단체의 덱 초안에 넣는다 (40장 · 같은 카드 최대 장수 · 쓸 수 있는 장수 안에서).
+  /* 상점에서 산 카드를 그 단체의 덱 초안에 넣는다 (40장 · 같은 카드 최대 장수 · 쓸 수 있는 장수 안에서).
      돌려주는 값: { g, added, why } — why: "full"(40장이 찼다) · "copies"(같은 카드 최대) · "group"(쓸 수 없는 단체) */
   draftAdd(u, id, n) {
     const c = CARDS[id]; if (!c) return { added: 0, why: "none" };
@@ -175,6 +179,11 @@ const Store = {
   revokeGroup(u, g) {
     if (u.group === g) return;
     delete u.owned[g]; this.save();
+  },
+  /* 관리자 보관소 "모든 카드 지급": 보유한 단체의 모든 카드를 최대 장수만큼 (v3.22 서버가 같은 함수를 돌리도록 Store로 옮김) */
+  grantAllCards(u) {
+    for (const c of CARD_LIST) if (u.owned[c.group]) u.collection[c.id] = maxCopiesOf(c);
+    this.save();
   }
 };
 

@@ -38,7 +38,7 @@ const Bg = {
     return this.sprites[c] = cv;
   },
   set(mode) { this.still = false; this.mode = mode; this.cv.style.opacity = mode === "off" ? 0 : mode === "calm" ? 0.55 : 1; if (typeof Titans !== "undefined") Titans.mode(mode); },
-  /* v3.9 멈춘 하늘(교역소): 별과 입자를 지금 자리에서 한 번만 그리고 더는 그리지 않는다. 다음 Bg.set에서 풀린다 */
+  /* v3.9 멈춘 하늘(상점): 별과 입자를 지금 자리에서 한 번만 그리고 더는 그리지 않는다. 다음 Bg.set에서 풀린다 */
   freeze() { this.still = true; this.stillDrawn = false; },
   draw() {
     const { ctx, w, h } = this;
@@ -238,14 +238,14 @@ function groupGridHTML(opts) {
       ${F.groups.map(g => { const G = GROUPS[g]; return `<button type="button" class="grp-tile" data-g="${g}" style="--gc:${G.color}">${groupEmblem(g)}<b>${G.name}</b><span class="en">${G.en}</span><span class="role">${G.role} · ${ELEMENTS[G.el].name}</span>${opts.motto ? `<span class="motto">${G.motto}</span>` : ""}</button>`; }).join("")}
     </div>`).join("")}</div>`;
 }
-/* 새 모험가: 진영(세로 열)마다 하나씩 고른다. 같은 진영의 다른 깃발을 누르면 바뀐다 */
+/* 새 모험가: 진영(세로 열)마다 하나까지, 1~3개를 무료로 고른다. 같은 진영의 다른 깃발을 누르면 바뀌고, 고른 깃발을 다시 누르면 풀린다(v3.23) */
 function bindFactionPicks(wrap, sumEl) {
   const pick = {};
   const show = () => {
     $$(".grp-tile", wrap).forEach(x => x.classList.toggle("on", pick[GROUPS[x.dataset.g].faction] === x.dataset.g));
-    if (sumEl) { const n = Object.keys(pick).length; sumEl.innerHTML = Object.values(FACTIONS).map(F => `<span class="${pick[F.id] ? "ok" : ""}">${F.name}: <b>${pick[F.id] ? GROUPS[pick[F.id]].name : "아직"}</b></span>`).join(" · ") + ` <small>(${n}/3)</small>`; }
+    if (sumEl) { const n = Object.keys(pick).length; sumEl.innerHTML = Object.values(FACTIONS).map(F => `<span class="${pick[F.id] ? "ok" : ""}">${F.name}: <b>${pick[F.id] ? GROUPS[pick[F.id]].name : "고르지 않음"}</b></span>`).join(" · ") + ` <small>(${n}/3 · 무료)</small>`; }
   };
-  $$(".grp-tile", wrap).forEach(b => b.addEventListener("click", () => { pick[GROUPS[b.dataset.g].faction] = b.dataset.g; show(); }));
+  $$(".grp-tile", wrap).forEach(b => b.addEventListener("click", () => { const f = GROUPS[b.dataset.g].faction; if (pick[f] === b.dataset.g) delete pick[f]; else pick[f] = b.dataset.g; show(); }));
   show();
   return () => Object.keys(FACTIONS).map(f => pick[f]).filter(Boolean);
 }
@@ -277,7 +277,7 @@ function showLogin(tab) {
       <form id="f-new" class="gate-form" ${tab === "new" ? "" : "hidden"}>
         <div class="two"><label>이름<input id="nw-id" maxlength="16" required placeholder="2~16자"></label>
         <label>암호<input id="nw-pw" type="password" required placeholder="2자 이상"></label></div>
-        <p class="pick-label">진영마다 깃발 하나씩 — 세 진영에서 하나씩, 모두 셋을 고릅니다. 고른 깃발마다 기본 덱 40장과 그 단체의 다른 카드를 1장씩 받습니다. 다른 깃발은 쓸 수 없습니다.</p>
+        <p class="pick-label">깃발을 최대 3개까지 무료로 고릅니다 — 진영마다 하나까지, 적어도 하나. 고른 깃발마다 기본 덱 40장과 그 단체의 다른 카드를 1장씩 받습니다. 고르지 않은 깃발은 쓸 수 없습니다. (고른 깃발을 다시 누르면 풀립니다)</p>
         ${groupGridHTML({ motto: true })}
         <p class="pick-sum" id="nw-sum"></p>
         <p class="err" id="nw-err"></p>
@@ -316,6 +316,7 @@ function expandDeck(cards) { const out = []; for (const id in cards) for (let i 
 /* 메뉴 아이콘 (24×24 선 그림, 색은 바깥에서) */
 const MENU_ICON = {
   hall: '<path d="M4 21V10.5L12 4l8 6.5V21"/><path d="M9.5 21v-5a2.5 2.5 0 015 0v5"/><path d="M2.5 21h19"/>',
+  trade: '<path d="M4 8.5h13.5l-3.4-3.4M20 15.5H6.5l3.4 3.4"/><path d="M12 10.3l1.7 1.7-1.7 1.7-1.7-1.7z"/>',   /* v3.21 교역소 = 맞바꾸는 두 화살표 + 가운데 마름모 */
   shop: '<path d="M12 4.5V20M7.5 20h9M4.5 7.5h15"/><path d="M4.5 7.5 2.4 13M4.5 7.5 6.6 13M19.5 7.5 17.4 13M19.5 7.5 21.6 13"/><path d="M2.2 13h4.6a2.3 2.3 0 01-4.6 0zM17.2 13h4.6a2.3 2.3 0 01-4.6 0z"/><circle cx="12" cy="3.8" r="1.2" fill="currentColor"/>',
   book: '<path d="M12 6.6C9.6 5 6.6 4.6 3.6 5.3v13c3-.7 6-.3 8.4 1.3 2.4-1.6 5.4-2 8.4-1.3v-13c-3-.7-6-.3-8.4 1.3z"/><path d="M12 6.6v13M6.2 9.2c1.4-.1 2.7.2 3.8.8M6.2 12.4c1.4-.1 2.7.2 3.8.8M14 10c1.1-.6 2.4-.9 3.8-.8"/>',   /* v3.7 연대기 = 펼친 책 */
   map: '<circle cx="12" cy="12" r="8.5"/><path d="M12 5.2l2 6.8-2 6.8-2-6.8z" fill="currentColor" stroke="none"/><path d="M5.2 12h2.2M16.6 12h2.2" />',
@@ -332,7 +333,7 @@ const menuIcon = k => `<svg class="m-ico" viewBox="0 0 24 24" fill="none" stroke
 
 /* 상단 문장 띠: 왼쪽 날개 = 길(메뉴), 가운데 = 늘어뜨린 쐐기돌 문장(로고 + 지금 있는 곳), 오른쪽 날개 = 지갑 · 모험가 인장 · 나가기 */
 /* v3.9.15 모험가 인장 = 레벨 판: 구슬에 레벨(머리글자 대신), 이름 옆에 전적 · 승률, 그 아래 경험치 막대.
-   환석 조각은 인장 바로 왼쪽(.tb-shard, 누르면 교역소). 지도 · 연대기는 길이라 왼쪽 날개로 옮겼다(오른쪽 날개 폭 확보). 값이 바뀌면 js/level.js LevelUI.paint가 고쳐 쓴다 */
+   환석 조각은 인장 바로 왼쪽(.tb-shard, 누르면 상점). 지도 · 연대기는 길이라 왼쪽 날개로 옮겼다(오른쪽 날개 폭 확보). 값이 바뀌면 js/level.js LevelUI.paint가 고쳐 쓴다 */
 function sealRecord(u) {
   const w = u.stats.w || 0, l = u.stats.l || 0, n = w + l;
   return { w, l, n, rate: n ? Math.round(w / n * 100) : null };
@@ -356,18 +357,18 @@ function sealTitle(u, R, I) {
 }
 function shardChipHTML(u) {
   const admin = Store.isAdmin(u);
-  return `<button type="button" class="tb-shard" data-nav="shop" title="환석 조각 ${admin ? "∞ (관리자)" : fmtGold(Store.gold(u))}\n전투 · 수레바퀴 · 원정으로 모아 교역소에서 카드를 삽니다. 누르면 교역소로.">
+  return `<button type="button" class="tb-shard" data-nav="shop" title="환석 조각 ${admin ? "∞ (관리자)" : fmtGold(Store.gold(u))}\n전투 · 수레바퀴 · 원정으로 모아 상점에서 카드를 삽니다. 누르면 상점으로.">
           <i class="shard" aria-hidden="true"></i><b>${admin ? "∞" : Store.gold(u).toLocaleString("ko-KR")}</b><small>조각</small></button>`;
 }
 function headerHTML(title) {
   const u = Store.user();
-  const cur = { lobby: "lobby", shop: "shop", admin: "admin" }[App.screen] || (title === "관리자 보관소" ? "admin" : "");
-  const nav = (k, ico, label, tip) => `<button type="button" class="tb-nav${cur === k ? " on" : ""}" data-nav="${k}"${cur === k ? ' aria-current="page"' : ""}${tip ? ` title="${tip}"` : ""}>${menuIcon(ico)}<span>${label}</span></button>`;
+  const cur = { lobby: "lobby", shop: "shop", trade: "trade", admin: "admin" }[App.screen] || (title === "관리자 보관소" ? "admin" : "");
+  const nav = (k, ico, label, tip, extra) => `<button type="button" class="tb-nav${cur === k ? " on" : ""}" data-nav="${k}"${cur === k ? ' aria-current="page"' : ""}${tip ? ` title="${tip}"` : ""}>${menuIcon(ico)}<span>${label}</span>${extra || ""}</button>`;
   const div = '<i class="tb-div" aria-hidden="true"></i>';
   return `<header class="topbar realm">
     <div class="tb-inner realm">
       <nav class="tb-wing tbw-left" aria-label="주 메뉴">
-        ${nav("lobby", "hall", "대기실")}${div}${nav("shop", "shop", "교역소", "린데어 교역소")}${u.admin ? div + nav("admin", "vault", "보관소", "관리자 보관소") : ""}${div}${nav("map", "map", "지도", "카일란 대륙 전도")}${nav("chronicle", "book", "연대기", "에테리온 연대기")}
+        ${nav("lobby", "hall", "대기실")}${div}${nav("shop", "shop", "상점", "린데어 상점 — 카드 사고팔기")}${typeof showTrade === "function" ? div + nav("trade", "trade", "교역소", "린데어 교역소 — 모험가끼리 카드 맞바꾸기", typeof TradeUI !== "undefined" ? TradeUI.badgeHTML() : "") : ""}${u.admin ? div + nav("admin", "vault", "보관소", "관리자 보관소") : ""}${div}${nav("map", "map", "지도", "카일란 대륙 전도")}${nav("chronicle", "book", "연대기", "에테리온 연대기")}
       </nav>
       <button type="button" class="tb-crest${typeof CREST !== "undefined" ? " has-art" : ""}" data-nav="lobby" title="대기실로">${typeof CREST !== "undefined" ? CREST.svg() : ""}<span class="crest-word">ETHERION</span>${title ? `<span class="crest-sub">${title}</span>` : ""}</button>
       <div class="tb-wing tbw-right">
@@ -380,7 +381,7 @@ function headerHTML(title) {
       </div>
     </div>
   </header>${typeof LevelUI !== "undefined" ? "" : `
-  <div class="gold-dock"><span class="gold-chip" title="환석 조각 — 전투와 수레바퀴로 모아 교역소에서 카드를 산다"><b>${fmtGold(Store.gold(u))}</b></span></div>`}`;   /* v3.1.4 환석 조각은 화면 아래 가운데 (css/hud.css). v3.6: 레벨 판(js/level.js LevelUI)이 있으면 그 판이 조각과 레벨을 함께 보인다 */
+  <div class="gold-dock"><span class="gold-chip" title="환석 조각 — 전투와 수레바퀴로 모아 상점에서 카드를 산다"><b>${fmtGold(Store.gold(u))}</b></span></div>`}`;   /* v3.1.4 환석 조각은 화면 아래 가운데 (css/hud.css). v3.6: 레벨 판(js/level.js LevelUI)이 있으면 그 판이 조각과 레벨을 함께 보인다 */
 }
 function bindHeader(root, guard) {
   root.querySelector(".topbar").addEventListener("click", async e => {
@@ -391,6 +392,7 @@ function bindHeader(root, guard) {
     if (b.dataset.nav === "lobby") showLobby();
     if (b.dataset.nav === "admin") showAdmin();
     if (b.dataset.nav === "shop") showShop();
+    if (b.dataset.nav === "trade" && typeof showTrade === "function") showTrade();   /* v3.21 린데어 교역소 (js/trade-ui.js) */
     if (b.dataset.nav === "map") { if (typeof Kailan !== "undefined") Kailan.open(); }
     if (b.dataset.nav === "chronicle") { if (typeof Chronicle !== "undefined") { const r = b.getBoundingClientRect(); Chronicle.open(r.left + r.width / 2, r.top + r.height / 2); } }   /* v3.7 연대기 (js/chronicle.js) */
     if (b.dataset.nav === "logout") { Store.logout(); showTitle(); }
@@ -433,7 +435,7 @@ function showLobby() {
             <span class="dt-state">${own ? `${vaultGaugeHTML(n, playable)}<span class="dt-st ${playable ? "ok" : "bad"}"><b>${n}</b>/${RULES.deckSize} · ${playable ? "출전 가능" : "저장 필요"}</span>` : `<span class="dt-st lock">${LOCK_MINI} 보유하지 않은 덱</span>`}</span></span>
           </button>`;
         }).join("")}</div>`).join("")}
-        <p class="note">${u.admin ? "관리자는 9개 단체의 덱과 모든 카드를 가지고 있습니다." : u.guest ? "손님으로 들어왔습니다. 9개 단체의 덱과 모든 카드를 쓸 수 있습니다. 내 깃발과 카드를 모으려면 나가서 '새 모험가'로 등록하세요." : "진영마다 고른 깃발 하나씩, 세 덱만 쓸 수 있습니다. 원정에서 이기면 카드를 골라 얻고, 교역소에서 사고팔 수도 있습니다."}</p>
+        <p class="note">${u.admin ? "관리자는 9개 단체의 덱과 모든 카드를 가지고 있습니다." : u.guest ? "손님으로 들어왔습니다. 9개 단체의 덱과 모든 카드를 쓸 수 있습니다. 내 깃발과 카드를 모으려면 나가서 '새 모험가'로 등록하세요." : "등록할 때 고른 깃발(최대 3개)의 덱만 쓸 수 있습니다. 원정에서 이기면 카드를 골라 얻고, 상점에서 사고팔 수도 있습니다."}</p>
       </nav>
       <main class="deck-view" id="deck-view"></main>
       <aside class="side-col">
@@ -624,7 +626,7 @@ function onMatchEnd(g) {
    - 넣기: 카드를 누르면 1장 · Shift+누르기는 최대 장수까지 · 카드 아래 마름모를 누르면 그 장수로 맞춤 · 덱 칸으로 끌어다 놓기
    - 빼기: 오른쪽 누르기(우클릭) · 덱 목록의 − 또는 줄 누르기 · 덱 줄을 보유 카드 쪽으로 끌어다 놓기
    - 40장 규칙: 위 띠의 40칸 계기판. 40장이 넘게 넣으려 하면 경보(붉은 띠 · 흔들림 · 소리). 정확히 40장일 때만 저장 단추가 켜진다
-   - 덱 초안(Store.draft): 고치는 중인 덱은 저장 전에도 남는다. 교역소에서 산 카드도 이 초안에 들어온다(js/shop.js)
+   - 덱 초안(Store.draft): 고치는 중인 덱은 저장 전에도 남는다. 상점에서 산 카드도 이 초안에 들어온다(js/shop.js)
    - 배경: v3.10.7부터 타이틀 그림(img/title/title_art.jpg) 한 장을 멈춘 채 깐다(css/title-art.css .ed-art). 예전의 운명의 감실(js/scenes.js)은 쓰지 않는다 */
 /* v3.10.8 카드 보관함 종류 거르기: 한 줄에 하나만 켜진다. 공격 · 방어 · 공용 · 계략은 '마법' 칸에 붙은 작은 칸.
    예전에는 종류(전체 · 유닛 · 마법 · 아이템)와 마법 종류(모든 마법 · 공격 …)가 따로 켜져서, 유닛을 켠 채 공격을 누르면 0장이 나왔다 */
@@ -678,7 +680,7 @@ function showEditor(f, focusId) {
   const freshN = () => cardsOfGroup(f).filter(c => u.fresh && u.fresh[c.id]).length;
   const boughtN = () => cardsOfGroup(f).filter(c => (u.collection[c.id] || 0) > 0).length;
   const ownChips = () => (all
-    ? [["have", "모든 카드"], ["bought", `교역소에서 산 카드 ${boughtN()}`], ["fresh", `새로 산 카드 ${freshN()}`]]
+    ? [["have", "모든 카드"], ["bought", `상점에서 산 카드 ${boughtN()}`], ["fresh", `새로 산 카드 ${freshN()}`]]
     : [["have", "가진 카드"], ["fresh", `새로 산 카드 ${freshN()}`], ["every", "모든 카드 (못 가진 것도)"]])
     .map(([k, l]) => `<button class="chip${E.own === k ? " on" : ""}${k === "fresh" && freshN() ? " has-new" : ""}" data-own="${k}">${l}</button>`).join("");
   $("#app").innerHTML = `<section class="screen screen-editor">
@@ -707,7 +709,7 @@ function showEditor(f, focusId) {
       <section class="ed-pool" id="ed-pool-panel">
         <div class="pool-head"><h3 class="panel-title">${all ? "카드 보관함" : "보유 카드"} <small>${F.name}의 유닛·마법·아이템만 넣을 수 있습니다</small></h3>
           <input id="ed-q" class="ed-q" placeholder="이름 검색" aria-label="카드 이름 검색"></div>
-        <div class="chips" id="ed-own">${ownChips()}<span class="sep"></span><button class="chip ghost" data-goshop="1" title="이 단체의 카드를 교역소에서 삽니다">교역소에서 사기 →</button></div>
+        <div class="chips" id="ed-own">${ownChips()}<span class="sep"></span><button class="chip ghost" data-goshop="1" title="이 단체의 카드를 상점에서 삽니다">상점에서 사기 →</button></div>
         <div class="ed-filts">
           <div class="ed-filt ed-filt-pool" id="ed-filt-pool">
             <div class="edf-head"><button type="button" class="edf-tab" data-scope="pool">카드 보관함</button><small>가진 카드 전체</small></div>
@@ -824,13 +826,13 @@ function showEditor(f, focusId) {
       if (showSec && c.type !== lastSec) { lastSec = c.type; const [t, sub] = POOL_SECS[c.type] || [c.type, ""];
         head = `<div class="pool-sec k-${c.type}"><span class="ps-name">${t}</span><b>${secN[c.type]}</b>${sub ? `<small>${sub}</small>` : ""}</div>`; }
       return head + poolCardHTML(c);
-    }).join("") || `<p class="empty">${E.scope === "deck" ? (countMap(E.cards) ? "내 덱에 이 조건의 카드가 없습니다." : "운명의 서가 비어 있습니다. 카드 보관함에서 카드를 넣으세요.") : E.own === "fresh" ? "새로 산 카드가 없습니다. 교역소에서 카드를 사면 여기 NEW로 나옵니다." : E.own === "bought" ? "교역소에서 산 이 단체의 카드가 없습니다." : "조건에 맞는 카드가 없습니다."}</p>`;
+    }).join("") || `<p class="empty">${E.scope === "deck" ? (countMap(E.cards) ? "내 덱에 이 조건의 카드가 없습니다." : "운명의 서가 비어 있습니다. 카드 보관함에서 카드를 넣으세요.") : E.own === "fresh" ? "새로 산 카드가 없습니다. 상점에서 카드를 사면 여기 NEW로 나옵니다." : E.own === "bought" ? "상점에서 산 이 단체의 카드가 없습니다." : "조건에 맞는 카드가 없습니다."}</p>`;
     function poolCardHTML(c) {
       const own = Store.ownedCount(u, c.id), inDeck = E.cards[c.id] || 0, cap = Math.min(maxCopiesOf(c), own), left = own - inDeck;
       const bought = u.collection[c.id] || 0, fresh = u.fresh && u.fresh[c.id];
       if (!own) return `<div class="pool-card locked" data-pc="${c.id}">
         <div class="pc-face" aria-label="${esc(c.name)} (가지고 있지 않음)">${cardHTML(c, { size: "md", brief: true })}<span class="pc-lock">가지고 있지 않음</span></div>
-        <button class="btn xs gold pc-shop" data-goshop="${c.id}">교역소에서 사기</button></div>`;
+        <button class="btn xs gold pc-shop" data-goshop="${c.id}">상점에서 사기</button></div>`;
       const pips = Array.from({ length: maxCopiesOf(c) }, (_, k) => `<button class="pip${k < inDeck ? " on" : ""}${k >= cap ? " no" : ""}" data-set="${c.id}" data-k="${k + 1}" ${k >= cap ? "disabled" : ""} aria-label="덱에 ${k + 1}장으로"></button>`).join("");
       return `<div class="pool-card${left <= 0 ? " out" : ""}${inDeck ? " in-deck" : ""}${fresh ? " fresh" : ""}" data-pc="${c.id}">
         <button class="pc-face" data-add="${c.id}" draggable="true" title="누르기: 1장 넣기 · Shift: 가득 · 우클릭: 1장 빼기" aria-label="${esc(c.name)} 덱에 넣기">${cardHTML(c, { size: "md", brief: true })}${inDeck ? `<span class="pc-badge">${inDeck}</span>` : ""}${fresh ? '<span class="pc-new">NEW</span>' : ""}</button>
@@ -840,9 +842,9 @@ function showEditor(f, focusId) {
           <span class="pc-pips" role="group" aria-label="덱에 ${inDeck}장">${pips}</span>
           <button class="pc-btn pc-plus" data-add="${c.id}" ${left <= 0 || inDeck >= cap ? "disabled" : ""} aria-label="${esc(c.name)} 덱에 1장 넣기">+</button>
         </div>
-        <span class="pc-meta">${all ? (bought ? `교역소에서 산 것 <b>${bought}</b>` : "관리자 카드") : `남음 <b>${Math.max(0, left)}</b> · 보유 ${bought}`}</span></div>`;
+        <span class="pc-meta">${all ? (bought ? `상점에서 산 것 <b>${bought}</b>` : "관리자 카드") : `남음 <b>${Math.max(0, left)}</b> · 보유 ${bought}`}</span></div>`;
     }
-    $("#ed-own").innerHTML = ownChips() + '<span class="sep"></span><button class="chip ghost" data-goshop="1" title="이 단체의 카드를 교역소에서 삽니다">교역소에서 사기 →</button>';
+    $("#ed-own").innerHTML = ownChips() + '<span class="sep"></span><button class="chip ghost" data-goshop="1" title="이 단체의 카드를 상점에서 삽니다">상점에서 사기 →</button>';
     if (typeof Scenes !== "undefined") Scenes.editorState(n, lvN);
     if (lastN !== -1 && n === N && lastN !== N) { $("#ed-gauge").classList.add("complete"); if (typeof FEEL !== "undefined") FEEL.play("confirm", .55); }
     lastN = n;
@@ -879,7 +881,7 @@ function showEditor(f, focusId) {
     const c = CARDS[id], inDeck = E.cards[id] || 0, own = Store.ownedCount(u, id), cap = Math.min(maxCopiesOf(c), own);
     k = Math.max(0, k);
     if (k > inDeck) {
-      if (inDeck >= own) { alarm(all ? "이 카드는 더 넣을 수 없습니다." : `덱 밖에 남은 「${esc(c.name)}」가 없습니다. 교역소에서 더 사세요.`, "warn"); return false; }
+      if (inDeck >= own) { alarm(all ? "이 카드는 더 넣을 수 없습니다." : `덱 밖에 남은 「${esc(c.name)}」가 없습니다. 상점에서 더 사세요.`, "warn"); return false; }
       if (inDeck >= maxCopiesOf(c)) { alarm(maxCopiesOf(c) < RULES.maxCopies ? `「${esc(c.name)}」는 덱에 ${maxCopiesOf(c)}장만 넣을 수 있습니다.` : `같은 카드는 ${RULES.maxCopies}장까지입니다.`, "warn"); return false; }
       const room = RULES.deckSize - countMap(E.cards);
       if (room <= 0) { alarm(`<b>덱이 가득 찼습니다 (${RULES.deckSize} / ${RULES.deckSize})</b> — ${RULES.deckSize}장을 넘길 수 없습니다. 다른 카드를 빼고 넣으세요.`); return false; }
@@ -997,7 +999,7 @@ function showEditor(f, focusId) {
     const v = await modal(`<h3>대전 방식</h3><p>저장된 「${esc(Store.deck(u, f).name)}」로 출전합니다.</p>`, [{ label: "취소", value: null }, { label: "대전 (2인)", value: "pvp" }, { label: "컴퓨터와 대전", value: "ai", cls: "primary" }]);
     if (v === "ai") startVsAI(f); else if (v === "pvp") startPvP(f);
   });
-  // 다른 탭에서 교역소로 카드를 사면(같은 브라우저 저장소) 여기에도 바로 들어온다
+  // 다른 탭에서 상점으로 카드를 사면(같은 브라우저 저장소) 여기에도 바로 들어온다
   App.refresh = () => {
     if (App.screen !== "editor" || !root.isConnected) return;
     u = Store.user(); if (!u) return;
@@ -1039,7 +1041,7 @@ function showAdmin(tab) {
           <td>${countMap(x.collection)}장</td><td>${typeof LEVEL !== "undefined" ? "Lv " + Store.level(x) : "-"}</td><td>${x.stats.w}승 ${x.stats.l}패</td>
           <td><button class="btn xs" data-u="${esc(x.id)}" data-all="1">모든 카드 지급</button></td></tr>`).join("")}
         </tbody></table>` : '<p class="empty">아직 등록된 모험가가 없습니다. 로그아웃한 뒤 "새 모험가"로 등록하면 여기에 나타납니다.</p>'}
-        <p class="note">이 목록은 이 브라우저에 저장된 계정입니다. 서버가 생기면 같은 화면에서 전체 계정을 관리하게 됩니다.</p></div>`;
+        <p class="note">${typeof Net !== "undefined" && Net.on ? "서버에 등록된 모든 모험가입니다. 지급 · 회수는 서버에 바로 반영됩니다." : "이 목록은 이 브라우저에 저장된 계정입니다. 서버(ETHERION 서버.bat)로 열면 서버의 전체 계정을 관리합니다."}</p></div>`;
   }
   const tabs = GROUP_IDS.map(g => [g, `${GROUPS[g].name} (${cardsOfGroup(g).length})`, GROUPS[g].faction]).concat([["users", `모험가 관리 (${users.length})`, ""]]);
   $("#app").innerHTML = `<section class="screen screen-admin">
@@ -1060,7 +1062,7 @@ function showAdmin(tab) {
       const b = e.target.closest("[data-u]"); if (!b) return;
       const x = Store.data.users[b.dataset.u]; if (!x) return;
       if (b.dataset.tog) { const g = b.dataset.tog; if (x.owned[g]) Store.revokeGroup(x, g); else Store.grantGroup(x, g); toast(`${x.id}: ${GROUPS[g].name} 덱 ${x.owned[g] ? "지급" : "회수"}`); }
-      if (b.dataset.all) { CARD_LIST.forEach(c => { if (x.owned[c.group]) x.collection[c.id] = maxCopiesOf(c); }); Store.save(); toast(`${x.id}: 보유 단체의 모든 카드를 ${RULES.maxCopies}장씩 지급`); }
+      if (b.dataset.all) { Store.grantAllCards(x); toast(`${x.id}: 보유 단체의 모든 카드를 ${RULES.maxCopies}장씩 지급`); }
       showAdmin("users");
     });
   }
@@ -1076,7 +1078,7 @@ function boot() {
   Bg.init();
   if (typeof Weather !== "undefined") Weather.init();
   ChatNet.connect();
-  /* v3.0 교역소와 덱 조정실을 다른 탭에 띄워도 같은 저장소를 쓴다: 한쪽에서 사거나 고치면 다른 쪽이 바로 다시 그린다 */
+  /* v3.0 상점과 덱 조정실을 다른 탭에 띄워도 같은 저장소를 쓴다: 한쪽에서 사거나 고치면 다른 쪽이 바로 다시 그린다 */
   addEventListener("storage", e => { if (e.key !== STORE_KEY) return; Store.load(); if (typeof App.refresh === "function") App.refresh(); });
   showTitle();
 }

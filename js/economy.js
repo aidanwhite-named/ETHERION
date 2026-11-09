@@ -21,13 +21,13 @@ const ECON = {
     card: { p: 0.0001 }                // 세 진영 문장이 모두 다르게 — 카드 1장 (어떤 카드로 할지는 미정: 지금은 무작위)
   }
 };
-/* 특별한 카드의 가격을 따로 정할 때 여기 적는다. 예: { "B1-40": 1200 } (교역소 값과 전투 보상 모두에 쓴다) */
+/* 특별한 카드의 가격을 따로 정할 때 여기 적는다. 예: { "B1-40": 1200 } (상점 값과 전투 보상 모두에 쓴다) */
 const PRICE_OVERRIDE = {};
 
-/* v3.0 교역소 값과 재고 — 나중에 바꿀 때는 여기만 고친다
-   - SHOP_FLAT: 교역소에서 사고파는 값. 지금은 모든 카드 100 조각. null로 두면 예전처럼 레벨 공식(cardPrice)을 쓴다.
+/* v3.0 상점 값과 재고 — 나중에 바꿀 때는 여기만 고친다
+   - SHOP_FLAT: 상점에서 사고파는 값. 지금은 모든 카드 100 조각. null로 두면 예전처럼 레벨 공식(cardPrice)을 쓴다.
      전투 보상(부서진 카드 2%, 정산)은 그대로 cardPrice(레벨 공식)를 쓴다.
-   - SHOP_STOCK: 등급마다 교역소가 처음 채워 두는 장수. 희귀한 등급일수록 적다. */
+   - SHOP_STOCK: 등급마다 상점이 처음 채워 두는 장수. 희귀한 등급일수록 적다. */
 const SHOP_FLAT = 100;
 const SHOP_STOCK = { common: 100, uncommon: 80, rare: 50, epic: 30, unique: 10, special: 5 };
 function shopPrice(c) {
@@ -64,7 +64,7 @@ Object.assign(Store, {
     this.save();
     return u.gold;
   },
-  /* v3.0 교역소 구매: 재고(stockLeft)에서 n장을 꺼내 보관함(collection)에 넣는다.
+  /* v3.0 상점 구매: 재고(stockLeft)에서 n장을 꺼내 보관함(collection)에 넣는다.
      - 관리자는 무엇이든 살 수 있다: 지갑을 보지 않고(줄지도 않는다), 최대 장수 제한도 없다. 재고만 줄어든다.
      - 다른 계정은 값 × n을 내고, 같은 카드는 최대 장수(maxCopiesOf)까지만 산다.
      - opts.toDeck: 산 카드를 그 단체의 덱 초안(덱 조정실)에 바로 넣는다(40장 · 같은 카드 장수 안에서). */
@@ -108,9 +108,9 @@ Object.assign(Store, {
     if (this.isAdmin(u)) this.save(); else this.addGold(u, price, "판매 " + c.name);
     return { ok: true, price: this.isAdmin(u) ? 0 : price, have: u.collection[id] || 0 };
   },
-  /* 보유 장수 (교역소에서 산 장수). 관리자 · 손님은 덱에서는 모든 카드를 최대 장수만큼 쓸 수 있다 */
+  /* 보유 장수 (상점에서 산 장수). 관리자 · 손님은 덱에서는 모든 카드를 최대 장수만큼 쓸 수 있다 */
   shopOwned(u, id) { return Store.allCards(u) ? (u.collection[id] || 0) : this.ownedCount(u, id); },
-  /* v3.0 교역소 재고: 이 브라우저의 모든 계정이 같은 재고를 나눠 쓴다. 등급마다 처음 채우는 장수가 다르다(SHOP_STOCK) */
+  /* v3.0 상점 재고: 이 브라우저의 모든 계정이 같은 재고를 나눠 쓴다. 등급마다 처음 채우는 장수가 다르다(SHOP_STOCK) */
   stockLeft(id) { const s = this.data.stock && this.data.stock[id]; return s == null ? stockMax(id) : s; },
   restock(ids) { if (!this.data.stock) return; if (ids) for (const id of ids) delete this.data.stock[id]; else this.data.stock = {}; this.save(); }
 });

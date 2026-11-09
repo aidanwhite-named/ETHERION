@@ -1,7 +1,7 @@
 /* ETHERION — 레어 · 에픽 · 유니크 추가 카드 (v3.18)
    단체마다 6장, 모두 54장: 레어 아이템 1 · 에픽 유닛 3 · 유니크 마법 2.
    uniques.js 다음, decks.js · cards.js 앞에 읽는다(균형 도구가 data.js를 다시 써도 이 파일은 그대로 남는다). 등급은 js/grades.js가 여기 표(HIGH_GRADES)를 읽는다.
-   기본 덱(js/decks.js)에는 넣지 않는다 — 교역소 · 원정 · 전투 보상으로 얻는다. 새 모험가의 시작 카드에도 들어가지 않는다(js/store.js isHighGrade).
+   기본 덱(js/decks.js)에는 넣지 않는다 — 상점 · 원정 · 전투 보상으로 얻는다. 새 모험가의 시작 카드에도 들어가지 않는다(js/store.js isHighGrade).
 
    설계 기준 (docs/GRADES.md 2장, 점수는 v1.3 가격표: 1.2 × 기대 공 + 방어값 + 기대 체, 능력은 docs/BALANCE_v1.3.md 5장 가중치, 증폭 1 = 0.5)
    - 레어 아이템: 같은 레벨 아이템보다 +1.5점 남짓(스탯 +2 또는 능력 하나). 덱에 4장까지(제한 없음).
@@ -215,11 +215,7 @@ const HIGH_SPELLS = [
     ops: [{ op: "destroy", side: "foe", area: { t: "maxA", n: 2 } }], cost: { life: 4 },
     brief: "{대가} 생명 4|{적 최강2} 파괴",
     desc: "침묵의 군주 모르카스의 저울. 한쪽에 피를 올리면 다른 쪽에서 목숨 둘이 내려간다." },
-  { id: "US-A1-2", n: "그림자 계약", g: "A1", camp: "A", lv: 3, kind: "atk",
-    text: "생명 1을 내고, 아군 뒤 3칸의 유닛 공격 +3, [치명], [연쇄].",
-    ops: [{ op: "mod", side: "ally", area: { t: "back", n: 3 }, a: 3 }, { op: "grant", side: "ally", area: { t: "back", n: 3 }, ab: { crit: 1, chain: 1 } }], cost: { life: 1 },
-    brief: "{대가} 생명 1|{아군 뒤3} ⚔+3 [치명] [연쇄]",
-    desc: "그림자 없는 아즈라가 처음 맺었다는 계약의 사본. 원본에 무엇을 걸었는지는 적혀 있지 않다." },
+  /* US-A1-2 그림자 계약은 v3.24.2에 레어로 내려 js/rarespells.js로 옮겼다(카드 ID는 그대로 — 가진 카드 · 저장한 덱이 깨지지 않게). docs/RARESPELLS_v3.24.md */
   /* A2 */
   { id: "US-A2-1", n: "성광의 검", g: "A2", camp: "A", lv: 4, kind: "atk", opening: true,
     text: "아군 전체 공격 +2, [마력 공격 전부]. 이 마법은 놓인 칸과 상관없이 전투가 시작될 때 먼저 발동한다.",

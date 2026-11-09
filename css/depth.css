@@ -48,7 +48,7 @@
 @keyframes d3Rise { from { opacity: 0; transform: perspective(var(--d3-pos)) translate3d(0, 34px, -300px) rotateX(9deg); } }
 .vault-preview, .users, .xp-head, .xp-route, .xp-card, .gate { animation: d3Rise .72s cubic-bezier(.16, .84, .24, 1) backwards; }
 .xp-route { animation-delay: .07s; }
-/* 교역소(v3.5.2) · 대기실 · 덱 조정실(v3.5.3)의 판은 날아들지도, 마우스를 따라 기울지도 않는다(카드 목록이 기울거나 아래로 밀려 보였다) */
+/* 상점(v3.5.2) · 대기실 · 덱 조정실(v3.5.3)의 판은 날아들지도, 마우스를 따라 기울지도 않는다(카드 목록이 기울거나 아래로 밀려 보였다) */
 .shop-tree, .shop-main, .decks, .chat, .deck-view, .ed-deck, .ed-pool, .ed-preview { will-change: auto; transform: none; }
 .vault-preview, .xp-card { animation-delay: .14s; }
 

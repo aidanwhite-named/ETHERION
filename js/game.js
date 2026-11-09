@@ -969,7 +969,7 @@ async function showSettings() {
     <div class="speed set-battle-bg">${[["default", "칠룡환 (기본)"], ["war", "3파전 (거인·용·신)"], ["random", "무작위"]].map(([v, n]) => `<button type="button" class="btn xs ${curBg === v ? "on" : ""}" data-bbg="${v}">${n}</button>`).join("")}</div>
     <p class="pick-label">효과음 <small class="muted">— 누르기·놓기·맞기 소리 (파일 없이 합성, 터치 기기에서는 짧은 진동)</small></p>
     <div class="speed set-sfx">${[["off", "끄기"], ["low", "작게"], ["mid", "보통"]].map(([v, n]) => `<button type="button" class="btn xs ${typeof FEEL !== "undefined" && FEEL.level === v ? "on" : ""}" data-sfx="${v}">${n}</button>`).join("")}</div>
-    <p class="pick-label">배경음 <small class="muted">— 타이틀 곡과 대기실·교역소의 아홉 단체 테마(무작위로 이어 틂). 대전 중에는 멈춥니다</small></p>
+    <p class="pick-label">배경음 <small class="muted">— 타이틀 곡과 대기실·상점의 아홉 단체 테마(무작위로 이어 틂). 대전 중에는 멈춥니다</small></p>
     <div class="speed set-bgm">${[["off", "끄기"], ["low", "작게"], ["mid", "보통"]].map(([v, n]) => `<button type="button" class="btn xs ${typeof BGM !== "undefined" && BGM.level === v ? "on" : ""}" data-bgm="${v}">${n}</button>`).join("")}</div>
     <p class="pick-label">한글 글꼴 <small class="muted">— 후보 글꼴은 처음 한 번 인터넷에서 받아옵니다. 받지 못하면 기기 바탕체로 보입니다</small></p>
     <div class="font-pick">${FONTS.map(f => `<label class="font-opt${f.id === cur ? " on" : ""}" style="font-family:${f.family}, serif"><input type="radio" name="font" value="${f.id}" ${f.id === cur ? "checked" : ""}><b>${f.name}</b><small>${f.desc} — 에테리온의 밤, 아다만트 연합과 푸른숲 맹약</small></label>`).join("")}</div>

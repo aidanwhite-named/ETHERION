@@ -26,7 +26,7 @@ function loadGame() {
   };
   ctx.window = ctx; vm.createContext(ctx);
   let src = "";
-  for (const f of ["data", "names", "briefs", "specials", "uniques", "highcards", "decks", "cards", "grades"])
+  for (const f of ["data", "names", "briefs", "specials", "uniques", "highcards", "rarespells", "decks", "cards", "grades"])
     src += fs.readFileSync(path.join(ROOT, "js", f + ".js"), "utf8") + "\n;\n";
   src += "this.__o = { CARDS, GROUPS, FACTIONS };";
   vm.runInContext(src, ctx, { filename: "etherion-data" });

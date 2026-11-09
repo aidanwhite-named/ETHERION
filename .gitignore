@@ -30,3 +30,7 @@ logs/
 # PC 앱(Electron): 만든 exe · 받아 둔 Electron 본체 (tools/desktop/build_exe.py)
 desktop/out/
 desktop/cache/
+
+# 서버(v3.22): 모험가 데이터 · 백업 · 관리자 암호가 든 설정 (docs/SERVER.md)
+server/data/
+server/config.json

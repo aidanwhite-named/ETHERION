@@ -14,7 +14,7 @@ const SHOP = { node: "root", type: "all", lv: 0, grade: "", open: {}, toDeck: tr
 try { const v = localStorage.getItem("etherion.pref.shopToDeck"); if (v != null) SHOP.toDeck = v === "1"; } catch (e) {}
 
 function shopNodeHTML(kind, id, extra) {
-  if (kind === "root") return `<button type="button" class="org-node rq root${SHOP.node === "root" ? " on" : ""}" data-node="root"><i class="rq-plate" aria-hidden="true"></i><span class="emblem big q">⚖</span><b>린데어 교역소</b><span class="en">Lindear Exchange · ${CARD_LIST.length}종</span></button>`;
+  if (kind === "root") return `<button type="button" class="org-node rq root${SHOP.node === "root" ? " on" : ""}" data-node="root"><i class="rq-plate" aria-hidden="true"></i><span class="emblem big q">⚖</span><b>린데어 상점</b><span class="en">Lindear Market · ${CARD_LIST.length}종</span></button>`;
   if (kind === "faction") {
     const F = FACTIONS[id], n = CARD_LIST.filter(c => c.faction === id).length;
     return `<button type="button" class="org-node rq faction fac-${id}${SHOP.node === id ? " on" : ""}${SHOP.open[id] ? " open" : ""}" data-node="${id}" style="--gc:${F.color}"><i class="rq-plate" aria-hidden="true"></i><span class="emblem big" style="--gc:${F.color}">${factionCrestSVG(id)}</span><b>${F.name}</b><span class="en">${F.en}</span><span class="role">단체 3 · 카드 ${n}종</span><i class="caret">${SHOP.open[id] ? "▾" : "▸"}</i></button>`;
@@ -45,7 +45,7 @@ function shopCards(noGrade) {
 /* v3.0 재고 막대 · 덱 표시가 붙은 카드 칸 */
 function shopStockHTML(c) {
   const left = Store.stockLeft(c.id), mx = stockMax(c), pct = Math.round(left / mx * 100);
-  return `<span class="sc-stock${left ? "" : " empty"}" style="--gr:${GRADES[gradeOf(c)].color};--p:${pct}%" title="교역소 재고 ${left} / ${mx}장 (${GRADES[gradeOf(c)].name} 등급은 ${mx}장씩 채운다)"><i></i><em>재고 <b>${left}</b>/${mx}</em></span>`;
+  return `<span class="sc-stock${left ? "" : " empty"}" style="--gr:${GRADES[gradeOf(c)].color};--p:${pct}%" title="상점 재고 ${left} / ${mx}장 (${GRADES[gradeOf(c)].name} 등급은 ${mx}장씩 채운다)"><i></i><em>재고 <b>${left}</b>/${mx}</em></span>`;
 }
 /* 구매 단추의 상태(막힘 · 글 · 풀이). 카드 칸(shopCardTile)과 사고판 뒤 다른 칸 고치기(shopRefresh)가 함께 쓴다 */
 function shopBuyState(c, u) {
@@ -59,7 +59,7 @@ function shopCardTile(c, u) {
   const fresh = u.fresh && u.fresh[c.id];
   return `<div class="shop-card${full ? " full" : ""}${left ? "" : " soldout"}${fresh ? " fresh" : ""}" data-card="${c.id}" style="--gr:${GRADES[gradeOf(c)].color}">
     <div class="sc-face">${cardHTML(c, { size: "md", brief: true })}${fresh ? '<span class="sc-new">NEW</span>' : ""}${left ? "" : '<span class="sc-sold">품절</span>'}</div>
-    <div class="sc-foot"><span class="sc-price" title="교역소 값 (지금은 모든 카드 같은 값)"><i class="shard" aria-hidden="true"></i>${Math.round(price).toLocaleString("ko-KR")}</span><span class="sc-own ${own ? "ok" : ""}">보유 ${own}${admin ? "" : "/" + mx}</span></div>
+    <div class="sc-foot"><span class="sc-price" title="상점 값 (지금은 모든 카드 같은 값)"><i class="shard" aria-hidden="true"></i>${Math.round(price).toLocaleString("ko-KR")}</span><span class="sc-own ${own ? "ok" : ""}">보유 ${own}${admin ? "" : "/" + mx}</span></div>
     ${shopStockHTML(c)}
     <div class="sc-btns">
       ${gradeBadgeHTML(c, "sc-grade")}
@@ -69,7 +69,7 @@ function shopCardTile(c, u) {
   </div>`;
 }
 function shopTitle() {
-  if (SHOP.node === "root") return { t: "모든 카드", s: "린데어 자유시 교역소 · 세 진영 아홉 단체의 카드가 모두 모인다" };
+  if (SHOP.node === "root") return { t: "모든 카드", s: "린데어 자유시 상점 · 세 진영 아홉 단체의 카드가 모두 모인다" };
   if (FACTIONS[SHOP.node]) { const F = FACTIONS[SHOP.node]; return { t: F.name, s: `${F.en} · ${F.motto}` }; }
   const G_ = GROUPS[SHOP.node]; return { t: G_.name, s: `${G_.en} · ${FACTIONS[G_.faction].name} · ${G_.role} · ${G_.motto}` };
 }
@@ -77,11 +77,11 @@ function shopTitle() {
 function showShop() {
   Store.ensureOpen();
   const u = Store.user(); if (!u) return showLogin();
-  /* v3.9 교역소 배경은 멈춘 그림 한 장: 하늘은 한 번만 그리고(Bg.freeze), 배경의 세 존재(3D)는 그리지 않는다("off" = 캔버스를 숨기고 그리기를 멈춤) */
+  /* v3.9 상점 배경은 멈춘 그림 한 장: 하늘은 한 번만 그리고(Bg.freeze), 배경의 세 존재(3D)는 그리지 않는다("off" = 캔버스를 숨기고 그리기를 멈춤) */
   App.screen = "shop"; Bg.set("calm"); Bg.freeze(); if (typeof Titans !== "undefined") Titans.mode("off");
   $("#app").innerHTML = `<section class="screen screen-shop">
     ${typeof Scenes !== "undefined" ? Scenes.html("shop") : ""}
-    ${headerHTML("린데어 교역소")}
+    ${headerHTML("린데어 상점")}
     <div class="shop">
       <aside class="shop-tree" id="shop-tree"></aside>
       <main class="shop-main" id="shop-main"></main>
@@ -97,8 +97,8 @@ function showShop() {
   });
   root.addEventListener("click", async e => {
     if (e.target.closest("#shop-restock")) {
-      const ok = await modal(`<h3>재고 모두 채우기</h3><p>모든 카드의 교역소 재고를 등급별 처음 장수로 되돌립니다.</p><p class="muted small">${GRADE_IDS.map(g => `${GRADES[g].name} ${SHOP_STOCK[g]}`).join(" · ")}</p>`, [{ label: "취소", value: false }, { label: "채우기", value: true, cls: "primary" }]);
-      if (ok) { Store.restock(); renderShopMain(); toast("교역소 재고를 모두 채웠습니다.", "good"); }
+      const ok = await modal(`<h3>재고 모두 채우기</h3><p>모든 카드의 상점 재고를 등급별 처음 장수로 되돌립니다.</p><p class="muted small">${GRADE_IDS.map(g => `${GRADES[g].name} ${SHOP_STOCK[g]}`).join(" · ")}</p>`, [{ label: "취소", value: false }, { label: "채우기", value: true, cls: "primary" }]);
+      if (ok) { Store.restock(); renderShopMain(); toast("상점 재고를 모두 채웠습니다.", "good"); }
       return;
     }
     const goEd = e.target.closest("[data-goeditor]");
@@ -128,7 +128,7 @@ function showShop() {
 function shopHeadHTML(u, T, n) {
   const admin = Store.isAdmin(u);
   return `<div class="shop-head">
-      <div><p class="eyebrow">LINDEAR EXCHANGE · ${esc(T.s)}</p><h2>${esc(T.t)} <small>${n}종</small></h2></div>
+      <div><p class="eyebrow">LINDEAR MARKET · ${esc(T.s)}</p><h2>${esc(T.t)} <small>${n}종</small></h2></div>
       <div class="shop-wallet${admin ? " admin" : ""}"><span class="eyebrow">환석 조각</span><b>${admin ? "∞ <small>관리자</small>" : fmtGold(Store.gold(u))}</b>${admin ? '<span class="muted small">값을 내지 않고 무엇이든 삽니다</span>' : ""}</div>
     </div>`;
 }

@@ -604,7 +604,7 @@ const sideUnits = (X, caster, side) => side === "ally" ? liveUnits(X.P[caster]) 
    - 전장에 빈 칸이 하나라도 있으면: 소환한 카드 바로 다음 칸에 내려앉는다. 그 뒤의 카드는 한 칸씩 밀려난다.
    - 빈 칸이 없으면: 나타나자마자 흐려지며 부서진다. 효과도 없다.
    "이 칸에 부른다"(summon, free 없음)는 소환 마법이 부서진 자리에 앉으므로 빈 칸이 필요 없다.
-   소환 없이 전장 위에서 바로 쏘는 효과(echo: 메테오의 화염탄 등)는 칸과 상관없다. */
+   소환 없이 전장 위에서 바로 쏘는 효과(echo: 토네이도의 돌개바람 등)는 칸과 상관없다. */
 function tokUid(X) { return 900000 + (X.turn % 1000) * 100 + (++X.tokN); }
 /* 소환된 카드가 내려앉을 칸 번호(0부터). 빈 칸이 없으면 -1 */
 function landSlot(p, from) {
@@ -656,7 +656,7 @@ const statNow = (u, k) => (k === "h" ? hpLeft(u) : u.t[k]);
 const SPELL_OPS = {
   /* 무작위 대상에게 n번: { side, n, x, phys } */
   multi(X, caster, it, k, op) {
-    // v3.18.3 [증폭]: 공격 마법이 상대를 칠 때 한 번 맞을 때마다 +N (메테오의 화염탄 · 별똥별 조각도 공격 마법)
+    // v3.18.3 [증폭]: 공격 마법이 상대를 칠 때 한 번 맞을 때마다 +N (토네이도의 돌개바람 · 별똥별 조각도 공격 마법)
     const amp = C(it).type === "atk" && (op.side || "foe") === "foe" ? amplify(X.P[caster]) : 0;
     for (let i = 0; i < op.n; i++) {
       const L = sideUnits(X, caster, op.side || "foe"); if (!L.length) break;
