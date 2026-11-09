@@ -81,7 +81,7 @@ function pipSVG(key, hollow) {
 }
 function levelPips(c) {
   const up = c.type === "unit" ? c.up || 0 : 0, full = c.lv - up;
-  const key = c.type === "item" ? "item" : c.group;
+  const key = PIP[c.group] ? c.group : "item";   // v3.19.8: 아이템도 유닛 · 마법처럼 자기 단체 모양(예전엔 아이템만 마름모)
   let h = "";
   for (let i = 0; i < c.lv; i++) h += `<i class="pip${i >= full ? " pip-up" : ""}">${pipSVG(key, i >= full)}</i>`;
   return `<div class="c-pips" style="--lvn:${Math.max(1, c.lv)}" data-tip="${esc(lvTip(c))}" data-tip-kw>${h}</div>`;
@@ -166,11 +166,15 @@ function coinLineHTML(co) {
   }).filter(Boolean);
   return parts.length ? `<div class="c-coinline">${parts.join("")}</div>` : "";
 }
-/* 종족 줄(그림 바로 아래): 왼쪽 = 유닛은 단체 · 아이템은 종류와 장착 클래스 · 마법은 마법 종류, 오른쪽 = 등급 */
+/* 종족 줄(그림 바로 아래): 왼쪽 = 카드 종류 글씨(유닛 · 공격 마법 · 아이템, 종류 아이콘 색) + 유닛은 단체 · 아이템은 장착 클래스, 오른쪽 = 등급.
+   v3.19.8: 맨 앞 종류 글씨를 굵고 조금 크게(.r-t). 아이템도 "아이템"이 보인다. 단체 온전한 이름 · 무구 · 각인 같은 아이템 종류는 말풍선으로 */
 function raceLineHTML(c, gr) {
-  const G = GROUPS[c.group];
-  const left = c.type === "unit" ? (G ? G.name : "") : c.type === "item" ? `${c.cat || "아이템"} · ${classTagText(c).replace(/[\[\]]/g, "")}` : (RITE_TIP[c.type] || "마법");
-  return `<div class="c-race"><span class="r-l">${esc(left)}</span><span class="r-g" style="--gr:${gr.color}">${esc(gr.name)}</span></div>`;
+  const G = GROUPS[c.group], isU = c.type === "unit", isI = c.type === "item";
+  const word = isU ? "유닛" : isI ? "아이템" : (RITE_TIP[c.type] || "마법");
+  // 핸드 카드 폭에서도 잘리지 않게 짧게: 유닛은 종족 낱말만(바위주먹 오크 → 오크), 아이템은 장착 클래스만. 온전한 이름은 말풍선
+  const rest = isU ? (G ? G.name.split(" ").pop() : "") : isI ? (isAllClass(c) ? "공용" : itemClasses(c).join("·")) : "";
+  const tip = isU ? (G ? `유닛 · ${G.name}` : "") : isI ? `아이템 · ${c.cat || ""}\n${equipWho(c)} 장착` : "";
+  return `<div class="c-race"><span class="r-l"${tip ? ` data-tip="${esc(tip)}"` : ""}><b class="r-t t-${c.type}">${esc(word)}</b>${rest ? `<span class="r-sep">·</span>${esc(rest)}` : ""}</span><span class="r-g" style="--gr:${gr.color}">${esc(gr.name)}</span></div>`;
 }
 
 /* 마법 종류 아이콘: 공격 = 칼, 방어 = 방패, 공용(둘 다) = 칼과 방패가 겹친 모양 (viewBox 0 0 64 64) */
@@ -200,6 +204,17 @@ const STAT_SVG = {
 };
 /* 고정 표시 (v2.3): 자물쇠. 고정된 스탯 숫자 옆에 금빛으로 */
 const LOCK_SVG = '<svg class="st-lock" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 11V8a4.5 4.5 0 019 0v3" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/><rect x="4.5" y="10.2" width="15" height="11.3" rx="2.4" fill="currentColor"/><path d="M12 14.2v3.4" stroke="#1a1408" stroke-width="2.4" stroke-linecap="round"/></svg>';
+/* v3.20 스탯 표시 세 가지: 🔒 고정(자물쇠, 금빛) · ▲ 버팀(삼각형, 초록빛) · ▼ 눌림(역삼각형, 붉은빛). 뜻은 cards.js PIN_KO */
+const PIN_SVG = {
+  L: LOCK_SVG.replace('class="st-lock"', 'class="st-lock pin-L"'),
+  U: '<svg class="st-lock pin-U" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2 22 20.2H2z" fill="currentColor"/><path d="M12 8.6 17.2 17.6H6.8z" fill="#0c1a10" opacity=".35"/></svg>',
+  D: '<svg class="st-lock pin-D" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.8 22 3.8H2z" fill="currentColor"/><path d="M12 15.4 17.2 6.4H6.8z" fill="#1d0c0a" opacity=".35"/></svg>'
+};
+const PIN_TIP = {
+  L: k => `🔒 [고정: ${STAT_KO[k]}] 코인·마법·저주로 바뀌지 않습니다(올리기도 깎기도 막음). 받은 피해는 그대로 쌓입니다.`,
+  U: k => `▲ [버팀: ${STAT_KO[k]}] 이 값 아래로는 내려가지 않습니다. 오르는 것은 됩니다. 받은 피해는 그대로 쌓입니다.`,
+  D: k => `▼ [눌림: ${STAT_KO[k]}] 이 값 위로는 오르지 않습니다. 깎이는 것은 됩니다.`
+};
 const statIco = k => `<svg class="sti sti-${k}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${STAT_SVG[k]}</svg>`;
 /* 코인 묶음: 앞면 값 글자(+ · +2 · −2) 뒤에 겹쳐 쌓은 빈 동전. 동전 수 = 코인 수, 앞의 글자 = 앞면마다 붙는 값.
    v1.9.1: 값을 동전 안(②)에 새기던 것을 동전 앞 글자로 옮겼다 — ②가 "코인 2개"로 읽혀서.
@@ -213,16 +228,19 @@ function coinGroupsHTML(marks) {
 /* 아이템이 붙여 주는 공·방·체 (유닛과 같은 왼쪽 세로 열). 붙는 값이 없는 스탯은 비운다. 고정(set)은 그 값 그대로 */
 function itemVstatsHTML(c, full) {
   const it = c.item; if (!it) return "";
-  if (!it.set && !it.a && !it.d && !it.h && !(it.co && it.co.length)) return "";   // 능력만 있는 아이템은 숫자 열이 없다
+  const pm = pinModesOf(it, true), to = it.to || {};
+  if (!it.set && !it.a && !it.d && !it.h && !(it.co && it.co.length) && !Object.keys(pm).length) return "";   // 능력만 있는 아이템은 숫자 열이 없다
   const cells = ["a", "d", "h"].map(k => {
     const marks = coinMarks(it.co, k), coins = coinGroupsHTML(marks);
-    const val = it.set ? it.set[k] : it[k] ? sgnNum(it[k]) : "";
-    const locked = !!(it.set || (it.lock && it.lock[k]));
-    const lockTip = locked ? `\n[저주 면역] ${STAT_KO[k]}이(가) 마법·코인·저주로 이 값 아래로 깎이지 않습니다. 피해는 그대로 받습니다.` : "";
-    // v2.3: 붙는 값이 없는 스탯은 "·" 대신 흐린 +0 ("·"이 고정 표시로 읽혀서)
-    if (val === "" && !coins) return `<span class="st st-${k} st-empty${locked ? " st-locked" : ""}" data-tip="${esc(`장착해도 ${STAT_KO[k]}은(는) 그대로입니다 (+0)` + lockTip)}">${full ? statIco(k) : ""}<b>+0</b>${locked ? LOCK_SVG : ""}</span>`;
-    const tip = (it.set ? `장착하면 ${STAT_KO[k]}이(가) ${it.set[k]}이 됩니다` : `장착한 유닛 ${STAT_KO[k]} ${val || "+0"}`) + (marks.length ? "\n" + marks.map(m => `코인 ${m.n}개 · 앞면마다 ${STAT_KO[k]} ${sgnNum(m.v)}`).join("\n") : "") + lockTip;
-    return `<span class="st st-${k}${it.set ? " st-set" : ""}${locked ? " st-locked" : ""}" data-tip="${esc(tip)}">${full ? statIco(k) : ""}<b>${val}</b>${locked ? LOCK_SVG : ""}${coins ? `<em class="cm">${coins}</em>` : ""}</span>`;
+    // v3.20 절대값(to)은 부호 없이 그 값, 더하는 값은 +N. 표시(고정 · 버팀 · 눌림)는 숫자 옆 아이콘
+    const val = it.set ? it.set[k] : to[k] != null ? String(to[k]) : it[k] ? sgnNum(it[k]) : "";
+    const m = pm[k], pinCls = m ? ` st-pin${m}${m === "L" ? " st-locked" : ""}` : "", pinTip = m ? "\n" + PIN_TIP[m](k) + (to[k] == null && !it.set ? " (기준값 = 장착한 유닛의 값" + (it[k] ? ` ${sgnNum(it[k])}` : "") + ")" : "") : "";
+    // v2.3: 붙는 값이 없는 스탯은 "·" 대신 흐린 +0 ("·"이 고정 표시로 읽혀서). v3.20 숫자 없이 표시만 있으면 아이콘만
+    if (val === "" && !coins) return m
+      ? `<span class="st st-${k} st-pinonly${pinCls}" data-tip="${esc(`장착한 유닛의 ${STAT_KO[k]}에 표시를 붙입니다` + pinTip)}">${full ? statIco(k) : ""}${PIN_SVG[m]}</span>`
+      : `<span class="st st-${k} st-empty" data-tip="${esc(`장착해도 ${STAT_KO[k]}은(는) 그대로입니다 (+0)`)}">${full ? statIco(k) : ""}<b>+0</b></span>`;
+    const tip = (it.set ? `장착하면 ${STAT_KO[k]}이(가) ${it.set[k]}이 됩니다` : to[k] != null ? `장착하면 ${STAT_KO[k]}이(가) 유닛 값과 상관없이 ${to[k]}이 됩니다` : `장착한 유닛 ${STAT_KO[k]} ${val || "+0"}`) + (marks.length ? "\n" + marks.map(m => `코인 ${m.n}개 · 앞면마다 ${STAT_KO[k]} ${sgnNum(m.v)}`).join("\n") : "") + pinTip;
+    return `<span class="st st-${k}${it.set || to[k] != null ? " st-set" : ""}${pinCls}" data-tip="${esc(tip)}">${full ? statIco(k) : ""}<b>${val}</b>${m ? PIN_SVG[m] : ""}${coins ? `<em class="cm">${coins}</em>` : ""}</span>`;
   }).join("");
   return `<div class="c-vstats c-istats">${cells}</div>`;
 }
@@ -232,10 +250,11 @@ function statCellHTML(c, k, live, co, full) {
   let val = base, cls = "";
   if (live) { val = k === "h" ? live.h : live[k]; if (val > base) cls = " up"; else if (val < base) cls = " down"; if (k === "h" && live.h < live.max) cls = " hurt"; }
   const marks = coinMarks(co || c.co, k);
-  const locked = !!(c.lock && c.lock[k]);
-  const tip = `${STAT_KO[k]} ${val}` + (marks.length ? "\n" + marks.map(m => `코인 ${m.n}개 · 앞면마다 ${STAT_KO[k]} ${sgnNum(m.v)}`).join("\n") : "") + (locked ? `\n[저주 면역] 마법·코인·저주로 카드에 적힌 값 아래로 깎이지 않습니다. 피해는 그대로 받습니다.` : "");
+  // v3.20 표시: 전장에서는 이번 턴 표시(유닛 + 아이템 + 마법이 건 것, live.pins), 그 밖에는 카드에 새겨진 표시
+  const m = live && live.pins ? live.pins[k] : pinModesOf(c)[k];
+  const tip = `${STAT_KO[k]} ${val}` + (marks.length ? "\n" + marks.map(m => `코인 ${m.n}개 · 앞면마다 ${STAT_KO[k]} ${sgnNum(m.v)}`).join("\n") : "") + (m ? "\n" + PIN_TIP[m](k) : "");
   const coins = coinGroupsHTML(marks);
-  return `<span class="st st-${k}${cls}${locked ? " st-locked" : ""}" data-tip="${esc(tip)}">${full ? statIco(k) : ""}<b>${val}</b>${locked ? LOCK_SVG : ""}${coins ? `<em class="cm">${coins}</em>` : ""}</span>`;
+  return `<span class="st st-${k}${cls}${m ? ` st-pin${m}${m === "L" ? " st-locked" : ""}` : ""}" data-tip="${esc(tip)}">${full ? statIco(k) : ""}<b>${val}</b>${m ? PIN_SVG[m] : ""}${coins ? `<em class="cm">${coins}</em>` : ""}</span>`;
 }
 
 /* v3.9.9: 카드 등급 (js/grades.js의 GRADES). grades.js가 없으면 일반 */
@@ -271,6 +290,7 @@ function cardHTML(c, opts) {
   let chips = "";
   if (isU && c.gift) chips += itemGrants(c.gift).map(raw => `<span class="c-cls c-ab" data-tip="${esc(raw + " " + (itemKwDesc(raw) || c.gift.evText || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");
   if (isU && !chips) chips = normalAtkChip();   // 특수 능력이 없어도 같은 규격으로 "일반공격"
+  if (isU) chips += pinAbilities(c).map(raw => `<span class="c-cls c-ab c-pin" data-tip="${esc(raw + " " + (itemKwDesc(raw) || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");   // v3.20 카드에 새겨진 표시
   if (isI) chips += itemAbilities(c.item).map(raw => `<span class="c-cls c-ab" data-tip="${esc(raw + " " + (itemKwDesc(raw) || c.item.evText || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");
   if (isS) chips += spellKwList(c).map(raw => `<span class="c-cls c-ab" data-tip="${esc(coinNotePlain(raw) + " " + (spellKwDesc(raw.replace(/^\[|\]$/g, "")) || ""))}">${coinNoteHTML(esc(raw.replace(/^\[|\]$/g, "")))}</span>`).join("");
   const sBrief = isS && size !== "lg" ? spellBriefHTML(c) : "";   // 큰 카드(lg)는 마법 글 전문
@@ -340,9 +360,10 @@ function itemModsHTML(c) {
   if (it.set) return `<span data-tip="장착한 유닛의 공·방·체가 이 값이 됩니다.">고정 ${it.set.a}/${it.set.d}/${it.set.h}</span>`;
   const parts = ["a", "d", "h"].map(k => {
     const marks = coinMarks(it.co, k);
-    if (!it[k] && !marks.length) return "";
+    const m = pinModesOf(it, true)[k], to = it.to && it.to[k] != null ? String(it.to[k]) : "";
+    if (!it[k] && !marks.length && !m && !to) return "";
     const coins = coinGroupsHTML(marks);
-    return `<span class="im st-${k}">${statIco(k)}${it[k] ? sgnNum(it[k]) : ""}${coins ? `<em class="cm">${coins}</em>` : ""}</span>`;
+    return `<span class="im st-${k}">${statIco(k)}${to || (it[k] ? sgnNum(it[k]) : "")}${m ? PIN_MARK[m] : ""}${coins ? `<em class="cm">${coins}</em>` : ""}</span>`;
   }).filter(Boolean);
   return parts.join(" ") || "아이템";
 }
@@ -370,6 +391,7 @@ function cardFullHTML(c, opts) {
     for (const s of gifts) L.push(`<p class="f-grant">${kwHTML(s)}</p>`);
     // v3.19.1: 특수 능력이 없는 유닛은 원본 카드에 "일반공격" 줄 · 뜻을 적지 않는다 (작은 카드의 일반공격 칩 말풍선에만)
     if (c.gift) for (const [k, v] of itemKwGenList(c.gift)) L.push(`<p class="f-kw"><b>${esc(k)}</b> ${esc(v)}</p>`);
+    for (const [k, v] of pinKwGenList(c)) L.push(`<p class="f-kw"><b>${esc(k)}</b> ${esc(v)}</p>`);   // v3.20 표시의 뜻
     if (c.limit) L.push(`<p class="f-rule f-dim">덱에 ${c.limit}장까지.</p>`);
     L.push(`<p class="f-flavor">${esc(c.flavor || G.blurb)}</p>`);
     // v1.4.5: 시뮬레이터 승률·교전 승률·이전 수치(v0.7·v1.2) 같은 균형 작업용 값은 카드에 보이지 않는다 (data.js에만 남는다)
@@ -443,6 +465,7 @@ function cardDetailBody(c, inst) {
   if (c.type === "unit") {
     for (const s of giftSummary(c)) lines.push(`<p class="d-rules">${kwHTML(s)}</p>`);
     if (c.gift) for (const [k, v] of itemKwGenList(c.gift)) lines.push(`<p class="d-type"><b>${esc(k)}</b> ${esc(v)}</p>`);
+    for (const [k, v] of pinKwGenList(c)) lines.push(`<p class="d-type"><b>${esc(k)}</b> ${esc(v)}</p>`);
     lines.push(`<p class="d-flavor">${esc(c.flavor || GROUPS[c.group].blurb)}</p>`);
   } else if (c.type === "item") {
     for (const s of itemSummary(c.item)) lines.push(`<p class="d-rules">${kwHTML(s)}</p>`);

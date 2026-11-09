@@ -54,6 +54,10 @@
 .shop .chip.on { border-color: var(--gold); color: var(--gold-hi); background: rgba(217, 180, 106, .12); }
 .shop-cards { display: flex; flex-wrap: wrap; gap: 18px 12px; padding-top: 6px; }
 .shop-card { display: grid; justify-items: center; gap: 6px; width: 138px; }
+/* v3.19.9 빠르게: 화면 밖 카드 칸은 그리지 않는다(스크롤해 보일 때 그림). 모든 카드(800여 장)를 열 때 1.4초 → 0.3초 안팎.
+   그리지 않은 칸의 높이는 처음엔 contain-intrinsic-size의 값, 한 번 그린 뒤엔 그 높이를 기억한다(auto).
+   overflow-clip-margin: 칸 밖으로 조금 나가는 것(NEW 표 · 올라오는 카드 · 그림자)이 잘리지 않게 */
+.shop-card { content-visibility: auto; contain-intrinsic-size: auto 150px auto 393px; overflow-clip-margin: 28px; }
 .shop-card .card { --cw: 138px; cursor: pointer; transition: transform .15s; }
 .shop-card .card:hover { transform: translateY(-3px); }
 .shop-card.full .card { filter: saturate(.75) brightness(.85); }

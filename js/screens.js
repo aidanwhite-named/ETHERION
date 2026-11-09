@@ -371,6 +371,7 @@ function headerHTML(title) {
       </nav>
       <button type="button" class="tb-crest${typeof CREST !== "undefined" ? " has-art" : ""}" data-nav="lobby" title="대기실로">${typeof CREST !== "undefined" ? CREST.svg() : ""}<span class="crest-word">ETHERION</span>${title ? `<span class="crest-sub">${title}</span>` : ""}</button>
       <div class="tb-wing tbw-right">
+        ${typeof MobileFit !== "undefined" && typeof showSettings === "function" ? `<button type="button" class="tb-nav tb-set" data-nav="settings" title="설정 — 폰 글자 크기 · 글꼴 · 소리" aria-label="설정">${typeof uiIcon === "function" ? uiIcon("settings") : "⚙"}</button>` : ""}
         <button type="button" class="tb-nav tb-sound" data-nav="sound" title="소리 — 배경음 · 효과음 켜기/끄기와 음량" aria-label="소리">${typeof BGM !== "undefined" ? BGM.navIcon() : ""}</button>
         ${typeof Weather !== "undefined" ? Weather.chipHTML() : ""}
         ${typeof LevelUI !== "undefined" ? shardChipHTML(u) : ""}
@@ -384,6 +385,7 @@ function headerHTML(title) {
 function bindHeader(root, guard) {
   root.querySelector(".topbar").addEventListener("click", async e => {
     const b = e.target.closest("[data-nav]"); if (!b) return;
+    if (b.dataset.nav === "settings") { if (typeof showSettings === "function") showSettings(); return; }   /* v3.20.4 폰 · 앱: 대기실에서도 설정(폰 글자 크기) */
     if (b.dataset.nav === "sound") { if (typeof BGM !== "undefined") BGM.openPanel(b); return; }   /* v3.1.4 소리 창 (js/bgm.js) */
     if (guard && !(await guard())) return;
     if (b.dataset.nav === "lobby") showLobby();

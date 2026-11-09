@@ -1822,3 +1822,14 @@ body.is-dragging .hand-me .hand-slot .hand-card { transition: transform .2s ease
 #tip.tip-kw { gap: 6px; }
 #tip.tip-kw span { color: var(--ink); }
 #tip.tip-kw b { font-size: inherit; margin-right: .3em; }
+/* v3.20 스탯 표시: 고정(자물쇠, 금빛 — 위 .st-lock) · 버팀(▲, 초록빛) · 눌림(▼, 붉은빛). 숫자가 금빛인 것은 고정뿐 */
+.st-lock.pin-U { color: #8fe3a0; filter: drop-shadow(0 0 .16em rgba(110, 220, 140, .8)); }
+.st-lock.pin-D { color: #ff9b86; filter: drop-shadow(0 0 .16em rgba(255, 120, 100, .8)); }
+.c-istats .st-pinonly .st-lock { width: 1em; height: 1em; margin-left: 0; }
+.c-cls.c-pin { border-color: rgba(255, 211, 107, .55); }
+
+/* v3.20.1 개발용 전투 로그 단추 (js/battlelog.js) — 전투 기록 서랍 머리 */
+.logdrawer .ld-head { flex-wrap: wrap; row-gap: 6px; }
+.ld-head .blog-btns { display: flex; gap: 4px; margin-left: auto; margin-right: 6px; }
+.ld-head .blog-btns .btn { padding-inline: 7px; }
+.blog-btns .blog-need { color: var(--gold); border-color: var(--line-gold); }

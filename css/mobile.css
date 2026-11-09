@@ -39,3 +39,44 @@ html.mobile .hand-me .card.slim .c-pips { font-size: .8em; }
 html.mobile .hand-me .card.slim .c-clsico { font-size: .72em; }
 html.mobile .hand-me .card.slim .c-cls { font-size: .66em; }
 html.mobile .hand-me .hand-slot { top: calc(var(--cw) * -.1); }   /* 커진 만큼 살짝 올려 부채꼴 바깥 카드 아래(숫자)가 화면 밖으로 잘리지 않게 */
+
+/* ================= v3.20.4 폰 · 앱 글자 크기 =================
+   js/mobile.js 가 화면을 덜 줄인다(맞춤 높이 720 → 기본 620, 설정 "폰 글자 크기"). 그래서 px로 정한 글자 · 단추는 모두 커진다.
+   전장의 카드는 화면 높이를 따라 크기가 정해져서(--cw) 그것만으로는 커지지 않는다 → 아래 손질.
+   PC · 큰 화면은 html.mobile 이 붙지 않아 그대로다. */
+
+/* 전장: 핸드 줄을 높여 핸드 카드를 키운다(약 1.2배). 대신 전장 칸 카드는 7% 남짓 작아진다.
+   예전: 화면 높이 = 카드 폭 × 5.42 + 104 (핸드 줄 1.56배) → 이제 × 5.86 (핸드 줄 2배) */
+@media (min-width: 761px) {
+  html.mobile .screen-game { --cw: clamp(54px, min(calc((100dvh - 104px) / 5.86), calc((100vw - 2 * var(--edge-x) - 12px) / 9.6)), 260px); --hand-vis: calc(var(--cw) * 2 + 8px); --hw: calc(var(--cw) * 1.45); }
+}
+/* 핸드 카드 안 글자: 이름 · 종족 줄 · 능력 칩 · 코인 줄을 키운다(카드 폭 대비) */
+html.mobile .hand-me .card.fm.slim .c-name { font-size: 1.04em; letter-spacing: -.05em; }
+html.mobile .hand-me .card.fm .c-race { font-size: .74em; }
+html.mobile .hand-me .card.fm .c-race .r-sep { margin: 0 .08em; }
+html.mobile .hand-me .card.fm .c-box .c-cls { font-size: .7em; }
+html.mobile .hand-me .card.fm .c-box .c-brief { font-size: .86em; }
+/* 전장 칸 카드: 이름 · 공방체 숫자 */
+html.mobile .frow .card.fm.slim .c-name { font-size: .98em; letter-spacing: -.05em; }
+html.mobile .frow .card.fm .c-race { font-size: .68em; }
+html.mobile .frow .card.fm .c-box .c-cls { font-size: .7em; }
+html.mobile .frow .card.fm .c-vstats .st b { font-size: 1.24em; }
+
+/* 카드를 눌러 크게 보기(오른쪽 창): 원본 카드를 키운다 */
+html.mobile .zoom { --card-full: 380px; }
+html.mobile .zoom .d-body p { font-size: 15px; }
+
+/* 시작 핸드(멀리건): 6장이 한 줄에 들어가게 */
+html.mobile .modal.mull-modal { width: min(1080px, 100%); }
+html.mobile .mull-card .card { --cw: clamp(96px, calc((min(1080px, 100vw) - 160px) / 6.4), 150px); }
+
+/* 작은 글씨 키우기 (화면 px — 0.67배 안팎으로 보이므로 13px ≈ 9px) */
+html.mobile #board .prow-bot .np-sub, html.mobile #board .pi-role { font-size: 13px; }
+html.mobile #board .zone-label { font-size: max(13px, calc(var(--cw) * .09)); }
+html.mobile #board .ph-turn { font-size: 12.5px; }
+/* 오른쪽 아래 생명 판: 핸드 장수 아래 "핸드" 글씨가 화면 밖으로 밀려 잘리던 것 — 손 모양 그림만 둔다(좁은 PC 창과 같이) */
+html.mobile .pv-bot .ps span { display: none; }
+html.mobile .pv-bot .pstats { padding-top: 4px; }
+
+/* v3.20.5 폰 · 앱: 전장의 작은 게임 상자(파친코 · 결정)를 뺀다 (js/game.js render에서 붙이지도 않는다). 그 자리는 비운다 */
+html.mobile .f-piles .arc-host { display: none; }

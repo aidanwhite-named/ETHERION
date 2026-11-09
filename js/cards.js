@@ -103,7 +103,7 @@ for (const u of SIM_UNITS) {
   if ((u.up || 0) > maxUpkeep(u.lv)) { console.error(`[유지비 상한] ${u.id} ${u.n}: 레벨 ${u.lv}에 유지비 ${u.up} → ${maxUpkeep(u.lv)}로 자름. 카드 수치를 고칠 것 (tools/upcap)`); u.up = maxUpkeep(u.lv); }
   CARD_LIST.push({ id: u.id, type: "unit", name: u.n, group: u.g, faction: G.faction, el: G.el, lv: u.lv, up: u.up,
     a: u.a, d: u.d, h: u.h, co: u.co, w: u.w, orig: u.orig || null, origCo: u.origCo || null, v12: u.v12 || null, v12Co: u.v12Co || null,
-    team: u.team == null ? null : u.team, rev: u.rev || "", legend: u.lv === 8 && u.up >= 2, lock: u.lock || null, cl: u.cl || "무도",
+    team: u.team == null ? null : u.team, rev: u.rev || "", legend: u.lv === 8 && u.up >= 2, lock: u.lock || null, pin: u.pin || null, cl: u.cl || "무도",
     // v2.9 스페셜 유닛(js/specials.js): 타고난 능력 gift(아이템 능력과 같은 꼴), 덱에 1장(limit), 설명 글
     gift: u.gift || null, limit: u.limit || 0, special: !!u.special, unique: !!u.unique, flavor: u.desc || "" });   // v3.2 유니크(js/uniques.js)
 }
@@ -131,12 +131,43 @@ for (const t of (typeof SIM_TOKENS !== "undefined" ? SIM_TOKENS : [])) {
   const base = { id: t.id, name: t.n, group: t.g, faction: G.faction, el: G.el, lv: t.lv, up: 0, tok: true, flavor: t.desc || "" };
   CARDS[t.id] = t.kind
     ? Object.assign(base, { type: t.kind === "com" ? "any" : t.kind, a: 0, d: 0, h: 0, co: [], ops: t.ops, cost: {}, gain: {}, text: foeBackText(t.text) })
-    : Object.assign(base, { type: "unit", a: t.a, d: t.d, h: t.h, co: t.co || [], lock: t.lock || null, w: null, rev: "", legend: false, cl: t.cl || TOKEN_CL[t.id] || "무도" });
+    : Object.assign(base, { type: "unit", a: t.a, d: t.d, h: t.h, co: t.co || [], lock: t.lock || null, pin: t.pin || null, w: null, rev: "", legend: false, cl: t.cl || TOKEN_CL[t.id] || "무도" });
 }
 
 /* 소환 비용 = 레벨 (규칙 문서 6. 소환 자원). 유닛·마법·아이템 모두 같다 */
 function cardCost(c) { return c.lv; }
 const STAT_KO = { a: "공격", d: "방어", h: "체력" };
+/* v3.20 스탯 표시 (docs/PINS_v3.20.md) — 카드 · 아이템에 적힌 공 · 방 · 체 옆의 표시
+   L 고정(자물쇠) = 코인 · 마법 · 저주로 바뀌지 않는다(그 값 그대로). 체력에는 붙이지 않는다(붙으면 버팀으로 읽음)
+   U 버팀(▲) = 그 값 아래로는 내려가지 않는다(오르는 것은 된다)
+   D 눌림(▼) = 그 값 위로는 오르지 않는다(내려가는 것은 된다)
+   기준값은 카드에 적힌 값(장착 아이템이 더한 값 포함, engine.js printedStats). 받은 피해는 표시와 상관없이 그대로 쌓인다.
+   옛 데이터의 lock(v2.3 "고정" → v3.10.6 "저주 면역")은 버팀과 같은 규칙이라 버팀으로 읽는다. 아이템 set(세 스탯을 정한 값으로)도 셋 다 버팀.
+   아이템은 장착한 유닛에 표시를 붙인다. 같은 스탯에 유닛과 아이템 표시가 겹치면 아이템 표시를 따른다.
+   아이템의 to: { a: 7 } = 장착하면 그 스탯이 유닛 값과 상관없이 7(유닛 카드의 그 스탯 코인은 던지지 않음) */
+const PIN_KO = { L: "고정", U: "버팀", D: "눌림" };
+const PIN_MARK = { L: "🔒", U: "▲", D: "▼" };
+const PIN_KO_KEYS = ["고정", "버팀", "눌림"];
+function pinModesOf(src, isItem) {
+  const out = {};
+  if (!src) return out;
+  if (isItem && src.set) for (const k of ["a", "d", "h"]) out[k] = "U";
+  if (src.lock) for (const k in src.lock) if (src.lock[k]) out[k] = "U";
+  if (src.pin) for (const k in src.pin) if (src.pin[k]) out[k] = src.pin[k];
+  if (out.h === "L") out.h = "U";
+  return out;
+}
+/* 표시 능력 글: "[고정: 공격]" · "[버팀: 방어·체력]" · 아이템 절대값은 "[고정: 공격 7]" */
+function pinAbilities(src, isItem) {
+  if (isItem && src.set) return [];
+  const pm = pinModesOf(src, isItem), out = [];
+  for (const m of ["L", "U", "D"]) {
+    const ks = ["a", "d", "h"].filter(k => pm[k] === m);
+    if (!ks.length) continue;
+    out.push(`[${PIN_KO[m]}: ${ks.map(k => STAT_KO[k] + (src.to && src.to[k] != null ? " " + src.to[k] : "")).join("·")}]`);
+  }
+  return out;
+}
 const STAT_ICON = { a: "⚔", d: "⛨", h: "♥" };
 const sgnNum = v => (v > 0 ? "+" + v : v < 0 ? "−" + Math.abs(v) : "0");
 
@@ -172,7 +203,7 @@ function itemAbilities(it) {
   if (it.ward) out.push(`[가호 ${it.ward}]`);
   if (it.shield) out.push("[보호막 코인]");
   if (it.thorns) out.push(`[가시 ${it.thorns}]`);
-  if (it.lock && !it.set) out.push("[저주 면역: " + Object.keys(it.lock).map(k => STAT_KO[k]).join("·") + "]");
+  out.push(...pinAbilities(it, true));   // v3.20 옛 [저주 면역: 스탯]은 [버팀: 스탯]
   if (it.evName) out.push(`[${it.evName}]`);
   return out;
 }
@@ -219,7 +250,9 @@ const ITEM_KW = {
   "원거리": "맞붙어 공격해도 상대의 반격을 받지 않는다.",
   "가호": "매 턴 처음 받는 피해를 {n}만큼 줄인다.",
   "보호막 코인": "매 턴 시작에 코인을 던져 앞면이면, 그 턴 처음 받는 피해 한 번을 통째로 막는다.",
-  "저주 면역": "{S} 마법·코인·저주로 깎이지 않는다(카드와 아이템에 적힌 값 아래로 내려가지 않는다). 피해는 그대로 받으므로, 받은 피해가 체력만큼 쌓이면 쓰러진다.",
+  "고정": "🔒 {S} 코인·마법·저주로 바뀌지 않는다. 올리는 것도 깎는 것도 막는다(그 스탯의 코인은 던지지 않는다). 받은 피해는 그대로 쌓인다.",
+  "버팀": "▲ {S} 카드에 적힌 값(아이템 포함) 아래로 내려가지 않는다. 오르는 것은 된다. 받은 피해는 그대로 쌓인다.",
+  "눌림": "▼ {S} 카드에 적힌 값(아이템 포함) 위로 오르지 않는다. 깎이는 것은 된다.",
   "가시": "이 유닛을 맞붙어 공격한 상대 유닛은 체력이 {n} 깎인다.",
   "증폭": "이 유닛이 전장에 있으면 내 공격 마법의 피해가 {n} 늘어난다.",
   "치유": "장착하는 순간 내 생명이 {n} 늘어난다."
@@ -238,6 +271,13 @@ function itemKwDesc(raw) {
   if (!key) return "";
   const n = parseInt((name.slice(key.length).match(/\d+/) || [""])[0], 10);
   const st = (name.split(":")[1] || "그 스탯").trim();
+  // v3.20 아이템 절대값 표시 "[고정: 공격 7]" = 장착하면 공격이 7이 되고, 그 뒤로 표시 규칙
+  if (PIN_KO_KEYS.includes(key) && /\d/.test(st)) {
+    const parts = st.split("·").map(x => x.trim()), sts = parts.map(x => x.replace(/\s*\d+$/, "")), vs = parts.map(x => (x.match(/\d+$/) || [""])[0]);
+    const set = parts.filter((x, i) => vs[i]).map((x, i) => `${sts[parts.indexOf(x)]}이(가) ${vs[parts.indexOf(x)]}`).join(", ");
+    const w = sts.join("·");
+    return `장착하면 ${set}이 된다(유닛 카드의 값 · 코인과 상관없이). ` + ITEM_KW[key].replace(/\{S\}/g, w + josaEunNeun(w));
+  }
   return ITEM_KW[key].replace(/\{S\}/g, st + josaEunNeun(st)).replace(/\{n\}/g, isNaN(n) ? "" : n).replace(/\{m\}/g, isNaN(n) ? "" : Math.max(0, 4 - n));
 }
 
@@ -251,6 +291,8 @@ function itemKwGeneric(raw) {
   const key = Object.keys(ITEM_KW).find(x => name === x || name.startsWith(x + " ") || name.startsWith(x + ":"));
   if (!key) return null;
   const rest = name.slice(key.length), num = /\d/.test(rest), colon = rest.trim().startsWith(":");
+  // v3.20 아이템 절대값 표시 "[고정: 공격 8]" → "[고정: 스탯 N]" = 장착하면 그 스탯이 N이 된 뒤 표시 규칙
+  if (PIN_KO_KEYS.includes(key) && num) return [`[${key}: 스탯 N]`, "장착하면 그 스탯이 N이 된다(유닛 카드의 값 · 코인과 상관없이). " + ITEM_KW[key].replace(/\{S\}/g, "그 스탯은")];
   const label = `[${key}${num ? " N" : ""}${colon ? ": 스탯" : ""}]`;
   const text = (ITEM_KW_GEN[key] || ITEM_KW[key]).replace(/\{S\}/g, "그 스탯은").replace(/\{n\}/g, "N").replace(/\{m\}/g, "4 − N");
   return [label, text];
@@ -277,18 +319,25 @@ function itemKwList(it) {
 
 /* v2.9 스페셜 유닛의 타고난 능력: 아이템 능력 글을 그대로 쓴다 ("[가호 2] 타고난 능력") */
 function giftSummary(c) {
-  if (!c || !c.gift) return [];
-  const g = itemGrants(c.gift), out = [];
-  if (g.length) out.push(g.join(" ") + " 타고난 능력");
-  if (c.gift.evText && !c.gift.evName) out.push(c.gift.evText);
+  if (!c) return [];
+  const out = [], pa = c.type === "unit" ? pinAbilities(c) : [];   // v3.20 카드에 새겨진 표시(고정 · 버팀 · 눌림)
+  if (c.gift) {
+    const g = itemGrants(c.gift);
+    if (g.length) out.push(g.join(" ") + " 타고난 능력");
+    if (c.gift.evText && !c.gift.evName) out.push(c.gift.evText);
+  }
+  if (pa.length) out.push(pa.join(" "));
   return out;
 }
+/* v3.20 유닛 카드의 표시 뜻 [[이름, 뜻]] (원본 카드 · 크게 보기) */
+function pinKwGenList(c) { return c && c.type === "unit" ? pinAbilities(c).map(itemKwGeneric).filter(Boolean) : []; }
 function giftText(c) { return giftSummary(c).join("\n"); }
 /* 카드 본문 */
 function cardRules(c) {
   if (c.type === "item") return itemText(c.item) + (c.item.evText ? " " + c.item.evText : "");
   if (c.type !== "unit") return c.text + spellCostText(c);
-  return c.gift ? "유닛. " + giftSummary(c).join(". ") + "." : "유닛.";
+  const gs = giftSummary(c);
+  return gs.length ? "유닛. " + gs.join(". ") + "." : "유닛.";
 }
 function spellCostText(c) {
   const t = [];

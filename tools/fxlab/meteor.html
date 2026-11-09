@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>메테오 연출 비교</title>
+<!-- ETHERION 연출 실험실: 지금 게임의 메테오(js/spellfx.js, DOM)와 PixiJS(WebGL) 메테오를 같은 판에서 번갈아 본다.
+     왼쪽 "현재 방식"은 게임 파일(js/spellfx.js · js/impact.js · js/feel.js · css/spellfx.css · css/impact.css)을 그대로 불러 쓴다.
+     인터넷 없이 열린다(PixiJS는 vendor/ 안에 있음). 게임 코드는 바꾸지 않는다. -->
+<link rel="stylesheet" href="../../css/spellfx.css">
+<link rel="stylesheet" href="../../css/impact.css">
+<style>
+  @font-face { font-family: "Cinzel"; src: url("../../fonts/Cinzel-Variable.ttf") format("truetype"); font-weight: 400 900; }
+  :root {
+    --night: #07080d; --night-2: #0d1019; --panel: rgba(16,19,30,.86); --panel-solid: #121522;
+    --line: #2b3047; --line-gold: rgba(217,180,106,.38);
+    --ink: #ece6d6; --ink-2: #b9b2a0; --muted: #8a8577;
+    --gold: #d9b46a; --gold-hi: #f6e2a8; --gold-deep: #8a6a2a; --ether: #8fdcff; --bad: #ef6a5c;
+    --caps: "Cinzel", serif; --ko: "Batang", "Nanum Myeongjo", "AppleMyungjo", serif;
+    --cw: clamp(84px, 13vmin, 150px);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--night); color: var(--ink); font-family: var(--ko); }
+  #fx-layer { position: fixed; inset: 0; pointer-events: none; z-index: 60; overflow: hidden; }
+
+  /* 판 */
+  #board { position: fixed; inset: 0; display: grid; grid-template-rows: 1fr auto 1fr; align-items: center; justify-items: center; padding: 150px 16px 24px;
+    background: linear-gradient(rgba(7,8,13,.55), rgba(7,8,13,.78)), url("../../img/title/title_art.jpg") center / cover no-repeat, var(--night); }
+  .row { display: flex; gap: calc(var(--cw) * .28); justify-content: center; }
+  .mid { display: flex; align-items: center; gap: 14px; color: var(--muted); font-size: 13px; letter-spacing: .08em; }
+  .mid::before, .mid::after { content: ""; width: min(22vw, 220px); height: 1px; background: linear-gradient(90deg, transparent, var(--line-gold), transparent); }
+  #modeTag { font-family: var(--ko); font-size: 15px; color: var(--gold-hi); padding: 4px 14px; border: 1px solid var(--line-gold); border-radius: 999px; background: rgba(7,8,13,.6); white-space: nowrap; }
+  #modeTag.pixi { color: var(--ether); border-color: rgba(143,220,255,.45); }
+
+  /* 모형 카드 (게임 카드 배치를 흉내 낸 단순한 틀) */
+  .card { position: relative; width: var(--cw); aspect-ratio: 5 / 7; border-radius: 9px; padding: 5px; cursor: pointer;
+    background: linear-gradient(160deg, color-mix(in srgb, var(--fc) 70%, #000), color-mix(in srgb, var(--fc) 25%, #000));
+    box-shadow: 0 0 0 1px var(--line-gold), 0 8px 22px rgba(0,0,0,.6); transition: box-shadow .15s; }
+  .card:hover { box-shadow: 0 0 0 1px var(--gold), 0 0 18px rgba(217,180,106,.35), 0 8px 22px rgba(0,0,0,.6); }
+  .card .art { height: 66%; border-radius: 6px; overflow: hidden; position: relative;
+    background: radial-gradient(circle at 50% 38%, color-mix(in srgb, var(--el) 55%, transparent), transparent 58%), linear-gradient(#1a1d2b, #0b0d14); }
+  .card .art svg { position: absolute; inset: 14%; width: 72%; height: 72%; opacity: .8; }
+  .card .nm { margin-top: 5px; font-size: calc(var(--cw) * .1); text-align: center; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card .st { position: absolute; left: 6px; right: 6px; bottom: 6px; display: flex; justify-content: space-between; font-family: var(--caps); font-weight: 900; font-size: calc(var(--cw) * .13); }
+  .card .st .a { color: #ffd27a; } .card .st .h { color: #ff8a7a; }
+  .card.spell { --fc: #3a2a6a; }
+  .card.spell .kind { position: absolute; top: 8px; left: 8px; font-size: calc(var(--cw) * .085); color: var(--gold-hi); background: rgba(0,0,0,.5); padding: 1px 6px; border-radius: 4px; }
+  .mine .card:not(.spell) { opacity: .75; cursor: default; }
+
+  /* 피해 숫자 (두 방식 모두 같은 것) */
+  .lab-dmg { position: fixed; z-index: 90; pointer-events: none; translate: -50% -50%; font-family: var(--caps); font-weight: 900; color: #ff5e4d;
+    font-size: max(30px, calc(var(--cw) * .3)); -webkit-text-stroke: 1.5px rgba(40,0,0,.9);
+    text-shadow: -2px 0 rgba(0,210,255,.45), 2px 0 rgba(255,0,70,.55), 0 3px 8px #000, 0 0 18px currentColor; animation: labDmg 1.4s cubic-bezier(.2,.8,.3,1) forwards; }
+  @keyframes labDmg { 0% { scale: 2.2; opacity: 0; } 12% { scale: .9; opacity: 1; } 22% { scale: 1.1; } 32% { scale: 1; translate: -50% -50%; } 100% { translate: -50% -160%; opacity: 0; } }
+
+  /* 조작 판 */
+  #hud { position: fixed; top: 10px; left: 50%; translate: -50% 0; z-index: 100; width: min(940px, calc(100vw - 20px));
+    background: var(--panel); border: 1px solid var(--line-gold); border-radius: 12px; padding: 10px 14px; box-shadow: 0 10px 30px rgba(0,0,0,.5); backdrop-filter: blur(6px); }
+  #hud h1 { margin: 0 0 8px; font-size: 15px; font-weight: 700; color: var(--gold-hi); display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+  #hud h1 small { font-size: 12px; color: var(--muted); font-weight: 400; }
+  .ctl { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
+  .grp { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-2); }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .seg button, .act { font: inherit; font-size: 13px; color: var(--ink-2); background: transparent; border: 0; padding: 6px 11px; cursor: pointer; }
+  .seg button + button { border-left: 1px solid var(--line); }
+  .seg button.on { background: rgba(217,180,106,.16); color: var(--gold-hi); }
+  .seg button.on.px { background: rgba(143,220,255,.14); color: var(--ether); }
+  .act { border: 1px solid var(--line-gold); border-radius: 8px; color: var(--gold-hi); background: rgba(217,180,106,.1); }
+  .act:hover { background: rgba(217,180,106,.2); }
+  .act.main { background: linear-gradient(#d9b46a, #8a6a2a); color: #1a1205; font-weight: 700; border-color: #f6e2a8; padding: 6px 16px; }
+  .act.on { background: rgba(143,220,255,.16); color: var(--ether); border-color: rgba(143,220,255,.5); }
+  #stats { margin-top: 8px; font-size: 12px; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 4px 16px; }
+  #stats b { font-family: var(--caps); color: var(--ink); font-weight: 700; }
+  #stats .tag { color: var(--muted); }
+  #note { margin-top: 6px; font-size: 12px; line-height: 1.55; color: var(--muted); }
+  #note em { font-style: normal; color: var(--ink-2); }
+  #err { display: none; margin-top: 6px; font-size: 12px; color: var(--bad); }
+  @media (max-width: 640px) {
+    #board { padding-top: 230px; }
+    #hud { padding: 8px 10px; } .seg button, .act { padding: 6px 8px; } #note { display: none; }
+  }
+</style>
+</head>
+<body>
+<div id="board">
+  <div class="row enemy" id="enemy"></div>
+  <div class="mid"><span id="modeTag">현재 방식 (DOM)</span></div>
+  <div class="row mine" id="mine"></div>
+</div>
+<div id="fx-layer"></div>
+
+<div id="hud">
+  <h1>메테오 연출 비교 <small>카드를 누르면 그 카드에 떨어집니다 · 스페이스 = 발동 · 1 / 2 = 방식 바꾸기</small></h1>
+  <div class="ctl">
+    <div class="grp">방식
+      <span class="seg" id="segMode"><button data-v="dom" class="on">현재 (DOM)</button><button data-v="pixi" class="px">PixiJS (WebGL)</button></span></div>
+    <div class="grp">대상
+      <span class="seg" id="segTgt"><button data-v="1" class="on">한 장</button><button data-v="3">세 장</button></span></div>
+    <div class="grp">연출
+      <span class="seg" id="segFx"><button data-v="lite" class="on">가볍게</button><button data-v="rich">화려하게</button></span></div>
+    <button class="act main" id="go">발동 ▶</button>
+    <button class="act" id="burst">연속 5번</button>
+    <button class="act" id="alt">번갈아 보기</button>
+    <button class="act" id="snd">소리 켬</button>
+  </div>
+  <div id="stats"><span class="tag">이번 발동</span><span>평균 <b id="sFps">–</b> fps</span><span>가장 긴 프레임 <b id="sWorst">–</b> ms</span><span id="sCountLbl">화면 조각 최대 <b id="sCount">–</b>개</span></div>
+  <div id="note"></div>
+  <div id="err"></div>
+</div>
+
+<script>
+/* ---------- 게임 밖에서 게임 연출 파일을 돌리기 위한 최소한의 바탕 (js/game.js에 있는 것들의 대역) ---------- */
+var LAB = { mode: "dom", tgt: 1, fx: "lite", sound: true };
+var G = { cfg: { headless: false }, speed: 1 };
+var Prefs = { get: (k, d) => (k === "fx" ? LAB.fx : d), set() {} };
+var kSpeed = () => 1;
+var RM = () => false;
+var CARDS = { lab_meteor: { name: "메테오", el: "fire" } };
+var GROUPS = {};
+var uidEl = uid => document.querySelector('[data-uid="' + uid + '"]');
+var sfx = (n, v) => { if (LAB.sound && typeof FEEL !== "undefined") FEEL.play(n, v); };
+function shakeScreen(px, dir) { if (typeof IMPACT !== "undefined") IMPACT.shake(IMPACT.pxToTrauma(px), dir); }
+function shakeEl(el, px) {
+  if (!el) return;
+  el.animate([{ translate: "0 0" }, { translate: `${-px}px ${px * 0.3}px` }, { translate: `${px}px ${-px * 0.2}px` }, { translate: `${-px * 0.6}px 0px` }, { translate: `${px * 0.4}px 0px` }, { translate: "0 0" }], { duration: 400, easing: "ease-out" });
+}
+</script>
+<script src="../../js/feel.js"></script>
+<script src="../../js/spellfx.js"></script>
+<script src="../../js/impact.js"></script>
+<script src="vendor/pixi.min.js"></script>
+<script src="vendor/pixi-filters.js"></script>
+<script src="pixi-meteor.js"></script>
+<script>
+"use strict";
+(() => {
+  const $ = s => document.querySelector(s);
+  const CREST = '<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><path d="M50 8 L88 50 L50 92 L12 50 Z"/><circle cx="50" cy="50" r="17"/><path d="M50 22 V78 M22 50 H78" stroke-width="1.5" opacity=".6"/></svg>';
+  const ENEMY = [
+    { uid: 1, name: "잿불 고블린", fc: "#7a2a18", el: "#ff6b3d", a: 3, h: 7 },
+    { uid: 2, name: "무쇠수염 드워프", fc: "#3e4652", el: "#a9b4c2", a: 2, h: 9 },
+    { uid: 3, name: "바위주먹 오크", fc: "#5a4028", el: "#b88a5a", a: 4, h: 8 }
+  ];
+  const unit = c => `<div class="card" data-uid="${c.uid}" style="--fc:${c.fc};--el:${c.el};color:${c.el}"><div class="art">${CREST}</div><div class="nm">${c.name}</div><div class="st"><span class="a">⚔${c.a}</span><span class="h">♥${c.h}</span></div></div>`;
+  $("#enemy").innerHTML = ENEMY.map(unit).join("");
+  $("#mine").innerHTML = unit({ uid: 11, name: "모형 유닛", fc: "#2a3a5a", el: "#4fb3ff", a: 2, h: 6 })
+    + `<div class="card spell" data-uid="10" style="--el:#ff6b3d;color:#ff6b3d"><span class="kind">마법</span><div class="art">${CREST}</div><div class="nm">메테오</div><div class="st"><span class="a">✦6</span><span></span></div></div>`
+    + unit({ uid: 12, name: "모형 유닛", fc: "#2a3a5a", el: "#58b85f", a: 3, h: 5 });
+
+  const NOTE = {
+    dom: "<em>현재 방식</em> — 게임의 js/spellfx.js를 그대로 부른 것. 낙하 시간도 게임과 같다(마법 한 수 800ms × PACE 1.75). 불꽃 · 연기 하나하나가 HTML 조각이라 개수가 늘수록 무거워지고, 빛이 겹쳐 밝아지는 표현 · 화면 일그러짐은 할 수 없다.",
+    pixi: "<em>PixiJS</em> — 같은 하늘 자리 · 같은 대상, 카드 반응(흔들림 · 번쩍 · 고리)도 게임 것 그대로. 달라진 것: 발밑 룬 고리 예고 → 불타는 바위 + 불꼬리 · 연기 · 불티 → 히트 스톱 · 빛살 · 땅 고리 · 바위 파편(땅에 튐) · 연기 기둥 · 오래 남는 그을음과 용암 금. 화려하게면 빛 번짐(Bloom)과 충격파 일그러짐까지. 그림 파일 없이 코드로 만든 질감만 썼다."
+  };
+  const setNote = () => { $("#note").innerHTML = NOTE[LAB.mode]; };
+
+  /* ---------- 조작 ---------- */
+  function seg(id, key, cb) {
+    $(id).addEventListener("click", e => {
+      const b = e.target.closest("button"); if (!b) return;
+      setSeg(id, key, b.dataset.v); if (cb) cb();
+    });
+  }
+  function setSeg(id, key, v) {
+    LAB[key] = key === "tgt" ? +v : v;
+    $(id).querySelectorAll("button").forEach(x => x.classList.toggle("on", x.dataset.v === String(v)));
+    if (key === "mode") { const t = $("#modeTag"); t.textContent = v === "pixi" ? "PixiJS (WebGL)" : "현재 방식 (DOM)"; t.classList.toggle("pixi", v === "pixi"); setNote(); }
+    if (key === "fx" && typeof applyFx === "function") applyFx(v);
+  }
+  seg("#segMode", "mode"); seg("#segTgt", "tgt"); seg("#segFx", "fx");
+  $("#go").onclick = () => cast();
+  $("#burst").onclick = () => { for (let i = 0; i < 5; i++) setTimeout(() => cast(), i * 260); };
+  let altId = 0;
+  $("#alt").onclick = () => {
+    if (altId) { clearInterval(altId); altId = 0; $("#alt").classList.remove("on"); return; }
+    $("#alt").classList.add("on");
+    const turn = () => { setSeg("#segMode", "mode", LAB.mode === "dom" ? "pixi" : "dom"); cast(); };
+    cast(); altId = setInterval(turn, 2600);
+  };
+  $("#snd").onclick = () => { LAB.sound = !LAB.sound; $("#snd").textContent = LAB.sound ? "소리 켬" : "소리 끔"; };
+  $("#enemy").addEventListener("click", e => { const c = e.target.closest(".card"); if (c) cast([+c.dataset.uid]); });
+  addEventListener("keydown", e => {
+    if (e.code === "Space") { e.preventDefault(); cast(); }
+    if (e.key === "1") setSeg("#segMode", "mode", "dom");
+    if (e.key === "2") setSeg("#segMode", "mode", "pixi");
+  });
+
+  /* ---------- 피해 숫자 ---------- */
+  function dmgFloat(uid) {
+    const el = uidEl(uid); if (!el) return;
+    const r = el.getBoundingClientRect(), d = document.createElement("div");
+    d.className = "lab-dmg"; d.textContent = "−6";
+    d.style.left = (r.left + r.width / 2) + "px"; d.style.top = (r.top + r.height * 0.36) + "px";
+    document.body.appendChild(d); setTimeout(() => d.remove(), 1500);
+  }
+
+  /* ---------- 발동 ---------- */
+  const targets = () => (LAB.tgt === 3 ? [1, 2, 3] : [2]);
+  function cast(tg) {
+    tg = tg || targets();
+    measure.start();
+    if (LAB.mode === "dom") castDOM(tg); else castPixi(tg);
+  }
+  /* 현재 방식: 게임이 마법 한 수를 보여 줄 때와 똑같이 SpellFX.cast를 부른다 (js/game.js 381행) */
+  function castDOM(tg) {
+    const s = { fx: { spell: "lab_meteor", shown: 10 }, dur: 800 * 1.75, floats: tg.map(u => [u, "−6", "dmg"]) };
+    const delays = SpellFX.cast(s, { uid: 10, id: "lab_meteor" });
+    tg.forEach(u => setTimeout(() => dmgFloat(u), delays.get(String(u)) || 0));
+  }
+  /* PixiJS: 같은 대상 · 같은 소리 · 같은 카드 반응(js/spellfx.js explode가 하는 shake · glow · quakeScreen) */
+  function castPixi(tg) {
+    sfx("sp_meteor", 0.9);
+    tg.forEach((u, n) => setTimeout(() => {
+      const el = uidEl(u); if (!el) return;
+      const r = el.getBoundingClientRect(), b = { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+      PixiFX.meteor(b, r, { lite: LAB.fx !== "rich", onHit() {
+        shakeEl(el, 10);
+        if (typeof IMPACT !== "undefined") IMPACT.spell(el, 10);
+        el.animate([{ filter: "none" }, { filter: "brightness(1.55) drop-shadow(0 0 10px #ff6b3d)", offset: 0.3 }, { filter: "none" }], { duration: 320, easing: "ease-out" });
+        shakeScreen(9);
+        sfx("sp_boom", n ? 0.65 : 1);
+        dmgFloat(u);
+      } });
+    }, n * 80));
+  }
+
+  /* ---------- 재기: 발동 뒤 2.4초 동안의 프레임 ---------- */
+  const measure = (() => {
+    let until = 0, frames = 0, t0 = 0, last = 0, worst = 0, peak = 0, on = false;
+    function count() {
+      if (LAB.mode === "pixi") return PixiFX.stats().active;
+      return document.querySelectorAll("#fx-layer .sfx, #fx-layer svg").length;
+    }
+    function loop(now) {
+      if (on) {
+        if (last) { const d = now - last; frames++; worst = Math.max(worst, d); }
+        last = now; peak = Math.max(peak, count());
+        if (now > until) { on = false; show(); }
+      }
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+    function show() {
+      const secs = (last - t0) / 1000;
+      $("#sFps").textContent = secs > 0 ? Math.round(frames / secs) : "–";
+      $("#sWorst").textContent = Math.round(worst);
+      $("#sCount").textContent = peak;
+      $("#sCountLbl").firstChild.textContent = LAB.mode === "pixi" ? "WebGL 입자 최대 " : "HTML 조각 최대 ";
+    }
+    return {
+      start() {
+        const now = performance.now();
+        if (!on) { frames = 0; worst = 0; peak = 0; t0 = now; last = 0; }
+        on = true; until = now + 2400;
+        $("#sFps").textContent = "…";
+      }
+    };
+  })();
+
+  setNote();
+  PixiFX.init().then(ok => {
+    if (!ok) { const e = $("#err"); e.style.display = "block"; e.textContent = "이 브라우저에서 WebGL을 켜지 못해 PixiJS 쪽은 볼 수 없습니다: " + (PixiFX.error() && PixiFX.error().message); }
+  });
+})();
+</script>
+</body>
+</html>

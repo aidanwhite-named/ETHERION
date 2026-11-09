@@ -48,6 +48,8 @@ if (typeof UNIQUE_UNITS !== "undefined") for (const c of UNIQUE_UNITS) CARD_GRAD
 
 /* v3.18 레어 · 에픽 · 유니크 추가 카드(js/highcards.js): 아이템 레어 · 유닛 에픽 · 마법 유니크 */
 if (typeof HIGH_GRADES !== "undefined") Object.assign(CARD_GRADES, HIGH_GRADES);
+/* v3.20 스탯 표시 카드(js/pincards.js): 유닛 일반 · 고급 · 레어 · 에픽, 아이템 유니크, 마법 일반 · 고급 */
+if (typeof PIN_GRADES !== "undefined") Object.assign(CARD_GRADES, PIN_GRADES);
 
 function gradeOf(c) { const id = typeof c === "string" ? c : c && c.id; return CARD_GRADES[id] || "common"; }
 for (const c of CARD_LIST) c.grade = gradeOf(c);

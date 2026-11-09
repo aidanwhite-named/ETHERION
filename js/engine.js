@@ -50,13 +50,18 @@ function rollCoins(co) {
   return out;
 }
 
+/* v3.20 이 유닛의 표시(고정 L · 버팀 U · 눌림 D): 유닛 카드 + 장착 아이템(겹치면 아이템). cards.js pinModesOf */
+function pinModes(it) { const im = itemOf(it); return Object.assign(pinModesOf(C(it)), im ? pinModesOf(im, true) : {}); }
+/* 저주(핸드 mod) 한 칸이 표시에 막히는가: 고정은 모두, 버팀은 깎기, 눌림은 올리기 */
+const pinBlocks = (m, v) => m === "L" || (m === "U" && v < 0) || (m === "D" && v > 0);
 /* 유닛의 이번 턴 기본값 (코인·아이템 반영, 마법 효과 전). clean = 코인을 모두 뒷면으로 본 값 */
 function printedStats(it) {
   const c = C(it), im = itemOf(it);
   if (im && im.set) return { a: im.set.a, d: im.set.d, h: im.set.h };
   const s = { a: c.a + (im ? im.a || 0 : 0), d: c.d + (im ? im.d || 0 : 0), h: c.h + (im ? im.h || 0 : 0) };
-  // v1.4: 카드 한 장에 남는 스탯 변화 (핸드에 걸린 저주 등). 카드에 적힌 고정 스탯(4*)은 깎이지 않는다
-  if (it.mod) for (const k in it.mod) if (!(it.mod[k] < 0 && c.lock && c.lock[k])) s[k] += it.mod[k];
+  if (im && im.to) for (const k in im.to) s[k] = im.to[k];   // v3.20 아이템 절대값: 유닛 값과 상관없이 그 값
+  // v1.4: 카드 한 장에 남는 스탯 변화 (핸드에 걸린 저주 등). v3.20 표시에 막히는 몫은 붙지 않는다(예전 "카드에 적힌 고정 스탯은 깎이지 않는다"와 같은 규칙)
+  if (it.mod) { const pm = pinModes(it); for (const k in it.mod) if (!pinBlocks(pm[k], it.mod[k])) s[k] += it.mod[k]; }
   return s;
 }
 function baseStats(it, clean) {
@@ -68,21 +73,32 @@ function baseStats(it, clean) {
     if (!(im && im.set)) for (const k of it.coins || []) if (k.heads) s[k.st] += k.v;
     if (it.item) for (const k of it.item.coins || []) if (k.heads) s[k.st] += k.v;
   }
-  const fl = floorOf(it);
-  for (const k in fl) s[k] = Math.max(s[k], fl[k]);
+  clampPins(s, floorOf(it));
   s.h = Math.max(1, s.h);
   return s;
 }
-/* [고정: 스탯]: 카드·아이템에 적힌 값 아래로 내려가지 않는다. [고정 공/방/체]는 셋 다 */
+/* v3.20 표시와 기준값: { 스탯: { m: "L"|"U"|"D", v: 기준값 } }. 기준값 = 카드에 적힌 값(아이템 포함).
+   이름은 예전 그대로 floorOf · t.floor · applyFloor(예전에는 버팀 하나뿐이라 "바닥"이었다). 마법이 이번 턴 건 표시도 t.floor에 들어간다(tmp) */
 function floorOf(it) {
-  const im = itemOf(it), c = C(it);
-  const lock = Object.assign({}, c.lock || {}, im ? (im.set ? { a: 1, d: 1, h: 1 } : im.lock || {}) : {});
-  if (!Object.keys(lock).length) return {};
+  const pm = pinModes(it), ks = Object.keys(pm);
+  if (!ks.length) return {};
   const pr = printedStats(it), out = {};
-  for (const k in lock) out[k] = pr[k];
+  for (const k of ks) out[k] = pinBound(pm[k], pr[k]);
   return out;
 }
-function applyFloor(u) { const f = u.t.floor; for (const k in f) if (u.t[k] < f[k]) u.t[k] = f[k]; }
+/* 표시 하나 = 아래 경계 lo · 위 경계 hi (고정은 둘이 같다). m은 화면에 보일 표시, v는 기준값 */
+function pinBound(m, v) { return { m, v, lo: m === "L" || m === "U" ? v : null, hi: m === "L" || m === "D" ? v : null }; }
+function clampPins(s, P) {
+  for (const k in P) { const { lo, hi } = P[k]; if (lo != null && s[k] < lo) s[k] = lo; if (hi != null && s[k] > hi) s[k] = hi; }
+}
+function applyFloor(u) { clampPins(u.t, u.t.floor || {}); }
+/* 마법 하나가 끝날 때마다 전장의 모든 유닛에 표시를 다시 지킨다(효과가 직접 스탯을 바꿔도 새지 않게). 체력이 0이 되면 쓰러진다 */
+function pinPass(X) {
+  for (const p of X.P) for (const u of p.field) if (isUnit(u) && u.t && u.t.alive) {
+    applyFloor(u);
+    if (hpLeft(u) <= 0) { u.t.alive = false; lgDeath(X, u); }
+  }
+}
 
 /* 턴이 시작될 때: 피해 회복, 마법 효과 해제, 보호막 코인.
    코인은 여기서 던지지 않는다 — 유닛끼리 맞붙을 때 던진다(clashCoins). 그 전까지는 적힌 값 그대로.
@@ -103,8 +119,10 @@ const hpLeft = u => u.t.h - u.t.dmg;
 const COIN_MAX = 5;
 function coinDefs(it) {
   const c = C(it), im = itemOf(it), out = [];
-  if (!(im && im.set)) for (const [st, n, v] of c.co || []) for (let i = 0; i < n; i++) out.push({ st, v, heads: null, src: "u" });
-  if (it.item) for (const [st, n, v] of CARDS[it.item.id].co || []) for (let i = 0; i < n; i++) out.push({ st, v, heads: null, src: "i" });
+  // v3.20 고정(L) 스탯의 코인과, 아이템 절대값(to) 스탯의 유닛 코인은 던지지 않는다
+  const pm = pinModes(it), to = (im && im.to) || {};
+  if (!(im && im.set)) for (const [st, n, v] of c.co || []) if (pm[st] !== "L" && to[st] == null) for (let i = 0; i < n; i++) out.push({ st, v, heads: null, src: "u" });
+  if (it.item) for (const [st, n, v] of CARDS[it.item.id].co || []) if (pm[st] !== "L") for (let i = 0; i < n; i++) out.push({ st, v, heads: null, src: "i" });
   // v1.6.1: 공·방·체 코인은 순번이 같으면 동전 하나다 (g). 공·방·체에 코인이 하나씩이면 동전 하나를 던져
   // 앞면이면 셋 모두에 붙는다. 공격에 둘·방어에 하나면 동전 둘: 첫째는 공격·방어, 둘째는 공격에만.
   // 유닛 카드 코인과 장착 아이템 코인도 함께 센다(유닛 공격 코인 1 + 아이템 공격 코인 1 = 공격 코인 2).
@@ -119,14 +137,18 @@ function applyCoins(u, coins) {
   const mul = CRULES.coinMul || 1;
   for (const k of coins) if (k.heads) nb[k.st] += k.v * mul;
   const delta = { a: nb.a - old.a, d: nb.d - old.d, h: nb.h - old.h };
+  const b = { a: u.t.a, d: u.t.d, h: u.t.h };
   u.t.a = Math.max(0, u.t.a + delta.a);
   if (u.t.lock) delta.d = 0; else u.t.d += delta.d;
   // v1.4: 코인으로 체력이 0 이하가 되면 쓰러진다 (카드가 부서져 소각 더미로)
   u.t.h = u.t.h + delta.h;
-  u.t.cb = nb; u.t.coins = coins;
   applyFloor(u);
+  // v3.20 코인 몫(cb)은 실제로 붙은 값으로 적는다. 공격 0 · 버팀 · 눌림에 막힌 몫까지 적으면, 다시 던질 때 그만큼을 빼거나 더해
+  // 스탯이 처음보다 커지거나 작아졌다(예: 공격 1에 −2 코인 앞면 → 0, 다시 던져 뒷면 → 2)
+  const got = { a: u.t.a - b.a, d: u.t.d - b.d, h: u.t.h - b.h };
+  u.t.cb = { a: old.a + got.a, d: old.d + got.d, h: old.h + got.h }; u.t.coins = coins;
   if (u.t.alive && hpLeft(u) <= 0) { u.t.alive = false; u.t.coinDeath = true; }
-  return delta;
+  return got;
 }
 /* 맞붙을 때 코인을 던진다. 동전(g)마다 한 번 던지고, 그 동전에 묶인 공·방·체 코인이 같은 면을 받는다.
    X.over["교전번호:유닛uid:동전번호"]에 값이 있으면 그 동전은 그 값으로 (코인 뒤집기).
@@ -221,6 +243,7 @@ function pickTargets(X, caster, side, area, k) {
       : L.filter(u => { const c = colOf(P, u); return c > k && c <= k + area.n; });   // 아군 쪽은 그대로: 이 마법이 놓인 칸 다음부터 N칸
     else if (area.t === "front") L = queueOf(P).slice(0, area.n);
     else if (area.t === "maxA") L = L.slice().sort((x, y) => y.t.a - x.t.a || C(y).lv - C(x).lv || colOf(P, x) - colOf(P, y)).slice(0, area.n);
+    else if (area.t === "minA") L = L.slice().sort((x, y) => x.t.a - y.t.a || C(x).lv - C(y).lv || colOf(P, x) - colOf(P, y)).slice(0, area.n);   // v3.20 공격이 가장 낮은 n기
     else if (area.t === "minH") L = L.slice().sort((x, y) => hpLeft(x) - hpLeft(y) || C(x).lv - C(y).lv || colOf(P, x) - colOf(P, y)).slice(0, area.n);   // v3.11 남은 체력이 가장 낮은 n기
     else if (area.t === "behind") L =L.filter(u => colOf(P, u) > k).sort((x, y) => colOf(P, x) - colOf(P, y)).slice(0, 1);
     out = out.concat(L);
@@ -274,18 +297,19 @@ function castSpell(X, caster, it, k) {
   if (c.cost.ether) { p.reload += c.cost.ether; lg(X, `[장전 ${c.cost.ether}] ${p.name}의 다음 턴 에테르 −${c.cost.ether}`, "sys"); }
   if (c.gain.life) { const b = p.life; p.life = Math.min(RULES.lifeCap, p.life + c.gain.life); if (p.life > b) fl(X, "life" + p.idx, "+" + (p.life - b), "heal"); }
   const amp = c.type === "atk" ? amplify(p) : 0;
-  for (const op of ops) {
-    if (SPELL_OPS[op.op]) { SPELL_OPS[op.op](X, caster, it, k, op); continue; }
+  // v3.20 효과 하나가 끝날 때마다 표시(고정 · 버팀 · 눌림)를 다시 지킨다 (pinPass)
+  const castOp = op => {
+    if (SPELL_OPS[op.op]) { SPELL_OPS[op.op](X, caster, it, k, op); return; }
     if (op.op === "copy") {
       const src = pickTargets(X, caster, "ally", { t: "behind" }, k)[0];
-      if (!src) { lg(X, "바로 뒤에 아군 유닛이 없어 효과가 없다", "sys"); continue; }
+      if (!src) { lg(X, "바로 뒤에 아군 유닛이 없어 효과가 없다", "sys"); return; }
       const sa = src.t.a, sd = src.t.d, sh = src.t.h;
       for (const u of pickTargets(X, caster, op.side || "both", { t: "all" }, k)) {
         u.t.a = sa; if (!u.t.lock) u.t.d = sd; u.t.h = sh; applyFloor(u);
         if (hpLeft(u) <= 0) u.t.alive = false;
         fl(X, u.uid, `${sa}/${sd}/${sh}`, "buff");
       }
-      continue;
+      return;
     }
     const T = pickTargets(X, caster, op.side, op.area, k);
     const x = coinX(op, faces.get(op)) + (op.op === "dmg" && op.side === "foe" ? amp : 0);
@@ -295,15 +319,20 @@ function castSpell(X, caster, it, k) {
         case "mod": {
           let ma = op.a || 0, md = op.d || 0, mh = op.h || 0;
           if (op.coin) { const cx = x - (op.x || 0); if (op.cs === "d") md += cx; else if (op.cs === "h") mh += cx; else ma += cx; }
+          const b0 = { a: u.t.a, d: u.t.d, h: u.t.h };
           if (ma) u.t.a = Math.max(0, u.t.a + ma);
           if (md && !u.t.lock) u.t.d += md;
           if (mh) u.t.h += mh;
           applyFloor(u);
           if (hpLeft(u) <= 0) { u.t.alive = false; lgDeath(X, u); }
-          const tx = [ma ? "⚔" + sgnNum(ma) : "", md && !u.t.lock ? "⛨" + sgnNum(md) : "", mh ? "♥" + sgnNum(mh) : ""].filter(Boolean).join(" ");
-          if (tx) fl(X, u.uid, tx, ma < 0 || md < 0 || mh < 0 ? "debuff" : "buff");
+          // v3.20 실제로 바뀐 값을 띄운다. 표시(고정 · 버팀 · 눌림)에 막힌 스탯은 그 이름을
+          const ra = u.t.a - b0.a, rd = u.t.d - b0.d, rh = u.t.h - b0.h;
+          const tx = [ra ? "⚔" + sgnNum(ra) : "", rd ? "⛨" + sgnNum(rd) : "", rh ? "♥" + sgnNum(rh) : ""].filter(Boolean).join(" ");
+          if (tx) fl(X, u.uid, tx, ra < 0 || rd < 0 || rh < 0 ? "debuff" : "buff");
+          const blk = [["a", ma, ra], ["d", md, rd], ["h", mh, rh]].find(([s, want, got]) => want && got !== want && u.t.floor[s]);
+          if (blk) fl(X, u.uid, PIN_KO[u.t.floor[blk[0]].m] + " " + STAT_KO[blk[0]], "miss");
           break; }
-        case "atk0": if (!op.coin || x > 0) { u.t.a = Math.max(0, u.t.floor.a || 0); fl(X, u.uid, "공격 0", "debuff"); } break;
+        case "atk0": if (!op.coin || x > 0) { u.t.a = 0; applyFloor(u); fl(X, u.uid, u.t.a ? PIN_KO[u.t.floor.a.m] : "공격 0", u.t.a ? "miss" : "debuff"); } break;
         case "swap": if (!u.t.lock) { const t = u.t.a; u.t.a = Math.max(0, u.t.d); u.t.d = t; applyFloor(u); fl(X, u.uid, "공방 교환", "debuff"); } break;
         case "shield": if (!op.coin || x > 0) { u.t.shield = true; fl(X, u.uid, "보호막", "shield"); } break;
         case "thorns": u.t.thorns += x; fl(X, u.uid, "가시 +" + x, "buff"); break;
@@ -319,8 +348,8 @@ function castSpell(X, caster, it, k) {
         case "rest": u.t.rest = true; fl(X, u.uid, "행동 불가", "debuff"); break;
         case "strip": u.t.shield = false; u.t.thorns = 0; u.t.lock = false; u.t.taunt = false; fl(X, u.uid, "강화 해제", "debuff"); break;
         /* v3.11 새 효과 (소환 마법을 바꾼 카드들) */
-        case "def0": if (!u.t.lock) { u.t.d = Math.max(0, u.t.floor.d || 0); fl(X, u.uid, "방어 0", "debuff"); } else fl(X, u.uid, "저주 면역", "miss"); break;
-        case "d2a": { const v = Math.max(0, u.t.d); if (v) { u.t.a += v; fl(X, u.uid, "⚔+" + v, "buff"); } break; }
+        case "def0": if (!u.t.lock) { u.t.d = 0; applyFloor(u); fl(X, u.uid, u.t.d > 0 ? PIN_KO[u.t.floor.d.m] : "방어 0", u.t.d > 0 ? "miss" : "debuff"); } else fl(X, u.uid, "저주 면역", "miss"); break;
+        case "d2a": { const v = Math.max(0, u.t.d); if (v) addStat(X, u, "a", v); break; }
         case "endure": u.t.endure = true; fl(X, u.uid, "불굴", "shield"); break;
         case "pierce": u.t.pierce = true; fl(X, u.uid, "꿰뚫기", "buff"); break;
         /* v3.18 유니크 마법 (js/highcards.js) */
@@ -330,11 +359,12 @@ function castSpell(X, caster, it, k) {
           fl(X, u.uid, grantLabel(op), "buff"); break; }
         case "rage": {   // 체력을 1로, 깎인 만큼 공격 + (이번 턴 · 받은 피해처럼 턴이 끝나면 돌아온다)
           const cut = hpLeft(u) - 1;
-          if (cut > 0) { u.t.dmg += cut; u.t.a += cut; fl(X, u.uid, "♥1 ⚔+" + cut, "buff"); }
+          if (cut > 0) { u.t.dmg += cut; const b = u.t.a; u.t.a += cut; applyFloor(u); fl(X, u.uid, "♥1 ⚔" + sgnNum(u.t.a - b), "buff"); }
           break; }
       }
     }
-  }
+  };
+  for (const op of ops) { castOp(op); pinPass(X); }
 }
 
 /* 투척·사격의 대상: 이 피해로 쓰러뜨릴 수 있는 유닛 중 레벨이 가장 높은 유닛, 없으면 대기열 맨 앞 */
@@ -476,8 +506,9 @@ function runCombatCore(X) {
   X.pend = pend; X.A = A;   // v3.11 빼앗기(steal)가 대기 중인 마법의 주인을 바꿀 때 쓴다
   for (const [p, who] of [[A, "atk"], [D, "def"]]) p.field.forEach((it, i) => { if (isSpell(it)) pend.push({ p, it, who, k: i + 1 }); });
   const acted = new Set();
-  // v1.9: 누구든 생명이 0 이하가 되는 순간 전투(와 경기)는 그 자리에서 끝난다. 남은 공격·마법은 하지 않는다
-  const dead = () => X.P.some(p => p.life <= 0);
+  // v1.9: 누구든 생명이 다하는 순간 전투(와 경기)는 그 자리에서 끝난다. 남은 공격·마법은 하지 않는다
+  // v3.19.6: 생명 0은 아직 살아 있다(공격 · 방어 가능). 0에서 더 깎여 0 아래가 되는 순간 끝
+  const dead = () => X.P.some(p => p.life < 0);
   // v3.18.2 opening 마법(수비형 깃발의 유니크 공격 마법)은 놓인 칸과 상관없이 전투가 시작될 때 먼저 발동한다
   const ready = q => C(q.it).opening ? true : q.who === "atk"
     ? A.field.every((u, i) => !isUnit(u) || i + 1 >= q.k || acted.has(u) || !u.t.alive)
@@ -597,6 +628,31 @@ function fizzle(X, p, id, from, i, n) {
 }
 
 const dmgOf = (u, x, phys) => (phys ? hit(x, u.t.d) : x);
+/* v3.20 스탯 하나에 v를 더하고 표시를 지킨다. 실제로 바뀐 값을 띄우고 돌려준다 */
+function addStat(X, u, k, v) {
+  const b = u.t[k];
+  if (k === "d" && u.t.lock) { fl(X, u.uid, "저주 면역", "miss"); return 0; }
+  u.t[k] = k === "a" ? Math.max(0, b + v) : b + v;
+  applyFloor(u);
+  const r = u.t[k] - b;
+  if (r) fl(X, u.uid, STAT_ICON[k] + sgnNum(r), r > 0 ? "buff" : "debuff");
+  else if (v && u.t.floor[k]) fl(X, u.uid, PIN_KO[u.t.floor[k].m] + " " + STAT_KO[k], "miss");
+  return r;
+}
+/* v3.20 공 · 방 · 체를 한꺼번에 새 값으로(순환 · 맞바꿈 · 평균 · 본뜨기). nv.h는 "남은 체력": 받은 피해를 지우고 체력이 그 값이 된다.
+   그 뒤 표시를 지키고(고정은 그대로, 버팀 · 눌림은 기준값까지), 체력이 0 이하면 쓰러진다. [불굴]은 통하지 않는다 */
+function setStats(X, u, nv, tag) {
+  const b = { a: u.t.a, d: u.t.d, h: hpLeft(u) };
+  if (nv.a != null) u.t.a = Math.max(0, nv.a);
+  if (nv.d != null && !u.t.lock) u.t.d = nv.d;
+  if (nv.h != null) { u.t.h = nv.h; u.t.dmg = 0; }
+  applyFloor(u);
+  const hl = hpLeft(u);
+  if (u.t.alive && hl <= 0) { u.t.alive = false; fl(X, u.uid, (tag || "") + " 체력 0", "dmg big"); lg(X, `${C(u).name}의 체력이 0이 되어 쓰러졌다`, "bad"); lgDeath(X, u); }
+  else fl(X, u.uid, `${tag ? tag + " " : ""}${u.t.a}/${u.t.d}/${Math.max(0, hl)}`, (u.t.a < b.a || hl < b.h) ? "debuff" : "buff");
+  return { a: u.t.a - b.a, d: u.t.d - b.d, h: hl - b.h };
+}
+const statNow = (u, k) => (k === "h" ? hpLeft(u) : u.t[k]);
 const SPELL_OPS = {
   /* 무작위 대상에게 n번: { side, n, x, phys } */
   multi(X, caster, it, k, op) {
@@ -689,28 +745,29 @@ const SPELL_OPS = {
     if (!x) return;
     for (const u of sideUnits(X, caster, op.side || "foe")) hurt(X, u, x);
   },
-  /* v3.11 빼앗기: 아군 맨 앞 유닛과 같은 칸 번호에 놓인 상대 카드를 이 마법의 칸으로 가져온다.
-     유닛이면 이번 턴 내 유닛이 되고(공격 턴이면 아직 공격하지 않은 그 유닛이 내 차례에 공격한다), 전투가 끝나면 흩어져 원래 주인의 소각장으로 간다.
-     뒷면 마법이면 내 마법으로 발동한다(쓴 뒤 원래 주인의 소각장으로) */
+  /* v3.11 빼앗기 (v3.19.7: 칸은 이 마법이 놓인 칸, 가져온 카드는 내 전장 맨 뒤)
+     이 마법과 같은 칸 번호에 놓인 상대 카드를 빼앗아 내 전장의 맨 뒤(마지막 카드 다음)에 놓는다. 이 마법은 쓰이고 부서지므로 그 칸은 비우고 당긴다.
+     유닛이면 이번 턴 내 유닛이 되고(공격 턴이면 내 다른 유닛들 다음에 공격, 방어 턴이면 내 방어 줄 맨 뒤), 전투가 끝나면 흩어져 원래 주인의 소각장으로 간다.
+     뒷면 마법이면 내 마법으로 발동한다(맨 뒤 칸 차례에, 쓴 뒤 원래 주인의 소각장으로) */
   steal(X, caster, it, k, op) {
     const p = X.P[caster], o = X.P[1 - caster];
-    const front = p.field.find(u => isUnit(u) && u.t && u.t.alive);
-    if (!front) { lg(X, "아군 유닛이 없어 빼앗을 칸을 정하지 못했다", "sys"); return; }
-    const col = p.field.indexOf(front), tg = o.field[col];
+    const mine = it.echo ? -1 : p.field.indexOf(it);
+    const col = mine >= 0 ? mine : k - 1, tg = o.field[col];
     if (!tg || (isUnit(tg) && !(tg.t && tg.t.alive))) { lg(X, `상대 ${col + 1}번 칸이 비어 빼앗을 카드가 없다`, "sys"); return; }
-    let s = it.echo ? -1 : p.field.indexOf(it);
-    if (s < 0) s = p.field.indexOf(null);
-    if (s < 0) { lg(X, "내 전장에 놓을 칸이 없어 빼앗지 못했다", "bad"); return; }
+    const xs = p.field.filter(u => u && u !== it);
+    if (xs.length >= RULES.slots) { lg(X, "내 전장에 놓을 칸이 없어 빼앗지 못했다", "bad"); return; }
     o.field[col] = null;
-    p.field[s] = tg;
-    tg.from = o.idx;
+    xs.push(tg);
+    p.field = xs.concat(Array(RULES.slots - xs.length).fill(null));
+    if (tg.from == null) tg.from = o.idx;   // 원래 주인 (이미 빼앗긴 카드면 처음 주인을 그대로)
     if (isUnit(tg)) { tg.tokTemp = true; if (tg.t) tg.t.stolen = true; }   // 빼앗은 유닛은 이번 턴만 내 편 — 전투가 끝나면 흩어져 원래 주인의 소각장으로
-    if (isSpell(tg) && X.pend) {
-      const q = X.pend.find(z => z.it === tg);
-      if (q) { q.p = p; q.who = p === X.A ? "atk" : "def"; q.k = s + 1; }
+    if (X.pend) {
+      const q = isSpell(tg) && X.pend.find(z => z.it === tg);
+      if (q) { q.p = p; q.who = p === X.A ? "atk" : "def"; }
+      for (const z of X.pend) if (z.p === p) z.k = p.field.indexOf(z.it) + 1;   // 당겨진 내 마법들의 칸 번호
     }
     fl(X, tg.uid, "빼앗김", "debuff");
-    lg(X, `${p.name}이(가) 상대 ${col + 1}번 칸의 ${isSpell(tg) ? "마법 " : ""}${C(tg).name}을(를) 빼앗아 왔다`, "good");
+    lg(X, `${p.name}이(가) 상대 ${col + 1}번 칸의 ${isSpell(tg) ? "마법 " : ""}${C(tg).name}을(를) 빼앗아 내 전장 맨 뒤(${xs.length}번 칸)에 놓았다`, "good");
     step(X, { act: tg.uid }, 520);
   },
   /* v3.11 대칭: 상대 전장의 카드 배치를 좌우로 뒤집는다 (맨 앞 ↔ 맨 뒤). 대기 중인 마법의 칸도 함께 바뀐다 */
@@ -754,20 +811,20 @@ const SPELL_OPS = {
     const n = liveUnits(X.P[caster]).length, x = n * (op.a || 1);
     lg(X, `아군 유닛 ${n}기 → 공격 +${x}`, "sys");
     if (!x) return;
-    for (const u of pickTargets(X, caster, op.side || "ally", op.area || { t: "all" }, k)) { u.t.a += x; fl(X, u.uid, "⚔+" + x, "buff"); }
+    for (const u of pickTargets(X, caster, op.side || "ally", op.area || { t: "all" }, k)) addStat(X, u, "a", x);
   },
   /* v3.18.2 대상마다 공격 +(자기 남은 체력 ÷ div, 올림) { side, area, div } */
   hp2a(X, caster, it, k, op) {
     for (const u of pickTargets(X, caster, op.side || "ally", op.area || { t: "all" }, k)) {
       const x = Math.ceil(Math.max(0, hpLeft(u)) / (op.div || 2));
-      if (x > 0) { u.t.a += x; fl(X, u.uid, "⚔+" + x, "buff"); }
+      if (x > 0) addStat(X, u, "a", x);
     }
   },
   /* v3.18 결투: 아군 맨 앞 유닛 공격 +a. 그 뒤 그 유닛이 상대 유닛 중 공격이 가장 높은 1기를 먼저 치고(물리), 살아남으면 그 유닛이 되친다 { a } */
   duel(X, caster, it, k, op) {
     const me = queueOf(X.P[caster])[0], foe = pickTargets(X, caster, "foe", { t: "maxA", n: 1 }, k)[0];
     if (!me) { lg(X, "아군 유닛이 없어 결투가 열리지 않았다", "sys"); return; }
-    if (op.a) { me.t.a += op.a; fl(X, me.uid, "⚔+" + op.a, "buff"); }
+    if (op.a) addStat(X, me, "a", op.a);
     if (!foe) return;
     step(X, { act: me.uid, tgt: foe.uid }, 380);
     lg(X, `결투: ${C(me).name}(공 ${me.t.a}) → ${C(foe).name}(공 ${foe.t.a})`, "spell");
@@ -777,6 +834,106 @@ const SPELL_OPS = {
     if (!foe.t.alive || foe.t.rest) return;
     const x2 = hit(foe.t.a, me.t.d);
     if (x2 > 0) hurt(X, me, x2, "결투"); else fl(X, me.uid, "막음", "miss");
+  },
+  /* ---------- v3.20 스탯을 옮기고 맞바꾸는 마법 · 표시를 거는 마법 (js/pincards.js, docs/PINS_v3.20.md) ----------
+     대상은 { side, area }(pickTargets). 체력은 "남은 체력"으로 읽고, 체력이 새 값이 되면 받은 피해는 지워진다(setStats).
+     체력이 0이 되는 유닛은 쓰러진다. 고정된 스탯은 제자리에 남고(그 스탯이 내보내는 값은 그대로 옮겨 간다), 버팀 · 눌림은 기준값까지 */
+  /* 순환 { dir: 1 } 공격 → 방어 → 체력 → 공격 / { dir: -1 } 공격 → 체력 → 방어 → 공격 */
+  rot(X, caster, it, k, op) {
+    for (const u of pickTargets(X, caster, op.side || "foe", op.area || { t: "front", n: 1 }, k)) {
+      const a = u.t.a, d = u.t.d, h = hpLeft(u);
+      setStats(X, u, op.dir === -1 ? { a: Math.max(0, d), d: h, h: a } : { a: h, d: a, h: d }, op.dir === -1 ? "역순환" : "순환");
+    }
+  },
+  /* 두 스탯 맞바꾸기 { x: "a", y: "h" } */
+  swapSt(X, caster, it, k, op) {
+    for (const u of pickTargets(X, caster, op.side || "foe", op.area || { t: "front", n: 1 }, k)) {
+      if (op.gt && !(statNow(u, op.x) > statNow(u, op.y))) continue;   // gt: x가 y보다 클 때만 (물의 거울: 공격이 체력보다 높은 유닛)
+      const nv = {}; nv[op.x] = statNow(u, op.y); nv[op.y] = statNow(u, op.x);
+      if (nv.d != null) nv.d = nv.d; if (nv.a != null) nv.a = Math.max(0, nv.a);
+      setStats(X, u, nv, STAT_KO[op.x][0] + STAT_KO[op.y][0] + " 교환");
+    }
+  },
+  /* 이번 턴 표시를 건다 { st: ["a"], m: "L"|"U"|"D", v } — v가 있으면 그 값으로 바꾼 뒤(카드 · 아이템 표시가 막으면 거기까지) 지금 값에 건다.
+     카드 · 아이템 표시와 겹치면 두 경계를 함께 지킨다(카드의 고정은 그대로 고정). 체력의 고정은 버팀으로 */
+  pin(X, caster, it, k, op) {
+    for (const u of pickTargets(X, caster, op.side || "ally", op.area || { t: "front", n: 1 }, k)) {
+      const sts = [].concat(op.st || ["a"]);
+      u.t.floor = Object.assign({}, u.t.floor);
+      for (const s of sts) {
+        const m = s === "h" && op.m === "L" ? "U" : op.m;
+        if (op.v != null && s !== "h" && !(s === "d" && u.t.lock)) { u.t[s] = op.v; applyFloor(u); }
+        const nb = pinBound(m, u.t[s]), ob = u.t.floor[s];
+        if (ob) { const lo = ob.lo != null ? (nb.lo != null ? Math.max(ob.lo, nb.lo) : ob.lo) : nb.lo, hi = ob.hi != null ? (nb.hi != null ? Math.min(ob.hi, nb.hi) : ob.hi) : nb.hi;
+          nb.lo = lo; nb.hi = hi; nb.m = lo != null && lo === hi ? "L" : hi == null ? "U" : lo == null ? "D" : m; }
+        nb.tmp = true; u.t.floor[s] = nb;
+      }
+      fl(X, u.uid, PIN_KO[op.m] + " " + sts.map(s => STAT_KO[s][0]).join("") + (op.v != null ? " " + op.v : ""), op.side === "foe" ? "debuff" : "shield");
+    }
+  },
+  /* 역화: 대상이 자기 공격만큼 자기에게 피해 { phys } */
+  selfHit(X, caster, it, k, op) {
+    for (const u of pickTargets(X, caster, op.side || "foe", op.area || { t: "maxA", n: 1 }, k)) {
+      const x = Math.max(0, u.t.a), r = op.phys ? hit(x, u.t.d) : x;
+      lg(X, `${C(u).name}이(가) 제 공격 ${x}에 맞는다`, "spell");
+      if (r > 0) hurt(X, u, r, "역화"); else fl(X, u.uid, "막음", "miss");
+    }
+  },
+  /* 아군 맨 앞 유닛과 상대 유닛 하나(area, 기본 맨 앞)의 스탯 맞바꾸기 { st: "a", area } */
+  xchg(X, caster, it, k, op) {
+    const me = op.mine ? pickTargets(X, caster, "ally", op.mine, k)[0] : queueOf(X.P[caster])[0], foe = pickTargets(X, caster, "foe", op.area || { t: "front", n: 1 }, k)[0], s = op.st || "a";
+    if (!me || !foe) { lg(X, "맞바꿀 유닛이 없다", "sys"); return; }
+    const vm = statNow(me, s), vf = statNow(foe, s);
+    lg(X, `${C(me).name}의 ${STAT_KO[s]} ${vm} ↔ ${C(foe).name}의 ${STAT_KO[s]} ${vf}`, "spell");
+    const a = {}, b = {}; a[s] = vf; b[s] = vm;
+    setStats(X, me, a, "교환"); setStats(X, foe, b, "교환");
+  },
+  /* 무리의 분노: 대상 아군의 공격이 아군 가운데 가장 높은 공격보다 낮으면 그 값이 된다 { area } */
+  matchA(X, caster, it, k, op) {
+    const lead = liveUnits(X.P[caster]).sort((x, y) => y.t.a - x.t.a)[0]; if (!lead) return;
+    for (const u of pickTargets(X, caster, "ally", op.area || { t: "back", n: 2 }, k)) if (u !== lead && u.t.a < lead.t.a) addStat(X, u, "a", lead.t.a - u.t.a);
+  },
+  /* 스탯 옮기기: from의 값(0 아래는 0)을 to에 더하고 from은 0 { from: "a", to: "h" } */
+  move(X, caster, it, k, op) {
+    for (const u of pickTargets(X, caster, op.side || "ally", op.area || { t: "front", n: 1 }, k)) {
+      const v = Math.max(0, statNow(u, op.from)); if (!v) continue;
+      const nv = {}; nv[op.from] = 0; nv[op.to] = statNow(u, op.to) + v;
+      if (op.to === "h") { u.t.h += v; delete nv.h; }   // 체력으로 옮길 때는 받은 피해를 지우지 않고 체력만 늘린다
+      setStats(X, u, nv, STAT_KO[op.from][0] + "→" + STAT_KO[op.to][0]);
+    }
+  },
+  /* 착취: 상대 대상의 공격을 x 깎고, 실제로 깎인 만큼 아군 맨 앞 유닛 공격 + { x, area } */
+  drain(X, caster, it, k, op) {
+    const me = queueOf(X.P[caster])[0];
+    let got = 0;
+    for (const u of pickTargets(X, caster, "foe", op.area || { t: "front", n: 1 }, k)) got += -addStat(X, u, "a", -op.x);
+    if (me && got > 0) { step(X, {}, 240); addStat(X, me, "a", got); }
+  },
+  /* 질서: 대상들의 공격이 그 가운데 가장 낮은 공격과 같아진다 { side, area } */
+  levelA(X, caster, it, k, op) {
+    const T = pickTargets(X, caster, op.side || "foe", op.area || { t: "all" }, k); if (T.length < 2) return;
+    const lo = Math.min(...T.map(u => u.t.a));
+    lg(X, `가장 낮은 공격 ${lo}에 맞춘다`, "spell");
+    for (const u of T) if (u.t.a > lo) addStat(X, u, "a", lo - u.t.a);
+  },
+  /* 평균: 공 · 방(0 아래는 0) · 남은 체력의 평균(내림)으로 셋 다 { side, area } */
+  avg(X, caster, it, k, op) {
+    for (const u of pickTargets(X, caster, op.side || "foe", op.area || { t: "front", n: 1 }, k)) {
+      const v = Math.floor((u.t.a + Math.max(0, u.t.d) + Math.max(0, hpLeft(u))) / 3);
+      setStats(X, u, { a: v, d: v, h: v }, "평균");
+    }
+  },
+  /* 본뜨기: 아군 맨 앞 n기의 공 · 방 · 체 가운데 상대 대상보다 낮은 것은 그 값이 된다 { n, area } */
+  mimic(X, caster, it, k, op) {
+    const src = pickTargets(X, caster, "foe", op.area || { t: "maxA", n: 1 }, k)[0];
+    const mine = queueOf(X.P[caster]).slice(0, op.n || 1);
+    if (!mine.length || !src) { lg(X, "본뜰 유닛이 없다", "sys"); return; }
+    for (const me of mine) {
+      const nv = {};
+      for (const s of ["a", "d", "h"]) if (statNow(src, s) > statNow(me, s)) nv[s] = statNow(src, s);
+      lg(X, `${C(me).name}이(가) ${C(src).name}을(를) 본뜬다`, "spell");
+      if (Object.keys(nv).length) setStats(X, me, nv, "본뜨기"); else fl(X, me.uid, "그대로", "miss");
+    }
   },
   /* [운명] 이번 턴 아군 코인: + 코인은 앞면, − 코인은 뒷면. 이미 던져 정해진 코인은 그대로 (v3.5.7) */
   fate(X, caster, it, k, op) {

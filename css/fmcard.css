@@ -164,3 +164,22 @@ html.mobile .hand-me .card.fm.slim .c-cls { font-size: .66em; }
 .card.fm.size-full .c-vstats { justify-content: flex-end; gap: .25em; }
 .card.fm.size-full .c-vstats .st { flex-direction: row; gap: .14em; }
 .card.fm.size-full .c-vstats .st b { font-size: 1.6em; min-width: 1.05em; text-align: center; }
+/* v3.20 스탯 표시 (▲ 버팀 · ▼ 눌림 · 🔒 고정). 숫자 없이 표시만 있는 아이템 칸은 그림을 조금 크게 */
+.card.fm .c-istats .st-pinonly .st-lock { width: .78em; height: .78em; margin-left: 0; }
+.card.fm.size-full .c-istats .st-pinonly .st-lock { width: 1.05em; height: 1.05em; }
+
+/* v3.19.8 종족 줄 맨 앞 카드 종류 글씨(유닛 · 공격 마법 · 아이템): 종류 아이콘과 같은 색, 굵고 조금 크게. 핸드에서는 줄 전체도 조금 크게 */
+.card.fm .c-race .r-t { font-size: 1.16em; font-weight: 800; letter-spacing: -.01em; color: color-mix(in srgb, var(--tc, var(--gold-hi)) 82%, #fff);
+  text-shadow: 0 0 .45em color-mix(in srgb, var(--tc, var(--gold)) 40%, transparent), 0 .05em .08em #000; }
+.card.fm .c-race .r-sep { margin: 0 .16em; opacity: .5; font-weight: 400; }
+.card.fm .c-race .r-t.t-unit { --tc: var(--k-unit, #d9b46a); }
+.card.fm .c-race .r-t.t-item { --tc: #e2cf96; }
+.card.fm .c-race .r-t.t-atk { --tc: var(--rite-atk, #e0674f); }
+.card.fm .c-race .r-t.t-def { --tc: var(--rite-def, #5aa2e6); }
+.card.fm .c-race .r-t.t-any { --tc: var(--rite-any, #5fc9b0); }
+.card.fm .c-race .r-t.t-hand { --tc: var(--rite-hand, #c9a2ff); }
+.hand-me .card.fm .c-race { font-size: .66em; }
+
+/* v3.20.3 카드 이름 글꼴 · 굵기: 설정 "카드 이름 글꼴"(js/game.js NAME_FONTS)이 --nfont · --nweight를 정한다. 기본 송명 400(예전 Hahmlet 800은 너무 굵었다).
+   글꼴은 css/fonts-names.css(게임 폴더에 담김). 받지 못하면 한글 글꼴(--kfont) → 바탕 */
+.card .c-name { font-family: var(--nfont, "Song Myung"), var(--kfont, var(--body)), serif; font-weight: var(--nweight, 400); }

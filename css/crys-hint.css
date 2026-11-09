@@ -1,0 +1,55 @@
+/* ETHERION v3.19.8 — 결정화 손짓 (js/game.js etherHTML · CrysHint, 가이드 2.11)
+   결정화를 모르는 사람이 많아서, 내 준비 단계에 결정화할 수 있으면
+   · 핸드 맨 왼쪽 카드 자리에서 카드 한 장(뒷면)이 떠올라 에테르 구슬로 날아들고, 닿으면 구슬에 하늘빛 고리가 퍼진다(2.6초마다).
+   · 구슬 아래 명판이 두 줄로 커진다: "결정화 가능 N" + "핸드 1장을 구슬로 끌어 놓기 · 에테르 +1".
+   결정화를 세 번 해 보면 나오지 않는다(Prefs crysTeach). 움직임은 transform · opacity만 써서 매 프레임 다시 칠하지 않는다(nopulse.css의 뜻).
+   날아가는 카드(.crys-ghost)는 #fx-layer에 붙는다. left · top = 구슬 가운데, --dx · --dy = 구슬에서 핸드 카드까지, --gw = 카드 폭, --rw = 고리 지름 */
+
+.crys-ghost { position: absolute; width: 0; height: 0; pointer-events: none; z-index: 2; }
+.crys-ghost .ch-x, .crys-ghost .ch-y { position: absolute; left: 0; top: 0; will-change: transform; }
+/* 가로 = 고르게, 세로 = 처음엔 위로 떴다가 빠르게 내려꽂힌다 → 둘을 겹치면 활처럼 휜 길 */
+.crys-ghost .ch-x { animation: chX 2.6s cubic-bezier(.45, 0, .55, 1) infinite; }
+.crys-ghost .ch-y { animation: chY 2.6s cubic-bezier(.5, 0, .75, .4) infinite; }
+.crys-ghost .ch-card { display: block; width: var(--gw, 64px); height: calc(var(--gw, 64px) * 1.4); max-width: none; margin: calc(var(--gw, 64px) * -.7) 0 0 calc(var(--gw, 64px) * -.5);
+  border-radius: 6%; box-shadow: 0 0 0 1.5px rgba(143, 220, 255, .9), 0 0 16px 3px rgba(143, 220, 255, .55), 0 6px 14px rgba(0, 0, 0, .7);
+  opacity: 0; animation: chCard 2.6s linear infinite; will-change: transform, opacity; }
+@keyframes chX {
+  0%, 16% { transform: translateX(var(--dx, 120px)); }
+  64%, 100% { transform: translateX(0); }
+}
+@keyframes chY {
+  0% { transform: translateY(var(--dy, 200px)); }
+  16% { transform: translateY(calc(var(--dy, 200px) - 34px)); }
+  64%, 100% { transform: translateY(0); }
+}
+@keyframes chCard {
+  0% { opacity: 0; transform: scale(1); }
+  10% { opacity: .95; transform: scale(1.05); }
+  50% { opacity: .95; transform: scale(.72) rotate(-6deg); }
+  64% { opacity: .9; transform: scale(.34) rotate(-10deg); }
+  72%, 100% { opacity: 0; transform: scale(.12) rotate(-12deg); }
+}
+/* 닿는 순간 구슬에 퍼지는 하늘빛 고리 */
+.crys-ghost .ch-ring { position: absolute; left: 0; top: 0; width: var(--rw, 110px); height: var(--rw, 110px); margin: calc(var(--rw, 110px) * -.5) 0 0 calc(var(--rw, 110px) * -.5); border-radius: 50%;
+  border: 3px solid rgba(170, 232, 255, .95); box-shadow: 0 0 18px rgba(143, 220, 255, .8), inset 0 0 14px rgba(143, 220, 255, .55);
+  opacity: 0; animation: chRing 2.6s ease-out infinite; will-change: transform, opacity; }
+@keyframes chRing {
+  0%, 60% { opacity: 0; transform: scale(.5); }
+  66% { opacity: 1; transform: scale(.75); }
+  90%, 100% { opacity: 0; transform: scale(1.4); }
+}
+
+/* 두 줄 명판 (위 꼭지가 구슬을 가리킨다). 명판이 구슬 칸보다 넓어도 잘리지 않게 */
+.ether.altar.teach .eth-foot { overflow: visible; z-index: 8; }
+.ether.altar .cry-state.cry-teach { position: relative; display: inline-flex; flex-direction: column; align-items: center; gap: 2px; padding: 5px 13px 6px; border-radius: 12px;
+  white-space: nowrap; line-height: 1.15; color: #effbff; border: 1.5px solid #8fdcff;
+  background: linear-gradient(180deg, rgba(20, 52, 78, .97), rgba(7, 18, 32, .97));
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .6), 0 0 16px rgba(143, 220, 255, .55), 0 3px 10px rgba(0, 0, 0, .75); }
+.ether.altar .cry-state.cry-teach b { font-size: 1.06em; font-weight: 800; letter-spacing: .02em; text-shadow: 0 0 8px rgba(143, 220, 255, .9), 0 1px 2px #000; }
+.ether.altar .cry-state.cry-teach small { font-size: .74em; font-weight: 700; color: #c4ebff; }
+.ether.altar .cry-state.cry-teach::before { content: ""; position: absolute; left: 50%; top: -7px; width: 11px; height: 11px; margin-left: -6px; transform: rotate(45deg);
+  background: rgb(20, 52, 78); border-left: 1.5px solid #8fdcff; border-top: 1.5px solid #8fdcff; }
+
+@media (prefers-reduced-motion: reduce) {
+  .crys-ghost { display: none; }
+}

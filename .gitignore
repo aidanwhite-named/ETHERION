@@ -23,3 +23,10 @@ android/app/build/
 android/local.properties
 android/.idea/
 *.iml
+
+# 개발용 전투 로그를 이 폴더에 자동 저장할 때 (js/battlelog.js)
+logs/
+
+# PC 앱(Electron): 만든 exe · 받아 둔 Electron 본체 (tools/desktop/build_exe.py)
+desktop/out/
+desktop/cache/

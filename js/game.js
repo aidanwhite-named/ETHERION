@@ -66,7 +66,7 @@ const roundStep = t => ((t - 1) % 2) + 1;   // 이 라운드의 몇 번째 턴�
 function role(p) { return p.idx === G.attacker ? "atk" : "def"; }
 function prepIdx() { return G.phase === "atkPrep" ? G.attacker : G.phase === "defPrep" ? 1 - G.attacker : -1; }
 
-function log(text, cls) { G.log.push({ text, cls: cls || "" }); if (G.log.length > 300) G.log.shift(); }
+function log(text, cls) { G.log.push({ text, cls: cls || "" }); if (G.log.length > 300) G.log.shift(); if (typeof BLog !== "undefined") BLog.line(text, cls); }   // v3.20.1 개발용 전투 로그 (js/battlelog.js)
 
 /* ---------- 행동 ---------- */
 /* 비용: 레벨. 판 규칙(원정의 용 페로스)이 있으면 아이템은 0 */
@@ -81,10 +81,10 @@ function canPlay(p, c) {
   const cost = costOf(c), e = ether(p);
   if (cost > e) return `에테르가 부족합니다. (필요 ${cost}, 남은 에테르 ${Math.max(0, e)})`;
   if (c.type === "item") { if (!equipHosts(p, c).length) return `장착할 유닛이 없습니다. (${classTagText(c).replace(/[\[\]]/g, "")} · 아이템이 없는 내 유닛)`; return null; }
-  if (c.cost && c.cost.life && p.life <= c.cost.life) return "대가로 낼 생명이 부족합니다.";
+  if (c.cost && c.cost.life && p.life < c.cost.life) return "대가로 낼 생명이 부족합니다.";
   if (c.type === "hand") return null;   // 계략 마법: 칸 없이 바로 발동
   if (!p.field.includes(null)) return "빈 전장이 없습니다.";
-  if (c.cost && c.cost.life && p.life <= c.cost.life) return "대가로 낼 생명이 부족합니다.";
+  if (c.cost && c.cost.life && p.life < c.cost.life) return "대가로 낼 생명이 부족합니다.";
   return null;
 }
 function draw(p, n, free) {
@@ -149,6 +149,7 @@ function actCrystal(p, uid) {
   const it = p.hand.splice(i, 1)[0];
   // v3.19.2: 결정화한 카드 자체는 소각장으로 간다(결정은 남는다). 나중에 소각장에서 핸드로 되살리는 마법이 이 카드도 고를 수 있다
   p.crystals.push(it.id); p.burn.push(it.id); p.made++; p.crysBank = crysLeft(p) - 1;
+  if (!G.cfg.headless && p.idx === G.viewer && !p.isAI && typeof CrysHint !== "undefined") CrysHint.learn();   // v3.19.8 결정화 손짓은 몇 번 해 보면 그만
   if (G.leave) G.leave[it.uid] = "crys" + p.idx;
   log(`${p.name}: 「${C(it).name}」 결정화 (결정 ${p.crystals.length}) — 카드는 소각장으로`);
   return true;
@@ -167,7 +168,7 @@ function shuffleBlock(p) {
   if (p.shuffled) return "셔플은 한 턴에 한 번만 할 수 있습니다.";
   if (p.committed) return "이번 턴에 카드를 전장에 올리거나 소각해서 셔플할 수 없습니다.";
   if (!p.hand.length) return "핸드가 없습니다.";
-  if (p.life <= 1) return "생명이 1이면 셔플할 수 없습니다.";
+  if (p.life <= 0) return "생명이 0이면 셔플할 수 없습니다.";
   return null;
 }
 function actShuffle(p) {
@@ -175,7 +176,7 @@ function actShuffle(p) {
   if (p.shuffled) { if (!p.isAI) toast("셔플은 한 턴에 한 번만 할 수 있습니다.", "warn"); return false; }
   if (p.committed) { if (!p.isAI) toast("이번 턴에 카드를 전장에 올리거나 소각해서 셔플할 수 없습니다.", "warn"); return false; }
   if (!p.hand.length) { if (!p.isAI) toast("핸드가 없습니다.", "warn"); return false; }
-  if (p.life <= 1) { if (!p.isAI) toast("생명이 1이면 셔플할 수 없습니다.", "warn"); return false; }
+  if (p.life <= 0) { if (!p.isAI) toast("생명이 0이면 셔플할 수 없습니다.", "warn"); return false; }
   const n = p.hand.length;
   for (const it of p.hand) { p.deck.push(it.id); if (G.leave) G.leave[it.uid] = "deck" + p.idx; }
   p.hand = [];
@@ -226,11 +227,14 @@ function handName(it) { return `「${C(it).name}」(${lvOf(it)}레벨)`; }
 function modCard(it, ch, src) {
   const c = C(it), out = [], got = {};
   it.mod = it.mod || {};
-  for (const k in ch) { if (ch[k] < 0 && c.lock && c.lock[k]) { out.push(STAT_KO[k] + " 면역"); continue; } it.mod[k] = (it.mod[k] || 0) + ch[k]; got[k] = ch[k]; out.push(STAT_KO[k] + sgnNum(ch[k])); }
+  const pm = pinModesOf(c);   // v3.20 카드에 새겨진 표시: 고정은 모두, 버팀은 깎기, 눌림은 올리기를 막는다
+  for (const k in ch) { const m = pm[k]; if (m === "L" || (m === "U" && ch[k] < 0) || (m === "D" && ch[k] > 0)) { out.push(STAT_KO[k] + " " + PIN_KO[m]); continue; } it.mod[k] = (it.mod[k] || 0) + ch[k]; got[k] = ch[k]; out.push(STAT_KO[k] + sgnNum(ch[k])); }
   // v3.9.9 누가 바꿨는지 남긴다 — 크게 보기 아래에 까닭으로 보인다(changeLines)
   if (Object.keys(got).length) (it.modBy = it.modBy || []).push({ src: src || "", ch: got });
   return out.join(" ");
 }
+/* v3.19.7 내 전장 맨 뒤 칸: 마지막 카드 바로 다음 칸. 마지막 칸까지 차 있으면 가장 뒤의 빈 칸, 빈 칸이 없으면 −1 */
+function backSlot(p) { let s = p.field.reduce((m, x, i) => (x ? i : m), -1) + 1; if (s >= p.field.length) s = p.field.lastIndexOf(null); return s; }
 const HAND_OPS = {
   /* 내 핸드에서 가장 낮은 레벨 ↔ 상대 핸드에서 가장 높은 레벨 */
   swapLowHigh: {
@@ -252,14 +256,14 @@ const HAND_OPS = {
   draw: { run(p, o, op) { const k = draw(p, op.n || 1, true); return `카드 ${k}장 뽑음`; }, ai(p, o, op) { return p.deck.length > 3 ? 1.5 * (op.n || 1) : -5; } },
   /* 내 핸드 맨 왼쪽 카드 → 덱 맨 아래 */
   leftToBottom: { run(p) { if (!p.hand.length) return ""; const it = p.hand.shift(); p.deck.unshift(it.id); return `${handName(it)}을(를) 덱 맨 아래로`; }, ai(p) { return p.hand.length && lvOf(p.hand[0]) > ether(p) + 2 ? 0.4 : 0; } },
-  /* 상대 핸드에 이름이 같은 카드 2장 → 1장을 가져와 내 전장에. 없으면 1장 뽑기 */
+  /* 상대 핸드에 이름이 같은 카드 2장 → 1장을 가져와 내 전장 맨 뒤에(v3.19.7). 없으면 1장 뽑기 */
   mirrorTwin: {
     pair(o) { const cnt = {}; for (const it of o.hand) cnt[C(it).name] = (cnt[C(it).name] || 0) + 1; return o.hand.filter(it => cnt[C(it).name] >= 2).sort((a, b) => lvOf(b) - lvOf(a))[0] || null; },
     run(p, o) {
       const it = this.pair(o);
       if (!it) { const k = draw(p, 1, true); return `상대 핸드에 짝이 없다 — 카드 ${k}장 뽑음`; }
       o.hand.splice(o.hand.indexOf(it), 1);
-      const c = C(it), s = p.field.indexOf(null);
+      const c = C(it), s = backSlot(p);   // v3.19.7 가져온 카드는 내 전장 맨 뒤
       if (c.type === "item" || c.type === "hand" || s < 0) { p.hand.push(it); return `${handName(it)}을(를) 가져와 핸드에`; }
       it.summoned = G.turn; p.field[s] = it;
       if (c.type === "unit") { it.item = null; resetTurn(it); return `${handName(it)}을(를) 가져와 ${s + 1}번 칸에 소환`; }
@@ -318,17 +322,19 @@ function beginTurn() {
     const up = upkeepOf(p);
     if (up || p.reloadNow || p.bonusNow) log(`${p.name}: 이번 턴 에테르 ${etherTotal(p)}${p.bonusNow ? ` (직접 공격 보너스 +${p.bonusNow} 포함)` : ""}${up ? ` − 유지비 ${up}` : ""}${p.reloadNow ? ` − 장전 ${p.reloadNow}` : ""}`, "sys");
   }
+  if (typeof BLog !== "undefined") BLog.turnStart();   // v3.20.1 전투 로그: 보충한 뒤의 핸드
   if (checkEnd()) return;
   G.phase = "atkPrep";
 }
 function checkEnd() {
   if (G.phase === "over") return true;
-  const lost = G.players.map(p => p.life <= 0 || p.deck.length === 0);
+  // v3.19.6: 생명은 0이어도 살아 있고, 0 아래로 깎이면 패배
+  const lost = G.players.map(p => p.life < 0 || p.deck.length === 0);
   if (!lost[0] && !lost[1]) return false;
-  // 양쪽이 동시에 0이면 다음 턴에 공격하는 쪽(지금의 방어자)이 진다
+  // 양쪽이 동시에 다하면 다음 턴에 공격하는 쪽(지금의 방어자)이 진다
   const loser = lost[0] && lost[1] ? 1 - G.attacker : (lost[0] ? 0 : 1);
   const L = G.players[loser];
-  G.reason = L.life <= 0 ? `${L.name}의 생명이 다했습니다.` : `${L.name}의 덱이 바닥났습니다.`;
+  G.reason = L.life < 0 ? `${L.name}의 생명이 다했습니다.` : `${L.name}의 덱이 바닥났습니다.`;
   if (lost[0] && lost[1]) G.reason += " (동시 소진 — 다음 턴 공격자가 패배)";
   G.winner = 1 - loser; G.phase = "over";
   log(`◆ ${G.players[G.winner].name} 승리 — ${G.reason}`, "turn");
@@ -347,6 +353,7 @@ async function runCombat() {
   G.sel = null;
   log("⚔ 전투 개시", "sys");
   if (G.players.some(p => p.field.some(isSpell))) log("뒷면 마법 공개: 전투가 시작되어 양쪽 전장의 마법이 모두 앞면으로 드러났다", "sys");   // v3.11
+  if (typeof BLog !== "undefined") BLog.board("전투 전");   // v3.20.1 전투 로그
   const seed = (GRand() * 4294967296) >>> 0, over = {};
   // v3.9.5 전투 시작 상태를 따로 떠 둔다. 재생하는 동안 applySnap이 G.players · 카드의 t를 전투 중간 상태로 바꾸므로,
   // 코인을 다시 던진 뒤 G.players에서 새로 복제하면 이미 공격한 유닛이 처음부터 또 공격했다 (보이지 않는 앞부분에서)
@@ -370,6 +377,7 @@ async function runCombat() {
       applySnap(s.snap);
       G.fx = Object.assign({ dying: [] }, s.fx, { dur: s.dur, imp: impOf(s) });   // v3.14 imp: 대상마다 받은 피해 · 쓰러짐 (js/impact.js 세기)
       for (const [t, c] of s.logs) log(t, c);
+      if (typeof BLog !== "undefined") BLog.step(s);   // v3.20.1 전투 로그: 이 수의 칸 위치 · 수치
       // v1.9.5 마법 연출: 원소에 맞는 효과가 날아가 맞는 순간에 숫자가 뜬다 (js/spellfx.js)
       if (s.fx.reveal) { const sp = G.reg[s.fx.reveal]; casting = sp ? { uid: sp.uid, id: sp.id } : null; }
       const fxSpell = typeof SpellFX !== "undefined" && casting && !s.fx.reveal && !s.fx.coin && !s.fx.spellCoin && !s.fx.shatter && !s.fx.conjure && !s.fx.fizzle;
@@ -417,7 +425,7 @@ async function runCombat() {
     }
     G.fx = { dying: [] };
   } else {
-    for (const s of rec) for (const [t, c] of s.logs) log(t, c);
+    for (const s of rec) { for (const [t, c] of s.logs) log(t, c); if (typeof BLog !== "undefined") BLog.step(s); }
     if (rec.length) applySnap(rec[rec.length - 1].snap);
   }
   // 부서진 카드 → 가격의 2% (economy.js). 소각은 포함되지 않는다
@@ -425,6 +433,7 @@ async function runCombat() {
   if (gotGold) log(`부서진 카드 ${X.broken.length}장 · +${fmtGold(gotGold)}`, "sys");
   // 턴이 끝나면 전장을 항상 좌측부터 정렬한다
   if (compactFields()) log("전장 정렬: 남은 카드를 좌측부터 채움", "sys");
+  if (typeof BLog !== "undefined") { BLog.board("전투 후"); BLog.saveCur(); }   // v3.20.1 전투 로그 (창을 닫아도 남게 턴마다 저장)
   if (checkEnd()) { render(); return; }
   render(); await T(700);
   G.turn++; G.attacker = 1 - G.attacker;
@@ -592,6 +601,7 @@ function startMatch(cfg) {
   if (G.online) G.viewer = G.me;
   G.players = [mkPlayer(0, cfg.p0), mkPlayer(1, cfg.p1)];
   for (const p of G.players) draw(p, RULES.handSize);
+  if (typeof BLog !== "undefined") BLog.begin(G);   // v3.20.1 전투 로그: 판 머리(모드 · 덱 목록)
   const gname = p => (p.group ? GROUPS[p.group].name : FACTIONS[p.faction].name);
   log(`${G.players[0].name}(${gname(G.players[0])}) vs ${G.players[1].name}(${gname(G.players[1])})`, "sys");
   log(`선공: ${G.players[G.attacker].name} (무작위)`, "sys");
@@ -676,8 +686,8 @@ async function loop(myG, deal) {
       else { await humanPrep(p); if (G === myG && G.online && G.phase !== "over") Online.send({ t: "ready" }); }
       if (G !== myG || G.phase === "over") break;
       settleUpkeep(p);
-      if (G.phase === "atkPrep") { G.phase = "defPrep"; log(`${p.name} 공격 준비 완료`, "sys"); }
-      else { G.phase = "combat"; log(`${p.name} 방어 준비 완료`, "sys"); }
+      if (G.phase === "atkPrep") { log(`${p.name} 공격 준비 완료`, "sys"); G.phase = "defPrep"; }   // v3.20.1 기록을 먼저(전투 로그의 단계 머리표가 맞게)
+      else { log(`${p.name} 방어 준비 완료`, "sys"); G.phase = "combat"; }
     } else if (G.phase === "combat") {
       G.control = null; render();
       await runCombat();
@@ -923,18 +933,34 @@ const FONTS = [
   { id: "notoserif", name: "본명조 (Noto Serif KR)", desc: "단정한 현대 명조", family: '"Noto Serif KR"' },
   { id: "system", name: "기기 바탕체", desc: "인터넷 없이도 보이는 기본 글꼴", family: '"Batang", "바탕", "AppleMyungjo"' }
 ];
-function applyFont(id) {
+/* v3.20.3 카드 이름 글꼴 (설정): 셋 다 게임 폴더에 들어 있어 인터넷 없이(PC · 안드로이드 앱) 나온다 — css/fonts-names.css · fonts/songmyung · fonts/gugi.
+   weight는 카드 이름 굵기(예전 이름은 Hahmlet 800이라 너무 굵었다) */
+const NAME_FONTS = [
+  { id: "songmyung", name: "송명 (Song Myung)", desc: "납활자 느낌의 고전 명조. 기본값", family: '"Song Myung"', weight: 400 },
+  { id: "gugi", name: "구기 (Gugi)", desc: "각지고 끝이 갈라진 룬 느낌", family: '"Gugi"', weight: 400 },
+  { id: "hahmlet", name: "함렛 얇게 (Hahmlet 600)", desc: "예전 이름 글꼴을 한 단계 얇게", family: '"Hahmlet"', weight: 600 }
+];
+function applyFont(id, nid) {
   id = id || Prefs.get("font", "hahmlet");
   const f = FONTS.find(x => x.id === id) || FONTS[0];
   document.documentElement.dataset.font = f.id;
   document.documentElement.style.setProperty("--kfont", f.family);
+  nid = nid || Prefs.get("namefont", "songmyung");
+  const n = NAME_FONTS.find(x => x.id === nid) || NAME_FONTS[0];
+  document.documentElement.dataset.namefont = n.id;
+  document.documentElement.style.setProperty("--nfont", n.family);
+  document.documentElement.style.setProperty("--nweight", String(n.weight));
 }
 async function showSettings() {
   const cur = Prefs.get("font", "hahmlet");
+  const curN = Prefs.get("namefont", "songmyung");
   const curBg = Prefs.get("battle_bg", "default");
-  const html = `<h3>설정</h3>
+  /* v3.20.4 폰 · 앱에서만: 화면을 얼마나 줄여 보일지(js/mobile.js MobileFit) */
+  const mt = typeof MobileFit !== "undefined" ? `<p class="pick-label">폰 글자 크기 <small class="muted">— 화면을 덜 줄여 글자 · 단추를 키웁니다. 크게 할수록 한 화면에 보이는 것은 조금 줄어듭니다</small></p>
+    <div class="speed set-mtext">${[["m", "보통"], ["l", "크게 (기본)"], ["xl", "아주 크게"]].map(([v, n]) => `<button type="button" class="btn xs ${MobileFit.level === v ? "on" : ""}" data-mt="${v}">${n}</button>`).join("")}</div>` : "";
+  const html = `<h3>설정</h3>${mt}
     <p class="pick-label">연출 속도 <small class="muted">— 전투 장면·카드 이동·띠 모두 같이 빨라지거나 느려집니다 (전투 중에도 바꿀 수 있음)</small></p>
-    <div class="speed set-speed">${SPEEDS.map(s => `<button type="button" class="btn xs ${G && G.speed === s ? "on" : ""}" data-sp="${s}">×${s}</button>`).join("")}</div>
+    <div class="speed set-speed">${SPEEDS.map(s => `<button type="button" class="btn xs ${(G ? G.speed : Prefs.get("speed", 1)) === s ? "on" : ""}" data-sp="${s}">×${s}</button>`).join("")}</div>
     <p class="pick-label">연출 <small class="muted">— 가볍게: 컴퓨터 부담을 줄인 연출(흐림 · 빛 그림자 줄임, 파편 적게, 타이틀 배경 덜 그림). 화려하게: 예전 연출 그대로</small></p>
     <div class="speed set-fx">${[["lite", "가볍게"], ["rich", "화려하게"]].map(([v, n]) => `<button type="button" class="btn xs ${Prefs.get("fx", "lite") === v ? "on" : ""}" data-fx="${v}">${n}</button>`).join("")}</div>
     <p class="pick-label">전장 배경 <small class="muted">— 대전 화면의 배경 일러스트</small></p>
@@ -944,11 +970,15 @@ async function showSettings() {
     <p class="pick-label">배경음 <small class="muted">— 타이틀 곡과 대기실·교역소의 아홉 단체 테마(무작위로 이어 틂). 대전 중에는 멈춥니다</small></p>
     <div class="speed set-bgm">${[["off", "끄기"], ["low", "작게"], ["mid", "보통"]].map(([v, n]) => `<button type="button" class="btn xs ${typeof BGM !== "undefined" && BGM.level === v ? "on" : ""}" data-bgm="${v}">${n}</button>`).join("")}</div>
     <p class="pick-label">한글 글꼴 <small class="muted">— 후보 글꼴은 처음 한 번 인터넷에서 받아옵니다. 받지 못하면 기기 바탕체로 보입니다</small></p>
-    <div class="font-pick">${FONTS.map(f => `<label class="font-opt${f.id === cur ? " on" : ""}" style="font-family:${f.family}, serif"><input type="radio" name="font" value="${f.id}" ${f.id === cur ? "checked" : ""}><b>${f.name}</b><small>${f.desc} — 에테리온의 밤, 아다만트 연합과 푸른숲 맹약</small></label>`).join("")}</div>`;
+    <div class="font-pick">${FONTS.map(f => `<label class="font-opt${f.id === cur ? " on" : ""}" style="font-family:${f.family}, serif"><input type="radio" name="font" value="${f.id}" ${f.id === cur ? "checked" : ""}><b>${f.name}</b><small>${f.desc} — 에테리온의 밤, 아다만트 연합과 푸른숲 맹약</small></label>`).join("")}</div>
+    <p class="pick-label">카드 이름 글꼴 <small class="muted">— 카드 맨 위 이름에만 씁니다. 게임에 들어 있어 인터넷 없이도 보입니다</small></p>
+    <div class="font-pick">${NAME_FONTS.map(f => `<label class="font-opt${f.id === curN ? " on" : ""}" style="font-family:${f.family}, serif"><input type="radio" name="namefont" value="${f.id}" ${f.id === curN ? "checked" : ""}><b style="font-weight:${f.weight}">${f.name}</b><small>${f.desc} — <span style="font-weight:${f.weight}">베르단의 화신 · 도르마크 심장포단</span></small></label>`).join("")}</div>`;
   await modal(html, [{ label: "닫기", value: true, cls: "primary" }], { cls: "wide", onOpen: w => {
     w.addEventListener("click", e => {
       const b = e.target.closest("[data-sp]");
-      if (b) { setSpeed(+b.dataset.sp); w.querySelectorAll("[data-sp]").forEach(x => x.classList.toggle("on", +x.dataset.sp === G.speed)); }
+      if (b) { if (G) setSpeed(+b.dataset.sp); else Prefs.set("speed", +b.dataset.sp); const sp = G ? G.speed : Prefs.get("speed", 1); w.querySelectorAll("[data-sp]").forEach(x => x.classList.toggle("on", +x.dataset.sp === sp)); }
+      const mtb = e.target.closest("[data-mt]");
+      if (mtb && typeof MobileFit !== "undefined") { MobileFit.set(mtb.dataset.mt); w.querySelectorAll("[data-mt]").forEach(x => x.classList.toggle("on", x.dataset.mt === MobileFit.level)); }
       const bbg = e.target.closest("[data-bbg]");
       if (bbg) {
         Prefs.set("battle_bg", bbg.dataset.bbg);
@@ -964,6 +994,7 @@ async function showSettings() {
     });
     w.addEventListener("change", e => {
       if (e.target.name === "font") { Prefs.set("font", e.target.value); applyFont(e.target.value); w.querySelectorAll(".font-opt").forEach(l => l.classList.toggle("on", l.querySelector("input").checked)); }
+      if (e.target.name === "namefont") { Prefs.set("namefont", e.target.value); applyFont(null, e.target.value); w.querySelectorAll(".font-opt").forEach(l => l.classList.toggle("on", l.querySelector("input").checked)); }
     });
   } });
 }
@@ -984,7 +1015,7 @@ document.addEventListener("keydown", e => {
   if (handLocked() && /^[1-9sxc]$/.test(k)) return;   // v1.9: 카드를 뽑는 동안
   // 숫자 키: 처음 누르면 고르기, 고른 카드의 번호를 한 번 더 누르면(더블클릭처럼) 왼쪽부터 빈 칸에 올린다
   if (/^[1-9]$/.test(k)) {
-    const it = me.hand[+k - 1]; if (!it) return; e.preventDefault(); G.inspect = null;
+    const it = me.hand[handSlots(me).s.indexOf(+k - 1)]; if (!it) return; e.preventDefault(); G.inspect = null;   // v3.19.4 숫자 = 핸드 자리 번호
     if (G.sel && G.sel.kind === "hand" && G.sel.uid === it.uid) { placeSelected(me, it); return; }
     G.sel = { kind: "hand", uid: it.uid }; sfx("select"); render(); return;
   }
@@ -1671,10 +1702,9 @@ function fieldCardHTML(it, p, s) {
     if (it.t.endure) badges += `<span class="bd bd-shield" data-tip="✚ 불굴\n${esc(SPELL_KW["불굴"])}">✚</span>`;   // v3.11
     if (it.t.pierce) badges += `<span class="bd bd-thorn" data-tip="➶ 꿰뚫기\n${esc(SPELL_KW["꿰뚫기"])}">➶</span>`;   // v3.11
     if (it.t.stolen) badges += '<span class="bd bd-tok" data-tip="☾ 빼앗은 유닛\n전투가 끝나면 흩어져 원래 주인의 소각장으로 간다">☾</span>';   // v3.11
-    if (c.lock) badges += `<span class="bd bd-lock" data-tip="저주 면역\n${Object.keys(c.lock).map(k => STAT_KO[k]).join("·")}은(는) 깎이지 않음 (피해는 받음)">${Object.keys(c.lock).map(k => STAT_KO[k][0]).join("")}*</span>`;
     if (it.mod && !(FX.curse && FX.curse.has(it.uid))) badges += `<span class="bd bd-mod" data-tip="이 카드에 걸린 변화\n이 판 내내 남는다${(it.modBy || []).filter(m => m.src).map(m => "\n「" + esc(m.src) + "」").join("")}">${Object.keys(it.mod).filter(k => it.mod[k]).map(k => STAT_KO[k][0] + sgnNum(it.mod[k])).join(" ")}</span>`;
   }
-  const live = isUnit(it) && it.t ? { a: it.t.a, d: it.t.d, h: Math.max(0, hpLeft(it)), max: it.t.h } : null;
+  const live = isUnit(it) && it.t ? { a: it.t.a, d: it.t.d, h: Math.max(0, hpLeft(it)), max: it.t.h, pins: livePins(it) } : null;
   const cq = live && FX.curse && FX.curse.get(it.uid);   // v3.9.10 저주 발동 연출 전: 아직 깎이지 않은 값
   if (cq) for (const k of ["a", "d", "h"]) if (cq.rem[k]) { live[k] -= cq.rem[k]; if (k === "h") live.max -= cq.rem[k]; }
   // v1.9.3: 장착한 아이템의 특수 능력을 캐릭터 그림 아래에 띠로 보인다(마우스를 올리면 뜻).
@@ -1690,6 +1720,8 @@ function fieldCardHTML(it, p, s) {
   }
   return cardHTML(c, { size: "md", live, badges, extra: item, under, cls: cls.join(" "), attrs, slim: true });
 }
+/* v3.20 전장 유닛의 이번 턴 표시 { 스탯: "L"|"U"|"D" } — 유닛 · 아이템 · 마법이 건 것(t.floor) */
+function livePins(it) { const f = (it.t && it.t.floor) || {}, o = {}; for (const k in f) if (f[k] && f[k].m) o[k] = f[k].m; return o; }
 /* v1.9.3: 장착 아이템의 특수 능력 띠. 능력마다 한 칸, 마우스를 올리면 이름과 뜻. 능력이 없는 아이템(스탯만 올림)은 띠 없음 — 이름은 아래 카드에 보인다 */
 function equipChipsHTML(ic) {
   const list = itemKwList(ic.item).filter(([k]) => k);
@@ -1755,18 +1787,55 @@ function etherHTML(p, isMe, ctrlAll) {
   // 결정화 가능 여부: 이번 턴에 핸드를 결정으로 바칠 수 있는지 한눈에
   const maxed = p.crystals.length >= RULES.maxCrystals, done = crysLeft(p) <= 0;
   const myTurn = prepIdx() === p.idx;
+  // v3.19.8 결정화 손짓: 처음 하는 사람에게 핸드 → 이 구슬로 날아드는 유령 카드 + 두 줄 명판 (css/crys-hint.css, CrysHint)
+  const teach = ctrl && myTurn && !maxed && !done && p.hand.length > 0 && !FX.drag && CrysHint.on();
   const crys = maxed ? `<span class="cry-state max" title="결정이 최대(${RULES.maxCrystals})입니다">결정 최대</span>`
     : done ? `<span class="cry-state done" title="결정화할 수 있는 장수를 다 썼습니다. 한 턴에 ${RULES.crystalsPerTurn}장씩 쌓입니다">결정화 완료</span>`
+    : myTurn && teach ? `<span class="cry-state ok cry-teach" title="핸드를 에테르로 끌어 놓거나 C 키로 결정화. 한 턴에 ${RULES.crystalsPerTurn}장씩 쌓이고, 안 쓰면 다음 턴으로 넘어갑니다"><b>결정화 가능 ${crysLeft(p)}</b><small>핸드 1장을 구슬로 끌어 놓기 · 에테르 +1</small></span>`
     : myTurn ? `<span class="cry-state ok" title="핸드를 에테르로 끌어 놓거나 C 키로 결정화. 한 턴에 ${RULES.crystalsPerTurn}장씩 쌓이고, 안 쓰면 다음 턴으로 넘어갑니다">결정화 가능 ${crysLeft(p)}</span>`
     : `<span class="cry-state" title="자기 준비 단계에만 결정화할 수 있습니다. 한 턴에 ${RULES.crystalsPerTurn}장씩 쌓입니다">결정화 ${crysLeft(p)}</span>`;
   // 에테르 제단: 가운데 정수 구슬(남은/이번 턴 에테르), 둘레의 마법진에 정수 1 + 결정 9칸이 박힌다
-  return `<div class="ether altar${canCrys ? " valid" : ""}${left < 0 ? " short" : ""}${p.bonusNow ? " boosted" : ""}" data-act="ether" data-p="${p.idx}" id="crys${p.idx}" data-tip="${esc(`에테르 ${left} / ${tot}\n가운데 = 이번 턴 남은 에테르 / 이번 턴 에테르\n맨 위 금 보석 = 위대한 정수 1(깨지지 않음) · 둘레 = 결정 ${p.crystals.length}/${RULES.maxCrystals}\n빛나는 결정 = 쓸 수 있음 · 어두운 결정 = 이번 턴에 씀\n결정화: 핸드 1장을 여기로 끌어 놓기 (한 턴 ${RULES.crystalsPerTurn}장, 카드는 소각장으로)`)}">
+  return `<div class="ether altar${teach ? " teach" : ""}${canCrys ? " valid" : ""}${left < 0 ? " short" : ""}${p.bonusNow ? " boosted" : ""}" data-act="ether" data-p="${p.idx}" id="crys${p.idx}" data-tip="${esc(`에테르 ${left} / ${tot}\n가운데 = 이번 턴 남은 에테르 / 이번 턴 에테르\n맨 위 금 보석 = 위대한 정수 1(깨지지 않음) · 둘레 = 결정 ${p.crystals.length}/${RULES.maxCrystals}\n빛나는 결정 = 쓸 수 있음 · 어두운 결정 = 이번 턴에 씀\n결정화: 핸드 1장을 여기로 끌어 놓기 (한 턴 ${RULES.crystalsPerTurn}장, 카드는 소각장으로)`)}">
       <div class="eth-ring">
         ${etherAltarSVG(p.idx, slots)}
         <div class="eth-orb"><b>${left}</b><span>/${tot}</span></div>
       </div>
       <div class="eth-foot">${crys}${sub ? `<span class="ether-sub">${sub}</span>` : ""}</div></div>`;
 }
+/* v3.19.8 결정화 손짓 (css/crys-hint.css): 결정화를 모르는 사람이 많아서, 내 준비 단계에 결정화할 수 있으면
+   핸드 맨 왼쪽 카드 자리에서 카드 한 장(뒷면)이 에테르 구슬로 날아드는 모습을 되풀이해 보이고, 구슬 아래 명판을 두 줄로 키운다.
+   결정화를 CRYS_TEACH번 해 보면 다시 나오지 않는다 (Prefs crysTeach, 연습 대전을 다시 켜면 0으로). 판 상태 · 온라인 동기화와는 상관없는 화면 연출 */
+const CRYS_TEACH = 3;
+const CrysHint = {
+  el: null,
+  on() { return typeof Prefs !== "undefined" && (+Prefs.get("crysTeach", 0) || 0) < CRYS_TEACH; },
+  learn() { if (this.on()) Prefs.set("crysTeach", (+Prefs.get("crysTeach", 0) || 0) + 1); },
+  hide() { if (this.el) { this.el.remove(); this.el = null; } },
+  // 날아가는 카드는 화면 맨 위 연출 층(#fx-layer)에 한 번만 만들어 두고(다시 그려도 움직임이 끊기지 않게) 자리만 고친다.
+  // 도착점 = 에테르 구슬 가운데, 출발점 = 핸드 맨 왼쪽 카드 가운데. 화면을 다시 그릴 때 · 창 크기가 바뀔 때
+  place() {
+    const ring = boardEl && boardEl.querySelector(".ether.altar.teach .eth-ring");
+    const card = ring && boardEl.querySelector(".hand-me .hand-slot:not(.drag-src) .hand-card");
+    const layer = card && (fxLayer() || document.body);
+    if (!ring || !card || !layer) { this.hide(); return; }
+    const o = ring.getBoundingClientRect(), c = card.getBoundingClientRect();
+    if (!o.width || !c.width) { this.hide(); return; }
+    if (!this.el || !this.el.isConnected) {
+      this.hide();
+      const g = document.createElement("div"); g.className = "crys-ghost"; g.setAttribute("aria-hidden", "true");
+      g.innerHTML = `<i class="ch-ring"></i><span class="ch-x"><span class="ch-y"><img class="ch-card" src="img/ui/deck/card_back.png?v=2" alt="" draggable="false"></span></span>`;
+      layer.appendChild(g); this.el = g;
+    }
+    const s = this.el.style, ox = o.left + o.width / 2, oy = o.top + o.height / 2;
+    s.left = ox.toFixed(1) + "px"; s.top = oy.toFixed(1) + "px";
+    s.setProperty("--dx", (c.left + c.width / 2 - ox).toFixed(1) + "px");
+    s.setProperty("--dy", (c.top + c.height / 2 - oy).toFixed(1) + "px");
+    s.setProperty("--gw", (c.width * .62).toFixed(1) + "px");
+    s.setProperty("--rw", (o.width * .62).toFixed(1) + "px");
+  }
+};
+if (typeof addEventListener === "function") addEventListener("resize", () => CrysHint.place());
+
 /* 명판: 아이디(온라인 대전에서 상대 아이디가 들어갈 자리)·단체·역할. 에테르 왼쪽에 놓인다 */
 function nameplateHTML(p) {
   const gr = p.group ? GROUPS[p.group] : null, isAtk = p.idx === G.attacker;
@@ -1794,20 +1863,36 @@ function infoHTML(p) {
   const life = Math.max(0, p.life), pct = Math.min(100, life / RULES.lifeCap * 100);
   const stat = (k, ico, label, v, tip) => `<div class="ps ps-${k}" data-tip="${esc(tip)}">${uiIcon(ico)}<b class="${bumpCls(k + p.idx, v).trim()}">${v}</b><span>${label}</span></div>`;
   return `<div class="pinfo pv7 ${top ? "pv-top" : "pv-bot"} fac-${p.faction}${G.fx.tgt === "life" + p.idx ? " hit" : ""}${life <= 10 ? " low" : ""}" id="pinfo${p.idx}" style="${gr ? `--gc:${gr.color}` : ""}">
-      <div class="pl" data-tip="${esc(`생명 ${life} / ${RULES.lifeCap}\n심장석 속 핏빛이 남은 생명입니다. 0이 되면 패배합니다.\n카드를 뽑을 때마다 생명이 줄어듭니다 — 덱과 생명은 한 몸입니다.`)}">
+      <div class="pl" data-tip="${esc(`생명 ${life} / ${RULES.lifeCap}\n심장석 속 핏빛이 남은 생명입니다. 0이어도 싸울 수 있고, 0에서 더 깎이면 패배합니다.\n카드를 뽑을 때마다 생명이 줄어듭니다 — 덱과 생명은 한 몸입니다.`)}">
         ${heartGemSVG(pct, p.idx)}
         <div class="pl-head"><span>LIFE</span></div>
-        <div class="pl-val"><b class="pl-num${bumpCls("life" + p.idx, life)}" id="life${p.idx}">${life}</b><small>/${RULES.lifeCap}</small></div>
+        <div class="pl-val"><b class="pl-num${bumpCls("life" + p.idx, p.life)}" id="life${p.idx}">${p.life}</b><small>/${RULES.lifeCap}</small></div>
         <div class="pl-ticks">${Array.from({ length: 8 }, (_, i) => `<i class="${life > i * 5 ? (life >= (i + 1) * 5 ? "on" : "half") : ""}"></i>`).join("")}</div>
       </div>
       <div class="pstats">${stat("hand", "hand", "핸드", p.hand.length, `핸드 ${p.hand.length}장`)}</div>
     </div>`;
 }
+/* v3.19.4 핸드 자리: 카드는 번호 자리에 붙박이로 앉는다(내 핸드 · 상대 핸드 모두).
+   - 자리 수 S = 보충 장수(6)와 지금 장수 중 큰 쪽. 카드 폭과 자리 위치는 S로만 정해져, 카드를 내도 남은 카드가 가운데로 모이거나 커지지 않는다.
+   - 카드를 내면 그 자리는 빈 채로 남는다. 새 카드는 마지막 카드 뒤 빈자리에 앉고, 자리가 모자랄 때만 뒤에서부터 왼쪽으로 당겨 빈자리를 메운다(보충 때).
+   - 핸드 배열 순서 = 자리 순서 (맨 왼쪽 카드를 겨냥하는 마법과 화면이 어긋나지 않게). 판 상태는 건드리지 않는 화면 쪽 기억이다.
+   - 카드 위 숫자 = 자리 번호(1부터), 숫자 키도 그 자리의 카드를 고른다. */
+const HSLOT = { g: null, m: [] };
+function handSlots(p) {
+  if (HSLOT.g !== G) { HSLOT.g = G; HSLOT.m = []; }
+  const prev = HSLOT.m[p.idx] || new Map();
+  const n = p.hand.length, S = Math.max((G.rules && G.rules.handSize) || RULES.handSize, n);
+  const s = []; let last = -1;
+  p.hand.forEach((it, i) => { const o = prev.get(it.uid); last = o != null && o > last ? o : last + 1; s[i] = last; });
+  for (let i = n - 1; i >= 0; i--) s[i] = Math.min(s[i], S - n + i);
+  HSLOT.m[p.idx] = new Map(p.hand.map((it, i) => [it.uid, s[i]]));
+  return { s, S };
+}
 function handHTML(p, hidden, ctrl) {
-  const n = p.hand.length, mid = (n - 1) / 2, d = Math.max(n - 1, 1);
+  const n = p.hand.length, { s: hs, S } = handSlots(p), mid = (S - 1) / 2, d = Math.max(S - 1, 1);
   if (hidden) {
     return `<div class="hand hand-opp" data-p="${p.idx}">${p.hand.map((it, i) => {
-      const k = i - mid;
+      const k = hs[i] - mid;
       return `<div class="opp-back" data-uid="${it.uid}" data-zone="hand" data-p="${p.idx}" data-rot="0" style="--k:${k}"><div class="card-back"><span>◈</span></div></div>`;
     }).join("")}</div>`;
   }
@@ -1818,7 +1903,7 @@ function handHTML(p, hidden, ctrl) {
   const act = hovI >= 0 ? hovI : selI, pw = hovI >= 0 ? 1 : 0.55;
   return `<div class="hand hand-me${hovI >= 0 ? " has-hov" : ""}" data-p="${p.idx}">${p.hand.map((it, i) => {
     const c = C(it), why = ctrl ? canPlay(p, c) : "x";
-    const k = i - mid, rot = +(k * 4.2).toFixed(2), y = +(k * k * 1.1).toFixed(2);
+    const si = hs[i], k = si - mid, rot = +(k * 4.2).toFixed(2), y = +(k * k * 1.1).toFixed(2);
     const cls = ["hand-slot"];
     if (why) cls.push("unplayable");
     if (i === selI) { cls.push("selected"); if (FX.selSeen !== it.uid) cls.push("fresh-sel"); }   // fresh-sel: 막 고른 카드 — 금 테가 떠오른다 (css/hand.css handSelIn)
@@ -1826,7 +1911,7 @@ function handHTML(p, hidden, ctrl) {
     if ((FX.drag && FX.drag.uid === it.uid) || FX.returning === it.uid) cls.push("drag-src");
     if (FX.drawing.has(it.uid)) cls.push("drawing");
     const modTag = it.mod ? `<span class="hand-mod" title="이 카드에 걸린 변화 (이 판 내내)">${Object.keys(it.mod).filter(k => it.mod[k]).map(k => statIco(k) + sgnNum(it.mod[k])).join(" ")}</span>` : "";
-    return `<div class="${cls.join(" ")}" data-act="hand" data-uid="${it.uid}" data-zone="hand" data-p="${p.idx}" data-rot="${rot}" style="--i:${i};--n:${n};--k:${k};--d:${d};--r:${rot}deg;--y:${y}%;--sk:${straightK(rot)};--pk:${pushK(i, act, pw)};z-index:${i + 1}" title="${why && ctrl ? esc(why) : "누르면 크게 보기 · 끌어서 내기"}"><div class="hand-card">${cardHTML(c, { size: "md", slim: true, live: handLive(it) })}${modTag}${i < 9 ? `<span class="hk hk-hand">${i + 1}</span>` : ""}</div></div>`;
+    return `<div class="${cls.join(" ")}" data-act="hand" data-uid="${it.uid}" data-zone="hand" data-p="${p.idx}" data-rot="${rot}" style="--i:${si};--n:${S};--k:${k};--d:${d};--r:${rot}deg;--y:${y}%;--sk:${straightK(rot)};--pk:${pushK(i, act, pw)};z-index:${si + 1}" title="${why && ctrl ? esc(why) : "누르면 크게 보기 · 끌어서 내기"}"><div class="hand-card">${cardHTML(c, { size: "md", slim: true, live: handLive(it) })}${modTag}${si < 9 ? `<span class="hk hk-hand">${si + 1}</span>` : ""}</div></div>`;
   }).join("") || '<div class="hand-empty">핸드 없음</div>'}</div>`;
 }
 /* ---------- v2.6 묵직한 핸드 (css/hand.css) ----------
@@ -1859,7 +1944,7 @@ function applyHov() {
   hand.classList.toggle("has-hov", hovI >= 0);
 }
 /* 마지막 마우스 자리 아래의 핸드 카드를 올린다. 화면을 다시 그린 뒤·드로우 잠금이 풀린 뒤에 부른다.
-   (카드가 나가 핸드가 다시 가운데로 모이면 마우스 아래 카드가 바뀔 수 있다) */
+   (v3.19.4부터 카드가 나가도 자리는 그대로지만, 보충 · 순서 바꾸기로 마우스 아래 카드가 바뀔 수 있다) */
 function syncHov() {
   if (!boardEl) return;
   if (FX.drag || FX.mx < 0 || handLocked()) { setHov(null); return; }
@@ -2089,16 +2174,17 @@ function render() {
   </div>
   ${G.rules.text ? `<div class="rule-chip" data-tip="${esc(`판 규칙 · ${G.rules.who || ""}\n${G.rules.text}`)}"><i>◆</i><b>${esc(G.rules.name)}</b><span>${esc(G.rules.text)}</span></div>` : ""}
   ${focusHTML(me, ctrl)}
-  <aside class="logdrawer${G.showLog ? " open" : ""}" id="logdrawer"><div class="ld-head"><b>전투 기록</b><button class="btn xs ghost" data-act="log">닫기</button></div>
+  <aside class="logdrawer${G.showLog ? " open" : ""}" id="logdrawer"><div class="ld-head"><b>전투 기록</b>${typeof BLog !== "undefined" ? BLog.btnsHTML() : ""}<button class="btn xs ghost" data-act="log">닫기</button></div>
     <div class="log" id="log">${G.log.slice(-120).map(l => `<div class="l ${l.cls}">${esc(l.text)}</div>`).join("")}</div></aside>
   ${G.handoff ? `<div class="handoff" data-act="handoff"><div><p class="ho-eyebrow">PASS THE SCROLL</p><h2>${esc(me.name)}의 차례</h2><p>${G.phase === "atkPrep" ? "공격 준비" : "방어 준비"}를 할 차례입니다. 상대가 화면을 보지 않을 때 눌러 주세요.</p><button class="btn primary">핸드 펼치기</button></div></div>` : ""}`;
   const lg_ = $("#log"); if (lg_) lg_.scrollTop = lg_.scrollHeight;
-  if (typeof Arcade !== "undefined") { Arcade.mount(boardEl); Arcade.place(boardEl); }
+  if (typeof Arcade !== "undefined" && !document.documentElement.classList.contains("mobile")) { Arcade.mount(boardEl); Arcade.place(boardEl); }   /* v3.20.5 폰 · 앱에서는 파친코 · 결정 상자를 두지 않는다 */
   placeFocus();
   if (typeof fitDescs === "function") fitDescs(boardEl);
   fitNameIds(boardEl);
   syncZoom();   // v3.9.8 누른 카드를 상대 전장 옆에 크게
   Guide.place();
+  CrysHint.place();   // v3.19.8 결정화 손짓의 출발점
   FX.last = { g: G, key };
   if (before) flipAll(before);
   boardEl.classList.toggle("hand-locked", handLocked());
@@ -3340,7 +3426,7 @@ async function surrender() {
   if (G.ready) { const r = G.ready; G.ready = null; r(); }
   render();
 }
-function exitMatch() { if (G && G.online) Online.leave(); const cb = G && G.onExit; Guide.hide(); setCombatRules({}); G = null; boardEl = null; if (cb) cb(); }
+function exitMatch() { if (G && typeof BLog !== "undefined") BLog.end(G, "판을 끝내지 않고 나감");   /* v3.20.1 */ if (G && G.online) Online.leave(); const cb = G && G.onExit; Guide.hide(); CrysHint.hide(); setCombatRules({}); G = null; boardEl = null; if (cb) cb(); }
 
 function showRules() {
   modal(`<h3>전투 규칙 요약</h3>
@@ -3357,14 +3443,15 @@ function showRules() {
     <li><b>마법 피해와 물리 피해</b> — 마법의 "피해"는 방어를 무시하고 체력을 깎습니다. "물리 피해"는 공격처럼 방어를 거칩니다(피해 − 방어). 마법이 부른 유닛의 공격도 물리입니다.</li>
     <li><b>소환 · 메아리</b> — 소환 마법은 부서지며 그 칸에 유닛을 부르고, 공격 턴이면 차례가 왔을 때 그 유닛도 공격합니다("이번 턴만"은 전투가 끝나면 사라짐). 메아리 마법은 작은 마법을 불러 이어서 발동합니다. 부른 유닛은 부서져도 카드가 남지 않습니다.</li>
     <li><b>계략 마법</b> — 핸드를 겨냥하는 마법. 공격·방어 준비 어느 때나, 칸 없이 내는 즉시 발동하고 소각 더미로 갑니다. 핸드 카드에 건 스탯 변화는 그 카드가 전장에 나와도 이 판 내내 남습니다.</li>
-    <li><b>저주 면역 · 코인으로 쓰러짐</b> — <b>4*</b>처럼 별이 붙은 스탯은 [저주 면역]이라 마법·코인·저주로 깎이지 않습니다. 피해는 그대로 받으므로 체력만큼 피해를 입으면 쓰러집니다. 코인 때문에 체력이 0 이하가 되면 그 유닛은 쓰러져 소각 더미로 갑니다.</li>
+    <li><b>스탯 표시 · 코인으로 쓰러짐</b> — 숫자 옆 <b>🔒 고정</b>은 마법·코인·저주로 바뀌지 않고, <b>▲ 버팀</b>은 그 값 아래로 내려가지 않고, <b>▼ 눌림</b>은 그 값 위로 오르지 않습니다. 셋 다 받은 피해는 그대로 쌓이므로 체력만큼 피해를 입으면 쓰러집니다. 코인 때문에 체력이 0 이하가 되면 그 유닛은 쓰러져 소각 더미로 갑니다.</li>
     <li><b>직접 공격</b> — 막을 유닛이 없으면 공격 유닛의 레벨만큼 생명이 줄어듭니다. 대신 직접 공격을 받은 쪽은 <b>다음 턴에 에테르 +1</b>을 일시적으로 얻습니다 (한 턴에 한 번, 그 턴에만).</li>
     <li><b>셔플</b> — 내 준비 단계에 핸드 전부를 덱에 넣고 섞어 같은 장수를 다시 뽑습니다. 한 턴에 한 번, 생명 −1. 그 턴에 카드를 전장에 올렸거나 소각했으면 할 수 없습니다.</li>
-    <li><b>승패</b> — 생명이나 덱이 0이 되면 패배합니다. 동시에 0이 되면 다음 턴에 공격하는 쪽이 패배합니다.</li>
+    <li><b>승패</b> — 생명이 0 아래로 깎이거나 덱이 0이 되면 패배합니다(생명 0까지는 계속 싸울 수 있음). 동시에 그렇게 되면 다음 턴에 공격하는 쪽이 패배합니다.</li>
   </ol>`, [{ label: "닫기", value: true, cls: "primary" }], { cls: "wide" });
 }
 
 function showResult() {
+  if (typeof BLog !== "undefined") BLog.end(G);   // v3.20.1 전투 로그: 판 끝 상태 · 결과
   const w = G.players[G.winner];
   const won = G.mode === "ai" ? G.winner === 0 : G.online ? G.winner === G.me : true;
   const reward = typeof onMatchEnd === "function" ? onMatchEnd(G) : null;
@@ -3375,11 +3462,11 @@ function showResult() {
     <p class="res-eyebrow">${G.mode === "ai" || G.online ? (won ? "THE ETHER BENDS TO YOUR WILL" : "THE ETHER FADES") : "THE DUEL IS DECIDED"}</p>
     <h2 class="res-title">${won ? "VICTORY" : "DEFEAT"}</h2>
     <p class="res-sub">${G.mode === "hotseat" || G.online ? esc(w.name) + " 승리 · " : ""}${esc(G.reason)}</p>
-    <div class="res-stats"><span>라운드 <b>${roundOf(G.turn)}</b></span><span>턴 <b>${G.turn}</b></span><span>${esc(G.players[0].name)} 생명 <b>${Math.max(0, G.players[0].life)}</b></span><span>${esc(G.players[1].name)} 생명 <b>${Math.max(0, G.players[1].life)}</b></span></div>
+    <div class="res-stats"><span>라운드 <b>${roundOf(G.turn)}</b></span><span>턴 <b>${G.turn}</b></span><span>${esc(G.players[0].name)} 생명 <b>${G.players[0].life}</b></span><span>${esc(G.players[1].name)} 생명 <b>${G.players[1].life}</b></span></div>
     ${econ ? `<div class="res-gold"><span>이번 판 수입</span><b>+${fmtGold(econ.total)}</b><div class="rg-rows"><span>부서진 카드 ${fmtGold(econ.broken)} × ${econ.won ? ECON.winMul : ECON.loseMul} = <i>${fmtGold(econ.bonus)}</i></span><span>전투 중 2% <i>${fmtGold(econ.earned)}</i></span>${econ.pach ? `<span>작은 게임 <i>${fmtGold(econ.pach)}</i></span>` : ""}<span>지갑 <i>${fmtGold(Store.gold())}</i></span></div></div>` : ""}
     ${econ && typeof LevelUI !== "undefined" ? LevelUI.resultHTML(econ.total) : ""}
     ${reward ? `<div class="res-reward"><p>보상으로 카드 1장을 얻었습니다</p>${cardHTML(CARDS[reward], { size: "md" })}</div>` : ""}
-    <div class="res-btns">${G.cfg.exp ? `<button class="btn primary" data-r="lobby">${won ? "원정 계속" : "원정으로"}</button>` : `<button class="btn primary" data-r="lobby">대기실로</button><button class="btn" data-r="again">한 번 더</button>`}<button class="btn ghost" data-r="board">전장 보기</button></div>
+    <div class="res-btns">${G.cfg.exp ? `<button class="btn primary" data-r="lobby">${won ? "원정 계속" : "원정으로"}</button>` : `<button class="btn primary" data-r="lobby">대기실로</button><button class="btn" data-r="again">한 번 더</button>`}<button class="btn ghost" data-r="board">전장 보기</button>${typeof BLog !== "undefined" ? `<button class="btn ghost" data-blog="dl" title="이 판의 개발용 전투 로그(.txt) 내려받기">⤓ 전투 로그</button>` : ""}</div>
   </div>`;
   document.body.appendChild(wrap);
   if (econ && typeof LevelUI !== "undefined") LevelUI.playResult(wrap);

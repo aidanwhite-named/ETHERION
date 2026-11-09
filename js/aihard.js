@@ -37,7 +37,7 @@ const HARD = {
 const hardYield = () => (G && !G.cfg.headless && G.speed !== 0) ? wait(0) : null;
 
 /* 생명의 값: 낮을수록 1이 더 귀하다 */
-function hardLife(x) { return x <= 0 ? -HARD.win : HARD.lifeW * x - HARD.lowW * Math.max(0, HARD.lowLife - x); }
+function hardLife(x) { return x < 0 ? -HARD.win : HARD.lifeW * x - HARD.lowW * Math.max(0, HARD.lowLife - x); }
 /* 전투가 끝난 판의 값 (me 기준) */
 function hardState(P, me) {
   const o = 1 - me;
@@ -59,7 +59,7 @@ function hardEval(p, seeds) {
     runCombatCore(ctx(P, G.attacker, G.turn, null, { seed, rules: G.rules }));
     let v = hardState(P, me);
     // 다음 턴도 한 번: 공수가 바뀌고, 남은 유닛은 회복한 채로 (양쪽이 새로 낼 카드는 모른다)
-    if (HARD.look2 && P[0].life > 0 && P[1].life > 0) {
+    if (HARD.look2 && P[0].life >= 0 && P[1].life >= 0) {
       for (const q of P) { q.field = q.field.filter(u => u && isUnit(u) && u.t && u.t.alive && !u.tokTemp); for (const u of q.field) resetTurn(u); while (q.field.length < RULES.slots) q.field.push(null); q.bonus = 0; }
       runCombatCore(ctx(P, 1 - G.attacker, G.turn + 1, null, { seed: seed ^ 0x5bd1e995, rules: G.rules }));
       v = v * (1 - HARD.look2) + hardState(P, me) * HARD.look2;
