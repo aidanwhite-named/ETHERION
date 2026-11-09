@@ -15,7 +15,7 @@
    판의 결과에는 손대지 않는다(읽기만 한다). 화면 없이 도는 판(cfg.headless — 균형 도구)에서는 꺼져 있다. */
 "use strict";
 
-const BLOG_VER = "3.20.5";   // 로그 형식 · 게임 버전 표시. 게임 버전을 올리면 함께 고친다
+const BLOG_VER = "3.20.6";   // 로그 형식 · 게임 버전 표시. 게임 버전을 올리면 함께 고친다
 
 const BLog = {
   KEY: "etherion.battlelog",

@@ -21,9 +21,9 @@ Keep exactly the same position, size, outline and layout as the reference image;
 ```
 
 ## card_back — 카드 뒷면 · 덱 맨 위
-저장 파일 `img/ui/deck/card_back.png` · 1000×1400 PNG · 참고 그림: `tools/art/ref/card_back.png`
+저장 파일 `img/ui/deck/card_back_plain.png` · 1000×1400 PNG · 참고 그림: `tools/art/ref/card_back.png`
 
-덱 맨 위 · 상대 핸드 · 뽑혀 날아오는 카드가 함께 쓴다(5:7). 덱 옆면(금박)과 장수는 코드. 모서리는 CSS가 둥글게 자른다.
+글씨 없는 원본(card_back_plain.png). 만든 뒤 python tools/art/cardback_text.py 로 ETHERION 글씨를 얹어 card_back.png를 굽는다(v3.19.2). 덱 맨 위 · 상대 핸드 · 뽑혀 날아오는 카드가 함께 쓴다(5:7). 덱 옆면(금박)과 장수는 코드. 모서리는 CSS가 둥글게 자른다.
 
 ```
 The back side of a playing card, portrait 5:7, filling the whole image edge to edge (no background around the card).
@@ -83,20 +83,24 @@ No text, no letters, no numbers, no signature, no watermark, no UI frame, no but
 Keep exactly the same position, size, outline and layout as the reference image; repaint only the surface (materials, light, texture).
 ```
 
-## ether_back — 에테르 제단 — 뒤 층 (자유 그림)
+## ether_back — 에테르 제단 — 뒤 층 (삼위일체: 신 · 거인 · 용)
 저장 파일 `img/ui/ether/ether_back.png` · 720×720 PNG · 참고 그림: 없음
 
-에테르 원형 장치의 그림. 참고 그림 없음 — 모양은 자유(용 · 문양 · 성물 무엇이든). 지킬 것은 하나: 가운데 지름 35.8%(258px) 원은 코드가 하늘빛 구슬과 숫자를 그리는 자리라 비우거나 은은한 빛만. 결정 9칸 · 정수 자리는 그림을 보고 js/game.js ETHER_SLOTS에서 옮긴다.
+에테르 원형 장치의 그림(v3.19.6). 세계관 1장의 세 갈래 — 위 신(뜻) · 왼쪽 아래 거인(몸) · 오른쪽 아래 용(힘)이 정삼각형 구도로 둘러싼다. 지킬 것: ① 가운데 지름 46%(330px) 원은 완전히 비운다 — 코드가 지름 43.1%(310px) 하늘빛 구슬과 숫자를 그 위에 그린다. 구슬을 그리지 않는다. ② 지름 46~62% 고리는 얇은 룬 결계선만 — 결정 9칸 · 정수가 지름 56% 둘레(12시부터 36도씩)에 놓인다. ③ 세 존재는 지름 62% 바깥. ④ 원판과 세 존재가 그림 틀 안에 다 들어온다(v3.19.7 그림은 원판이 틀보다 커서 잘렸다). 그림 가운데 = 구슬 가운데. 구멍 비율이 달라도 게임에 넣을 때 js/game.js ETHER_ART.size로 맞춘다(104 × 그림 px ÷ 구멍 px). 결정이 그림과 겹치면 js/game.js ETHER_SLOTS에서 옮긴다.
 
 ```
-Isolated on transparent background, square composition, seen from the front: an ornate circular ether altar emblem for a dark-fantasy card game, framing an empty round centre.
-The empty centre is a perfect circle 36% of the image width, exactly in the middle; keep it clear or fill it only with a soft pale sky-blue glow fading outward.
-Around it, the subject is free (for example a great ether dragon, ancient runes, a stone-and-gold ring); it should fill the square to about 95% and read clearly at small size (about 120 px on screen).
+Square composition on a plain flat very dark background (#07080d), seen from the front: an ornate circular ether altar emblem for a dark-fantasy card game, framing a large EMPTY round centre.
+The empty centre is a perfect circle 46% of the image width, exactly in the middle of the square: plain flat dark background only, nothing painted inside it.
+Directly around that hole, a thin calm ring of gold-and-stone with faint glowing ancient runes, reaching out to about 62% of the image width; keep this ring low in detail.
+Outside that ring, three beings of the ether frame the circle in an equilateral triangle, each facing the centre but staying outside the 62% ring: at the top, a radiant winged god with a five-pointed star halo (will, arcane violet light); at the bottom left, a massive mountain-stone giant veined with glowing adamant magma (body, brass and ember orange); at the bottom right, a roaring jade-green horned dragon with spread wings (power, verdant light).
+The three beings may reach into the corners of the square but stay fully inside it; the whole emblem fills the square to about 95% and must read clearly at small size (about 120 px on screen).
 Style: dark fantasy game art, painterly digital painting with rich texture, dramatic lighting; theme 'night sky and golden runes'.
 Palette: night #07080d / #0d1019, gold #d9b46a / #f6e2a8 / #8a6a2a, ether sky-blue #8fdcff, faction colours brass #d4893a, verdant #6fae55, arcane #a57ae6.
 Seven dragon element gems (when a ring of gems appears) in this order clockwise from north: earth #b88a5a (N), wind #9fe3d6 (NE), [east seat EMPTY], fire #ff6b3d (SE), water #4fb3ff (S), forest #58b85f (SW), metal #a9b4c2 (W), lightning #ffd84a (NW). The empty east seat is a dark empty socket.
 No text, no letters, no numbers, no signature, no watermark, no UI frame, no buttons.
-Do not paint a central orb, gem or sphere — the game draws its own ether orb in the centre. Do not paint crystals arranged as slots or counters.
+Do not paint a central orb, gem, sphere, portal or glowing core — the centre must stay empty dark background; the game draws its own ether orb there. Do not paint crystals arranged as slots or counters.
+No hands, wings, tails, breath, robes or any part of the three beings may enter the central 62% circle.
+Nothing may be cut off by the edges of the image: the whole round disc, the halo, the wings and the three beings stay fully inside the square with a small dark margin.
 ```
 
 ## ether_front — 에테르 제단 — 앞 층 (선택)
