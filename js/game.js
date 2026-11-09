@@ -817,12 +817,12 @@ const SHRINE_SVG = `<svg class="shrine" viewBox="-16 -26 132 174" aria-hidden="t
 
 /* 에테르 제단 (v3.10.2). 그림과 코드를 떼어 놓았다 — 그림은 코드 모양에 맞출 필요가 없다.
    그림: img/ui/ether/ether_back.png(구슬 뒤) · ether_front.png(구슬 앞, 없어도 됨). 정사각 투명 PNG(720×720 권장).
-         SVG viewBox 0..200 위에 −16..216(232×232)으로 깔린다. 그림 가운데 = 구슬 가운데 (100, 100).
-         구슬 = 지름 100 → 그림 폭의 43.1%(720px 그림에서 310px). 그림은 가운데 지름 46%를 비운다(가이드 2.11).
-         결정 · 정수는 반지름 65 둘레 → 그림 폭의 56% 원 위.
+         SVG viewBox 0..200 위에 ETHER_ART.size(지금 253) 정사각으로 깔린다. 그림 가운데 = 구슬 가운데 (100, 100).
+         구슬 = 지름 100. 그림의 가운데 구멍은 104 안팎이 되게 size를 고른다(구멍 px × size ÷ 그림 px ≈ 104).
+         v3.19.8 그림: 720px 중 구멍 296px → size 253. 결정 · 정수는 반지름 65 둘레(룬 고리 위).
          파일이 있으면 저절로 쓰고, 없으면 그림 없이 구슬 · 결정 · 금빛 고리만 보인다.
    코드: 가운데 구슬과 숫자, 결정 9칸, 위대한 정수 1칸. 자리는 아래 ETHER_SLOTS 표 하나 — 새 그림에 맞춰 옮길 때는 이 표만 고친다. */
-const ETHER_ART = { back: "img/ui/ether/ether_back.png?v=3", front: "img/ui/ether/ether_front.png", has: { back: false, front: false } };
+const ETHER_ART = { size: 253, back: "img/ui/ether/ether_back.png?v=4", front: "img/ui/ether/ether_front.png", has: { back: false, front: false } };
 (function probeEtherArt() {
   for (const k of ["back", "front"]) {
     const im = new Image();
@@ -842,7 +842,7 @@ function etherAltarSVG(idx, slots) {
   const at = s => `transform="translate(${s[0]} ${s[1]}) rotate(${s[2]})"`;
   const st = k => { const o = slots[k] || {}; return (o.has ? " on" : "") + (o.used ? " used" : ""); };
   const crystals = S.slice(1).map((s, i) => `<g class="et-cr${st(i + 1)}" ${at(s)}><path class="cr-body" d="M0 -9 4 -4 4 5 0 8.5 -4 5 -4 -4Z"/><path class="cr-edge" d="M0 -9V8.5M-4 -4 0 -1.5 4 -4"/></g>`).join("");
-  const img = k => ETHER_ART.has[k] ? `<image class="et-art et-art-${k}" href="${ETHER_ART[k]}" x="-16" y="-16" width="232" height="232"/>` : "";
+  const img = k => ETHER_ART.has[k] ? `<image class="et-art et-art-${k}" href="${ETHER_ART[k]}" x="${100 - ETHER_ART.size / 2}" y="${100 - ETHER_ART.size / 2}" width="${ETHER_ART.size}" height="${ETHER_ART.size}"/>` : "";
   return `<svg class="et-svg" viewBox="0 0 200 200" aria-hidden="true">
     <defs>
       <radialGradient id="${id}-orb" cx="36%" cy="28%" r="70%"><stop offset="0" stop-color="#f2fcff"/><stop offset=".32" stop-color="#6cc9f2"/><stop offset=".72" stop-color="#1c6a99"/><stop offset="1" stop-color="#0a2236"/></radialGradient>
