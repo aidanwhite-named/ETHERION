@@ -820,7 +820,7 @@ const SHRINE_SVG = `<svg class="shrine" viewBox="-16 -26 132 174" aria-hidden="t
          SVG viewBox −20..220 전체(240×240)에 깔린다. 가운데 구슬 = 지름 86 → 그림 폭의 35.8%, 정가운데.
          파일이 있으면 저절로 쓰고, 없으면 그림 없이 구슬 · 결정 · 금빛 고리만 보인다.
    코드: 가운데 구슬과 숫자, 결정 9칸, 위대한 정수 1칸. 자리는 아래 ETHER_SLOTS 표 하나 — 새 그림에 맞춰 옮길 때는 이 표만 고친다. */
-const ETHER_ART = { back: "img/ui/ether/ether_back.png", front: "img/ui/ether/ether_front.png", has: { back: false, front: false } };
+const ETHER_ART = { back: "img/ui/ether/ether_back.png?v=2", front: "img/ui/ether/ether_front.png", has: { back: false, front: false } };
 (function probeEtherArt() {
   for (const k of ["back", "front"]) {
     const im = new Image();
