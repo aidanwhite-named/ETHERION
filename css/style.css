@@ -1833,3 +1833,12 @@ body.is-dragging .hand-me .hand-slot .hand-card { transition: transform .2s ease
 .ld-head .blog-btns { display: flex; gap: 4px; margin-left: auto; margin-right: 6px; }
 .ld-head .blog-btns .btn { padding-inline: 7px; }
 .blog-btns .blog-need { color: var(--gold); border-color: var(--line-gold); }
+
+/* v3.32.4 설정 창: 글꼴 고르기를 빼고(js/game.js showSettings) 남은 설정을 크게 — 제목 · 설명 · 단추 */
+.modal.set-modal { width: min(720px, 100%); }
+.modal.set-modal h3 { font-size: 24px; margin-bottom: 6px; }
+.modal.set-modal .pick-label { margin: 14px 0 7px; font-size: 18px; line-height: 1.45; }
+.modal.set-modal .pick-label small { display: block; margin-top: 2px; font-size: 14px; font-weight: 400; line-height: 1.5; }
+.modal.set-modal .speed { flex-wrap: wrap; gap: 8px; margin-right: 0; }
+.modal.set-modal .speed .btn.xs { min-height: 44px; min-width: 84px; padding: 8px 18px; font-size: 16px; border-radius: 8px; }
+.modal.set-modal .modal-btns .btn { min-height: 46px; min-width: 120px; font-size: 16px; }

@@ -313,6 +313,7 @@ const Help = (() => {
       <tr><th><kbd>S</kbd></th><td>셔플</td></tr>
       <tr><th><kbd>Enter</kbd></th><td>준비 완료</td></tr>
       <tr><th><kbd>Space</kbd> · <kbd>Enter</kbd></th><td>코인 멈추기(운명 봉인)</td></tr>
+      <tr><th><kbd>A</kbd></th><td>코인 '자동으로 봉인' 켜고 끄기 (전투 중 언제든 · 코인 창에서도)</td></tr>
       <tr><th><kbd>Esc</kbd></th><td>고른 것 취소 · 창 닫기</td></tr></table>
       <ul class="mn-ul"><li>카드를 누르면 상대 전장 오른쪽에 원본 카드가 크게 뜹니다(레벨 · 클래스 · 설명 · 지금 스탯). 내 카드면 왼쪽에 단추도 나옵니다. 다시 누르기 · 빈 곳 누르기 · Esc로 닫습니다. 소각장을 누르면 맨 위 카드를 봅니다.</li>
       <li>끌어서 놓기: 핸드 → 빈 칸(소환) · 내 유닛(장착) · 에테르(결정화) · 소각장. 전장 카드 → 다른 칸 · 소각장.</li>

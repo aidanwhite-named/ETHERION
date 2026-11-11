@@ -149,12 +149,12 @@ html.appui .rd-wrap.rd-pile .ready-btn { height: 54px; min-width: 0; padding: 0 
 html.appui .rd-wrap.rd-pile .ready-btn .rd-ico { width: 20px; height: 20px; }
 html.appui .rd-wrap.rd-pile .ready-btn kbd { display: none; }
 html.appui .rd-wrap.rd-pile .ready-btn.rd-wait { font-size: 14px; opacity: .8; }
-/* 셔플: "셔플" 글자를 빼고 둥근 인장만(생명 −1 표시는 작게 남김) */
-html.appui .f-piles > .shuffle-btn.v19 { width: auto; min-width: 0; padding: 0; }
-html.appui .shuffle-btn.v19 .sh-txt, html.appui .shuffle-btn.v19 kbd { display: none; }
-html.appui .shuffle-btn.v19::before, html.appui .shuffle-btn.v19::after { display: none; }
-html.appui .shuffle-btn.v19 .sh-seal { position: relative; left: auto; top: auto; transform: none; }
-html.appui .lay-swap .f-piles > .shuffle-btn.v19 .sh-cost { display: block; position: absolute; z-index: 2; right: -6px; bottom: -4px; margin: 0; font-size: 10.5px; padding: 1px 5px; }
+/* 셔플: "셔플" 글자를 빼고 둥근 인장만(생명 −1 표시는 작게 남김). v3.32.4: 폰 · 앱만 — PC는 예전처럼 인장 옆에 "셔플 ♥ −1" 띠 */
+html.mobile .f-piles > .shuffle-btn.v19 { width: auto; min-width: 0; padding: 0; }
+html.mobile .shuffle-btn.v19 .sh-txt, html.mobile .shuffle-btn.v19 kbd { display: none; }
+html.mobile .shuffle-btn.v19::before, html.mobile .shuffle-btn.v19::after { display: none; }
+html.mobile .shuffle-btn.v19 .sh-seal { position: relative; left: auto; top: auto; transform: none; }
+html.mobile .lay-swap .f-piles > .shuffle-btn.v19 .sh-cost { display: block; position: absolute; z-index: 2; right: -6px; bottom: -4px; margin: 0; font-size: 10.5px; padding: 1px 5px; }
 /* 오른쪽 아래 생명: 숫자 · /40이 판 밖으로 넘치지 않게 */
 html.appui .lay-swap .pv-bot .pl { column-gap: 6px; }
 html.appui .lay-swap .pv-bot .hgem { width: 34px; }
@@ -282,3 +282,21 @@ html.appui:not(.mobile) .screen-lobby .deck-tile.rq .dt-mark { width: 130px; hei
 html.appui:not(.mobile) .screen-lobby .df-head { font-size: 15px; }
 html.appui:not(.mobile) .screen-lobby .side-col { align-self: stretch; display: flex; flex-direction: column; }
 html.appui:not(.mobile) .screen-lobby .side-col .chat { flex: 1; }
+
+/* ================= v3.32.4 PC 전장 (html.appui, html.mobile 없음) — 폰 · 앱은 위 절 그대로 =================
+   준비 완료(+모래시계): 154 × 54px로 고정이라 큰 화면일수록 옆의 파친코(.arcade, 높이 = 카드 폭 × .924)보다 훨씬 작아 보였다.
+   PC에서는 파친코와 줄을 맞춘다 — 묶음의 위 · 아래 끝 = 파친코의 위 · 아래 끝, 준비 완료 단추 높이 = 파친코 높이의 절반,
+   모래시계는 위 끝에. 폭은 파친코와 같게(좁은 화면은 예전 154px), 글자도 카드 폭을 따라 커지고 넘치면 두 줄로 */
+html.appui:not(.mobile) .rd-wrap.rd-pile { height: calc(var(--cw) * .924); width: max(154px, calc(var(--cw) * .78)); justify-content: space-between; gap: 0; }
+html.appui:not(.mobile) .rd-wrap.rd-pile .turn-clock { height: clamp(32px, calc(var(--cw) * .22), 46px); }
+html.appui:not(.mobile) .rd-wrap.rd-pile .turn-clock .tc-glass { height: clamp(24px, calc(var(--cw) * .16), 34px); }
+html.appui:not(.mobile) .rd-wrap.rd-pile .turn-clock .tc-num { font-size: clamp(15px, calc(var(--cw) * .1), 22px); }
+html.appui:not(.mobile) .rd-wrap.rd-pile .ready-btn { height: calc(var(--cw) * .462); padding: 0 .6em; gap: .4em; border-radius: 10px; font-size: clamp(15.5px, calc(var(--cw) * .095), 22px); justify-content: center; white-space: normal; line-height: 1.2; }
+html.appui:not(.mobile) .rd-wrap.rd-pile .ready-btn .rd-t { text-align: center; word-break: keep-all; text-wrap: balance; }
+html.appui:not(.mobile) .rd-wrap.rd-pile .ready-btn .rd-ico { width: 1.25em; height: 1.25em; }
+html.appui:not(.mobile) .rd-wrap.rd-pile .ready-btn.rd-wait { font-size: clamp(14px, calc(var(--cw) * .09), 20px); }
+/* 생명(오른쪽 아래): 폰 맞춤(32px)을 PC에서는 쓰지 않고 예전 크기로(css/swap.css "생명: 나") */
+html.appui:not(.mobile) .lay-swap .pv-bot .pl { column-gap: 12px; }
+html.appui:not(.mobile) .lay-swap .pv-bot .hgem { width: clamp(40px, calc(var(--cw) * .42), 84px); }
+html.appui:not(.mobile) .lay-swap .pv-bot .pl-num { font-size: clamp(36px, calc(var(--cw) * .4), 80px); }
+html.appui:not(.mobile) .lay-swap .pv-bot .pl-val small { font-size: clamp(13px, calc(var(--cw) * .1), 20px); }

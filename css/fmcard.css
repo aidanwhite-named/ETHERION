@@ -222,3 +222,20 @@ html.mobile .hand-me .card.fm.slim .c-cls { font-size: .66em; }
   100% { transform: translateY(0) rotate(var(--rt)); opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) { .scrap-pile .sp.drop, .scrap-pile.full .sp.on svg { animation: none; } }
+
+/* ---- v3.32.4 전장 카드 글 상자: 아이템을 단 유닛도 능력이 다 보이게 ----
+   장착한 아이템의 능력(금색 칩 .c-eq-ab, battle-v19.css)이 0.74em으로 파란 능력 칩(0.6em)보다 크고 코인 줄도 커서,
+   능력이 많은 유닛에 아이템을 달면 금색 칩이 글 상자 아래로 밀려 잘렸다(눌러서 크게 봐야 보임).
+   전장 카드만: 코인 줄(아이콘 · 숫자) · 능력 칩 글자를 조금 줄이고, 금색 칩을 파란 칩과 같은 크기로. 핸드 · 원본 카드는 그대로 */
+.slot .card.fm .c-boxin { gap: .08em; }
+.slot .card.fm .c-coinline { font-size: .8em; gap: .06em .3em; }
+.slot .card.fm .c-coinline .sti { width: .95em; height: .95em; }
+.slot .card.fm .c-chips, .slot .card.fm .c-box .c-equip { gap: .1em; }
+.slot .card.fm .c-box .c-cls { font-size: .52em; padding: .05em .3em; }
+.slot .card.fm .c-eq-ab { font-size: .52em; line-height: 1.2; padding: .05em .3em; border-width: .05em; }
+.slot .card.fm .c-eq-ab::before { font-size: .7em; margin-right: .14em; }
+/* 아이템을 단 유닛: 코인 줄 · 파란 능력 칩 · 금색 아이템 칩을 한 흐름으로 이어 붙여(왼쪽부터) 줄 수를 줄인다 */
+.slot .card.fm .c-boxin:has(> .c-equip) { flex-direction: row; flex-wrap: wrap; align-content: flex-start; gap: .1em; }
+.slot .card.fm .c-boxin:has(> .c-equip) > .c-chips, .slot .card.fm .c-boxin:has(> .c-equip) > .c-equip { display: contents; }
+.slot .card.fm .c-boxin:has(> .c-equip) > :not(.c-chips):not(.c-equip):not(.c-coinline) { flex: 1 0 100%; }
+.slot .card.fm .c-boxin:has(> .c-equip) > .c-coinline { flex: none; margin-right: .15em; }

@@ -990,8 +990,7 @@ function applyFont(id, nid) {
   document.documentElement.style.setProperty("--nweight", String(n.weight));
 }
 async function showSettings() {
-  const cur = Prefs.get("font", "hahmlet");
-  const curN = Prefs.get("namefont", "songmyung");
+  /* v3.32.4 글꼴 고르기(한글 글꼴 · 카드 이름 글꼴)는 설정 창에서 뺐다. 저장된 값은 그대로 쓰인다(applyFont) */
   const curBg = Prefs.get("battle_bg", "default");
   /* v3.20.4 폰 · 앱에서만: 화면을 얼마나 줄여 보일지(js/mobile.js MobileFit) */
   const mt = typeof MobileFit !== "undefined" ? `<p class="pick-label">폰 글자 크기 <small class="muted">— 화면을 덜 줄여 글자 · 단추를 키웁니다. 크게 할수록 한 화면에 보이는 것은 조금 줄어듭니다</small></p>
@@ -1009,12 +1008,8 @@ async function showSettings() {
     <p class="pick-label">효과음 <small class="muted">— 누르기·놓기·맞기 소리 (파일 없이 합성, 터치 기기에서는 짧은 진동)</small></p>
     <div class="speed set-sfx">${[["off", "끄기"], ["low", "작게"], ["mid", "보통"]].map(([v, n]) => `<button type="button" class="btn xs ${typeof FEEL !== "undefined" && FEEL.level === v ? "on" : ""}" data-sfx="${v}">${n}</button>`).join("")}</div>
     <p class="pick-label">배경음 <small class="muted">— 타이틀 곡과 대기실·상점의 아홉 단체 테마(무작위로 이어 틂). 대전 중에는 멈춥니다</small></p>
-    <div class="speed set-bgm">${[["off", "끄기"], ["low", "작게"], ["mid", "보통"]].map(([v, n]) => `<button type="button" class="btn xs ${typeof BGM !== "undefined" && BGM.level === v ? "on" : ""}" data-bgm="${v}">${n}</button>`).join("")}</div>
-    <p class="pick-label">한글 글꼴 <small class="muted">— 후보 글꼴은 처음 한 번 인터넷에서 받아옵니다. 받지 못하면 기기 바탕체로 보입니다</small></p>
-    <div class="font-pick">${FONTS.map(f => `<label class="font-opt${f.id === cur ? " on" : ""}" style="font-family:${f.family}, serif"><input type="radio" name="font" value="${f.id}" ${f.id === cur ? "checked" : ""}><b>${f.name}</b><small>${f.desc} — 에테리온의 밤, 아다만트 연합과 푸른숲 맹약</small></label>`).join("")}</div>
-    <p class="pick-label">카드 이름 글꼴 <small class="muted">— 카드 맨 위 이름에만 씁니다. 게임에 들어 있어 인터넷 없이도 보입니다</small></p>
-    <div class="font-pick">${NAME_FONTS.map(f => `<label class="font-opt${f.id === curN ? " on" : ""}" style="font-family:${f.family}, serif"><input type="radio" name="namefont" value="${f.id}" ${f.id === curN ? "checked" : ""}><b style="font-weight:${f.weight}">${f.name}</b><small>${f.desc} — <span style="font-weight:${f.weight}">베르단의 화신 · 도르마크 심장포단</span></small></label>`).join("")}</div>`;
-  await modal(html, [{ label: "닫기", value: true, cls: "primary" }], { cls: "wide", onOpen: w => {
+    <div class="speed set-bgm">${[["off", "끄기"], ["low", "작게"], ["mid", "보통"]].map(([v, n]) => `<button type="button" class="btn xs ${typeof BGM !== "undefined" && BGM.level === v ? "on" : ""}" data-bgm="${v}">${n}</button>`).join("")}</div>`;
+  await modal(html, [{ label: "닫기", value: true, cls: "primary" }], { cls: "wide set-modal", onOpen: w => {
     w.addEventListener("click", e => {
       const b = e.target.closest("[data-sp]");
       if (b) { if (G) setSpeed(+b.dataset.sp); else Prefs.set("speed", +b.dataset.sp); const sp = G ? G.speed : Prefs.get("speed", 1); w.querySelectorAll("[data-sp]").forEach(x => x.classList.toggle("on", +x.dataset.sp === sp)); }
@@ -1038,15 +1033,18 @@ async function showSettings() {
       const m = e.target.closest("[data-bgm]");
       if (m && typeof BGM !== "undefined") { BGM.setLevel(m.dataset.bgm); w.querySelectorAll("[data-bgm]").forEach(x => x.classList.toggle("on", x.dataset.bgm === BGM.level)); }
     });
-    w.addEventListener("change", e => {
-      if (e.target.name === "font") { Prefs.set("font", e.target.value); applyFont(e.target.value); w.querySelectorAll(".font-opt").forEach(l => l.classList.toggle("on", l.querySelector("input").checked)); }
-      if (e.target.name === "namefont") { Prefs.set("namefont", e.target.value); applyFont(null, e.target.value); w.querySelectorAll(".font-opt").forEach(l => l.classList.toggle("on", l.querySelector("input").checked)); }
-    });
   } });
 }
 function setSpeed(s) { if (!G) return; G.speed = s; Prefs.set("speed", s); render(); }
+/* v3.32.4 코인 '자동으로 봉인' 단축키(A). 코인 창의 상자가 있으면 그것을 눌러(그 창의 change 처리로 바로 봉인까지), 없으면 설정만 바꾼다 */
+function toggleCoinAuto() {
+  const box = document.querySelector(".coinstage .cs-auto:not(.cs-noflip) input");
+  const on = !Prefs.get("coinAuto", false);
+  if (box) { box.checked = on; box.dispatchEvent(new Event("change", { bubbles: true })); } else Prefs.set("coinAuto", on);
+  toast(on ? "코인 자동으로 봉인: 켬 (A)" : "코인 자동으로 봉인: 끔 (A)");
+}
 /* 단축키 (AETHELGARD 참고): 1~9 핸드 고르기 · Q W E R T 칸에 놓기/장착/자리 바꾸기 · C 결정화 · X 소각 · Enter 준비 완료 · Esc 취소 */
-const SLOT_KEYS = ["q", "w", "e", "r", "t"];
+const SLOT_KEYS = ["q", "w", "e", "r", "t"];   // v3.32.4 A = 코인 자동으로 봉인 켜고 끄기(toggleCoinAuto)
 document.addEventListener("keydown", e => {
   if (!G || !boardEl || !document.body.contains(boardEl)) return;
   if (e.target && /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
@@ -1054,6 +1052,8 @@ document.addEventListener("keydown", e => {
   // v1.9: 키를 누르고 있어 자동 반복된 입력(준비 완료 Enter를 길게 누른 것 등)은 코인을 세우지 않는다
   if (FX.coinStop && (e.key === " " || e.key === "Enter")) { e.preventDefault(); if (!e.repeat) FX.coinStop(); return; }
   if (FX.coinReflip && (e.key === "r" || e.key === "R" || e.key === "ㄱ")) { e.preventDefault(); if (!e.repeat) FX.coinReflip(); return; }
+  // v3.32.4 A: 코인 '자동으로 봉인' 켜고 끄기 (한글 자판이면 ㅁ). 코인 창이 떠 있으면 그 상자를 바로 바꾼다
+  if ((e.key === "a" || e.key === "A" || e.key === "ㅁ") && !e.ctrlKey && !e.metaKey && !e.altKey) { e.preventDefault(); if (!e.repeat) toggleCoinAuto(); return; }
   if (e.key === "Escape") { if (G.sel || G.inspect || FX.peek) { G.sel = null; G.inspect = null; FX.peek = null; render(); } return; }
   const me = G.players[G.viewer];
   if (G.control !== me.idx || G.handoff) return;
@@ -1348,7 +1348,7 @@ function coinClash(info) {
     const partsHTML = o => o.parts.map(k => `<span class="cs-part st-${k.st}"><i>${statIco(k.st)}</i><b>${sgnNum(k.v)}</b></span>`).join("");
     const coinHTML = (sd, o, i) => `<div class="cs-coin ${sd.kept ? (o.heads ? "is-heads" : "is-tails") : "spinning"}${o.parts.length > 1 ? " multi" : ""}" data-side="${sd.who}" data-i="${i}"${sd.kept && !o.heads ? ' style="transform:rotateY(180deg)"' : ""}><div class="cs-face cs-heads">${COIN_CREST()}</div><div class="cs-face cs-tails">${COIN_BACK()}</div></div>`;
     const ctlHTML = sd => !sd.coins.length ? "" : sd.kept ? `<div class="cs-cpu-state">운명이 봉인되어 있다</div>` : sd.human
-      ? `<button type="button" class="btn primary cs-stop" data-side="${sd.who}">운명 봉인<small>Space · Enter</small></button>${sd === autoBox ? `<label class="cs-auto"><input type="checkbox" ${auto ? "checked" : ""}> 자동으로 봉인</label><label class="cs-auto cs-noflip"><input type="checkbox" ${noFlip ? "checked" : ""}> 다시 던지기 건너뛰기</label>` : ""}`
+      ? `<button type="button" class="btn primary cs-stop" data-side="${sd.who}">운명 봉인<small>Space · Enter</small></button>${sd === autoBox ? `<label class="cs-auto"><input type="checkbox" ${auto ? "checked" : ""}> 자동으로 봉인 <kbd>A</kbd></label><label class="cs-auto cs-noflip"><input type="checkbox" ${noFlip ? "checked" : ""}> 다시 던지기 건너뛰기</label>` : ""}`
       : `<div class="cs-cpu-state">${G.online ? "상대가 운명을 가늠하는 중…" : "운명을 가늠하는 중…"}</div>`;
     /* v2.4.4 코인 창에 앞면 확률을 적는다. 코인 뒷면 마법(정화의 물결·대해류 등)은 −50%라 0% */
     const pct = p => Math.round(p * 100) + "%";
@@ -2152,7 +2152,7 @@ function focusHTML(me, ctrl) {
 }
 /* 아무 카드도 고르지 않았을 때 왼쪽 열: 최근 전투 기록 + (접힌) 단축키 */
 function focusIdleHTML(ctrl) {
-  const keys = [["1–9", "핸드 고르기"], ["Q–T", "칸에 놓기 · 장착"], ["C", "결정화"], ["X", "소각"], ["S", "셔플"], ["Enter", "준비 완료"], ["Esc", "선택 풀기"]];
+  const keys = [["1–9", "핸드 고르기"], ["Q–T", "칸에 놓기 · 장착"], ["C", "결정화"], ["X", "소각"], ["S", "셔플"], ["Enter", "준비 완료"], ["A", "코인 자동 봉인 켜고 끄기"], ["Esc", "선택 풀기"]];
   const recent = G.log.slice(-9);
   return `<aside class="focus-idle${ctrl ? " live" : ""}" aria-hidden="true">
     <div class="fi-log"><p class="fi-head">최근 기록</p>${recent.map(l => `<div class="l ${l.cls}">${esc(l.text)}</div>`).join("")}</div>
@@ -2233,7 +2233,7 @@ function render() {
         <div class="toolbar" role="toolbar" aria-label="메뉴">
           <button type="button" class="tb-btn tb-speed" data-act="speed-cycle" aria-label="연출 속도" data-tip="연출 속도 ×${G.speed}\n누를 때마다 ${SPEEDS.join(" → ")}">${uiIcon("hourglass")}<span>×${G.speed}</span></button>
           <i class="tb-sep"></i>
-          <button type="button" class="tb-btn" data-act="settings" aria-label="설정" data-tip="설정\n글꼴·속도">${uiIcon("settings")}</button>
+          <button type="button" class="tb-btn" data-act="settings" aria-label="설정" data-tip="설정\n속도·연출·소리">${uiIcon("settings")}</button>
           <button type="button" class="tb-btn${G.showLog ? " on" : ""}" data-act="log" aria-label="기록" data-tip="전투 기록">${uiIcon("log")}</button>
           <button type="button" class="tb-btn" data-act="rules" aria-label="규칙" data-tip="규칙">${uiIcon("rules")}</button>
           ${typeof BGM !== "undefined" && BGM.tbHTML ? `<i class="tb-sep"></i>${BGM.tbHTML()}` : ""}

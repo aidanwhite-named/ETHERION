@@ -178,3 +178,5 @@
 /* v3.9.9 크게 보기 아래 "값이 왜 다른가" 줄 (js/game.js changeLines): 저주 · 판 규칙 · 받은 피해 */
 .zoom .d-body .d-mod { padding-left: 8px; border-left: 3px solid #c8574a; }
 .zoom .d-body .d-mod b { color: #ff9d8a; }
+/* v3.32.4 코인 창 '자동으로 봉인' 옆 단축키 A */
+.cs-auto kbd { font-family: var(--caps); font-size: 10px; font-weight: 700; padding: 0 5px; border-radius: 3px; color: var(--gold); border: 1px solid rgba(217, 180, 106, .4); background: rgba(0, 0, 0, .3); }
