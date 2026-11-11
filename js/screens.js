@@ -373,7 +373,7 @@ function headerHTML(title) {
       </nav>
       <button type="button" class="tb-crest${typeof CREST !== "undefined" ? " has-art" : ""}" data-nav="lobby" title="대기실로">${typeof CREST !== "undefined" ? CREST.svg() : ""}<span class="crest-word">ETHERION</span>${title ? `<span class="crest-sub">${title}</span>` : ""}</button>
       <div class="tb-wing tbw-right">
-        ${typeof MobileFit !== "undefined" && typeof showSettings === "function" ? `<button type="button" class="tb-nav tb-set" data-nav="settings" title="설정 — 폰 글자 크기 · 글꼴 · 소리" aria-label="설정">${typeof uiIcon === "function" ? uiIcon("settings") : "⚙"}</button>` : ""}
+        ${typeof showSettings === "function" ? `<button type="button" class="tb-nav tb-set" data-nav="settings" title="설정 — 화면 배치 · 글꼴 · 소리" aria-label="설정">${typeof uiIcon === "function" ? uiIcon("settings") : "⚙"}</button>` : ""}
         <button type="button" class="tb-nav tb-sound" data-nav="sound" title="소리 — 배경음 · 효과음 켜기/끄기와 음량" aria-label="소리">${typeof BGM !== "undefined" ? BGM.navIcon() : ""}</button>
         ${typeof Weather !== "undefined" ? Weather.chipHTML() : ""}
         ${typeof LevelUI !== "undefined" ? shardChipHTML(u) : ""}
@@ -523,7 +523,7 @@ function bindAltar(box, f, before) {
 }
 /* v3.32.2 폰 · 앱(html.mobile): 대기실에는 깃발만. 깃발을 누르면 출정 창 — 덱 이름 · 장수 · 레벨 곡선과 출정의 단.
    덱의 카드는 덱 조정실에서 본다(대기실에서는 40장을 그리지 않아 대기실이 빨리 뜬다) */
-const lobbyCompact = () => document.documentElement.classList.contains("mobile");
+const lobbyCompact = () => document.documentElement.classList.contains("appui");   /* v3.32.3 PC도 앱식 배치(설정 "화면 배치")면 */
 function openDeckSheet(f) {
   const u = Store.user(), G_ = GROUPS[f], FA = FACTIONS[G_.faction], d = Store.deck(u, f), dr = Store.draft(u, f);
   const n = countMap(d.cards), playable = Store.deckPlayable(u, f);

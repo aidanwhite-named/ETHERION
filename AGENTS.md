@@ -81,6 +81,7 @@
 - 앱 코드 `android/app/src/main/java/com/etherion/game/MainActivity.java`와 `build_apk.py`의 `build_dex()`(같은 코드를 바이트코드로 직접 적은 것)는 **함께 고친다**. 매니페스트도 `AndroidManifest.xml` ↔ `manifest()`.
 - 폰 화면 맞춤은 `js/mobile.js`(레이아웃 폭을 넓혀 줄여 보임). 폰 전용 배치를 새로 만들기보다 이 방식을 유지한다. 터치 손질은 `css/mobile.css`(`html.mobile`).
 - 폰 대기실 · 덱 조정실(v3.32.2): 폰 · 앱(`html.mobile`, `lobbyCompact()`)의 대기실은 깃발만, 깃발을 누르면 출정 창(`openDeckSheet`). 출정 단추를 고치면 `altarHTML` · `bindAltar` 한 곳만. 덱 조정실 폰 배치는 `css/mobile.css` 맨 아래 절.
+- 앱식 배치(v3.32.3): 대기실 깃발 · 출정 창 · 덱 조정실 탭 · 시작 핸드 3+3 · 얇은 전장 띠는 PC도 쓴다(`html.appui`, 설정 "화면 배치" → `js/mobile.js` `AppUI`, 폰 · 앱은 늘 켜짐). 배치를 고치면 `css/mobile.css`의 `html.appui` 규칙, 폰에서만 필요한 크기 손질은 `html.mobile`, PC에서만은 맨 아래 `html.appui:not(.mobile)` 절. 앱식인지 JS에서 볼 때는 `lobbyCompact()`.
 - 폰 글자 크기(v3.20.4): 줄이는 정도는 설정 "폰 글자 크기"(`MobileFit`, 맞춤 높이 720 · 620 기본 · 580). 폰 · 앱의 전장 핸드 카드는 `css/mobile.css` 맨 아래에서 핸드 줄을 높여 키운다. 폰에서 글씨가 작다는 말을 들으면 PC 규칙 대신 그 절에 `html.mobile` 규칙을 더한다.
 - `android/signing/` 의 서명 열쇠는 바꾸거나 지우지 않는다(바뀌면 폰에서 업데이트가 안 된다).
 

@@ -84,83 +84,83 @@ html.mobile .f-piles .arc-host { display: none; }
 /* ================= v3.32.1 폰 · 앱 손질 =================
    1) 대기실: 깃발(덱 보관함)만 크게 보이고, 고른 덱의 카드 목록은 숨긴다(덱은 덱 조정실에서 본다).
       왼쪽 넓은 칸 = 진영 3개를 세로 줄 3개로 놓은 깃발 9개, 오른쪽 좁은 칸 = 고른 덱 이름 · 대전 단추들 · 수레바퀴 · 채팅 */
-html.mobile .screen-lobby .lobby { grid-template-columns: minmax(0, 1fr) 290px; gap: 10px 14px; padding-top: 10px; }
-html.mobile .screen-lobby .decks { grid-column: 1; grid-row: 1; }
-html.mobile .screen-lobby .deck-view { grid-column: 1; grid-row: 2; min-height: 0 !important; padding: 0; background: none; border: 0; box-shadow: none; }
-html.mobile .screen-lobby .deck-view::before, html.mobile .screen-lobby .deck-view::after { display: none; }
-html.mobile .screen-lobby .side-col { grid-column: 2; grid-row: 1 / span 2; }
-html.mobile .screen-lobby .decks > .panel-title { margin-bottom: 4px; }
-html.mobile .screen-lobby .decks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 12px; align-content: start; }
-html.mobile .screen-lobby .decks > .panel-title, html.mobile .screen-lobby .decks > .note { grid-column: 1 / -1; }
-html.mobile .screen-lobby .decks > .note { display: none; }
-html.mobile .screen-lobby .deck-fac { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
-html.mobile .screen-lobby .df-head { margin-top: 2px; font-size: 14px; }
-html.mobile .screen-lobby .df-head small { display: none; }
-html.mobile .screen-lobby .deck-tile.rq { min-height: 0; padding: 8px 10px 8px 6px !important; gap: 8px !important; }
-html.mobile .screen-lobby .dt-seal { width: 50px; height: 50px; margin: 6px 0 0 2px; }
-html.mobile .screen-lobby .dt-seal .emblem { width: 40px !important; height: 40px !important; }
-html.mobile .screen-lobby .dt-body b { font-size: 16px; line-height: 1.2; }
-html.mobile .screen-lobby .dt-body .en { font-size: 12.5px; }
-html.mobile .screen-lobby .deck-tile.rq .dt-state { gap: 6px; }
-html.mobile .screen-lobby .dt-gauge { display: none; }
-html.mobile .screen-lobby .dt-st { font-size: 13px; }
+html.appui .screen-lobby .lobby { grid-template-columns: minmax(0, 1fr) 290px; gap: 10px 14px; padding-top: 10px; }
+html.appui .screen-lobby .decks { grid-column: 1; grid-row: 1; }
+html.appui .screen-lobby .deck-view { grid-column: 1; grid-row: 2; min-height: 0 !important; padding: 0; background: none; border: 0; box-shadow: none; }
+html.appui .screen-lobby .deck-view::before, html.appui .screen-lobby .deck-view::after { display: none; }
+html.appui .screen-lobby .side-col { grid-column: 2; grid-row: 1 / span 2; }
+html.appui .screen-lobby .decks > .panel-title { margin-bottom: 4px; }
+html.appui .screen-lobby .decks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 12px; align-content: start; }
+html.appui .screen-lobby .decks > .panel-title, html.appui .screen-lobby .decks > .note { grid-column: 1 / -1; }
+html.appui .screen-lobby .decks > .note { display: none; }
+html.appui .screen-lobby .deck-fac { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+html.appui .screen-lobby .df-head { margin-top: 2px; font-size: 14px; }
+html.appui .screen-lobby .df-head small { display: none; }
+html.appui .screen-lobby .deck-tile.rq { min-height: 0; padding: 8px 10px 8px 6px !important; gap: 8px !important; }
+html.appui .screen-lobby .dt-seal { width: 50px; height: 50px; margin: 6px 0 0 2px; }
+html.appui .screen-lobby .dt-seal .emblem { width: 40px !important; height: 40px !important; }
+html.appui .screen-lobby .dt-body b { font-size: 16px; line-height: 1.2; }
+html.appui .screen-lobby .dt-body .en { font-size: 12.5px; }
+html.appui .screen-lobby .deck-tile.rq .dt-state { gap: 6px; }
+html.appui .screen-lobby .dt-gauge { display: none; }
+html.appui .screen-lobby .dt-st { font-size: 13px; }
 /* 고른 덱: 카드 목록 · 거르기 · 머리(고른 깃발은 위 보관함에서 빛난다)를 숨기고 대전 단추 줄만 깃발 아래에 */
-html.mobile .screen-lobby .dv-head, html.mobile .screen-lobby .dv-filter, html.mobile .screen-lobby .dv-cards { display: none; }
-html.mobile .screen-lobby .dv-actions { margin: 0; padding-top: 4px; }
-html.mobile .screen-lobby .decks .panel-title small { display: none; }
-html.mobile .screen-lobby .deck-tile.rq .dt-mark { width: 80px; height: 80px; }
-html.mobile .screen-lobby .lobby { padding-bottom: 12px; }
-html.mobile .screen-lobby .df-head { margin-top: 0; }
-html.mobile .screen-lobby .deck-fac { gap: 6px; }
-html.mobile .screen-lobby .deck-tile.rq { padding-block: 6px !important; }
+html.appui .screen-lobby .dv-head, html.appui .screen-lobby .dv-filter, html.appui .screen-lobby .dv-cards { display: none; }
+html.appui .screen-lobby .dv-actions { margin: 0; padding-top: 4px; }
+html.appui .screen-lobby .decks .panel-title small { display: none; }
+html.appui .screen-lobby .deck-tile.rq .dt-mark { width: 80px; height: 80px; }
+html.appui .screen-lobby .lobby { padding-bottom: 12px; }
+html.appui .screen-lobby .df-head { margin-top: 0; }
+html.appui .screen-lobby .deck-fac { gap: 6px; }
+html.appui .screen-lobby .deck-tile.rq { padding-block: 6px !important; }
 
 /* 2) 시작 핸드(멀리건): 위 3장 · 아래 3장, 오른쪽 빈 자리에 [그대로 시작] [바꾸기]. 아래 기준 설명은 뺀다 */
-html.mobile .modal.mull-modal { width: min(1000px, 100%); display: grid; grid-template-columns: minmax(0, 1fr) 190px; column-gap: 22px; align-items: center; padding-block: 14px 16px; }
-html.mobile .mull-modal > h3, html.mobile .mull-modal > .muted { grid-column: 1 / -1; }
-html.mobile .mull-modal > h3 { margin-bottom: 4px; }
-html.mobile .mull-modal > .muted { margin: 0 0 8px; font-size: 14px; }
-html.mobile .mull-modal .mull-tip { display: none; }
-html.mobile .mull-modal .mull-cards { grid-column: 1; display: grid; grid-template-columns: repeat(3, max-content); justify-content: center; gap: 10px 14px; margin: 0; }
-html.mobile .mull-card .card { --cw: clamp(80px, calc((100dvh - 170px) / 2 / 1.4), 150px); }
-html.mobile .mull-modal .modal-btns { grid-column: 2; grid-row: 3; display: flex; flex-direction: column-reverse; gap: 12px; margin: 0; padding: 0; border: 0; }
-html.mobile .mull-modal .modal-btns .btn { width: 100%; min-height: 54px; font-size: 17px; margin: 0; }
+html.appui .modal.mull-modal { width: min(1000px, 100%); display: grid; grid-template-columns: minmax(0, 1fr) 190px; column-gap: 22px; align-items: center; padding-block: 14px 16px; }
+html.appui .mull-modal > h3, html.appui .mull-modal > .muted { grid-column: 1 / -1; }
+html.appui .mull-modal > h3 { margin-bottom: 4px; }
+html.appui .mull-modal > .muted { margin: 0 0 8px; font-size: 14px; }
+html.appui .mull-modal .mull-tip { display: none; }
+html.appui .mull-modal .mull-cards { grid-column: 1; display: grid; grid-template-columns: repeat(3, max-content); justify-content: center; gap: 10px 14px; margin: 0; }
+html.appui .mull-card .card { --cw: clamp(80px, calc((100dvh - 170px) / 2 / 1.4), 150px); }
+html.appui .mull-modal .modal-btns { grid-column: 2; grid-row: 3; display: flex; flex-direction: column-reverse; gap: 12px; margin: 0; padding: 0; border: 0; }
+html.appui .mull-modal .modal-btns .btn { width: 100%; min-height: 54px; font-size: 17px; margin: 0; }
 
 /* 3) 전장 */
 /* 왼쪽 가운데의 기록 · 단축키 판(focus-idle)과 가운데 띠의 손짓 글(더블클릭 또는 …)은 폰에서 뺀다 */
-html.mobile .focus-idle { display: none !important; }
-html.mobile .midbar.v7 .actionbar { display: none; }
+html.appui .focus-idle { display: none !important; }
+html.appui .midbar.v7 .actionbar { display: none; }
 /* 가운데 띠를 얇게: 준비 완료는 내 덱 옆으로 갔다(js/game.js render) · 메뉴 단추도 작게 */
-html.mobile .lay-swap .midbar.v7 { min-height: 0; padding-block: 2px; }
-html.mobile .lay-swap .midbar.v7 .mb-right { min-height: 0; }
-html.mobile .lay-swap .midbar.v7 .toolbar { height: 42px; padding: 0 5px; min-height: 0; border-radius: 8px; }
-html.mobile .lay-swap .midbar.v7 .tb-btn { height: 34px; min-height: 0; padding-block: 0; }
-html.mobile .lay-swap .midbar.v7 .tb-btn .ui-ico, html.mobile .lay-swap .midbar.v7 .tb-btn > svg { width: 24px; height: 24px; }
-html.mobile .lay-swap .midbar.v7 .tb-speed span { font-size: 16px; }
+html.appui .lay-swap .midbar.v7 { min-height: 0; padding-block: 2px; }
+html.appui .lay-swap .midbar.v7 .mb-right { min-height: 0; }
+html.appui .lay-swap .midbar.v7 .toolbar { height: 42px; padding: 0 5px; min-height: 0; border-radius: 8px; }
+html.appui .lay-swap .midbar.v7 .tb-btn { height: 34px; min-height: 0; padding-block: 0; }
+html.appui .lay-swap .midbar.v7 .tb-btn .ui-ico, html.appui .lay-swap .midbar.v7 .tb-btn > svg { width: 24px; height: 24px; }
+html.appui .lay-swap .midbar.v7 .tb-speed span { font-size: 16px; }
 /* 얇아진 띠만큼(약 40px) 상대 전장 카드를 키운다: 상대 줄만 카드 폭 × 1.28 (--cw0 = 위 v3.20.4 절의 기본 카드 폭) */
 @media (min-width: 761px) {
   html.mobile .lay-swap .frow-top .slots, html.mobile #board .lay-swap .frow-top .slot > .card, html.mobile #board .lay-swap .frow-top .slot > .card-back { --cw: calc(var(--cw0) * 1.28); }
 }
 /* 준비 완료(+모래시계): 내 덱 왼쪽에 세로로 쌓아 작게 */
-html.mobile .rd-wrap.rd-pile { display: flex; flex-direction: column; align-items: stretch; justify-content: center; gap: 6px; flex: none; align-self: center; }
-html.mobile .rd-wrap.rd-pile .turn-clock { position: relative; top: auto; right: auto; height: 32px; padding: 0 8px 0 4px; gap: 4px; justify-content: center; }
-html.mobile .rd-wrap.rd-pile .turn-clock .tc-glass { height: 24px; }
-html.mobile .rd-wrap.rd-pile .turn-clock .tc-num { font-size: 15px; min-width: 2.6em; }
-html.mobile .rd-wrap.rd-pile .ready-btn { height: 54px; min-width: 0; padding: 0 12px; gap: 7px; border-radius: 8px; font-size: 15.5px; white-space: nowrap; }
-html.mobile .rd-wrap.rd-pile .ready-btn .rd-ico { width: 20px; height: 20px; }
-html.mobile .rd-wrap.rd-pile .ready-btn kbd { display: none; }
-html.mobile .rd-wrap.rd-pile .ready-btn.rd-wait { font-size: 14px; opacity: .8; }
+html.appui .rd-wrap.rd-pile { display: flex; flex-direction: column; align-items: stretch; justify-content: center; gap: 6px; flex: none; align-self: center; }
+html.appui .rd-wrap.rd-pile .turn-clock { position: relative; top: auto; right: auto; height: 32px; padding: 0 8px 0 4px; gap: 4px; justify-content: center; }
+html.appui .rd-wrap.rd-pile .turn-clock .tc-glass { height: 24px; }
+html.appui .rd-wrap.rd-pile .turn-clock .tc-num { font-size: 15px; min-width: 2.6em; }
+html.appui .rd-wrap.rd-pile .ready-btn { height: 54px; min-width: 0; padding: 0 12px; gap: 7px; border-radius: 8px; font-size: 15.5px; white-space: nowrap; }
+html.appui .rd-wrap.rd-pile .ready-btn .rd-ico { width: 20px; height: 20px; }
+html.appui .rd-wrap.rd-pile .ready-btn kbd { display: none; }
+html.appui .rd-wrap.rd-pile .ready-btn.rd-wait { font-size: 14px; opacity: .8; }
 /* 셔플: "셔플" 글자를 빼고 둥근 인장만(생명 −1 표시는 작게 남김) */
-html.mobile .f-piles > .shuffle-btn.v19 { width: auto; min-width: 0; padding: 0; }
-html.mobile .shuffle-btn.v19 .sh-txt, html.mobile .shuffle-btn.v19 kbd { display: none; }
-html.mobile .shuffle-btn.v19::before, html.mobile .shuffle-btn.v19::after { display: none; }
-html.mobile .shuffle-btn.v19 .sh-seal { position: relative; left: auto; top: auto; transform: none; }
-html.mobile .lay-swap .f-piles > .shuffle-btn.v19 .sh-cost { display: block; position: absolute; z-index: 2; right: -6px; bottom: -4px; margin: 0; font-size: 10.5px; padding: 1px 5px; }
+html.appui .f-piles > .shuffle-btn.v19 { width: auto; min-width: 0; padding: 0; }
+html.appui .shuffle-btn.v19 .sh-txt, html.appui .shuffle-btn.v19 kbd { display: none; }
+html.appui .shuffle-btn.v19::before, html.appui .shuffle-btn.v19::after { display: none; }
+html.appui .shuffle-btn.v19 .sh-seal { position: relative; left: auto; top: auto; transform: none; }
+html.appui .lay-swap .f-piles > .shuffle-btn.v19 .sh-cost { display: block; position: absolute; z-index: 2; right: -6px; bottom: -4px; margin: 0; font-size: 10.5px; padding: 1px 5px; }
 /* 오른쪽 아래 생명: 숫자 · /40이 판 밖으로 넘치지 않게 */
-html.mobile .lay-swap .pv-bot .pl { column-gap: 6px; }
-html.mobile .lay-swap .pv-bot .hgem { width: 34px; }
-html.mobile .lay-swap .pv-bot .pl-num { font-size: 32px; }
-html.mobile .lay-swap .pv-bot .pl-val small { font-size: 11px; }
-html.mobile .lay-swap .pv-bot .pl-val { min-width: 0; white-space: nowrap; }
+html.appui .lay-swap .pv-bot .pl { column-gap: 6px; }
+html.appui .lay-swap .pv-bot .hgem { width: 34px; }
+html.appui .lay-swap .pv-bot .pl-num { font-size: 32px; }
+html.appui .lay-swap .pv-bot .pl-val small { font-size: 11px; }
+html.appui .lay-swap .pv-bot .pl-val { min-width: 0; white-space: nowrap; }
 /* 상대 깃발: 이름 · 단체가 다 보이게 길게(오른쪽 빈 자리로 100px 늘림) */
 html.mobile .lay-swap .frow-top .f-flag { position: relative; z-index: 3; }
 html.mobile .lay-swap .frow-top .f-flag .pside { width: calc(100% + 100px); flex: none; }
@@ -169,12 +169,12 @@ html.mobile .lay-swap .frow-top .f-flag .pside { width: calc(100% + 100px); flex
    덱 보기(카드 40장)와 출정의 단은 대기실에 그리지 않는다(js/screens.js renderDeckView · openDeckSheet).
    깃발 9개가 왼쪽 칸을 다 쓰고, 깃발을 누르면 가운데에 출정 창: 덱 이름 · 장수 · 레벨 곡선 · [덱 조정실] [컴퓨터와 대전] [순례] [대전] */
 .dk-hint { display: none; }
-html.mobile .screen-lobby .deck-view { display: none; }
-html.mobile .screen-lobby .decks { grid-row: 1 / span 2; align-content: stretch; grid-template-rows: auto 1fr; }
-html.mobile .screen-lobby .deck-fac { justify-content: flex-start; gap: 10px; }
-html.mobile .screen-lobby .deck-tile.rq { flex: 1; max-height: 132px; padding-block: 10px !important; }
-html.mobile .screen-lobby .decks .panel-title .dk-hint { display: inline; order: 3; margin-left: auto; font-style: normal; font-family: var(--body); font-size: 14px; letter-spacing: .02em; color: var(--gold); opacity: .85; }
-html.mobile .screen-lobby .deck-tile.on { box-shadow: 0 0 0 2px var(--gc), 0 0 18px color-mix(in srgb, var(--gc) 45%, transparent); }
+html.appui .screen-lobby .deck-view { display: none; }
+html.appui .screen-lobby .decks { grid-row: 1 / span 2; align-content: stretch; grid-template-rows: auto 1fr; }
+html.appui .screen-lobby .deck-fac { justify-content: flex-start; gap: 10px; }
+html.appui .screen-lobby .deck-tile.rq { flex: 1; max-height: 132px; padding-block: 10px !important; }
+html.appui .screen-lobby .decks .panel-title .dk-hint { display: inline; order: 3; margin-left: auto; font-style: normal; font-family: var(--body); font-size: 14px; letter-spacing: .02em; color: var(--gold); opacity: .85; }
+html.appui .screen-lobby .deck-tile.on { box-shadow: 0 0 0 2px var(--gc), 0 0 18px color-mix(in srgb, var(--gc) 45%, transparent); }
 
 .deck-sheet-wrap { z-index: 120; }
 .modal.deck-sheet { --fc: var(--gc); position: relative; width: min(860px, 100%); padding: 18px 22px 20px; display: grid; gap: 14px; border-color: color-mix(in srgb, var(--gc) 55%, var(--line-gold, #6b5a35)); background: linear-gradient(120deg, color-mix(in srgb, var(--gc) 20%, transparent), transparent 55%), var(--panel-2, #11121b); }
@@ -205,8 +205,8 @@ html.mobile .screen-lobby .deck-tile.on { box-shadow: 0 0 0 2px var(--gc), 0 0 1
   .deck-sheet .dv-actions { grid-template-columns: minmax(0, 1fr); }
   .deck-sheet .altar-gates, .deck-sheet .altar-gates.n4 { grid-template-columns: minmax(0, 1fr); }
 }
-html.mobile .screen-lobby .lobby { align-items: stretch; }
-html.mobile .screen-lobby .deck-fac { flex: 1; }
+html.appui .screen-lobby .lobby { align-items: stretch; }
+html.appui .screen-lobby .deck-fac { flex: 1; }
 
 /* ================= v3.32.2 폰 · 앱: 덱 조정실 =================
    PC의 1.5배(zoom)는 폰에서 화면 폭이 모자라 거르기 칸이 겹치고 카드가 화면 밖으로 밀렸다.
@@ -214,52 +214,71 @@ html.mobile .screen-lobby .deck-fac { flex: 1; }
    거르기는 [카드 보관함] [내 덱] 두 탭 — 고른 탭의 줄만 펼치고 줄마다 한 줄로(넘치면 옆으로 밀어 봄).
    대기실에서 들어오면 '내 덱'(덱에 든 카드)이 먼저 보인다(js/screens.js showEditor). */
 html.mobile .screen-editor > .ed-bar, html.mobile .screen-editor > .editor { zoom: 1.15; }
-html.mobile .screen-editor .ed-bar { flex-wrap: nowrap; gap: 10px; padding-block: 6px; }
-html.mobile .screen-editor .ed-name { flex: 0 1 290px; min-width: 0; padding-block: 4px !important; }
-html.mobile .screen-editor .ed-name .emblem { width: 40px !important; height: 40px !important; flex: none; }
-html.mobile .screen-editor .ed-name input { font-size: 17px; padding-block: 6px; }
-html.mobile .screen-editor .ed-gauge { flex: 1 1 auto; min-width: 0; padding: 4px 10px; gap: 10px; }
-html.mobile .screen-editor .g-num b { font-size: 26px; }
-html.mobile .screen-editor .g-num span { font-size: 13px; }
-html.mobile .screen-editor .g-body { min-width: 0; flex: 1; }
-html.mobile .screen-editor .g-msg { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-html.mobile .screen-editor .ed-btns { flex: none; flex-wrap: nowrap; gap: 6px; }
-html.mobile .screen-editor .ed-btns .btn { padding: 8px 12px; font-size: 14px; min-height: 40px; white-space: nowrap; }
-html.mobile .screen-editor .ed-btns .btn small { font-size: 11px; }
-html.mobile .screen-editor .ed-bar + .editor { padding-top: 8px; }
-html.mobile .screen-editor .editor { grid-template-columns: 262px minmax(0, 1fr); gap: 10px; padding-bottom: 6px; }
+html.appui .screen-editor .ed-bar { flex-wrap: nowrap; gap: 10px; padding-block: 6px; }
+html.appui .screen-editor .ed-name { flex: 0 1 290px; min-width: 0; padding-block: 4px !important; }
+html.appui .screen-editor .ed-name .emblem { width: 40px !important; height: 40px !important; flex: none; }
+html.appui .screen-editor .ed-name input { font-size: 17px; padding-block: 6px; }
+html.appui .screen-editor .ed-gauge { flex: 1 1 auto; min-width: 0; padding: 4px 10px; gap: 10px; }
+html.appui .screen-editor .g-num b { font-size: 26px; }
+html.appui .screen-editor .g-num span { font-size: 13px; }
+html.appui .screen-editor .g-body { min-width: 0; flex: 1; }
+html.appui .screen-editor .g-msg { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+html.appui .screen-editor .ed-btns { flex: none; flex-wrap: nowrap; gap: 6px; }
+html.appui .screen-editor .ed-btns .btn { padding: 8px 12px; font-size: 14px; min-height: 40px; white-space: nowrap; }
+html.appui .screen-editor .ed-btns .btn small { font-size: 11px; }
+html.appui .screen-editor .ed-bar + .editor { padding-top: 8px; }
+html.appui .screen-editor .editor { grid-template-columns: 262px minmax(0, 1fr); gap: 10px; padding-bottom: 6px; }
 /* 운명의 서(왼쪽): 머리 · 촛대를 낮게, 목록이 나머지를 쓴다 */
-html.mobile .screen-editor .ed-deck { padding: 10px 10px 8px !important; }
-html.mobile .screen-editor .ed-deck > .panel-title { margin-bottom: 4px; font-size: 15px; }
-html.mobile .screen-editor .ed-mix { margin-bottom: 4px; font-size: 12.5px; }
-html.mobile .screen-editor .ed-curve { height: 50px; margin-bottom: 6px; }
-html.mobile .screen-editor .ed-deck-foot { margin-top: 4px; padding-top: 4px; }
-html.mobile .screen-editor .ed-deck-foot > .small { display: none; }
-html.mobile .screen-editor .ed-deck-foot { justify-content: flex-end; }
+html.appui .screen-editor .ed-deck { padding: 10px 10px 8px !important; }
+html.appui .screen-editor .ed-deck > .panel-title { margin-bottom: 4px; font-size: 15px; }
+html.appui .screen-editor .ed-mix { margin-bottom: 4px; font-size: 12.5px; }
+html.appui .screen-editor .ed-curve { height: 50px; margin-bottom: 6px; }
+html.appui .screen-editor .ed-deck-foot { margin-top: 4px; padding-top: 4px; }
+html.appui .screen-editor .ed-deck-foot > .small { display: none; }
+html.appui .screen-editor .ed-deck-foot { justify-content: flex-end; }
 /* 카드 칸(오른쪽): [보유 칩 줄 | 검색] / [거르기 탭] / 카드 */
-html.mobile .screen-editor .ed-pool { display: grid !important; grid-template-columns: minmax(0, 1fr) 200px; grid-template-rows: auto auto minmax(0, 1fr); gap: 6px 10px; padding: 8px 10px 6px !important; }
-html.mobile .screen-editor .pool-head { display: contents; }
-html.mobile .screen-editor .pool-head > .panel-title { display: none; }
-html.mobile .screen-editor #ed-q { grid-column: 2; grid-row: 1; width: 100%; min-width: 0; padding-block: 5px; font-size: 14px; }
-html.mobile .screen-editor #ed-own { grid-column: 1; grid-row: 1; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0; }
-html.mobile .screen-editor .ed-filts { grid-column: 1 / -1; grid-row: 2; display: flex; gap: 6px; margin: 0; }
-html.mobile .screen-editor .ed-help { display: none; }
-html.mobile .screen-editor #ed-pool { grid-column: 1 / -1; grid-row: 3; min-height: 0; padding-top: 8px; }
-html.mobile .screen-editor .ed-filt { padding: 4px 8px; }
-html.mobile .screen-editor .ed-filt:not(.active) { flex: none; display: flex; align-items: center; }
-html.mobile .screen-editor .ed-filt:not(.active) > :not(.edf-head) { display: none !important; }
-html.mobile .screen-editor .ed-filt.active { flex: 1; min-width: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 10px; row-gap: 4px; align-items: center; }
-html.mobile .screen-editor .ed-filt.active > .edf-head { grid-column: 1; grid-row: 1 / span 3; align-self: center; }
-html.mobile .screen-editor .ed-filt.active > :not(.edf-head) { grid-column: 2; margin: 0 !important; }
-html.mobile .screen-editor .edf-head small { display: none; }
-html.mobile .screen-editor .edf-tab { font-size: 14px; white-space: nowrap; padding-block: 6px; }
-html.mobile .screen-editor .ed-filt .ed-kinds, html.mobile .screen-editor .ed-filt .ed-grades, html.mobile .screen-editor .ed-filt #ed-filter2 { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
-html.mobile .screen-editor .ed-filt .ed-kinds::-webkit-scrollbar, html.mobile .screen-editor .ed-filt .ed-grades::-webkit-scrollbar, html.mobile .screen-editor #ed-filter2::-webkit-scrollbar, html.mobile .screen-editor #ed-own::-webkit-scrollbar { display: none; }
-html.mobile .screen-editor .ed-filt .ed-kinds > *, html.mobile .screen-editor .ed-filt .ed-grades > *, html.mobile .screen-editor #ed-filter2 > *, html.mobile .screen-editor #ed-own > * { flex: none; }
-html.mobile .screen-editor .ed-spell-grp, html.mobile .screen-editor .ed-sub { flex-wrap: nowrap; }
-html.mobile .screen-editor .ed-score { margin: 0; }
-html.mobile .screen-editor .ed-score { padding-block: 0; justify-self: start; }
-html.mobile .screen-editor .ed-score .sc-sub { flex-direction: row; gap: 10px; margin-left: 14px; }
-html.mobile .screen-editor .ed-score .sc-tier i { transform: scale(.85); }
-html.mobile .screen-editor .pool-grid { grid-template-columns: repeat(auto-fill, minmax(124px, 1fr)); gap: 10px 6px; }
-html.mobile .screen-editor .pool-card .card { --cw: 118px; }
+html.appui .screen-editor .ed-pool { display: grid !important; grid-template-columns: minmax(0, 1fr) 200px; grid-template-rows: auto auto minmax(0, 1fr); gap: 6px 10px; padding: 8px 10px 6px !important; }
+html.appui .screen-editor .pool-head { display: contents; }
+html.appui .screen-editor .pool-head > .panel-title { display: none; }
+html.appui .screen-editor #ed-q { grid-column: 2; grid-row: 1; width: 100%; min-width: 0; padding-block: 5px; font-size: 14px; }
+html.appui .screen-editor #ed-own { grid-column: 1; grid-row: 1; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0; }
+html.appui .screen-editor .ed-filts { grid-column: 1 / -1; grid-row: 2; display: flex; gap: 6px; margin: 0; }
+html.appui .screen-editor .ed-help { display: none; }
+html.appui .screen-editor #ed-pool { grid-column: 1 / -1; grid-row: 3; min-height: 0; padding-top: 8px; }
+html.appui .screen-editor .ed-filt { padding: 4px 8px; }
+html.appui .screen-editor .ed-filt:not(.active) { flex: none; display: flex; align-items: center; }
+html.appui .screen-editor .ed-filt:not(.active) > :not(.edf-head) { display: none !important; }
+html.appui .screen-editor .ed-filt.active { flex: 1; min-width: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 10px; row-gap: 4px; align-items: center; }
+html.appui .screen-editor .ed-filt.active > .edf-head { grid-column: 1; grid-row: 1 / span 3; align-self: center; }
+html.appui .screen-editor .ed-filt.active > :not(.edf-head) { grid-column: 2; margin: 0 !important; }
+html.appui .screen-editor .edf-head small { display: none; }
+html.appui .screen-editor .edf-tab { font-size: 14px; white-space: nowrap; padding-block: 6px; }
+html.appui .screen-editor .ed-filt .ed-kinds, html.appui .screen-editor .ed-filt .ed-grades, html.appui .screen-editor .ed-filt #ed-filter2 { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+html.appui .screen-editor .ed-filt .ed-kinds::-webkit-scrollbar, html.appui .screen-editor .ed-filt .ed-grades::-webkit-scrollbar, html.appui .screen-editor #ed-filter2::-webkit-scrollbar, html.appui .screen-editor #ed-own::-webkit-scrollbar { display: none; }
+html.appui .screen-editor .ed-filt .ed-kinds > *, html.appui .screen-editor .ed-filt .ed-grades > *, html.appui .screen-editor #ed-filter2 > *, html.appui .screen-editor #ed-own > * { flex: none; }
+html.appui .screen-editor .ed-spell-grp, html.appui .screen-editor .ed-sub { flex-wrap: nowrap; }
+html.appui .screen-editor .ed-score { margin: 0; }
+html.appui .screen-editor .ed-score { padding-block: 0; justify-self: start; }
+html.appui .screen-editor .ed-score .sc-sub { flex-direction: row; gap: 10px; margin-left: 14px; }
+html.appui .screen-editor .ed-score .sc-tier i { transform: scale(.85); }
+html.appui .screen-editor .pool-grid { grid-template-columns: repeat(auto-fill, minmax(124px, 1fr)); gap: 10px 6px; }
+html.appui .screen-editor .pool-card .card { --cw: 118px; }
+
+/* ================= v3.32.3 PC 앱식 배치 (html.appui, html.mobile 없음) =================
+   위 v3.32.1 · v3.32.2 절의 배치를 PC에서도 쓴다. 폰은 화면을 0.6배 안팎으로 줄여 보이지만 PC는 그대로라 몇 군데만 맞춘다. */
+/* 덱 조정실: PC 1.5배(style.css)는 탭 배치에 너무 커서 1.25배로 */
+html.appui:not(.mobile) .screen-editor > .ed-bar, html.appui:not(.mobile) .screen-editor > .editor { zoom: 1.25; }
+/* 대기실: 폰은 화면 높이에 깃발 3줄이 꼭 맞지만 PC는 아래가 비었다 → 대기실이 화면 아래(안내 단추 자리 위)까지 차고, 깃발이 그 높이를 나눠 쓴다 */
+html.appui:not(.mobile) .screen-lobby .lobby { min-height: calc(100dvh - 76px); padding-bottom: 96px; gap: 14px 18px; grid-template-columns: minmax(0, 1fr) 300px; }
+html.appui:not(.mobile) .screen-lobby .decks { padding-bottom: 16px; }
+html.appui:not(.mobile) .screen-lobby .deck-fac { gap: 14px; }
+html.appui:not(.mobile) .screen-lobby .deck-tile.rq { max-height: 210px; padding: 14px 16px 14px 10px !important; gap: 14px !important; }
+html.appui:not(.mobile) .screen-lobby .dt-seal { width: 64px; height: 64px; }
+html.appui:not(.mobile) .screen-lobby .dt-seal .emblem { width: 52px !important; height: 52px !important; }
+html.appui:not(.mobile) .screen-lobby .dt-body b { font-size: clamp(16px, 1.25vw, 20px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+html.appui:not(.mobile) .screen-lobby .dt-body .en { font-size: 13.5px; }
+html.appui:not(.mobile) .screen-lobby .dt-st { font-size: 14.5px; }
+html.appui:not(.mobile) .screen-lobby .deck-tile.rq .dt-mark { width: 130px; height: 130px; }
+html.appui:not(.mobile) .screen-lobby .df-head { font-size: 15px; }
+html.appui:not(.mobile) .screen-lobby .side-col { align-self: stretch; display: flex; flex-direction: column; }
+html.appui:not(.mobile) .screen-lobby .side-col .chat { flex: 1; }

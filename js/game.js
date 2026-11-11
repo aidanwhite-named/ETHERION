@@ -996,7 +996,10 @@ async function showSettings() {
   /* v3.20.4 폰 · 앱에서만: 화면을 얼마나 줄여 보일지(js/mobile.js MobileFit) */
   const mt = typeof MobileFit !== "undefined" ? `<p class="pick-label">폰 글자 크기 <small class="muted">— 화면을 덜 줄여 글자 · 단추를 키웁니다. 크게 할수록 한 화면에 보이는 것은 조금 줄어듭니다</small></p>
     <div class="speed set-mtext">${[["m", "보통"], ["l", "크게 (기본)"], ["xl", "아주 크게"]].map(([v, n]) => `<button type="button" class="btn xs ${MobileFit.level === v ? "on" : ""}" data-mt="${v}">${n}</button>`).join("")}</div>` : "";
-  const html = `<h3>설정</h3>${mt}
+  /* v3.32.3 PC에서만: 화면 배치(js/mobile.js AppUI). 폰 · 앱은 늘 앱식 */
+  const lay = typeof AppUI !== "undefined" && !document.documentElement.classList.contains("mobile") ? `<p class="pick-label">화면 배치 <small class="muted">— 앱식: 폰 · 앱과 같은 배치(대기실은 깃발만, 깃발을 누르면 출정 창). 예전: 대기실에 덱 카드 목록을 펼쳐 보임</small></p>
+    <div class="speed set-layout">${[["app", "앱식 (기본)"], ["classic", "예전 배치"]].map(([v, n]) => `<button type="button" class="btn xs ${AppUI.pref === v ? "on" : ""}" data-lay="${v}">${n}</button>`).join("")}</div>` : "";
+  const html = `<h3>설정</h3>${mt}${lay}
     <p class="pick-label">연출 속도 <small class="muted">— 전투 장면·카드 이동·띠 모두 같이 빨라지거나 느려집니다 (전투 중에도 바꿀 수 있음)</small></p>
     <div class="speed set-speed">${SPEEDS.map(s => `<button type="button" class="btn xs ${(G ? G.speed : Prefs.get("speed", 1)) === s ? "on" : ""}" data-sp="${s}">×${s}</button>`).join("")}</div>
     <p class="pick-label">연출 <small class="muted">— 가볍게: 컴퓨터 부담을 줄인 연출(흐림 · 빛 그림자 줄임, 파편 적게, 타이틀 배경 덜 그림). 화려하게: 예전 연출 그대로</small></p>
@@ -1017,6 +1020,11 @@ async function showSettings() {
       if (b) { if (G) setSpeed(+b.dataset.sp); else Prefs.set("speed", +b.dataset.sp); const sp = G ? G.speed : Prefs.get("speed", 1); w.querySelectorAll("[data-sp]").forEach(x => x.classList.toggle("on", +x.dataset.sp === sp)); }
       const mtb = e.target.closest("[data-mt]");
       if (mtb && typeof MobileFit !== "undefined") { MobileFit.set(mtb.dataset.mt); w.querySelectorAll("[data-mt]").forEach(x => x.classList.toggle("on", x.dataset.mt === MobileFit.level)); }
+      const lyb = e.target.closest("[data-lay]");
+      if (lyb && typeof AppUI !== "undefined") {
+        AppUI.set(lyb.dataset.lay); w.querySelectorAll("[data-lay]").forEach(x => x.classList.toggle("on", x.dataset.lay === AppUI.pref));
+        if (App.screen === "lobby" && typeof showLobby === "function") showLobby();   /* 대기실은 바로 다시 그린다. 덱 조정실 · 전장은 다음에 그릴 때 */
+      }
       const bbg = e.target.closest("[data-bbg]");
       if (bbg) {
         Prefs.set("battle_bg", bbg.dataset.bbg);
@@ -2244,7 +2252,7 @@ function render() {
   ${G.handoff ? `<div class="handoff" data-act="handoff"><div><p class="ho-eyebrow">PASS THE SCROLL</p><h2>${esc(me.name)}의 차례</h2><p>${G.phase === "atkPrep" ? "공격 준비" : "방어 준비"}를 할 차례입니다. 상대가 화면을 보지 않을 때 눌러 주세요.</p><button class="btn primary">핸드 펼치기</button></div></div>` : ""}`;
   const lg_ = $("#log"); if (lg_) lg_.scrollTop = lg_.scrollHeight;
   /* v3.32.1 폰 · 앱: 준비 완료 단추(+모래시계)를 가운데 띠에서 내 덱 왼쪽(f-piles)으로 옮긴다. 가운데 띠를 얇게 하고 그만큼 상대 전장 카드를 키운다(css/mobile.css) */
-  if (swap && document.documentElement.classList.contains("mobile")) { const rw = boardEl.querySelector(".mb-right .rd-wrap"), pl = boardEl.querySelector(".frow-bot .f-piles"); if (rw && pl) { rw.classList.add("rd-pile"); pl.prepend(rw); } }
+  if (swap && document.documentElement.classList.contains("appui")) { const rw = boardEl.querySelector(".mb-right .rd-wrap"), pl = boardEl.querySelector(".frow-bot .f-piles"); if (rw && pl) { rw.classList.add("rd-pile"); pl.prepend(rw); } }
   if (typeof Arcade !== "undefined" && !document.documentElement.classList.contains("mobile")) { Arcade.mount(boardEl); Arcade.place(boardEl); }   /* v3.20.5 폰 · 앱에서는 파친코 · 결정 상자를 두지 않는다 */
   placeFocus();
   if (typeof fitDescs === "function") fitDescs(boardEl);

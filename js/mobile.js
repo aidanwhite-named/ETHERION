@@ -10,11 +10,30 @@
      (Prefs "mtext" — 보통 720 = 예전 · 크게 620(기본) · 아주 크게 580). 낮을수록 덜 줄여 글자 · 단추가 커진다.
      게임 화면은 높이 640(PC 앱 최소 창)까지 맞춰 그렸고, 그 아래는 css/mobile.css 의 html.mobile 손질로 맞춘다.
      <html data-mtext="m|l|xl">: 단계별 CSS 손질에 쓴다. MobileFit.set(id)로 바로 바꾼다(js/game.js 설정 창). */
+/* v3.32.3 앱식 배치(<html class="appui">): 폰 · 앱에서 만든 배치(대기실은 깃발만 · 누르면 출정 창, 덱 조정실 탭,
+     시작 핸드 3+3, 얇은 전장 띠)를 PC에서도 쓴다. css/mobile.css 의 v3.32.1 이후 절은 html.appui 로 적는다.
+     PC는 설정 "화면 배치"(Prefs "layout": "app" 기본 · "classic" 예전 배치)로 고르고, 폰 · 앱은 늘 앱식이다.
+     html.mobile 은 폰의 화면 줄임 · 글자 키움 · 터치 손질에만 쓴다. */
+(function () {
+  const root = document.documentElement;
+  const read = () => { try { return JSON.parse(localStorage.getItem("etherion.pref.layout")) === "classic" ? "classic" : "app"; } catch (e) { return "app"; } };
+  window.AppUI = {
+    get on() { return root.classList.contains("appui"); },
+    get pref() { return read(); },
+    set(v) {
+      v = v === "classic" ? "classic" : "app";
+      try { localStorage.setItem("etherion.pref.layout", JSON.stringify(v)); } catch (e) {}
+      root.classList.toggle("appui", v === "app" || root.classList.contains("mobile"));
+    }
+  };
+  if (read() === "app") root.classList.add("appui");
+})();
 (function () {
   const APP = location.protocol === "file:" && location.pathname.indexOf("/android_asset/") === 0;
   const coarse = !!(window.matchMedia && matchMedia("(pointer: coarse)").matches);
   const small = Math.min(screen.width, screen.height) < 720;
   if (!APP && !(coarse && small)) return;
+  document.documentElement.classList.add("appui");   /* 폰 · 앱은 늘 앱식 배치 */
   const LEVELS = { m: 720, l: 620, xl: 580 };   /* 이 높이(CSS px)가 되도록 줄인다 */
   const pref = () => { try { const v = JSON.parse(localStorage.getItem("etherion.pref.mtext")); return LEVELS[v] ? v : "l"; } catch (e) { return "l"; } };
   let lv = pref();
