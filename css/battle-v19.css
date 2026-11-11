@@ -180,3 +180,14 @@
 .zoom .d-body .d-mod b { color: #ff9d8a; }
 /* v3.32.4 코인 창 '자동으로 봉인' 옆 단축키 A */
 .cs-auto kbd { font-family: var(--caps); font-size: 10px; font-weight: 700; padding: 0 5px; border-radius: 3px; color: var(--gold); border: 1px solid rgba(217, 180, 106, .4); background: rgba(0, 0, 0, .3); }
+/* v3.32.4 보호막 코인: 아이템 [보호막 코인]이 던지는 동전을 그 카드 위에 (js/game.js flipShieldCoin). 앞 · 뒷면 그림은 코인 창과 같은 .cs-face */
+.shield-flip { position: fixed; z-index: 86; pointer-events: none; display: flex; flex-direction: column; align-items: center; gap: 6px; transform: translate(-50%, -50%); perspective: 600px; }
+.shield-flip .sf-coin { position: relative; width: var(--sz, 64px); height: var(--sz, 64px); transform-style: preserve-3d; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .7)); }
+.shield-flip .cs-face { font-size: calc(var(--sz, 64px) * .2); }
+.shield-flip .cs-face svg { width: 82%; height: 82%; }
+.shield-flip .sf-tag { font-family: var(--body); font-size: max(11px, calc(var(--sz, 64px) * .2)); font-weight: 800; letter-spacing: .04em; white-space: nowrap; padding: 2px 9px; border-radius: 999px;
+  color: #dff6ff; background: rgba(8, 24, 36, .9); border: 1px solid rgba(143, 220, 255, .6); box-shadow: 0 2px 8px rgba(0, 0, 0, .6); }
+.shield-flip.is-heads .cs-heads { box-shadow: 0 0 calc(var(--sz, 64px) * .5) rgba(160, 225, 255, .95), inset 0 0 0 3px rgba(255, 255, 255, .35); }
+.shield-flip.is-heads .sf-tag { color: #10202a; background: linear-gradient(180deg, #d9f3ff, #8fd0f0); }
+.shield-flip.is-tails .sf-tag { color: #b9b9c8; border-color: rgba(255, 255, 255, .2); background: rgba(20, 20, 28, .9); }
+.shield-flip.is-tails .cs-heads { visibility: hidden; }

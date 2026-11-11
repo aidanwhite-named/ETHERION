@@ -136,6 +136,7 @@ function actEquip(p, uid, slot) {
   host.item = { id: c.id, equipped: G.turn };
   const dmg = host.t ? host.t.dmg : 0; resetTurn(host); host.t.dmg = dmg;
   log(`${p.name}: ${C(host).name}에게 「${c.name}」 장착`);
+  if (host.t.sroll) logShieldRoll(p, host);   // v3.32.4
   if (c.item.evName && /^치유/.test(c.item.evName)) { const n = parseInt(c.item.evName.replace(/\D/g, "")) || 0; const b = p.life; p.life = Math.min(RULES.lifeCap, p.life + n); if (p.life > b) { log(`[${c.item.evName}] ${p.name} 생명 +${p.life - b}`, "good"); floatAt("life" + p.idx, "+" + (p.life - b), "heal"); } }
   return true;
 }
@@ -313,6 +314,7 @@ function beginTurn() {
   for (const p of G.players) {
     p.made = 0; p.crysBank = crysLeft(p) + RULES.crystalsPerTurn; p.spent = 0; p.shuffled = false; p.committed = false; p.reloadNow = p.reload; p.reload = 0; p.bonusNow = p.bonus || 0; p.bonus = 0;
     for (const it of p.field) if (isUnit(it)) { const dmg = it.t ? it.t.dmg : 0; resetTurn(it); if (G.rules && G.rules.noHeal && dmg) it.t.dmg = Math.min(dmg, it.t.h - 1); }
+    for (const it of p.field) if (isUnit(it) && it.t && it.t.sroll) logShieldRoll(p, it);   // v3.32.4
     if (G.rules && G.rules.lifeTide && G.turn > 1) p.life = Math.min(RULES.lifeCap, p.life + G.rules.lifeTide);
     // v3.31 [마력 흡수]: 모은 마력이 이번 턴 에테르가 된다
     for (const it of p.field) if (isUnit(it) && it.t && it.t.keep && it.t.keep.mana) { p.bonusNow += it.t.keep.mana; log(`${p.name}: [마력 흡수] ${C(it).name}이(가) 모은 마력 ${it.t.keep.mana} → 이번 턴 에테르 +${it.t.keep.mana}`, "good"); it.t.keep.mana = 0; }
@@ -2267,6 +2269,49 @@ function render() {
   FX.selSeen = G.sel && G.sel.kind === "hand" ? G.sel.uid : null;
   FX.from = {}; G.leave = {};
   if (animOK) combatFx();
+  shieldCoinFx();   // v3.32.4 보호막 코인 던지기
+}
+
+/* ---------- v3.32.4 보호막 코인 (아이템 능력 [보호막 코인]) ----------
+   엔진은 턴이 시작될 때와 장착할 때 이 동전을 따로 던진다(js/engine.js resetTurn, 유닛 코인이 없어도). 예전에는 화면에 아무것도 없어
+   앞면이면 ◈ 표시만 생기고 뒷면이면 던졌는지조차 알 수 없었다. 이제 그 카드 위에 동전이 떠올라 돌다가 앞 · 뒤로 멈추고,
+   앞면이면 "보호막", 뒷면이면 "보호막 실패"가 떠오른다. 던질 때마다 번호(t.sroll.n)가 붙어 같은 던짐은 한 번만 보인다 */
+function logShieldRoll(p, it) { log(`[보호막 코인] ${p.name}의 ${C(it).name}: ${it.t.sroll.h ? "앞면 — 이번 턴 처음 받는 피해 1회 무효" : "뒷면 — 이번 턴은 보호막 없음"}`, it.t.sroll.h ? "good" : "sys"); }
+function shieldCoinFx() {
+  if (!G || G.cfg.headless) return;
+  if (!FX.shieldSeen || FX.shieldSeenG !== G) { FX.shieldSeen = new Set(); FX.shieldSeenG = G; }
+  let j = 0;
+  for (const p of G.players) for (const u of p.field) {
+    const r = isUnit(u) && u.t && u.t.sroll; if (!r || FX.shieldSeen.has(r.n)) continue;
+    FX.shieldSeen.add(r.n);
+    if (G.speed === 0) continue;
+    const delay = (u.item && u.item.equipped === G.turn && G.phase !== "combat" ? 420 : 260) + j++ * 220;
+    setTimeout(() => flipShieldCoin(u, r.h), delay * kSpeed());
+  }
+}
+function flipShieldCoin(u, heads) {
+  const el = uidEl(u.uid), layer = fxLayer();
+  if (!el || !layer || !G) return;
+  if (RM()) { floatAt(u.uid, heads ? "보호막" : "보호막 실패", heads ? "shield" : "miss"); return; }
+  const k = kSpeed(), r = el.getBoundingClientRect(), size = Math.max(40, Math.min(110, r.width * 0.46));
+  const w = document.createElement("div");
+  w.className = "shield-flip";
+  Object.assign(w.style, { left: (r.left + r.width / 2) + "px", top: (r.top + r.height * 0.36) + "px", "--sz": size + "px" });
+  w.innerHTML = `<div class="sf-coin"><div class="cs-face cs-heads">${COIN_CREST()}</div><div class="cs-face cs-tails">${COIN_BACK()}</div></div><b class="sf-tag">보호막 코인</b>`;
+  layer.appendChild(w);
+  const coin = w.firstElementChild;
+  w.animate([{ opacity: 0, transform: "translate(-50%, -30%) scale(.6)" }, { opacity: 1, transform: "translate(-50%, -50%) scale(1)" }], { duration: 220 * k, easing: "cubic-bezier(.2,.8,.3,1.2)", fill: "forwards" });
+  coin.animate([{ transform: "rotateY(0deg) translateY(0)" }, { offset: .45, transform: `rotateY(${900 + (heads ? 0 : 90)}deg) translateY(-${size * .35}px)` }, { transform: `rotateY(${1440 + (heads ? 0 : 180)}deg) translateY(0)` }],
+    { duration: 900 * k, easing: "cubic-bezier(.25,.6,.35,1)", fill: "forwards" });
+  sfx("swing", 0.5);
+  setTimeout(() => {
+    if (!w.isConnected) return;
+    w.classList.add(heads ? "is-heads" : "is-tails");
+    w.querySelector(".sf-tag").textContent = heads ? "앞면 · 보호막" : "뒷면 · 보호막 없음";
+    sfx(heads ? "coinHeads" : "coinTails");
+  }, 900 * k);
+  // 동전이 걷히면서 결과 명판이 뜬다(동전에 가려지지 않게)
+  setTimeout(() => { const a = w.animate([{ opacity: 1 }, { opacity: 0, transform: "translate(-50%, -60%) scale(.85)" }], { duration: 260 * k, fill: "forwards" }); a.onfinish = () => w.remove(); floatAt(u.uid, heads ? "보호막" : "보호막 실패", heads ? "shield" : "miss"); }, 1750 * k);
 }
 
 /* v3.7.9 깃발 아이디 맞추기: 아이디가 글자 칸보다 길면 넘치는 비율만큼 글씨를 줄여 한 줄에 다 보이게 한다(최소 11px, 그래도 넘치는 아주 좁은 화면에서만 말줄임).
@@ -2376,6 +2421,7 @@ function animFrom(el, from, to, rotDeg, kind, delay) {
   } else if (kind === "hand") {
     // v2.6 핸드 안에서 모이기·순서 바꾸기: 천천히 출발해 길게 멈춘다 (css/hand.css 내려놓기 곡선)
     kf = [start, end]; dur = FT.handMove; ease = "cubic-bezier(.3,.05,.15,1)";
+    if (FX.drag && FX.drag.kind === "hand") { dur = 170; ease = "cubic-bezier(.2,.9,.3,1)"; }   // v3.32.4 끄는 동안 비켜나는 카드는 짧고 빠르게(착)
   } else {
     // 자리 옮기기: 처음에 바로 붙어 움직이고 끝에서 아주 살짝 넘쳤다가 멈춘다
     kf = [start, end]; dur = FT.move; ease = "cubic-bezier(.25,.85,.3,1.06)";
@@ -3243,25 +3289,46 @@ function swapPreview(d, ok) {
   if (want.size) sfx("move");
   d.pv = key >= 0 || els.size ? { key, els } : null;
 }
-/* v1.7 핸드 순서 바꾸기: 핸드 줄 안에서 좌우로 끌면 가장 가까운 자리로 끼어들고, 다른 카드는 비켜난다.
-   자리 기준은 카드의 레이아웃 위치(offsetLeft)라 움직이는 중에도 흔들리지 않는다 */
+/* v1.7 핸드 순서 바꾸기 → v3.32.4 붙박이 자리(handSlots) 기준으로 다시 짰다.
+   예전에는 옆 카드의 가운데를 지나야(+10px) 자리가 바뀌어, 빈 자리로 옮기려면 멀리 끌어야 했고 빈 자리에서 빈 자리로는 아예 못 갔다.
+   이제 끌기 시작한 자리에서 옆으로 자리 폭의 30%만 끌어도 한 칸(빈 자리든 카드 자리든) "착" 옮겨 가고, 1.3칸이면 두 칸 …
+   되돌아갈 때는 10% 더 돌아와야 해서 경계에서 떨지 않는다. 카드가 있는 자리로 가면 그 카드부터 빈 자리 쪽으로 한 칸씩 밀린다.
+   자리 폭(W)과 처음 자리 배치는 끌기 시작할 때 한 번 재어 두고(d.hs), 늘 그 사진에서 다시 계산하므로 되돌아가면 원래대로 돌아온다 */
 function handReorder(d) {
   const me = G.players[G.viewer];
   const hand = boardEl.querySelector(".hand-me"); if (!hand) return;
   const hr = hand.getBoundingClientRect();
-  if (d.py < hr.top - 40 || d.py > hr.bottom + 60 || d.px < hr.left - 60 || d.px > hr.right + 60) return;
-  const cur = me.hand.findIndex(x => x.uid === d.uid); if (cur < 0) return;
-  const lanes = Array.from(hand.querySelectorAll(".hand-slot")).map(el => {
-    const pr = (el.offsetParent || hand).getBoundingClientRect();
-    return pr.left + el.offsetLeft + el.offsetWidth / 2;
-  });
-  if (lanes.length !== me.hand.length) return;
-  let best = cur, bd = Infinity;
-  lanes.forEach((x, i) => { const v = Math.abs(d.px - x); if (v < bd) { bd = v; best = i; } });
-  if (best === cur || Math.abs(d.px - lanes[cur]) - bd < 10) return;
-  const [it] = me.hand.splice(cur, 1); me.hand.splice(best, 0, it);
+  d.inHand = !(d.py < hr.top - 40 || d.py > hr.bottom + 60 || d.px < hr.left - 60 || d.px > hr.right + 60);
+  if (!d.inHand) return;
+  if (!d.hs) {
+    const { s, S } = handSlots(me);
+    const i0 = me.hand.findIndex(x => x.uid === d.uid); if (i0 < 0) return;
+    const els = me.hand.map(it => hand.querySelector(`.hand-slot[data-uid="${it.uid}"]`));
+    if (els.some(x => !x)) return;
+    const cx = els.map(el => el.offsetLeft + el.offsetWidth / 2), n = els.length;
+    const W = n > 1 && s[n - 1] > s[0] ? (cx[n - 1] - cx[0]) / (s[n - 1] - s[0]) : els[0].offsetWidth * 1.08;
+    d.hs = { pos: new Map(me.hand.map((it, i) => [it.uid, s[i]])), S, W, a: s[i0], x0: d.px, step: 0 };
+  }
+  const H = d.hs, raw = (d.px - H.x0) / H.W, mag = Math.abs(raw), dir = Math.sign(raw);
+  let n = Math.floor(mag + 0.7);
+  if (dir === Math.sign(H.step) && n < Math.abs(H.step)) n = Math.floor(mag + 0.8);   // 되돌아갈 때는 조금 더 돌아와야
+  const t = Math.max(0, Math.min(H.S - 1, H.a + dir * n));
+  if (t === H.a + H.step) return;
+  H.step = t - H.a;
+  // 처음 배치에서: 끄는 카드를 빼고(그 자리는 빈다) t에 넣는다. t에 카드가 있으면 t부터 끄는 카드 쪽 가장 가까운 빈 자리까지 한 칸씩 민다
+  const pos = new Map(H.pos); pos.delete(d.uid);
+  const at = new Map([...pos].map(([u, i]) => [i, u]));
+  if (at.has(t)) {
+    const toward = t > H.a ? -1 : 1;
+    let e = t; while (at.has(e)) e += toward;
+    for (let i = e - toward; i !== t - toward; i -= toward) pos.set(at.get(i), i + toward);
+  }
+  pos.set(d.uid, t);
+  const before = me.hand.map(x => x.uid).join();
+  me.hand.sort((x, y) => pos.get(x.uid) - pos.get(y.uid));
+  HSLOT.m[me.idx] = new Map(me.hand.map(it => [it.uid, pos.get(it.uid)]));
   d.reordered = true;
-  if (G.online) Online.send({ t: "act", fn: "order", a: [me.hand.map(x => x.uid)] });   // v3.10 핸드 순서도 판에 영향(맨 왼쪽 카드를 겨냥하는 마법)
+  if (G.online && me.hand.map(x => x.uid).join() !== before) Online.send({ t: "act", fn: "order", a: [me.hand.map(x => x.uid)] });   // v3.10 핸드 순서도 판에 영향(맨 왼쪽 카드를 겨냥하는 마법)
   sfx("move", 0.6);
   render();
 }
@@ -3301,6 +3368,11 @@ function dragTick() {
   if (d.overR) {
     const oc = ctrOf(d.overR), pull = d.over.dataset.act === "slot" ? 0.42 : 0.3;
     tx += (oc.x - tx) * pull; ty += (oc.y - ty) * pull; ts = 1.0;
+  }
+  else if (d.kind === "hand" && d.inHand && d.hs) {
+    // v3.32.4 핸드 안에서 끌 때: 유령 카드가 지금 고른 자리(빈 자리 표시 = 끄는 카드의 원래 요소) 쪽으로 끌려가 "착" 붙는 느낌
+    const home = uidEl(d.uid);
+    if (home) { const hc = ctrOf(home.getBoundingClientRect()); tx += (hc.x - tx) * 0.5; ty += (hc.y - ty) * 0.3; ts = 1.0; }
   }
   const follow = 1 - Math.pow(1 - 0.42, dt / 16.7), grow = 1 - Math.pow(1 - 0.25, dt / 16.7);
   d.cx += (tx - d.cx) * follow; d.cy += (ty - d.cy) * follow; d.s += (ts - d.s) * grow;

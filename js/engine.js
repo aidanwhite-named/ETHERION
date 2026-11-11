@@ -104,13 +104,15 @@ function pinPass(X) {
    코인은 여기서 던지지 않는다 — 유닛끼리 맞붙을 때 던진다(clashCoins). 그 전까지는 적힌 값 그대로.
    v3.5.6: 방어하는 쪽 유닛은 한 전투에서 코인이 한 번 정해지면 그 전투가 끝날 때까지 다시 던지지 않는다.
    v3.5.7: 한 번 정해진 코인은 마법(코인 뒷면 · 운명)으로도 바뀌지 않는다 */
+let SHIELD_ROLLS = 0;   // v3.32.4 보호막 코인을 던질 때마다 번호(화면이 같은 던짐을 두 번 보이지 않게, js/game.js shieldCoinFx)
 function resetTurn(it) {
   const keep = (it.t && it.t.keep) || {};   // v3.31 턴이 지나도 남는 값(충전 · 고철 · 낙인 · 불씨 …)
   if (it.t) it.t.gx = null;   // v3.18 지난 턴 마법이 걸어 준 능력은 남지 않는다
   const b = baseStats(it, true), ab = abilOf(it);
   if (keep.grow) for (const k in keep.grow) b[k] += keep.grow[k];   // v3.31 [전리품]으로 판 동안 자란 스탯
+  const sh = ab.shield ? flip() : null;   // [보호막 코인]: 유닛 코인과 상관없이 아이템이 따로 던진다(턴 시작 · 장착할 때)
   it.t = { a: b.a, d: b.d, h: b.h, rb: b, floor: floorOf(it), dmg: 0, alive: true,
-    shield: !!(ab.shield && flip()), ward: ab.ward, wardUsed: false,
+    shield: !!sh, sroll: ab.shield ? { h: sh, n: ++SHIELD_ROLLS } : null, ward: ab.ward, wardUsed: false,
     thorns: ab.thorns, taunt: false, lock: false, rest: false, thrown: false,
     cb: { a: 0, d: 0, h: 0 }, coins: coinDefs(it), noCoin: false, keep };
 }
