@@ -12,17 +12,19 @@
      <html data-mtext="m|l|xl">: 단계별 CSS 손질에 쓴다. MobileFit.set(id)로 바로 바꾼다(js/game.js 설정 창). */
 /* v3.32.3 앱식 배치(<html class="appui">): 폰 · 앱에서 만든 배치(대기실은 깃발만 · 누르면 출정 창, 덱 조정실 탭,
      시작 핸드 3+3, 얇은 전장 띠)를 PC에서도 쓴다. css/mobile.css 의 v3.32.1 이후 절은 html.appui 로 적는다.
-     PC는 설정 "화면 배치"(Prefs "layout": "app" 기본 · "classic" 예전 배치)로 고르고, 폰 · 앱은 늘 앱식이다.
+     PC는 설정 "화면 배치"(localStorage etherion.pref.layout2: "classic" 기본(v3.32.6~) · "app" 앱식)로 고르고, 폰 · 앱은 늘 앱식이다.
      html.mobile 은 폰의 화면 줄임 · 글자 키움 · 터치 손질에만 쓴다. */
 (function () {
   const root = document.documentElement;
-  const read = () => { try { return JSON.parse(localStorage.getItem("etherion.pref.layout")) === "classic" ? "classic" : "app"; } catch (e) { return "app"; } };
+  /* v3.32.6 PC 기본을 예전 배치로 되돌렸다. 저장 키도 새로(layout2): 전에 앱식을 골라 둔 PC도 한 번은 예전 배치로 열린다 */
+  const KEY = "etherion.pref.layout2";
+  const read = () => { try { return JSON.parse(localStorage.getItem(KEY)) === "app" ? "app" : "classic"; } catch (e) { return "classic"; } };
   window.AppUI = {
     get on() { return root.classList.contains("appui"); },
     get pref() { return read(); },
     set(v) {
       v = v === "classic" ? "classic" : "app";
-      try { localStorage.setItem("etherion.pref.layout", JSON.stringify(v)); } catch (e) {}
+      try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {}
       root.classList.toggle("appui", v === "app" || root.classList.contains("mobile"));
     }
   };

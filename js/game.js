@@ -998,8 +998,8 @@ async function showSettings() {
   const mt = typeof MobileFit !== "undefined" ? `<p class="pick-label">폰 글자 크기 <small class="muted">— 화면을 덜 줄여 글자 · 단추를 키웁니다. 크게 할수록 한 화면에 보이는 것은 조금 줄어듭니다</small></p>
     <div class="speed set-mtext">${[["m", "보통"], ["l", "크게 (기본)"], ["xl", "아주 크게"]].map(([v, n]) => `<button type="button" class="btn xs ${MobileFit.level === v ? "on" : ""}" data-mt="${v}">${n}</button>`).join("")}</div>` : "";
   /* v3.32.3 PC에서만: 화면 배치(js/mobile.js AppUI). 폰 · 앱은 늘 앱식 */
-  const lay = typeof AppUI !== "undefined" && !document.documentElement.classList.contains("mobile") ? `<p class="pick-label">화면 배치 <small class="muted">— 앱식: 폰 · 앱과 같은 배치(대기실은 깃발만, 깃발을 누르면 출정 창). 예전: 대기실에 덱 카드 목록을 펼쳐 보임</small></p>
-    <div class="speed set-layout">${[["app", "앱식 (기본)"], ["classic", "예전 배치"]].map(([v, n]) => `<button type="button" class="btn xs ${AppUI.pref === v ? "on" : ""}" data-lay="${v}">${n}</button>`).join("")}</div>` : "";
+  const lay = typeof AppUI !== "undefined" && !document.documentElement.classList.contains("mobile") ? `<p class="pick-label">화면 배치 <small class="muted">— PC 배치: 준비 완료는 가운데 띠, 큰 생명, 대기실에 덱 카드 목록. 앱식: 폰 · 앱과 같은 배치(대기실은 깃발만, 깃발을 누르면 출정 창)</small></p>
+    <div class="speed set-layout">${[["classic", "PC 배치 (기본)"], ["app", "앱식"]].map(([v, n]) => `<button type="button" class="btn xs ${AppUI.pref === v ? "on" : ""}" data-lay="${v}">${n}</button>`).join("")}</div>` : "";
   const html = `<h3>설정</h3>${mt}${lay}
     <p class="pick-label">연출 속도 <small class="muted">— 전투 장면·카드 이동·띠 모두 같이 빨라지거나 느려집니다 (전투 중에도 바꿀 수 있음)</small></p>
     <div class="speed set-speed">${SPEEDS.map(s => `<button type="button" class="btn xs ${(G ? G.speed : Prefs.get("speed", 1)) === s ? "on" : ""}" data-sp="${s}">×${s}</button>`).join("")}</div>
