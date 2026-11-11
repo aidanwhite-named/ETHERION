@@ -164,3 +164,102 @@ html.mobile .lay-swap .pv-bot .pl-val { min-width: 0; white-space: nowrap; }
 /* 상대 깃발: 이름 · 단체가 다 보이게 길게(오른쪽 빈 자리로 100px 늘림) */
 html.mobile .lay-swap .frow-top .f-flag { position: relative; z-index: 3; }
 html.mobile .lay-swap .frow-top .f-flag .pside { width: calc(100% + 100px); flex: none; }
+
+/* ================= v3.32.2 폰 · 앱: 대기실은 깃발만 · 깃발을 누르면 출정 창 =================
+   덱 보기(카드 40장)와 출정의 단은 대기실에 그리지 않는다(js/screens.js renderDeckView · openDeckSheet).
+   깃발 9개가 왼쪽 칸을 다 쓰고, 깃발을 누르면 가운데에 출정 창: 덱 이름 · 장수 · 레벨 곡선 · [덱 조정실] [컴퓨터와 대전] [순례] [대전] */
+.dk-hint { display: none; }
+html.mobile .screen-lobby .deck-view { display: none; }
+html.mobile .screen-lobby .decks { grid-row: 1 / span 2; align-content: stretch; grid-template-rows: auto 1fr; }
+html.mobile .screen-lobby .deck-fac { justify-content: flex-start; gap: 10px; }
+html.mobile .screen-lobby .deck-tile.rq { flex: 1; max-height: 132px; padding-block: 10px !important; }
+html.mobile .screen-lobby .decks .panel-title .dk-hint { display: inline; order: 3; margin-left: auto; font-style: normal; font-family: var(--body); font-size: 14px; letter-spacing: .02em; color: var(--gold); opacity: .85; }
+html.mobile .screen-lobby .deck-tile.on { box-shadow: 0 0 0 2px var(--gc), 0 0 18px color-mix(in srgb, var(--gc) 45%, transparent); }
+
+.deck-sheet-wrap { z-index: 120; }
+.modal.deck-sheet { --fc: var(--gc); position: relative; width: min(860px, 100%); padding: 18px 22px 20px; display: grid; gap: 14px; border-color: color-mix(in srgb, var(--gc) 55%, var(--line-gold, #6b5a35)); background: linear-gradient(120deg, color-mix(in srgb, var(--gc) 20%, transparent), transparent 55%), var(--panel-2, #11121b); }
+.deck-sheet .ds-x { position: absolute; top: 8px; right: 10px; width: 40px; height: 40px; border: 0; background: none; color: var(--muted); font-size: 22px; cursor: pointer; }
+.deck-sheet .ds-head { display: flex; align-items: center; gap: 16px; padding-right: 36px; }
+.deck-sheet .ds-head > .emblem { flex: none; }
+.deck-sheet .ds-title { flex: 1; min-width: 0; display: grid; gap: 3px; }
+.deck-sheet .ds-title .eyebrow { margin: 0; }
+.deck-sheet .ds-title h3 { margin: 0; font-size: 24px; line-height: 1.2; }
+.deck-sheet .ds-title .muted { margin: 0; font-size: 14px; }
+.deck-sheet .ds-st { margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; font-size: 15px; }
+.deck-sheet .ds-kinds { display: flex; flex-wrap: wrap; gap: 4px 10px; color: var(--muted); }
+.deck-sheet .ds-kinds span { display: inline; white-space: nowrap; }
+.deck-sheet .ds-kinds b { color: var(--ink); }
+.deck-sheet .ds-draft { color: var(--gold); font-size: 13px; }
+.deck-sheet .dv-curve { flex: none; height: 70px; }
+.deck-sheet .dv-curve span { width: 16px; }
+.deck-sheet .dv-actions { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 10px; margin: 0; padding: 0; }
+.deck-sheet .btn.rite-side:not(.rb) { flex-direction: column; font-size: 15px; min-height: 84px; }
+.deck-sheet .btn.rite:not(.rb) { min-height: 84px; }
+.deck-sheet .altar-gates.n4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.deck-sheet .btn.rite b { font-size: 17px; }
+@media (max-width: 760px) {
+  .deck-sheet .ds-head { gap: 12px; }
+  .deck-sheet .ds-head > .emblem { width: 56px !important; height: 56px !important; }
+  .deck-sheet .ds-head .dv-curve { display: none; }
+  .deck-sheet .ds-title h3 { font-size: 20px; }
+  .deck-sheet .dv-actions { grid-template-columns: minmax(0, 1fr); }
+  .deck-sheet .altar-gates, .deck-sheet .altar-gates.n4 { grid-template-columns: minmax(0, 1fr); }
+}
+html.mobile .screen-lobby .lobby { align-items: stretch; }
+html.mobile .screen-lobby .deck-fac { flex: 1; }
+
+/* ================= v3.32.2 폰 · 앱: 덱 조정실 =================
+   PC의 1.5배(zoom)는 폰에서 화면 폭이 모자라 거르기 칸이 겹치고 카드가 화면 밖으로 밀렸다.
+   폰에서는 1.15배로, 위 띠는 한 줄(덱 이름 · 장수 계기판 · 단추), 아래는 왼쪽 운명의 서 · 오른쪽 카드.
+   거르기는 [카드 보관함] [내 덱] 두 탭 — 고른 탭의 줄만 펼치고 줄마다 한 줄로(넘치면 옆으로 밀어 봄).
+   대기실에서 들어오면 '내 덱'(덱에 든 카드)이 먼저 보인다(js/screens.js showEditor). */
+html.mobile .screen-editor > .ed-bar, html.mobile .screen-editor > .editor { zoom: 1.15; }
+html.mobile .screen-editor .ed-bar { flex-wrap: nowrap; gap: 10px; padding-block: 6px; }
+html.mobile .screen-editor .ed-name { flex: 0 1 290px; min-width: 0; padding-block: 4px !important; }
+html.mobile .screen-editor .ed-name .emblem { width: 40px !important; height: 40px !important; flex: none; }
+html.mobile .screen-editor .ed-name input { font-size: 17px; padding-block: 6px; }
+html.mobile .screen-editor .ed-gauge { flex: 1 1 auto; min-width: 0; padding: 4px 10px; gap: 10px; }
+html.mobile .screen-editor .g-num b { font-size: 26px; }
+html.mobile .screen-editor .g-num span { font-size: 13px; }
+html.mobile .screen-editor .g-body { min-width: 0; flex: 1; }
+html.mobile .screen-editor .g-msg { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+html.mobile .screen-editor .ed-btns { flex: none; flex-wrap: nowrap; gap: 6px; }
+html.mobile .screen-editor .ed-btns .btn { padding: 8px 12px; font-size: 14px; min-height: 40px; white-space: nowrap; }
+html.mobile .screen-editor .ed-btns .btn small { font-size: 11px; }
+html.mobile .screen-editor .ed-bar + .editor { padding-top: 8px; }
+html.mobile .screen-editor .editor { grid-template-columns: 262px minmax(0, 1fr); gap: 10px; padding-bottom: 6px; }
+/* 운명의 서(왼쪽): 머리 · 촛대를 낮게, 목록이 나머지를 쓴다 */
+html.mobile .screen-editor .ed-deck { padding: 10px 10px 8px !important; }
+html.mobile .screen-editor .ed-deck > .panel-title { margin-bottom: 4px; font-size: 15px; }
+html.mobile .screen-editor .ed-mix { margin-bottom: 4px; font-size: 12.5px; }
+html.mobile .screen-editor .ed-curve { height: 50px; margin-bottom: 6px; }
+html.mobile .screen-editor .ed-deck-foot { margin-top: 4px; padding-top: 4px; }
+html.mobile .screen-editor .ed-deck-foot > .small { display: none; }
+html.mobile .screen-editor .ed-deck-foot { justify-content: flex-end; }
+/* 카드 칸(오른쪽): [보유 칩 줄 | 검색] / [거르기 탭] / 카드 */
+html.mobile .screen-editor .ed-pool { display: grid !important; grid-template-columns: minmax(0, 1fr) 200px; grid-template-rows: auto auto minmax(0, 1fr); gap: 6px 10px; padding: 8px 10px 6px !important; }
+html.mobile .screen-editor .pool-head { display: contents; }
+html.mobile .screen-editor .pool-head > .panel-title { display: none; }
+html.mobile .screen-editor #ed-q { grid-column: 2; grid-row: 1; width: 100%; min-width: 0; padding-block: 5px; font-size: 14px; }
+html.mobile .screen-editor #ed-own { grid-column: 1; grid-row: 1; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0; }
+html.mobile .screen-editor .ed-filts { grid-column: 1 / -1; grid-row: 2; display: flex; gap: 6px; margin: 0; }
+html.mobile .screen-editor .ed-help { display: none; }
+html.mobile .screen-editor #ed-pool { grid-column: 1 / -1; grid-row: 3; min-height: 0; padding-top: 8px; }
+html.mobile .screen-editor .ed-filt { padding: 4px 8px; }
+html.mobile .screen-editor .ed-filt:not(.active) { flex: none; display: flex; align-items: center; }
+html.mobile .screen-editor .ed-filt:not(.active) > :not(.edf-head) { display: none !important; }
+html.mobile .screen-editor .ed-filt.active { flex: 1; min-width: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 10px; row-gap: 4px; align-items: center; }
+html.mobile .screen-editor .ed-filt.active > .edf-head { grid-column: 1; grid-row: 1 / span 3; align-self: center; }
+html.mobile .screen-editor .ed-filt.active > :not(.edf-head) { grid-column: 2; margin: 0 !important; }
+html.mobile .screen-editor .edf-head small { display: none; }
+html.mobile .screen-editor .edf-tab { font-size: 14px; white-space: nowrap; padding-block: 6px; }
+html.mobile .screen-editor .ed-filt .ed-kinds, html.mobile .screen-editor .ed-filt .ed-grades, html.mobile .screen-editor .ed-filt #ed-filter2 { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+html.mobile .screen-editor .ed-filt .ed-kinds::-webkit-scrollbar, html.mobile .screen-editor .ed-filt .ed-grades::-webkit-scrollbar, html.mobile .screen-editor #ed-filter2::-webkit-scrollbar, html.mobile .screen-editor #ed-own::-webkit-scrollbar { display: none; }
+html.mobile .screen-editor .ed-filt .ed-kinds > *, html.mobile .screen-editor .ed-filt .ed-grades > *, html.mobile .screen-editor #ed-filter2 > *, html.mobile .screen-editor #ed-own > * { flex: none; }
+html.mobile .screen-editor .ed-spell-grp, html.mobile .screen-editor .ed-sub { flex-wrap: nowrap; }
+html.mobile .screen-editor .ed-score { margin: 0; }
+html.mobile .screen-editor .ed-score { padding-block: 0; justify-self: start; }
+html.mobile .screen-editor .ed-score .sc-sub { flex-direction: row; gap: 10px; margin-left: 14px; }
+html.mobile .screen-editor .ed-score .sc-tier i { transform: scale(.85); }
+html.mobile .screen-editor .pool-grid { grid-template-columns: repeat(auto-fill, minmax(124px, 1fr)); gap: 10px 6px; }
+html.mobile .screen-editor .pool-card .card { --cw: 118px; }

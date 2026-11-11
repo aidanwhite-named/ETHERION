@@ -422,7 +422,7 @@ function showLobby() {
     ${headerHTML("대기실")}
     <div class="lobby">
       <nav class="decks" aria-label="내 덱">
-        <h3 class="panel-title">덱 보관함 <small>단체마다 덱 하나</small></h3>
+        <h3 class="panel-title">덱 보관함 <small>단체마다 덱 하나</small><em class="dk-hint">깃발을 누르면 출정 · 덱 조정</em></h3>
         ${Object.values(FACTIONS).map(F => `<div class="deck-fac fac-${F.id}"><p class="df-head"><span class="df-crest">${typeof factionCrestSVG === "function" ? factionCrestSVG(F.id) : ""}</span>${F.name}<small>${F.en}</small></p>
         ${F.groups.map(g => {
           const G = GROUPS[g], own = Store.ownsGroup(u, g);
@@ -455,7 +455,9 @@ function showLobby() {
   if (typeof Help !== "undefined") Help.bindDock(root);
   $$(".deck-tile", root).forEach(b => b.addEventListener("click", () => {
     if (b.classList.contains("locked")) { toast("보유하지 않은 덱입니다.", "warn"); return; }
-    App.lobbyGroup = b.dataset.g; showLobby();
+    App.lobbyGroup = b.dataset.g;
+    if (lobbyCompact()) { $$(".deck-tile", root).forEach(x => x.classList.toggle("on", x === b)); openDeckSheet(b.dataset.g); return; }
+    showLobby();
   }));
   renderDeckView();
   renderChat();
@@ -466,11 +468,11 @@ function showLobby() {
   });
 }
 function renderDeckView() {
+  if (lobbyCompact()) { $("#deck-view").innerHTML = ""; return; }   /* v3.32.2 폰 · 앱: 덱 보기 · 출정의 단은 깃발을 누르면 뜨는 출정 창에 */
   const u = Store.user(), f = App.lobbyGroup, F = GROUPS[f], FA = FACTIONS[F.faction];
   const d = Store.deck(u, f);
   const ids = expandDeck(d.cards);
   const playable = Store.deckPlayable(u, f);
-  const expOn = typeof Exp !== "undefined" && Exp.get() && !Exp.get().over;   /* v3.26 대기실의 원정 자리는 순례로. 원정은 하던 것을 마칠 때만 보인다 */
   const curve = [1, 2, 3, 4, 5, 6, 7, 8].map(l => ids.filter(id => CARDS[id].lv === l).length);
   const mx = Math.max(...curve, 1);
   $("#deck-view").innerHTML = `
@@ -486,7 +488,22 @@ function renderDeckView() {
       <div class="dv-grades" id="dv-grades" role="group" aria-label="등급으로 거르기"></div>
     </div>
     <div class="dv-cards" id="dv-cards">${ids.map(id => cardHTML(CARDS[id], { size: "md", brief: true })).join("")}</div>
-    <div class="dv-actions altar">
+    ${altarHTML(f)}`;
+  $("#dv-cards").addEventListener("click", e => { const c = e.target.closest("[data-card]"); if (c) showCardModal(CARDS[c.dataset.card]); });
+  $(".dv-filter").addEventListener("click", e => {
+    const k = e.target.closest("[data-dk]"), g = e.target.closest("[data-dg]");
+    if (k && !k.disabled) { App.deckFilter = { type: k.dataset.dk, grade: "" }; applyDeckFilter(ids); }
+    else if (g) { const v = g.dataset.dg; App.deckFilter.grade = App.deckFilter.grade === v ? "" : v; applyDeckFilter(ids); }
+  });
+  applyDeckFilter(ids);
+  bindAltar($("#deck-view"), f);
+  fitLobbyCards();
+}
+/* 출정의 단: 덱 조정실 · 컴퓨터와 대전 · 순례 · (원정 계속) · 대전. PC는 덱 보기 아래, 폰 · 앱은 깃발을 누르면 뜨는 출정 창(openDeckSheet) */
+function altarHTML(f) {
+  const playable = Store.deckPlayable(Store.user(), f);
+  const expOn = typeof Exp !== "undefined" && Exp.get() && !Exp.get().over;   /* v3.26 대기실의 원정 자리는 순례로. 원정은 하던 것을 마칠 때만 보인다 */
+  return `<div class="dv-actions altar">
       <button class="btn rite-side" id="go-edit">${menuIcon("quill")}<span>덱 조정실</span></button>
       <div class="altar-gates${expOn ? " n4" : ""}">
         <button class="btn primary rite" id="go-ai" ${playable ? "" : "disabled"}>${menuIcon("duel")}<b>컴퓨터와 대전</b><small>SPARRING</small></button>
@@ -495,19 +512,42 @@ function renderDeckView() {
         <button class="btn primary alt rite" id="go-pvp" ${playable ? "" : "disabled"}>${menuIcon("banners")}<b>대전</b><small>DUEL</small></button>
       </div>
     </div>`;
-  $("#dv-cards").addEventListener("click", e => { const c = e.target.closest("[data-card]"); if (c) showCardModal(CARDS[c.dataset.card]); });
-  $(".dv-filter").addEventListener("click", e => {
-    const k = e.target.closest("[data-dk]"), g = e.target.closest("[data-dg]");
-    if (k && !k.disabled) { App.deckFilter = { type: k.dataset.dk, grade: "" }; applyDeckFilter(ids); }
-    else if (g) { const v = g.dataset.dg; App.deckFilter.grade = App.deckFilter.grade === v ? "" : v; applyDeckFilter(ids); }
-  });
-  applyDeckFilter(ids);
-  $("#go-edit").addEventListener("click", () => showEditor(f));
-  $("#go-ai").addEventListener("click", () => startVsAI(f));
-  if ($("#go-exp")) $("#go-exp").addEventListener("click", () => showExpedition(f));
-  $("#go-pil").addEventListener("click", () => { if (typeof showPilgrim === "function") showPilgrim(f); });
-  $("#go-pvp").addEventListener("click", () => startPvP(f));
-  fitLobbyCards();
+}
+function bindAltar(box, f, before) {
+  const on = (sel, fn) => { const b = $(sel, box); if (b) b.addEventListener("click", () => { if (b.disabled) return; if (before) before(); fn(); }); };
+  on("#go-edit", () => showEditor(f));
+  on("#go-ai", () => startVsAI(f));
+  on("#go-exp", () => showExpedition(f));
+  on("#go-pil", () => { if (typeof showPilgrim === "function") showPilgrim(f); });
+  on("#go-pvp", () => startPvP(f));
+}
+/* v3.32.2 폰 · 앱(html.mobile): 대기실에는 깃발만. 깃발을 누르면 출정 창 — 덱 이름 · 장수 · 레벨 곡선과 출정의 단.
+   덱의 카드는 덱 조정실에서 본다(대기실에서는 40장을 그리지 않아 대기실이 빨리 뜬다) */
+const lobbyCompact = () => document.documentElement.classList.contains("mobile");
+function openDeckSheet(f) {
+  const u = Store.user(), G_ = GROUPS[f], FA = FACTIONS[G_.faction], d = Store.deck(u, f), dr = Store.draft(u, f);
+  const n = countMap(d.cards), playable = Store.deckPlayable(u, f);
+  const ids = expandDeck(d.cards), curve = [1, 2, 3, 4, 5, 6, 7, 8].map(l => ids.filter(id => CARDS[id].lv === l).length), mx = Math.max(...curve, 1);
+  const kinds = [["unit", "유닛"], ["spell", "마법"], ["item", "아이템"]].map(([k, l]) => `<span class="k-${k}">${l} <b>${ids.filter(id => kindOf(CARDS[id]) === k).length}</b></span>`).join("");
+  $$(".deck-sheet-wrap").forEach(w => w.remove());
+  const wrap = document.createElement("div");
+  wrap.className = "modal-wrap deck-sheet-wrap";
+  wrap.innerHTML = `<div class="modal deck-sheet fac-${G_.faction}" role="dialog" aria-modal="true" aria-label="${esc(d.name)} 출정" style="--gc:${G_.color}">
+    <button type="button" class="ds-x" aria-label="닫기">✕</button>
+    <div class="ds-head">
+      ${groupEmblem(f, "big")}
+      <div class="ds-title"><p class="eyebrow">${G_.en} · ${FA.name}</p><h3>${esc(d.name)}</h3><p class="muted">${G_.name} · ${G_.role} · ${G_.motto}</p>
+        <p class="ds-st"><span class="dt-st ${playable ? "ok" : "bad"}"><b>${n}</b>/${RULES.deckSize} · ${playable ? "출전 가능" : "저장 필요 — 덱 조정실에서 40장을 저장하세요"}</span><span class="ds-kinds">${kinds}</span>${dr ? '<span class="ds-draft">고치던 초안 있음</span>' : ""}</p></div>
+      <div class="dv-curve" title="레벨별 장수">${curve.map((k, i) => `<span><i style="height:${k / mx * 100}%"></i><em>${i + 1}</em></span>`).join("")}</div>
+    </div>
+    ${altarHTML(f)}
+  </div>`;
+  document.body.appendChild(wrap);
+  const close = () => wrap.remove();
+  wrap.addEventListener("click", e => { if (e.target === wrap || e.target.closest(".ds-x")) close(); });
+  bindAltar(wrap, f, close);
+  const onKey = e => { if (!wrap.isConnected) { removeEventListener("keydown", onKey); return; } if (e.key === "Escape") close(); };
+  addEventListener("keydown", onKey);
 }
 /* v3.7.3 대기실 덱 보기: 세로 크기를 덱 보관함 판과 같게 맞추고, 남는 높이만큼 카드를 키운다.
    덱 보기 판의 아래 끝이 덱 보관함 판의 아래 끝에 닿도록 그 안에 들어가는 가장 큰 카드 폭을 고른 뒤, 판 높이를 덱 보관함 높이로 맞춘다.
@@ -671,7 +711,7 @@ function showEditor(f, focusId) {
   const all = Store.allCards(u);
   const fromStore = () => { const d = Store.draft(u, f) || Store.deck(u, f); return { cards: Object.assign({}, d.cards), name: d.name || Store.deck(u, f).name }; };
   const st = fromStore();
-  const E = { f, cards: st.cards, name: st.name, type: "all", kind: "all", lv: 0, grade: "", q: "", hideOut: false, own: "have", scope: "pool", dType: "all", dKind: "all", dGrade: "" };
+  const E = { f, cards: st.cards, name: st.name, type: "all", kind: "all", lv: 0, grade: "", q: "", hideOut: false, own: "have", scope: lobbyCompact() && !focusId ? "deck" : "pool", dType: "all", dKind: "all", dGrade: "" };
   const dirty = () => !!Store.draft(u, f);
   const persist = () => Store.setDraft(u, f, E.cards, E.name);
   const F = GROUPS[f];
@@ -967,7 +1007,7 @@ function showEditor(f, focusId) {
     const ed = $(".editor", root); if (!ed || !ed.isConnected) { removeEventListener("resize", fit); return; }
     const z = parseFloat(getComputedStyle(ed).zoom) || 1;
     const top = ed.getBoundingClientRect().top;
-    ed.style.setProperty("--avail", Math.max(320, (innerHeight - top - 14) / z - 32) + "px");
+    ed.style.setProperty("--avail", Math.max(lobbyCompact() ? 240 : 320, (innerHeight - top - (lobbyCompact() ? 8 : 14)) / z - (lobbyCompact() ? 14 : 32)) + "px");   /* v3.32.2 폰 · 앱은 아래 여백을 줄인다 */
   };
   addEventListener("resize", fit); fit();
   const onKey = e => {

@@ -165,7 +165,7 @@ function shopLinkHTML(u) {
 function shopRefresh(ids) {
   const box = $("#shop-cards"), u = Store.user();
   if (!box || !u) { renderShopMain(); return; }
-  const head = $(".shop-head"); if (head) head.outerHTML = shopHeadHTML(u, shopTitle(), box.children.length);
+  const head = $(".shop-head"); if (head) head.outerHTML = shopHeadHTML(u, shopTitle(), shopCards().length);   /* v3.32.2 칸은 나눠 붙으므로 장수는 목록에서 */
   const link = $(".shop-link"); if (link) link.outerHTML = shopLinkHTML(u);
   const redo = new Set(ids || []);
   for (const id of redo) { const el = box.querySelector(`.shop-card[data-card="${id}"]`); if (el && CARDS[id]) el.outerHTML = shopCardTile(CARDS[id], u); }
@@ -191,7 +191,25 @@ function renderShopMain() {
       <div class="chips"><span class="sf-label">레벨</span>${[0, 1, 2, 3, 4, 5, 6, 7, 8].map(l => `<button type="button" class="chip${SHOP.lv === l ? " on" : ""}" data-shop-lv="${l}">${l ? "Lv " + l : "모든 레벨"}</button>`).join("")}</div>
       <div class="chips"><span class="sf-label">등급</span><button type="button" class="chip${SHOP.grade ? "" : " on"}" data-shop-gr="">모든 등급</button>${GRADE_IDS.map(g => `<button type="button" class="chip sf-grade${SHOP.grade === g ? " on" : ""}" data-shop-gr="${g}" style="--gr:${GRADES[g].color}" ${gN[g] ? "" : "disabled"} title="${GRADES[g].name} 등급 ${gN[g] || 0}종">${GRADES[g].name} <small>${gN[g] || 0}</small></button>`).join("")}</div>
     </div>
-    <div class="shop-cards" id="shop-cards">${list.map(c => shopCardTile(c, u)).join("")}</div>`;
+    <div class="shop-cards" id="shop-cards">${list.slice(0, SHOP_FIRST).map(c => shopCardTile(c, u)).join("")}</div>`;
+  shopFill(list);
+}
+/* v3.32.2 상점을 빨리 띄운다: 처음에는 화면에 보이는 카드 칸(SHOP_FIRST장)만 그려 바로 보이고,
+   나머지는 다음 그림 차례부터 SHOP_BATCH장씩 뒤에 붙인다(교역소처럼 먼저 보이는 화면부터).
+   다시 그리거나 다른 화면으로 가면 붙이던 것을 멈춘다(SHOP.fillTok). 붙일 때 지갑 · 재고는 그때의 것으로 그린다 */
+const SHOP_FIRST = 24, SHOP_BATCH = 60;
+function shopFill(list) {
+  const tok = SHOP.fillTok = (SHOP.fillTok || 0) + 1;
+  let i = SHOP_FIRST;
+  const step = () => {
+    const box = $("#shop-cards");
+    if (tok !== SHOP.fillTok || !box || !box.isConnected || App.screen !== "shop" || i >= list.length) return;
+    const u = Store.user(); if (!u) return;
+    box.insertAdjacentHTML("beforeend", list.slice(i, i + SHOP_BATCH).map(c => shopCardTile(c, u)).join(""));
+    i += SHOP_BATCH;
+    if (i < list.length) setTimeout(() => requestAnimationFrame(step), 16);
+  };
+  if (i < list.length) requestAnimationFrame(() => setTimeout(() => requestAnimationFrame(step), 0));
 }
 /* v3.28 업그레이드: 확인 → 합치기 연출 → 그 카드 칸 둘(원래 · 강화)만 다시 그린다 */
 async function shopUpgrade(upId) {
