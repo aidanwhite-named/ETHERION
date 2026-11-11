@@ -162,7 +162,8 @@ const Kailan = (() => {
   const COAST_KEY = [[1200, 752], [1150, 768], [1100, 796], [1060, 792], [1010, 786], [975, 800], [930, 796], [880, 790], [840, 782], [790, 776], [745, 786], [700, 794], [664, 788], [640, 776], [612, 790], [588, 800], [545, 806], [500, 798], [455, 802], [410, 806], [372, 800], [352, 792], [338, 798], [318, 800], [290, 793], [250, 782], [215, 768], [185, 748], [160, 720], [140, 690], [128, 650], [116, 610], [104, 570], [110, 530], [98, 490], [104, 450], [96, 410], [106, 370], [100, 330], [112, 290], [104, 250], [116, 210], [110, 170], [124, 130], [122, 90], [134, 55], [140, 25], [146, -2]];
   let COAST = null, LANDPTS = null;
 
-  function mapSVG() {
+  /* bare: 지점 · 이름 · 나침반 · 제목 없이 땅과 물과 고리와 성로만 (v3.26 성로 순례 화면의 바탕 지도) */
+  function mapSVG(bare) {
     if (!COAST) { COAST = roughen(COAST_KEY, 3, .2); LANDPTS = [[146, -40], [1240, -40], [1240, 752]].concat(COAST); }
     const o = [];
     const add = s => o.push(s);
@@ -319,6 +320,7 @@ const Kailan = (() => {
     const HUB = [652, 746];
     add(`<g fill="none" stroke="#8fdcff" stroke-opacity=".7" stroke-width="1.2" stroke-dasharray="1 6" stroke-linecap="round" class="kl-flow fast">${[[440, 535], [836, 246], [789, 428], [790, 728], [232, 98], [1010, 360], [376, 332]].map(([x, y]) => { const mx = (HUB[0] + x) / 2, my = (HUB[1] + y) / 2 - 30; return `<path d="M${HUB[0]},${HUB[1]}Q${n1(mx)},${n1(my)} ${x},${y}"/>`; }).join("")}</g>`);
 
+    if (bare) return o.join("");
     /* 지점과 이름 */
     P.forEach(f => add(featureSVG(f)));
 
@@ -725,5 +727,5 @@ const Kailan = (() => {
   });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", watch); else watch();
 
-  return { open, close, armTitle, places: P };
+  return { open, close, armTitle, places: P, mapSVG: () => mapSVG(true) };
 })();

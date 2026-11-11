@@ -8,6 +8,7 @@ Thumbs.db
 
 # 그림 AI 도구의 작업물 · 바꾸기 전 그림
 tools/art/out/
+tools/art/inbox/
 _backup_art/
 __pycache__/
 

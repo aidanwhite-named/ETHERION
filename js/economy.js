@@ -15,6 +15,11 @@ const ECON = {
   winMul: 2,           // 승리: 부서진 가격 합계 × 2
   loseMul: 0.5,        // 패배: 부서진 가격 합계 × 0.5
   startGold: 1000,     // 새 모험가의 지갑
+  /* v3.26 판마다 전투 조각(부서진 카드 2% · 승패 정산)에 곱하는 배수. 대전 설정의 econRate가 있으면 그것(성로 순례 = PILGRIM.battleRate 0.5%)
+     경험치는 배수와 상관없이 예전 값 그대로 쌓인다(econGain) — 조각만 줄이고 레벨 오르는 빠르기는 그대로 */
+  rate: { ai: 0.005, online: 0.01, hotseat: 0.005 },   // v3.27: 컴퓨터 · 한 화면 0.5%, 온라인 1% (v3.26은 0.1 · 0.5%)
+  /* v3.27 판이 끝날 때 한 번 굴리는 행운 (이기든 지든, 모든 대전): 카드 뽑기(순례 첫 승 뽑기와 같은 확률표 PILGRIM.gamble, 공짜) · 조각 */
+  lucky: { card: 0.001, gold: { p: 0.007, gold: 500 } },
   pachinko: {
     group: { p: 0.05, gold: 100 },     // 단체 문양 3개
     faction: { p: 0.001, gold: 800 },  // 진영 문장 3개
@@ -29,7 +34,7 @@ const PRICE_OVERRIDE = {};
      전투 보상(부서진 카드 2%, 정산)은 그대로 cardPrice(레벨 공식)를 쓴다.
    - SHOP_STOCK: 등급마다 상점이 처음 채워 두는 장수. 희귀한 등급일수록 적다. */
 const SHOP_FLAT = 100;
-const SHOP_STOCK = { common: 100, uncommon: 80, rare: 50, epic: 30, unique: 10, special: 5 };
+const SHOP_STOCK = { common: 100, uncommon: 80, rare: 50, upgrade: 0, epic: 30, unique: 10, special: 5 };   // v3.28 강화는 팔지 않는다(합쳐서만)
 function shopPrice(c) {
   c = typeof c === "string" ? CARDS[c] : c;
   if (!c) return 0;
@@ -71,6 +76,7 @@ Object.assign(Store, {
   buyCard(u, id, n, opts) {
     u = u || this.user(); const c = CARDS[id]; n = Math.max(1, Math.floor(n || 1)); opts = opts || {};
     if (!u || !c) return { ok: false, msg: "없는 카드입니다." };
+    if (c.base) return { ok: false, msg: `「${c.name}」은 강화 카드라 살 수 없습니다. 「${CARDS[c.base].name}」 3장을 업그레이드하세요.` };   // v3.28
     const price = shopPrice(c), admin = this.isAdmin(u), stock = this.stockLeft(id);
     if (stock <= 0) return { ok: false, msg: `「${c.name}」 재고가 없습니다.${admin ? " 재고 채우기를 누르세요." : ""}` };
     if (n > stock) n = stock;
@@ -94,10 +100,11 @@ Object.assign(Store, {
   },
   /* 상점 판매 (v1.4.3): 산 값 그대로 돌려받는다. 덱에 넣어 둔 장수만큼은 팔 수 없다 (덱이 깨지지 않게). v3.0 판 카드는 재고로 돌아간다 */
   deckUse(u, id) { const c = CARDS[id], d = c && u.decks && u.decks[c.group]; return d && d.cards ? d.cards[id] || 0 : 0; },
-  sellable(u, id) { const have = u.collection[id] || 0; return Math.max(0, have - (Store.allCards(u) ? 0 : this.deckUse(u, id))); },
+  sellable(u, id) { if (CARDS[id] && CARDS[id].base) return 0; const have = u.collection[id] || 0; return Math.max(0, have - (Store.allCards(u) ? 0 : this.deckUse(u, id))); },
   sellCard(u, id) {
     u = u || this.user(); const c = CARDS[id];
     if (!u || !c) return { ok: false, msg: "없는 카드입니다." };
+    if (c.base) return { ok: false, msg: "강화 카드는 팔 수 없습니다." };
     const have = u.collection[id] || 0;
     if (!have) return { ok: false, msg: "가지고 있지 않은 카드입니다." };
     if (!this.sellable(u, id)) return { ok: false, msg: `덱에 ${this.deckUse(u, id)}장이 들어 있어 팔 수 없습니다. 덱 조정실에서 빼고 파세요.` };
@@ -115,20 +122,138 @@ Object.assign(Store, {
   restock(ids) { if (!this.data.stock) return; if (ids) for (const id of ids) delete this.data.stock[id]; else this.data.stock = {}; this.save(); }
 });
 
+/* ---------- v3.28 업그레이드: 같은 카드 3장 → 강화 카드 1장 (js/upgrades.js) ----------
+   재료는 저장한 덱 · 덱 초안에 들지 않은 장수(Store.tradeable, 교역소와 같은 덱 보호)에서만 쓴다. 재료 3장은 사라지고 강화 카드 1장이 들어온다.
+   서버로 열면 서버가 같은 함수로 처리한다(server.js OPS · net.js NET_SYNC_OPS). 강화 카드는 덱에 1장이라 1장보다 많이 가질 수 없다 */
+const UPGRADE_COST = 3;
+Object.assign(Store, {
+  upgradeFree(u, baseId) { u = u || this.user(); if (!u) return 0; const have = (u.collection || {})[baseId] || 0; return typeof this.tradeable === "function" ? this.tradeable(u, baseId) : Math.max(0, have - this.deckUse(u, baseId)); },
+  /* 업그레이드할 수 있나: { ok, msg, base, up, free } (화면이 단추를 켜고 끌 때도 쓴다) */
+  upgradeCheck(u, upId) {
+    u = u || this.user(); const c = CARDS[upId];
+    if (!u || !c || !c.base || !CARDS[c.base]) return { ok: false, msg: "업그레이드할 수 있는 카드가 아닙니다." };
+    const b = CARDS[c.base], free = this.upgradeFree(u, b.id), r = { base: b.id, up: c.id, free };
+    if (this.allCards(u)) return Object.assign(r, { ok: false, msg: "관리자 · 손님은 모든 카드를 이미 쓸 수 있습니다." });
+    if (!this.ownsGroup(u, c.group)) return Object.assign(r, { ok: false, msg: `${GROUPS[c.group].name} 깃발이 없습니다.` });
+    if ((u.collection[c.id] || 0) >= maxCopiesOf(c)) return Object.assign(r, { ok: false, msg: `「${c.name}」은 이미 가지고 있습니다. (덱에 ${maxCopiesOf(c)}장)` });
+    if (free < UPGRADE_COST) {
+      const have = u.collection[b.id] || 0;
+      return Object.assign(r, { ok: false, msg: `「${b.name}」 ${UPGRADE_COST}장이 필요합니다. (가진 ${have}장${have > free ? ` 가운데 덱 · 초안에 든 ${have - free}장은 쓸 수 없음` : ""})` });
+    }
+    return Object.assign(r, { ok: true });
+  },
+  upgradeCard(u, upId) {
+    u = u || this.user();
+    const r = this.upgradeCheck(u, upId); if (!r.ok) return r;
+    const left = (u.collection[r.base] || 0) - UPGRADE_COST;
+    if (left > 0) u.collection[r.base] = left; else delete u.collection[r.base];
+    u.collection[r.up] = (u.collection[r.up] || 0) + 1;
+    u.fresh = u.fresh || {}; u.fresh[r.up] = Date.now();
+    this.save();
+    return { ok: true, base: r.base, up: r.up, used: UPGRADE_COST };
+  },
+  /* v3.29 없앤 강화 카드(js/upgrades.js UPGRADE_RETIRED, 6레벨 결과 13장)를 가진 모험가에게 원래 카드 3장씩 돌려준다.
+     저장한 덱 · 초안에 든 강화 카드는 원래 카드 1장으로 바꾼다(덱에 넣을 수 있는 장수 안에서, 넘으면 빠짐).
+     돌려준 장수(강화 카드 수)를 돌려준다. 게임은 Store.load 뒤, 서버는 DB를 읽은 뒤 모든 모험가에게 한 번 부른다 */
+  refundRetiredUpgrades(u) {
+    if (!u || typeof UPGRADE_RETIRED === "undefined") return 0;
+    let n = 0;
+    const col = u.collection || {};
+    for (const up in UPGRADE_RETIRED) {
+      const base = UPGRADE_RETIRED[up];
+      const swap = cards => {
+        if (!cards || !cards[up]) return;
+        const k = cards[up]; delete cards[up];
+        if (CARDS[base]) cards[base] = Math.min(maxCopiesOf(base), (cards[base] || 0) + k);
+      };
+      for (const g in (u.decks || {})) swap(u.decks[g] && u.decks[g].cards);
+      for (const g in (u.drafts || {})) swap(u.drafts[g] && u.drafts[g].cards);
+      if (u.fresh) delete u.fresh[up];
+      const k = col[up] || 0;
+      if (!k) { delete col[up]; continue; }
+      delete col[up];
+      if (!u.admin && !u.guest) col[base] = (col[base] || 0) + k * UPGRADE_COST;
+      n += k;
+    }
+    return n;
+  },
+  /* v3.29.1 게임에서 아주 뺀 카드(js/retired.js GONE_CARDS — 스페셜이 아닌 8레벨 35장): 가진 장수만큼 상점 값을 돌려주고(판매와 같은 값 · 경험치 아님)
+     저장한 덱 · 초안에서 빼며, 빈 자리는 GONE_SWAP의 같은 깃발 카드로 가진 만큼(관리자 · 손님은 모두 가진 셈) 채운다. 못 채우면 덱이 40장 아래로 남는다.
+     돌려준 카드 장수를 돌려준다 */
+  refundGoneCards(u) {
+    if (!u || typeof GONE_CARDS === "undefined") return 0;
+    let n = 0, gold = 0;
+    const col = u.collection || {};
+    const fill = cards => {
+      if (!cards) return;
+      for (const id in GONE_CARDS) {
+        const k = cards[id] || 0; if (!(id in cards)) continue;
+        delete cards[id];
+        const c = CARDS[id], swap = (typeof GONE_SWAP !== "undefined" && c && GONE_SWAP[c.group]) || [];
+        for (let i = 0; i < k; i++) for (const r of swap) {
+          if (!CARDS[r]) continue;
+          const now = cards[r] || 0, have = this.allCards(u) ? maxCopiesOf(r) : Math.min(maxCopiesOf(r), col[r] || 0);
+          if (now < have) { cards[r] = now + 1; break; }
+        }
+      }
+    };
+    for (const g in (u.decks || {})) fill(u.decks[g] && u.decks[g].cards);
+    for (const g in (u.drafts || {})) fill(u.drafts[g] && u.drafts[g].cards);
+    for (const id in GONE_CARDS) {
+      if (u.fresh) delete u.fresh[id];
+      const k = col[id] || 0; delete col[id];
+      if (!k) continue;
+      n += k;
+      if (!this.allCards(u) && CARDS[id]) gold += shopPrice(CARDS[id]) * k;
+    }
+    if (gold > 0) this.addGold(u, gold, `판매(게임에서 뺀 8레벨 카드 ${n}장)`);
+    return n;
+  },
+  refundAllRetiredUpgrades() {
+    let n = 0;
+    for (const id in (this.data.users || {})) { const u = this.data.users[id]; n += this.refundRetiredUpgrades(u) + this.refundGoneCards(u); }
+    return n;
+  }
+});
+/* v3.29 파일로 연 게임: 저장소를 읽을 때마다 없앤 강화 카드 · 아주 뺀 카드(v3.29.1)를 돌려준다(한 번 돌려주면 그 뒤로는 할 일 없음) */
+(function () {
+  const load0 = Store.load;
+  Store.load = function () { load0.apply(this, arguments); if (this.refundAllRetiredUpgrades() > 0) this.save(); };
+})();
+
 /* ---------- 한 판의 경제 기록 (game.js의 G.econ) ---------- */
 function newEcon() { return { broken: 0, list: [], earned: 0, pach: 0, pachTurn: 0, seed: null, settled: null }; }
 /* pach: 전장의 작은 게임(파친코·결정)으로 번 돈 합계. pachTurn: 파친코를 돌린 턴. seed: 결정 키우기 {last, streak} */
-/* 전투에서 부서진 카드 처리: 2%를 바로 지갑에 */
+/* 판마다 정산 배수: 대전 설정의 econRate → 없으면 모드(ECON.rate: 컴퓨터 0.1% · 온라인 0.5% · 한 화면 대전 0.1%). 부서진 값 합계(broken)는 그대로 센다 */
+const econRate = g => {
+  if (g && g.cfg && g.cfg.econRate != null) return g.cfg.econRate;
+  const R = ECON.rate; if (!g || !R) return 1;
+  return g.online || g.mode === "online" ? R.online : g.mode === "hotseat" ? R.hotseat : R.ai;
+};
+/* 조각 = 원래 값 × 배수, 경험치 = 원래 값 그대로 (모자란 만큼 경험치만 따로) */
+function econGain(u, full, rate, why) {
+  const got = Math.round(full * rate);
+  if (got > 0) Store.addGold(u, got, why);
+  const extra = Math.round(full) - Math.max(0, got);
+  if (extra > 0 && typeof Store.addXp === "function" && !(typeof LEVEL !== "undefined" && LEVEL.noXp.test(why || ""))) {
+    const r = Store.addXp(u, extra, why);
+    if (r && r.up > 0 && typeof LevelUI !== "undefined" && LevelUI.levelUp) LevelUI.levelUp(r);
+  }
+  return got;
+}
+/* 전투에서 부서진 카드 처리: 2%(× 배수)를 바로 지갑에 */
 function econBreak(g, items) {
   if (!g || !g.econ || !items || !items.length) return 0;
-  const u = Store.user(); let got = 0;
+  const u = Store.user(); let full = 0; const rate = econRate(g);
   for (const b of items) {
     const price = cardPrice(b.id); if (!price) continue;
     g.econ.broken += price;
     g.econ.list.push(b);
-    got += Math.round(price * ECON.breakRate);
+    full += price * ECON.breakRate;
   }
-  if (got && u && !g.cfg.headless) { g.econ.earned += got; Store.addGold(u, got, "전투: 부서진 카드"); }
+  if (!full || !u || g.cfg.headless) return 0;
+  const got = econGain(u, full, rate, "전투: 부서진 카드");
+  g.econ.earned += got; g.econ.xp = (g.econ.xp || 0) + Math.round(full);
   return got;
 }
 /* 경기 종료 정산 */
@@ -136,10 +261,25 @@ function econSettle(g) {
   if (!g || !g.econ || g.econ.settled) return g && g.econ ? g.econ.settled : null;
   const u = Store.user(); if (!u || g.cfg.headless) return null;
   const won = g.winner === (g.online ? g.me : 0);   // v3.10 온라인: 내 자리
-  const bonus = Math.round(g.econ.broken * (won ? ECON.winMul : ECON.loseMul));
-  if (bonus) Store.addGold(u, bonus, won ? "승리 정산" : "패배 정산");
-  g.econ.settled = { won, bonus, broken: g.econ.broken, earned: g.econ.earned, pach: g.econ.pach, total: bonus + g.econ.earned + g.econ.pach };
+  const rate = econRate(g), full = g.econ.broken * (won ? ECON.winMul : ECON.loseMul);
+  const bonus = full ? econGain(u, full, rate, won ? "승리 정산" : "패배 정산") : 0;
+  const xp = Math.round(full) + (g.econ.xp || 0) + g.econ.pach;
+  const lucky = econLucky(u);
+  const lg = lucky && lucky.k === "gold" ? lucky.gold : 0;
+  g.econ.settled = { won, bonus, rate, broken: g.econ.broken, earned: g.econ.earned, pach: g.econ.pach, lucky, total: bonus + g.econ.earned + g.econ.pach + lg, xp: xp + lg };
   return g.econ.settled;
+}
+
+/* v3.27 판 끝의 행운: { k: "card", id, grade, gold } | { k: "gold", gold } | null. 화면 결과에 한 줄 (econSettle이 부른다) */
+function econLucky(u, r) {
+  const L = ECON.lucky; if (!L || !u) return null;
+  r = r == null ? Math.random() : r;
+  if (r < L.card && typeof pilRollGrade === "function" && typeof PILGRIM !== "undefined") {
+    const grade = pilRollGrade(PILGRIM.gamble) || "common", c = pilPickCard(u, grade);
+    if (c.id) return { k: "card", id: c.id, grade, gold: c.gold };
+  }
+  if (r >= L.card && r < L.card + L.gold.p) { Store.addGold(u, L.gold.gold, "행운: 환석 조각"); return { k: "gold", gold: L.gold.gold }; }
+  return null;
 }
 
 /* ---------- 파칭코 추첨 ---------- */
@@ -148,8 +288,8 @@ function pachinkoRoll() {
   const r = Math.random(), P = ECON.pachinko;
   if (r < P.card.p) {
     const u = Store.user();
-    let pool = CARD_LIST.filter(c => !u || (u.collection[c.id] || 0) < maxCopiesOf(c));
-    if (!pool.length) pool = CARD_LIST;
+    let pool = CARD_LIST.filter(c => !c.base && (!u || (u.collection[c.id] || 0) < maxCopiesOf(c)));   // v3.28 강화 카드는 합쳐서만
+    if (!pool.length) pool = CARD_LIST.filter(c => !c.base);
     return { kind: "card", gold: 0, card: pick(pool).id };
   }
   if (r < P.card.p + P.faction.p) return { kind: "faction", gold: P.faction.gold, id: pick(Object.keys(FACTIONS)) };

@@ -2,6 +2,7 @@
 
 > Read this first if you are an AI asked to paint art for ETHERION. (Korean users: 사용법은 `README.md`.)
 > Source of truth for style: `docs/STYLE_GUIDE.md` (sections 0, 1, 2.11, 3, 6). If this brief and the guide disagree, the guide wins.
+> **For card illustrations, also read `tools/art/PROMPT_GUIDE.md`** — the grade-by-grade rules (Common → Special), the fixed identity of each of the nine banners, and how to write a prompt for a new card. Wording source: `tools/art/art_style.json`.
 
 ## 1. The game in one paragraph
 ETHERION is a browser card-battle game set on the continent of Kailan. Long ago the source-god **Arche** split the world's ether three ways: the **seven sleeping giants** became the land (body), the **seven dragons** hold the elements (power), the **five gods** give will (meaning). Three mortal factions draw on one source each: the **Adamant Concord** mines the giants with technology (copper, steam, cannons), the **Verdant Covenant** borrows from dragons through pacts (forests, beasts, water), the **Arcane Conclave** receives from gods and always pays a price (light and darkness, stars, blood contracts). Each faction has three banners (groups) — nine in total.
@@ -27,11 +28,14 @@ ETHERION is a browser card-battle game set on the continent of Kailan. Long ago 
 
 ## 3. What to paint
 
-### 3.1 Card illustrations — 670 cards
+### 3.1 Card illustrations — 788 cards
 - One picture per card, saved as **`img/cards/<CARD_ID>.png`**, portrait **4:5** (800×1000).
 - Every card's prompt is ready in `tools/art/prompts/cards.jsonl` (one JSON per line: `id`, `out`, `size`, `prompt`) and, human-readable, in `tools/art/prompts/cards/<GROUP>.md`.
 - Composition: one main subject in the **middle 70%**; keep the **top 15%** (name) and **bottom 20%** (numbers) calm; edges get cropped.
 - Units: upper body to full body; power and grandeur grow with level 1→8. Spells: the moment the effect hits. Items: one object, centred, faded-gold light, no hands.
+- **Grade sets the finish, level sets the size.** Common = eye-level, simple background, element light only. Superior = small gold accents, blurred home. Rare = dynamic low angle, home landmark, sapphire rim. Empowered = the base card's same character, reinforced, teal energy (attach the base card's image if it exists). Epic = cinematic scale, weather, violet particles. Unique = iconic hero portrait with the banner's giant/dragon/god as a colossal silhouette, orange-gold embers. Special = mythic key art, the source being filling the sky, golden rune rings, crimson and gold. Grade accent colours stay secondary to the element light.
+- Ready-made prompts grouped by grade: `tools/art/prompts/grades/<grade>.md`. Specials and uniques carry an extra "Art direction" line from `tools/art/art_notes.json`.
+- Delivered images can have any file name containing the card ID or Korean card name: drop them in `tools/art/inbox/` and run `python tools/art/artmap.py import`.
 
 ### 3.2 Battle-screen art (the pictures behind the numbers) — 10 files
 Prompts: `tools/art/prompts/ui.jsonl` / `ui.md`. **Always give the reference image(s)** listed for each asset (the ether altar is the exception — it has none): the game places live elements (crystals, numbers, the burning card, the blood level) at fixed spots, so **position, size and outline must match the reference exactly**; repaint only material, light and texture. References are frozen copies in `tools/art/ref/`.

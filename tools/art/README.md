@@ -1,10 +1,19 @@
-# 그림 AI 작업 도구 (v3.9.15)
+# 그림 AI 작업 도구 (v3.9.15 · 등급별 프롬프트 v3.31)
 
-카드 일러스트 670장과 전장 그림 10장(배경 · 카드 뒷면 · 소각장 · 에테르 · 생명)을
+> **v3.31 등급별 프롬프트**: 카드 일러스트 프롬프트는 등급마다 연출이 다르고 깃발마다 고유 요소가 고정된다. 규칙서는 **`PROMPT_GUIDE.md`**(다른 AI에게 그대로 넘겨도 된다), 문구 원본은 `art_style.json`, 카드별 지시는 `art_notes.json`.
+> 등급별로 모은 완성 프롬프트는 `prompts/grades/<등급>.md`(special · unique · epic · upgrade · rare · uncommon · common · token).
+> 받은 그림은 `inbox/`에 넣고 `python tools/art/artmap.py import`(또는 `그림 연결.bat`) — 카드에 연결되고 장부 `art_map.csv` · 보드 `art_board.html`이 새로 만들어진다(5장).
+
+카드 일러스트 788장(v3.31, 뺀 카드 제외 · 소환물 포함)과 전장 그림 10장(배경 · 카드 뒷면 · 소각장 · 에테르 · 생명)을
 이미지 생성 AI(OpenAI · Gemini)로 그려 게임에 넣는 도구. 그림 규칙은 `docs/STYLE_GUIDE.md` 6장(특히 6.7).
 
 | 파일 | 무엇 |
 |---|---|
+| `PROMPT_GUIDE.md` | **등급별 프롬프트 규칙서** — 세 축(등급 · 레벨 · 깃발), 등급 사다리, 깃발 고유성, 새 카드 프롬프트 쓰는 법, 연결 방법. 표는 build_prompts.js가 채운다 |
+| `art_style.json` · `art_notes.json` | 그림 말의 원본(등급 · 레벨 · 깃발 · 진영 · 종류) · 카드별 그림 지시. 고치면 build_prompts.js를 다시 |
+| `prompts/grades/<등급>.md` | 등급별 완성 프롬프트(그 등급의 연출 틀 + 카드마다) |
+| `inbox/` · `artmap.py` · `그림 연결.bat` | 받은 그림을 카드에 연결 → `img/cards/<ID>.png` |
+| `art_map.csv` · `art_board.html` | 카드 ↔ 일러스트 장부(엑셀) · 보드(브라우저로 열기). artmap.py가 만든다 |
 | `BRIEF.md` | **그림 AI에게 주는 지시서**(영어). 세계관 · 그림체 · 만들 그림 목록 · 저장 규칙. AI에게 "이 문서를 읽고 그려" 하고 넘기면 된다 |
 | `prompts/cards/<단체>.md` | 카드마다 프롬프트(사람용). 채팅창(ChatGPT · Gemini)에 하나씩 붙여 넣을 때 |
 | `prompts/ui.md` | 전장 그림 프롬프트(사람용). 참고 그림을 꼭 같이 넣는다 |
@@ -60,3 +69,13 @@ python tools/art/gen.py --sheet --group B1                        # 만든 그�
 
 ## 4. 이펙트(마법 연출)는?
 그림 파일이 아니라 코드(`js/spellfx.js` · `css/spellfx.css`, DOM + Web Animations)로 그린다. 이 도구의 대상이 아니다.
+
+## 5. 받은 그림을 카드에 연결하기 (v3.31)
+1. 그림 파일 이름에 카드 ID(`EP-A1-3_v2.png`)나 카드 이름(`장막의 처형자.jpg`)을 넣어 `tools/art/inbox/`에 둔다. PNG · JPG · WebP, 비율은 상관없다.
+2. `python tools/art/artmap.py import` (모델을 적으려면 `--model gpt-image-1`, 미리 보기만 `--dry`) — Windows는 `그림 연결.bat`.
+   - 가운데를 4:5로 잘라 800×1000 PNG로 `img/cards/<ID>.png`에 넣는다(있던 그림은 `_backup_art/<시각>/`). 원본은 `inbox/_done/`으로.
+   - 이름으로 못 찾은 파일: `python tools/art/artmap.py assign "<파일>" <카드ID>`.
+3. `art_map.csv`(엑셀로 열림)에 상태 · 출처 · 날짜 · 그린 프롬프트 버전이 적힌다. `status`를 `채택` · `다시`로, `note`에 메모를 직접 적어도 다음 실행 때 지워지지 않는다(엑셀을 닫고 실행).
+4. `art_board.html`을 브라우저로 열면 등급 · 깃발 · 종류 · 상태로 걸러 보고, 카드마다 프롬프트를 복사할 수 있다.
+- gen.py로 만든 그림은 바로 `img/cards/`에 들어가므로 `python tools/art/artmap.py`만 돌리면 장부에 반영된다.
+- 새 카드를 만들었으면 먼저 `node tools/art/build_prompts.js`(스페셜 · 유니크는 `art_notes.json`에 지시부터).

@@ -103,7 +103,7 @@ for (const u of SIM_UNITS) {
   if ((u.up || 0) > maxUpkeep(u.lv)) { console.error(`[유지비 상한] ${u.id} ${u.n}: 레벨 ${u.lv}에 유지비 ${u.up} → ${maxUpkeep(u.lv)}로 자름. 카드 수치를 고칠 것 (tools/upcap)`); u.up = maxUpkeep(u.lv); }
   CARD_LIST.push({ id: u.id, type: "unit", name: u.n, group: u.g, faction: G.faction, el: G.el, lv: u.lv, up: u.up,
     a: u.a, d: u.d, h: u.h, co: u.co, w: u.w, orig: u.orig || null, origCo: u.origCo || null, v12: u.v12 || null, v12Co: u.v12Co || null,
-    team: u.team == null ? null : u.team, rev: u.rev || "", legend: u.lv === 8 && u.up >= 2, lock: u.lock || null, pin: u.pin || null, cl: u.cl || "무도",
+    team: u.team == null ? null : u.team, rev: u.rev || "", legend: u.lv === 8 && u.up >= 2, lock: u.lock || null, pin: u.pin || null, cl: u.anyItem ? "" : (u.cl || "무도"), anyItem: !!u.anyItem, base: u.base || null,   // v3.28 강화 카드(js/upgrades.js): 클래스 없이 어떤 아이템이든
     // v2.9 스페셜 유닛(js/specials.js): 타고난 능력 gift(아이템 능력과 같은 꼴), 덱에 1장(limit), 설명 글
     gift: u.gift || null, limit: u.limit || 0, special: !!u.special, unique: !!u.unique, flavor: u.desc || "" });   // v3.2 유니크(js/uniques.js)
 }
@@ -136,7 +136,7 @@ for (const t of (typeof SIM_TOKENS !== "undefined" ? SIM_TOKENS : [])) {
   const base = { id: t.id, name: t.n, group: t.g, faction: G.faction, el: G.el, lv: t.lv, up: 0, tok: true, flavor: t.desc || "" };
   CARDS[t.id] = t.kind
     ? Object.assign(base, { type: t.kind === "com" ? "any" : t.kind, a: 0, d: 0, h: 0, co: [], ops: t.ops, cost: {}, gain: {}, text: foeBackText(t.text) })
-    : Object.assign(base, { type: "unit", a: t.a, d: t.d, h: t.h, co: t.co || [], lock: t.lock || null, pin: t.pin || null, w: null, rev: "", legend: false, cl: t.cl || TOKEN_CL[t.id] || "무도" });
+    : Object.assign(base, { type: "unit", a: t.a, d: t.d, h: t.h, co: t.co || [], lock: t.lock || null, pin: t.pin || null, w: null, rev: "", legend: false, cl: t.cl || TOKEN_CL[t.id] || "무도", still: !!t.still });   // v3.31 still: 공격 · 반격하지 않는 소환물(화약통 · 뿌리 · 묘목)
 }
 
 /* 소환 비용 = 레벨 (규칙 문서 6. 소환 자원). 유닛·마법·아이템 모두 같다 */
@@ -176,6 +176,15 @@ function pinAbilities(src, isItem) {
 const STAT_ICON = { a: "⚔", d: "⛨", h: "♥" };
 const sgnNum = v => (v > 0 ? "+" + v : v < 0 ? "−" + Math.abs(v) : "0");
 
+/* v3.31 유니크(강화 특수능력을 가진 유닛)는 덱에 UNIQUE_DECK_MAX종까지 (같은 유니크는 limit 1).
+   uniqueBlock(cards, id): cards에 id를 하나 더 넣으면 이 규칙을 넘는지 — 넘으면 까닭 글, 아니면 null */
+const isUniqueCard = c => { c = typeof c === "string" ? CARDS[c] : c; return !!(c && c.type === "unit" && c.gift && c.gift.u); };
+function uniqueKinds(cards) { return Object.keys(cards || {}).filter(id => (cards[id] || 0) > 0 && isUniqueCard(id)); }
+function uniqueBlock(cards, id) {
+  const max = typeof UNIQUE_DECK_MAX !== "undefined" ? UNIQUE_DECK_MAX : 2;
+  if (!isUniqueCard(id) || (cards && cards[id] > 0)) return null;
+  return uniqueKinds(cards).length >= max ? `유니크는 덱에 ${max}종까지 넣을 수 있습니다.` : null;
+}
 /* 카드마다 덱에 넣을 수 있는 최대 장수 (역전 마법은 1장) */
 const maxCopiesOf = id => { const c = typeof id === "string" ? CARDS[id] : id; return (c && c.limit) || RULES.maxCopies; };
 
@@ -199,6 +208,7 @@ function coinMarkText(co, stat) { return coinMarks(co, stat).map(m => m.s).join(
 /* 아이템 효과 문장 */
 function itemAbilities(it) {
   const out = [];
+  if (it.u && typeof UNIQUE_ABIL !== "undefined" && UNIQUE_ABIL[it.u]) out.push(`[${UNIQUE_ABIL[it.u].n}]`);   // v3.31 유니크의 강화 특수능력 (js/uniques.js)
   if (it.shred) out.push("[관통]");
   if (it.magic) out.push(`[마력 공격 ${it.magic === true ? "전부" : it.magic}]`);
   if (it.crit) out.push("[치명]");
@@ -255,13 +265,15 @@ const ITEM_KW = {
   "원거리": "맞붙어 공격해도 상대의 반격을 받지 않는다.",
   "가호": "매 턴 처음 받는 피해를 {n}만큼 줄인다.",
   "보호막 코인": "매 턴 시작에 코인을 던져 앞면이면, 그 턴 처음 받는 피해 한 번을 통째로 막는다.",
-  "고정": "🔒 {S} 코인·마법·저주로 바뀌지 않는다. 올리는 것도 깎는 것도 막는다(그 스탯의 코인은 던지지 않는다). 받은 피해는 그대로 쌓인다.",
-  "버팀": "▲ {S} 카드에 적힌 값(아이템 포함) 아래로 내려가지 않는다. 오르는 것은 된다. 받은 피해는 그대로 쌓인다.",
-  "눌림": "▼ {S} 카드에 적힌 값(아이템 포함) 위로 오르지 않는다. 깎이는 것은 된다.",
+  "고정": "🔒 {S} 증가 · 감소 효과를 모두 받지 않는다.",
+  "버팀": "▲ {S} 감소 효과를 받지 않는다(피해 제외).",
+  "눌림": "▼ {S} 증가 효과를 받지 않는다.",
   "가시": "이 유닛을 맞붙어 공격한 상대 유닛은 체력이 {n} 깎인다.",
   "증폭": "이 유닛이 전장에 있으면 내 공격 마법의 피해가 {n} 늘어난다.",
   "치유": "장착하는 순간 내 생명이 {n} 늘어난다."
 };
+/* v3.31 유니크의 강화 특수능력 뜻 (js/uniques.js UNIQUE_ABIL) */
+if (typeof UNIQUE_ABIL !== "undefined") for (const k in UNIQUE_ABIL) ITEM_KW[UNIQUE_ABIL[k].n] = UNIQUE_ABIL[k].text;
 /* 카드에 적는 일반 뜻이 말풍선 문장과 달라야 하는 것만 (나머지는 ITEM_KW의 {n}을 N으로 바꿔 쓴다) */
 const ITEM_KW_GEN = {
   "치유": "내 생명이 {n} 늘어난다.",
@@ -357,6 +369,7 @@ const SPELL_KW = {
   "수호": "상대의 공격이 맨 앞 유닛보다 먼저 이 유닛에게 향한다.",
   "장전": "이 마법을 쓰면 다음 턴 에테르가 {n} 줄어든다.",
   "불굴": "이번 턴, 쓰러질 만큼의 피해를 처음 받으면 쓰러지지 않고 체력 1로 버틴다(한 번). 파괴 · 코인에는 통하지 않는다.",
+  "무효": "상대 전장에서 아직 발동하지 않은 마법 중 맨 앞 1장이 발동하지 않고 부서진다(소각장으로). 같은 때라면 공격 마법이 상대 마법보다 먼저 발동하므로, 앞 칸에 둘수록 상대 마법이 풀리기 전에 막는다. 무효로 할 마법이 없으면 헛것이 된다.",
   "꿰뚫기": "이번 턴, 맞붙어 공격하면 맞선 유닛 바로 뒤의 상대 유닛도 같은 공격을 받는다(그 유닛의 방어를 뺀 피해, 반격은 없음)."
 };
 function spellKwDesc(inner) {
@@ -427,7 +440,7 @@ function countMap(m) { return Object.values(m).reduce((a, b) => a + b, 0); }
 const CLASS_NAMES = ["무도", "무장", "마도", "기도"];
 function itemClasses(itemCard) { return (itemCard && itemCard.cls) || ["공용"]; }
 function isAllClass(itemCard) { const cs = itemClasses(itemCard); return cs.includes("공용") || CLASS_NAMES.every(k => cs.includes(k)); }
-function classFits(itemCard, unitCard) { return !!(itemCard && unitCard) && (isAllClass(itemCard) || itemClasses(itemCard).includes(unitCard.cl)); }
+function classFits(itemCard, unitCard) { return !!(itemCard && unitCard) && (unitCard.anyItem || isAllClass(itemCard) || itemClasses(itemCard).includes(unitCard.cl)); }   // v3.28 강화 카드는 어떤 아이템이든
 function canEquip(itemCard, unitCard) { return classFits(itemCard, unitCard); }
 /* 이름 옆 클래스 꼬리표: 유닛 [무도] · 아이템 [무장 전용] / [무장, 기도 전용] / [공용] */
 function classTagText(c) {

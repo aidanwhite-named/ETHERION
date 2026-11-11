@@ -14,7 +14,7 @@
 //     --time S      S초가 지나면 새 카드를 더 시작하지 않고 저장 후 끝낸다 (다시 실행하면 이어서 한다)
 //   결과: out/result_<part>.json  →  node tools/cardsim/report.js 로 표와 보고서를 만든다.
 const { fork } = require('child_process'); const os = require('os'); const fs = require('fs'); const path = require('path');
-const ROOT = path.resolve(__dirname, '../..'); const JS = path.join(ROOT, 'js');
+const ROOT = path.resolve(__dirname, '../..'); const JS = process.env.ETHERION_JS ? path.resolve(process.env.ETHERION_JS) : path.join(ROOT, 'js');   // v3.30 다른 폴더의 카드로 잴 때 ETHERION_JS
 
 /* 게임 안에 계측 코드를 끼워 넣는다: 뽑기·소환/장착·결정화·소각·마법 발동을 카드별로 센다 */
 const HOOK = `

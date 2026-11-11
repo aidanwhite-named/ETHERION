@@ -64,7 +64,7 @@ const Exp = {
     e.log.push({ stage: e.stage, won: true });
     // 보상 후보 3장: 단체 전투는 그 단체의 카드, 용·빈 자리는 내 단체의 카드 (지금 원정 덱에 4장 미만인 카드)
     const src = n.kind === "group" ? n.g : e.group;
-    const pool = cardsOfGroup(src).filter(c => (e.deck[c.id] || 0) < maxCopiesOf(c) && !c.comeback);
+    const pool = cardsOfGroup(src).filter(c => (e.deck[c.id] || 0) < maxCopiesOf(c) && !c.comeback && !c.base && !(typeof uniqueBlock === "function" && uniqueBlock(e.deck, c.id)));   // v3.31 유니크 2종까지   // v3.28 강화 카드 빼기
     const w = c => Math.max(1, 9 - c.lv);
     const picks = [];
     const bag = pool.slice();

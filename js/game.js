@@ -57,7 +57,7 @@ function mkPlayer(idx, cfg) {
 }
 
 /* ---------- 에테르 ---------- */
-function upkeepOf(p) { return p.field.filter(it => isUnit(it) && it.summoned < G.turn).reduce((s, it) => s + C(it).up, 0); }
+function upkeepOf(p) { return p.field.filter(it => isUnit(it) && it.summoned < G.turn).reduce((s, it) => s + uUpkeepOf(it), 0); }
 function etherTotal(p) { return RULES.essence + p.crystals.length + (p.bonusNow || 0); }
 function ether(p) { return etherTotal(p) - p.reloadNow - upkeepOf(p) - p.spent; }
 /* v1.8 라운드: 공격 턴과 방어 턴이 한 번씩 지나가면 한 라운드 (두 플레이어가 한 번씩 공격) */
@@ -190,7 +190,7 @@ function actShuffle(p) {
 }
 function burnFieldAt(p, slot, why) {
   const it = p.field[slot]; if (!it) return false;
-  p.field[slot] = null; if (!C(it).tok) p.burn.push(it.id); if (it.item) p.burn.push(it.item.id);
+  p.field[slot] = null; if (!C(it).tok) (it.from != null && G.players[it.from] ? G.players[it.from] : p).burn.push(it.id); if (it.item) (it.item.from != null && G.players[it.item.from] ? G.players[it.item.from] : p).burn.push(it.item.id);   // v3.31 넘어온 유닛 · 빼앗은 아이템은 원래 주인의 소각장
   log(`${p.name}: 전장의 「${isUnit(it) ? C(it).name : "마법 카드"}」 소각${why ? " — " + why : ""}`);
   return true;
 }
@@ -212,7 +212,7 @@ function actMove(p, from, to) {
 function settleUpkeep(p) {
   while (ether(p) < 0) {
     let best = -1, up = 0;
-    p.field.forEach((it, s) => { if (isUnit(it) && it.summoned < G.turn && C(it).up > up) { up = C(it).up; best = s; } });
+    p.field.forEach((it, s) => { if (isUnit(it) && it.summoned < G.turn && uUpkeepOf(it) > up) { up = uUpkeepOf(it); best = s; } });   // v3.31 낙인 유지비 포함
     if (best < 0) break;
     burnFieldAt(p, best, `유지비 ${up}를 낼 에테르가 없음`);
   }
@@ -314,6 +314,8 @@ function beginTurn() {
     p.made = 0; p.crysBank = crysLeft(p) + RULES.crystalsPerTurn; p.spent = 0; p.shuffled = false; p.committed = false; p.reloadNow = p.reload; p.reload = 0; p.bonusNow = p.bonus || 0; p.bonus = 0;
     for (const it of p.field) if (isUnit(it)) { const dmg = it.t ? it.t.dmg : 0; resetTurn(it); if (G.rules && G.rules.noHeal && dmg) it.t.dmg = Math.min(dmg, it.t.h - 1); }
     if (G.rules && G.rules.lifeTide && G.turn > 1) p.life = Math.min(RULES.lifeCap, p.life + G.rules.lifeTide);
+    // v3.31 [마력 흡수]: 모은 마력이 이번 턴 에테르가 된다
+    for (const it of p.field) if (isUnit(it) && it.t && it.t.keep && it.t.keep.mana) { p.bonusNow += it.t.keep.mana; log(`${p.name}: [마력 흡수] ${C(it).name}이(가) 모은 마력 ${it.t.keep.mana} → 이번 턴 에테르 +${it.t.keep.mana}`, "good"); it.t.keep.mana = 0; }
   }
   const A = G.players[G.attacker], D = opp(A);
   log(`── 라운드 ${roundOf(G.turn)} · 턴 ${G.turn} · ${A.name}의 공격 ──`, "turn");
@@ -428,6 +430,10 @@ async function runCombat() {
     for (const s of rec) { for (const [t, c] of s.logs) log(t, c); if (typeof BLog !== "undefined") BLog.step(s); }
     if (rec.length) applySnap(rec[rec.length - 1].snap);
   }
+  // v3.31 [영혼 강탈] 빼앗은 카드는 핸드로, [돌아오는 물결] 카드는 덱 맨 위로 (전투 복제본에 모아 둔 것)
+  X.P.forEach((q, i) => { const p = G.players[i];
+    for (const id of q.gain || []) { p.hand.push(mkInst(id)); log(`${p.name}: [영혼 강탈] 「${CARDS[id].name}」을(를) 핸드에 넣었다`, "good"); }
+    for (const id of q.deckTop || []) { p.deck.push(id); log(`${p.name}: [돌아오는 물결] 「${CARDS[id].name}」이(가) 덱 맨 위로 돌아갔다`, "good"); } });
   // 부서진 카드 → 가격의 2% (economy.js). 소각은 포함되지 않는다
   const gotGold = typeof econBreak === "function" ? econBreak(G, X.broken) : 0;
   if (gotGold) log(`부서진 카드 ${X.broken.length}장 · +${fmtGold(gotGold)}`, "sys");
@@ -519,20 +525,50 @@ function aiCrystalPlan(p) {
   };
   return p.hand.slice().sort((a, b) => prio(b) - prio(a) + (Math.random() - 0.5)).slice(0, want).map(it => it.uid);
 }
-/* 마법을 각 빈 칸에 놓아 보고 전투를 미리 굴려, 가장 이득인 칸과 이득을 구한다 */
+/* 마법을 각 빈 칸에 놓아 보고 전투를 미리 굴려, 가장 이득인 칸과 이득을 구한다
+   v3.24.4: 마법이 없을 때와 있을 때를 **같은 씨앗**으로 굴려 견준다. 예전에는 따로 굴려(2번 · 3번) 코인 운의 차이가
+   이득처럼 보였고, 그래서 아군 유닛이 없는 빈 전장에도 강화 마법을 놓았다. 이제 아무 일도 하지 않는 마법의 이득은 정확히 0이다 */
+const AI_SPELL_SEEDS = 4;     // 마법 하나를 굴려 보는 횟수 (칸마다)
+const AI_SPELL_MIN = 0.25;    // 굴려 본 이득이 이보다 작으면 그 마법은 내지 않는다
 function spellGain(p, hit) {
-  const o = opp(p), r = role(p);
-  const hide = o.idx; // 상대 마법은 뒷면이라 모른다
-  const base = simulate(G.players, G.attacker, G.turn, p.idx, hide, 2);
+  const hide = opp(p).idx; // 상대 마법은 뒷면이라 모른다
+  const sb = (Math.random() * 1e9) >>> 0;
+  const seeds = Array.from({ length: AI_SPELL_SEEDS }, (_, i) => (sb + i * 7919) >>> 0);
+  const run = () => {
+    let s = 0;
+    for (const seed of seeds) {
+      const before = G.players.map(q => cloneSide(q, q.idx === hide));
+      const P = before.map(q => JSON.parse(JSON.stringify(q)));
+      runCombatCore(ctx(P, G.attacker, G.turn, null, { seed, rules: G.rules }));
+      s += evalScore(before, P, p.idx);
+    }
+    return s / seeds.length;
+  };
+  const base = run();
   let best = null;
   p.field.forEach((x, s) => {
     if (x) return;
     p.field[s] = hit;
-    const v = simulate(G.players, G.attacker, G.turn, p.idx, hide, 3) - base;
+    const v = run() - base + negateHope(p, C(hit), p.field.slice(0, s).filter(isUnit).length);   // v3.32 [무효]는 미리 굴려서는 보이지 않는다
     p.field[s] = null;
     if (!best || v > best.v) best = { v, s };
   });
+  resetRng();
   return best;
+}
+/* v3.32 [무효](js/counterspells.js)의 어림값. 상대 마법은 내 준비가 끝난 뒤에 놓이므로 미리 굴리기(spellGain · hardEval)로는 늘 0이다.
+   사람도 보는 것(상대 핸드 장수 · 에테르)으로 상대가 방어 마법을 낼 만한지 어림하고, 내 유닛 ahead기 뒤에 놓으면
+   그 유닛들이 싸우는 동안 상대 마법이 먼저 풀릴 수 있어 값을 줄인다. 컴퓨터끼리 대전에서 방어 턴에 마법이 놓이는 비율은
+   보통 약 8% · 어려움 약 19%(평균 4레벨) — 값은 docs/COUNTERSPELLS_v3.32.md */
+const AI_NEGATE = { v: 0.9, more: 0.25, ahead: [1, 0.55, 0.3, 0.15] };
+function negateHope(p, c, ahead) {
+  const ng = (c.ops || []).find(op => op.op === "negate");
+  if (!ng || G.attacker !== p.idx) return 0;
+  const o = opp(p);
+  if (!o.hand.length) return 0;
+  const e = ether(o) + (crysLeft(o) > 0 && o.crystals.length < RULES.maxCrystals ? 1 : 0);
+  const n = ng.n || 1, hope = AI_NEGATE.v * Math.min(1, o.hand.length / 4) * (e >= 2 ? 1 : 0.3);
+  return hope * (1 + AI_NEGATE.more * (n - 1)) * AI_NEGATE.ahead[Math.min(ahead, AI_NEGATE.ahead.length - 1)];
 }
 async function aiPrep(p) {
   const myG = G, r = role(p);
@@ -562,7 +598,7 @@ async function aiPrep(p) {
         const v = handSpellValue(p, c); if (v <= 0) continue;
         opts.push({ it, kind: "hand", v: Math.min(v, c.lv + 1.5) });
       } else {
-        const g = spellGain(p, it); if (!g) continue;
+        const g = spellGain(p, it); if (!g || g.v < AI_SPELL_MIN) continue;   // v3.24.4 헛마법은 내지 않는다
         opts.push({ it, kind: "spell", s: g.s, v: g.v * 1.1 - (c.cost.life || 0) * 0.15 });
       }
     }
@@ -590,7 +626,7 @@ async function aiPrep(p) {
 function startMatch(cfg) {
   UID = 0;
   const rand = cfg.seed != null ? mulberry32(cfg.seed) : null;   // v3.10 온라인: 두 기기가 같은 시드
-  if (typeof FX !== "undefined") { FX.itemFront.clear(); FX.peek = null; if (FX.curse) FX.curse.clear(); }
+  if (typeof FX !== "undefined") { FX.itemFront.clear(); FX.peek = null; if (FX.curse) FX.curse.clear(); if (FX.scrap) { FX.scrap.clear(); FX.scrapNew.clear(); } }
   G = {
     mode: cfg.mode, turn: 1, attacker: (rand || Math.random)() < 0.5 ? 0 : 1, rand, online: cfg.mode === "online", me: cfg.me || 0, phase: "setup", log: [], sel: null, reg: {},
     fx: { dying: [] }, viewer: 0, control: null, speed: cfg.speed != null ? cfg.speed : Prefs.get("speed", 1), winner: null, reason: "",
@@ -1314,7 +1350,7 @@ function coinClash(info) {
       const base = RULES.coinP, c0 = sd.coins[0];
       let body;
       if (c0.clean) body = `${pct(base)} <em class="down">−${pct(base)}</em> = <b class="zero">0%</b>`;
-      else if (c0.fate) { const ps = [...new Set(sd.groups.map(o => o.p))].sort((x, y) => y - x); body = ps.map(p => `${p ? "+ 동전" : "− 동전"} <b>${pct(p)}</b>`).join(" · ") + ` <small>운명</small>`; }
+      else if (c0.fate) { const ps = [...new Set(sd.groups.map(o => o.p))].sort((x, y) => y - x); body = ps.map(p => c0.jam ? `${p ? "− 동전" : "+ 동전"} <b>${pct(p)}</b>` : `${p ? "+ 동전" : "− 동전"} <b>${pct(p)}</b>`).join(" · ") + ` <small>${c0.jam ? "자기장 교란" : "운명"}</small>`; }
       else body = `<b>${pct(base)}</b>`;
       return `<div class="cs-prob${c0.clean ? " is-zero" : ""}" title="코인이 앞면으로 나올 확률">코인 확률 ${body}</div>`;
     };
@@ -1676,7 +1712,9 @@ function shatterCard(b) {
 
 /* ---------- 조각별 HTML ---------- */
 /* v3.11 상대가 뒷면으로 놓은 마법은 준비 단계에서만 가린다. 전투가 시작되면 양쪽 마법이 모두 앞면으로 보인다 */
-const spellHidden = (it, p) => isSpell(it) && p && p.idx !== G.viewer && G.phase !== "combat";
+const spellHidden = (it, p) => isSpell(it) && p && p.idx !== G.viewer && G.phase !== "combat" && !eyeOpen(G.viewer);
+/* v3.31 [폭풍의 눈]: 내 전장에 이 유닛이 있으면 상대 뒷면 마법이 보인다 */
+function eyeOpen(vi) { const me = G && G.players[vi]; return !!(me && me.field.some(it => isUnit(it) && C(it).gift && C(it).gift.u === "eye")); }
 function fieldCardHTML(it, p, s) {
   const c = C(it);
   const hidden = spellHidden(it, p);
@@ -1720,7 +1758,31 @@ function fieldCardHTML(it, p, s) {
     const chips = equipChipsHTML(ic);
     item = chips ? `<div class="c-equip">${chips}</div>` : "";
   }
-  return cardHTML(c, { size: "md", live, badges, extra: item, under, cls: cls.join(" "), attrs, slim: true });
+  const artx = isUnit(it) && it.t && abilOf(it).u === "scrap" ? scrapPileHTML(it) : "";   // v3.31.1 [고철 골렘] 고철 더미
+  return cardHTML(c, { size: "md", live, badges, extra: item, under, cls: cls.join(" "), attrs, slim: true, artx });
+}
+/* ---------- v3.31.1 [고철 골렘] 고철 더미 (css/fmcard.css 맨 아래) ----------
+   브론의 첫 골렘 그림 왼쪽 아래에 모은 고철(0~4)이 조각으로 쌓인다: 톱니 · 철판 · 볼트 · 굽은 관 순서로 아래 둘 → 가운데 → 꼭대기.
+   빈 자리는 흐린 윤곽. 고철이 늘면 새 조각이 위에서 떨어져 앉는다 — 화면을 다시 그려도 끊기지 않게 음수 animation-delay로 이어 간다 */
+const SCRAP_SVG = [
+  (() => { let d = ""; for (let i = 0; i < 16; i++) { const a = i * Math.PI / 8 - Math.PI / 16, r = i % 2 ? 7.4 : 10.2; d += (i ? "L" : "M") + (12 + r * Math.cos(a)).toFixed(1) + " " + (12 + r * Math.sin(a)).toFixed(1) + (i % 2 ? "" : "L" + (12 + r * Math.cos(a + Math.PI / 8 * .55)).toFixed(1) + " " + (12 + r * Math.sin(a + Math.PI / 8 * .55)).toFixed(1)); } return `<path d="${d}Z"/><circle cx="12" cy="12" r="3" fill="#000" fill-opacity=".55"/>`; })(),
+  '<path d="M2.6 8.4 19.8 4.6l1.6 9.6-6 .4-1 4.8-11.4 1.4z"/><circle cx="6" cy="10.4" r="1.2" fill="#000" fill-opacity=".5"/><circle cx="16.8" cy="8.2" r="1.2" fill="#000" fill-opacity=".5"/><circle cx="7" cy="17" r="1.2" fill="#000" fill-opacity=".5"/>',
+  '<path d="M8.4 2.6h7.2l3.6 5.2-3.6 5.2H8.4L4.8 7.8z"/><path d="M10 13h4v8.4h-4z"/><path d="M10 15.2h4M10 17.6h4M10 20h4" stroke="#000" stroke-opacity=".45" stroke-width="1"/>',
+  '<path d="M3 15.5h7.5c2.2 0 3.5-1.3 3.5-3.5V4h5.5v8c0 5.3-3.7 9-9 9H3z"/><path d="M13 3h7.5v2.4H13zM2 14.6h2.4v7.4H2z"/>'
+];
+function scrapPileHTML(it) {
+  if (!FX.scrap) { FX.scrap = new Map(); FX.scrapNew = new Map(); }
+  const n = Math.max(0, Math.min(4, (it.t.keep && it.t.keep.scrap) || 0)), seen = FX.scrap.get(it.uid), now = performance.now();
+  if (seen != null && n > seen) FX.scrapNew.set(it.uid, { from: seen, t0: now });
+  FX.scrap.set(it.uid, n);
+  const fr = FX.scrapNew.get(it.uid), age = fr ? now - fr.t0 : Infinity;
+  const bits = SCRAP_SVG.map((svg, i) => {
+    const on = i < n, drop = on && fr && i >= fr.from && age < 1400;
+    const st = drop ? ` style="animation-delay:${Math.round((i - fr.from) * 160 - age)}ms"` : "";
+    return `<i class="sp sp-${i}${on ? " on" : ""}${drop ? " drop" : ""}"${st}><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${svg}</svg></i>`;
+  }).join("");
+  const tip = `고철 ${n} / 4\n[고철 골렘] 이 유닛이 전장에 있는 동안 내 유닛(소환물 빼고)이 쓰러질 때마다 고철 1.\n4가 되면 전투가 끝날 때 빈 칸에 '고철 골렘'(3/2/5)을 세우고 고철 −4. 턴이 지나도 남는다.`;
+  return `<div class="scrap-pile${n >= 4 ? " full" : ""}" data-tip="${esc(tip)}">${bits}<b class="sp-n">${n}<small>/4</small></b></div>`;
 }
 /* v3.20 전장 유닛의 이번 턴 표시 { 스탯: "L"|"U"|"D" } — 유닛 · 아이템 · 마법이 건 것(t.floor) */
 function livePins(it) { const f = (it.t && it.t.floor) || {}, o = {}; for (const k in f) if (f[k] && f[k].m) o[k] = f[k].m; return o; }
@@ -1806,11 +1868,12 @@ function etherHTML(p, isMe, ctrlAll) {
 }
 /* v3.19.8 결정화 손짓 (css/crys-hint.css): 결정화를 모르는 사람이 많아서, 내 준비 단계에 결정화할 수 있으면
    핸드 맨 왼쪽 카드 자리에서 카드 한 장(뒷면)이 에테르 구슬로 날아드는 모습을 되풀이해 보이고, 구슬 아래 명판을 두 줄로 키운다.
-   결정화를 CRYS_TEACH번 해 보면 다시 나오지 않는다 (Prefs crysTeach, 연습 대전을 다시 켜면 0으로). 판 상태 · 온라인 동기화와는 상관없는 화면 연출 */
+   결정화를 CRYS_TEACH번 해 보면 다시 나오지 않는다 (Prefs crysTeach, 연습 대전을 다시 켜면 0으로). 판 상태 · 온라인 동기화와는 상관없는 화면 연출
+   v3.24.3: 튜토리얼 ③ 연습 대전(cfg.practice)에서만. 컴퓨터 · 원정 · 대전 · 온라인에서는 나오지 않는다(작은 "결정화 가능 N" 명판은 그대로) */
 const CRYS_TEACH = 3;
 const CrysHint = {
   el: null,
-  on() { return typeof Prefs !== "undefined" && (+Prefs.get("crysTeach", 0) || 0) < CRYS_TEACH; },
+  on() { return !!(G && G.cfg && G.cfg.practice) && typeof Prefs !== "undefined" && (+Prefs.get("crysTeach", 0) || 0) < CRYS_TEACH; },
   learn() { if (this.on()) Prefs.set("crysTeach", (+Prefs.get("crysTeach", 0) || 0) + 1); },
   hide() { if (this.el) { this.el.remove(); this.el = null; } },
   // 날아가는 카드는 화면 맨 위 연출 층(#fx-layer)에 한 번만 만들어 두고(다시 그려도 움직임이 끊기지 않게) 자리만 고친다.
@@ -2180,6 +2243,8 @@ function render() {
     <div class="log" id="log">${G.log.slice(-120).map(l => `<div class="l ${l.cls}">${esc(l.text)}</div>`).join("")}</div></aside>
   ${G.handoff ? `<div class="handoff" data-act="handoff"><div><p class="ho-eyebrow">PASS THE SCROLL</p><h2>${esc(me.name)}의 차례</h2><p>${G.phase === "atkPrep" ? "공격 준비" : "방어 준비"}를 할 차례입니다. 상대가 화면을 보지 않을 때 눌러 주세요.</p><button class="btn primary">핸드 펼치기</button></div></div>` : ""}`;
   const lg_ = $("#log"); if (lg_) lg_.scrollTop = lg_.scrollHeight;
+  /* v3.32.1 폰 · 앱: 준비 완료 단추(+모래시계)를 가운데 띠에서 내 덱 왼쪽(f-piles)으로 옮긴다. 가운데 띠를 얇게 하고 그만큼 상대 전장 카드를 키운다(css/mobile.css) */
+  if (swap && document.documentElement.classList.contains("mobile")) { const rw = boardEl.querySelector(".mb-right .rd-wrap"), pl = boardEl.querySelector(".frow-bot .f-piles"); if (rw && pl) { rw.classList.add("rd-pile"); pl.prepend(rw); } }
   if (typeof Arcade !== "undefined" && !document.documentElement.classList.contains("mobile")) { Arcade.mount(boardEl); Arcade.place(boardEl); }   /* v3.20.5 폰 · 앱에서는 파친코 · 결정 상자를 두지 않는다 */
   placeFocus();
   if (typeof fitDescs === "function") fitDescs(boardEl);
@@ -3445,7 +3510,7 @@ function showRules() {
     <li><b>마법 피해와 물리 피해</b> — 마법의 "피해"는 방어를 무시하고 체력을 깎습니다. "물리 피해"는 공격처럼 방어를 거칩니다(피해 − 방어). 마법이 부른 유닛의 공격도 물리입니다.</li>
     <li><b>소환 · 메아리</b> — 소환 마법은 부서지며 그 칸에 유닛을 부르고, 공격 턴이면 차례가 왔을 때 그 유닛도 공격합니다("이번 턴만"은 전투가 끝나면 사라짐). 메아리 마법은 작은 마법을 불러 이어서 발동합니다. 부른 유닛은 부서져도 카드가 남지 않습니다.</li>
     <li><b>계략 마법</b> — 핸드를 겨냥하는 마법. 공격·방어 준비 어느 때나, 칸 없이 내는 즉시 발동하고 소각 더미로 갑니다. 핸드 카드에 건 스탯 변화는 그 카드가 전장에 나와도 이 판 내내 남습니다.</li>
-    <li><b>스탯 표시 · 코인으로 쓰러짐</b> — 숫자 옆 <b>🔒 고정</b>은 마법·코인·저주로 바뀌지 않고, <b>▲ 버팀</b>은 그 값 아래로 내려가지 않고, <b>▼ 눌림</b>은 그 값 위로 오르지 않습니다. 셋 다 받은 피해는 그대로 쌓이므로 체력만큼 피해를 입으면 쓰러집니다. 코인 때문에 체력이 0 이하가 되면 그 유닛은 쓰러져 소각 더미로 갑니다.</li>
+    <li><b>스탯 표시 · 코인으로 쓰러짐</b> — 숫자 옆 <b>🔒 고정</b>은 증가·감소 효과를 모두, <b>▲ 버팀</b>은 감소 효과를, <b>▼ 눌림</b>은 증가 효과를 받지 않습니다(증가·감소 효과 = 마법·특수능력·코인·저주로 스탯이 오르내리는 것). 셋 다 받은 피해는 그대로 쌓이므로 체력만큼 피해를 입으면 쓰러집니다. 코인 때문에 체력이 0 이하가 되면 그 유닛은 쓰러져 소각 더미로 갑니다.</li>
     <li><b>직접 공격</b> — 막을 유닛이 없으면 공격 유닛의 레벨만큼 생명이 줄어듭니다. 대신 직접 공격을 받은 쪽은 <b>다음 턴에 에테르 +1</b>을 일시적으로 얻습니다 (한 턴에 한 번, 그 턴에만).</li>
     <li><b>셔플</b> — 내 준비 단계에 핸드 전부를 덱에 넣고 섞어 같은 장수를 다시 뽑습니다. 한 턴에 한 번, 생명 −1. 그 턴에 카드를 전장에 올렸거나 소각했으면 할 수 없습니다.</li>
     <li><b>승패</b> — 생명이 0 아래로 깎이거나 덱이 0이 되면 패배합니다(생명 0까지는 계속 싸울 수 있음). 동시에 그렇게 되면 다음 턴에 공격하는 쪽이 패배합니다.</li>
@@ -3465,10 +3530,11 @@ function showResult() {
     <h2 class="res-title">${won ? "VICTORY" : "DEFEAT"}</h2>
     <p class="res-sub">${G.mode === "hotseat" || G.online ? esc(w.name) + " 승리 · " : ""}${esc(G.reason)}</p>
     <div class="res-stats"><span>라운드 <b>${roundOf(G.turn)}</b></span><span>턴 <b>${G.turn}</b></span><span>${esc(G.players[0].name)} 생명 <b>${G.players[0].life}</b></span><span>${esc(G.players[1].name)} 생명 <b>${G.players[1].life}</b></span></div>
-    ${econ ? `<div class="res-gold"><span>이번 판 수입</span><b>+${fmtGold(econ.total)}</b><div class="rg-rows"><span>부서진 카드 ${fmtGold(econ.broken)} × ${econ.won ? ECON.winMul : ECON.loseMul} = <i>${fmtGold(econ.bonus)}</i></span><span>전투 중 2% <i>${fmtGold(econ.earned)}</i></span>${econ.pach ? `<span>작은 게임 <i>${fmtGold(econ.pach)}</i></span>` : ""}<span>지갑 <i>${fmtGold(Store.gold())}</i></span></div></div>` : ""}
-    ${econ && typeof LevelUI !== "undefined" ? LevelUI.resultHTML(econ.total) : ""}
+    ${econ ? `<div class="res-gold"><span>이번 판 수입</span><b>+${fmtGold(econ.total)}</b><div class="rg-rows"><span>부서진 카드 ${fmtGold(econ.broken)} × ${econ.won ? ECON.winMul : ECON.loseMul}${econ.rate != null && econ.rate !== 1 ? ` × ${+(econ.rate * 100).toFixed(2)}%` : ""} = <i>${fmtGold(econ.bonus)}</i></span><span>전투 중 2% <i>${fmtGold(econ.earned)}</i></span>${econ.pach ? `<span>작은 게임 <i>${fmtGold(econ.pach)}</i></span>` : ""}${econ.lucky && econ.lucky.k === "gold" ? `<span class="rg-lucky">행운 · 환석 조각 <i>${fmtGold(econ.lucky.gold)}</i></span>` : ""}<span>지갑 <i>${fmtGold(Store.gold())}</i></span></div></div>` : ""}
+    ${econ && econ.lucky && econ.lucky.k === "card" && CARDS[econ.lucky.id] ? `<div class="res-lucky"><p><b>행운</b> 환석이 빛나더니 카드 한 장을 내놓았다 — <span class="grade-${econ.lucky.grade}">${GRADES[econ.lucky.grade] ? GRADES[econ.lucky.grade].name : ""}</span> 「${esc(CARDS[econ.lucky.id].name)}」${econ.lucky.gold ? ` (이미 다 가져서 ${fmtGold(econ.lucky.gold)})` : ""}</p>${cardHTML(CARDS[econ.lucky.id], { size: "md" })}</div>` : ""}
+    ${econ && typeof LevelUI !== "undefined" ? LevelUI.resultHTML(econ.xp != null ? econ.xp : econ.total) : ""}
     ${reward ? `<div class="res-reward"><p>보상으로 카드 1장을 얻었습니다</p>${cardHTML(CARDS[reward], { size: "md" })}</div>` : ""}
-    <div class="res-btns">${G.cfg.exp ? `<button class="btn primary" data-r="lobby">${won ? "원정 계속" : "원정으로"}</button>` : `<button class="btn primary" data-r="lobby">대기실로</button><button class="btn" data-r="again">한 번 더</button>`}<button class="btn ghost" data-r="board">전장 보기</button>${typeof BLog !== "undefined" ? `<button class="btn ghost" data-blog="dl" title="이 판의 개발용 전투 로그(.txt) 내려받기">⤓ 전투 로그</button>` : ""}</div>
+    <div class="res-btns">${G.cfg.exp ? `<button class="btn primary" data-r="lobby">${won ? "원정 계속" : "원정으로"}</button>` : G.cfg.pil ? `<button class="btn primary" data-r="lobby">순례길로</button>` : `<button class="btn primary" data-r="lobby">대기실로</button><button class="btn" data-r="again">한 번 더</button>`}<button class="btn ghost" data-r="board">전장 보기</button>${typeof BLog !== "undefined" ? `<button class="btn ghost" data-blog="dl" title="이 판의 개발용 전투 로그(.txt) 내려받기">⤓ 전투 로그</button>` : ""}</div>
   </div>`;
   document.body.appendChild(wrap);
   if (econ && typeof LevelUI !== "undefined") LevelUI.playResult(wrap);

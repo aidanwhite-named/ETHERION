@@ -324,6 +324,7 @@ const MENU_ICON = {
   exit: '<path d="M10 4H5.5v16H10"/><path d="M9.5 12h10M15.5 8l4 4-4 4"/>',
   quill: '<path d="M19.5 4.5C12.8 5 8 10 6.6 17.4L5.2 20.5"/><path d="M19.5 4.5c-.4 6.3-5.3 11-11.1 12.2M10.2 13.6l-2.6-.4"/>',
   duel: '<path d="M5 4l9.6 9.6M19 4l-9.6 9.6M4.2 19.8l3.3-3.3M19.8 19.8l-3.3-3.3M6.3 14.3l3.4 3.4M17.7 14.3l-3.4 3.4"/>',
+  road: '<path d="M8.5 3.5 4.5 20.5M15.5 3.5l4 17"/><path d="M12 4.5v2.4M12 10v2.8M12 16v3.4"/>',   /* v3.25 성로 순례 = 멀어지는 길(가운데 점선) */
   ring: '<circle cx="12" cy="12" r="7.6"/><circle cx="12" cy="4.4" r="1.7" fill="currentColor"/><circle cx="19.6" cy="12" r="1.7" fill="currentColor"/><circle cx="4.4" cy="12" r="1.7" fill="currentColor"/><circle cx="12" cy="19.6" r="1.7" fill="#0d0e17" stroke-dasharray="1.2 1.2"/>',
   banners: '<path d="M3.5 5h7v6.4c0 3.1-3.5 5.1-3.5 5.1s-3.5-2-3.5-5.1z"/><path d="M13.5 7.5h7v6.4c0 3.1-3.5 5.1-3.5 5.1s-3.5-2-3.5-5.1z"/>',
   guide: '<path d="M12 3v18M8.5 21h7"/><path d="M12 5.2h6.4l2.1 2.3-2.1 2.3H12"/><path d="M12 11.6H5.6l-2.1 2.3 2.1 2.3H12"/><circle cx="12" cy="3" r=".9" fill="currentColor"/>',   /* v3.9 튜토리얼 = 갈림길 이정표 */
@@ -357,7 +358,7 @@ function sealTitle(u, R, I) {
 }
 function shardChipHTML(u) {
   const admin = Store.isAdmin(u);
-  return `<button type="button" class="tb-shard" data-nav="shop" title="환석 조각 ${admin ? "∞ (관리자)" : fmtGold(Store.gold(u))}\n전투 · 수레바퀴 · 원정으로 모아 상점에서 카드를 삽니다. 누르면 상점으로.">
+  return `<button type="button" class="tb-shard" data-nav="shop" title="환석 조각 ${admin ? "∞ (관리자)" : fmtGold(Store.gold(u))}\n전투 · 순례 · 수레바퀴로 모아 상점에서 카드를 삽니다. 누르면 상점으로.">
           <i class="shard" aria-hidden="true"></i><b>${admin ? "∞" : Store.gold(u).toLocaleString("ko-KR")}</b><small>조각</small></button>`;
 }
 function headerHTML(title) {
@@ -435,7 +436,7 @@ function showLobby() {
             <span class="dt-state">${own ? `${vaultGaugeHTML(n, playable)}<span class="dt-st ${playable ? "ok" : "bad"}"><b>${n}</b>/${RULES.deckSize} · ${playable ? "출전 가능" : "저장 필요"}</span>` : `<span class="dt-st lock">${LOCK_MINI} 보유하지 않은 덱</span>`}</span></span>
           </button>`;
         }).join("")}</div>`).join("")}
-        <p class="note">${u.admin ? "관리자는 9개 단체의 덱과 모든 카드를 가지고 있습니다." : u.guest ? "손님으로 들어왔습니다. 9개 단체의 덱과 모든 카드를 쓸 수 있습니다. 내 깃발과 카드를 모으려면 나가서 '새 모험가'로 등록하세요." : "등록할 때 고른 깃발(최대 3개)의 덱만 쓸 수 있습니다. 원정에서 이기면 카드를 골라 얻고, 상점에서 사고팔 수도 있습니다."}</p>
+        <p class="note">${u.admin ? "관리자는 9개 단체의 덱과 모든 카드를 가지고 있습니다." : u.guest ? "손님으로 들어왔습니다. 9개 단체의 덱과 모든 카드를 쓸 수 있습니다. 내 깃발과 카드를 모으려면 나가서 '새 모험가'로 등록하세요." : "등록할 때 고른 깃발(최대 3개)의 덱만 쓸 수 있습니다. 순례 · 컴퓨터와 대전에서 카드를 얻고, 상점에서 사고팔 수도 있습니다."}</p>
       </nav>
       <main class="deck-view" id="deck-view"></main>
       <aside class="side-col">
@@ -469,6 +470,7 @@ function renderDeckView() {
   const d = Store.deck(u, f);
   const ids = expandDeck(d.cards);
   const playable = Store.deckPlayable(u, f);
+  const expOn = typeof Exp !== "undefined" && Exp.get() && !Exp.get().over;   /* v3.26 대기실의 원정 자리는 순례로. 원정은 하던 것을 마칠 때만 보인다 */
   const curve = [1, 2, 3, 4, 5, 6, 7, 8].map(l => ids.filter(id => CARDS[id].lv === l).length);
   const mx = Math.max(...curve, 1);
   $("#deck-view").innerHTML = `
@@ -486,9 +488,10 @@ function renderDeckView() {
     <div class="dv-cards" id="dv-cards">${ids.map(id => cardHTML(CARDS[id], { size: "md", brief: true })).join("")}</div>
     <div class="dv-actions altar">
       <button class="btn rite-side" id="go-edit">${menuIcon("quill")}<span>덱 조정실</span></button>
-      <div class="altar-gates">
+      <div class="altar-gates${expOn ? " n4" : ""}">
         <button class="btn primary rite" id="go-ai" ${playable ? "" : "disabled"}>${menuIcon("duel")}<b>컴퓨터와 대전</b><small>SPARRING</small></button>
-        <button class="btn primary gold rite" id="go-exp" ${playable || (typeof Exp !== "undefined" && Exp.get()) ? "" : "disabled"} title="칠룡의 고리 원정 — 여섯 번 싸우며 카드를 모은다">${menuIcon("ring")}<b>${typeof Exp !== "undefined" && Exp.get() && !Exp.get().over ? "원정 계속" : "원정"}</b><small>EXPEDITION</small></button>
+        <button class="btn primary gold rite" id="go-pil" title="성로 순례 — 하루에 한 번 열리는 길. 여덟 관문과 망각의 숲">${menuIcon("road")}<b>순례</b><small>PILGRIMAGE</small></button>
+        ${expOn ? `<button class="btn primary rite" id="go-exp" title="칠룡의 고리 원정 — 하던 원정을 마저 한다 (새 원정은 열리지 않음)">${menuIcon("ring")}<b>원정 계속</b><small>EXPEDITION</small></button>` : ""}
         <button class="btn primary alt rite" id="go-pvp" ${playable ? "" : "disabled"}>${menuIcon("banners")}<b>대전</b><small>DUEL</small></button>
       </div>
     </div>`;
@@ -501,7 +504,8 @@ function renderDeckView() {
   applyDeckFilter(ids);
   $("#go-edit").addEventListener("click", () => showEditor(f));
   $("#go-ai").addEventListener("click", () => startVsAI(f));
-  $("#go-exp").addEventListener("click", () => showExpedition(f));
+  if ($("#go-exp")) $("#go-exp").addEventListener("click", () => showExpedition(f));
+  $("#go-pil").addEventListener("click", () => { if (typeof showPilgrim === "function") showPilgrim(f); });
   $("#go-pvp").addEventListener("click", () => startPvP(f));
   fitLobbyCards();
 }
@@ -560,7 +564,7 @@ function renderChat() {
 ChatNet.onMessage(() => { if (App.screen === "lobby") renderChat(); });
 
 /* ---------- 대전 시작 ---------- */
-async function startVsAI(f) {
+async function startVsAI(f, opts) {   // opts.practice = 튜토리얼 ③ 연습 대전 (v3.24.3, 결정화 손짓은 이 판에서만)
   const u = Store.user();
   if (!Store.deckPlayable(u, f)) { toast("저장된 40장 덱이 있어야 대전할 수 있습니다.", "warn"); return; }
   let get;
@@ -579,7 +583,7 @@ async function startVsAI(f) {
   if (!ok) return;
   Prefs.set("aiDiff", diff);
   let ag = get(); if (ag === "random") ag = pick(GROUP_IDS.filter(g => g !== f));
-  launch({ mode: "ai", p0: { name: u.id, group: f, cards: Store.deck(u, f).cards }, p1: { name: GROUPS[ag].ai, group: ag, cards: diff === "hard" ? HARD_DECKS[ag] : STARTER_DECKS[ag], isAI: true, ai: diff } });
+  launch({ mode: "ai", practice: !!(opts && opts.practice), p0: { name: u.id, group: f, cards: Store.deck(u, f).cards }, p1: { name: GROUPS[ag].ai, group: ag, cards: diff === "hard" ? HARD_DECKS[ag] : STARTER_DECKS[ag], isAI: true, ai: diff } });
 }
 async function startPvP(f) {
   const u = Store.user();
@@ -611,9 +615,10 @@ function onMatchEnd(g) {
   u.stats[won ? "w" : "l"]++;
   u.spins = (u.spins || 0) + 1;   // 크로네아의 수레바퀴 표 1장
   if (g.cfg.exp && typeof Exp !== "undefined") { Exp.onEnd(g); Store.save(); g._reward = null; return null; }
+  if (g.cfg.pil && typeof Pilgrim !== "undefined") { Pilgrim.onEnd(g); Store.save(); g._reward = null; return null; }   // v3.25 성로 순례: 보상은 순례 화면에서
   let reward = null;
   if (won && !Store.allCards(u)) {
-    const pool = cardsOfGroup(g.players[0].group).filter(c => (u.collection[c.id] || 0) < maxCopiesOf(c));
+    const pool = cardsOfGroup(g.players[0].group).filter(c => !c.base && (u.collection[c.id] || 0) < maxCopiesOf(c));   // v3.28 강화 카드는 합쳐서만
     if (pool.length) { const weights = pool.map(c => 9 - c.lv); let r = Math.random() * weights.reduce((a, b) => a + b, 0); for (let i = 0; i < pool.length; i++) { r -= weights[i]; if (r <= 0) { reward = pool[i].id; break; } } reward = reward || pool[0].id; Store.grantCard(u, reward); }
   }
   Store.save();
@@ -630,11 +635,12 @@ function onMatchEnd(g) {
    - 배경: v3.10.7부터 타이틀 그림(img/title/title_art.jpg) 한 장을 멈춘 채 깐다(css/title-art.css .ed-art). 예전의 운명의 감실(js/scenes.js)은 쓰지 않는다 */
 /* v3.10.8 카드 보관함 종류 거르기: 한 줄에 하나만 켜진다. 공격 · 방어 · 공용 · 계략은 '마법' 칸에 붙은 작은 칸.
    예전에는 종류(전체 · 유닛 · 마법 · 아이템)와 마법 종류(모든 마법 · 공격 …)가 따로 켜져서, 유닛을 켠 채 공격을 누르면 0장이 나왔다 */
-const POOL_TYPES = [["all", "전체"], ["unit", "유닛"], ["spell", "마법"], ["item", "아이템"]];
+const POOL_TYPES = [["all", "전체"], ["unit", "유닛"], ["spell", "마법"], ["item", "아이템"], ["upgrade", "업그레이드"]];   // v3.28 업그레이드 = 강화 카드(js/upgrades.js)
 const SPELL_KINDS = [["atk", "공격", "내 공격 턴에만"], ["def", "방어", "내 방어 턴에만"], ["any", "공용", "어느 턴에든"], ["hand", "계략", "칸 없이 바로 발동"]];
 /* 보관함 묶음 제목 (여러 종류가 함께 보일 때) */
 const POOL_SECS = { unit: ["유닛", ""], atk: ["공격 마법", "내 공격 턴 · 뒷면으로 칸에"], def: ["방어 마법", "내 방어 턴 · 뒷면으로 칸에"], any: ["공용 마법", "어느 턴이든 · 뒷면으로 칸에"], hand: ["계략 마법", "칸 없이 내는 즉시 발동"], item: ["아이템", ""] };
 function poolTypeMatch(c, type, kind) {
+  if (type === "upgrade") return !!c.base;
   if (type === "unit") return c.type === "unit";
   if (type === "item") return c.type === "item";
   if (type === "spell") return c.type !== "unit" && c.type !== "item" && (kind === "all" || c.type === kind);
@@ -647,17 +653,9 @@ function poolMatch(c, E) {
   return true;
 }
 const kindOf = c => c.type === "unit" ? "unit" : c.type === "item" ? "item" : "spell";
-/* v3.12.1 덱 점수: 카드 한 장 = 등급 점수 + 레벨. 덱 점수 = 덱에 든 카드(장수만큼)의 합.
-   등급이 오를수록 같은 레벨에서도 강하므로 등급 점수가 크고, 레벨은 1~8점을 더한다.
+/* v3.12.1 덱 점수(DECK_GRADE_PT · cardScore · deckScore)는 v3.24.4에 js/grades.js로 옮겼다(컴퓨터 맞춤 덱 js/aideck.js와 함께 쓴다).
    덱 평가(S~D)는 그 단체 기본 덱 점수에 견준 비율이다(기본 덱 = B 한가운데). 나눈 법은 docs/GRADES.md */
-const DECK_GRADE_PT = { common: 6, uncommon: 10, rare: 15, epic: 21, unique: 28, special: 36 };
 const DECK_TIERS = [[1.25, "S"], [1.12, "A"], [0.95, "B"], [0.8, "C"], [0, "D"]];
-const cardScore = c => (DECK_GRADE_PT[gradeOf(c)] || 6) + (c.lv || 0);
-function deckScore(cards) {
-  let g = 0, l = 0, n = 0;
-  for (const id in cards) { const c = CARDS[id], k = cards[id] || 0; if (!c || k <= 0) continue; g += k * (DECK_GRADE_PT[gradeOf(c)] || 6); l += k * (c.lv || 0); n += k; }
-  return { total: g + l, grade: g, lv: l, n };
-}
 /* 40칸 계기판: 칸마다 유닛(금) · 마법(보라) · 아이템(황동) 색, 10칸마다 마디. 넘친 칸은 붉게 */
 function deckGaugeHTML(cards) {
   const ids = sortDeckCards(Object.keys(cards).filter(k => cards[k] > 0)), seq = [];
@@ -763,7 +761,7 @@ function showEditor(f, focusId) {
     $("#ed-deck-list").innerHTML = ids.map(id => {
       const c = CARDS[id];
       const sub = c.type === "unit" ? `${c.a}/${c.d}/${c.h}${c.up ? " ◆" + c.up : ""}` : c.type === "item" ? "아이템" : TYPES[c.type].name;
-      const canAdd = (E.cards[id] || 0) < Math.min(maxCopiesOf(id), Store.ownedCount(u, id));
+      const canAdd = (E.cards[id] || 0) < Math.min(maxCopiesOf(id), Store.ownedCount(u, id)) && !(typeof uniqueBlock === "function" && uniqueBlock(E.cards, id));
       return `<div class="dl-row k-${kindOf(c)} ${c.faction ? "fac-" + c.faction : "fac-item"}" data-card="${id}" draggable="true" style="--el:${ELEMENTS[c.el].color}">
         <button class="dl-main" data-rm="${id}" title="누르면 1장 뺍니다"><span class="dl-lv">${c.lv}</span><span class="dl-name">${esc(c.name)}</span><span class="dl-type">${sub}</span></button>
         <span class="dl-ctl"><button class="dl-b" data-rm="${id}" aria-label="${esc(c.name)} 1장 빼기">−</button><span class="dl-n">×${E.cards[id]}</span><button class="dl-b" data-add="${id}" ${canAdd ? "" : "disabled"} aria-label="${esc(c.name)} 1장 넣기">+</button></span></div>`;
@@ -771,7 +769,7 @@ function showEditor(f, focusId) {
     const order = { unit: 0, atk: 1, def: 2, any: 3, hand: 4, item: 5 };
     /* v3.10.8 종류 칸의 수: 종류를 뺀 다른 거르기(보유 · 레벨 · 검색 · 남은 카드 · 등급)를 거친 카드 중 그 종류의 수 = 누르면 보일 장수 */
     const pre = cardsOfGroup(f).filter(c => poolMatch(c, { type: "all", kind: "all", lv: E.lv, q: E.q }))
-      .filter(c => E.own === "every" ? true : E.own === "bought" ? (u.collection[c.id] || 0) > 0 : E.own === "fresh" ? !!(u.fresh && u.fresh[c.id]) : Store.ownedCount(u, c.id) > 0)
+      .filter(c => (E.type === "upgrade" && c.base) || E.own === "every" ? true : E.own === "bought" ? (u.collection[c.id] || 0) > 0 : E.own === "fresh" ? !!(u.fresh && u.fresh[c.id]) : Store.ownedCount(u, c.id) > 0)
       .filter(c => !E.hideOut || Store.ownedCount(u, c.id) - (E.cards[c.id] || 0) > 0);
     /* v3.12.1 종류 · 등급 줄 그리기 (카드 보관함과 내 덱이 같은 모양을 쓴다).
        cnt = 장수 셈법(보관함은 종 수, 내 덱은 덱에 든 장수), pkA · grA = 누르기 속성, unit = 제목의 단위 */
@@ -784,7 +782,8 @@ function showEditor(f, focusId) {
       $(kindSel).innerHTML = `<span class="dv-gl">종류</span>`
         + btn("all", "", "전체", "모든 종류", "k-all") + btn("unit", "", "유닛", "유닛만 보기", "k-unit")
         + `<span class="ed-spell-grp${S.type === "spell" ? " on" : ""}">${btn("spell", "", "마법", "모든 마법 보기", "k-spell")}<span class="ed-sub">${SPELL_KINDS.map(([k, l, tip]) => btn("spell", k, l, `${l} 마법만 보기 — ${tip}`, "k-" + k)).join("")}</span></span>`
-        + btn("item", "", "아이템", "아이템만 보기", "k-item");
+        + btn("item", "", "아이템", "아이템만 보기", "k-item")
+        + btn("upgrade", "", "업그레이드", "강화 카드 — 같은 카드 3장을 합쳐 만든다 (못 가진 것도 보임)", "k-upgrade");
       /* v3.7.6 등급 칸: 다른 거르기를 다 거친 카드 안의 등급과 그 수. 고른 등급이 사라지면 '모든 등급'으로 */
       const gN = {}; for (const c of base) { const g = gradeOf(c); gN[g] = (gN[g] || 0) + cnt(c); }
       if (S.grade && !gN[S.grade]) S.grade = "";
@@ -883,6 +882,7 @@ function showEditor(f, focusId) {
     if (k > inDeck) {
       if (inDeck >= own) { alarm(all ? "이 카드는 더 넣을 수 없습니다." : `덱 밖에 남은 「${esc(c.name)}」가 없습니다. 상점에서 더 사세요.`, "warn"); return false; }
       if (inDeck >= maxCopiesOf(c)) { alarm(maxCopiesOf(c) < RULES.maxCopies ? `「${esc(c.name)}」는 덱에 ${maxCopiesOf(c)}장만 넣을 수 있습니다.` : `같은 카드는 ${RULES.maxCopies}장까지입니다.`, "warn"); return false; }
+      { const ub = typeof uniqueBlock === "function" ? uniqueBlock(E.cards, id) : null; if (ub) { alarm(ub + " 다른 유니크를 빼고 넣으세요.", "warn"); return false; } }   // v3.31
       const room = RULES.deckSize - countMap(E.cards);
       if (room <= 0) { alarm(`<b>덱이 가득 찼습니다 (${RULES.deckSize} / ${RULES.deckSize})</b> — ${RULES.deckSize}장을 넘길 수 없습니다. 다른 카드를 빼고 넣으세요.`); return false; }
       const want = k;
@@ -907,8 +907,10 @@ function showEditor(f, focusId) {
     if (inDeck) btns.push({ label: "− 1장 빼기", value: "rm" });
     if (left > 0) btns.push({ label: "+ 1장 넣기", value: "add", cls: "primary" });
     if (left > 1 && inDeck < maxCopiesOf(id)) btns.push({ label: "가득 넣기", value: "fill" });
+    const ub = typeof Upgrade !== "undefined" ? Upgrade.button(id) : null; if (ub) btns.push(ub);   // v3.28 업그레이드(원래 카드 · 강화 카드 어느 쪽에서든)
     btns.push({ label: "닫기", value: null });
-    const v = await showCardModal(CARDS[id], btns, `덱 <b>${inDeck}</b>장 · 남음 <b>${left}</b> · 보유 ${all ? "모두" : own}`);
+    const v = await showCardModal(CARDS[id], btns, `덱 <b>${inDeck}</b>장 · 남음 <b>${left}</b> · 보유 ${all ? "모두" : own}${typeof Upgrade !== "undefined" && Upgrade.upOf(id) ? "<br>" + Upgrade.note(id) : ""}`);
+    if (v === "upgrade") { const r = await Upgrade.run(Upgrade.upOf(id)); if (r && r.ok) { u = Store.user(); draw(); } return; }
     if (v === "rm") rmCard(id); else if (v === "add") addCard(id); else if (v === "fill") fillCard(id);
   };
   const goShop = id => { SHOP.node = f; SHOP.open[GROUPS[f].faction] = true; showShop(); if (id && id !== "1") setTimeout(() => shopCardModal(id), 60); };

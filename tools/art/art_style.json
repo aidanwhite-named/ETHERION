@@ -1,0 +1,331 @@
+{
+  "_about": "ETHERION 카드 일러스트 프롬프트의 원본(등급 · 레벨 · 깃발 · 진영 · 종류). 여기를 고치면 node tools/art/build_prompts.js 를 다시 돌린다. 문구를 바꿨으면 version을 올린다(g1 → g2) — art_map.csv가 옛 버전으로 그린 그림을 알려 준다. 설명은 tools/art/PROMPT_GUIDE.md.",
+  "version": "g2",
+  "updated": "2026-11-10",
+
+  "base": "Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.",
+  "quality": "Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.",
+  "composition": "Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.",
+  "notext": "No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.",
+  "avoid": "Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.",
+  "accentRule": "the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less)",
+
+  "gradeOrder": ["token", "common", "uncommon", "rare", "upgrade", "epic", "unique", "special"],
+  "grades": {
+    "token": {
+      "ko": "소환물", "en": "Summoned token", "color": "#8fdcff", "tier": 0,
+      "idea_ko": "마법이나 능력으로 잠깐 불려 나온 것. 작고 덧없지만 그림은 공들여 — 불려 나온 흔적(흩어지는 에테르 · 원소 빛)이 아름답게 보이게.",
+      "tag": "SUMMONED TOKEN — a conjured, temporary creature or effect",
+      "presence": "a creature, construct or effect called into being for a moment; simple and readable",
+      "camera": "eye-level medium shot, subject about 50% of the frame",
+      "lighting": "an element-coloured glow from the summoning with a clean rim light, clear readable contrast",
+      "background": "plain dark night-blue with a fading wisp of ether and element light where it was called forth",
+      "detail": "clear, well-rendered forms with slightly translucent, glowing edges where it was conjured",
+      "accent": "faint ether sky-blue (#8fdcff) summoning traces",
+      "mood": "fleeting, conjured",
+      "unit": "the summoned creature itself, just materialised",
+      "spell": "a small, single conjured effect",
+      "item": "a small conjured object"
+    },
+    "common": {
+      "ko": "일반", "en": "Common", "color": "#f4f1ea", "tier": 1,
+      "idea_ko": "그 깃발의 평범한 구성원 · 흔한 마법 · 손때 묻은 물건. 완성도는 다른 등급과 같다 — 얼굴 · 손 · 재질 · 빛을 공들여 그리고, 성격이 보이는 표정과 분명한 동작, 그 깃발 세상의 한 구석이 실제로 보이는 배경. 다른 점은 규모뿐: 몸집이 작고, 배경이 가깝고 아담하며, 신비한 장식 · 등급 강조색이 없다.",
+      "tag": "COMMON — grounded, honest, everyday",
+      "presence": "an ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished",
+      "camera": "eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame",
+      "lighting": "a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast",
+      "background": "an intimate, painted corner of the banner's world ({hint}) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks",
+      "detail": "fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands",
+      "accent": "",
+      "mood": "lively, honest, frontline",
+      "unit": "",
+      "spell": "a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles",
+      "item": "a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light"
+    },
+    "uncommon": {
+      "ko": "고급", "en": "Superior", "color": "#f2cf3d", "tier": 2,
+      "idea_ko": "검증된 베테랑 · 잘 만든 물건. 일반보다 장비가 좋고 자세가 자신 있다. 고향의 한 조각이 흐릿하게 보이고, 장식 끝에 따뜻한 금빛이 조금.",
+      "tag": "SUPERIOR — a proven veteran, clearly a cut above",
+      "presence": "a seasoned veteran or a well-made thing, better equipped and more confident than the common rank",
+      "camera": "slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame",
+      "lighting": "element backlight plus a warm key light, clearer rim light, a few glints on metal and edges",
+      "background": "a recognisable slice of the banner's home ({home}) with atmosphere and depth, softly focused, light atmospheric particles",
+      "detail": "fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands",
+      "accent": "a few small warm gold (#f2cf3d) highlights on trims and edges",
+      "mood": "proven, capable, confident",
+      "unit": "",
+      "spell": "a stronger effect with visible flow and a second layer of particles",
+      "item": "a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light"
+    },
+    "rare": {
+      "ko": "레어", "en": "Rare", "color": "#4ea8ff", "tier": 3,
+      "idea_ko": "정예 · 걸작. 팩에서 나오면 눈이 가는 카드. 역동적인 구도, 깊이 있는 배경에 고향의 랜드마크 하나, 사파이어빛 에테르 알갱이와 얇은 테두리 빛.",
+      "tag": "RARE — an elite specialist or a masterwork, the card people notice",
+      "presence": "an elite with a signature move, or a masterwork — clearly special",
+      "camera": "dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame",
+      "lighting": "dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights",
+      "background": "atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: {landmark}",
+      "detail": "fine filigree and engraved patterns on gear, crisp material rendering (metal, scale, cloth, bark, horn)",
+      "accent": "drifting sapphire-blue (#4ea8ff) ether motes and a thin sapphire rim on the silhouette",
+      "mood": "precise, impressive, prized",
+      "unit": "",
+      "spell": "a sweeping effect that reshapes part of the battlefield, layered energies and motion trails",
+      "item": "a masterwork object on a carved pedestal, faint glowing engraved patterns, small floating particles"
+    },
+    "upgrade": {
+      "ko": "강화", "en": "Empowered", "color": "#3fe0c0", "tier": 3.5,
+      "idea_ko": "원래 카드 3장을 합쳐 한 단계 오른 같은 인물. 원래 카드 그림이 있으면 참고 그림으로 넣어 같은 얼굴 · 종족 · 색을 지키고, 장비가 보강되고 셋이 하나가 된 표시(세 줄 띠 · 보석 셋 · 세 겹)와 아래에서 솟는 청록 에너지.",
+      "tag": "EMPOWERED — the same warrior fused from three into one stronger self",
+      "presence": "the base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced",
+      "camera": "the same framing as the base card but one step closer and lower, a rising, upward pose",
+      "lighting": "element backlight plus teal energy pouring up from below and glowing through seams of the gear",
+      "background": "the same setting as the base card, intensified: more particles and a faint shockwave ring ({home})",
+      "detail": "reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one",
+      "accent": "teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen",
+      "mood": "ascending, refined, powered-up",
+      "unit": "",
+      "spell": "",
+      "item": "",
+      "reference": "If a reference image is attached, it is the base card ({base}): keep the same character, species, face, colours and silhouette and repaint it as the empowered version."
+    },
+    "epic": {
+      "ko": "에픽", "en": "Epic", "color": "#b46cff", "tier": 4,
+      "idea_ko": "영웅 · 괴물 · 초월자의 유물. 영화의 한 장면처럼 크고 강하다. 낮은 광각, 빛줄기, 날씨와 전장의 이야기, 보랏빛 비술 알갱이.",
+      "tag": "EPIC — heroic and larger than life, cinematic",
+      "presence": "a heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it",
+      "camera": "cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment",
+      "lighting": "high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom",
+      "background": "rich environmental storytelling: {landmark}; weather (storm, ash, spray, wind) and deep atmosphere",
+      "detail": "ornate, layered armour or garments, battle wear, magical energy wrapping the body",
+      "accent": "violet (#b46cff) arcane particles and a faint violet edge to the aura",
+      "mood": "awe, momentum, overwhelming force",
+      "unit": "",
+      "spell": "a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting",
+      "item": "a relic of a transcendent being floating in its own aura above a ruined altar, radiating its element"
+    },
+    "unique": {
+      "ko": "유니크", "en": "Unique", "color": "#ff8a2a", "tier": 5,
+      "idea_ko": "그 깃발의 이름난 전설(덱에 1장). 포스터에 걸 만한 상징적 초상. 가운데 영웅 구도, 뒤에 그 깃발의 근원(거인 · 용 · 신)이 거대한 실루엣으로, 녹은 주황 금빛 불티와 금 세공.",
+      "tag": "UNIQUE — a named legend of the banner, iconic hero portrait",
+      "presence": "a named legend of this banner — iconic and instantly recognisable, a hero image you would hang as a poster",
+      "camera": "centred heroic portrait, near-symmetrical, subject about 70% of the frame, looking slightly down toward the viewer, a strong iconic silhouette",
+      "lighting": "masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light",
+      "background": "{landmark}; behind it, faint and colossal, the banner's source: {source}",
+      "detail": "masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay",
+      "accent": "molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree",
+      "mood": "legendary, commanding, personal",
+      "unit": "",
+      "spell": "a legendary spell bearing the banner's source's mark, framed like an icon",
+      "item": "a legendary relic displayed like a treasure, the banner's source looming faintly behind"
+    },
+    "special": {
+      "ko": "스페셜", "en": "Special", "color": "#ff4d73", "tier": 6,
+      "idea_ko": "승천자(신화가 된 필멸자)와 삼좌의 유물. 깃발에서 가장 중요한 그림, 키 아트 급. 세계 크기의 배경(하늘을 채운 근원 존재), 금빛 룬 고리, 진홍 · 금의 신성한 빛, 몸이 그 길에 따라 바뀐 모습.",
+      "tag": "SPECIAL — mythic, an Ascended or a relic of the Three Thrones, key-art quality",
+      "presence": "mythic: an Ascended mortal who touched divinity, or a relic of the Three Thrones — the single most important image of its banner",
+      "camera": "monumental low angle, epic scale, subject about 75% of the frame against a colossal backdrop; light may spill to the margins but the face and core stay in the safe area",
+      "lighting": "divine: a radiant crimson-and-gold aura, golden rune rings orbiting, rays falling from above, the element light at full intensity",
+      "background": "world-scale: {mythic}; the night sky opening with stars and golden rune circles; a faint empty circle (the sigil of the lost source-god Arche) as a halo ring",
+      "detail": "transcendent: the body partly transformed by its path of ascension, intricate gold filigree, cathedral-level detail",
+      "accent": "crimson-rose (#ff4d73) and gold divine light, slowly turning golden rune circles, ether sky-blue (#8fdcff) sparks",
+      "mood": "sacred, transcendent, world-shaking",
+      "unit": "One of the Ascended",
+      "spell": "a world-altering miracle",
+      "item": "a sacred relic suspended in a pillar of divine light inside a ring of golden runes, an empty circle behind it, the world tiny below"
+    }
+  },
+
+  "levels": {
+    "unit": {
+      "1": "small and humble: an ordinary body, light gear",
+      "3": "seasoned: a sturdier body, a bigger weapon, mount or machine",
+      "5": "elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it",
+      "7": "towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power",
+      "8": "mythic, beyond mortal scale: even at human size its presence fills the sky and the world reacts to it"
+    },
+    "spell": {
+      "1": "a small, local effect",
+      "3": "an effect over a few targets",
+      "5": "a battlefield-wide effect",
+      "7": "a devastating, landscape-changing effect"
+    },
+    "item": {
+      "1": "a simple object",
+      "3": "a fine object with a faint aura",
+      "5": "a powerful object with a strong aura",
+      "7": "an ancient object of great power"
+    }
+  },
+
+  "factions": {
+    "brass": { "ko": "아다만트 연합", "en": "Adamant Concord", "text": "Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead" },
+    "verdant": { "ko": "푸른숲 맹약", "en": "Verdant Covenant", "text": "Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons" },
+    "arcane": { "ko": "비술 성회", "en": "Arcane Conclave", "text": "Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price" }
+  },
+
+  "elements": {
+    "fire":      { "en": "fire",       "hex": "#ff6b3d", "cue": "embers, flame light, gunpowder smoke" },
+    "metal":     { "en": "metal",      "hex": "#a9b4c2", "cue": "cold steel sheen, sparks from an anvil, rivets" },
+    "lightning": { "en": "lightning",  "hex": "#ffd84a", "cue": "crackling electric arcs, glowing coils" },
+    "earth":     { "en": "earth",      "hex": "#b88a5a", "cue": "flying rock dust, cracked ground, ochre light" },
+    "forest":    { "en": "forest",     "hex": "#58b85f", "cue": "glowing moss, thorny vines, drifting leaves" },
+    "water":     { "en": "water",      "hex": "#4fb3ff", "cue": "clear water light, spray, ripples, bubbles" },
+    "dark":      { "en": "darkness",   "hex": "#8b5cf6", "cue": "violet shadow smoke, blood-red accents, contract sigils" },
+    "light":     { "en": "holy light", "hex": "#ffe9a8", "cue": "pale gold radiance, halo, feathers of light" },
+    "wind":      { "en": "wind",       "hex": "#9fe3d6", "cue": "swirling teal wind, fluttering robes and pages" }
+  },
+
+  "flags": {
+    "B1": {
+      "ko": "잿불 고블린", "en": "Cinder Goblins", "faction": "brass", "element": "fire",
+      "who": "goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up",
+      "silhouette": "a small figure dwarfed by an oversized cannon, musket or powder keg",
+      "materials": "scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages",
+      "palette": "fire orange #ff6b3d with brass #d4893a and soot black",
+      "motifs": "cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks",
+      "hint": "a soot-stained gun bastion wall",
+      "home": "the fortress-foundry of Fortan, chimneys and gun bastions",
+      "landmark": "Fortan's chimneys and gun bastions on volcanic slopes, the Crown range volcanoes glowing beyond",
+      "source": "the sleeping giant Dormak, whose heart-fire burns inside the volcano like a colossal ember in a mountain-sized chest",
+      "mythic": "the giant Dormak's mountain-sized chest with its heart-fire blazing through cracks of rock across the whole sky",
+      "light": "flashes of cannon fire and glowing embers inside thick gunpowder smoke",
+      "never": "no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords"
+    },
+    "B2": {
+      "ko": "무쇠수염 드워프", "en": "Ironbeard Dwarves", "faction": "brass", "element": "metal",
+      "who": "stocky dwarves with braided iron-grey beards, and the riveted golems and automatons they forge",
+      "silhouette": "broad, square and heavy — a walking wall of riveted steel",
+      "materials": "thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams",
+      "palette": "steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams",
+      "motifs": "forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls",
+      "hint": "a riveted iron gate in a dim forge hall",
+      "home": "the underground forge-city of Durkheim",
+      "landmark": "the colossal underground halls of Durkheim with lava channels, mine shafts and iron gates, glowing ore veins like sinews in the rock",
+      "source": "the sleeping giant Sorgrim, whose iron sinews form the Ironbone mountains, watched by the mirror-scaled metal dragon Feros",
+      "mythic": "the giant Sorgrim's mountain-sized arm of iron sinew rising from the earth, and the metal dragon Feros's mirror scales reflecting a thousand forges",
+      "light": "cold steel sheen against molten forge glow, sparks from the anvil",
+      "never": "no thorns or plant armour, no wizardry or wands; golems are machines, not undead"
+    },
+    "B3": {
+      "ko": "번개 노움", "en": "Thunder Gnomes", "faction": "brass", "element": "lightning",
+      "who": "tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets",
+      "silhouette": "a tiny figure beside big contraptions — coils, lightning towers, walking machines",
+      "materials": "copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps",
+      "palette": "electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass",
+      "motifs": "lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints",
+      "hint": "a cluttered workshop bench with coils",
+      "home": "the lightning-rod city of Voltarium on the thundering plateau",
+      "landmark": "the spiked lightning-rod towers of Voltarium crowned by a lightning storm",
+      "source": "the sleeping giant Keraun, whose lightning nerves branch through the ground like a vast glowing circuit",
+      "mythic": "the giant Keraun's lightning nerves blazing across the whole plateau and sky like a living circuit board of storms",
+      "light": "harsh flickering arc light and crackling electricity",
+      "never": "no mystical magic or wands — their power is science and machines"
+    },
+    "G1": {
+      "ko": "바위주먹 오크", "en": "Rockfist Orcs", "faction": "verdant", "element": "earth",
+      "who": "powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair",
+      "silhouette": "massive shoulders and oversized fists; riders on giant wolves or bears",
+      "materials": "rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems",
+      "palette": "earth ochre #b88a5a, rust-red war paint, bone white",
+      "motifs": "giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds",
+      "hint": "tall dry grass and a hide tent",
+      "home": "the howling steppe of Garun with its nomad camps",
+      "landmark": "the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring",
+      "source": "the earth dragon Gorbas, the largest of the seven dragons, with rocks and forests growing on its back",
+      "mythic": "the earth dragon Gorbas, mountain-sized with forests on its back, rising behind Throne Peak with one great eye opening",
+      "light": "dusty ochre light and rock dust hanging in the air",
+      "never": "no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth)"
+    },
+    "G2": {
+      "ko": "이끼 트롤", "en": "Moss Trolls", "faction": "verdant", "element": "forest",
+      "who": "tall moss trolls with long, lanky, moss-covered limbs, and treants (living trees)",
+      "silhouette": "tall, hunched and long-armed; treants tower like ancient trees",
+      "materials": "bark armour, moss, thorns, vines, roots, mushrooms, amber sap",
+      "palette": "forest green #58b85f, deep moss, bark brown, bioluminescent spores",
+      "motifs": "thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots",
+      "hint": "mossy roots and ferns",
+      "home": "the giant-tree city of Sylvaniel in the great forest of Eilen",
+      "landmark": "the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist",
+      "source": "the forest dragon Verdan, with antlers of ancient tree branches and moss-covered scales",
+      "mythic": "the forest dragon Verdan's antlers spreading as a canopy of ancient branches over the whole forest, the First Elder Tree glowing beneath",
+      "light": "dappled green light through the canopy and glowing spores",
+      "never": "no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself)"
+    },
+    "G3": {
+      "ko": "푸른비늘 인어", "en": "Bluescale Merfolk", "faction": "verdant", "element": "water",
+      "who": "merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir",
+      "silhouette": "graceful flowing curves; long hair and fins drifting like silk",
+      "materials": "blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons",
+      "palette": "water blue #4fb3ff, aquamarine, pearl white, deep-sea navy",
+      "motifs": "water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles",
+      "hint": "rippling lagoon water",
+      "home": "the lagoon temple of Selenea",
+      "landmark": "the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray",
+      "source": "the water dragon Marencia, a long translucent body with fins instead of wings",
+      "mythic": "the water dragon Marencia's translucent serpentine body coiling through the sky like a river of light",
+      "light": "caustic underwater light and shimmering reflections",
+      "never": "no fire, no heavy plate armour"
+    },
+    "A1": {
+      "ko": "심연 마족", "en": "Abyssal Fiends", "faction": "arcane", "element": "dark",
+      "who": "demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire",
+      "silhouette": "tall, sharp and elegant: curved horns, tattered capes, long blades or scythes",
+      "materials": "black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian",
+      "palette": "violet #8b5cf6, black, blood-red accents",
+      "motifs": "blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes",
+      "hint": "a dark canyon wall",
+      "home": "the shadow city of Noctar in a sunless canyon",
+      "landmark": "the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns",
+      "source": "the god Morkas, the Silent Lord — a faceless shadow king holding balanced scales, eyes closed",
+      "mythic": "the faceless shadow king Morkas towering across the sky with his balanced scales, eyes closed",
+      "light": "cold violet underlight, blood-red glints, deep shadows",
+      "never": "no holy light, no crude cartoon devils — they are elegant and ominous"
+    },
+    "A2": {
+      "ko": "성광 천족", "en": "Radiant Seraphs", "faction": "arcane", "element": "light",
+      "who": "seraphs with white feathered wings and halos, and human knights of the Radiant Order",
+      "silhouette": "upright and protective; wings spread wide behind great shields",
+      "materials": "white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems",
+      "palette": "holy light #ffe9a8, white, pale gold, soft sky blue",
+      "motifs": "halos, wings, great shields, a rising sun with a sword, feathers of light, oaths",
+      "hint": "a white stone parapet",
+      "home": "the white walls of the Dawn Citadel Elad",
+      "landmark": "the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands",
+      "source": "the goddess Solante, Mother of Dawn — a radiant woman with six wings of light",
+      "mythic": "the goddess Solante's six vast wings of light spread across the whole sky above a rising sun",
+      "light": "warm radiant backlight and sunrise glow",
+      "never": "no demonic elements, no gore; they are defenders, so attacks look restrained and righteous"
+    },
+    "A3": {
+      "ko": "폭풍 하이엘프", "en": "Storm High Elves", "faction": "arcane", "element": "wind",
+      "who": "high-elf mages: long pointed ears, silver hair, slender and proud",
+      "silhouette": "slender figures whose robes and hair are swept by strong wind, book pages flying around them",
+      "materials": "flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls",
+      "palette": "wind teal #9fe3d6, silver, white, starry indigo",
+      "motifs": "swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers",
+      "hint": "wind-swept clouds",
+      "home": "the cloud-piercing spire towers of Belumir's Needle",
+      "landmark": "the spires of Belumir's Needle piercing the clouds under a night sky full of stars",
+      "source": "the god Belumir, the Star-Reader — a robe with a thousand eyes, an open book and stars",
+      "mythic": "the god Belumir's robe of a thousand eyes unfolding across the night sky as constellations",
+      "light": "cool teal-white starlight and streaks of wind",
+      "never": "no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters"
+    }
+  },
+
+  "classes": {
+    "무장": "an armed fighter wielding a weapon typical of the banner",
+    "무도": "a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk",
+    "마도": "a spellcaster channelling {el}",
+    "기도": "a devoted priest, ritualist or pact-bound servant, praying or offering"
+  },
+
+  "types": {
+    "unit": "a character card: upper body to full body, pose fits its role",
+    "atk": "attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small",
+    "def": "defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected",
+    "any": "versatile spell — a dual effect: a balanced composition with power flowing in two directions",
+    "hand": "trick spell played on the opponent's hidden hand — cunning: hidden cards, eyes, threads of fate, a sly hand in shadow; quieter, mysterious lighting",
+    "item": "a single object, centred and shown whole, no hands and no person holding it; lit by faded old-gold light plus the element glow"
+  }
+}

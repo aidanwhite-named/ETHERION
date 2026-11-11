@@ -99,6 +99,8 @@
    카드를 그 칸 위로 올리고, 아이템 능력 칩·종류 칩·[능력]만 마우스를 받게 해 말풍선이 뜨게 한다 */
 .hand-me .hand-slot .hand-card { position: relative; z-index: 1; }
 .hand-card .c-cls[data-tip], .hand-card .kw { pointer-events: auto; cursor: help; }
+/* v3.31.1: 클래스 동그라미 · 업그레이드 마크 · 왼쪽 위 종류 아이콘 · 종족 줄도 말풍선이 뜨게 (클래스가 무엇인지) */
+.hand-card .c-clsico i[data-tip], .hand-card .c-type[data-tip], .hand-card .c-race .r-l[data-tip] { pointer-events: auto; cursor: help; }
 
 /* ---------- v1.9.3: 장착한 유닛 — 아래에 깔린 아이템 카드를 누를 수 있게, 특수 능력은 캐릭터 아래 띠로 ---------- */
 /* 예전 ::before 그림자 대신 진짜 카드 조각(.c-under). 삐져나온 띠에 아이템 이름이 보이고, 마우스를 올리거나 누르면 그 아이템 카드가 크게 뜬다 */

@@ -86,6 +86,8 @@
 .card.fm .c-chips { display: flex; flex-wrap: wrap; gap: .12em; }
 .card.fm .c-box .c-cls { font-size: .6em; padding: .08em .38em; position: static; }
 .card.fm .f-grant.f-plain { color: var(--ink-2); }
+/* v3.31.4 상대 능력을 끄는 마법 키워드 칩(넬리아의 노래 · 파문 · 작살 물살): 빨강 */
+.card.fm .c-box .c-cls.c-ab.c-off { color: #ffc2b8; border-color: rgba(255, 108, 88, .65); background: rgba(44, 10, 8, .84); }
 /* 일반공격 칩: 특수 능력 칩과 같은 규격, 색만 수수하게 */
 .card.fm .c-box .c-cls.c-plain { color: var(--ink-2); border-color: rgba(255, 255, 255, .2); background: rgba(255, 255, 255, .04); font-weight: 700; }
 .card.fm .c-box .c-equip { position: static; display: flex; flex-wrap: wrap; gap: .12em; margin: 0; font-size: 1em; }
@@ -183,3 +185,40 @@ html.mobile .hand-me .card.fm.slim .c-cls { font-size: .66em; }
 /* v3.20.3 카드 이름 글꼴 · 굵기: 설정 "카드 이름 글꼴"(js/game.js NAME_FONTS)이 --nfont · --nweight를 정한다. 기본 송명 400(예전 Hahmlet 800은 너무 굵었다).
    글꼴은 css/fonts-names.css(게임 폴더에 담김). 받지 못하면 한글 글꼴(--kfont) → 바탕 */
 .card .c-name { font-family: var(--nfont, "Song Myung"), var(--kfont, var(--body)), serif; font-weight: var(--nweight, 400); }
+
+/* v3.31.1 원본 카드(크게 보기): 클래스 동그라미 아래 클래스 이름. 색은 클래스 색(style.css .clc-*의 --clc) */
+.card.fm .c-rcol .c-clname { display: block; margin-top: -.1em; font-size: .78em; font-weight: 800; line-height: 1.1; letter-spacing: -.02em; white-space: nowrap;
+  color: var(--clc, var(--gold)); text-shadow: 0 0 .35em color-mix(in srgb, var(--clc, #c9b27a) 45%, transparent), 0 .06em .1em #000; }
+.card.fm .c-rcol .c-clname.cln-up { color: var(--up-hi, #9ff5e3); }
+
+/* v3.31.1 [고철 골렘] 고철 더미 (js/game.js scrapPileHTML): 전장 카드 그림 왼쪽 아래, 조각 넷이 아래 둘 → 가운데 → 꼭대기로 쌓인다 */
+.card .scrap-pile { position: absolute; left: .22em; bottom: .2em; z-index: 3; width: 3.6em; height: 2.9em; cursor: help;
+  filter: drop-shadow(0 .08em .12em rgba(0, 0, 0, .85)); }
+.scrap-pile .sp { position: absolute; display: block; width: 1.4em; height: 1.4em; color: rgba(255, 236, 200, .16); }
+.scrap-pile .sp svg { width: 100%; height: 100%; display: block; }
+.scrap-pile .sp:not(.on) svg { stroke: rgba(255, 236, 200, .35); stroke-width: 1; stroke-dasharray: 2 1.6; fill: rgba(0, 0, 0, .35); }
+.scrap-pile .sp.on { color: #d98a3c; }
+.scrap-pile .sp.on svg { filter: drop-shadow(0 0 .1em rgba(255, 170, 80, .55)); }
+.scrap-pile .sp-0 { left: 0; bottom: 0; --rt: -14deg; transform: rotate(var(--rt)); }
+.scrap-pile .sp-1 { left: 1.24em; bottom: 0; --rt: 9deg; transform: rotate(var(--rt)); color: rgba(255, 236, 200, .16); }
+.scrap-pile .sp-1.on { color: #b9b2a6; }
+.scrap-pile .sp-2 { left: .62em; bottom: .92em; --rt: -6deg; transform: rotate(var(--rt)); }
+.scrap-pile .sp-2.on { color: #c79a5a; }
+.scrap-pile .sp-3 { left: .8em; bottom: 1.76em; width: 1.2em; height: 1.2em; --rt: 22deg; transform: rotate(var(--rt)); }
+.scrap-pile .sp-3.on { color: #a8735a; }
+.scrap-pile .sp-n { position: absolute; left: 3.5em; bottom: .1em; font-family: var(--caps); font-weight: 900; font-size: .78em; line-height: 1; color: #ffd9a8;
+  text-shadow: 0 0 .25em #000, 0 .05em .1em #000; white-space: nowrap; }
+.scrap-pile .sp-n small { font-size: .7em; opacity: .7; }
+/* 고철 4 = 골렘이 설 차례: 더미가 달아오른다 */
+.scrap-pile.full .sp.on svg { animation: scrapGlow 1.1s ease-in-out infinite alternate; }
+@keyframes scrapGlow { to { filter: drop-shadow(0 0 .3em rgba(255, 150, 60, .95)) brightness(1.25); } }
+/* 새 조각: 위에서 돌며 떨어져 튕기고 앉는다 */
+.scrap-pile .sp.drop { animation: scrapDrop .62s cubic-bezier(.3, 0, .6, 1) both; }
+@keyframes scrapDrop {
+  0% { transform: translateY(-3.2em) rotate(calc(var(--rt) - 160deg)); opacity: 0; }
+  15% { opacity: 1; }
+  62% { transform: translateY(0) rotate(var(--rt)); }
+  78% { transform: translateY(-.32em) rotate(calc(var(--rt) + 8deg)); }
+  100% { transform: translateY(0) rotate(var(--rt)); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) { .scrap-pile .sp.drop, .scrap-pile.full .sp.on svg { animation: none; } }

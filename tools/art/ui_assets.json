@@ -66,22 +66,24 @@
       ]
     },
     {
-      "id": "ether_back", "set": "ether", "title": "에테르 제단 — 뒤 층 (삼위일체: 신 · 거인 · 용)",
+      "id": "ether_back", "set": "ether", "title": "에테르 제단 — 뒤 층 (삼위일체: 신 · 거인 · 용, 원판 없음)",
       "out": "img/ui/ether/ether_back.png", "size": [720, 720], "format": "png", "background": "transparent",
       "refs": [], "post": { "fit": "pad", "alpha": "key" },
-      "note": "에테르 원형 장치의 그림(v3.19.6). 세계관 1장의 세 갈래 — 위 신(뜻) · 왼쪽 아래 거인(몸) · 오른쪽 아래 용(힘)이 정삼각형 구도로 둘러싼다. 지킬 것: ① 가운데 지름 46%(330px) 원은 완전히 비운다 — 코드가 지름 43.1%(310px) 하늘빛 구슬과 숫자를 그 위에 그린다. 구슬을 그리지 않는다. ② 지름 46~62% 고리는 얇은 룬 결계선만 — 결정 9칸 · 정수가 지름 56% 둘레(12시부터 36도씩)에 놓인다. ③ 세 존재는 지름 62% 바깥. ④ 원판과 세 존재가 그림 틀 안에 다 들어온다(v3.19.7 그림은 원판이 틀보다 커서 잘렸다). 그림 가운데 = 구슬 가운데. 구멍 비율이 달라도 게임에 넣을 때 js/game.js ETHER_ART.size로 맞춘다(104 × 그림 px ÷ 구멍 px). 결정이 그림과 겹치면 js/game.js ETHER_SLOTS에서 옮긴다.",
+      "note": "에테르 원형 장치의 그림(v3.24.3 원판 없음). 세계관 1장의 세 갈래 — 위 신(뜻) · 왼쪽 아래 거인(몸) · 오른쪽 아래 용(힘)이 정삼각형 구도로 둘러싼다. v3.19.8 그림은 세 존재가 큰 돌 원판(도넛) 안에 갇혀 있었다 → 둥근 것은 가운데 구멍 둘레의 얇은 룬 고리 하나뿐, 세 존재는 틀 · 원판 · 배경판 없이 저마다의 실루엣으로 서고, 그림 바깥 윤곽은 날개 · 어깨 · 뿔이 만드는 들쭉날쭉한 모양. 지킬 것: ① 가운데 지름 46%(330px) 원은 완전히 비운다 — 코드가 하늘빛 구슬과 숫자를 그 위에 그린다. ② 지름 46~60% 얇은 룬 고리만 — 결정 9칸 · 정수가 그 위에 놓인다. ③ 세 존재는 그 바깥, 사이사이는 어두운 바탕(빛은 몸 둘레에만). ④ 세 존재가 그림 틀 안에 다 들어온다. 게임에 넣을 때 js/game.js ETHER_ART.size = 104 × 그림 px ÷ 구멍 px, 결정이 겹치면 ETHER_SLOTS.",
       "avoid": [
         "No text, no letters, no numbers, no signature, no watermark, no UI frame, no buttons.",
-        "Do not paint a central orb, gem, sphere, portal or glowing core — the centre must stay empty dark background; the game draws its own ether orb there. Do not paint crystals arranged as slots or counters.",
-        "No hands, wings, tails, breath, robes or any part of the three beings may enter the central 62% circle.",
-        "Nothing may be cut off by the edges of the image: the whole round disc, the halo, the wings and the three beings stay fully inside the square with a small dark margin."
+        "No outer circle, no round disc, no donut-shaped stone plate, no medallion, no coin, no wreath, no rosette, no circular border or circular background behind the three beings; the only round thing is the thin rune ring around the empty centre.",
+        "No nebula, starfield or coloured backdrop filling the space between the beings — between them is the plain dark background.",
+        "Do not paint a central orb, gem, sphere, portal or glowing core — the centre stays empty dark background. Do not paint crystals arranged as slots or counters.",
+        "No part of the three beings enters the rune ring or the empty centre. Nothing is cut off by the edges of the image."
       ],
       "prompt": [
-        "Square composition on a plain flat very dark background (#07080d), seen from the front: an ornate circular ether altar emblem for a dark-fantasy card game, framing a large EMPTY round centre.",
-        "The empty centre is a perfect circle 46% of the image width, exactly in the middle of the square: plain flat dark background only, nothing painted inside it.",
-        "Directly around that hole, a thin calm ring of gold-and-stone with faint glowing ancient runes, reaching out to about 62% of the image width; keep this ring low in detail.",
-        "Outside that ring, three beings of the ether frame the circle in an equilateral triangle, each facing the centre but staying outside the 62% ring: at the top, a radiant winged god with a five-pointed star halo (will, arcane violet light); at the bottom left, a massive mountain-stone giant veined with glowing adamant magma (body, brass and ember orange); at the bottom right, a roaring jade-green horned dragon with spread wings (power, verdant light).",
-        "The three beings may reach into the corners of the square but stay fully inside it; the whole emblem fills the square to about 95% and must read clearly at small size (about 120 px on screen)."
+        "Square composition on a plain flat very dark background (#07080d), seen from the front: the ether altar emblem of a dark-fantasy card game.",
+        "In the exact centre, a perfectly round EMPTY hole 46% of the image width: plain flat dark background only, nothing painted inside it.",
+        "Directly around the hole, one thin calm ring of worn gold and stone with faint glowing ancient runes, out to about 60% of the image width. This thin rune ring is the only circular shape in the whole image.",
+        "Around the ring, three colossal beings of the ether stand free in an equilateral triangle, each leaning toward the centre — with no frame, no disc, no plate and no background panel behind them; each is a free-standing figure with its own natural silhouette against the dark background: at the top, a radiant winged god with a five-pointed star halo, arms opening toward the centre (will, arcane violet and gold light); at the bottom left, a massive mountain-stone giant veined with glowing adamant magma, shoulder and fist turned toward the centre (body, brass and ember orange); at the bottom right, a roaring jade-green horned dragon with spread wings, curling toward the centre (power, verdant light).",
+        "Each being carries its own light only close to its body — soft glow, mist, embers, sparks — fading into the dark background; clear dark gaps separate the three. The outer outline of the emblem is irregular, shaped by wings, shoulders, horns and tail, not round.",
+        "All three stay outside the rune ring and fully inside the square with a small dark margin; the emblem fills about 95% of the square and reads clearly at small size (about 120 px on screen)."
       ]
     },
     {

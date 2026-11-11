@@ -48,7 +48,7 @@ html.mobile .hand-me .hand-slot { top: calc(var(--cw) * -.1); }   /* 커진 만�
 /* 전장: 핸드 줄을 높여 핸드 카드를 키운다(약 1.2배). 대신 전장 칸 카드는 7% 남짓 작아진다.
    예전: 화면 높이 = 카드 폭 × 5.42 + 104 (핸드 줄 1.56배) → 이제 × 5.86 (핸드 줄 2배) */
 @media (min-width: 761px) {
-  html.mobile .screen-game { --cw: clamp(54px, min(calc((100dvh - 104px) / 5.86), calc((100vw - 2 * var(--edge-x) - 12px) / 9.6)), 260px); --hand-vis: calc(var(--cw) * 2 + 8px); --hw: calc(var(--cw) * 1.45); }
+  html.mobile .screen-game { --cw0: clamp(54px, min(calc((100dvh - 104px) / 5.86), calc((100vw - 2 * var(--edge-x) - 12px) / 9.6)), 260px); --cw: var(--cw0); --hand-vis: calc(var(--cw) * 2 + 8px); --hw: calc(var(--cw) * 1.45); }
 }
 /* 핸드 카드 안 글자: 이름 · 종족 줄 · 능력 칩 · 코인 줄을 키운다(카드 폭 대비) */
 html.mobile .hand-me .card.fm.slim .c-name { font-size: 1.04em; letter-spacing: -.05em; }
@@ -71,7 +71,7 @@ html.mobile .modal.mull-modal { width: min(1080px, 100%); }
 html.mobile .mull-card .card { --cw: clamp(96px, calc((min(1080px, 100vw) - 160px) / 6.4), 150px); }
 
 /* 작은 글씨 키우기 (화면 px — 0.67배 안팎으로 보이므로 13px ≈ 9px) */
-html.mobile #board .prow-bot .np-sub, html.mobile #board .pi-role { font-size: 13px; }
+html.mobile #board .prow-bot .np-sub, html.mobile #board .frow .np-sub, html.mobile #board .pi-role { font-size: 13px; }
 html.mobile #board .zone-label { font-size: max(13px, calc(var(--cw) * .09)); }
 html.mobile #board .ph-turn { font-size: 12.5px; }
 /* 오른쪽 아래 생명 판: 핸드 장수 아래 "핸드" 글씨가 화면 밖으로 밀려 잘리던 것 — 손 모양 그림만 둔다(좁은 PC 창과 같이) */
@@ -80,3 +80,87 @@ html.mobile .pv-bot .pstats { padding-top: 4px; }
 
 /* v3.20.5 폰 · 앱: 전장의 작은 게임 상자(파친코 · 결정)를 뺀다 (js/game.js render에서 붙이지도 않는다). 그 자리는 비운다 */
 html.mobile .f-piles .arc-host { display: none; }
+
+/* ================= v3.32.1 폰 · 앱 손질 =================
+   1) 대기실: 깃발(덱 보관함)만 크게 보이고, 고른 덱의 카드 목록은 숨긴다(덱은 덱 조정실에서 본다).
+      왼쪽 넓은 칸 = 진영 3개를 세로 줄 3개로 놓은 깃발 9개, 오른쪽 좁은 칸 = 고른 덱 이름 · 대전 단추들 · 수레바퀴 · 채팅 */
+html.mobile .screen-lobby .lobby { grid-template-columns: minmax(0, 1fr) 290px; gap: 10px 14px; padding-top: 10px; }
+html.mobile .screen-lobby .decks { grid-column: 1; grid-row: 1; }
+html.mobile .screen-lobby .deck-view { grid-column: 1; grid-row: 2; min-height: 0 !important; padding: 0; background: none; border: 0; box-shadow: none; }
+html.mobile .screen-lobby .deck-view::before, html.mobile .screen-lobby .deck-view::after { display: none; }
+html.mobile .screen-lobby .side-col { grid-column: 2; grid-row: 1 / span 2; }
+html.mobile .screen-lobby .decks > .panel-title { margin-bottom: 4px; }
+html.mobile .screen-lobby .decks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 12px; align-content: start; }
+html.mobile .screen-lobby .decks > .panel-title, html.mobile .screen-lobby .decks > .note { grid-column: 1 / -1; }
+html.mobile .screen-lobby .decks > .note { display: none; }
+html.mobile .screen-lobby .deck-fac { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+html.mobile .screen-lobby .df-head { margin-top: 2px; font-size: 14px; }
+html.mobile .screen-lobby .df-head small { display: none; }
+html.mobile .screen-lobby .deck-tile.rq { min-height: 0; padding: 8px 10px 8px 6px !important; gap: 8px !important; }
+html.mobile .screen-lobby .dt-seal { width: 50px; height: 50px; margin: 6px 0 0 2px; }
+html.mobile .screen-lobby .dt-seal .emblem { width: 40px !important; height: 40px !important; }
+html.mobile .screen-lobby .dt-body b { font-size: 16px; line-height: 1.2; }
+html.mobile .screen-lobby .dt-body .en { font-size: 12.5px; }
+html.mobile .screen-lobby .deck-tile.rq .dt-state { gap: 6px; }
+html.mobile .screen-lobby .dt-gauge { display: none; }
+html.mobile .screen-lobby .dt-st { font-size: 13px; }
+/* 고른 덱: 카드 목록 · 거르기 · 머리(고른 깃발은 위 보관함에서 빛난다)를 숨기고 대전 단추 줄만 깃발 아래에 */
+html.mobile .screen-lobby .dv-head, html.mobile .screen-lobby .dv-filter, html.mobile .screen-lobby .dv-cards { display: none; }
+html.mobile .screen-lobby .dv-actions { margin: 0; padding-top: 4px; }
+html.mobile .screen-lobby .decks .panel-title small { display: none; }
+html.mobile .screen-lobby .deck-tile.rq .dt-mark { width: 80px; height: 80px; }
+html.mobile .screen-lobby .lobby { padding-bottom: 12px; }
+html.mobile .screen-lobby .df-head { margin-top: 0; }
+html.mobile .screen-lobby .deck-fac { gap: 6px; }
+html.mobile .screen-lobby .deck-tile.rq { padding-block: 6px !important; }
+
+/* 2) 시작 핸드(멀리건): 위 3장 · 아래 3장, 오른쪽 빈 자리에 [그대로 시작] [바꾸기]. 아래 기준 설명은 뺀다 */
+html.mobile .modal.mull-modal { width: min(1000px, 100%); display: grid; grid-template-columns: minmax(0, 1fr) 190px; column-gap: 22px; align-items: center; padding-block: 14px 16px; }
+html.mobile .mull-modal > h3, html.mobile .mull-modal > .muted { grid-column: 1 / -1; }
+html.mobile .mull-modal > h3 { margin-bottom: 4px; }
+html.mobile .mull-modal > .muted { margin: 0 0 8px; font-size: 14px; }
+html.mobile .mull-modal .mull-tip { display: none; }
+html.mobile .mull-modal .mull-cards { grid-column: 1; display: grid; grid-template-columns: repeat(3, max-content); justify-content: center; gap: 10px 14px; margin: 0; }
+html.mobile .mull-card .card { --cw: clamp(80px, calc((100dvh - 170px) / 2 / 1.4), 150px); }
+html.mobile .mull-modal .modal-btns { grid-column: 2; grid-row: 3; display: flex; flex-direction: column-reverse; gap: 12px; margin: 0; padding: 0; border: 0; }
+html.mobile .mull-modal .modal-btns .btn { width: 100%; min-height: 54px; font-size: 17px; margin: 0; }
+
+/* 3) 전장 */
+/* 왼쪽 가운데의 기록 · 단축키 판(focus-idle)과 가운데 띠의 손짓 글(더블클릭 또는 …)은 폰에서 뺀다 */
+html.mobile .focus-idle { display: none !important; }
+html.mobile .midbar.v7 .actionbar { display: none; }
+/* 가운데 띠를 얇게: 준비 완료는 내 덱 옆으로 갔다(js/game.js render) · 메뉴 단추도 작게 */
+html.mobile .lay-swap .midbar.v7 { min-height: 0; padding-block: 2px; }
+html.mobile .lay-swap .midbar.v7 .mb-right { min-height: 0; }
+html.mobile .lay-swap .midbar.v7 .toolbar { height: 42px; padding: 0 5px; min-height: 0; border-radius: 8px; }
+html.mobile .lay-swap .midbar.v7 .tb-btn { height: 34px; min-height: 0; padding-block: 0; }
+html.mobile .lay-swap .midbar.v7 .tb-btn .ui-ico, html.mobile .lay-swap .midbar.v7 .tb-btn > svg { width: 24px; height: 24px; }
+html.mobile .lay-swap .midbar.v7 .tb-speed span { font-size: 16px; }
+/* 얇아진 띠만큼(약 40px) 상대 전장 카드를 키운다: 상대 줄만 카드 폭 × 1.28 (--cw0 = 위 v3.20.4 절의 기본 카드 폭) */
+@media (min-width: 761px) {
+  html.mobile .lay-swap .frow-top .slots, html.mobile #board .lay-swap .frow-top .slot > .card, html.mobile #board .lay-swap .frow-top .slot > .card-back { --cw: calc(var(--cw0) * 1.28); }
+}
+/* 준비 완료(+모래시계): 내 덱 왼쪽에 세로로 쌓아 작게 */
+html.mobile .rd-wrap.rd-pile { display: flex; flex-direction: column; align-items: stretch; justify-content: center; gap: 6px; flex: none; align-self: center; }
+html.mobile .rd-wrap.rd-pile .turn-clock { position: relative; top: auto; right: auto; height: 32px; padding: 0 8px 0 4px; gap: 4px; justify-content: center; }
+html.mobile .rd-wrap.rd-pile .turn-clock .tc-glass { height: 24px; }
+html.mobile .rd-wrap.rd-pile .turn-clock .tc-num { font-size: 15px; min-width: 2.6em; }
+html.mobile .rd-wrap.rd-pile .ready-btn { height: 54px; min-width: 0; padding: 0 12px; gap: 7px; border-radius: 8px; font-size: 15.5px; white-space: nowrap; }
+html.mobile .rd-wrap.rd-pile .ready-btn .rd-ico { width: 20px; height: 20px; }
+html.mobile .rd-wrap.rd-pile .ready-btn kbd { display: none; }
+html.mobile .rd-wrap.rd-pile .ready-btn.rd-wait { font-size: 14px; opacity: .8; }
+/* 셔플: "셔플" 글자를 빼고 둥근 인장만(생명 −1 표시는 작게 남김) */
+html.mobile .f-piles > .shuffle-btn.v19 { width: auto; min-width: 0; padding: 0; }
+html.mobile .shuffle-btn.v19 .sh-txt, html.mobile .shuffle-btn.v19 kbd { display: none; }
+html.mobile .shuffle-btn.v19::before, html.mobile .shuffle-btn.v19::after { display: none; }
+html.mobile .shuffle-btn.v19 .sh-seal { position: relative; left: auto; top: auto; transform: none; }
+html.mobile .lay-swap .f-piles > .shuffle-btn.v19 .sh-cost { display: block; position: absolute; z-index: 2; right: -6px; bottom: -4px; margin: 0; font-size: 10.5px; padding: 1px 5px; }
+/* 오른쪽 아래 생명: 숫자 · /40이 판 밖으로 넘치지 않게 */
+html.mobile .lay-swap .pv-bot .pl { column-gap: 6px; }
+html.mobile .lay-swap .pv-bot .hgem { width: 34px; }
+html.mobile .lay-swap .pv-bot .pl-num { font-size: 32px; }
+html.mobile .lay-swap .pv-bot .pl-val small { font-size: 11px; }
+html.mobile .lay-swap .pv-bot .pl-val { min-width: 0; white-space: nowrap; }
+/* 상대 깃발: 이름 · 단체가 다 보이게 길게(오른쪽 빈 자리로 100px 늘림) */
+html.mobile .lay-swap .frow-top .f-flag { position: relative; z-index: 3; }
+html.mobile .lay-swap .frow-top .f-flag .pside { width: calc(100% + 100px); flex: none; }

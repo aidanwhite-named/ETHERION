@@ -28,7 +28,7 @@ function abilOf(it) {
   const amp = o => (o.evName && /^증폭/.test(o.evName) ? parseInt(o.evName.replace(/\D/g, "")) || 0 : 0);
   return { shield: any("shield"), ward: num("ward"), thorns: num("thorns"), shred: any("shred"), crit: any("crit"), chain: any("chain"), ranged: any("ranged"),
     magic: (im.magic === true || g.magic === true) ? true : num("magic"),
-    snipe: (im.every ? +im.throw || 0 : 0) + (g.every ? +g.throw || 0 : 0), amp: amp(im) + amp(g) };
+    snipe: (im.every ? +im.throw || 0 : 0) + (g.every ? +g.throw || 0 : 0), amp: amp(im) + amp(g), u: g0.u || null };   // v3.31 u: 유니크의 강화 특수능력 (js/uniques.js, 아래 "v3.31 강화 특수능력")
 }
 const isUnit = it => it && C(it).type === "unit";
 const isSpell = it => it && !isUnit(it);
@@ -105,12 +105,14 @@ function pinPass(X) {
    v3.5.6: 방어하는 쪽 유닛은 한 전투에서 코인이 한 번 정해지면 그 전투가 끝날 때까지 다시 던지지 않는다.
    v3.5.7: 한 번 정해진 코인은 마법(코인 뒷면 · 운명)으로도 바뀌지 않는다 */
 function resetTurn(it) {
+  const keep = (it.t && it.t.keep) || {};   // v3.31 턴이 지나도 남는 값(충전 · 고철 · 낙인 · 불씨 …)
   if (it.t) it.t.gx = null;   // v3.18 지난 턴 마법이 걸어 준 능력은 남지 않는다
   const b = baseStats(it, true), ab = abilOf(it);
+  if (keep.grow) for (const k in keep.grow) b[k] += keep.grow[k];   // v3.31 [전리품]으로 판 동안 자란 스탯
   it.t = { a: b.a, d: b.d, h: b.h, rb: b, floor: floorOf(it), dmg: 0, alive: true,
     shield: !!(ab.shield && flip()), ward: ab.ward, wardUsed: false,
     thorns: ab.thorns, taunt: false, lock: false, rest: false, thrown: false,
-    cb: { a: 0, d: 0, h: 0 }, coins: coinDefs(it), noCoin: false };
+    cb: { a: 0, d: 0, h: 0 }, coins: coinDefs(it), noCoin: false, keep };
 }
 const hpLeft = u => u.t.h - u.t.dmg;
 
@@ -165,11 +167,12 @@ function clashCoins(X, u, keep) {
       const key = X.clashN + ":" + u.uid + ":" + k.g;
       if (X.over && X.over[key] != null && !u.t.noCoin) heads = X.over[key];
       if (u.t.fate && !u.t.noCoin) heads = sum[k.g] > 0;   // [운명]: 합이 + 인 동전은 앞면, − 동전은 뒷면
+      if (u.t.jam && !u.t.noCoin) heads = sum[k.g] < 0;    // v3.31 [자기장 교란]: 손해 보는 면 (+ 동전 뒷면, − 동전 앞면)
       face[k.g] = heads;
     }
     // v2.4.4 앞면 확률 p: 보통 RULES.coinP(50%). 코인 뒷면 마법은 −50%라 0%, [운명]은 + 동전 100% · − 동전 0%
-    const p = u.t.noCoin ? 0 : u.t.fate ? (sum[k.g] > 0 ? 1 : 0) : RULES.coinP;
-    return { st: k.st, v: k.v, src: k.src, g: k.g, heads: face[k.g], p, clean: !!u.t.noCoin, fate: !!u.t.fate && !u.t.noCoin };
+    const p = u.t.noCoin ? 0 : u.t.jam ? (sum[k.g] < 0 ? 1 : 0) : u.t.fate ? (sum[k.g] > 0 ? 1 : 0) : RULES.coinP;
+    return { st: k.st, v: k.v, src: k.src, g: k.g, heads: face[k.g], p, clean: !!u.t.noCoin, fate: (!!u.t.fate || !!u.t.jam) && !u.t.noCoin, jam: !!u.t.jam && !u.t.noCoin };
   });
   if (fix && out.length) fix[u.uid] = out.map(k => Object.assign({}, k));
   return out;
@@ -211,11 +214,14 @@ function step(X, fx, dur) {
 
 function hurt(X, u, x, tag) {
   if (!u.t.alive || x <= 0) return 0;
+  { const w = uWings(X, u, x); if (w) return hurt(X, w, x, "대신"); }   // v3.31 [날개 그늘]
   if (u.t.shield) { u.t.shield = false; fl(X, u.uid, "보호막", "shield"); lg(X, `[보호막] ${C(u).name}이(가) 피해를 막았다`, "good"); return 0; }
   if (u.t.ward && !u.t.wardUsed) {
     u.t.wardUsed = true; const r = Math.min(x, u.t.ward); x -= r;
     if (x <= 0) { fl(X, u.uid, "가호", "shield"); return 0; }
   }
+  x = uLinkSplit(X, u, x);   // v3.31 [강철 사슬]: 짝에게 나눠 준 몫을 뺀 피해
+  if (x <= 0) return 0;
   u.t.dmg += x;
   fl(X, u.uid, (tag ? tag + " " : "") + "−" + x, "dmg");
   // v3.11 [불굴]: 이번 턴 쓰러질 피해를 처음 받으면 체력 1로 버틴다 (한 번)
@@ -246,6 +252,7 @@ function pickTargets(X, caster, side, area, k) {
     else if (area.t === "minA") L = L.slice().sort((x, y) => x.t.a - y.t.a || C(x).lv - C(y).lv || colOf(P, x) - colOf(P, y)).slice(0, area.n);   // v3.20 공격이 가장 낮은 n기
     else if (area.t === "minH") L = L.slice().sort((x, y) => hpLeft(x) - hpLeft(y) || C(x).lv - C(y).lv || colOf(P, x) - colOf(P, y)).slice(0, area.n);   // v3.11 남은 체력이 가장 낮은 n기
     else if (area.t === "behind") L =L.filter(u => colOf(P, u) > k).sort((x, y) => colOf(P, x) - colOf(P, y)).slice(0, 1);
+    if (P === theirs) L = uEyeFilter(X, P, L);   // v3.31 [폭풍의 눈]: 상대 마법이 겨눈 내 유닛이 코인 앞면이면 빗나감
     out = out.concat(L);
   }
   return out;
@@ -276,6 +283,7 @@ function amplify(p) { return liveUnits(p).reduce((s, u) => s + abilOf(u).amp, 0)
 
 function castSpell(X, caster, it, k) {
   const c = C(it), p = X.P[caster], o = X.P[1 - caster];
+  X.eyeCast = {}; uOnCast(X, caster);   // v3.31 [폭풍의 눈] 이번 마법에서 정한 빗나감 · [축전] · [마력 흡수]
   lg(X, `✦ ${p.name}: ${c.name} 발동 (${k}번 칸) — ${c.text}`, "spell");
   const ops = c.ops.filter(op => op.op !== "lock").concat(c.ops.filter(op => op.op === "lock"));
   /* v3.9.2 마법 코인은 효과마다 한 번, 효과를 내기 전에 먼저 던진다(대상 모두 같은 값 — 문서 07 마법 "코인 표기").
@@ -383,7 +391,7 @@ function snipeOne(X, u) {
   fl(X, tg.uid, "◎ " + C(tg).name, "aim");   // v3.9.11 겨눌 때 대상 이름을 카드 위에 띄운다 (맞고 부서져 칸이 당겨져도 무엇을 맞혔는지 보이게)
   step(X, { act: u.uid, tgt: tg.uid, sn: 1 }, 380);   // sn: 화면이 [사격] 소리를 고르는 표시 (규칙과 무관)
   lg(X, `${C(u).name}의 [사격 ${sn}] → ${C(tg).name}`);
-  hurt(X, tg, sn, "사격");
+  if (!uEyeDodge(X, D, tg)) hurt(X, tg, sn, "사격");   // v3.31 [폭풍의 눈]
   step(X, { act: u.uid, tgt: tg.uid, hit: true, sn: 1 }, 520);
   // v3.12.4 사격이 남은 상대 유닛을 모두 쓰러뜨리면 X.sniped: 이번 전투에서는 직접 공격(생명 피해)을 하지 않는다 (attackOne)
   if (!liveUnits(D).length) X.sniped = true;
@@ -419,6 +427,8 @@ function attackOne(X, Au) {
   // 그 뒤로는 전투가 끝날 때까지 정해진 코인 그대로 (v3.5.6, clashCoins의 keep).
   // 화면에서는 돌고 있는 코인을 사용자가 멈추면 결과가 드러나고, 그 결과대로 스탯이 바뀐 뒤에 공격·반격이 이어진다
   X.clashN++;
+  Au.t.jam = abilOf(Du).u === "jam"; Du.t.jam = abilOf(Au).u === "jam";   // v3.31 [자기장 교란]
+  if (Au.t.jam || Du.t.jam) lg(X, `[자기장 교란] ${C(Au.t.jam ? Au : Du).name}의 코인은 손해 보는 면으로 정해진다`, "sys");
   const ca_ = clashCoins(X, Au), cd_ = clashCoins(X, Du, true);
   const keptD = cd_.length > 0 && !!cd_[0].kept;
   if (ca_.length || (cd_.length && !keptD)) {
@@ -451,12 +461,13 @@ function attackOne(X, Au) {
   }
   step(X, thr ? { act: Au.uid, tgt: Du.uid, thr: thr.uid } : { act: Au.uid, tgt: Du.uid }, 380);
   if (thr) {
-    hurt(X, thr, im.throw, "투척");
+    if (!uEyeDodge(X, D, thr)) hurt(X, thr, im.throw, "투척");   // v3.31 [폭풍의 눈]
     lg(X, `${ca.name}의 [투척 ${im.throw}] → ${C(thr).name}${thr === Du ? " (맞선 유닛뿐이라 함께 맞힘)" : ""}`);
   }
   let dd = Du.t.d;
   if (ab.magic) dd = dd > 0 ? Math.max(0, dd - (ab.magic === true ? 99 : ab.magic)) : dd;
   let dealt = hit(Au.t.a, dd), crit = false, got = 0;
+  if (dealt > 0 && Du.t.alive && uHas(Du, "eye") && uK(Du).dodgeT !== X.turn && (uK(Du).dodgeT = X.turn, flip())) { dealt = 0; fl(X, Du.uid, "빗나감", "miss"); lg(X, `[폭풍의 눈] ${ca.name}의 공격이 바람에 빗나갔다`, "good"); }   // v3.31
   if (!Du.t.alive) lg(X, `${cd.name}이(가) 투척에 쓰러져 공격은 빗나갔다`, "sys");
   else {
     const hpBefore = hpLeft(Du);
@@ -483,13 +494,15 @@ function attackOne(X, Au) {
       lg(X, `[꿰뚫기] ${ca.name}의 공격이 ${C(behind).name}까지 꿰뚫었다 (공 ${Au.t.a} → 방 ${behind.t.d})`);
       if (pr > 0) hurt(X, behind, pr, "꿰뚫기"); else fl(X, behind.uid, "막음", "miss");
     }
+    uOnHit(X, Au, Du, got);   // v3.31 [불씨 전염] · [계약의 낙인] 표시, 쓰러뜨린 유닛 기록
     if (Du.t.thorns && Au.t.alive) { const t = hurt(X, Au, Du.t.thorns, "가시"); if (t) lg(X, `[가시] ${ca.name} 피해 ${t}`); }
   }
   step(X, thr ? { act: Au.uid, tgt: Du.uid, hit: true, thr: thr.uid } : { act: Au.uid, tgt: Du.uid, hit: true }, 520);
-  if (Du.t.alive && Au.t.alive && !Du.t.rest) {
+  if (Du.t.alive && Au.t.alive && !Du.t.rest && !C(Du).still) {
     if (ab.ranged) { lg(X, `[원거리] ${ca.name}은(는) 반격을 받지 않는다`, "sys"); return; }
     const back = hit(Du.t.a, Au.t.d);
     const g = back > 0 ? hurt(X, Au, back, "반격") : (fl(X, Au.uid, "반격 0", "miss"), 0);
+    uOnHit(X, Du, Au, g);   // v3.31 반격도 맞붙은 피해
     lg(X, `↺ ${cd.name}의 반격 → ${ca.name}: 피해 ${g}`);
     step(X, { act: Au.uid, counter: Du.uid }, 460);
   }
@@ -516,13 +529,15 @@ function runCombatCore(X) {
   // 부서진 카드 치우고 좌측 정렬. 치운 게 있으면 한 수로 기록한다
   const sweep = (extraUids, dur) => {
     const gone = extraUids ? extraUids.slice() : [];
+    uPreSweep(X);   // v3.31 쓰러지기 전에: 세이렌의 노래 · 전리품 · 영혼 강탈 · 늑대 · 화약통 · 뿌리 · 고철 · 물결
     for (const p of X.P) {
-      p.field.forEach((it, s) => { if (isUnit(it) && !it.t.alive) { gone.push(it.uid); p.field[s] = null; const bp = ownerOf(X, it, p); if (!C(it).tok) { bp.burn.push(it.id); brokeCard(X, bp, it.id, "unit"); } if (it.item) { bp.burn.push(it.item.id); brokeCard(X, bp, it.item.id, "item"); } } });
+      p.field.forEach((it, s) => { if (isUnit(it) && !it.t.alive) { gone.push(it.uid); p.field[s] = null; const bp = ownerOf(X, it, p); if (!C(it).tok) uBury(X, it, p, bp); else if (it.t.keep && it.t.keep.rev) { bp.burn.push(it.t.keep.rev); brokeCard(X, bp, it.t.keep.rev, "unit"); } if (it.item) { const ip = it.item.from != null ? (X.P.find(q => q.idx === it.item.from) || bp) : bp; ip.burn.push(it.item.id); brokeCard(X, ip, it.item.id, "item"); } } });   // v3.31 uBury: 소각장 · 핸드(영혼 강탈) · 덱 맨 위(돌아오는 물결), 빼앗은 아이템은 원래 주인에게
       const xs = p.field.filter(Boolean);
       p.field = xs.concat(Array(RULES.slots - xs.length).fill(null));
     }
     for (const q of pend) q.k = q.p.field.indexOf(q.it) + 1;
     if (gone.length) step(X, { shatter: gone }, dur || 520);
+    if (uPostSweep(X)) for (const q of pend) q.k = q.p.field.indexOf(q.it) + 1;   // v3.31 쓰러진 뒤 부르는 소환물
   };
   const fire = all => {
     for (;;) {
@@ -541,14 +556,16 @@ function runCombatCore(X) {
       sweep([q.it.uid], 560);
     }
   };
+  uCombatStart(X, sweep);   // v3.31 불씨 · 뿌리 · 축전 (전투가 시작될 때)
   fire(false);
+  if (!dead() && uBombs(X, sweep)) fire(false);   // v3.31.4 화약통은 시작 때 마법이 모두 발동한 뒤에 터진다(그 마법에 부서지면 불발). 터져서 앞 유닛이 쓰러지면 풀린 방어 마법이 이어서 발동
   // v1.4: 공격 순서를 그때그때 다시 읽는다 — 마법이 부른 유닛도 차례가 오면 공격한다
   for (;;) {
     if (dead()) break;
     const Au = A.field.find(u => isUnit(u) && u.t.alive && !acted.has(u));
     if (!Au) break;
     acted.add(Au);
-    if (!Au.t.rest) {
+    if (!Au.t.rest && !C(Au).still) {
       if (abilOf(Au).snipe) { snipeOne(X, Au); sweep(); if (dead()) break; }   // v3.17.5 [사격]은 자기 차례에, 맞붙기 바로 전에
       if (Au.t.alive) { attackOne(X, Au); sweep(); }
     }
@@ -557,6 +574,7 @@ function runCombatCore(X) {
   if (dead()) { lg(X, "생명이 다해 전투가 그 자리에서 끝났다", "bad"); step(X, {}, 300); return X.direct; }
   fire(true);
   sweep();
+  uCombatEnd(X, sweep);   // v3.31 고철 골렘 · 씨앗 · 새벽의 부활 · 늑대 흩어짐 (전투가 끝날 때)
   // "이번 턴만" 부른 유닛은 전투가 끝나면 사라진다
   let fade = false;
   for (const p of X.P) for (const u of p.field) if (isUnit(u) && u.tokTemp && u.t.alive) { u.t.alive = false; fade = true; lg(X, u.from != null ? `빼앗은 ${C(u).name}이(가) 그림자로 흩어져 원래 주인의 소각장으로 갔다` : `${C(u).name}이(가) 사라졌다`, "sys"); }
@@ -938,5 +956,302 @@ const SPELL_OPS = {
   /* [운명] 이번 턴 아군 코인: + 코인은 앞면, − 코인은 뒷면. 이미 던져 정해진 코인은 그대로 (v3.5.7) */
   fate(X, caster, it, k, op) {
     for (const u of liveUnits(X.P[caster])) { u.t.fate = true; fl(X, u.uid, "운명", "buff"); }
+  },
+  /* v3.32 [무효] (js/counterspells.js): 상대 전장에서 아직 발동하지 않은 마법 중 맨 앞 n장이 발동하지 않고 부서진다 { n }.
+     공격 마법은 같은 때 발동할 수 있는 상대 마법보다 먼저 발동한다(runCombatCore fire의 atk → def 순서) — 1번 칸에 두면 전투가 시작되자마자,
+     상대 1번 칸 방어 마법 · opening 마법보다도 먼저. 이미 발동한 마법은 겨누지 않고 다음 마법을 겨눈다.
+     부서진 마법은 원래 주인의 소각장으로(빼앗긴 마법이면 처음 주인). 칸은 이 마법이 끝난 뒤 sweep이 당긴다 */
+  negate(X, caster, it, k, op) {
+    const o = X.P[1 - caster];
+    const L = (X.pend || []).filter(q => q.p === o && q.it !== it).sort((a, b) => a.k - b.k).slice(0, op.n || 1);
+    if (!L.length) { lg(X, `상대 전장에 무효로 할 마법이 없다`, "sys"); fl(X, it.uid, "무효 — 대상 없음", "miss"); return; }
+    for (const q of L) {
+      X.pend.splice(X.pend.indexOf(q), 1);
+      step(X, { tgt: q.it.uid, shown: q.it.uid }, 620);   // 무효로 할 마법을 앞면으로 보이고 겨눔 표시
+      fl(X, q.it.uid, "무효", "debuff");
+      lg(X, `${C(it).name}: 상대 ${q.k}번 칸의 마법 ${C(q.it).name}을(를) 무효로 했다 — 발동하지 않고 부서진다`, "bad");
+      const s = q.p.field.indexOf(q.it); if (s >= 0) q.p.field[s] = null;
+      const bp = ownerOf(X, q.it, q.p); bp.burn.push(q.it.id); brokeCard(X, bp, q.it.id, "spell");
+      step(X, { shatter: [q.it.uid], shown: q.it.uid }, 560);
+      X.negated = (X.negated || 0) + 1;
+    }
   }
 };
+
+
+/* ===================== v3.31 강화 특수능력 (유니크, js/uniques.js UNIQUE_ABIL) =====================
+   유니크 유닛의 gift.u. 이 블록의 함수를 엔진 곳곳(hurt · pickTargets · castSpell · attackOne · runCombatCore의 sweep)이 부른다.
+   - 턴이 지나도 남는 값은 유닛의 t.keep (resetTurn이 지우지 않음, 전투 기록 snap에 함께 실려 실제 카드로 돌아간다)
+   - 핸드 · 덱으로 가는 카드(영혼 강탈 · 돌아오는 물결)는 전투 복제본의 p.gain · p.deckTop에 모았다가 game.js runCombat이 전투 뒤 실제 핸드 · 덱에 넣는다
+   - 난수는 엔진의 flip()만 (실제 대전은 시드 난수라 두 기기 · 다시 굴리기에서 같다)
+   - 컴퓨터의 수 읽기(simulate)도 같은 runCombatCore라 능력이 저절로 들어간다 */
+const uK = u => (u.t.keep = u.t.keep || {});
+const uHas = (u, key) => !!(u && isUnit(u) && u.t && u.t.alive && abilOf(u).u === key);
+const uSideOf = (X, u) => X.P.find(p => p.field.includes(u));
+const uLive = (p, key) => liveUnits(p).filter(u => abilOf(u).u === key);
+const uTokName = id => (CARDS[id] ? CARDS[id].name : id);
+/* 소환물(또는 되살린 카드)을 p의 빈 칸에 놓는다. after가 있으면 그 유닛 바로 다음 칸. 빈 칸이 없으면 부서짐. 놓은 유닛을 돌려준다 */
+function uSpawn(X, p, id, after, keep, why) {
+  const at = landSlot(p, after || null);
+  if (at < 0) { fizzle(X, p, id, after || null, 1, 1); return null; }
+  const u = { uid: tokUid(X), id, item: null, summoned: X.turn };
+  resetTurn(u); u.t.keep = keep || {};
+  landAt(p, at, u); X.toks[u.uid] = id;
+  fl(X, u.uid, why || "소환", "buff");
+  lg(X, `${why ? "[" + why + "] " : ""}${C(u).name}(${C(u).a}/${C(u).d}/${C(u).h}) — ${p.name}의 ${at + 1}번 칸`, "good");
+  step(X, { conjure: u.uid }, 650);
+  return u;
+}
+/* [날개 그늘]: u가 쓰러질 피해를 받으면, 같은 편의 날개 유닛(턴마다 한 번)을 돌려준다 */
+function uWings(X, u, x) {
+  if (u.t.shield || u.t.endure) return null;
+  const left = hpLeft(u) - (u.t.ward && !u.t.wardUsed ? Math.max(0, x - u.t.ward) : x);
+  if (left > 0) return null;
+  const p = uSideOf(X, u); if (!p) return null;
+  const w = uLive(p, "wings").find(v => v !== u && (uK(v).wingT !== X.turn || (uK(v).wingN || 0) < 2));
+  if (!w) return null;
+  if (uK(w).wingT !== X.turn) { uK(w).wingT = X.turn; uK(w).wingN = 0; }
+  uK(w).wingN++;
+  fl(X, u.uid, "날개 그늘", "shield");
+  lg(X, `[날개 그늘] ${C(w).name}이(가) ${C(u).name} 대신 피해 ${x}를 받는다`, "good");
+  return w;
+}
+/* [강철 사슬]: 바로 앞의 내 유닛이 받는 피해의 절반(올림)을 사슬 유닛이 대신 받는다. 짝에게 준 몫을 뺀 피해를 돌려준다 */
+function uLinkSplit(X, u, x) {
+  if (x < 2) return x;
+  const p = uSideOf(X, u); if (!p) return x;
+  const L = liveUnits(p), at = L.indexOf(u);
+  let chain = null, mate = null;
+  if (at >= 0 && uHas(L[at + 1], "link")) { chain = L[at + 1]; mate = u; }   // 바로 앞 유닛이 맞을 때 (v3.31 조정: 사슬 유닛 자신이 맞을 때는 나누지 않음)
+  if (!chain || !mate) return x;
+  const cs = Math.ceil(x / 2), ms = x - cs, other = chain, give = cs;
+  if (give > 0) {
+    other.t.dmg += give;
+    fl(X, other.uid, "사슬 −" + give, "dmg");
+    if (hpLeft(other) <= 0) { other.t.alive = false; lgDeath(X, other); }
+  }
+  lg(X, `[강철 사슬] 피해 ${x}를 ${C(chain).name} ${cs} · ${C(mate).name} ${ms}로 나눔`, "sys");
+  return x - give;
+}
+/* [폭풍의 눈]: 상대 마법(castSpell 안, X.eyeCast)이 겨눈 내 유닛마다 코인 한 번 — 앞면이면 빗나감 */
+function uEyeFilter(X, P, L) {
+  if (!X.eyeCast || !L.length) return L;
+  // [마력 흡수] 유닛은 상대 마법에 맞지 않는다
+  L = L.filter(u => { if (!uHas(u, "absorb")) return true; if (!X.eyeCast["a" + u.uid]) { X.eyeCast["a" + u.uid] = 1; fl(X, u.uid, "흡수", "miss"); } return false; });
+  if (!uLive(P, "eye").length) return L;
+  return L.filter(u => {
+    if (X.eyeCast[u.uid] == null) {
+      X.eyeCast[u.uid] = flip();
+      if (X.eyeCast[u.uid]) { fl(X, u.uid, "빗나감", "miss"); lg(X, `[폭풍의 눈] 마법이 ${C(u).name}을(를) 빗나갔다`, "good"); }
+    }
+    return !X.eyeCast[u.uid];
+  });
+}
+/* [폭풍의 눈]: 상대의 사격 · 투척이 내 유닛을 겨누면 코인 — 앞면이면 빗나감 */
+function uEyeDodge(X, P, u) {
+  if (!uLive(P, "eye").length || !flip()) return false;
+  fl(X, u.uid, "빗나감", "miss"); lg(X, `[폭풍의 눈] ${C(u).name}을(를) 겨눈 화살이 바람에 빗나갔다`, "good");
+  return true;
+}
+/* 마법이 발동할 때: 내 [축전] 충전 +1, 상대 [마력 흡수] 마력 +1 */
+function uOnCast(X, caster) {
+  for (const u of uLive(X.P[caster], "charge")) { const k = uK(u); k.charge = Math.min(2, (k.charge || 0) + 1); fl(X, u.uid, "충전 " + k.charge, "buff"); }
+  for (const u of uLive(X.P[1 - caster], "absorb")) { const k = uK(u); k.mana = Math.min(4, (k.mana || 0) + 1); fl(X, u.uid, "마력 " + k.mana, "buff"); }
+}
+/* 맞붙어 피해를 준 뒤(공격 · 반격): 불씨 · 낙인 표시, 쓰러뜨렸으면 누가 쓰러뜨렸는지 */
+function uOnHit(X, src, tgt, got) {
+  if (!src || !tgt) return;
+  if (got > 0 && tgt.t.alive && !C(tgt).tok) {
+    if (uHas(src, "ember") && uK(tgt).ember == null) { uK(tgt).ember = X.turn; fl(X, tgt.uid, "불씨", "debuff"); lg(X, `[불씨 전염] ${C(tgt).name}에 불씨가 붙었다 — 다음 전투부터 매 턴 피해 2`, "sys"); }
+    if (uHas(src, "brand") && !uK(tgt).brand) { uK(tgt).brand = true; fl(X, tgt.uid, "낙인 · 유지비 +1", "debuff"); lg(X, `[계약의 낙인] ${C(tgt).name}의 유지비가 판이 끝날 때까지 1 늘었다`, "sys"); }
+  }
+  if (!tgt.t.alive && src.t.alive) tgt.t.killer = src.uid;
+}
+/* 쓰러진 유닛을 치우기 전에 */
+function uPreSweep(X) {
+  X.uAfter = X.uAfter || [];
+  for (const p of X.P) for (const v of p.field) {
+    if (!isUnit(v) || v.t.alive || v.t.uDone) continue;
+    v.t.uDone = true;
+    const o = X.P.find(q => q !== p);
+    const killer = v.t.killer != null ? o.field.find(x => x && x.uid === v.t.killer) : null;
+    // [세이렌의 노래]: 판에 한 번, 쓰러지지 않고 넘어온다
+    if (killer && uHas(killer, "siren") && (uK(killer).sang || 0) < 1 && o.field.includes(null) && !C(v).tok) {
+      uK(killer).sang = (uK(killer).sang || 0) + 1;
+      v.t.alive = true; v.t.dmg = v.t.h - 1; v.t.killer = null; v.t.uDone = false; v.tokTemp = false;
+      if (v.from == null) v.from = p.idx;
+      p.field[p.field.indexOf(v)] = null;
+      const xs = o.field.filter(Boolean); xs.push(v); o.field = xs.concat(Array(RULES.slots - xs.length).fill(null));
+      packField(p);
+      fl(X, v.uid, "세이렌의 노래", "debuff");
+      lg(X, `[세이렌의 노래] ${C(v).name}이(가) 쓰러지지 않고 ${o.name}의 편으로 넘어왔다 (체력 1, 판이 끝날 때까지)`, "good");
+      step(X, {}, 600);
+      continue;
+    }
+    if (killer && killer.t.alive) {
+      // [전리품]
+      if (uHas(killer, "loot") && !v.item && !C(v).tok) {
+        const k = uK(killer); k.grow = k.grow || {}; if ((k.grow.a || 0) < 3) { k.grow.a = (k.grow.a || 0) + 1; killer.t.a += 1; fl(X, killer.uid, "전리품 ⚔+1", "buff"); lg(X, `[전리품] ${C(killer).name}의 공격이 판이 끝날 때까지 +1 (지금 +${k.grow.a})`, "good"); }
+      }
+      if (uHas(killer, "loot") && v.item) {
+        const it = v.item; v.item = null;
+        if (it.from == null) it.from = ownerOf(X, v, p).idx;
+        const old = killer.item;
+        if (!old || CARDS[it.id].lv > CARDS[old.id].lv) {
+          if (old) { const op = old.from != null ? (X.P.find(q => q.idx === old.from) || o) : ownerOf(X, killer, o); op.burn.push(old.id); brokeCard(X, op, old.id, "item"); }
+          const b0 = baseStats(killer, true); killer.item = it; const b1 = baseStats(killer, true);
+          for (const k of ["a", "d", "h"]) if (b1[k] !== b0[k]) { killer.t[k] += b1[k] - b0[k]; killer.t.rb[k] = b1[k]; }
+          killer.t.floor = floorOf(killer); applyFloor(killer);
+          fl(X, killer.uid, "전리품 · " + CARDS[it.id].name, "buff");
+          lg(X, `[전리품] ${C(killer).name}이(가) ${C(v).name}의 「${CARDS[it.id].name}」을(를) 빼앗아 장착했다`, "good");
+        } else {
+          const ip = X.P.find(q => q.idx === it.from) || p; ip.burn.push(it.id); brokeCard(X, ip, it.id, "item");
+          lg(X, `[전리품] ${C(killer).name}은(는) 「${CARDS[it.id].name}」보다 지금 아이템이 높아 그대로 둔다`, "sys");
+        }
+      }
+      // [영혼 강탈]: 판에 두 번
+      if (uHas(killer, "soul") && !C(v).tok && (uK(killer).souls || 0) < 2) {
+        uK(killer).souls = (uK(killer).souls || 0) + 1; v.t.soul = ownerOf(X, killer, o).idx;
+        fl(X, v.uid, "영혼 강탈", "debuff");
+      }
+      // [늑대 무리]: 쓰러뜨릴 때마다
+      if (uHas(killer, "wolves")) { X.uAfter.push({ p: o, id: "TK-U-WOLF", after: killer, keep: { expire: X.turn + 1 }, why: "늑대 무리" }); }
+    }
+    // [시한 화약] · [다시 자라는 뿌리]: 자기가 쓰러질 때
+    const ab = abilOf(v).u;
+    if (ab === "timebomb") X.uAfter.push({ p, id: "TK-U-BOMB", keep: { fuse: X.turn }, why: "시한 화약" });
+    if (ab === "root" && !uK(v).rooted && v.t.soul == null) { v.t.rootNow = true; X.uAfter.push({ p, id: "TK-U-ROOT", keep: { born: X.turn, rev: v.id }, why: "다시 자라는 뿌리" }); }   // 카드는 뿌리에 남는다(소각장 아님), 뿌리가 부서지면 그때 소각장
+    // [고철 골렘]: 내 유닛(소환물 빼고)이 쓰러질 때마다
+    if (!C(v).tok) for (const s of uLive(p, "scrap")) { const k = uK(s); k.scrap = (k.scrap || 0) + 1; fl(X, s.uid, "고철 " + k.scrap, "buff"); }
+    // [돌아오는 물결]: 판에 두 번
+    if (!C(v).tok && v.t.soul == null && ownerOf(X, v, p) === p) {
+      const t = uLive(p, "tide").find(x => x !== v && (uK(x).tide || 0) < 2);
+      if (t) { uK(t).tide = (uK(t).tide || 0) + 1; v.t.toDeck = true; fl(X, v.uid, "돌아오는 물결", "heal"); }
+    }
+  }
+}
+/* 쓰러진 카드를 보낸다: 영혼 강탈 → 빼앗은 쪽 핸드, 돌아오는 물결 → 주인 덱 맨 위, 그 밖 → 주인 소각장 */
+function uBury(X, v, p, bp) {
+  if (v.t.soul != null) {
+    const q = X.P.find(z => z.idx === v.t.soul) || bp;
+    (q.gain = q.gain || []).push(v.id);
+    lg(X, `[영혼 강탈] ${C(v).name} 카드가 ${q.name}의 핸드로 갔다`, "good");
+    brokeCard(X, bp, v.id, "unit");
+    return;
+  }
+  if (v.t.rootNow) return;   // [다시 자라는 뿌리]: 카드는 뿌리에 남는다
+  if (v.t.toDeck) {
+    (bp.deckTop = bp.deckTop || []).push(v.id);
+    lg(X, `[돌아오는 물결] ${C(v).name}이(가) ${bp.name}의 덱 맨 위로 돌아갔다`, "good");
+    return;
+  }
+  bp.burn.push(v.id); brokeCard(X, bp, v.id, "unit");
+  X.died = X.died || {}; (X.died[bp.idx] = X.died[bp.idx] || []).push(v.id);
+}
+/* 치운 뒤: 모아 둔 소환(늑대 · 화약통 · 뿌리) */
+function uPostSweep(X) {
+  const L = X.uAfter || []; X.uAfter = [];
+  for (const q of L) {
+    const after = q.after && q.p.field.includes(q.after) && q.after.t.alive ? q.after : null;
+    uSpawn(X, q.p, q.id, after, q.keep, q.why);
+  }
+  return L.length > 0;
+}
+/* v3.31.4 불붙은 화약통: 놓인 다음 턴, 전투 시작 때 발동하는 마법이 모두 발동한 뒤 · 첫 공격 전에 터진다 */
+function uBombs(X, sweep) {
+  let any = false;
+  for (const p of X.P) {
+    const o = X.P.find(q => q !== p);
+    for (const u of p.field.slice()) {
+      if (!isUnit(u) || !u.t.alive || u.id !== "TK-U-BOMB") continue;
+      const k = uK(u);
+      if (k.fuse == null || k.fuse >= X.turn) continue;
+      step(X, { act: u.uid }, 400);
+      const tg = queueOf(o).slice(0, 3);
+      lg(X, `[시한 화약] 불붙은 화약통이 터졌다 → ${tg.map(x => C(x).name).join(" · ") || "맞은 유닛 없음"}`, "bad");
+      for (const x of tg) hurt(X, x, 3, "화약");
+      u.t.alive = false; any = true;
+      step(X, { act: u.uid, hit: true }, 520);
+    }
+  }
+  if (any) sweep();
+  return any;
+}
+/* 전투가 시작될 때 */
+function uCombatStart(X, sweep) {
+  let any = false;
+  for (const p of X.P) {
+    const o = X.P.find(q => q !== p);
+    for (const u of p.field.slice()) {
+      if (!isUnit(u) || !u.t.alive) continue;
+      const k = uK(u);
+      // 뿌리: 다음 턴에 되살아남
+      if (u.id === "TK-U-ROOT" && k.born != null && k.born < X.turn && k.rev && CARDS[k.rev]) {
+        const s = p.field.indexOf(u);
+        const nu = { uid: tokUid(X), id: k.rev, item: null, summoned: X.turn };
+        resetTurn(nu); nu.t.keep = { rooted: true };
+        p.field[s] = nu; X.toks[nu.uid] = k.rev;
+        fl(X, nu.uid, "다시 자람", "heal");
+        lg(X, `[다시 자라는 뿌리] ${C(nu).name}이(가) 뿌리에서 되살아났다`, "good");
+        step(X, { conjure: nu.uid }, 650);
+      }
+      // [축전]: 충전 3
+      if (abilOf(u).u === "charge" && (k.charge || 0) >= 2) {
+        k.charge = 0;
+        const tg = liveUnits(o);
+        step(X, { act: u.uid }, 380);
+        lg(X, `[축전] ${C(u).name}이(가) 모은 번개를 풀었다 → 상대 유닛 모두 피해 2`, "spell");
+        for (const x of tg) hurt(X, x, 2, "축전");
+        step(X, { act: u.uid, hit: true }, 520); any = true;
+      }
+    }
+    // 불씨: 붙은 다음 턴에 탐
+    for (const u of p.field.slice()) {
+      if (!isUnit(u) || !u.t.alive) continue;
+      const k = uK(u);
+      if (k.ember != null && k.ember < X.turn) {
+        lg(X, `[불씨 전염] ${C(u).name}의 불씨가 탄다 — 피해 2`, "bad");
+        hurt(X, u, 2, "불씨"); any = true;
+        if (!u.t.alive) {
+          const nx = queueOf(p).find(x => x !== u && !C(x).tok && uK(x).ember == null);
+          if (nx) { uK(nx).ember = X.turn; fl(X, nx.uid, "불씨 옮겨붙음", "debuff"); lg(X, `[불씨 전염] 불씨가 ${C(nx).name}에 옮겨 붙었다`, "sys"); }
+        }
+      }
+    }
+  }
+  if (any) sweep();
+}
+/* 전투가 끝날 때 */
+function uCombatEnd(X, sweep) {
+  let any = false;
+  for (const p of X.P) {
+    // 잿빛 늑대: 부른 다음 턴 전투가 끝나면 흩어짐
+    for (const u of p.field) if (isUnit(u) && u.t.alive && u.id === "TK-U-WOLF" && (uK(u).expire || 0) <= X.turn) { u.t.alive = false; lg(X, "잿빛 늑대가 초원으로 돌아갔다", "sys"); any = true; }
+    // [고철 골렘]
+    for (const s of uLive(p, "scrap")) { const k = uK(s); while ((k.scrap || 0) >= 4) { k.scrap -= 4; if (!uSpawn(X, p, "TK-U-SCRAP", s, {}, "고철 골렘")) break; } }
+    // [씨앗]: 자라기 → 심기
+    for (const s of uLive(p, "seed")) {
+      for (const u of p.field.slice()) if (isUnit(u) && u.t.alive && u.id === "TK-U-SAPLING" && uK(u).seed === s.uid && uK(u).born < X.turn) {
+        const i = p.field.indexOf(u), nu = { uid: tokUid(X), id: "TK-U-TREE", item: null, summoned: X.turn };
+        resetTurn(nu); p.field[i] = nu; X.toks[nu.uid] = nu.id;
+        fl(X, nu.uid, "자람", "buff"); lg(X, `[씨앗] 묘목이 어린 고목으로 자랐다`, "good"); step(X, { conjure: nu.uid }, 600);
+      }
+      const n = p.field.filter(u => isUnit(u) && u.t.alive && u.id === "TK-U-SAPLING" && uK(u).seed === s.uid).length;
+      if (n < 2) uSpawn(X, p, "TK-U-SAPLING", s, { seed: s.uid, born: X.turn }, "씨앗");
+    }
+    // [새벽의 부활]: 판에 두 번
+    for (const s of uLive(p, "dawn")) {
+      const k = uK(s); if ((k.dawn || 0) >= 2) continue;
+      const pool = ((X.died || {})[p.idx] || []).filter(id => CARDS[id] && CARDS[id].lv < C(s).lv && p.burn.lastIndexOf(id) >= 0);
+      if (!pool.length || !p.field.includes(null)) continue;
+      const id = pool.slice().sort((a, b) => CARDS[b].lv - CARDS[a].lv)[0];
+      p.burn.splice(p.burn.lastIndexOf(id), 1);
+      X.died[p.idx].splice(X.died[p.idx].indexOf(id), 1);
+      k.dawn = (k.dawn || 0) + 1;
+      uSpawn(X, p, id, null, {}, "새벽의 부활");
+    }
+  }
+  if (any) sweep();
+}
+/* game.js가 쓰는 것: 낙인으로 늘어난 유지비 */
+const uUpkeepOf = it => (C(it).up || 0) + (it.t && it.t.keep && it.t.keep.brand ? 1 : 0);

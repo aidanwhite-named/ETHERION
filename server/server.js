@@ -25,7 +25,7 @@ const os = require("os");
 const crypto = require("crypto");
 const { load } = require("./rules.js");
 
-const VERSION = "3.22";
+const VERSION = "3.26";
 const ROOT = path.join(__dirname, "..");
 const DATA_DIR = path.join(__dirname, "data");
 const DB_FILE = path.join(DATA_DIR, "db.json");
@@ -72,6 +72,8 @@ Store.user = () => current;
 Store.load = () => {};
 
 let saveTimer = null, dirty = false;
+/* v3.29 없앤 강화 카드(6레벨 결과 13장)는 원래 카드 3장씩, v3.29.1 아주 뺀 카드(8레벨 35장)는 상점 값으로 돌려준다 — 한 번 돌려주면 그 뒤로는 0 */
+{ const n = Store.refundAllRetiredUpgrades ? Store.refundAllRetiredUpgrades() : 0; if (n > 0) { console.log(`없앤 강화 카드 · 뺀 카드 ${n}장을 돌려줌`); markDirty(); } }
 function writeNow() {
   if (saveTimer) { clearTimeout(saveTimer); saveTimer = null; }
   if (!dirty) return;
@@ -180,16 +182,19 @@ function guest() {
 
 /* ---------- Store 작업 ----------
    게임의 Store 함수를 서버에서 그대로 부른다. target = 대상 모험가(보통 나, 관리자는 다른 모험가도).
-   trust: 지금은 기기가 정한 보상을 믿고 받는 것(전투 정산 · 수레바퀴 · 원정 보상). 보상 추첨을 서버로 옮기면 빠진다(SERVER_PLAN 2장). */
+   trust: 지금은 기기가 정한 보상을 믿고 받는 것(전투 정산 · 수레바퀴 · 원정 보상). 보상 추첨을 서버로 옮기면 빠진다(SERVER_PLAN 2장).
+   today: 서버 시계의 오늘 · 어제를 셋째 인자로 넣어 부른다(v3.26 순례 첫 승 — 추첨도 서버). */
 const OPS = {
   saveDeck: {}, setDraft: {}, clearDraft: {}, draftAdd: {}, buyCard: {}, sellCard: {},
   grantCard: { trust: true },
   addGold: { trust: true, check: a => +a[0] > 0 && +a[0] <= 1000000 ? null : "보상으로 받을 수 있는 조각이 아닙니다." },
+  pilgrimClaim: { today: true },
+  upgradeCard: {},   // v3.28 같은 카드 3장 → 강화 카드 1장 (Store.upgradeCard, js/economy.js)   // v3.26 성로 순례 그날 첫 승(받기 / 뽑기): 날짜는 서버 시계로 검사, 같은 날 두 번은 거절. 카드 추첨도 서버가 한다
   grantGroup: { admin: true }, revokeGroup: { admin: true }, grantAllCards: { admin: true },
   restock: { admin: true, noTarget: true }
 };
 /* 기기가 정하는 칸(전적 · 수레바퀴 표 · 원정 · 경험치 · 설정 따위). 이 밖의 칸(PROTECTED)은 서버만 바꾼다 */
-const PROTECTED = new Set(["id", "pw", "admin", "guest", "created", "group", "owned", "collection", "gold", "ledger", "decks", "drafts", "fresh"]);
+const PROTECTED = new Set(["id", "pw", "admin", "guest", "created", "group", "owned", "collection", "gold", "ledger", "decks", "drafts", "fresh", "pilClaim"]);
 function softUpdate(u, a) {
   const fields = (a && a.fields) || {};
   if (JSON.stringify(fields).length > 300000) return { ok: false, msg: "너무 큽니다." };
@@ -201,18 +206,19 @@ function softUpdate(u, a) {
 }
 function runOp(me, op) {
   const fn = String(op.fn || "");
-  const args = Array.isArray(op.args) ? op.args : [];
+  let args = Array.isArray(op.args) ? op.args : [];
   if (fn === "soft") return softUpdate(me, args[0] || {});
   const spec = OPS[fn];
   if (!spec || typeof Store[fn] !== "function") return { ok: false, msg: "모르는 작업입니다: " + fn };
   if (spec.admin && !me.admin) return { ok: false, msg: "관리자만 할 수 있습니다." };
   if (spec.check) { const e = spec.check(args); if (e) return { ok: false, msg: e }; }
+  if (spec.today) args = [args[0], args[1], R.pilOkDays(Date.now())];   // 기기가 보낸 오늘의 날짜는 서버의 오늘 · 어제여야 한다 (기기가 보낸 셋째 값은 버림)
   if (spec.noTarget) return Store[fn](...args);
   const T = op.target ? db.users[op.target] : me;
   if (!T) return { ok: false, msg: "없는 모험가입니다." };
   if (T !== me && !me.admin) return { ok: false, msg: "다른 모험가의 데이터는 바꿀 수 없습니다." };
   const r = Store[fn](T, ...args);
-  if (spec.trust || fn === "buyCard" || fn === "sellCard") logOp(me, fn, args, r);
+  if (spec.trust || spec.today || fn === "upgradeCard" || fn === "buyCard" || fn === "sellCard") logOp(me, fn, args, r);
   return r === undefined ? null : r;
 }
 function ops(sess, body) {
@@ -258,6 +264,8 @@ function logOp(me, fn, args, r) {
   else if (fn === "sellCard") log("상점", me.id, `판매 ${name(args[0])}`, ok);
   else if (fn === "addGold") log("보상", me.id, `+${args[0]} 조각 (${args[1] || ""})`);
   else if (fn === "grantCard") log("보상", me.id, `카드 ${name(args[0])}`, r ? "" : "(이미 최대)");
+  else if (fn === "upgradeCard") log("강화", me.id, `${name(args[0])}`, r && r.ok ? "→ 됨" : "→ " + (r && r.msg));
+  else if (fn === "pilgrimClaim") log("순례", me.id, `첫 승 ${args[1]} ${args[0] === "gamble" ? "뽑기" : "받기"}`, r && r.ok ? (r.k === "card" ? `→ ${r.grade} ${name(r.id)}${r.gold ? ` (다 가져서 ${r.gold} 조각)` : ""}` : `→ ${r.gold} 조각`) : "→ 거절: " + (r && r.msg));
 }
 
 /* ---------- HTTP ---------- */

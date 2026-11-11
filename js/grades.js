@@ -13,6 +13,7 @@ const GRADES = {
   common:   { id: "common",   rank: 1, name: "일반",   en: "Common",   color: "#f4f1ea" },
   uncommon: { id: "uncommon", rank: 2, name: "고급",   en: "Superior", color: "#f2cf3d" },
   rare:     { id: "rare",     rank: 3, name: "레어",   en: "Rare",     color: "#4ea8ff" },
+  upgrade:  { id: "upgrade",  rank: 3.5, name: "강화", en: "Empowered", color: "#3fe0c0" },   // v3.28 같은 카드 3장을 합친 강화 카드 (js/upgrades.js) — 레어와 에픽 사이
   epic:     { id: "epic",     rank: 4, name: "에픽",   en: "Epic",     color: "#b46cff" },
   unique:   { id: "unique",   rank: 5, name: "유니크", en: "Unique",   color: "#ff8a2a" },
   special:  { id: "special",  rank: 6, name: "스페셜", en: "Special",  color: "#ff4d73" }
@@ -52,7 +53,22 @@ if (typeof HIGH_GRADES !== "undefined") Object.assign(CARD_GRADES, HIGH_GRADES);
 if (typeof PIN_GRADES !== "undefined") Object.assign(CARD_GRADES, PIN_GRADES);
 /* v3.24 레어 마법(js/rarespells.js): 깃발마다 공격 · 방어 · 공용 1장씩, 모두 레어 */
 if (typeof RARE_GRADES !== "undefined") Object.assign(CARD_GRADES, RARE_GRADES);
+/* v3.32 무효 마법(js/counterspells.js): 깃발마다 1장, 모두 고급 */
+if (typeof COUNTER_GRADES !== "undefined") Object.assign(CARD_GRADES, COUNTER_GRADES);
+/* v3.28 강화 카드(js/upgrades.js) */
+if (typeof UPGRADE_GRADES !== "undefined") Object.assign(CARD_GRADES, UPGRADE_GRADES);
 
 function gradeOf(c) { const id = typeof c === "string" ? c : c && c.id; return CARD_GRADES[id] || "common"; }
 for (const c of CARD_LIST) c.grade = gradeOf(c);
 function gradeBadgeHTML(c, cls) { const G = GRADES[gradeOf(c)]; return `<span class="${cls || "grade-badge"} grade-${G.id}" style="--gr:${G.color}" title="등급: ${G.name} (${G.en})">${G.name}</span>`; }
+
+/* v3.12.1 덱 점수: 카드 한 장 = 등급 점수 + 레벨. 덱 점수 = 덱에 든 카드(장수만큼)의 합.
+   등급이 오를수록 같은 레벨에서도 강하므로 등급 점수가 크고, 레벨은 1~8점을 더한다. 나눈 법은 docs/GRADES.md 3장
+   (v3.24.4: js/screens.js에서 옮김 — 덱 조정실의 점수판과 컴퓨터 맞춤 덱 js/aideck.js가 같은 점수를 쓴다) */
+const DECK_GRADE_PT = { common: 6, uncommon: 10, rare: 15, upgrade: 18, epic: 21, unique: 28, special: 36 };
+const cardScore = c => (DECK_GRADE_PT[gradeOf(c)] || 6) + (c.lv || 0);
+function deckScore(cards) {
+  let g = 0, l = 0, n = 0;
+  for (const id in cards) { const c = CARDS[id], k = cards[id] || 0; if (!c || k <= 0) continue; g += k * (DECK_GRADE_PT[gradeOf(c)] || 6); l += k * (c.lv || 0); n += k; }
+  return { total: g + l, grade: g, lv: l, n };
+}

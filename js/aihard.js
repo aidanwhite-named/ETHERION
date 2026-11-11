@@ -6,6 +6,7 @@
      (계략 마법의 값은 보통과 같은 HAND_OPS[].ai를 쓴다)
    - 같은 난수 씨앗 묶음으로 모든 수를 굴려(공통 난수) 코인 운의 차이가 판단을 흔들지 않게 한다.
    - 수치(HARD)는 tools/balance/vs.js로 보통과 수백 판씩 붙여 맞췄다(보통에게 약 80% 승). 결과는 docs/CHANGELOG.md v3.16.
+   - v3.24.4 생각하는 시간: 굴리는 횟수를 경우의 수 · 기기 빠르기에 맞춘다(THINK). 경우의 수가 많으면 더 오래, 한 턴 상한 안에서.
    - 판의 결과를 바꾸는 난수(GRand)는 쓰지 않는다. 미리 굴리기는 엔진의 시드 난수(ctx seed) 위에서만 돈다. */
 "use strict";
 
@@ -36,6 +37,40 @@ const HARD = {
 
 const hardYield = () => (G && !G.cfg.headless && G.speed !== 0) ? wait(0) : null;
 
+/* ---------- 생각하는 시간 (v3.24.4) ----------
+   수 하나를 굴려 보는 횟수를 고정(HARD.sims)하지 않고, 그 순간의 경우의 수에 맞춘 시간 안에서 정한다.
+   - 한 번 고를 때 쓸 시간 = base + per × (둘 수 있는 수의 개수), 많아도 max. 경우의 수가 많을수록 더 오래 생각한다.
+   - 그 시간을 수의 개수로 나눠 한 수를 몇 번 굴릴지 정한다(minSims ~ maxSims). 빠른 기기는 더 꼼꼼히(최대 maxSims번),
+     느린 기기는 덜 굴려서 시간을 지킨다. 굴림 한 번에 걸리는 시간은 그 기기에서 재며 고쳐 나간다(HT.c).
+   - 한 턴의 계산이 turn을 넘으면 더 찾지 않고 지금까지 가장 좋은 수로 끝낸다.
+   - 계산이 slice(ms)를 넘길 때마다 화면에 숨 쉴 틈을 준다(연출이 멈추지 않게).
+   화면 없는 도구(headless) · 즉시 진행(speed 0)에서는 예전처럼 HARD.sims번으로 고정이라 균형 도구의 결과는 그대로다. */
+const THINK = {
+  base: 300,       // 한 번 고를 때 기본 시간(ms)
+  per: 40,         // 둘 수 있는 수 하나마다 더하는 시간(ms)
+  max: 2400,       // 한 번 고를 때의 상한(ms)
+  turn: 7000,      // 한 턴 계산 전체의 상한(ms, 연출 시간은 빼고)
+  minSims: 4,      // 수 하나를 굴리는 횟수 — 아무리 바빠도
+  maxSims: 16,     //                         아무리 한가해도
+  slice: 45        // 이만큼(ms) 계산했으면 화면에 한 번 양보
+};
+const HT = { c: 0, used: 0, tick: 0, live: null };   // c = 굴림 한 번(ms, 이동 평균) · used = 이번 턴에 쓴 계산 시간 · tick = 마지막 양보 시각
+const hardNow = () => (typeof performance !== "undefined" && performance.now ? performance.now() : Date.now());
+const hardLive = () => HT.live != null ? HT.live : !!(G && !G.cfg.headless && G.speed !== 0);   // HT.live는 도구(tools/balance/think.js)가 화면 없이 시험할 때만 켠다
+/* 경우의 수 K개를 견줄 때 수 하나를 몇 번 굴릴까 */
+function hardSims(K) {
+  if (!hardLive()) return HARD.sims;
+  const budget = Math.min(THINK.max, THINK.base + THINK.per * K);
+  const c = Math.max(0.02, HT.c || 1);
+  return Math.max(THINK.minSims, Math.min(THINK.maxSims, Math.floor(budget / (Math.max(1, K) * c))));
+}
+const hardOver = () => hardLive() && HT.used > THINK.turn;
+/* 계산이 길어지면 화면에 양보할 약속을 돌려준다(아니면 null). 판을 미리 두어 본 상태에서는 부르지 않는다 */
+function hardBreath() {
+  if (!hardLive() || hardNow() - HT.tick < THINK.slice) return null;
+  return wait(0).then(() => { HT.tick = hardNow(); });
+}
+
 /* 생명의 값: 낮을수록 1이 더 귀하다 */
 function hardLife(x) { return x < 0 ? -HARD.win : HARD.lifeW * x - HARD.lowW * Math.max(0, HARD.lowLife - x); }
 /* 전투가 끝난 판의 값 (me 기준) */
@@ -52,6 +87,7 @@ function hardEval(p, seeds) {
   // 내 마법은 아직 뒷면이지만 나는 안다. 상대 마법은 준비 단계 동안 뒷면이라 빼고 굴린다
   const base = G.players.map(q => cloneSide(q, q.idx === hide && prepIdx() === me));
   const ph = HARD.phantom ? hardPhantom(p) : null;
+  const t0 = hardNow();
   let s = 0;
   for (const seed of seeds) {
     const P = JSON.parse(JSON.stringify(base));
@@ -67,6 +103,8 @@ function hardEval(p, seeds) {
     s += v;
   }
   resetRng();
+  const dt = hardNow() - t0, per = dt / seeds.length;   // v3.24.4 굴림 한 번에 걸린 시간
+  HT.used += dt; HT.c = HT.c ? HT.c * 0.85 + per * 0.15 : per;
   return s / seeds.length;
 }
 
@@ -157,15 +195,21 @@ function hardPerms(xs) {
   });
   return out;
 }
-function hardBestOrder(p, seeds, cur) {
+async function hardBestOrder(p, seeds, cur, curN, myG) {
   const xs = p.field.filter(Boolean); if (xs.length < 2) return null;
   const f0 = p.field; let best = null;
-  for (const ord of hardPerms(xs)) {
+  let perms = hardPerms(xs);
+  // v3.24.4 순서의 가짓수(최대 120)에 맞춰 굴리는 횟수를 정한다. 그래도 시간이 모자라면 앞쪽 순서만 본다(지금 순서가 맨 앞)
+  const n = hardSims(perms.length), S = seeds.slice(0, n);
+  if (hardLive()) { const room = Math.floor(THINK.max * 1.5 / (n * Math.max(0.02, HT.c || 1))); if (perms.length > room) perms = perms.slice(0, Math.max(2, room)); }
+  if (n !== curN) cur = hardEval(p, S);
+  for (const ord of perms) {
     p.field = ord.concat(Array(RULES.slots - ord.length).fill(null));
-    const v = hardEval(p, seeds);
+    const v = hardEval(p, S);
     if (!best || v > best.v) best = { v, f: p.field };
+    p.field = f0;
+    const w = hardBreath(); if (w) { await w; if (G !== myG) return null; }
   }
-  p.field = f0;
   return best && best.v - cur >= HARD.minGain ? best.f : null;
 }
 
@@ -208,7 +252,8 @@ async function aiPrepHard(p) {
   const myG = G;
   render(); await T(500); if (G !== myG) return;
   const seedBase = (Math.random() * 1e9) >>> 0;
-  const seeds = Array.from({ length: HARD.sims }, (_, i) => (seedBase + i * 7919) >>> 0);
+  const seeds = Array.from({ length: Math.max(HARD.sims, THINK.maxSims) }, (_, i) => (seedBase + i * 7919) >>> 0);   // 앞에서부터 필요한 만큼만 쓴다
+  HT.used = 0; HT.tick = hardNow();
 
   // 핸드에 이번 턴 · 다음 턴에 낼 카드가 거의 없으면 셔플 (생명 −1)
   if (HARD.shuf && !shuffleBlock(p) && p.life > HARD.shufLife) {
@@ -233,28 +278,37 @@ async function aiPrepHard(p) {
     if (weakest && best && best.lv >= unitWorth(weakest.it) + 3) { actBurnField(p, weakest.s); render(); await T(320); }
   }
 
-  let cur = hardEval(p, seeds);
+  // v3.24.4 굴리는 횟수(nS)는 고를 때마다 경우의 수에 맞춰 다시 정한다. 견주는 값(cur)은 늘 같은 씨앗 묶음(S)으로 잰 것
+  let nS = HARD.sims, S = seeds.slice(0, nS);
+  let cur = hardEval(p, S);
   for (let n = 0; n < 10; n++) {
     if (G !== myG) return;
+    if (hardOver()) break;
     const opts = hardOptions(p);
+    const k = hardSims(opts.length);
+    if (k !== nS) { nS = k; S = seeds.slice(0, nS); cur = hardEval(p, S); }
     let best = null;
     for (const a of opts) {
-      a.v = hardTry(p, a, seeds) - hardHandCost(p) + HARD.spendW * costOf(C(a.it));
+      a.v = hardTry(p, a, S) - hardHandCost(p) + HARD.spendW * costOf(C(a.it));
+      if (a.kind === "spell") a.v += negateHope(p, C(a.it), p.field.filter(Boolean).slice(0, a.at).filter(isUnit).length);   // v3.32 [무효]는 미리 굴려서는 보이지 않는다(js/game.js)
       if (!best || a.v > best.v) best = a;
+      const w = hardBreath(); if (w) { await w; if (G !== myG) return; }
     }
     await hardYield(); if (G !== myG) return;
     // 혼자서는 손해인 카드도 다른 카드와 함께면 이득일 수 있다 (마법 + 유닛, 아이템 + 유닛): 위쪽 몇 수와 그 다음 수를 짝지어 본다
-    if (HARD.pairs && (!best || best.v - cur < HARD.minGain) && opts.length > 1) {
+    if (HARD.pairs && (!best || best.v - cur < HARD.minGain) && opts.length > 1 && !hardOver()) {
       const top = opts.slice().sort((a, b) => b.v - a.v).slice(0, HARD.pairs);
       for (const a1 of top) {
         const undo = hardApply(p, a1), hi = p.hand.indexOf(a1.it), c1 = costOf(C(a1.it));
         p.hand.splice(hi, 1); p.spent += c1;
         const hc = hardHandCost(p);
         let b2 = -Infinity;
-        for (const a2 of hardOptions(p)) b2 = Math.max(b2, hardTry(p, a2, seeds) - hc);
+        for (const a2 of hardOptions(p)) b2 = Math.max(b2, hardTry(p, a2, S) - hc);
         p.spent -= c1; p.hand.splice(hi, 0, a1.it); undo();
         const v = b2 - hardHandCost(p);
         if (v - cur >= HARD.minGain && (!best || best.pv == null || v > best.pv)) best = Object.assign({}, a1, { pv: v, v });
+        const w = hardBreath(); if (w) { await w; if (G !== myG) return; }
+        if (hardOver()) break;
       }
       await hardYield(); if (G !== myG) return;
     }
@@ -263,12 +317,14 @@ async function aiPrepHard(p) {
     if (best.kind === "item") ok = actEquip(p, best.it.uid, best.s);
     else { const f = hardInsert(p.field, best.it, best.at); ok = actPlace(p, best.it.uid, null); if (ok) p.field = f; }
     if (!ok) break;
-    cur = hardEval(p, seeds);
-    render(); await T(420);
+    cur = hardEval(p, S);
+    render(); await T(420); HT.tick = hardNow();
   }
 
   // 자리 바꾸기: 전장 카드의 모든 순서를 굴려 보고 가장 좋은 순서로 (빈 칸은 뒤로)
-  const best = hardBestOrder(p, seeds, cur);
+  if (G !== myG) return;
+  const best = hardOver() ? null : await hardBestOrder(p, seeds, cur, nS, myG);
+  if (G !== myG) return;
   if (best) { p.field = best; render(); await T(260); }
   settleUpkeep(p);
   render(); await T(350);

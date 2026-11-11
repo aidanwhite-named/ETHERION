@@ -95,7 +95,7 @@ const IMPACT = (() => {
   function tick(now) {
     raf = 0;
     if (!cv || !cv.isConnected) { parts = []; rings = []; return; }
-    const dt = Math.min(0.05, (now - last) / 1000) / K(); last = now;
+    const dt = Math.max(0, Math.min(0.05, (now - last) / 1000)) / K(); last = now;   // v3.32 rAF 시각이 kick()의 performance.now()보다 이를 수 있어 dt가 음수 → 고리 반지름이 음수가 되어 arc 오류
     cx.setTransform(dpr, 0, 0, dpr, 0, 0);
     cx.clearRect(0, 0, innerWidth, innerHeight);
     cx.globalCompositeOperation = "lighter";

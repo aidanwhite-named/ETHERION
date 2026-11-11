@@ -10,6 +10,7 @@
 - 코드와 가이드가 다르면 코드를 따르고, 가이드를 고친다.
 - 새 그림 규칙을 정하면 가이드에 적고 버전을 올린다.
 - 카드 일러스트는 `img/cards/<카드ID>.png` 로 넣는다 (카드 ID는 `js/data.js`의 `id`).
+- **카드 일러스트 프롬프트는 등급별**(v3.31): 규칙서 `tools/art/PROMPT_GUIDE.md`, 문구 원본 `tools/art/art_style.json`(등급 · 레벨 · 깃발), 카드별 지시 `tools/art/art_notes.json`. 새 카드를 만들면 `node tools/art/build_prompts.js` → `python tools/art/artmap.py`. **스페셜 · 유니크는 `art_notes.json`에 그림 지시를 함께 쓴다.** 받은 그림은 `tools/art/inbox/`에 넣고 `python tools/art/artmap.py import`(장부 `art_map.csv` · 보드 `art_board.html`). 스타일 가이드 6.8.
 - 이미지 생성 AI로 그릴 때는 `tools/art/`(사용법 `README.md`, 그림 AI용 지시서 `BRIEF.md`, 프롬프트 `prompts/`, 일괄 생성 `gen.py`). 스타일 가이드 6.7.
 
 ## 떠오르는 효과 글자 (v3.18.1)
@@ -32,7 +33,7 @@
 ## 카드 이름과 세계관
 - 세 진영의 힘의 근원(거인·용·신)과 거인 일곱은 `docs/WORLD.md`에 있다. 카드 이름을 짓거나 고칠 때 따른다.
 - **카드 이름·설명 고침은 `js/names.js`에 카드 ID로 적는다.** `js/data.js`는 균형 도구가 옛 백업에서 다시 써서 직접 고친 이름이 사라진다.
-- **카드를 게임에서 뺄 때는 `js/retired.js`에 카드 ID로 적는다**(v3.20.7, 같은 까닭으로 `data.js`에서 지우지 않음). 새 일반 카드는 같은 깃발 · 같은 레벨 카드와 이름 · 역할이 겹치지 않는지, 깃발의 강점 · 원소(`docs/WORLD.md` 6장)에 맞는지 먼저 본다. 뺀 까닭은 `docs/RETIRED_v3.20.7.md`.
+- **카드를 게임에서 뺄 때는 `js/retired.js`에 카드 ID로 적는다**(v3.20.7, 같은 까닭으로 `data.js`에서 지우지 않음). 모험가의 보유 · 덱에서도 빼야 하면(v3.29.1 8레벨 35장처럼) 이유를 `8레벨은 스페셜만…`처럼 `GONE_CARDS`가 고르는 문구로 적거나 `GONE_CARDS`에 넣는다 — `Store.refundGoneCards`가 상점 값을 돌려주고 덱 자리를 `GONE_SWAP`으로 채운다. **8레벨은 스페셜만**(v3.29.1). 주 스탯 10 초과는 괜찮다(상한 권장 공 13 · 체 14, `docs/BALANCE_v4_draft.md` 2장). 새 일반 카드는 같은 깃발 · 같은 레벨 카드와 이름 · 역할이 겹치지 않는지, 깃발의 강점 · 원소(`docs/WORLD.md` 6장)에 맞는지 먼저 본다. 뺀 까닭은 `docs/RETIRED_v3.20.7.md`.
 - 마법 카드의 핸드용 짧은 문구는 `js/briefs.js`(`SPELL_BRIEF`)에 카드 ID로 적는다. 마법 글(`text`)을 고치거나 새 마법을 만들면 짧은 문구도 함께 쓴다(적는 법은 파일 맨 위).
 - 이름 짓기 원칙(새 고유명사는 천천히, 마법 이름 6글자 이하, 익숙한 마법은 그대로)은 `docs/WORLD.md` 7장.
 
@@ -64,7 +65,8 @@
 - 마법이 스탯을 직접 바꾸면 `addStat` · `setStats`(engine.js)를 쓴다 — 표시를 지키고, 체력 0이면 쓰러뜨리고, 실제 바뀐 값을 띄운다. 새 카드는 `js/pincards.js`.
 
 ## 카드 등급
-- 등급(일반·고급·레어·에픽·유니크·스페셜)과 카드별 등급은 `js/grades.js`, 나눈 방법과 새 카드 기준은 `docs/GRADES.md`.
+- 등급(일반·고급·레어·에픽·유니크·스페셜)과 카드별 등급은 `js/grades.js`, 나눈 방법과 새 카드 기준은 `docs/GRADES.md`. **v3.29부터 유니크는 강화 특수능력을 가진 유닛만**(v3.31: 깃발마다 2장 · 18장 · 모두 6레벨, 덱에 유니크 2종까지 `uniqueBlock`. 능력 규칙은 `js/engine.js` 맨 아래 "v3.31 강화 특수능력", 글은 `js/uniques.js` `UNIQUE_ABIL` — 둘을 함께 고친다. 시험 `node tools/uniques/test31.js`, 설명 `docs/UNIQUES_v3.31.md`)(마법 · 아이템 유니크는 에픽으로 내림). 새 수치 기준(레벨 직선 4 + 2 × 레벨 · 유지비 0 또는 1 · 강화는 최대 · 등급 배율 · 7레벨까지)은 `docs/BALANCE_v4_draft.md`, 표 계산은 `node tools/balance4/budget.js`. **v3.30에 유닛을 이 기준으로 맞췄다**(`tools/balance4/rebuild.js`) — 이 도구는 `_backup_v3.30_rebal/js`에서 시작하므로, 그 뒤 손으로 고친 유닛이 있으면 다시 돌리기 전에 `--from js`로.
+- 무효 마법(v3.32)은 `js/counterspells.js`(깃발마다 1장, 모두 고급). [무효] = 엔진 `SPELL_OPS.negate`(상대 전장에서 아직 발동하지 않은 마법 중 맨 앞을 부숨). 컴퓨터는 미리 굴리기로 [무효]를 볼 수 없어 `js/game.js` `negateHope`로 어림한다 — 상대 마법을 겨누는 새 효과를 만들면 거기도 본다. 시험 `node tools/counter/test.js`, 실험실 `node tools/counter/lab.js 1500`, 설명 `docs/COUNTERSPELLS_v3.32.md`.
 - 레어 마법(v3.24)은 `js/rarespells.js`(깃발마다 공격 · 방어 · 공용 1장). 새 마법의 세기는 마법 실험실 `node tools/highcards/lab_rare.js 2000 [카드 ID,...]`로 같은 레벨 기존 마법 · 유니크와 견준다(레어 목표는 `docs/RARESPELLS_v3.24.md` 2장). 새 카드 데이터 파일을 만들면 `index.html`(data.js ~ economy.js 사이)과 `tools/balance/harness.js`의 파일 목록에 함께 넣는다.
 
 ## PC 앱 — Electron (v3.20.2)
@@ -80,3 +82,30 @@
 - 폰 화면 맞춤은 `js/mobile.js`(레이아웃 폭을 넓혀 줄여 보임). 폰 전용 배치를 새로 만들기보다 이 방식을 유지한다. 터치 손질은 `css/mobile.css`(`html.mobile`).
 - 폰 글자 크기(v3.20.4): 줄이는 정도는 설정 "폰 글자 크기"(`MobileFit`, 맞춤 높이 720 · 620 기본 · 580). 폰 · 앱의 전장 핸드 카드는 `css/mobile.css` 맨 아래에서 핸드 줄을 높여 키운다. 폰에서 글씨가 작다는 말을 들으면 PC 규칙 대신 그 절에 `html.mobile` 규칙을 더한다.
 - `android/signing/` 의 서명 열쇠는 바꾸거나 지우지 않는다(바뀌면 폰에서 업데이트가 안 된다).
+
+## 컴퓨터 (v3.24.4)
+- 보통은 `js/game.js` `aiPrep`, 어려움은 `js/aihard.js`. **수를 견줄 때는 같은 씨앗으로 굴린다**(보통 `spellGain`, 어려움 `hardEval`의 seeds) — 따로 굴리면 코인 운이 이득처럼 보여 헛수를 둔다.
+- 어려움의 생각하는 시간은 `THINK`(경우의 수가 많을수록 길게, 한 턴 상한). 화면 없는 도구는 `HARD.sims` 고정이라 균형 도구 결과에 닿지 않는다. 잴 때 `node tools/balance/think.js js 18 8`(8배 느린 기기인 척).
+- 내 덱 점수에 맞춘 컴퓨터 덱은 `js/aideck.js` `aiDeckFor`(기본 덱 대비 비율을 맞춤). 덱 점수는 `js/grades.js` `deckScore`. 확인 `node tools/balance/matchdeck.js build` · `play 0.85,1,1.15 72`.
+
+## 성로 순례 (v3.25 · v3.26)
+- **수치는 `js/pilgrim-rules.js`의 `PILGRIM`**(하루 판 수 · 첫 승 조각 · 완주 보너스 · 전투 정산 배수 · 관문별 상대 세기 · 뽑기 확률 · 이정표 · 리셋 요일). 이 파일은 게임과 서버(`server/rules.js` `EXTRA`)가 함께 읽는다 — 화면 코드를 넣지 않는다.
+- 규칙 · 화면은 `js/pilgrim.js`. 글(수문장의 말 · 소문 · 망각의 숲 · 동쪽의 기록 · 주간 기억 · 출발지 · 숲의 지도 자리)은 `js/pilgrimtext.js`만 고친다. 1부라 공허의 이름은 쓰지 않는다("비친 나").
+- **그날 첫 승 보상(받기 · 뽑기)은 `Store.pilgrimClaim` 한 곳에서만 준다.** 서버로 열면 서버가 부르고, 날짜를 서버 시계의 오늘 · 어제로 검사한다(`OPS.pilgrimClaim`의 `today`). 받은 날은 `u.pilClaim`(서버만 바꾸는 칸). 화면에서 `Store.addGold`로 첫 승 조각을 따로 주지 않는다.
+- 그 밖의 순례 상태는 `u.pilgrim`(기기가 정하는 칸): 길 · 판 수 · 걸음 · 소문(`lore`) · 지난 주(`book`) · 기록. 이정표 · 완주 보상은 `Store.addGold` · `pilPickCard`(장부 이유는 "순례 …"). 길의 날짜는 기기 시계(자정 · 수요일 0시).
+- 화면은 두 탭: 오늘의 길(지도 `pilMapHTML` — 바탕은 `Kailan.mapSVG()`, 도시 좌표는 `Kailan.places`) · 순례기(`pilBookHTML`). 지도에 장소를 더하거나 옮기면 `js/kailan.js`만 고치면 순례 지도도 따라간다.
+- 순례 판은 대전 설정에 `pil: true` · `econRate`가 붙는다. 경기 끝은 `onMatchEnd` → `Pilgrim.onEnd`.
+- 고치면 `node tools/pilgrim/test.js`(467개)를 돌린다. 순례 전투 조각은 1%(v3.28).
+
+## 전투 조각 배수 (v3.26)
+- 부서진 카드 2% · 승패 정산에는 모드마다 배수가 곱해진다: `js/economy.js` `ECON.rate`(v3.27: 컴퓨터 0.5% · 온라인 1% · 한 화면 0.5%), 대전 설정에 `econRate`가 있으면 그것(순례). 판정은 `econRate(g)`.
+- **경험치는 배수와 상관없이 원래 값**이다(`econGain`이 모자란 만큼 `Store.addXp`). 새 보상에 배수를 붙일 때도 `econGain`을 쓰면 레벨 곡선을 건드리지 않는다.
+- 판 끝의 행운(v3.27, `ECON.lucky` · `econLucky`): 0.1% 공짜 카드(순례 뽑기 확률표) · 0.7% 500 조각. `econSettle`이 한 번 굴린다.
+- 대기실의 원정 자리는 순례다(v3.26). 원정(`js/expedition.js`)은 하던 것을 마칠 때만 "원정 계속"으로 보인다.
+
+## 업그레이드 · 강화 카드 (v3.28)
+- 강화 카드는 `js/upgrades.js`(`UPGRADE_UNITS` · `UPGRADE_OF`), 설명 · 잰 값은 `docs/UPGRADES_v3.28.md`. **v3.29: 강화 결과는 5레벨까지.** 강화 카드를 없앨 때는 `UPGRADE_RETIRED`(강화 → 원래 카드)에 적으면 가진 모험가가 원래 카드 3장을 돌려받는다(`Store.refundAllRetiredUpgrades`). 카드마다 `base`(원래 카드) · `anyItem`(클래스 없음, 어떤 아이템이든) · `limit: 1`. 등급 `upgrade`(강화, 덱 점수 18).
+- 합치기는 `Store.upgradeCard`(js/economy.js)만 — 재료 3장(`UPGRADE_COST`)은 `Store.tradeable`로 덱 보호. 서버 `OPS.upgradeCard` · `NET_SYNC_OPS`. 화면은 `Upgrade.run` · `upgradeFX`(js/upgrade-ui.js).
+- 강화 카드는 사고팔지 않는다(`buyCard` · `sellCard` · `sellable`이 막음, 재고 0). 보상 뽑기 확률표(`PILGRIM.gamble`)에도 없다.
+- 강화 카드의 세기를 바꾸면 `node tools/cardsim/cardsim.js --cards <강화 ID들> --out tools/cardsim/out_v328 --games 40 --base 100 --time 140`을 여러 번(3분씩) → `report.js --out …`. 목표는 1장 넣은 승률 변화 +3%p 안팎(docs/UPGRADES_v3.28.md 3장).
+- 강화 카드 모양은 `css/upgrade.css`(마지막 쪽에 읽음), 마크는 `js/view.js` `UPGRADE_MARK` · `upgradeMarkHTML`.

@@ -15,7 +15,7 @@
    판의 결과에는 손대지 않는다(읽기만 한다). 화면 없이 도는 판(cfg.headless — 균형 도구)에서는 꺼져 있다. */
 "use strict";
 
-const BLOG_VER = "3.24.2";   // 로그 형식 · 게임 버전 표시. 게임 버전을 올리면 함께 고친다
+const BLOG_VER = "3.32";   // 로그 형식 · 게임 버전 표시. 게임 버전을 올리면 함께 고친다
 
 const BLog = {
   KEY: "etherion.battlelog",
@@ -40,7 +40,7 @@ const BLog = {
     L.push(`ETHERION 전투 로그 — ${d.getFullYear()}-${p2(d.getMonth() + 1)}-${p2(d.getDate())} ${p2(d.getHours())}:${p2(d.getMinutes())}:${p2(d.getSeconds())}`);
     let sig = ""; try { if (typeof Online !== "undefined") sig = " · 카드 데이터 " + Online.sig(); } catch (e) {}
     L.push(`게임 v${BLOG_VER}${sig}`);
-    const mode = g.online ? "온라인 대전" : g.mode === "hotseat" ? "한 기기 두 사람" : g.cfg.exp ? "원정" : g.mode === "ai" ? "컴퓨터와 대전" : g.mode;
+    const mode = g.online ? "온라인 대전" : g.mode === "hotseat" ? "한 기기 두 사람" : g.cfg.exp ? "원정" : g.cfg.pil ? "성로 순례" : g.mode === "ai" ? "컴퓨터와 대전" : g.mode;
     L.push(`모드: ${mode}${g.online ? ` (내 자리 P${g.me})` : ""} · 판 규칙: ${g.rules && g.rules.name ? `${g.rules.name} — ${g.rules.text || ""}` : "없음"}`);
     g.players.forEach(p => {
       const gn = p.group && typeof GROUPS !== "undefined" && GROUPS[p.group] ? `${GROUPS[p.group].name}(${p.group})` : grp(p);

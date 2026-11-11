@@ -1,0 +1,91 @@
+/* ETHERION — 강화(업그레이드) 카드와 합치기 연출 (v3.28). js/upgrades.js · js/upgrade-ui.js · js/view.js upgradeMarkHTML
+   등급 색 --up(청록 에테르)은 js/grades.js GRADES.upgrade와 같다. 맨 마지막 쪽에 읽어 카드 틀 규칙(fmcard.css)보다 앞선다 */
+:root { --up: #3fe0c0; --up-hi: #b8fff0; --up-deep: #0f5e52; }
+
+/* ---------- 카드: 테두리 · 마크 ---------- */
+/* 테두리: 깃발 색 대신 청록 → 금으로 흐르는 두 겹 테두리 + 은은한 빛 */
+.card.grade-upgrade > .c-frame { border-color: var(--up);
+  box-shadow: 0 0 0 .07em #d9b46a, 0 0 .9em color-mix(in srgb, var(--up) 45%, transparent), 0 .3em .9em rgba(0, 0, 0, .55), inset 0 0 0 .12em color-mix(in srgb, var(--up) 35%, transparent), inset 0 0 1.4em color-mix(in srgb, var(--up) 14%, transparent); }
+.card.grade-upgrade > .c-frame::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 8;
+  background: linear-gradient(115deg, transparent 38%, rgba(184, 255, 240, .16) 48%, rgba(255, 240, 200, .12) 52%, transparent 62%) 0 0 / 300% 100%; animation: upFoil 6s ease-in-out infinite; }
+@keyframes upFoil { 0%, 30% { background-position: 120% 0; } 70%, 100% { background-position: -20% 0; } }
+.card.grade-upgrade .c-head .c-nm { color: var(--up-hi); text-shadow: 0 0 .5em color-mix(in srgb, var(--up) 55%, transparent); }
+/* 클래스 동그라미 자리의 업그레이드 마크 */
+.c-clsico i.c-upmark { --clc: var(--up); color: var(--up-hi); background: radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--up) 45%, #0b1418), #071012 75%); border-color: var(--up); box-shadow: 0 0 .5em color-mix(in srgb, var(--up) 60%, transparent); }
+.c-clsico i.c-upmark svg { width: 82%; height: 82%; }
+/* 그림 왼쪽 위의 업그레이드 마크(큰 마크) */
+.c-art .c-upart { position: absolute; left: .25em; top: .25em; z-index: 4; width: 1.9em; height: 1.9em; display: grid; place-items: center; color: var(--up-hi); cursor: help;
+  filter: drop-shadow(0 0 .25em rgba(0, 0, 0, .9)) drop-shadow(0 0 .45em color-mix(in srgb, var(--up) 70%, transparent)); }
+.c-art .c-upart svg { width: 100%; height: 100%; }
+.card.size-full .c-art .c-upart { width: 2.6em; height: 2.6em; }
+.card.slim .c-art .c-upart { width: 1.5em; height: 1.5em; }
+.f-upgrade b { color: var(--up-hi); }
+/* 상점 · 덱 조정실의 등급 칩 */
+.grade-upgrade { --gr: var(--up); }
+
+/* ---------- 상점 · 덱 조정실 ---------- */
+.upg-note { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; color: var(--up-hi); }
+.upg-note em { font-style: normal; color: var(--muted); }
+.upg-ico { display: inline-grid; width: 18px; height: 18px; color: var(--up); }
+.upg-ico svg { width: 100%; height: 100%; }
+.btn.upg-btn, .btn.sc-upg { --edge: linear-gradient(180deg, var(--up-hi), var(--up-deep)); border-color: var(--up); color: #062a24; background: linear-gradient(180deg, #8ff5df, var(--up) 55%, #1f9c86); text-shadow: none; }
+.btn.sc-upg[disabled] { filter: grayscale(.7) brightness(.7); }
+.shop-card.is-upgrade .sc-face .card { filter: none; }
+.shop-card .sc-upgline { margin: 4px 0 0; font-size: 12px; color: var(--up-hi); text-align: center; }
+.shop-card .sc-upgline b { color: #fff; }
+.upg-ask { display: flex; align-items: center; justify-content: center; gap: 18px; margin: 10px 0 14px; flex-wrap: wrap; }
+.upg-ask .card { --cw: 150px; }
+.upg-from { position: relative; display: grid; justify-items: center; gap: 4px; }
+.upg-from b { font-family: var(--caps); font-size: 22px; color: var(--gold-hi); }
+.upg-arrow { font-style: normal; font-size: 30px; color: var(--up); text-shadow: 0 0 12px var(--up); }
+
+/* ---------- 합치기 연출 ---------- */
+.upfx { position: fixed; inset: 0; z-index: 9000; display: grid; place-items: center; cursor: pointer;
+  background: radial-gradient(circle at 50% 45%, rgba(10, 40, 38, .82), rgba(3, 5, 9, .94) 70%); opacity: 0; transition: opacity .3s; }
+.upfx.s1 { opacity: 1; }
+.upfx.out { opacity: 0; transition: opacity .3s; }
+.upfx-stage { position: relative; width: min(900px, 96vw); height: min(620px, 92vh); display: grid; place-items: center; }
+.upfx .card { --cw: clamp(120px, 15vw, 170px); }
+/* ① 셋이 나란히 떠오름 → ② 가운데로 모여 겹치며 빛남 → ③ 부서져 사라짐 */
+.upfx-trio { position: absolute; inset: 0; display: grid; place-items: center; }
+.upfx-src { position: absolute; transform: translate(calc(var(--k) * 210%), 40px) scale(.85); opacity: 0; transition: transform .55s cubic-bezier(.2, .8, .3, 1), opacity .4s, filter .6s; transition-delay: calc((var(--k) + 1) * 90ms); }
+.upfx.s1 .upfx-src { transform: translate(calc(var(--k) * 120%), 0) rotate(calc(var(--k) * 6deg)); opacity: 1; }
+.upfx.s1 .upfx-src .c-frame { box-shadow: 0 0 0 .1em var(--up), 0 0 1.4em color-mix(in srgb, var(--up) 50%, transparent); }
+.upfx.s2 .upfx-src { transform: translate(calc(var(--k) * 8%), 0) rotate(calc(var(--k) * 4deg)) scale(.95); filter: brightness(1.8) saturate(.6); transition: transform .8s cubic-bezier(.6, 0, .4, 1), filter .8s; transition-delay: 0s; animation: upShake .12s linear .35s infinite; }
+@keyframes upShake { 25% { translate: 2px -1px; } 50% { translate: -2px 1px; } 75% { translate: 1px 2px; } }
+.upfx.s3 .upfx-src { opacity: 0; transform: scale(1.3); filter: brightness(4) blur(6px); transition: opacity .18s, transform .18s, filter .18s; animation: none; }
+.upfx-core { position: absolute; width: 40px; height: 40px; border-radius: 50%; background: radial-gradient(circle, #fff, var(--up-hi) 30%, var(--up) 55%, transparent 72%); opacity: 0; transform: scale(.2); }
+.upfx.s2 .upfx-core { opacity: .9; transform: scale(5); transition: transform .9s cubic-bezier(.6, 0, .4, 1), opacity .5s; }
+.upfx.s3 .upfx-core { opacity: 0; transform: scale(14); transition: transform .5s ease-out, opacity .5s; }
+.upfx-ring { position: absolute; width: 60px; height: 60px; border-radius: 50%; border: 3px solid var(--up-hi); opacity: 0; box-shadow: 0 0 20px var(--up), inset 0 0 20px var(--up); }
+.upfx.s3 .upfx-ring { animation: upRing .8s ease-out forwards; }
+.upfx.s3 .upfx-ring.r2 { animation-delay: .14s; border-color: #f6e2a8; box-shadow: 0 0 20px #d9b46a; }
+@keyframes upRing { 0% { opacity: 1; transform: scale(.5); } 100% { opacity: 0; transform: scale(11); } }
+.upfx-flash { position: absolute; inset: -20vh -20vw; background: radial-gradient(circle, #fff, rgba(184, 255, 240, .8) 25%, transparent 60%); opacity: 0; pointer-events: none; }
+.upfx.s3 .upfx-flash { animation: upFlash .55s ease-out forwards; }
+@keyframes upFlash { 0% { opacity: 0; } 15% { opacity: 1; } 100% { opacity: 0; } }
+.upfx-shards { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
+.upfx-shard { position: absolute; width: 10px; height: 16px; background: linear-gradient(160deg, #fff, var(--up) 60%, var(--up-deep)); clip-path: polygon(50% 0, 100% 40%, 60% 100%, 0 70%); opacity: 0; }
+.upfx.s3 .upfx-shard { animation: upShard 1s cubic-bezier(.15, .7, .3, 1) var(--d) forwards; }
+@keyframes upShard { 0% { opacity: 1; transform: translate(0, 0) rotate(0) scale(1.2); } 100% { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(var(--r)) scale(.4); } }
+/* ④ 빛살 속에서 강화 카드가 떠오름 */
+.upfx-rays { position: absolute; width: 900px; height: 900px; max-width: 160vw; max-height: 160vw; opacity: 0; border-radius: 50%;
+  background: repeating-conic-gradient(from 0deg, rgba(184, 255, 240, .16) 0 6deg, transparent 6deg 18deg); -webkit-mask: radial-gradient(circle, #000 10%, transparent 62%); mask: radial-gradient(circle, #000 10%, transparent 62%); }
+.upfx.s4 .upfx-rays { opacity: 1; transition: opacity .6s; animation: upSpin 18s linear infinite; }
+@keyframes upSpin { to { transform: rotate(360deg); } }
+.upfx-new { position: absolute; opacity: 0; transform: translateY(40px) scale(.3); filter: brightness(3); }
+.upfx.s4 .upfx-new { opacity: 1; transform: translateY(-40px) scale(1.25); filter: brightness(1); transition: transform .9s cubic-bezier(.2, 1.4, .4, 1), opacity .3s, filter 1.2s; }
+.upfx.s4 .upfx-new .c-frame { box-shadow: 0 0 0 .1em var(--up-hi), 0 0 2.4em var(--up), 0 0 5em color-mix(in srgb, var(--up) 40%, transparent); }
+.upfx-cap { position: absolute; bottom: 0; left: 0; right: 0; text-align: center; opacity: 0; transform: translateY(14px); }
+.upfx.s4 .upfx-cap { opacity: 1; transform: none; transition: opacity .5s .5s, transform .5s .5s; }
+.upfx-eye { margin: 0; font-family: var(--caps); letter-spacing: .3em; color: var(--up-hi); display: inline-flex; align-items: center; gap: 8px; }
+.upfx-mark { display: inline-grid; width: 22px; height: 22px; color: var(--up); }
+.upfx-mark svg { width: 100%; height: 100%; }
+.upfx-cap h3 { margin: 4px 0 2px; font-size: 26px; color: #fff; text-shadow: 0 0 18px var(--up); }
+.upfx-sub { margin: 0 0 10px; color: var(--ink-2); font-size: 14px; }
+@media (prefers-reduced-motion: reduce) { .upfx *, .card.grade-upgrade > .c-frame::before { animation: none !important; transition-duration: .01s !important; } }
+.shop-card .sc-upgline .linkish { appearance: none; border: 0; background: none; padding: 0; font: inherit; color: var(--up-hi); cursor: pointer; text-decoration: underline dotted; }
+.shop-card .sc-upgline .linkish[disabled] { color: var(--muted); cursor: default; text-decoration: none; }
+.chip.sf-upgrade { border-color: color-mix(in srgb, var(--up) 60%, transparent); color: var(--up-hi); }
+.chip.sf-upgrade.on { background: color-mix(in srgb, var(--up) 22%, #0b1418); border-color: var(--up); }
+.dv-k.k-upgrade { --kc: var(--up); }

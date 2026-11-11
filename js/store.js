@@ -122,6 +122,7 @@ const Store = {
       if (cards[id] > maxCopiesOf(c)) return { ok: false, msg: `같은 카드는 ${maxCopiesOf(c)}장까지입니다: ${c.name}` };
       if (cards[id] > this.ownedCount(u, id)) return { ok: false, msg: `보유하지 않은 카드가 있습니다: ${c.name}` };
     }
+    if (typeof uniqueKinds === "function" && uniqueKinds(cards).length > (typeof UNIQUE_DECK_MAX !== "undefined" ? UNIQUE_DECK_MAX : 2)) return { ok: false, msg: `유니크는 덱에 ${UNIQUE_DECK_MAX}종까지 넣을 수 있습니다.` };   // v3.31
     return { ok: true };
   },
   saveDeck(u, f, cards, name) {
@@ -154,6 +155,7 @@ const Store = {
     const cur = this.draft(u, g) || this.deck(u, g);
     const cards = Object.assign({}, cur.cards), inDeck = cards[id] || 0;
     const room = RULES.deckSize - countMap(cards), cap = Math.min(maxCopiesOf(c), this.ownedCount(u, id)) - inDeck;
+    if (typeof uniqueBlock === "function" && uniqueBlock(cards, id)) return { g, added: 0, why: "unique" };   // v3.31 유니크 2종까지
     const add = Math.max(0, Math.min(n || 1, room, cap));
     if (add) { cards[id] = inDeck + add; this.setDraft(u, g, cards, cur.name); }
     return { g, added: add, why: add ? "" : room <= 0 ? "full" : "copies" };

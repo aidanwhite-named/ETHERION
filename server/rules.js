@@ -4,7 +4,7 @@
 
    읽는 파일은 index.html에서 고른다(게임과 같은 차례):
      ① js/data.js부터 js/economy.js까지 — 카드 데이터 · 이름 고침 · 뺀 카드 · 덱 · 등급 · Store · 경제 (새 데이터 파일을 이 사이에 넣으면 서버도 저절로 읽는다)
-     ② EXTRA — 그 뒤에 있지만 Store를 넓히는 규칙 파일(교역소 · 레벨)
+     ② EXTRA — 그 뒤에 있지만 Store를 넓히는 규칙 파일(교역소 · 레벨 · 순례 첫 승)
    화면 코드(view · game · screens …)는 읽지 않는다. 규칙 파일이 화면을 부르는 곳(LevelUI 등)은 아래 빈 껍데기가 받는다.
    ② 밖에 Store를 넓히는 새 파일(예: Store.recordMatch를 담은 파일)을 만들면 EXTRA에 넣는다. */
 "use strict";
@@ -14,7 +14,7 @@ const vm = require("vm");
 
 const GAME = path.join(__dirname, "..");
 const FIRST = "js/data.js", LAST = "js/economy.js";
-const EXTRA = ["js/trade.js", "js/level.js"];
+const EXTRA = ["js/trade.js", "js/level.js", "js/pilgrim-rules.js"];   // v3.26 성로 순례의 첫 승 보상(Store.pilgrimClaim)
 
 function scriptList() {
   const html = fs.readFileSync(path.join(GAME, "index.html"), "utf8");
@@ -47,6 +47,7 @@ function load() {
   /* const로 선언된 것은 문맥의 전역 객체에 붙지 않으므로 한 번 꺼내 온다 */
   const R = vm.runInContext(`({ Store, TradeLocal, TA, TRADE, CARDS, CARD_LIST, GROUPS, FACTIONS, GROUP_IDS, ECON, LEVEL,
     ADMIN_ID, ADMIN_PW, GUEST_ID, freshDeck, shopPrice, stockMax, maxCopiesOf, countMap,
+    PILGRIM: typeof PILGRIM !== "undefined" ? PILGRIM : null, pilOkDays: typeof pilOkDays !== "undefined" ? pilOkDays : null,
     LevelUI: typeof LevelUI !== "undefined" ? LevelUI : null })`, ctx);
   /* 화면 쪽 부름은 서버에서 아무 일도 하지 않는다 */
   if (R.LevelUI) { R.LevelUI.paint = noop; R.LevelUI.levelUp = noop; R.LevelUI.banner = noop; }
