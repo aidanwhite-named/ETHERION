@@ -14,7 +14,7 @@ const vm = require("vm");
 
 const GAME = path.join(__dirname, "..");
 const FIRST = "js/data.js", LAST = "js/economy.js";
-const EXTRA = ["js/trade.js", "js/level.js", "js/pilgrim-rules.js"];   // v3.26 성로 순례의 첫 승 보상(Store.pilgrimClaim)
+const EXTRA = ["js/trade.js", "js/level.js", "js/pilgrim-rules.js", "js/rewards.js"];   // v3.39 서버가 정하는 보상   // v3.26 성로 순례의 첫 승 보상(Store.pilgrimClaim)
 
 function scriptList() {
   const html = fs.readFileSync(path.join(GAME, "index.html"), "utf8");

@@ -35,13 +35,14 @@ const isSpell = it => it && !isUnit(it);
 const hit = (a, d) => (a > d ? a - d : 0);
 /* 난수: 기본은 Math.random. 실제 대전에서는 시드를 준 난수를 써서, 코인 뒤집기 뒤에 같은 전투를 다시 굴려도
    그 지점까지는 똑같이 흘러가게 한다 (ctx.rng). */
-let RNG = Math.random;
+const RNG_GAME = () => (typeof GRand === "function" ? GRand() : Math.random());   // v3.40 기본은 판 시드(GRand, 시드가 없으면 Math.random)
+let RNG = RNG_GAME;
 /* 판 규칙 (원정의 용): defAll 방어 +N, hpAll 체력 +N, coinMul 코인 값 배수. 양쪽 모두에게 */
 let CRULES = {};
 function setCombatRules(r) { CRULES = r || {}; }
 function mulberry32(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
 const flip = () => RNG() < RULES.coinP;
-function resetRng() { RNG = Math.random; }
+function resetRng() { RNG = RNG_GAME; }   // v3.40 전투 밖의 코인(보호막 코인 · 계략)도 판 시드로 — 온라인 · 서버 검산이 같은 판을 낸다
 
 /* 코인 굴리기: [스탯, 개수, 값] → [{st, v, heads}] */
 function rollCoins(co) {
@@ -195,7 +196,7 @@ function coinLogText(cs) {
 /* ---------- 컨텍스트: X = { P: 플레이어 2명, ai: 공격자 번호, turn, rec: 기록(애니메이션용) 또는 null } ---------- */
 function ctx(P, ai, turn, rec, opts) {
   opts = opts || {};
-  RNG = opts.seed != null ? mulberry32(opts.seed) : Math.random;
+  RNG = opts.seed != null ? mulberry32(opts.seed) : RNG_GAME;
   return { P, ai, turn, rec, floats: [], logs: [], direct: 0, broke: [false, false], broken: [], clashN: 0, defFix: {}, over: opts.over || null, rules: opts.rules || {}, toks: {}, tokN: 0, deaths: [] };
 }
 /* 전투로 부서진 카드(유닛 결투·마법 사용·마법으로 파괴) 기록. 소각장으로 보낸 것은 적지 않는다 (economy.js가 돈으로 바꾼다) */

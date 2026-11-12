@@ -63,6 +63,8 @@ Object.assign(Store, {
     day = String(day || "");
     if (!/^\d{4}-\d\d-\d\d$/.test(day)) return { ok: false, msg: "날짜가 올바르지 않습니다." };
     if (Array.isArray(okDays) && !okDays.includes(day)) return { ok: false, clock: true, msg: `이 기기의 날짜(${day})가 서버의 날짜(${okDays[0]})와 다릅니다. 기기 시계를 맞춰 주세요.` };
+    /* v3.40 서버(okDays가 있을 때): 로그인한 모험가는 서버가 다시 두어 확인한 그날의 순례 승리(u.pilSrv.days, js/rewards.js)가 있어야 한다. 손님은 예전처럼 */
+    if (Array.isArray(okDays) && !u.guest && !u.admin && !(u.pilSrv && Array.isArray(u.pilSrv.days) && u.pilSrv.days.includes(day))) return { ok: false, wait: true, msg: "서버가 아직 오늘의 순례 승리를 확인하지 못했습니다. 잠시 뒤 다시 눌러 주세요." };
     const c = u.pilClaim = u.pilClaim || { days: [] };
     if (!Array.isArray(c.days)) c.days = [];
     if (c.days.includes(day)) return { ok: false, dup: true, msg: `${day}의 첫 승 보상은 이미 받았습니다.` };

@@ -42,6 +42,14 @@ const atkSfx = (uid, phase, v, kind) => {
 /* v3.10 온라인 대전: 두 기기가 같은 시드로 같은 계산을 한다(js/online.js). 판의 결과를 바꾸는 난수는 모두 GRand · shuffleG를 쓴다.
    화면 연출의 흔들림은 Math.random 그대로(기기마다 달라도 됨) */
 const GRand = () => (G && G.rand ? G.rand() : Math.random());
+/* v3.40 서버가 검산하는 판(cfg.verify, js/rewards.js · server/replay.js): 코인 다시 던지기의 결과는 판 시드 · 턴 · 코인 자리로 정한다(서버가 같은 값을 다시 낸다).
+   사람 쪽(0번)이 둔 수는 G.vlog에 남는다: act(행동) · mull(멀리건) · ready(준비 완료) · coin(코인 다시 던지기, 양쪽). 서버는 cfg.replay로 이 기록을 그대로 둔다 */
+function reflipRand(n, uid, idx) {
+  if (!G || !G.cfg || !G.cfg.verify || G.cfg.seed == null) return Math.random();
+  const h = (G.cfg.seed ^ Math.imul(G.turn + 1, 2654435761) ^ Math.imul(n + 7, 40503) ^ Math.imul(uid + 13, 69069) ^ Math.imul(idx + 3, 1103515245)) >>> 0;
+  return mulberry32(h)();
+}
+const vrec = e => { if (G && G.vlog) G.vlog.push(e); };
 function shuffleG(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(GRand() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 const isOnline = () => !!(G && G.online);
 const isRemote = p => !!(G && G.online && p && p.idx !== G.me);
@@ -372,6 +380,7 @@ async function runCombat() {
     return { rec, X };
   };
   let { rec, X } = run();
+  if (G.cfg.replay) ({ rec, X } = replayCoins(rec, X, run, over));   // v3.40 서버 검산: 기록한 코인 다시 던지기를 같은 결과로
   if (!G.cfg.headless && G.speed !== 0) {
     // 기록을 처음 상태부터 다시 보여 준다 (한 수의 길이 = 엔진 ms × PACE ÷ 배속)
     let i = 0, casting = null;   // v1.9.5 casting: 지금 발동 중인 마법 (뒤집힐 때부터 부서질 때까지) — js/spellfx.js 연출에 쓴다
@@ -416,6 +425,7 @@ async function runCombat() {
           for (const f of flips) {
             over[`${s.fx.coin.n}:${f.uid}:${f.idx}`] = f.heads;
             G.players[f.p].spent += 1;
+            vrec({ t: "coin", turn: G.turn, n: s.fx.coin.n, p: f.p, uid: f.uid, idx: f.idx });   // v3.40
             log(`${G.players[f.p].name}: 에테르 1로 코인을 다시 던짐 → ${f.heads ? "앞면" : "뒷면"}`, "sys");
           }
           ({ rec, X } = run());
@@ -438,6 +448,7 @@ async function runCombat() {
   X.P.forEach((q, i) => { const p = G.players[i];
     for (const id of q.gain || []) { p.hand.push(mkInst(id)); log(`${p.name}: [영혼 강탈] 「${CARDS[id].name}」을(를) 핸드에 넣었다`, "good"); }
     for (const id of q.deckTop || []) { p.deck.push(id); log(`${p.name}: [돌아오는 물결] 「${CARDS[id].name}」이(가) 덱 맨 위로 돌아갔다`, "good"); } });
+  if (G.broken) for (const b of X.broken || []) G.broken.push(b.id);   // v3.40 서버 검산이 세는 부서진 카드
   // 부서진 카드 → 가격의 2% (economy.js). 소각은 포함되지 않는다
   const gotGold = typeof econBreak === "function" ? econBreak(G, X.broken) : 0;
   if (gotGold) log(`부서진 카드 ${X.broken.length}장 · +${fmtGold(gotGold)}`, "sys");
@@ -516,7 +527,7 @@ function aiCrystalPlan(p) {
   const cr = p.crystals.length;
   if (cr >= RULES.maxCrystals || p.hand.length <= 2) return [];
   const up = upkeepOf(p);
-  let want = cr < 5 ? 1 : cr < 7 ? (Math.random() < 0.7 ? 1 : 0) : (Math.random() < 0.3 ? 1 : 0);
+  let want = cr < 5 ? 1 : cr < 7 ? (GRand() < 0.7 ? 1 : 0) : (GRand() < 0.3 ? 1 : 0);   // v3.40 판 시드로 (서버 검산)
   if (ether(p) < 0 || up >= cr) want = 1;
   want = Math.min(want, crysLeft(p), RULES.maxCrystals - cr, p.hand.length - 2);
   if (want <= 0) return [];
@@ -527,7 +538,8 @@ function aiCrystalPlan(p) {
     if (cost > after) return 2;
     return 3 - c.lv / 3;
   };
-  return p.hand.slice().sort((a, b) => prio(b) - prio(a) + (Math.random() - 0.5)).slice(0, want).map(it => it.uid);
+  const jit = new Map(p.hand.map(it => [it.uid, GRand() - 0.5]));   // v3.40 정렬 비교마다 굴리지 않고 카드마다 한 번 (판 시드로 같은 순서)
+  return p.hand.slice().sort((a, b) => prio(b) - prio(a) + jit.get(b.uid) - jit.get(a.uid)).slice(0, want).map(it => it.uid);
 }
 /* 마법을 각 빈 칸에 놓아 보고 전투를 미리 굴려, 가장 이득인 칸과 이득을 구한다
    v3.24.4: 마법이 없을 때와 있을 때를 **같은 씨앗**으로 굴려 견준다. 예전에는 따로 굴려(2번 · 3번) 코인 운의 차이가
@@ -536,7 +548,7 @@ const AI_SPELL_SEEDS = 4;     // 마법 하나를 굴려 보는 횟수 (칸마�
 const AI_SPELL_MIN = 0.25;    // 굴려 본 이득이 이보다 작으면 그 마법은 내지 않는다
 function spellGain(p, hit) {
   const hide = opp(p).idx; // 상대 마법은 뒷면이라 모른다
-  const sb = (Math.random() * 1e9) >>> 0;
+  const sb = (GRand() * 1e9) >>> 0;   // v3.40 판 시드로
   const seeds = Array.from({ length: AI_SPELL_SEEDS }, (_, i) => (sb + i * 7919) >>> 0);
   const run = () => {
     let s = 0;
@@ -606,7 +618,7 @@ async function aiPrep(p) {
         opts.push({ it, kind: "spell", s: g.s, v: g.v * 1.1 - (c.cost.life || 0) * 0.15 });
       }
     }
-    for (const o of opts) o.score = o.v + (Math.random() * 2 - 1) * AI_NOISE;
+    for (const o of opts) o.score = o.v + (GRand() * 2 - 1) * AI_NOISE;   // v3.40 판 시드로
     opts.sort((a, b) => b.score - a.score);
     const o = opts[0];
     if (!o || o.score < AI_THRESHOLD) break;
@@ -635,7 +647,8 @@ function startMatch(cfg) {
     mode: cfg.mode, turn: 1, attacker: (rand || Math.random)() < 0.5 ? 0 : 1, rand, online: cfg.mode === "online", me: cfg.me || 0, phase: "setup", log: [], sel: null, reg: {},
     fx: { dying: [] }, viewer: 0, control: null, speed: cfg.speed != null ? cfg.speed : Prefs.get("speed", 1), winner: null, reason: "",
     onExit: cfg.onExit, cfg, players: null, ready: null, handoff: false, leave: {}, inspect: null, showLog: false,
-    econ: typeof newEcon === "function" ? newEcon() : null, rules: cfg.rules || {}
+    econ: typeof newEcon === "function" ? newEcon() : null, rules: cfg.rules || {},
+    vlog: cfg.verify && !cfg.replay ? [] : null, broken: []   // v3.40 검산 기록 · 부서진 카드(서버 검산이 센다)
   };
   setCombatRules(G.rules);
   if (G.online) G.viewer = G.me;
@@ -660,6 +673,7 @@ function startMatch(cfg) {
 function actMulligan(p, uids) {
   const back = p.hand.filter(it => uids.includes(it.uid));
   if (!back.length) return 0;
+  if (G && G.vlog && p.idx === 0 && (!p.isAI || G.cfg.vlogAI)) G.vlog.push({ t: "mull", u: back.map(it => it.uid) });   // v3.40 서버 검산 기록
   p.hand = p.hand.filter(it => !uids.includes(it.uid));
   for (const it of back) { p.deck.push(it.id); if (G.leave) G.leave[it.uid] = "deck" + p.idx; }   // v3.10.4 되돌린 카드는 소각장이 아니라 덱으로 날아간다
   shuffleG(p.deck);
@@ -715,7 +729,7 @@ async function loop(myG, deal) {
     G.viewer = G.mode === "ai" ? 0 : G.online ? G.me : G.attacker; render();
     const first = G.players[G.attacker];
     await phaseBanner(G.mode === "ai" || G.online ? (G.attacker === G.viewer ? "선공" : "후공") : "선공", `동전 던지기 결과: ${first.name}이(가) 먼저 공격합니다`, "coin", 1500);
-  } else for (const p of G.players) if (p.isAI) aiMulligan(p);
+  } else for (const p of G.players) { if (p.isAI) aiMulligan(p); else if (G.cfg.replay) replayMull(p); }   // v3.40 서버 검산: 사람 쪽 멀리건은 기록대로
   while (G === myG && G.phase !== "over") {
     const bk = G.turn + ":" + G.phase;
     if (!G.cfg.headless && G.speed !== 0 && bk !== shown && G.phase !== "over") { shown = bk; const b = bannerFor(G.phase); if (b) await phaseBanner(b[0], b[1], b[2], 0, G.phase === "atkPrep" || G.phase === "defPrep" ? 3 : 1); if (G !== myG) break; }
@@ -723,7 +737,8 @@ async function loop(myG, deal) {
       const p = G.players[prepIdx()];
       if (p.isAI) { G.control = null; await (p.ai === "hard" ? aiPrepHard(p) : aiPrep(p)); }
       else if (isRemote(p)) await Online.remotePrep(p);   // v3.10 상대 기기에서 온 수를 차례로 둔다
-      else { await humanPrep(p); if (G === myG && G.online && G.phase !== "over") Online.send({ t: "ready" }); }
+      else if (G.cfg.replay) replayPrep(p);   // v3.40 서버 검산: 기록한 수를 그대로 둔다
+      else { await humanPrep(p); if (G === myG && G.online && G.phase !== "over") Online.send({ t: "ready" }); vrec({ t: "ready" }); }
       if (G !== myG || G.phase === "over") break;
       settleUpkeep(p);
       if (G.phase === "atkPrep") { log(`${p.name} 공격 준비 완료`, "sys"); G.phase = "defPrep"; }   // v3.20.1 기록을 먼저(전투 로그의 단계 머리표가 맞게)
@@ -802,6 +817,39 @@ const Guide = {
 };
 if (typeof addEventListener === "function") addEventListener("resize", () => Guide.place());
 
+/* ---------- v3.40 서버 검산: 기록한 판을 그대로 다시 둔다 (server/replay.js가 화면 없이 부른다) ---------- */
+const REPLAY_ACTS = {};
+for (const name of ["actPlace", "actEquip", "actCrystal", "actBurnHand", "actBurnField", "actMove", "actShuffle"]) {
+  const f = typeof globalThis !== "undefined" ? globalThis[name] : null; if (typeof f !== "function") continue;
+  REPLAY_ACTS[name] = f;
+  globalThis[name] = function (p, ...a) { const r = f(p, ...a); if (r && G && G.vlog && p && p.idx === 0 && (!p.isAI || G.cfg.vlogAI)) G.vlog.push({ t: "act", fn: name, a }); return r; };   // vlogAI: 시험 도구(tools/replay_check.js)만
+}
+function replayMull(p) {
+  const L = G.cfg.replay, e = L[0];
+  if (e && e.t === "mull") { L.shift(); if (Array.isArray(e.u) && e.u.length) actMulligan(p, e.u.filter(x => p.hand.some(it => it.uid === x))); }
+}
+function replayPrep(p) {
+  const L = G.cfg.replay;
+  while (L.length) {
+    const e = L.shift(); if (!e) continue;
+    if (e.t === "ready") return;
+    if (e.t === "act" && REPLAY_ACTS[e.fn] && Array.isArray(e.a)) REPLAY_ACTS[e.fn](p, ...e.a.slice(0, 3));
+  }
+}
+function replayCoins(rec, X, run, over) {
+  const done = new Set();
+  for (const e of G.cfg.replayAll || []) {
+    if (!e || e.t !== "coin" || e.turn !== G.turn) continue;
+    const st = rec.find(z => z.fx.coin && z.fx.coin.n === e.n); if (!st) continue;
+    const c = st.fx.coin, side = e.uid === c.a && e.p === c.pa ? c.coinsA : e.uid === c.d && e.p === c.pd ? c.coinsD : null; if (!side) continue;
+    const k = e.n + ":" + e.uid; if (done.has(k)) continue;
+    const gr = coinGroups(side).find(o => o.g === e.idx), P = G.players[e.p]; if (!gr || !P || ether(P) < 1) continue;
+    done.add(k);
+    over[`${e.n}:${e.uid}:${e.idx}`] = reflipRand(e.n, e.uid, e.idx) < gr.p; P.spent += 1;
+    ({ rec, X } = run());
+  }
+  return { rec, X };
+}
 /* ---------- 화면 ----------
    배치 (내 시점, 아래쪽이 나)
      상단 줄: 상대 에테르 · 상대 핸드(뒷면) · 상대 정보
@@ -1560,14 +1608,14 @@ function coinClash(info) {
         const el = panel(sd), c = el.querySelector(`.cs-coin[data-i="${i}"]`); if (!c) return;
         sd.decided = true;
         if (sd.hide) {   // v3.12.6 가린 상대는 조용히 다시 던진다 (결과와 에테르는 창을 열 때 보인다)
-          const o = sd.groups[i], heads = forced != null ? !!forced : Math.random() < o.p; o.heads = heads;
+          const o = sd.groups[i], heads = forced != null ? !!forced : reflipRand(info.n, sd.u.uid, o.g) < o.p; o.heads = heads;
           sd.coins = sd.coins.map(x => x.g === o.g ? Object.assign({}, x, { heads }) : x);
           flips.push({ p: sd.p, uid: sd.u.uid, idx: o.g, heads }); sd.reflipped = true;
           done(sd.who, 900); return;
         }
         el.querySelectorAll(".can-flip, .picked").forEach(e => e.classList.remove("can-flip", "picked"));
         if (sd.human) el.querySelector(".cs-ctl").innerHTML = "";
-        const o = sd.groups[i], heads = forced != null ? !!forced : Math.random() < o.p; o.heads = heads;
+        const o = sd.groups[i], heads = forced != null ? !!forced : reflipRand(info.n, sd.u.uid, o.g) < o.p; o.heads = heads;
         if (G.online && sd.human) Online.send({ t: "coin", k: ckey(sd), flip: i, heads });
         sd.coins = sd.coins.map(x => x.g === o.g ? Object.assign({}, x, { heads }) : x);
         flips.push({ p: sd.p, uid: sd.u.uid, idx: o.g, heads });
@@ -3611,7 +3659,8 @@ function showResult() {
     <h2 class="res-title">${won ? "VICTORY" : "DEFEAT"}</h2>
     <p class="res-sub">${G.mode === "hotseat" || G.online ? esc(w.name) + " 승리 · " : ""}${esc(G.reason)}</p>
     <div class="res-stats"><span>라운드 <b>${roundOf(G.turn)}</b></span><span>턴 <b>${G.turn}</b></span><span>${esc(G.players[0].name)} 생명 <b>${G.players[0].life}</b></span><span>${esc(G.players[1].name)} 생명 <b>${G.players[1].life}</b></span></div>
-    ${econ ? `<div class="res-gold"><span>이번 판 수입</span><b>+${fmtGold(econ.total)}</b><div class="rg-rows"><span>부서진 카드 ${fmtGold(econ.broken)} × ${econ.won ? ECON.winMul : ECON.loseMul}${econ.rate != null && econ.rate !== 1 ? ` × ${+(econ.rate * 100).toFixed(2)}%` : ""} = <i>${fmtGold(econ.bonus)}</i></span><span>전투 중 2% <i>${fmtGold(econ.earned)}</i></span>${econ.pach ? `<span>작은 게임 <i>${fmtGold(econ.pach)}</i></span>` : ""}${econ.lucky && econ.lucky.k === "gold" ? `<span class="rg-lucky">행운 · 환석 조각 <i>${fmtGold(econ.lucky.gold)}</i></span>` : ""}<span>지갑 <i>${fmtGold(Store.gold())}</i></span></div></div>` : ""}
+    ${econ ? `<div class="res-gold"><span>${econ.pending ? "이번 판 수입 (예상)" : "이번 판 수입"}</span><b>+${fmtGold(econ.total)}</b><div class="rg-rows"><span>부서진 카드 ${fmtGold(econ.broken)} × ${econ.won ? ECON.winMul : ECON.loseMul}${econ.rate != null && econ.rate !== 1 ? ` × ${+(econ.rate * 100).toFixed(2)}%` : ""} = <i>${fmtGold(econ.bonus)}</i></span><span>전투 중 2% <i>${fmtGold(econ.earned)}</i></span>${econ.pach ? `<span>작은 게임 <i>${fmtGold(econ.pach)}</i></span>` : ""}${econ.lucky && econ.lucky.k === "gold" ? `<span class="rg-lucky">행운 · 환석 조각 <i>${fmtGold(econ.lucky.gold)}</i></span>` : ""}<span>지갑 <i>${fmtGold(Store.gold())}</i></span></div></div>` : ""}
+    ${econ && econ.skip ? `<p class="res-check${econ.pending ? " pending" : ""}">${econ.pending ? "⏳ " : ""}${esc(econ.skip)}</p>` : ""}
     ${econ && econ.lucky && econ.lucky.k === "card" && CARDS[econ.lucky.id] ? `<div class="res-lucky"><p><b>행운</b> 환석이 빛나더니 카드 한 장을 내놓았다 — <span class="grade-${econ.lucky.grade}">${GRADES[econ.lucky.grade] ? GRADES[econ.lucky.grade].name : ""}</span> 「${esc(CARDS[econ.lucky.id].name)}」${econ.lucky.gold ? ` (이미 다 가져서 ${fmtGold(econ.lucky.gold)})` : ""}</p>${cardHTML(CARDS[econ.lucky.id], { size: "md" })}</div>` : ""}
     ${econ && typeof LevelUI !== "undefined" ? LevelUI.resultHTML(econ.xp != null ? econ.xp : econ.total) : ""}
     ${reward ? `<div class="res-reward"><p>보상으로 카드 1장을 얻었습니다</p>${cardHTML(CARDS[reward], { size: "md" })}</div>` : ""}

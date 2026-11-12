@@ -55,6 +55,10 @@
 - 덱 보호: 거래에 걸 수 있는 장수는 `Store.tradeable`(보유 − 저장한 덱 · 초안). 새로 카드가 빠지는 기능을 만들면 같은 함수를 쓴다.
 - 거래로 오가는 조각의 장부 이유는 "거래…"로 시작한다(경험치에서 빠짐, `js/level.js` `noXp`).
 
+## 서버 검산 (v3.40)
+- 로그인한 모험가의 컴퓨터와 대전 · 순례는 서버가 판을 다시 둬서 확인한다(`server/replay.js` · `js/rewards.js` matchEnd/matchSettle). 그래서 **판 결과를 바꾸는 무작위는 GRand(또는 엔진 RNG)만** — 컴퓨터의 생각 · 코인 다시 던지기(`reflipRand`)까지. 사람이 둘 수 있는 새 행동을 만들면 `REPLAY_ACTS`(game.js 화면 절 앞) 목록에도 넣는다(온라인 `ACT_FNS`와 같이).
+- 바꾼 뒤에는 `node tools/replay_check.js 40` · `node tools/replay_check.js 10 hard`가 모두 "같음"이어야 한다.
+
 ## 온라인 대전 (v3.10)
 - 두 기기가 같은 시드로 같은 판을 계산한다(`js/online.js`). **판의 결과를 바꾸는 난수는 `GRand()` · `shuffleG()`만 쓴다.** `Math.random`은 연출(흔들림 · 소리)에만.
 - 사람이 둘 수 있는 새 행동을 만들면 `js/online.js`의 `ACT_FNS`에 넣어 상대에게도 보낸다. 핸드 순서도 판에 영향이 있다(맨 왼쪽 카드를 겨냥하는 마법).
@@ -68,6 +72,7 @@
 - 서버로 옮길 때 바꿀 곳은 `docs/SERVER_PLAN.md`.
 
 ## 서버 (v3.22)
+- **v3.39 보상은 서버가 정한다**(`js/rewards.js`): 서버 모드에서 기기는 조각 · 카드를 직접 늘리지 않는다(net.js가 `Store.addGold` · `grantCard`를 막음, 서버도 관리자 말고는 거절). 새 보상을 만들면 `rewards.js`에 서버 작업으로 넣고 `server.js` OPS · `net.js` NET_SYNC_OPS에 이름을 더한다. 로컬(파일) 모드는 예전 그대로.
 - v3.37 맥미니 운영: `ETHERION 서버 (맥).command`(게임 서버 + ETHERION 전용 Tailscale `etherion` + Funnel → https://etherion.tail2be349.ts.net). PC 앱이 붙는 주소는 `tools/desktop/server.txt`. 관리자 상점 규칙은 `js/economy.js` `shopCfg` 이하(새 카드는 관리자가 공개해야 상점에 나옴), 화면은 `js/shop.js` 맨 아래.
 - 서버는 `server/server.js`(Node 기본 기능만, npm 꾸러미 없음), 게임 쪽 연결은 `js/net.js`, 설명과 규칙은 **`docs/SERVER.md`**. `ETHERION 서버.bat`으로 켜면 `http://localhost:8787`에서 온라인 모드, 파일로 열면 예전처럼 로컬.
 - 서버는 게임의 규칙 파일을 그대로 읽는다(`server/rules.js`: index.html의 `js/data.js` ~ `js/economy.js` + `js/trade.js` · `js/level.js`). **규칙을 서버에 따로 짜지 않는다** — Store · TradeLocal을 고치면 서버도 같다. 새 카드 데이터 파일은 index.html의 그 사이에 넣는다.

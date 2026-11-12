@@ -104,7 +104,12 @@ const fight = (f, won) => { const cfg = ev(`Pilgrim.begin("${f}")`); if (!cfg) r
   ok(Math.abs(ev('Object.values(PILGRIM.gamble).reduce((a, b) => a + b, 0)') - 1) < 1e-9, '확률 합 = 1');
 
   // ── 하루 한 번 검사(Store.pilgrimClaim): 같은 날 두 번 · 서버의 오늘/어제 밖 · 시계를 돌려도
+  let r0;
   ev('Store.register("시계꾼", "pw", ["A1"])');
+  // v3.40 서버는 검산한 그날의 순례 승리(u.pilSrv.days)가 있어야 첫 승 보상을 준다
+  r0 = ev('Store.pilgrimClaim(null, "keep", "2030-05-03", ["2030-05-03", "2030-05-02"])');
+  ok(r0 && r0.ok === false && r0.wait, '검산한 승리 없이: 기다림(보상은 남음)');
+  ev('Store.user().pilSrv = { days: ["2030-05-04", "2030-05-05", "2030-06-01", "2030-06-02"] }');
   let gc = ev('Store.gold()');
   let r = ev('Store.pilgrimClaim(null, "keep", "2030-05-05", ["2030-05-05", "2030-05-04"])');
   ok(r.ok && r.k === 'gold' && ev('Store.gold()') === gc + 500, '서버의 오늘: 받음');

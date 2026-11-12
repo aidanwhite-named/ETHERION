@@ -56,15 +56,17 @@ const THINK = {
 };
 const HT = { c: 0, used: 0, tick: 0, live: null };   // c = 굴림 한 번(ms, 이동 평균) · used = 이번 턴에 쓴 계산 시간 · tick = 마지막 양보 시각
 const hardNow = () => (typeof performance !== "undefined" && performance.now ? performance.now() : Date.now());
-const hardLive = () => HT.live != null ? HT.live : !!(G && !G.cfg.headless && G.speed !== 0);   // HT.live는 도구(tools/balance/think.js)가 화면 없이 시험할 때만 켠다
+const hardLive = () => HT.live != null ? HT.live : !!(G && !G.cfg.headless && G.speed !== 0);
+/* v3.40 서버가 검산하는 판(cfg.verify)은 생각 시간과 상관없이 HARD.sims번 — 서버가 화면 없이 같은 수를 다시 낸다. 화면에 양보(hardBreath)는 그대로 */
+const hardTimed = () => hardLive() && !(G && G.cfg && G.cfg.verify);   // HT.live는 도구(tools/balance/think.js)가 화면 없이 시험할 때만 켠다
 /* 경우의 수 K개를 견줄 때 수 하나를 몇 번 굴릴까 */
 function hardSims(K) {
-  if (!hardLive()) return HARD.sims;
+  if (!hardTimed()) return HARD.sims;
   const budget = Math.min(THINK.max, THINK.base + THINK.per * K);
   const c = Math.max(0.02, HT.c || 1);
   return Math.max(THINK.minSims, Math.min(THINK.maxSims, Math.floor(budget / (Math.max(1, K) * c))));
 }
-const hardOver = () => hardLive() && HT.used > THINK.turn;
+const hardOver = () => hardTimed() && HT.used > THINK.turn;
 /* 계산이 길어지면 화면에 양보할 약속을 돌려준다(아니면 null). 판을 미리 두어 본 상태에서는 부르지 않는다 */
 function hardBreath() {
   if (!hardLive() || hardNow() - HT.tick < THINK.slice) return null;
@@ -201,7 +203,7 @@ async function hardBestOrder(p, seeds, cur, curN, myG) {
   let perms = hardPerms(xs);
   // v3.24.4 순서의 가짓수(최대 120)에 맞춰 굴리는 횟수를 정한다. 그래도 시간이 모자라면 앞쪽 순서만 본다(지금 순서가 맨 앞)
   const n = hardSims(perms.length), S = seeds.slice(0, n);
-  if (hardLive()) { const room = Math.floor(THINK.max * 1.5 / (n * Math.max(0.02, HT.c || 1))); if (perms.length > room) perms = perms.slice(0, Math.max(2, room)); }
+  if (hardTimed()) { const room = Math.floor(THINK.max * 1.5 / (n * Math.max(0.02, HT.c || 1))); if (perms.length > room) perms = perms.slice(0, Math.max(2, room)); }
   if (n !== curN) cur = hardEval(p, S);
   for (const ord of perms) {
     p.field = ord.concat(Array(RULES.slots - ord.length).fill(null));
@@ -251,7 +253,7 @@ function aiMulliganHard(p) {
 async function aiPrepHard(p) {
   const myG = G;
   render(); await T(500); if (G !== myG) return;
-  const seedBase = (Math.random() * 1e9) >>> 0;
+  const seedBase = (GRand() * 1e9) >>> 0;   // v3.40 판 시드로
   const seeds = Array.from({ length: Math.max(HARD.sims, THINK.maxSims) }, (_, i) => (seedBase + i * 7919) >>> 0);   // 앞에서부터 필요한 만큼만 쓴다
   HT.used = 0; HT.tick = hardNow();
 

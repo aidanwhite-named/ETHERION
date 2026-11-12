@@ -16,9 +16,9 @@
 
 const NET_KEY = "etherion.net.token";      // 이 브라우저의 로그인 토큰
 const NET_SERVER_KEY = "etherion.server";   // (선택) 파일로 연 게임이 붙을 서버 주소. 예: localStorage["etherion.server"] = "http://192.168.0.10:8787"
-const NET_PROTECTED = ["id", "admin", "guest", "created", "group", "owned", "collection", "gold", "ledger", "decks", "drafts", "fresh", "pilClaim"];
-const NET_SYNC_OPS = ["saveDeck", "buyCard", "sellCard", "draftAdd", "grantGroup", "revokeGroup", "grantAllCards", "restock", "pilgrimClaim", "upgradeCard", "shopSet", "shopStock"];   // pilgrimClaim(v3.26): 순례 첫 승 — 서버가 날짜를 보고 추첨까지
-const NET_ASYNC_OPS = ["setDraft", "clearDraft", "grantCard", "addGold"];
+const NET_PROTECTED = ["id", "admin", "guest", "created", "group", "owned", "collection", "gold", "ledger", "decks", "drafts", "fresh", "pilClaim", "spins", "pilSrv", "rewardDay", "rewardLog"];   // v3.39 spins · pilSrv · rewardDay: 서버가 정하는 보상
+const NET_SYNC_OPS = ["saveDeck", "buyCard", "sellCard", "draftAdd", "grantGroup", "revokeGroup", "grantAllCards", "restock", "pilgrimClaim", "upgradeCard", "shopSet", "shopStock", "matchStart", "matchArcade", "matchEnd", "wheelSpin"];   // pilgrimClaim(v3.26): 순례 첫 승 — 서버가 날짜를 보고 추첨까지
+const NET_ASYNC_OPS = ["setDraft", "clearDraft", "grantCard", "addGold"];   // v3.39 grantCard · addGold는 손님만 (로그인한 모험가의 보상은 서버가 정한다 — 아래 install)   // v3.39 grantCard · addGold는 보내지 않는다 — 보상은 서버가 정한다(js/rewards.js)
 
 const Net = {
   on: false, base: "", info: null, token: null,
@@ -222,6 +222,109 @@ const Net = {
         return r;
       };
     }
+    /* v3.39 보상은 서버가 정한다 (js/rewards.js). 이 기기에서는 조각 · 카드를 직접 늘리지 않고, 서버의 결과(스냅샷)로만 바뀐다 */
+    /* 손님은 예전처럼 이 기기가 센 보상을 받는다(상점 · 거래 · 온라인 대전을 못 하므로) — 손님이 아니면 이 기기에서 늘리지 않는다 */
+    { const ag = Store.addGold, gc = Store.grantCard;
+      Store.addGold = function (u, n, why) { u = u || this.user(); if (!u) return 0; if (u.guest || N.depth) return ag.apply(this, arguments); return u.gold || 0; };
+      Store.grantCard = function (u) { u = u || this.user(); if (u && (u.guest || N.depth)) return gc.apply(this, arguments); return true; }; }
+    const srvRewards = () => { const u = Store.user(); return !!(u && !u.guest && N.token); };
+    const curMid = () => (typeof G !== "undefined" && G && G.cfg && G.cfg.mid && App.screen === "game" ? G.cfg.mid : null);
+    if (typeof startMatch === "function") {
+      const sm0 = startMatch;
+      startMatch = function (cfg) {
+        try {
+          const u = Store.user(), mode = cfg && !cfg.headless ? (cfg.pil ? "pil" : cfg.exp ? "exp" : cfg.online || cfg.mode === "online" ? "online" : cfg.mode === "ai" ? "ai" : null) : null;
+          if (u && mode && srvRewards()) {
+            const stage = cfg.pil && typeof Pilgrim !== "undefined" && Pilgrim.get() ? Pilgrim.get().stage : 0;
+            const r = Store.matchStart(u, { mode, group: (cfg.p0 && cfg.p0.group) || App.lobbyGroup, stage });
+            if (r && r.ok) { cfg.mid = r.id; if (r.verify && r.seed != null) { cfg.seed = r.seed; cfg.verify = true; } }   // v3.40 서버가 준 시드로 두고, 사람 쪽 수를 기록한다(G.vlog)
+          }
+        } catch (e) { console.warn(e); }
+        return sm0.apply(this, arguments);
+      };
+    }
+    if (typeof pachinkoRoll === "function") {
+      const miss = { kind: "miss", gold: 0 }, pr0 = pachinkoRoll;
+      pachinkoRoll = function () {
+        const u = Store.user(); if (!u || !N.token) return miss;
+        if (u.guest) return pr0();   // 손님: 이 기기에서 굴림
+        const mid = curMid();
+        const r = mid ? Store.matchArcade(u, mid, "slot", typeof roundOf === "function" ? roundOf(G.turn) : Math.ceil(G.turn / 2)) : Store.wheelSpin(u);
+        if (!r || r.ok === false) { if (r && r.msg && typeof toast === "function") toast(r.msg, "warn"); return miss; }
+        return r;
+      };
+    }
+    if (typeof Crystal !== "undefined" && Crystal.water) {
+      const w0 = Crystal.water;
+      Crystal.water = function () {
+        const mid = curMid(), u = Store.user();
+        if (mid && u && this.can && this.can()) Store.matchArcade(u, mid, "water", this.round());
+        return w0.apply(this, arguments);
+      };
+    }
+    const endOf = g => {
+      if (!g || !g.cfg || !g.cfg.mid || !N.token) return null;
+      if (!g._srv) {
+        const u = Store.user(), c = g.cfg;
+        g._srv = u ? Store.matchEnd(u, c.mid, { won: g.winner === (g.online ? g.me : 0), turns: g.turn, broken: ((g.econ && g.econ.list) || []).map(b => b.id),
+          log: g.vlog || null, p0: { cards: c.p0 && c.p0.cards }, p1: { group: c.p1 && c.p1.group, cards: c.p1 && c.p1.cards, ai: c.p1 && c.p1.ai } }) : null;   // v3.40 검산: 기록 · 두 덱
+      }
+      return g._srv && g._srv.ok !== false ? g._srv : null;
+    };
+    if (typeof onMatchEnd === "function") {
+      const om0 = onMatchEnd;
+      onMatchEnd = function (g) {
+        const s = endOf(g);
+        if (typeof Pilgrim !== "undefined") Pilgrim._srv = s;
+        const u0 = Store.user(), sp = u0 && u0.spins;
+        const r = om0.apply(this, arguments);
+        if (s && u0) u0.spins = sp;   // 수레바퀴 표는 서버가 이미 넣었다 (이 기기의 +1은 되돌림)
+        if (typeof Pilgrim !== "undefined") Pilgrim._srv = null;
+        if (s && g.cfg.pil && typeof Pilgrim !== "undefined") { const p = Pilgrim.get(); if (p && !s.done) p.news = (p.news || []).filter(n => n.k !== "done"); }
+        if (s && g.mode === "ai" && !g.cfg.pil && !g.cfg.exp) { g._reward = s.winCard || null; return g._reward; }
+        return r;
+      };
+    }
+    if (typeof Pilgrim !== "undefined" && Pilgrim._milestone) {
+      const ml0 = Pilgrim._milestone;
+      Pilgrim._milestone = function (u, p) {
+        const s = Pilgrim._srv; if (!s) return ml0.apply(this, arguments);
+        if (!p.claimed.includes(p.steps)) p.claimed.push(p.steps);
+        for (const x of s.mile || []) p.news.push(x);   // 서버가 준 이정표 보상
+      };
+    }
+    if (typeof econSettle === "function") {
+      const es0 = econSettle;
+      econSettle = function (g) {
+        const s = endOf(g); if (!s || (g.econ && g.econ.settled)) return es0.apply(this, arguments);
+        const L0 = econLucky; econLucky = () => s.lucky;   // 행운은 서버가 굴린 것
+        let out; try { out = es0.apply(this, arguments); } finally { econLucky = L0; }
+        if (out) {
+          const lg = s.lucky && s.lucky.k === "gold" ? s.lucky.gold : 0;
+          if (s.pending) Object.assign(out, { lucky: null, pending: true, skip: "서버가 판을 다시 두어 확인하고 있습니다 — 보상은 확인이 끝나면 들어옵니다." });   // v3.40 검산 중: 이 기기의 셈은 예상
+          else Object.assign(out, { bonus: s.bonus, earned: s.brokenGold, pach: s.arcade || 0, lucky: s.lucky, total: s.brokenGold + s.bonus + (s.arcade || 0) + lg, skip: s.skip || null });
+        }
+        return out;
+      };
+    }
+    /* v3.40 판 검산 결과(me.rewardLog)가 새로 오면 알림 */
+    { const ap0 = N.apply.bind(N); let seen = null;
+      N.apply = function (r, ...rest) {
+        const out = ap0(r, ...rest), L = r && r.me && Array.isArray(r.me.rewardLog) ? r.me.rewardLog : null;
+        if (L) {
+          if (!seen) seen = new Set(L.map(x => x.id + ":" + x.at));
+          for (const x of L) { const k = x.id + ":" + x.at; if (seen.has(k)) continue; seen.add(k);
+            if (typeof toast !== "function") continue;
+            if (!x.ok) { toast(`판 확인: ${x.msg || "보상 없음"}`, "warn"); continue; }
+            const parts = [`+${typeof fmtGold === "function" ? fmtGold(x.gold) : x.gold}`];
+            if (x.winCard && CARDS[x.winCard]) parts.push(`카드 「${CARDS[x.winCard].name}」`);
+            if (x.lucky && x.lucky.k === "card" && CARDS[x.lucky.id]) parts.push(`행운 「${CARDS[x.lucky.id].name}」`);
+            for (const m of x.mile || []) if (m.card && CARDS[m.card]) parts.push(`이정표 「${CARDS[m.card].name}」`);
+            toast(`판 확인 완료 (${x.won ? "승리" : "패배"}) · ${parts.join(" · ")}`, "good");
+          }
+        }
+        return out;
+      }; }
     /* 교역소: 서버의 TradeLocal을 그대로 부른다 */
     const TradeHttp = {};
     for (const fn of ["board", "get", "mine", "held", "notices", "readAll", "create", "offer", "withdraw", "accept", "cancel", "forceEnd", "liveSettle"]) TradeHttp[fn] = (uid, ...a) => N.trade(fn, a);

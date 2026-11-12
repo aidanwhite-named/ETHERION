@@ -23,3 +23,15 @@
   font-weight: var(--nweight, 400);
 }
 .card .c-box b, .card .c-box strong, .detail .d-body b, .f-col .d-body b { font-weight: var(--nweight, 400); color: var(--gold-hi); }
+
+/* v3.38 등급 테두리: 전장 · 핸드(css/slim.css · hand.css)처럼 대기실 덱 보기 · 덱 조정실 · 상점 · 크게 보기 카드도 틀 테두리 = 등급 색(--gr). 일반은 흰빛을 조금 눌러 다른 등급이 도드라지게 */
+.dv-cards .card.fm > .c-frame, .screen-editor .card.fm > .c-frame, .shop-card .card.fm > .c-frame, .detail .card.fm > .c-frame {
+  border-color: var(--gr, #f4f1ea) !important; border-width: .14em; box-shadow: 0 0 0 .04em rgba(6, 7, 12, .9), 0 0 .7em color-mix(in srgb, var(--gr, #f4f1ea) 30%, transparent);
+}
+.dv-cards .card.fm.grade-common > .c-frame, .screen-editor .card.fm.grade-common > .c-frame, .shop-card .card.fm.grade-common > .c-frame, .detail .card.fm.grade-common > .c-frame {
+  border-color: color-mix(in srgb, var(--gr) 70%, #000) !important; box-shadow: 0 0 0 .04em rgba(6, 7, 12, .9);
+}
+
+/* v3.40 결과 화면: 서버가 판을 확인하는 중 · 보상 없음 까닭 */
+.res-check { margin: 8px auto 0; max-width: 520px; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--line-gold); background: rgba(0, 0, 0, .35); color: var(--ink-2); font-size: 14px; text-align: center; word-break: keep-all; }
+.res-check.pending { color: var(--ether); border-color: rgba(143, 220, 255, .45); }

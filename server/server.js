@@ -186,8 +186,8 @@ function guest() {
    today: 서버 시계의 오늘 · 어제를 셋째 인자로 넣어 부른다(v3.26 순례 첫 승 — 추첨도 서버). */
 const OPS = {
   saveDeck: {}, setDraft: {}, clearDraft: {}, draftAdd: {}, buyCard: {}, sellCard: {},
-  grantCard: { trust: true },
-  addGold: { trust: true, check: a => +a[0] > 0 && +a[0] <= 1000000 ? null : "보상으로 받을 수 있는 조각이 아닙니다." },
+  grantCard: { adminOrGuest: true }, addGold: { adminOrGuest: true, check: a => +a[0] > 0 && +a[0] <= 100000 ? null : "보상으로 받을 수 있는 조각이 아닙니다." },   // 손님은 상점 · 거래 · 온라인 대전을 못 하므로 기기가 센 보상을 그대로 받는다   // v3.39 기기가 정한 보상은 받지 않는다 — 보상은 아래 match · wheel 작업으로 서버가 정한다 (js/rewards.js)
+  matchStart: {}, matchArcade: {}, matchEnd: {}, wheelSpin: {},
   pilgrimClaim: { today: true },
   upgradeCard: {},   // v3.28 같은 카드 3장 → 강화 카드 1장 (Store.upgradeCard, js/economy.js)   // v3.26 성로 순례 그날 첫 승(받기 / 뽑기): 날짜는 서버 시계로 검사, 같은 날 두 번은 거절. 카드 추첨도 서버가 한다
   grantGroup: { admin: true }, revokeGroup: { admin: true }, grantAllCards: { admin: true },
@@ -195,7 +195,7 @@ const OPS = {
   shopSet: { admin: true, noTarget: true }, shopStock: { admin: true, noTarget: true }   // v3.37 관리자 상점: 공개 · 내림 · 기간 판매 · 재고 (js/economy.js)
 };
 /* 기기가 정하는 칸(전적 · 수레바퀴 표 · 원정 · 경험치 · 설정 따위). 이 밖의 칸(PROTECTED)은 서버만 바꾼다 */
-const PROTECTED = new Set(["id", "pw", "admin", "guest", "created", "group", "owned", "collection", "gold", "ledger", "decks", "drafts", "fresh", "pilClaim"]);
+const PROTECTED = new Set(["id", "pw", "admin", "guest", "created", "group", "owned", "collection", "gold", "ledger", "decks", "drafts", "fresh", "pilClaim", "spins", "pilSrv", "rewardDay", "rewardLog"]);   // v3.39 보상 칸도 서버만
 function softUpdate(u, a) {
   const fields = (a && a.fields) || {};
   if (JSON.stringify(fields).length > 300000) return { ok: false, msg: "너무 큽니다." };
@@ -212,6 +212,7 @@ function runOp(me, op) {
   const spec = OPS[fn];
   if (!spec || typeof Store[fn] !== "function") return { ok: false, msg: "모르는 작업입니다: " + fn };
   if (spec.admin && !me.admin) return { ok: false, msg: "관리자만 할 수 있습니다." };
+  if (spec.adminOrGuest && !me.admin && !me.guest) return { ok: false, msg: "보상은 서버가 정합니다." };   // v3.39
   if (spec.check) { const e = spec.check(args); if (e) return { ok: false, msg: e }; }
   if (spec.today) args = [args[0], args[1], R.pilOkDays(Date.now())];   // 기기가 보낸 오늘의 날짜는 서버의 오늘 · 어제여야 한다 (기기가 보낸 셋째 값은 버림)
   if (spec.noTarget) return Store[fn](...args);
@@ -219,7 +220,7 @@ function runOp(me, op) {
   if (!T) return { ok: false, msg: "없는 모험가입니다." };
   if (T !== me && !me.admin) return { ok: false, msg: "다른 모험가의 데이터는 바꿀 수 없습니다." };
   const r = Store[fn](T, ...args);
-  if (spec.trust || spec.today || fn === "upgradeCard" || fn === "buyCard" || fn === "sellCard") logOp(me, fn, args, r);
+  if (spec.trust || spec.today || fn === "upgradeCard" || fn === "buyCard" || fn === "sellCard" || fn === "matchEnd" || fn === "wheelSpin") logOp(me, fn, args, r);
   return r === undefined ? null : r;
 }
 function ops(sess, body) {
@@ -235,6 +236,7 @@ function ops(sess, body) {
     results[seq] = r; ack = seq;
   }
   clients[cid] = { seq: ack, at: Date.now() };
+  if (Object.values(results).some(r => r && r.pending)) setImmediate(rpQueue);   // v3.40 검산할 판
   const ids = Object.keys(clients); if (ids.length > 12) { ids.sort((a, b) => clients[a].at - clients[b].at); for (const k of ids.slice(0, ids.length - 12)) delete clients[k]; }
   markDirty();
   return Object.assign({ ok: true, results, ack }, snapshot(sess.u));
@@ -255,6 +257,47 @@ function trade(sess, body) {
 /* 기한 정산 시계: 20초마다 (거래 게시판의 기한이 지난 거래를 성사 · 닫기) */
 setInterval(() => { current = null; try { const n = TradeLocal.sweep(); if (n) log("거래", `기한 정산 ${n}건`); } catch (e) { console.error(e); } }, 20000);
 
+/* ---------- v3.40 판 검산 일꾼 (server/replay.js) ----------
+   컴퓨터와 대전 · 순례 판이 끝나면(Store.matchEnd가 m.state = "queued") 일꾼이 판을 다시 두고, 그 결과로 Store.matchSettle이 보상을 넣는다.
+   일꾼은 따로 돌아서 판을 다시 두는 동안에도 서버는 다른 요청을 받는다. 일꾼이 죽으면 다시 띄운다 */
+const { fork } = require("child_process");
+const RP = { w: null, ready: false, q: [], busy: null, timer: null };
+function rpStart() {
+  RP.ready = false;
+  RP.w = fork(path.join(__dirname, "replay.js"), [], { stdio: ["ignore", "inherit", "inherit", "ipc"] });
+  RP.w.on("message", msg => {
+    if (msg && msg.ready) { RP.ready = true; return rpQueue(); }
+    if (!RP.busy || !msg || msg.jid !== RP.busy.jid) return;
+    clearTimeout(RP.timer); const job = RP.busy; RP.busy = null;
+    rpDone(job, msg); rpNext();
+  });
+  RP.w.on("exit", () => { const job = RP.busy; RP.busy = null; RP.ready = false; if (job) rpDone(job, { error: "일꾼이 멈췄습니다" }); setTimeout(rpStart, 1000); });
+}
+function rpQueue() {
+  for (const id in db.matches || {}) { const m = db.matches[id]; if (m.state === "queued" && m.job && !m.sent && !RP.q.some(j => j.mid === id)) RP.q.push({ jid: id + ":" + Date.now(), mid: id }); }
+  rpNext();
+}
+function rpNext() {
+  if (!RP.ready || RP.busy || !RP.q.length) return;
+  const j = RP.q.shift(), m = db.matches && db.matches[j.mid]; if (!m || m.state !== "queued" || !m.job) return rpNext();
+  RP.busy = j; m.sent = true;
+  RP.w.send(Object.assign({ jid: j.jid }, m.job));
+  RP.timer = setTimeout(() => { log("검산", "시간 넘김 — 일꾼을 다시 띄움"); try { RP.w.kill(); } catch (e) {} }, 120000);
+}
+function rpDone(job, res) {
+  const m = db.matches && db.matches[job.mid]; if (!m) return;
+  const u = db.users[m.uid]; if (!u) return;
+  current = u;
+  try {
+    const c = m.job && m.job.claim, mism = c && res && !res.error && ((res.winner === 0) !== !!c.won);
+    const r = R.Store.matchSettle(u, job.mid, res);
+    log("검산", u.id, res.error ? "실패: " + res.error : `${res.winner === 0 ? "승" : "패"} ${res.turn}턴 부서짐 ${res.broken.length}${mism ? " (기기의 말과 다름)" : ""}`, r && r.gold != null ? `→ +${r.gold} 조각${r.winCard ? " · 카드 " + (R.CARDS[r.winCard] ? R.CARDS[r.winCard].name : r.winCard) : ""}${r.skip ? " (" + r.skip + ")" : ""}` : "");
+  } catch (e) { console.error(e); } finally { current = null; }
+  markDirty();
+}
+for (const id in db.matches || {}) if (db.matches[id].state === "queued") db.matches[id].sent = false;   // 서버를 다시 켜면 못 끝낸 검산을 다시
+rpStart();
+
 /* ---------- 기록 ---------- */
 const t = () => { const d = new Date(), p = n => String(n).padStart(2, "0"); return `${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`; };
 function log(...a) { console.log(`[${t()}]`, ...a); }
@@ -265,6 +308,8 @@ function logOp(me, fn, args, r) {
   else if (fn === "sellCard") log("상점", me.id, `판매 ${name(args[0])}`, ok);
   else if (fn === "addGold") log("보상", me.id, `+${args[0]} 조각 (${args[1] || ""})`);
   else if (fn === "grantCard") log("보상", me.id, `카드 ${name(args[0])}`, r ? "" : "(이미 최대)");
+  else if (fn === "matchEnd") log("보상", me.id, r && r.pending ? "판 끝 → 검산 대기" : r && r.ok ? `판 끝 ${r.won ? "승" : "패"} +${r.gold} 조각${r.winCard ? " · 카드 " + name(r.winCard) : ""}${r.skip ? " (" + r.skip + ")" : ""}` : "→ " + (r && r.msg));
+  else if (fn === "wheelSpin") log("보상", me.id, r && r.ok ? `수레바퀴 ${r.kind}${r.gold ? " +" + r.gold : ""}${r.card ? " 카드 " + name(r.card) : ""}` : "→ " + (r && r.msg));
   else if (fn === "upgradeCard") log("강화", me.id, `${name(args[0])}`, r && r.ok ? "→ 됨" : "→ " + (r && r.msg));
   else if (fn === "pilgrimClaim") log("순례", me.id, `첫 승 ${args[1]} ${args[0] === "gamble" ? "뽑기" : "받기"}`, r && r.ok ? (r.k === "card" ? `→ ${r.grade} ${name(r.id)}${r.gold ? ` (다 가져서 ${r.gold} 조각)` : ""}` : `→ ${r.gold} 조각`) : "→ 거절: " + (r && r.msg));
 }
