@@ -613,9 +613,9 @@ async function startVsAI(f, opts) {   // opts.practice = 튜토리얼 ③ 연습
   let diff = Prefs.get("aiDiff", "normal") === "hard" ? "hard" : "normal";
   const diffHTML = `<div class="ai-diff" role="radiogroup" aria-label="난이도">
       <button type="button" class="ai-diff-btn${diff === "normal" ? " on" : ""}" data-d="normal" role="radio"><b>보통</b><small>가끔 실수하는 상대</small></button>
-      <button type="button" class="ai-diff-btn hard${diff === "hard" ? " on" : ""}" data-d="hard" role="radio"><b>어려움</b><small>정예 덱 · 모든 수를 미리 굴려 보고 둔다</small></button>
+      <button type="button" class="ai-diff-btn hard${diff === "hard" ? " on" : ""}" data-d="hard" role="radio"><b>어려움</b><small>모든 수를 미리 굴려 보고 둔다</small></button>
     </div>`;
-  const ok = await modal(`<h3>컴퓨터와 대전</h3>${diffHTML}<p class="muted">상대 단체를 고르세요. 컴퓨터는 보통이면 그 단체의 기본 덱, 어려움이면 등급 높은 카드까지 골라 다듬은 정예 덱을 씁니다.</p>${groupGridHTML({ small: true, random: true })}`,
+  const ok = await modal(`<h3>컴퓨터와 대전</h3>${diffHTML}<p class="muted">상대 단체를 고르세요. 컴퓨터의 덱은 그 단체 카드로 <b>내 덱과 같은 세기(덱 점수 100%)</b>에 맞춰 꾸밉니다. 어려움은 수를 더 깊이 읽습니다.</p>${groupGridHTML({ small: true, random: true })}`,
     [{ label: "취소", value: false }, { label: "전투 시작", value: true, cls: "primary" }], { cls: "wide-modal", onOpen: w => {
       get = bindGroupGrid(w, "random");
       w.addEventListener("click", e => { const b = e.target.closest(".ai-diff-btn"); if (!b) return; diff = b.dataset.d; w.querySelectorAll(".ai-diff-btn").forEach(x => { x.classList.toggle("on", x === b); x.setAttribute("aria-checked", x === b); }); });
@@ -623,7 +623,7 @@ async function startVsAI(f, opts) {   // opts.practice = 튜토리얼 ③ 연습
   if (!ok) return;
   Prefs.set("aiDiff", diff);
   let ag = get(); if (ag === "random") ag = pick(GROUP_IDS.filter(g => g !== f));
-  launch({ mode: "ai", practice: !!(opts && opts.practice), p0: { name: u.id, group: f, cards: Store.deck(u, f).cards }, p1: { name: GROUPS[ag].ai, group: ag, cards: diff === "hard" ? HARD_DECKS[ag] : STARTER_DECKS[ag], isAI: true, ai: diff } });
+  launch({ mode: "ai", practice: !!(opts && opts.practice), p0: { name: u.id, group: f, cards: Store.deck(u, f).cards }, p1: { name: GROUPS[ag].ai, group: ag, cards: aiDeckFor(ag, f, Store.deck(u, f).cards).cards, isAI: true, ai: diff } });   // v3.35 보통 · 어려움 모두 상대 덱 = 내 덱 점수의 100% (예전: 보통 기본 덱 · 어려움 정예 덱)
 }
 async function startPvP(f) {
   const u = Store.user();

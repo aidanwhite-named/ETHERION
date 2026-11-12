@@ -1,7 +1,7 @@
 /* ETHERION — 성로 순례 (v3.25, v3.26)
    하루에 한 번 길이 열린다. 린데어 환석에서 떠나 성로의 여덟 관문(내 깃발을 뺀 여덟 깃발)을 차례로 지나 아홉 번째, 망각의 숲에서 내 덱을 든 "비친 나"와 싸운다.
    - 하루 최대 PILGRIM.fights판(12 = 아홉 관문 + 다시 도전 3번). 이겨야 다음 관문으로 간다. 지면 같은 관문에 다시(그 판도 하루 판 수에 든다). 판은 시작할 때 센다.
-   - 상대는 컴퓨터 '어려움'. 덱은 내 덱 점수에 맞춰 그 자리에서 꾸민다(js/aideck.js aiDeckFor, 관문마다 PILGRIM.scale). 숲의 상대는 내 덱 그대로.
+   - 상대는 컴퓨터 '어려움'. 덱은 내 덱 점수에 맞춰 그 자리에서 꾸민다(js/aideck.js aiDeckFor, 관문마다 PILGRIM.scale). 숲의 상대는 내 깃발 덱을 내 덱 점수의 PILGRIM.forestScale(105%)로 꾸민 "비친 나"(v3.35, 예전에는 내 덱 그대로).
    - 보상: ① 그날 첫 승 = 큰 조각(first). 그대로 받거나, 걸고 카드 한 장(꽝 없음 — 일반 80% … 유니크, 스페셜은 없음). 계정당 하루 한 번.
            v3.26 실제로 주는 곳은 Store.pilgrimClaim(js/pilgrim-rules.js) 하나. 서버로 열면 서버가 서버 시계로 날짜를 검사한다.
            ② 판마다 전투 정산은 보통의 battleRate배(작은 조각). 컴퓨터와 대전의 "이기면 카드 1장"은 없다.
@@ -79,7 +79,10 @@ const Pilgrim = {
       const og = p.route[p.stage];
       const d = aiDeckFor(og, f, cards, { scale: PILGRIM.scale[p.stage] || 1, seed: p.seed + p.stage * 101 });   // 같은 관문에 다시 도전하면 같은 상대
       p1 = { name: GROUPS[og].ai, group: og, cards: d.cards, isAI: true, ai: PILGRIM.ai };
-    } else p1 = { name: PILGRIM_TEXT.forest.who, group: f, cards: Object.assign({}, cards), isAI: true, ai: PILGRIM.ai };
+    } else {   // v3.35 숲: 내 깃발로, 내 덱 점수의 105% (같은 날 다시 도전하면 같은 덱)
+      const d = aiDeckFor(f, f, cards, { scale: PILGRIM.forestScale || 1, seed: p.seed + 9 * 101 });
+      p1 = { name: PILGRIM_TEXT.forest.who, group: f, cards: d.cards, isAI: true, ai: PILGRIM.ai };
+    }
     p.fights++;
     p.cur = { stage: p.stage, f, ratio: Math.round(ratio * 1000) / 1000, at: this.now() };
     Store.save();
@@ -300,7 +303,7 @@ function showPilgrim(f) {
   } else {
     const n = Pilgrim.node(p), forest = p.stage >= PILGRIM.gates - 1;
     const sc = playable ? deckScore(Store.deck(u, f).cards).total / deckScore(STARTER_DECKS[f]).total : 0;
-    const scale = forest ? 1 : PILGRIM.scale[p.stage] || 1;
+    const scale = forest ? PILGRIM.forestScale || 1 : PILGRIM.scale[p.stage] || 1;
     let title, say, color;
     if (!p.route) { title = "길을 연다"; color = G_.color; say = `<p>${esc(TX.lead)}</p><p class="muted">첫 판을 시작하면 오늘의 길(여덟 깃발의 순서)이 정해집니다.</p>`; }
     else if (forest) { title = `${esc(TX.forest.name)} <small>${esc(TX.forest.who)}</small>`; color = "#8d86a8"; say = `<p class="pg-say">${esc(TX.forest.enter)}</p>`; }
@@ -308,7 +311,7 @@ function showPilgrim(f) {
     body = `<div class="xp-card xp-next" style="--gc:${color}">
       <p class="eyebrow">${p.stage + 1} / ${PILGRIM.gates} · 오늘 남은 판 ${Pilgrim.left(p)}</p>
       <h3>${title}</h3>${say}
-      <p class="xp-deck">${groupEmblem(f)} <b>${esc(G_.name)}</b> 덱으로 싸웁니다${playable ? ` · 기본 덱의 <b>${Math.round(sc * 100)}%</b> → 상대는 ${forest ? "<b>내 덱 그대로</b>" : `제 깃발 기본 덱의 <b>${Math.round(sc * scale * 100)}%</b>`}` : " · <span class=\"bad\">저장된 40장 덱이 없습니다</span>"} <span class="muted small">(다른 깃발로 싸우려면 대기실에서 깃발을 바꿉니다)</span></p>
+      <p class="xp-deck">${groupEmblem(f)} <b>${esc(G_.name)}</b> 덱으로 싸웁니다${playable ? ` · 기본 덱의 <b>${Math.round(sc * 100)}%</b> → 상대는 ${forest ? `내 깃발 기본 덱의 <b>${Math.round(sc * scale * 100)}%</b> (내 덱보다 ${Math.round((scale - 1) * 100)}% 셈)` : `제 깃발 기본 덱의 <b>${Math.round(sc * scale * 100)}%</b> (내 덱과 같은 세기)`}` : " · <span class=\"bad\">저장된 40장 덱이 없습니다</span>"} <span class="muted small">(다른 깃발로 싸우려면 대기실에서 깃발을 바꿉니다)</span></p>
       <p class="muted small">${p.first ? "오늘의 첫 승 보상은 받았습니다. 이 판은 전투 정산(작은 조각)만 있습니다." : `이기면 <b>오늘의 첫 승</b> — ${fmtGold(PILGRIM.first)} 또는 카드 한 장.`}${forest ? ` 숲을 지나면 완주 보너스 ${fmtGold(PILGRIM.done)}.` : ""} 지면 같은 관문에 다시 서고, 그 판도 오늘의 ${PILGRIM.fights}판에 듭니다.</p>
       <div class="xp-btns"><button class="btn" data-p="lobby">대기실로</button><button class="btn primary" data-p="fight" ${playable ? "" : "disabled"}>${forest ? "숲으로 들어간다" : "관문에 선다"}</button></div></div>`;
   }
@@ -329,7 +332,7 @@ function showPilgrim(f) {
       <div class="xp-head fac-${G_.faction}" style="--gc:${G_.color}">
         ${groupEmblem(f, "big")}
         <div><p class="eyebrow">PILGRIMAGE · ${esc(FA.name)}</p><h2>성로 순례</h2>
-        <p class="xp-lead">하루에 한 번 길이 열립니다. ${esc(TX.hub)}에서 떠나 <b>여덟 관문</b>에서 다른 깃발에게 인정받고, 아홉 번째 <b>망각의 숲</b>에서 내 덱을 든 나와 싸웁니다. 하루 <b>${PILGRIM.fights}판</b>까지. 그날 <b>첫 승</b>에 큰 보상이 있고, 숲을 지나면 조각을 더 받습니다.</p></div>
+        <p class="xp-lead">하루에 한 번 길이 열립니다. ${esc(TX.hub)}에서 떠나 <b>여덟 관문</b>에서 다른 깃발에게 인정받고, 아홉 번째 <b>망각의 숲</b>에서 나보다 조금 센(내 덱의 105%) 비친 나와 싸웁니다. 하루 <b>${PILGRIM.fights}판</b>까지. 그날 <b>첫 승</b>에 큰 보상이 있고, 숲을 지나면 조각을 더 받습니다.</p></div>
         <div class="pg-clock"><span>새 길까지 <b>${pilUntil(midnight - now)}</b></span><span>새 주까지 <b>${daysToWeek}일</b> (수요일)</span></div>
       </div>
       <div class="pg-tabs" role="tablist">

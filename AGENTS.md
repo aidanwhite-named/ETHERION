@@ -98,6 +98,7 @@
 ## 컴퓨터 (v3.24.4)
 - 보통은 `js/game.js` `aiPrep`, 어려움은 `js/aihard.js`. **수를 견줄 때는 같은 씨앗으로 굴린다**(보통 `spellGain`, 어려움 `hardEval`의 seeds) — 따로 굴리면 코인 운이 이득처럼 보여 헛수를 둔다.
 - 어려움의 생각하는 시간은 `THINK`(경우의 수가 많을수록 길게, 한 턴 상한). 화면 없는 도구는 `HARD.sims` 고정이라 균형 도구 결과에 닿지 않는다. 잴 때 `node tools/balance/think.js js 18 8`(8배 느린 기기인 척).
+- v3.35: 컴퓨터와 대전(보통 · 어려움)과 순례 관문의 상대 덱은 내 덱 점수의 100%, 망각의 숲은 105%(`PILGRIM.forestScale`). 정예 덱 `HARD_DECKS`는 컴퓨터와 대전에서 쓰지 않는다.
 - 내 덱 점수에 맞춘 컴퓨터 덱은 `js/aideck.js` `aiDeckFor`(기본 덱 대비 비율을 맞춤). 덱 점수는 `js/grades.js` `deckScore`. 확인 `node tools/balance/matchdeck.js build` · `play 0.85,1,1.15 72`.
 
 ## 성로 순례 (v3.25 · v3.26)

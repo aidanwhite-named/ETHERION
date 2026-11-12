@@ -29,7 +29,7 @@ const fight = (f, won) => { const cfg = ev(`Pilgrim.begin("${f}")`); if (!cfg) r
   const cnt = c => Object.values(c).reduce((a, b) => a + b, 0);
   ok(cnt(cfg.p1.cards) === 40 && Object.keys(cfg.p1.cards).every(id => ev(`CARDS["${id}"].group`) === p.route[0]), '상대 덱 40장 · 그 깃발 카드만');
   const sc = ev(`deckScore(${JSON.stringify(cfg.p1.cards)}).total / deckScore(STARTER_DECKS["${p.route[0]}"]).total`);
-  ok(Math.abs(sc - 0.90) < 0.02, '첫 관문 상대 = 기본 덱의 90% (내 덱 100%): ' + sc.toFixed(3));
+  ok(Math.abs(sc - 1.00) < 0.02, '첫 관문 상대 = 기본 덱의 100% (내 덱 100%, v3.35): ' + sc.toFixed(3));
   const cfg2 = fight('B1', true);
   ok(JSON.stringify(cfg2.p1.cards) === JSON.stringify(cfg.p1.cards), '같은 관문에 다시 서면 같은 상대 덱');
   p = ev('Pilgrim.get()');
@@ -56,7 +56,8 @@ const fight = (f, won) => { const cfg = ev(`Pilgrim.begin("${f}")`); if (!cfg) r
   fight('B1', true); ev('Pilgrim.keep()');
   for (let i = 0; i < 7; i++) fight('B1', true);
   cfg = ev('Pilgrim.begin("B1")');
-  ok(cfg && cfg.p1.name === '비친 나' && cfg.p1.group === 'B1' && JSON.stringify(cfg.p1.cards) === JSON.stringify(cfg.p0.cards), '아홉째 = 내 덱을 든 비친 나');
+  { const r = cfg && ev('deckScore')(cfg.p1.cards).total / ev('deckScore')(cfg.p0.cards).total;
+    ok(cfg && cfg.p1.name === '비친 나' && cfg.p1.group === 'B1' && Math.abs(r - 1.05) < 0.03, '아홉째 = 내 깃발 · 내 덱의 105%인 비친 나 (v3.35): ' + (r || 0).toFixed(3)); }
   ctx.__g = { winner: 0, cfg }; ev('Pilgrim.onEnd(__g)');
   p = ev('Pilgrim.get()');
   ok(p.stage === 9 && p.tot.done === 1 && ev('Store.gold()') === g1 + 500 + 300, '완주 보너스 +300 (뽑기 없음)');
