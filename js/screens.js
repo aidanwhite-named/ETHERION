@@ -1038,8 +1038,9 @@ function showEditor(f, focusId) {
   $("#ed-back").addEventListener("click", () => { if (dirty()) toast("고치던 덱은 초안으로 남아 있습니다. 다시 오면 이어서 고칠 수 있습니다."); showLobby(); });
   $("#ed-play").addEventListener("click", async () => {
     if (dirty() || !Store.deckPlayable(u, f)) { alarm("40장을 채우고 저장해야 게임에 들어갈 수 있습니다.", "warn"); return; }
-    const v = await modal(`<h3>대전 방식</h3><p>저장된 「${esc(Store.deck(u, f).name)}」로 출전합니다.</p>`, [{ label: "취소", value: null }, { label: "대전 (2인)", value: "pvp" }, { label: "컴퓨터와 대전", value: "ai", cls: "primary" }]);
+    const v = await modal(`<h3>대전 방식</h3><p>저장된 「${esc(Store.deck(u, f).name)}」로 출전합니다.</p>`, [{ label: "취소", value: null }, { label: "대전 (2인)", value: "pvp" }, { label: "순례", value: "pil" }, { label: "컴퓨터와 대전", value: "ai", cls: "primary" }]);
     if (v === "ai") startVsAI(f); else if (v === "pvp") startPvP(f);
+    else if (v === "pil" && typeof showPilgrim === "function") { App.lobbyGroup = f; showPilgrim(f); }   // v3.34 순례도 덱 조정실에서 바로
   });
   // 다른 탭에서 상점으로 카드를 사면(같은 브라우저 저장소) 여기에도 바로 들어온다
   App.refresh = () => {

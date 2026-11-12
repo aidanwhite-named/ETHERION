@@ -252,6 +252,28 @@ function itemText(it) {
   if (it.co && it.co.length) parts.push("코인 " + coinList(it.co) + ".");
   return parts.join(" ");
 }
+/* v3.33 표시 능력 글인가: "[고정: …]" · "[버팀: …]" · "[눌림: …]" (아이템 세트 "[고정 3/4/5]"는 아님) */
+const isPinAb = raw => PIN_KO_KEYS.some(k => String(raw).startsWith("[" + k + ":"));
+/* v3.33 장착한 유닛의 크게 보기 글: 표시는 말 대신 수치 앞의 기호로 — "공격 +▲4, 방어 🔒3, 체력 ▼2".
+   아이템이 더하는 값은 +▲4 · −▼1, 정한 값(to)은 기호 + 그 값, 더하는 값 없이 표시만 있으면 기호만. 표시 능력 글([버팀: …])은 뺀다 */
+function itemTextPinned(it) {
+  if (it.set) return itemText(it);
+  const pm = pinModesOf(it, true), parts = [];
+  const m = ["a", "d", "h"].map(k => {
+    const mk = pm[k] ? PIN_MARK[pm[k]] : "", v = it[k] || 0, to = it.to && it.to[k] != null ? it.to[k] : null;
+    if (to != null) return `${STAT_KO[k]} ${mk}${to}`;
+    if (!v && !mk) return "";
+    if (!v) return `${STAT_KO[k]} ${mk}`;
+    return `${STAT_KO[k]} ${v > 0 ? "+" : "−"}${mk}${Math.abs(v)}`;
+  }).filter(Boolean);
+  if (m.length) parts.push(m.join(", ") + ".");
+  const g = itemGrants(it).filter(r => !isPinAb(r)), e = itemAbilities(it).filter(r => ON_EQUIP_KW.test(r));
+  if (g.length) parts.push(g.join(" ") + " 능력 부여.");
+  if (e.length) parts.push("장착할 때 " + e.join(" ") + ".");
+  if (it.evText && !it.evName) parts.push(it.evText + ".");
+  if (it.co && it.co.length) parts.push("코인 " + coinList(it.co) + ".");
+  return parts.join(" ");
+}
 /* 아이템 능력의 뜻 (v1.4.6: 적힌 숫자를 넣어 그 카드에 맞는 문장으로 보인다. {n} = 능력 이름 뒤의 숫자).
    문장은 실제 규칙(engine.js)과 같아야 한다: 사격 snipeOne, 투척 attackOne, 마력 공격·관통·치명·연쇄·가시·원거리 attackOne, 가호·보호막 hurt */
 const ITEM_KW = {
@@ -260,8 +282,8 @@ const ITEM_KW = {
   "마력 공격 전부": "공격할 때 상대 방어를 모두 무시한다. 반격할 때는 적용되지 않는다.",
   "치명": "맞붙어 공격해 피해를 주면, 맞은 유닛이 쓰러지지 않았을 때 남은 체력이 1이 된다.",
   "연쇄": "맞붙어 공격해 상대 유닛을 쓰러뜨리고 피해가 남으면, 남은 피해로 그 뒤의 상대 유닛 하나를 친다(그 유닛의 방어만큼 줄어든다. 마력 공격은 여기에도 적용, 반격은 없다).",
-  "투척": "이 아이템을 장착한 그 턴에 한 번, 이 유닛이 공격을 시작할 때 맞선 유닛 말고 다른 상대 유닛 하나의 체력을 함께 {n} 깎는다(쓰러뜨릴 수 있는 유닛 중 레벨이 가장 높은 유닛, 없으면 그다음 맨 앞 유닛). 맞선 유닛뿐이면 그 유닛에게 투척 피해를 먼저 주고 이어서 공격한다.",
-  "사격": "내 공격 턴에 이 유닛의 차례가 오면, 맞붙기 바로 전에 상대 유닛 하나의 체력을 {n} 깎는다. 대상: 이 피해로 쓰러뜨릴 수 있는 유닛 중 레벨이 가장 높은 유닛, 없으면 상대의 맨 앞 유닛. 사격으로 상대 유닛이 모두 쓰러지면 이번 전투에서는 아무도 생명을 직접 공격하지 않는다.",
+  "투척": "내 공격 턴마다, 이 유닛이 공격을 시작할 때 맞선 유닛에서 칸이 가장 먼 상대 유닛에게 함께 던져 {n} 피해를 준다(그 유닛의 방어만큼 줄어든다. 거리가 같으면 전장 번호가 큰 유닛). 상대 유닛이 맞선 유닛뿐이면 던지지 않는다.",
+  "사격": "내 공격 턴에 이 유닛의 차례가 오면, 맞붙기 바로 전에 상대 유닛 하나의 체력을 {n} 깎는다(방어 무시). 대상: 남은 체력이 가장 낮은 유닛 — 같으면 레벨이 높은 유닛, 그것도 같으면 앞의 유닛. 사격으로 상대 유닛이 모두 쓰러지면 이번 전투에서는 아무도 생명을 직접 공격하지 않는다.",
   "원거리": "맞붙어 공격해도 상대의 반격을 받지 않는다.",
   "가호": "매 턴 처음 받는 피해를 {n}만큼 줄인다.",
   "보호막 코인": "매 턴 시작에 코인을 던져 앞면이면, 그 턴 처음 받는 피해 한 번을 통째로 막는다.",

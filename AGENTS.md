@@ -27,6 +27,13 @@
 - 전장의 내 핸드는 겹치지 않는 똑바른 한 줄(`css/hand-row.css`, 슬롯의 `--i` · `--n`). 부채꼴로 되돌리지 않는다.
 - 핸드는 붙박이 자리다(v3.19.4, `js/game.js` `handSlots`, 내 핸드 · 상대 핸드 모두). 끌어서 자리 옮기기(`handReorder`, v3.32.5)도 이 자리 기준 — 옆으로 자리 폭 30%면 한 칸, 빈 자리로도 간다. 자리 배치를 바꾸면 `HSLOT.m`과 배열 순서를 함께 고친다. 카드를 내면 그 자리는 비어 있고 남은 카드는 가운데로 모이지 않는다. `--i`는 배열 순번이 아니라 자리 번호, `--n`은 자리 수. 핸드 배열 순서 = 자리 순서는 지킨다(맨 왼쪽 카드를 겨냥하는 마법).
 
+## 투척 · 사격 (v3.34)
+- 대상 고르기는 `js/engine.js` `snipeTarget`(사격: 남은 체력 낮은 → 레벨 높은 → 앞) · `throwTarget`(투척: 맞선 유닛에서 칸이 가장 먼 유닛, 같은 거리면 전장 번호 큰 쪽, 맞선 유닛뿐이면 없음). 투척은 공격 턴마다(`t.thrown`은 한 턴 한 번), 피해는 대상의 방어만큼 줄어든다. 사격은 방어 무시 그대로. 규칙을 바꾸면 `js/cards.js` `ITEM_KW`의 "투척" · "사격" 글도 함께.
+- 화면 없는 도구(`tools/balance/harness.js`)는 `js/game.js`의 "화면" 절 앞까지만 읽는다. 규칙 함수가 부르는 함수는 그 앞에 둔다(v3.34에 `logShieldRoll`을 옮김).
+
+## 장착 아이템의 표시 (v3.33.2)
+- 아이템이 붙이는 고정 · 버팀 · 눌림은 전장 칩 줄(`equipChipsHTML`)과 크게 보기(`instLines`)에서 말로 쓰지 않고, 크게 보기의 수치 앞 기호로만 보인다(`itemTextPinned`: `+▲4` · `🔒3`). 말과 뜻은 카드를 눌러 여는 설명 패널(`focusInst`)에만. 표시 능력 글인지는 `isPinAb`.
+
 ## 카드 이름 글꼴 (v3.20.3)
 - 카드 맨 위 이름은 한글 글꼴(`--kfont`)과 따로 `--nfont` · `--nweight`(`js/game.js` `NAME_FONTS`). v3.32.4부터 설정 창에서 글꼴 고르기를 뺐다 — 저장된 값(Prefs `font` · `namefont`)만 `applyFont`가 쓴다. 기본 송명 400. 새 이름 글꼴을 더하려면 `fonts/`에 woff2를 담고 `css/fonts-names.css`에 @font-face, `NAME_FONTS`에 한 줄. PC 앱 · 안드로이드 앱은 인터넷이 없을 수 있으니 Google Fonts 주소에 기대지 않는다.
 
@@ -99,6 +106,7 @@
 - **그날 첫 승 보상(받기 · 뽑기)은 `Store.pilgrimClaim` 한 곳에서만 준다.** 서버로 열면 서버가 부르고, 날짜를 서버 시계의 오늘 · 어제로 검사한다(`OPS.pilgrimClaim`의 `today`). 받은 날은 `u.pilClaim`(서버만 바꾸는 칸). 화면에서 `Store.addGold`로 첫 승 조각을 따로 주지 않는다.
 - 그 밖의 순례 상태는 `u.pilgrim`(기기가 정하는 칸): 길 · 판 수 · 걸음 · 소문(`lore`) · 지난 주(`book`) · 기록. 이정표 · 완주 보상은 `Store.addGold` · `pilPickCard`(장부 이유는 "순례 …"). 길의 날짜는 기기 시계(자정 · 수요일 0시).
 - 화면은 두 탭: 오늘의 길(지도 `pilMapHTML` — 바탕은 `Kailan.mapSVG()`, 도시 좌표는 `Kailan.places`) · 순례기(`pilBookHTML`). 지도에 장소를 더하거나 옮기면 `js/kailan.js`만 고치면 순례 지도도 따라간다.
+- 화면 크기 · 관문 아치(v3.33)는 `css/pilgrim.css` 맨 위 절과 길 절. 관문 HTML은 `showPilgrim`의 `nodeHTML`.
 - 순례 판은 대전 설정에 `pil: true` · `econRate`가 붙는다. 경기 끝은 `onMatchEnd` → `Pilgrim.onEnd`.
 - 고치면 `node tools/pilgrim/test.js`(467개)를 돌린다. 순례 전투 조각은 1%(v3.28).
 

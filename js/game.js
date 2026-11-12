@@ -122,6 +122,8 @@ function actPlace(p, uid, slot) {
   }
   return true;
 }
+/* v3.32.4 보호막 코인 기록 — 규칙 부분(화면 위)에 둔다: 화면 없는 도구(tools/balance/harness.js)는 "화면" 절 앞까지만 읽는다 */
+function logShieldRoll(p, it) { log(`[보호막 코인] ${p.name}의 ${C(it).name}: ${it.t.sroll.h ? "앞면 — 이번 턴 처음 받는 피해 1회 무효" : "뒷면 — 이번 턴은 보호막 없음"}`, it.t.sroll.h ? "good" : "sys"); }
 function actEquip(p, uid, slot) {
   const i = p.hand.findIndex(x => x.uid === uid); if (i < 0) return false;
   const card = p.hand[i], c = C(card);
@@ -1798,7 +1800,7 @@ function scrapPileHTML(it) {
 function livePins(it) { const f = (it.t && it.t.floor) || {}, o = {}; for (const k in f) if (f[k] && f[k].m) o[k] = f[k].m; return o; }
 /* v1.9.3: 장착 아이템의 특수 능력 띠. 능력마다 한 칸, 마우스를 올리면 이름과 뜻. 능력이 없는 아이템(스탯만 올림)은 띠 없음 — 이름은 아래 카드에 보인다 */
 function equipChipsHTML(ic) {
-  const list = itemKwList(ic.item).filter(([k]) => k);
+  const list = itemKwList(ic.item).filter(([k]) => k && !isPinAb(k));   // v3.33 표시(고정 · 버팀 · 눌림) 칩은 빼고 — 스탯 옆 기호로 보이고, 누르면 설명 패널에 나온다
   if (ic.item.set) list[0] = [`[고정 ${ic.item.set.a}/${ic.item.set.d}/${ic.item.set.h}]`, list[0][1]];
   const chips = list.map(([k, v]) => `<span class="c-eq-ab" data-tip="${esc(k + "\n" + (v || ic.item.evText || "") + "\n— " + ic.name)}">${esc(k.replace(/^\[|\]$/g, ""))}</span>`);
   return chips.join("");
@@ -1846,7 +1848,7 @@ function shuffleBtnHTML(p) {
   const why = shuffleBlock(p), off = !!why;
   // v1.9: 크게, 룬 인장 + 양 끝이 뾰족한 문양 명판 (css/battle-v19.css)
   const label = p.shuffled ? "셔플 사용함" : "셔플";
-  return `<button type="button" class="shuffle-btn v19${off ? " used" : ""}" data-act="shuffle" ${off ? "disabled" : ""} data-tip="${esc("셔플 (S)\n핸드를 덱에 섞고 같은 장수를 다시 뽑습니다.\n한 턴에 한 번 · 생명 −1\n카드를 전장에 올리거나 소각한 턴에는 할 수 없습니다." + (why ? "\n\n지금: " + why : ""))}"><span class="sh-seal"><i class="sh-ring"></i>${uiIcon("shuffle")}</span><span class="sh-txt"><span class="sh-t">${label}</span><small>RESHUFFLE</small></span>${p.shuffled ? "" : `<span class="sh-cost">♥−1</span>`}<kbd>S</kbd></button>`;
+  return `<button type="button" class="shuffle-btn v19${off ? " used" : ""}" data-act="shuffle" ${off ? "disabled" : ""} data-tip="${esc("셔플 (S)\n핸드를 덱에 섞고 같은 장수를 다시 뽑습니다.\n한 턴에 한 번 · 생명 −1\n카드를 전장에 올리거나 소각한 턴에는 할 수 없습니다." + (why ? "\n\n지금: " + why : ""))}"><span class="sh-seal"><i class="sh-ring"></i>${uiIcon("shuffle")}</span><span class="sh-txt"><span class="sh-t">${label}</span><small>RESHUFFLE</small></span>${p.shuffled ? "" : `<span class="sh-cost">생명 −1</span>`}<kbd>S</kbd></button>`;
 }
 function etherHTML(p, isMe, ctrlAll) {
   const ctrl = ctrlAll && isMe;
@@ -2276,7 +2278,6 @@ function render() {
    엔진은 턴이 시작될 때와 장착할 때 이 동전을 따로 던진다(js/engine.js resetTurn, 유닛 코인이 없어도). 예전에는 화면에 아무것도 없어
    앞면이면 ◈ 표시만 생기고 뒷면이면 던졌는지조차 알 수 없었다. 이제 그 카드 위에 동전이 떠올라 돌다가 앞 · 뒤로 멈추고,
    앞면이면 "보호막", 뒷면이면 "보호막 실패"가 떠오른다. 던질 때마다 번호(t.sroll.n)가 붙어 같은 던짐은 한 번만 보인다 */
-function logShieldRoll(p, it) { log(`[보호막 코인] ${p.name}의 ${C(it).name}: ${it.t.sroll.h ? "앞면 — 이번 턴 처음 받는 피해 1회 무효" : "뒷면 — 이번 턴은 보호막 없음"}`, it.t.sroll.h ? "good" : "sys"); }
 function shieldCoinFx() {
   if (!G || G.cfg.headless) return;
   if (!FX.shieldSeen || FX.shieldSeenG !== G) { FX.shieldSeen = new Set(); FX.shieldSeenG = G; }

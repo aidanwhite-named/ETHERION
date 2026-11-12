@@ -248,9 +248,11 @@ function showPilgrim(f) {
     const n = Pilgrim.node(p, i);
     const st = i < p.stage ? " done" : i === p.stage && Pilgrim.canFight(p) ? " cur" : "";
     const road = i < PILGRIM.gates - 1 ? '<i class="xp-road"></i>' : "";
-    if (n.kind === "flag") { const O = GROUPS[n.g]; return `<li class="xp-node${st}" style="--gc:${O.color}">${groupEmblem(n.g)}<b>${esc(O.name)}</b><small>${esc(TX.flags[n.g].place.replace(/의 관문$| 관문$/, ""))}</small>${road}</li>`; }
-    if (n.kind === "forest") return `<li class="xp-node pg-forest${st}" style="--gc:#8d86a8"><span class="emblem void">?</span><b>${esc(TX.forest.name)}</b><small>${esc(TX.forest.who)}</small></li>`;
-    return `<li class="xp-node" style="--gc:#6b6f80"><span class="emblem void">·</span><b>관문</b><small>${i + 1}번째</small>${road}</li>`;
+    /* v3.33 관문 = 아치 문: 꼭대기 쐐기 마름모(번호) · 안쪽 깃발 빛 · 큰 문양 · 지난 관문은 금 봉인 */
+    const arch = (inner, mark) => `<span class="pg-arch"><span class="pg-key"><i>${mark}</i></span>${inner}${i < p.stage ? '<span class="pg-seal">✓</span>' : ""}${st === " cur" ? '<span class="pg-now">지금</span>' : ""}</span>`;
+    if (n.kind === "flag") { const O = GROUPS[n.g]; return `<li class="xp-node pg-gate${st}" style="--gc:${O.color}">${arch(groupEmblem(n.g), i + 1)}<b>${esc(O.name)}</b><small>${esc(TX.flags[n.g].place.replace(/의 관문$| 관문$/, ""))}</small>${road}</li>`; }
+    if (n.kind === "forest") return `<li class="xp-node pg-gate pg-forest${st}" style="--gc:#8d86a8">${arch('<span class="emblem void">?</span>', "✦")}<b>${esc(TX.forest.name)}</b><small>${esc(TX.forest.who)}</small></li>`;
+    return `<li class="xp-node pg-gate pg-unknown" style="--gc:#6b6f80">${arch('<span class="emblem void">·</span>', i + 1)}<b>관문</b><small>${i + 1}번째</small>${road}</li>`;
   };
   /* 한 주의 걸음 */
   const chap = Pilgrim.chapter(p.weekN);

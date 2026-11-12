@@ -377,10 +377,17 @@ function castSpell(X, caster, it, k) {
   for (const op of ops) { castOp(op); pinPass(X); }
 }
 
-/* 투척·사격의 대상: 이 피해로 쓰러뜨릴 수 있는 유닛 중 레벨이 가장 높은 유닛, 없으면 대기열 맨 앞 */
-function throwTarget(D, n, foes) {
-  const kill = foes.filter(f => !f.t.shield && hpLeft(f) <= n - (f.t.wardUsed ? 0 : f.t.ward)).sort((a, b) => C(b).lv - C(a).lv)[0];
-  return kill || queueOf(D).find(f => foes.includes(f));
+/* v3.34 [사격]의 대상: 남은 체력이 가장 낮은 유닛, 같으면 레벨이 높은 유닛, 그것도 같으면 대기열 앞의 유닛.
+   (v3.33까지: 이 피해로 쓰러뜨릴 수 있는 유닛 중 레벨이 가장 높은 유닛, 없으면 맨 앞 — 투척도 같은 대상이었다) */
+function snipeTarget(D, foes) {
+  return queueOf(D).filter(f => foes.includes(f))
+    .reduce((b, f) => !b || hpLeft(f) < hpLeft(b) || (hpLeft(f) === hpLeft(b) && C(f).lv > C(b).lv) ? f : b, null);
+}
+/* v3.34 [투척]의 대상: 맞선 유닛에서 칸이 가장 먼 상대 유닛(같은 거리면 전장 번호가 큰 쪽). 맞선 유닛뿐이면 없음 */
+function throwTarget(D, Du) {
+  const c0 = colOf(D, Du), far = f => Math.abs(colOf(D, f) - c0);
+  return liveUnits(D).filter(f => f !== Du)
+    .reduce((b, f) => !b || far(f) > far(b) || (far(f) === far(b) && colOf(D, f) > colOf(D, b)) ? f : b, null);
 }
 /* [사격]: 공격 턴에 이 유닛의 차례가 오면, 맞붙기 바로 전에 상대 유닛 하나에게 방어 무시 피해.
    v3.17.5 예전에는 전투가 시작되자마자 모든 사격 유닛이 한꺼번에 쐈다(앞 칸 유닛이 싸우기도 전에). 이제 자기 칸 차례에 쏜다.
@@ -389,7 +396,7 @@ function snipeOne(X, u) {
   const A = X.P[X.ai], D = X.P[1 - X.ai];
   const sn = abilOf(u).snipe; if (!sn || u.t.rest || !u.t.alive) return;
   const foes = liveUnits(D); if (!foes.length) return;
-  const tg = throwTarget(D, sn, foes);
+  const tg = snipeTarget(D, foes);
   fl(X, tg.uid, "◎ " + C(tg).name, "aim");   // v3.9.11 겨눌 때 대상 이름을 카드 위에 띄운다 (맞고 부서져 칸이 당겨져도 무엇을 맞혔는지 보이게)
   step(X, { act: u.uid, tgt: tg.uid, sn: 1 }, 380);   // sn: 화면이 [사격] 소리를 고르는 표시 (규칙과 무관)
   lg(X, `${C(u).name}의 [사격 ${sn}] → ${C(tg).name}`);
@@ -453,18 +460,20 @@ function attackOne(X, Au) {
   }
   if (!Au.t.alive) { step(X, {}, 420); return; }
   if (!Du.t.alive) { step(X, {}, 420); return attackOne(X, Au); }   // 맞설 상대가 코인에 쓰러지면 다음 상대에게
-  // v1.6.2 [투척]: 장착한 그 턴, 이 유닛이 공격을 시작할 때 함께 던진다.
-  // 맞선 유닛 말고 다른 상대 유닛이 있으면 그 유닛에게 동시에, 맞선 유닛뿐이면 그 유닛에게 투척 피해 → 공격 피해 순서로 두 번
+  // [투척] v3.34: 내 공격 턴마다(예전에는 장착한 그 턴에 한 번), 이 유닛이 공격을 시작할 때 맞선 유닛에서 칸이 가장 먼 상대 유닛에게 함께 던진다.
+  // 그 유닛의 방어만큼 줄어든다(예전에는 방어 무시). 맞선 유닛뿐이면 던지지 않는다(예전에는 그 유닛에게 투척 → 공격 두 번)
   let thr = null;
-  if (im && im.throw && !im.every && Au.item.equipped === X.turn && !Au.t.thrown) {
-    Au.t.thrown = true;
-    const others = liveUnits(D).filter(f => f !== Du);
-    thr = others.length ? throwTarget(D, im.throw, others) : Du;
+  if (im && im.throw && !im.every && !Au.t.thrown) {
+    thr = throwTarget(D, Du);
+    if (thr) Au.t.thrown = true;
   }
   step(X, thr ? { act: Au.uid, tgt: Du.uid, thr: thr.uid } : { act: Au.uid, tgt: Du.uid }, 380);
   if (thr) {
-    if (!uEyeDodge(X, D, thr)) hurt(X, thr, im.throw, "투척");   // v3.31 [폭풍의 눈]
-    lg(X, `${ca.name}의 [투척 ${im.throw}] → ${C(thr).name}${thr === Du ? " (맞선 유닛뿐이라 함께 맞힘)" : ""}`);
+    const td = hit(im.throw, thr.t.d);
+    lg(X, `${ca.name}의 [투척 ${im.throw}] → ${C(thr).name}(방 ${thr.t.d}): 피해 ${td}`);
+    if (uEyeDodge(X, D, thr)) {}   // v3.31 [폭풍의 눈]
+    else if (td > 0) hurt(X, thr, td, "투척");
+    else fl(X, thr.uid, "투척 막음", "miss");
   }
   let dd = Du.t.d;
   if (ab.magic) dd = dd > 0 ? Math.max(0, dd - (ab.magic === true ? 99 : ab.magic)) : dd;

@@ -154,7 +154,7 @@ html.mobile .f-piles > .shuffle-btn.v19 { width: auto; min-width: 0; padding: 0;
 html.mobile .shuffle-btn.v19 .sh-txt, html.mobile .shuffle-btn.v19 kbd { display: none; }
 html.mobile .shuffle-btn.v19::before, html.mobile .shuffle-btn.v19::after { display: none; }
 html.mobile .shuffle-btn.v19 .sh-seal { position: relative; left: auto; top: auto; transform: none; }
-html.mobile .lay-swap .f-piles > .shuffle-btn.v19 .sh-cost { display: block; position: absolute; z-index: 2; right: -6px; bottom: -4px; margin: 0; font-size: 10.5px; padding: 1px 5px; }
+html.mobile .lay-swap .f-piles > .shuffle-btn.v19 .sh-cost { display: block; position: absolute; z-index: 2; left: 50%; right: auto; bottom: -9px; transform: translateX(-50%); margin: 0; font-family: var(--kfont, var(--body)), serif; font-size: 10px; padding: 1px 5px; white-space: nowrap; }   /* v3.33 "생명 −1"(예전 ♥−1) — 인장 아래 가운데 */
 /* 오른쪽 아래 생명: 숫자 · /40이 판 밖으로 넘치지 않게 */
 html.appui .lay-swap .pv-bot .pl { column-gap: 6px; }
 html.appui .lay-swap .pv-bot .hgem { width: 34px; }
