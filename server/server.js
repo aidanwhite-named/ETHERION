@@ -54,7 +54,7 @@ const R = load();
 const { Store, TradeLocal } = R;
 
 /* ---------- DB ---------- */
-function emptyDB() { return { v: 1, created: Date.now(), users: {}, session: null, chat: [], stock: {}, trade: null, sessions: {}, rev: 0 }; }
+function emptyDB() { return { v: 1, created: Date.now(), users: {}, session: null, chat: [], stock: {}, shop: null, trade: null, sessions: {}, rev: 0 }; }
 function readDB() {
   try {
     const db = JSON.parse(fs.readFileSync(DB_PATH, "utf8"));
@@ -135,7 +135,7 @@ function sessionOf(req) {
 const strip = u => { const o = JSON.parse(JSON.stringify(u)); delete o.pw; return o; };
 function unreadOf(uid) { const box = db.trade && db.trade.notices && db.trade.notices[uid]; return box ? box.filter(n => !n.read).length : 0; }
 function snapshot(u) {
-  const out = { me: strip(u), stock: db.stock || {}, unread: unreadOf(u.id), rev: db.rev || 0, now: Date.now() };
+  const out = { me: strip(u), stock: db.stock || {}, shop: Store.shopCfg(), unread: unreadOf(u.id), rev: db.rev || 0, now: Date.now() };
   if (u.admin) out.others = Object.values(db.users).filter(x => x.id !== u.id).map(strip);
   return out;
 }
@@ -191,7 +191,8 @@ const OPS = {
   pilgrimClaim: { today: true },
   upgradeCard: {},   // v3.28 같은 카드 3장 → 강화 카드 1장 (Store.upgradeCard, js/economy.js)   // v3.26 성로 순례 그날 첫 승(받기 / 뽑기): 날짜는 서버 시계로 검사, 같은 날 두 번은 거절. 카드 추첨도 서버가 한다
   grantGroup: { admin: true }, revokeGroup: { admin: true }, grantAllCards: { admin: true },
-  restock: { admin: true, noTarget: true }
+  restock: { admin: true, noTarget: true },
+  shopSet: { admin: true, noTarget: true }, shopStock: { admin: true, noTarget: true }   // v3.37 관리자 상점: 공개 · 내림 · 기간 판매 · 재고 (js/economy.js)
 };
 /* 기기가 정하는 칸(전적 · 수레바퀴 표 · 원정 · 경험치 · 설정 따위). 이 밖의 칸(PROTECTED)은 서버만 바꾼다 */
 const PROTECTED = new Set(["id", "pw", "admin", "guest", "created", "group", "owned", "collection", "gold", "ledger", "decks", "drafts", "fresh", "pilClaim"]);

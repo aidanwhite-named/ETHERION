@@ -78,6 +78,7 @@ Object.assign(Store, {
     if (!u || !c) return { ok: false, msg: "없는 카드입니다." };
     if (c.base) return { ok: false, msg: `「${c.name}」은 강화 카드라 살 수 없습니다. 「${CARDS[c.base].name}」 3장을 업그레이드하세요.` };   // v3.28
     const price = shopPrice(c), admin = this.isAdmin(u), stock = this.stockLeft(id);
+    if (!admin && !this.shopOpen(id)) return { ok: false, msg: `「${c.name}」은 지금 상점에서 팔지 않습니다.` };   // v3.37 관리자 상점: 내림 · 새 카드 · 기간 밖
     if (stock <= 0) return { ok: false, msg: `「${c.name}」 재고가 없습니다.${admin ? " 재고 채우기를 누르세요." : ""}` };
     if (n > stock) n = stock;
     const have = u.collection[id] || 0;
@@ -111,15 +112,55 @@ Object.assign(Store, {
     const price = shopPrice(c);
     u.collection[id] = have - 1;
     if (!u.collection[id]) { delete u.collection[id]; if (u.fresh) delete u.fresh[id]; }
-    this.data.stock = this.data.stock || {}; this.data.stock[id] = Math.min(stockMax(c), this.stockLeft(id) + 1);
+    this.data.stock = this.data.stock || {}; this.data.stock[id] = Math.min(this.shopMax(id), this.stockLeft(id) + 1);
     if (this.isAdmin(u)) this.save(); else this.addGold(u, price, "판매 " + c.name);
     return { ok: true, price: this.isAdmin(u) ? 0 : price, have: u.collection[id] || 0 };
   },
   /* 보유 장수 (상점에서 산 장수). 관리자 · 손님은 덱에서는 모든 카드를 최대 장수만큼 쓸 수 있다 */
   shopOwned(u, id) { return Store.allCards(u) ? (u.collection[id] || 0) : this.ownedCount(u, id); },
   /* v3.0 상점 재고: 이 브라우저의 모든 계정이 같은 재고를 나눠 쓴다. 등급마다 처음 채우는 장수가 다르다(SHOP_STOCK) */
-  stockLeft(id) { const s = this.data.stock && this.data.stock[id]; return s == null ? stockMax(id) : s; },
-  restock(ids) { if (!this.data.stock) return; if (ids) for (const id of ids) delete this.data.stock[id]; else this.data.stock = {}; this.save(); }
+  stockLeft(id) { const s = this.data.stock && this.data.stock[id]; return s == null ? this.shopMax(id) : s; },   // v3.37 최대 장수는 관리자가 정한 값(shopMax)
+  restock(ids) { if (!this.data.stock) return; if (ids) for (const id of ids) delete this.data.stock[id]; else this.data.stock = {}; this.save(); },
+
+  /* ---------- v3.37 관리자 상점: 카드마다 상점에 내놓을지 · 언제까지 · 몇 장까지 (Store.data.shop) ----------
+     shop.known = 이 설정이 처음 생길 때 있던 카드들(그대로 판다). 그 뒤 게임에 새로 넣은 카드(known에 없음)는 관리자가 [공개]하기 전까지 상점에 없다.
+     shop.c[id] = { off: 1 내림, pub: 1 새 카드 공개, from · until: 기간 판매(ms, 비우면 제한 없음), max: 재고 최대(비우면 등급 기본 SHOP_STOCK) }
+     서버로 열면 서버가 정본이다(server.js OPS shopSet · shopStock, 스냅샷의 shop). 관리자 아닌 모험가는 "판매 중"인 카드만 보고 산다 */
+  shopCfg() {
+    const s = this.data.shop = this.data.shop || {};
+    if (!s.c) s.c = {};
+    if (!s.known) s.known = CARD_LIST.filter(c => !c.base).map(c => c.id);
+    return s;
+  },
+  /* "on" 판매 중 · "off" 내림 · "new" 새 카드(아직 공개 안 함) · "soon" 기간 판매 전 · "ended" 기간 판매 끝 */
+  shopState(id, now) {
+    const s = this.shopCfg(), o = s.c[id] || {}; now = now || Date.now();
+    if (o.off) return "off";
+    if (!o.pub && s.known.indexOf(id) < 0) return "new";
+    if (o.from && now < o.from) return "soon";
+    if (o.until && now > o.until) return "ended";
+    return "on";
+  },
+  shopOpen(id, now) { return this.shopState(id, now) === "on"; },
+  shopMax(id) { const o = this.shopCfg().c[id]; return o && o.max != null ? o.max : stockMax(id); },
+  /* 관리자: ids 카드에 설정을 덮어쓴다. patch 값이 null이면 그 칸을 지운다. { off, pub, from, until, max } */
+  shopSet(ids, patch) {
+    const s = this.shopCfg(); ids = [].concat(ids || []).filter(id => CARDS[id] && !CARDS[id].base);
+    for (const id of ids) {
+      const o = Object.assign({}, s.c[id]);
+      for (const k of ["off", "pub", "from", "until", "max"]) if (patch && k in patch) { if (patch[k] == null || patch[k] === false) delete o[k]; else o[k] = k === "off" || k === "pub" ? 1 : Math.max(0, Math.round(+patch[k])); }
+      if (Object.keys(o).length) s.c[id] = o; else delete s.c[id];
+    }
+    this.save();
+    return { ok: true, n: ids.length };
+  },
+  /* 관리자: 재고를 n장으로 (n이 없으면 그 카드의 최대 장수로 채운다) */
+  shopStock(ids, n) {
+    this.data.stock = this.data.stock || {}; ids = [].concat(ids || []).filter(id => CARDS[id]);
+    for (const id of ids) this.data.stock[id] = n == null ? this.shopMax(id) : Math.max(0, Math.round(+n));
+    this.save();
+    return { ok: true, n: ids.length };
+  }
 });
 
 /* ---------- v3.28 업그레이드: 같은 카드 3장 → 강화 카드 1장 (js/upgrades.js) ----------

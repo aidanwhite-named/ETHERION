@@ -84,7 +84,10 @@ function create() {
   });
   if (!DEV) wc.on("devtools-opened", () => wc.closeDevTools());
 
-  win.loadFile(path.join(__dirname, "index.html"));
+  /* v3.37 빌드할 때 넣은 서버 주소(package.json etherionServer)가 있으면 그 서버로 붙는다 (js/net.js가 ?server= 를 읽음) */
+  let server = "";
+  try { server = require("./package.json").etherionServer || ""; } catch (e) {}
+  win.loadFile(path.join(__dirname, "index.html"), server ? { query: { server } } : undefined);
   win.on("closed", () => { win = null; });
 }
 

@@ -17,7 +17,7 @@
 const NET_KEY = "etherion.net.token";      // 이 브라우저의 로그인 토큰
 const NET_SERVER_KEY = "etherion.server";   // (선택) 파일로 연 게임이 붙을 서버 주소. 예: localStorage["etherion.server"] = "http://192.168.0.10:8787"
 const NET_PROTECTED = ["id", "admin", "guest", "created", "group", "owned", "collection", "gold", "ledger", "decks", "drafts", "fresh", "pilClaim"];
-const NET_SYNC_OPS = ["saveDeck", "buyCard", "sellCard", "draftAdd", "grantGroup", "revokeGroup", "grantAllCards", "restock", "pilgrimClaim", "upgradeCard"];   // pilgrimClaim(v3.26): 순례 첫 승 — 서버가 날짜를 보고 추첨까지
+const NET_SYNC_OPS = ["saveDeck", "buyCard", "sellCard", "draftAdd", "grantGroup", "revokeGroup", "grantAllCards", "restock", "pilgrimClaim", "upgradeCard", "shopSet", "shopStock"];   // pilgrimClaim(v3.26): 순례 첫 승 — 서버가 날짜를 보고 추첨까지
 const NET_ASYNC_OPS = ["setDraft", "clearDraft", "grantCard", "addGold"];
 
 const Net = {
@@ -78,6 +78,7 @@ const Net = {
     }
     D.session = me.id;
     D.stock = r.stock || {};
+    if (r.shop) D.shop = r.shop;   // v3.37 관리자 상점 설정 (서버가 정본)
     if (first) return true;
     if (before !== JSON.stringify(NET_PROTECTED.map(k => u[k]))) {   // 다른 데서 바뀜(거래 성사 · 관리자 지급 …) → 화면을 다시 그린다
       if (typeof LevelUI !== "undefined") LevelUI.paint();
@@ -205,7 +206,7 @@ const Net = {
       const orig = Store[fn]; if (typeof orig !== "function") continue;
       Store[fn] = function (...a) {
         if (N.depth || !N.token) return orig.apply(this, a);
-        if (fn === "restock") return N.run({ fn, target: null, args: a });
+        if (fn === "restock" || fn === "shopSet" || fn === "shopStock") return N.run({ fn, target: null, args: a });   // 대상 모험가가 없는 관리자 작업
         const u = a[0] || this.user();
         return N.run(N.op(fn, u, a.slice(1)));
       };
@@ -250,6 +251,7 @@ const Net = {
   if (/[?&]offline\b/.test(location.search)) return;
   let base = null;
   try { base = localStorage.getItem(NET_SERVER_KEY); } catch (e) {}
+  { const m = /[?&]server=([^&#]+)/.exec(location.search); if (m) base = decodeURIComponent(m[1]); }   // v3.37 PC 앱: 빌드 때 넣은 서버 주소 (desktop/main.js)
   if (!base && /^https?:$/.test(location.protocol)) base = location.origin;
   if (!base) return;
   base = base.replace(/\/+$/, "");

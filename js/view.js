@@ -420,7 +420,7 @@ function cardFullHTML(c, opts) {
     if (c.flavor) L.push(`<p class="f-flavor">${esc(c.flavor)}</p>`);
   } else {
     L.push(`<p class="f-rule f-big">${kwHTML(c.text)}</p>`);
-    L.push(spellCoinNoteHTML(c.text));   // v3.9.12: +●● 코인 읽는 법
+    // v3.38 코인 읽는 법(spellCoinNoteHTML) 줄은 뺐다 — 그 자리에 카드 서사(c.flavor). 코인 읽는 법은 코인에 마우스를 올린 말풍선 · 매뉴얼에
     if (c.cost && c.cost.ether) L.push(`<p class="f-kw"><b>[장전 ${c.cost.ether}]</b> 다음 턴 에테르 −${c.cost.ether}.</p>`);
     { const rule = (RITE_TIP[c.type] || "").split("\n")[1]; if (rule) L.push(`<p class="f-rule f-dim">${rule}</p>`); }
     if (c.limit && !c.comeback) L.push(`<p class="f-rule f-dim">덱에 ${c.limit}장까지.</p>`);   // v3.18 유니크 마법
@@ -495,7 +495,7 @@ function cardDetailBody(c, inst) {
     if (c.flavor) lines.push(`<p class="d-flavor">${esc(c.flavor)}</p>`);
   } else {
     lines.push(`<p class="d-rules">${kwHTML(c.text.replace(/\s*\[장전 \d+\]/g, ""))}${c.cost.ether ? ` ${kwHTML("[장전 " + c.cost.ether + "]")} 다음 턴 에테르 −${c.cost.ether}.` : ""}</p>`);
-    lines.push(spellCoinNoteHTML(c.text, "d-type"));
+    // v3.38 코인 읽는 법 줄은 뺐다 (말풍선 · 매뉴얼)
     if (c.flavor) lines.push(`<p class="d-flavor">${esc(c.flavor)}</p>`);   // v3.18 유니크 마법
   }
   lines.push(instLines(inst));

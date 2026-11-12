@@ -10,7 +10,7 @@
             다른 카드 칸은 구매 단추(조각이 모자라 막힘)만 고친다. 화면 밖 카드 칸을 그리지 않는 것은 css/shop.css(content-visibility). */
 "use strict";
 
-const SHOP = { node: "root", type: "all", lv: 0, grade: "", open: {}, toDeck: true };
+const SHOP = { node: "root", type: "all", lv: 0, grade: "", open: {}, toDeck: true, adm: "all" };   // adm: v3.37 관리자 상점의 상태 거르기
 try { const v = localStorage.getItem("etherion.pref.shopToDeck"); if (v != null) SHOP.toDeck = v === "1"; } catch (e) {}
 
 function shopNodeHTML(kind, id, extra) {
@@ -40,12 +40,16 @@ function shopCards(noGrade) {
   if (SHOP.type === "upgrade") list = list.filter(c => c.base);   // v3.28 강화 카드 (같은 카드 3장을 합침)
   if (SHOP.lv) list = list.filter(c => c.lv === SHOP.lv);
   if (SHOP.grade && !noGrade) list = list.filter(c => gradeOf(c) === SHOP.grade);
+  /* v3.37 관리자 상점: 모험가에게는 판매 중인 카드만(강화 카드는 원래 카드가 판매 중일 때). 관리자는 상태로 거른다 */
+  const u = Store.user(), now = Date.now();
+  if (!Store.isAdmin(u)) list = list.filter(c => Store.shopOpen(c.base || c.id, now));
+  else if (SHOP.adm !== "all") list = list.filter(c => !c.base && (SHOP.adm === "timed" ? !!(Store.shopCfg().c[c.id] || {}).until || !!(Store.shopCfg().c[c.id] || {}).from : Store.shopState(c.id, now) === SHOP.adm));
   const order = { unit: 0, atk: 1, def: 2, any: 3, item: 4 };
   return list.slice().sort((a, b) => GROUP_IDS.indexOf(a.group) - GROUP_IDS.indexOf(b.group) || order[a.type] - order[b.type] || a.lv - b.lv || a.id.localeCompare(b.id));
 }
 /* v3.0 재고 막대 · 덱 표시가 붙은 카드 칸 */
 function shopStockHTML(c) {
-  const left = Store.stockLeft(c.id), mx = stockMax(c), pct = Math.round(left / mx * 100);
+  const left = Store.stockLeft(c.id), mx = Store.shopMax(c.id) || 1, pct = Math.round(left / mx * 100);
   return `<span class="sc-stock${left ? "" : " empty"}" style="--gr:${GRADES[gradeOf(c)].color};--p:${pct}%" title="상점 재고 ${left} / ${mx}장 (${GRADES[gradeOf(c)].name} 등급은 ${mx}장씩 채운다)"><i></i><em>재고 <b>${left}</b>/${mx}</em></span>`;
 }
 /* 구매 단추의 상태(막힘 · 글 · 풀이). 카드 칸(shopCardTile)과 사고판 뒤 다른 칸 고치기(shopRefresh)가 함께 쓴다 */
@@ -53,6 +57,7 @@ function shopBuyState(c, u) {
   const admin = Store.isAdmin(u), own = Store.shopOwned(u, c.id), mx = maxCopiesOf(c), full = !admin && own >= mx, price = shopPrice(c);
   const left = Store.stockLeft(c.id), poor = !admin && Store.gold(u) < price;
   const why = !left ? "재고가 없습니다" : full ? "최대 장수를 모두 가지고 있습니다" : poor ? "환석 조각이 부족합니다" : `${fmtGold(price)}에 1장 구매${SHOP.toDeck ? " · 덱 초안에 바로 넣음" : ""}`;
+  if (Store.isGuest(u)) return { admin, own, mx, full, price, left, poor, why: "손님은 둘러보기만 할 수 있습니다 — '새 모험가'로 등록하면 살 수 있습니다", off: true, label: "둘러보기" };   // v3.37
   return { admin, own, mx, full, price, left, poor, why, off: !left || full || poor, label: !left ? "품절" : full ? "모두 보유" : "구매" };
 }
 /* v3.28 강화 카드 칸: 사고팔지 않고 "업그레이드"(원래 카드 3장 → 1장). 원래 카드 칸에는 강화 줄이 붙는다 */
@@ -72,9 +77,9 @@ function shopCardTile(c, u) {
   if (c.base) return shopUpgradeTile(c, u);
   const { admin, own, mx, full, price, left, why, off, label } = shopBuyState(c, u);
   const upId = typeof Upgrade !== "undefined" ? Upgrade.upOf(c.id) : null, upCh = upId && !Store.allCards(u) ? Store.upgradeCheck(u, upId) : null;
-  const fresh = u.fresh && u.fresh[c.id];
-  return `<div class="shop-card${full ? " full" : ""}${left ? "" : " soldout"}${fresh ? " fresh" : ""}" data-card="${c.id}" style="--gr:${GRADES[gradeOf(c)].color}">
-    <div class="sc-face">${cardHTML(c, { size: "md", brief: true })}${fresh ? '<span class="sc-new">NEW</span>' : ""}${left ? "" : '<span class="sc-sold">품절</span>'}</div>
+  const fresh = u.fresh && u.fresh[c.id], st = Store.shopState(c.id);
+  return `<div class="shop-card${full ? " full" : ""}${left ? "" : " soldout"}${fresh ? " fresh" : ""}${st !== "on" ? " st-" + st : ""}" data-card="${c.id}" style="--gr:${GRADES[gradeOf(c)].color}">
+    <div class="sc-face">${cardHTML(c, { size: "md", brief: true })}${fresh ? '<span class="sc-new">NEW</span>' : ""}${left ? "" : '<span class="sc-sold">품절</span>'}${shopStateBadge(c.id, admin)}</div>
     <div class="sc-foot"><span class="sc-price" title="상점 값 (지금은 모든 카드 같은 값)"><i class="shard" aria-hidden="true"></i>${Math.round(price).toLocaleString("ko-KR")}</span><span class="sc-own ${own ? "ok" : ""}">보유 ${own}${admin ? "" : "/" + mx}</span></div>
     ${shopStockHTML(c)}
     ${upCh ? `<p class="sc-upgline" title="${esc(upCh.ok ? "누르면 업그레이드" : upCh.msg)}"><button type="button" class="linkish" data-upg="${upId}" ${upCh.ok ? "" : "disabled"}>⇧ ${UPGRADE_COST}장 → 강화 「${esc(CARDS[upId].name)}」</button> <b>${Math.min(upCh.free, UPGRADE_COST)}</b>/${UPGRADE_COST}</p>` : ""}
@@ -118,6 +123,10 @@ function showShop() {
       if (ok) { Store.restock(); renderShopMain(); toast("상점 재고를 모두 채웠습니다.", "good"); }
       return;
     }
+    const sa = e.target.closest("[data-sadm]");   // v3.37 관리자 상점: 상태 거르기
+    if (sa) { SHOP.adm = sa.dataset.sadm; renderShopMain(); return; }
+    const sb = e.target.closest("[data-sbulk]");
+    if (sb) { shopAdminBulk(sb.dataset.sbulk); return; }
     const goEd = e.target.closest("[data-goeditor]");
     if (goEd) { showEditor(goEd.dataset.goeditor); return; }
     const nb = e.target.closest("[data-node]");
@@ -186,6 +195,7 @@ function renderShopMain() {
   $("#shop-main").innerHTML = `
     ${shopHeadHTML(u, T, list.length)}
     ${shopLinkHTML(u)}
+    ${Store.isAdmin(u) ? shopAdminBar(list) : ""}
     <div class="shop-filters">
       <div class="chips"><span class="sf-label">종류</span>${[["all", "전체"], ["unit", "유닛"], ["spell", "마법"], ["item", "아이템"], ["upgrade", "업그레이드"]].map(([k, l]) => `<button type="button" class="chip${SHOP.type === k ? " on" : ""}${k === "upgrade" ? " sf-upgrade" : ""}" data-shop-type="${k}">${l}</button>`).join("")}</div>
       <div class="chips"><span class="sf-label">레벨</span>${[0, 1, 2, 3, 4, 5, 6, 7, 8].map(l => `<button type="button" class="chip${SHOP.lv === l ? " on" : ""}" data-shop-lv="${l}">${l ? "Lv " + l : "모든 레벨"}</button>`).join("")}</div>
@@ -230,22 +240,24 @@ async function shopCardModal(id) {
   const own = Store.shopOwned(u, id), mx = maxCopiesOf(c), price = shopPrice(c), left = Store.stockLeft(id);
   const room = admin ? left : Math.max(0, Math.min(left, mx - own, Math.floor(Store.gold(u) / price)));
   const canSell = Store.sellable(u, id) > 0;
-  const qty = [1, 4, 10].filter(n => n <= room);
+  const qty = Store.isGuest(u) ? [] : [1, 4, 10].filter(n => n <= room);   // v3.37 손님은 둘러보기만
   const btns = [{ label: "닫기", value: null }];
   if (canSell) btns.push({ label: admin ? "1장 판매 (재고로)" : `1장 판매 (+${fmtGold(price)})`, value: "sell" });
   if (GROUPS[c.group] && Store.ownsGroup(u, c.group)) btns.push({ label: "덱 조정실에서 보기", value: "editor" });
-  if (admin && left < stockMax(c)) btns.push({ label: "이 카드 재고 채우기", value: "restock" });
+  if (admin && left < Store.shopMax(id)) btns.push({ label: "이 카드 재고 채우기", value: "restock" });
+  if (admin) btns.push({ label: "상점 설정…", value: "admin", cls: "alt" });   // v3.37 관리자 상점
   const ub = typeof Upgrade !== "undefined" ? Upgrade.button(id) : null; if (ub) btns.push(ub);   // v3.28
   for (const n of qty) btns.push({ label: `${n}장 구매 (${admin ? "무료" : fmtGold(price * n)})`, value: "buy" + n, cls: n === qty[qty.length - 1] ? "primary" : "" });
   if (admin && room > 10) btns.push({ label: `남은 ${room}장 모두 구매`, value: "buy" + room, cls: "primary alt" });
   const r = await showCardModal(c, btns,
-    `등급 <b style="color:${GRADES[gradeOf(c)].color}">${GRADES[gradeOf(c)].name}</b> · 값 ${fmtGold(price)} · 재고 <b>${left}</b>/${stockMax(c)} · 보유 ${own}${admin ? "" : "/" + mx} · 지갑 ${admin ? "∞ (관리자)" : fmtGold(Store.gold(u))}${SHOP.toDeck ? " · 산 카드는 덱 초안에 바로 들어갑니다" : ""}${typeof Upgrade !== "undefined" && Upgrade.upOf(id) ? "<br>" + Upgrade.note(id) : ""}`);
+    `등급 <b style="color:${GRADES[gradeOf(c)].color}">${GRADES[gradeOf(c)].name}</b> · 값 ${fmtGold(price)} · 재고 <b>${left}</b>/${Store.shopMax(id)} · 보유 ${own}${admin ? "" : "/" + mx} · 지갑 ${admin ? "∞ (관리자)" : fmtGold(Store.gold(u))}${SHOP.toDeck ? " · 산 카드는 덱 초안에 바로 들어갑니다" : ""}${typeof Upgrade !== "undefined" && Upgrade.upOf(id) ? "<br>" + Upgrade.note(id) : ""}`);
   if (!r) return;
   if (r.startsWith("buy")) shopBuy(id, +r.slice(3));
   if (r === "sell") shopSell(id);
   if (r === "upgrade") shopUpgrade(Upgrade.upOf(id));
   if (r === "editor") showEditor(c.group, id);
-  if (r === "restock") { Store.restock([id]); shopRefresh([id]); toast(`「${c.name}」 재고를 ${stockMax(c)}장으로 채웠습니다.`, "good"); }
+  if (r === "admin") { shopAdminEdit([id]); return; }
+  if (r === "restock") { Store.restock([id]); shopRefresh([id]); toast(`「${c.name}」 재고를 ${Store.shopMax(id)}장으로 채웠습니다.`, "good"); }
 }
 function shopBuy(id, n, fromBtn) {
   const u = Store.user(), c = CARDS[id];
@@ -276,4 +288,66 @@ function shopSell(id) {
   const tile = $(`.shop-card[data-card="${id}"]`);
   if (tile && typeof Scenes !== "undefined") Scenes.shards(tile.querySelector(".sc-face"), $(".shop-wallet"), 6);
   const chip = $(".gold-chip"); if (chip) chip.querySelector("b").textContent = fmtGold(Store.gold(u));
+}
+
+/* ---------- v3.37 관리자 상점 ----------
+   관리자가 상점을 연다: 카드마다 판매 중 · 내림, 새 카드(게임에 새로 넣은 카드) 공개, 기간 판매(시작 · 끝), 재고 최대 장수 · 지금 재고.
+   규칙과 저장은 js/economy.js Store.shopSet · shopStock(서버로 열면 서버가 정본). 모험가는 "판매 중"인 카드만 보고 산다 */
+const SHOP_ST = { on: ["판매 중", "#7fd49a"], off: ["내림", "#ef6a5c"], new: ["새 카드 · 비공개", "#8fdcff"], soon: ["판매 예정", "#f0b44c"], ended: ["기간 끝", "#8a8577"] };
+const shopDT = ms => { if (!ms) return ""; const d = new Date(ms), p = n => String(n).padStart(2, "0"); return `${d.getMonth() + 1}/${d.getDate()} ${p(d.getHours())}:${p(d.getMinutes())}`; };
+function shopStateBadge(id, admin) {
+  const st = Store.shopState(id), o = Store.shopCfg().c[id] || {};
+  if (admin) return st === "on" && !o.until ? "" : `<span class="sc-st" style="--sc:${SHOP_ST[st][1]}">${SHOP_ST[st][0]}${o.until && st !== "ended" ? ` ~${shopDT(o.until)}` : ""}${st === "soon" ? ` ${shopDT(o.from)}~` : ""}</span>`;
+  return o.until ? `<span class="sc-st" style="--sc:#f0b44c">기간 한정 ~${shopDT(o.until)}</span>` : "";
+}
+function shopAdminBar(list) {
+  const all = CARD_LIST.filter(c => !c.base), now = Date.now(), n = { all: all.length, on: 0, off: 0, new: 0, soon: 0, ended: 0, timed: 0 };
+  for (const c of all) { n[Store.shopState(c.id, now)]++; const o = Store.shopCfg().c[c.id]; if (o && (o.from || o.until)) n.timed++; }
+  const chip = (k, l) => `<button type="button" class="chip${SHOP.adm === k ? " on" : ""}" data-sadm="${k}">${l} <small>${n[k]}</small></button>`;
+  const ids = list.filter(c => !c.base).length;
+  return `<div class="shop-admin">
+      <div class="chips"><span class="sf-label">관리자 상점</span>${chip("all", "모든 카드")}${chip("on", "판매 중")}${chip("new", "새 카드")}${chip("off", "내림")}${chip("timed", "기간 판매")}${chip("soon", "예정")}${chip("ended", "끝남")}</div>
+      <div class="sa-bulk"><span class="muted small">지금 보이는 ${ids}종에</span>
+        <button type="button" class="btn xs" data-sbulk="open" ${ids ? "" : "disabled"}>모두 공개 · 판매</button>
+        <button type="button" class="btn xs" data-sbulk="close" ${ids ? "" : "disabled"}>모두 내리기</button>
+        <button type="button" class="btn xs" data-sbulk="edit" ${ids ? "" : "disabled"}>설정 바꾸기…</button>
+        <button type="button" class="btn xs" data-sbulk="fill" ${ids ? "" : "disabled"}>재고 채우기</button></div>
+    </div>`;
+}
+async function shopAdminBulk(k) {
+  const ids = shopCards().filter(c => !c.base).map(c => c.id); if (!ids.length) return;
+  if (k === "edit") return shopAdminEdit(ids);
+  const label = { open: "공개하고 판매", close: "내리기", fill: "재고를 최대 장수까지 채우기" }[k];
+  const ok = await modal(`<h3>관리자 상점</h3><p>지금 보이는 카드 <b>${ids.length}종</b>을 ${label}합니다.</p>`, [{ label: "취소", value: false }, { label, value: true, cls: "primary" }]);
+  if (!ok) return;
+  const r = k === "fill" ? Store.shopStock(ids) : Store.shopSet(ids, k === "open" ? { off: null, pub: 1 } : { off: 1 });
+  if (r && r.ok === false) { toast(r.msg, "warn"); return; }
+  toast(`${ids.length}종: ${label} 했습니다.`, "good"); renderShopMain();
+}
+/* 카드 하나 또는 여럿의 상점 설정 창 (여럿이면 첫 카드의 값을 보여 주고 모두에 적용) */
+async function shopAdminEdit(ids) {
+  const id0 = ids[0], o = Store.shopCfg().c[id0] || {}, st = Store.shopState(id0), c0 = CARDS[id0];
+  const dtv = ms => { if (!ms) return ""; const d = new Date(ms - new Date(ms).getTimezoneOffset() * 60000); return d.toISOString().slice(0, 16); };
+  let val = null;
+  const html = `<h3>상점 설정 <small>${ids.length > 1 ? `${ids.length}종` : esc(c0.name)}</small></h3>
+    <p class="muted small">지금: ${SHOP_ST[st][0]} · 재고 ${Store.stockLeft(id0)} / ${Store.shopMax(id0)}${ids.length > 1 ? " (첫 카드 기준 — 저장하면 모든 카드에 같은 값)" : ""}</p>
+    <div class="sa-form">
+      <label class="sa-row"><span>상점에</span><select id="sa-on"><option value="on" ${o.off ? "" : "selected"}>내놓기 (공개 · 판매)</option><option value="off" ${o.off ? "selected" : ""}>내리기</option></select></label>
+      <label class="sa-row"><span>판매 시작</span><input type="datetime-local" id="sa-from" value="${dtv(o.from)}"><small>비우면 바로</small></label>
+      <label class="sa-row"><span>판매 끝</span><input type="datetime-local" id="sa-until" value="${dtv(o.until)}"><small>비우면 계속</small></label>
+      <label class="sa-row"><span>재고 최대</span><input type="number" id="sa-max" min="0" max="9999" value="${o.max != null ? o.max : ""}" placeholder="${stockMax(c0)} (등급 기본)"><small>비우면 등급 기본</small></label>
+      <label class="sa-row"><span>지금 재고</span><input type="number" id="sa-now" min="0" max="9999" placeholder="그대로"><small>비우면 그대로 · 0이면 품절</small></label>
+    </div>`;
+  const read = w => {
+    const q = s => w.querySelector(s).value.trim(), t = s => q(s) ? new Date(q(s)).getTime() : null;
+    val = { on: q("#sa-on") === "on", from: t("#sa-from"), until: t("#sa-until"), max: q("#sa-max") === "" ? null : +q("#sa-max"), now: q("#sa-now") === "" ? null : +q("#sa-now") };
+    if (val.from && val.until && val.until <= val.from) { toast("판매 끝이 시작보다 뒤여야 합니다.", "warn"); return false; }
+  };
+  const r = await modal(html, [{ label: "취소", value: null }, { label: "저장", value: "save", cls: "primary", onClick: read }], { cls: "sa-modal" });
+  if (r !== "save" || !val) return;
+  const a = Store.shopSet(ids, { off: val.on ? null : 1, pub: val.on ? 1 : null, from: val.from, until: val.until, max: val.max });
+  if (a && a.ok === false) { toast(a.msg, "warn"); return; }
+  if (val.now != null) Store.shopStock(ids, val.now);
+  toast(`${ids.length > 1 ? ids.length + "종" : "「" + c0.name + "」"} 상점 설정을 저장했습니다.`, "good");
+  renderShopMain();
 }

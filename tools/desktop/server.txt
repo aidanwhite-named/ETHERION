@@ -1,0 +1,2 @@
+# PC 앱이 켜질 때 붙을 서버 (tools/desktop/build_exe.py가 읽음). 비우거나 --offline이면 혼자 도는 앱
+https://etherion.tail2be349.ts.net

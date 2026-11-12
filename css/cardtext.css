@@ -1,0 +1,25 @@
+/* ETHERION v3.38 — 카드 글: 능력 칩의 네모를 빼고, 카드 안 글꼴을 카드 이름 글꼴(--nfont, 기본 송명)로 통일 (맨 마지막에 읽음)
+   - 일반공격 · 특수 능력 · 표시(고정 · 버팀 · 눌림) · 장착 아이템 능력: 바탕 · 테두리 · 둥근 네모 없이 글자 색만 (칸을 덜 차지함)
+   - 원본 카드 · 핸드 · 전장 · 크게 보기 · 고른 카드 패널의 카드 글 모두 같은 글꼴. 큰 숫자(공 · 방 · 체 · 레벨)의 글꼴은 그대로 */
+.card .c-box .c-cls, .card .c-cls.c-ab, .card .c-cls.c-pin, .card .c-cls.c-plain, .card .c-cls.c-off,
+.card .c-eq-ab, .slot .card.fm .c-eq-ab, .slot .card.fm .c-box .c-cls {
+  background: none !important; border: 0 !important; box-shadow: none !important; border-radius: 0 !important;
+  padding: 0 .12em !important; text-shadow: 0 1px 2px rgba(0, 0, 0, .85);
+}
+.card .c-cls.c-ab { color: #a9e2ff; }
+.card .c-cls.c-pin { color: #ffd36b; }
+.card .c-cls.c-plain { color: var(--ink-2); }
+.card .c-box .c-cls.c-ab.c-off { color: #ffb0a2; }
+.card .c-eq-ab { color: #f1d38a; }
+.card .c-eq-ab::before { color: #c9a25a; }
+.card .c-eq-ab:hover { filter: brightness(1.2); box-shadow: none; }
+/* 칩 사이 구분: 네모가 없으니 가는 점으로 */
+.card .c-chips > .c-cls + .c-cls::before { content: "·"; margin-right: .25em; color: rgba(255, 255, 255, .35); }
+
+/* 글꼴 통일 */
+.card .c-box, .card .c-box *, .card .f-type, .card .f-type *, .card .c-brief, .card .c-brief *, .card .c-chips, .card .c-chips *, .card .c-equip, .card .c-equip *,
+.detail .d-body, .detail .d-body *, .card-preview .d-body, .card-preview .d-body *, .f-col .d-body, .f-col .d-body *, .cm-note {
+  font-family: var(--nfont, "Song Myung"), var(--kfont, var(--body)), serif !important;
+  font-weight: var(--nweight, 400);
+}
+.card .c-box b, .card .c-box strong, .detail .d-body b, .f-col .d-body b { font-weight: var(--nweight, 400); color: var(--gold-hi); }

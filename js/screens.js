@@ -440,15 +440,17 @@ function showLobby() {
       </nav>
       <main class="deck-view" id="deck-view"></main>
       <aside class="side-col">
+      ${!lobbyCompact() && typeof Help !== "undefined" ? Help.dockHTML() : ""}
       <div class="wheel-host" id="wheel-host"></div>
       <aside class="chat" aria-label="대기실 채팅">
         <div class="chat-head"><h3 class="panel-title">대기실 채팅</h3><span class="net off" title="서버 미연결: 메시지는 이 기기에만 저장됩니다">● 오프라인</span></div>
         <div class="chat-log" id="chat-log"></div>
         <form class="chat-form" id="chat-form"><input id="chat-in" maxlength="300" placeholder="메시지 입력…" autocomplete="off" aria-label="채팅 메시지"><button class="btn sm primary" type="submit">보내기</button></form>
       </aside>
+      <div class="side-altar" id="side-altar"></div>
       </aside>
     </div>
-    ${typeof Help !== "undefined" ? Help.dockHTML() : ""}
+    ${lobbyCompact() && typeof Help !== "undefined" ? Help.dockHTML() : ""}
   </section>`;   /* v3.9 오른쪽 아래 튜토리얼 · 매뉴얼 (js/manual.js) */
   const root = $(".screen-lobby");
   bindHeader(root);
@@ -476,19 +478,16 @@ function renderDeckView() {
   const curve = [1, 2, 3, 4, 5, 6, 7, 8].map(l => ids.filter(id => CARDS[id].lv === l).length);
   const mx = Math.max(...curve, 1);
   $("#deck-view").innerHTML = `
-    <div class="dv-head fac-${F.faction}" style="--gc:${F.color}">
-      ${groupEmblem(f, "big")}
-      <div class="dv-title"><p class="eyebrow">${F.en} · ${FA.name}</p><h2>${esc(d.name)}</h2><p class="muted">${F.name} · ${F.role} · ${F.motto}</p><p class="dv-blurb">${F.blurb}</p></div>
-      <div class="dv-curve" title="레벨별 장수">${curve.map((n, i) => `<span><i style="height:${n / mx * 100}%"></i><em>${i + 1}</em></span>`).join("")}</div>
-    </div>
+    <!-- v3.36 덱 머리(이름 · 소개 · 레벨 곡선)는 뺐다: 이름은 덱 보관함 칸에 있고, 덱 보기를 덱 보관함 높이에 맞추려고 -->
     <div class="dv-meta dv-filter">
       <div class="dv-kinds" role="group" aria-label="카드 종류로 거르기">${DV_KINDS.map(([k, l]) => { const n = k === "all" ? ids.length : ids.filter(id => kindOf(CARDS[id]) === k).length;
         return `<button type="button" class="dv-k k-${k}" data-dk="${k}" ${n || k === "all" ? "" : "disabled"} title="${k === "all" ? "덱의 모든 카드" : `${l}만 보기`}"><span>${l}</span><b>${n}</b>${k === "all" ? `<small>/ ${RULES.deckSize}장</small>` : ""}</button>`; }).join("")}
         <span class="dv-st ${playable ? "ok" : "bad"}">${playable ? "저장된 덱 · 출전 가능" : "출전 불가 · 덱 조정실에서 40장을 저장하세요"}</span></div>
       <div class="dv-grades" id="dv-grades" role="group" aria-label="등급으로 거르기"></div>
     </div>
-    <div class="dv-cards" id="dv-cards">${ids.map(id => cardHTML(CARDS[id], { size: "md", brief: true })).join("")}</div>
-    ${altarHTML(f)}`;
+    <div class="dv-cards" id="dv-cards">${ids.map(id => cardHTML(CARDS[id], { size: "md", brief: true })).join("")}</div>`;
+  const side = $("#side-altar");   /* v3.36 출정의 단은 오른쪽 열 아래 2 × 2 */
+  if (side) { side.innerHTML = altarHTML(f, true); bindAltar(side, f); }
   $("#dv-cards").addEventListener("click", e => { const c = e.target.closest("[data-card]"); if (c) showCardModal(CARDS[c.dataset.card]); });
   $(".dv-filter").addEventListener("click", e => {
     const k = e.target.closest("[data-dk]"), g = e.target.closest("[data-dg]");
@@ -496,20 +495,27 @@ function renderDeckView() {
     else if (g) { const v = g.dataset.dg; App.deckFilter.grade = App.deckFilter.grade === v ? "" : v; applyDeckFilter(ids); }
   });
   applyDeckFilter(ids);
-  bindAltar($("#deck-view"), f);
   fitLobbyCards();
 }
 /* 출정의 단: 덱 조정실 · 컴퓨터와 대전 · 순례 · (원정 계속) · 대전. PC는 덱 보기 아래, 폰 · 앱은 깃발을 누르면 뜨는 출정 창(openDeckSheet) */
-function altarHTML(f) {
+function altarHTML(f, side) {
   const playable = Store.deckPlayable(Store.user(), f);
   const expOn = typeof Exp !== "undefined" && Exp.get() && !Exp.get().over;   /* v3.26 대기실의 원정 자리는 순례로. 원정은 하던 것을 마칠 때만 보인다 */
+  /* v3.36 PC 대기실: 오른쪽 열 아래 2 × 2 — 덱 조정실 · 컴퓨터와 대전 / 순례 · 온라인 대전 (원정 계속은 아래 한 줄) */
+  if (side) return `<div class="altar side-altar-in"><div class="altar-gates g2">
+        <button class="btn rite" id="go-edit">${menuIcon("quill")}<b>덱 조정실</b><small>DECK</small></button>
+        <button class="btn primary rite" id="go-ai" ${playable ? "" : "disabled"}>${menuIcon("duel")}<b>컴퓨터와 대전</b><small>SPARRING</small></button>
+        <button class="btn primary gold rite" id="go-pil" title="성로 순례 — 하루에 한 번 열리는 길. 여덟 관문과 망각의 숲">${menuIcon("road")}<b>순례</b><small>PILGRIMAGE</small></button>
+        <button class="btn primary alt rite" id="go-pvp" ${playable ? "" : "disabled"}>${menuIcon("banners")}<b>온라인 대전</b><small>ONLINE</small></button>
+        ${expOn ? `<button class="btn primary rite g2-wide" id="go-exp" title="칠룡의 고리 원정 — 하던 원정을 마저 한다 (새 원정은 열리지 않음)">${menuIcon("ring")}<b>원정 계속</b><small>EXPEDITION</small></button>` : ""}
+      </div></div>`;
   return `<div class="dv-actions altar">
       <button class="btn rite-side" id="go-edit">${menuIcon("quill")}<span>덱 조정실</span></button>
       <div class="altar-gates${expOn ? " n4" : ""}">
         <button class="btn primary rite" id="go-ai" ${playable ? "" : "disabled"}>${menuIcon("duel")}<b>컴퓨터와 대전</b><small>SPARRING</small></button>
         <button class="btn primary gold rite" id="go-pil" title="성로 순례 — 하루에 한 번 열리는 길. 여덟 관문과 망각의 숲">${menuIcon("road")}<b>순례</b><small>PILGRIMAGE</small></button>
         ${expOn ? `<button class="btn primary rite" id="go-exp" title="칠룡의 고리 원정 — 하던 원정을 마저 한다 (새 원정은 열리지 않음)">${menuIcon("ring")}<b>원정 계속</b><small>EXPEDITION</small></button>` : ""}
-        <button class="btn primary alt rite" id="go-pvp" ${playable ? "" : "disabled"}>${menuIcon("banners")}<b>대전</b><small>DUEL</small></button>
+        <button class="btn primary alt rite" id="go-pvp" ${playable ? "" : "disabled"}>${menuIcon("banners")}<b>온라인 대전</b><small>ONLINE</small></button>
       </div>
     </div>`;
 }
@@ -575,23 +581,24 @@ function applyDeckFilter(ids) {
   for (const el of grid.children) { const id = el.dataset.card; el.classList.toggle("dv-off", !(ofKind(id) && (!F.grade || gradeOf(id) === F.grade))); }
 }
 function fitLobbyCards() {
-  const grid = $("#dv-cards"), dv = $("#deck-view"), vault = $(".screen-lobby .decks");
-  if (!grid || !dv || !vault) return;
-  grid.style.removeProperty("--card-md"); dv.style.removeProperty("min-height"); dv.classList.remove("dv-fit");
+  /* v3.36 PC 대기실: 덱 보기 · 오른쪽 열의 높이 = 덱 보관함 높이(--lobby-h). 카드 40장이 그 칸에 다 들어가게 카드 폭을 고른다(줄이기도 한다) */
+  const grid = $("#dv-cards"), dv = $("#deck-view"), vault = $(".screen-lobby .decks"), lobby = $(".screen-lobby .lobby");
+  if (!grid || !dv || !vault || !lobby) return;
+  grid.style.removeProperty("--card-md"); dv.style.removeProperty("min-height"); dv.classList.remove("dv-fit"); lobby.style.removeProperty("--lobby-h");
   if (matchMedia("(max-width: 1180px)").matches) return;
+  lobby.style.setProperty("--lobby-h", Math.round(vault.getBoundingClientRect().height) + "px");
+  dv.classList.add("dv-fit");
   const first = grid.querySelector(":scope > :not(.dv-off)"); if (!first) return;   /* v3.7.5 거르기로 숨긴 카드는 크기가 0이라 보이는 첫 카드로 잰다 */
-  const base = first.getBoundingClientRect().width, ratio = first.getBoundingClientRect().height / base;
-  const vb = vault.getBoundingClientRect(), room = vb.bottom - dv.getBoundingClientRect().bottom;
-  if (!(room > 0) || !(base > 0)) return;
+  const r0 = first.getBoundingClientRect(), ratio = r0.height / r0.width;
   const cs = getComputedStyle(grid), gx = parseFloat(cs.columnGap) || 0, gy = parseFloat(cs.rowGap) || 0;
-  const W = grid.clientWidth, n = grid.children.length, avail = grid.getBoundingClientRect().height + room;
-  let best = base;
-  for (let w = Math.ceil(base); w <= Math.min(base * 1.8, 260); w++) {
+  const W = grid.clientWidth, H = grid.clientHeight, n = grid.children.length;   /* 거르기와 상관없이 40장 기준 — 거를 때 카드 크기가 바뀌지 않게 */
+  if (!(W > 0) || !(H > 0)) return;
+  let best = 60;
+  for (let w = 60; w <= 260; w++) {
     const cols = Math.max(1, Math.floor((W + gx) / (w + gx))), rows = Math.ceil(n / cols);
-    if (rows * w * ratio + (rows - 1) * gy <= avail) best = w;
+    if (rows * w * ratio + (rows - 1) * gy <= H) best = w;
   }
-  if (best > base) grid.style.setProperty("--card-md", best + "px");
-  dv.classList.add("dv-fit"); dv.style.minHeight = vb.height + "px";
+  grid.style.setProperty("--card-md", best + "px");
 }
 addEventListener("resize", () => { clearTimeout(fitLobbyCards.t); fitLobbyCards.t = setTimeout(() => { if (App.screen === "lobby") fitLobbyCards(); }, 120); });
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (App.screen === "lobby") fitLobbyCards(); });
@@ -626,20 +633,10 @@ async function startVsAI(f, opts) {   // opts.practice = 튜토리얼 ③ 연습
   launch({ mode: "ai", practice: !!(opts && opts.practice), p0: { name: u.id, group: f, cards: Store.deck(u, f).cards }, p1: { name: GROUPS[ag].ai, group: ag, cards: aiDeckFor(ag, f, Store.deck(u, f).cards).cards, isAI: true, ai: diff } });   // v3.35 보통 · 어려움 모두 상대 덱 = 내 덱 점수의 100% (예전: 보통 기본 덱 · 어려움 정예 덱)
 }
 async function startPvP(f) {
+  /* v3.36 대전 = 온라인 대전. 한 화면에서 두 사람이 번갈아 하던 대전(mode "hotseat")은 메뉴에서 뺐다(엔진의 hotseat는 그대로) */
   const u = Store.user();
   if (!Store.deckPlayable(u, f)) { toast("저장된 40장 덱이 있어야 대전할 수 있습니다.", "warn"); return; }
-  let get;
-  const ok = await modal(`<h3>대전</h3>
-    <button type="button" class="ol-entry" id="go-online"><b>온라인 대전</b><span>친구와 각자의 컴퓨터에서 · 방 코드로 연결</span></button>
-    <div class="notice">아래는 <b>한 화면에서 두 사람이 번갈아</b> 하는 대전입니다. 준비 단계가 바뀔 때마다 화면을 넘겨주세요.</div>
-    <label class="field">상대 이름<input id="p2-name" maxlength="16" value="도전자"></label>
-    <p class="pick-label">상대 단체 (기본 덱 사용)</p>${groupGridHTML({ small: true })}`,
-    [{ label: "취소", value: false }, { label: "대전 시작", value: true, cls: "primary" }], { cls: "wide-modal", onOpen: w => { get = bindGroupGrid(w, f === "G1" ? "B1" : "G1");
-      const ob = w.querySelector("#go-online"); if (ob) ob.addEventListener("click", () => { w.remove(); startOnline(f); }); } });
-  if (!ok) return;
-  const pg = get() || "G1";
-  const name = ($("#p2-name") ? $("#p2-name").value : "") || "도전자";
-  launch({ mode: "hotseat", p0: { name: u.id, group: f, cards: Store.deck(u, f).cards }, p1: { name: name.trim().slice(0, 16) || "도전자", group: pg, cards: STARTER_DECKS[pg] } });
+  startOnline(f);
 }
 function launch(cfg) {
   App.screen = "game"; Bg.set("off");
@@ -1038,7 +1035,7 @@ function showEditor(f, focusId) {
   $("#ed-back").addEventListener("click", () => { if (dirty()) toast("고치던 덱은 초안으로 남아 있습니다. 다시 오면 이어서 고칠 수 있습니다."); showLobby(); });
   $("#ed-play").addEventListener("click", async () => {
     if (dirty() || !Store.deckPlayable(u, f)) { alarm("40장을 채우고 저장해야 게임에 들어갈 수 있습니다.", "warn"); return; }
-    const v = await modal(`<h3>대전 방식</h3><p>저장된 「${esc(Store.deck(u, f).name)}」로 출전합니다.</p>`, [{ label: "취소", value: null }, { label: "대전 (2인)", value: "pvp" }, { label: "순례", value: "pil" }, { label: "컴퓨터와 대전", value: "ai", cls: "primary" }]);
+    const v = await modal(`<h3>대전 방식</h3><p>저장된 「${esc(Store.deck(u, f).name)}」로 출전합니다.</p>`, [{ label: "취소", value: null }, { label: "온라인 대전", value: "pvp" }, { label: "순례", value: "pil" }, { label: "컴퓨터와 대전", value: "ai", cls: "primary" }]);
     if (v === "ai") startVsAI(f); else if (v === "pvp") startPvP(f);
     else if (v === "pil" && typeof showPilgrim === "function") { App.lobbyGroup = f; showPilgrim(f); }   // v3.34 순례도 덱 조정실에서 바로
   });

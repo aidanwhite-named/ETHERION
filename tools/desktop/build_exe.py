@@ -144,10 +144,30 @@ def write_asar(path, entries):
     return total
 
 
+def server_addr():
+    """v3.37 앱이 붙을 서버: --server 주소 > --offline(없음) > tools/desktop/server.txt 첫 줄"""
+    a = sys.argv[1:]
+    if "--offline" in a:
+        return ""
+    if "--server" in a and a.index("--server") + 1 < len(a):
+        return a[a.index("--server") + 1].rstrip("/")
+    p = os.path.join(HERE, "server.txt")
+    if os.path.exists(p):
+        for line in open(p, encoding="utf-8"):
+            line = line.strip()
+            if line and not line.startswith("#"):
+                return line.rstrip("/")
+    return ""
+
+
 def app_entries(and_mod, vname, dev):
     ver3 = ".".join((vname.split(".") + ["0", "0"])[:3])
     pkg = {"name": "etherion", "productName": NAME, "version": ver3, "main": "main.js", "private": True,
            "description": "ETHERION", "etherionDev": bool(dev)}
+    srv = server_addr()
+    if srv:
+        pkg["etherionServer"] = srv          # v3.37 앱이 켜지면 이 서버로 붙는다(desktop/main.js → js/net.js ?server=)
+        print("  서버:", srv)
     ent = [("package.json", json.dumps(pkg, ensure_ascii=False, indent=1).encode("utf-8")),
            ("main.js", os.path.join(DESK, "main.js")),
            ("icon.png", os.path.join(DESK, "icon.png"))]

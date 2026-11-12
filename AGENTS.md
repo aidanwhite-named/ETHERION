@@ -37,6 +37,11 @@
 ## 카드 이름 글꼴 (v3.20.3)
 - 카드 맨 위 이름은 한글 글꼴(`--kfont`)과 따로 `--nfont` · `--nweight`(`js/game.js` `NAME_FONTS`). v3.32.4부터 설정 창에서 글꼴 고르기를 뺐다 — 저장된 값(Prefs `font` · `namefont`)만 `applyFont`가 쓴다. 기본 송명 400. 새 이름 글꼴을 더하려면 `fonts/`에 woff2를 담고 `css/fonts-names.css`에 @font-face, `NAME_FONTS`에 한 줄. PC 앱 · 안드로이드 앱은 인터넷이 없을 수 있으니 Google Fonts 주소에 기대지 않는다.
 
+## 카드 글 (v3.38)
+- 마법 글의 "맨 앞 2기" · "피해 N"은 화면에 보일 때 `js/wording.js`가 "맨 앞 유닛 2개" · "체력 −N"으로 바꾼다(데이터 파일은 그대로). **피해 = 방어만큼 줄어드는 것, 체력 −N = 방어 무시**(매뉴얼 "피해와 체력 −"). 새 마법은 처음부터 새 말로 써도 된다. 바뀐 글 보기 `node tools/wording_check.js --brief`.
+- 카드 서사가 없는 카드에는 `js/lore.js`(CARD_LORE, 카드 ID)에 한두 문장을 쓴다. 새 카드를 만들면 서사도 함께.
+- 능력 칩은 네모 없이 글자 색만, 카드 글은 카드 이름 글꼴(`css/cardtext.css`, 맨 마지막에 읽음).
+
 ## 카드 이름과 세계관
 - 세 진영의 힘의 근원(거인·용·신)과 거인 일곱은 `docs/WORLD.md`에 있다. 카드 이름을 짓거나 고칠 때 따른다.
 - **카드 이름·설명 고침은 `js/names.js`에 카드 ID로 적는다.** `js/data.js`는 균형 도구가 옛 백업에서 다시 써서 직접 고친 이름이 사라진다.
@@ -63,6 +68,7 @@
 - 서버로 옮길 때 바꿀 곳은 `docs/SERVER_PLAN.md`.
 
 ## 서버 (v3.22)
+- v3.37 맥미니 운영: `ETHERION 서버 (맥).command`(게임 서버 + ETHERION 전용 Tailscale `etherion` + Funnel → https://etherion.tail2be349.ts.net). PC 앱이 붙는 주소는 `tools/desktop/server.txt`. 관리자 상점 규칙은 `js/economy.js` `shopCfg` 이하(새 카드는 관리자가 공개해야 상점에 나옴), 화면은 `js/shop.js` 맨 아래.
 - 서버는 `server/server.js`(Node 기본 기능만, npm 꾸러미 없음), 게임 쪽 연결은 `js/net.js`, 설명과 규칙은 **`docs/SERVER.md`**. `ETHERION 서버.bat`으로 켜면 `http://localhost:8787`에서 온라인 모드, 파일로 열면 예전처럼 로컬.
 - 서버는 게임의 규칙 파일을 그대로 읽는다(`server/rules.js`: index.html의 `js/data.js` ~ `js/economy.js` + `js/trade.js` · `js/level.js`). **규칙을 서버에 따로 짜지 않는다** — Store · TradeLocal을 고치면 서버도 같다. 새 카드 데이터 파일은 index.html의 그 사이에 넣는다.
 - **보유 카드 · 지갑 · 덱 · 초안 · NEW는 Store 함수로만 고친다.** 화면에서 `u.collection` · `u.gold` · `u.decks`를 바로 고치면 서버에 가지 않고 되돌아간다.
@@ -90,6 +96,7 @@
 - 앱은 게임 폴더를 그대로 담는 WebView 껍데기다(`android/`, 설명 `android/README.md`). 게임 코드를 고치면 앱 쪽은 고칠 것 없고, `tools/android/build_apk.py`로 APK만 다시 만든다.
 - 앱 코드 `android/app/src/main/java/com/etherion/game/MainActivity.java`와 `build_apk.py`의 `build_dex()`(같은 코드를 바이트코드로 직접 적은 것)는 **함께 고친다**. 매니페스트도 `AndroidManifest.xml` ↔ `manifest()`.
 - 폰 화면 맞춤은 `js/mobile.js`(레이아웃 폭을 넓혀 줄여 보임). 폰 전용 배치를 새로 만들기보다 이 방식을 유지한다. 터치 손질은 `css/mobile.css`(`html.mobile`).
+- PC 대기실(v3.36, 예전 PC 배치): 세 열 높이 = 덱 보관함 높이(`fitLobbyCards`가 `--lobby-h`를 주고 카드 폭을 고름, 모양은 `css/lobby.css`). 출정의 단은 오른쪽 열 아래 `#side-altar`(`altarHTML(f, true)`), 튜토리얼 · 매뉴얼은 오른쪽 열 맨 위. 대전은 온라인만(`startPvP` → `startOnline`).
 - 폰 대기실 · 덱 조정실(v3.32.2): 폰 · 앱(`html.mobile`, `lobbyCompact()`)의 대기실은 깃발만, 깃발을 누르면 출정 창(`openDeckSheet`). 출정 단추를 고치면 `altarHTML` · `bindAltar` 한 곳만. 덱 조정실 폰 배치는 `css/mobile.css` 맨 아래 절.
 - 앱식 배치(v3.32.3): 대기실 깃발 · 출정 창 · 덱 조정실 탭 · 시작 핸드 3+3 · 얇은 전장 띠는 PC도 쓴다(`html.appui`, 설정 "화면 배치" → `js/mobile.js` `AppUI`, 폰 · 앱은 늘 켜짐). 배치를 고치면 `css/mobile.css`의 `html.appui` 규칙, 폰에서만 필요한 크기 손질은 `html.mobile`, PC에서만은 맨 아래 `html.appui:not(.mobile)` 절. 앱식인지 JS에서 볼 때는 `lobbyCompact()`. v3.32.4: PC 전장의 준비 완료(파친코와 줄 맞춤 · 절반 높이) · 셔플 글자 · 생명 크기는 그 PC 절에만 — 폰 · 앱 배치는 건드리지 않는다. v3.32.6: PC 기본은 다시 예전 PC 배치(`html.appui` 없음 — `css/swap.css` 등). 앱식은 PC 설정 "화면 배치"로 고를 때만. 사용자가 "PC"라고 하면 대개 예전 PC 배치를 뜻한다.
 - 폰 글자 크기(v3.20.4): 줄이는 정도는 설정 "폰 글자 크기"(`MobileFit`, 맞춤 높이 720 · 620 기본 · 580). 폰 · 앱의 전장 핸드 카드는 `css/mobile.css` 맨 아래에서 핸드 줄을 높여 키운다. 폰에서 글씨가 작다는 말을 들으면 PC 규칙 대신 그 절에 `html.mobile` 규칙을 더한다.

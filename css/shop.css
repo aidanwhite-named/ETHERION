@@ -144,3 +144,18 @@
 .shop .shop-filters .chip.sf-grade.on { --edge: linear-gradient(180deg, color-mix(in srgb, var(--gr) 95%, #fff), color-mix(in srgb, var(--gr) 55%, #000)); --fill: linear-gradient(180deg, color-mix(in srgb, var(--gr) 24%, #15141c), color-mix(in srgb, var(--gr) 10%, #0c0c12)); color: var(--gr); text-shadow: 0 0 8px color-mix(in srgb, var(--gr) 50%, transparent); }
 .shop .shop-filters .chip small { font-family: var(--caps); font-size: 13px; opacity: .75; margin-left: 3px; }
 .shop .shop-filters .chip:disabled { opacity: .35; cursor: default; }
+
+/* v3.37 관리자 상점: 상태 거르기 · 한꺼번에 · 카드 칸의 상태 표 · 설정 창 */
+.shop-admin { display: grid; gap: 8px; margin: 10px 0 4px; padding: 10px 12px; border: 1px dashed var(--line-gold); border-radius: 6px; background: rgba(217, 180, 106, .05); }
+.shop-admin .chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.shop-admin .chip small { opacity: .7; margin-left: 3px; }
+.shop-admin .sa-bulk { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.shop-card .sc-face { position: relative; }
+.sc-st { position: absolute; left: 50%; bottom: 8px; transform: translateX(-50%); z-index: 3; padding: 2px 8px; border-radius: 3px; font-size: 11px; font-weight: 700; white-space: nowrap; color: #0b0c14; background: var(--sc); box-shadow: 0 1px 4px rgba(0, 0, 0, .6); }
+.shop-card.st-off .sc-face, .shop-card.st-new .sc-face, .shop-card.st-ended .sc-face { filter: saturate(.45) brightness(.8); }
+.sa-form { display: grid; gap: 10px; margin: 12px 0 4px; }
+.sa-row { display: grid; grid-template-columns: 90px minmax(0, 1fr) auto; gap: 10px; align-items: center; font-size: 14px; }
+.sa-row > span { color: var(--ink-2); }
+.sa-row small { color: var(--muted); font-size: 12px; white-space: nowrap; }
+.sa-row input, .sa-row select { min-width: 0; padding: 7px 9px; border-radius: 4px; border: 1px solid var(--line); background: #0d1019; color: var(--ink); font: inherit; color-scheme: dark; }
+@media (max-width: 560px) { .sa-row { grid-template-columns: minmax(0, 1fr); } }

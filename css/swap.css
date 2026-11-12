@@ -81,9 +81,9 @@
   .lay-swap .frow-bot .f-piles { align-self: start; }
   /* v3.9.9: 셔플 명판 높이 40px → 카드 폭 × .36(44~56px), 폭은 덱 폭(카드 폭 × .9) → 카드 폭 × .8, 덱 아래 가운데
      v3.33: 더 짧고 높게 — 높이 카드 폭 × .46(54~70px) · 폭 카드 폭 × .74, 인장은 왼쪽 밖으로 더 내밀고 엇갈린 화살표를 크게 */
-  .lay-swap .f-piles > .shuffle-btn.v19 { --sh-h: clamp(54px, calc(var(--cw) * .46), 70px); --sh-tip: 12px; --sh-w: calc(var(--cw) * .74);
+  .lay-swap .f-piles > .shuffle-btn.v19 { --sh-h: clamp(54px, calc(var(--cw) * .46), 70px); --sh-tip: 12px; --sh-w: calc(var(--cw) * .82);
     top: calc(100% + 10px); left: auto; right: calc(var(--cw) * .05); width: var(--sh-w); min-width: 0;
-    padding: 0 calc(var(--sh-tip) - 2px) 0 calc(var(--sh-h) - 18px); gap: 4px; }
+    padding: 0 calc(var(--sh-tip) - 2px) 0 calc(var(--sh-h) - 4px); gap: 4px; }   /* v3.38 글자를 인장에서 조금 떼어 오른쪽으로 */
   .lay-swap .f-piles > .shuffle-btn.v19 .sh-seal { left: -24px; }  /* 폭이 줄어든 만큼 인장을 왼쪽 끝 밖으로 */
   .lay-swap .f-piles > .shuffle-btn.v19 .sh-ring { inset: 3px; }
   /* 덱 폭에 들어가게: 영문 RESHUFFLE · S 표시 · 오른쪽 칩은 빼고, 셔플 글자 아래에 "생명 −1"
@@ -94,7 +94,7 @@
   .lay-swap .f-piles > .shuffle-btn.v19:not(.used) .sh-txt small::after { content: "생명 −1"; display: inline-block; font-family: var(--kfont, var(--body)), serif; font-size: 11.5px; font-weight: 800; letter-spacing: 0; white-space: nowrap; color: #ffd0d6; padding: 1px 4px; border-radius: 3px; background: rgba(120, 20, 40, .55); border: 1px solid rgba(255, 122, 138, .5); }
   .lay-swap .f-piles > .shuffle-btn.v19 .sh-t { font-size: 18px; letter-spacing: .06em; white-space: nowrap; }
   .lay-swap .f-piles > .shuffle-btn.v19 .sh-seal .ui-ico { width: 62%; height: 62%; }
-  .lay-swap .f-piles > .shuffle-btn.v19 .sh-txt::before, .lay-swap .f-piles > .shuffle-btn.v19 .sh-txt::after { left: calc(var(--sh-h) - 14px); }
+  .lay-swap .f-piles > .shuffle-btn.v19 .sh-txt::before, .lay-swap .f-piles > .shuffle-btn.v19 .sh-txt::after { left: calc(var(--sh-h) - 6px); }
   .lay-swap .f-piles > .shuffle-btn.v19.used .sh-t { font-size: 14px; letter-spacing: .04em; }
 
   /* ---------- 생명: 나(오른쪽 아래) — 칸을 채우게 크게 ---------- */

@@ -300,6 +300,11 @@ const Online = {
 
 /* ---------- 대기실 창 ---------- */
 async function startOnline(f) {
+  /* v3.37 손님은 온라인 대전을 하지 않는다(모든 카드를 빌려 쓰는 계정). 컴퓨터와 대전 · 순례 · 덱 꾸리기는 된다 */
+  if (typeof Store !== "undefined" && Store.isGuest()) {
+    await modal(`<h3>온라인 대전</h3><p>손님으로는 온라인 대전을 할 수 없습니다. 손님은 모든 카드를 빌려 쓰는 계정이라 다른 모험가와 겨루지 않습니다.</p><p class="muted">'새 모험가'로 등록하면 온라인 대전 · 상점 · 교역소를 쓸 수 있습니다. 손님은 컴퓨터와 대전 · 순례 · 덱 꾸리기를 할 수 있습니다.</p>`, [{ label: "확인", value: null, cls: "primary" }]);
+    return;
+  }
   const u = Store.user();
   if (!Store.deckPlayable(u, f)) { toast("저장된 40장 덱이 있어야 대전할 수 있습니다.", "warn"); return; }
   const deck = { name: u.id, group: f, cards: Store.deck(u, f).cards };
