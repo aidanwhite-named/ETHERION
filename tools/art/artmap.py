@@ -1,6 +1,6 @@
 """ETHERION — 카드 ↔ 일러스트 연결 (v1, 2026-11-10 · 가이드 tools/art/PROMPT_GUIDE.md 8장)
 
-받은 그림을 카드에 연결해 img/cards/<카드ID>.png 로 넣고, 장부(art_map.csv)와 보드(art_board.html)를 새로 만든다.
+받은 그림을 카드에 연결해 img/cards/<카드ID>.jpg (v3.41, 예전 .png도 읽음) 로 넣고, 장부(art_map.csv)와 보드(art_board.html)를 새로 만든다.
 카드 목록은 tools/art/prompts/cards.jsonl (node tools/art/build_prompts.js 가 만든다)에서 읽는다.
 
 게임 폴더 맨 위에서:
@@ -11,7 +11,9 @@
   python tools/art/artmap.py import --dry         넣지 않고 무엇이 어디로 갈지만 보기
 
 inbox 파일 이름에 카드 ID(EP-A1-3_v2.png) 또는 카드 이름(장막의 처형자.jpg)이 들어 있으면 된다.
-Pillow가 있으면 가운데를 4:5로 잘라 800×1000 PNG로 넣는다(python -m pip install pillow). 없으면 PNG만 그대로 복사한다.
+v3.41 가운데를 4:5로 잘라 600×750 JPG(품질 82, 장당 약 60~100KB)로 넣는다 — 폰에서도 가볍게. Pillow가 있으면 Pillow,
+없으면 맥의 sips로 한다(둘 다 없으면 PNG만 그대로 복사). 넣을 때마다 목록 img/cards/art_index.js를 새로 쓴다(게임은 이 목록으로 그림을 찾는다).
+img/cards/에 파일을 손으로 넣었으면:  python tools/art/artmap.py index   (목록만 새로)
 있던 그림은 _backup_art/<시각>/img/cards/ 에 남는다. 넣은 원본은 inbox/_done/ 으로 옮긴다(지우지 않는다).
 """
 import csv, json, re, shutil, sys, time
@@ -27,7 +29,8 @@ INBOX = HERE / "inbox"
 CARDS_DIR = ROOT / "img" / "cards"
 STAMP = time.strftime("%Y%m%d-%H%M%S")
 EXTS = {".png", ".jpg", ".jpeg", ".webp"}
-SIZE = (800, 1000)
+SIZE = (600, 750)        # v3.41 800×1000 PNG → 600×750 JPG (카드는 화면에서 가로 100~400px)
+JPG_Q = 82
 COLS = ["card_id", "name", "grade", "grade_ko", "group", "type", "lv", "base", "status", "image",
         "art_ver", "prompt_ver", "source_file", "model", "added", "note"]
 HUMAN_STATUS = {"채택", "다시"}
@@ -70,8 +73,27 @@ def save_map(rows):
         print(f"! {MAP.name} 을 쓸 수 없습니다 — 엑셀에서 열려 있으면 닫고 다시 실행하세요.")
 
 
+def image_file(cid):
+    for ext in (".jpg", ".png", ".webp", ".jpeg"):
+        if (CARDS_DIR / f"{cid}{ext}").exists():
+            return f"{cid}{ext}"
+    return ""
+
+
 def has_image(cid):
-    return (CARDS_DIR / f"{cid}.png").exists()
+    return bool(image_file(cid))
+
+
+def write_index(rows=None):
+    """v3.41 게임이 읽는 그림 목록: img/cards/art_index.js (window.ART_INDEX = { 카드ID: 파일 })"""
+    CARDS_DIR.mkdir(parents=True, exist_ok=True)
+    idx = {}
+    for f in sorted(CARDS_DIR.iterdir()):
+        if f.suffix.lower() in EXTS and f.stem not in idx:
+            idx[f.stem] = image_file(f.stem)
+    body = json.dumps(idx, ensure_ascii=False, separators=(",", ":"))
+    (CARDS_DIR / "art_index.js").write_text("/* 카드 일러스트 목록 (tools/art/artmap.py가 만든다 — 손으로 고치지 않는다). 카드ID: img/cards/ 안의 파일 이름 */\nwindow.ART_INDEX = " + body + ";\n", encoding="utf-8")
+    return len(idx)
 
 
 def refresh(rows, jobs):
@@ -86,7 +108,7 @@ def refresh(rows, jobs):
                   "type": j.get("type", ""), "lv": str(j.get("lv", "")), "base": j.get("base", ""),
                   "prompt_ver": j.get("prompt_ver", "")})
         img = has_image(cid)
-        r["image"] = f"img/cards/{cid}.png" if img else ""
+        r["image"] = f"img/cards/{image_file(cid)}" if img else ""
         st = r.get("status", "")
         if img:
             r["status"] = st if st in HUMAN_STATUS else "들어감"
@@ -123,14 +145,15 @@ def match_file(path, jobs):
 
 
 def place(src, cid, dry=False):
-    dest = CARDS_DIR / f"{cid}.png"
+    dest = CARDS_DIR / f"{cid}.jpg"
     if dry:
         return True
     CARDS_DIR.mkdir(parents=True, exist_ok=True)
-    if dest.exists():
-        bk = ROOT / "_backup_art" / STAMP / "img" / "cards"
-        bk.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(dest, bk / dest.name)
+    for old in [CARDS_DIR / f"{cid}{e}" for e in (".jpg", ".png", ".webp", ".jpeg")]:   # 같은 카드의 예전 그림은 백업으로 옮긴다
+        if old.exists():
+            bk = ROOT / "_backup_art" / STAMP / "img" / "cards"
+            bk.mkdir(parents=True, exist_ok=True)
+            shutil.move(str(old), bk / old.name)
     if Image is not None:
         im = Image.open(src)
         im = im.convert("RGBA") if im.mode in ("RGBA", "LA", "P") else im.convert("RGB")
@@ -147,12 +170,24 @@ def place(src, cid, dry=False):
             bg = Image.new("RGB", SIZE, (7, 8, 13))   # 투명 자리는 밤하늘 남색
             bg.paste(im, mask=im.split()[3])
             im = bg
-        im.save(dest, "PNG", optimize=True)
+        im.convert("RGB").save(dest, "JPEG", quality=JPG_Q, optimize=True, progressive=True)
+    elif shutil.which("sips"):   # v3.41 맥: Pillow 없이 sips로 가운데 4:5 자르기 · 줄이기 · JPG
+        import subprocess
+        out = subprocess.run(["sips", "-g", "pixelWidth", "-g", "pixelHeight", str(src)], capture_output=True, text=True).stdout
+        w = int(re.search(r"pixelWidth: (\d+)", out).group(1)); h = int(re.search(r"pixelHeight: (\d+)", out).group(1))
+        tw, th = SIZE
+        ch, cw = (h, round(h * tw / th)) if w / h > tw / th else (round(w * th / tw), w)
+        r = subprocess.run(["sips", "-c", str(ch), str(cw), "-s", "format", "jpeg", "-s", "formatOptions", "100", str(src), "--out", str(dest)], capture_output=True, text=True)   # 가운데 4:5로 자르고
+        if r.returncode == 0:   # 그다음 줄인다(sips는 한 번에 주면 줄이기를 먼저 해서 비율이 어긋난다)
+            r = subprocess.run(["sips", "-z", str(th), str(tw), "-s", "formatOptions", str(JPG_Q), str(dest)], capture_output=True, text=True)
+        if r.returncode != 0 or not dest.exists():
+            print(f"  ! {src.name}: sips로 바꾸지 못했습니다 — {r.stderr.strip()[:200]}")
+            return False
     else:
         if src.suffix.lower() != ".png":
             print(f"  ! {src.name}: PNG가 아니라 넣지 못했습니다 — python -m pip install pillow 뒤 다시")
             return False
-        shutil.copy2(src, dest)
+        shutil.copy2(src, CARDS_DIR / f"{cid}.png")
     return True
 
 
@@ -361,8 +396,11 @@ def main():
     jobs = load_jobs()
     rows = refresh(load_map(), jobs)
     cmd = args[0] if args else ""
+    if cmd == "index":   # v3.41 목록만 새로
+        print(f"그림 목록 img/cards/art_index.js: {write_index()}장")
+        return
     if cmd == "import":
-        if Image is None:
+        if Image is None and not shutil.which("sips"):
             print("※ Pillow가 없어 PNG만 그대로 복사합니다(자르기 · 크기 맞춤 없음). python -m pip install pillow")
         cmd_import(rows, jobs, model, dry)
     elif cmd == "assign":
@@ -376,6 +414,7 @@ def main():
     rows = refresh(rows, jobs)
     save_map(rows)
     write_board(rows, jobs)
+    write_index()
     live = [r for r in rows.values() if r["status"] != "빠진 카드"]
     have = sum(1 for r in live if r["image"])
     print(f"장부 {MAP.relative_to(ROOT)} · 보드 {BOARD.relative_to(ROOT)} — 그림 {have}/{len(live)}장")

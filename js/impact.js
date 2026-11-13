@@ -63,6 +63,7 @@ const IMPACT = (() => {
   /* ---------- 캔버스 파티클 ---------- */
   let cv = null, cx = null, parts = [], rings = [], raf = 0, dpr = 1;
   function canvas() {
+    if (document.documentElement.classList.contains("mobile")) return null;   // v3.46 폰 · 앱: 충격파 캔버스(고리 · 불꽃 · 파편)를 그리지 않는다 — 번쩍임 · 밀려남만
     const L = layer(); if (!L) return null;
     if (cv && cv.isConnected && cv.parentNode === L) { fit(); return cx; }
     cv = document.createElement("canvas");

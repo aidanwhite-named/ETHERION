@@ -1,0 +1,546 @@
+/* ETHERION — 폰 · 앱 가볍게 (v3.46). 손으로 고치지 말 것: node tools/mobile_lite.js 가 index.html의 CSS에서 만든다.
+   폰 · 앱(<html class="mobile">)에서만: 그림자 번짐 6px(글자 4px · drop-shadow 3px)까지 · 흐림 유리 없음 ·
+   그림자 · 필터를 끝없이 움직이던 애니메이션과 카드 반짝임 멈춤(altarPulse · breathe · drPulse · embers · foil · fzPulse · hgLow · lowLife · newPulse · orbGlow · pachPulse · pgGate · pitGlow · plaqueGlow · pySpark · readyAura · readyGlow · saveGlow · scrapGlow · shimmer · sndGlow · upFoil · validPulse · xpPulse). PC는 그대로. */
+/* style.css */
+html.mobile .btn.primary { text-shadow: 0 1px 0 rgba(255, 240, 200, .4); }
+html.mobile .t-title span { filter: drop-shadow(0 0 3px rgba(240, 200, 120, .35)) drop-shadow(0 0 3px rgba(255, 120, 50, .16)) drop-shadow(0 3px 0 rgba(40, 24, 6, .9)); animation-name: letterIn, none; }
+html.mobile .t-start { animation-name: fadeUp, none; }
+html.mobile .screen-title.awaken .t-eyebrow, html.mobile .screen-title.awaken .t-sub, html.mobile .screen-title.awaken .t-foot { animation-name: none; }
+html.mobile .screen-title.awaken .ring-svg .runes { filter: drop-shadow(0 0 3px rgba(246, 206, 120, .9)); }
+html.mobile .gate { box-shadow: 0 2.3px 6px rgba(0, 0, 0, .6); backdrop-filter: none; }
+html.mobile .topbar { backdrop-filter: none; }
+html.mobile .c-frame { box-shadow: 0 2px 6px rgba(0, 0, 0, .55), inset 0 0 0 .1em rgba(255, 255, 255, .06); }
+html.mobile .c-lv { box-shadow: 0 0 0 .08em rgba(0, 0, 0, .6); }
+html.mobile .card.legend .c-frame { box-shadow: 0 0 6px rgba(233, 198, 111, .35), 0 2px 6px rgba(0, 0, 0, .55); }
+html.mobile .card.legend .c-frame::after { animation-name: none; }
+html.mobile .card-back { box-shadow: 0 2px 6px rgba(0, 0, 0, .5); }
+html.mobile .modal-wrap { backdrop-filter: none; }
+html.mobile .modal { box-shadow: 0 2.3px 6px rgba(0, 0, 0, .7); }
+html.mobile .toast { box-shadow: 0 2px 6px rgba(0, 0, 0, .5); }
+html.mobile .result { backdrop-filter: none; }
+html.mobile .result.win .res-title { filter: drop-shadow(0 0 3px rgba(240, 200, 120, .5)); }
+html.mobile .result.lose .res-title { text-shadow: 0 0 4px rgba(120, 120, 160, .4); }
+html.mobile .c-itemfoot { box-shadow: inset 0 0 0 .08em #b99b5a !important; }
+html.mobile .slot.valid-equip > .card .c-frame { box-shadow: 0 0 0 .18em #e9cd8c, 0 0 6px rgba(233, 205, 140, .7); }
+html.mobile .card.revealing .c-frame { box-shadow: 0 0 0 .18em #c9b5ff, 0 0 6px rgba(185, 162, 255, .8); }
+html.mobile .ether.short { box-shadow: 0 0 6px rgba(239, 106, 92, .35) inset; }
+html.mobile .gem.essence.on { box-shadow: 0 0 6px rgba(255, 220, 130, .8); }
+html.mobile .c-clsico svg { filter: drop-shadow(0 0 .15em currentColor); }
+html.mobile .c-pips .pip svg { filter: drop-shadow(0 0 3px rgba(255, 210, 120, .8)) drop-shadow(0 .05em .04em #000); }
+html.mobile .c-pips .pip.pip-up svg { filter: drop-shadow(0 0 .1em rgba(143, 220, 255, .5)) drop-shadow(0 .05em .05em #000); }
+html.mobile .c-vstats .st { box-shadow: 0 .08em .25em rgba(0, 0, 0, .65); }
+html.mobile .b-main::before { box-shadow: 0 0 0 1px rgba(217, 180, 106, .07), inset 0 0 0 calc(min(80vh, 70vw) * .09) rgba(217, 180, 106, .02); }
+html.mobile .slot.valid { animation-name: none; }
+html.mobile .slot.valid-move { animation-name: none; }
+html.mobile .slot.valid-equip > .card .c-frame { box-shadow: 0 0 0 .18em #e9cd8c, 0 0 6px rgba(233, 205, 140, .8); }
+html.mobile .burn.valid { animation-name: none; }
+html.mobile .embers { animation-name: none; }
+html.mobile .deck-card { box-shadow: 1px 2px 4px rgba(0, 0, 0, .6); }
+html.mobile .ether { box-shadow: 0 1.8px 6px rgba(0, 0, 0, .45); }
+html.mobile .ether.valid { animation-name: none; }
+html.mobile .eth-orb { box-shadow: 0 0 6px rgba(143, 220, 255, .55), inset 0 -2.6px 6px rgba(0, 0, 0, .45); animation-name: none; }
+html.mobile .eth-orb b { text-shadow: 0 1.3px 4px rgba(0, 30, 60, .9); }
+html.mobile .gem.on { box-shadow: 0 0 6px rgba(143, 220, 255, .7); }
+html.mobile .pi-crest { box-shadow: 0 0 6px rgba(224, 72, 92, .5), inset 0 -3px 6px rgba(0, 0, 0, .45); }
+html.mobile .pi-crest b { text-shadow: 0 1.3px 4px rgba(60, 0, 10, .9); }
+html.mobile .hand-card .c-frame { box-shadow: 0 2.1px 6px rgba(0, 0, 0, .7), inset 0 0 0 .1em rgba(255, 255, 255, .06); }
+html.mobile .card-back { box-shadow: 0 2.4px 6px rgba(0, 0, 0, .6); }
+html.mobile .ready { animation-name: none; }
+html.mobile .focus { box-shadow: 0 2.4px 6px rgba(0, 0, 0, .7), 0 0 6px rgba(217, 180, 106, .12); backdrop-filter: none; }
+html.mobile .zoom { box-shadow: 0 2.4px 6px rgba(0, 0, 0, .7); }
+html.mobile .logdrawer { box-shadow: -2.4px 0 6px rgba(0, 0, 0, .6); }
+html.mobile .card.revealing { animation-name: none; }
+html.mobile .card.revealing .c-frame { box-shadow: 0 0 0 .2em #c9b5ff, 0 0 6px rgba(185, 162, 255, .9); }
+html.mobile .card.fresh .c-frame { box-shadow: 0 0 0 .1em rgba(143, 220, 255, .6), 0 2px 6px rgba(0, 0, 0, .55); }
+html.mobile .drag-ghost { filter: drop-shadow(0 2.8px 3px rgba(0, 0, 0, .65)); }
+html.mobile .float { text-shadow: 0 1.5px 4px #000, 0 0 4px currentColor; }
+html.mobile .float.aim { text-shadow: 0 2px 4px #000, 0 0 4px rgba(0, 0, 0, .9), 0 0 4px rgba(255, 196, 80, .55); }
+html.mobile .ether.boosted .eth-orb { box-shadow: 0 0 6px rgba(127, 227, 156, .8), inset 0 -2.6px 6px rgba(0, 0, 0, .45); }
+html.mobile .hk { box-shadow: 0 1px 4px rgba(0, 0, 0, .6); }
+html.mobile .screen-game::after { box-shadow: inset 0 0 6px rgba(0, 0, 0, .75), inset 0 0 0 1px rgba(217, 180, 106, .12); }
+html.mobile .nameplate { box-shadow: 0 1.8px 6px rgba(0, 0, 0, .45), inset 0 0 0 1px rgba(255, 255, 255, .04); }
+html.mobile .cry-state.ok { box-shadow: 0 0 6px rgba(143, 220, 255, .25); }
+html.mobile .midbar { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04), 0 0 6px rgba(0, 0, 0, .4); }
+html.mobile .coinstage { box-shadow: 0 2.3px 6px rgba(0, 0, 0, .8), 0 0 6px rgba(217, 180, 106, .14), inset 0 0 0 1px rgba(255, 255, 255, .04); }
+html.mobile .cs-heads { box-shadow: 0 0 6px rgba(240, 200, 100, .7), inset 0 0 0 4px rgba(255, 255, 255, .25); }
+html.mobile .cs-tails { box-shadow: inset 0 0 0 4px rgba(255, 255, 255, .08); }
+html.mobile .cs-coin.is-heads .cs-heads { box-shadow: 0 0 6px rgba(255, 220, 120, .95), inset 0 0 0 4px rgba(255, 255, 255, .35); }
+html.mobile .cs-vs { text-shadow: 0 0 4px rgba(217, 180, 106, .5); }
+html.mobile .cs-stop { animation-name: none; }
+html.mobile .coinstage.stopping .cs-stop { animation-name: none; }
+html.mobile .slot { box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .4), inset 0 0 6px rgba(0, 0, 0, .35); }
+html.mobile .burn, html.mobile .deck { box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .5), 0 2px 6px rgba(0, 0, 0, .45); }
+html.mobile .c-vstats .st i { text-shadow: 0 0 4px #000; }
+html.mobile .c-vstats .st b { text-shadow: 0 .06em .12em #000, 0 0 4px rgba(0, 0, 0, .9); }
+html.mobile .st em.cm, html.mobile .im em.cm, html.mobile .f-mods em.cm { text-shadow: 0 0 4px #000; }
+html.mobile .c-rite svg { filter: drop-shadow(0 0 3px currentColor); }
+html.mobile .card-preview { filter: drop-shadow(0 1.4px 3px rgba(0, 0, 0, .8)); }
+html.mobile #tip { box-shadow: 0 2px 6px rgba(0, 0, 0, .6); }
+html.mobile .c-clsico i.c-kind svg { filter: drop-shadow(0 0 3px currentColor); }
+html.mobile .focus { box-shadow: 0 2.4px 6px rgba(0, 0, 0, .6); }
+html.mobile .f-box { box-shadow: 0 2.2px 6px rgba(0, 0, 0, .55), inset 0 1px 0 rgba(255, 255, 255, .05); }
+html.mobile .sp-btn.on { text-shadow: 0 0 4px rgba(246, 226, 168, .7); }
+html.mobile .ready-wrap { filter: drop-shadow(0 0 3px rgba(246, 206, 120, .4)); animation-name: none; }
+html.mobile .ready.rb-ready { animation-name: none; }
+html.mobile .ds-seal { box-shadow: 0 0 0 2px #c99a48, 0 0 0 4px rgba(8, 9, 15, .92), 0 0 0 5px rgba(217, 180, 106, .5), 0 0 6px rgba(217, 180, 106, .35); }
+html.mobile .ds-label { text-shadow: 0 1px 2px #000; }
+html.mobile .deck-shuffle:hover:not(:disabled) .ds-seal { box-shadow: 0 0 0 2px #f2d792, 0 0 0 4px rgba(8, 9, 15, .92), 0 0 0 5px rgba(246, 226, 168, .8), 0 0 6px rgba(246, 226, 168, .6); }
+html.mobile .deck-shuffle.used::after { animation-name: none; }
+html.mobile .ether.altar { animation-name: none; }
+html.mobile .ether.altar.valid { animation-name: none; }
+html.mobile .ether.altar.valid .eth-ring { animation-name: none; }
+html.mobile .nameplate.banner { filter: drop-shadow(0 1.8px 3px rgba(0, 0, 0, .55)); }
+html.mobile .toolbar { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05), 0 2.3px 6px rgba(0, 0, 0, .4); }
+html.mobile .tb-btn.on { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .35); }
+html.mobile .tb-btn.tb-snd.blocked { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .4); }
+html.mobile .ready-btn { box-shadow: 0 0 0 1px rgba(0, 0, 0, .55), inset 0 1px 0 rgba(255, 255, 255, .6), inset 0 -2px 0 rgba(90, 60, 15, .35), 0 2.4px 6px rgba(0, 0, 0, .45), 0 0 6px rgba(240, 200, 110, .26); }
+html.mobile .focus.v7 { box-shadow: 0 2.4px 6px rgba(0, 0, 0, .65), inset 0 1px 0 rgba(255, 255, 255, .04); }
+html.mobile .f-cta { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .55), 0 2px 6px rgba(0, 0, 0, .4); }
+html.mobile .f-cost i { box-shadow: 0 0 6px rgba(143, 220, 255, .8); }
+html.mobile .pinfo.pv7 { box-shadow: 0 2.1px 6px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .05); }
+html.mobile .ruby { filter: drop-shadow(0 0 3px rgba(255, 70, 95, .55)); }
+html.mobile .pl-num { text-shadow: 0 0 4px rgba(255, 70, 95, .45), 0 2px 0 rgba(0, 0, 0, .6); }
+html.mobile .pl-bar { box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .5); }
+html.mobile .pl-bar i { box-shadow: 0 0 6px rgba(255, 70, 95, .6); }
+html.mobile .pinfo.low .pl-num { animation-name: none; }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .bump, html.mobile .pinfo.low .pl-num, html.mobile .ready-btn::after { animation-name: none; }
+}
+html.mobile .focus-idle { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .03); }
+html.mobile .coin-dot { box-shadow: 0 0 .25em rgba(240, 200, 100, .55), inset 0 0 0 .08em rgba(255, 255, 255, .35); }
+html.mobile .slot-front { box-shadow: 0 1px 4px rgba(0, 0, 0, .6); }
+html.mobile .cf-eth { box-shadow: 0 0 6px rgba(143, 220, 255, .7); }
+html.mobile .coinstage.deciding .cs-stop { animation-name: none; }
+html.mobile .guide { box-shadow: 0 2.4px 6px rgba(0, 0, 0, .7), 0 0 6px rgba(217, 180, 106, .18); }
+html.mobile .drag-ghost.over { filter: drop-shadow(0 2.5px 3px rgba(0, 0, 0, .6)); }
+html.mobile .drag-ghost.over .c-frame { box-shadow: 0 0 0 .2em #fff3c9, 0 0 6px rgba(246, 226, 168, .85); }
+html.mobile .card:not(.size-full) .c-vstats .st { box-shadow: 0 .06em .2em rgba(0, 0, 0, .6); }
+html.mobile .cg small { text-shadow: 0 0 .25em #000, 0 .05em .05em #000; }
+html.mobile .shuffle-btn { box-shadow: 0 1.5px 6px rgba(0, 0, 0, .55), inset 0 1px 0 rgba(255, 255, 255, .08); }
+html.mobile .coin-dot, html.mobile .cg .coin-dot { box-shadow: 0 0 .15em rgba(0, 0, 0, .6), inset 0 0 0 .07em rgba(255, 240, 200, .28); }
+html.mobile .card:not(.size-full) .c-vstats .st b { text-shadow: 0 .06em .1em #000, 0 0 4px rgba(0, 0, 0, .95); }
+html.mobile .float .sti { filter: drop-shadow(0 1.5px 3px #000); }
+html.mobile .fly-ghost .fz-tag { box-shadow: 0 0 6px rgba(239, 106, 92, .45); }
+html.mobile .cs-side { box-shadow: 0 2.3px 6px rgba(0, 0, 0, .8), inset 0 0 0 1px rgba(255, 255, 255, .04); }
+html.mobile .cs-side.stopping .cs-stop { animation-name: none; }
+html.mobile .throw-shot { box-shadow: 0 0 6px 3px rgba(255, 170, 70, .75); }
+html.mobile .card.equipped::before { box-shadow: 0 2.6px 6px rgba(0, 0, 0, .6), inset 0 0 0 .08em rgba(246, 226, 168, .12); }
+html.mobile .card.equipped > .c-frame { box-shadow: 0 .06em 0 #8a7342, 0 .13em 0 #3a2f1c, 0 2.3px 6px rgba(0, 0, 0, .6), inset 0 .07em 0 rgba(255, 255, 255, .14), inset 0 0 0 .1em rgba(255, 255, 255, .06); }
+html.mobile .card.legend.equipped > .c-frame { box-shadow: 0 .06em 0 #8a7342, 0 .13em 0 #3a2f1c, 0 0 6px rgba(233, 198, 111, .35), 0 2.3px 6px rgba(0, 0, 0, .6), inset 0 .07em 0 rgba(255, 255, 255, .14); }
+html.mobile .suck-ring { box-shadow: 0 0 6px rgba(246, 226, 168, .55), inset 0 0 6px rgba(246, 226, 168, .3); }
+html.mobile .st-lock { filter: drop-shadow(0 0 .18em rgba(255, 196, 80, .85)); }
+html.mobile .st.st-locked b { text-shadow: 0 0 4px rgba(255, 196, 80, .55); }
+html.mobile .st-lock.pin-U { filter: drop-shadow(0 0 .16em rgba(110, 220, 140, .8)); }
+html.mobile .st-lock.pin-D { filter: drop-shadow(0 0 .16em rgba(255, 120, 100, .8)); }
+
+/* kailan.css */
+html.mobile .screen-title.kl-1 .seat.empty circle { filter: drop-shadow(0 0 3px rgba(240, 210, 140, .9)); }
+html.mobile .screen-title.kl-2 .seat.empty circle { filter: drop-shadow(0 0 3px rgba(255, 230, 170, 1)); }
+html.mobile .kl-ripple { box-shadow: 0 0 6px rgba(255, 225, 160, .9), inset 0 0 6px rgba(255, 225, 160, .6); }
+html.mobile .kl-mapbox { box-shadow: inset 0 0 6px rgba(0, 0, 0, .6); }
+html.mobile .kl-hint { text-shadow: 0 1px 2px #000; }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .kl-flow, html.mobile .kl-orb, html.mobile .kl-selring { animation-name: none; }
+}
+html.mobile .kl-list .orb { box-shadow: 0 0 6px currentColor; }
+
+/* chronicle.css */
+html.mobile .cr-pagebox { box-shadow: inset 0 0 0 4px rgba(11, 12, 21, .9), inset 0 0 0 5px rgba(217, 180, 106, .14), inset 0 0 6px rgba(0, 0, 0, .45); }
+html.mobile .cr-ch-h h2 { filter: drop-shadow(0 0 3px rgba(240, 210, 140, .22)); }
+html.mobile .cr-text > p:first-child::first-letter { text-shadow: 0 0 4px rgba(240, 210, 140, .35); }
+html.mobile .cr-chain { filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .8)); }
+html.mobile .cr-seal-n { text-shadow: 0 0 4px rgba(143, 220, 255, .12); }
+html.mobile .cr-lock { filter: drop-shadow(0 1.3px 3px rgba(0, 0, 0, .9)) drop-shadow(0 0 3px rgba(217, 180, 106, .12)); }
+html.mobile .cr-tease { text-shadow: 0 0 4px rgba(0, 0, 0, .9); }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .cr-page.turn > article, html.mobile .cr-lock, html.mobile .cr-lock .glow, html.mobile .cr-lock .spark, html.mobile .cr-tbc, html.mobile .cr-lockbtn.shake .cr-lock, html.mobile .cr-sealed.rattle .cr-chain { animation-name: none; }
+}
+
+/* shop.css */
+html.mobile .shop-wallet b { text-shadow: 0 0 4px rgba(240, 200, 120, .35); }
+html.mobile .pach-cab { box-shadow: 0 1.2px 6px rgba(0, 0, 0, .55), inset 0 1px 0 rgba(255, 255, 255, .06), inset 0 0 0 1px rgba(217, 180, 106, .08); }
+html.mobile .pach.armed .pach-cab { box-shadow: 0 1.2px 6px rgba(0, 0, 0, .55), inset 0 1px 0 rgba(255, 255, 255, .06), 0 0 6px rgba(217, 180, 106, .18); }
+html.mobile .pach-win { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .25), inset 0 3.6px 6px rgba(0, 0, 0, .8), inset 0 -3.6px 6px rgba(0, 0, 0, .8); }
+html.mobile .pach-msg.win.big { text-shadow: 0 0 4px rgba(246, 226, 168, .7); }
+html.mobile .pach-btn { box-shadow: 0 2px 0 #6e5220, 0 2.3px 6px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .45); }
+html.mobile .pach-btn i { box-shadow: 0 0 5px rgba(239, 106, 92, .7); }
+html.mobile .pach-btn:not(:disabled):active { box-shadow: 0 0 0 #6e5220, 0 1px 3px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .3); }
+html.mobile .pach-btn:disabled { box-shadow: 0 1px 0 #3a3020; }
+html.mobile .pach.armed .pach-btn i { animation-name: none; }
+html.mobile .pach.spinning .pach-win { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .5), inset 0 3.6px 6px rgba(0, 0, 0, .8), inset 0 -3.6px 6px rgba(0, 0, 0, .8); }
+html.mobile .sc-st { box-shadow: 0 1px 4px rgba(0, 0, 0, .6); }
+
+/* expedition.css */
+html.mobile .xp-node.cur .emblem { animation-name: none; }
+html.mobile .xp-node.lost .emblem { box-shadow: 0 0 6px rgba(239, 106, 92, .5); }
+
+/* arcade.css */
+html.mobile .arcade { box-shadow: 0 2px 6px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(255, 255, 255, .06), inset 0 0 0 1px rgba(217, 180, 106, .08); }
+html.mobile .arc-tab.ready::before { box-shadow: 0 0 5px rgba(239, 106, 92, .8); animation-name: none; }
+html.mobile .sm-win { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .3), inset 0 3px 6px rgba(0, 0, 0, .8); }
+html.mobile .sm-msg.win.big, html.mobile .seed-msg.win.big { text-shadow: 0 0 4px rgba(246, 226, 168, .7); }
+html.mobile .slot-m.armed .sm-btn i { animation-name: none; }
+html.mobile .seed-steps i.on { box-shadow: 0 0 6px rgba(143, 220, 255, .7); }
+html.mobile .seed[data-stage="5"] .seed-pot, html.mobile .seed.bloom .seed-pot { box-shadow: 0 0 6px rgba(143, 220, 255, .6); }
+html.mobile .seed-btn { box-shadow: 0 2px 0 #124660, 0 2.3px 6px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .5); }
+html.mobile .seed-btn i { box-shadow: 0 0 5px rgba(143, 220, 255, .8); }
+html.mobile .seed-btn:not(:disabled):active { box-shadow: 0 0 0 #124660, 0 1px 3px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .3); }
+
+/* realm.css */
+html.mobile .decks, html.mobile .chat, html.mobile .deck-view, html.mobile .ed-deck, html.mobile .ed-pool, html.mobile .ed-preview, html.mobile .vault-preview, html.mobile .vault-fac, html.mobile .users, html.mobile .shop-tree, html.mobile .shop-main, html.mobile .xp-head, html.mobile .xp-route, html.mobile .xp-card, html.mobile .modal, html.mobile .gate { box-shadow: inset 0 0 0 3px rgba(6, 7, 12, .55), inset 0 0 0 4px rgba(217, 180, 106, .1), 0 2.3px 6px rgba(0, 0, 0, .42); }
+html.mobile .btn:not(.rb)::after { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06); }
+html.mobile .btn.primary:not(.rb) { text-shadow: 0 1px 0 rgba(255, 240, 200, .35); }
+html.mobile .btn.primary:not(.rb):hover:not(:disabled) { filter: brightness(1.07) drop-shadow(0 0 3px rgba(240, 200, 110, .35)); }
+html.mobile input:not([type=checkbox]):not([type=radio]):not([type=range]) { box-shadow: inset 0 1px 4px rgba(0, 0, 0, .65); }
+html.mobile input:not([type=checkbox]):not([type=radio]):not([type=range]):focus { box-shadow: inset 0 1px 4px rgba(0, 0, 0, .65), 0 0 0 3px rgba(217, 180, 106, .12); }
+html.mobile .tab::after { box-shadow: 0 0 6px rgba(246, 226, 168, .7); }
+html.mobile .tab.on { text-shadow: 0 0 4px rgba(246, 226, 168, .35); }
+html.mobile .panel-title::before { box-shadow: 0 0 6px rgba(217, 180, 106, .55); }
+html.mobile .toast::before, html.mobile .toast::after { box-shadow: 0 0 6px rgba(246, 226, 168, .6); }
+html.mobile .topbar.realm { box-shadow: 0 2.4px 6px rgba(0, 0, 0, .4); }
+html.mobile .tb-nav::after { box-shadow: 0 0 6px rgba(246, 226, 168, .8); }
+html.mobile .tb-nav:hover .m-ico, html.mobile .tb-nav.on .m-ico { filter: drop-shadow(0 0 3px rgba(246, 226, 168, .55)); }
+html.mobile .tb-crest { filter: drop-shadow(0 1.7px 3px rgba(0, 0, 0, .6)); }
+html.mobile .tb-crest:hover { filter: drop-shadow(0 1.7px 3px rgba(0, 0, 0, .6)) drop-shadow(0 0 3px rgba(240, 200, 120, .25)); }
+html.mobile .tbw-right .gold-chip { box-shadow: inset 0 1px 0 rgba(217, 180, 106, .35), inset 0 -1px 0 rgba(217, 180, 106, .35); }
+html.mobile .seal-mark { box-shadow: 0 0 0 1.5px #c99a48, 0 0 0 3px rgba(8, 9, 15, .92), 0 0 0 4px rgba(217, 180, 106, .45); text-shadow: 0 0 4px rgba(246, 226, 168, .5); }
+html.mobile .gate-title { text-shadow: 0 0 4px rgba(240, 200, 120, .25); }
+html.mobile .deck-tile.on::after { box-shadow: 0 0 6px rgba(246, 226, 168, .7); }
+html.mobile .ed-bar { box-shadow: inset 0 -1px 0 rgba(217, 180, 106, .3); }
+html.mobile .btn.cs-stop:not(.rb) { animation-name: none; }
+html.mobile .coinstage.stopping .btn.cs-stop, html.mobile .coinstage.deciding .btn.cs-stop { animation-name: none; }
+html.mobile .cs-side.stopping .btn.cs-stop { animation-name: none; }
+html.mobile .ed-filt.active { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .08), 0 0 6px rgba(217, 180, 106, .08); }
+html.mobile .ed-filt.active .edf-tab::before { box-shadow: 0 0 6px rgba(217, 180, 106, .6); }
+
+/* pilgrim.css */
+html.mobile .pg-route .pg-arch .emblem { animation-name: none; }
+html.mobile .pg-key { box-shadow: 0 0 6px rgba(217, 180, 106, .35); }
+html.mobile .pg-seal { box-shadow: 0 0 6px rgba(246, 226, 168, .6), 0 2px 4px rgba(0, 0, 0, .6); }
+html.mobile .pg-route .xp-node.cur .pg-arch { animation-name: none; }
+html.mobile .pg-route .pg-unknown .pg-arch { box-shadow: inset 0 0 0 4px rgba(7, 8, 13, .85); }
+html.mobile .pg-forest .emblem.void { text-shadow: 0 0 4px rgba(201, 195, 224, .8); }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .pg-route .xp-node.cur .pg-arch { animation-name: none; }
+}
+html.mobile .pg-step.on i { box-shadow: 0 0 6px rgba(246, 226, 168, .45); }
+html.mobile .pg-map::after { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .18), inset 0 0 6px rgba(0, 0, 0, .55); }
+html.mobile .pgm-leg.done { filter: drop-shadow(0 0 3px rgba(240, 212, 140, .55)); }
+html.mobile .pgm-me path { filter: drop-shadow(0 0 3px rgba(246, 226, 168, .9)); }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .pgm-leg.next, html.mobile .pgm-node.cur .ring, html.mobile .pgm-forest.cur .ring, html.mobile .pgm-me path { animation-name: none; }
+}
+
+/* battle-ui.css */
+html.mobile .c-desc p { text-shadow: 0 1px 2px #000; }
+html.mobile .hk-slot { box-shadow: 0 2px 6px rgba(0, 0, 0, .6); }
+
+/* battle-v19.css */
+html.mobile .shuffle-btn.v19 { filter: drop-shadow(0 1.3px 3px rgba(0, 0, 0, .6)) drop-shadow(0 0 3px rgba(143, 111, 214, .28)); }
+html.mobile .shuffle-btn.v19 .sh-seal { box-shadow: 0 0 0 2px rgba(20, 12, 34, .9), 0 0 6px rgba(143, 111, 214, .65), inset 0 -3px 6px rgba(0, 0, 0, .45), inset 0 2px 3px rgba(255, 255, 255, .35); }
+html.mobile .shuffle-btn.v19 .sh-seal .ui-ico { filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .7)); }
+html.mobile .shuffle-btn.v19 .sh-t { filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .8)); }
+html.mobile .shuffle-btn.v19:hover:not(:disabled) { filter: brightness(1.18) drop-shadow(0 1.3px 3px rgba(0, 0, 0, .6)) drop-shadow(0 0 3px rgba(190, 160, 255, .55)); }
+html.mobile .shuffle-btn.v19.used { filter: grayscale(.85) drop-shadow(0 1.2px 3px rgba(0, 0, 0, .5)); }
+html.mobile .shuffle-btn.v19.used .sh-ring { animation-name: none; }
+html.mobile .turn-clock { box-shadow: 0 2px 6px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .06); }
+html.mobile .turn-clock .tc-num { text-shadow: 0 0 4px rgba(246, 226, 168, .3); }
+html.mobile .c-under { box-shadow: 0 2.6px 6px rgba(0, 0, 0, .6), inset 0 0 0 .08em rgba(246, 226, 168, .12); }
+html.mobile .c-eq-ab:hover { box-shadow: 0 0 6px rgba(246, 226, 168, .6); }
+html.mobile .c-under > .card > .c-frame { box-shadow: 0 2.6px 6px rgba(0, 0, 0, .6); }
+html.mobile .card.item-front:not(.selected) > .c-under > .card > .c-frame { box-shadow: 0 0 0 .1em rgba(246, 226, 168, .55), 0 2px 6px rgba(0, 0, 0, .6); }
+html.mobile .shield-flip .sf-coin { filter: drop-shadow(0 1.8px 3px rgba(0, 0, 0, .7)); }
+html.mobile .shield-flip .sf-tag { box-shadow: 0 1.5px 6px rgba(0, 0, 0, .6); }
+
+/* spellfx.css */
+html.mobile .float.cpop { text-shadow: 0 3px 0 #1d3a06, 0 1.7px 4px #000, 0 0 4px rgba(166, 240, 74, .75); }
+html.mobile .float.cpop.down { text-shadow: 0 3px 0 #4a0a06, 0 1.7px 4px #000, 0 0 4px rgba(255, 75, 62, .75); }
+html.mobile .sfx-p.p-sq { box-shadow: 0 1px 3px rgba(0, 0, 0, .5); }
+html.mobile .sfx-ring.dark { box-shadow: 0 0 6px #8b5cf6, inset 0 0 6px #000; }
+html.mobile .sfx-ring.ell.dark { box-shadow: 0 0 6px rgba(0, 0, 0, .8); }
+html.mobile .sfx-shell { box-shadow: 0 0 6px #ff8a3a, 0 2px 4px #000; }
+html.mobile .sfx-meteor { filter: drop-shadow(0 0 3px #ff6b3d) drop-shadow(0 0 3px #ff6b3d); }
+html.mobile .sfx-rivet { box-shadow: 0 0 6px rgba(255, 255, 255, .55); }
+html.mobile .sfx-rock { box-shadow: 0 3px 6px rgba(0, 0, 0, .6), inset -3px -4px 6px rgba(0, 0, 0, .35); }
+html.mobile .sfx-arrow { filter: drop-shadow(0 1px 2px #000); }
+html.mobile .spellcoin { box-shadow: 0 1.8px 6px rgba(0, 0, 0, .6), 0 0 6px rgba(217, 180, 106, .16); }
+html.mobile .cs-coin.picked::before { box-shadow: 0 0 6px rgba(143, 220, 255, .8); }
+html.mobile .curse-title small { text-shadow: 0 0 4px #8b5cf6; }
+html.mobile .curse-title b i { text-shadow: 0 0 .25em #b48cff, 0 0 4px #8b5cf6, 0 0 4px #3a1858, 0 .08em 0 #12051f; }
+html.mobile .curse-title em { text-shadow: 0 0 4px rgba(255, 75, 62, .7); }
+html.mobile .curse-chip { text-shadow: 0 0 4px rgba(255, 75, 62, .8), 0 0 4px rgba(139, 92, 246, .7); }
+html.mobile .float.plate .fl-tag i { box-shadow: 0 1px 2px #000; }
+html.mobile .float.plate .fl-num { text-shadow: 0 1.5px 4px #000, 0 0 4px currentColor; }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .float.plate .fl-tag::before { animation-name: none; }
+}
+
+/* depth.css */
+html.mobile .topbar.realm { box-shadow: 0 1px 0 #2e2616, 0 2px 0 #1e190f, 0 2.8px 6px rgba(0, 0, 0, .62); }
+html.mobile .tb-crest { filter: drop-shadow(0 1px 0 #6b4f1c) drop-shadow(0 2px 0 #3d2d10) drop-shadow(0 2.6px 3px rgba(0, 0, 0, .7)); }
+html.mobile .tb-crest:hover { filter: drop-shadow(0 1px 0 #6b4f1c) drop-shadow(0 2px 0 #3d2d10) drop-shadow(0 2.6px 3px rgba(0, 0, 0, .7)) drop-shadow(0 0 3px rgba(240, 200, 120, .28)); }
+html.mobile .btn:not(.rb):not(.cs-stop) { filter: drop-shadow(0 2px 0 rgba(0, 0, 0, .75)) drop-shadow(0 2.5px 3px rgba(0, 0, 0, .4)); }
+html.mobile .btn:not(.rb):not(.cs-stop):hover:not(:disabled) { filter: brightness(1.16) drop-shadow(0 3px 0 rgba(0, 0, 0, .75)) drop-shadow(0 3px 3px rgba(0, 0, 0, .45)); }
+html.mobile .btn:not(.rb):not(.cs-stop):active:not(:disabled) { filter: brightness(.96) drop-shadow(0 0 0 rgba(0, 0, 0, .75)) drop-shadow(0 1px 2px rgba(0, 0, 0, .5)); }
+html.mobile .deck-tile:hover { box-shadow: 0 3.3px 6px rgba(0, 0, 0, .5); }
+html.mobile :where(.screen, .modal, .mull-card) .card > .c-frame { box-shadow: 0 .04em 0 #5a4a2b, 0 .09em 0 #3b3120, 0 .14em 0 #211b10, 0 3.3px 6px rgba(0, 0, 0, .62), inset 0 .07em 0 rgba(255, 255, 255, .14), inset 0 0 0 .1em rgba(255, 255, 255, .06); }
+html.mobile .t-title { filter: drop-shadow(0 1px 0 #8a6a2a) drop-shadow(0 2px 0 #5d4518) drop-shadow(0 3px 0 #3a2a0d) drop-shadow(0 2.3px 3px rgba(0, 0, 0, .75)); }
+html.mobile :where(.frow .slot) > .card > .c-frame { box-shadow: 0 .05em 0 #5a4a2b, 0 .1em 0 #3b3120, 0 .16em 0 #211b10, 0 4.3px 6px rgba(0, 0, 0, .78), inset 0 .07em 0 rgba(255, 255, 255, .14), inset 0 0 0 .1em rgba(255, 255, 255, .06); }
+html.mobile .zone.burn { box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .7), 0 1px 0 rgba(255, 200, 150, .14), 0 2px 0 rgba(0, 0, 0, .55), 0 2.7px 6px rgba(0, 0, 0, .5); }
+html.mobile .pit-floor { animation-name: none; }
+html.mobile .zone.burn .zone-label, html.mobile .zone.burn .zone-count { box-shadow: 0 2.3px 6px rgba(0, 0, 0, .75); }
+html.mobile .eth-circle { filter: drop-shadow(0 0 3px rgba(143, 220, 255, .25)); }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .decks, html.mobile .chat, html.mobile .deck-view, html.mobile .ed-deck, html.mobile .ed-pool, html.mobile .ed-preview, html.mobile .vault-preview, html.mobile .users, html.mobile .shop-tree, html.mobile .shop-main, html.mobile .xp-head, html.mobile .xp-route, html.mobile .xp-card, html.mobile .gate, html.mobile .modal, html.mobile .deck-view .card, html.mobile .ed-pool .card, html.mobile .shop-main .card { animation-name: none; }
+html.mobile .pit-floor, html.mobile .pit-spark, html.mobile .eth-ring .eth-orb::before, html.mobile .eth-ring .eth-orb::after { animation-name: none; }
+}
+
+/* relics.css */
+html.mobile .et-svg { filter: drop-shadow(0 1.8px 3px rgba(0, 0, 0, .6)); }
+html.mobile .eth-ring .eth-orb b { text-shadow: 0 1.3px 4px rgba(0, 30, 60, .95), 0 0 4px rgba(143, 220, 255, .6); }
+html.mobile .et-orb { filter: drop-shadow(0 0 3px rgba(143, 220, 255, .55)); }
+html.mobile .et-cr.on .cr-body { filter: drop-shadow(0 0 3px rgba(143, 220, 255, .95)); }
+html.mobile .et-ess .ess-body { filter: drop-shadow(0 0 3px rgba(255, 220, 130, .9)); }
+html.mobile .ether.altar.boosted .et-orb { filter: drop-shadow(0 0 3px rgba(127, 227, 156, .85)); }
+html.mobile .ether.altar.valid .eth-ring { animation-name: none; }
+html.mobile .ether.altar.valid .et-orb { animation-name: none; }
+html.mobile .zone.burn.valid { animation-name: none; }
+html.mobile .pyre:not(.lit) .py-fl { animation-name: none; }
+html.mobile .py-spark { animation-name: none; }
+html.mobile .zone.burn .zone-label { box-shadow: 0 2.3px 6px rgba(0, 0, 0, .7); }
+html.mobile .zone.burn .zone-count { box-shadow: 0 2.3px 6px rgba(0, 0, 0, .75), inset 0 0 0 1px rgba(0, 0, 0, .6); }
+html.mobile .zone.burn.valid .py-rim { filter: drop-shadow(0 0 3px rgba(246, 226, 168, .9)); }
+html.mobile .zone.deck .deck-card:first-child { box-shadow: 0 2.6px 6px rgba(0, 0, 0, .7); }
+html.mobile .zone.deck .deck-card:last-child { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .22); }
+html.mobile .zone.deck .deck-card:only-child { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .22), 0 2.6px 6px rgba(0, 0, 0, .7); }
+html.mobile .zone.deck .deck-n { box-shadow: 0 2.3px 6px rgba(0, 0, 0, .75), inset 0 0 0 1px rgba(0, 0, 0, .6); }
+html.mobile .hgem { filter: drop-shadow(0 0 3px rgba(255, 70, 95, .5)); }
+html.mobile .pl-ticks i { box-shadow: inset 0 0 0 1px rgba(255, 140, 155, .22); }
+html.mobile .pl-ticks i.on { box-shadow: 0 0 6px rgba(255, 70, 95, .6), inset 0 0 0 1px rgba(255, 200, 210, .4); }
+html.mobile .pl-ticks i.half { box-shadow: inset 0 0 0 1px rgba(255, 140, 155, .35); }
+html.mobile .pinfo.low .hgem { animation-name: none; }
+html.mobile .pinfo.hit .hgem { filter: drop-shadow(0 0 3px rgba(255, 90, 110, 1)) brightness(1.4); }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .py-fl, html.mobile .py-halo, html.mobile .py-spark, html.mobile .sh-rune, html.mobile .sh-lamp, html.mobile .et-orb, html.mobile .hgem { animation-name: none !important; }
+}
+
+/* hand.css */
+@media (prefers-reduced-motion: reduce) {
+html.mobile .hand-me .hand-slot .hand-card, html.mobile .hand-me .hand-card .c-frame { animation-name: none !important; }
+}
+
+/* logo.css */
+html.mobile .t-title .lg { animation-name: lgGlow, none; }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .t-title .lg { animation-name: none; filter: drop-shadow(0 0 3px rgba(240, 200, 120, .35)) drop-shadow(0 2px 0 rgba(60, 40, 10, .8)); }
+html.mobile .t-title .lg-fill, html.mobile .t-title .lg-gem { animation-name: none; }
+}
+
+/* scenes.css */
+html.mobile .sh-lamp { filter: drop-shadow(0 0 3px #f0b44c); }
+html.mobile .sh-string .ln { box-shadow: 0 0 6px 4px rgba(240, 180, 76, .45); }
+html.mobile .sh-shard { filter: drop-shadow(0 0 3px rgba(143, 220, 255, .9)); }
+html.mobile .fly-shard { filter: drop-shadow(0 0 3px #8fdcff); }
+html.mobile .shop-card:hover .sc-face .card { filter: drop-shadow(0 2.1px 3px rgba(0, 0, 0, .6)) drop-shadow(0 0 3px rgba(240, 180, 76, .25)); }
+html.mobile .sc-new, html.mobile .pc-new { box-shadow: 0 0 6px rgba(127, 212, 154, .7); animation-name: none; }
+html.mobile .bn-cloth { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .4); }
+html.mobile .bn-cloth b { text-shadow: 0 1px 0 #000; }
+html.mobile .tk.on { filter: drop-shadow(0 0 3px #8fdcff); }
+html.mobile .scene-editor.full .tk.on { filter: drop-shadow(0 0 3px #f0b44c); }
+html.mobile .scene-editor.sealed .ed-circle::after { box-shadow: 0 0 6px 10px rgba(240, 180, 76, .7), inset 0 0 6px 10px rgba(240, 180, 76, .5); }
+html.mobile .cd-wax { box-shadow: 0 3.6px 6px rgba(0, 0, 0, .6); }
+html.mobile .g-num b { text-shadow: 0 0 4px rgba(143, 220, 255, .45); }
+html.mobile .g-cell { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .14); }
+html.mobile .ed-gauge.st-ready { box-shadow: 0 0 6px rgba(240, 200, 120, .25); }
+html.mobile .ed-gauge.st-ready .g-num b, html.mobile .ed-gauge.st-ok .g-num b { text-shadow: 0 0 4px rgba(240, 180, 76, .6); }
+html.mobile .ed-gauge.st-bad { box-shadow: 0 0 6px rgba(239, 106, 92, .35); }
+html.mobile .ed-save.ready { animation-name: none; }
+html.mobile .ed-alarm { box-shadow: 0 0 6px rgba(239, 106, 92, .35); }
+html.mobile .ed-alarm.warn { box-shadow: 0 0 6px rgba(240, 180, 76, .3); }
+html.mobile .screen-editor .ed-deck::after { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .5); }
+html.mobile .cv-flame { filter: drop-shadow(0 0 3px #f0b44c); }
+html.mobile .pool-card:hover .pc-face .card { filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .55)) drop-shadow(0 0 3px rgba(143, 220, 255, .25)); }
+html.mobile .pool-card.in-deck .pc-face .card { filter: drop-shadow(0 0 3px rgba(246, 226, 168, .45)); }
+html.mobile .pc-badge { box-shadow: 0 0 0 1px #f2d792, 0 2px 6px rgba(0, 0, 0, .6); }
+html.mobile .pip.on { box-shadow: 0 0 6px rgba(240, 180, 76, .6); }
+html.mobile .pip:hover:not(:disabled) { box-shadow: 0 0 0 2px rgba(143, 220, 255, .55); }
+html.mobile .scene-shop.sc-still *, html.mobile .scene-shop.sc-still *::before, html.mobile .scene-shop.sc-still *::after { animation-name: none !important; }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .scene, html.mobile .scene *, html.mobile .ed-alarm.ring, html.mobile .ed-gauge.shake, html.mobile .ed-save.ready, html.mobile .pool-card.focus .pc-face .card, html.mobile .cv-flame { animation-name: none !important; }
+}
+
+/* bgm.css */
+html.mobile .snd-ctl { box-shadow: 0 1.2px 6px rgba(0, 0, 0, .35); -webkit-backdrop-filter: none; backdrop-filter: none; }
+html.mobile .snd-btn.blocked { animation-name: none; }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .snd-btn.blocked { animation-name: none; }
+}
+
+/* crest.css */
+html.mobile .tb-crest.has-art { filter: drop-shadow(0 1.8px 3px rgba(0, 0, 0, .55)); }
+html.mobile .tb-crest.has-art:hover { filter: drop-shadow(0 1.8px 3px rgba(0, 0, 0, .55)) drop-shadow(0 0 3px rgba(240, 200, 120, .3)); }
+html.mobile .cr-img { filter: drop-shadow(0 1.2px 3px rgba(0, 0, 0, .6)); }
+html.mobile .tb-crest.has-art:hover .cr-img { filter: drop-shadow(0 1.2px 3px rgba(0, 0, 0, .6)) drop-shadow(0 0 3px rgba(240, 200, 120, .4)); }
+
+/* vault.css */
+html.mobile .df-crest::before { box-shadow: 0 0 0 2px rgba(8, 9, 15, .9), 0 0 0 3px rgba(217, 180, 106, .28); }
+html.mobile .dt-fan > i { box-shadow: 0 2px 5px rgba(0, 0, 0, .6); }
+html.mobile .deck-tile.rq .dt-body b { text-shadow: 0 1px 0 rgba(0, 0, 0, .7); }
+html.mobile .deck-tile.rq.on .dt-body b { text-shadow: 0 0 4px rgba(240, 200, 120, .3), 0 1px 0 rgba(0, 0, 0, .7); }
+html.mobile .dt-gauge { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .22); }
+html.mobile .dt-gauge > i { box-shadow: inset 0 0 0 1px rgba(143, 220, 255, .16); }
+html.mobile .dt-gauge.full > i { box-shadow: 0 0 5px rgba(240, 200, 110, .45); }
+html.mobile .org-node.rq .emblem { box-shadow: 0 0 0 2.5px rgba(8, 9, 15, .95), 0 0 0 3.5px rgba(217, 180, 106, .45); }
+html.mobile .dl-row { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .14); }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .deck-tile.rq.on .dt-ring { animation-name: none; }
+}
+
+/* title-art.css */
+html.mobile .screen-title.has-art .t-sub { text-shadow: 0 0.7px 4px #000, 0 0 4px rgba(7, 8, 13, .9); }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .t-art, html.mobile .screen-title.awaken .t-art { animation-name: none; }
+}
+html.mobile .screen-title.awaken .t-snd { animation-name: none; }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .screen-title.has-art:not(.awaken) .t-start, html.mobile .screen-title.has-art:not(.awaken) .t-sub, html.mobile .t-snd { animation-name: none; }
+}
+
+/* hud.css */
+html.mobile .snd-pop { box-shadow: 0 2.1px 6px rgba(0, 0, 0, .55), 0 0 0 1px rgba(0, 0, 0, .6), inset 0 1px 0 rgba(246, 226, 168, .08); }
+html.mobile .sp-range::-webkit-slider-thumb { box-shadow: 0 0 0 2px rgba(8, 9, 15, .9), 0 0 6px rgba(246, 226, 168, .45); }
+html.mobile .sp-range::-moz-range-thumb { box-shadow: 0 0 0 2px rgba(8, 9, 15, .9); }
+html.mobile .sp-row.off .sp-range::-webkit-slider-thumb { box-shadow: 0 0 0 2px rgba(8, 9, 15, .9); }
+html.mobile .gold-dock .gold-chip { box-shadow: inset 0 1px 0 rgba(217, 180, 106, .55), inset 0 -1px 0 rgba(217, 180, 106, .55); filter: drop-shadow(0 1px 3px rgba(0, 0, 0, .55)); }
+html.mobile .gold-dock .gold-chip b { text-shadow: 0 0 4px rgba(246, 226, 168, .35); }
+html.mobile .user-chip.seal.lv .seal-mark { text-shadow: 0 1px 0 rgba(255, 240, 200, .55); box-shadow: 0 0 0 1px rgba(242, 215, 146, .7), 0 0 0 4px rgba(13, 16, 25, .9), 0 0 0 5px rgba(217, 180, 106, .45), 0 0 6px rgba(240, 200, 120, .35); }
+html.mobile .seal-xp { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .28); }
+html.mobile .tb-shard { box-shadow: inset 0 1px 0 rgba(217, 180, 106, .4), inset 0 -1px 0 rgba(217, 180, 106, .4); }
+html.mobile .tb-shard .shard { filter: drop-shadow(0 0 3px rgba(143, 220, 255, .6)); }
+
+/* level.css */
+html.mobile .lv-hud::after { box-shadow: inset 0 0 6px rgba(217, 180, 106, .08); }
+html.mobile .lv-orb, html.mobile .rx-orb { box-shadow: 0 0 0 1px rgba(242, 215, 146, .7), 0 0 0 4px rgba(13, 16, 25, .9), 0 0 0 5px rgba(217, 180, 106, .45), 0 0 6px rgba(240, 200, 120, .35); text-shadow: 0 1px 0 rgba(255, 240, 200, .55); }
+html.mobile .lv-gold .shard { filter: drop-shadow(0 0 3px rgba(143, 220, 255, .6)); }
+html.mobile .lv-bar, html.mobile .rx-bar { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .28); }
+html.mobile .lvb-inner::before { box-shadow: 0 0 6px 18px rgba(240, 200, 120, .12); }
+html.mobile .lvb-title { filter: drop-shadow(0 0 3px rgba(240, 200, 120, .5)); }
+html.mobile .lvb-lv b { text-shadow: 0 0 4px rgba(246, 226, 168, .6); }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .lv-hud, html.mobile .lvb-inner { animation-name: none; }
+html.mobile .lv-bar i::after, html.mobile .rx-bar i::after { animation-name: none; }
+}
+
+/* nopulse.css */
+html.mobile .slot.valid, html.mobile .slot.valid-move, html.mobile .burn.valid, html.mobile .ether.valid, html.mobile .eth-orb, html.mobile .ready, html.mobile .cs-stop, html.mobile .btn.cs-stop:not(.rb), html.mobile .ready-wrap, html.mobile .ether.altar.valid .eth-ring, html.mobile .ether.altar.valid .et-orb, html.mobile .pinfo.low .pl-num:not(.bump), html.mobile .pinfo.low .hgem, html.mobile .pit-floor { animation-name: none; }
+html.mobile .arc-tab.ready::before, html.mobile .slot-m.armed .sm-btn i, html.mobile .pach.armed .pach-btn i, html.mobile .xp-node.cur .emblem, html.mobile .sc-new, html.mobile .pc-new, html.mobile .ed-save.ready, html.mobile .snd-btn.blocked { animation-name: none; }
+html.mobile .t-title span { animation-name: letterIn, none; }
+html.mobile .t-title .lg { animation-name: lgGlow, none; }
+html.mobile .t-start { animation-name: fadeUp, none; }
+
+/* manual.css */
+html.mobile .man, html.mobile .lesson, html.mobile .tut, html.mobile .tour-tip { box-shadow: inset 0 0 0 3px rgba(6, 7, 12, .55), inset 0 0 0 4px rgba(217, 180, 106, .1), 0 2.2px 6px rgba(0, 0, 0, .6); }
+html.mobile .hx-flow li { filter: drop-shadow(0 1.8px 3px rgba(0, 0, 0, .35)); }
+html.mobile .hx-orb b { box-shadow: 0 2.6px 6px rgba(0, 0, 0, .5), inset 0 -3px 6px rgba(0, 0, 0, .25); }
+html.mobile .hx-orb.crys b, html.mobile .hx-orb.eth b { text-shadow: 0 1px 2px rgba(0, 0, 0, .6); }
+html.mobile .hx-slot:has(.mu.front) { box-shadow: inset 0 0 6px rgba(239, 106, 92, .14); }
+html.mobile .hx-slot:has(.mu.go) { box-shadow: inset 0 0 6px rgba(217, 180, 106, .18); }
+html.mobile .hx-coin.h b { box-shadow: 0 2.6px 6px rgba(0, 0, 0, .5), inset 0 0 0 4px rgba(255, 243, 201, .35); }
+html.mobile .hx-coin.t b { box-shadow: 0 2.6px 6px rgba(0, 0, 0, .5), inset 0 0 0 4px rgba(138, 133, 119, .25); }
+html.mobile .hx-pin, html.mobile .hx-num { box-shadow: 0 2px 6px rgba(0, 0, 0, .7), 0 0 0 1px rgba(10, 8, 4, .7); }
+html.mobile .hx-life b { box-shadow: 0 3px 6px rgba(0, 0, 0, .55); text-shadow: 0 2px 3px rgba(0, 0, 0, .6); }
+html.mobile .tc-no { box-shadow: 0 2.6px 6px rgba(0, 0, 0, .5); }
+html.mobile .help-tour { animation-name: none; }
+html.mobile .tour-hole { box-shadow: 0 0 0 200vmax rgba(3, 4, 8, .72), 0 0 0 4px rgba(217, 180, 106, .18), inset 0 0 6px rgba(217, 180, 106, .14); }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .help-wrap, html.mobile .ls-page { animation-name: none; }
+}
+
+/* swap.css */
+html.mobile .hand-me.guide-target { animation-name: none; }
+
+/* slim.css */
+html.mobile .card.slim .c-name { text-shadow: 0 .06em .1em #000, 0 0 4px rgba(0, 0, 0, .95); }
+html.mobile .card.slim .c-vstats .st b { text-shadow: 0 .06em .1em #000, 0 0 4px #000, 0 0 4px rgba(0, 0, 0, .9); }
+html.mobile .zoom.side { animation-name: none; box-shadow: 0 0 0 1px rgba(0, 0, 0, .6), 0 2.4px 6px rgba(0, 0, 0, .75), 0 0 6px rgba(246, 226, 168, .08); }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .zoom.side.z-in { animation-name: none; }
+}
+html.mobile .card.has-brief .c-brief { box-shadow: 0 -2px 6px rgba(0, 0, 0, .45); }
+html.mobile .card.has-brief .c-brief p { text-shadow: 0 .06em .1em #000; }
+html.mobile .card.has-brief .c-brief .sti { filter: drop-shadow(0 0 .12em rgba(0, 0, 0, .9)); }
+
+/* relic-art.css */
+html.mobile .zone.burn.valid .pyre-art .py-front { filter: drop-shadow(0 0 3px rgba(246, 226, 168, .9)); }
+html.mobile .et-cr.on .cr-body { filter: drop-shadow(0 0 3px rgba(143, 220, 255, 1)); }
+html.mobile .ether.altar .cry-state { box-shadow: 0 1.5px 6px rgba(0, 0, 0, .75); }
+html.mobile .hg-art .hg-surf::before { box-shadow: 0 0 4px #ff7d8e; }
+html.mobile .card-back, html.mobile .card-back.field-back { box-shadow: 0 1px 0 #7a5f2c, 0 2px 0 #3a2c12, 0 3px 0 #140e06, 0 3.4px 6px rgba(0, 0, 0, .7); }
+html.mobile .zone.deck .deck-card:last-child { box-shadow: 0 0 0 1.5px #07050c, 0 2.6px 6px rgba(0, 0, 0, .7); }
+
+/* online.css */
+html.mobile .ol-join input:focus { box-shadow: 0 0 0 1px rgba(143, 220, 255, .35); }
+html.mobile .ol-code { text-shadow: 0 0 4px rgba(217, 180, 106, .45); }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .ol-spin { animation-name: none; }
+}
+
+/* impact.css */
+html.mobile .imp-frame { -webkit-backdrop-filter: none; backdrop-filter: none; }
+html.mobile .float.dmg.imp-num { text-shadow: -2px 0 rgba(0, 210, 255, .45), 2px 0 rgba(255, 0, 70, .55), 0 1.5px 4px #000, 0 0 4px currentColor; }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .float.dmg.imp-num { text-shadow: 0 1.5px 4px #000; }
+}
+
+/* fmcard.css */
+html.mobile .card.fm .c-type svg { filter: drop-shadow(0 0 .12em currentColor); }
+html.mobile .card.fm .c-name { text-shadow: 0 .06em .1em #000, 0 0 4px rgba(0, 0, 0, .9); }
+html.mobile .card.fm .c-box { box-shadow: inset 0 0 0 .05em rgba(217, 180, 106, .2), inset 0 .1em .3em rgba(0, 0, 0, .6); }
+html.mobile .card.fm .c-rcol { box-shadow: inset 0 0 0 .05em rgba(217, 180, 106, .22); }
+html.mobile .card.fm .c-vstats .st b { text-shadow: 0 .06em .1em #000, 0 0 4px rgba(0, 0, 0, .9); }
+html.mobile .card .scrap-pile { filter: drop-shadow(0 .08em .12em rgba(0, 0, 0, .85)); }
+html.mobile .scrap-pile .sp.on svg { filter: drop-shadow(0 0 .1em rgba(255, 170, 80, .55)); }
+html.mobile .scrap-pile .sp-n { text-shadow: 0 0 .25em #000, 0 .05em .1em #000; }
+html.mobile .scrap-pile.full .sp.on svg { animation-name: none; }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .scrap-pile .sp.drop, html.mobile .scrap-pile.full .sp.on svg { animation-name: none; }
+}
+
+/* crys-hint.css */
+html.mobile .crys-ghost .ch-card { box-shadow: 0 0 0 1.5px rgba(143, 220, 255, .9), 0 0 6px 3px rgba(143, 220, 255, .55), 0 2.6px 6px rgba(0, 0, 0, .7); }
+html.mobile .crys-ghost .ch-ring { box-shadow: 0 0 6px rgba(143, 220, 255, .8), inset 0 0 6px rgba(143, 220, 255, .55); }
+html.mobile .ether.altar .cry-state.cry-teach { box-shadow: 0 0 0 1px rgba(0, 0, 0, .6), 0 0 6px rgba(143, 220, 255, .55), 0 1.8px 6px rgba(0, 0, 0, .75); }
+html.mobile .ether.altar .cry-state.cry-teach b { text-shadow: 0 0 4px rgba(143, 220, 255, .9), 0 1px 2px #000; }
+
+/* trade.css */
+html.mobile .tb-badge { box-shadow: 0 0 0 1.5px rgba(8, 9, 15, .9), 0 0 6px rgba(240, 200, 120, .55); }
+html.mobile .trade-side, html.mobile .trade-main, html.mobile .trade-win { box-shadow: inset 0 0 0 3px rgba(6, 7, 12, .55), inset 0 0 0 4px rgba(217, 180, 106, .1), 0 2.3px 6px rgba(0, 0, 0, .42); }
+html.mobile .tc-grade { box-shadow: 0 2px 6px rgba(0, 0, 0, .6); }
+html.mobile .tc-n { box-shadow: 0 2px 6px rgba(0, 0, 0, .6); }
+html.mobile .tl-code { text-shadow: 0 0 4px rgba(143, 220, 255, .45); }
+html.mobile .tl-side.locked { box-shadow: 0 0 0 1px rgba(127, 212, 154, .35) inset, 0 0 6px rgba(127, 212, 154, .14); }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .t-tile, html.mobile .tp-card .card, html.mobile .tl-flash { animation-name: none; }
+}
+
+/* upgrade.css */
+html.mobile .card.grade-upgrade > .c-frame::before { animation-name: none; }
+html.mobile .upfx.s3 .upfx-src { animation-name: none; }
+html.mobile .upfx.s3 .upfx-ring.r2 { box-shadow: 0 0 6px #d9b46a; }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .upfx *, html.mobile .card.grade-upgrade > .c-frame::before { animation-name: none !important; }
+}
+html.mobile .fz-badge { box-shadow: 0 2px 6px rgba(0, 0, 0, .6); }
+html.mobile .fz-badge.is-ready { animation-name: none; }
+html.mobile .fg-box { box-shadow: 0 0 0 1px #000, 0 2px 6px rgba(0, 0, 0, .7), inset 0 1px 0 rgba(246, 226, 168, .08); }
+html.mobile .fg .btn.fg-go:not([disabled]) { animation-name: none; }
+html.mobile .upfx.g-rare.s5 .upfx-new { animation-name: none; }
+html.mobile .upfx.lite .upfx-rays { animation-name: none; }
+html.mobile.mobile .fz-badge.is-ready, html.mobile.mobile .fg-go:not([disabled]) { animation-name: none; }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .fz-badge, html.mobile .fg-go, html.mobile .fg-slot.filled, html.mobile .fg-tile, html.mobile .upfx-flip { animation-name: none !important; }
+}
+
+/* cardtext.css */
+html.mobile .card .c-box .c-cls, html.mobile .card .c-cls.c-ab, html.mobile .card .c-cls.c-pin, html.mobile .card .c-cls.c-plain, html.mobile .card .c-cls.c-off, html.mobile .card .c-eq-ab, html.mobile .slot .card.fm .c-eq-ab, html.mobile .slot .card.fm .c-box .c-cls { text-shadow: 0 1px 2px rgba(0, 0, 0, .85); }
+html.mobile .dv-cards .card.fm.grade-common > .c-frame, html.mobile .screen-editor .card.fm.grade-common > .c-frame, html.mobile .shop-card .card.fm.grade-common > .c-frame, html.mobile .detail .card.fm.grade-common > .c-frame { box-shadow: 0 0 0 .04em rgba(6, 7, 12, .9); }

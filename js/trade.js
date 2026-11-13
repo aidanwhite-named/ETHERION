@@ -29,7 +29,11 @@ const TRADE = {
   durations: [[10, "10분"], [60, "1시간"], [360, "6시간"], [1440, "1일"], [4320, "3일"]],   // 분
   defDur: 1440,
   keepClosed: 40,         // 닫힌 거래를 남겨 두는 수(내 거래 기록)
-  noticeMax: 100
+  noticeMax: 100,
+  /* v3.44 서버에서만: 새 모험가는 거래를 바로 못 한다(부계정을 만들어 시작 조각 · 카드를 본계정에 몰아주기 막기) */
+  newHours: 24,           // 등록하고 이만큼 지나야
+  newMatches: 3,          // 서버가 센 대전(전적)이 이만큼 있어야
+  livePendMs: 120000      // 실시간 거래: 한쪽만 반영을 보낸 채 이만큼 지나면 맡긴 것을 돌려준다
 };
 
 /* ---------- 거래 꾸러미: { cards: {카드ID: 장수}, shards: 조각 } ---------- */
@@ -37,7 +41,7 @@ const TA = {
   clean(a) {
     const cards = {};
     const src = (a && a.cards) || {};
-    for (const id in src) { const k = Math.floor(+src[id] || 0); if (k > 0 && CARDS[id]) cards[id] = k; }
+    if (src && typeof src === "object") for (const id of Object.keys(src)) { const k = Math.floor(+src[id] || 0); if (k > 0 && isCardId(id)) cards[id] = Math.min(k, TRADE.maxCards); }
     let s = Math.floor(+((a && a.shards) || 0)); if (!isFinite(s) || s < 0) s = 0;
     return { cards, shards: Math.min(TRADE.maxShards, s) };
   },
@@ -66,23 +70,32 @@ const TA = {
 
 /* ---------- Store 확장: 거래가 보유 카드 · 지갑을 고치는 유일한 곳 ---------- */
 Object.assign(Store, {
-  /* 거래할 수 없는 계정이면 까닭을 돌려준다. 관리자 · 손님은 '모든 카드를 가진 계정'이라 카드를 만들어 낼 수 있어 막는다 */
+  /* 거래할 수 없는 계정이면 까닭을 돌려준다. 관리자 · 필멸자는 '모든 카드를 가진 계정'이라 카드를 만들어 낼 수 있어 막는다 */
   tradeBlock(u) {
     u = u || this.user();
     if (!u) return "로그인이 필요합니다.";
     if (u.admin) return "관리자 계정은 모든 카드를 가진 계정이라 거래에 참여할 수 없습니다. 둘러보기와 시험 도구(지금 마감)만 쓸 수 있습니다.";
-    if (u.guest) return "손님 계정은 모든 카드를 빌려 쓰는 계정이라 거래할 수 없습니다. '새 모험가'로 등록하면 거래할 수 있습니다.";
+    if (u.guest) return "필멸자 계정은 모든 카드를 빌려 쓰는 계정이라 거래할 수 없습니다. '새 모험가'로 등록하면 거래할 수 있습니다.";
+    if (TradeLocal.server) {   // v3.44
+      const hrs = (Date.now() - (u.created || 0)) / 3600e3, n = ((u.stats && u.stats.w) || 0) + ((u.stats && u.stats.l) || 0);
+      if (hrs < TRADE.newHours || n < TRADE.newMatches) return `새 모험가는 등록하고 ${TRADE.newHours}시간이 지나고 대전을 ${TRADE.newMatches}판 마쳐야 거래할 수 있습니다. (지금 ${Math.floor(hrs)}시간 · ${n}판)`;
+    }
     return null;
   },
   draftUse(u, id) { const c = CARDS[id], d = c && u.drafts && u.drafts[c.group]; return d && d.cards ? d.cards[id] || 0 : 0; },
   /* 거래에 걸 수 있는 장수 = 보유 − (저장한 덱 · 덱 초안 중 더 많이 쓰는 장수) */
-  tradeable(u, id) { const have = (u.collection || {})[id] || 0; return Math.max(0, have - Math.max(this.deckUse(u, id), this.draftUse(u, id))); },
+  tradeable(u, id) {
+    if (!isCardId(id)) return 0;
+    const num = x => (Number.isFinite(+x) ? +x : 0), have = num((u.collection || {})[id]);
+    const use = Math.max(num(this.deckUse(u, id)), num(this.draftUse(u, id)));   // v3.44 이상한 값(NaN)이면 0이 되도록 — 예전에는 NaN이라 검사를 그냥 통과했다
+    return Math.max(0, Math.floor(have - use));
+  },
   /* 맡길 수 있는지: null이면 된다 */
   escrowCheck(u, a) {
     const b = this.tradeBlock(u); if (b) return b;
     for (const id of TA.ids(a)) {
       const can = this.tradeable(u, id);
-      if (a.cards[id] > can) {
+      if (!(a.cards[id] <= can)) {
         const inDeck = Math.max(this.deckUse(u, id), this.draftUse(u, id));
         return `걸 수 없는 카드: 「${CARDS[id].name}」 ${a.cards[id]}장 (거래 가능 ${can}장${inDeck ? ` · 덱에 ${inDeck}장` : ""}). 덱에 든 장수는 걸 수 없습니다.`;
       }
@@ -163,6 +176,13 @@ const TradeLocal = {
   sweep() {
     const db = this.db(), now = this.now(); let n = 0;
     for (const id in db.listings) { const L = db.listings[id]; if (L.state === "open" && L.ends <= now) { this.close(L, "deadline"); n++; } }
+    for (const pk in db.livePend || {}) {   // v3.44 실시간 거래: 상대 쪽 반영이 오지 않은 것은 돌려준다
+      const P = db.livePend[pk]; if (now - P.at < TRADE.livePendMs) continue;
+      delete db.livePend[pk]; n++;
+      const u = this.user(P.uid); if (!u) continue;
+      Store.escrowGive(u, TA.clean(P.give), `거래(실시간) 돌려받음 #${P.id}`);
+      this.notify(P.uid, "lost", `실시간 거래 #${P.id} — ${P.peer}님 쪽 확인이 오지 않아 맡긴 것을 돌려받았습니다: ${TA.text(TA.clean(P.give))}`);
+    }
     if (n) this.prune();
     if (n) Store.save();
     return n;
@@ -330,6 +350,7 @@ const TradeLocal = {
      서버 없이 두 기기가 바로 이어진 지금은 각 기기가 자기 쪽만 반영한다(내준 것 빼고 받은 것 넣기).
      서버가 생기면 서버가 방이 되어 양쪽을 한 번에 바꾼다(docs/TRADE_API.md 4장). */
   liveSettle(uid, give, get, peer, key) {
+    if (this.server) return this.livePair(uid, give, get, peer, key);
     const u = this.user(uid), b = Store.tradeBlock(u); if (b) return this.fail(b);
     give = TA.clean(give); get = TA.clean(get);
     if (TA.n(give) > TRADE.maxCards || TA.n(get) > TRADE.maxCards) return this.fail(`한쪽에 카드는 ${TRADE.maxCards}장까지입니다.`);
@@ -345,6 +366,63 @@ const TradeLocal = {
     Store.save();
     return { ok: true, id, over: r.over, extra: r.extra };
   }
+};
+
+/* ---------- v3.44 서버의 실시간 거래: 서버가 방이 되어 양쪽을 한 번에 바꾼다 ----------
+   예전에는 각 기기가 "이걸 주고 이걸 받았다"고 따로 알렸고 서버는 받은 쪽을 그대로 믿었다 — 아무것도 안 주고 조각 · 카드를 받아 갈 수 있었다.
+   이제 먼저 온 쪽은 내놓은 것을 맡겨 두고 기다리고(pending), 상대 쪽이 같은 방 열쇠 · 서로 맞물린 내용으로 오면 그때 두 사람을 함께 바꾼다.
+   TRADE.livePendMs 안에 상대가 오지 않으면 sweep이 돌려준다. 서버(server.js)가 TradeLocal.server = true로 켠다 */
+TradeLocal.livePair = function (uid, give, get, peer, key) {
+  const u = this.user(uid), b = Store.tradeBlock(u); if (b) return this.fail(b);
+  peer = String(peer || ""); key = String(key || "").slice(0, 80);
+  const v = this.user(peer);
+  if (!key) return this.fail("거래 방 열쇠가 없습니다.");
+  if (!v || peer === uid) return this.fail("상대 모험가를 찾지 못했습니다.");
+  const vb = Store.tradeBlock(v); if (vb) return this.fail(`상대가 거래할 수 없는 계정입니다: ${vb}`);
+  give = TA.clean(give); get = TA.clean(get);
+  if (TA.n(give) > TRADE.maxCards || TA.n(get) > TRADE.maxCards) return this.fail(`한쪽에 카드는 ${TRADE.maxCards}장까지입니다.`);
+  if (TA.empty(give) && TA.empty(get)) return this.fail("양쪽 모두 비어 있습니다.");
+  const db = this.db(), P = db.livePend = db.livePend || {}, pk = key + "|" + [uid, peer].sort().join("|");
+  const done = db.live[uid] = db.live[uid] || [];
+  const old = done.find(x => x.key === key && x.peer === peer);
+  if (old) return { ok: true, id: old.id, over: old.over || [], extra: old.extra || 0, again: true };
+  const wait = P[pk];
+  if (wait && wait.uid === uid) {   // 같은 쪽이 다시 보냄
+    if (TA.key(wait.give) !== TA.key(give) || TA.key(wait.get) !== TA.key(get)) return this.fail("이미 다른 내용으로 반영을 보냈습니다. 잠시 뒤 다시 해 주세요.");
+    return { ok: true, pending: true, id: wait.id };
+  }
+  if (!wait) {
+    if (Object.values(P).filter(x => x.uid === uid).length >= 3) return this.fail("상대 확인을 기다리는 실시간 거래가 너무 많습니다. 잠시 뒤 다시 해 주세요.");
+    const e = Store.escrowCheck(u, give); if (e) return this.fail(e);
+    const id = "L" + db.seq++;
+    Store.escrowTake(u, give, `거래(실시간) 맡김 #${id}`);
+    P[pk] = { id, uid, peer, key, give, get, at: this.now() };
+    Store.save();
+    return { ok: true, pending: true, id };
+  }
+  /* 상대가 먼저 와 있다: 서로 맞물리는지 본다 (내가 주는 것 = 상대가 받는 것) */
+  const tag = `#${wait.id}`;
+  const back = msg => { delete P[pk]; Store.escrowGive(v, TA.clean(wait.give), `거래(실시간) 돌려받음 ${tag}`); this.notify(peer, "lost", `실시간 거래 ${tag} — ${msg} 맡긴 것을 돌려받았습니다.`); Store.save(); return this.fail(msg); };
+  if (TA.key(wait.give) !== TA.key(get) || TA.key(wait.get) !== TA.key(give)) return back("두 기기가 본 거래 내용이 다릅니다.");
+  const e = Store.escrowCheck(u, give); if (e) return back(`${uid}님 쪽: ${e}`);
+  delete P[pk];
+  Store.escrowTake(u, give, `거래(실시간) 내줌 ${tag}`);
+  const r1 = Store.escrowGive(u, get, `거래(실시간) 받음 ${tag}`, true);
+  const r2 = Store.escrowGive(v, wait.get, `거래(실시간) 받음 ${tag}`, true);
+  const rec = (who, other, g1, g2, r) => {
+    const L = db.live[who] = db.live[who] || [];
+    L.push({ id: wait.id, key, at: this.now(), peer: other, give: g1, get: g2, over: r.over, extra: r.extra });
+    if (L.length > TRADE.keepClosed) L.splice(0, L.length - TRADE.keepClosed);
+    this.notify(who, "done", `실시간 거래 ${tag} — ${other}님과 맞바꿨습니다. 내줌: ${TA.text(g1)} / 받음: ${TA.text(g2)}${r.over.length ? ` (최대 장수를 넘은 카드는 ${fmtGold(r.extra)}으로)` : ""}`);
+  };
+  rec(uid, peer, give, get, r1); rec(peer, uid, wait.give, wait.get, r2);
+  Store.save();
+  return { ok: true, id: wait.id, over: r1.over, extra: r1.extra };
+};
+/* 먼저 보낸 쪽이 기다리는 동안 서버가 묻는다: 끝났으면 그 결과, 아직이면 null */
+TradeLocal.liveResult = function (uid, peer, key) {
+  const L = (this.db().live[uid] || []).find(x => x.key === key && x.peer === peer);
+  return L ? { ok: true, id: L.id, over: L.over || [], extra: L.extra || 0 } : null;
 };
 
 /* ---------- 화면이 부르는 창구 ----------

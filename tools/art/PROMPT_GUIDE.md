@@ -12,15 +12,15 @@
 - `<!-- AUTO:… -->` 칸은 `node tools/art/build_prompts.js`가 `tools/art/art_style.json`에서 채운다. **고칠 때는 art_style.json을 고치고 다시 돌린다** — 이 문서의 표만 고치면 다음에 덮인다. 나머지 글은 손으로 고쳐도 된다.
 
 <!-- AUTO:COUNTS -->
-프롬프트 버전 **g2** (2026-11-10) · 카드 797장 (뺀 카드 제외, 소환물 포함)
+프롬프트 버전 **g2** (2026-11-10) · 카드 705장 (뺀 카드 제외, 소환물 포함)
 
 | 등급 | 색 | 장수 | 유닛 · 마법 · 아이템 | 등급별 프롬프트 파일 |
 |---|---|---|---|---|
 | 소환물 (Summoned token) | `#8fdcff` | 17 | 13 · 4 · 0 | `prompts/grades/token.md` |
-| 일반 (Common) | `#f4f1ea` | 468 | 266 · 149 · 53 | `prompts/grades/common.md` |
-| 고급 (Superior) | `#f2cf3d` | 124 | 78 · 31 · 15 | `prompts/grades/uncommon.md` |
+| 일반 (Common) | `#f4f1ea` | 385 | 213 · 125 · 47 | `prompts/grades/common.md` |
+| 고급 (Superior) | `#f2cf3d` | 125 | 80 · 31 · 14 | `prompts/grades/uncommon.md` |
 | 레어 (Rare) | `#4ea8ff` | 46 | 9 · 28 · 9 | `prompts/grades/rare.md` |
-| 강화 (Empowered) | `#3fe0c0` | 50 | 50 · 0 · 0 | `prompts/grades/upgrade.md` |
+| 강화 (Empowered) | `#3fe0c0` | 40 | 40 · 0 · 0 | `prompts/grades/upgrade.md` |
 | 에픽 (Epic) | `#b46cff` | 62 | 36 · 17 · 9 | `prompts/grades/epic.md` |
 | 유니크 (Unique) | `#ff8a2a` | 18 | 18 · 0 · 0 | `prompts/grades/unique.md` |
 | 스페셜 (Special) | `#ff4d73` | 12 | 9 · 0 · 3 | `prompts/grades/special.md` |
@@ -53,7 +53,7 @@
 | `tools/art/prompts/cards/<깃발>.md` | 같은 프롬프트를 깃발별로 | 자동 |
 | `tools/art/prompts/cards.jsonl` | 프로그램용(gen.py · artmap.py가 읽음) | 자동 |
 | `tools/art/inbox/` | **받은 그림을 넣는 곳** — 파일 이름에 카드 ID나 카드 이름 | 사람 |
-| `tools/art/artmap.py` | inbox의 그림을 카드에 연결해 `img/cards/<ID>.png`로 넣고 장부 · 보드를 새로 만든다 | 거의 안 고침 |
+| `tools/art/artmap.py` | inbox의 그림을 카드에 연결해 `img/cards/<ID>.jpg`(600×750)로 넣고 목록 `art_index.js`를 쓰고 장부 · 보드를 새로 만든다 | 거의 안 고침 |
 | `tools/art/art_map.csv` | **카드 ↔ 일러스트 장부**(엑셀로 열림). 상태 · 출처 · 모델 · 메모 | 사람(상태 · 메모 칸) + 자동 |
 | `tools/art/art_board.html` | 장부를 그림으로 보는 판 — 등급 · 깃발 · 상태로 거르고 프롬프트 복사 | 자동 |
 
@@ -86,7 +86,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 - 마법 · 아이템도 같은 틀이다. 마법은 Banner 줄을 "magic of …, signature motifs …, palette …"로 줄인다(사람을 그리지 않는 장면이 많아서).
-- **강화 카드**는 Subject 다음에 참고 그림 줄을 넣고, 원래 카드 그림(`img/cards/<원래 ID>.png`)이 있으면 그림 AI에 **함께 첨부**한다.
+- **강화 카드**는 Subject 다음에 참고 그림 줄을 넣고, 원래 카드 그림(`img/cards/<원래 ID>.jpg`)을 **먼저 받아 그림 AI에 함께 첨부**한다. 프롬프트에는 원래 카드의 이름 · 서사 · 배경이 "Continuity" 줄로 들어 있어, 첨부가 어려워도 같은 인물로 그리게 한다(v3.46).
 - `Quality floor` 줄(모든 등급 같은 완성도)은 Grade 줄 바로 다음에 늘 넣는다.
 - 일반 등급은 Grade accent 줄을 빼고, 소환물은 등급 `token`을 쓴다.
 
@@ -460,10 +460,10 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 1. 받은 그림을 `tools/art/inbox/`에 넣는다. 파일 이름에 **카드 ID**(`EP-A1-3_v2.png`, `SP-B2 final.jpg`) 또는 **카드 이름**(`장막의 처형자.png`)이 있으면 된다.
 2. `python tools/art/artmap.py import` (Windows는 `tools/art/그림 연결.bat`)
-   - 맞는 카드를 찾아 4:5로 가운데를 잘라 800×1000 PNG로 `img/cards/<ID>.png`에 넣는다(Pillow 필요, 있던 그림은 `_backup_art/<시각>/`).
+   - 맞는 카드를 찾아 4:5로 가운데를 잘라 600×750 JPG로 `img/cards/<ID>.jpg`에 넣는다(Pillow 또는 맥 sips, 있던 그림은 `_backup_art/<시각>/`).
    - 넣은 파일은 `inbox/_done/`으로 옮기고, 장부에 출처 파일 · 날짜 · 프롬프트 버전을 적는다.
    - 이름으로 못 찾은 파일은 그대로 두고 알려 준다 → `python tools/art/artmap.py assign <파일> <카드ID>`로 직접 연결.
-3. 게임을 새로 고치면 그림이 보인다(게임은 `img/cards/<ID>.png`를 그대로 읽는다 — 코드 수정 없음).
+3. 게임을 새로 고치면 그림이 보인다(게임은 목록 `img/cards/art_index.js`에 있는 그림을 읽는다 — 코드 수정 없음).
 4. `tools/art/art_board.html`을 브라우저로 열어 등급 · 깃발별로 훑어본다. 마음에 안 들면 `art_map.csv`의 상태를 `다시`로 바꾸고 메모를 적는다.
 
 장부 `art_map.csv` 칸: `card_id · name · grade · grade_ko · group · type · lv · base · status · image · art_ver · prompt_ver · source_file · model · added · note`
@@ -490,23 +490,23 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ## 11. 예시 (실제 카드의 완성 프롬프트)
 <!-- AUTO:EXAMPLES -->
-#### 예: 일반 — B1-01 심지 당번
+#### 예: 일반 — A1-02 그림자 도둑
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "심지 당번". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
+Card name (Korean — read its meaning, never write it in the image): "그림자 도둑". Depict exactly what this name describes.
+Subject: a low-ranking, ordinary member of the Abyssal Fiends — a devoted priest, ritualist or pact-bound servant, praying or offering.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Banner — Abyssal Fiends: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
+Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
+Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
+Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -569,6 +569,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "무쇠 성벽대장". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened member of the Ironbeard Dwarves — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
 If a reference image is attached, it is the base card (B2-17): keep the same character, species, face, colours and silhouette and repaint it as the empowered version. (base card: "무쇠 성벽병")
+Continuity with the base card: this is the very same individual as "무쇠 성벽병" (B2-17) after a promotion — same species, sex, age, face, hair or beard, colours, weapon type and fighting style, now one rank higher. The base card is set in a riveted iron gate in a dim forge hall; keep that same place, intensified.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Banner — Ironbeard Dwarves: stocky dwarves with braided iron-grey beards, and the riveted golems and automatons they forge. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.

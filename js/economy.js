@@ -34,11 +34,18 @@ const PRICE_OVERRIDE = {};
      전투 보상(부서진 카드 2%, 정산)은 그대로 cardPrice(레벨 공식)를 쓴다.
    - SHOP_STOCK: 등급마다 상점이 처음 채워 두는 장수. 희귀한 등급일수록 적다. */
 const SHOP_FLAT = 100;
+/* v3.54 등급별 상점 값(사고팔기 모두). 여기 없는 등급(스페셜 · 강화)은 상점에서 사고팔지 않는다(shopTradable) — 스페셜은 보상 · 레거시 환불의 값으로만 SHOP_VALUE를 쓴다 */
+const SHOP_GRADE_PRICE = { common: 100, uncommon: 200, rare: 500, epic: 700, unique: 800 };
+const SHOP_VALUE = { special: 800 };
+const shopTradable = c => { c = typeof c === "string" ? CARDS[c] : c; return !!c && !c.base && SHOP_GRADE_PRICE[gradeOf(c)] != null; };
 const SHOP_STOCK = { common: 100, uncommon: 80, rare: 50, upgrade: 0, epic: 30, unique: 10, special: 5 };   // v3.28 강화는 팔지 않는다(합쳐서만)
 function shopPrice(c) {
   c = typeof c === "string" ? CARDS[c] : c;
   if (!c) return 0;
   if (PRICE_OVERRIDE[c.id] != null) return PRICE_OVERRIDE[c.id];
+  const g = gradeOf(c);
+  if (SHOP_GRADE_PRICE[g] != null) return SHOP_GRADE_PRICE[g];
+  if (SHOP_VALUE[g] != null) return SHOP_VALUE[g];
   return SHOP_FLAT != null ? SHOP_FLAT : cardPrice(c);
 }
 function stockMax(c) { c = typeof c === "string" ? CARDS[c] : c; return c ? (SHOP_STOCK[gradeOf(c)] ?? SHOP_STOCK.common) : 0; }
@@ -74,9 +81,10 @@ Object.assign(Store, {
      - 다른 계정은 값 × n을 내고, 같은 카드는 최대 장수(maxCopiesOf)까지만 산다.
      - opts.toDeck: 산 카드를 그 단체의 덱 초안(덱 조정실)에 바로 넣는다(40장 · 같은 카드 장수 안에서). */
   buyCard(u, id, n, opts) {
-    u = u || this.user(); const c = CARDS[id]; n = Math.max(1, Math.floor(n || 1)); opts = opts || {};
+    u = u || this.user(); const c = isCardId(id) && CARDS[id]; n = cleanCount(n) || 1; opts = opts && typeof opts === "object" ? opts : {};   // v3.44 글자 · NaN 장수로 공짜 구매하던 구멍
     if (!u || !c) return { ok: false, msg: "없는 카드입니다." };
     if (c.base) return { ok: false, msg: `「${c.name}」은 강화 카드라 살 수 없습니다. 「${CARDS[c.base].name}」 3장을 업그레이드하세요.` };   // v3.28
+    if (!shopTradable(c) && !this.isAdmin(u)) return { ok: false, msg: `「${c.name}」은 ${GRADES[gradeOf(c)].name} 카드라 상점에서 살 수 없습니다.` };   // v3.54 스페셜
     const price = shopPrice(c), admin = this.isAdmin(u), stock = this.stockLeft(id);
     if (!admin && !this.shopOpen(id)) return { ok: false, msg: `「${c.name}」은 지금 상점에서 팔지 않습니다.` };   // v3.37 관리자 상점: 내림 · 새 카드 · 기간 밖
     if (stock <= 0) return { ok: false, msg: `「${c.name}」 재고가 없습니다.${admin ? " 재고 채우기를 누르세요." : ""}` };
@@ -101,11 +109,12 @@ Object.assign(Store, {
   },
   /* 상점 판매 (v1.4.3): 산 값 그대로 돌려받는다. 덱에 넣어 둔 장수만큼은 팔 수 없다 (덱이 깨지지 않게). v3.0 판 카드는 재고로 돌아간다 */
   deckUse(u, id) { const c = CARDS[id], d = c && u.decks && u.decks[c.group]; return d && d.cards ? d.cards[id] || 0 : 0; },
-  sellable(u, id) { if (CARDS[id] && CARDS[id].base) return 0; const have = u.collection[id] || 0; return Math.max(0, have - (Store.allCards(u) ? 0 : this.deckUse(u, id))); },
+  sellable(u, id) { if (CARDS[id] && (CARDS[id].base || (!shopTradable(id) && !this.isAdmin(u)))) return 0; const have = u.collection[id] || 0; return Math.max(0, have - (Store.allCards(u) ? 0 : this.deckUse(u, id))); },
   sellCard(u, id) {
-    u = u || this.user(); const c = CARDS[id];
+    u = u || this.user(); const c = isCardId(id) && CARDS[id];
     if (!u || !c) return { ok: false, msg: "없는 카드입니다." };
     if (c.base) return { ok: false, msg: "강화 카드는 팔 수 없습니다." };
+    if (!shopTradable(c) && !this.isAdmin(u)) return { ok: false, msg: `${GRADES[gradeOf(c)].name} 카드는 상점에서 팔 수 없습니다.` };   // v3.54 스페셜
     const have = u.collection[id] || 0;
     if (!have) return { ok: false, msg: "가지고 있지 않은 카드입니다." };
     if (!this.sellable(u, id)) return { ok: false, msg: `덱에 ${this.deckUse(u, id)}장이 들어 있어 팔 수 없습니다. 덱 조정실에서 빼고 파세요.` };
@@ -116,10 +125,10 @@ Object.assign(Store, {
     if (this.isAdmin(u)) this.save(); else this.addGold(u, price, "판매 " + c.name);
     return { ok: true, price: this.isAdmin(u) ? 0 : price, have: u.collection[id] || 0 };
   },
-  /* 보유 장수 (상점에서 산 장수). 관리자 · 손님은 덱에서는 모든 카드를 최대 장수만큼 쓸 수 있다 */
+  /* 보유 장수 (상점에서 산 장수). 관리자 · 필멸자는 덱에서는 모든 카드를 최대 장수만큼 쓸 수 있다 */
   shopOwned(u, id) { return Store.allCards(u) ? (u.collection[id] || 0) : this.ownedCount(u, id); },
   /* v3.0 상점 재고: 이 브라우저의 모든 계정이 같은 재고를 나눠 쓴다. 등급마다 처음 채우는 장수가 다르다(SHOP_STOCK) */
-  stockLeft(id) { const s = this.data.stock && this.data.stock[id]; return s == null ? this.shopMax(id) : s; },   // v3.37 최대 장수는 관리자가 정한 값(shopMax)
+  stockLeft(id) { const s = this.data.stock && this.data.stock[id]; return s == null ? this.shopMax(id) : Number.isFinite(+s) ? Math.max(0, +s) : 0; },   // v3.37 최대 장수는 관리자가 정한 값(shopMax)
   restock(ids) { if (!this.data.stock) return; if (ids) for (const id of ids) delete this.data.stock[id]; else this.data.stock = {}; this.save(); },
 
   /* ---------- v3.37 관리자 상점: 카드마다 상점에 내놓을지 · 언제까지 · 몇 장까지 (Store.data.shop) ----------
@@ -167,20 +176,33 @@ Object.assign(Store, {
    재료는 저장한 덱 · 덱 초안에 들지 않은 장수(Store.tradeable, 교역소와 같은 덱 보호)에서만 쓴다. 재료 3장은 사라지고 강화 카드 1장이 들어온다.
    서버로 열면 서버가 같은 함수로 처리한다(server.js OPS · net.js NET_SYNC_OPS). 강화 카드는 덱에 1장이라 1장보다 많이 가질 수 없다 */
 const UPGRADE_COST = 3;
+/* v3.54 순례의 인장: 강화(일반 3장 → 강화 카드)에 UPGRADE_SEALS개를 함께 쓴다. 순례 관문 승리 · 완주로 얻는다(PILGRIM.seal, js/pilgrim-rules.js).
+   u.seals는 서버만 바꾸는 칸(server.js PROTECTED · net.js NET_PROTECTED). 기기는 Store.addSeals로 늘리지 못한다(net.js가 막음 — 서버의 정산 rewards.js _settle이 준다) */
+const UPGRADE_SEALS = 3;
 Object.assign(Store, {
+  seals(u) { u = u || this.user(); const n = u && +u.seals; return Number.isFinite(n) && n > 0 ? Math.floor(n) : 0; },
+  addSeals(u, n, why) {
+    u = u || this.user(); n = Math.trunc(+n || 0); if (!u || !n) return this.seals(u);
+    u.seals = Math.max(0, this.seals(u) + n);
+    u.ledger = u.ledger || []; u.ledger.push({ at: Date.now(), n: 0, seals: n, why: why || "순례의 인장" });
+    this.save();
+    return u.seals;
+  },
   upgradeFree(u, baseId) { u = u || this.user(); if (!u) return 0; const have = (u.collection || {})[baseId] || 0; return typeof this.tradeable === "function" ? this.tradeable(u, baseId) : Math.max(0, have - this.deckUse(u, baseId)); },
   /* 업그레이드할 수 있나: { ok, msg, base, up, free } (화면이 단추를 켜고 끌 때도 쓴다) */
   upgradeCheck(u, upId) {
-    u = u || this.user(); const c = CARDS[upId];
+    u = u || this.user(); const c = isCardId(upId) && CARDS[upId];
     if (!u || !c || !c.base || !CARDS[c.base]) return { ok: false, msg: "업그레이드할 수 있는 카드가 아닙니다." };
+    if (c.retired || CARDS[c.base].retired) return { ok: false, msg: `「${c.name}」은 레거시 카드라 더는 만들 수 없습니다.` };   // v3.50 레거시(js/rebalance.js REBAL_LEGACY)
     const b = CARDS[c.base], free = this.upgradeFree(u, b.id), r = { base: b.id, up: c.id, free };
-    if (this.allCards(u)) return Object.assign(r, { ok: false, msg: "관리자 · 손님은 모든 카드를 이미 쓸 수 있습니다." });
+    if (this.allCards(u)) return Object.assign(r, { ok: false, msg: "관리자 · 필멸자는 모든 카드를 이미 쓸 수 있습니다." });
     if (!this.ownsGroup(u, c.group)) return Object.assign(r, { ok: false, msg: `${GROUPS[c.group].name} 깃발이 없습니다.` });
     if ((u.collection[c.id] || 0) >= maxCopiesOf(c)) return Object.assign(r, { ok: false, msg: `「${c.name}」은 이미 가지고 있습니다. (덱에 ${maxCopiesOf(c)}장)` });
     if (free < UPGRADE_COST) {
       const have = u.collection[b.id] || 0;
       return Object.assign(r, { ok: false, msg: `「${b.name}」 ${UPGRADE_COST}장이 필요합니다. (가진 ${have}장${have > free ? ` 가운데 덱 · 초안에 든 ${have - free}장은 쓸 수 없음` : ""})` });
     }
+    if (this.seals(u) < UPGRADE_SEALS) return Object.assign(r, { ok: false, seal: true, msg: `순례의 인장 ${UPGRADE_SEALS}개가 필요합니다. (가진 ${this.seals(u)}개 — 성로 순례의 관문을 이기면 얻습니다)` });   // v3.54
     return Object.assign(r, { ok: true });
   },
   upgradeCard(u, upId) {
@@ -190,8 +212,8 @@ Object.assign(Store, {
     if (left > 0) u.collection[r.base] = left; else delete u.collection[r.base];
     u.collection[r.up] = (u.collection[r.up] || 0) + 1;
     u.fresh = u.fresh || {}; u.fresh[r.up] = Date.now();
-    this.save();
-    return { ok: true, base: r.base, up: r.up, used: UPGRADE_COST };
+    this.addSeals(u, -UPGRADE_SEALS, "강화: " + CARDS[r.up].name);   // v3.54 (save 포함)
+    return { ok: true, base: r.base, up: r.up, used: UPGRADE_COST, seals: UPGRADE_SEALS };
   },
   /* v3.29 없앤 강화 카드(js/upgrades.js UPGRADE_RETIRED, 6레벨 결과 13장)를 가진 모험가에게 원래 카드 3장씩 돌려준다.
      저장한 덱 · 초안에 든 강화 카드는 원래 카드 1장으로 바꾼다(덱에 넣을 수 있는 장수 안에서, 넘으면 빠짐).
@@ -218,21 +240,29 @@ Object.assign(Store, {
     }
     return n;
   },
-  /* v3.29.1 게임에서 아주 뺀 카드(js/retired.js GONE_CARDS — 스페셜이 아닌 8레벨 35장): 가진 장수만큼 상점 값을 돌려주고(판매와 같은 값 · 경험치 아님)
-     저장한 덱 · 초안에서 빼며, 빈 자리는 GONE_SWAP의 같은 깃발 카드로 가진 만큼(관리자 · 손님은 모두 가진 셈) 채운다. 못 채우면 덱이 40장 아래로 남는다.
+  /* v3.29.1 게임에서 아주 뺀 카드(js/retired.js GONE_CARDS — v3.51부터 레거시 모두): 가진 장수만큼 상점 값을 돌려주고(판매와 같은 값 · 경험치 아님)
+     저장한 덱 · 초안에서 빼며, 빈 자리는 GONE_SWAP의 같은 깃발 카드로 가진 만큼(관리자 · 필멸자는 모두 가진 셈) 채운다. 못 채우면 덱이 40장 아래로 남는다.
      돌려준 카드 장수를 돌려준다 */
   refundGoneCards(u) {
     if (!u || typeof GONE_CARDS === "undefined") return 0;
+    const GONE = typeof goneIds === "function" ? goneIds() : GONE_CARDS;   // v3.51 레거시 모두
     let n = 0, gold = 0;
     const col = u.collection || {};
+    const kindOf = c => c.type === "unit" ? "unit" : c.type === "item" ? "item" : "spell";
+    /* 빈 자리 채울 차례: 8레벨 유닛은 GONE_SWAP, 나머지는 같은 깃발 · 같은 종류(유닛 · 마법 · 아이템) · 가까운 레벨의 레거시 아닌 카드 */
+    const swapOf = c => {
+      if (typeof GONE_SWAP !== "undefined" && c.lv >= 8 && GONE_SWAP[c.group]) return GONE_SWAP[c.group];
+      return CARD_LIST.filter(x => x.group === c.group && kindOf(x) === kindOf(c) && !x.retired && !x.base && !x.special && !x.unique)
+        .sort((a, b) => Math.abs(a.lv - c.lv) - Math.abs(b.lv - c.lv) || a.lv - b.lv).map(x => x.id);
+    };
     const fill = cards => {
       if (!cards) return;
-      for (const id in GONE_CARDS) {
+      for (const id in GONE) {
         const k = cards[id] || 0; if (!(id in cards)) continue;
         delete cards[id];
-        const c = CARDS[id], swap = (typeof GONE_SWAP !== "undefined" && c && GONE_SWAP[c.group]) || [];
+        const c = CARDS[id], swap = c ? swapOf(c) : [];
         for (let i = 0; i < k; i++) for (const r of swap) {
-          if (!CARDS[r]) continue;
+          if (!CARDS[r] || CARDS[r].retired) continue;
           const now = cards[r] || 0, have = this.allCards(u) ? maxCopiesOf(r) : Math.min(maxCopiesOf(r), col[r] || 0);
           if (now < have) { cards[r] = now + 1; break; }
         }
@@ -240,14 +270,14 @@ Object.assign(Store, {
     };
     for (const g in (u.decks || {})) fill(u.decks[g] && u.decks[g].cards);
     for (const g in (u.drafts || {})) fill(u.drafts[g] && u.drafts[g].cards);
-    for (const id in GONE_CARDS) {
+    for (const id in GONE) {
       if (u.fresh) delete u.fresh[id];
       const k = col[id] || 0; delete col[id];
       if (!k) continue;
       n += k;
       if (!this.allCards(u) && CARDS[id]) gold += shopPrice(CARDS[id]) * k;
     }
-    if (gold > 0) this.addGold(u, gold, `판매(게임에서 뺀 8레벨 카드 ${n}장)`);
+    if (gold > 0) this.addGold(u, gold, `판매(레거시 카드 ${n}장)`);
     return n;
   },
   refundAllRetiredUpgrades() {

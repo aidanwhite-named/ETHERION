@@ -84,6 +84,7 @@ const Pachinko = {
     const u = Store.user(); if (!u) return;
     const res = pachinkoRoll();
     u.spins = Math.max(0, (u.spins || 0) - 1); Store.save();
+    if (Store.questEvent && !(typeof Net !== "undefined" && Net.on)) Store.questEvent(u, { k: "wheel" });   // v3.46 임무 (서버 모드는 서버의 wheelSpin이 센다)
     this.spinning = true; this.holdMsg = false;
     this.el.classList.remove("armed", "hit-group", "hit-faction", "hit-card");
     this.el.classList.add("spinning");

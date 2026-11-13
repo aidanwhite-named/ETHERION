@@ -12,6 +12,7 @@ const PILGRIM = {
   fights: 12,          // 하루에 싸울 수 있는 판 수 (지는 판도 센다). 아홉 관문 + 다시 도전 3번
   first: 500,          // 그날 첫 승의 조각 — 뽑기에 거는 것도 이 조각
   done: 300,           // 아홉째(망각의 숲)를 이긴 완주 보너스
+  seal: { win: 1, done: 2 },   // v3.54 순례의 인장: 관문을 이길 때마다 1개, 완주(망각의 숲 승리, 하루 한 번) 2개 더. 강화에 3개(UPGRADE_SEALS, js/economy.js)
   battleRate: 0.01,    // 순례 판의 전투 정산 배수 (v3.28 1% = 온라인 대전과 같음. 컴퓨터와 대전 0.5% — js/economy.js ECON.rate)
   ai: "hard",
   scale: [1, 1, 1, 1, 1, 1, 1, 1],   // 관문마다 상대 덱 점수 = 내 덱 비율 × 이 값 (v3.35: 모두 100%, 예전 0.90 → 1.00)
@@ -63,7 +64,7 @@ Object.assign(Store, {
     day = String(day || "");
     if (!/^\d{4}-\d\d-\d\d$/.test(day)) return { ok: false, msg: "날짜가 올바르지 않습니다." };
     if (Array.isArray(okDays) && !okDays.includes(day)) return { ok: false, clock: true, msg: `이 기기의 날짜(${day})가 서버의 날짜(${okDays[0]})와 다릅니다. 기기 시계를 맞춰 주세요.` };
-    /* v3.40 서버(okDays가 있을 때): 로그인한 모험가는 서버가 다시 두어 확인한 그날의 순례 승리(u.pilSrv.days, js/rewards.js)가 있어야 한다. 손님은 예전처럼 */
+    /* v3.40 서버(okDays가 있을 때): 로그인한 모험가는 서버가 다시 두어 확인한 그날의 순례 승리(u.pilSrv.days, js/rewards.js)가 있어야 한다. 필멸자는 예전처럼 */
     if (Array.isArray(okDays) && !u.guest && !u.admin && !(u.pilSrv && Array.isArray(u.pilSrv.days) && u.pilSrv.days.includes(day))) return { ok: false, wait: true, msg: "서버가 아직 오늘의 순례 승리를 확인하지 못했습니다. 잠시 뒤 다시 눌러 주세요." };
     const c = u.pilClaim = u.pilClaim || { days: [] };
     if (!Array.isArray(c.days)) c.days = [];

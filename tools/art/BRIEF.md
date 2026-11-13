@@ -29,7 +29,7 @@ ETHERION is a browser card-battle game set on the continent of Kailan. Long ago 
 ## 3. What to paint
 
 ### 3.1 Card illustrations — 788 cards
-- One picture per card, saved as **`img/cards/<CARD_ID>.png`**, portrait **4:5** (800×1000).
+- One picture per card, portrait **4:5**. Generate at **at least 600×750** (larger is fine, e.g. 896×1200 or 1024×1280). Put the file in **`tools/art/inbox/`** (name it with the card ID, e.g. `B1-01.jpg`) and run `python3 tools/art/artmap.py import` — it center-crops to 4:5 and stores the game copy as **`img/cards/<CARD_ID>.jpg`, 600×750 JPG** (the fixed in-game size, v3.41), keeps your original in `inbox/_done/`, and updates the art index the game reads. Do not write into `img/cards/` directly.
 - Every card's prompt is ready in `tools/art/prompts/cards.jsonl` (one JSON per line: `id`, `out`, `size`, `prompt`) and, human-readable, in `tools/art/prompts/cards/<GROUP>.md`.
 - Composition: one main subject in the **middle 70%**; keep the **top 15%** (name) and **bottom 20%** (numbers) calm; edges get cropped.
 - Units: upper body to full body; power and grandeur grow with level 1→8. Spells: the moment the effect hits. Items: one object, centred, faded-gold light, no hands.

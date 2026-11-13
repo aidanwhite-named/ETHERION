@@ -82,6 +82,8 @@ Single bold symbol, centred, filling 80% of the square, isolated on a transparen
 
 ## 3. 단체 깃발 9개 — `img/ui/flags/<ID>.png` (가로 5:2, 예 1500×600, 투명)
 
+> **v3.47부터 이 절 대신 `tools/art/prompts/flags.md`를 쓴다**(단체 대표 문장 `img/ui/emblem/<ID>.png` + 문장 없는 명판 천 `img/ui/banner/<ID>.png`, 천 위에 아이디 · 전적 · 승률을 게임이 얹는다). 아래는 예전 기록으로 남긴다.
+
 전장 왼쪽 위 · 아래의 군기. 모양은 지금과 같게: **왼쪽 금 장대, 오른쪽 끝 제비꼬리(V자 홈), 가로로 펄럭이는 천.** 천의 **왼쪽 1/4에 단체 문장**을 수놓고, **나머지 3/4은 무늬 없는 천**으로 비운다(게임이 아이디 · 단체 이름 · 공격/방어를 그 위에 쓴다).
 
 공통 앞부분(각 프롬프트에 이미 들어 있음):

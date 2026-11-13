@@ -61,7 +61,13 @@ function mkPlayer(idx, cfg) {
   shuffleG(deck);
   const group = cfg.group || null;
   return { idx, name: cfg.name, group, faction: group ? GROUPS[group].faction : cfg.faction, isAI: !!cfg.isAI, ai: cfg.isAI ? (cfg.ai || "normal") : null, deck, hand: [], field: Array(RULES.slots).fill(null),
-    burn: [], crystals: [], life: RULES.startLife, made: 0, crysBank: 0, spent: 0, reload: 0, reloadNow: 0, bonus: 0, bonusNow: 0 };
+    burn: [], crystals: [], life: RULES.startLife, made: 0, crysBank: 0, spent: 0, reload: 0, reloadNow: 0, bonus: 0, bonusNow: 0, rec: recOf(cfg.rec) };
+}
+/* v3.47 깃발 명판의 전적 {w, l}: 화면에만 쓰는 값(판 결과 · 무작위와 상관없음). 이상한 값이면 없음 */
+function recOf(r) {
+  if (!r || typeof r !== "object") return null;
+  const w = Math.floor(+r.w), l = Math.floor(+r.l);
+  return w >= 0 && l >= 0 && w < 1e9 && l < 1e9 ? { w, l } : null;
 }
 
 /* ---------- 에테르 ---------- */
@@ -449,6 +455,7 @@ async function runCombat() {
     for (const id of q.gain || []) { p.hand.push(mkInst(id)); log(`${p.name}: [영혼 강탈] 「${CARDS[id].name}」을(를) 핸드에 넣었다`, "good"); }
     for (const id of q.deckTop || []) { p.deck.push(id); log(`${p.name}: [돌아오는 물결] 「${CARDS[id].name}」이(가) 덱 맨 위로 돌아갔다`, "good"); } });
   if (G.broken) for (const b of X.broken || []) G.broken.push(b.id);   // v3.40 서버 검산이 세는 부서진 카드
+  if (G.kills) for (const b of X.broken || []) if (b.how === "unit" && (b.p === 0 || b.p === 1)) G.kills[1 - b.p]++;   // v3.46 쓰러뜨린 상대 유닛 수 (퀘스트 · 업적)
   // 부서진 카드 → 가격의 2% (economy.js). 소각은 포함되지 않는다
   const gotGold = typeof econBreak === "function" ? econBreak(G, X.broken) : 0;
   if (gotGold) log(`부서진 카드 ${X.broken.length}장 · +${fmtGold(gotGold)}`, "sys");
@@ -648,7 +655,7 @@ function startMatch(cfg) {
     fx: { dying: [] }, viewer: 0, control: null, speed: cfg.speed != null ? cfg.speed : Prefs.get("speed", 1), winner: null, reason: "",
     onExit: cfg.onExit, cfg, players: null, ready: null, handoff: false, leave: {}, inspect: null, showLog: false,
     econ: typeof newEcon === "function" ? newEcon() : null, rules: cfg.rules || {},
-    vlog: cfg.verify && !cfg.replay ? [] : null, broken: []   // v3.40 검산 기록 · 부서진 카드(서버 검산이 센다)
+    vlog: (cfg.verify || cfg.keepLog) && !cfg.replay ? [] : null, broken: [], kills: [0, 0]   // v3.40 검산 기록 · 부서진 카드(서버 검산이 센다) · v3.46 keepLog: 다시보기 기록 · kills: 쓰러뜨린 유닛
   };
   setCombatRules(G.rules);
   if (G.online) G.viewer = G.me;
@@ -658,11 +665,15 @@ function startMatch(cfg) {
   const gname = p => (p.group ? GROUPS[p.group].name : FACTIONS[p.faction].name);
   log(`${G.players[0].name}(${gname(G.players[0])}) vs ${G.players[1].name}(${gname(G.players[1])})`, "sys");
   log(`선공: ${G.players[G.attacker].name} (무작위)`, "sys");
-  if (!cfg.headless && typeof Weather !== "undefined") { Weather.roll(); log(`날씨: ${Weather.info().name} — ${Weather.info().line}`, "sys"); }
   if (G.rules.text) log(`판 규칙 · ${G.rules.name}: ${G.rules.text}`, "turn");
   log(`── 라운드 1 · 턴 1 · ${G.players[G.attacker].name}의 공격 ──`, "turn");
   G.phase = "atkPrep";
   if (cfg.headless) return G;
+  // v3.47 깃발 명판 전적: 이 기기 모험가 쪽은 판을 시작할 때의 전적(온라인 상대는 상대가 보낸 값 — js/online.js)
+  try {
+    const u = typeof Store !== "undefined" && Store.user ? Store.user() : null;
+    if (u && u.stats) for (const p of G.players) if (!p.rec && !p.isAI && !isRemote(p) && (G.online ? p.idx === G.me : p.name === u.id)) p.rec = recOf(u.stats);
+  } catch (e) { /* 전적은 꾸밈이라 없어도 판은 그대로 */ }
   // v3.7.2 첫 손패를 보여 주며 뽑는다: 잠깐 빈 손(카드는 덱에)으로 그린 뒤 loop가 되돌려 덱에서 한 장씩 날아오게 한다
   const deal = G.speed !== 0 && !RM() ? G.players.map(p => { const k = { hand: p.hand, deck: p.deck }; p.deck = p.deck.concat(p.hand.map(it => it.id)); p.hand = []; return k; }) : null;
   mountBoard();
@@ -721,6 +732,7 @@ async function loop(myG, deal) {
     else for (const p of G.players) {
       if (G !== myG) return;
       if (p.isAI) { aiMulligan(p); continue; }
+      if (G.cfg.replay) { replayMull(p); render(); continue; }   // v3.46 다시보기: 멀리건도 기록대로
       if (G.mode === "hotseat" && G.players.indexOf(p) === 1) await modal(`<h3>${esc(p.name)}의 시작 핸드</h3><p>${esc(p.name)}이(가) 화면을 볼 차례입니다.</p>`, [{ label: "보기", value: 1, cls: "primary" }], { dismiss: false });
       G.viewer = p.idx; render();
       await mulliganUI(p);
@@ -737,7 +749,7 @@ async function loop(myG, deal) {
       const p = G.players[prepIdx()];
       if (p.isAI) { G.control = null; await (p.ai === "hard" ? aiPrepHard(p) : aiPrep(p)); }
       else if (isRemote(p)) await Online.remotePrep(p);   // v3.10 상대 기기에서 온 수를 차례로 둔다
-      else if (G.cfg.replay) replayPrep(p);   // v3.40 서버 검산: 기록한 수를 그대로 둔다
+      else if (G.cfg.replay) { if (G.cfg.replayView && !G.cfg.headless) await replayPrepView(p); else replayPrep(p); }   // v3.40 서버 검산: 기록한 수를 그대로 둔다 · v3.46 다시보기는 천천히
       else { await humanPrep(p); if (G === myG && G.online && G.phase !== "over") Online.send({ t: "ready" }); vrec({ t: "ready" }); }
       if (G !== myG || G.phase === "over") break;
       settleUpkeep(p);
@@ -836,6 +848,22 @@ function replayPrep(p) {
     if (e.t === "act" && REPLAY_ACTS[e.fn] && Array.isArray(e.a)) REPLAY_ACTS[e.fn](p, ...e.a.slice(0, 3));
   }
 }
+/* v3.46 다시보기 끝: 기록과 같게 흘렀는지 알려 주고 퀘스트로 */
+async function replayResult() {
+  const myG = G, x = G.cfg.expect || {}, won = G.winner === 0, same = x.won == null || (x.won === won && x.turn === G.turn);
+  await modal(`<h3>다시보기 끝</h3><p>${won ? "이긴 판" : "진 판"} · ${G.turn}턴</p>${same ? "" : '<p class="muted small">게임이 바뀌어(카드 · 규칙 고침) 기록과 다르게 흘렀습니다.</p>'}`, [{ label: "퀘스트로", value: 1, cls: "primary" }], { dismiss: false });
+  if (G === myG) exitMatch();
+}
+/* v3.46 다시보기: 기록한 수를 하나씩, 사이를 두고 보여 준다 */
+async function replayPrepView(p) {
+  const L = G.cfg.replay, myG = G;
+  await T(400);
+  while (L.length && G === myG) {
+    const e = L.shift(); if (!e) continue;
+    if (e.t === "ready") { await T(350); return; }
+    if (e.t === "act" && REPLAY_ACTS[e.fn] && Array.isArray(e.a)) { REPLAY_ACTS[e.fn](p, ...e.a.slice(0, 3)); render(); await T(700); }
+  }
+}
 function replayCoins(rec, X, run, over) {
   const done = new Set();
   for (const e of G.cfg.replayAll || []) {
@@ -920,7 +948,7 @@ const SHRINE_SVG = `<svg class="shrine" viewBox="-16 -26 132 174" aria-hidden="t
          v3.19.8 그림: 720px 중 구멍 296px → size 253. 결정 · 정수는 반지름 65 둘레(룬 고리 위).
          파일이 있으면 저절로 쓰고, 없으면 그림 없이 구슬 · 결정 · 금빛 고리만 보인다.
    코드: 가운데 구슬과 숫자, 결정 9칸, 위대한 정수 1칸. 자리는 아래 ETHER_SLOTS 표 하나 — 새 그림에 맞춰 옮길 때는 이 표만 고친다. */
-const ETHER_ART = { size: 253, back: "img/ui/ether/ether_back.png?v=4", front: "img/ui/ether/ether_front.png", has: { back: false, front: false } };
+const ETHER_ART = { size: 287, back: "img/ui/ether/ether_back.png?v=5",   /* v3.42 새 그림(1024px 중 구멍 372px → 287, 룬 고리 반지름 52~66 · 결정은 58.8 둘레) */ front: "img/ui/ether/ether_front.png", has: { back: false, front: false } };
 (function probeEtherArt() {
   for (const k of ["back", "front"]) {
     const im = new Image();
@@ -930,10 +958,10 @@ const ETHER_ART = { size: 253, back: "img/ui/ether/ether_back.png?v=4", front: "
 })();
 /* [x, y, 돌림(도)] — viewBox 0..200, 구슬 가운데 (100, 100) 반지름 50. 돌림 0 = 뾰족한 끝이 위.
    0번 = 위대한 정수(금 마름모), 1~9번 = 결정(차례대로 채워진다). 반지름 65 둘레, 12시에 정수, 시계 방향 36도씩 */
-const ETHER_SLOTS = [
-  [100, 35, 0],
-  [138.2, 47.4, 36], [161.8, 79.9, 72], [161.8, 120.1, 108], [138.2, 152.6, 144], [100, 165, 180],
-  [61.8, 152.6, 216], [38.2, 120.1, 252], [38.2, 79.9, 288], [61.8, 47.4, 324]
+const ETHER_SLOTS = [   // v3.42 반지름 58.8 둘레 (새 그림의 룬 고리 가운데). 예전 그림(v3.19.8)은 65
+  [100, 41.2, 0],
+  [134.5, 52.5, 36], [155.9, 81.8, 72], [155.9, 118.2, 108], [134.5, 147.5, 144], [100, 158.8, 180],
+  [65.5, 147.5, 216], [44.1, 118.2, 252], [44.1, 81.8, 288], [65.5, 52.5, 324]
 ];
 function etherAltarSVG(idx, slots) {
   const id = "et" + idx, S = ETHER_SLOTS, art = ETHER_ART.has.back || ETHER_ART.has.front;
@@ -1378,7 +1406,7 @@ function coinClash(info) {
     if (!layer || G.speed === 0) { res([]); return; }
     const k = kSpeed();
     const A = G.reg[info.a], D = G.reg[info.d];
-    const human = pi => { const p = G.players[pi]; return !!p && !p.isAI && (G.online ? p.idx === G.me : G.mode !== "ai" || p.idx === 0); };
+    const human = pi => { const p = G.players[pi]; return !G.cfg.replayView && !!p && !p.isAI && (G.online ? p.idx === G.me : G.mode !== "ai" || p.idx === 0); };   // v3.46 다시보기는 누를 사람이 없다
     const sides = [{ who: "a", u: A, coins: info.coinsA, p: info.pa }, { who: "d", u: D, coins: info.coinsD, p: info.pd }];
     // v1.6.1: 공·방·체 코인 중 같은 동전에 묶인 것은 동전 하나로 보인다 (engine.js coinGroups)
     sides.forEach(sd => { sd.human = human(sd.p); sd.stopped = false; sd.landed = false; sd.groups = coinGroups(sd.coins); });
@@ -1539,7 +1567,7 @@ function coinClash(info) {
         /* v3.12.5 손해 본 동전만 다시 굴린다: + 동전은 뒷면, − 동전(공·방·체 합이 −)은 앞면이 손해 (심연 마족의 − 코인 등).
            v2.4.4 확률 0% · 100%인 동전은 다시 던져도 같은 면이라 빼다 */
         const tails = sd.groups.map((o, i) => (coinBad(o) && o.p > 0 && o.p < 1 ? i : -1)).filter(i => i >= 0);
-        if (!tails.length || !canReflip(sd.p) || (noFlip && sd.human)) {
+        if (G.cfg.replayView || !tails.length || !canReflip(sd.p) || (noFlip && sd.human)) {   // v3.46 다시보기: 다시 던지기는 기록대로 이미 들어가 있다
           if (sd.human && ctl) ctl.innerHTML = "";
           if (G.online && sd.human && tails.length && canReflip(sd.p)) Online.send({ t: "coin", k: ckey(sd), flip: null });   // 건너뛰기도 알린다
           continue;
@@ -1948,7 +1976,7 @@ const CrysHint = {
     if (!this.el || !this.el.isConnected) {
       this.hide();
       const g = document.createElement("div"); g.className = "crys-ghost"; g.setAttribute("aria-hidden", "true");
-      g.innerHTML = `<i class="ch-ring"></i><span class="ch-x"><span class="ch-y"><img class="ch-card" src="img/ui/deck/card_back.png?v=2" alt="" draggable="false"></span></span>`;
+      g.innerHTML = `<i class="ch-ring"></i><span class="ch-x"><span class="ch-y"><img class="ch-card" src="img/ui/deck/card_back.png?v=3" alt="" draggable="false"></span></span>`;
       layer.appendChild(g); this.el = g;
     }
     const s = this.el.style, ox = o.left + o.width / 2, oy = o.top + o.height / 2;
@@ -1961,19 +1989,35 @@ const CrysHint = {
 };
 if (typeof addEventListener === "function") addEventListener("resize", () => CrysHint.place());
 
-/* 명판: 아이디(온라인 대전에서 상대 아이디가 들어갈 자리)·단체·역할. 에테르 왼쪽에 놓인다 */
+/* v3.47 깃발 그림 자리: 그림 파일이 들어오면 여기 경로만 채운다. {id} = 단체 ID(A1 … G3). 프롬프트 tools/art/prompts/flags.md
+   emblem = 단체 대표 문장(정사각, 투명) — 명판의 문장 방패 자리에 코드 방패 대신 들어간다
+   plate  = 명판 천(가로 4:1, 투명) — 코드로 그린 천 · 장대 대신 바탕에 깔린다. 아이디 · 전적은 그 위에 글자로
+   v3.48.1 받은 그림만 쓴다 — has에 적힌 깃발만 그림, 나머지는 지금처럼 코드 그림. 새 그림을 받으면 파일을 넣고(문장 320×320 · 천 1200×300 PNG, 원본은 tools/art/out/raw/ui/) has에 ID를 더한다 */
+const FLAG_ART = { emblem: "img/ui/emblem/{id}.png?v=1", plate: "img/ui/banner/{id}.png?v=1",
+  has: { emblem: ["A1", "A2", "A3", "B1", "B2", "B3", "G1", "G2", "G3"], plate: ["B1", "B2", "B3", "G1", "G3"] } };
+const flagArt = (k, g) => (FLAG_ART[k] && g && FLAG_ART.has[k].includes(g) ? FLAG_ART[k].replace("{id}", g) : "");
+/* 명판 둘째 줄: 사람은 "12승 8패 · 승률 60%", 컴퓨터는 단체 이름 · 컴퓨터 */
+function npRecHTML(p, gr) {
+  const R = !p.isAI && p.rec;
+  if (!R) return `<small class="np-sub">${gr ? gr.name : FACTIONS[p.faction].name}${p.isAI ? (p.ai === "hard" ? " · 컴퓨터 (어려움)" : " · 컴퓨터") : ""}</small>`;
+  const n = R.w + R.l, rate = n ? Math.round(R.w / n * 100) : null, num = x => x.toLocaleString("ko-KR");
+  return `<small class="np-sub np-rec" data-tip="${esc(`전적 ${num(R.w)}승 ${num(R.l)}패 · 승률 ${rate == null ? "— (아직 대전 기록 없음)" : rate + "%"}\n이 판을 시작할 때의 기록입니다.`)}"><span class="nr-wl"><em class="nr-w">${num(R.w)}</em>승 <em class="nr-l">${num(R.l)}</em>패</span><i aria-hidden="true"></i><span class="nr-rate">승률 <em>${rate == null ? "—" : rate + "%"}</em></span></small>`;
+}
+/* 명판: 아이디(온라인 대전에서 상대 아이디가 들어갈 자리) · 전적과 승률 · 역할. 에테르 왼쪽에 놓인다 */
 function nameplateHTML(p) {
   const gr = p.group ? GROUPS[p.group] : null, isAtk = p.idx === G.attacker;
   // 군기(軍旗): 장대에 걸린 단체의 깃발과 문장 방패. v3.7.9부터 내 깃발도 상대처럼 가로로 펄럭인다(긴 아이디가 한 줄에 다 보이게)
   const mine = p.idx === G.viewer;
   const cloth = "M4 6H96L86 50 96 94H4Z", trim = "M8.5 12H88L80 50 88 88H8.5Z", rod = "M2 0V100";
   // 아이디가 깃발 글자 칸보다 길면 render 끝에서 fitNameIds가 글씨만 줄인다(말줄임 없이 다 보이게)
-  const emb = gr ? `<span class="np-shield" data-tip="${esc(`${gr.name} · ${gr.role}\n${gr.motto}`)}"><svg class="np-sh" viewBox="0 0 64 72" aria-hidden="true"><path d="M32 3 59 12v22c0 17-11 29-27 35C16 63 5 51 5 34V12z"/></svg>${glyphSVG(gr.glyph)}</span>` : "";
-  return `<div class="nameplate banner bn-h ${mine ? "bn-me" : "bn-foe"} fac-${p.faction}${p.isAI ? " ai" : ""}" id="np${p.idx}" style="${gr ? `--gc:${gr.color}` : ""}">
+  // v3.47 그림이 있으면(FLAG_ART) 문장 = 그림, 천 = 그림. 없으면 지금처럼 코드 방패 + 임시 문양(glyphSVG)과 코드 천
+  const embArt = gr && flagArt("emblem", p.group), plateArt = gr && flagArt("plate", p.group);
+  const emb = gr ? `<span class="np-shield${embArt ? " has-art" : ""}" data-tip="${esc(`${gr.name} · ${gr.role}\n${gr.motto}`)}">${embArt ? `<img class="np-emb" src="${esc(embArt)}" alt="" draggable="false">` : `<svg class="np-sh" viewBox="0 0 64 72" aria-hidden="true"><path d="M32 3 59 12v22c0 17-11 29-27 35C16 63 5 51 5 34V12z"/></svg>${glyphSVG(gr.glyph)}`}</span>` : "";
+  return `<div class="nameplate banner bn-h ${mine ? "bn-me" : "bn-foe"} fac-${p.faction}${p.isAI ? " ai" : ""}${plateArt ? " has-plate" : ""}" id="np${p.idx}" style="${gr ? `--gc:${gr.color};` : ""}${plateArt ? `--plate:url('${esc(new URL(plateArt, location.href).href)}')` : ""}">
       <svg class="np-frame" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="np-cloth" d="${cloth}"/><path class="np-trim" d="${trim}"/><path class="np-rod" d="${rod}"/></svg>
       ${emb}<div class="np-meta">
         <b class="np-id">${esc(p.name)}</b>
-        <small class="np-sub">${gr ? gr.name : FACTIONS[p.faction].name}${p.isAI ? (p.ai === "hard" ? " · 컴퓨터 (어려움)" : " · 컴퓨터") : ""}</small>
+        ${npRecHTML(p, gr)}
         <span class="pi-role ${isAtk ? "r-atk" : "r-def"}">${isAtk ? "공격" : "방어"}</span>
       </div></div>`;
 }
@@ -3647,6 +3691,7 @@ function showRules() {
 }
 
 function showResult() {
+  if (G.cfg.replayView) return replayResult();   // v3.46 다시보기: 보상 · 정산 없이 끝
   if (typeof BLog !== "undefined") BLog.end(G);   // v3.20.1 전투 로그: 판 끝 상태 · 결과
   const w = G.players[G.winner];
   const won = G.mode === "ai" ? G.winner === 0 : G.online ? G.winner === G.me : true;

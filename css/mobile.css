@@ -300,3 +300,10 @@ html.appui:not(.mobile) .lay-swap .pv-bot .pl { column-gap: 12px; }
 html.appui:not(.mobile) .lay-swap .pv-bot .hgem { width: clamp(40px, calc(var(--cw) * .42), 84px); }
 html.appui:not(.mobile) .lay-swap .pv-bot .pl-num { font-size: clamp(36px, calc(var(--cw) * .4), 80px); }
 html.appui:not(.mobile) .lay-swap .pv-bot .pl-val small { font-size: clamp(13px, calc(var(--cw) * .1), 20px); }
+
+/* v3.45 폰 · 앱: 흐림 유리(backdrop-filter blur)를 뺀다. 뒤 화면을 매번 다시 흐리게 칠해야 해서 폰(특히 안드로이드)에서 무겁다.
+   대신 바탕을 조금 더 어둡게 해 글자가 묻히지 않게. PC는 그대로 */
+html.mobile .gate, html.mobile .topbar, html.mobile .modal-wrap, html.mobile .result, html.mobile .focus, html.mobile .snd-ctl { -webkit-backdrop-filter: none; backdrop-filter: none; }
+html.mobile .topbar { background: rgba(9, 10, 17, .97); }
+html.mobile .modal-wrap { background: rgba(3, 4, 8, .84); }
+html.mobile .result { background: rgba(4, 4, 8, .9); }

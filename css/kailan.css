@@ -145,3 +145,14 @@
   .kl-close span, .kl-close kbd { display: none; }
   .kl-eyebrow { font-size: 9.5px; letter-spacing: .22em; }
 }
+
+/* v3.43 지도 | 그림 지도 */
+.kl-mapbox { position: relative; }
+.kl-view { position: absolute; left: 12px; top: 12px; z-index: 5; display: flex; gap: 4px; padding: 3px; border: 1px solid rgba(217, 180, 106, .45); border-radius: 6px; background: rgba(8, 10, 18, .82); }
+.kl-view button { appearance: none; border: 0; background: none; color: #b9b2a0; font: inherit; font-size: 13px; padding: 5px 12px; border-radius: 4px; cursor: pointer; }
+.kl-view button[aria-selected="true"] { background: linear-gradient(180deg, #e6c47c, #b48a3c); color: #1c1407; font-weight: 700; }
+.kl-pic { position: absolute; inset: 0; z-index: 4; overflow: hidden; display: grid; place-items: center; background: #05070d; cursor: grab; touch-action: none; }
+.kl-pic.drag { cursor: grabbing; }
+.kl-pic[hidden] { display: none; }   /* v3.48.1 위 display: grid가 hidden을 이겨 '지도' 보기에서도 그림 지도가 덮던 것 */
+.kl-pic img { max-width: 100%; max-height: 100%; object-fit: contain; transform-origin: center; user-select: none; -webkit-user-drag: none; }
+.kl-mapbox.pic-on .kl-zoom, .kl-mapbox.pic-on .kl-hint { visibility: hidden; }

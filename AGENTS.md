@@ -9,7 +9,7 @@
 - 색, 글꼴, 문양, 지도 기호, 일러스트 구도와 프롬프트 틀이 모두 거기 있다.
 - 코드와 가이드가 다르면 코드를 따르고, 가이드를 고친다.
 - 새 그림 규칙을 정하면 가이드에 적고 버전을 올린다.
-- 카드 일러스트는 `img/cards/<카드ID>.png` 로 넣는다 (카드 ID는 `js/data.js`의 `id`).
+- 카드 일러스트는 `tools/art/inbox/`에 넣고 `python3 tools/art/artmap.py import` — `img/cards/<카드ID>.jpg`(600×750)로 들어가고 목록 `img/cards/art_index.js`가 새로 쓰인다(v3.41, 게임은 이 목록으로만 그림을 찾는다. 손으로 넣었으면 `artmap.py index`). 큰 배경을 바꾸면 폰용 작은 판(`*_m`)도 함께.
 - **카드 일러스트 프롬프트는 등급별**(v3.31): 규칙서 `tools/art/PROMPT_GUIDE.md`, 문구 원본 `tools/art/art_style.json`(등급 · 레벨 · 깃발), 카드별 지시 `tools/art/art_notes.json`. 새 카드를 만들면 `node tools/art/build_prompts.js` → `python tools/art/artmap.py`. **스페셜 · 유니크는 `art_notes.json`에 그림 지시를 함께 쓴다.** 받은 그림은 `tools/art/inbox/`에 넣고 `python tools/art/artmap.py import`(장부 `art_map.csv` · 보드 `art_board.html`). 스타일 가이드 6.8.
 - 이미지 생성 AI로 그릴 때는 `tools/art/`(사용법 `README.md`, 그림 AI용 지시서 `BRIEF.md`, 프롬프트 `prompts/`, 일괄 생성 `gen.py`). 스타일 가이드 6.7.
 
@@ -45,7 +45,7 @@
 ## 카드 이름과 세계관
 - 세 진영의 힘의 근원(거인·용·신)과 거인 일곱은 `docs/WORLD.md`에 있다. 카드 이름을 짓거나 고칠 때 따른다.
 - **카드 이름·설명 고침은 `js/names.js`에 카드 ID로 적는다.** `js/data.js`는 균형 도구가 옛 백업에서 다시 써서 직접 고친 이름이 사라진다.
-- **카드를 게임에서 뺄 때는 `js/retired.js`에 카드 ID로 적는다**(v3.20.7, 같은 까닭으로 `data.js`에서 지우지 않음). 모험가의 보유 · 덱에서도 빼야 하면(v3.29.1 8레벨 35장처럼) 이유를 `8레벨은 스페셜만…`처럼 `GONE_CARDS`가 고르는 문구로 적거나 `GONE_CARDS`에 넣는다 — `Store.refundGoneCards`가 상점 값을 돌려주고 덱 자리를 `GONE_SWAP`으로 채운다. **8레벨은 스페셜만**(v3.29.1). 주 스탯 10 초과는 괜찮다(상한 권장 공 13 · 체 14, `docs/BALANCE_v4_draft.md` 2장). 새 일반 카드는 같은 깃발 · 같은 레벨 카드와 이름 · 역할이 겹치지 않는지, 깃발의 강점 · 원소(`docs/WORLD.md` 6장)에 맞는지 먼저 본다. 뺀 까닭은 `docs/RETIRED_v3.20.7.md`.
+- **카드를 게임에서 뺄 때는 `js/retired.js`에 카드 ID로 적는다**(= 레거시. v3.51부터 레거시는 어떤 덱에도 못 쓴다 — `deckable`이 막고, 가진 모험가는 `Store.refundGoneCards`로 상점 값을 돌려받고 덱 자리는 같은 깃발 · 같은 종류 카드로 채워짐. 기본 · 정예 덱에 레거시가 남지 않게 함께 바꾼다)(v3.20.7, 같은 까닭으로 `data.js`에서 지우지 않음). 모험가의 보유 · 덱에서도 빼야 하면(v3.29.1 8레벨 35장처럼) 이유를 `8레벨은 스페셜만…`처럼 `GONE_CARDS`가 고르는 문구로 적거나 `GONE_CARDS`에 넣는다 — `Store.refundGoneCards`가 상점 값을 돌려주고 덱 자리를 `GONE_SWAP`으로 채운다. **8레벨은 스페셜만**(v3.29.1). 주 스탯 10 초과는 괜찮다(상한 권장 공 13 · 체 14, `docs/BALANCE_v4_draft.md` 2장). 새 일반 카드는 같은 깃발 · 같은 레벨 카드와 이름 · 역할이 겹치지 않는지, 깃발의 강점 · 원소(`docs/WORLD.md` 6장)에 맞는지 먼저 본다. 뺀 까닭은 `docs/RETIRED_v3.20.7.md`.
 - 마법 카드의 핸드용 짧은 문구는 `js/briefs.js`(`SPELL_BRIEF`)에 카드 ID로 적는다. 마법 글(`text`)을 고치거나 새 마법을 만들면 짧은 문구도 함께 쓴다(적는 법은 파일 맨 위).
 - 이름 짓기 원칙(새 고유명사는 천천히, 마법 이름 6글자 이하, 익숙한 마법은 그대로)은 `docs/WORLD.md` 7장.
 
@@ -54,6 +54,10 @@
 - 화면은 `TradeAPI`만 부른다(Promise). 거래가 보유 카드 · 지갑을 고치는 곳은 `Store.escrowTake` · `escrowGive`뿐 — 다른 곳에서 `u.collection`을 직접 고쳐 거래를 흉내 내지 않는다. 서버로 옮길 때는 `TradeAPI.backend`만 바꾼다(`docs/TRADE_API.md`).
 - 덱 보호: 거래에 걸 수 있는 장수는 `Store.tradeable`(보유 − 저장한 덱 · 초안). 새로 카드가 빠지는 기능을 만들면 같은 함수를 쓴다.
 - 거래로 오가는 조각의 장부 이유는 "거래…"로 시작한다(경험치에서 빠짐, `js/level.js` `noXp`).
+
+## 룰북 (v3.55)
+- 게임의 짜임(상점 · 합성 · 파친코 · 순례 · 보상 · 계정 …) 설명은 `js/rulebook.js`(대기실 명판 「룰북」). 글은 맨 아래 `RULEBOOK`, **숫자는 글에 쓰지 않고** `{값 이름}` → `RB_VALUES`(게임 상수에서 읽음), 여러 줄 표는 `RB_TABLES`. 매뉴얼은 대전 규칙 · 카드 읽기 쪽만.
+- 상수 이름을 바꾸거나 새 규칙(재화 · 보상 · 확률)을 만들면 룰북 값 · 글도 함께 보고 `node tools/rulebook_check.js`를 돌린다.
 
 ## 서버 검산 (v3.40)
 - 로그인한 모험가의 컴퓨터와 대전 · 순례는 서버가 판을 다시 둬서 확인한다(`server/replay.js` · `js/rewards.js` matchEnd/matchSettle). 그래서 **판 결과를 바꾸는 무작위는 GRand(또는 엔진 RNG)만** — 컴퓨터의 생각 · 코인 다시 던지기(`reflipRand`)까지. 사람이 둘 수 있는 새 행동을 만들면 `REPLAY_ACTS`(game.js 화면 절 앞) 목록에도 넣는다(온라인 `ACT_FNS`와 같이).
@@ -71,7 +75,19 @@
 - 사용자가 "로그를 봐 달라"고 하면 고른 폴더(예: `logs/`)의 `ETHERION_전투_*.txt`를 읽는다. 게임 버전을 올리면 `BLOG_VER`도 고친다.
 - 서버로 옮길 때 바꿀 곳은 `docs/SERVER_PLAN.md`.
 
+## 퀘스트 (v3.46, 화면 이름은 v3.47.1에 '모험 수첩' → '퀘스트')
+- 규칙 · 수치는 `js/quests.js`(게임과 서버 EXTRA가 같이 읽음): 일일 · 주간 퀘스트 `QUEST_DAILY` · `QUEST_WEEKLY`, 별 자리 · 등급 · 도감 `QUEST`, 업적 `ACHIEVEMENTS`, 칭호 `TITLES`(이름은 웅장하게 — 흔한 말(수집가 · 노장 따위) 대신, 칭호 id는 바꾸지 않는다). 새 퀘스트 · 업적은 한 줄씩. 화면은 `js/journal.js` · `css/journal.css`.
+- 진행은 서버가 확인한 판만 센다(`rewards.js` `_settle` → `Store.questMatch`, 로컬은 `screens.js` `onMatchEnd`). 판 밖의 일(강화 · 수레바퀴 · 순례 첫 승)은 quests.js 끝의 감싸기. 새로 셀 일을 만들면 `Store.questEvent`로 보낸다.
+- 퀘스트 칸(`quests` · `ach` · `titles` · `title` · `book` · `rank`)은 서버만 바꾼다. 새 받기 함수는 `server.js` OPS · `net.js` NET_SYNC_OPS에 이름을 넣는다.
+- 다시보기(`js/replays.js`)는 `cfg.keepLog`(사람 쪽 수 기록) + `cfg.replay` · `cfg.replayView`. 사람이 둘 수 있는 새 행동은 `REPLAY_ACTS`에 넣어야 다시보기 · 검산 모두 맞는다.
+- 덱 코드는 `js/deckcode.js`(카드 ID를 그대로 써서 카드가 더해져도 예전 코드가 읽힘).
+- 친구 초대 체험 덱(v3.48): 규칙은 `js/quests.js` 끝 절(`TRIAL.days` · `Store.inviteApply`는 서버 등록만 부름), 화면은 `js/deckcode.js`(초대 링크 · 대기실 띠). 내 덱을 쓰는 새 대전 방식을 만들면 체험 덱을 받을지 정하고, 받으면 `matchStart`에 `trial`을 넘기고 서버 덱 검사(`rewards.js` `_checkDecks` · `_pairEnd`)를 함께 본다.
+- **폰 가볍게**: CSS를 고친 뒤 `node tools/mobile_lite.js`로 `css/mobile-lite.css`를 다시 만든다(손으로 고치지 않음). 폰에서 끝없이 도는 효과는 transform · opacity만, 큰 그림자 · 흐림 · 캔버스 효과는 `html.mobile`에서 끈다.
+- 강화 카드 그림은 원래 카드 그림을 먼저 받고 그 그림을 붙여 그린다(프롬프트의 "Continuity" 줄).
+
 ## 서버 (v3.22)
+- **v3.45 가볍게**: 3D 세 존재(`js/titans.js`)는 PC · 폰 모두 끄고(index.html에서 뺌), 메뉴 화면은 그림 한 장(`#menu-art`, `js/screens.js` `MENU_ART` — 지금은 타이틀 그림, 프롬프트 `tools/art/prompts/scenes.md`). 폰 · 앱(`html.mobile`)은 별 배경 절반 · 1초 30장(`Bg.lite`), 흐림 유리 빼기(`css/mobile.css` 끝). 새로 1초에 여러 번 그리는 효과를 넣으면 `html.mobile`에서 줄이거나 멈추는 길을 함께 둔다. 날씨(`js/weather.js`)는 들어냈다.
+- **v3.44 악용 막기**: 서버가 받는 값은 믿지 않는다 — 카드 장수는 `cleanCount` · `cleanCards`, 카드 ID는 `isCardId`(js/store.js)로 다듬고 새 Store 함수도 같은 것을 쓴다. 실시간 거래는 서버가 양쪽 보고를 맞춰 한 번에 바꾼다(`TradeLocal.livePair`). 온라인 대전 보상은 두 사람의 판 끝 보고가 맞물려야(`Store._pairEnd`), 원정도 서버 검산. 경험치 · 전적(`xp` · `stats`)은 서버만 바꾼다. 로그인 · 등록 · 손님은 횟수 제한(server.js `LIMITS`), 새 모험가는 24시간 · 3판 뒤에 거래(`TRADE.newHours` · `newMatches`).
 - **v3.39 보상은 서버가 정한다**(`js/rewards.js`): 서버 모드에서 기기는 조각 · 카드를 직접 늘리지 않는다(net.js가 `Store.addGold` · `grantCard`를 막음, 서버도 관리자 말고는 거절). 새 보상을 만들면 `rewards.js`에 서버 작업으로 넣고 `server.js` OPS · `net.js` NET_SYNC_OPS에 이름을 더한다. 로컬(파일) 모드는 예전 그대로.
 - v3.37 맥미니 운영: `ETHERION 서버 (맥).command`(게임 서버 + ETHERION 전용 Tailscale `etherion` + Funnel → https://etherion.tail2be349.ts.net). PC 앱이 붙는 주소는 `tools/desktop/server.txt`. 관리자 상점 규칙은 `js/economy.js` `shopCfg` 이하(새 카드는 관리자가 공개해야 상점에 나옴), 화면은 `js/shop.js` 맨 아래.
 - 서버는 `server/server.js`(Node 기본 기능만, npm 꾸러미 없음), 게임 쪽 연결은 `js/net.js`, 설명과 규칙은 **`docs/SERVER.md`**. `ETHERION 서버.bat`으로 켜면 `http://localhost:8787`에서 온라인 모드, 파일로 열면 예전처럼 로컬.
@@ -86,7 +102,7 @@
 - 마법이 스탯을 직접 바꾸면 `addStat` · `setStats`(engine.js)를 쓴다 — 표시를 지키고, 체력 0이면 쓰러뜨리고, 실제 바뀐 값을 띄운다. 새 카드는 `js/pincards.js`.
 
 ## 카드 등급
-- 등급(일반·고급·레어·에픽·유니크·스페셜)과 카드별 등급은 `js/grades.js`, 나눈 방법과 새 카드 기준은 `docs/GRADES.md`. **v3.29부터 유니크는 강화 특수능력을 가진 유닛만**(v3.31: 깃발마다 2장 · 18장 · 모두 6레벨, 덱에 유니크 2종까지 `uniqueBlock`. 능력 규칙은 `js/engine.js` 맨 아래 "v3.31 강화 특수능력", 글은 `js/uniques.js` `UNIQUE_ABIL` — 둘을 함께 고친다. 시험 `node tools/uniques/test31.js`, 설명 `docs/UNIQUES_v3.31.md`)(마법 · 아이템 유니크는 에픽으로 내림). 새 수치 기준(레벨 직선 4 + 2 × 레벨 · 유지비 0 또는 1 · 강화는 최대 · 등급 배율 · 7레벨까지)은 `docs/BALANCE_v4_draft.md`, 표 계산은 `node tools/balance4/budget.js`. **v3.30에 유닛을 이 기준으로 맞췄다**(`tools/balance4/rebuild.js`) — 이 도구는 `_backup_v3.30_rebal/js`에서 시작하므로, 그 뒤 손으로 고친 유닛이 있으면 다시 돌리기 전에 `--from js`로.
+- 등급(일반·고급·레어·에픽·유니크·스페셜)과 카드별 등급은 `js/grades.js`, 나눈 방법과 새 카드 기준은 `docs/GRADES.md`. **v3.29부터 유니크는 강화 특수능력을 가진 유닛만**(v3.31: 깃발마다 2장 · 18장 · 모두 6레벨, 덱에 유니크 2종까지 `uniqueBlock`. 능력 규칙은 `js/engine.js` 맨 아래 "v3.31 강화 특수능력", 글은 `js/uniques.js` `UNIQUE_ABIL` — 둘을 함께 고친다. 시험 `node tools/uniques/test31.js`, 설명 `docs/UNIQUES_v3.31.md`)(마법 · 아이템 유니크는 에픽으로 내림). 새 수치 기준(레벨 직선 4 + 2 × 레벨 · 유지비 0 또는 1 · 강화는 최대 · 등급 배율 · 7레벨까지)은 `docs/BALANCE_v4_draft.md`, 표 계산은 `node tools/balance4/budget.js`. **v3.49 유닛 등급은 스탯으로 정한다**(고급 = 일반 기준 +8% + 하급 능력 하나) — 바뀐 값은 `js/rebalance.js`(upgrades.js 다음에 SIM_UNITS를 덮고 `REBAL_GRADES`는 grades.js가 맨 끝에 덮음, 손으로 고치지 말고 `node tools/balance4/regrade.js --write`), 깃발 덧보정 `tools/balance4/regrade_offsets.json`, 설명 `docs/GRADES.md` 9장. 새 카드 데이터 도구 목록(harness · balance4/load · art/build_prompts)에 rebalance.js가 들어 있다. **v3.50 카드 풀**: 깃발마다 유닛 일반 21~24 · 고급 6~9(레벨마다 2장까지), 뺀 카드는 레거시(`REBAL_LEGACY` → RETIRED_CARDS, 흔적만 · 바탕이 빠진 강화 카드도 레거시 · 강화 카드는 깃발마다 5장까지) — `docs/GRADES.md` 10장, 덱 바꾸기 `tools/balance4/pool_decks.js`. **v3.30에 유닛을 이 기준으로 맞췄다**(`tools/balance4/rebuild.js`) — 이 도구는 `_backup_v3.30_rebal/js`에서 시작하므로, 그 뒤 손으로 고친 유닛이 있으면 다시 돌리기 전에 `--from js`로.
 - 무효 마법(v3.32)은 `js/counterspells.js`(깃발마다 1장, 모두 고급). [무효] = 엔진 `SPELL_OPS.negate`(상대 전장에서 아직 발동하지 않은 마법 중 맨 앞을 부숨). 컴퓨터는 미리 굴리기로 [무효]를 볼 수 없어 `js/game.js` `negateHope`로 어림한다 — 상대 마법을 겨누는 새 효과를 만들면 거기도 본다. 시험 `node tools/counter/test.js`, 실험실 `node tools/counter/lab.js 1500`, 설명 `docs/COUNTERSPELLS_v3.32.md`.
 - 레어 마법(v3.24)은 `js/rarespells.js`(깃발마다 공격 · 방어 · 공용 1장). 새 마법의 세기는 마법 실험실 `node tools/highcards/lab_rare.js 2000 [카드 ID,...]`로 같은 레벨 기존 마법 · 유니크와 견준다(레어 목표는 `docs/RARESPELLS_v3.24.md` 2장). 새 카드 데이터 파일을 만들면 `index.html`(data.js ~ economy.js 사이)과 `tools/balance/harness.js`의 파일 목록에 함께 넣는다.
 
@@ -99,6 +115,7 @@
 
 ## 안드로이드 앱 (v3.15)
 - 앱은 게임 폴더를 그대로 담는 WebView 껍데기다(`android/`, 설명 `android/README.md`). 게임 코드를 고치면 앱 쪽은 고칠 것 없고, `tools/android/build_apk.py`로 APK만 다시 만든다.
+- v3.46.2 앱은 기본 서버 모드다: `build_apk.py`가 PC 앱과 같은 `tools/desktop/server.txt`(또는 `--server` · `--offline`)로 서버를 골라 `index.html?server=`로 연다(https만). 로컬 앱은 `--offline`. 맥 에뮬레이터 실행은 `tools/android/emulator.sh`, iOS 감싸개는 `tools/ios/`.
 - 앱 코드 `android/app/src/main/java/com/etherion/game/MainActivity.java`와 `build_apk.py`의 `build_dex()`(같은 코드를 바이트코드로 직접 적은 것)는 **함께 고친다**. 매니페스트도 `AndroidManifest.xml` ↔ `manifest()`.
 - 폰 화면 맞춤은 `js/mobile.js`(레이아웃 폭을 넓혀 줄여 보임). 폰 전용 배치를 새로 만들기보다 이 방식을 유지한다. 터치 손질은 `css/mobile.css`(`html.mobile`).
 - PC 대기실(v3.36, 예전 PC 배치): 세 열 높이 = 덱 보관함 높이(`fitLobbyCards`가 `--lobby-h`를 주고 카드 폭을 고름, 모양은 `css/lobby.css`). 출정의 단은 오른쪽 열 아래 `#side-altar`(`altarHTML(f, true)`), 튜토리얼 · 매뉴얼은 오른쪽 열 맨 위. 대전은 온라인만(`startPvP` → `startOnline`).
@@ -135,3 +152,5 @@
 - 강화 카드는 사고팔지 않는다(`buyCard` · `sellCard` · `sellable`이 막음, 재고 0). 보상 뽑기 확률표(`PILGRIM.gamble`)에도 없다.
 - 강화 카드의 세기를 바꾸면 `node tools/cardsim/cardsim.js --cards <강화 ID들> --out tools/cardsim/out_v328 --games 40 --base 100 --time 140`을 여러 번(3분씩) → `report.js --out …`. 목표는 1장 넣은 승률 변화 +3%p 안팎(docs/UPGRADES_v3.28.md 3장).
 - 강화 카드 모양은 `css/upgrade.css`(마지막 쪽에 읽음), 마크는 `js/view.js` `UPGRADE_MARK` · `upgradeMarkHTML`.
+- **v3.52 합성소 · 레어 합성**: 같은 고급 카드 3장 → 같은 깃발 레어 1장(확률 뽑기). 규칙 · 확률은 `js/fusion.js`(`RARE_FUSE` · `rareFuseOdds` · `Store.fuseRare`, 화면 코드 없음 — 서버 EXTRA가 읽음), 뽑기는 서버(OPS `fuseRare` · NET_SYNC_OPS). 화면은 `js/upgrade-ui.js` `Forge`(강화 · 레어 두 탭), 상점 · 덱 조정실 카드의 합성 표식은 `Forge.badgeHTML`(`data-fuse`를 누르면 합성소 — 한 곳의 capture 클릭이 받고, 닫히면 `forge:done` 이벤트로 그 화면이 다시 그림). 시험 `node tools/upgrade/fuse_test.js`.
+- **v3.54**: 상점 값은 등급별(`SHOP_GRADE_PRICE`, 스페셜 · 강화는 `shopTradable`이 막음). 강화에 **순례의 인장** 3개(`UPGRADE_SEALS`, `u.seals` — 순례 판 정산 `rewards.js _settle`이 `PILGRIM.seal`만큼). 고급 3장 합성은 **승화**, 파친코 · 수레바퀴의 **운명의 구슬**(`ORB`, `u.orbs`, 서버 `rewardOrb` — 하루 상한)을 넣으면 좋은 레어 · 8% 유니크. `seals` · `orbs`는 서버만 바꾸는 칸이고 기기는 `addSeals` · `addOrbs`로 늘리지 못한다(net.js). 이름을 바꾸면 화면 글(`FUSE_KIND` · `ORB.name`)만.

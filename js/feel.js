@@ -90,279 +90,289 @@ const FEEL = {
     const t = ac.currentTime + 0.002;
     const j = pj || 1;   // v3.7.1 높이 배율 (공격 소리: 레벨이 높을수록 낮고 무겁게, 칠 때마다 조금씩 다르게)
     switch (name) {
-      /* ---------- v3.8 손으로 하는 소리는 쇠가 쇠에 닿고 스치는 소리로: 낮은 몸통은 줄이고(높이 ↑ · 크기 ↓),
-         어긋난 배음의 쇠 울림(clang)과 쇠끼리 긁히는 마찰(scrape)을 앞에 둔다
-         v3.8.1 더 날카롭고 쫀득하게: 맨 앞에 짝 달라붙는 snap(0.5ms 만에 솟는 높은 짝 + 높이가 뚝 떨어지는 딸깍),
-         쇠 울림은 짧게 끊고(꼬리 약 절반), 석조 울림도 절반으로 줄여 소리가 퍼지지 않고 붙는다 ---------- */
-      /* v3.11.1 카드 고르기는 맑고 경쾌한 쇠 방울 소리로(예전 "짝-칭"은 둔탁했다): 낮은 몸통(사인 쿵) · 긁힘을 빼고,
-         작은 방울 몇 개가 찰랑 흔들린 뒤(jingle) 맑은 종이 팅(chime). 높이는 칠 때마다 조금씩 다르다 */
-      case "select": { // 핸드 고르기 "찰랑-팅"
+      /* 다크 판타지 리마스터: 가벼운 방울 대신 묵직한 청동·흑요석·무쇠 울림과 깊은 저음 무게감 */
+      case "select": { // 핸드 고르기: 묵직한 청동 울림 + 낮은 가죽·돌 터치
         const r = 0.97 + Math.random() * 0.06;
-        this.jingle(ac, out, t, 3, 4600 * r, 0.022, 0.016);
-        this.chime(ac, out, t + 0.03, 1760 * r, 0.42, 0.05); break; }
-      case "unselect": { // 풀기: 낮게 · 짧게 "찰-통"
+        this.snap(ac, out, t, 1700 * r, 0.025);
+        this.tone(ac, out, t, 190 * r, 95 * r, 0.055, "sine", 0.06);
+        this.ring(ac, out, t + 0.008, 660 * r, 0.28, 0.032, [1, 1.5, 2.76], [1, 0.45, 0.16], 2.4); break; }
+      case "unselect": { // 풀기: 낮고 절제된 청동·돌 탭
         const r = 0.97 + Math.random() * 0.06;
-        this.jingle(ac, out, t, 2, 3800 * r, 0.018, 0.012);
-        this.chime(ac, out, t + 0.022, 1318 * r, 0.26, 0.04); break; }
+        this.snap(ac, out, t, 1350 * r, 0.018);
+        this.tone(ac, out, t, 150 * r, 78 * r, 0.045, "sine", 0.045);
+        this.ring(ac, out, t + 0.006, 495 * r, 0.18, 0.024, [1, 1.5, 2.3], [1, 0.35, 0.12], 1.8); break; }
 
-      case "handHover": { // 핸드 카드 위에 마우스가 오름: 아주 작은 쇠 틱 (훑고 지나가면 장마다 조금씩 다른 높이)
+      case "handHover": { // 핸드 카드 위에 마우스가 오름: 낮고 은은한 쇠·양피지 스침
         const j = 0.92 + Math.random() * 0.16;
-        this.snap(ac, out, t, 3000 * j, 0.015);
-        this.clang(ac, out, t, 2000 * j, 0.035, 0.008, 4, 0); break; }
+        this.snap(ac, out, t, 1900 * j, 0.012);
+        this.clang(ac, out, t, 1250 * j, 0.03, 0.006, 3, 0); break; }
 
-      case "ui_click": // 메뉴 단추 "짝-칵": 단단히 붙는 짝 + 짧은 쇠 울림 + 바로 뒤 걸쇠의 작은 칵
-        this.snap(ac, out, t, 2200, 0.06);
-        this.clang(ac, out, t, 1050, 0.12, 0.04, 7, 0);
-        this.tone(ac, out, t, 380, 200, 0.035, "sine", 0.06);
-        this.snap(ac, out, t + 0.028, 2800, 0.022);
-        this.clang(ac, out, t + 0.028, 2000, 0.035, 0.012, 3, 0); break;
-      case "ui_card": { // 메뉴 · 상점 · 덱 조정실에서 카드를 누름 "찰랑-팅-링": 방울 찰랑 + 맑은 종 두 음(5도 위로)
+      case "ui_click": // 메뉴 단추: 묵직한 무쇠 걸쇠
+        this.snap(ac, out, t, 1550, 0.055);
+        this.clang(ac, out, t, 680, 0.13, 0.042, 6, 0);
+        this.tone(ac, out, t, 240, 105, 0.05, "sine", 0.085);
+        this.snap(ac, out, t + 0.028, 1950, 0.02);
+        this.clang(ac, out, t + 0.028, 1350, 0.035, 0.012, 3, 0); break;
+      case "ui_card": { // 메뉴 · 상점 · 덱 조정실 카드 누름: 묵직한 양피지·청동 5도 울림
         const r = 0.97 + Math.random() * 0.06;
-        this.jingle(ac, out, t, 4, 5000 * r, 0.02, 0.016);
-        this.chime(ac, out, t + 0.03, 1568 * r, 0.4, 0.045);
-        this.chime(ac, out, t + 0.075, 2349 * r, 0.32, 0.028); break; }
-      case "ui_deck":  // 덱 고르기 "찰칵": 높은 걸쇠(찰) 뒤에 단단히 맞물림(칵)
-        this.snap(ac, out, t, 3200, 0.03);
-        this.clang(ac, out, t, 2400, 0.035, 0.018, 3, 0);
+        this.snap(ac, out, t, 1850 * r, 0.028);
+        this.tone(ac, out, t, 200 * r, 90 * r, 0.06, "sine", 0.07);
+        this.ring(ac, out, t + 0.01, 587 * r, 0.32, 0.032, [1, 1.5, 2.76], [1, 0.45, 0.16], 2.2);
+        this.ring(ac, out, t + 0.055, 880 * r, 0.28, 0.022, [1, 1.5, 2.76], [1, 0.4, 0.14], 2.5); break; }
+      case "ui_deck":  // 덱 고르기: 무거운 철제 자물쇠 맞물림
+        this.snap(ac, out, t, 2200, 0.028);
+        this.clang(ac, out, t, 1550, 0.035, 0.016, 3, 0);
         { const k = t + 0.05;
-          this.snap(ac, out, k, 2000, 0.07);
-          this.clang(ac, out, k, 950, 0.16, 0.05, 7, 0);
-          this.tone(ac, out, k, 340, 170, 0.045, "sine", 0.07); }
+          this.snap(ac, out, k, 1350, 0.065);
+          this.clang(ac, out, k, 540, 0.19, 0.055, 7, 0);
+          this.tone(ac, out, k, 220, 88, 0.065, "sine", 0.1); }
         this.buzz(10); break;
-      case "ui_open":  // 창 열림 "스릉-짝-차락": 쇠가 미끄러져 오름 → 짝 붙음 → 사슬 고리 셋이 촘촘히 걸림 → 마지막 칵
-        this.scrape(ac, out, t, 0.08, 2200, 3800, 0.04, 0.5);
+      case "ui_open":  // 창 열림: 무거운 석문·쇠사슬이 열림
+        this.scrape(ac, out, t, 0.09, 1400, 2400, 0.04, 0.55);
         { const c = t + 0.06;
-          this.snap(ac, out, c, 1800, 0.07);
-          this.tone(ac, out, c, 300, 150, 0.06, "sine", 0.09);
-          this.clang(ac, out, c, 720, 0.26, 0.05, 7, 0);
-          [0.05, 0.075, 0.098].forEach((d, i) => { this.snap(ac, out, c + d, 3000 - i * 200, 0.015); this.clang(ac, out, c + d, 1700 - i * 130, 0.03, 0.016 - i * 0.003, 3, 0); });
-          this.snap(ac, out, c + 0.12, 2600, 0.03);
-          this.clang(ac, out, c + 0.12, 1150, 0.06, 0.014, 5, 0); }
+          this.snap(ac, out, c, 1250, 0.065);
+          this.tone(ac, out, c, 200, 75, 0.08, "sine", 0.12);
+          this.clang(ac, out, c, 460, 0.28, 0.055, 7, 0);
+          [0.05, 0.078, 0.104].forEach((d, i) => { this.snap(ac, out, c + d, 2100 - i * 160, 0.015); this.clang(ac, out, c + d, 1150 - i * 100, 0.035, 0.015 - i * 0.003, 3, 0); });
+          this.snap(ac, out, c + 0.125, 1750, 0.028);
+          this.clang(ac, out, c + 0.125, 780, 0.065, 0.014, 5, 0); }
         this.buzz(12); break;
-      case "ui_close": // 창 닫힘 "짤각-짝": 사슬이 먼저 짤각, 쇠 면갑이 내려와 단단히 붙음
-        [0, 0.03].forEach((d, i) => { this.snap(ac, out, t + d, 3000, 0.015); this.clang(ac, out, t + d, 2000 + i * 300, 0.03, 0.014, 3, 0); });
+      case "ui_close": // 창 닫힘: 사슬이 걸리고 무거운 철판이 닫힘
+        [0, 0.03].forEach((d, i) => { this.snap(ac, out, t + d, 2100, 0.015); this.clang(ac, out, t + d, 1350 + i * 200, 0.03, 0.014, 3, 0); });
         { const s = t + 0.055;
-          this.snap(ac, out, s, 1600, 0.08);
-          this.tone(ac, out, s, 280, 130, 0.07, "sine", 0.1);
-          this.clang(ac, out, s, 560, 0.24, 0.055, 7, 0);
-          this.scrape(ac, out, s + 0.01, 0.04, 3000, 2000, 0.02, 0.6); }
+          this.snap(ac, out, s, 1150, 0.075);
+          this.tone(ac, out, s, 190, 70, 0.09, "sine", 0.13);
+          this.clang(ac, out, s, 380, 0.26, 0.06, 7, 0);
+          this.scrape(ac, out, s + 0.01, 0.045, 2000, 1200, 0.022, 0.65); }
         this.buzz(14); break;
-      case "pick":     // 카드를 집어 듦: 쇠 테두리가 위로 스치다 짝 떨어짐
-        this.scrape(ac, out, t, 0.045, 3000, 4800, 0.04, 0.5);
-        this.snap(ac, out, t + 0.03, 3000, 0.025);
-        this.clang(ac, out, t + 0.03, 1800, 0.04, 0.012, 4, 0); break;
-      case "hover":    // 놓을 자리에 닿음: 아주 작은 쇠 틱
-        this.snap(ac, out, t, 3400, 0.02);
-        this.clang(ac, out, t, 3000, 0.025, 0.01, 3, 0); break;
-      case "suck":     // 칸이 빨아들임 (v3.7.2 또렷하게): 위로 좁아지며 빨려 드는 바람 + 따라 오르는 휘음 + 바닥의 당김
-        this.noise(ac, out, t, 0.22, 520, 1.4, 0.075, 3800);
-        this.tone(ac, out, t + 0.02, 230, 690, 0.19, "sine", 0.03);
-        this.tone(ac, out, t + 0.03, 85, 140, 0.17, "sine", 0.06); break;
-      case "place":    // 전장에 착지 "짝-차락-칵": 쇠가 짝 붙고 → 걸쇠 고리가 촘촘히 걸리고 → 마지막 칵. 무게는 조금 남김
-        this.snap(ac, out, t, 1900, 0.09);
-        this.tone(ac, out, t, 300, 130, 0.08, "sine", 0.12);
-        this.clang(ac, out, t, 760, 0.24, 0.06, 7, 0);
-        [0.04, 0.065, 0.088].forEach((d, i) => { this.snap(ac, out, t + d, 3000 - i * 200, 0.02); this.clang(ac, out, t + d, 1900 - i * 170, 0.03, 0.018 - i * 0.004, 3, 0); });
-        this.snap(ac, out, t + 0.11, 2400, 0.035);
-        this.tone(ac, out, t + 0.11, 380, 210, 0.035, "sine", 0.05);
-        this.clang(ac, out, t + 0.11, 1250, 0.07, 0.016, 5, 0);
+      case "pick":     // 카드를 집어 듦: 묵직한 쇠 테두리가 스치며 들림
+        this.scrape(ac, out, t, 0.045, 2000, 3200, 0.038, 0.5);
+        this.snap(ac, out, t + 0.03, 2100, 0.022);
+        this.clang(ac, out, t + 0.03, 1200, 0.04, 0.011, 4, 0); break;
+      case "hover":    // 놓을 자리에 닿음: 낮은 쇠 틱
+        this.snap(ac, out, t, 2400, 0.018);
+        this.clang(ac, out, t, 1900, 0.025, 0.009, 3, 0); break;
+      case "suck":     // 칸이 빨아들임: 깊은 기류와 낮은 당김
+        this.noise(ac, out, t, 0.22, 360, 1.3, 0.08, 2200);
+        this.tone(ac, out, t + 0.02, 160, 440, 0.19, "sine", 0.035);
+        this.tone(ac, out, t + 0.03, 68, 110, 0.18, "sine", 0.08); break;
+      case "place":    // 전장에 착지: 석판 위에 묵직한 쇠 카드가 내려앉음
+        this.snap(ac, out, t, 1350, 0.08);
+        this.tone(ac, out, t, 210, 72, 0.11, "sine", 0.16);
+        this.clang(ac, out, t, 520, 0.26, 0.065, 7, 0);
+        [0.04, 0.066, 0.09].forEach((d, i) => { this.snap(ac, out, t + d, 2100 - i * 160, 0.018); this.clang(ac, out, t + d, 1300 - i * 120, 0.032, 0.016 - i * 0.003, 3, 0); });
+        this.snap(ac, out, t + 0.11, 1650, 0.032);
+        this.tone(ac, out, t + 0.11, 250, 120, 0.045, "sine", 0.065);
+        this.clang(ac, out, t + 0.11, 860, 0.075, 0.016, 5, 0);
         this.buzz(16); break;
       case "move":     // 자리 바꾸기: 쇠판이 미끄러지다 짝
-        this.scrape(ac, out, t, 0.06, 2400, 3400, 0.035, 0.6);
-        this.snap(ac, out, t + 0.045, 2400, 0.04);
-        this.clang(ac, out, t + 0.045, 1200, 0.06, 0.02, 5, 0);
-        this.tone(ac, out, t + 0.045, 380, 230, 0.03, "sine", 0.04); break;
-      case "crystal":  // 결정화: 맑은 두 음
-        this.tone(ac, out, t, 1320, 1760, 0.18, "sine", 0.05);
-        this.tone(ac, out, t + 0.05, 1980, 2640, 0.22, "sine", 0.03); break;
-      case "equip":    // 장착 "스릉-짝-칵": 칼이 칼집을 긁으며 들어가고, 죔쇠가 짝 물리고, 걸쇠가 칵
-        this.scrape(ac, out, t, 0.11, 2800, 5200, 0.05, 0.5);
+        this.scrape(ac, out, t, 0.06, 1600, 2400, 0.035, 0.6);
+        this.snap(ac, out, t + 0.045, 1750, 0.035);
+        this.clang(ac, out, t + 0.045, 840, 0.065, 0.02, 5, 0);
+        this.tone(ac, out, t + 0.045, 260, 140, 0.035, "sine", 0.05); break;
+      case "crystal":  // 결정화: 깊은 수정 공명
+        this.tone(ac, out, t, 880, 1175, 0.22, "sine", 0.05);
+        this.tone(ac, out, t + 0.05, 1320, 1760, 0.26, "sine", 0.032);
+        this.tone(ac, out, t, 220, 293, 0.24, "sine", 0.04); break;
+      case "equip":    // 장착: 칼날이 칼집을 긁으며 들어가 묵직하게 잠김
+        this.scrape(ac, out, t, 0.11, 1800, 3400, 0.05, 0.55);
         { const c = t + 0.1;
-          this.snap(ac, out, c, 1900, 0.09);
-          this.tone(ac, out, c, 320, 140, 0.07, "sine", 0.11);
-          this.clang(ac, out, c, 900, 0.22, 0.06, 7, 0);
-          this.snap(ac, out, c + 0.045, 3200, 0.03);
-          this.clang(ac, out, c + 0.045, 2300, 0.03, 0.02, 3, 0); }
+          this.snap(ac, out, c, 1400, 0.085);
+          this.tone(ac, out, c, 220, 82, 0.09, "sine", 0.14);
+          this.clang(ac, out, c, 620, 0.24, 0.065, 7, 0);
+          this.snap(ac, out, c + 0.045, 2200, 0.028);
+          this.clang(ac, out, c + 0.045, 1550, 0.035, 0.02, 3, 0); }
         this.buzz(14); break;
-      case "burn":     // 소각: 불 붙는 바람 소리
-        this.noise(ac, out, t, 0.26, 600, 0.8, 0.09, 2400); break;
-      case "deny":     // 안 됨: 무딘 쇠 두 번 탁탁 (짧게 끊되 높지 않게 — 거슬리지 않게)
-        this.snap(ac, out, t, 1200, 0.03);
-        this.tone(ac, out, t, 300, 200, 0.035, "sine", 0.06);
-        this.clang(ac, out, t, 620, 0.045, 0.028, 4, 0);
-        this.snap(ac, out, t + 0.075, 1050, 0.028);
-        this.tone(ac, out, t + 0.075, 270, 180, 0.035, "sine", 0.055);
-        this.clang(ac, out, t + 0.075, 520, 0.045, 0.026, 4, 0); break;
-      case "confirm":  // 준비 완료: 칼날이 맞부딪는 "챙-챙!" 위로 4도. 앞은 짝 붙고, 울림은 남겨 둠
-        this.snap(ac, out, t, 2600, 0.06);
-        this.tone(ac, out, t, 320, 170, 0.05, "sine", 0.06);
-        this.clang(ac, out, t, 1046, 0.3, 0.05, 7, 0);
-        this.snap(ac, out, t + 0.07, 3000, 0.06);
-        this.clang(ac, out, t + 0.07, 1397, 0.42, 0.05, 7, 0);
-        this.noise(ac, out, t + 0.075, 0.2, 9000, 4, 0.01); break;
+      case "burn":     // 소각: 낮고 거친 불길
+        this.noise(ac, out, t, 0.28, 420, 0.75, 0.11, 1600);
+        this.tone(ac, out, t, 110, 62, 0.24, "sine", 0.08); break;
+      case "deny":     // 안 됨: 무딘 무쇠·돌 두 번 탁탁
+        this.snap(ac, out, t, 780, 0.028);
+        this.tone(ac, out, t, 190, 105, 0.045, "sine", 0.08);
+        this.clang(ac, out, t, 380, 0.05, 0.028, 4, 0);
+        this.snap(ac, out, t + 0.075, 700, 0.025);
+        this.tone(ac, out, t + 0.075, 170, 92, 0.045, "sine", 0.075);
+        this.clang(ac, out, t + 0.075, 330, 0.05, 0.026, 4, 0); break;
+      case "confirm":  // 준비 완료: 무거운 모루·검이 맞부딪는 5도 울림
+        this.snap(ac, out, t, 1850, 0.06);
+        this.tone(ac, out, t, 210, 95, 0.07, "sine", 0.09);
+        this.clang(ac, out, t, 740, 0.32, 0.055, 7, 0);
+        this.snap(ac, out, t + 0.07, 2150, 0.06);
+        this.tone(ac, out, t + 0.07, 190, 85, 0.08, "sine", 0.08);
+        this.clang(ac, out, t + 0.07, 1108, 0.44, 0.055, 7, 0);
+        this.noise(ac, out, t + 0.075, 0.2, 6500, 3.5, 0.008); break;
       case "hit":      // 공격이 맞음
-        this.tone(ac, out, t, 130, 45, 0.16, "sine", 0.24);
-        this.noise(ac, out, t, 0.12, 900, 0.7, 0.13, 300);
+        this.tone(ac, out, t, 115, 38, 0.18, "sine", 0.27);
+        this.noise(ac, out, t, 0.13, 720, 0.65, 0.14, 220);
         this.buzz(18); break;
       case "hitBig":   // 생명을 직접 침
-        this.tone(ac, out, t, 110, 38, 0.24, "sine", 0.3);
-        this.noise(ac, out, t, 0.2, 700, 0.6, 0.16, 200);
+        this.tone(ac, out, t, 96, 32, 0.26, "sine", 0.34);
+        this.noise(ac, out, t, 0.22, 540, 0.55, 0.18, 150);
         this.buzz(28); break;
-      case "draw":     // 덱에서 한 장 튀어 오름: 종이가 휙 스치는 소리 + 위로 오르는 작은 음 + (v3.8.1) 쇠 테두리의 작은 짝
-        this.noise(ac, out, t, 0.11, 2600, 1.3, 0.1, 5200);              // v3.7.2 더 또렷하게 (첫 손패 드로우에서 장마다 들리게)
-        this.tone(ac, out, t + 0.02, 640, 980, 0.08, "sine", 0.045);
-        this.tone(ac, out, t, 360, 220, 0.05, "sine", 0.04);
-        this.snap(ac, out, t + 0.03, 3200, 0.015);
-        this.clang(ac, out, t + 0.03, 2100, 0.04, 0.01, 4, 0); break;
-      case "shuffle":  // v1.9 섞기: 촤라락 (짧은 종이 소리 여러 번)
-        for (let i = 0; i < 7; i++) this.noise(ac, out, t + i * 0.035, 0.03, 2800 + i * 120, 1.6, 0.045);
-        this.tone(ac, out, t + 0.26, 300, 220, 0.08, "sine", 0.04); break;
-      case "swing":    // 뛰쳐나감: 바람 가르는 소리
-        this.noise(ac, out, t, 0.16, 900, 1.6, 0.05, 2600); break;
-      case "shatter": { // v3.16.3 카드가 부서짐 "파사삭": 쩍 갈라지는 순간 → 잘게 바스러지는 결 두 번 → 짤랑 떨어지는 조각들. 묵직한 몸통은 작게
+      case "draw":     // 덱에서 한 장 뽑음: 두꺼운 카드 스침 + 낮은 음
+        this.noise(ac, out, t, 0.12, 1900, 1.2, 0.1, 3800);
+        this.tone(ac, out, t + 0.02, 480, 740, 0.085, "sine", 0.045);
+        this.tone(ac, out, t, 260, 150, 0.06, "sine", 0.055);
+        this.snap(ac, out, t + 0.03, 2200, 0.015);
+        this.clang(ac, out, t + 0.03, 1450, 0.04, 0.01, 4, 0); break;
+      case "shuffle":  // 섞기: 묵직한 카드 뭉치 촤라락
+        for (let i = 0; i < 7; i++) this.noise(ac, out, t + i * 0.035, 0.032, 2100 + i * 95, 1.4, 0.048);
+        this.tone(ac, out, t + 0.26, 220, 140, 0.09, "sine", 0.055); break;
+      case "swing":    // 뛰쳐나감: 낮고 묵직한 바람 가름
+        this.noise(ac, out, t, 0.17, 680, 1.4, 0.06, 2000); break;
+      case "shatter": { // 카드가 부서짐: 묵직한 파열 + 날카로운 파편
         const r = 0.95 + Math.random() * 0.1;
-        this.snap(ac, out, t, 4200 * r, 0.12);                           // 파: 쩍 갈라짐
-        this.noise(ac, out, t, 0.025, 5200 * r, 0.8, 0.16);
-        this.noise(ac, out, t + 0.002, 0.05, 1600 * r, 0.9, 0.08, 700);
-        this.tone(ac, out, t, 190 * r, 60, 0.13, "sine", 0.12);         // 작은 몸통 (예전 콰작보다 가볍게)
-        this.crackle(ac, out, t + 0.006, 0.16, 90, 2400, 0.34, 2.2);     // 사: 촘촘히 바스러짐
-        this.crackle(ac, out, t + 0.07, 0.2, 55, 1700, 0.22, 1.6);       // 삭: 한 번 더, 조금 낮고 성기게
-        this.noise(ac, out, t + 0.03, 0.22, 3800, 0.7, 0.03, 1800);      // 모래처럼 흩어지는 쉭
-        for (let i = 0; i < 7; i++) {                                    // 짤랑: 떨어진 조각이 바닥에 튐 (점점 드물고 작게)
+        this.snap(ac, out, t, 3100 * r, 0.12);
+        this.noise(ac, out, t, 0.028, 3800 * r, 0.8, 0.16);
+        this.noise(ac, out, t + 0.002, 0.055, 1200 * r, 0.85, 0.09, 520);
+        this.tone(ac, out, t, 145 * r, 40, 0.16, "sine", 0.17);
+        this.crackle(ac, out, t + 0.006, 0.17, 85, 1900, 0.34, 2.2);
+        this.crackle(ac, out, t + 0.07, 0.21, 52, 1400, 0.22, 1.6);
+        this.noise(ac, out, t + 0.03, 0.24, 2800, 0.7, 0.035, 1200);
+        for (let i = 0; i < 7; i++) {
           const d = 0.11 + i * 0.045 + Math.random() * 0.04 + i * i * 0.006;
-          const f = (2600 + Math.random() * 3400) * r;
-          this.noise(ac, out, t + d, 0.006, f * 1.4, 1.2, 0.05 * (1 - i * 0.11));
+          const f = (1950 + Math.random() * 2400) * r;
+          this.noise(ac, out, t + d, 0.006, f * 1.3, 1.2, 0.048 * (1 - i * 0.11));
           this.bell(ac, out, t + d, f, 0.07 + Math.random() * 0.05, 0.012 * (1 - i * 0.1), [1, 1.73, 2.61], [1, 0.45, 0.2]);
         }
         this.buzz(24); break; }
-      case "coinHeads": { // v3.7.1 앞면: 쇠 동전이 판에 떨어져 "칭—" 울리고, 한 번 더 튀어 "칭", 돌며 잦아드는 쇠 떨림
-        const f = 2480;
-        const coin = [1, 1.59, 2.14, 2.65, 2.92, 3.5], camp = [1, 0.72, 0.55, 0.4, 0.3, 0.18];   // 원판이 떠는 어긋난 배음
-        this.noise(ac, out, t, 0.007, 7200, 0.6, 0.14);                  // 닿는 순간: 딱
-        this.tone(ac, out, t, 5400, 4700, 0.012, "square", 0.012);
-        this.ring(ac, out, t + 0.002, f, 0.95, 0.055, coin, camp, 5.5);   // 칭— (맥놀이로 쇠가 우는 떨림)
-        this.tone(ac, out, t + 0.002, f * 0.5, f * 0.5, 0.18, "sine", 0.018); // 동전 몸통
-        this.noise(ac, out, t + 0.105, 0.006, 7600, 0.6, 0.07);          // 한 번 더 튐
-        this.ring(ac, out, t + 0.107, f, 0.55, 0.03, coin.slice(0, 4), camp, 7);
-        [0.2, 0.258, 0.302, 0.336, 0.362, 0.382, 0.397].forEach((d, i) => {   // 돌며 눕는 덜그럭: 점점 빠르고 작게
+      case "coinHeads": { // 앞면: 묵직한 고대 금화·철화 울림
+        const f = 1680;
+        const coin = [1, 1.59, 2.14, 2.65, 2.92, 3.5], camp = [1, 0.72, 0.55, 0.4, 0.3, 0.18];
+        this.noise(ac, out, t, 0.008, 5200, 0.6, 0.14);
+        this.tone(ac, out, t, 3600, 2900, 0.012, "square", 0.012);
+        this.tone(ac, out, t, 190, 80, 0.06, "sine", 0.06);
+        this.ring(ac, out, t + 0.002, f, 0.95, 0.058, coin, camp, 5.2);
+        this.tone(ac, out, t + 0.002, f * 0.5, f * 0.5, 0.2, "sine", 0.022);
+        this.noise(ac, out, t + 0.105, 0.006, 5600, 0.6, 0.07);
+        this.ring(ac, out, t + 0.107, f, 0.55, 0.032, coin.slice(0, 4), camp, 6.5);
+        [0.2, 0.258, 0.302, 0.336, 0.362, 0.382, 0.397].forEach((d, i) => {
           const a = 0.03 * (1 - i * 0.12);
-          this.noise(ac, out, t + d, 0.005, 6600, 0.8, a);
+          this.noise(ac, out, t + d, 0.005, 4800, 0.8, a);
           this.ring(ac, out, t + d, f, 0.1, a * 0.3, [1, 1.59, 2.14], [1, 0.6, 0.4], 0);
         });
-        this.noise(ac, out, t + 0.01, 0.45, 9800, 5, 0.012);            // 쇠의 반짝임
+        this.noise(ac, out, t + 0.01, 0.45, 7400, 4.5, 0.01);
         this.buzz(10); break; }
-      case "coinTails": // 뒷면: 낮고 무딘 톡 (거슬리지 않게)
-        this.tone(ac, out, t, 330, 230, 0.09, "triangle", 0.06);
-        this.noise(ac, out, t, 0.03, 1300, 1, 0.035); break;
+      case "coinTails": // 뒷면: 낮고 무딘 나무·돌 톡
+        this.tone(ac, out, t, 220, 130, 0.1, "triangle", 0.075);
+        this.noise(ac, out, t, 0.035, 950, 0.9, 0.04); break;
 
-      /* ---------- v1.9.5 마법 (js/spellfx.js) ---------- */
-      case "sp_reveal": // 마법이 뒤집힘: 차오르는 바람 + 위로 오르는 두 음 + 끝의 반짝
-        this.noise(ac, out, t, 0.5, 380, 1.1, 0.05, 3200);
-        this.tone(ac, out, t, 220, 440, 0.45, "sine", 0.05);
-        this.tone(ac, out, t + 0.06, 330, 660, 0.4, "triangle", 0.025);
-        this.bell(ac, out, t + 0.42, 1760, 0.35, 0.03, [1, 2.5], [1, 0.3]); break;
-      case "sp_cannon": // 대포 발사: 쿵 + 짧은 폭음 + 날아가는 휘파람
-        this.tone(ac, out, t, 170, 48, 0.22, "sine", 0.26);
-        this.noise(ac, out, t, 0.09, 1100, 0.7, 0.14, 400);
-        this.tone(ac, out, t + 0.06, 1900, 900, 0.38, "sine", 0.018); break;
-      case "sp_boom":   // 폭발: 깊은 저음 + 흩어지는 잡음 + 파편
-        this.tone(ac, out, t, 125, 34, 0.55, "sine", 0.32);
-        this.noise(ac, out, t, 0.5, 900, 0.5, 0.2, 110);
-        this.noise(ac, out, t, 0.1, 3200, 0.9, 0.1);
-        this.noise(ac, out, t + 0.08, 0.25, 2200, 2, 0.03, 900);
+      /* ---------- v1.9.5 마법 (js/spellfx.js) — 다크 판타지 리마스터 ---------- */
+      case "sp_reveal": // 마법이 뒤집힘: 깊은 기류 + 묵직한 5도 상승 + 청동 종
+        this.noise(ac, out, t, 0.5, 280, 1.0, 0.055, 2200);
+        this.tone(ac, out, t, 146.8, 293.7, 0.45, "sine", 0.065);
+        this.tone(ac, out, t + 0.06, 220, 440, 0.4, "triangle", 0.028);
+        this.bell(ac, out, t + 0.42, 880, 0.45, 0.035, [1, 2.5], [1, 0.3]); break;
+      case "sp_cannon": // 대포 발사: 깊은 포성 + 짧은 폭음 + 날아가는 휘파람
+        this.tone(ac, out, t, 140, 36, 0.28, "sine", 0.3);
+        this.noise(ac, out, t, 0.11, 820, 0.65, 0.16, 260);
+        this.tone(ac, out, t + 0.06, 1300, 620, 0.38, "sine", 0.018); break;
+      case "sp_boom":   // 폭발: 묵직한 초저음 + 흩어지는 폭음 + 파편
+        this.tone(ac, out, t, 98, 26, 0.62, "sine", 0.36);
+        this.noise(ac, out, t, 0.55, 680, 0.48, 0.22, 85);
+        this.noise(ac, out, t, 0.12, 2400, 0.85, 0.11);
+        this.noise(ac, out, t + 0.08, 0.28, 1600, 1.8, 0.035, 640);
         this.buzz(30); break;
-      case "sp_meteor": // 떨어지는 유성: 내려가는 휘파람 바람
-        this.noise(ac, out, t, 0.45, 2600, 2, 0.07, 500);
-        this.tone(ac, out, t, 1500, 260, 0.45, "sine", 0.025); break;
-      case "sp_fire":   // 불덩이 던짐: 화르륵
-        this.noise(ac, out, t, 0.3, 520, 0.7, 0.1, 2300);
-        this.tone(ac, out, t, 210, 120, 0.2, "sine", 0.05); break;
-      case "sp_zap":    // 번개: 빠작빠작 + 아래로 떨어지는 전기음 + 멀리 우르릉
-        for (let i = 0; i < 6; i++) this.noise(ac, out, t + i * 0.022, 0.02, 3800 + Math.random() * 3500, 3, 0.08);
-        this.tone(ac, out, t, 1900, 70, 0.18, "square", 0.035);
-        this.tone(ac, out, t + 0.05, 62, 38, 0.32, "sine", 0.14);
+      case "sp_meteor": // 떨어지는 유성: 무거운 하강 바람
+        this.noise(ac, out, t, 0.48, 1900, 1.8, 0.08, 340);
+        this.tone(ac, out, t, 980, 160, 0.48, "sine", 0.035); break;
+      case "sp_fire":   // 불덩이 던짐: 낮은 화염 포효
+        this.noise(ac, out, t, 0.32, 380, 0.65, 0.12, 1650);
+        this.tone(ac, out, t, 160, 82, 0.24, "sine", 0.075); break;
+      case "sp_zap":    // 번개: 빠작빠작 + 전기 방전 + 깊은 뇌명
+        for (let i = 0; i < 6; i++) this.noise(ac, out, t + i * 0.022, 0.02, 2800 + Math.random() * 2600, 2.8, 0.08);
+        this.tone(ac, out, t, 1450, 58, 0.2, "square", 0.032);
+        this.tone(ac, out, t + 0.05, 56, 30, 0.38, "sine", 0.18);
         this.buzz(16); break;
-      case "sp_shoot":  // 쇠 리벳 쏨: 피슉
-        this.noise(ac, out, t, 0.08, 2600, 1.6, 0.08, 5200);
-        this.tone(ac, out, t, 900, 420, 0.07, "square", 0.015); break;
-      case "sp_clang":  // 쇠 부딪침: 쨍 (어긋난 배음)
-        this.bell(ac, out, t, 540, 0.45, 0.06, [1, 2.76, 5.4, 8.93], [1, 0.6, 0.35, 0.18]);
-        this.noise(ac, out, t, 0.03, 5200, 2, 0.09); this.buzz(12); break;
+      case "sp_shoot":  // 쇠 리벳 쏨: 묵직한 피슉
+        this.noise(ac, out, t, 0.085, 1900, 1.5, 0.085, 3800);
+        this.tone(ac, out, t, 680, 290, 0.075, "square", 0.016); break;
+      case "sp_clang":  // 쇠 부딪침: 깊은 쇳소리
+        this.bell(ac, out, t, 420, 0.5, 0.065, [1, 2.76, 5.4, 8.93], [1, 0.6, 0.35, 0.18]);
+        this.tone(ac, out, t, 140, 62, 0.09, "sine", 0.08);
+        this.noise(ac, out, t, 0.03, 3800, 1.8, 0.09); this.buzz(12); break;
       case "sp_heave":  // 바위 던짐: 무거운 휙
-        this.noise(ac, out, t, 0.2, 520, 1, 0.07, 180);
-        this.tone(ac, out, t, 140, 90, 0.18, "sine", 0.06); break;
+        this.noise(ac, out, t, 0.22, 380, 0.95, 0.08, 130);
+        this.tone(ac, out, t, 115, 68, 0.2, "sine", 0.08); break;
       case "sp_rock":   // 바위 맞음: 쿵 + 와르르
-        this.tone(ac, out, t, 92, 38, 0.32, "sine", 0.28);
-        this.noise(ac, out, t, 0.3, 320, 0.6, 0.18, 90);
-        for (let i = 0; i < 4; i++) this.noise(ac, out, t + 0.04 + i * 0.045, 0.03, 1300 + i * 300, 1.4, 0.05);
+        this.tone(ac, out, t, 78, 30, 0.36, "sine", 0.32);
+        this.noise(ac, out, t, 0.34, 240, 0.55, 0.2, 70);
+        for (let i = 0; i < 4; i++) this.noise(ac, out, t + 0.04 + i * 0.045, 0.03, 950 + i * 240, 1.3, 0.055);
         this.buzz(22); break;
-      case "sp_quake":  // 땅 울림: 낮게 오래 우르르 + 갈라지는 소리
-        this.noise(ac, out, t, 0.9, 130, 0.45, 0.24, 55);
-        this.tone(ac, out, t, 52, 30, 0.9, "sine", 0.22);
-        for (let i = 0; i < 3; i++) this.noise(ac, out, t + 0.05 + i * 0.09, 0.04, 1800, 1.8, 0.05);
+      case "sp_quake":  // 땅 울림: 깊고 긴 지진 + 갈라지는 소리
+        this.noise(ac, out, t, 0.95, 105, 0.42, 0.26, 45);
+        this.tone(ac, out, t, 46, 24, 0.95, "sine", 0.26);
+        for (let i = 0; i < 3; i++) this.noise(ac, out, t + 0.05 + i * 0.09, 0.045, 1300, 1.6, 0.055);
         this.buzz(40); break;
-      case "sp_thorn":  // 가시·덩굴: 채찍 같은 탁 + 잎 스침
-        this.noise(ac, out, t, 0.05, 3600, 1.2, 0.11);
-        this.noise(ac, out, t + 0.03, 0.26, 1900, 1.3, 0.05, 700);
-        this.tone(ac, out, t, 280, 560, 0.08, "triangle", 0.03); break;
+      case "sp_thorn":  // 가시·덩굴: 채찍 같은 탁 + 거친 잎 스침
+        this.noise(ac, out, t, 0.05, 2800, 1.1, 0.11);
+        this.noise(ac, out, t + 0.03, 0.28, 1400, 1.2, 0.055, 500);
+        this.tone(ac, out, t, 220, 410, 0.085, "triangle", 0.035); break;
       case "sp_arrows": // 활시위 퉁 + 화살이 날아가는 쉭쉭
-        this.tone(ac, out, t, 230, 180, 0.14, "triangle", 0.06);
-        for (let i = 0; i < 5; i++) this.noise(ac, out, t + 0.05 + i * 0.05, 0.1, 5200, 3, 0.03, 2400); break;
+        this.tone(ac, out, t, 185, 135, 0.15, "triangle", 0.07);
+        for (let i = 0; i < 5; i++) this.noise(ac, out, t + 0.05 + i * 0.05, 0.1, 3800, 2.6, 0.032, 1750); break;
       case "sp_thunk":  // 화살이 박힘
-        this.tone(ac, out, t, 320, 120, 0.06, "triangle", 0.07);
-        this.noise(ac, out, t, 0.03, 1500, 1.2, 0.05); break;
-      case "sp_water":  // 물덩이 던짐: 꿀렁
-        this.tone(ac, out, t, 300, 620, 0.12, "sine", 0.05);
-        this.noise(ac, out, t, 0.18, 900, 0.9, 0.04, 2400); break;
+        this.tone(ac, out, t, 240, 92, 0.07, "triangle", 0.085);
+        this.noise(ac, out, t, 0.032, 1150, 1.1, 0.055); break;
+      case "sp_water":  // 물덩이 던짐: 깊은 꿀렁
+        this.tone(ac, out, t, 220, 460, 0.14, "sine", 0.06);
+        this.noise(ac, out, t, 0.2, 680, 0.85, 0.045, 1800); break;
       case "sp_wave":   // 물결이 밀려옴
-        this.noise(ac, out, t, 0.55, 280, 0.6, 0.11, 1600);
-        this.noise(ac, out, t + 0.35, 0.4, 2200, 0.7, 0.08, 400); break;
+        this.noise(ac, out, t, 0.58, 220, 0.55, 0.12, 1200);
+        this.noise(ac, out, t + 0.35, 0.42, 1650, 0.65, 0.085, 300); break;
       case "sp_splash": // 첨벙 + 물방울
-        this.noise(ac, out, t, 0.32, 3000, 0.8, 0.12, 420);
-        for (let i = 0; i < 4; i++) { const f = 600 + Math.random() * 600; this.tone(ac, out, t + 0.05 + i * 0.045, f, f * 1.9, 0.05, "sine", 0.035); }
+        this.noise(ac, out, t, 0.34, 2200, 0.75, 0.13, 320);
+        for (let i = 0; i < 4; i++) { const f = 440 + Math.random() * 440; this.tone(ac, out, t + 0.05 + i * 0.045, f, f * 1.8, 0.055, "sine", 0.038); }
         this.buzz(12); break;
-      case "sp_dark":   // 어둠이 날아감: 맥놀이하는 낮은 웅웅 + 빨려 드는 바람
-        this.tone(ac, out, t, 110, 82, 0.5, "sawtooth", 0.025);
-        this.tone(ac, out, t, 116.5, 86, 0.5, "sawtooth", 0.025);
-        this.noise(ac, out, t, 0.4, 260, 1, 0.06, 1400); break;
-      case "sp_slash":  // 할퀴기·베기: 쉭쉭 두 번
-        this.noise(ac, out, t, 0.09, 4200, 1.5, 0.12, 1400);
-        this.noise(ac, out, t + 0.06, 0.09, 3600, 1.5, 0.1, 1200);
-        this.tone(ac, out, t, 140, 60, 0.15, "sine", 0.12); this.buzz(14); break;
-      case "sp_holy":   // 빛이 내려옴: 맑은 종 + 높은 화음
-        this.bell(ac, out, t, 1046, 1.0, 0.05, [1, 2, 3, 4.2], [1, 0.45, 0.2, 0.08]);
-        this.tone(ac, out, t + 0.06, 1568, 1568, 0.8, "sine", 0.025);
-        this.noise(ac, out, t, 0.5, 8000, 4, 0.02); break;
-      case "sp_smite":  // 빛이 내리꽂힘: 밝은 쨍 + 낮은 울림
-        this.bell(ac, out, t, 1318, 0.6, 0.06, [1, 2, 3], [1, 0.4, 0.15]);
-        this.tone(ac, out, t, 160, 70, 0.3, "sine", 0.16);
-        this.noise(ac, out, t, 0.12, 5200, 1.2, 0.06); this.buzz(16); break;
-      case "sp_wind":   // 바람 칼날: 휘이익
-        this.noise(ac, out, t, 0.45, 420, 2, 0.08, 2800);
-        this.noise(ac, out, t + 0.15, 0.35, 2800, 2, 0.05, 600); break;
+      case "sp_dark":   // 어둠이 날아감: 맥놀이하는 저음 드론 + 빨려 드는 심연 바람
+        this.tone(ac, out, t, 73.4, 52, 0.55, "sawtooth", 0.032);
+        this.tone(ac, out, t, 77.2, 54.5, 0.55, "sawtooth", 0.032);
+        this.tone(ac, out, t, 55, 41, 0.55, "sine", 0.09);
+        this.noise(ac, out, t, 0.45, 200, 0.9, 0.07, 950); break;
+      case "sp_slash":  // 할퀴기·베기: 묵직한 칼바람 두 번
+        this.noise(ac, out, t, 0.095, 3200, 1.4, 0.12, 1050);
+        this.noise(ac, out, t + 0.06, 0.095, 2700, 1.4, 0.1, 880);
+        this.tone(ac, out, t, 120, 48, 0.17, "sine", 0.14); this.buzz(14); break;
+      case "sp_holy":   // 빛이 내려옴: 장엄한 대성당 청동 종 + 낮은 5도 울림
+        this.tone(ac, out, t, 146.8, 146.8, 0.95, "sine", 0.065);
+        this.bell(ac, out, t, 587.3, 1.1, 0.055, [1, 2, 3, 4.2], [1, 0.45, 0.2, 0.08]);
+        this.tone(ac, out, t + 0.06, 880, 880, 0.9, "sine", 0.028);
+        this.noise(ac, out, t, 0.5, 5200, 3.2, 0.016); break;
+      case "sp_smite":  // 빛이 내리꽂힘: 무거운 심판의 종 + 천둥 저음
+        this.bell(ac, out, t, 784, 0.65, 0.06, [1, 2, 3], [1, 0.4, 0.15]);
+        this.tone(ac, out, t, 130, 44, 0.34, "sine", 0.2);
+        this.noise(ac, out, t, 0.14, 3800, 1.1, 0.06); this.buzz(16); break;
+      case "sp_wind":   // 바람 칼날: 깊은 휘이익
+        this.noise(ac, out, t, 0.48, 320, 1.8, 0.09, 2000);
+        this.noise(ac, out, t + 0.15, 0.35, 2000, 1.8, 0.055, 440); break;
       case "sp_gust":   // 바람이 휘감음
-        this.noise(ac, out, t, 0.32, 1600, 1.6, 0.09, 520);
-        this.tone(ac, out, t, 600, 300, 0.2, "sine", 0.025); break;
-      case "sp_buff":   // 강화: 위로 오르는 네 음
-        [523, 659, 784, 1046].forEach((f, i) => this.tone(ac, out, t + i * 0.055, f, f, 0.2, "triangle", 0.04));
-        this.noise(ac, out, t + 0.1, 0.3, 7000, 3, 0.015); break;
-      case "sp_debuff": // 약화: 어긋나게 내려가는 두 음 + 가라앉는 바람
-        this.tone(ac, out, t, 440, 300, 0.36, "sawtooth", 0.022);
-        this.tone(ac, out, t, 415, 280, 0.36, "sawtooth", 0.022);
-        this.noise(ac, out, t, 0.32, 1300, 1, 0.04, 260); break;
-      case "sp_shield": // 보호막: 유리처럼 맑은 웅
-        this.tone(ac, out, t, 660, 660, 0.5, "sine", 0.04);
-        this.tone(ac, out, t, 990, 990, 0.5, "sine", 0.025);
-        this.tone(ac, out, t + 0.02, 1320, 1980, 0.14, "sine", 0.02);
-        this.noise(ac, out, t, 0.22, 6200, 3, 0.03); break;
-      case "sp_heal":   // 회복: 부드러운 반짝 화음
-        [784, 988, 1175, 1568].forEach((f, i) => this.tone(ac, out, t + i * 0.05, f, f, 0.35, "sine", 0.03)); break;
-      case "levelUp":   // v3.6 레벨 업: 낮은 울림 위로 차례로 오르는 종 화음 + 높은 종 + 반짝임
-        this.tone(ac, out, t, 131, 131, 1.0, "sine", 0.08);
-        [523, 659, 784].forEach((f, i) => this.bell(ac, out, t + i * 0.09, f, 0.9, 0.04, [1, 2, 3], [1, 0.35, 0.12]));
-        this.bell(ac, out, t + 0.3, 1046, 1.4, 0.05, [1, 2, 3, 4.2], [1, 0.45, 0.2, 0.08]);
-        this.tone(ac, out, t + 0.3, 1568, 1568, 1.1, "sine", 0.02);
-        this.noise(ac, out, t + 0.28, 0.6, 8000, 4, 0.02); this.buzz(20); break;
+        this.noise(ac, out, t, 0.34, 1200, 1.5, 0.095, 380);
+        this.tone(ac, out, t, 440, 210, 0.22, "sine", 0.032); break;
+      case "sp_buff":   // 강화: D단조 5도 상승 + 깊은 저음 받침
+        this.tone(ac, out, t, 146.8, 146.8, 0.42, "sine", 0.055);
+        [293.7, 349.2, 440, 587.3].forEach((f, i) => this.tone(ac, out, t + i * 0.06, f, f, 0.24, "triangle", 0.042));
+        this.noise(ac, out, t + 0.1, 0.3, 4800, 2.8, 0.012); break;
+      case "sp_debuff": // 약화: 어긋나게 가라앉는 저음 + 심연의 바람
+        this.tone(ac, out, t, 293.7, 196, 0.4, "sawtooth", 0.025);
+        this.tone(ac, out, t, 277.2, 185, 0.4, "sawtooth", 0.025);
+        this.tone(ac, out, t, 110, 73.4, 0.38, "sine", 0.07);
+        this.noise(ac, out, t, 0.34, 950, 0.95, 0.045, 200); break;
+      case "sp_shield": // 보호막: 두꺼운 비전 수정·방패 울림
+        this.tone(ac, out, t, 440, 440, 0.55, "sine", 0.045);
+        this.tone(ac, out, t, 660, 660, 0.55, "sine", 0.028);
+        this.tone(ac, out, t + 0.02, 880, 1320, 0.16, "sine", 0.022);
+        this.tone(ac, out, t, 146.8, 146.8, 0.45, "sine", 0.045);
+        this.noise(ac, out, t, 0.24, 4200, 2.6, 0.025); break;
+      case "sp_heal":   // 회복: 은은하고 깊은 D서스2 화음
+        this.tone(ac, out, t, 146.8, 146.8, 0.5, "sine", 0.045);
+        [392, 440, 587.3, 784].forEach((f, i) => this.tone(ac, out, t + i * 0.055, f, f, 0.4, "sine", 0.032)); break;
+      case "levelUp":   // 레벨 업: 깊은 저음 위의 장엄한 대성당 D단조→5도 종 화음
+        this.tone(ac, out, t, 110, 110, 1.15, "sine", 0.11);
+        this.tone(ac, out, t + 0.28, 146.8, 146.8, 1.2, "sine", 0.075);
+        [293.7, 349.2, 440].forEach((f, i) => this.bell(ac, out, t + i * 0.095, f, 0.95, 0.044, [1, 2, 3], [1, 0.35, 0.12]));
+        this.bell(ac, out, t + 0.32, 587.3, 1.5, 0.058, [1, 2, 3, 4.2], [1, 0.45, 0.2, 0.08]);
+        this.tone(ac, out, t + 0.32, 880, 880, 1.2, "sine", 0.024);
+        this.noise(ac, out, t + 0.3, 0.6, 5400, 3.2, 0.015); this.buzz(20); break;
 
       /* ---------- v3.7.1 카드가 카드를 침: 공격 종류별 소리 (종류는 FEEL.atkKind, 부르는 곳은 js/game.js atkSfx) ----------
          j = 높이 배율. "atk_" 뒤 이름이 ATK_SND.KO 의 종류 */
@@ -495,51 +505,52 @@ const FEEL = {
       /* ---------- v3.14 타격감(js/impact.js): 공격 종류 소리(atk_*) · 마법 소리(sp_*) 밑에 깔리는 "맞는 순간의 바닥".
          딱(첫 샘플부터 최대인 틱) → 쿵(사인이 뚝 떨어지는 킥, 왜곡을 걸어 작은 스피커에서도 들림) → 와작(왜곡 잡음이 닫히는 결).
          v = 세기(피해가 클수록 크고 길다) ---------- */
-      case "imp_hit": {   // 유닛이 맞음 "딱-쿵-와작"
+      case "imp_hit": {   // 유닛이 맞음: 묵직한 타격 바닥
         const p = v == null ? 1 : Math.min(1.3, v);
-        this.burst(ac, out, t, 0.005, 1800, 0.5);
-        this.kick(ac, out, t, 190 * j, 46, 0.2 + p * 0.1, 0.7, 2.2);
-        this.tone(ac, out, t, 420 * j, 120, 0.05, "triangle", 0.16);
-        this.crunch(ac, out, t + 0.002, 0.08 + p * 0.06, 3800, 380, 0.32, 4);
+        this.burst(ac, out, t, 0.005, 1300, 0.48);
+        this.kick(ac, out, t, 155 * j, 36, 0.24 + p * 0.1, 0.78, 2.4);
+        this.tone(ac, out, t, 320 * j, 85, 0.06, "triangle", 0.17);
+        this.crunch(ac, out, t + 0.002, 0.09 + p * 0.06, 3000, 260, 0.34, 4.2);
         this.buzz(20); break; }
-      case "imp_kill": {  // 쓰러뜨림 · 카드가 부서짐 "콰-쾅-우르르": 더 낮고 길게, 갈라지는 틱 두 번, 낮게 퍼지는 땅울림
-        this.burst(ac, out, t, 0.006, 1500, 0.6);
-        this.kick(ac, out, t, 160, 34, 0.5, 0.85, 2.6);
-        this.kick(ac, out, t + 0.012, 72, 28, 0.62, 0.42, 0);
-        this.crunch(ac, out, t, 0.17, 4200, 300, 0.42, 5);
-        this.burst(ac, out, t + 0.038, 0.01, 3000, 0.28);
-        this.noise(ac, out, t + 0.02, 0.55, 260, 0.5, 0.13, 90);
+      case "imp_kill": {  // 쓰러뜨림 · 카드가 부서짐: 깊은 땅울림과 파열
+        this.burst(ac, out, t, 0.006, 1100, 0.58);
+        this.kick(ac, out, t, 130, 28, 0.56, 0.92, 2.8);
+        this.kick(ac, out, t + 0.012, 58, 22, 0.68, 0.48, 0);
+        this.crunch(ac, out, t, 0.19, 3400, 220, 0.44, 5.2);
+        this.burst(ac, out, t + 0.038, 0.01, 2200, 0.28);
+        this.noise(ac, out, t + 0.02, 0.62, 190, 0.48, 0.16, 65);
         this.buzz(36); break; }
-      case "imp_life": {  // 생명을 직접 침 "쿠웅-두근": 가슴을 치는 깊은 킥 + 뒤따르는 심장 두근 + 낮은 울림
-        this.burst(ac, out, t, 0.006, 1200, 0.55);
-        this.kick(ac, out, t, 140, 30, 0.44, 0.9, 2.8);
-        this.crunch(ac, out, t, 0.14, 2600, 200, 0.36, 5);
-        this.kick(ac, out, t + 0.17, 105, 32, 0.3, 0.46, 2);
-        this.noise(ac, out, t + 0.02, 0.6, 180, 0.6, 0.12, 70);
+      case "imp_life": {  // 생명을 직접 침: 가슴을 울리는 초저음과 심장 박동
+        this.burst(ac, out, t, 0.006, 950, 0.55);
+        this.kick(ac, out, t, 115, 24, 0.5, 0.95, 3.0);
+        this.crunch(ac, out, t, 0.16, 2100, 160, 0.38, 5.2);
+        this.kick(ac, out, t + 0.18, 88, 26, 0.34, 0.52, 2.2);
+        this.noise(ac, out, t + 0.02, 0.68, 150, 0.55, 0.15, 55);
         this.buzz([30, 90, 20]); break; }
-      case "imp_crit": {  // 치명 "칭!": 날이 긁히고 높은 쇠가 운다 + 갈라지는 틱
-        this.snap(ac, out, t, 3600, 0.08);
-        this.scrape(ac, out, t, 0.12, 5200, 2400, 0.08, 0.3);
-        this.clang(ac, out, t + 0.005, 1480, 0.5, 0.06, 7, 1);
-        this.burst(ac, out, t + 0.012, 0.008, 4000, 0.3); break; }
-      case "imp_block": { // 막힘 "캉!": 두꺼운 쇠 방패가 받아 내는 울림 + 짧은 쿵 + 보호막의 맑은 반짝
-        this.snap(ac, out, t, 2600, 0.09);
-        this.clang(ac, out, t, 620, 0.55, 0.11, 7, 1.2);
-        this.clang(ac, out, t, 1310, 0.3, 0.05, 5, 0);
-        this.kick(ac, out, t, 150, 70, 0.1, 0.45, 1.5);
-        this.ring(ac, out, t + 0.01, 2900, 0.35, 0.025, [1, 1.5, 2.2], [1, 0.5, 0.3], 4);
-        this.noise(ac, out, t, 0.05, 5000, 1, 0.1);
+      case "imp_crit": {  // 치명: 묵직한 강철 베임 + 깊은 울림
+        this.snap(ac, out, t, 2600, 0.08);
+        this.scrape(ac, out, t, 0.13, 3600, 1600, 0.085, 0.35);
+        this.clang(ac, out, t + 0.005, 980, 0.55, 0.065, 7, 1);
+        this.kick(ac, out, t, 140, 42, 0.16, 0.4, 1.8);
+        this.burst(ac, out, t + 0.012, 0.008, 3000, 0.28); break; }
+      case "imp_block": { // 막힘: 두꺼운 철 방패 공명 + 무거운 쿵
+        this.snap(ac, out, t, 1800, 0.085);
+        this.clang(ac, out, t, 420, 0.58, 0.12, 7, 1.1);
+        this.clang(ac, out, t, 890, 0.34, 0.055, 5, 0);
+        this.kick(ac, out, t, 125, 48, 0.14, 0.55, 1.8);
+        this.ring(ac, out, t + 0.01, 1850, 0.34, 0.022, [1, 1.5, 2.2], [1, 0.5, 0.3], 3.5);
+        this.noise(ac, out, t, 0.05, 3600, 0.9, 0.1);
         this.buzz(14); break; }
-      case "imp_spell": { // 마법이 맞음: 쿵 + 공기가 터지는 훅
-        this.burst(ac, out, t, 0.005, 1500, 0.35);
-        this.kick(ac, out, t, 170, 40, 0.28, 0.6, 2);
-        this.noise(ac, out, t, 0.24, 1600, 0.6, 0.1, 300); break; }
-      case "imp_land":    // 카드가 칸에 내려앉음: 묵직한 쿵 (place의 쇠 소리 밑)
-        this.kick(ac, out, t, 150, 55, 0.14, 0.42, 1.6);
-        this.noise(ac, out, t, 0.08, 500, 0.7, 0.07, 180); break;
+      case "imp_spell": { // 마법이 맞음: 깊은 저음 + 공기가 터지는 훅
+        this.burst(ac, out, t, 0.005, 1150, 0.35);
+        this.kick(ac, out, t, 145, 34, 0.32, 0.68, 2.2);
+        this.noise(ac, out, t, 0.26, 1200, 0.58, 0.11, 220); break; }
+      case "imp_land":    // 카드가 칸에 내려앉음: 묵직한 석판 착지
+        this.kick(ac, out, t, 125, 44, 0.16, 0.48, 1.8);
+        this.noise(ac, out, t, 0.09, 380, 0.65, 0.08, 140); break;
       case "imp_whoosh":  // 뛰쳐나감: 낮고 무거운 휙
-        this.noise(ac, out, t, 0.22, 380, 1.2, 0.12, 1800);
-        this.tone(ac, out, t, 90, 60, 0.18, "sine", 0.12); break;
+        this.noise(ac, out, t, 0.24, 300, 1.1, 0.13, 1300);
+        this.tone(ac, out, t, 78, 48, 0.2, "sine", 0.14); break;
     }
   },
   /* v1.9.5 종소리: 배음(ratio)마다 사인파를 겹쳐 길게 울린다 */
@@ -643,21 +654,30 @@ const FEEL = {
   bell(ac, out, t0, f, dur, vol, ratios, amps) {
     (ratios || [1]).forEach((r, i) => this.tone(ac, out, t0, f * r, f * r, dur * (1 - i * 0.18), "sine", vol * ((amps && amps[i]) != null ? amps[i] : 1)));
   },
-  /* v3.7.2 석조 전당 울림: 메뉴 · 창 소리에만 조금 섞는다(이름별 세기). 1.1초 잔향을 한 번 만들어 같이 쓴다 */
-  /* v3.8 쇠 소리로 바꾸며 높아진 만큼 귀에 더 크게 들려서, 예전 소리와 비슷한 크기로 맞추는 배율 (v3.8.1 다시 맞춤) */
-  TRIM: { imp_kill: 0.8, imp_life: 0.75, deny: 0.39, equip: 0.69, move: 0.63, place: 0.73, select: 0.8, ui_card: 0.8, ui_click: 0.65, ui_close: 0.67, ui_deck: 0.76, ui_open: 0.79, unselect: 0.7 },
-  HALL: { draw: 0.08, shatter: 0.18, place: 0.07, confirm: 0.12, equip: 0.08, handHover: 0.025, ui_click: 0.08, ui_card: 0.09, ui_deck: 0.09, ui_open: 0.14, ui_close: 0.14, select: 0.06, unselect: 0.05, pick: 0.03, move: 0.03, deny: 0.02 },   // v3.8.1 손으로 하는 소리는 울림 절반: 퍼지지 않고 붙게
+  /* v3.7.2 석조 전당 울림: 메뉴 · 창 · 전투 · 마법 소리에 깊은 지하 석실 울림을 섞는다 */
+  TRIM: { imp_kill: 0.8, imp_life: 0.78, deny: 0.42, equip: 0.72, move: 0.65, place: 0.76, select: 0.85, ui_card: 0.82, ui_click: 0.68, ui_close: 0.7, ui_deck: 0.78, ui_open: 0.8, unselect: 0.75 },
+  HALL: {
+    draw: 0.09, shatter: 0.22, place: 0.10, confirm: 0.16, equip: 0.11, handHover: 0.025,
+    ui_click: 0.09, ui_card: 0.11, ui_deck: 0.12, ui_open: 0.18, ui_close: 0.18,
+    select: 0.08, unselect: 0.06, pick: 0.035, move: 0.04, deny: 0.03, coinHeads: 0.10,
+    imp_hit: 0.12, imp_kill: 0.22, imp_life: 0.25, imp_crit: 0.18, imp_block: 0.18, imp_spell: 0.16, imp_land: 0.10,
+    sp_boom: 0.24, sp_quake: 0.26, sp_dark: 0.24, sp_holy: 0.26, sp_smite: 0.22, sp_zap: 0.16, sp_rock: 0.18, sp_clang: 0.18, sp_buff: 0.16, sp_debuff: 0.18, sp_heal: 0.18, levelUp: 0.28
+  },
   hallNode: null,
-  /* v3.14 버스: 압축(느린 시작 3ms → 맞는 순간의 머리는 살리고 몸통을 눌러 단단하게) → 보정 → 리미터(겹쳐도 깨지지 않게) */
+  /* 다크 판타지 마스터 버스: 저역 무게(+3dB @115Hz) · 치찰음 억제(-2.8dB @3.2kHz, -3.2dB @5.2kHz) → 압축 → 리미터 */
   busNode: null,
   bus(ac) {
     if (this.busNode && this.busNode.context === ac) return this.busNode;
+    const low = ac.createBiquadFilter(), mid = ac.createBiquadFilter(), hi = ac.createBiquadFilter();
+    low.type = "lowshelf"; low.frequency.value = 115; low.Q.value = 0.7; low.gain.value = 3.0;
+    mid.type = "peaking"; mid.frequency.value = 3200; mid.Q.value = 0.9; mid.gain.value = -2.8;
+    hi.type = "highshelf"; hi.frequency.value = 5200; hi.Q.value = 0.7; hi.gain.value = -3.2;
     const c = ac.createDynamicsCompressor(), mk = ac.createGain(), lim = ac.createDynamicsCompressor();
-    c.threshold.value = -16; c.knee.value = 8; c.ratio.value = 3.5; c.attack.value = 0.003; c.release.value = 0.14;
-    mk.gain.value = 1.12;
-    lim.threshold.value = -1.5; lim.knee.value = 0; lim.ratio.value = 20; lim.attack.value = 0.001; lim.release.value = 0.08;
-    c.connect(mk).connect(lim).connect(ac.destination);
-    return (this.busNode = c);
+    c.threshold.value = -15; c.knee.value = 10; c.ratio.value = 3.2; c.attack.value = 0.004; c.release.value = 0.16;
+    mk.gain.value = 1.15;
+    lim.threshold.value = -1.2; lim.knee.value = 0; lim.ratio.value = 20; lim.attack.value = 0.001; lim.release.value = 0.09;
+    low.connect(mid).connect(hi).connect(c).connect(mk).connect(lim).connect(ac.destination);
+    return (this.busNode = low);
   },
   /* v3.14 왜곡(tanh): 낮은 소리에 배음을 붙여 노트북 · 휴대폰 스피커에서도 "쿵"이 들리게 */
   curves: {},
@@ -688,10 +708,10 @@ const FEEL = {
   },
   hall(ac) {
     if (this.hallNode && this.hallNode.context === ac) return this.hallNode;
-    const len = Math.floor(ac.sampleRate * 1.1), ir = ac.createBuffer(2, len, ac.sampleRate);
-    for (let c = 0; c < 2; c++) { const d = ir.getChannelData(c); for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3.2); }
+    const sr = ac.sampleRate, len = Math.floor(sr * 1.65), ir = ac.createBuffer(2, len, sr), rise = Math.floor(sr * 0.018);
+    for (let c = 0; c < 2; c++) { const d = ir.getChannelData(c); for (let i = 0; i < len; i++) { const env = Math.pow(1 - i / len, 2.8) * (i < rise ? i / rise : 1); d[i] = (Math.random() * 2 - 1) * env; } }
     const cv = ac.createConvolver(), lp = ac.createBiquadFilter();
-    cv.buffer = ir; lp.type = "lowpass"; lp.frequency.value = 4200; lp.Q.value = 0.4;   // v3.8 2600 → 4200: 쇠 울림의 꼬리가 먹먹하지 않게
+    cv.buffer = ir; lp.type = "lowpass"; lp.frequency.value = 2400; lp.Q.value = 0.5;   // 깊고 어두운 석조 성당 잔향
     cv.connect(lp).connect(this.bus(ac));
     return (this.hallNode = cv);
   },

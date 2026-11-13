@@ -10,9 +10,12 @@ const STORE_KEY = "etherion.v3";   // v3: 덱이 진영이 아니라 단체(9개
 /* 시험 모드: 로그인 화면을 건너뛰고 관리자(9개 단체 덱·모든 카드 보유)로 바로 들어간다. 정식 계정 흐름으로 돌리려면 false
    v1.4.4: false — 새 모험가는 고른 깃발(v3.23: 진영마다 하나까지, 1~3개)만 쓴다. 관리자는 admin / etherion으로 로그인한다 */
 const OPEN_PLAY = false;
-/* v2.1 손님 입장: 로그인 화면의 "로그인 없이 시작"으로 들어오는 계정. 등록·암호 없이 9개 단체 덱과 모든 카드를 쓴다.
+/* v2.1 필멸자 입장: 로그인 화면의 "로그인 없이 시작"으로 들어오는 계정. 등록·암호 없이 9개 단체 덱과 모든 카드를 쓴다.
    관리자와 달리 보관소·ADMIN 표시는 없다. 진행(승패·환석 조각)은 이 브라우저에 남는다 */
-const GUEST_ID = "손님";
+const GUEST_ID = "필멸자";   // v3.53 손님 → 필멸자 (예전 이름은 GUEST_OLD, guest()가 옮겨 줌)
+const GUEST_OLD = "손님";
+/* v3.55 새 모험가가 처음에 무료로 고르는 깃발 수 (진영마다 하나까지). 룰북(js/rulebook.js)도 이 값을 읽는다 */
+const REG_MAX_FLAGS = 3;
 
 /* 신규 모험가의 보유 카드: 고른 단체의 기본 덱 40장 + 그 단체의 다른 카드 1장씩 */
 function starterCollection(g) {
@@ -24,6 +27,17 @@ function starterCollection(g) {
 /* v3.18 레어 이상(레어 · 에픽 · 유니크 · 스페셜)은 기본 덱에 든 것 말고는 시작 카드에 넣지 않는다 — 상점 · 원정 · 보상으로 얻는다 (docs/GRADES.md 2장) */
 function isHighGrade(c) { return typeof gradeOf === "function" && GRADES[gradeOf(c)].rank >= 3; }
 const starterDeckName = g => (typeof DECK_LISTS !== "undefined" && DECK_LISTS[g] ? DECK_LISTS[g].name : GROUPS[g].name + " 기본 덱");
+/* v3.44 기기(서버 요청)가 보낸 장수 · 카드 목록 다듬기: 정수 1 이상만, 진짜 카드 ID만(constructor 같은 이름은 거름).
+   글자("x") · 음수 · 소수가 들어와 계산이 NaN이 되면 조각 없이 카드가 생기던 구멍을 막는다 */
+const isCardId = id => typeof id === "string" && Object.prototype.hasOwnProperty.call(CARDS, id);
+const cleanCount = x => { x = Math.floor(+x); return Number.isFinite(x) && x > 0 ? Math.min(x, 9999) : 0; };
+function cleanCards(m) {
+  const out = {};
+  if (m && typeof m === "object") for (const id of Object.keys(m)) { const k = cleanCount(m[id]); if (k && isCardId(id)) out[id] = k; }
+  return out;
+}
+/* 받은 목록이 다듬은 것과 똑같은가 (덱 저장: 이상한 값이 하나라도 있으면 거절) */
+const cardsExact = (m, clean) => !!m && typeof m === "object" && !Array.isArray(m) && Object.keys(m).every(id => m[id] === 0 || clean[id] === m[id]);
 const freshDeck = g => ({ name: starterDeckName(g), cards: Object.assign({}, STARTER_DECKS[g]), savedAt: Date.now() });
 
 const Store = {
@@ -41,7 +55,7 @@ const Store = {
   user() { return this.data.session ? this.data.users[this.data.session] : null; },
   isAdmin(u) { u = u || this.user(); return !!(u && u.admin); },
   isGuest(u) { u = u || this.user(); return !!(u && u.guest); },
-  /* 모든 카드를 가진 계정(관리자 · 손님) */
+  /* 모든 카드를 가진 계정(관리자 · 필멸자) */
   allCards(u) { u = u || this.user(); return !!(u && (u.admin || u.guest)); },
 
   /* 계정 */
@@ -51,13 +65,13 @@ const Store = {
     id = (id || "").trim();
     groups = Array.isArray(groups) ? groups : [groups];
     if (id.length < 2 || id.length > 16) return "이름은 2~16자로 정해 주세요.";
-    if (id.toLowerCase() === ADMIN_ID || id === GUEST_ID) return "이 이름은 쓸 수 없습니다.";
+    if (id.toLowerCase() === ADMIN_ID || id === GUEST_ID || id === GUEST_OLD) return "이 이름은 쓸 수 없습니다.";
     if (this.data.users[id]) return "이미 있는 이름입니다. 로그인해 주세요.";
     if (!pw || pw.length < 2) return "암호는 2자 이상으로 정해 주세요.";
     groups = groups.filter((g, i) => groups.indexOf(g) === i);
-    if (!groups.length) return "깃발을 하나 이상 골라 주세요. (최대 3개까지 무료)";
+    if (!groups.length) return `깃발을 하나 이상 골라 주세요. (최대 ${REG_MAX_FLAGS}개까지 무료)`;
     if (groups.some(g => !GROUPS[g])) return "없는 깃발입니다. 다시 골라 주세요.";
-    if (groups.length > 3) return "깃발은 3개까지 고를 수 있습니다.";
+    if (groups.length > REG_MAX_FLAGS) return `깃발은 ${REG_MAX_FLAGS}개까지 고를 수 있습니다.`;
     if (Object.keys(FACTIONS).some(f => groups.filter(g => GROUPS[g].faction === f).length > 1)) return "한 진영에서는 깃발을 하나만 고를 수 있습니다.";
     const collection = {}, owned = {}, decks = {};
     for (const g of groups) { Object.assign(collection, starterCollection(g)); owned[g] = true; decks[g] = freshDeck(g); }
@@ -88,8 +102,9 @@ const Store = {
     if (u.pw !== pw) return "암호가 맞지 않습니다.";
     this.data.session = id; this.save(); return null;
   },
-  /* 로그인 없이 시작: 손님 계정을 (없으면 만들고) 연다 */
+  /* 로그인 없이 시작: 필멸자 계정을 (없으면 만들고) 연다 */
   guest() {
+    if (!this.data.users[GUEST_ID] && this.data.users[GUEST_OLD]) { const o = this.data.users[GUEST_OLD]; delete this.data.users[GUEST_OLD]; o.id = GUEST_ID; this.data.users[GUEST_ID] = o; }   // v3.53 예전 필멸자 계정을 필멸자로
     let u = this.data.users[GUEST_ID];
     if (!u) {
       const decks = {}, owned = {};
@@ -113,11 +128,16 @@ const Store = {
   starter(g) { return freshDeck(g); },
   /* 덱 검증: 저장 가능한 덱인지 */
   validateDeck(u, f, cards) {
+    if (!GROUPS[f]) return { ok: false, msg: "없는 깃발입니다." };
+    const cc = cleanCards(cards);
+    if (!cardsExact(cards, cc)) return { ok: false, msg: "덱의 카드 장수가 올바르지 않습니다." };   // v3.44
+    cards = cc;
     const n = countMap(cards);
     if (n < RULES.deckSize) return { ok: false, msg: `카드가 부족합니다. (${n} / ${RULES.deckSize}장)` };
     if (n > RULES.deckSize) return { ok: false, msg: `카드가 너무 많습니다. (${n} / ${RULES.deckSize}장)` };
     for (const id in cards) {
       const c = CARDS[id];
+      if (c && c.retired) return { ok: false, msg: `레거시 카드는 덱에 넣을 수 없습니다: ${c.name}` };   // v3.51
       if (!c || !deckable(c, f)) return { ok: false, msg: "다른 단체의 카드는 넣을 수 없습니다. 덱은 한 단체의 카드로만 만듭니다." };
       if (cards[id] > maxCopiesOf(c)) return { ok: false, msg: `같은 카드는 ${maxCopiesOf(c)}장까지입니다: ${c.name}` };
       if (cards[id] > this.ownedCount(u, id)) return { ok: false, msg: `보유하지 않은 카드가 있습니다: ${c.name}` };
@@ -128,8 +148,8 @@ const Store = {
   saveDeck(u, f, cards, name) {
     const v = this.validateDeck(u, f, cards);
     if (!v.ok) return v;
-    const clean = {}; for (const k in cards) if (cards[k] > 0) clean[k] = cards[k];
-    u.decks[f] = { name: (name || "").trim() || GROUPS[f].name + " 덱", cards: clean, savedAt: Date.now() };
+    const clean = cleanCards(cards);
+    u.decks[f] = { name: String(name || "").trim().slice(0, 40) || GROUPS[f].name + " 덱", cards: clean, savedAt: Date.now() };
     if (u.drafts) delete u.drafts[f];   // v3.0 저장하면 초안은 덱이 된다
     this.save();
     return { ok: true };
@@ -138,8 +158,9 @@ const Store = {
      저장(saveDeck)하면 덱이 되고, 되돌리기(clearDraft)하면 지워진다. 대전에는 저장한 덱만 나간다 */
   draft(u, g) { return (u.drafts && u.drafts[g]) || null; },
   setDraft(u, g, cards, name) {
-    const d = this.deck(u, g), clean = {};
-    for (const k in cards) if (cards[k] > 0) clean[k] = cards[k];
+    if (!GROUPS[g] || !this.ownsGroup(u, g)) return;
+    const d = this.deck(u, g), clean = cleanCards(cards);   // v3.44 정수 장수만 (NaN 초안이 거래 덱 보호를 뚫지 않게)
+    name = String(name || "").slice(0, 40);
     const same = (name || "") === (d.name || "") && JSON.stringify(Object.keys(clean).sort().map(k => [k, clean[k]])) === JSON.stringify(Object.keys(d.cards).filter(k => d.cards[k] > 0).sort().map(k => [k, d.cards[k]]));
     u.drafts = u.drafts || {};
     if (same) delete u.drafts[g]; else u.drafts[g] = { cards: clean, name: name || "", at: Date.now() };
@@ -149,7 +170,8 @@ const Store = {
   /* 상점에서 산 카드를 그 단체의 덱 초안에 넣는다 (40장 · 같은 카드 최대 장수 · 쓸 수 있는 장수 안에서).
      돌려주는 값: { g, added, why } — why: "full"(40장이 찼다) · "copies"(같은 카드 최대) · "group"(쓸 수 없는 단체) */
   draftAdd(u, id, n) {
-    const c = CARDS[id]; if (!c) return { added: 0, why: "none" };
+    const c = isCardId(id) && CARDS[id]; if (!c) return { added: 0, why: "none" };
+    n = cleanCount(n) || 1;
     const g = c.group;
     if (!GROUPS[g] || !this.ownsGroup(u, g)) return { g, added: 0, why: "group" };
     const cur = this.draft(u, g) || this.deck(u, g);

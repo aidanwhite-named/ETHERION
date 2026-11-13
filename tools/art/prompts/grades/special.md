@@ -17,7 +17,7 @@ Mood: sacred, transcendent, world-shaking.
 아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다. 그대로 붙여 넣으면 된다.
 
 ## SR-A1 · 하르간의 양손검
-심연 마족 · 아이템 · 레벨 4 · 스페셜 — 저장 파일 `img/cards/SR-A1.png`
+심연 마족 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-A1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-A1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -43,7 +43,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## SP-A1 · 그림자 없는 아즈라
-심연 마족 · 유닛 · 레벨 8 · 스페셜 — 저장 파일 `img/cards/SP-A1.png`
+심연 마족 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-A1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-A1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -69,7 +69,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## SR-A2 · 세렌의 활
-성광 천족 · 아이템 · 레벨 4 · 스페셜 — 저장 파일 `img/cards/SR-A2.png`
+성광 천족 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-A2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-A2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -95,7 +95,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## SP-A2 · 솔란테의 첫 기사
-성광 천족 · 유닛 · 레벨 8 · 스페셜 — 저장 파일 `img/cards/SP-A2.png`
+성광 천족 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-A2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-A2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -121,7 +121,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## SR-A3 · 이벨의 깃펜
-폭풍 하이엘프 · 아이템 · 레벨 4 · 스페셜 — 저장 파일 `img/cards/SR-A3.png`
+폭풍 하이엘프 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-A3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-A3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -147,7 +147,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## SP-A3 · 별을 푼 이사크
-폭풍 하이엘프 · 유닛 · 레벨 8 · 스페셜 — 저장 파일 `img/cards/SP-A3.png`
+폭풍 하이엘프 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-A3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-A3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -173,7 +173,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## SP-B1 · 불을 삼킨 자
-잿불 고블린 · 유닛 · 레벨 8 · 스페셜 — 저장 파일 `img/cards/SP-B1.png`
+잿불 고블린 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-B1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-B1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -199,7 +199,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## SP-B2 · 철심 브론
-무쇠수염 드워프 · 유닛 · 레벨 8 · 스페셜 — 저장 파일 `img/cards/SP-B2.png`
+무쇠수염 드워프 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-B2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-B2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -225,7 +225,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## SP-B3 · 일곱 번째
-번개 노움 · 유닛 · 레벨 8 · 스페셜 — 저장 파일 `img/cards/SP-B3.png`
+번개 노움 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-B3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-B3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -251,7 +251,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## SP-G1 · 잿갈기 카르노
-바위주먹 오크 · 유닛 · 레벨 8 · 스페셜 — 저장 파일 `img/cards/SP-G1.png`
+바위주먹 오크 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-G1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-G1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -277,7 +277,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## SP-G2 · 은월 리시엘
-이끼 트롤 · 유닛 · 레벨 8 · 스페셜 — 저장 파일 `img/cards/SP-G2.png`
+이끼 트롤 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-G2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-G2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -303,7 +303,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## SP-G3 · 물이 된 무녀
-푸른비늘 인어 · 유닛 · 레벨 8 · 스페셜 — 저장 파일 `img/cards/SP-G3.png`
+푸른비늘 인어 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-G3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-G3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.

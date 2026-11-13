@@ -38,23 +38,30 @@ function cardGlyph(c) {
   if (c.type === "item") return glyphSVG(ITEM_GLYPH[c.item.icon] || "sword");
   return glyphSVG(GROUPS[c.group].glyph, c.type !== "unit");
 }
-/* 일러스트 자리: img/cards/<카드ID>.png 파일이 있으면 그 그림을, 없으면 단체 문양을 보여 준다.
-   파일이 있는지는 시작할 때 한 번만 확인한다(Art.probe). 그림을 넣고 새로 고치면 바로 보인다 */
+/* 일러스트 자리: img/cards/<파일>이 있으면 그 그림을, 없으면 단체 문양을 보여 준다.
+   v3.41 어떤 카드에 그림이 있는지는 목록 파일 img/cards/art_index.js(window.ART_INDEX = { 카드ID: 파일 이름 })로 안다 —
+   예전처럼 시작할 때 모든 카드의 그림 파일을 하나씩 열어 보지 않는다(788장이면 폰 · 서버 접속에서 수백 MB). 목록은 tools/art/artmap.py가 만든다.
+   그림은 화면에 보일 때만 받는다(loading="lazy" · decoding="async"). 목록이 없을 때만 예전처럼 열어 본다(개발 중) */
 const Art = {
-  dir: "img/cards/", ok: new Set(), done: false,
+  dir: "img/cards/", ok: new Set(), file: {}, done: false,
   probe(ids, onDone) {
+    if (typeof ART_INDEX !== "undefined" && ART_INDEX) {
+      for (const id in ART_INDEX) if (ART_INDEX[id]) { this.ok.add(id); this.file[id] = ART_INDEX[id]; }
+      this.done = true; if (onDone) onDone(); return;
+    }
     let left = ids.length; if (!left) { this.done = true; return; }
     for (const id of ids) {
       const im = new Image();
-      im.onload = () => { this.ok.add(id); if (!--left) { this.done = true; onDone && onDone(); } };
+      im.onload = () => { this.ok.add(id); this.file[id] = id + ".png"; if (!--left) { this.done = true; onDone && onDone(); } };
       im.onerror = () => { if (!--left) { this.done = true; onDone && onDone(); } };
       im.src = this.dir + id + ".png";
     }
   },
-  has(id) { return this.ok.has(id); }
+  has(id) { return this.ok.has(id); },
+  src(id) { return this.dir + (this.file[id] || id + ".png"); }
 };
 function artHTML(c) {
-  return Art.has(c.id) ? `<img class="c-img" src="${Art.dir}${c.id}.png" alt="" draggable="false">${cardGlyph(c)}` : cardGlyph(c);
+  return Art.has(c.id) ? `<img class="c-img" src="${Art.src(c.id)}" alt="" draggable="false" loading="lazy" decoding="async">${cardGlyph(c)}` : cardGlyph(c);
 }
 function coinCount(c) { return (c.co || []).reduce((s, x) => s + x[1], 0); }
 
@@ -499,7 +506,7 @@ function cardDetailBody(c, inst) {
     if (c.flavor) lines.push(`<p class="d-flavor">${esc(c.flavor)}</p>`);   // v3.18 유니크 마법
   }
   lines.push(instLines(inst));
-  if (Store.isAdmin()) lines.push(`<p class="d-type">그림 파일: <code>img/cards/${c.id}.png</code>${Art.has(c.id) ? "" : " (아직 없음 — 넣으면 자동으로 보입니다)"}</p>`);   // 관리자에게만
+  if (Store.isAdmin()) lines.push(`<p class="d-type">그림 파일: <code>${Art.has(c.id) ? Art.src(c.id) : "img/cards/" + c.id + ".png"}</code>${Art.has(c.id) ? "" : " (아직 없음 — tools/art/inbox에 넣고 artmap.py import)"}</p>`);   // 관리자에게만
   return `<div class="d-body">
       <div class="d-tags">${tags.join("")}<span class="tag">${el.icon} ${el.name}</span></div>
       <p class="d-type">${TYPES[c.type].name} · 레벨 ${c.lv}${c.up ? ` · 유지비 ${c.up}` : ""}</p>
@@ -648,7 +655,7 @@ ${gems}
   // v3.9.14: 카드 뒷면은 그림 한 장(img/ui/deck/card_back.png — 에테리온 문장 메달, 원본 img/ui/src/cardback.js).
   // 위의 CARD_BACK_SVG(v2.5 코드 그림)는 되돌릴 때를 위해 남겨 두고 쓰지 않는다. 주소는 문서 기준 절대 주소로(사용자 지정 속성 안의 상대 주소가 css 파일 기준으로 풀리지 않게)
   // v3.19.2: 그림 아래쪽에 ETHERION 글씨를 구워 넣었다(원본 card_back_plain.png + tools/art/cardback_text.py). ?v= 는 예전 그림 캐시를 피하려고
-  const art = new URL("img/ui/deck/card_back.png?v=2", document.baseURI).href;
+  const art = new URL(document.documentElement.classList.contains("mobile") ? "img/ui/deck/card_back_m.png?v=2" : "img/ui/deck/card_back.png?v=3", document.baseURI).href;   // v3.41 폰 · 앱은 500×700 판
   const url = `url("${art}")`;
   document.documentElement.style.setProperty("--card-back", url);
 })();

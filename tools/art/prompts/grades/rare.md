@@ -17,7 +17,7 @@ Mood: precise, impressive, prized.
 아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다. 그대로 붙여 넣으면 된다.
 
 ## IR-A1 · 녹타르 피의 가면
-심연 마족 · 아이템 · 레벨 3 · 레어 — 저장 파일 `img/cards/IR-A1.png`
+심연 마족 · 아이템 · 레벨 3 · 레어 — 받은 그림은 `tools/art/inbox/IR-A1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IR-A1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -42,7 +42,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-A1-2 · 흡혈 장막
-심연 마족 · 방어 마법 · 레벨 3 · 레어 — 저장 파일 `img/cards/RS-A1-2.png`
+심연 마족 · 방어 마법 · 레벨 3 · 레어 — 받은 그림은 `tools/art/inbox/RS-A1-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-A1-2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -68,7 +68,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## US-A1-2 · 그림자 계약
-심연 마족 · 공격 마법 · 레벨 3 · 레어 — 저장 파일 `img/cards/US-A1-2.png`
+심연 마족 · 공격 마법 · 레벨 3 · 레어 — 받은 그림은 `tools/art/inbox/US-A1-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-A1-2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -94,7 +94,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PN-A1-R · 그림자 계약 집행자
-심연 마족 · 유닛 · 레벨 4 · 레어 — 저장 파일 `img/cards/PN-A1-R.png`
+심연 마족 · 유닛 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/PN-A1-R.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A1-R.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -119,7 +119,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-A1-1 · 피의 창
-심연 마족 · 공격 마법 · 레벨 4 · 레어 — 저장 파일 `img/cards/RS-A1-1.png`
+심연 마족 · 공격 마법 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/RS-A1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-A1-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -145,7 +145,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-A1-3 · 피의 저주
-심연 마족 · 공용 마법 · 레벨 5 · 레어 — 저장 파일 `img/cards/RS-A1-3.png`
+심연 마족 · 공용 마법 · 레벨 5 · 레어 — 받은 그림은 `tools/art/inbox/RS-A1-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-A1-3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -171,7 +171,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-A2-3 · 빛의 결계
-성광 천족 · 공용 마법 · 레벨 3 · 레어 — 저장 파일 `img/cards/RS-A2-3.png`
+성광 천족 · 공용 마법 · 레벨 3 · 레어 — 받은 그림은 `tools/art/inbox/RS-A2-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-A2-3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -197,7 +197,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## IR-A2 · 솔란테의 맹세 방패
-성광 천족 · 아이템 · 레벨 4 · 레어 — 저장 파일 `img/cards/IR-A2.png`
+성광 천족 · 아이템 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/IR-A2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IR-A2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -222,7 +222,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PN-A2-R · 새벽빛 방패 기사
-성광 천족 · 유닛 · 레벨 4 · 레어 — 저장 파일 `img/cards/PN-A2-R.png`
+성광 천족 · 유닛 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/PN-A2-R.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A2-R.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -247,7 +247,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-A2-1 · 새벽 돌격
-성광 천족 · 공격 마법 · 레벨 4 · 레어 — 저장 파일 `img/cards/RS-A2-1.png`
+성광 천족 · 공격 마법 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/RS-A2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-A2-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -273,7 +273,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-A2-2 · 수호 날개
-성광 천족 · 방어 마법 · 레벨 5 · 레어 — 저장 파일 `img/cards/RS-A2-2.png`
+성광 천족 · 방어 마법 · 레벨 5 · 레어 — 받은 그림은 `tools/art/inbox/RS-A2-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-A2-2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -299,7 +299,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## IR-A3 · 별 문자 두루마리
-폭풍 하이엘프 · 아이템 · 레벨 3 · 레어 — 저장 파일 `img/cards/IR-A3.png`
+폭풍 하이엘프 · 아이템 · 레벨 3 · 레어 — 받은 그림은 `tools/art/inbox/IR-A3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IR-A3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -324,7 +324,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-A3-1 · 칼바람
-폭풍 하이엘프 · 공격 마법 · 레벨 3 · 레어 — 저장 파일 `img/cards/RS-A3-1.png`
+폭풍 하이엘프 · 공격 마법 · 레벨 3 · 레어 — 받은 그림은 `tools/art/inbox/RS-A3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-A3-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -350,7 +350,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PN-A3-R · 벨루미르의 눈 술사
-폭풍 하이엘프 · 유닛 · 레벨 4 · 레어 — 저장 파일 `img/cards/PN-A3-R.png`
+폭풍 하이엘프 · 유닛 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/PN-A3-R.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A3-R.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -375,7 +375,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-A3-2 · 역풍 장벽
-폭풍 하이엘프 · 방어 마법 · 레벨 4 · 레어 — 저장 파일 `img/cards/RS-A3-2.png`
+폭풍 하이엘프 · 방어 마법 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/RS-A3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-A3-2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -401,7 +401,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-A3-3 · 회오리 칼날
-폭풍 하이엘프 · 공용 마법 · 레벨 5 · 레어 — 저장 파일 `img/cards/RS-A3-3.png`
+폭풍 하이엘프 · 공용 마법 · 레벨 5 · 레어 — 받은 그림은 `tools/art/inbox/RS-A3-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-A3-3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -427,7 +427,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## IR-B1 · 명사수의 화승총
-잿불 고블린 · 아이템 · 레벨 3 · 레어 — 저장 파일 `img/cards/IR-B1.png`
+잿불 고블린 · 아이템 · 레벨 3 · 레어 — 받은 그림은 `tools/art/inbox/IR-B1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IR-B1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -452,7 +452,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-B1-2 · 매설 지뢰
-잿불 고블린 · 방어 마법 · 레벨 3 · 레어 — 저장 파일 `img/cards/RS-B1-2.png`
+잿불 고블린 · 방어 마법 · 레벨 3 · 레어 — 받은 그림은 `tools/art/inbox/RS-B1-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-B1-2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -478,7 +478,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PN-B1-R · 포연 속의 저격수
-잿불 고블린 · 유닛 · 레벨 4 · 레어 — 저장 파일 `img/cards/PN-B1-R.png`
+잿불 고블린 · 유닛 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/PN-B1-R.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B1-R.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -503,7 +503,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-B1-3 · 불씨 탄막
-잿불 고블린 · 공용 마법 · 레벨 4 · 레어 — 저장 파일 `img/cards/RS-B1-3.png`
+잿불 고블린 · 공용 마법 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/RS-B1-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-B1-3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -529,7 +529,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-B1-1 · 불바다
-잿불 고블린 · 공격 마법 · 레벨 5 · 레어 — 저장 파일 `img/cards/RS-B1-1.png`
+잿불 고블린 · 공격 마법 · 레벨 5 · 레어 — 받은 그림은 `tools/art/inbox/RS-B1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-B1-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -555,7 +555,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-B2-2 · 골렘 방진
-무쇠수염 드워프 · 방어 마법 · 레벨 3 · 레어 — 저장 파일 `img/cards/RS-B2-2.png`
+무쇠수염 드워프 · 방어 마법 · 레벨 3 · 레어 — 받은 그림은 `tools/art/inbox/RS-B2-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-B2-2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -581,7 +581,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## IR-B2 · 아다만트 장갑판
-무쇠수염 드워프 · 아이템 · 레벨 4 · 레어 — 저장 파일 `img/cards/IR-B2.png`
+무쇠수염 드워프 · 아이템 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/IR-B2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IR-B2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -606,7 +606,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PN-B2-R · 아다만트 갑주병
-무쇠수염 드워프 · 유닛 · 레벨 4 · 레어 — 저장 파일 `img/cards/PN-B2-R.png`
+무쇠수염 드워프 · 유닛 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/PN-B2-R.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B2-R.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -631,7 +631,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-B2-1 · 파쇄 망치
-무쇠수염 드워프 · 공격 마법 · 레벨 4 · 레어 — 저장 파일 `img/cards/RS-B2-1.png`
+무쇠수염 드워프 · 공격 마법 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/RS-B2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-B2-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -657,7 +657,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-B2-3 · 리벳 폭풍
-무쇠수염 드워프 · 공용 마법 · 레벨 5 · 레어 — 저장 파일 `img/cards/RS-B2-3.png`
+무쇠수염 드워프 · 공용 마법 · 레벨 5 · 레어 — 받은 그림은 `tools/art/inbox/RS-B2-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-B2-3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -683,7 +683,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## IR-B3 · 구리 피뢰봉
-번개 노움 · 아이템 · 레벨 2 · 레어 — 저장 파일 `img/cards/IR-B3.png`
+번개 노움 · 아이템 · 레벨 2 · 레어 — 받은 그림은 `tools/art/inbox/IR-B3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IR-B3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -708,7 +708,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-B3-3 · 충전 완료
-번개 노움 · 공용 마법 · 레벨 3 · 레어 — 저장 파일 `img/cards/RS-B3-3.png`
+번개 노움 · 공용 마법 · 레벨 3 · 레어 — 받은 그림은 `tools/art/inbox/RS-B3-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-B3-3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -734,7 +734,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PN-B3-R · 병 속의 번개 술사
-번개 노움 · 유닛 · 레벨 4 · 레어 — 저장 파일 `img/cards/PN-B3-R.png`
+번개 노움 · 유닛 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/PN-B3-R.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B3-R.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -759,7 +759,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-B3-1 · 축전 해방
-번개 노움 · 공격 마법 · 레벨 4 · 레어 — 저장 파일 `img/cards/RS-B3-1.png`
+번개 노움 · 공격 마법 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/RS-B3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-B3-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -785,7 +785,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-B3-2 · 감전 덫
-번개 노움 · 방어 마법 · 레벨 5 · 레어 — 저장 파일 `img/cards/RS-B3-2.png`
+번개 노움 · 방어 마법 · 레벨 5 · 레어 — 받은 그림은 `tools/art/inbox/RS-B3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-B3-2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -811,7 +811,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## IR-G1 · 잿갈기 문신
-바위주먹 오크 · 아이템 · 레벨 3 · 레어 — 저장 파일 `img/cards/IR-G1.png`
+바위주먹 오크 · 아이템 · 레벨 3 · 레어 — 받은 그림은 `tools/art/inbox/IR-G1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IR-G1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -836,7 +836,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-G1-1 · 늑대 기습
-바위주먹 오크 · 공격 마법 · 레벨 3 · 레어 — 저장 파일 `img/cards/RS-G1-1.png`
+바위주먹 오크 · 공격 마법 · 레벨 3 · 레어 — 받은 그림은 `tools/art/inbox/RS-G1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-G1-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -862,7 +862,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PN-G1-R · 카르노를 쫓는 자
-바위주먹 오크 · 유닛 · 레벨 4 · 레어 — 저장 파일 `img/cards/PN-G1-R.png`
+바위주먹 오크 · 유닛 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/PN-G1-R.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G1-R.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -887,7 +887,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-G1-2 · 궁지의 포효
-바위주먹 오크 · 방어 마법 · 레벨 4 · 레어 — 저장 파일 `img/cards/RS-G1-2.png`
+바위주먹 오크 · 방어 마법 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/RS-G1-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-G1-2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -913,7 +913,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-G1-3 · 대지 가르기
-바위주먹 오크 · 공용 마법 · 레벨 5 · 레어 — 저장 파일 `img/cards/RS-G1-3.png`
+바위주먹 오크 · 공용 마법 · 레벨 5 · 레어 — 받은 그림은 `tools/art/inbox/RS-G1-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-G1-3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -939,7 +939,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## IR-G2 · 첫 고목의 껍질
-이끼 트롤 · 아이템 · 레벨 3 · 레어 — 저장 파일 `img/cards/IR-G2.png`
+이끼 트롤 · 아이템 · 레벨 3 · 레어 — 받은 그림은 `tools/art/inbox/IR-G2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IR-G2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -964,7 +964,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-G2-2 · 가시 덤불
-이끼 트롤 · 방어 마법 · 레벨 3 · 레어 — 저장 파일 `img/cards/RS-G2-2.png`
+이끼 트롤 · 방어 마법 · 레벨 3 · 레어 — 받은 그림은 `tools/art/inbox/RS-G2-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-G2-2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -990,7 +990,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PN-G2-R · 드리엔의 이끼 거인
-이끼 트롤 · 유닛 · 레벨 4 · 레어 — 저장 파일 `img/cards/PN-G2-R.png`
+이끼 트롤 · 유닛 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/PN-G2-R.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G2-R.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1015,7 +1015,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-G2-1 · 뿌리 습격
-이끼 트롤 · 공격 마법 · 레벨 4 · 레어 — 저장 파일 `img/cards/RS-G2-1.png`
+이끼 트롤 · 공격 마법 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/RS-G2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-G2-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1041,7 +1041,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-G2-3 · 끈질긴 이끼
-이끼 트롤 · 공용 마법 · 레벨 5 · 레어 — 저장 파일 `img/cards/RS-G2-3.png`
+이끼 트롤 · 공용 마법 · 레벨 5 · 레어 — 받은 그림은 `tools/art/inbox/RS-G2-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-G2-3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1067,7 +1067,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## IR-G3 · 넬리아의 물방울
-푸른비늘 인어 · 아이템 · 레벨 2 · 레어 — 저장 파일 `img/cards/IR-G3.png`
+푸른비늘 인어 · 아이템 · 레벨 2 · 레어 — 받은 그림은 `tools/art/inbox/IR-G3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IR-G3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1092,7 +1092,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-G3-1 · 작살 물살
-푸른비늘 인어 · 공격 마법 · 레벨 3 · 레어 — 저장 파일 `img/cards/RS-G3-1.png`
+푸른비늘 인어 · 공격 마법 · 레벨 3 · 레어 — 받은 그림은 `tools/art/inbox/RS-G3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-G3-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1118,7 +1118,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PN-G3-R · 넬리아의 물그릇 무녀
-푸른비늘 인어 · 유닛 · 레벨 4 · 레어 — 저장 파일 `img/cards/PN-G3-R.png`
+푸른비늘 인어 · 유닛 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/PN-G3-R.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G3-R.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1129,7 +1129,7 @@ Subject: a seasoned, battle-hardened member of the Bluescale Merfolk — a devot
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Banner — Bluescale Merfolk: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
 Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 물의 대정령 넬리아를 담는 그릇을 받든다. 그릇에 담긴 물이 칼끝을 한 번 흘려보낸다.
+Lore (Korean, use for the scene): 물의 대정령 넬리아를 담는 그릇을 받든다. 그릇에 담긴 물이 매번 첫 칼끝을 흘려 무디게 한다.
 Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
 Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; clear water light, spray, ripples, bubbles.
@@ -1143,7 +1143,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-G3-2 · 포말 장막
-푸른비늘 인어 · 방어 마법 · 레벨 4 · 레어 — 저장 파일 `img/cards/RS-G3-2.png`
+푸른비늘 인어 · 방어 마법 · 레벨 4 · 레어 — 받은 그림은 `tools/art/inbox/RS-G3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-G3-2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1169,7 +1169,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## RS-G3-3 · 밀물의 노래
-푸른비늘 인어 · 공용 마법 · 레벨 5 · 레어 — 저장 파일 `img/cards/RS-G3-3.png`
+푸른비늘 인어 · 공용 마법 · 레벨 5 · 레어 — 받은 그림은 `tools/art/inbox/RS-G3-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-G3-3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.

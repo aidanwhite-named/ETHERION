@@ -97,8 +97,6 @@ const Arcade = {
   refresh() {
     if (!this.el) return;
     Slot.refresh(); Crystal.refresh();
-    const wc = this.el.querySelector(".arc-weather");
-    if (wc && typeof Weather !== "undefined") { const K = Weather.info(); wc.innerHTML = `<i>${K.icon}</i>`; wc.title = `날씨: ${K.name}\n${K.line}`; }
     // 할 수 있는 게임이 남아 있으면 탭에 점을 찍는다
     const can = { slot: Slot.can(), seed: Crystal.can() };
     $$(".arc-tab", this.el).forEach(b => b.classList.toggle("ready", !!can[b.dataset.tab]));

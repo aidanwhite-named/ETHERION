@@ -1,0 +1,10 @@
+/* ETHERION — 메뉴 화면 배경 그림 (v3.45, js/screens.js Bg · MENU_ART · docs/STYLE_GUIDE.md 2.17)
+   대기실 · 상점 · 교역소 · 덱 조정실 · 원정 · 순례 · 관리자 · 입장 관문에 그림 한 장을 멈춘 채 깐다(<html class="menu-art">일 때).
+   움직이는 별 하늘 · 3D 세 존재 대신이라 화면을 다시 그리지 않는다. 지금은 타이틀 그림, 메뉴 전용 그림을 받으면 MENU_ART만 바꾼다.
+   글자 · 패널이 먼저 읽히도록 위 .55 → 아래 .72로 어둡게 덮는다 */
+#menu-art { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: #07080d center / cover no-repeat; opacity: 0; transition: opacity .8s; }
+#menu-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7, 8, 13, .55), rgba(7, 8, 13, .72)); }
+html.menu-art #menu-art { opacity: 1; }
+/* v3.48.1 메뉴 전용 그림(가운데가 이미 어둡게 그려짐) + 세 존재 층: 덜 덮는다 */
+#menu-art.own::after { background: linear-gradient(180deg, rgba(7, 8, 13, .32), rgba(7, 8, 13, .58)); }
+@media (prefers-reduced-motion: reduce) { #menu-art { transition: none; } }

@@ -396,13 +396,13 @@ input:not([type=checkbox]):not([type=radio]):not([type=range]):focus { border-co
   .tb-nav.tb-exit { padding: 0 6px; }
   .tb-nav.tb-exit span { display: none; }
 }
-/* 1000px 이하: 인장은 머리글자 봉인만, 지갑 · 날씨는 조금 작게. 860px 이하: 날씨는 아이콘만 */
+/* 1000px 이하: 인장은 머리글자 봉인만, 지갑은 조금 작게 */
 @media (max-width: 1000px) and (min-width: 761px) {
   .tbw-right { gap: 6px; }
   .seal-txt { display: none; }
-  .tbw-right .gold-chip, .tbw-right .weather-chip { padding-inline: 9px; }
+  .tbw-right .gold-chip { padding-inline: 9px; }
 }
-@media (max-width: 860px) and (min-width: 761px) { .tbw-right .weather-chip b { display: none; } .tbw-right .weather-chip { padding-inline: 8px; } .tbw-right .tb-nav { padding: 0 6px; } }
+@media (max-width: 860px) and (min-width: 761px) { .tbw-right .tb-nav { padding: 0 6px; } }
 /* v3.5.4 대기실 채팅: 칸 안의 줄(머리 · 기록 · 입력)이 칸보다 넓게 잡혀 오른쪽으로 삐져나오던 것(화면이 옆으로 몇 px 넘침, "오프라인" 잘림) */
 .chat { grid-template-columns: minmax(0, 1fr); }
 .chat-form input { min-width: 0; }

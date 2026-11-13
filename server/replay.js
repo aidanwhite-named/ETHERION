@@ -13,8 +13,8 @@ process.on("message", async job => {
   try {
     ctx.seed(1);   // 판 결과와 상관없는 Math.random(연출 · 시드 없는 곳)을 늘 같게
     const log = Array.isArray(job.log) ? job.log : [];
-    const g = await ctx.playHeadless({ seed: job.seed >>> 0, verify: true, replay: log.slice(), replayAll: log.slice(), p0: job.p0, p1: job.p1 });
-    Object.assign(out, { winner: g.winner, turn: g.turn, broken: (g.broken || []).slice() });
+    const g = await ctx.playHeadless({ seed: job.seed >>> 0, verify: true, replay: log.slice(), replayAll: log.slice(), p0: job.p0, p1: job.p1, rules: job.rules || undefined });   // v3.44 원정은 판 규칙(용)까지
+    Object.assign(out, { winner: g.winner, turn: g.turn, broken: (g.broken || []).slice(), kills: g.kills ? g.kills[0] : 0 });   // v3.46 kills: 사람 쪽이 쓰러뜨린 상대 유닛
   } catch (e) {
     out.error = String(e && e.message || e).slice(0, 200);
   }

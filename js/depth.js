@@ -10,7 +10,7 @@ const Depth = (() => {
   const PANELS = ".vault-preview,.users,.xp-head,.xp-route,.xp-card,.gate";
   const SIDE_DEG = 3.2, FOLLOW_DEG = 1.8, CARD_DEG = 13, CARD_LIFT = 26, NARROW = 900;
   const reduced = () => !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
-  const off = () => innerWidth <= NARROW;
+  const off = () => innerWidth <= NARROW || document.documentElement.classList.contains("mobile");   // v3.46 폰 · 앱은 기울이기 없음
   let mx = 0, my = 0, tx = 0, ty = 0, raf = 0, frame = null, glare = null;
   const info = new WeakMap();
 

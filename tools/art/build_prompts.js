@@ -20,7 +20,7 @@ const S = JSON.parse(fs.readFileSync(path.join(__dirname, "art_style.json"), "ut
 const NOTES = (() => { try { return JSON.parse(fs.readFileSync(path.join(__dirname, "art_notes.json"), "utf8")); } catch (e) { return {}; } })();
 
 /* ---------- 1. 게임 데이터 읽기 (index.html의 data.js ~ grades.js와 같은 차례) ---------- */
-const DATA_FILES = ["data", "names", "retired", "briefs", "specials", "uniques", "highcards", "pincards", "rarespells", "counterspells", "upgrades", "decks", "cards", "grades"];
+const DATA_FILES = ["data", "names", "retired", "briefs", "specials", "uniques", "highcards", "pincards", "rarespells", "counterspells", "upgrades", "rebalance", "decks", "cards", "grades"];
 function loadGame() {
   const stub = () => null;
   const ctx = {
@@ -134,7 +134,17 @@ function promptOf(c, D) {
     `Subject: ${subjectOf(c, F, G, D)}.`
   ];
   if (NOTES[c.id]) L.push(`Art direction: ${NOTES[c.id]}`);
-  if (gk === "upgrade" && G.reference) L.push(fill(G.reference, F, c) + (c.base && D.CARDS[c.base] ? ` (base card: "${D.CARDS[c.base].name}")` : ""));
+  if (gk === "upgrade" && G.reference) {
+    const B = c.base && D.CARDS[c.base];
+    L.push(fill(G.reference, F, c) + (B ? ` (base card: "${B.name}")` : ""));
+    /* v3.46 강화 카드의 연속성: 참고 그림이 없어도 원래 카드와 같은 인물 · 같은 곳으로 그리게, 원래 카드의 이름 · 서사 · 배경을 함께 넣는다 */
+    if (B) {
+      const BF = S.flags[B.group] || F, blore = (B.flavor || "").trim(), place = gradeKey(B) === "common" ? BF.hint : BF.home;
+      L.push(`Continuity with the base card: this is the very same individual as "${B.name}" (${B.id}) after a promotion — same species, sex, age, face, hair or beard, colours, weapon type and fighting style, now one rank higher.` +
+        (blore ? ` The base card's lore: ${blore}` : "") +
+        ` The base card is set in ${place}; keep that same place, intensified.`);
+    }
+  }
   L.push(`Scale (level ${c.lv} of 8): ${levelText(c)}.`);
   if (isToken(c))
     L.push(`Banner — summoned by the ${F.en}; signature motifs: ${F.motifs}; palette: ${F.palette}.`);
@@ -221,7 +231,7 @@ const TYPE_KO = { unit: "유닛", atk: "공격 마법", def: "방어 마법", an
 function cardMd(j) {
   return [`## ${j.id} · ${j.name}`,
     `${S.flags[j.group] ? S.flags[j.group].ko : j.group} · ${TYPE_KO[j.type] || j.type} · 레벨 ${j.lv} · ${S.grades[j.grade].ko}` +
-    `${j.base ? ` · 원래 카드 \`${j.base}\`` + (j.refs ? " (참고 그림 함께 넣기)" : "") : ""} — 저장 파일 \`${j.out}\``, "", "```", j.prompt, "```", ""].join("\n");
+    `${j.base ? ` · 원래 카드 \`${j.base}\`` + (j.refs ? " (참고 그림 함께 넣기)" : " — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습)") : ""} — 받은 그림은 \`tools/art/inbox/${j.id}.jpg\` → \`python3 tools/art/artmap.py import\` (게임 사본 \`${j.out}\` 600×750)`, "", "```", j.prompt, "```", ""].join("\n");
 }
 function main() {
   const D = loadGame();
@@ -232,12 +242,12 @@ function main() {
   for (const id of ids) {
     const c = D.CARDS[id];
     const job = {
-      id, kind: "card", out: `img/cards/${id}.png`, size: [800, 1000], format: "png", background: "opaque",
+      id, kind: "card", out: `img/cards/${id}.jpg`, size: [600, 750], format: "jpg",   /* v3.41 카드 일러스트 = 600×750 JPG (artmap.py와 같음) */ background: "opaque",
       name: c.name, group: c.group, faction: c.faction, type: c.type, lv: c.lv, grade: gradeKey(c), prompt_ver: S.version
     };
     if (c.base) {
       job.base = c.base;
-      if (fs.existsSync(path.join(ROOT, "img", "cards", c.base + ".png"))) job.refs = [`img/cards/${c.base}.png`];
+      if (fs.existsSync(path.join(ROOT, "img", "cards", c.base + ".jpg"))) job.refs = [`img/cards/${c.base}.jpg`];   // v3.46 카드 그림은 v3.41부터 .jpg
     }
     job.prompt = promptOf(c, D);
     jobs.push(job);
@@ -249,7 +259,7 @@ function main() {
   for (const g of Object.keys(byGroup).sort()) {
     const F = S.flags[g] || {};
     const md = [`# ${g} ${F.ko || ""} — 카드 일러스트 프롬프트 (${byGroup[g].length}장, 버전 ${S.version})`, "",
-      "각 카드: 아래 프롬프트를 그림 AI에 붙여 넣고, 나온 그림을 `저장 파일` 이름으로 저장하거나 `tools/art/inbox/`에 넣고 `python tools/art/artmap.py import`.",
+      "각 카드: 아래 프롬프트를 그림 AI에 붙여 넣고, 나온 그림(4:5, 600×750 이상)을 `tools/art/inbox/<카드ID>.jpg`로 넣고 `python3 tools/art/artmap.py import` — 600×750 JPG로 `img/cards/`에 들어가고 게임 목록이 새로 쓰인다(v3.41). `img/cards/`에 바로 쓰지 않는다.",
       "등급별 연출 규칙은 `tools/art/PROMPT_GUIDE.md`. 이 파일은 `node tools/art/build_prompts.js`가 만든다 — 손으로 고치지 않는다.", ""];
     const order = c => S.gradeOrder.indexOf(c.grade);
     for (const j of byGroup[g].slice().sort((a, b) => order(b) - order(a) || a.id.localeCompare(b.id))) md.push(cardMd(j));

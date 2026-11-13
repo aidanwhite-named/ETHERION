@@ -21,6 +21,10 @@ public class MainActivity extends Activity {
             | View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
             | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;   // 0x1706
 
+    /** v3.46.2 처음 여는 주소. 서버 모드면 "?server=<https 주소, URL 인코딩>"을 붙인다 (js/net.js 가 읽음).
+     *  build_apk.py 는 tools/desktop/server.txt(또는 --server · --offline)로 이 값을 정해 바이트코드에 넣는다. */
+    private static final String START_URL = "file:///android_asset/index.html?server=https%3A%2F%2Fetherion.tail2be349.ts.net";
+
     private WebView web;
     private long lastBack;
 
@@ -42,7 +46,7 @@ public class MainActivity extends Activity {
         web.setBackgroundColor(0xFF000000);
         setContentView(web);
         web.setSystemUiVisibility(IMMERSIVE);
-        web.loadUrl("file:///android_asset/index.html");
+        web.loadUrl(START_URL);
     }
 
     @Override

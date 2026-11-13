@@ -17,7 +17,7 @@ Mood: legendary, commanding, personal.
 아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다. 그대로 붙여 넣으면 된다.
 
 ## UN-A1 · 피의 서약자
-심연 마족 · 유닛 · 레벨 6 · 유니크 — 저장 파일 `img/cards/UN-A1.png`
+심연 마족 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-A1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-A1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -43,7 +43,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## UN-A1-7 · 모르카스의 영혼 수확자
-심연 마족 · 유닛 · 레벨 6 · 유니크 — 저장 파일 `img/cards/UN-A1-7.png`
+심연 마족 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-A1-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-A1-7.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -69,7 +69,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## UN-A2 · 엘라드의 날개 방패
-성광 천족 · 유닛 · 레벨 6 · 유니크 — 저장 파일 `img/cards/UN-A2.png`
+성광 천족 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-A2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-A2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -95,7 +95,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## UN-A2-7 · 솔란테의 새벽 사제
-성광 천족 · 유닛 · 레벨 6 · 유니크 — 저장 파일 `img/cards/UN-A2-7.png`
+성광 천족 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-A2-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-A2-7.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -121,7 +121,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## UN-A3 · 바늘탑 별지기
-폭풍 하이엘프 · 유닛 · 레벨 6 · 유니크 — 저장 파일 `img/cards/UN-A3.png`
+폭풍 하이엘프 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-A3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-A3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -147,7 +147,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## UN-A3-7 · 벨루미르의 마력 포식자
-폭풍 하이엘프 · 유닛 · 레벨 6 · 유니크 — 저장 파일 `img/cards/UN-A3-7.png`
+폭풍 하이엘프 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-A3-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-A3-7.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -173,7 +173,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## UN-B1 · 포르탄 포병대장
-잿불 고블린 · 유닛 · 레벨 6 · 유니크 — 저장 파일 `img/cards/UN-B1.png`
+잿불 고블린 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-B1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-B1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -199,7 +199,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## UN-B1-7 · 탈라쿠스의 불씨 포수
-잿불 고블린 · 유닛 · 레벨 6 · 유니크 — 저장 파일 `img/cards/UN-B1-7.png`
+잿불 고블린 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-B1-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-B1-7.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -225,7 +225,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## UN-B2 · 브론의 첫 골렘
-무쇠수염 드워프 · 유닛 · 레벨 6 · 유니크 — 저장 파일 `img/cards/UN-B2.png`
+무쇠수염 드워프 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-B2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-B2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -251,7 +251,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## UN-B2-7 · 두르크하임 사슬 골렘
-무쇠수염 드워프 · 유닛 · 레벨 6 · 유니크 — 저장 파일 `img/cards/UN-B2-7.png`
+무쇠수염 드워프 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-B2-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-B2-7.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -277,7 +277,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## UN-B3 · 즈라크의 병지기
-번개 노움 · 유닛 · 레벨 6 · 유니크 — 저장 파일 `img/cards/UN-B3.png`
+번개 노움 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-B3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-B3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -303,7 +303,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## UN-B3-7 · 케라운 자기장 탑
-번개 노움 · 유닛 · 레벨 6 · 유니크 — 저장 파일 `img/cards/UN-B3-7.png`
+번개 노움 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-B3-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-B3-7.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -329,7 +329,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## UN-G1 · 바위송곳니 대족장
-바위주먹 오크 · 유닛 · 레벨 6 · 유니크 — 저장 파일 `img/cards/UN-G1.png`
+바위주먹 오크 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-G1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-G1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -355,7 +355,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## UN-G1-7 · 가르운 약탈왕
-바위주먹 오크 · 유닛 · 레벨 6 · 유니크 — 저장 파일 `img/cards/UN-G1-7.png`
+바위주먹 오크 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-G1-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-G1-7.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -381,7 +381,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## UN-G2 · 첫 고목의 가시지기
-이끼 트롤 · 유닛 · 레벨 6 · 유니크 — 저장 파일 `img/cards/UN-G2.png`
+이끼 트롤 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-G2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-G2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -407,7 +407,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## UN-G2-7 · 베르단의 씨앗지기
-이끼 트롤 · 유닛 · 레벨 6 · 유니크 — 저장 파일 `img/cards/UN-G2-7.png`
+이끼 트롤 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-G2-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-G2-7.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -433,7 +433,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## UN-G3 · 샘물의 노래꾼
-푸른비늘 인어 · 유닛 · 레벨 6 · 유니크 — 저장 파일 `img/cards/UN-G3.png`
+푸른비늘 인어 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-G3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-G3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -459,7 +459,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## UN-G3-7 · 마렌시아의 세이렌
-푸른비늘 인어 · 유닛 · 레벨 6 · 유니크 — 저장 파일 `img/cards/UN-G3-7.png`
+푸른비늘 인어 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-G3-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-G3-7.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.

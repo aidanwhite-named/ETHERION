@@ -453,7 +453,7 @@ function cardSubtitle(c) {
 }
 
 /* 덱은 한 단체의 카드로만 만든다: 그 단체의 유닛·마법·아이템 */
-function deckable(c, g) { return c.group === g; }
+function deckable(c, g) { return !!c && c.group === g && !c.retired; }   // v3.51 레거시(js/retired.js)는 어떤 덱에도 못 넣는다
 function cardsOfGroup(g) { return CARD_LIST.filter(c => c.group === g); }
 function groupOf(id) { return GROUPS[id] ? GROUPS[id] : null; }
 function countMap(m) { return Object.values(m).reduce((a, b) => a + b, 0); }

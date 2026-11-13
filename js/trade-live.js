@@ -182,7 +182,9 @@ const TradeLive = {
     const give = this.me.offer, get = this.foe.offer;
     const r = await TradeAPI.liveSettle(give, get, this.foe.name, this.code + ":" + k);
     this.send({ t: "done", k, ok: r.ok, msg: r.msg || "" });
-    if (r.ok) {
+    if (r.ok && r.pending) {   // v3.44 서버: 상대 쪽 반영을 아직 못 받음 — 2분 안에 오면 성사, 안 오면 맡긴 것을 돌려받는다(교역소 소식)
+      this.err = "상대 쪽 확인을 기다리고 있습니다. 2분 안에 오지 않으면 놓은 것을 돌려받습니다(교역소 소식).";
+    } else if (r.ok) {
       this.history.unshift({ at: Date.now(), peer: this.foe.name, give, get, id: r.id });
       this.flash = { give, get, over: r.over, extra: r.extra };
       this.me = this.blank(); this.foe.offer = { cards: {}, shards: 0 }; this.foe.lock = ""; this.foe.go = "";

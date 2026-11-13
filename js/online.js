@@ -210,10 +210,10 @@ const Online = {
     if (this.ui) { this.ui.close(); this.ui = null; }
     document.querySelectorAll(".result, .modal-wrap").forEach(e => e.remove());
     const name = (d, i) => String(d.name || (i ? "도전자" : "방장")).slice(0, 16);
-    const p0 = { name: name(decks[0], 0), group: decks[0].group, cards: decks[0].cards };
-    const p1 = { name: name(decks[1], 1), group: decks[1].group, cards: decks[1].cards };
+    const p0 = { name: name(decks[0], 0), group: decks[0].group, cards: decks[0].cards, rec: decks[0].rec };
+    const p1 = { name: name(decks[1], 1), group: decks[1].group, cards: decks[1].cards, rec: decks[1].rec };
     if (p0.name === p1.name) p1.name += " ②";
-    const cfg = { mode: "online", seed, me: this.me, p0, p1 };
+    const cfg = { mode: "online", seed, me: this.me, p0, p1, trial: !!(this.deck && this.deck.trial) };   // v3.48 trial: 내 쪽이 체험 덱(서버 보상 검사)
     if (typeof App !== "undefined") { App.screen = "game"; if (typeof Bg !== "undefined") Bg.set("off"); }
     cfg.onExit = () => { if (typeof App !== "undefined") App.screen = null; if (typeof showLobby === "function") showLobby(); };
     startMatch(cfg);
@@ -299,15 +299,17 @@ const Online = {
 })();
 
 /* ---------- 대기실 창 ---------- */
-async function startOnline(f) {
-  /* v3.37 손님은 온라인 대전을 하지 않는다(모든 카드를 빌려 쓰는 계정). 컴퓨터와 대전 · 순례 · 덱 꾸리기는 된다 */
+async function startOnline(f, opts) {   // opts.trial = v3.48 친구 초대 체험 덱
+  /* v3.37 필멸자는 온라인 대전을 하지 않는다(모든 카드를 빌려 쓰는 계정). 컴퓨터와 대전 · 순례 · 덱 꾸리기는 된다 */
   if (typeof Store !== "undefined" && Store.isGuest()) {
-    await modal(`<h3>온라인 대전</h3><p>손님으로는 온라인 대전을 할 수 없습니다. 손님은 모든 카드를 빌려 쓰는 계정이라 다른 모험가와 겨루지 않습니다.</p><p class="muted">'새 모험가'로 등록하면 온라인 대전 · 상점 · 교역소를 쓸 수 있습니다. 손님은 컴퓨터와 대전 · 순례 · 덱 꾸리기를 할 수 있습니다.</p>`, [{ label: "확인", value: null, cls: "primary" }]);
+    await modal(`<h3>온라인 대전</h3><p>필멸자로는 온라인 대전을 할 수 없습니다. 필멸자는 모든 카드를 빌려 쓰는 계정이라 다른 모험가와 겨루지 않습니다.</p><p class="muted">'새 모험가'로 등록하면 온라인 대전 · 상점 · 교역소를 쓸 수 있습니다. 필멸자는 컴퓨터와 대전 · 순례 · 덱 꾸리기를 할 수 있습니다.</p>`, [{ label: "확인", value: null, cls: "primary" }]);
     return;
   }
   const u = Store.user();
-  if (!Store.deckPlayable(u, f)) { toast("저장된 40장 덱이 있어야 대전할 수 있습니다.", "warn"); return; }
-  const deck = { name: u.id, group: f, cards: Store.deck(u, f).cards };
+  const trial = opts && opts.trial && typeof trialDeckOf === "function" ? trialDeckOf(u) : null;
+  if (opts && opts.trial && !trial) { toast("체험 기간이 끝났습니다.", "warn"); return; }
+  if (!trial && !Store.deckPlayable(u, f)) { toast("저장된 40장 덱이 있어야 대전할 수 있습니다.", "warn"); return; }
+  const deck = { name: u.id, group: f, cards: trial ? trial.cards : Store.deck(u, f).cards, trial: !!trial, rec: { w: (u.stats && u.stats.w) || 0, l: (u.stats && u.stats.l) || 0 } };   // v3.47 rec: 상대 깃발 명판에 보일 전적(화면에만)
   const v = await modal(`<h3>온라인 대전</h3>
     <p class="muted">친구와 각자의 컴퓨터에서 겨룹니다. 한 사람이 방을 만들고, 받은 <b>방 코드</b>를 친구에게 알려 주세요. 덱은 지금 고른 <b>${esc(GROUPS[f].name)}</b> 덱을 씁니다.</p>
     <div class="ol-choose">

@@ -116,7 +116,7 @@
 | `js/expedition.js` | 칠룡의 고리 원정 |
 | `js/pilgrim-rules.js` · `js/pilgrim.js` · `js/pilgrimtext.js` | 성로 순례(v3.25 · v3.26) — 수치 · 첫 승 보상(서버도 읽음) / 규칙 · 화면(지도 · 순례기) / 대사 · 소문 · 기록(글만 고칠 때는 뒤 파일) |
 | `js/aideck.js` | 내 덱 점수에 맞춘 컴퓨터 덱(v3.24.4, 순례의 상대) |
-| `js/minigames.js` | 전장의 작은 게임 (`js/weather.js` 날씨는 v3.5.9에서 뺐다 — 파일만 남음) |
+| `js/minigames.js` | 전장의 작은 게임 (날씨는 v3.5.9에서 화면에서 빼고, v3.45에서 코드도 들어냈다) |
 | `js/feel.js`, `js/portal.js`, `js/kailan.js` | 손맛(소리·진동·시간 값), 입장 연출, 카일란 전도 |
 | `css/` | 화면 스타일 (`style.css` 외 화면별 파일) |
 | `css/fmcard.css` · `css/hand-row.css` | 카드 배치(판타지 마스터즈식, 모든 크기) · 전장의 내 핸드(겹치지 않는 한 줄). 둘 다 맨 마지막에 읽는다 |

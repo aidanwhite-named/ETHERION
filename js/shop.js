@@ -4,7 +4,7 @@
    v1.4.3: 판매는 산 값 그대로 돌려받는다. 덱에 넣어 둔 장수만큼은 팔 수 없다.
    가격은 economy.js의 cardPrice.
    v1.6: 카드마다 등급(js/grades.js)을 구매·판매 버튼 왼쪽에 등급 색으로 보인다.
-   v3.0: 값은 shopPrice(지금은 모든 카드 100), 등급별 재고(SHOP_STOCK), 관리자는 무료·무제한, 여러 장 구매,
+   v3.0: 값은 shopPrice(v3.54 등급별 — 일반 100 · 고급 200 · 레어 500 · 에픽 700 · 유니크 800, 스페셜 · 강화는 사고팔지 않음), 등급별 재고(SHOP_STOCK), 관리자는 무료·무제한, 여러 장 구매,
          산 카드는 덱 조정실의 덱 초안에 바로 들어간다(켜고 끌 수 있음). 배경은 밤의 린데어 항구(js/scenes.js).
    v3.19.9: 빠르게 — 사고팔 때는 목록 전체(모든 카드 800여 장)를 다시 그리지 않고 shopRefresh로 그 카드 칸 · 지갑 · 덱 길만 고친다.
             다른 카드 칸은 구매 단추(조각이 모자라 막힘)만 고친다. 화면 밖 카드 칸을 그리지 않는 것은 css/shop.css(content-visibility). */
@@ -57,7 +57,8 @@ function shopBuyState(c, u) {
   const admin = Store.isAdmin(u), own = Store.shopOwned(u, c.id), mx = maxCopiesOf(c), full = !admin && own >= mx, price = shopPrice(c);
   const left = Store.stockLeft(c.id), poor = !admin && Store.gold(u) < price;
   const why = !left ? "재고가 없습니다" : full ? "최대 장수를 모두 가지고 있습니다" : poor ? "환석 조각이 부족합니다" : `${fmtGold(price)}에 1장 구매${SHOP.toDeck ? " · 덱 초안에 바로 넣음" : ""}`;
-  if (Store.isGuest(u)) return { admin, own, mx, full, price, left, poor, why: "손님은 둘러보기만 할 수 있습니다 — '새 모험가'로 등록하면 살 수 있습니다", off: true, label: "둘러보기" };   // v3.37
+  if (!admin && typeof shopTradable === "function" && !shopTradable(c)) return { admin, own, mx, full, price, left, poor, why: `${GRADES[gradeOf(c)].name} 카드는 상점에서 살 수 없습니다 — 보상으로만 얻습니다`, off: true, label: "구매 불가", noSale: true };   // v3.54 스페셜
+  if (Store.isGuest(u)) return { admin, own, mx, full, price, left, poor, why: "필멸자는 둘러보기만 할 수 있습니다 — '새 모험가'로 등록하면 살 수 있습니다", off: true, label: "둘러보기" };   // v3.37
   return { admin, own, mx, full, price, left, poor, why, off: !left || full || poor, label: !left ? "품절" : full ? "모두 보유" : "구매" };
 }
 /* v3.28 강화 카드 칸: 사고팔지 않고 "업그레이드"(원래 카드 3장 → 1장). 원래 카드 칸에는 강화 줄이 붙는다 */
@@ -65,8 +66,9 @@ function shopUpgradeTile(c, u) {
   const b = CARDS[c.base], all = Store.allCards(u), ch = Store.upgradeCheck(u, c.id), own = all ? 1 : (u.collection[c.id] || 0), fresh = u.fresh && u.fresh[c.id];
   return `<div class="shop-card is-upgrade${own ? " full" : ""}${fresh ? " fresh" : ""}" data-card="${c.id}" style="--gr:${GRADES.upgrade.color}">
     <div class="sc-face">${cardHTML(c, { size: "md", brief: true })}${fresh ? '<span class="sc-new">NEW</span>' : ""}</div>
-    <div class="sc-foot"><span class="sc-price" title="재료">「${esc(b.name)}」 × ${UPGRADE_COST}</span><span class="sc-own ${own ? "ok" : ""}">보유 ${own}/1</span></div>
-    <p class="sc-upgline">${all ? "관리자 · 손님은 이미 쓸 수 있습니다" : own ? "이미 가지고 있습니다" : `쓸 수 있는 재료 <b>${Math.min(ch.free, UPGRADE_COST)}</b>/${UPGRADE_COST}`}</p>
+    <div class="sc-foot"><span class="sc-price" title="재료">「${esc(b.name)}」 × ${UPGRADE_COST}${typeof UPGRADE_SEALS !== "undefined" ? ` + 인장 ${UPGRADE_SEALS}` : ""}</span><span class="sc-own ${own ? "ok" : ""}">보유 ${own}/1</span></div>
+    <p class="sc-onlyup">구매 불가 · 업그레이드로만 얻을 수 있습니다</p>
+    <p class="sc-upgline">${all ? "관리자 · 필멸자는 이미 쓸 수 있습니다" : own ? "이미 가지고 있습니다" : `쓸 수 있는 재료 <b>${Math.min(ch.free, UPGRADE_COST)}</b>/${UPGRADE_COST}${typeof UPGRADE_SEALS !== "undefined" ? ` · 인장 <b>${Math.min(Store.seals(u), UPGRADE_SEALS)}</b>/${UPGRADE_SEALS}` : ""}`}</p>
     <div class="sc-btns">
       ${gradeBadgeHTML(c, "sc-grade")}
       <button type="button" class="btn xs sc-upg" data-upg="${c.id}" ${ch.ok ? "" : "disabled"} title="${esc(ch.ok ? `「${b.name}」 ${UPGRADE_COST}장을 합쳐 「${c.name}」 1장으로` : ch.msg)}">업그레이드</button>
@@ -78,10 +80,12 @@ function shopCardTile(c, u) {
   const { admin, own, mx, full, price, left, why, off, label } = shopBuyState(c, u);
   const upId = typeof Upgrade !== "undefined" ? Upgrade.upOf(c.id) : null, upCh = upId && !Store.allCards(u) ? Store.upgradeCheck(u, upId) : null;
   const fresh = u.fresh && u.fresh[c.id], st = Store.shopState(c.id);
+  const fzCh = typeof Forge !== "undefined" && Forge.kindOf(c.id) === "rare" && !Store.allCards(u) && Store.ownsGroup(u, c.group) ? Store.fuseCheck(u, c.id) : null;   // v3.52 레어 합성(고급 3장)
   return `<div class="shop-card${full ? " full" : ""}${left ? "" : " soldout"}${fresh ? " fresh" : ""}${st !== "on" ? " st-" + st : ""}" data-card="${c.id}" style="--gr:${GRADES[gradeOf(c)].color}">
-    <div class="sc-face">${cardHTML(c, { size: "md", brief: true })}${fresh ? '<span class="sc-new">NEW</span>' : ""}${left ? "" : '<span class="sc-sold">품절</span>'}${shopStateBadge(c.id, admin)}</div>
-    <div class="sc-foot"><span class="sc-price" title="상점 값 (지금은 모든 카드 같은 값)"><i class="shard" aria-hidden="true"></i>${Math.round(price).toLocaleString("ko-KR")}</span><span class="sc-own ${own ? "ok" : ""}">보유 ${own}${admin ? "" : "/" + mx}</span></div>
+    <div class="sc-face">${cardHTML(c, { size: "md", brief: true })}${fresh ? '<span class="sc-new">NEW</span>' : ""}${left ? "" : '<span class="sc-sold">품절</span>'}${shopStateBadge(c.id, admin)}${typeof Forge !== "undefined" ? Forge.badgeHTML(c, u) : ""}</div>
+    <div class="sc-foot"><span class="sc-price" title="상점 값 (등급별: ${typeof SHOP_GRADE_PRICE !== "undefined" ? Object.entries(SHOP_GRADE_PRICE).map(([g, v]) => GRADES[g].name + " " + v).join(" · ") : ""})"><i class="shard" aria-hidden="true"></i>${Math.round(price).toLocaleString("ko-KR")}</span><span class="sc-own ${own ? "ok" : ""}">보유 ${own}${admin ? "" : "/" + mx}</span></div>
     ${shopStockHTML(c)}
+    ${fzCh ? `<p class="sc-upgline k-rare" title="${esc(fzCh.ok ? "누르면 합성소" : fzCh.msg)}"><button type="button" class="linkish" data-fuse="${c.id}">◆ 승화 ${RARE_FUSE.cost}장 → 레어 뽑기</button> <b>${Math.min(fzCh.free || 0, RARE_FUSE.cost)}</b>/${RARE_FUSE.cost}</p>` : ""}
     ${upCh ? `<p class="sc-upgline" title="${esc(upCh.ok ? "누르면 업그레이드" : upCh.msg)}"><button type="button" class="linkish" data-upg="${upId}" ${upCh.ok ? "" : "disabled"}>⇧ ${UPGRADE_COST}장 → 강화 「${esc(CARDS[upId].name)}」</button> <b>${Math.min(upCh.free, UPGRADE_COST)}</b>/${UPGRADE_COST}</p>` : ""}
     <div class="sc-btns">
       ${gradeBadgeHTML(c, "sc-grade")}
@@ -114,6 +118,7 @@ function showShop() {
   renderShop();
   if (typeof Scenes !== "undefined") Scenes.bind(root, "shop");
   App.refresh = () => { if (App.screen === "shop" && root.isConnected) { renderShopMain(); const chip = $(".gold-chip b"); if (chip) chip.textContent = fmtGold(Store.gold(Store.user())); } };
+  root.addEventListener("forge:done", e => shopRefresh(e.detail.ids));   // v3.52 표식 · 합성소 단추로 연 합성소가 닫힘
   root.addEventListener("change", e => {
     if (e.target.id === "shop-todeck") { SHOP.toDeck = e.target.checked; try { localStorage.setItem("etherion.pref.shopToDeck", SHOP.toDeck ? "1" : "0"); } catch (x) {} shopRefresh([]); }
   });
@@ -157,7 +162,7 @@ function shopHeadHTML(u, T, n) {
   const admin = Store.isAdmin(u);
   return `<div class="shop-head">
       <div><p class="eyebrow">LINDEAR MARKET · ${esc(T.s)}</p><h2>${esc(T.t)} <small>${n}종</small></h2></div>
-      <div class="shop-wallet${admin ? " admin" : ""}"><span class="eyebrow">환석 조각</span><b>${admin ? "∞ <small>관리자</small>" : fmtGold(Store.gold(u))}</b>${admin ? '<span class="muted small">값을 내지 않고 무엇이든 삽니다</span>' : ""}</div>
+      <div class="shop-wallet${admin ? " admin" : ""}"><span class="eyebrow">환석 조각</span><b>${admin ? "∞ <small>관리자</small>" : fmtGold(Store.gold(u))}</b>${admin ? '<span class="muted small">값을 내지 않고 무엇이든 삽니다</span>' : typeof UPGRADE_SEALS !== "undefined" && typeof sealIcon === "function" ? `<span class="shop-seals" title="순례의 인장 — 업그레이드(강화)에 ${UPGRADE_SEALS}개. 성로 순례의 관문을 이기면 1개, 완주하면 2개 더">${sealIcon()} 순례의 인장 <b>${Store.seals(u)}</b></span>` : ""}</div>
     </div>`;
 }
 function shopLinkHTML(u) {
@@ -166,6 +171,7 @@ function shopLinkHTML(u) {
   return `<div class="shop-link">
       <label class="chip tog" title="켜 두면 산 카드가 덱 조정실의 덱 초안에 바로 들어갑니다 (40장까지). 다 찼으면 보관함에만 들어갑니다"><input type="checkbox" id="shop-todeck" ${SHOP.toDeck ? "checked" : ""}> 산 카드를 덱 초안에 바로 넣기</label>
       ${dk ? `<button type="button" class="btn xs" data-goeditor="${deckG}" title="이 단체의 덱 조정실로">${menuIcon("quill")}<span>「${esc(dk.name)}」 <b class="${dn === RULES.deckSize ? "ok" : "bad"}">${dn}</b>/${RULES.deckSize}${Store.draft(u, deckG) ? " · 초안" : ""}</span></button>` : '<span class="muted small">단체를 고르면 그 덱 조정실로 가는 길이 여기 나옵니다.</span>'}
+      ${!Store.allCards(u) && typeof Forge !== "undefined" ? `<button type="button" class="btn xs fg-open" data-fuse="" data-fuse-g="${deckG || ""}" title="같은 카드 3장 합치기 — 일반 → 강화 · 고급 → 레어 뽑기">${fuseIcon("up")}<span>합성소</span></button>` : ""}
       ${admin ? '<button type="button" class="btn xs ghost" id="shop-restock" title="모든 카드의 재고를 등급별 처음 장수로">재고 모두 채우기</button>' : ""}
     </div>`;
 }
@@ -222,9 +228,9 @@ function shopFill(list) {
   if (i < list.length) requestAnimationFrame(() => setTimeout(() => requestAnimationFrame(step), 0));
 }
 /* v3.28 업그레이드: 확인 → 합치기 연출 → 그 카드 칸 둘(원래 · 강화)만 다시 그린다 */
-async function shopUpgrade(upId) {
-  const r = await Upgrade.run(upId);
-  if (r && r.ok) shopRefresh([r.base, r.up]);
+async function shopUpgrade(id) {   // v3.52 합성소(강화 · 레어)를 열고, 바뀐 카드 칸만 다시 그린다
+  const r = await Upgrade.run(id);
+  if (r && r.ok) shopRefresh(r.ids);
 }
 async function shopCardModal(id) {
   const u = Store.user(), c = CARDS[id], admin = Store.isAdmin(u);
@@ -240,7 +246,7 @@ async function shopCardModal(id) {
   const own = Store.shopOwned(u, id), mx = maxCopiesOf(c), price = shopPrice(c), left = Store.stockLeft(id);
   const room = admin ? left : Math.max(0, Math.min(left, mx - own, Math.floor(Store.gold(u) / price)));
   const canSell = Store.sellable(u, id) > 0;
-  const qty = Store.isGuest(u) ? [] : [1, 4, 10].filter(n => n <= room);   // v3.37 손님은 둘러보기만
+  const qty = Store.isGuest(u) ? [] : [1, 4, 10].filter(n => n <= room);   // v3.37 필멸자는 둘러보기만
   const btns = [{ label: "닫기", value: null }];
   if (canSell) btns.push({ label: admin ? "1장 판매 (재고로)" : `1장 판매 (+${fmtGold(price)})`, value: "sell" });
   if (GROUPS[c.group] && Store.ownsGroup(u, c.group)) btns.push({ label: "덱 조정실에서 보기", value: "editor" });
@@ -250,11 +256,11 @@ async function shopCardModal(id) {
   for (const n of qty) btns.push({ label: `${n}장 구매 (${admin ? "무료" : fmtGold(price * n)})`, value: "buy" + n, cls: n === qty[qty.length - 1] ? "primary" : "" });
   if (admin && room > 10) btns.push({ label: `남은 ${room}장 모두 구매`, value: "buy" + room, cls: "primary alt" });
   const r = await showCardModal(c, btns,
-    `등급 <b style="color:${GRADES[gradeOf(c)].color}">${GRADES[gradeOf(c)].name}</b> · 값 ${fmtGold(price)} · 재고 <b>${left}</b>/${Store.shopMax(id)} · 보유 ${own}${admin ? "" : "/" + mx} · 지갑 ${admin ? "∞ (관리자)" : fmtGold(Store.gold(u))}${SHOP.toDeck ? " · 산 카드는 덱 초안에 바로 들어갑니다" : ""}${typeof Upgrade !== "undefined" && Upgrade.upOf(id) ? "<br>" + Upgrade.note(id) : ""}`);
+    `등급 <b style="color:${GRADES[gradeOf(c)].color}">${GRADES[gradeOf(c)].name}</b> · 값 ${fmtGold(price)} · 재고 <b>${left}</b>/${Store.shopMax(id)} · 보유 ${own}${admin ? "" : "/" + mx} · 지갑 ${admin ? "∞ (관리자)" : fmtGold(Store.gold(u))}${SHOP.toDeck ? " · 산 카드는 덱 초안에 바로 들어갑니다" : ""}${typeof Upgrade !== "undefined" && Upgrade.kindOf(id) ? "<br>" + Upgrade.note(id) : ""}`);
   if (!r) return;
   if (r.startsWith("buy")) shopBuy(id, +r.slice(3));
   if (r === "sell") shopSell(id);
-  if (r === "upgrade") shopUpgrade(Upgrade.upOf(id));
+  if (r === "upgrade") shopUpgrade(id);
   if (r === "editor") showEditor(c.group, id);
   if (r === "admin") { shopAdminEdit([id]); return; }
   if (r === "restock") { Store.restock([id]); shopRefresh([id]); toast(`「${c.name}」 재고를 ${Store.shopMax(id)}장으로 채웠습니다.`, "good"); }

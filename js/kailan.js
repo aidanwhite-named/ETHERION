@@ -8,6 +8,10 @@
 "use strict";
 
 const Kailan = (() => {
+  const PIC_MAP = "img/ui/map/kailan_map.jpg?v=1";   // v3.43 그림 지도 (그림 AI · 제미나이)
+  /* v3.48.1 지도 바탕 그림(tools/art/prompts/map.md, 참고 그림과 겹쳐 맞음 — 1200×900 좌표에 그대로). 지형은 그림이 맡고, 코드는 고리 · 길 · 지점 · 이름만 얹는다.
+     PC 2400×1800, 폰 · 앱 1600×1200(원본 4K는 tools/art/out/raw/ui/map/). null이면 예전처럼 코드가 지형까지 그린다 */
+  const BASE_MAP = document.documentElement.classList.contains("mobile") ? "img/ui/map/kailan_base_m.jpg?v=1" : "img/ui/map/kailan_base.jpg?v=1";   // v3.43 그림 지도 (그림 AI · 제미나이)
   const KEY = "etherion.kailan";
   const W = 1200, H = 900;
   let st = {};
@@ -186,6 +190,8 @@ const Kailan = (() => {
 
     /* 바다 */
     add(`<rect x="-1400" y="-1200" width="4000" height="3300" fill="url(#klSea)"/>`);
+    if (BASE_MAP) add(`<image href="${BASE_MAP}" x="0" y="0" width="${W}" height="${H}" preserveAspectRatio="none" pointer-events="none"/>`);
+    if (!BASE_MAP) {
     let gr = "";
     for (let x = 0; x <= W; x += 100) gr += `M${x},-400V1300`;
     for (let y = 0; y <= H; y += 100) gr += `M-600,${y}H1800`;
@@ -227,6 +233,8 @@ const Kailan = (() => {
     /* 석호 (셀레네아) */
     add(`<ellipse cx="322" cy="784" rx="20" ry="8" fill="#0e2034" stroke="#8fdcff" stroke-opacity=".4"/>`);
 
+    }
+
     /* 진영 경계 */
     const reg = [
       ["#d4893a", "M200 250C260 238 360 236 430 246C500 252 545 258 568 300C578 340 574 370 575 396L480 393L420 397C360 402 300 405 205 416C196 380 192 320 200 250Z"],
@@ -235,6 +243,7 @@ const Kailan = (() => {
     ];
     reg.forEach(([c, d]) => add(`<path d="${d}" fill="${c}" fill-opacity=".04" stroke="${c}" stroke-opacity=".45" stroke-width="1.2" stroke-dasharray="7 5"/>`));
 
+    if (!BASE_MAP) {
     /* 녹물강 */
     const RIVER = "M300 150C315 190 340 245 368 300C390 340 430 360 450 402C462 428 452 445 455 458C462 500 430 530 432 565C434 610 420 650 410 690C402 730 396 760 395 794";
     add(`<path d="${RIVER}" fill="none" stroke="url(#klRiver)" stroke-width="2.8" stroke-linecap="round" opacity=".9"/>`);
@@ -296,6 +305,7 @@ const Kailan = (() => {
     [[830, 190, 11], [862, 168, 15], [900, 140, 10], [918, 186, 9], [885, 112, 12], [845, 140, 7]].forEach(([x, y, r]) => {
       add(`<ellipse cx="${x + 4}" cy="${y + r + 12}" rx="${n1(r * 1.3)}" ry="${n1(r * .35)}" fill="#000" opacity=".45"/><path d="${blob(x, y, r, 9)}" fill="#1f2226" stroke="#9fe3d6" stroke-opacity=".7"/><path d="M${x - 5},${y + 1}L${x},${y - 7}L${x + 5},${y + 1}" fill="none" stroke="#9fe3d6" stroke-opacity=".6"/>`);
     });
+    }
     /* 잠든 거인 */
     add(`<g fill="none" stroke="#a59c86" stroke-opacity=".28" stroke-width="1.3" stroke-dasharray="5 6">
       <circle cx="590" cy="96" r="30"/>
@@ -507,7 +517,9 @@ const Kailan = (() => {
       <div class="kl-body">
         <div class="kl-mapbox"><svg class="kl-map" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="카일란 대륙 지도">${mapSVG()}</svg>
           <div class="kl-zoom"><button type="button" data-z="in" aria-label="확대">+</button><button type="button" data-z="out" aria-label="축소">−</button><button type="button" class="sm" data-z="all" aria-label="전체 보기">전체</button></div>
-          <p class="kl-hint">끌어서 이동 · 휠로 확대 · 지점을 누르면 설정</p></div>
+          <p class="kl-hint">끌어서 이동 · 휠로 확대 · 지점을 누르면 설정</p>
+          <div class="kl-view" role="tablist" aria-label="지도 보기"><button type="button" data-view="map" aria-selected="true">지도</button><button type="button" data-view="pic" aria-selected="false">그림 지도</button></div>
+          <div class="kl-pic" hidden><img src="${PIC_MAP}" alt="카일란 대륙 그림 지도" draggable="false"></div></div>
         <aside class="kl-side"><div class="kl-tabs" role="tablist"><button type="button" role="tab" data-tab="world">세계</button><button type="button" role="tab" data-tab="place">장소</button></div><div class="kl-pane"></div></aside>
       </div>`;
     document.body.appendChild(ov);
@@ -532,6 +544,25 @@ const Kailan = (() => {
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) gone(); else { el.addEventListener("transitionend", gone, { once: true }); setTimeout(gone, 1100); }
     if (lastFocus && lastFocus.focus && document.contains(lastFocus)) lastFocus.focus({ preventScroll: true });
     st.justFound = 0; save();
+  }
+  /* v3.43 그림 지도: 그림 AI가 그린 한 장(img/ui/map/kailan_map.jpg)을 그대로 크게 본다 — 누를 지점 · 레이어 없음, 끌어서 이동 · 휠로 확대.
+     코드 지도(좌표 1200×900)와 땅 모양이 달라 바탕으로 쓰지 않고 따로 보기로 둔다(바탕용은 tools/art/prompts/map.md로 다시 그린다) */
+  function setView(v) {
+    const box = ov.querySelector(".kl-mapbox"), pic = ov.querySelector(".kl-pic");
+    box.classList.toggle("pic-on", v === "pic"); pic.hidden = v !== "pic";
+    ov.querySelectorAll(".kl-view [data-view]").forEach(b => b.setAttribute("aria-selected", b.dataset.view === v ? "true" : "false"));
+    if (v === "pic" && !pic.dataset.bound) {
+      pic.dataset.bound = 1;
+      const im = pic.querySelector("img"); let z = 1, x = 0, y = 0, drag = null;
+      const put = () => { im.style.transform = `translate(${x}px, ${y}px) scale(${z})`; };
+      const clamp = () => { const r = pic.getBoundingClientRect(), mx = r.width * (z - 1) / 2, my = r.height * (z - 1) / 2; x = Math.max(-mx, Math.min(mx, x)); y = Math.max(-my, Math.min(my, y)); };
+      pic.addEventListener("wheel", e => { e.preventDefault(); const nz = Math.max(1, Math.min(4, z * (e.deltaY < 0 ? 1.18 : 1 / 1.18))); const r = pic.getBoundingClientRect(), px = e.clientX - r.left - r.width / 2, py = e.clientY - r.top - r.height / 2; x = px - (px - x) * nz / z; y = py - (py - y) * nz / z; z = nz; clamp(); put(); }, { passive: false });
+      pic.addEventListener("pointerdown", e => { drag = { sx: e.clientX, sy: e.clientY, x, y }; pic.setPointerCapture(e.pointerId); pic.classList.add("drag"); });
+      pic.addEventListener("pointermove", e => { if (!drag) return; x = drag.x + e.clientX - drag.sx; y = drag.y + e.clientY - drag.sy; clamp(); put(); });
+      const up = () => { drag = null; pic.classList.remove("drag"); };
+      pic.addEventListener("pointerup", up); pic.addEventListener("pointercancel", up);
+      pic.addEventListener("dblclick", () => { z = z > 1 ? 1 : 2; x = 0; y = 0; put(); });
+    }
   }
   function setTab(t) {
     tab = t;
@@ -560,6 +591,7 @@ const Kailan = (() => {
     if (t.closest("[data-close]")) return close();
     if (t.closest("[data-chronicle]")) { close(); if (typeof Chronicle !== "undefined") setTimeout(() => Chronicle.open(), 120); return; }   /* v3.7 연대기 */
     const tb = t.closest("[data-tab]"); if (tb) return setTab(tb.dataset.tab);
+    const vw = t.closest("[data-view]"); if (vw) return setView(vw.dataset.view);   // v3.43 지도 | 그림 지도
     const z = t.closest("[data-z]");
     if (z) { const k = z.dataset.z; if (k === "all") flyTo(full.x + full.w / 2, full.y + full.h / 2, full.w); else zoomBy(k === "in" ? .7 : 1 / .7); return; }
     const go = t.closest("[data-go]"); if (go) { select(go.dataset.go, true); if (matchMedia("(max-width: 900px)").matches) ov.querySelector(".kl-mapbox").scrollIntoView({ behavior: "smooth", block: "start" }); return; }

@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 """ETHERION 안드로이드 앱(APK) 만들기 — 안드로이드 SDK · Android Studio 없이, 파이썬 표준 라이브러리만으로.
 
-    python tools/android/build_apk.py            → android/apk/ETHERION-v<버전>.apk
+    python tools/android/build_apk.py            → android/apk/ETHERION-v<버전>.apk  (서버 모드: tools/desktop/server.txt 의 서버)
+    python tools/android/build_apk.py --offline  → android/apk/ETHERION-v<버전>-offline.apk (로컬 모드: 폰 안에만 저장)
+    python tools/android/build_apk.py --server https://주소   → 그 서버로
 
 게임(index.html · css · js · img · audio · fonts)을 그대로 앱 안(assets/)에 넣고, 화면 전체를 덮는
 WebView 하나로 연다. 앱 코드는 android/app/src/main/java/.../MainActivity.java 와 같은 일을 한다
@@ -13,6 +15,9 @@ WebView 하나로 연다. 앱 코드는 android/app/src/main/java/.../MainActivi
   (지우고 새로 깔아야 하고, 그러면 앱 안의 저장 — 계정 · 컬렉션 — 이 사라진다). 따로 백업해 둘 것.
 - 배경음은 .ogg 만 넣는다(안드로이드 WebView는 ogg를 늘 튼다, js/bgm.js 가 ogg를 고름). .mp3 는 빼서 크기를 줄인다.
 - 서명: APK Signature Scheme v2 (안드로이드 7.0 이상, minSdk 24).
+- v3.46.2 서버 모드: PC 앱(tools/desktop/build_exe.py)과 같은 규칙으로 서버를 고른다(--server > --offline > tools/desktop/server.txt).
+  앱은 index.html?server=<주소> 로 열리고 js/net.js 가 그 서버에 붙는다. **https 주소만** — 안드로이드 9+는 http(암호화 안 됨)를 막는다.
+  서버 모드 앱과 로컬 앱은 같은 앱(덮어쓰기)이고, 계정은 따로다(로컬 계정 · 조각 · 카드는 서버로 넘어가지 않음).
 """
 import hashlib, json, os, random, re, struct, sys, time, zlib, base64
 
@@ -281,7 +286,32 @@ class DexBuilder:
         return bytes(dex)
 
 
-def build_dex():
+def server_addr():
+    """v3.46.2 앱이 붙을 서버: --server 주소 > --offline(없음) > tools/desktop/server.txt 첫 줄 (PC 앱과 같은 규칙 · 같은 파일)"""
+    a = sys.argv[1:]
+    if "--offline" in a:
+        return ""
+    if "--server" in a and a.index("--server") + 1 < len(a):
+        return a[a.index("--server") + 1].strip().rstrip("/")
+    p = os.path.join(ROOT, "tools", "desktop", "server.txt")
+    if os.path.exists(p):
+        for line in open(p, encoding="utf-8"):
+            line = line.strip()
+            if line and not line.startswith("#"):
+                return line.rstrip("/")
+    return ""
+
+
+def start_url(server):
+    """앱이 처음 여는 주소. MainActivity.java 의 START_URL 과 같은 것(서버가 있으면 ?server= 를 붙임)."""
+    base = "file:///android_asset/index.html"
+    if not server:
+        return base
+    from urllib.parse import quote
+    return base + "?server=" + quote(server, safe="")
+
+
+def build_dex(url_str="file:///android_asset/index.html"):
     """android/app/src/main/java/com/etherion/game/MainActivity.java 와 같은 일."""
     d = DexBuilder()
     ME = "Lcom/etherion/game/MainActivity;"
@@ -329,7 +359,7 @@ def build_dex():
     now = d.M(SYS, "currentTimeMillis", "J")
     makeText = d.M(TOAST, "makeText", TOAST, [CTX, CS, "I"])
     show = d.M(TOAST, "show", "V")
-    url = d.S("file:///android_asset/index.html")
+    url = d.S(url_str)
     msg = d.S("뒤로 단추를 한 번 더 누르면 게임을 닫습니다")
     d.T(CS)
 
@@ -700,10 +730,14 @@ def sign_v2(body, cd, eocd, key):
 def main():
     vname, vcode = game_version()
     print("ETHERION v%s (versionCode %d) 안드로이드 앱을 만듭니다" % (vname, vcode))
+    srv = server_addr()
+    if srv and not srv.startswith("https://"):
+        sys.exit("서버 주소는 https:// 여야 합니다 (안드로이드는 http를 막음): " + srv)
+    print("  서버:", srv if srv else "없음 — 로컬 모드(폰 안에만 저장)")
     key = load_key()
     arsc, icon_paths = resources_arsc()
     entries = [("AndroidManifest.xml", manifest(vname, vcode), False),
-               ("classes.dex", build_dex(), False),
+               ("classes.dex", build_dex(start_url(srv)), False),
                ("resources.arsc", arsc, True)]
     res = os.path.join(ANDROID, "app", "src", "main", "res")
     for (dn, _), zp in zip(DENS, icon_paths):
@@ -724,7 +758,7 @@ def main():
     apk = sign_v2(body, cd, eocd, key)
     out_dir = os.path.join(ANDROID, "apk")
     os.makedirs(out_dir, exist_ok=True)
-    out = os.path.join(out_dir, "ETHERION-v%s.apk" % vname)
+    out = os.path.join(out_dir, "ETHERION-v%s%s.apk" % (vname, "" if srv else "-offline"))
     with open(out, "wb") as f:
         f.write(apk)
     print("  완성:", os.path.relpath(out, ROOT), "(%.1f MB)" % (len(apk) / 1e6))

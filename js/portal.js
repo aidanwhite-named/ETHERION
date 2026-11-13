@@ -24,7 +24,7 @@ const Portal = {
   enter(next, center) {
     if (this.busy) return;
     this.busy = true;
-    const reduced = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduced = (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) || document.documentElement.classList.contains("mobile");   // v3.46 폰 · 앱은 캔버스 연출 없이 어둠 전환만
     const el = document.createElement("div");
     el.id = "portal";
     el.innerHTML = `<canvas aria-hidden="true"></canvas><div class="pt-veil"></div>`;
@@ -38,8 +38,9 @@ const Portal = {
 
     let swapped = false, t0 = performance.now(), skipAt = 0, raf = 0;
     const swap = () => { if (swapped) return; swapped = true; try { next(); } catch (e) { console.error(e); } };
+    let onKey = null;   // v3.46.1 아래(움직임 있는 길)에서 정한다 — 움직임 줄이기 · 폰 길의 finish가 선언 전 const를 건드려 멈추던 것(캔버스가 화면을 덮음)
     const finish = () => {
-      cancelAnimationFrame(raf); removeEventListener("resize", size); removeEventListener("keydown", onKey, true);
+      cancelAnimationFrame(raf); removeEventListener("resize", size); if (onKey) removeEventListener("keydown", onKey, true);
       if (typeof Bg !== "undefined") { Bg.warp = 0; Bg.pull = 0; }
       el.remove(); this.busy = false;
     };
@@ -56,7 +57,7 @@ const Portal = {
     this.sound();
     /* 건너뛰기: 아직 어둠 전이면 바로 어둠으로, 이미 어둠이면 바로 떠오르기로 */
     const skip = () => { const t = performance.now() - t0; if (t < PORTAL_T.dark - 200) { skipAt = t; t0 -= (PORTAL_T.dark - 200 - t); } else if (t < PORTAL_T.reveal) t0 -= (PORTAL_T.reveal - t); };
-    const onKey = e => { if (["Enter", " ", "Escape"].includes(e.key)) { e.preventDefault(); e.stopPropagation(); skip(); } };
+    onKey = e => { if (["Enter", " ", "Escape"].includes(e.key)) { e.preventDefault(); e.stopPropagation(); skip(); } };
     addEventListener("keydown", onKey, true);
     el.addEventListener("pointerdown", skip);
 

@@ -57,6 +57,8 @@ if (typeof RARE_GRADES !== "undefined") Object.assign(CARD_GRADES, RARE_GRADES);
 if (typeof COUNTER_GRADES !== "undefined") Object.assign(CARD_GRADES, COUNTER_GRADES);
 /* v3.28 강화 카드(js/upgrades.js) */
 if (typeof UPGRADE_GRADES !== "undefined") Object.assign(CARD_GRADES, UPGRADE_GRADES);
+/* v3.49 스탯 기준 등급 재정비(js/rebalance.js) — 맨 마지막에 덮는다 */
+if (typeof REBAL_GRADES !== "undefined") Object.assign(CARD_GRADES, REBAL_GRADES);
 
 function gradeOf(c) { const id = typeof c === "string" ? c : c && c.id; return CARD_GRADES[id] || "common"; }
 for (const c of CARD_LIST) c.grade = gradeOf(c);

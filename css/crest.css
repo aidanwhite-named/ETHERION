@@ -36,7 +36,7 @@
 .screen-lobby .tb-crest.has-art .crest-sub { display: none; }
 
 /* 문장이 넓어져도 오른쪽 날개의 글자가 두 줄로 꺾이지 않게 */
-.tbw-right .gold-chip, .tbw-right .weather-chip, .tbw-right .wx-chip, .seal-txt b, .seal-txt small { white-space: nowrap; }
+.tbw-right .gold-chip, .seal-txt b, .seal-txt small { white-space: nowrap; }
 
 @media (max-width: 760px) {
   :root { --crest-drop: 0px; --crest-fs: 26px; }

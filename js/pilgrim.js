@@ -106,7 +106,8 @@ const Pilgrim = {
         p.tot.days++; p.steps = Math.min(7, (p.steps || 0) + 1);
         this._milestone(u, p);
       }
-      if (p.stage >= PILGRIM.gates) { p.tot.done++; p.news.push({ k: "done", gold: PILGRIM.done }); Store.addGold(u, PILGRIM.done, "순례 완주"); }
+      if (PILGRIM.seal) Store.addSeals(u, PILGRIM.seal.win, "순례 관문 승리");   // v3.54 순례의 인장 (서버 모드면 net.js가 막고 서버 정산이 준다)
+      if (p.stage >= PILGRIM.gates) { p.tot.done++; p.news.push({ k: "done", gold: PILGRIM.done }); Store.addGold(u, PILGRIM.done, "순례 완주"); if (PILGRIM.seal) Store.addSeals(u, PILGRIM.seal.done, "순례 완주"); }
     }
     Store.save();
   },

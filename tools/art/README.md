@@ -12,7 +12,7 @@
 | `PROMPT_GUIDE.md` | **등급별 프롬프트 규칙서** — 세 축(등급 · 레벨 · 깃발), 등급 사다리, 깃발 고유성, 새 카드 프롬프트 쓰는 법, 연결 방법. 표는 build_prompts.js가 채운다 |
 | `art_style.json` · `art_notes.json` | 그림 말의 원본(등급 · 레벨 · 깃발 · 진영 · 종류) · 카드별 그림 지시. 고치면 build_prompts.js를 다시 |
 | `prompts/grades/<등급>.md` | 등급별 완성 프롬프트(그 등급의 연출 틀 + 카드마다) |
-| `inbox/` · `artmap.py` · `그림 연결.bat` | 받은 그림을 카드에 연결 → `img/cards/<ID>.png` |
+| `inbox/` · `artmap.py` · `그림 연결.bat` | 받은 그림을 카드에 연결 → `img/cards/<ID>.jpg`(600×750) · 목록 `art_index.js` |
 | `art_map.csv` · `art_board.html` | 카드 ↔ 일러스트 장부(엑셀) · 보드(브라우저로 열기). artmap.py가 만든다 |
 | `BRIEF.md` | **그림 AI에게 주는 지시서**(영어). 세계관 · 그림체 · 만들 그림 목록 · 저장 규칙. AI에게 "이 문서를 읽고 그려" 하고 넘기면 된다 |
 | `prompts/cards/<단체>.md` | 카드마다 프롬프트(사람용). 채팅창(ChatGPT · Gemini)에 하나씩 붙여 넣을 때 |
@@ -28,7 +28,7 @@
 ## 1. 채팅창에 직접 넣는 방법 (API 키 없이)
 1. `prompts/cards/B1.md`처럼 단체 파일을 연다.
 2. 카드 하나의 ``` 안 글을 ChatGPT나 Gemini에 붙여 넣는다.
-3. 받은 그림을 그 카드의 `저장 파일` 이름으로 저장한다(예 `img/cards/B1-01.png`). 세로 4:5가 아니어도 게임이 잘라서 맞춘다.
+3. 받은 그림을 `tools/art/inbox/`에 카드 ID 이름으로 저장하고(예 `B1-01.jpg`) `python3 tools/art/artmap.py import`. 가운데 4:5로 잘라 `img/cards/B1-01.jpg`(600×750)로 넣는다(v3.41 고정 크기).
 4. 게임을 새로 고치면 보인다.
 
 전장 그림은 `prompts/ui.md`의 프롬프트와 **참고 그림(`tools/art/ref/…`)을 함께** 넣는다. 층으로 나뉜 그림(소각장 셋 · 생명 셋)은
@@ -59,7 +59,7 @@ python tools/art/gen.py --sheet --group B1                        # 만든 그�
 
 ### gen.py가 하는 일
 1. 프롬프트(+ 전장 그림이면 참고 그림)를 AI에 보낸다. 참고 그림은 요청 비율의 판 가운데에 맞춰 놓아 자리가 그대로 대응하게 한다.
-2. 받은 그림을 `out/raw/<ID>.png`로 남기고, 게임 크기로 자른다(카드 800×1000, 전장 그림은 각 크기).
+2. 받은 그림을 `out/raw/<ID>.png`로 남기고, 게임 크기로 자른다(카드 600×750 JPG, 전장 그림은 각 크기).
 3. 투명 처리: 전장 층 그림은 **지금 그림(ref)의 투명 모양을 그대로 씌운다**(코드가 얹는 결정 · 숫자 · 핏빛 높이와 어긋나지 않게). 불꽃 층은 검은 바탕을 투명으로. 에테르 제단은 어두운 바탕(#07080d)만 지운다(`"alpha": "key"`).
 4. 제자리에 넣는다(있던 그림은 `_backup_art/`로).
 
@@ -73,7 +73,7 @@ python tools/art/gen.py --sheet --group B1                        # 만든 그�
 ## 5. 받은 그림을 카드에 연결하기 (v3.31)
 1. 그림 파일 이름에 카드 ID(`EP-A1-3_v2.png`)나 카드 이름(`장막의 처형자.jpg`)을 넣어 `tools/art/inbox/`에 둔다. PNG · JPG · WebP, 비율은 상관없다.
 2. `python tools/art/artmap.py import` (모델을 적으려면 `--model gpt-image-1`, 미리 보기만 `--dry`) — Windows는 `그림 연결.bat`.
-   - 가운데를 4:5로 잘라 800×1000 PNG로 `img/cards/<ID>.png`에 넣는다(있던 그림은 `_backup_art/<시각>/`). 원본은 `inbox/_done/`으로.
+   - 가운데를 4:5로 잘라 600×750 JPG로 `img/cards/<ID>.jpg`에 넣는다(v3.41)(있던 그림은 `_backup_art/<시각>/`). 원본은 `inbox/_done/`으로.
    - 이름으로 못 찾은 파일: `python tools/art/artmap.py assign "<파일>" <카드ID>`.
 3. `art_map.csv`(엑셀로 열림)에 상태 · 출처 · 날짜 · 그린 프롬프트 버전이 적힌다. `status`를 `채택` · `다시`로, `note`에 메모를 직접 적어도 다음 실행 때 지워지지 않는다(엑셀을 닫고 실행).
 4. `art_board.html`을 브라우저로 열면 등급 · 깃발 · 종류 · 상태로 걸러 보고, 카드마다 프롬프트를 복사할 수 있다.

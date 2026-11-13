@@ -21,6 +21,20 @@ WebView 하나로 여는 앱이다. 게임 코드는 하나뿐이고, 앱은 그
 잃어버리면 앱을 지우고 다시 깔아야 하고, 그러면 앱 안의 저장(계정 · 컬렉션 · 설정)이 사라진다.
 git에는 올리지 않는다(`.gitignore`). USB나 클라우드에 따로 복사해 둘 것.
 
+## 서버 모드 · 로컬 모드 (v3.46.2)
+- `python tools/android/build_apk.py` → `ETHERION-v<버전>.apk`: **서버 모드**. PC 앱과 같은 `tools/desktop/server.txt`의 서버(지금 맥미니 https://etherion.tail2be349.ts.net)에 붙는다. 계정 · 보상 · 채팅 · 교역소가 서버에 있고 PC와 같은 계정을 쓴다.
+- `--offline` → `ETHERION-v<버전>-offline.apk`: **로컬 모드**(예전 앱). 저장은 폰 안에만, 인터넷 없이도 컴퓨터와 대전 · 순례.
+- `--server https://주소` → 다른 서버. **https만** 된다(안드로이드 9+는 http를 막음 — 맥 서버 http://…:8787 직접은 안 됨).
+- 둘은 같은 앱이라 서로 덮어 깔린다. 계정은 따로라 로컬에서 모은 조각 · 카드 · 전적은 서버 계정에 없다(옮기는 기능은 일부러 없음 — 로컬 값은 기기가 정한 것이라 믿을 수 없다).
+- Android Studio로 만들 때는 `MainActivity.java`의 `START_URL`이 서버를 정한다.
+
+## 맥에서 에뮬레이터로 돌려 보기 (v3.46.2)
+`tools/android/emulator.sh` — 에뮬레이터(AVD `etherion`, Pixel 7 · 안드로이드 14) 켜기 → APK 만들기 · 깔기 → 실행.
+`--offline`(로컬 APK) · `--no-build`(지금 APK 그대로) · `--server`(에뮬레이터 크롬으로 맥 서버 `http://10.0.2.2:8787`) · `--stop`. 준비 방법은 파일 맨 위.
+- 서버 모드 APK가 기본이고, 로컬 APK는 `--offline`으로 만든다(아래 "서버 모드").
+- 이 맥에서 처음 APK를 만들 때 서명 열쇠가 없어 **새 열쇠가 생겼다**(`android/signing/`). 폰에 깔린 앱과 열쇠가 다르면
+  덮어쓰기 업데이트가 안 되니, 폰에 배포할 APK는 원래 열쇠(윈도 PC의 `android/signing/etherion-key.json`)를 이 맥에 옮긴 뒤 만든다.
+
 ## 앱 안의 저장
 브라우저의 저장(localStorage `etherion.v3`)과 **따로**다. PC에서 쓰던 계정은 앱으로 넘어오지 않는다.
 

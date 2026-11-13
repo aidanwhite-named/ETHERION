@@ -14,7 +14,7 @@
   html:not(.appui) .screen-lobby .side-col > .chat { position: static; flex: 1 1 0; min-height: 260px; height: auto; }
 
   /* 튜토리얼 · 매뉴얼: 오른쪽 아래에 떠 있던 두 명판을 오른쪽 열 맨 위 한 줄로 */
-  html:not(.appui) .screen-lobby .side-col > .lobby-help { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; flex: none; }
+  html:not(.appui) .screen-lobby .side-col > .lobby-help { position: static; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; flex: none; }
   html:not(.appui) .screen-lobby .side-col > .lobby-help .lh-btn { justify-content: center; width: 100%; }
 
   /* 출정의 단 2 × 2 (원정 계속이 있으면 아래 한 줄을 다 쓴다) */
@@ -30,5 +30,5 @@
   html:not(.appui) .screen-lobby .side-col { grid-column: 1 / -1; position: static; }
   html:not(.appui) .screen-lobby .side-altar .altar-gates.g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
   html:not(.appui) .screen-lobby .side-altar .g2-wide { grid-column: 1 / -1; }
-  html:not(.appui) .screen-lobby .side-col > .lobby-help { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
+  html:not(.appui) .screen-lobby .side-col > .lobby-help { position: static; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
 }

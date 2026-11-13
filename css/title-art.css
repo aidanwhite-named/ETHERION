@@ -60,3 +60,6 @@
 
 /* v3.17 연출 '가볍게'(기본, js/impact.js applyFx): 타이틀 그림이 60초 동안 아주 천천히 커지는 움직임은 뺀다(화면 전체를 1초에 60번 다시 합성하던 것) */
 html.fx-lite .t-art { animation: artIn 1.8s ease-out both; }
+
+/* v3.41 폰 · 앱: 전장 · 덱 조정실 배경도 1920×1080 판 (4K는 폰 메모리에 약 33MB) */
+html.mobile .screen-game > .g-art, html.mobile .screen-editor > .ed-art { background-image: url("../img/title/title_art_m.jpg"); }

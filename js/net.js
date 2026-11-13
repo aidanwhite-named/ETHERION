@@ -4,7 +4,7 @@
    서버 쪽은 server/server.js, 설명은 docs/SERVER.md.
 
    하는 일: Store의 함수를 감싸 서버에 보낸다. 서버는 게임과 **같은 Store 코드**(server/rules.js)로 처리하고 정본을 갖는다.
-   - 서버에 묻고 답을 기다리는 것(동기): 등록 · 로그인 · 손님 · 덱 저장 · 상점 사고팔기 · 관리자 도구.
+   - 서버에 묻고 답을 기다리는 것(동기): 등록 · 로그인 · 필멸자 · 덱 저장 · 상점 사고팔기 · 관리자 도구.
      화면 코드가 결과를 바로 쓰므로(예: const r = Store.buyCard(…)) 동기 요청으로 답을 받아 그대로 돌려준다 — 화면 코드는 고칠 것이 없다.
      로컬 PC · 같은 와이파이에서는 몇 ms라 멈춤이 느껴지지 않는다. 화면 쪽을 await로 바꾸면 이 동기 요청은 뺄 수 있다(SERVER_PLAN 4장).
    - 먼저 이 기기에서 하고 뒤에 서버에 알리는 것(비동기): 덱 초안 · 전투 · 수레바퀴 · 원정 보상(조각 · 카드).
@@ -16,15 +16,16 @@
 
 const NET_KEY = "etherion.net.token";      // 이 브라우저의 로그인 토큰
 const NET_SERVER_KEY = "etherion.server";   // (선택) 파일로 연 게임이 붙을 서버 주소. 예: localStorage["etherion.server"] = "http://192.168.0.10:8787"
-const NET_PROTECTED = ["id", "admin", "guest", "created", "group", "owned", "collection", "gold", "ledger", "decks", "drafts", "fresh", "pilClaim", "spins", "pilSrv", "rewardDay", "rewardLog"];   // v3.39 spins · pilSrv · rewardDay: 서버가 정하는 보상
-const NET_SYNC_OPS = ["saveDeck", "buyCard", "sellCard", "draftAdd", "grantGroup", "revokeGroup", "grantAllCards", "restock", "pilgrimClaim", "upgradeCard", "shopSet", "shopStock", "matchStart", "matchArcade", "matchEnd", "wheelSpin"];   // pilgrimClaim(v3.26): 순례 첫 승 — 서버가 날짜를 보고 추첨까지
-const NET_ASYNC_OPS = ["setDraft", "clearDraft", "grantCard", "addGold"];   // v3.39 grantCard · addGold는 손님만 (로그인한 모험가의 보상은 서버가 정한다 — 아래 install)   // v3.39 grantCard · addGold는 보내지 않는다 — 보상은 서버가 정한다(js/rewards.js)
+const NET_PROTECTED = ["id", "admin", "guest", "created", "group", "owned", "collection", "gold", "ledger", "decks", "drafts", "fresh", "pilClaim", "spins", "pilSrv", "rewardDay", "rewardLog", "xp", "stats", "quests", "ach", "titles", "title", "book", "rank", "trial", "invitedBy", "seals", "orbs"];   // v3.54 순례의 인장   // v3.48 초대 체험 덱도   // v3.46 모험 수첩(js/quests.js)도 서버만   // v3.44 경험치 · 전적도 서버가 센다   // v3.39 spins · pilSrv · rewardDay: 서버가 정하는 보상
+const NET_SYNC_OPS = ["questSync", "questClaim", "questReroll", "starClaim", "achClaim", "bookClaim", "titleSet", "rankClaim", "saveDeck", "buyCard", "sellCard", "draftAdd", "grantGroup", "revokeGroup", "grantAllCards", "restock", "pilgrimClaim", "upgradeCard", "fuseRare", "shopSet", "shopStock", "matchStart", "matchArcade", "matchEnd", "wheelSpin"];   // pilgrimClaim(v3.26): 순례 첫 승 — 서버가 날짜를 보고 추첨까지
+const NET_ASYNC_OPS = ["setDraft", "clearDraft", "grantCard", "addGold"];   // v3.39 grantCard · addGold는 필멸자만 (로그인한 모험가의 보상은 서버가 정한다 — 아래 install)   // v3.39 grantCard · addGold는 보내지 않는다 — 보상은 서버가 정한다(js/rewards.js)
 
 const Net = {
   on: false, base: "", info: null, token: null,
   cid: Math.random().toString(36).slice(2, 10) + Date.now().toString(36),   // 이 탭의 번호 (탭마다 작업 번호를 따로 센다)
   seq: 0, pending: [], inflight: false, flushTimer: 0, softTimer: 0,
   depth: 0, rev: -1, unread: 0, freshBase: {}, lostShown: false,
+  softBase: {},   // v3.45 기기가 정하는 칸마다 서버와 맞춰 둔 마지막 값(JSON) — 이것과 달라진 칸만 보내고, 같은 칸만 서버 값으로 바꾼다
 
   /* ---------- 요청 ---------- */
   headers(x) { x.setRequestHeader("Content-Type", "application/json"); if (this.token) x.setRequestHeader("Authorization", "Bearer " + this.token); },
@@ -64,7 +65,22 @@ const Net = {
     /* 이 기기에서 지운 NEW 표시(아직 서버에 알리지 않은 것)는 지운 채로 둔다 */
     const dropped = Object.keys(this.freshBase).filter(k => !(u.fresh && k in u.fresh));
     for (const k of NET_PROTECTED) { if (k in me) u[k] = me[k]; else delete u[k]; }
-    if (first) for (const k in me) if (!NET_PROTECTED.includes(k)) u[k] = me[k];
+    if (first) { this.softBase = {}; for (const k in me) if (!NET_PROTECTED.includes(k)) { u[k] = me[k]; this.softBase[k] = JSON.stringify(me[k]); } }
+    /* v3.45 PC · 폰 동시 접속: 다른 기기가 바꾼 칸(순례 · 원정 진행 …)을 받아 온다. 이 기기에서 아직 안 보낸 칸은 그대로 둔다 */
+    let softChanged = false;
+    if (!first) {
+      const keys = new Set(Object.keys(me).concat(Object.keys(this.softBase)));
+      for (const k of keys) {
+        if (NET_PROTECTED.includes(k) || k === "pw") continue;
+        const base = this.softBase[k], mine = k in u ? JSON.stringify(u[k]) : undefined;
+        if (mine !== base) continue;                       // 이 기기에서 바뀐 칸 — 곧 서버로 간다
+        const srv = k in me ? JSON.stringify(me[k]) : undefined;
+        if (srv === base) continue;
+        if (srv === undefined) { delete u[k]; delete this.softBase[k]; }
+        else { u[k] = JSON.parse(srv); this.softBase[k] = srv; }
+        softChanged = true;
+      }
+    }
     this.freshBase = Object.assign({}, me.fresh || {});
     if (dropped.length && u.fresh) for (const k of dropped) delete u.fresh[k];
     /* 관리자: 모든 모험가(보관소의 모험가 관리). 화면이 쥐고 있는 객체가 그대로 새 값을 보도록 제자리에서 고친다 */
@@ -80,13 +96,13 @@ const Net = {
     D.stock = r.stock || {};
     if (r.shop) D.shop = r.shop;   // v3.37 관리자 상점 설정 (서버가 정본)
     if (first) return true;
-    if (before !== JSON.stringify(NET_PROTECTED.map(k => u[k]))) {   // 다른 데서 바뀜(거래 성사 · 관리자 지급 …) → 화면을 다시 그린다
+    if (softChanged || before !== JSON.stringify(NET_PROTECTED.map(k => u[k]))) {   // 다른 데서 바뀜(거래 성사 · 관리자 지급 …) → 화면을 다시 그린다
       if (typeof LevelUI !== "undefined") LevelUI.paint();
       if (typeof App !== "undefined" && typeof App.refresh === "function") try { App.refresh(); } catch (e) { console.error(e); }
     }
     return true;
   },
-  /* 로그인 · 등록 · 손님 */
+  /* 로그인 · 등록 · 필멸자 */
   auth(path, body) {
     const r = this.xhr("POST", path, body);
     if (!r || !r.ok) return r || { ok: false, msg: "서버가 답하지 않습니다." };
@@ -96,7 +112,7 @@ const Net = {
     return r;
   },
   setToken(t) { this.token = t || null; try { if (t) localStorage.setItem(NET_KEY, t); else localStorage.removeItem(NET_KEY); } catch (e) {} },
-  reset() { this.seq = 0; this.pending = []; this.rev = -1; this.unread = 0; this.freshBase = {}; this.cid = Math.random().toString(36).slice(2, 10) + Date.now().toString(36); Store.data.users = {}; Store.data.session = null; Store.data.stock = {}; },
+  reset() { this.seq = 0; this.pending = []; this.rev = -1; this.unread = 0; this.freshBase = {}; this.softBase = {}; this.cid = Math.random().toString(36).slice(2, 10) + Date.now().toString(36); Store.data.users = {}; Store.data.session = null; Store.data.stock = {}; },
   /* 서버가 토큰을 모름(서버 데이터를 지웠거나 오래돼 끝남) → 로그인 화면으로 */
   lost() {
     if (!this.token) return;
@@ -155,11 +171,28 @@ const Net = {
     if (!force && !this.softTimer) return;
     clearTimeout(this.softTimer); this.softTimer = 0;
     const u = Store.user(); if (!u || !this.token) return;
-    const fields = {};
-    for (const k in u) if (!NET_PROTECTED.includes(k) && k !== "pw") fields[k] = u[k];
+    /* v3.45 바뀐 칸만(patch) — 칸 전체를 보내면 이 기기의 옛 사본이 다른 기기의 새 진행을 덮는다 */
+    const fields = {}, drop = [];
+    for (const k in u) {
+      if (NET_PROTECTED.includes(k) || k === "pw") continue;
+      const j = JSON.stringify(u[k]);
+      if (j !== this.softBase[k]) { fields[k] = j === undefined ? null : JSON.parse(j); this.softBase[k] = j; }
+    }
+    for (const k of Object.keys(this.softBase)) if (!(k in u)) { drop.push(k); delete this.softBase[k]; }
     const freshDrop = Object.keys(this.freshBase).filter(k => !(u.fresh && k in u.fresh));
     for (const k of freshDrop) delete this.freshBase[k];
-    this.queue({ fn: "soft", target: u.id, args: [{ fields: JSON.parse(JSON.stringify(fields)), freshDrop }] });
+    /* 줄에 아직 안 보낸 soft가 있으면 합친다(queue는 마지막 soft를 바꿔 끼우므로 앞의 칸을 잃지 않게) */
+    const last = this.pending[this.pending.length - 1];
+    if (last && !last.sent && last.fn === "soft" && last.args[0] && last.args[0].patch) {
+      const p = last.args[0];
+      for (const k of drop) delete p.fields[k];
+      Object.assign(p.fields, fields);
+      p.drop = p.drop.filter(k => !(k in fields)).concat(drop.filter(k => !p.drop.includes(k)));
+      p.freshDrop = p.freshDrop.concat(freshDrop.filter(k => !p.freshDrop.includes(k)));
+      return;
+    }
+    if (!Object.keys(fields).length && !drop.length && !freshDrop.length) return;   // 바뀐 것이 없으면 보내지 않는다
+    this.queue({ fn: "soft", target: u.id, args: [{ patch: true, fields, drop, freshDrop }] });
   },
   /* 가끔 서버에서 새로 받는다(거래 성사 · 소식 · 재고) */
   async sync() {
@@ -190,7 +223,7 @@ const Net = {
     };
     Store.save = function () { N.softSoon(); if (typeof LevelUI !== "undefined") LevelUI.paint(); };
     Store.login = (id, pw) => { const r = N.auth("/api/login", { id, pw }); return r.ok ? null : r.msg || "로그인하지 못했습니다."; };
-    Store.register = (id, pw, groups) => { const r = N.auth("/api/register", { id, pw, groups: Array.isArray(groups) ? groups : [groups] }); return r.ok ? null : r.msg || "등록하지 못했습니다."; };
+    Store.register = (id, pw, groups, invite) => { const r = N.auth("/api/register", { id, pw, groups: Array.isArray(groups) ? groups : [groups], invite: invite || undefined }); N.lastInvite = r.ok ? r.invite || null : null; return r.ok ? null : r.msg || "등록하지 못했습니다."; };   // v3.48 invite: 친구 초대
     Store.guest = () => {
       const r = N.auth("/api/guest", {});
       if (!r.ok) { setTimeout(() => typeof toast === "function" && toast(r.msg || "서버에 닿지 않습니다.", "warn"), 0); return r.msg; }
@@ -223,10 +256,12 @@ const Net = {
       };
     }
     /* v3.39 보상은 서버가 정한다 (js/rewards.js). 이 기기에서는 조각 · 카드를 직접 늘리지 않고, 서버의 결과(스냅샷)로만 바뀐다 */
-    /* 손님은 예전처럼 이 기기가 센 보상을 받는다(상점 · 거래 · 온라인 대전을 못 하므로) — 손님이 아니면 이 기기에서 늘리지 않는다 */
+    /* 필멸자는 예전처럼 이 기기가 센 보상을 받는다(상점 · 거래 · 온라인 대전을 못 하므로) — 필멸자가 아니면 이 기기에서 늘리지 않는다 */
     { const ag = Store.addGold, gc = Store.grantCard;
       Store.addGold = function (u, n, why) { u = u || this.user(); if (!u) return 0; if (u.guest || N.depth) return ag.apply(this, arguments); return u.gold || 0; };
       Store.grantCard = function (u) { u = u || this.user(); if (u && (u.guest || N.depth)) return gc.apply(this, arguments); return true; }; }
+    { const as = Store.addSeals; if (as) Store.addSeals = function (u) { u = u || this.user(); if (!u) return 0; if (u.guest || N.depth) return as.apply(this, arguments); return this.seals(u); }; }   // v3.54 순례의 인장도 서버가 준다
+    { const ao = Store.addOrbs; if (ao) Store.addOrbs = function (u) { u = u || this.user(); if (!u) return 0; if (u.guest || N.depth) return ao.apply(this, arguments); return this.orbs(u); }; }   // v3.54 운명의 구슬도 서버가 준다
     const srvRewards = () => { const u = Store.user(); return !!(u && !u.guest && N.token); };
     const curMid = () => (typeof G !== "undefined" && G && G.cfg && G.cfg.mid && App.screen === "game" ? G.cfg.mid : null);
     if (typeof startMatch === "function") {
@@ -236,7 +271,8 @@ const Net = {
           const u = Store.user(), mode = cfg && !cfg.headless ? (cfg.pil ? "pil" : cfg.exp ? "exp" : cfg.online || cfg.mode === "online" ? "online" : cfg.mode === "ai" ? "ai" : null) : null;
           if (u && mode && srvRewards()) {
             const stage = cfg.pil && typeof Pilgrim !== "undefined" && Pilgrim.get() ? Pilgrim.get().stage : 0;
-            const r = Store.matchStart(u, { mode, group: (cfg.p0 && cfg.p0.group) || App.lobbyGroup, stage });
+            const mySide = mode === "online" && cfg.me === 1 ? cfg.p1 : cfg.p0;   // v3.44 온라인 도전자는 p1이 내 덱
+            const r = Store.matchStart(u, { mode, group: (mySide && mySide.group) || App.lobbyGroup, stage, trial: !!cfg.trial });   // v3.48 trial: 친구 초대 체험 덱
             if (r && r.ok) { cfg.mid = r.id; if (r.verify && r.seed != null) { cfg.seed = r.seed; cfg.verify = true; } }   // v3.40 서버가 준 시드로 두고, 사람 쪽 수를 기록한다(G.vlog)
           }
         } catch (e) { console.warn(e); }
@@ -247,10 +283,11 @@ const Net = {
       const miss = { kind: "miss", gold: 0 }, pr0 = pachinkoRoll;
       pachinkoRoll = function () {
         const u = Store.user(); if (!u || !N.token) return miss;
-        if (u.guest) return pr0();   // 손님: 이 기기에서 굴림
+        if (u.guest) return pr0();   // 필멸자: 이 기기에서 굴림
         const mid = curMid();
         const r = mid ? Store.matchArcade(u, mid, "slot", typeof roundOf === "function" ? roundOf(G.turn) : Math.ceil(G.turn / 2)) : Store.wheelSpin(u);
         if (!r || r.ok === false) { if (r && r.msg && typeof toast === "function") toast(r.msg, "warn"); return miss; }
+        if (r.orb && typeof toast === "function" && typeof ORB !== "undefined") setTimeout(() => toast(`✦ ${ORB.name}을 얻었습니다! 합성소의 승화에 쓰면 좋은 레어 · 낮은 확률로 유니크`, "good"), 2600);   // v3.54 릴이 멈춘 뒤
         return r;
       };
     }
@@ -266,8 +303,13 @@ const Net = {
       if (!g || !g.cfg || !g.cfg.mid || !N.token) return null;
       if (!g._srv) {
         const u = Store.user(), c = g.cfg;
+        const mine = g.online && g.me === 1 ? c.p1 : c.p0, foeSide = g.online && g.me === 1 ? c.p0 : c.p1;
+        const mi = g.online ? g.me : 0;   // v3.46 쓰러뜨린 유닛: 내 쪽 · 상대 쪽 (온라인은 두 사람의 보고를 맞춰 본다)
         g._srv = u ? Store.matchEnd(u, c.mid, { won: g.winner === (g.online ? g.me : 0), turns: g.turn, broken: ((g.econ && g.econ.list) || []).map(b => b.id),
-          log: g.vlog || null, p0: { cards: c.p0 && c.p0.cards }, p1: { group: c.p1 && c.p1.group, cards: c.p1 && c.p1.cards, ai: c.p1 && c.p1.ai } }) : null;   // v3.40 검산: 기록 · 두 덱
+          kills: g.kills ? g.kills[mi] : undefined, killsFoe: g.kills ? g.kills[1 - mi] : undefined,
+          log: g.vlog || null, p0: { cards: mine && mine.cards }, p1: { group: foeSide && foeSide.group, cards: foeSide && foeSide.cards, ai: foeSide && foeSide.ai },
+          rules: c.exp ? c.rules : undefined,   // v3.44 원정의 판 규칙
+          room: g.online ? { seed: c.seed, foe: foeSide && foeSide.name } : undefined }) : null;   // v3.40 검산: 기록 · 두 덱 · v3.44 온라인은 두 사람의 보고를 맞춰 본다
       }
       return g._srv && g._srv.ok !== false ? g._srv : null;
     };
@@ -301,7 +343,7 @@ const Net = {
         let out; try { out = es0.apply(this, arguments); } finally { econLucky = L0; }
         if (out) {
           const lg = s.lucky && s.lucky.k === "gold" ? s.lucky.gold : 0;
-          if (s.pending) Object.assign(out, { lucky: null, pending: true, skip: "서버가 판을 다시 두어 확인하고 있습니다 — 보상은 확인이 끝나면 들어옵니다." });   // v3.40 검산 중: 이 기기의 셈은 예상
+          if (s.pending) Object.assign(out, { lucky: null, pending: true, skip: g.online ? "서버가 상대의 판 끝 보고와 맞춰 보고 있습니다 — 보상은 확인이 끝나면 들어옵니다." : "서버가 판을 다시 두어 확인하고 있습니다 — 보상은 확인이 끝나면 들어옵니다." });   // v3.40 검산 중: 이 기기의 셈은 예상
           else Object.assign(out, { bonus: s.bonus, earned: s.brokenGold, pach: s.arcade || 0, lucky: s.lucky, total: s.brokenGold + s.bonus + (s.arcade || 0) + lg, skip: s.skip || null });
         }
         return out;
@@ -354,7 +396,9 @@ const Net = {
   if (/[?&]offline\b/.test(location.search)) return;
   let base = null;
   try { base = localStorage.getItem(NET_SERVER_KEY); } catch (e) {}
-  { const m = /[?&]server=([^&#]+)/.exec(location.search); if (m) base = decodeURIComponent(m[1]); }   // v3.37 PC 앱: 빌드 때 넣은 서버 주소 (desktop/main.js)
+  /* v3.37 PC 앱: 빌드 때 넣은 서버 주소 (desktop/main.js). v3.45.2 파일로 연 게임(PC 앱 · 안드로이드)에서만 읽는다 —
+     웹 주소에 ?server=가짜서버 를 붙인 링크로 남의 로그인(관리자 암호 포함)을 가짜 서버로 보내게 하는 길을 막음 */
+  if (location.protocol === "file:") { const m = /[?&]server=([^&#]+)/.exec(location.search); if (m) base = decodeURIComponent(m[1]); }
   if (!base && /^https?:$/.test(location.protocol)) base = location.origin;
   if (!base) return;
   base = base.replace(/\/+$/, "");

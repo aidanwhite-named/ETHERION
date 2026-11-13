@@ -4,6 +4,7 @@
      ③ 연습 대전(전장의 "첫 판 안내"(js/game.js Guide)를 다시 켜고 컴퓨터와 대전). 마친 장은 ✓ (localStorage etherion.pref.tut).
    - 매뉴얼(Manual): 고서 한 권 — 왼쪽 목차 · 찾기, 오른쪽 본문(열다섯 장). 숫자와 능력 뜻은 코드(RULES · GRADES · ITEM_KW · SPELL_KW ·
      ECON · SHOP_STOCK · DRAGONS · FACTIONS · GROUPS)에서 바로 읽어, 규칙이 바뀌면 매뉴얼도 따라 바뀐다.
+   - v3.55 룰북(js/rulebook.js RulebookUI): 세 번째 명판. 순례 · 합성 · 상점 · 보상 · 교역소 · 레벨 장은 룰북으로 옮겼고, 매뉴얼에는 연결 장(「룰북」)만 남았다.
    그림은 모두 HTML/CSS(가이드 0.1). 모양은 css/manual.css. 움직임은 창이 열릴 때 한 번 뿐이다(반복 움직임 없음). */
 "use strict";
 
@@ -141,10 +142,6 @@ const Help = (() => {
   }
 
   /* ================= 매뉴얼 ================= */
-  function gradeRows() {
-    return GRADE_IDS.map(id => { const G = GRADES[id], cnt = CARD_LIST.filter(c => gradeOf(c) === id).length;
-      return `<tr><td><span class="mn-grade" style="--gr:${G.color}">${G.name}</span></td><td class="en">${G.en}</td><td>${cnt}종</td><td>${typeof SHOP_STOCK !== "undefined" ? SHOP_STOCK[id] + "장" : "—"}</td></tr>`; }).join("");
-  }
   function kwRows(obj, gen) {
     return Object.keys(obj).map(k => {
       let t = (gen && gen[k]) || obj[k];
@@ -169,9 +166,9 @@ const Help = (() => {
     { id: "start", t: "처음 시작하기", en: "Getting Started", body: () => `
       <p class="mn-lead">ETHERION은 세 진영 아홉 단체 가운데 <b>한 단체의 카드 ${RULES.deckSize}장</b>으로 덱을 짜서 싸우는 카드 대전입니다. 유닛을 전장 ${RULES.slots}칸에 세우고, 마법과 아이템으로 거들어 상대의 생명 ${RULES.startLife}을 먼저 0으로 만들면 이깁니다.</p>
       <h3>들어가는 길</h3>
-      <table class="mn-table"><tr><th>새 모험가</th><td>이름과 암호를 정하고, 깃발(단체)을 최대 3개까지 무료로 골라(진영마다 하나까지) 그 덱으로 시작합니다. 지갑에는 환석 조각 ${n(ECON.startGold)}.</td></tr>
+      <table class="mn-table"><tr><th>새 모험가</th><td>이름과 암호를 정하고, 깃발(단체)을 최대 ${typeof REG_MAX_FLAGS !== "undefined" ? REG_MAX_FLAGS : 3}개까지 무료로 골라(진영마다 하나까지) 그 덱으로 시작합니다. 지갑에는 환석 조각 ${n(ECON.startGold)}.</td></tr>
       <tr><th>로그인</th><td>등록한 이름과 암호로 들어갑니다.</td></tr>
-      <tr><th>로그인 없이 시작</th><td>등록 없이 손님으로. 아홉 단체의 덱과 모든 카드를 씁니다.</td></tr></table>
+      <tr><th>로그인 없이 시작</th><td>등록 없이 필멸자로. 아홉 단체의 덱과 모든 카드를 씁니다.</td></tr></table>
       <p class="mn-note">기록은 이 브라우저에 저장됩니다(서버 없음). 다른 브라우저나 기기에서는 이어지지 않습니다.</p>
       <h3>처음이라면 이 순서로</h3>
       <ol class="mn-ol"><li>대기실 오른쪽 아래 <b>튜토리얼</b> — 대기실 둘러보기와 전투 배우기.</li>
@@ -190,7 +187,7 @@ const Help = (() => {
       <tr><th>출정의 단</th><td>PC는 오른쪽 열 아래 2 × 2, 폰은 깃발을 누르면 뜨는 창. <b>덱 조정실</b> · <b>컴퓨터와 대전</b> · <b>순례</b> · <b>온라인 대전</b>(친구와 각자의 기기에서 · 방 코드로).</td></tr>
       <tr><th>수레바퀴 · 채팅</th><td>오른쪽. 크로네아의 수레바퀴(대전 한 판마다 표 1장), 대기실 채팅(지금은 이 기기에만 저장).</td></tr>
       <tr><th>레벨 판</th><td>아래 가운데. 모험가 레벨 · 환석 조각 · 다음 레벨까지의 경험치.</td></tr>
-      <tr><th>튜토리얼 · 매뉴얼</th><td>오른쪽 아래. 언제든 다시 열 수 있습니다.</td></tr></table>
+      <tr><th>튜토리얼 · 매뉴얼 · 룰북</th><td>오른쪽 열 위(폰은 오른쪽 아래). 언제든 다시 열 수 있습니다.</td></tr></table>
       <h3>덱 조정실 · 상점</h3>
       <p><b>덱 조정실</b>은 덱을 고치는 곳입니다. 왼쪽 카드 보관함에서 눌러 넣고, 오른쪽 덱에서 눌러 뺍니다. 바닥 마법진의 눈금 ${RULES.deckSize}개가 장수만큼 켜지고, 촛불 여덟이 레벨 곡선을 보여 줍니다. <b>저장</b>해야 출전할 수 있습니다.</p>
       <p><b>상점</b>(린데어 자유시)는 카드를 사고파는 곳입니다. 왼쪽 계보에서 진영 · 단체를 고르면 그 카드가 값 · 재고와 함께 나옵니다.</p>
@@ -203,7 +200,7 @@ const Help = (() => {
       <p>전장의 핸드 · 전장 카드는 그림이 잘 보이게 간단히 나옵니다 — 이름 · 레벨 아이콘 · 공격/방어/체력 · 특수 능력만. 레벨 숫자 · 클래스 · 설명은 카드를 <b>누르면</b> 상대 전장 오른쪽에 뜨는 큰 카드에서 봅니다.</p>
       <h3>등급</h3>
       <p>카드 이름 아래 · 상점 단추 옆의 색이 등급입니다. 희귀할수록 상점 재고가 적습니다. 유니크 · 스페셜 · 강화는 덱에 한 장만 넣을 수 있습니다. 강화는 같은 카드 3장을 합쳐서만 얻습니다.</p>
-      <table class="mn-table mn-grades"><tr><th>등급</th><th></th><th>카드</th><th>상점 재고</th></tr>${gradeRows()}</table>
+      <p class="mn-tip">등급마다 카드 수 · 덱에 넣는 장수 · 상점 값은 <a href="#" data-rb="cards">룰북 「카드와 등급」</a>에.</p>
       <h3>클래스</h3>
       <p>유닛은 클래스 하나(<span class="mn-cl cl-1">무도</span> <span class="mn-cl cl-2">무장</span> <span class="mn-cl cl-3">마도</span> <span class="mn-cl cl-4">기도</span>)를 가집니다. 클래스는 <b>아이템 장착에만</b> 쓰입니다 — 유닛 오른쪽 아래 열 맨 위의 클래스 아이콘이 아이템 이름 옆의 <b>[○○ 전용]</b>에 들어 있으면 장착됩니다. <span class="mn-cl cl-0">공용</span> 아이템은 누구에게나. 아이템에는 클래스 아이콘이 없습니다.</p>` },
 
@@ -321,43 +318,10 @@ const Help = (() => {
       <li>끌어서 놓기: 핸드 → 빈 칸(소환) · 내 유닛(장착) · 에테르(결정화) · 소각장. 전장 카드 → 다른 칸 · 소각장.</li>
       <li>설정칸의 속도(×0.5~×3)로 전투 빠르기를 바꿉니다. 「기록」에 지난 일이, 「규칙」에 짧은 요약이 있습니다.</li></ul>` },
 
-    { id: "pilgrim", t: "성로 순례", en: "Pilgrimage", body: () => {
-      const P = typeof PILGRIM !== "undefined" ? PILGRIM : null; if (!P) return "<p>순례 파일이 없습니다.</p>";
-      const gn = g => GRADES[g] ? GRADES[g].name : g, pc = x => +(x * 100).toFixed(1) + "%";
-      return `
-      <p>하루에 한 번(자정) 새 길이 열립니다. 린데어 환석에서 떠나 성로를 따라 내 깃발을 뺀 <b>여덟 관문</b>을 차례로 지나고, 아홉 번째 <b>망각의 숲</b>에서 내 덱을 그대로 든 "비친 나"와 싸웁니다. 하루 <b>${P.fights}판</b>까지(지는 판도 셈). 상대는 컴퓨터 어려움, 덱은 내 덱의 세기에 맞춰 꾸밉니다.</p>
-      <table class="mn-table"><tr><th>그날 첫 승</th><td>${n(P.first)} 조각을 받거나, 그 조각을 걸고 <b>카드 한 장</b>(꽝 없음): ${Object.keys(P.gamble).map(g => `${gn(g)} ${pc(P.gamble[g])}`).join(" · ")}. 스페셜은 나오지 않습니다. 하루에 한 번 — 서버에 이어져 있으면 서버의 날짜로 확인합니다.</td></tr>
-      <tr><th>판마다</th><td>전투 조각은 보통의 ${pc(P.battleRate)}. 숲을 지나면 완주 ${n(P.done)} 조각.</td></tr>
-      <tr><th>한 주</th><td>수요일 0시에 새 주. 첫 승을 한 날마다 한 걸음 — 3걸음 ${n(P.steps[3].gold)} 조각 · 5걸음 고급 카드 · 7걸음 레어 이상 카드.</td></tr>
-      <tr><th>순례기</th><td>관문을 처음 지나면 그 깃발의 소문이 남습니다. 소문 여덟을 모으고 숲을 지나면 「동쪽의 기록」이 열립니다. 주마다 걸은 기억도 쌓입니다.</td></tr></table>`; } },
-
-    { id: "upgrade", t: "업그레이드 · 강화 카드", en: "Upgrade", body: () => `
-      <p>같은 유닛 <b>3장</b>을 합치면 그 카드의 강화판 <b>1장</b>이 됩니다. 재료 3장은 사라집니다. 상점 · 덱 조정실의 <b>업그레이드</b> 칸, 또는 카드 창의 「업그레이드」 단추.</p>
-      <table class="mn-table"><tr><th>대상</th><td>유지비가 있는 일반 유닛 가운데 5레벨 이하이고 보통 카드보다 약한 카드 ${typeof UPGRADE_UNITS !== "undefined" ? UPGRADE_UNITS.length : ""}장. 깃발마다 4~12장.</td></tr>
-      <tr><th>강화 카드</th><td>레벨 +1 · 유지비 +1, 스탯이 크게 오릅니다(레어와 에픽 사이). 등급 <b style="color:#3fe0c0">강화</b>. 청록 테두리와 업그레이드 마크.</td></tr>
-      <tr><th>아이템</th><td>클래스가 없어 <b>어떤 아이템이든</b> 장착합니다.</td></tr>
-      <tr><th>제한</th><td>덱에 1장 · 1장까지 가짐 · 상점에서 사고팔 수 없음 · 저장한 덱 · 덱 초안에 든 장수는 재료로 쓰지 않음.</td></tr></table>` },
-
-    { id: "economy", t: "조각 · 상점 · 교역소 · 레벨", en: "Shards & Growth", body: () => `
-      <h3>환석 조각</h3>
-      <table class="mn-table"><tr><th>전투 중</th><td>카드가 싸워서 부서질 때마다(유닛이 쓰러짐 · 쓴 마법) 그 카드 값의 <b>${Math.round(ECON.breakRate * 100)}%</b>. 소각한 카드와 생명 공격은 조각이 되지 않습니다.</td></tr>
-      <tr><th>판이 끝나면</th><td>그 판에 부서진 모든 카드(양쪽) 값의 합 × <b>${ECON.winMul}</b>(승리) 또는 × <b>${ECON.loseMul}</b>(패배).</td></tr>
-      <tr><th>배수</th><td>위 두 줄의 조각에 모드마다 배수를 곱합니다: 컴퓨터와 대전 <b>${+(ECON.rate.ai * 100).toFixed(2)}%</b>, 온라인 대전 <b>${+(ECON.rate.online * 100).toFixed(2)}%</b>, 순례 <b>${typeof PILGRIM !== "undefined" ? +(PILGRIM.battleRate * 100).toFixed(2) : "—"}%</b>. 경험치는 배수 없이 원래 값 그대로 쌓입니다.</td></tr>
-      <tr><th>행운</th><td>판이 끝날 때마다(이기든 지든) <b>${+(ECON.lucky.card * 100).toFixed(2)}%</b>로 공짜 카드 한 장(순례 첫 승 뽑기와 같은 확률), <b>${+(ECON.lucky.gold.p * 100).toFixed(2)}%</b>로 ${n(ECON.lucky.gold.gold)} 조각.</td></tr>
-      <tr><th>카드 값</th><td>레벨 × ${ECON.unitPerLv}(유닛), 아이템 × ${ECON.itemMul}, 마법 × ${ECON.spellMul}. (전투 보상 계산에 씀)</td></tr></table>
-      <h3>상점</h3>
-      <p>지금은 모든 카드 <b>${typeof SHOP_FLAT !== "undefined" && SHOP_FLAT != null ? n(SHOP_FLAT) : "—"} 조각</b>. 판매는 산 값 그대로 돌려받고 카드는 재고로 돌아갑니다. 덱에 넣어 둔 장수만큼은 팔 수 없습니다. 재고는 이 브라우저의 모든 모험가가 나눠 씁니다(등급별 재고는 「카드」 장).</p>
-      <h3>교역소 (v3.21)</h3>
-      <p>상단 띠의 <b>교역소</b>는 모험가끼리 카드 · 조각을 맞바꾸는 곳입니다. 카드와 카드, 카드와 조각, 카드 + 조각과 카드 — 한쪽에 카드 ${typeof TRADE !== "undefined" ? TRADE.maxCards : 6}장까지 무엇이든 바꿀 수 있습니다.</p>
-      <table class="mn-table"><tr><th>교환 제안</th><td>내놓을 것과 원하는 것을 적고 기한(10분 ~ 3일)을 정해 올립니다. 원하는 것을 <b>모두</b> 채운 참여 중 <b>가장 먼저</b> 들어온 것과 기한에 저절로 성사됩니다. 다른 제안도 받을 수 있고, 올린 사람은 기한 전에 아무 참여나 골라 바로 성사시킬 수 있습니다.</td></tr>
-      <tr><th>경매</th><td>카드를 올리고 시작가(조각)를 정합니다. 다음 입찰은 최고가 + 5%(최소 ${typeof TRADE !== "undefined" ? TRADE.stepMin : 10} 조각). 밀린 입찰은 바로 돌려받고, 기한에 가장 높은 입찰이 가져갑니다.</td></tr>
-      <tr><th>실시간 거래</th><td>방 코드로 친구와 이어 양쪽이 카드 · 조각을 놓고, 둘 다 <b>확인</b> → 둘 다 <b>교환</b>을 누르면 바로 맞바꿉니다. 놓은 것을 바꾸면 확인이 풀립니다.</td></tr>
-      <tr><th>맡김</th><td>올리거나 참여하는 순간 건 카드 · 조각은 교역소가 맡아 내 보유에서 빠집니다. 성사되면 상대에게 가고, 닫히거나 밀리면 돌려받습니다. <b>덱 조정실에 저장한 덱 · 초안에 든 장수는 걸 수 없습니다.</b> 받은 카드가 최대 장수를 넘으면 넘친 장수는 상점 값의 조각으로 바뀝니다.</td></tr></table>
-      <p class="mn-note">거래로 오간 조각은 경험치가 되지 않습니다. 관리자 · 손님 계정(모든 카드를 가진 계정)은 거래할 수 없습니다. 서버(ETHERION 서버.bat)로 열면 거래 게시판을 그 서버의 모든 모험가와 함께 쓰고, 파일로 열면 이 기기의 모험가끼리만 씁니다. 실시간 거래는 방 코드로 이은 친구와 합니다.</p>
-      <h3>크로네아의 수레바퀴</h3>
-      <p>대기실 오른쪽 위. 대전(컴퓨터 · 순례)을 한 판 마칠 때마다 표 1장. 단체 문양 셋 = ${n(ECON.pachinko.group.gold)} 조각(${pct(ECON.pachinko.group.p)}), 진영 문장 셋 = ${n(ECON.pachinko.faction.gold)} 조각(${pct(ECON.pachinko.faction.p)}), 세 진영 문장이 모두 다르면 카드 1장(${pct(ECON.pachinko.card.p)}).</p>
-      <h3>모험가 레벨</h3>
-      <p>벌어들인 환석 조각이 그대로 <b>경험치</b>입니다(카드를 사도 줄지 않고, 판매 값 · 거래로 오간 조각은 경험치가 아님). 최대 Lv ${typeof LEVEL !== "undefined" ? LEVEL.max : 99}. 화면 아래 가운데 판에 레벨 · 조각 · 경험치 막대가 있습니다.</p>` },
+    /* v3.55 순례 · 합성 · 상점 · 보상 · 교역소 · 레벨은 룰북(js/rulebook.js)으로 옮겼다 — 숫자도 거기서 데이터로 읽는다 */
+    { id: "rulebook", t: "룰북 — 게임의 짜임", en: "Rulebook", body: () => typeof RULEBOOK === "undefined" ? "<p>룰북 파일이 없습니다.</p>" : `
+      <p>상점 · 합성소(강화 · 승화) · 파친코 · 성로 순례 · 대전 보상 · 퀘스트 · 교역소 · 레거시 · 계정은 <b>룰북</b>에 섹션별로 있습니다. 대기실의 「룰북」 명판으로도 엽니다.</p>
+      <ul class="mn-ul mn-rb">${RULEBOOK.map(x => `<li><a href="#" data-rb="${x.id}"><b>${x.t}</b></a> — ${x.sum || ""}</li>`).join("")}</ul>` },
 
     { id: "world", t: "세 진영 아홉 단체", en: "Factions", body: () => `
       <p>세 진영은 힘의 근원이 다릅니다 — 거인에게서 캔 아다만트, 숲과 대지, 신과 별. 이야기는 상단 띠의 <b>연대기</b>에서 읽을 수 있습니다.</p>${factionHTML()}` }
@@ -386,6 +350,7 @@ const Help = (() => {
       const setOn = id => links.forEach(a => a.classList.toggle("on", a.dataset.go === id));
       const go = id => { const s = page.querySelector("#mn-" + id); if (s) { page.scrollTop = s.offsetTop - 8; setOn(id); } };
       toc.addEventListener("click", e => { const a = e.target.closest("[data-go]"); if (!a) return; e.preventDefault(); if (!a.closest("li").hidden) go(a.dataset.go); });
+      page.addEventListener("click", e => { const a = e.target.closest("[data-rb]"); if (!a || typeof RulebookUI === "undefined") return; e.preventDefault(); RulebookUI.open(a.dataset.rb); });   // v3.55 룰북으로
       /* 읽는 자리에 따라 목차 표시 */
       page.addEventListener("scroll", () => {
         const y = page.scrollTop + 40; let id = secs[0].dataset.ch;
@@ -563,6 +528,7 @@ const Help = (() => {
     return `<div class="lobby-help" role="group" aria-label="도움말">
       <button type="button" class="btn lh-btn${fresh ? " lh-new" : ""}" data-help="tutorial" title="튜토리얼 — 대기실 둘러보기 · 전투 배우기 · 연습 대전">${ico("guide")}<span class="lh-t"><b>튜토리얼</b><small>TUTORIAL</small></span>${fresh ? '<i class="lh-badge">처음이라면</i>' : ""}</button>
       <button type="button" class="btn lh-btn" data-help="manual" title="매뉴얼 — 규칙 · 카드 · 능력 사전 · 단축키">${ico("tome")}<span class="lh-t"><b>매뉴얼</b><small>MANUAL</small></span></button>
+      ${typeof RulebookUI !== "undefined" ? `<button type="button" class="btn lh-btn" data-help="rulebook" title="룰북 — 상점 · 합성 · 파친코 · 순례 · 보상 · 계정">${RulebookUI.icon}<span class="lh-t"><b>룰북</b><small>RULEBOOK</small></span></button>` : ""}
     </div>`;
   }
   function refreshDock() {
@@ -573,9 +539,9 @@ const Help = (() => {
     const d = (root || document).querySelector(".lobby-help"); if (!d) return;
     d.addEventListener("click", e => {
       const b = e.target.closest("[data-help]"); if (!b) return;
-      if (b.dataset.help === "manual") Manual.open(); else Tutorial.open();
+      if (b.dataset.help === "manual") Manual.open(); else if (b.dataset.help === "rulebook") RulebookUI.open(); else Tutorial.open();
     });
   }
 
-  return { dockHTML, bindDock, Manual, Tutorial, Tour, Lesson, close };
+  return { dockHTML, bindDock, Manual, Tutorial, Tour, Lesson, close, openWin: open };   // openWin: 룰북(js/rulebook.js)이 같은 창을 쓴다
 })();

@@ -21,7 +21,7 @@
 
 const BGM = {
   dir: "audio/bgm/",
-  ver: "o5",          // 음원을 바꾸면 올린다(브라우저가 옛 파일을 기억하지 않게) — v3.17 대전 곡 셋 더함
+  ver: "n2",          // 음원을 바꾸면 올린다(브라우저가 옛 파일을 기억하지 않게) — v3.43.3 2차 변주판
   titleTrack: "title",
   flags: ["B1", "B2", "B3", "G1", "G2", "G3", "A1", "A2", "A3"],
   battleTracks: ["bgm_reminiscence", "bgm_long_ago", "bgm_last_oath", "bgm_ashen_banner", "bgm_fallen_star"],
@@ -116,6 +116,8 @@ const BGM = {
   },
 
   play(item) {
+    this.attach(item.el);
+    if (this.ac && this.ac.state === "suspended") this.ac.resume().catch(() => {});
     const p = item.el.play();
     const ok = () => this.fade(item, this.vol[this.level], this.fadeMs);
     if (p && p.then) p.then(ok, err => {
@@ -124,6 +126,47 @@ const BGM = {
     else ok();
   },
   retry() { if (this.cur && this.cur.el.paused && this.level !== "off") this.play(this.cur); else if (!this.cur && this.want) this.start(this.want); },
+
+  /* 다크 판타지 마스터링 버스: 저역 무게(95Hz/250Hz) · 거친 고역 완화(3.1kHz/6.2kHz) · 아날로그 포화 · 석조 성당 잔향 · 글루 압축 */
+  ctx() {
+    if (this.ac === false) return null;
+    if (this.ac) return this.ac;
+    if (typeof FEEL !== "undefined" && FEEL.ctx) { const c = FEEL.ctx(); if (c) return (this.ac = c); }
+    try { return (this.ac = new (window.AudioContext || window.webkitAudioContext)()); }
+    catch (e) { this.ac = false; return null; }
+  },
+  bus(ac) {
+    if (this.busNode && this.busNode.context === ac) return this.busNode;
+    const low = ac.createBiquadFilter(), body = ac.createBiquadFilter(), mid = ac.createBiquadFilter(), hi = ac.createBiquadFilter();
+    low.type = "lowshelf"; low.frequency.value = 95; low.Q.value = 0.7; low.gain.value = 2.8;
+    body.type = "peaking"; body.frequency.value = 250; body.Q.value = 0.8; body.gain.value = 1.2;
+    mid.type = "peaking"; mid.frequency.value = 3100; mid.Q.value = 0.9; mid.gain.value = -2.2;
+    hi.type = "highshelf"; hi.frequency.value = 6200; hi.Q.value = 0.7; hi.gain.value = -2.8;
+    const sat = ac.createWaveShaper(), n = 1024, curve = new Float32Array(n), a = 1.18, d = Math.tanh(a);
+    for (let i = 0; i < n; i++) { const x = i / (n - 1) * 2 - 1; curve[i] = Math.tanh(x * a) / d; }
+    sat.curve = curve; sat.oversample = "2x";
+    const sr = ac.sampleRate, len = Math.floor(sr * 1.8), ir = ac.createBuffer(2, len, sr), rise = Math.floor(sr * 0.025);
+    for (let c = 0; c < 2; c++) { const ch = ir.getChannelData(c); for (let i = 0; i < len; i++) ch[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2.7) * (i < rise ? i / rise : 1); }
+    const rev = ac.createConvolver(), rlp = ac.createBiquadFilter(), wet = ac.createGain(), dry = ac.createGain();
+    rev.buffer = ir; rlp.type = "lowpass"; rlp.frequency.value = 1800; rlp.Q.value = 0.5;
+    wet.gain.value = 0.14; dry.gain.value = 0.94;
+    const comp = ac.createDynamicsCompressor(), lim = ac.createDynamicsCompressor();
+    comp.threshold.value = -14; comp.knee.value = 10; comp.ratio.value = 2.2; comp.attack.value = 0.015; comp.release.value = 0.25;
+    lim.threshold.value = -1.0; lim.knee.value = 0; lim.ratio.value = 16; lim.attack.value = 0.002; lim.release.value = 0.1;
+    low.connect(body).connect(mid).connect(hi).connect(sat);
+    sat.connect(dry).connect(comp);
+    sat.connect(rev).connect(rlp).connect(wet).connect(comp);
+    comp.connect(lim).connect(ac.destination);
+    return (this.busNode = low);
+  },
+  attach(el) {
+    if (!el || el._bgmNode) return;
+    const isFile = typeof location !== "undefined" && location.protocol === "file:";
+    const isElectron = typeof process !== "undefined" && process.versions && process.versions.electron;
+    if (isFile && !isElectron) return;   // file:// 일반 브라우저에서는 CORS 무음 방지를 위해 직접 재생
+    const ac = this.ctx(); if (!ac) return;
+    try { const src = ac.createMediaElementSource(el); src.connect(this.bus(ac)); el._bgmNode = src; } catch (e) {}
+  },
 
   stop() {
     if (this.cur) { this.fade(this.cur, 0, this.fadeMs, true); this.cur = null; }
@@ -142,7 +185,7 @@ const BGM = {
       el.volume = Math.max(0, Math.min(1, from + (to - from) * k));
       if (k < 1) return;
       clearInterval(item.fadeTimer); item.fading = false;
-      if (end) { el.pause(); el.removeAttribute("src"); el.load(); }
+      if (end) { el.pause(); if (el._bgmNode) { try { el._bgmNode.disconnect(); } catch (e) {} el._bgmNode = null; } el.removeAttribute("src"); el.load(); }
     }, 40);
   },
 

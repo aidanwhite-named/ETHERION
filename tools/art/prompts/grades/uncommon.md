@@ -1,4 +1,4 @@
-# 고급 (Superior) — 카드 일러스트 프롬프트 (124장, 버전 g2)
+# 고급 (Superior) — 카드 일러스트 프롬프트 (125장, 버전 g2)
 
 > 검증된 베테랑 · 잘 만든 물건. 일반보다 장비가 좋고 자세가 자신 있다. 고향의 한 조각이 흐릿하게 보이고, 장식 끝에 따뜻한 금빛이 조금.
 
@@ -17,7 +17,7 @@ Mood: proven, capable, confident.
 아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다. 그대로 붙여 넣으면 된다.
 
 ## A1-01 · 계약 하수인
-심연 마족 · 유닛 · 레벨 1 · 고급 — 저장 파일 `img/cards/A1-01.png`
+심연 마족 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/A1-01.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A1-01.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -41,7 +41,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## A1-41 · 계약의 볼모
-심연 마족 · 유닛 · 레벨 2 · 고급 — 저장 파일 `img/cards/A1-41.png`
+심연 마족 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/A1-41.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A1-41.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -65,7 +65,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## A1-13 · 녹타르 처형인
-심연 마족 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/A1-13.png`
+심연 마족 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/A1-13.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A1-13.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -88,32 +88,8 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A1-14 · 피의 맹약자
-심연 마족 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/A1-14.png`
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "피의 맹약자". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Abyssal Fiends — a devoted priest, ritualist or pact-bound servant, praying or offering.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Abyssal Fiends: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
-Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
-Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
-Mood: proven, capable, confident.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## CS-A1 · 피의 침묵
-심연 마족 · 공격 마법 · 레벨 3 · 고급 — 저장 파일 `img/cards/CS-A1.png`
+심연 마족 · 공격 마법 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/CS-A1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/CS-A1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -139,7 +115,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## MC-05 · 쇠약의 저주
-심연 마족 · 공용 마법 · 레벨 3 · 고급 — 저장 파일 `img/cards/MC-05.png`
+심연 마족 · 공용 마법 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/MC-05.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MC-05.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -164,7 +140,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PN-A1-U1 · 피의 맹세 검사
-심연 마족 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/PN-A1-U1.png`
+심연 마족 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/PN-A1-U1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A1-U1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -189,7 +165,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## S3-1 · 계약의 인장
-심연 마족 · 아이템 · 레벨 3 · 고급 — 저장 파일 `img/cards/S3-1.png`
+심연 마족 · 아이템 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/S3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/S3-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -213,32 +189,8 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A1-19 · 심연 집행자
-심연 마족 · 유닛 · 레벨 4 · 고급 — 저장 파일 `img/cards/A1-19.png`
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "심연 집행자". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Abyssal Fiends — a devoted priest, ritualist or pact-bound servant, praying or offering.
-Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Abyssal Fiends: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
-Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
-Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
-Mood: proven, capable, confident.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## IA1-5 · 계약서 원본
-심연 마족 · 아이템 · 레벨 4 · 고급 — 저장 파일 `img/cards/IA1-5.png`
+심연 마족 · 아이템 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/IA1-5.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IA1-5.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -262,15 +214,40 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A1-25 · 장막 수문장
-심연 마족 · 유닛 · 레벨 5 · 고급 — 저장 파일 `img/cards/A1-25.png`
+## PN-A1-C2 · 모르크 협곡 그림자
+심연 마족 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/PN-A1-C2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A1-C2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "장막 수문장". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Abyssal Fiends — an armed fighter wielding a weapon typical of the banner.
+Card name (Korean — read its meaning, never write it in the image): "모르크 협곡 그림자". Depict exactly what this name describes.
+Subject: a seasoned, battle-hardened member of the Abyssal Fiends — a devoted priest, ritualist or pact-bound servant, praying or offering.
+Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
+Banner — Abyssal Fiends: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
+Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 모르크 협곡 바닥에서 올라온 그림자. 빛을 받으면 더 커지지 않고 엷어진다.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Mood: proven, capable, confident.
+Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+## A1-27 · 녹타르 피의 군주
+심연 마족 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/A1-27.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A1-27.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "녹타르 피의 군주". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Abyssal Fiends — a devoted priest, ritualist or pact-bound servant, praying or offering.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Banner — Abyssal Fiends: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
@@ -287,7 +264,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PN-A1-U2 · 모르카스의 세리
-심연 마족 · 유닛 · 레벨 5 · 고급 — 저장 파일 `img/cards/PN-A1-U2.png`
+심연 마족 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/PN-A1-U2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A1-U2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -311,15 +288,15 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A1-30 · 모르카스의 칼
-심연 마족 · 유닛 · 레벨 6 · 고급 — 저장 파일 `img/cards/A1-30.png`
+## A1-31 · 피의 공작
+심연 마족 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/A1-31.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A1-31.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "모르카스의 칼". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Abyssal Fiends — an armed fighter wielding a weapon typical of the banner.
+Card name (Korean — read its meaning, never write it in the image): "피의 공작". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Abyssal Fiends — a devoted priest, ritualist or pact-bound servant, praying or offering.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Banner — Abyssal Fiends: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
@@ -335,8 +312,32 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## A1-35 · 모르크의 악몽
+심연 마족 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/A1-35.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A1-35.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "모르크의 악몽". Depict exactly what this name describes.
+Subject: a legendary, awe-inspiring member of the Abyssal Fiends — a spellcaster channelling darkness power.
+Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
+Banner — Abyssal Fiends: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
+Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Mood: proven, capable, confident.
+Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## A2-01 · 성광 견습생
-성광 천족 · 유닛 · 레벨 1 · 고급 — 저장 파일 `img/cards/A2-01.png`
+성광 천족 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/A2-01.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A2-01.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -359,32 +360,8 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A2-02 · 새벽 시종
-성광 천족 · 유닛 · 레벨 1 · 고급 — 저장 파일 `img/cards/A2-02.png`
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "새벽 시종". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary member of the Radiant Seraphs — an armed fighter wielding a weapon typical of the banner.
-Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Banner — Radiant Seraphs: seraphs with white feathered wings and halos, and human knights of the Radiant Order. Silhouette: upright and protective; wings spread wide behind great shields. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
-Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
-Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
-Mood: proven, capable, confident.
-Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## A2-41 · 광신 돌격병
-성광 천족 · 유닛 · 레벨 2 · 고급 — 저장 파일 `img/cards/A2-41.png`
+성광 천족 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/A2-41.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A2-41.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -408,7 +385,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## SA2-03 · 수호 서약
-성광 천족 · 방어 마법 · 레벨 2 · 고급 — 저장 파일 `img/cards/SA2-03.png`
+성광 천족 · 방어 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/SA2-03.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SA2-03.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -432,14 +409,14 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A2-14 · 천족 방패수
-성광 천족 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/A2-14.png`
+## A2-13 · 성광 기사
+성광 천족 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/A2-13.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A2-13.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "천족 방패수". Depict exactly what this name describes.
+Card name (Korean — read its meaning, never write it in the image): "성광 기사". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened member of the Radiant Seraphs — an armed fighter wielding a weapon typical of the banner.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Banner — Radiant Seraphs: seraphs with white feathered wings and halos, and human knights of the Radiant Order. Silhouette: upright and protective; wings spread wide behind great shields. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
@@ -457,7 +434,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## CS-A2 · 정화의 빛
-성광 천족 · 공격 마법 · 레벨 3 · 고급 — 저장 파일 `img/cards/CS-A2.png`
+성광 천족 · 공격 마법 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/CS-A2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/CS-A2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -483,7 +460,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PN-A2-U1 · 맹세를 새긴 기사
-성광 천족 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/PN-A2-U1.png`
+성광 천족 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/PN-A2-U1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A2-U1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -508,7 +485,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PS-A2-1 · 맹세의 빛
-성광 천족 · 방어 마법 · 레벨 3 · 고급 — 저장 파일 `img/cards/PS-A2-1.png`
+성광 천족 · 방어 마법 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/PS-A2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PS-A2-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -534,7 +511,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## A2-42 · 천벌의 집행자
-성광 천족 · 유닛 · 레벨 4 · 고급 — 저장 파일 `img/cards/A2-42.png`
+성광 천족 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/A2-42.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A2-42.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -558,7 +535,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## S4-1 · 솔란테의 성유물
-성광 천족 · 아이템 · 레벨 4 · 고급 — 저장 파일 `img/cards/S4-1.png`
+성광 천족 · 아이템 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/S4-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/S4-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -582,8 +559,32 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## A2-25 · 엘라드 기사단장
+성광 천족 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/A2-25.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A2-25.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "엘라드 기사단장". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Radiant Seraphs — an armed fighter wielding a weapon typical of the banner.
+Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
+Banner — Radiant Seraphs: seraphs with white feathered wings and halos, and human knights of the Radiant Order. Silhouette: upright and protective; wings spread wide behind great shields. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
+Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Mood: proven, capable, confident.
+Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## PN-A2-U2 · 솔란테의 성가대
-성광 천족 · 유닛 · 레벨 5 · 고급 — 저장 파일 `img/cards/PN-A2-U2.png`
+성광 천족 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/PN-A2-U2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A2-U2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -608,7 +609,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## A2-43 · 불꽃 날개 순교자
-성광 천족 · 유닛 · 레벨 6 · 고급 — 저장 파일 `img/cards/A2-43.png`
+성광 천족 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/A2-43.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A2-43.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -631,8 +632,32 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## A2-36 · 새벽의 천사장
+성광 천족 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/A2-36.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A2-36.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "새벽의 천사장". Depict exactly what this name describes.
+Subject: a legendary, awe-inspiring member of the Radiant Seraphs — a devoted priest, ritualist or pact-bound servant, praying or offering.
+Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
+Banner — Radiant Seraphs: seraphs with white feathered wings and halos, and human knights of the Radiant Order. Silhouette: upright and protective; wings spread wide behind great shields. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
+Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Mood: proven, capable, confident.
+Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## A3-01 · 바람 수습생
-폭풍 하이엘프 · 유닛 · 레벨 1 · 고급 — 저장 파일 `img/cards/A3-01.png`
+폭풍 하이엘프 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/A3-01.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-01.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -656,7 +681,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## A3-02 · 탑 서기
-폭풍 하이엘프 · 유닛 · 레벨 1 · 고급 — 저장 파일 `img/cards/A3-02.png`
+폭풍 하이엘프 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/A3-02.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-02.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -680,7 +705,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## A3-07 · 돌풍 술사
-폭풍 하이엘프 · 유닛 · 레벨 2 · 고급 — 저장 파일 `img/cards/A3-07.png`
+폭풍 하이엘프 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/A3-07.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-07.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -704,7 +729,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## CS-A3 · 주문 끊기
-폭풍 하이엘프 · 공격 마법 · 레벨 2 · 고급 — 저장 파일 `img/cards/CS-A3.png`
+폭풍 하이엘프 · 공격 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/CS-A3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/CS-A3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -730,7 +755,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## MA-03 · 무력화
-폭풍 하이엘프 · 공용 마법 · 레벨 2 · 고급 — 저장 파일 `img/cards/MA-03.png`
+폭풍 하이엘프 · 공용 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/MA-03.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MA-03.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -755,7 +780,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## SA3-02 · 바람 장벽
-폭풍 하이엘프 · 방어 마법 · 레벨 2 · 고급 — 저장 파일 `img/cards/SA3-02.png`
+폭풍 하이엘프 · 방어 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/SA3-02.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SA3-02.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -779,14 +804,14 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-13 · 폭풍 마도사
-폭풍 하이엘프 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/A3-13.png`
+## A3-16 · 바람 결계사
+폭풍 하이엘프 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/A3-16.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-16.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "폭풍 마도사". Depict exactly what this name describes.
+Card name (Korean — read its meaning, never write it in the image): "바람 결계사". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened member of the Storm High Elves — a spellcaster channelling wind power.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
@@ -804,7 +829,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## HA3-2 · 거울 쌍둥이
-폭풍 하이엘프 · 핸드 마법 · 레벨 3 · 고급 — 저장 파일 `img/cards/HA3-2.png`
+폭풍 하이엘프 · 핸드 마법 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/HA3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/HA3-2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -828,33 +853,8 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-A3-U1 · 바람 문자 술사
-폭풍 하이엘프 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/PN-A3-U1.png`
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "바람 문자 술사". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Storm High Elves — a spellcaster channelling wind power.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
-Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 바람에 별의 문자를 새겨 쏜다. 새긴 문자는 어떤 바람에도 흩어지지 않는다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
-Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
-Mood: proven, capable, confident.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## SA3-05 · 회오리 방벽
-폭풍 하이엘프 · 방어 마법 · 레벨 3 · 고급 — 저장 파일 `img/cards/SA3-05.png`
+폭풍 하이엘프 · 방어 마법 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/SA3-05.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SA3-05.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -878,32 +878,8 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-19 · 폭풍탑 마도사
-폭풍 하이엘프 · 유닛 · 레벨 4 · 고급 — 저장 파일 `img/cards/A3-19.png`
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "폭풍탑 마도사". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Storm High Elves — a spellcaster channelling wind power.
-Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
-Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
-Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
-Mood: proven, capable, confident.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## A3-20 · 벨루미르의 서약자
-폭풍 하이엘프 · 유닛 · 레벨 4 · 고급 — 저장 파일 `img/cards/A3-20.png`
+폭풍 하이엘프 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/A3-20.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-20.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -927,7 +903,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## NA3-1 · 찢는 바람
-폭풍 하이엘프 · 공격 마법 · 레벨 4 · 고급 — 저장 파일 `img/cards/NA3-1.png`
+폭풍 하이엘프 · 공격 마법 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/NA3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/NA3-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -951,32 +927,8 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-25 · 바늘탑 수석 마도사
-폭풍 하이엘프 · 유닛 · 레벨 5 · 고급 — 저장 파일 `img/cards/A3-25.png`
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "바늘탑 수석 마도사". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Storm High Elves — a spellcaster channelling wind power.
-Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
-Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
-Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
-Mood: proven, capable, confident.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## A3-42 · 폭풍의 눈 수호령
-폭풍 하이엘프 · 유닛 · 레벨 5 · 고급 — 저장 파일 `img/cards/A3-42.png`
+폭풍 하이엘프 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/A3-42.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-42.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1000,7 +952,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PN-A3-U2 · 하늘 요람 수문지기
-폭풍 하이엘프 · 유닛 · 레벨 5 · 고급 — 저장 파일 `img/cards/PN-A3-U2.png`
+폭풍 하이엘프 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/PN-A3-U2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A3-U2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1024,16 +976,41 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-30 · 폭풍새 조련사
-폭풍 하이엘프 · 유닛 · 레벨 6 · 고급 — 저장 파일 `img/cards/A3-30.png`
+## PN-A3-C3 · 폭풍탑 결계 기사
+폭풍 하이엘프 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/PN-A3-C3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A3-C3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "폭풍새 조련사". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Storm High Elves — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
+Card name (Korean — read its meaning, never write it in the image): "폭풍탑 결계 기사". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Storm High Elves — an armed fighter wielding a weapon typical of the banner.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
+Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 몸에 두른 바람 결계는 두께가 늘 같다. 바늘탑 마도사들이 그렇게 짰다.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Mood: proven, capable, confident.
+Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+## A3-34 · 폭풍의 왕관
+폭풍 하이엘프 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/A3-34.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-34.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "폭풍의 왕관". Depict exactly what this name describes.
+Subject: a legendary, awe-inspiring member of the Storm High Elves — a spellcaster channelling wind power.
+Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
 Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
@@ -1048,38 +1025,62 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-32 · 회오리 대마법사
-폭풍 하이엘프 · 유닛 · 레벨 6 · 고급 — 저장 파일 `img/cards/A3-32.png`
+## B1-02 · 화약 짐꾼
+잿불 고블린 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/B1-02.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-02.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "회오리 대마법사". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Storm High Elves — a spellcaster channelling wind power.
-Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
-Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Card name (Korean — read its meaning, never write it in the image): "화약 짐꾼". Depict exactly what this name describes.
+Subject: a low-ranking, ordinary member of the Cinder Goblins — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
+Scale (level 1 of 8): small and humble: an ordinary body, light gear.
+Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
+Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
-Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
 Mood: proven, capable, confident.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B1-07 · 화승총병
-잿불 고블린 · 유닛 · 레벨 2 · 고급 — 저장 파일 `img/cards/B1-07.png`
+## B1-08 · 연막 투척병
+잿불 고블린 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/B1-08.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-08.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "화승총병". Depict exactly what this name describes.
+Card name (Korean — read its meaning, never write it in the image): "연막 투척병". Depict exactly what this name describes.
+Subject: a low-ranking, ordinary member of the Cinder Goblins — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
+Scale (level 2 of 8): small and humble: an ordinary body, light gear.
+Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
+Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Mood: proven, capable, confident.
+Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+## B1-09 · 고블린 포수
+잿불 고블린 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/B1-09.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-09.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "고블린 포수". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
 Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
@@ -1097,7 +1098,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## MB-04 · 도화선
-잿불 고블린 · 공격 마법 · 레벨 2 · 고급 — 저장 파일 `img/cards/MB-04.png`
+잿불 고블린 · 공격 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/MB-04.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MB-04.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1121,32 +1122,8 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B1-15 · 포대 하사
-잿불 고블린 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/B1-15.png`
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "포대 하사". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
-Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
-Mood: proven, capable, confident.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## B1-16 · 고블린 폭파공
-잿불 고블린 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/B1-16.png`
+잿불 고블린 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/B1-16.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-16.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1170,7 +1147,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## CS-B1 · 덫 태우기
-잿불 고블린 · 공격 마법 · 레벨 3 · 고급 — 저장 파일 `img/cards/CS-B1.png`
+잿불 고블린 · 공격 마법 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/CS-B1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/CS-B1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1196,7 +1173,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PN-B1-U1 · 화약고 감독관
-잿불 고블린 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/PN-B1-U1.png`
+잿불 고블린 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/PN-B1-U1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B1-U1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1221,7 +1198,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## B1-42 · 방폭 갑주병
-잿불 고블린 · 유닛 · 레벨 4 · 고급 — 저장 파일 `img/cards/B1-42.png`
+잿불 고블린 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/B1-42.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-42.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1244,33 +1221,8 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## I4-3 · 용살자의 대검
-잿불 고블린 · 아이템 · 레벨 4 · 고급 — 저장 파일 `img/cards/I4-3.png`
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "용살자의 대검". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Cinder Goblins (weapon/armour; if unsure, a sword). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
-Scale (level 4 of 8): a fine object with a faint aura.
-Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 페로스의 비늘을 베었다는 대검. 한 번 내려치면 어떤 갑옷도 금이 간다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
-Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
-Mood: proven, capable, confident.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## IB1-5 · 도르마크의 화염포
-잿불 고블린 · 아이템 · 레벨 4 · 고급 — 저장 파일 `img/cards/IB1-5.png`
+잿불 고블린 · 아이템 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/IB1-5.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IB1-5.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1295,7 +1247,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PS-B1-1 · 역화
-잿불 고블린 · 공용 마법 · 레벨 4 · 고급 — 저장 파일 `img/cards/PS-B1-1.png`
+잿불 고블린 · 공용 마법 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/PS-B1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PS-B1-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1321,7 +1273,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## SB1-06 · 방어 포대
-잿불 고블린 · 방어 마법 · 레벨 4 · 고급 — 저장 파일 `img/cards/SB1-06.png`
+잿불 고블린 · 방어 마법 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/SB1-06.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SB1-06.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1345,43 +1297,18 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B1-26 · 화관 돌격포
-잿불 고블린 · 유닛 · 레벨 5 · 고급 — 저장 파일 `img/cards/B1-26.png`
+## B1-25 · 공성 포병대
+잿불 고블린 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/B1-25.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-25.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "화관 돌격포". Depict exactly what this name describes.
+Card name (Korean — read its meaning, never write it in the image): "공성 포병대". Depict exactly what this name describes.
 Subject: an elite, commanding member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
-Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
-Mood: proven, capable, confident.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## PN-B1-U2 · 도르마크 화염포수
-잿불 고블린 · 유닛 · 레벨 5 · 고급 — 저장 파일 `img/cards/PN-B1-U2.png`
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "도르마크 화염포수". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
-Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 화관 산맥의 용암에 포신을 담가 달군다. 포수의 몸도 같이 달아올라 붕대가 붙지 않는다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
@@ -1395,7 +1322,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## SB1-08 · 화약고 폭파
-잿불 고블린 · 방어 마법 · 레벨 5 · 고급 — 저장 파일 `img/cards/SB1-08.png`
+잿불 고블린 · 방어 마법 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/SB1-08.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SB1-08.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1420,7 +1347,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## B1-43 · 포르탄 철갑 보루
-잿불 고블린 · 유닛 · 레벨 6 · 고급 — 저장 파일 `img/cards/B1-43.png`
+잿불 고블린 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/B1-43.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-43.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1443,15 +1370,15 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B1-36 · 작렬의 고블린 왕
-잿불 고블린 · 유닛 · 레벨 7 · 고급 — 저장 파일 `img/cards/B1-36.png`
+## B1-33 · 도르마크의 포문
+잿불 고블린 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/B1-33.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-33.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "작렬의 고블린 왕". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring member of the Cinder Goblins — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
+Card name (Korean — read its meaning, never write it in the image): "도르마크의 포문". Depict exactly what this name describes.
+Subject: a legendary, awe-inspiring member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
 Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
@@ -1468,7 +1395,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## B2-05 · 두르크하임 견습공
-무쇠수염 드워프 · 유닛 · 레벨 1 · 고급 — 저장 파일 `img/cards/B2-05.png`
+무쇠수염 드워프 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/B2-05.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B2-05.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1492,7 +1419,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## B2-07 · 리벳 수호병
-무쇠수염 드워프 · 유닛 · 레벨 2 · 고급 — 저장 파일 `img/cards/B2-07.png`
+무쇠수염 드워프 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/B2-07.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B2-07.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1516,7 +1443,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## CS-B2 · 봉인 쐐기
-무쇠수염 드워프 · 공격 마법 · 레벨 2 · 고급 — 저장 파일 `img/cards/CS-B2.png`
+무쇠수염 드워프 · 공격 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/CS-B2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/CS-B2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1542,7 +1469,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## SB2-01 · 철갑 돌진
-무쇠수염 드워프 · 공격 마법 · 레벨 2 · 고급 — 저장 파일 `img/cards/SB2-01.png`
+무쇠수염 드워프 · 공격 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/SB2-01.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SB2-01.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1566,14 +1493,14 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B2-14 · 두르크하임 방패대
-무쇠수염 드워프 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/B2-14.png`
+## B2-15 · 강철 대장장이
+무쇠수염 드워프 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/B2-15.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B2-15.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "두르크하임 방패대". Depict exactly what this name describes.
+Card name (Korean — read its meaning, never write it in the image): "강철 대장장이". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened member of the Ironbeard Dwarves — an armed fighter wielding a weapon typical of the banner.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Banner — Ironbeard Dwarves: stocky dwarves with braided iron-grey beards, and the riveted golems and automatons they forge. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
@@ -1591,7 +1518,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PN-B2-U1 · 두르크하임 방패공
-무쇠수염 드워프 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/PN-B2-U1.png`
+무쇠수염 드워프 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/PN-B2-U1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B2-U1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1616,7 +1543,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## B2-42 · 과열 압착기
-무쇠수염 드워프 · 유닛 · 레벨 4 · 고급 — 저장 파일 `img/cards/B2-42.png`
+무쇠수염 드워프 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/B2-42.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B2-42.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1640,7 +1567,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## IB2-6 · 골렘 핵
-무쇠수염 드워프 · 아이템 · 레벨 4 · 고급 — 저장 파일 `img/cards/IB2-6.png`
+무쇠수염 드워프 · 아이템 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/IB2-6.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IB2-6.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1665,7 +1592,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PN-B2-U2 · 소르그림 광맥 골렘
-무쇠수염 드워프 · 유닛 · 레벨 5 · 고급 — 저장 파일 `img/cards/PN-B2-U2.png`
+무쇠수염 드워프 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/PN-B2-U2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B2-U2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1689,16 +1616,41 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B2-30 · 철골 산맥 파수꾼
-무쇠수염 드워프 · 유닛 · 레벨 6 · 고급 — 저장 파일 `img/cards/B2-30.png`
+## PN-B2-C3 · 철골 망치 골렘
+무쇠수염 드워프 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/PN-B2-C3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B2-C3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "철골 산맥 파수꾼". Depict exactly what this name describes.
+Card name (Korean — read its meaning, never write it in the image): "철골 망치 골렘". Depict exactly what this name describes.
 Subject: an elite, commanding member of the Ironbeard Dwarves — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
+Banner — Ironbeard Dwarves: stocky dwarves with braided iron-grey beards, and the riveted golems and automatons they forge. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
+Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Lore (Korean, use for the scene): 철골 산맥의 광맥에서 캔 쇠로만 빚었다. 속을 채운 쇳물이 굳어 쉽게 줄지 않는다.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the underground forge-city of Durkheim) with atmosphere and depth, softly focused, light atmospheric particles; cold steel sheen, sparks from an anvil, rivets.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Mood: proven, capable, confident.
+Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+## B2-33 · 오르둔의 뼈 기사
+무쇠수염 드워프 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/B2-33.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B2-33.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "오르둔의 뼈 기사". Depict exactly what this name describes.
+Subject: a legendary, awe-inspiring member of the Ironbeard Dwarves — an armed fighter wielding a weapon typical of the banner.
+Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
 Banner — Ironbeard Dwarves: stocky dwarves with braided iron-grey beards, and the riveted golems and automatons they forge. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
@@ -1714,7 +1666,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## B3-04 · 정전기 실험가
-번개 노움 · 유닛 · 레벨 1 · 고급 — 저장 파일 `img/cards/B3-04.png`
+번개 노움 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/B3-04.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-04.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1737,32 +1689,8 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B3-07 · 뇌격 학도
-번개 노움 · 유닛 · 레벨 2 · 고급 — 저장 파일 `img/cards/B3-07.png`
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "뇌격 학도". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary member of the Thunder Gnomes — a spellcaster channelling lightning power.
-Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
-Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
-Mood: proven, capable, confident.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## B3-10 · 피뢰침 정비공
-번개 노움 · 유닛 · 레벨 2 · 고급 — 저장 파일 `img/cards/B3-10.png`
+번개 노움 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/B3-10.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-10.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1786,7 +1714,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## CS-B3 · 합선
-번개 노움 · 공격 마법 · 레벨 2 · 고급 — 저장 파일 `img/cards/CS-B3.png`
+번개 노움 · 공격 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/CS-B3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/CS-B3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1812,7 +1740,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## IB3-3 · 피뢰 지팡이
-번개 노움 · 아이템 · 레벨 2 · 고급 — 저장 파일 `img/cards/IB3-3.png`
+번개 노움 · 아이템 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/IB3-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IB3-3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1837,7 +1765,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## MC-08 · 파문
-번개 노움 · 공용 마법 · 레벨 3 · 고급 — 저장 파일 `img/cards/MC-08.png`
+번개 노움 · 공용 마법 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/MC-08.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MC-08.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1862,7 +1790,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PN-B3-U1 · 피뢰탑 수리공
-번개 노움 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/PN-B3-U1.png`
+번개 노움 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/PN-B3-U1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B3-U1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1886,14 +1814,14 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B3-19 · 뇌명 고원 탐사대
-번개 노움 · 유닛 · 레벨 4 · 고급 — 저장 파일 `img/cards/B3-19.png`
+## B3-20 · 번개 병기 학자
+번개 노움 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/B3-20.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-20.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "뇌명 고원 탐사대". Depict exactly what this name describes.
+Card name (Korean — read its meaning, never write it in the image): "번개 병기 학자". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened member of the Thunder Gnomes — a spellcaster channelling lightning power.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
@@ -1911,7 +1839,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## C4-1 · 별을 읽는 보주
-번개 노움 · 아이템 · 레벨 4 · 고급 — 저장 파일 `img/cards/C4-1.png`
+번개 노움 · 아이템 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/C4-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/C4-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1936,7 +1864,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## B3-25 · 케라운 탐사원
-번개 노움 · 유닛 · 레벨 5 · 고급 — 저장 파일 `img/cards/B3-25.png`
+번개 노움 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/B3-25.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-25.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1960,7 +1888,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## B3-42 · 접지탑 파수꾼
-번개 노움 · 유닛 · 레벨 5 · 고급 — 저장 파일 `img/cards/B3-42.png`
+번개 노움 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/B3-42.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-42.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1983,19 +1911,18 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-B3-U2 · 뇌명 고원 측량사
-번개 노움 · 유닛 · 레벨 5 · 고급 — 저장 파일 `img/cards/PN-B3-U2.png`
+## B3-32 · 번개 거신
+번개 노움 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/B3-32.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-32.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "뇌명 고원 측량사". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Thunder Gnomes — a spellcaster channelling lightning power.
-Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
+Card name (Korean — read its meaning, never write it in the image): "번개 거신". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Thunder Gnomes — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
+Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 케라운의 신경이 어디로 뻗었는지 재는 노움. 그가 꽂은 말뚝마다 번개가 떨어진다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
@@ -2008,8 +1935,80 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## B3-33 · 볼타리움 학장
+번개 노움 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/B3-33.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-33.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "볼타리움 학장". Depict exactly what this name describes.
+Subject: a legendary, awe-inspiring member of the Thunder Gnomes — a spellcaster channelling lightning power.
+Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
+Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
+Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Mood: proven, capable, confident.
+Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+## B3-36 · 천둥 기관 오메가
+번개 노움 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/B3-36.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-36.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "천둥 기관 오메가". Depict exactly what this name describes.
+Subject: a legendary, awe-inspiring member of the Thunder Gnomes — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
+Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
+Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
+Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Mood: proven, capable, confident.
+Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+## G1-03 · 초원 사냥개
+바위주먹 오크 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/G1-03.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G1-03.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "초원 사냥개". Depict exactly what this name describes.
+Subject: a low-ranking, ordinary member of the Rockfist Orcs — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
+Scale (level 1 of 8): small and humble: an ordinary body, light gear.
+Banner — Rockfist Orcs: powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair. Silhouette: massive shoulders and oversized fists; riders on giant wolves or bears. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
+Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Mood: proven, capable, confident.
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## CS-G1 · 덫 짓밟기
-바위주먹 오크 · 공격 마법 · 레벨 2 · 고급 — 저장 파일 `img/cards/CS-G1.png`
+바위주먹 오크 · 공격 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/CS-G1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/CS-G1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2035,7 +2034,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## G1-07 · 초원 사냥꾼
-바위주먹 오크 · 유닛 · 레벨 2 · 고급 — 저장 파일 `img/cards/G1-07.png`
+바위주먹 오크 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/G1-07.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G1-07.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2059,7 +2058,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## MG-01 · 송곳니 돌격
-바위주먹 오크 · 공격 마법 · 레벨 2 · 고급 — 저장 파일 `img/cards/MG-01.png`
+바위주먹 오크 · 공격 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/MG-01.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MG-01.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2083,8 +2082,33 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## PN-G1-C1 · 바위송곳니 막내
+바위주먹 오크 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/PN-G1-C1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G1-C1.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "바위송곳니 막내". Depict exactly what this name describes.
+Subject: a low-ranking, ordinary member of the Rockfist Orcs — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
+Scale (level 2 of 8): small and humble: an ordinary body, light gear.
+Banner — Rockfist Orcs: powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair. Silhouette: massive shoulders and oversized fists; riders on giant wolves or bears. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
+Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Lore (Korean, use for the scene): 부족에서 가장 어리지만 주먹은 형들과 같다. 누가 뭐라 해도 주먹은 줄지 않는다.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Mood: proven, capable, confident.
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## G1-14 · 가르운 돌격대
-바위주먹 오크 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/G1-14.png`
+바위주먹 오크 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/G1-14.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G1-14.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2107,32 +2131,8 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G1-15 · 흑요 발톱
-바위주먹 오크 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/G1-15.png`
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "흑요 발톱". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Rockfist Orcs — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Rockfist Orcs: powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair. Silhouette: massive shoulders and oversized fists; riders on giant wolves or bears. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
-Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
-Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
-Mood: proven, capable, confident.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## IG1-4 · 바위 주술 토템
-바위주먹 오크 · 아이템 · 레벨 3 · 고급 — 저장 파일 `img/cards/IG1-4.png`
+바위주먹 오크 · 아이템 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/IG1-4.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IG1-4.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2156,33 +2156,8 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-G1-U1 · 송곳니 결투사
-바위주먹 오크 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/PN-G1-U1.png`
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "송곳니 결투사". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Rockfist Orcs — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Rockfist Orcs: powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair. Silhouette: massive shoulders and oversized fists; riders on giant wolves or bears. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
-Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 카르노의 결투를 흉내 내는 젊은 오크. 아직 한 번도 진 적이 없다. 아직 카르노를 만나지 않았다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
-Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
-Mood: proven, capable, confident.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## G1-21 · 흑요 사냥대장
-바위주먹 오크 · 유닛 · 레벨 4 · 고급 — 저장 파일 `img/cards/G1-21.png`
+바위주먹 오크 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/G1-21.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G1-21.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2206,7 +2181,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## IG1-6 · 송곳니 전쟁 도끼
-바위주먹 오크 · 아이템 · 레벨 4 · 고급 — 저장 파일 `img/cards/IG1-6.png`
+바위주먹 오크 · 아이템 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/IG1-6.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IG1-6.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2230,8 +2205,32 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## G1-26 · 전쟁군주 투르크
+바위주먹 오크 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/G1-26.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G1-26.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "전쟁군주 투르크". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Rockfist Orcs — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
+Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
+Banner — Rockfist Orcs: powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair. Silhouette: massive shoulders and oversized fists; riders on giant wolves or bears. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
+Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Mood: proven, capable, confident.
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## PN-G1-U2 · 곰가죽 광전사
-바위주먹 오크 · 유닛 · 레벨 5 · 고급 — 저장 파일 `img/cards/PN-G1-U2.png`
+바위주먹 오크 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/PN-G1-U2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G1-U2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2255,8 +2254,32 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## G1-29 · 그롬의 선택받은 자
+바위주먹 오크 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/G1-29.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G1-29.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "그롬의 선택받은 자". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Rockfist Orcs — a devoted priest, ritualist or pact-bound servant, praying or offering.
+Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
+Banner — Rockfist Orcs: powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair. Silhouette: massive shoulders and oversized fists; riders on giant wolves or bears. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
+Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Mood: proven, capable, confident.
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## SG1-09 · 용의 포효
-바위주먹 오크 · 공격 마법 · 레벨 6 · 고급 — 저장 파일 `img/cards/SG1-09.png`
+바위주먹 오크 · 공격 마법 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/SG1-09.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG1-09.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2280,8 +2303,32 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## G1-34 · 고르바스 숭배 광전사
+바위주먹 오크 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/G1-34.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G1-34.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "고르바스 숭배 광전사". Depict exactly what this name describes.
+Subject: a legendary, awe-inspiring member of the Rockfist Orcs — a devoted priest, ritualist or pact-bound servant, praying or offering.
+Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
+Banner — Rockfist Orcs: powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair. Silhouette: massive shoulders and oversized fists; riders on giant wolves or bears. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
+Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Mood: proven, capable, confident.
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## G2-04 · 덩굴 보초
-이끼 트롤 · 유닛 · 레벨 1 · 고급 — 저장 파일 `img/cards/G2-04.png`
+이끼 트롤 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/G2-04.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G2-04.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2304,32 +2351,8 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G2-09 · 나무껍질 방패병
-이끼 트롤 · 유닛 · 레벨 2 · 고급 — 저장 파일 `img/cards/G2-09.png`
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "나무껍질 방패병". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary member of the Moss Trolls — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
-Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Banner — Moss Trolls: tall moss trolls with long, lanky, moss-covered limbs, and treants (living trees). Silhouette: tall, hunched and long-armed; treants tower like ancient trees. Materials: bark armour, moss, thorns, vines, roots, mushrooms, amber sap. Signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots.
-Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
-Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
-Mood: proven, capable, confident.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## G2-41 · 트롤 투창수
-이끼 트롤 · 유닛 · 레벨 2 · 고급 — 저장 파일 `img/cards/G2-41.png`
+이끼 트롤 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/G2-41.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G2-41.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2353,7 +2376,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## IG2-3 · 이끼 부적
-이끼 트롤 · 아이템 · 레벨 2 · 고급 — 저장 파일 `img/cards/IG2-3.png`
+이끼 트롤 · 아이템 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/IG2-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IG2-3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2378,7 +2401,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## CS-G2 · 이끼 덮기
-이끼 트롤 · 공격 마법 · 레벨 3 · 고급 — 저장 파일 `img/cards/CS-G2.png`
+이끼 트롤 · 공격 마법 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/CS-G2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/CS-G2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2404,7 +2427,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PN-G2-U1 · 덩굴손 궁수
-이끼 트롤 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/PN-G2-U1.png`
+이끼 트롤 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/PN-G2-U1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G2-U1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2429,7 +2452,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PS-G2-1 · 나이테
-이끼 트롤 · 방어 마법 · 레벨 3 · 고급 — 저장 파일 `img/cards/PS-G2-1.png`
+이끼 트롤 · 방어 마법 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/PS-G2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PS-G2-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2455,7 +2478,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## G2-42 · 독가시 말벌떼
-이끼 트롤 · 유닛 · 레벨 4 · 고급 — 저장 파일 `img/cards/G2-42.png`
+이끼 트롤 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/G2-42.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G2-42.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2479,7 +2502,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## IG2-6 · 베르단의 뿌리
-이끼 트롤 · 아이템 · 레벨 4 · 고급 — 저장 파일 `img/cards/IG2-6.png`
+이끼 트롤 · 아이템 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/IG2-6.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IG2-6.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2504,7 +2527,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## M4-1 · 트렌트의 나이테
-이끼 트롤 · 아이템 · 레벨 4 · 고급 — 저장 파일 `img/cards/M4-1.png`
+이끼 트롤 · 아이템 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/M4-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/M4-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2529,7 +2552,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## MC-11 · 침묵
-이끼 트롤 · 공용 마법 · 레벨 4 · 고급 — 저장 파일 `img/cards/MC-11.png`
+이끼 트롤 · 공용 마법 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/MC-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MC-11.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2553,18 +2576,19 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G2-26 · 에일렌의 고목
-이끼 트롤 · 유닛 · 레벨 5 · 고급 — 저장 파일 `img/cards/G2-26.png`
+## PN-G2-C2 · 가시덤불 트렌트
+이끼 트롤 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/PN-G2-C2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G2-C2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "에일렌의 고목". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Moss Trolls — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
-Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
+Card name (Korean — read its meaning, never write it in the image): "가시덤불 트렌트". Depict exactly what this name describes.
+Subject: a seasoned, battle-hardened member of the Moss Trolls — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
+Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Banner — Moss Trolls: tall moss trolls with long, lanky, moss-covered limbs, and treants (living trees). Silhouette: tall, hunched and long-armed; treants tower like ancient trees. Materials: bark armour, moss, thorns, vines, roots, mushrooms, amber sap. Signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots.
 Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Lore (Korean, use for the scene): 녹슨 늪 가장자리를 지키는 트렌트. 뽑으려 하면 뿌리가 한 뼘씩 더 깊어진다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
@@ -2578,7 +2602,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## G2-27 · 베르단 숭배자
-이끼 트롤 · 유닛 · 레벨 5 · 고급 — 저장 파일 `img/cards/G2-27.png`
+이끼 트롤 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/G2-27.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G2-27.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2602,7 +2626,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## MG-14 · 베르단의 가호
-이끼 트롤 · 방어 마법 · 레벨 5 · 고급 — 저장 파일 `img/cards/MG-14.png`
+이끼 트롤 · 방어 마법 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/MG-14.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MG-14.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2627,7 +2651,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## PN-G2-U2 · 실바니엘 뿌리지기
-이끼 트롤 · 유닛 · 레벨 5 · 고급 — 저장 파일 `img/cards/PN-G2-U2.png`
+이끼 트롤 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/PN-G2-U2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G2-U2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2652,7 +2676,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## SG2-08 · 숲의 진격
-이끼 트롤 · 공격 마법 · 레벨 5 · 고급 — 저장 파일 `img/cards/SG2-08.png`
+이끼 트롤 · 공격 마법 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/SG2-08.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG2-08.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2677,7 +2701,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## G2-43 · 벼락 맞은 분노목
-이끼 트롤 · 유닛 · 레벨 6 · 고급 — 저장 파일 `img/cards/G2-43.png`
+이끼 트롤 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/G2-43.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G2-43.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2701,7 +2725,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## SG2-09 · 베르단의 고목
-이끼 트롤 · 방어 마법 · 레벨 6 · 고급 — 저장 파일 `img/cards/SG2-09.png`
+이끼 트롤 · 방어 마법 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/SG2-09.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG2-09.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2725,15 +2749,15 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G2-36 · 에일렌의 심장
-이끼 트롤 · 유닛 · 레벨 7 · 고급 — 저장 파일 `img/cards/G2-36.png`
+## G2-35 · 고목 장로회
+이끼 트롤 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/G2-35.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G2-35.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "에일렌의 심장". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring member of the Moss Trolls — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
+Card name (Korean — read its meaning, never write it in the image): "고목 장로회". Depict exactly what this name describes.
+Subject: a legendary, awe-inspiring member of the Moss Trolls — a devoted priest, ritualist or pact-bound servant, praying or offering.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
 Banner — Moss Trolls: tall moss trolls with long, lanky, moss-covered limbs, and treants (living trees). Silhouette: tall, hunched and long-armed; treants tower like ancient trees. Materials: bark armour, moss, thorns, vines, roots, mushrooms, amber sap. Signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots.
 Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
@@ -2749,8 +2773,32 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## G3-01 · 석호 수습 무녀
+푸른비늘 인어 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/G3-01.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G3-01.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "석호 수습 무녀". Depict exactly what this name describes.
+Subject: a low-ranking, ordinary member of the Bluescale Merfolk — a devoted priest, ritualist or pact-bound servant, praying or offering.
+Scale (level 1 of 8): small and humble: an ordinary body, light gear.
+Banner — Bluescale Merfolk: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
+Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Mood: proven, capable, confident.
+Stay true to the banner: no fire, no heavy plate armour.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## G3-08 · 물결 무녀
-푸른비늘 인어 · 유닛 · 레벨 2 · 고급 — 저장 파일 `img/cards/G3-08.png`
+푸른비늘 인어 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/G3-08.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G3-08.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2773,32 +2821,8 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G3-10 · 이슬 정령
-푸른비늘 인어 · 유닛 · 레벨 2 · 고급 — 저장 파일 `img/cards/G3-10.png`
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "이슬 정령". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary member of the Bluescale Merfolk — a devoted priest, ritualist or pact-bound servant, praying or offering.
-Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Banner — Bluescale Merfolk: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
-Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
-Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
-Mood: proven, capable, confident.
-Stay true to the banner: no fire, no heavy plate armour.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## CS-G3 · 씻김의 노래
-푸른비늘 인어 · 공격 마법 · 레벨 3 · 고급 — 저장 파일 `img/cards/CS-G3.png`
+푸른비늘 인어 · 공격 마법 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/CS-G3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/CS-G3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2823,32 +2847,8 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G3-13 · 샘물 사제
-푸른비늘 인어 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/G3-13.png`
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "샘물 사제". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Bluescale Merfolk — a devoted priest, ritualist or pact-bound servant, praying or offering.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Bluescale Merfolk: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
-Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
-Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
-Mood: proven, capable, confident.
-Stay true to the banner: no fire, no heavy plate armour.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## G3-41 · 물살 돌격 인어
-푸른비늘 인어 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/G3-41.png`
+푸른비늘 인어 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/G3-41.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G3-41.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2872,7 +2872,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## IG3-4 · 진주 성표
-푸른비늘 인어 · 아이템 · 레벨 3 · 고급 — 저장 파일 `img/cards/IG3-4.png`
+푸른비늘 인어 · 아이템 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/IG3-4.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IG3-4.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2897,7 +2897,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## IG3-6 · 인어의 비늘
-푸른비늘 인어 · 아이템 · 레벨 3 · 고급 — 저장 파일 `img/cards/IG3-6.png`
+푸른비늘 인어 · 아이템 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/IG3-6.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IG3-6.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2921,40 +2921,15 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-G3-U1 · 샘물 정화 무녀
-푸른비늘 인어 · 유닛 · 레벨 3 · 고급 — 저장 파일 `img/cards/PN-G3-U1.png`
+## G3-19 · 셀레네아 무녀장
+푸른비늘 인어 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/G3-19.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G3-19.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "샘물 정화 무녀". Depict exactly what this name describes.
+Card name (Korean — read its meaning, never write it in the image): "셀레네아 무녀장". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened member of the Bluescale Merfolk — a devoted priest, ritualist or pact-bound servant, praying or offering.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Bluescale Merfolk: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
-Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 셀레네아 샘물로 동료의 상처를 씻는다. 그 물에 닿은 자는 쉽게 쇠하지 않는다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
-Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
-Mood: proven, capable, confident.
-Stay true to the banner: no fire, no heavy plate armour.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## G3-20 · 해류 기사
-푸른비늘 인어 · 유닛 · 레벨 4 · 고급 — 저장 파일 `img/cards/G3-20.png`
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "해류 기사". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Bluescale Merfolk — an armed fighter wielding a weapon typical of the banner.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Banner — Bluescale Merfolk: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
 Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
@@ -2970,8 +2945,32 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## G3-27 · 해구 수호자
+푸른비늘 인어 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/G3-27.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G3-27.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "해구 수호자". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Bluescale Merfolk — a devoted priest, ritualist or pact-bound servant, praying or offering.
+Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
+Banner — Bluescale Merfolk: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
+Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Mood: proven, capable, confident.
+Stay true to the banner: no fire, no heavy plate armour.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## PN-G3-U2 · 탈라쿠스 맥박 술사
-푸른비늘 인어 · 유닛 · 레벨 5 · 고급 — 저장 파일 `img/cards/PN-G3-U2.png`
+푸른비늘 인어 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/PN-G3-U2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G3-U2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -2995,32 +2994,8 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G3-30 · 셀레네아 신전 기사
-푸른비늘 인어 · 유닛 · 레벨 6 · 고급 — 저장 파일 `img/cards/G3-30.png`
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "셀레네아 신전 기사". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Bluescale Merfolk — an armed fighter wielding a weapon typical of the banner.
-Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Bluescale Merfolk: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
-Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
-Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
-Mood: proven, capable, confident.
-Stay true to the banner: no fire, no heavy plate armour.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## G3-32 · 심해 인어왕
-푸른비늘 인어 · 유닛 · 레벨 6 · 고급 — 저장 파일 `img/cards/G3-32.png`
+푸른비늘 인어 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/G3-32.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G3-32.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -3044,7 +3019,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## NG3-1 · 거센 파도
-푸른비늘 인어 · 공용 마법 · 레벨 6 · 고급 — 저장 파일 `img/cards/NG3-1.png`
+푸른비늘 인어 · 공용 마법 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/NG3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/NG3-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -3056,6 +3031,55 @@ Scale (level 6 of 8): a battlefield-wide effect.
 Banner — Bluescale Merfolk: magic of bluescale merfolk, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체에게 피해 3.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Mood: proven, capable, confident.
+Stay true to the banner: no fire, no heavy plate armour.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+## PN-G3-C3 · 해구의 노래꾼
+푸른비늘 인어 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/PN-G3-C3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G3-C3.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "해구의 노래꾼". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Bluescale Merfolk — a devoted priest, ritualist or pact-bound servant, praying or offering.
+Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
+Banner — Bluescale Merfolk: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
+Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Lore (Korean, use for the scene): 탈라쿠스 해구에서 마렌시아에게 바치는 노래만 부른다. 노래하는 동안에는 칼을 들지 않는다.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Mood: proven, capable, confident.
+Stay true to the banner: no fire, no heavy plate armour.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+## G3-34 · 마렌시아 기사단장
+푸른비늘 인어 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/G3-34.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G3-34.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "마렌시아 기사단장". Depict exactly what this name describes.
+Subject: a legendary, awe-inspiring member of the Bluescale Merfolk — an armed fighter wielding a weapon typical of the banner.
+Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
+Banner — Bluescale Merfolk: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
+Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.

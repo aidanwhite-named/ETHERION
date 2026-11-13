@@ -51,3 +51,21 @@
   .prow-top .bn-h .np-sub { display: none; }
   .prow-bot .nameplate.banner.bn-h { height: 70%; }
 }
+
+/* ---------- v3.47 명판 둘째 줄 = 전적 · 승률 (사람만, 컴퓨터는 단체 이름) ----------
+   display는 건드리지 않는다(좁은 화면에서 위 줄 둘째 줄을 숨기는 규칙을 그대로 따르게) */
+.nameplate .np-sub.np-rec { color: color-mix(in srgb, var(--fc) 35%, #e6d8bb); font-variant-numeric: tabular-nums; letter-spacing: .01em; cursor: help; }
+.np-rec em { font-style: normal; font-weight: 800; }
+.np-rec .nr-w { color: #f6e2a8; }
+.np-rec .nr-l { color: #e0b4a4; }
+.np-rec .nr-rate em { color: #fff3d6; }
+.np-rec i { display: inline-block; width: 1px; height: .85em; margin: 0 .5em; vertical-align: -.08em; background: color-mix(in srgb, var(--fc) 60%, transparent); }
+
+/* ---------- v3.47 깃발 그림 (js/game.js FLAG_ART — 경로가 비어 있으면 아래는 쓰이지 않는다) ---------- */
+/* 문장: 코드 방패 + 임시 문양 대신 그림 한 장. 방패 칸보다 조금 크게, 모양은 그림 그대로 */
+.np-shield.has-art .np-emb { position: absolute; inset: -8%; width: 116%; height: 116%; object-fit: contain; pointer-events: none;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .7)) drop-shadow(0 0 6px color-mix(in srgb, var(--fc) 45%, transparent)); }
+/* 천: 코드로 그린 천 · 장대를 숨기고 그림을 칸에 맞춰 늘인다(가로 4:1로 그리면 거의 늘어나지 않는다) */
+.nameplate.has-plate .np-frame { display: none; }
+.nameplate.banner.has-plate::before { display: block; content: ""; position: absolute; inset: 0; z-index: -1; width: auto; height: auto; border: 0; opacity: 1;
+  background: var(--plate) center / 100% 100% no-repeat; }

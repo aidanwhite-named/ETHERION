@@ -17,7 +17,7 @@ Mood: fleeting, conjured.
 아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다. 그대로 붙여 넣으면 된다.
 
 ## TK-A1-1 · 계약 악마
-심연 마족 · 유닛 · 레벨 4 · 소환물 — 저장 파일 `img/cards/TK-A1-1.png`
+심연 마족 · 유닛 · 레벨 4 · 소환물 — 받은 그림은 `tools/art/inbox/TK-A1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-A1-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -42,7 +42,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## TK-A2-1 · 빛의 기사
-성광 천족 · 유닛 · 레벨 4 · 소환물 — 저장 파일 `img/cards/TK-A2-1.png`
+성광 천족 · 유닛 · 레벨 4 · 소환물 — 받은 그림은 `tools/art/inbox/TK-A2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-A2-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -67,7 +67,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## TS-A3-1 · 별똥별 조각
-폭풍 하이엘프 · 공격 마법 · 레벨 1 · 소환물 — 저장 파일 `img/cards/TS-A3-1.png`
+폭풍 하이엘프 · 공격 마법 · 레벨 1 · 소환물 — 받은 그림은 `tools/art/inbox/TS-A3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TS-A3-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -92,7 +92,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## TS-A3-2 · 돌개바람
-폭풍 하이엘프 · 공격 마법 · 레벨 1 · 소환물 — 저장 파일 `img/cards/TS-A3-2.png`
+폭풍 하이엘프 · 공격 마법 · 레벨 1 · 소환물 — 받은 그림은 `tools/art/inbox/TS-A3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TS-A3-2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -117,7 +117,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## TS-A3-3 · 불씨
-폭풍 하이엘프 · 공격 마법 · 레벨 1 · 소환물 — 저장 파일 `img/cards/TS-A3-3.png`
+폭풍 하이엘프 · 공격 마법 · 레벨 1 · 소환물 — 받은 그림은 `tools/art/inbox/TS-A3-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TS-A3-3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -142,7 +142,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## TS-A3-4 · 쌍둥이 메아리
-폭풍 하이엘프 · 공용 마법 · 레벨 1 · 소환물 — 저장 파일 `img/cards/TS-A3-4.png`
+폭풍 하이엘프 · 공용 마법 · 레벨 1 · 소환물 — 받은 그림은 `tools/art/inbox/TS-A3-4.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TS-A3-4.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -167,7 +167,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## TK-U-BOMB · 불붙은 화약통
-잿불 고블린 · 유닛 · 레벨 1 · 소환물 — 저장 파일 `img/cards/TK-U-BOMB.png`
+잿불 고블린 · 유닛 · 레벨 1 · 소환물 — 받은 그림은 `tools/art/inbox/TK-U-BOMB.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-U-BOMB.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -192,7 +192,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## TK-B2-1 · 파수 골렘
-무쇠수염 드워프 · 유닛 · 레벨 3 · 소환물 — 저장 파일 `img/cards/TK-B2-1.png`
+무쇠수염 드워프 · 유닛 · 레벨 3 · 소환물 — 받은 그림은 `tools/art/inbox/TK-B2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-B2-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -217,7 +217,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## TK-U-SCRAP · 고철 골렘
-무쇠수염 드워프 · 유닛 · 레벨 3 · 소환물 — 저장 파일 `img/cards/TK-U-SCRAP.png`
+무쇠수염 드워프 · 유닛 · 레벨 3 · 소환물 — 받은 그림은 `tools/art/inbox/TK-U-SCRAP.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-U-SCRAP.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -242,7 +242,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## TK-G1-1 · 그림자 늑대
-바위주먹 오크 · 유닛 · 레벨 2 · 소환물 — 저장 파일 `img/cards/TK-G1-1.png`
+바위주먹 오크 · 유닛 · 레벨 2 · 소환물 — 받은 그림은 `tools/art/inbox/TK-G1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-G1-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -267,7 +267,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## TK-U-WOLF · 잿빛 늑대
-바위주먹 오크 · 유닛 · 레벨 2 · 소환물 — 저장 파일 `img/cards/TK-U-WOLF.png`
+바위주먹 오크 · 유닛 · 레벨 2 · 소환물 — 받은 그림은 `tools/art/inbox/TK-U-WOLF.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-U-WOLF.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -292,7 +292,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## TK-G1-2 · 우두머리 늑대
-바위주먹 오크 · 유닛 · 레벨 4 · 소환물 — 저장 파일 `img/cards/TK-G1-2.png`
+바위주먹 오크 · 유닛 · 레벨 4 · 소환물 — 받은 그림은 `tools/art/inbox/TK-G1-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-G1-2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -317,7 +317,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## TK-G2-1 · 덩굴 방벽
-이끼 트롤 · 유닛 · 레벨 1 · 소환물 — 저장 파일 `img/cards/TK-G2-1.png`
+이끼 트롤 · 유닛 · 레벨 1 · 소환물 — 받은 그림은 `tools/art/inbox/TK-G2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-G2-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -342,7 +342,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## TK-U-ROOT · 뿌리
-이끼 트롤 · 유닛 · 레벨 1 · 소환물 — 저장 파일 `img/cards/TK-U-ROOT.png`
+이끼 트롤 · 유닛 · 레벨 1 · 소환물 — 받은 그림은 `tools/art/inbox/TK-U-ROOT.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-U-ROOT.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -367,7 +367,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## TK-U-SAPLING · 묘목
-이끼 트롤 · 유닛 · 레벨 1 · 소환물 — 저장 파일 `img/cards/TK-U-SAPLING.png`
+이끼 트롤 · 유닛 · 레벨 1 · 소환물 — 받은 그림은 `tools/art/inbox/TK-U-SAPLING.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-U-SAPLING.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -392,7 +392,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## TK-U-TREE · 어린 고목
-이끼 트롤 · 유닛 · 레벨 3 · 소환물 — 저장 파일 `img/cards/TK-U-TREE.png`
+이끼 트롤 · 유닛 · 레벨 3 · 소환물 — 받은 그림은 `tools/art/inbox/TK-U-TREE.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-U-TREE.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -417,7 +417,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ## TK-G3-1 · 물의 정령
-푸른비늘 인어 · 유닛 · 레벨 2 · 소환물 — 저장 파일 `img/cards/TK-G3-1.png`
+푸른비늘 인어 · 유닛 · 레벨 2 · 소환물 — 받은 그림은 `tools/art/inbox/TK-G3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-G3-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
