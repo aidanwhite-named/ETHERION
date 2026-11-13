@@ -21,7 +21,7 @@
 
 const BGM = {
   dir: "audio/bgm/",
-  ver: "n2",          // 음원을 바꾸면 올린다(브라우저가 옛 파일을 기억하지 않게) — v3.43.3 2차 변주판
+  ver: "n3",          // 음원을 바꾸면 올린다(브라우저가 옛 파일을 기억하지 않게) — v3.55.8 잔잔한 변주판
   titleTrack: "title",
   flags: ["B1", "B2", "B3", "G1", "G2", "G3", "A1", "A2", "A3"],
   battleTracks: ["bgm_reminiscence", "bgm_long_ago", "bgm_last_oath", "bgm_ashen_banner", "bgm_fallen_star"],

@@ -3,6 +3,12 @@
 버전마다 바뀐 것과 바뀐 파일을 적는다. 새 버전은 맨 위에 쓴다.
 맨 아래 `실행`·`v0.3`·`계정`·`덱`·`규칙`·`파일` 절은 v0.3 무렵의 설명을 그대로 남긴 것이라 지금과 다른 곳이 있다(예: 클래스는 v1.0에서 규칙에서 빠짐). 지금 상태는 `README.md`를 본다.
 
+## v3.55.8 — 새 배경음(잔잔한 변주판)을 게임에 넣음 · 새 효과음 연결 확인
+바뀐 파일 `audio/bgm/*.ogg` · `*.mp3`(15곡 × 2, `audio/bgm/new/`에서 옮김), 새 `audio/bgm/NOTES_v3.55.8.md`, `audio/bgm/README.md`, `js/bgm.js`(`BGM.ver` n2 → n3), `index.html`(캐시 feel · pachinko sf558, bgm n3).
+- **배경음**: v3.55.1 2차 변주판을 다시 렌더링한 판. 곡 · 파일 이름 · 길이는 같고, 느린 게인 라이더로 강약 폭(4.8~8.4 dB)과 음량(−15.2~−14.6 LUFS)을 고르게, 정점을 부드럽게. 예전 판은 `_backup_audio/20261113-235828/`.
+- **효과음**(`js/feel.js` 전면 리마스터, 앞서 들어온 것): 2단 걸쇠 · 스테레오 전당 잔향 · 입체 패닝(`pan` · `whoosh`), 파친코 전용 소리 `pach_spin` · `pach_tick` · `pach_stop` · `pach_win` · `pach_miss`를 `js/pachinko.js`의 예전 삑 소리 자리에 연결. 캐시 번호가 그대로라 이번에 올림.
+- 확인: ffprobe로 30개 파일 모두 읽힘. node로 `feel.js` 소리 83종과 공격 소리를 가짜 오디오에 모두 돌려 오류 없음, 게임이 부르는 소리 이름이 모두 있음. 귀로 듣거나 브라우저 · 앱으로는 확인하지 않음. 안드로이드 · PC 앱은 다시 빌드해야 새 소리가 들어간다.
+
 ## v3.55.3 — 폰 · 앱에서만 제미나이 v2 타이틀 · 전투 배경
 바뀐 파일 `js/screens.js`(`TITLE_ART` 폰 판 → `title_art_v2.jpg`, 세로 화면 배치 값 `tall: { k, ly }`, 입장 문 자리 계산), `css/title-art.css`(세로 화면 배치를 `--tk` · `--tar` · `--tfx` · `--tfy` · `--tly` 변수로), `css/relic-art.css`(폰 기본 전장 → `battle_bg_v2.jpg`), `index.html`(캐시 t553), 새 `img/title/title_art_v2.jpg` · `img/ui/battle/battle_bg_v2.jpg`(둘 다 1376×768).
 - 해상도가 낮아(1376×768) PC는 4K 타이틀 · 예전 칠룡환 전장 그대로, 폰 · 앱(`html.mobile`)만 새 그림.

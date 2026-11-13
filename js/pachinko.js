@@ -90,7 +90,7 @@ const Pachinko = {
     this.el.classList.add("spinning");
     this.el.querySelector("#pach-btn").disabled = true;
     const msg = this.el.querySelector("#pach-msg"); msg.textContent = "…"; msg.className = "pach-msg";
-    this.blip(180, 0.08, 0.06, "triangle"); setTimeout(() => this.blip(120, 0.1, 0.05, "triangle"), 60);
+    if (typeof FEEL !== "undefined") FEEL.play("pach_spin");
     const cab = this.el.querySelector(".pach-cab");
     cab.animate([{ transform: "translateY(0)" }, { transform: "translateY(2px)" }, { transform: "translateY(0)" }], { duration: 160 });
 
@@ -104,7 +104,7 @@ const Pachinko = {
       const from = r.y;
       const cur = ((Math.round(from / H) % N) + N) % N;
       const steps = laps * N + ((idx - cur + N) % N);
-      return { r, from, to: from + steps * H, t0: now + i * 90, dur: 1150 + i * 420, lastTick: -1, done: false };
+      return { r, i, from, to: from + steps * H, t0: now + i * 90, dur: 1150 + i * 420, lastTick: -1, done: false };
     });
     const ease = t => 1 - Math.pow(1 - t, 3.2);
     const tick = tNow => {
@@ -117,9 +117,9 @@ const Pachinko = {
         if (t > 0.93) y += Math.sin((t - 0.93) / 0.07 * Math.PI) * H * 0.28;
         this.setY(p.r, y);
         const k = Math.floor(y / H);
-        if (k !== p.lastTick) { p.lastTick = k; if (t < 0.9 || k % 1 === 0) this.blip(900 + Math.random() * 300, 0.012, t > 0.85 ? 0.03 : 0.012); }
+        if (k !== p.lastTick) { p.lastTick = k; if (typeof FEEL !== "undefined") FEEL.play("pach_tick", t > 0.85 ? 0.95 : 0.65, (p.i - 1) * 0.35); }
         p.r.el.classList.toggle("blur", t < 0.8);
-        if (t >= 1) { p.done = true; this.setY(p.r, p.to); p.r.el.classList.remove("blur"); p.r.el.classList.add("stop"); setTimeout(() => p.r.el.classList.remove("stop"), 220); this.blip(260, 0.05, 0.05, "triangle"); }
+        if (t >= 1) { p.done = true; this.setY(p.r, p.to); p.r.el.classList.remove("blur"); p.r.el.classList.add("stop"); setTimeout(() => p.r.el.classList.remove("stop"), 220); if (typeof FEEL !== "undefined") FEEL.play("pach_stop", 1, 1 + p.i * 0.12); }
         else all = false;
       }
       if (!all) this.raf = requestAnimationFrame(tick);
@@ -147,7 +147,7 @@ const Pachinko = {
     const msg = this.el.querySelector("#pach-msg");
     const u = Store.user();
     this.holdMsg = true;
-    if (res.kind === "miss") { msg.textContent = "크로네아는 침묵했다"; msg.className = "pach-msg"; }
+    if (res.kind === "miss") { msg.textContent = "크로네아는 침묵했다"; msg.className = "pach-msg"; if (typeof FEEL !== "undefined") FEEL.play("pach_miss"); }
     else if (res.kind === "group") {
       Store.addGold(u, res.gold, "수레바퀴 단체 당첨");
       msg.textContent = `${GROUPS[res.id].name} · +${fmtGold(res.gold)}`; msg.className = "pach-msg win";
@@ -168,8 +168,7 @@ const Pachinko = {
     setTimeout(() => { this.holdMsg = false; this.refresh(); }, 4000);
   },
   chime(level) {
-    const notes = level === 1 ? [660, 880] : level === 2 ? [523, 659, 784, 1047] : [523, 659, 784, 1047, 1319, 1568];
-    notes.forEach((f, i) => setTimeout(() => this.blip(f, 0.18, 0.05, "sine"), i * 90));
+    if (typeof FEEL !== "undefined") FEEL.play("pach_win", 1, level || 1);
   },
   /* 0.1%부터: 기계 위로 작은 축하 불꽃 */
   celebrate(color, host) {
