@@ -59,6 +59,33 @@ html.mobile .tbw-left .tb-nav[data-nav="tutorial"] span { display: none; }
 .t-block, .t-err { margin: 0; padding: 10px 12px; font-size: 13px; line-height: 1.55; color: #ffd9a0; border: 1px solid rgba(240, 180, 76, .45); background: rgba(240, 180, 76, .08); }
 .t-err { color: #ffc2b8; border-color: rgba(239, 106, 92, .5); background: rgba(239, 106, 92, .08); margin-bottom: 12px; }
 
+/* v3.55.9 왼쪽 판: 대기실 덱 보관함(깃발) 열과 같은 폭(380 · 1500px 이하 330), 글씨를 키우고
+   오른쪽 판과 같은 높이로 늘림(sticky를 풀고 두 판을 stretch, 안내 글은 맨 아래). 1100px 이하는 아래 '좁은 화면' 그대로 */
+@media (min-width: 1101px) {
+  .trade { grid-template-columns: 380px minmax(0, 1fr); align-items: stretch; }
+  .trade-side { position: static; max-height: none; overflow: visible; display: flex; flex-direction: column; gap: 16px; padding: 22px 18px; }
+  .t-root { padding: 20px 14px 18px; gap: 5px; }
+  .t-root .emblem.big { width: 66px; height: 66px; }
+  .t-root .emblem .t-ico { width: 36px; height: 36px; }
+  .org-node.root.t-root b { font-size: 22px; }
+  .t-root .en { font-size: 11.5px; }
+  .t-root .role { font-size: 14.5px; }
+  .t-tabs { gap: 9px; }
+  .org-node.rq.t-tab { gap: 12px; padding: 15px 16px; }
+  .org-node.rq.t-tab .t-ico { width: 26px; height: 26px; }
+  .org-node.rq.t-tab b { font-size: 19px; }
+  .org-node.rq.t-tab .en { font-size: 11px; }
+  .t-count { font-size: 13px; min-width: 24px; padding: 4px 8px; border-radius: 12px; }
+  .t-new { padding: 15px; font-size: 19px; }
+  .t-new .t-ico { width: 26px; height: 26px; }
+  .t-held { gap: 5px; padding: 14px 16px; }
+  .t-held b { font-size: 17px; }
+  .t-held-list { font-size: 14.5px; }
+  .t-block { padding: 14px 16px; font-size: 15.5px; line-height: 1.65; }
+  .trade-side .t-note { margin-top: auto; font-size: 14.5px; line-height: 1.7; }
+}
+@media (min-width: 1101px) and (max-width: 1500px) { .trade { grid-template-columns: 330px minmax(0, 1fr); } }
+
 /* 머리 · 거르기 (상점과 같은 짜임) */
 .t-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-bottom: 1px solid var(--line-gold); padding-bottom: 12px; margin-bottom: 14px; }
 .t-head h2 { font-size: 26px; margin: 2px 0 0; }
