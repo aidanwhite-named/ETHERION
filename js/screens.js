@@ -193,13 +193,15 @@ function ringSVG() {
    메뉴 전용 그림을 받으면 여기만 고친다 — 예: { src: "img/ui/menu/menu_bg.jpg", m: "img/ui/menu/menu_bg_m.jpg" }(m = 폰 · 앱용 1920×1080). 프롬프트 tools/art/prompts/scenes.md */
 /* v3.48.1 메뉴 전용 그림(1번 땅과 하늘)과 세 존재 층(2번, 투명 WebP — 원본 PNG는 tools/art/out/raw/ui/menu/) */
 const MENU_ART = { src: "img/ui/menu/menu_bg.jpg?v=1", m: "img/ui/menu/menu_bg_m.jpg?v=1", titans: "img/ui/menu/titans.webp?v=1", titansM: "img/ui/menu/titans_m.webp?v=1" };
-const TITLE_ART = document.documentElement.classList.contains("mobile") ? { src: "img/title/title_art_m.jpg?v=1", w: 1920, h: 1080, focus: [.49, .5] } : { src: "img/title/title_art.jpg?v=4k", w: 3840, h: 2160, focus: [.49, .5] };
+/* v3.55.3 폰 · 앱은 제미나이 v2 타이틀(1376×768, 로고가 아래 가운데 · 세 존재가 위). 해상도가 낮아 PC는 4K 그대로.
+   tall = 세로 화면에서 그림을 가로폭의 k배로 키우고 로고를 화면 높이 ly 자리에 둔다(css/title-art.css 와 같은 값을 --tk · --tly 로 넘긴다) */
+const TITLE_ART = document.documentElement.classList.contains("mobile") ? { src: "img/title/title_art_v2.jpg?v=1", w: 1376, h: 768, focus: [.5, .8], tall: { k: 2.36, ly: .4 } } : { src: "img/title/title_art.jpg?v=4k", w: 3840, h: 2160, focus: [.49, .5], tall: { k: 2.05, ly: .45 } };
 function showTitle() {
   App.screen = "title"; Bg.set("title");
   if (TITLE_ART && typeof Titans !== "undefined") Titans.mode(0);   /* 그림이 덮으므로 3D 세 존재는 쉬게 한다 */
   const word = "ETHERION", A = TITLE_ART;
   $("#app").innerHTML = `<section class="screen screen-title${A ? " has-art" : ""}" id="title">
-    ${A ? `<div class="t-art" aria-hidden="true" style="--art:url('${new URL(A.src, location.href).href}');--fx:${A.focus[0] * 100}%;--fy:${A.focus[1] * 100}%"></div>` : ""}
+    ${A ? `<div class="t-art" aria-hidden="true" style="--art:url('${new URL(A.src, location.href).href}');--fx:${A.focus[0] * 100}%;--fy:${A.focus[1] * 100}%;--tar:${(A.w / A.h).toFixed(4)};--tfx:${A.focus[0]};--tfy:${A.focus[1]};--tk:${A.tall.k};--tly:${A.tall.ly}"></div>` : ""}
     <div class="t-ring">${ringSVG()}</div>
     <svg class="t-mountains" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
       <path d="M0 320V210l70-30 60 22 90-70 70 40 60-26 80-86 70 62 50-18 60 46 90-120 40 34 50-20 60 60 70-48 80 70 60-30 90 56 70-22 70 40 60-30 60 28 70-40v192z" fill="#0c0e18"/>
@@ -223,9 +225,9 @@ function showTitle() {
     const ring = $("#title .t-ring").getBoundingClientRect();
     let at = { x: ring.left + ring.width / 2, y: ring.top + ring.height / 2 };
     if (TITLE_ART) {   /* 그림이 화면을 덮도록(cover) 늘어난 뒤의 로고 자리 */
-      const W = innerWidth, H = innerHeight, A = TITLE_ART, tall = W < H;   /* 세로 화면은 css/title-art.css처럼 가로폭 2.05배, 49% · 45% 자리 */
-      const k = tall ? 2.05 * W / A.w : Math.max(W / A.w, H / A.h), bx = tall ? .49 : .5, by = tall ? .45 : .5;
-      at = { x: (W - A.w * k) * bx + A.focus[0] * A.w * k, y: (H - A.h * k) * by + A.focus[1] * A.h * k };
+      const W = innerWidth, H = innerHeight, A = TITLE_ART, tall = W < H;   /* 세로 화면은 css/title-art.css처럼 로고를 가로 가운데 · 높이 ly 자리에 */
+      if (tall) at = { x: W / 2, y: A.tall.ly * H };
+      else { const k = Math.max(W / A.w, H / A.h); at = { x: (W - A.w * k) / 2 + A.focus[0] * A.w * k, y: (H - A.h * k) / 2 + A.focus[1] * A.h * k }; }
     }
     $("#title").classList.add("awaken");
     const next = () => { Store.ensureOpen(); Store.user() ? showLobby() : showLogin(); };

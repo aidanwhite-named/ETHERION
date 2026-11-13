@@ -73,6 +73,9 @@
    칠룡의 고리가 새겨진 돌 광장(기본) 또는 거인 · 용 · 신의 3파전 격돌 전장. 가운데는 카드가 먼저 읽히게 어둡게 그렸다 */
 .screen-game > .g-art { background-image: var(--battle-bg, url("../img/ui/battle/battle_bg.jpg")); background-position: center 60%; background-size: cover; opacity: .9; }
 .screen-game > .g-art.bg-war { background-image: var(--battle-bg, url("../img/ui/battle/battle_bg_war.jpg")); }
+/* v3.55.3 폰 · 앱: 기본 전장은 제미나이 v2(1376×768 — PC에는 낮은 해상도라 폰만). css/title-art.css 의 폰 타이틀 그림 규칙보다 뒤 · 같은 세기로 덮는다 */
+html.mobile .screen-game > .g-art { background-image: url("../img/ui/battle/battle_bg_v2.jpg?v=1"); }
+html.mobile .screen-game > .g-art.bg-war { background-image: url("../img/ui/battle/battle_bg_war.jpg"); }
 
 /* 타는 카드가 불꽃 그림 속에서도 보이게: 불꽃을 조금 비치게, 잿빛 카드를 조금 밝게 */
 .pyre-art.lit:has(.burn-top) .py-fire { opacity: .78; }

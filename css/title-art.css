@@ -3,12 +3,13 @@
    그래서 이 그림이 있으면 코드로 그린 고리 · 로고 · 윗줄 글귀 · 산 그림자는 숨기고, 부제와 시작 단추만 아래에 둔다. */
 .t-art { position: absolute; inset: 0; background: #07080d var(--art) center / cover no-repeat; transform-origin: var(--fx, 50%) var(--fy, 50%);
   animation: artIn 1.8s ease-out both, artDrift 60s 1.8s ease-in-out infinite alternate; }
-/* 세로 화면: cover면 로고 양끝이 잘린다. 그림을 가로폭의 2.05배(로고가 다 들어오는 크기)로 두고, 위아래 빈 곳은 같은 그림을 흐리게 깐다.
-   크기 · 자리(2.05, 49%, 45%)는 js/screens.js의 입장 문 자리 계산과 같아야 한다 */
+/* 세로 화면: cover면 로고 양끝이 잘린다. 그림을 가로폭의 --tk배(로고가 다 들어오는 크기)로 두고, 로고 가운데(--tfx · --tfy)를 화면 가로 가운데 · 높이 --tly 에 맞춘다.
+   위아래 빈 곳은 같은 그림을 흐리게 깐다. 값은 js/screens.js TITLE_ART 가 넘긴다(입장 문 자리 계산과 같음) */
 @media (max-aspect-ratio: 1/1) {
   .t-art { background: #07080d; }
   .t-art::before { content: ""; position: absolute; inset: -40px; background: var(--art) center / cover no-repeat; filter: blur(22px) brightness(.38); }
-  .t-art::after { content: ""; position: absolute; width: 205vw; aspect-ratio: 1672 / 941; left: calc(-105vw * .49); top: calc((100% - 205vw * 941 / 1672) * .45);
+  .t-art::after { content: ""; position: absolute; width: calc(var(--tk, 2.05) * 100vw); aspect-ratio: var(--tar, 1.777); left: calc(50vw - var(--tk, 2.05) * 100vw * var(--tfx, .49));
+    top: calc(var(--tly, .45) * 100% - var(--tk, 2.05) * 100vw / var(--tar, 1.777) * var(--tfy, .5));
     background: var(--art) center / 100% 100% no-repeat;
     -webkit-mask-image: linear-gradient(transparent, #000 14%, #000 86%, transparent); mask-image: linear-gradient(transparent, #000 14%, #000 86%, transparent); }
 }
