@@ -22,7 +22,7 @@ src = src.replace(/^  (B1|B2|B3|G1|G2|G3|A1|A2|A3): \{ name: "([^"]*)", cards: (
       deck[r.id] = (deck[r.id] || 0) + 1; log.push(`${kind} ${g}: ${id} ${c.name}(L${c.lv}) → ${r.id} ${r.name}(L${r.lv})`);
     }
   }
-  const n = Object.values(deck).reduce((a, b) => a + b, 0); if (n !== 40) log.push(`!! ${kind} ${g} ${n}장`);
+  const n = Object.values(deck).reduce((a, b) => a + b, 0); if (n !== ev("RULES.deckSize")) log.push(`!! ${kind} ${g} ${n}장`);
   const sorted = {}; for (const id of Object.keys(deck).sort()) sorted[id] = deck[id];
   return `  ${g}: { name: "${name}", cards: ${JSON.stringify(sorted).replace(/":/g, '": ').replace(/,"/g, ', "')}`;
 });

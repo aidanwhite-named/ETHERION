@@ -27,7 +27,7 @@ const fight = (f, won) => { const cfg = ev(`Pilgrim.begin("${f}")`); if (!cfg) r
   ok(p.fights === 1 && p.stage === 0 && !p.pend && p.steps === 0, '진 판: 판 수만 세고 제자리');
   ok(cfg.pil && cfg.econRate === 0.01 && cfg.p1.ai === 'hard' && cfg.p1.group === p.route[0], '대전 설정');
   const cnt = c => Object.values(c).reduce((a, b) => a + b, 0);
-  ok(cnt(cfg.p1.cards) === 40 && Object.keys(cfg.p1.cards).every(id => ev(`CARDS["${id}"].group`) === p.route[0]), '상대 덱 40장 · 그 깃발 카드만');
+  ok(cnt(cfg.p1.cards) === ev('RULES.deckSize') && Object.keys(cfg.p1.cards).every(id => ev(`CARDS["${id}"].group`) === p.route[0]), '상대 덱 RULES.deckSize장 · 그 깃발 카드만');
   const sc = ev(`deckScore(${JSON.stringify(cfg.p1.cards)}).total / deckScore(STARTER_DECKS["${p.route[0]}"]).total`);
   ok(Math.abs(sc - 1.00) < 0.02, '첫 관문 상대 = 기본 덱의 100% (내 덱 100%, v3.35): ' + sc.toFixed(3));
   const cfg2 = fight('B1', true);

@@ -279,7 +279,7 @@ const OPS = {
   shopSet: { admin: true, noTarget: true }, shopStock: { admin: true, noTarget: true }   // v3.37 관리자 상점: 공개 · 내림 · 기간 판매 · 재고 (js/economy.js)
 };
 /* 기기가 정하는 칸(전적 · 수레바퀴 표 · 원정 · 경험치 · 설정 따위). 이 밖의 칸(PROTECTED)은 서버만 바꾼다 */
-const PROTECTED = new Set(["id", "pw", "admin", "guest", "created", "group", "owned", "collection", "gold", "ledger", "decks", "drafts", "fresh", "pilClaim", "spins", "pilSrv", "rewardDay", "rewardLog", "xp", "stats", "quests", "ach", "titles", "title", "book", "rank", "trial", "invitedBy", "seals", "orbs"]);   // v3.54 순례의 인장   // v3.48 초대 체험 덱   // v3.46 모험 수첩도 서버만   // v3.44 경험치 · 전적도 서버만 (net.js NET_PROTECTED와 같게)   // v3.39 보상 칸도 서버만
+const PROTECTED = new Set(["id", "pw", "admin", "guest", "created", "group", "owned", "collection", "gold", "ledger", "decks", "drafts", "fresh", "pilClaim", "spins", "pilSrv", "rewardDay", "rewardLog", "xp", "stats", "quests", "ach", "titles", "title", "book", "rank", "trial", "invitedBy", "seals", "orbs", "deck50"]);   // v3.56 덱 50장 옮김 표시   // v3.54 순례의 인장   // v3.48 초대 체험 덱   // v3.46 모험 수첩도 서버만   // v3.44 경험치 · 전적도 서버만 (net.js NET_PROTECTED와 같게)   // v3.39 보상 칸도 서버만
 /* v3.45 PC · 폰 동시 접속: 기기는 바뀐 칸만 보낸다(patch) — 서버는 그 칸만 고치고, 기기가 지운 칸(drop)만 지운다.
    예전엔 기기가 가진 칸 전체로 통째로 바꿔서, 한 기기의 옛 사본(순례 · 원정 진행)이 다른 기기의 새 진행을 덮었다.
    patch를 모르는 예전 기기(이미 깐 PC 앱)는 칸 전체를 보내므로 덮어쓰기만 하고 지우지는 않는다. */

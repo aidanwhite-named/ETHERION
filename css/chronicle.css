@@ -21,6 +21,14 @@
 .cr-title { margin: 1px 0 0; font-family: var(--body); font-size: clamp(19px, 2.4vw, 26px); letter-spacing: .14em; color: var(--gold-hi); font-weight: 700; }
 .cr-title small { font-family: var(--caps); font-size: 12px; letter-spacing: .2em; color: var(--ink-2); font-weight: 400; margin-left: 10px; }
 .cr-close { flex: none; display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line-gold); background: rgba(10, 10, 18, .5); color: var(--gold-hi); padding: 8px 14px; border-radius: 3px; font-size: 13px; letter-spacing: .1em; }
+/* v3.55.4 머리의 매뉴얼 · 룰북 단추 — 닫기 단추와 같은 테두리, 글꼴은 화면 본문(--body) */
+.cr-books { flex: none; display: flex; gap: 8px; }
+.cr-bk { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line-gold); background: rgba(10, 10, 18, .5); color: var(--gold-hi); padding: 6px 14px 6px 10px; border-radius: 3px; font-family: var(--body); cursor: pointer; }
+.cr-bk:hover { border-color: var(--gold); background: rgba(217, 180, 106, .12); }
+.cr-bk .m-ico { width: 22px; height: 22px; color: var(--gold); flex: none; }
+.cr-bk-t { display: grid; justify-items: start; line-height: 1.15; }
+.cr-bk-t b { font-size: 15px; letter-spacing: .08em; font-weight: 700; }
+.cr-bk-t small { font-family: var(--caps); font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); }
 .cr-close:hover { border-color: var(--gold); background: rgba(217, 180, 106, .12); }
 .cr-close kbd { font-family: var(--caps); font-size: 10px; color: var(--muted); border: 1px solid var(--line); border-radius: 2px; padding: 0 4px; }
 
@@ -191,6 +199,7 @@
   .cr-mark { width: 32px; height: 32px; }
   .cr-title small { display: none; }
   .cr-close span, .cr-close kbd { display: none; }
+  .cr-books { gap: 6px; } .cr-bk { padding: 6px 10px 6px 8px; } .cr-bk-t small { display: none; } .cr-bk-t b { font-size: 14px; }
   .cr-eyebrow { font-size: 9.5px; letter-spacing: .22em; }
   .cr-text { font-size: 15.5px; line-height: 1.9; }
   .cr-sealed { min-height: 72vh; }

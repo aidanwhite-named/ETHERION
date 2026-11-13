@@ -1,5 +1,5 @@
 /* ETHERION — 튜토리얼 · 매뉴얼 (v3.9, 가이드 2.20)
-   대기실 오른쪽 아래의 두 명판(Help.dockHTML)에서 연다.
+   튜토리얼은 상단 띠의 퀘스트 옆, 매뉴얼 · 룰북은 연대기 머리에서 연다(v3.55.4).
    - 튜토리얼(Tutorial): 세 장 — ① 대기실 둘러보기(실제 화면의 칸을 하나씩 밝혀 짚는다) ② 전투 배우기(그림으로 아홉 쪽)
      ③ 연습 대전(전장의 "첫 판 안내"(js/game.js Guide)를 다시 켜고 컴퓨터와 대전). 마친 장은 ✓ (localStorage etherion.pref.tut).
    - 매뉴얼(Manual): 고서 한 권 — 왼쪽 목차 · 찾기, 오른쪽 본문(열다섯 장). 숫자와 능력 뜻은 코드(RULES · GRADES · ITEM_KW · SPELL_KW ·
@@ -171,23 +171,23 @@ const Help = (() => {
       <tr><th>로그인 없이 시작</th><td>등록 없이 필멸자로. 아홉 단체의 덱과 모든 카드를 씁니다.</td></tr></table>
       <p class="mn-note">기록은 이 브라우저에 저장됩니다(서버 없음). 다른 브라우저나 기기에서는 이어지지 않습니다.</p>
       <h3>처음이라면 이 순서로</h3>
-      <ol class="mn-ol"><li>대기실 오른쪽 아래 <b>튜토리얼</b> — 대기실 둘러보기와 전투 배우기.</li>
+      <ol class="mn-ol"><li>상단 띠의 <b>튜토리얼</b>(퀘스트 옆) — 대기실 둘러보기와 전투 배우기.</li>
       <li>덱 보관함에서 덱을 고르고 <b>컴퓨터와 대전</b>. 첫 판에는 전장에 짧은 안내가 뜹니다.</li>
       <li>이기고 지며 <b>환석 조각</b>을 모아 상점에서 카드를 사고, <b>덱 조정실</b>에서 덱을 고칩니다.</li>
       <li>덱이 손에 익으면 <b>순례</b> — 하루에 한 번 열리는 길에서 여덟 관문과 망각의 숲을 지납니다.</li></ol>` },
 
     { id: "screens", t: "화면 안내", en: "The Halls", body: () => `
       <h3>상단 띠</h3>
-      <table class="mn-table"><tr><th>왼쪽</th><td><b>대기실</b> · <b>상점</b> · <b>교역소</b>(관리자는 <b>보관소</b>도). 지금 있는 곳 아래에 금 마름모.</td></tr>
+      <table class="mn-table"><tr><th>왼쪽</th><td><b>대기실</b> · <b>상점</b> · <b>교역소</b> · <b>퀘스트</b> · <b>튜토리얼</b>(관리자는 <b>보관소</b>도) · <b>지도</b> · <b>연대기</b>. 지금 있는 곳 아래에 금 마름모.</td></tr>
       <tr><th>가운데</th><td><b>ETHERION</b> — 누르면 대기실로.</td></tr>
-      <tr><th>오른쪽</th><td><b>지도</b>(카일란 대륙 전도) · <b>연대기</b>(세계의 이야기) · <b>소리</b>(배경음 · 효과음 켜기/끄기와 음량) · <b>모험가 인장</b>(이름과 전적) · <b>나가기</b>.</td></tr></table>
+      <tr><th>오른쪽</th><td><b>설정</b> · <b>소리</b>(배경음 · 효과음 켜기/끄기와 음량) · <b>모험가 인장</b>(이름과 전적) · <b>나가기</b>.</td></tr></table>
       <h3>대기실</h3>
       <table class="mn-table"><tr><th>덱 보관함</th><td>왼쪽. 단체마다 덱 하나. 상자를 누르면 그 덱이 가운데에 펼쳐집니다. 막대 10칸 = ${RULES.deckSize}장, 금빛이면 저장된 덱(출전 가능).</td></tr>
       <tr><th>덱 보기</th><td>가운데. 단체 소개와 레벨 곡선(레벨별 장수), 종류(유닛 · 마법 · 아이템)와 등급으로 거르기, 카드를 누르면 크게.</td></tr>
       <tr><th>출정의 단</th><td>PC는 오른쪽 열 아래 2 × 2, 폰은 깃발을 누르면 뜨는 창. <b>덱 조정실</b> · <b>컴퓨터와 대전</b> · <b>순례</b> · <b>온라인 대전</b>(친구와 각자의 기기에서 · 방 코드로).</td></tr>
       <tr><th>수레바퀴 · 채팅</th><td>오른쪽. 크로네아의 수레바퀴(대전 한 판마다 표 1장), 대기실 채팅(지금은 이 기기에만 저장).</td></tr>
       <tr><th>레벨 판</th><td>아래 가운데. 모험가 레벨 · 환석 조각 · 다음 레벨까지의 경험치.</td></tr>
-      <tr><th>튜토리얼 · 매뉴얼 · 룰북</th><td>오른쪽 열 위(폰은 오른쪽 아래). 언제든 다시 열 수 있습니다.</td></tr></table>
+      <tr><th>튜토리얼 · 매뉴얼 · 룰북</th><td>튜토리얼은 상단 띠의 퀘스트 옆, 매뉴얼 · 룰북은 <b>연대기</b>를 열면 위쪽 머리에서 고릅니다. 언제든 다시 열 수 있습니다.</td></tr></table>
       <h3>덱 조정실 · 상점</h3>
       <p><b>덱 조정실</b>은 덱을 고치는 곳입니다. 왼쪽 카드 보관함에서 눌러 넣고, 오른쪽 덱에서 눌러 뺍니다. 바닥 마법진의 눈금 ${RULES.deckSize}개가 장수만큼 켜지고, 촛불 여덟이 레벨 곡선을 보여 줍니다. <b>저장</b>해야 출전할 수 있습니다.</p>
       <p><b>상점</b>(린데어 자유시)는 카드를 사고파는 곳입니다. 왼쪽 계보에서 진영 · 단체를 고르면 그 카드가 값 · 재고와 함께 나옵니다.</p>
@@ -379,11 +379,11 @@ const Help = (() => {
     { sel: ".altar-gates", t: "출정의 단", x: "<b>컴퓨터와 대전</b>(상대 단체를 골라 한 판) · <b>순례</b>(하루에 한 번 · 여덟 관문과 망각의 숲, 첫 승에 큰 보상) · <b>온라인 대전</b>(친구와 방 코드로)." },
     { sel: "#wheel-host", t: "크로네아의 수레바퀴", x: "대전을 한 판 마칠 때마다 표 1장. 문양 셋이 맞으면 환석 조각, 아주 드물게 카드." },
     { sel: ".chat", t: "대기실 채팅", x: "지금은 서버가 없어 이 기기에만 저장됩니다." },
-    { sel: ".tbw-left", t: "길", x: "<b>대기실</b> · <b>상점</b>(카드를 사고팔기) · <b>교역소</b>(모험가끼리 카드 맞바꾸기). 관리자는 <b>보관소</b>도. 가운데 ETHERION을 누르면 언제든 대기실로 돌아옵니다." },
-    { sel: ".tbw-right", t: "지도 · 연대기 · 소리 · 인장", x: "카일란 대륙 지도, 세계의 이야기(연대기), 배경음 · 효과음, 내 인장(레벨 · 전적), 나가기." },
+    { sel: ".tbw-left", t: "길", x: "<b>대기실</b> · <b>상점</b>(카드를 사고팔기) · <b>교역소</b>(모험가끼리 카드 맞바꾸기) · <b>퀘스트</b> · <b>튜토리얼</b> · <b>지도</b> · <b>연대기</b>. 관리자는 <b>보관소</b>도. 가운데 ETHERION을 누르면 언제든 대기실로 돌아옵니다." },
+    { sel: ".tbw-right", t: "설정 · 소리 · 인장", x: "화면 설정, 배경음 · 효과음, 내 인장(레벨 · 전적), 나가기." },
     { sel: ".user-chip.seal", t: "모험가 인장", x: "구슬의 숫자가 <b>모험가 레벨</b>, 그 아래 금빛 막대가 경험치. 이름 옆은 전적과 승률. <b>벌어들인 조각이 곧 경험치</b> — 카드를 사도 줄지 않습니다." },
     { sel: ".tb-shard", t: "환석 조각", x: "지갑. 전투 · 순례 · 수레바퀴로 모으고 상점에서 카드를 삽니다. 누르면 상점으로." },
-    { sel: ".lobby-help", t: "튜토리얼 · 매뉴얼", x: "언제든 여기서 다시. 매뉴얼에는 규칙 전부와 능력 사전이 있습니다. 다음은 <b>전투 배우기</b>입니다." }
+    { sel: '.tb-nav[data-nav="tutorial"]', t: "튜토리얼 · 매뉴얼 · 룰북", x: "튜토리얼은 언제든 여기서 다시. <b>매뉴얼</b>(규칙 전부와 능력 사전) · <b>룰북</b>(상점 · 합성 · 순례 · 보상)은 <b>연대기</b>를 열면 위쪽에서 고릅니다. 다음은 <b>전투 배우기</b>입니다." }
   ];
   const Tour = {
     i: 0, w: null, list: [],
@@ -415,7 +415,7 @@ const Help = (() => {
       const s = this.list[this.i], el = document.querySelector(s.sel); if (!el) return;
       /* 화면 밖이면 보이는 곳으로 */
       const r = el.getBoundingClientRect(), top = (document.querySelector(".topbar") || { offsetHeight: 0 }).offsetHeight;
-      const fixed = getComputedStyle(el).position === "fixed" || el.closest(".topbar,.lv-hud,.lobby-help");
+      const fixed = getComputedStyle(el).position === "fixed" || el.closest(".topbar,.lv-hud");
       if (!fixed && (r.top < top + 8 || r.bottom > innerHeight - 8)) {
         const want = s.top || r.height > innerHeight - top - 40 ? r.top - top - 24 : r.top - (innerHeight - r.height) / 2;
         scrollBy({ top: want, behavior: "instant" });
@@ -517,31 +517,16 @@ const Help = (() => {
       const u = typeof Store !== "undefined" && Store.user();
       if (!u) return;
       const g = (typeof App !== "undefined" && App.lobbyGroup) || u.group;
-      if (!Store.deckPlayable(u, g)) { const ok = GROUP_IDS.find(x => Store.ownsGroup(u, x) && Store.deckPlayable(u, x)); if (!ok) { toast("저장된 40장 덱이 있어야 연습 대전을 할 수 있습니다. 덱 조정실에서 덱을 저장하세요.", "warn"); return; } App.lobbyGroup = ok; }
+      if (!Store.deckPlayable(u, g)) { const ok = GROUP_IDS.find(x => Store.ownsGroup(u, x) && Store.deckPlayable(u, x)); if (!ok) { toast(`저장된 ${RULES.deckSize}장 덱이 있어야 연습 대전을 할 수 있습니다. 덱 조정실에서 덱을 저장하세요.`, "warn"); return; } App.lobbyGroup = ok; }
       if (typeof startVsAI === "function") startVsAI(App.lobbyGroup, { practice: true });
     }
   };
 
-  /* ---------- 대기실 오른쪽 아래 두 명판 ---------- */
-  function dockHTML() {
-    const fresh = !pget("tutSeen", 0);
-    return `<div class="lobby-help" role="group" aria-label="도움말">
-      <button type="button" class="btn lh-btn${fresh ? " lh-new" : ""}" data-help="tutorial" title="튜토리얼 — 대기실 둘러보기 · 전투 배우기 · 연습 대전">${ico("guide")}<span class="lh-t"><b>튜토리얼</b><small>TUTORIAL</small></span>${fresh ? '<i class="lh-badge">처음이라면</i>' : ""}</button>
-      <button type="button" class="btn lh-btn" data-help="manual" title="매뉴얼 — 규칙 · 카드 · 능력 사전 · 단축키">${ico("tome")}<span class="lh-t"><b>매뉴얼</b><small>MANUAL</small></span></button>
-      ${typeof RulebookUI !== "undefined" ? `<button type="button" class="btn lh-btn" data-help="rulebook" title="룰북 — 상점 · 합성 · 파친코 · 순례 · 보상 · 계정">${RulebookUI.icon}<span class="lh-t"><b>룰북</b><small>RULEBOOK</small></span></button>` : ""}
-    </div>`;
-  }
-  function refreshDock() {
-    const b = document.querySelector('.lobby-help [data-help="tutorial"]'); if (!b) return;
-    b.classList.remove("lh-new"); const x = b.querySelector(".lh-badge"); if (x) x.remove();
-  }
-  function bindDock(root) {
-    const d = (root || document).querySelector(".lobby-help"); if (!d) return;
-    d.addEventListener("click", e => {
-      const b = e.target.closest("[data-help]"); if (!b) return;
-      if (b.dataset.help === "manual") Manual.open(); else if (b.dataset.help === "rulebook") RulebookUI.open(); else Tutorial.open();
-    });
-  }
+  /* ---------- v3.55.4 상단 띠의 튜토리얼 단추(js/screens.js headerHTML, 퀘스트 옆) ----------
+     예전 대기실 오른쪽의 튜토리얼 · 매뉴얼 · 룰북 명판(dockHTML)은 뺐다. 매뉴얼 · 룰북은 연대기 머리(js/chronicle.js)에서 연다.
+     처음이면(튜토리얼을 연 적 없음) 단추에 "!" 점 */
+  function tutBadgeHTML() { return pget("tutSeen", 0) ? "" : '<i class="tb-badge tut-badge" title="처음이라면 여기부터">!</i>'; }
+  function refreshDock() { document.querySelectorAll('.tb-nav[data-nav="tutorial"] .tut-badge').forEach(x => x.remove()); }
 
-  return { dockHTML, bindDock, Manual, Tutorial, Tour, Lesson, close, openWin: open };   // openWin: 룰북(js/rulebook.js)이 같은 창을 쓴다
+  return { tutBadgeHTML, Manual, Tutorial, Tour, Lesson, close, openWin: open };   // openWin: 룰북(js/rulebook.js)이 같은 창을 쓴다
 })();

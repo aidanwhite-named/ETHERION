@@ -139,6 +139,13 @@ for(const g of ['B1','B2','B3','G1','G2','G3','A1','A2','A3']){
     const c=best.c;LEGACY.push({id:c.id,n:c.name,g,legacy:`강화 카드는 깃발마다 5장까지 — ${lv}레벨 강화가 몰려 뺌(바탕 ${c.base} ${RAW[c.base].name} — 일반 카드로 남음)`,upgrade:true});ups=ups.filter(x=>x!==c);
   }
 }
+/* v3.56 덱 50장 · 생명 50 뒤의 깃발 세기 손질(regrade_tune.json, 점수): 등급 · 레거시 · 능력이 다 정해진 뒤 스탯(공 · 체)만 맞춘다.
+   regrade_offsets.json(v3.49 덧보정)을 바꾸면 레거시 고르기까지 흔들리므로 그 뒤에 따로 둔다. 3레벨 이상 · 역행 아님 · 레거시 아님. */
+const TUNE=(()=>{try{return JSON.parse(fs.readFileSync(path.join(__dirname,'regrade_tune.json'),'utf8'))}catch(e){return {}}})();
+for(const o of out){const T=TUNE[o.g]||0;if(!T||o.legacy||o.rev||o.lv<3||o.tgt==null)continue;
+  const c=RAW[o.id],a1=abil(o.gift,c.lv),pv=pinv(c.pin),off=OFF[c.group]||0,base=P(c.lv)+V(c.up),tgt=o.tgt+T;
+  const s2=solve(c,tgt-a1.v-pv+base+off);if(s2.a===o.a&&s2.h===o.h)continue;
+  o.a=s2.a;o.h=s2.h;o.tgt=+tgt.toFixed(2);o.D2=+(price(o.a,c.d,o.h,c.co)+a1.v+pv-base-off).toFixed(2);o.changed=o.gr!==o.gr0||o.a!==o.a0||o.h!==o.h0||JSON.stringify(o.gift)!==JSON.stringify(o.gift0);o.tune=T;}
 console.log('v3.50 정리: 레거시',LEGACY.length,'장(강화 카드',LEGACY.filter(x=>x.upgrade).length,'포함) · 고급으로 올림',out.filter(o=>o.pool).length,'장');
 for(const g of ['B1','B2','B3','G1','G2','G3','A1','A2','A3']){const L=out.filter(o=>o.g===g&&!o.legacy);const n=k=>L.filter(o=>o.gr===k).length;
   console.log(g,'일반',n('common'),'고급',n('uncommon'),'고급 레벨별',[1,2,3,4,5,6,7].map(l=>L.filter(o=>o.gr==='uncommon'&&o.lv===l).length).join('·'),'일반 레벨별',[1,2,3,4,5,6,7].map(l=>L.filter(o=>o.gr==='common'&&o.lv===l).length).join('·'),'| 레거시',LEGACY.filter(x=>x.g===g).map(x=>x.id).join(','));}

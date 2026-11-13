@@ -182,7 +182,7 @@
 - 숫자·레벨·소제목: `Cinzel`
 - 한글 본문: 바탕체 계열 (`Batang`, `Nanum Myeongjo`, `AppleMyungjo`). 고딕을 본문에 쓰지 않는다.
 - Cinzel 글꼴은 `fonts/` 폴더에 들어 있다(인터넷 없이 동작).
-- **입장 관문 제목** "린데어 환석" (게임 v3.23): `Song Myung` 400, 자간 .12em(`css/realm.css` `.gate .gate-title`). 타이틀 화면 한글 부제와 같은 글꼴. 예전에는 기기 바탕체였다.
+- **입장 관문 제목** "린데어 환석" (게임 v3.55.4): 관문의 나머지 글과 같은 본문 글꼴(`--kfont` → 바탕) 700, 자간 .14em(`css/realm.css` `.gate .gate-title`). v3.23 ~ v3.55.3에는 `Song Myung`이라 이 제목만 글꼴이 달랐다. 관문 안에서 다른 글꼴은 영문 머리글(The Lindear Ringstone · 깃발 영문 이름, Cinzel)뿐.
 - **카드 이름** (게임 v3.20.3): `Song Myung` 400 기본, 설정에서 `Gugi` 400 · `Hahmlet` 600(`--nfont` · `--nweight`, `css/fmcard.css` 맨 아래). 셋 다 게임 폴더에 담김(`css/fonts-names.css`, `fonts/songmyung` · `fonts/gugi`). 카드 이름을 다시 800처럼 굵게 하지 않는다.
 - 효과 명판 · 겨눔 글자: `Hahmlet` 800. `fonts/hahmlet/`(글자 묶음 92개, `css/fonts-hahmlet.css`)에 들어 있어 인터넷 없이(앱 · 오프라인) 나온다. 없으면 Song Myung → 바탕.
 - **타이틀 화면만 따로** (`.screen-title`의 `--t-logo` · `--t-old` · `--t-ko`): ETHERION 로고 = `Cinzel Decorative` Black 윤곽을 옮긴 길(path) + 세 상징 글자(2.13), 금속 광택 그라데이션(`#fffbe8 → #f6dc96 → #c8963f`, 50~52%에서 `#7a5418` 어두운 띠, `→ #d9ad5c → #fff0bf`). 시작 버튼·고리 룬 = `Metamorphous` (고딕·켈트풍의 각진 대문자), 영문 부제 = `IM Fell English SC` (옛 활판), 한글 부제 = `Song Myung`. 셋 다 Google Fonts에서 받고, 인터넷이 없으면 Cinzel·바탕체로 보인다.

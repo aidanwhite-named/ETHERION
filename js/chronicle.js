@@ -313,6 +313,18 @@ const Chronicle = (() => {
   /* ---------- 덮개 ---------- */
   let ov = null, cur = null, lastFocus = null;
 
+  /* v3.55.4 매뉴얼 · 룰북은 연대기 머리에서 고른다(예전 대기실 오른쪽 명판). 누르면 연대기를 닫고 그 창을 연다 */
+  function booksHTML() {
+    const ic = k => typeof menuIcon === "function" ? menuIcon(k) : "";
+    const b = (k, icon, t, en, tip) => `<button type="button" class="cr-bk" data-book="${k}" title="${tip}">${icon}<span class="cr-bk-t"><b>${t}</b><small>${en}</small></span></button>`;
+    const has = typeof Help !== "undefined";
+    return `<nav class="cr-books" aria-label="규칙서">${has ? b("manual", ic("tome"), "매뉴얼", "Manual", "매뉴얼 — 규칙 · 카드 · 능력 사전 · 단축키") : ""}${typeof RulebookUI !== "undefined" ? b("rulebook", RulebookUI.icon, "룰북", "Rulebook", "룰북 — 상점 · 합성 · 파친코 · 순례 · 보상 · 계정") : ""}</nav>`;
+  }
+  function openBook(k) {
+    close();
+    setTimeout(() => { if (k === "manual" && typeof Help !== "undefined") Help.Manual.open(); else if (k === "rulebook" && typeof RulebookUI !== "undefined") RulebookUI.open(); }, 120);
+  }
+
   function open(ox, oy) {
     if (ov) return;
     lastFocus = document.activeElement;
@@ -323,6 +335,7 @@ const Chronicle = (() => {
     ov.style.setProperty("--ox", (ox == null ? innerWidth / 2 : ox) + "px");
     ov.style.setProperty("--oy", (oy == null ? innerHeight / 2 : oy) + "px");
     ov.innerHTML = `<header class="cr-head">${BOOK}<div class="cr-titles"><p class="cr-eyebrow">Chronicle · 연대기</p><h2 class="cr-title">에테리온 연대기<small>The Chronicle of Etherion</small></h2></div>
+        ${booksHTML()}
         <button type="button" class="cr-close" data-close><span>닫기</span> <kbd>Esc</kbd> ✕</button></header>
       <div class="cr-body">
         <nav class="cr-toc" aria-label="목차"></nav>
@@ -375,6 +388,7 @@ const Chronicle = (() => {
   function onClick(e) {
     const t = e.target;
     if (t.closest("[data-close]")) return close();
+    if (t.closest("[data-book]")) return openBook(t.closest("[data-book]").dataset.book);
     if (t.closest("[data-shake]")) return shake(t.closest("[data-shake]"));
     if (t.closest("[data-map]")) { close(); if (typeof Kailan !== "undefined") setTimeout(() => Kailan.open(), 120); return; }
     const c = t.closest("[data-ch]"); if (c) return go(c.dataset.ch);

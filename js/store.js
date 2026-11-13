@@ -17,7 +17,7 @@ const GUEST_OLD = "손님";
 /* v3.55 새 모험가가 처음에 무료로 고르는 깃발 수 (진영마다 하나까지). 룰북(js/rulebook.js)도 이 값을 읽는다 */
 const REG_MAX_FLAGS = 3;
 
-/* 신규 모험가의 보유 카드: 고른 단체의 기본 덱 40장 + 그 단체의 다른 카드 1장씩 */
+/* 신규 모험가의 보유 카드: 고른 단체의 기본 덱(RULES.deckSize장) + 그 단체의 다른 카드 1장씩 */
 function starterCollection(g) {
   const col = {};
   for (const k in STARTER_DECKS[g]) col[k] = STARTER_DECKS[g][k];
@@ -80,7 +80,7 @@ const Store = {
       owned,
       collection,
       decks,
-      stats: { w: 0, l: 0 }, gold: ECON.startGold
+      stats: { w: 0, l: 0 }, gold: ECON.startGold, deck50: 1   // v3.56 처음부터 50장
     };
     this.data.session = id;
     this.save();
@@ -93,7 +93,7 @@ const Store = {
       if (!this.data.users[ADMIN_ID]) {
         const decks = {}, owned = {};
         for (const g of GROUP_IDS) { decks[g] = freshDeck(g); owned[g] = true; }
-        this.data.users[ADMIN_ID] = { id: ADMIN_ID, pw: ADMIN_PW, admin: true, created: Date.now(), group: "B1", owned, collection: {}, decks, stats: { w: 0, l: 0 } };
+        this.data.users[ADMIN_ID] = { id: ADMIN_ID, pw: ADMIN_PW, admin: true, created: Date.now(), group: "B1", owned, collection: {}, decks, stats: { w: 0, l: 0 }, deck50: 1 };
       }
       this.data.session = ADMIN_ID; this.save(); return null;
     }
@@ -109,7 +109,7 @@ const Store = {
     if (!u) {
       const decks = {}, owned = {};
       for (const g of GROUP_IDS) { decks[g] = freshDeck(g); owned[g] = true; }
-      u = this.data.users[GUEST_ID] = { id: GUEST_ID, pw: null, admin: false, guest: true, created: Date.now(), group: "B1", owned, collection: {}, decks, stats: { w: 0, l: 0 }, gold: ECON.startGold };
+      u = this.data.users[GUEST_ID] = { id: GUEST_ID, pw: null, admin: false, guest: true, created: Date.now(), group: "B1", owned, collection: {}, decks, stats: { w: 0, l: 0 }, gold: ECON.startGold, deck50: 1 };
     }
     this.data.session = GUEST_ID; this.save(); return null;
   },
@@ -167,8 +167,8 @@ const Store = {
     this.save();
   },
   clearDraft(u, g) { if (u.drafts && u.drafts[g]) { delete u.drafts[g]; this.save(); } },
-  /* 상점에서 산 카드를 그 단체의 덱 초안에 넣는다 (40장 · 같은 카드 최대 장수 · 쓸 수 있는 장수 안에서).
-     돌려주는 값: { g, added, why } — why: "full"(40장이 찼다) · "copies"(같은 카드 최대) · "group"(쓸 수 없는 단체) */
+  /* 상점에서 산 카드를 그 단체의 덱 초안에 넣는다 (RULES.deckSize장 · 같은 카드 최대 장수 · 쓸 수 있는 장수 안에서).
+     돌려주는 값: { g, added, why } — why: "full"(RULES.deckSize장이 찼다) · "copies"(같은 카드 최대) · "group"(쓸 수 없는 단체) */
   draftAdd(u, id, n) {
     const c = isCardId(id) && CARDS[id]; if (!c) return { added: 0, why: "none" };
     n = cleanCount(n) || 1;

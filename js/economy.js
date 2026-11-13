@@ -79,7 +79,7 @@ Object.assign(Store, {
   /* v3.0 상점 구매: 재고(stockLeft)에서 n장을 꺼내 보관함(collection)에 넣는다.
      - 관리자는 무엇이든 살 수 있다: 지갑을 보지 않고(줄지도 않는다), 최대 장수 제한도 없다. 재고만 줄어든다.
      - 다른 계정은 값 × n을 내고, 같은 카드는 최대 장수(maxCopiesOf)까지만 산다.
-     - opts.toDeck: 산 카드를 그 단체의 덱 초안(덱 조정실)에 바로 넣는다(40장 · 같은 카드 장수 안에서). */
+     - opts.toDeck: 산 카드를 그 단체의 덱 초안(덱 조정실)에 바로 넣는다(RULES.deckSize장 · 같은 카드 장수 안에서). */
   buyCard(u, id, n, opts) {
     u = u || this.user(); const c = isCardId(id) && CARDS[id]; n = cleanCount(n) || 1; opts = opts && typeof opts === "object" ? opts : {};   // v3.44 글자 · NaN 장수로 공짜 구매하던 구멍
     if (!u || !c) return { ok: false, msg: "없는 카드입니다." };
@@ -241,7 +241,7 @@ Object.assign(Store, {
     return n;
   },
   /* v3.29.1 게임에서 아주 뺀 카드(js/retired.js GONE_CARDS — v3.51부터 레거시 모두): 가진 장수만큼 상점 값을 돌려주고(판매와 같은 값 · 경험치 아님)
-     저장한 덱 · 초안에서 빼며, 빈 자리는 GONE_SWAP의 같은 깃발 카드로 가진 만큼(관리자 · 필멸자는 모두 가진 셈) 채운다. 못 채우면 덱이 40장 아래로 남는다.
+     저장한 덱 · 초안에서 빼며, 빈 자리는 GONE_SWAP의 같은 깃발 카드로 가진 만큼(관리자 · 필멸자는 모두 가진 셈) 채운다. 못 채우면 덱이 RULES.deckSize장 아래로 남는다.
      돌려준 카드 장수를 돌려준다 */
   refundGoneCards(u) {
     if (!u || typeof GONE_CARDS === "undefined") return 0;
@@ -280,9 +280,42 @@ Object.assign(Store, {
     if (gold > 0) this.addGold(u, gold, `판매(레거시 카드 ${n}장)`);
     return n;
   },
+  /* v3.56 덱 40장 → 50장(생명도 50): 예전 모험가에게 한 번만 —
+     가진 깃발마다 기본 덱이 늘어난 카드(DECK50_ADD, js/decks.js)를 보유에 더하고(같은 카드 최대 장수까지, 관리자 · 필멸자는 모두 가진 셈이라 보유는 그대로),
+     40장이던 저장 덱 · 초안 · 체험 덱을 그 카드로 50장까지 채운다. 그래도 모자라면 그 깃발의 가진 카드(낮은 레벨 유닛부터)로 채운다.
+     u.deck50 = 1 (서버만 바꾸는 칸). 새 모험가 · 관리자 · 필멸자는 처음부터 1. 돌려주는 값: 고친 덱 수 + 더한 카드 장수 */
+  deck50(u) {
+    if (!u || u.deck50 || typeof DECK50_ADD === "undefined") return 0;
+    const all = this.allCards(u), col = u.collection = u.collection || {};
+    let n = 0;
+    if (!all) for (const g in DECK50_ADD) if (u.owned && u.owned[g]) for (const id in DECK50_ADD[g]) {
+      if (!CARDS[id]) continue;
+      const k = Math.max(0, Math.min(DECK50_ADD[g][id], maxCopiesOf(id) - (col[id] || 0)));
+      if (k) { col[id] = (col[id] || 0) + k; n += k; }
+    }
+    const have = (id, own) => own ? Math.min(maxCopiesOf(id), all ? maxCopiesOf(id) : (col[id] || 0)) : maxCopiesOf(id);
+    const fill = (cards, g, own) => {
+      if (!cards || !GROUPS[g] || countMap(cards) !== 40) return;
+      const order = Object.keys(DECK50_ADD[g] || {}).concat(Object.keys(STARTER_DECKS[g] || {}),
+        CARD_LIST.filter(c => c.group === g && c.type === "unit" && !c.retired && !c.special && !c.unique && !c.base).sort((a, b) => a.lv - b.lv).map(c => c.id));
+      let m = countMap(cards);
+      for (let pass = 0; pass < 4 && m < RULES.deckSize; pass++) for (const id of order) {
+        if (m >= RULES.deckSize) break;
+        const c = CARDS[id]; if (!c || c.retired || !deckable(c, g)) continue;
+        if (typeof uniqueBlock === "function" && uniqueBlock(cards, id)) continue;
+        if ((cards[id] || 0) < have(id, own)) { cards[id] = (cards[id] || 0) + 1; m++; }
+      }
+      n++;
+    };
+    for (const g in (u.decks || {})) fill(u.decks[g] && u.decks[g].cards, g, true);
+    for (const g in (u.drafts || {})) fill(u.drafts[g] && u.drafts[g].cards, g, true);
+    if (u.trial && u.trial.cards) fill(u.trial.cards, u.trial.group, false);   // 체험 덱은 보유와 상관없이(친구의 덱)
+    u.deck50 = 1;
+    return n + 1;
+  },
   refundAllRetiredUpgrades() {
     let n = 0;
-    for (const id in (this.data.users || {})) { const u = this.data.users[id]; n += this.refundRetiredUpgrades(u) + this.refundGoneCards(u); }
+    for (const id in (this.data.users || {})) { const u = this.data.users[id]; n += this.refundRetiredUpgrades(u) + this.refundGoneCards(u) + this.deck50(u); }
     return n;
   }
 });

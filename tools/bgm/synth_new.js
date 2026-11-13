@@ -174,8 +174,8 @@ function renderSection(instName, notes, totalSamples, pan, rng) {
 
         const bowNoise = (rng() * 2 - 1) * cfg.noise;
         let dyn = env * vel;
-        if (cfg.tremHz) dyn *= 0.72 + 0.28 * Math.sin(2 * Math.PI * (cfg.tremHz * (0.9 + p * 0.03)) * (i / SR));
-        if (n.sfz && k < SR * 0.45) dyn *= 1 + 0.55 * Math.exp(-k / (SR * 0.14));
+        if (cfg.tremHz) dyn *= 0.88 + 0.12 * Math.sin(2 * Math.PI * (cfg.tremHz * (0.9 + p * 0.03)) * (i / SR));
+        if (n.sfz && k < SR * 0.45) dyn *= 1 + 0.18 * Math.exp(-k / (SR * 0.16));
         pBuf[i] += (osc + bowNoise) * dyn;
       }
     }

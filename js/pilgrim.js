@@ -312,7 +312,7 @@ function showPilgrim(f) {
     body = `<div class="xp-card xp-next" style="--gc:${color}">
       <p class="eyebrow">${p.stage + 1} / ${PILGRIM.gates} · 오늘 남은 판 ${Pilgrim.left(p)}</p>
       <h3>${title}</h3>${say}
-      <p class="xp-deck">${groupEmblem(f)} <b>${esc(G_.name)}</b> 덱으로 싸웁니다${playable ? ` · 기본 덱의 <b>${Math.round(sc * 100)}%</b> → 상대는 ${forest ? `내 깃발 기본 덱의 <b>${Math.round(sc * scale * 100)}%</b> (내 덱보다 ${Math.round((scale - 1) * 100)}% 셈)` : `제 깃발 기본 덱의 <b>${Math.round(sc * scale * 100)}%</b> (내 덱과 같은 세기)`}` : " · <span class=\"bad\">저장된 40장 덱이 없습니다</span>"} <span class="muted small">(다른 깃발로 싸우려면 대기실에서 깃발을 바꿉니다)</span></p>
+      <p class="xp-deck">${groupEmblem(f)} <b>${esc(G_.name)}</b> 덱으로 싸웁니다${playable ? ` · 기본 덱의 <b>${Math.round(sc * 100)}%</b> → 상대는 ${forest ? `내 깃발 기본 덱의 <b>${Math.round(sc * scale * 100)}%</b> (내 덱보다 ${Math.round((scale - 1) * 100)}% 셈)` : `제 깃발 기본 덱의 <b>${Math.round(sc * scale * 100)}%</b> (내 덱과 같은 세기)`}` : " · <span class=\"bad\">저장된 ${RULES.deckSize}장 덱이 없습니다</span>"} <span class="muted small">(다른 깃발로 싸우려면 대기실에서 깃발을 바꿉니다)</span></p>
       <p class="muted small">${p.first ? "오늘의 첫 승 보상은 받았습니다. 이 판은 전투 정산(작은 조각)만 있습니다." : `이기면 <b>오늘의 첫 승</b> — ${fmtGold(PILGRIM.first)} 또는 카드 한 장.`}${forest ? ` 숲을 지나면 완주 보너스 ${fmtGold(PILGRIM.done)}.` : ""} 지면 같은 관문에 다시 서고, 그 판도 오늘의 ${PILGRIM.fights}판에 듭니다.</p>
       <div class="xp-btns"><button class="btn" data-p="lobby">대기실로</button><button class="btn primary" data-p="fight" ${playable ? "" : "disabled"}>${forest ? "숲으로 들어간다" : "관문에 선다"}</button></div></div>`;
   }

@@ -149,7 +149,7 @@ Object.assign(Store, {
     L.push({ at: Date.now(), id: o.id, ok: !!o.ok, msg: o.msg || o.skip || "", won: !!o.won, gold: o.gold || 0, winCard: o.winCard || null, lucky: o.lucky || null, mile: o.mile || [], done: o.done || 0 });
     if (L.length > 20) L.splice(0, L.length - 20);
   },
-  /* 검산할 판의 덱 확인: 내 덱 = 서버에 저장한 덱, 상대 덱 = 그 깃발 카드 40장 · 세기가 내 덱 비율 × 관문 배수보다 약하지 않을 것 */
+  /* 검산할 판의 덱 확인: 내 덱 = 서버에 저장한 덱, 상대 덱 = 그 깃발 카드 RULES.deckSize장 · 세기가 내 덱 비율 × 관문 배수보다 약하지 않을 것 */
   _checkDecks(u, m, rep) {
     if (m.mode === "exp") return this._checkExp(u, m, rep);
     const p0 = rep.p0 && rep.p0.cards, p1 = rep.p1 || {}, saved = m.trial ? trialDeckOf(u, m.at) : this.deck(u, m.group);   // v3.48 체험 덱이면 그 덱과 맞춰 본다
@@ -166,7 +166,7 @@ Object.assign(Store, {
     if (deckScore(p1.cards).total < want * 0.97) return "상대 덱이 정해진 세기보다 약합니다.";
     return null;
   },
-  /* v3.44 원정 판의 덱 확인: 내 원정 덱 = 그 깃발 카드 40 ~ 46장(저장한 덱 + 원정에서 고른 카드), 보유를 넘는 장수는 원정에서 고른 만큼(6장)까지.
+  /* v3.44 원정 판의 덱 확인: 내 원정 덱 = 그 깃발 카드 RULES.deckSize ~ +6장(저장한 덱 + 원정에서 고른 카드), 보유를 넘는 장수는 원정에서 고른 만큼(6장)까지.
      상대 = 그 깃발의 기본 덱 그대로, 판 규칙 = 용 · 빈 자리 규칙 가운데 하나 */
   _checkExp(u, m, rep) {
     const p0 = cleanCards(rep.p0 && rep.p0.cards), p1 = rep.p1 || {};

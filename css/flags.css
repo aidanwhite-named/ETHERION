@@ -69,3 +69,25 @@
 .nameplate.has-plate .np-frame { display: none; }
 .nameplate.banner.has-plate::before { display: block; content: ""; position: absolute; inset: 0; z-index: -1; width: auto; height: auto; border: 0; opacity: 1;
   background: var(--plate) center / 100% 100% no-repeat; }
+
+/* ---------- v3.55.6 명판 글씨를 천 가운데로 ----------
+   예전: 아이디 · 전적 · 역할이 글씨 칸 왼쪽에 붙어(문장도 왼쪽 위) 천 그림이 들어온 뒤 글씨가 왼쪽으로 쏠려 보였다.
+   이제: 글씨 칸(장대 · 제비꼬리 홈을 뺀 천 몸통 = 안쪽 여백 사이)의 가운데에 아이디 · 전적 · 역할을 둔다.
+   - 넓은 화면(.lay-swap, 문장 → 글씨 세로 쌓기): 문장도 가운데, 조금 크게
+   - 좁은 화면(문장 없음) · 가로 배치(문장 왼쪽): 문장을 뺀 남은 칸의 가운데
+   긴 아이디는 지금처럼 fitNameIds가 글씨를 줄이고, 둘째 줄(전적 · 승률)도 같은 방법으로 줄인다(말줄임은 아주 좁을 때만) */
+.bn-h .np-meta { text-align: center; justify-items: stretch; }
+.bn-h .np-meta .pi-role { justify-self: center; }
+/* 전적 · 승률이 10px로도 한 줄에 안 들어가면(fitNameIds가 np-wrap을 붙임) 가름선을 빼고 두 줄로 */
+.nameplate .np-sub.np-rec.np-wrap { white-space: normal; line-height: 1.25; }
+.np-rec.np-wrap > span { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.np-rec.np-wrap > i { display: none; }
+/* swap.css가 뒤에 읽히므로 .b-main · .nameplate.banner를 붙여 한 단계 세게 적는다.
+   오른쪽 여백: 에테르 원형의 날개 장식이 천 오른쪽을 덮는 만큼(나 ≈ 카드 폭 × .28, 상대 ≈ × .2) 비워, 보이는 천의 가운데에 글씨가 오게 */
+@media (min-width: 761px) {
+  .b-main.lay-swap .f-flag .nameplate.banner.bn-h .np-shield { align-self: center; }
+  .b-main.lay-swap .frow-bot .nameplate.banner.bn-h { gap: calc(var(--cw) * .02); padding-right: calc(var(--cw) * .3); }
+  .b-main.lay-swap .frow-bot .nameplate.banner.bn-h .np-shield { height: calc(var(--cw) * .33); }
+  .b-main.lay-swap .frow-top .nameplate.banner.bn-h { gap: calc(var(--cw) * .012); padding-right: calc(var(--cw) * .22); }
+  .b-main.lay-swap .frow-top .nameplate.banner.bn-h .np-shield { height: calc(var(--cw) * .23); }
+}

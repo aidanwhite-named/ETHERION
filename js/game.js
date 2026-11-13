@@ -1,5 +1,5 @@
 /* ETHERION — 대전 흐름, 전장 화면, 컴퓨터 인공지능
-   - 생명·덱 40, 시작 핸드 6장(생명 34). 매 턴 두 플레이어 모두 6장까지 보충(뽑은 장수만큼, 최소 1 생명 감소)
+   - 생명·덱 50(v3.56, 예전 40), 시작 핸드 6장(생명 44). 매 턴 두 플레이어 모두 6장까지 보충(뽑은 장수만큼, 최소 1 생명 감소)
    - 공격 준비 → 방어 준비 → 전투 → 정리
    - 에테르 = 위대한 정수 1 + 결정 수. 결정화한 카드는 소각장으로(v3.19.2). 결정화는 턴마다 1장씩 쌓이는 한도 안에서(안 쓰면 다음 턴으로 넘어감), 결정 최대 9. Lv N 카드 비용은 에테르 N (규칙 문서 6)
    - 유지비: 레벨 아이콘 중 빈 칸(하늘빛 테두리)의 수, 최대 레벨 − 1. 소환할 때는 레벨만큼 내고, 살아남으면 다음 턴부터 에테르가 유지비만큼 빠진다.
@@ -2410,12 +2410,20 @@ function flipShieldCoin(u, heads) {
 /* v3.7.9 깃발 아이디 맞추기: 아이디가 글자 칸보다 길면 넘치는 비율만큼 글씨를 줄여 한 줄에 다 보이게 한다(최소 11px, 그래도 넘치는 아주 좁은 화면에서만 말줄임).
    글꼴이 늦게 들어오면 폭이 바뀌므로 글꼴이 다 들어온 뒤에도 한 번 더 맞춘다 */
 function fitNameIds(root) {
-  for (const el of (root || document).querySelectorAll(".nameplate.banner .np-id")) {
-    el.style.fontSize = "";
-    const box = el.clientWidth, full = el.scrollWidth;
-    if (box > 0 && full > box + 1) el.style.fontSize = Math.max(11, parseFloat(getComputedStyle(el).fontSize) * box / full * .98).toFixed(1) + "px";
-    // v3.9.3: 글씨 크기가 반올림되어 1px 넘치면(말줄임이 생김) 조금씩 더 줄인다
-    for (let k = 0; k < 4 && box > 0 && el.scrollWidth > el.clientWidth; k++) { const fs = parseFloat(getComputedStyle(el).fontSize); if (fs <= 11) break; el.style.fontSize = Math.max(11, fs * .97).toFixed(1) + "px"; }
+  // v3.55.6 둘째 줄(전적 · 승률)도 같은 방법으로 맞춘다(최소 10px). 그래도 넘치면 "12승 8패" / "승률 60%" 두 줄로(np-wrap) — 폰에서 "승률 …"로 잘리던 것.
+  //   폭은 소수점까지 잰다(scrollWidth는 정수로 반올림돼 0.3px 넘침을 놓치고, 그만큼 말줄임이 생겼다)
+  const rg = document.createRange();
+  const widths = el => { rg.selectNodeContents(el); const cs = getComputedStyle(el); return [el.getBoundingClientRect().width - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight), rg.getBoundingClientRect().width]; };
+  const over = el => { const [box, full] = widths(el); return full > box + .2; };
+  for (const el of (root || document).querySelectorAll(".nameplate.banner .np-id, .nameplate.banner .np-sub")) {
+    const min = el.classList.contains("np-sub") ? 10 : 11;
+    el.style.fontSize = ""; el.classList.remove("np-wrap");
+    const [box, full] = widths(el);
+    if (!(box > 0) || !over(el)) continue;
+    el.style.fontSize = Math.max(min, parseFloat(getComputedStyle(el).fontSize) * box / full * .98).toFixed(1) + "px";
+    // v3.9.3: 글씨 크기가 반올림되어 조금 넘치면(말줄임이 생김) 조금씩 더 줄인다
+    for (let k = 0; k < 4 && over(el); k++) { const fs = parseFloat(getComputedStyle(el).fontSize); if (fs <= min) break; el.style.fontSize = Math.max(min, fs * .97).toFixed(1) + "px"; }
+    if (el.classList.contains("np-rec") && over(el)) { el.style.fontSize = ""; el.classList.add("np-wrap"); }
   }
 }
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (boardEl) fitNameIds(boardEl); });

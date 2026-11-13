@@ -4,10 +4,10 @@
 "use strict";
 
 const RULES = {
-  deckSize: 40,        // 덱 장수
+  deckSize: 50,        // 덱 장수 (v3.56: 40 → 50)
   maxCopies: 4,        // 같은 카드 최대 장수
-  startLife: 40,       // 시작 생명
-  lifeCap: 40,         // 회복 상한
+  startLife: 50,       // 시작 생명 (v3.56: 40 → 50)
+  lifeCap: 50,         // 회복 상한 (v3.56: 40 → 50)
   handSize: 6,         // 보충 시 손패
   slots: 5,            // 전장 칸 수
   essence: 1,          // 위대한 정수: 게임 시작부터 매 턴 에테르 1 (깨지지 않음)
@@ -471,7 +471,7 @@ function classTagText(c) {
   return "";
 }
 
-/* ---------- 기본 덱 (단체마다 40장) ----------
+/* ---------- 기본 덱 (단체마다 RULES.deckSize장) ----------
    DECK_LISTS(js/decks.js)에 시뮬레이터로 맞춘 덱이 있으면 그것을 쓰고, 없으면 아래 규칙으로 만든다. */
 function buildStarter(g) {
   const deck = {}, add = (id, n) => { deck[id] = (deck[id] || 0) + n; };

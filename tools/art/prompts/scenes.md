@@ -1,4 +1,4 @@
-# 메뉴 화면 배경 · 배경의 세 존재 — 그림 프롬프트 (게임 v3.45)
+# 메뉴 화면 배경 · 배경의 세 존재 — 그림 프롬프트 (게임 v3.45, 세 존재 v3.55.4 고침)
 
 GPT(이미지) · Gemini에 그대로 붙여 넣는 프롬프트 두 장이다. 서사는 `docs/WORLD.md`(0 · 2 · 4 · 10장), 그림 규칙은 `docs/STYLE_GUIDE.md`(0 · 2.10 · 2.17 · 6.3 · 6.4 · 6.6)를 따른다.
 
@@ -54,14 +54,16 @@ No text, no letters, no numbers, no logo, no title, no runes as writing, no UI f
 
 ## 2. 배경의 세 존재 — `img/ui/menu/titans.png`
 
+> v3.55.7: 이 프롬프트로 받은 그림(`tools/art/out/raw/ui/menu/titans_net.png`, 4K)을 1번 위에 겹치지 않고 **메뉴 배경 한 장**(`img/ui/menu/menu_bg.jpg` · 폰 `menu_bg_m.jpg`)으로 쓴다. 예전 1번 그림은 `menu_bg_v1.jpg` 로 보관.
+
 ### 무엇을 그리나 (서사 · 2.10 표 그대로)
 - 근원신 아르케가 에테르를 셋으로 나눠 빚은 **거인(몸) · 신(뜻) · 용(힘).** **셋은 동격이고 서로 싸우지 않는다** — 함께 세계를 이루는 말없는 균형으로 그린다. 대결 · 지배 다툼으로 그리지 않는다. 아르케는 모습으로 그리지 않는다.
 - **배치는 고정**: 왼쪽 거인 · 가운데 뒤(높이) 신 · 오른쪽 용. 타이틀 그림 · 상단 문장과 같은 자리.
-  - **거인(몸, 구리빛 #d4893a)**: 갑옷 없음. 산맥에서 반쯤 일어난 몸으로, 허리 아래는 봉우리 절벽 사이로 사라지고 두 주먹으로 땅을 짚는다. 등뼈가 그대로 산맥이 되어 왼쪽 화면 밖으로 이어진다. 성탑처럼 각진 돌 관, 돌 수염, 화로처럼 타는 눈. 갈라진 틈에 아다만트 광맥 세 빛(뼈 회색 #9ea3b3 · 검붉은 #b31a1f · 푸른 #61a8ff). 가슴께에 구리빛 심장불, 어깨 비탈에 지그재그 갱도 등불과 용광로 불 하나(아다만트가 거인의 몸을 캔다).
-  - **신(뜻, 보라 #a57ae6 + 금 #f6e2a8)**: 얼굴 없는 긴 옷, 두 팔을 벌려 뜻을 내린다. 머리 뒤 후광 고리 셋과 금빛 빛살 안에 다섯 꼭짓점 별(위가 꼭짓점, 보랏빛 선, 꼭짓점에 금빛 점) — 머리가 별 가운데에 온다. 몸을 비스듬히 감는 보랏빛 궤도 둘. 황금 갑옷 · 무기 없음. 멀리, 높이, 흐리게.
+  - **거인(몸, 구리빛 #d4893a)**: 갑옷 없음. **산맥 그 자체만큼 거대한 원시의 거상** — 나이를 알 수 없는 바위 얼굴(수염 · 주름 · 늙은 왕의 모습 없음), 날카롭게 깎인 턱과 이마, 젊고 힘이 넘치는 어깨. 산맥에서 반쯤 일어난 몸으로, 허리 아래는 봉우리 절벽 사이로 사라지고 두 주먹으로 땅을 짚는다. 등뼈가 그대로 산맥이 되어 왼쪽 화면 밖으로 이어진다. **크기 비교**: 어깨에 구름이 걸리고, 주먹 옆 발치에 성채와 마을 불빛이 개미만 하게 보인다. 성탑처럼 각진 돌 관, 화로처럼 타는 눈. 갈라진 틈에 아다만트 광맥 세 빛(뼈 회색 #9ea3b3 · 검붉은 #b31a1f · 푸른 #61a8ff). 가슴께에 구리빛 심장불, 어깨 비탈에 지그재그 갱도 등불과 용광로 불 하나(아다만트가 거인의 몸을 캔다).
+  - **신(뜻, 보라 #a57ae6 + 금 #f6e2a8)**: **거인 · 용과 같은 격의 거대한 존재** — 하늘에 떠서 화면 위쪽 1/3을 거의 채운다(머리에서 허리까지 화면 높이의 약 35%). 작거나 흐리게 그리지 않는다. 얼굴 없는 긴 옷, 두 팔을 벌려 뜻을 내린다. 머리 뒤 후광 고리 셋과 금빛 빛살 안에 다섯 꼭짓점 별(위가 꼭짓점, 보랏빛 선, 꼭짓점에 금빛 점) — 머리가 별 가운데에 온다. 몸을 비스듬히 감는 보랏빛 궤도 둘. 황금 갑옷 · 무기 없음. 옷자락은 아래로 갈수록 별빛 안개로 풀어진다.
   - **용(힘, 초록 #6fae55)**: 똬리 튼 긴 몸, 활짝 편 두 날개, 큰 머리는 가운데 쪽을 본다. 목덜미에 일곱 원소 보석이 머리 쪽부터 대지 · 바람 · 화염 · 물 · 숲 · 금속 · 번개 색 차례로 박혀 있다.
-- 셋 모두 **어두운 몸에 가장자리 빛만 얇게**(림 라이트), 발치는 어둠에 잠긴다. 글자보다 눈에 띄면 안 된다.
-- **가운데 아래(가로 가운데 50%, 세로 아래 65%)는 비워 둔다** — 메뉴 패널 자리. 신은 그 위, 화면 위쪽 1/3 안에 둔다.
+- 셋 모두 **어두운 몸에 가장자리 빛**(림 라이트), 발치는 어둠에 잠긴다. v3.55.4: 전에는 "글자보다 눈에 띄면 안 된다"로 너무 어둡고 작게 나왔다 — 이제는 또렷하고 웅장하게 그리고, 글자가 읽히게 하는 일은 게임의 어두운 막(`css/menu-art.css` `#menu-art.own::after`)이 맡는다.
+- **가운데 아래(가로 가운데 40%, 세로 아래 55%)는 비워 둔다** — 메뉴 패널 자리. 신은 그 위, 화면 위쪽 1/3을 크게 채운다.
 
 ### 크기 · 바탕
 - **16:9 가로, 3840×2160**. 1번 배경 위에 겹치는 층이다.
@@ -70,14 +72,14 @@ No text, no letters, no numbers, no logo, no title, no runes as writing, no UI f
 ### 프롬프트 (영어 — 그대로 붙여 넣기)
 
 ```
-Dark fantasy game background layer, painterly digital painting, epic but quiet. Exactly 16:9 landscape, 3840x2160. Transparent background (if transparency is not possible: pure black #000000 background with nothing else in it — no sky, no stars, no ground).
+Dark fantasy game background layer, painterly digital painting, epic and majestic. 4K UHD resolution: exactly 16:9 landscape, 3840x2160 pixels, highly detailed. Transparent background (if transparency is not possible: pure black #000000 background with nothing else in it — no sky, no stars, no ground).
 
-Figures: three primordial colossal beings shaped from the world's ether, standing together in silent balance — equals, not fighting, not facing each other as enemies. Dark bodies lit only by thin rim light, their feet and lower parts sinking into darkness.
-- Left: a stone giant rising half out of a mountain range, no armor. Below the waist he disappears between cliff peaks; both fists press on the ground. His spine continues as the mountain range running off the left edge; peaks on his shoulders. A crown of angular stone like a castle tower (nine stones of alternating height), a beard of stone, eyes burning like furnaces. Cracks in his body glow with three ore veins: bone grey #9ea3b3, dark blood red #b31a1f, breath blue #61a8ff; a copper ember heart in his chest. On his left shoulder slope, a zigzag of nine tiny mine lanterns and one furnace fire. Rim light copper #d4893a.
-- Center back, high in the upper third and smaller, far away and faint: a faceless god in long robes with both arms opened outward, granting will. Behind the head three halo rings and rotating golden rays, framing a five-pointed star (one point up, violet lines, golden dots at the points); the head sits in the star's empty center. Two violet orbits wrap diagonally around the body (upper solid, lower dotted). No golden armor, no weapon. Rim light violet #a57ae6 with gold #f6e2a8.
+Figures: three primordial colossal beings shaped from the world's ether, standing together in silent balance — equals, not fighting, not facing each other as enemies. Dark bodies with clear rim light, their feet and lower parts sinking into darkness.
+- Left: a colossal primordial stone titan as vast as the mountain range itself, rising half out of it, no armor. Ageless, powerful, youthful build — a sharp, chiseled rock face with a strong jaw and brow; NO beard, no wrinkles, not an old man, not an old king. Below the waist he disappears between cliff peaks; both massive fists press on the ground. His spine continues as the mountain range running off the left edge; clouds drift around his shoulders and peaks rise on them. Show his immense scale: beside his fists, a fortress and a village of tiny lights look like ants. A crown of angular stone like a castle tower (nine stones of alternating height), eyes burning like furnaces. Cracks in his body glow with three ore veins: bone grey #9ea3b3, dark blood red #b31a1f, breath blue #61a8ff; a copper ember heart in his chest. On his left shoulder slope, a zigzag of nine tiny mine lanterns and one furnace fire. Rim light copper #d4893a.
+- Center top: a colossal faceless god floating in the sky, as vast and majestic as the giant and the dragon — clearly visible, not small, not faint. From head to waist the god fills about 35% of the image height across the upper third. Long robes, both arms opened wide outward, granting will; the hem of the robes dissolves downward into starlit mist. Behind the head three halo rings and rotating golden rays, framing a five-pointed star (one point up, violet lines, golden dots at the points); the head sits in the star's empty center. Two violet orbits wrap diagonally around the body (upper solid, lower dotted). No golden armor, no weapon. Strong rim light violet #a57ae6 with gold #f6e2a8.
 - Right: a long dragon coiled on itself with both wings spread wide, a large head turned toward the center. Along the nape of its neck, seven gemstones from head to tail: earth #b88a5a, wind #9fe3d6, fire #ff6b3d, water #4fb3ff, forest #58b85f, metal #a9b4c2, lightning #ffd84a. Rim light green #6fae55.
 
-Composition: keep the lower central area (central 50% of the width, lower 65% of the height) completely empty — menu panels will sit there. The giant fills the left third, the dragon the right third, the god floats small and high in the center. Low contrast overall; the figures must never outshine text placed on top.
+Composition: keep the lower central area (central 40% of the width, lower 55% of the height) empty — menu panels will sit there. The giant fills the left third, the dragon the right third, the god fills the upper center large and high. Three equal colossal presences, epic and awe-inspiring, with clear readable silhouettes and strong rim light; medium contrast (the game darkens the image behind text, so do not make it murky).
 
 Mood: night sky and golden runes, ancient and solemn. No text, no letters, no numbers, no logo, no UI frame, no border, no watermark, no signature. Not photorealistic, no bold cartoon outlines, no golden armor, no battle.
 ```
@@ -88,3 +90,5 @@ Mood: night sky and golden runes, ancient and solemn. No text, no letters, no nu
 - [ ] 가운데 아래가 비어 있다
 - [ ] 바탕이 투명이거나 완전한 검정이다(별 · 땅 · 안개가 섞이면 겹쳤을 때 1번 배경을 가린다)
 - [ ] 용 목덜미 보석 일곱의 차례, 신의 다섯 꼭짓점 별, 거인의 갑옷 없음
+- [ ] 거인이 늙은 노인 · 수염 난 왕처럼 보이지 않고, 발치의 작은 성 · 마을로 산만 한 크기가 느껴진다
+- [ ] 신이 작거나 흐리지 않고 위쪽 1/3을 크게 채운다(거인 · 용과 같은 격)

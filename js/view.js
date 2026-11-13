@@ -467,7 +467,7 @@ function cardDetailHTML(c, inst) {
 /* 원본 카드 창 (대기실 덱 보기·덱 조정실): 카드를 누르면 원본 카드를 화면 높이에 맞게 크게 연다.
    buttons를 주면 그 버튼들을, 없으면 닫기만. note는 카드 아래 한 줄 */
 function showCardModal(c, buttons, note) {
-  const pv = $("#card-preview"); if (pv) pv.hidden = true;
+  if (typeof CardPreview !== "undefined") CardPreview.hide(); else { const pv = $("#card-preview"); if (pv) pv.hidden = true; }
   const html = `<div class="detail">${cardHTML(c, { size: "full" })}${note ? `<p class="cm-note">${note}</p>` : ""}</div>`;
   return modal(html, buttons || [{ label: "닫기", value: null }], { cls: "card-modal" });
 }
@@ -549,31 +549,58 @@ function modal(html, buttons, opts) {
 
 /* 원본 카드 미리보기 (덱 조정실·관리자 보관소): 카드에 마우스를 올리면 화면 오른쪽에 원본 카드가 크게 뜬다.
    마우스가 화면 오른쪽 절반에 있으면 가리지 않도록 왼쪽에 띄운다 */
-function bindPreview(root) {
-  let box = $("#card-preview");
-  if (!box) { box = document.createElement("div"); box.id = "card-preview"; box.className = "card-preview"; box.hidden = true; document.body.appendChild(box); }
-  let cur = null;
-  const hide = () => { cur = null; box.hidden = true; };
-  root.addEventListener("mouseover", e => {
-    const el = e.target.closest("[data-card]");
-    if (!el || !root.contains(el)) return;
-    const c = CARDS[el.dataset.card]; if (!c) return;
+/* v3.55.5 한 곳에서 판단한다: 마우스(또는 탭)가 지금 가리키는 [data-card]가 묶인 root 안에 있으면 그 카드, 아니면 닫기.
+   예전에는 root 의 mouseover/mouseout 만 봐서, 덱 목록을 다시 그리면(1장 빼기 · 넣기) mouseout 이 오지 않아 큰 카드가 남고
+   바깥을 눌러도 닫히지 않았다. 이제 누른 뒤 · 다시 그린 뒤 · 스크롤 뒤에 그 자리의 요소를 다시 읽는다. Esc 로도 닫힌다 */
+const CardPreview = {
+  box: null, roots: new Set(), cur: null, el: null, x: null, y: null, touch: false,
+  init() {
+    if (this.box) return;
+    let box = $("#card-preview");
+    if (!box) { box = document.createElement("div"); box.id = "card-preview"; box.className = "card-preview"; box.hidden = true; document.body.appendChild(box); }
+    this.box = box;
+    const at = e => { this.x = e.clientX; this.y = e.clientY; };
+    document.addEventListener("pointerdown", e => { this.touch = e.pointerType !== "mouse"; at(e); }, true);
+    document.addEventListener("mouseover", e => { if (this.touch) return; at(e); this.update(e.target); }, true);
+    // 누른 뒤에는 화면이 다시 그려졌을 수 있으니, 클릭 처리가 끝난 다음 그 자리를 다시 읽는다 (탭도 같은 길: 누른 카드로 바뀌고 빈 곳이면 닫힘)
+    document.addEventListener("click", e => { at(e); setTimeout(() => this.refresh(), 0); }, true);
+    document.addEventListener("keydown", e => { if (e.key === "Escape") this.hide(); });
+    document.addEventListener("dragstart", () => this.hide(), true);
+    document.addEventListener("scroll", () => { if (this.box.hidden) return; if (this.touch) this.hide(); else requestAnimationFrame(() => this.refresh()); }, true);
+    addEventListener("blur", () => this.hide());
+    document.documentElement.addEventListener("mouseleave", () => { if (!this.touch) this.hide(); });
+    // 보던 카드가 다시 그려져 사라지면(덱 목록 갱신 · 화면 바뀜) 그 자리를 다시 읽는다
+    new MutationObserver(() => { if (!this.box.hidden && this.el && !this.el.isConnected) this.refresh(); }).observe(document.body, { childList: true, subtree: true });
+  },
+  pick(t) {
+    const el = t && t.closest ? t.closest("[data-card]") : null;
+    if (!el || el.closest("#card-preview")) return null;
+    for (const r of this.roots) { if (!r.isConnected) { this.roots.delete(r); continue; } if (r.contains(el)) return el; }
+    return null;
+  },
+  refresh() { if (this.x == null) return this.hide(); this.update(document.elementFromPoint(this.x, this.y)); },
+  update(t) {
+    const el = this.pick(t), c = el && CARDS[el.dataset.card];
+    if (!c || document.querySelector(".modal-wrap")) return this.hide();
+    const box = this.box;
+    this.el = el;
+    if (this.cur !== c.id) { this.cur = c.id; box.innerHTML = cardHTML(c, { size: "full" }); }
     // v1.4.3: 화면 끝이 아니라 가운데 가까이에 띄운다. 마우스가 왼쪽 절반이면 가운데 조금 오른쪽, 오른쪽 절반이면 가운데 조금 왼쪽
-    const left = e.clientX > innerWidth * 0.5;
+    const left = (this.x == null ? innerWidth : this.x) > innerWidth * 0.5;
     box.classList.toggle("on-left", left);
-    if (cur !== c.id) { cur = c.id; box.innerHTML = cardHTML(c, { size: "full" }); }
     box.hidden = false;
-    const gap = Math.max(24, innerWidth * 0.03);
-    if (left) { box.style.left = ""; box.style.right = (innerWidth / 2 + gap) + "px"; }
-    else { box.style.right = ""; box.style.left = (innerWidth / 2 + gap) + "px"; }
-  });
-  root.addEventListener("mouseout", e => {
-    const from = e.target.closest("[data-card]"), to = e.relatedTarget && e.relatedTarget.closest ? e.relatedTarget.closest("[data-card]") : null;
-    if (from && !to) hide();
-  });
-  // 화면이 바뀌면 미리보기를 닫는다
-  const obs = new MutationObserver(() => { if (!root.isConnected) { hide(); obs.disconnect(); } });
-  obs.observe(document.body, { childList: true, subtree: true });
+    const gap = Math.max(24, innerWidth * 0.03), w = box.offsetWidth;
+    // 좁은 화면(폰)에서는 화면 밖으로 나가지 않게 안쪽으로 당긴다
+    let x = left ? innerWidth / 2 - gap - w : innerWidth / 2 + gap;
+    x = Math.max(8, Math.min(innerWidth - w - 8, x));
+    box.style.right = ""; box.style.left = x + "px";
+  },
+  hide() { this.cur = null; this.el = null; if (this.box) this.box.hidden = true; }
+};
+function bindPreview(root) {
+  if (!root) return;
+  CardPreview.init();
+  CardPreview.roots.add(root);
 }
 
 /* 말풍선 설명: data-tip이 있는 요소에 마우스를 올리면 바로 보인다 (줄바꿈 \n) */

@@ -17,7 +17,7 @@ const GS = ['B1', 'B2', 'B3', 'G1', 'G2', 'G3', 'A1', 'A2', 'A3'];
         for (let i = 0; i < 30; i++) {
           const d = ctx.ev(`aiDeckBuild("${g}", ${Math.round(st * r)}, mulberry32(${1000 + i}))`); n++;
           const cnt = Object.values(d.cards).reduce((a, b) => a + b, 0);
-          const ok = cnt === 40 && Object.keys(d.cards).every(id => ctx.ev(`CARDS["${id}"] && CARDS["${id}"].group === "${g}" && ${d.cards[id]} <= maxCopiesOf("${id}")`)) && ctx.ev(`deckScore(${JSON.stringify(d.cards)}).total`) === d.score;
+          const ok = cnt === ctx.ev("RULES.deckSize") && Object.keys(d.cards).every(id => ctx.ev(`CARDS["${id}"] && CARDS["${id}"].group === "${g}" && ${d.cards[id]} <= maxCopiesOf("${id}")`)) && ctx.ev(`deckScore(${JSON.stringify(d.cards)}).total`) === d.score;
           if (!ok) bad++;
           s += d.score / st; if (Math.abs(d.score / st - r) > Math.abs(worst - r) || i === 0) worst = d.score / st;
         }

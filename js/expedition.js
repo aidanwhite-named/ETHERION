@@ -107,8 +107,8 @@ function showExpedition(f) {
     const playable = Store.deckPlayable(u, f);
     body = `<div class="xp-card xp-start">
       <h3>출발 준비</h3>
-      <p>${esc(G_.name)}의 저장된 덱(40장)으로 출발합니다. 원정 중에 얻는 카드는 <b>원정 덱</b>에 더해지고, 모험가의 보유 목록에도 영구히 남습니다.</p>
-      <p class="muted">${playable ? "출발할 수 있습니다." : "덱 조정실에서 40장을 저장해야 출발할 수 있습니다."}</p>
+      <p>${esc(G_.name)}의 저장된 덱(${RULES.deckSize}장)으로 출발합니다. 원정 중에 얻는 카드는 <b>원정 덱</b>에 더해지고, 모험가의 보유 목록에도 영구히 남습니다.</p>
+      <p class="muted">${playable ? "출발할 수 있습니다." : `덱 조정실에서 ${RULES.deckSize}장을 저장해야 출발할 수 있습니다.`}</p>
       <div class="xp-btns"><button class="btn" data-x="lobby">대기실로</button><button class="btn primary" data-x="start" ${playable ? "" : "disabled"}>원정 출발</button></div></div>`;
   } else if (e.pending) {
     body = `<div class="xp-card xp-reward">
@@ -153,7 +153,7 @@ function showExpedition(f) {
     const x = b.dataset.x;
     if (x === "lobby") showLobby();
     else if (x === "map") { if (typeof Kailan !== "undefined") Kailan.open(); }
-    else if (x === "start") { if (!Store.deckPlayable(u, f)) { toast("저장된 40장 덱이 있어야 합니다.", "warn"); return; } Exp.start(f); showExpedition(); }
+    else if (x === "start") { if (!Store.deckPlayable(u, f)) { toast(`저장된 ${RULES.deckSize}장 덱이 있어야 합니다.`, "warn"); return; } Exp.start(f); showExpedition(); }
     else if (x === "new") { Exp.abandon(); showExpedition(f); }
     else if (x === "abandon") { const ok = await modal(`<h3>원정을 포기할까요?</h3><p>지금까지 얻은 카드는 남고, 경로는 사라집니다.</p>`, [{ label: "계속", value: false }, { label: "포기", value: true, cls: "danger" }]); if (ok) { Exp.abandon(); showExpedition(f); } }
     else if (x === "deck") { const e2 = Exp.get(); const ids = expandDeck(e2.deck); modal(`<h3>원정 덱 ${ids.length}장</h3><div class="xp-decklist">${ids.map(id => cardHTML(CARDS[id], { size: "sm" })).join("")}</div>`, [{ label: "닫기", value: 1, cls: "primary" }], { cls: "wide" }); }

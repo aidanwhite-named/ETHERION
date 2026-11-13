@@ -82,7 +82,7 @@ const ev = s => ctx.ev(s);
   { ev('Store.register("8레벨이", "pw", ["B1"])'); const u = 'Store.user()';
     ok(ev('CARD_LIST.every(c => c.lv < 8 || gradeOf(c) === "special")'), '8레벨은 스페셜만(상점 · 보관함 목록)');
     ok(ev('GROUP_IDS.every(g => Object.keys(STARTER_DECKS[g]).every(id => !GONE_CARDS[id]) && Object.keys(HARD_DECKS[g] || {}).every(id => !GONE_CARDS[id]))'), '기본 덱 · 정예 덱에 뺀 카드 없음');
-    ok(ev('GROUP_IDS.every(g => Object.values(STARTER_DECKS[g]).reduce((a, b) => a + b, 0) === 40)'), '기본 덱 40장');
+    ok(ev('GROUP_IDS.every(g => Object.values(STARTER_DECKS[g]).reduce((a, b) => a + b, 0) === RULES.deckSize)'), '기본 덱 RULES.deckSize장');
     const g0 = ev(`Store.gold(${u})`), price = ev('shopPrice(CARDS["B1-38"])');
     ev(`${u}.collection["B1-38"] = 2; ${u}.collection["B1-36"] = 4; ${u}.decks.B1.cards["B1-38"] = 1; ${u}.decks.B1.cards["B1-36"] = 1`);
     const n1 = ev('Store.refundGoneCards(Store.user())');

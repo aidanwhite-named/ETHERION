@@ -387,6 +387,160 @@ input:not([type=checkbox]):not([type=radio]):not([type=range]):focus { border-co
   .gate .gate-lead { font-size: 17px; }
 }
 
+/* ================= v3.55.4 입장 관문을 한 화면에 =================
+   로그인 · 새 모험가가 스크롤 없이 한 화면에(PC 1280×720 · 1366×768, 폰 가로 높이 약 620, 폰 세로).
+   내용은 그대로, 여백 · 글자 크기 · 배치만 줄인다. 깃발 칸은 문장을 왼쪽에 두고 글은 오른쪽 두 줄(이름 · 영문 / 성향 · 원소 · 다짐).
+   기본 = 낮은 화면(720 안팎), 화면이 높으면(860px 이상) 조금 넉넉하게. 아주 낮은 화면만 마지막으로 스크롤.
+   글꼴: 제목 "린데어 환석"도 화면의 나머지와 같은 본문 글꼴(--kfont → 바탕). 영문 머리글(The Lindear Ringstone · 깃발 영문)은 예전처럼 Cinzel. */
+.screen-login { padding-block: clamp(8px, 2vh, 24px); }
+.gate { width: min(1040px, 100%); padding: 36px clamp(16px, 4vw, 48px) 20px; font-size: 15px; border-radius: 50% 50% 4px 4px / 84px 84px 4px 4px; }
+.gate .gate-eyebrow { font-size: 12px; }
+.gate .gate-title { font-family: inherit; font-weight: 700; letter-spacing: .14em; font-size: clamp(26px, 4.6vh, 38px); line-height: 1.2; margin: 2px 0 2px; }
+.gate .gate-lead { font-size: 15px; margin-bottom: 10px; }
+.gate .gate-lead::after { margin-top: 7px; }
+.gate .tabs { margin-bottom: 12px; }
+.gate .tab { font-size: 18px; padding: 3px 22px 5px; }
+.gate .gate-form { gap: 8px; }
+.gate .gate-form label { font-size: 14px; gap: 3px; }
+.gate .two { grid-template-columns: 1fr 1fr; gap: 12px; }
+.gate .two label { grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: 10px; }   /* 이름 · 암호 글자는 칸 왼쪽에 */
+.gate input { font-size: 16px; padding: 7px 12px; }
+.gate .err { font-size: 14px; margin: 0; }
+.gate .err:empty { display: none; }
+.gate .pick-label { font-size: 13px; line-height: 1.45; margin: 2px 0 0; }
+.gate .pick-sum { font-size: 13.5px; margin: 0; }
+.gate .btn.wide { font-size: 18px; padding: 9px; letter-spacing: .08em; }
+.gate .grp-pick { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.gate .grp-col { gap: 5px; }
+.gate .grp-fac { font-size: 14px; padding-bottom: 3px; }
+.gate .grp-fac small { font-size: 9.5px; }
+/* 깃발 칸: 문장 왼쪽, 글은 오른쪽에 흘려 쓴다 — 1줄 이름 · 영문, 2줄 성향 · 원소 · 다짐 */
+.gate .grp-tile { display: block; position: relative; min-height: 44px; padding: 3px 8px 3px 50px; text-align: left; line-height: 1.3; }
+.gate .grp-tile .emblem { position: absolute; left: 7px; top: 50%; translate: 0 -50%; width: 34px; height: 34px; }
+.gate .grp-tile b { font-size: 15px; margin-right: 6px; }
+.gate .grp-tile .en { font-size: 9.5px; white-space: nowrap; }
+.gate .grp-tile .role { font-size: 12px; }
+.gate .grp-tile .role::before { content: ""; display: block; }   /* 성향부터 둘째 줄 */
+.gate .grp-tile .motto { font-size: 12px; }
+.gate .grp-tile .motto::before { content: " · "; color: var(--muted); }
+.gate .grp-tile:hover { transform: none; }
+.gate .two.has-inv { grid-template-columns: 1fr 1fr 1.25fr; }
+.gate-form .two .nw-inv { margin: 0; font-size: inherit; }
+.gate .nw-inv-hint { margin: -2px 0 0; font-size: 12.5px; color: var(--muted); }
+.gate-or { margin: 12px 0 8px; font-size: 14px; }
+.gate .btn.gate-guest { flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: baseline; column-gap: 12px; row-gap: 0; padding-block: 8px; }
+.gate-guest small { font-size: 13.5px; }
+/* 높은 화면: 조금 넉넉하게 */
+@media (min-height: 940px) and (min-width: 900px) {
+  .gate { width: min(1120px, 100%); padding-top: 64px; font-size: 16px; border-radius: 50% 50% 4px 4px / 120px 120px 4px 4px; }
+  .gate .gate-eyebrow { font-size: 14px; }
+  .gate .gate-title { font-size: 44px; margin: 6px 0 4px; }
+  .gate .gate-lead { font-size: 17px; margin-bottom: 18px; }
+  .gate .tabs { margin-bottom: 18px; }
+  .gate .tab { font-size: 20px; padding: 8px 26px 10px; }
+  .gate .gate-form { gap: 12px; }
+  .gate .gate-form label { font-size: 16px; }
+  .gate input { font-size: 18px; padding: 10px 14px; }
+  .gate .pick-label { font-size: 14.5px; }
+  .gate .pick-sum { font-size: 15px; }
+  .gate .btn.wide { font-size: 20px; padding: 12px; }
+  .gate .grp-col { gap: 7px; }
+  .gate .grp-fac { font-size: 15px; }
+  .gate .grp-tile { min-height: 60px; padding: 7px 10px 7px 60px; }
+  .gate .grp-tile .emblem { left: 9px; width: 42px; height: 42px; }
+  .gate .grp-tile b { font-size: 16.5px; }
+  .gate .grp-tile .en { font-size: 10.5px; }
+  .gate .grp-tile .role, .gate .grp-tile .motto { font-size: 13.5px; }
+  .gate-or { margin: 18px 0 12px; font-size: 15px; }
+  .gate .btn.gate-guest { padding-block: 12px; }
+  .gate-guest small { font-size: 15px; }
+}
+/* 낮은 화면(폰 가로 · 작은 창): 더 촘촘하게 */
+@media (max-height: 680px) {
+  .screen-login { padding-block: 6px; }
+  .gate { padding-top: 30px; padding-bottom: 14px; border-radius: 50% 50% 4px 4px / 60px 60px 4px 4px; }
+  .gate .gate-eyebrow { font-size: 11px; }
+  .gate .gate-title { font-size: 26px; margin: 0; }
+  .gate .gate-lead { font-size: 14px; margin-bottom: 6px; }
+  .gate .gate-lead::after { margin-top: 5px; }
+  .gate .tabs { margin-bottom: 8px; }
+  .gate .tab { font-size: 17px; padding: 3px 20px 6px; }
+  .gate .gate-form { gap: 6px; }
+  .gate input { padding: 5px 10px; font-size: 15px; }
+  .gate .grp-tile { min-height: 44px; padding-block: 3px; }
+  .gate .grp-tile .emblem { width: 32px; height: 32px; }
+  .gate .btn.wide { padding: 7px; font-size: 17px; }
+  .gate-or { margin: 8px 0 6px; }
+  .gate .btn.gate-guest { padding-block: 6px; }
+}
+/* 더 낮은 화면(폰 글자 "아주 크게" = 높이 580): 한 번 더 */
+@media (max-height: 600px) and (min-width: 561px) {
+  .gate { padding-top: 22px; padding-bottom: 10px; border-radius: 50% 50% 4px 4px / 44px 44px 4px 4px; }
+  .gate .gate-eyebrow { font-size: 10px; }
+  .gate .gate-title { font-size: 23px; line-height: 1.15; }
+  .gate .gate-lead { font-size: 13px; margin-bottom: 4px; }
+  .gate .gate-lead::after { margin-top: 3px; }
+  .gate .tabs { margin-bottom: 6px; }
+  .gate .tab { font-size: 16px; padding: 2px 18px 5px; }
+  .gate .gate-form { gap: 5px; }
+  .gate input { padding: 4px 10px; }
+  .gate .pick-label { font-size: 12px; line-height: 1.35; }
+  .gate .pick-sum { font-size: 12.5px; }
+  .gate .grp-col { gap: 4px; }
+  .gate .grp-fac { font-size: 13px; padding-bottom: 1px; }
+  .gate .grp-tile { min-height: 40px; padding-block: 2px; line-height: 1.25; }
+  .gate .grp-tile b { font-size: 14px; }
+  .gate .grp-tile .role, .gate .grp-tile .motto { font-size: 11.5px; }
+  .gate .btn.wide { padding: 5px; font-size: 16px; }
+  .gate-or { margin: 5px 0 4px; font-size: 12px; }
+  .gate .btn.gate-guest { padding-block: 4px; }
+  .gate-guest small { font-size: 12.5px; }
+}
+/* 서버 모드(초대 코드 칸이 있을 때)는 설명 한 줄만큼 더 촘촘하게 */
+@media (max-height: 800px) and (min-width: 561px) {
+  .gate:has(.has-inv) .gate-lead { margin-bottom: 4px; }
+  .gate:has(.has-inv) .tabs { margin-bottom: 6px; }
+  .gate:has(.has-inv) .grp-tile { min-height: 40px; padding-block: 1px; line-height: 1.25; }
+  .gate:has(.has-inv) .gate-or { margin: 5px 0 4px; }
+}
+/* 폰 세로 · 좁은 창: 깃발 세 열을 그대로 두고 칸은 위아래로(문장 위 · 이름 · 영문 · 성향과 다짐을 이어 쓴 글) */
+@media (max-width: 560px) {
+  .screen-login { padding-block: 4px; padding-inline: max(6px, env(safe-area-inset-left, 0px)) max(6px, env(safe-area-inset-right, 0px)); }
+  .gate { padding: 24px 8px 10px; font-size: 14px; border-radius: 50% 50% 4px 4px / 40px 40px 4px 4px; }
+  .gate .gate-eyebrow { font-size: 10px; letter-spacing: .3em; }
+  .gate .gate-title { font-size: 24px; }
+  .gate .gate-lead { font-size: 13px; margin-bottom: 4px; }
+  .gate .gate-lead::after { margin-top: 3px; }
+  .gate .tabs { margin-bottom: 8px; }
+  .gate .tab { font-size: 16px; padding: 2px 16px 5px; }
+  .gate .gate-form { gap: 5px; }
+  .gate .two { gap: 8px; }
+  .gate .two label { column-gap: 6px; }
+  .gate .two.has-inv { grid-template-columns: 1fr 1fr; }
+  .gate .two.has-inv .nw-inv { grid-column: 1 / -1; }
+  .gate .nw-inv-hint { font-size: 11px; line-height: 1.35; }
+  .gate:has(.has-inv) { padding-top: 18px; }
+  .gate:has(.has-inv) .pick-label { line-height: 1.3; }
+  .gate:has(.has-inv) .tabs { margin-bottom: 5px; }
+  .gate input { padding: 5px 8px; font-size: 15px; }
+  .gate .pick-label { font-size: 11.5px; line-height: 1.38; margin: 0; }
+  .gate .pick-sum { font-size: 11px; line-height: 1.35; }
+  .gate .grp-pick { gap: 4px; }
+  .gate .grp-col { gap: 4px; }
+  .gate .grp-fac { font-size: 12px; flex-direction: column; align-items: center; gap: 0; line-height: 1.2; }
+  .gate .grp-fac small { font-size: 7.5px; letter-spacing: .04em; }
+  .gate .grp-tile { min-height: 0; padding: 3px 3px 4px; text-align: center; line-height: 1.2; }
+  .gate .grp-tile .emblem { position: static; translate: none; width: 22px; height: 22px; margin: 0 auto; }
+  .gate .grp-tile b { display: block; font-size: 12px; margin: 0; word-break: keep-all; }
+  .gate .grp-tile .en { display: block; font-size: 7px; letter-spacing: .02em; white-space: nowrap; overflow: hidden; text-overflow: clip; }
+  .gate .grp-tile .role, .gate .grp-tile .motto { font-size: 9.5px; word-break: keep-all; }
+  .gate .btn.wide { font-size: 16px; padding: 6px; }
+  .gate-or { margin: 5px 0 4px; font-size: 12px; }
+  .gate .btn.gate-guest { padding-block: 5px; }
+  .gate-guest small { font-size: 11.5px; }
+}
+}
+
 /* v3.5.4 상단 띠 오른쪽 날개가 1440px 이하에서 넘쳐 인장(손님) 글자와 "나가기"가 겹치던 것.
    날개에 필요한 폭이 남는 폭보다 커서 인장이 찌그러졌다 → 인장은 줄어들지 않게, 사이를 좁히고, 나가기는 아이콘만(이름은 말풍선 title) */
 .tbw-right .user-chip.seal { flex: none; }

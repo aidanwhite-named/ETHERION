@@ -16,7 +16,7 @@
 
 const NET_KEY = "etherion.net.token";      // 이 브라우저의 로그인 토큰
 const NET_SERVER_KEY = "etherion.server";   // (선택) 파일로 연 게임이 붙을 서버 주소. 예: localStorage["etherion.server"] = "http://192.168.0.10:8787"
-const NET_PROTECTED = ["id", "admin", "guest", "created", "group", "owned", "collection", "gold", "ledger", "decks", "drafts", "fresh", "pilClaim", "spins", "pilSrv", "rewardDay", "rewardLog", "xp", "stats", "quests", "ach", "titles", "title", "book", "rank", "trial", "invitedBy", "seals", "orbs"];   // v3.54 순례의 인장   // v3.48 초대 체험 덱도   // v3.46 모험 수첩(js/quests.js)도 서버만   // v3.44 경험치 · 전적도 서버가 센다   // v3.39 spins · pilSrv · rewardDay: 서버가 정하는 보상
+const NET_PROTECTED = ["id", "admin", "guest", "created", "group", "owned", "collection", "gold", "ledger", "decks", "drafts", "fresh", "pilClaim", "spins", "pilSrv", "rewardDay", "rewardLog", "xp", "stats", "quests", "ach", "titles", "title", "book", "rank", "trial", "invitedBy", "seals", "orbs", "deck50"];   // v3.56 덱 50장 옮김 표시   // v3.54 순례의 인장   // v3.48 초대 체험 덱도   // v3.46 모험 수첩(js/quests.js)도 서버만   // v3.44 경험치 · 전적도 서버가 센다   // v3.39 spins · pilSrv · rewardDay: 서버가 정하는 보상
 const NET_SYNC_OPS = ["questSync", "questClaim", "questReroll", "starClaim", "achClaim", "bookClaim", "titleSet", "rankClaim", "saveDeck", "buyCard", "sellCard", "draftAdd", "grantGroup", "revokeGroup", "grantAllCards", "restock", "pilgrimClaim", "upgradeCard", "fuseRare", "shopSet", "shopStock", "matchStart", "matchArcade", "matchEnd", "wheelSpin"];   // pilgrimClaim(v3.26): 순례 첫 승 — 서버가 날짜를 보고 추첨까지
 const NET_ASYNC_OPS = ["setDraft", "clearDraft", "grantCard", "addGold"];   // v3.39 grantCard · addGold는 필멸자만 (로그인한 모험가의 보상은 서버가 정한다 — 아래 install)   // v3.39 grantCard · addGold는 보내지 않는다 — 보상은 서버가 정한다(js/rewards.js)
 

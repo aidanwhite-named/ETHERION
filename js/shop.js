@@ -169,7 +169,7 @@ function shopLinkHTML(u) {
   const admin = Store.isAdmin(u), deckG = GROUPS[SHOP.node] ? SHOP.node : null;
   const dk = deckG && Store.ownsGroup(u, deckG) ? (Store.draft(u, deckG) || Store.deck(u, deckG)) : null, dn = dk ? countMap(dk.cards) : 0;
   return `<div class="shop-link">
-      <label class="chip tog" title="켜 두면 산 카드가 덱 조정실의 덱 초안에 바로 들어갑니다 (40장까지). 다 찼으면 보관함에만 들어갑니다"><input type="checkbox" id="shop-todeck" ${SHOP.toDeck ? "checked" : ""}> 산 카드를 덱 초안에 바로 넣기</label>
+      <label class="chip tog" title="켜 두면 산 카드가 덱 조정실의 덱 초안에 바로 들어갑니다 (${RULES.deckSize}장까지). 다 찼으면 보관함에만 들어갑니다"><input type="checkbox" id="shop-todeck" ${SHOP.toDeck ? "checked" : ""}> 산 카드를 덱 초안에 바로 넣기</label>
       ${dk ? `<button type="button" class="btn xs" data-goeditor="${deckG}" title="이 단체의 덱 조정실로">${menuIcon("quill")}<span>「${esc(dk.name)}」 <b class="${dn === RULES.deckSize ? "ok" : "bad"}">${dn}</b>/${RULES.deckSize}${Store.draft(u, deckG) ? " · 초안" : ""}</span></button>` : '<span class="muted small">단체를 고르면 그 덱 조정실로 가는 길이 여기 나옵니다.</span>'}
       ${!Store.allCards(u) && typeof Forge !== "undefined" ? `<button type="button" class="btn xs fg-open" data-fuse="" data-fuse-g="${deckG || ""}" title="같은 카드 3장 합치기 — 일반 → 강화 · 고급 → 레어 뽑기">${fuseIcon("up")}<span>합성소</span></button>` : ""}
       ${admin ? '<button type="button" class="btn xs ghost" id="shop-restock" title="모든 카드의 재고를 등급별 처음 장수로">재고 모두 채우기</button>' : ""}

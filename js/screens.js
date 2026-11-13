@@ -191,8 +191,9 @@ function ringSVG() {
 /* v3.41 폰 · 앱(html.mobile)은 1920×1080 판(title_art_m.jpg) — 4K를 폰 메모리에 풀면 약 33MB, 1920이면 8MB. PC는 4K 그대로 */
 /* v3.45 메뉴 화면(대기실 · 상점 · 교역소 · 덱 조정실 · 원정 · 순례 · 관리자 · 입장 관문) 배경 그림. null이면 타이틀 그림을 그대로 쓴다(지금).
    메뉴 전용 그림을 받으면 여기만 고친다 — 예: { src: "img/ui/menu/menu_bg.jpg", m: "img/ui/menu/menu_bg_m.jpg" }(m = 폰 · 앱용 1920×1080). 프롬프트 tools/art/prompts/scenes.md */
-/* v3.48.1 메뉴 전용 그림(1번 땅과 하늘)과 세 존재 층(2번, 투명 WebP — 원본 PNG는 tools/art/out/raw/ui/menu/) */
-const MENU_ART = { src: "img/ui/menu/menu_bg.jpg?v=1", m: "img/ui/menu/menu_bg_m.jpg?v=1", titans: "img/ui/menu/titans.webp?v=1", titansM: "img/ui/menu/titans_m.webp?v=1" };
+/* v3.55.7 메뉴 배경은 세 존재 그림(scenes.md 2번) 한 장 — 검은 하늘 · 가운데 아래가 비어 메뉴 글자가 읽힌다. 원본 PNG는 tools/art/out/raw/ui/menu/titans_net.png.
+   titans · titansM(투명 층)을 다시 주면 그림 위에 겹친다(v3.48.1 방식, 지금은 없음) */
+const MENU_ART = { src: "img/ui/menu/menu_bg.jpg?v=2", m: "img/ui/menu/menu_bg_m.jpg?v=2" };
 /* v3.55.3 폰 · 앱은 제미나이 v2 타이틀(1376×768, 로고가 아래 가운데 · 세 존재가 위). 해상도가 낮아 PC는 4K 그대로.
    tall = 세로 화면에서 그림을 가로폭의 k배로 키우고 로고를 화면 높이 ly 자리에 둔다(css/title-art.css 와 같은 값을 --tk · --tly 로 넘긴다) */
 const TITLE_ART = document.documentElement.classList.contains("mobile") ? { src: "img/title/title_art_v2.jpg?v=1", w: 1376, h: 768, focus: [.5, .8], tall: { k: 2.36, ly: .4 } } : { src: "img/title/title_art.jpg?v=4k", w: 3840, h: 2160, focus: [.49, .5], tall: { k: 2.05, ly: .45 } };
@@ -307,12 +308,12 @@ function showLogin(tab) {
         <button class="btn primary wide" type="submit">관문 통과</button>
       </form>
       <form id="f-new" class="gate-form" ${tab === "new" ? "" : "hidden"}>
-        <div class="two"><label>이름<input id="nw-id" maxlength="16" required placeholder="2~16자"></label>
-        <label>암호<input id="nw-pw" type="password" required placeholder="2자 이상"></label></div>
-        <p class="pick-label">깃발을 최대 3개까지 무료로 고릅니다 — 진영마다 하나까지, 적어도 하나. 고른 깃발마다 기본 덱 40장과 그 단체의 다른 카드를 1장씩 받습니다. 고르지 않은 깃발은 쓸 수 없습니다. (고른 깃발을 다시 누르면 풀립니다)</p>
+        ${(() => { const inv = typeof Net !== "undefined" && Net.on && typeof inviteParse === "function";   /* v3.55.4 한 화면에: 초대 코드 칸은 이름 · 암호와 한 줄, 설명은 그 아래 한 줄 */
+          return `<div class="two${inv ? " has-inv" : ""}"><label>이름<input id="nw-id" maxlength="16" required placeholder="2~16자"></label>
+        <label>암호<input id="nw-pw" type="password" required placeholder="2자 이상"></label>${inv ? `<label class="nw-inv">초대 코드<input id="nw-inv" maxlength="200" value="${esc(invite)}" placeholder="INV:친구이름:깃발"></label>` : ""}</div>${inv ? `<p class="nw-inv-hint">친구 초대 코드는 선택 — 받은 링크나 코드를 넣고 등록하면 친구의 덱을 ${TRIAL.days}일 동안 써 볼 수 있습니다</p>` : ""}`; })()}
+        <p class="pick-label">깃발을 최대 3개까지 무료로 고릅니다 — 진영마다 하나까지, 적어도 하나. 고른 깃발마다 기본 덱 ${RULES.deckSize}장과 그 단체의 다른 카드를 1장씩 받습니다. 고르지 않은 깃발은 쓸 수 없습니다. (고른 깃발을 다시 누르면 풀립니다)</p>
         ${groupGridHTML({ motto: true })}
         <p class="pick-sum" id="nw-sum"></p>
-        ${typeof Net !== "undefined" && Net.on && typeof inviteParse === "function" ? `<label class="nw-inv">친구 초대 코드 <small>(선택) 받은 링크나 코드 — 등록하면 친구의 덱을 ${TRIAL.days}일 동안 써 볼 수 있습니다</small><input id="nw-inv" maxlength="200" value="${esc(invite)}" placeholder="INV:친구이름:깃발"></label>` : ""}
         ${invP ? `<p class="nw-inv-note">「${esc(invP.from)}」님의 초대 — 등록하면 ${esc(invP.from)}님의 <b>${esc(GROUPS[invP.group].name)}</b> 덱을 ${TRIAL.days}일 동안 내 덱처럼 쓸 수 있습니다.</p>` : ""}
         <p class="err" id="nw-err"></p>
         <button class="btn primary wide" type="submit">모험가 등록</button>
@@ -409,7 +410,7 @@ function headerHTML(title) {
   return `<header class="topbar realm">
     <div class="tb-inner realm">
       <nav class="tb-wing tbw-left" aria-label="주 메뉴">
-        ${nav("lobby", "hall", "대기실")}${div}${nav("shop", "shop", "상점", "린데어 상점 — 카드 사고팔기")}${typeof showTrade === "function" ? div + nav("trade", "trade", "교역소", "린데어 교역소 — 모험가끼리 카드 맞바꾸기", typeof TradeUI !== "undefined" ? TradeUI.badgeHTML() : "") : ""}${typeof showJournal === "function" ? div + nav("journal", "journal", "퀘스트", "퀘스트 — 일일 · 주간 퀘스트 · 업적 · 카드 도감 · 온라인 등급 · 다시보기", Journal.badgeHTML()) : ""}${u.admin ? div + nav("admin", "vault", "보관소", "관리자 보관소") : ""}${div}${nav("map", "map", "지도", "카일란 대륙 전도")}${nav("chronicle", "book", "연대기", "에테리온 연대기")}
+        ${nav("lobby", "hall", "대기실")}${div}${nav("shop", "shop", "상점", "린데어 상점 — 카드 사고팔기")}${typeof showTrade === "function" ? div + nav("trade", "trade", "교역소", "린데어 교역소 — 모험가끼리 카드 맞바꾸기", typeof TradeUI !== "undefined" ? TradeUI.badgeHTML() : "") : ""}${typeof showJournal === "function" ? div + nav("journal", "journal", "퀘스트", "퀘스트 — 일일 · 주간 퀘스트 · 업적 · 카드 도감 · 온라인 등급 · 다시보기", Journal.badgeHTML()) : ""}${typeof Help !== "undefined" ? nav("tutorial", "guide", "튜토리얼", "튜토리얼 — 대기실 둘러보기 · 전투 배우기 · 연습 대전 (매뉴얼 · 룰북은 연대기 안에)", Help.tutBadgeHTML()) : ""}${u.admin ? div + nav("admin", "vault", "보관소", "관리자 보관소") : ""}${div}${nav("map", "map", "지도", "카일란 대륙 전도")}${nav("chronicle", "book", "연대기", "에테리온 연대기")}
       </nav>
       <button type="button" class="tb-crest${typeof CREST !== "undefined" ? " has-art" : ""}" data-nav="lobby" title="대기실로">${typeof CREST !== "undefined" ? CREST.svg() : ""}<span class="crest-word">ETHERION</span>${title ? `<span class="crest-sub">${title}</span>` : ""}</button>
       <div class="tb-wing tbw-right">
@@ -433,6 +434,7 @@ function bindHeader(root, guard) {
     if (b.dataset.nav === "admin") showAdmin();
     if (b.dataset.nav === "shop") showShop();
     if (b.dataset.nav === "trade" && typeof showTrade === "function") showTrade();
+    if (b.dataset.nav === "tutorial") { if (typeof Help !== "undefined") Help.Tutorial.open(); return; }   /* v3.55.4 튜토리얼은 상단 띠 퀘스트 옆(예전 대기실 오른쪽 명판) */
     if (b.dataset.nav === "journal" && typeof showJournal === "function") showJournal();   /* v3.46 퀘스트 (js/journal.js) */   /* v3.21 린데어 교역소 (js/trade-ui.js) */
     if (b.dataset.nav === "map") { if (typeof Kailan !== "undefined") Kailan.open(); }
     if (b.dataset.nav === "chronicle") { if (typeof Chronicle !== "undefined") { const r = b.getBoundingClientRect(); Chronicle.open(r.left + r.width / 2, r.top + r.height / 2); } }   /* v3.7 연대기 (js/chronicle.js) */
@@ -444,7 +446,7 @@ function bindHeader(root, guard) {
 function deckSealHTML(g) {
   return `<span class="dt-seal" aria-hidden="true"><i class="dt-fan"><i></i><i></i><i></i></i>${groupEmblem(g)}<svg class="dt-ring" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 4.2"/><path d="M32 .5l2.2 2.2-2.2 2.2-2.2-2.2z" fill="currentColor"/></svg></span>`;
 }
-/* 덱 장수 계기판 10칸(한 칸 = 4장). 덱 조정실 계기판과 같은 색 규칙: 모자람 = 에테르 하늘빛, 저장된 40장 = 금 */
+/* 덱 장수 계기판 10칸(한 칸 = 덱 장수의 1/10). 덱 조정실 계기판과 같은 색 규칙: 모자람 = 에테르 하늘빛, 저장된 덱 = 금 */
 function vaultGaugeHTML(n, ready) {
   const per = RULES.deckSize / 10;
   return `<i class="dt-gauge${ready ? " full" : ""}" title="${n} / ${RULES.deckSize}장">${Array.from({ length: 10 }, (_, i) => `<i style="--f:${Math.max(0, Math.min(1, (n - i * per) / per)).toFixed(2)}"></i>`).join("")}</i>`;
@@ -481,7 +483,6 @@ function showLobby() {
       </nav>
       <main class="deck-view" id="deck-view"></main>
       <aside class="side-col">
-      ${!lobbyCompact() && typeof Help !== "undefined" ? Help.dockHTML() : ""}
       <div class="wheel-host" id="wheel-host"></div>
       <aside class="chat" aria-label="대기실 채팅">
         <div class="chat-head"><h3 class="panel-title">대기실 채팅</h3><span class="net off" title="서버 미연결: 메시지는 이 기기에만 저장됩니다">● 오프라인</span></div>
@@ -491,11 +492,9 @@ function showLobby() {
       <div class="side-altar" id="side-altar"></div>
       </aside>
     </div>
-    ${lobbyCompact() && typeof Help !== "undefined" ? Help.dockHTML() : ""}
-  </section>`;   /* v3.9 오른쪽 아래 튜토리얼 · 매뉴얼 (js/manual.js) */
+  </section>`;   /* v3.55.4 튜토리얼 · 매뉴얼 · 룰북 명판은 뺐다 — 튜토리얼은 상단 띠, 매뉴얼 · 룰북은 연대기 머리 */
   const root = $(".screen-lobby");
   bindHeader(root);
-  if (typeof Help !== "undefined") Help.bindDock(root);
   $$(".deck-tile", root).forEach(b => b.addEventListener("click", () => {
     if (b.classList.contains("locked")) { toast("보유하지 않은 덱입니다.", "warn"); return; }
     App.lobbyGroup = b.dataset.g;
@@ -523,7 +522,7 @@ function renderDeckView() {
     <div class="dv-meta dv-filter">
       <div class="dv-kinds" role="group" aria-label="카드 종류로 거르기">${DV_KINDS.map(([k, l]) => { const n = k === "all" ? ids.length : ids.filter(id => kindOf(CARDS[id]) === k).length;
         return `<button type="button" class="dv-k k-${k}" data-dk="${k}" ${n || k === "all" ? "" : "disabled"} title="${k === "all" ? "덱의 모든 카드" : `${l}만 보기`}"><span>${l}</span><b>${n}</b>${k === "all" ? `<small>/ ${RULES.deckSize}장</small>` : ""}</button>`; }).join("")}
-        <span class="dv-st ${playable ? "ok" : "bad"}">${playable ? "저장된 덱 · 출전 가능" : "출전 불가 · 덱 조정실에서 40장을 저장하세요"}</span></div>
+        <span class="dv-st ${playable ? "ok" : "bad"}">${playable ? "저장된 덱 · 출전 가능" : `출전 불가 · 덱 조정실에서 ${RULES.deckSize}장을 저장하세요`}</span></div>
       <div class="dv-grades" id="dv-grades" role="group" aria-label="등급으로 거르기"></div>
     </div>
     <div class="dv-cards" id="dv-cards">${ids.map(id => cardHTML(CARDS[id], { size: "md", brief: true })).join("")}</div>`;
@@ -584,7 +583,7 @@ function openDeckSheet(f) {
     <div class="ds-head">
       ${groupEmblem(f, "big")}
       <div class="ds-title"><p class="eyebrow">${G_.en} · ${FA.name}</p><h3>${esc(d.name)}</h3><p class="muted">${G_.name} · ${G_.role} · ${G_.motto}</p>
-        <p class="ds-st"><span class="dt-st ${playable ? "ok" : "bad"}"><b>${n}</b>/${RULES.deckSize} · ${playable ? "출전 가능" : "저장 필요 — 덱 조정실에서 40장을 저장하세요"}</span><span class="ds-kinds">${kinds}</span>${dr ? '<span class="ds-draft">고치던 초안 있음</span>' : ""}</p></div>
+        <p class="ds-st"><span class="dt-st ${playable ? "ok" : "bad"}"><b>${n}</b>/${RULES.deckSize} · ${playable ? "출전 가능" : `저장 필요 — 덱 조정실에서 ${RULES.deckSize}장을 저장하세요`}</span><span class="ds-kinds">${kinds}</span>${dr ? '<span class="ds-draft">고치던 초안 있음</span>' : ""}</p></div>
       <div class="dv-curve" title="레벨별 장수">${curve.map((k, i) => `<span><i style="height:${k / mx * 100}%"></i><em>${i + 1}</em></span>`).join("")}</div>
     </div>
     ${altarHTML(f)}
@@ -656,7 +655,7 @@ async function startVsAI(f, opts) {   // opts.practice = 튜토리얼 ③ 연습
   const u = Store.user();
   const trial = opts && opts.trial && typeof trialDeckOf === "function" ? trialDeckOf(u) : null;
   if (opts && opts.trial && !trial) { toast("체험 기간이 끝났습니다.", "warn"); return; }
-  if (!trial && !Store.deckPlayable(u, f)) { toast("저장된 40장 덱이 있어야 대전할 수 있습니다.", "warn"); return; }
+  if (!trial && !Store.deckPlayable(u, f)) { toast(`저장된 ${RULES.deckSize}장 덱이 있어야 대전할 수 있습니다.`, "warn"); return; }
   const myCards = trial ? trial.cards : Store.deck(u, f).cards;
   let get;
   /* v3.16 난이도: 보통(예전 컴퓨터) · 어려움(js/aihard.js — 모든 수를 전투로 미리 굴려 본다). 마지막 고른 것을 기억한다
@@ -679,7 +678,7 @@ async function startVsAI(f, opts) {   // opts.practice = 튜토리얼 ③ 연습
 async function startPvP(f) {
   /* v3.36 대전 = 온라인 대전. 한 화면에서 두 사람이 번갈아 하던 대전(mode "hotseat")은 메뉴에서 뺐다(엔진의 hotseat는 그대로) */
   const u = Store.user();
-  if (!Store.deckPlayable(u, f)) { toast("저장된 40장 덱이 있어야 대전할 수 있습니다.", "warn"); return; }
+  if (!Store.deckPlayable(u, f)) { toast(`저장된 ${RULES.deckSize}장 덱이 있어야 대전할 수 있습니다.`, "warn"); return; }
   startOnline(f);
 }
 function launch(cfg) {
@@ -777,7 +776,7 @@ function showEditor(f, focusId) {
       <div class="ed-btns">
         <button class="btn ghost" id="ed-back">대기실로</button>
         <button class="btn" id="ed-revert" title="초안을 버리고 마지막으로 저장한 덱으로 되돌립니다">되돌리기</button>
-        <button class="btn ghost" id="ed-starter" title="이 단체의 기본 덱 40장으로 바꿉니다 (저장해야 반영)">기본 덱</button>
+        <button class="btn ghost" id="ed-starter" title="이 단체의 기본 덱 ${RULES.deckSize}장으로 바꿉니다 (저장해야 반영)">기본 덱</button>
         ${typeof DeckCode !== "undefined" ? '<button class="btn ghost" id="ed-code" title="덱 코드 — 지금 덱을 글로 복사하거나, 받은 덱 코드로 꾸밉니다">덱 코드</button>' : ""}
         <button class="btn primary ed-save" id="ed-save">저장</button>
         <button class="btn primary alt" id="ed-play">이 덱으로 대전</button>
@@ -822,6 +821,7 @@ function showEditor(f, focusId) {
   const root = $(".screen-editor");
   bindHeader(root);
   bindPreview($("#ed-deck-list"));
+  bindPreview($("#ed-pool"));   // v3.55.5 보관함 카드도 마우스를 올리면 크게 (덱이 가득 차 넣을 수 없어도)
 
   let lastN = -1;
   const draw = () => {
@@ -1087,7 +1087,7 @@ function showEditor(f, focusId) {
   { const dcb = $("#ed-code"); if (dcb) dcb.addEventListener("click", () => DeckCode.dialog(u, f, E.cards, cards => { E.cards = cards; persist(); draw(); })); }   // v3.46 덱 코드 (js/deckcode.js)
   $("#ed-back").addEventListener("click", () => { if (dirty()) toast("고치던 덱은 초안으로 남아 있습니다. 다시 오면 이어서 고칠 수 있습니다."); showLobby(); });
   $("#ed-play").addEventListener("click", async () => {
-    if (dirty() || !Store.deckPlayable(u, f)) { alarm("40장을 채우고 저장해야 게임에 들어갈 수 있습니다.", "warn"); return; }
+    if (dirty() || !Store.deckPlayable(u, f)) { alarm(`${RULES.deckSize}장을 채우고 저장해야 게임에 들어갈 수 있습니다.`, "warn"); return; }
     const v = await modal(`<h3>대전 방식</h3><p>저장된 「${esc(Store.deck(u, f).name)}」로 출전합니다.</p>`, [{ label: "취소", value: null }, { label: "온라인 대전", value: "pvp" }, { label: "순례", value: "pil" }, { label: "컴퓨터와 대전", value: "ai", cls: "primary" }]);
     if (v === "ai") startVsAI(f); else if (v === "pvp") startPvP(f);
     else if (v === "pil" && typeof showPilgrim === "function") { App.lobbyGroup = f; showPilgrim(f); }   // v3.34 순례도 덱 조정실에서 바로
@@ -1122,7 +1122,7 @@ function showAdmin(tab) {
     const deck = STARTER_DECKS[tab], deckIds = sortDeckCards(Object.keys(deck));
     body = `<section class="vault-fac fac-${G.faction}" style="--gc:${G.color}"><h3>${groupEmblem(tab)}<span>${G.name}</span><small>${G.en} · ${FACTIONS[G.faction].name} · ${G.role}</small><button class="btn sm" data-edit="${tab}">${G.name} 덱 조정실</button></h3>
       <p class="muted small vault-blurb">${G.blurb} 카드 ${cs.length}종: 유닛 40 · 마법 ${sp.length} · 아이템 ${cs.filter(c => c.type === "item").length}</p>
-      ${sec("기본 덱", `40장 · 컴퓨터끼리 대전시켜 다듬은 덱 (${deckIds.map(id => deck[id]).reduce((a, b) => a + b, 0)}장)`, deckIds.map(id => CARDS[id]))}
+      ${sec("기본 덱", `${RULES.deckSize}장 · 컴퓨터끼리 대전시켜 다듬은 덱 (${deckIds.map(id => deck[id]).reduce((a, b) => a + b, 0)}장)`, deckIds.map(id => CARDS[id]))}
       ${sec("유닛", "40장 · 코인 카드 시뮬레이터", cs.filter(c => c.type === "unit"))}
       ${sec("마법", `${sp.length}장 · 마법 카드 시뮬레이터 v0.3 잣대`, sp)}
       ${sec("아이템", `${cs.filter(c => c.type === "item").length}장 · 아이템 카드 시뮬레이터 잣대`, cs.filter(c => c.type === "item"))}

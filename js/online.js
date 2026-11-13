@@ -308,7 +308,7 @@ async function startOnline(f, opts) {   // opts.trial = v3.48 친구 초대 체�
   const u = Store.user();
   const trial = opts && opts.trial && typeof trialDeckOf === "function" ? trialDeckOf(u) : null;
   if (opts && opts.trial && !trial) { toast("체험 기간이 끝났습니다.", "warn"); return; }
-  if (!trial && !Store.deckPlayable(u, f)) { toast("저장된 40장 덱이 있어야 대전할 수 있습니다.", "warn"); return; }
+  if (!trial && !Store.deckPlayable(u, f)) { toast(`저장된 ${RULES.deckSize}장 덱이 있어야 대전할 수 있습니다.`, "warn"); return; }
   const deck = { name: u.id, group: f, cards: trial ? trial.cards : Store.deck(u, f).cards, trial: !!trial, rec: { w: (u.stats && u.stats.w) || 0, l: (u.stats && u.stats.l) || 0 } };   // v3.47 rec: 상대 깃발 명판에 보일 전적(화면에만)
   const v = await modal(`<h3>온라인 대전</h3>
     <p class="muted">친구와 각자의 컴퓨터에서 겨룹니다. 한 사람이 방을 만들고, 받은 <b>방 코드</b>를 친구에게 알려 주세요. 덱은 지금 고른 <b>${esc(GROUPS[f].name)}</b> 덱을 씁니다.</p>

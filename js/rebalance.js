@@ -103,21 +103,28 @@ const REBAL_V349 = {
   "G2-04": {gift: {thorns: 1},was: ["uncommon",2,2]},   // 덩굴 보초 L1 [가시 1] — v3.50 고급으로 올림(빈 레벨 채우기)
   "G2-09": {g: "common",a: 4,was: ["uncommon",3,2]},   // 나무껍질 방패병 L2
   "G2-11": {h: 6,was: ["common",2,5]},   // 실바니엘 보초 L2
-  "G2-17": {h: 8,was: ["common",1,9]},   // 트롤 주술사 L3
+  "G2-17": {h: 7,was: ["common",1,9]},   // 트롤 주술사 L3
+  "G2-22": {h: 7,was: ["common",4,8]},   // 가시숲 파수꾼 L4
   "G2-23": {h: 7,was: ["common",4,6]},   // 드리엔의 사도 L4
+  "G2-25": {h: 6,was: ["common",4,7]},   // 고목 수호장 L5
   "G2-26": {g: "common",was: ["uncommon",5,6]},   // 에일렌의 고목 L5
-  "G2-27": {h: 11,gift: {magic: 1},was: ["uncommon",2,13]},   // 베르단 숭배자 L5 [마력 1]
+  "G2-27": {h: 10,gift: {magic: 1},was: ["uncommon",2,13]},   // 베르단 숭배자 L5 [마력 1]
+  "G2-28": {h: 8,was: ["common",4,9]},   // 장벽 트렌트 L5
   "G2-30": {h: 10,was: ["common",3,9]},   // 실바니엘 수호자 L6
+  "G2-31": {h: 10,was: ["common",4,11]},   // 드리엔의 화신 L6
+  "G2-33": {h: 8,was: ["common",5,9]},   // 첫 고목의 가지 L7
+  "G2-34": {h: 10,was: ["common",4,11]},   // 베르단의 뿔 기사 L7
   "G2-35": {g: "uncommon",h: 13,gift: {magic: 1},was: ["common",4,12]},   // 고목 장로회 L7 [마력 1] — v3.50 고급으로 올림(빈 레벨 채우기)
-  "G2-36": {g: "common",was: ["uncommon",4,13]},   // 에일렌의 심장 L7
+  "G2-36": {g: "common",h: 12,was: ["uncommon",4,13]},   // 에일렌의 심장 L7
   "G2-41": {gift: {shred: true},was: ["uncommon",7,1]},   // 트롤 투창수 L2 [관통]
   "G2-42": {gift: {shred: true},was: ["uncommon",11,1]},   // 독가시 말벌떼 L4 [관통]
   "G2-43": {gift: {shred: true},was: ["uncommon",12,2]},   // 벼락 맞은 분노목 L6 [관통]
   "EP-G2-1": {a: 3,h: 6,was: ["epic",4,7]},   // 엉겅퀴 트렌트 L3 [가시 2 가호 1]
-  "EP-G2-3": {a: 7,h: 12,was: ["epic",6,11]},   // 베르단의 고목 거인 L7 [가시 2 가호 1]
+  "EP-G2-3": {h: 12,was: ["epic",6,11]},   // 베르단의 고목 거인 L7 [가시 2 가호 1]
   "PN-G2-C2": {g: "uncommon",h: 7,gift: {thorns: 1},was: ["common",4,8]},   // 가시덤불 트렌트 L4 [가시 1]
   "PN-G2-U1": {h: 5,gift: {ranged: true},was: ["uncommon",4,6]},   // 덩굴손 궁수 L3 [원거리]
   "PN-G2-U2": {h: 9,gift: {thorns: 1},was: ["uncommon",3,10]},   // 실바니엘 뿌리지기 L5 [가시 1]
+  "PN-G2-R": {h: 9,was: ["rare",4,10]},   // 드리엔의 이끼 거인 L4 [가시 2]
   /* G3 */
   "G3-01": {g: "uncommon",h: 4,gift: {magic: 1},was: ["common",1,3]},   // 석호 수습 무녀 L1 [마력 1] — v3.50 고급으로 올림(빈 레벨 채우기)
   "G3-08": {gift: {magic: 1},was: ["uncommon",1,4]},   // 물결 무녀 L2 [마력 1] — v3.50 고급으로 올림(빈 레벨 채우기)

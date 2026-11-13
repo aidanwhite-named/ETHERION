@@ -89,7 +89,7 @@ function variant(id) {
     }
     d[id] = have + m; if (!d[id]) delete d[id];
   }
-  const total = Object.values(d).reduce((a, b) => a + b, 0); if (total !== 40) throw new Error(id + ' deck ' + total);
+  const total = Object.values(d).reduce((a, b) => a + b, 0); if (total !== ctx.ev("RULES.deckSize")) throw new Error(id + ' deck ' + total);
   return { deck: d, m };
 }
 

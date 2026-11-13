@@ -80,10 +80,21 @@ function renderTrack(name, bpm, beatsPerBar, bars, buildFn, seed, targetRmsDb = 
 
   const tracks = {};
   for (const k of Object.keys(PAN)) tracks[k] = [];
+  // Calm, gentle dynamic shaping: lift very soft solo notes slightly, tame intense tutti/timpani/tremolo spikes
+  const calmVel = (inst, v) => {
+    let x = v <= 0.42 ? 0.34 + Math.max(0, v - 0.15) * 0.55 : 0.488 + Math.tanh((v - 0.42) * 1.15) * 0.14;
+    if (inst === "timpani") x *= 0.24;
+    else if (inst === "tremolo") x *= 0.32;
+    else if (inst === "horn" && v > 0.65) x *= 0.78;
+    else if (inst === "choir" && v > 0.36) x *= 0.80;
+    return x;
+  };
   const add = (inst, bar, bt, lenBeats, midi, vel = 0.72, legato = false, sfz = false, extra = {}) => {
     const t0 = b(bar, bt);
     const t1 = b(bar, bt + lenBeats);
-    tracks[inst].push({ startSec: t0, durSec: Math.max(0.02, t1 - t0), midi, vel, legato, sfz, ...extra });
+    const ex = { ...extra };
+    if (ex.velEnd != null) ex.velEnd = calmVel(inst, ex.velEnd);
+    tracks[inst].push({ startSec: t0, durSec: Math.max(0.02, t1 - t0), midi, vel: calmVel(inst, vel), legato, sfz: false, ...ex });
   };
 
   buildFn(add, bars);
@@ -96,6 +107,26 @@ function renderTrack(name, bpm, beatsPerBar, bars, buildFn, seed, targetRmsDb = 
     for (let i = 0; i < totalSamples; i++) { mixL[i] += sL[i]; mixR[i] += sR[i]; }
   }
   const [revL, revR] = applyHallReverb(mixL, mixR, wetAmt);
+  // Slow 2.5s moving-RMS gain rider to keep dynamic range calm & gentle (~7-9 dB) without pumping
+  const win = Math.floor(2.5 * SR);
+  const env = new Float64Array(totalSamples);
+  let runSum = 0;
+  for (let i = 0; i < totalSamples; i++) {
+    runSum += revL[i] * revL[i] + revR[i] * revR[i];
+    if (i >= win) runSum -= revL[i - win] * revL[i - win] + revR[i - win] * revR[i - win];
+    const cnt = Math.min(i + 1, win);
+    env[i] = Math.sqrt(Math.max(1e-10, runSum / (2 * cnt)));
+  }
+  let meanRms = 0;
+  for (let i = 0; i < totalSamples; i++) meanRms += env[i];
+  meanRms = Math.max(1e-6, meanRms / totalSamples);
+  const halfWin = Math.floor(win * 0.5);
+  for (let i = 0; i < totalSamples; i++) {
+    const local = env[Math.min(totalSamples - 1, i + halfWin)];
+    const g = Math.pow(meanRms / Math.max(local, meanRms * 0.25), 0.48);
+    revL[i] *= g;
+    revR[i] *= g;
+  }
   const stats = masterAudio(revL, revR, targetRmsDb);
   const dyn = measureSectionDynamics(revL, revR, 4.0);
   const outPath = path.join(__dirname, `../../audio/bgm/new/${name}.wav`);
