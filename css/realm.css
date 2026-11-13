@@ -594,6 +594,23 @@ body { word-break: keep-all; overflow-wrap: break-word; }
 .pool-sec small { font-size: 12px; color: var(--muted); }
 .pool-sec::after { content: ""; flex: 1; align-self: center; height: 1px; margin-left: 6px; background: linear-gradient(90deg, color-mix(in srgb, var(--kc) 55%, transparent), transparent); }
 
+/* v3.57.1 종류 묶음 상자: 등급으로 거르면 종류마다 몇 장뿐이라 세로로만 길어지던 것을, 묶음째 옆으로 나란히.
+   묶음 폭 = 카드를 한 줄로 늘어놓은 폭(max-content), 보관함 폭을 넘으면 한 줄을 다 쓰고 안에서 줄바꿈. 종류는 상자 테두리 · 위 띠 · 제목 빛깔로 가른다 */
+.pool-grid { --pc-gx: 12px; --pc-gy: 16px; --pg-pad: 10px; }
+html.appui .screen-editor .pool-grid { --pc-gx: 6px; --pc-gy: 10px; --pg-pad: 7px; }
+.pool-grid.pool-grouped { display: flex; flex-wrap: wrap; align-items: flex-start; align-content: flex-start; gap: 14px; }
+.pool-grp { --kc: var(--gold); position: relative; flex: 0 1 auto; box-sizing: border-box; width: max-content; max-width: 100%; min-width: 0;
+  padding: 0 var(--pg-pad) 12px; border: 1px solid color-mix(in srgb, var(--kc) 34%, transparent); border-top: 2px solid color-mix(in srgb, var(--kc) 75%, transparent); border-radius: 4px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--kc) 9%, rgba(10, 10, 16, .55)), rgba(10, 10, 16, .35) 140px); }
+.pool-grp.k-unit { --kc: var(--k-unit); } .pool-grp.k-item { --kc: var(--k-item); }
+.pool-grp.k-atk { --kc: var(--rite-atk); } .pool-grp.k-def { --kc: var(--rite-def); } .pool-grp.k-any { --kc: var(--rite-any); } .pool-grp.k-hand { --kc: var(--rite-hand); }
+.pool-grp .pool-sec, .pool-grp .pool-sec:first-child { top: -14px; margin: 0 calc(-1 * var(--pg-pad)) 8px; padding: 7px var(--pg-pad) 6px; flex-wrap: wrap; row-gap: 0;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--kc) 12%, rgba(12, 12, 19, .97)) 75%, rgba(12, 12, 19, 0)); }
+.pool-grp .pool-sec small { flex: 0 0 100%; width: 0; order: 3; }   /* 설명은 이름 아래 줄로, 묶음 폭을 넓히지 않는다 */
+.pool-grp .pool-sec::after { min-width: 12px; }
+.pool-grid.pool-grouped .pool-grp .pool-sec { min-height: 84px; align-content: flex-start; box-sizing: border-box; }   /* 설명 두 줄까지 같은 높이 → 묶음마다 카드 윗선이 맞는다 */
+.pool-grp .pg-cards { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--pc-gy) var(--pc-gx); }
+
 /* v3.12.1 덱 조정실 거르기 두 판: 왼쪽 카드 보관함(가진 카드 전체) · 오른쪽 내 덱(운명의 서에 든 카드만 + 덱 점수).
    지금 보관함 칸에 보이는 쪽(.active)은 금테, 다른 쪽은 흐리게(눌러도 된다). 좁으면 위아래로 */
 .ed-filts { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 10px; align-items: stretch; margin: 6px 0 2px; }

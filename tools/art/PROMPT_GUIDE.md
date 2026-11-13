@@ -19,9 +19,9 @@
 | 소환물 (Summoned token) | `#8fdcff` | 17 | 13 · 4 · 0 | `prompts/grades/token.md` |
 | 일반 (Common) | `#f4f1ea` | 385 | 213 · 125 · 47 | `prompts/grades/common.md` |
 | 고급 (Superior) | `#f2cf3d` | 125 | 80 · 31 · 14 | `prompts/grades/uncommon.md` |
-| 레어 (Rare) | `#4ea8ff` | 46 | 9 · 28 · 9 | `prompts/grades/rare.md` |
+| 레어 (Rare) | `#4ea8ff` | 47 | 9 · 28 · 10 | `prompts/grades/rare.md` |
 | 강화 (Empowered) | `#3fe0c0` | 40 | 40 · 0 · 0 | `prompts/grades/upgrade.md` |
-| 에픽 (Epic) | `#b46cff` | 62 | 36 · 17 · 9 | `prompts/grades/epic.md` |
+| 에픽 (Epic) | `#b46cff` | 61 | 36 · 17 · 8 | `prompts/grades/epic.md` |
 | 유니크 (Unique) | `#ff8a2a` | 18 | 18 · 0 · 0 | `prompts/grades/unique.md` |
 | 스페셜 (Special) | `#ff4d73` | 12 | 9 · 0 · 3 | `prompts/grades/special.md` |
 <!-- /AUTO:COUNTS -->

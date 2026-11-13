@@ -137,7 +137,7 @@ function actPlace(p, uid, slot) {
   return true;
 }
 /* v3.32.4 보호막 코인 기록 — 규칙 부분(화면 위)에 둔다: 화면 없는 도구(tools/balance/harness.js)는 "화면" 절 앞까지만 읽는다 */
-function logShieldRoll(p, it) { log(`[보호막 코인] ${p.name}의 ${C(it).name}: ${it.t.sroll.h ? "앞면 — 이번 턴 처음 받는 피해 1회 무효" : "뒷면 — 이번 턴은 보호막 없음"}`, it.t.sroll.h ? "good" : "sys"); }
+function logShieldRoll(p, it) { log(`[보호막 코인] ${p.name}의 ${C(it).name}: ${it.t.sroll.h ? "앞면 — 이번 턴 처음 받는 피해 절반을 막음" : "뒷면 — 이번 턴은 보호막 없음"}`, it.t.sroll.h ? "good" : "sys"); }
 function actEquip(p, uid, slot) {
   const i = p.hand.findIndex(x => x.uid === uid); if (i < 0) return false;
   const card = p.hand[i], c = C(card);
@@ -150,7 +150,7 @@ function actEquip(p, uid, slot) {
   p.hand.splice(i, 1); p.spent += costOf(c); p.committed = true;
   if (G.leave) G.leave[card.uid] = "uid:" + host.uid;
   host.item = { id: c.id, equipped: G.turn };
-  const dmg = host.t ? host.t.dmg : 0; resetTurn(host); host.t.dmg = dmg;
+  const dmg = host.t ? host.t.dmg : 0; resetTurn(host, p.idx === G.attacker); host.t.dmg = dmg;
   log(`${p.name}: ${C(host).name}에게 「${c.name}」 장착`);
   if (host.t.sroll) logShieldRoll(p, host);   // v3.32.4
   if (c.item.evName && /^치유/.test(c.item.evName)) { const n = parseInt(c.item.evName.replace(/\D/g, "")) || 0; const b = p.life; p.life = Math.min(RULES.lifeCap, p.life + n); if (p.life > b) { log(`[${c.item.evName}] ${p.name} 생명 +${p.life - b}`, "good"); floatAt("life" + p.idx, "+" + (p.life - b), "heal"); } }
@@ -329,7 +329,7 @@ function handSpellValue(p, c) { const o = opp(p); return c.ops.reduce((s, op) =>
 function beginTurn() {
   for (const p of G.players) {
     p.made = 0; p.crysBank = crysLeft(p) + RULES.crystalsPerTurn; p.spent = 0; p.shuffled = false; p.committed = false; p.reloadNow = p.reload; p.reload = 0; p.bonusNow = p.bonus || 0; p.bonus = 0;
-    for (const it of p.field) if (isUnit(it)) { const dmg = it.t ? it.t.dmg : 0; resetTurn(it); if (G.rules && G.rules.noHeal && dmg) it.t.dmg = Math.min(dmg, it.t.h - 1); }
+    for (const it of p.field) if (isUnit(it)) { const dmg = it.t ? it.t.dmg : 0; resetTurn(it, p.idx === G.attacker); if (G.rules && G.rules.noHeal && dmg) it.t.dmg = Math.min(dmg, it.t.h - 1); }
     for (const it of p.field) if (isUnit(it) && it.t && it.t.sroll) logShieldRoll(p, it);   // v3.32.4
     if (G.rules && G.rules.lifeTide && G.turn > 1) p.life = Math.min(RULES.lifeCap, p.life + G.rules.lifeTide);
     // v3.31 [마력 흡수]: 모은 마력이 이번 턴 에테르가 된다
@@ -1821,7 +1821,7 @@ function fieldCardHTML(it, p, s) {
   if (isUnit(it) && it.t && !it.t.alive) cls.push("dying");
   let badges = "";
   if (isUnit(it) && it.t) {
-    if (it.t.shield) badges += `<span class="bd bd-shield" data-tip="◈ 보호막\n${esc(SPELL_KW["보호막"])}">◈</span>`;
+    if (it.t.shield) badges += `<span class="bd bd-shield" data-tip="◈ 보호막${it.t.shield === "half" ? " 코인" : ""}\n${esc(it.t.shield === "half" ? "이번 턴 처음 받는 피해의 절반(올림)을 막는다." : SPELL_KW["보호막"])}">◈</span>`;   // v3.57.5 코인 보호막은 절반
     if (it.t.taunt) badges += `<span class="bd bd-guard" data-tip="수호\n${esc(SPELL_KW["수호"])}">${statIco("d")}</span>`;
     if (it.t.lock) badges += '<span class="bd bd-lock" data-tip="⚓ 저주 면역\n이번 턴 방어가 바뀌지 않는다 (피해는 받는다)">⚓</span>';
     if (it.t.thorns) badges += `<span class="bd bd-thorn" data-tip="${esc(`✶${it.t.thorns} 가시 ${it.t.thorns}\n${itemKwDesc("[가시 " + it.t.thorns + "]")}\n유닛 · 장착한 아이템 · 마법에서 받은 가시를 합친 값`)}">✶${it.t.thorns}</span>`;
@@ -1994,7 +1994,7 @@ if (typeof addEventListener === "function") addEventListener("resize", () => Cry
    plate  = 명판 천(가로 4:1, 투명) — 코드로 그린 천 · 장대 대신 바탕에 깔린다. 아이디 · 전적은 그 위에 글자로
    v3.48.1 받은 그림만 쓴다 — has에 적힌 깃발만 그림, 나머지는 지금처럼 코드 그림. 새 그림을 받으면 파일을 넣고(문장 320×320 · 천 1200×300 PNG, 원본은 tools/art/out/raw/ui/) has에 ID를 더한다 */
 const FLAG_ART = { emblem: "img/ui/emblem/{id}.png?v=1", plate: "img/ui/banner/{id}.png?v=1",
-  has: { emblem: ["A1", "A2", "A3", "B1", "B2", "B3", "G1", "G2", "G3"], plate: ["B1", "B2", "B3", "G1", "G3"] } };
+  has: { emblem: ["A1", "A2", "A3", "B1", "B2", "B3", "G1", "G2", "G3"], plate: ["A1", "A2", "A3", "B1", "B2", "B3", "G1", "G2", "G3"] } };
 const flagArt = (k, g) => (FLAG_ART[k] && g && FLAG_ART.has[k].includes(g) ? FLAG_ART[k].replace("{id}", g) : "");
 /* 명판 둘째 줄: 사람은 "12승 8패 · 승률 60%", 컴퓨터는 단체 이름 · 컴퓨터 */
 function npRecHTML(p, gr) {
@@ -2180,7 +2180,7 @@ function shortWhy(why) {
   return [why, ""];
 }
 function focusKws(c) {
-  if (c.type === "item") return itemKwGenList(c.item).map(([k, v]) => [k.replace(/[\[\]]/g, ""), v]);   // v2.2: 손의 아이템 = 능력의 일반 뜻 (N)
+  if (c.type === "item") return cardKwList(c).map(([k, v]) => [k.replace(/[\[\]]/g, ""), v]);   // v3.57.0 손의 아이템 = 그 카드의 숫자를 넣은 짧은 뜻 (예전 v2.2: N)
   if (c.type !== "unit" && c.cost && c.cost.ether) return [[`장전 ${c.cost.ether}`, `다음 턴 에테르 −${c.cost.ether}.`]];
   return [];
 }
@@ -2392,6 +2392,15 @@ function flipShieldCoin(u, heads) {
   Object.assign(w.style, { left: (r.left + r.width / 2) + "px", top: (r.top + r.height * 0.36) + "px", "--sz": size + "px" });
   w.innerHTML = `<div class="sf-coin"><div class="cs-face cs-heads">${COIN_CREST()}</div><div class="cs-face cs-tails">${COIN_BACK()}</div></div><b class="sf-tag">보호막 코인</b>`;
   layer.appendChild(w);
+  // v3.57.3 동전이 그 카드를 따라간다: 던지는 동안 상대가 유닛을 올리거나 자리를 옮겨 카드가 움직이면(다시 그리면 요소도 새것) 매 프레임 그 카드 위로.
+  //   예전에는 던질 때 한 번 잰 자리(처음 칸)에 그대로 남아, 카드가 옮겨 간 뒤에도 빈 자리에서 동전이 돌았다
+  const follow = () => {
+    if (!w.isConnected) return;
+    const e = uidEl(u.uid);
+    if (e) { const q = e.getBoundingClientRect(); if (q.width) { w.style.left = (q.left + q.width / 2) + "px"; w.style.top = (q.top + q.height * 0.36) + "px"; } }
+    requestAnimationFrame(follow);
+  };
+  requestAnimationFrame(follow);
   const coin = w.firstElementChild;
   w.animate([{ opacity: 0, transform: "translate(-50%, -30%) scale(.6)" }, { opacity: 1, transform: "translate(-50%, -50%) scale(1)" }], { duration: 220 * k, easing: "cubic-bezier(.2,.8,.3,1.2)", fill: "forwards" });
   coin.animate([{ transform: "rotateY(0deg) translateY(0)" }, { offset: .45, transform: `rotateY(${900 + (heads ? 0 : 90)}deg) translateY(-${size * .35}px)` }, { transform: `rotateY(${1440 + (heads ? 0 : 180)}deg) translateY(0)` }],
@@ -3138,9 +3147,11 @@ function chipNum(st, b, old, down) {
   ], { duration: 520 * k, easing: "ease-out" });
   sfx(down ? "hit" : "sp_buff", 0.45);
 }
-function conjureFx(uid, dur) {
+function conjureFx(uid, dur, pyreP) {
   const el = uidEl(uid); if (!el) return;
   const r = el.getBoundingClientRect();
+  const pyre = pyreP != null ? $("#burn" + pyreP) : null;
+  if (pyre) { pyreRiseFx(el, r, pyre, dur); return; }
   el.classList.add("flying");
   el.animate([
     { translate: `0px ${-r.height * 0.9}px`, scale: "1.12", opacity: 0, filter: "blur(10px) brightness(2)" },
@@ -3151,6 +3162,26 @@ function conjureFx(uid, dur) {
   const c = ctrOf(r);
   setTimeout(() => burst(c.x, c.y, "spell", r.width * 1.6), dur * 0.8);
   if (el.matches(".card:not(.type-unit)")) spellTitle(uid, dur * 1.9);
+}
+/* v3.57.2 소각장에서 되살아남(새벽의 부활): 재가 된 카드가 그 편의 소각장(성화대)에서 불꽃과 함께 떠올라 빈 칸으로 날아가 앉는다.
+   상대가 쓰면 상대 소각장에서. 핸드 · 하늘에서 떨어지는 보통 소환(conjure)과 다르게 보이도록 */
+function pyreRiseFx(el, r, pyre, dur) {
+  const tr = pyre.getBoundingClientRect(), a = ctrOf(tr), b = ctrOf(r);
+  const dx = a.x - b.x, dy = a.y - b.y, sc = Math.max(0.35, Math.min(1, tr.width / r.width * 0.8));
+  const lift = Math.max(40, r.height * 0.45) * (dy > 0 ? 1 : -1);   // 날아가는 길이 살짝 휘게: 소각장 쪽에서 위로 솟았다가
+  const ash = "grayscale(1) sepia(.6) brightness(.55) blur(1px)";
+  const fire = "sepia(1) saturate(4) hue-rotate(-25deg) brightness(1.35) drop-shadow(0 0 14px rgba(255,170,70,.9))";
+  burst(a.x, a.y, "burn", tr.width * 1.4);
+  sfx("burn", 0.55);
+  el.classList.add("flying");
+  el.animate([
+    { translate: `${dx}px ${dy}px`, scale: String(sc), opacity: 0, filter: ash },
+    { offset: 0.14, translate: `${dx}px ${dy - lift * 0.4}px`, scale: String(sc * 1.05), opacity: 1, filter: fire },
+    { offset: 0.55, translate: `${dx * 0.35}px ${dy * 0.35 - lift}px`, scale: "1.15", opacity: 1, filter: "brightness(1.6) drop-shadow(0 0 18px rgba(255,236,190,.95))", easing: "cubic-bezier(.55,.02,.85,.45)" },
+    { offset: 0.82, translate: `0px ${r.height * 0.02}px`, scale: "1.05 .92", opacity: 1, filter: "brightness(1.25)" },
+    { translate: "0px 0px", scale: "1", opacity: 1, filter: "none" }
+  ], { duration: dur * 1.15, easing: "cubic-bezier(.35,.1,.3,1)" }).onfinish = () => el.classList.remove("flying");
+  setTimeout(() => { if (!el.isConnected) return; const c = ctrOf(el.getBoundingClientRect()); burst(c.x, c.y, "spell", r.width * 1.6); }, dur * 1.15 * 0.82);
 }
 /* v1.5 소환 실패: 전장에 빈 칸이 없어, 소환 영역에 나타난 카드가 흐려지며 부서진다 */
 function fizzleFx(z, dur) {
@@ -3185,7 +3216,7 @@ function combatFx() {
   if (!fx || G.speed === 0 || RM()) return;
   const dur = (fx.dur || 450) * kSpeed();
   if (fx.fizzle) { fizzleFx(fx.fizzle, dur); return; }
-  if (fx.conjure) { conjureFx(fx.conjure, dur); return; }
+  if (fx.conjure) { conjureFx(fx.conjure, dur, fx.pyre); return; }
   if (fx.reveal) { arenaArt(fx.reveal, "spell", dur * 1.8); revealFx(fx.reveal, dur); spellTitle(fx.reveal, dur * 1.75); if (typeof SpellFX !== "undefined") SpellFX.reveal(fx.reveal, dur); return; }
   if (fx.counter) { arenaArt(fx.counter, "counter", dur * 1.3); counterStrike(fx.counter, fx.act, dur); return; }
   const ak = fx.act != null ? atkKindOf(fx.act, fx.sn) : null;   // v3.7.1 공격 소리 종류 (fx.sn = [사격])

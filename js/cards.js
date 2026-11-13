@@ -283,10 +283,10 @@ const ITEM_KW = {
   "치명": "맞붙어 공격해 피해를 주면, 맞은 유닛이 쓰러지지 않았을 때 남은 체력이 1이 된다.",
   "연쇄": "맞붙어 공격해 상대 유닛을 쓰러뜨리고 피해가 남으면, 남은 피해로 그 뒤의 상대 유닛 하나를 친다(그 유닛의 방어만큼 줄어든다. 마력 공격은 여기에도 적용, 반격은 없다).",
   "투척": "내 공격 턴마다, 이 유닛이 공격을 시작할 때 맞선 유닛에서 칸이 가장 먼 상대 유닛에게 함께 던져 {n} 피해를 준다(그 유닛의 방어만큼 줄어든다. 거리가 같으면 전장 번호가 큰 유닛). 상대 유닛이 맞선 유닛뿐이면 던지지 않는다.",
-  "사격": "내 공격 턴에 이 유닛의 차례가 오면, 맞붙기 바로 전에 상대 유닛 하나의 체력을 {n} 깎는다(방어 무시). 대상: 남은 체력이 가장 낮은 유닛 — 같으면 레벨이 높은 유닛, 그것도 같으면 앞의 유닛. 사격으로 상대 유닛이 모두 쓰러지면 이번 전투에서는 아무도 생명을 직접 공격하지 않는다.",
+  "사격": "내 공격 턴에 이 유닛의 차례가 오면, 맞붙기 바로 전에 상대 유닛 하나의 체력을 {n} 깎는다(방어 무시). 대상: 남은 체력이 가장 낮은 유닛 — 같으면 앞의 유닛. 사격으로 상대 유닛이 모두 쓰러지면 남은 공격 유닛은 생명을 직접 공격한다.",
   "원거리": "맞붙어 공격해도 상대의 반격을 받지 않는다.",
   "가호": "매 턴 처음 받는 피해를 {n}만큼 줄인다.",
-  "보호막 코인": "매 턴 시작에 코인을 던져 앞면이면, 그 턴 처음 받는 피해 한 번을 통째로 막는다.",
+  "보호막 코인": "턴이 시작될 때마다 코인을 던져 앞면이면, 그 턴 처음 받는 피해 한 번을 절반(올림)만큼 막는다.",
   "고정": "🔒 {S} 증가 · 감소 효과를 모두 받지 않는다.",
   "버팀": "▲ {S} 감소 효과를 받지 않는다(피해 제외).",
   "눌림": "▼ {S} 증가 효과를 받지 않는다.",
@@ -343,6 +343,63 @@ function itemKwGenList(it) {
     const g = itemKwGeneric(raw); if (!g || seen.has(g[0])) continue; seen.add(g[0]); out.push(g);
   }
   return out;
+}
+/* v3.57.0 카드 면에 적는 짧은 뜻 — N 대신 그 카드의 숫자를 넣는다(그림 자리를 넓히려고 짧게).
+   자세한 규칙은 ITEM_KW(말풍선 · 매뉴얼). 규칙을 바꾸면 둘 다 고친다. 유니크 능력은 js/uniques.js UNIQUE_ABIL_SHORT */
+const ITEM_KW_SHORT = {
+  "관통": "공격한 상대의 방어가 이번 턴 내 공격력만큼 줄어든다.",
+  "마력 공격": "공격할 때 상대 방어를 {n}만큼 무시한다.",
+  "마력 공격 전부": "공격할 때 상대 방어를 모두 무시한다.",
+  "치명": "맞붙어 피해를 준 상대가 살아남으면 체력이 1이 된다.",
+  "연쇄": "상대를 쓰러뜨리고 남은 피해로 그 뒤 유닛을 친다.",
+  "투척": "공격 턴마다 맞선 유닛에서 가장 먼 상대 유닛에게 피해 {n}.",
+  "사격": "공격 차례에 체력이 가장 낮은 상대 유닛의 체력을 {n} 깎는다(같으면 앞 유닛).",
+  "원거리": "맞붙어 공격해도 반격을 받지 않는다.",
+  "가호": "매 턴 처음 받는 피해를 {n} 줄인다.",
+  "보호막 코인": "매 턴 코인 앞면이면 처음 받는 피해를 절반으로.",
+  "고정": "{S} 늘지도 줄지도 않는다.",
+  "버팀": "{S} 줄지 않는다(피해 제외).",
+  "눌림": "{S} 늘지 않는다.",
+  "가시": "이 유닛을 맞붙어 공격한 상대의 체력이 {n} 깎인다.",
+  "증폭": "전장에 있으면 내 공격 마법의 피해 +{n}.",
+  "치유": "장착할 때 내 생명 +{n}."
+};
+/* 숫자 뒤 조사: 2 · 4 · 5 · 9로 끝나면 "가", 나머지는 "이" (7이 · 2가) */
+const numJosa = n => /[2459]$/.test(String(n)) ? "가" : "이";
+const josaIGa = w => { const ch = w.charCodeAt(w.length - 1); return ch >= 0xAC00 && ch <= 0xD7A3 && (ch - 0xAC00) % 28 ? "이" : "가"; };
+/* "[사격 2]" → ["[사격 2]", "공격 차례에 … 체력을 2 깎는다…"] (카드 면에 적는 숫자 넣은 짧은 뜻) */
+function itemKwCard(raw) {
+  const name = raw.replace(/[\[\]]/g, "").trim();
+  if (name === "마력 공격 전부") return [raw, ITEM_KW_SHORT["마력 공격 전부"]];
+  if (/^고정 \d/.test(name)) { const v = name.slice(3); return [raw, `장착한 유닛의 공·방·체가 ${v}${numJosa(v)} 된다. 유닛 코인은 던지지 않는다.`]; }
+  if (typeof UNIQUE_ABIL !== "undefined") for (const k in UNIQUE_ABIL) if (UNIQUE_ABIL[k].n === name)
+    return [raw, (typeof UNIQUE_ABIL_SHORT !== "undefined" && UNIQUE_ABIL_SHORT[k]) || UNIQUE_ABIL[k].text];
+  const key = Object.keys(ITEM_KW_SHORT).find(x => name === x || name.startsWith(x + " ") || name.startsWith(x + ":"));
+  if (!key) { const d = itemKwDesc(raw); return d ? [raw, d] : null; }
+  const n = (name.slice(key.length).match(/^\s*(\d+)/) || [])[1] || "";
+  const st = (name.split(":")[1] || "").trim();
+  if (PIN_KO_KEYS.includes(key) && /\d/.test(st)) {   // "[고정: 공격 7]" = 장착하면 공격이 7, 그 뒤 표시 규칙
+    const parts = st.split("·").map(x => x.trim()).map(x => { const m = x.match(/^(.*?)\s*(\d+)$/); return m ? [m[1], m[2]] : [x, ""]; });
+    const set = parts.filter(p => p[1]).map(([s, v]) => `${s}${josaIGa(s)} ${v}`).join(", "), last = parts.filter(p => p[1]).pop();
+    return [raw, `장착하면 ${set}${numJosa(last[1])} 되고, 그 뒤 ` + ITEM_KW_SHORT[key].replace(/\{S\}\s*/g, "")];
+  }
+  const S = st || "그 스탯";
+  return [raw, ITEM_KW_SHORT[key].replace(/\{S\}/g, S + josaEunNeun(S)).replace(/\{n\}/g, n)];
+}
+/* 카드 면의 능력 줄 [[이름, 숫자 넣은 짧은 뜻]] — 아이템 · 스페셜 유닛의 타고난 능력(gift) · 유닛 표시. 같은 능력은 한 번만.
+   v3.57.0: "[관통] 능력 부여" 같은 요약 줄과 "[가호 N] …" 일반 뜻 줄을 이 한 줄로 합쳤다 */
+function cardKwList(c) {
+  const raws = [], extra = [];
+  const take = it => {
+    if (!it) return;
+    raws.push(...itemGrants(it), ...itemAbilities(it).filter(r => ON_EQUIP_KW.test(r)));
+    if (it.evText && !it.evName) extra.push(["", it.evText]);
+  };
+  if (c.type === "item") take(c.item);
+  else if (c.type === "unit") { take(c.gift); raws.push(...pinAbilities(c)); }
+  const out = [], seen = new Set();
+  for (const raw of raws) { if (seen.has(raw)) continue; seen.add(raw); const g = itemKwCard(raw); if (g) out.push(g); }
+  return out.concat(extra);
 }
 /* 아이템 능력과 그 뜻: [[이름, 뜻]] (숫자를 넣은 문장. 장착한 유닛의 설명·말풍선에서 쓴다) */
 function itemKwList(it) {

@@ -324,6 +324,8 @@ const PIN_GRADES = {};
 (function () {
   for (const u of PIN_UNITS) { const x = Object.assign({ w: null }, u); delete x.gr; if (u.gr === "epic") x.limit = 2; SIM_UNITS.push(x); PIN_GRADES[u.id] = u.gr; }
   for (const it of PIN_ITEMS) { SIM_ITEMS.push(Object.assign({ limit: 1 }, it)); PIN_GRADES[it.id] = "epic"; }
+  /* v3.57.7 마렌시아의 비늘: 보호막 코인이 절반 막기로 약해져 에픽 → 3레벨 레어(스탯 그대로, 레어 아이템처럼 덱에 4장까지) */
+  { const x = SIM_ITEMS.find(i => i.id === "PI-G3"); if (x) delete x.limit; PIN_GRADES["PI-G3"] = "rare"; }
   for (const s of PIN_SPELLS) {
     const c = Object.assign({}, s); delete c.brief; delete c.gr;
     SIM_SPELLS.push(c); if (s.gr !== "common") PIN_GRADES[s.id] = s.gr;

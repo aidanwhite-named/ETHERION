@@ -55,11 +55,11 @@ const WORDING = (() => {
     if (typeof ITEM_KW !== "undefined") fix(ITEM_KW);
     if (typeof UNIQUE_ABIL !== "undefined") fix(UNIQUE_ABIL);
     if (typeof ITEM_KW !== "undefined") {
-      ITEM_KW["증폭"] = "이 유닛이 전장에 있으면 내 공격 마법이 깎는 체력이 {n} 늘어난다(체력 −N 마법).";
-      ITEM_KW["가호"] = "매 턴 처음 받는 피해(체력 −N 포함)를 {n}만큼 줄인다.";
-      ITEM_KW["보호막 코인"] = "매 턴 시작에 코인을 던져 앞면이면, 그 턴 처음 받는 피해 · 체력 −N 한 번을 통째로 막는다.";
+      ITEM_KW["증폭"] = "이 유닛이 전장에 있으면 내 공격 마법이 깎는 체력이 {n} 늘어난다.";   // v3.57.0 글자 N을 뺐다
+      ITEM_KW["가호"] = "매 턴 처음 받는 피해(방어를 무시하는 체력 깎임 포함)를 {n}만큼 줄인다.";
+      ITEM_KW["보호막 코인"] = "턴이 시작될 때마다(공격 · 방어 모두) 코인을 던져 앞면이면, 그 턴 처음 받는 피해 한 번(체력 깎임 포함)을 절반(올림)만큼 막는다.";
     }
-    if (typeof SPELL_KW !== "undefined" && SPELL_KW["보호막"]) SPELL_KW["보호막"] = "그 턴에 처음 받는 피해 · 체력 −N 한 번을 통째로 막는다. 막고 나면 사라진다.";
+    if (typeof SPELL_KW !== "undefined" && SPELL_KW["보호막"]) SPELL_KW["보호막"] = "그 턴에 처음 받는 피해 한 번(체력 깎임 포함)을 통째로 막는다. 막고 나면 사라진다.";
     return changed;
   }
   const changed = apply();

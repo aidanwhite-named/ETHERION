@@ -391,6 +391,11 @@ function itemModsHTML(c) {
   return parts.join(" ") || "아이템";
 }
 
+/* v3.57.0 카드 면의 능력 줄: "[사격 1] 공격 차례에 … 체력을 1 깎는다" (이름에 마우스를 올리면 자세한 규칙) */
+function cardKwLinesHTML(c, cls) {
+  return cardKwList(c).map(([k, v]) => `<p class="${cls || "f-kw"}">${k ? `<b>${kwHTML(k)}</b> ` : ""}${esc(v)}</p>`);
+}
+
 /* ---------- 원본 카드 (size "full") ----------
    카드의 모든 것이 카드 안에 보인다: 레벨·유지비 아이콘, 공·방·체와 코인, 클래스, 종류, 능력 전문, 키워드 설명, 설명 글, 시뮬레이터 값 */
 function cardFullHTML(c, opts) {
@@ -410,20 +415,17 @@ function cardFullHTML(c, opts) {
   if (c.type === "unit") {
     // 공·방·체와 코인은 왼쪽 세로 열에 이미 있으므로 글로 다시 적지 않는다
     // v2.9 스페셜 유닛: 타고난 능력과 그 뜻, 카드 고유 설명
-    const gifts = giftSummary(c);
-    for (const s of gifts) L.push(`<p class="f-grant">${kwHTML(s)}</p>`);
+    // v3.57.0 능력은 한 줄씩 "[사격 1] … 체력을 1 깎는다" — 그 카드의 숫자를 넣은 짧은 뜻(cardKwList). 이름에 마우스를 올리면 자세한 규칙
     // v3.19.1: 특수 능력이 없는 유닛은 원본 카드에 "일반공격" 줄 · 뜻을 적지 않는다 (작은 카드의 일반공격 칩 말풍선에만)
-    if (c.gift) for (const [k, v] of itemKwGenList(c.gift)) L.push(`<p class="f-kw"><b>${esc(k)}</b> ${esc(v)}</p>`);
-    for (const [k, v] of pinKwGenList(c)) L.push(`<p class="f-kw"><b>${esc(k)}</b> ${esc(v)}</p>`);   // v3.20 표시의 뜻
-    if (c.base && CARDS[c.base]) L.push(`<p class="f-grant f-upgrade"><b>강화</b> 「${esc(CARDS[c.base].name)}」 3장을 합친 카드. 클래스가 없어 <b>어떤 아이템이든</b> 장착할 수 있다.</p>`);   // v3.28
+    L.push(...cardKwLinesHTML(c));
+    if (c.base && CARDS[c.base]) L.push(`<p class="f-grant f-upgrade"><b>강화</b> 「${esc(CARDS[c.base].name)}」 3장을 합친 카드. 어떤 아이템이든 장착할 수 있다.</p>`);   // v3.28
     if (c.limit) L.push(`<p class="f-rule f-dim">덱에 ${c.limit}장까지.</p>`);
     L.push(`<p class="f-flavor">${esc(c.flavor || G.blurb)}</p>`);
     // v1.4.5: 시뮬레이터 승률·교전 승률·이전 수치(v0.7·v1.2) 같은 균형 작업용 값은 카드에 보이지 않는다 (data.js에만 남는다)
   } else if (c.type === "item") {
-    // 붙는 값(⚔+4 등)은 왼쪽 세로 열에 있으므로 글에는 능력만. v2.2: 위 = 아이템이 하는 일("[관통] 능력 부여"), 아래 = 그 능력의 일반 뜻
-    for (const s of itemSummary(c.item)) L.push(`<p class="f-grant">${kwHTML(s)}</p>`);
-    for (const [k, v] of itemKwGenList(c.item)) L.push(`<p class="f-kw"><b>${esc(k)}</b> ${esc(v)}</p>`);
-    L.push(`<p class="f-rule f-dim">${equipWho(c)} 장착. 유닛 하나에 하나, 유지비 없음. 유닛이 쓰러지면 함께 소각.${c.limit ? ` 덱에 ${c.limit}장까지.` : ""}</p>`);
+    // 붙는 값(⚔+4 등)은 왼쪽 세로 열에 있으므로 글에는 능력만. v3.57.0 능력 한 줄씩(숫자 넣은 짧은 뜻),
+    // "○○ 유닛에게만 장착. 유닛 하나에 하나, 유지비 없음 …" 줄은 뺐다(규칙은 매뉴얼 · 종류 아이콘 말풍선)
+    L.push(...cardKwLinesHTML(c));
     if (c.flavor) L.push(`<p class="f-flavor">${esc(c.flavor)}</p>`);
   } else {
     L.push(`<p class="f-rule f-big">${kwHTML(c.text)}</p>`);
@@ -491,14 +493,10 @@ function cardDetailBody(c, inst) {
   if (c.type === "unit" && c.cl) tags.push(`<span class="tag">${esc(c.cl)}</span>`);
   const lines = [];
   if (c.type === "unit") {
-    for (const s of giftSummary(c)) lines.push(`<p class="d-rules">${kwHTML(s)}</p>`);
-    if (c.gift) for (const [k, v] of itemKwGenList(c.gift)) lines.push(`<p class="d-type"><b>${esc(k)}</b> ${esc(v)}</p>`);
-    for (const [k, v] of pinKwGenList(c)) lines.push(`<p class="d-type"><b>${esc(k)}</b> ${esc(v)}</p>`);
+    lines.push(...cardKwLinesHTML(c, "d-type"));   // v3.57.0 숫자 넣은 짧은 뜻
     lines.push(`<p class="d-flavor">${esc(c.flavor || GROUPS[c.group].blurb)}</p>`);
   } else if (c.type === "item") {
-    for (const s of itemSummary(c.item)) lines.push(`<p class="d-rules">${kwHTML(s)}</p>`);
-    for (const [k, v] of itemKwGenList(c.item)) lines.push(`<p class="d-type"><b>${esc(k)}</b> ${esc(v)}</p>`);
-    lines.push(`<p class="d-coin">공격·방어 준비 어느 때나 ${equipWho(c)} 장착합니다. 유닛 하나에 하나, 유지비 없음. 유닛이 쓰러지면 함께 소각.</p>`);
+    lines.push(...cardKwLinesHTML(c, "d-type"));   // v3.57.0 "유닛 하나에 하나, 유지비 없음 …" 줄은 뺐다
     if (c.flavor) lines.push(`<p class="d-flavor">${esc(c.flavor)}</p>`);
   } else {
     lines.push(`<p class="d-rules">${kwHTML(c.text.replace(/\s*\[장전 \d+\]/g, ""))}${c.cost.ether ? ` ${kwHTML("[장전 " + c.cost.ether + "]")} 다음 턴 에테르 −${c.cost.ether}.` : ""}</p>`);
@@ -552,8 +550,10 @@ function modal(html, buttons, opts) {
 /* v3.55.5 한 곳에서 판단한다: 마우스(또는 탭)가 지금 가리키는 [data-card]가 묶인 root 안에 있으면 그 카드, 아니면 닫기.
    예전에는 root 의 mouseover/mouseout 만 봐서, 덱 목록을 다시 그리면(1장 빼기 · 넣기) mouseout 이 오지 않아 큰 카드가 남고
    바깥을 눌러도 닫히지 않았다. 이제 누른 뒤 · 다시 그린 뒤 · 스크롤 뒤에 그 자리의 요소를 다시 읽는다. Esc 로도 닫힌다 */
+/* v3.57.0 고정(pin): { pin: true }로 묶은 root(덱 조정실)에서는 카드를 한 번 누르면 큰 카드가 고정된다 — 마우스가 카드를 떠나도 남고,
+   다른 카드에 마우스를 올리면 그 카드로 바뀌며(고정 풀림), 카드가 아닌 곳을 누르거나 Esc면 닫힌다 */
 const CardPreview = {
-  box: null, roots: new Set(), cur: null, el: null, x: null, y: null, touch: false,
+  box: null, roots: new Set(), pinRoots: new Set(), pinned: false, cur: null, el: null, x: null, y: null, touch: false,
   init() {
     if (this.box) return;
     let box = $("#card-preview");
@@ -561,16 +561,38 @@ const CardPreview = {
     this.box = box;
     const at = e => { this.x = e.clientX; this.y = e.clientY; };
     document.addEventListener("pointerdown", e => { this.touch = e.pointerType !== "mouse"; at(e); }, true);
-    document.addEventListener("mouseover", e => { if (this.touch) return; at(e); this.update(e.target); }, true);
+    document.addEventListener("mouseover", e => {
+      if (this.touch) return; at(e);
+      if (this.pinned) {   // 고정 중: 다른 카드에 올릴 때만 그 카드로 바뀐다(고정 풀림). 빈 곳 · 같은 카드는 그대로
+        const el = this.pick(e.target);
+        if (el && CARDS[el.dataset.card] && el.dataset.card !== this.cur) { this.pinned = false; this.update(e.target); }
+        return;
+      }
+      this.update(e.target);
+    }, true);
     // 누른 뒤에는 화면이 다시 그려졌을 수 있으니, 클릭 처리가 끝난 다음 그 자리를 다시 읽는다 (탭도 같은 길: 누른 카드로 바뀌고 빈 곳이면 닫힘)
-    document.addEventListener("click", e => { at(e); setTimeout(() => this.refresh(), 0); }, true);
+    document.addEventListener("click", e => {
+      at(e);
+      setTimeout(() => {
+        const el = this.x == null ? null : this.pick(document.elementFromPoint(this.x, this.y));
+        if (el && this.inPinRoot(el)) { this.pinned = true; this.update(el); return; }
+        this.pinned = false; this.refresh();
+      }, 0);
+    }, true);
     document.addEventListener("keydown", e => { if (e.key === "Escape") this.hide(); });
     document.addEventListener("dragstart", () => this.hide(), true);
-    document.addEventListener("scroll", () => { if (this.box.hidden) return; if (this.touch) this.hide(); else requestAnimationFrame(() => this.refresh()); }, true);
+    document.addEventListener("scroll", () => { if (this.box.hidden || this.pinned) return; if (this.touch) this.hide(); else requestAnimationFrame(() => this.refresh()); }, true);
     addEventListener("blur", () => this.hide());
-    document.documentElement.addEventListener("mouseleave", () => { if (!this.touch) this.hide(); });
-    // 보던 카드가 다시 그려져 사라지면(덱 목록 갱신 · 화면 바뀜) 그 자리를 다시 읽는다
-    new MutationObserver(() => { if (!this.box.hidden && this.el && !this.el.isConnected) this.refresh(); }).observe(document.body, { childList: true, subtree: true });
+    document.documentElement.addEventListener("mouseleave", () => { if (!this.touch && !this.pinned) this.hide(); });
+    // 보던 카드가 다시 그려져 사라지면(덱 목록 갱신 · 화면 바뀜) 그 자리를 다시 읽는다.
+    // 고정 중이면 같은 카드를 다시 찾아 붙잡고(더블클릭으로 넣고 빼도 남음), 고정 root가 화면에서 사라졌으면 닫는다
+    new MutationObserver(() => {
+      if (this.box.hidden || !this.el || this.el.isConnected) return;
+      if (!this.pinned) return this.refresh();
+      const live = [...this.pinRoots].filter(r => r.isConnected);
+      if (!live.length) return this.hide();
+      for (const r of live) { const el = r.querySelector(`[data-card="${this.cur}"]`); if (el) { this.el = el; return; } }
+    }).observe(document.body, { childList: true, subtree: true });
   },
   pick(t) {
     const el = t && t.closest ? t.closest("[data-card]") : null;
@@ -578,6 +600,7 @@ const CardPreview = {
     for (const r of this.roots) { if (!r.isConnected) { this.roots.delete(r); continue; } if (r.contains(el)) return el; }
     return null;
   },
+  inPinRoot(el) { for (const r of this.pinRoots) { if (!r.isConnected) { this.pinRoots.delete(r); continue; } if (r.contains(el)) return true; } return false; },
   refresh() { if (this.x == null) return this.hide(); this.update(document.elementFromPoint(this.x, this.y)); },
   update(t) {
     const el = this.pick(t), c = el && CARDS[el.dataset.card];
@@ -595,12 +618,13 @@ const CardPreview = {
     x = Math.max(8, Math.min(innerWidth - w - 8, x));
     box.style.right = ""; box.style.left = x + "px";
   },
-  hide() { this.cur = null; this.el = null; if (this.box) this.box.hidden = true; }
+  hide() { this.pinned = false; this.cur = null; this.el = null; if (this.box) this.box.hidden = true; }
 };
-function bindPreview(root) {
+function bindPreview(root, opts) {
   if (!root) return;
   CardPreview.init();
   CardPreview.roots.add(root);
+  if (opts && opts.pin) CardPreview.pinRoots.add(root);   // v3.57.0 한 번 누르면 큰 카드 고정
 }
 
 /* 말풍선 설명: data-tip이 있는 요소에 마우스를 올리면 바로 보인다 (줄바꿈 \n) */

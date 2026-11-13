@@ -714,7 +714,7 @@ function onMatchEnd(g) {
 
 /* ---------- 덱 조정실 ---------- */
 /* v3.0 덱 조정실
-   - 넣기: 카드를 누르면 1장 · Shift+누르기는 최대 장수까지 · 카드 아래 마름모를 누르면 그 장수로 맞춤 · 덱 칸으로 끌어다 놓기
+   - 넣기: 카드 더블클릭(덱에 없으면 가득, 가득이면 모두 빼기, v3.57.0) · + 단추 1장 · 카드 아래 마름모를 누르면 그 장수로 맞춤 · 덱 칸으로 끌어다 놓기. 한 번 누르기 = 큰 카드 고정
    - 빼기: 오른쪽 누르기(우클릭) · 덱 목록의 − 또는 줄 누르기 · 덱 줄을 보유 카드 쪽으로 끌어다 놓기
    - 40장 규칙: 위 띠의 40칸 계기판. 40장이 넘게 넣으려 하면 경보(붉은 띠 · 흔들림 · 소리). 정확히 40장일 때만 저장 단추가 켜진다
    - 덱 초안(Store.draft): 고치는 중인 덱은 저장 전에도 남는다. 상점에서 산 카드도 이 초안에 들어온다(js/shop.js)
@@ -789,7 +789,7 @@ function showEditor(f, focusId) {
         <div id="ed-mix" class="ed-mix"></div>
         <div id="ed-curve" class="ed-curve" aria-label="레벨별 장수"></div>
         <div id="ed-deck-list" class="deck-list"></div>
-        <div class="ed-deck-foot"><span class="muted small">줄을 누르면 1장 뺍니다 · 오른쪽으로 끌어내도 뺍니다</span><button class="btn xs ghost" id="ed-clear" title="덱을 모두 비웁니다 (저장 전에는 되돌리기로 돌아옵니다)">비우기</button></div>
+        <div class="ed-deck-foot"><span class="muted small">− 단추로 1장 · 가득이면 더블클릭으로 모두 · 오른쪽으로 끌어내도 뺍니다</span><button class="btn xs ghost" id="ed-clear" title="덱을 모두 비웁니다 (저장 전에는 되돌리기로 돌아옵니다)">비우기</button></div>
       </section>
       <section class="ed-pool" id="ed-pool-panel">
         <div class="pool-head"><h3 class="panel-title">${all ? "카드 보관함" : "보유 카드"} <small>${F.name}의 유닛·마법·아이템만 넣을 수 있습니다</small></h3>
@@ -813,15 +813,15 @@ function showEditor(f, focusId) {
             <div class="chips dv-grades ed-grades" id="ed-dgrades" role="group" aria-label="내 덱 카드 등급으로 거르기"></div>
           </div>
         </div>
-        <p class="ed-help"><span><kbd>누르기</kbd> 1장 넣기</span><span><kbd>Shift</kbd>+누르기 가득</span><span><kbd>우클릭</kbd> 1장 빼기</span><span><b>◆</b> 마름모로 장수 맞추기</span><span>끌어서 왼쪽 서에 놓기</span><span><b>⌕</b> 크게 보기</span></p>
+        <p class="ed-help"><span><kbd>누르기</kbd> 크게 고정</span><span><kbd>더블클릭</kbd> 없으면 가득 · 가득이면 모두 빼기</span><span><kbd>우클릭</kbd> 1장 빼기</span><span><b>◆</b> 마름모로 장수 맞추기</span><span>끌어서 왼쪽 서에 놓기</span><span><b>⌕</b> 크게 보기</span></p>
         <div id="ed-pool" class="pool-grid"></div>
       </section>
     </div>
   </section>`;
   const root = $(".screen-editor");
   bindHeader(root);
-  bindPreview($("#ed-deck-list"));
-  bindPreview($("#ed-pool"));   // v3.55.5 보관함 카드도 마우스를 올리면 크게 (덱이 가득 차 넣을 수 없어도)
+  bindPreview($("#ed-deck-list"), { pin: true });
+  bindPreview($("#ed-pool"), { pin: true });   // v3.55.5 보관함 카드도 마우스를 올리면 크게 (덱이 가득 차 넣을 수 없어도). v3.57.0 한 번 누르면 큰 카드가 고정
 
   let lastN = -1;
   const draw = () => {
@@ -851,9 +851,9 @@ function showEditor(f, focusId) {
       const sub = c.type === "unit" ? `${c.a}/${c.d}/${c.h}${c.up ? " ◆" + c.up : ""}` : c.type === "item" ? "아이템" : TYPES[c.type].name;
       const canAdd = (E.cards[id] || 0) < Math.min(maxCopiesOf(id), Store.ownedCount(u, id)) && !(typeof uniqueBlock === "function" && uniqueBlock(E.cards, id));
       return `<div class="dl-row k-${kindOf(c)} ${c.faction ? "fac-" + c.faction : "fac-item"}" data-card="${id}" draggable="true" style="--el:${ELEMENTS[c.el].color}">
-        <button class="dl-main" data-rm="${id}" title="누르면 1장 뺍니다"><span class="dl-lv">${c.lv}</span><span class="dl-name">${esc(c.name)}</span><span class="dl-type">${sub}</span></button>
+        <button class="dl-main" data-face="${id}" title="누르기: 크게 보기 고정 · 더블클릭: 덱에 가득이면 모두 빼기 · 우클릭: 1장 빼기"><span class="dl-lv">${c.lv}</span><span class="dl-name">${esc(c.name)}</span><span class="dl-type">${sub}</span></button>
         <span class="dl-ctl"><button class="dl-b" data-rm="${id}" aria-label="${esc(c.name)} 1장 빼기">−</button><span class="dl-n">×${E.cards[id]}</span><button class="dl-b" data-add="${id}" ${canAdd ? "" : "disabled"} aria-label="${esc(c.name)} 1장 넣기">+</button></span></div>`;
-    }).join("") || '<p class="empty">운명의 서가 비어 있습니다.<br>오른쪽 카드를 누르거나 끌어 오세요.</p>';
+    }).join("") || '<p class="empty">운명의 서가 비어 있습니다.<br>오른쪽 카드를 더블클릭하거나 끌어 오세요.</p>';
     const order = { unit: 0, atk: 1, def: 2, any: 3, hand: 4, item: 5 };
     /* v3.10.8 종류 칸의 수: 종류를 뺀 다른 거르기(보유 · 레벨 · 검색 · 남은 카드 · 등급)를 거친 카드 중 그 종류의 수 = 누르면 보일 장수 */
     const pre = cardsOfGroup(f).filter(c => poolMatch(c, { type: "all", kind: "all", lv: E.lv, q: E.q }))
@@ -907,13 +907,17 @@ function showEditor(f, focusId) {
     /* v3.10.8 여러 종류가 함께 보이면 종류마다 제목 줄을 넣는다 (유닛 → 공격 → 방어 → 공용 → 계략 → 아이템). 내 덱에서는 장수 */
     const secN = {}; for (const c of pool) secN[c.type] = (secN[c.type] || 0) + (E.scope === "deck" ? E.cards[c.id] || 0 : 1);
     const showSec = Object.keys(secN).length > 1;
+    /* v3.57.1 종류마다 묶음 상자(.pool-grp, --n = 그 묶음 카드 수). 몇 장뿐인 묶음은 옆으로 나란히 붙고, 많은 묶음은 한 줄을 다 쓴다(css/realm.css) */
+    const tileN = {}; for (const c of pool) tileN[c.type] = (tileN[c.type] || 0) + 1;
+    $("#ed-pool").classList.toggle("pool-grouped", showSec);
     let lastSec = "";
     $("#ed-pool").innerHTML = pool.map(c => {
       let head = "";
-      if (showSec && c.type !== lastSec) { lastSec = c.type; const [t, sub] = POOL_SECS[c.type] || [c.type, ""];
-        head = `<div class="pool-sec k-${c.type}"><span class="ps-name">${t}</span><b>${secN[c.type]}</b>${sub ? `<small>${sub}</small>` : ""}</div>`; }
+      if (showSec && c.type !== lastSec) { const [t, sub] = POOL_SECS[c.type] || [c.type, ""];
+        head = `${lastSec ? "</div></section>" : ""}<section class="pool-grp k-${c.type}" style="--n:${tileN[c.type]}"><div class="pool-sec k-${c.type}"><span class="ps-name">${t}</span><b>${secN[c.type]}</b>${sub ? `<small>${sub}</small>` : ""}</div><div class="pg-cards">`;
+        lastSec = c.type; }
       return head + poolCardHTML(c);
-    }).join("") || `<p class="empty">${E.scope === "deck" ? (countMap(E.cards) ? "내 덱에 이 조건의 카드가 없습니다." : "운명의 서가 비어 있습니다. 카드 보관함에서 카드를 넣으세요.") : E.own === "fresh" ? "새로 산 카드가 없습니다. 상점에서 카드를 사면 여기 NEW로 나옵니다." : E.own === "bought" ? "상점에서 산 이 단체의 카드가 없습니다." : "조건에 맞는 카드가 없습니다."}</p>`;
+    }).join("") + (showSec && pool.length ? "</div></section>" : "") ||`<p class="empty">${E.scope === "deck" ? (countMap(E.cards) ? "내 덱에 이 조건의 카드가 없습니다." : "운명의 서가 비어 있습니다. 카드 보관함에서 카드를 넣으세요.") : E.own === "fresh" ? "새로 산 카드가 없습니다. 상점에서 카드를 사면 여기 NEW로 나옵니다." : E.own === "bought" ? "상점에서 산 이 단체의 카드가 없습니다." : "조건에 맞는 카드가 없습니다."}</p>`;
     function poolCardHTML(c) {
       const own = Store.ownedCount(u, c.id), inDeck = E.cards[c.id] || 0, cap = Math.min(maxCopiesOf(c), own), left = own - inDeck;
       const bought = u.collection[c.id] || 0, fresh = u.fresh && u.fresh[c.id];
@@ -922,7 +926,7 @@ function showEditor(f, focusId) {
         <button class="btn xs gold pc-shop" data-goshop="${c.id}">상점에서 사기</button></div>`;
       const pips = Array.from({ length: maxCopiesOf(c) }, (_, k) => `<button class="pip${k < inDeck ? " on" : ""}${k >= cap ? " no" : ""}" data-set="${c.id}" data-k="${k + 1}" ${k >= cap ? "disabled" : ""} aria-label="덱에 ${k + 1}장으로"></button>`).join("");
       return `<div class="pool-card${left <= 0 ? " out" : ""}${inDeck ? " in-deck" : ""}${fresh ? " fresh" : ""}" data-pc="${c.id}">
-        <button class="pc-face" data-add="${c.id}" draggable="true" title="누르기: 1장 넣기 · Shift: 가득 · 우클릭: 1장 빼기" aria-label="${esc(c.name)} 덱에 넣기">${cardHTML(c, { size: "md", brief: true })}${inDeck ? `<span class="pc-badge">${inDeck}</span>` : ""}${fresh ? '<span class="pc-new">NEW</span>' : ""}${typeof Forge !== "undefined" ? Forge.badgeHTML(c, u) : ""}</button>
+        <button class="pc-face" data-face="${c.id}" draggable="true" title="누르기: 크게 보기 고정 · 더블클릭: 덱에 없으면 가득 넣기, 가득이면 모두 빼기 · 우클릭: 1장 빼기" aria-label="${esc(c.name)} 크게 보기">${cardHTML(c, { size: "md", brief: true })}${inDeck ? `<span class="pc-badge">${inDeck}</span>` : ""}${fresh ? '<span class="pc-new">NEW</span>' : ""}${typeof Forge !== "undefined" ? Forge.badgeHTML(c, u) : ""}</button>
         <button class="pc-zoom" data-show="${c.id}" aria-label="${esc(c.name)} 크게 보기" title="크게 보기">⌕</button>
         <div class="pc-ctrl">
           <button class="pc-btn pc-minus" data-rm="${c.id}" ${inDeck ? "" : "disabled"} aria-label="${esc(c.name)} 덱에서 1장 빼기">−</button>
@@ -1029,6 +1033,15 @@ function showEditor(f, focusId) {
     const chip = (attr, key, conv) => { const b = e.target.closest(`[data-${attr}]`); if (!b) return false; E.scope = "pool"; E[key] = conv(b.dataset[attr]); if (b.classList.contains("cv-col") && E[key] && E[key] === +$(`#ed-filter2 .chip.on`, root).dataset.lv) E[key] = 0; $$(`#ed-filter [data-${attr}], #ed-filter2 [data-${attr}]`, root).forEach(x => x.classList.toggle("on", x.dataset[attr] == E[key])); draw(); return true; };
     if (chip("lv", "lv", Number)) return;
   });
+  /* v3.57.0 더블클릭 = 덱에 한 장도 없으면 가득 넣기(같은 카드 최대 · 가진 만큼), 가득 찼으면 모두 빼기. 그 사이 장수면 아무 일 없음(+ · − 단추로).
+     한 번 누르기는 큰 카드 고정(js/view.js CardPreview pin) */
+  root.addEventListener("dblclick", e => {
+    const t = e.target.closest(".pc-face[data-face], .dl-main[data-face]"); if (!t) return;
+    const id = t.dataset.face; if (!CARDS[id]) return;
+    e.preventDefault(); const sel = getSelection && getSelection(); if (sel && sel.removeAllRanges) sel.removeAllRanges();
+    const inDeck = E.cards[id] || 0, cap = Math.min(maxCopiesOf(id), Store.ownedCount(u, id));
+    if (!inDeck) fillCard(id); else if (inDeck >= cap) setCount(id, 0);
+  });
   // 우클릭 = 1장 빼기 (보유 카드 · 덱 줄)
   root.addEventListener("contextmenu", e => {
     const t = e.target.closest(".pool-card[data-pc], .dl-row[data-card]"); if (!t || !$(".editor", root).contains(t)) return;
@@ -1036,8 +1049,8 @@ function showEditor(f, focusId) {
   });
   // 끌어다 놓기: 보유 카드 → 운명의 서 = 넣기, 서의 줄 → 보유 카드 쪽 = 빼기
   root.addEventListener("dragstart", e => {
-    const face = e.target.closest(".pc-face[data-add]"), r = e.target.closest(".dl-row[data-card]");
-    if (face) { e.dataTransfer.setData("text/plain", "add:" + face.dataset.add); e.dataTransfer.effectAllowed = "copy"; root.classList.add("dragging-add"); }
+    const face = e.target.closest(".pc-face[data-face]"), r = e.target.closest(".dl-row[data-card]");
+    if (face) { e.dataTransfer.setData("text/plain", "add:" + face.dataset.face); e.dataTransfer.effectAllowed = "copy"; root.classList.add("dragging-add"); }
     else if (r) { e.dataTransfer.setData("text/plain", "rm:" + r.dataset.card); e.dataTransfer.effectAllowed = "move"; root.classList.add("dragging-rm"); }
   });
   root.addEventListener("dragend", () => { root.classList.remove("dragging-add", "dragging-rm"); $$(".drop-on", root).forEach(x => x.classList.remove("drop-on")); });

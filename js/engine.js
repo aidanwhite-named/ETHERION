@@ -106,14 +106,15 @@ function pinPass(X) {
    v3.5.6: 방어하는 쪽 유닛은 한 전투에서 코인이 한 번 정해지면 그 전투가 끝날 때까지 다시 던지지 않는다.
    v3.5.7: 한 번 정해진 코인은 마법(코인 뒷면 · 운명)으로도 바뀌지 않는다 */
 let SHIELD_ROLLS = 0;   // v3.32.4 보호막 코인을 던질 때마다 번호(화면이 같은 던짐을 두 번 보이지 않게, js/game.js shieldCoinFx)
-function resetTurn(it) {
+function resetTurn(it, atk) {   // atk: 이 유닛 편이 이번 턴 공격하는지(v3.57.4). v3.57.5부터 보호막 코인은 매 턴 던지므로 쓰지 않는다(부르는 곳은 그대로 넘김)
   const keep = (it.t && it.t.keep) || {};   // v3.31 턴이 지나도 남는 값(충전 · 고철 · 낙인 · 불씨 …)
   if (it.t) it.t.gx = null;   // v3.18 지난 턴 마법이 걸어 준 능력은 남지 않는다
   const b = baseStats(it, true), ab = abilOf(it);
   if (keep.grow) for (const k in keep.grow) b[k] += keep.grow[k];   // v3.31 [전리품]으로 판 동안 자란 스탯
-  const sh = ab.shield ? flip() : null;   // [보호막 코인]: 유닛 코인과 상관없이 아이템이 따로 던진다(턴 시작 · 장착할 때)
+  const roll = !!ab.shield;   // v3.57.5 [보호막 코인]은 다시 매 턴(공격 · 방어) 던진다 — 대신 앞면이면 처음 받는 피해를 절반으로 줄인다(통째로 막지 않음)
+  const sh = roll ? flip() : null;   // [보호막 코인]: 유닛 코인과 상관없이 아이템이 따로 던진다(턴 시작 · 장착할 때)
   it.t = { a: b.a, d: b.d, h: b.h, rb: b, floor: floorOf(it), dmg: 0, alive: true,
-    shield: !!sh, sroll: ab.shield ? { h: sh, n: ++SHIELD_ROLLS } : null, ward: ab.ward, wardUsed: false,
+    shield: sh ? "half" : false, sroll: roll ? { h: sh, n: ++SHIELD_ROLLS } : null, ward: ab.ward, wardUsed: false,
     thorns: ab.thorns, taunt: false, lock: false, rest: false, thrown: false,
     cb: { a: 0, d: 0, h: 0 }, coins: coinDefs(it), noCoin: false, keep };
 }
@@ -218,7 +219,11 @@ function step(X, fx, dur) {
 function hurt(X, u, x, tag) {
   if (!u.t.alive || x <= 0) return 0;
   { const w = uWings(X, u, x); if (w) return hurt(X, w, x, "대신"); }   // v3.31 [날개 그늘]
-  if (u.t.shield) { u.t.shield = false; fl(X, u.uid, "보호막", "shield"); lg(X, `[보호막] ${C(u).name}이(가) 피해를 막았다`, "good"); return 0; }
+  if (u.t.shield === "half") {   // v3.57.5 [보호막 코인] 앞면: 처음 받는 피해의 절반(올림)을 막는다. 남은 피해는 가호 · 사슬을 거쳐 그대로 들어간다
+    u.t.shield = false; const b = Math.ceil(x / 2); x -= b;
+    fl(X, u.uid, "보호막 −" + b, "shield"); lg(X, `[보호막 코인] ${C(u).name}이(가) 피해 ${b}를 막았다`, "good");
+    if (x <= 0) return 0;
+  } else if (u.t.shield) { u.t.shield = false; fl(X, u.uid, "보호막", "shield"); lg(X, `[보호막] ${C(u).name}이(가) 피해를 막았다`, "good"); return 0; }
   if (u.t.ward && !u.t.wardUsed) {
     u.t.wardUsed = true; const r = Math.min(x, u.t.ward); x -= r;
     if (x <= 0) { fl(X, u.uid, "가호", "shield"); return 0; }
@@ -378,11 +383,11 @@ function castSpell(X, caster, it, k) {
   for (const op of ops) { castOp(op); pinPass(X); }
 }
 
-/* v3.34 [사격]의 대상: 남은 체력이 가장 낮은 유닛, 같으면 레벨이 높은 유닛, 그것도 같으면 대기열 앞의 유닛.
-   (v3.33까지: 이 피해로 쓰러뜨릴 수 있는 유닛 중 레벨이 가장 높은 유닛, 없으면 맨 앞 — 투척도 같은 대상이었다) */
+/* v3.57.0 [사격]의 대상: 남은 체력이 가장 낮은 유닛, 같으면 대기열 앞의 유닛 (레벨은 보지 않는다).
+   (v3.34~v3.56: 같으면 레벨이 높은 유닛 먼저. v3.33까지: 쓰러뜨릴 수 있는 유닛 중 레벨이 가장 높은 유닛, 없으면 맨 앞) */
 function snipeTarget(D, foes) {
   return queueOf(D).filter(f => foes.includes(f))
-    .reduce((b, f) => !b || hpLeft(f) < hpLeft(b) || (hpLeft(f) === hpLeft(b) && C(f).lv > C(b).lv) ? f : b, null);
+    .reduce((b, f) => !b || hpLeft(f) < hpLeft(b) ? f : b, null);
 }
 /* v3.34 [투척]의 대상: 맞선 유닛에서 칸이 가장 먼 상대 유닛(같은 거리면 전장 번호가 큰 쪽). 맞선 유닛뿐이면 없음 */
 function throwTarget(D, Du) {
@@ -403,21 +408,13 @@ function snipeOne(X, u) {
   lg(X, `${C(u).name}의 [사격 ${sn}] → ${C(tg).name}`);
   if (!uEyeDodge(X, D, tg)) hurt(X, tg, sn, "사격");   // v3.31 [폭풍의 눈]
   step(X, { act: u.uid, tgt: tg.uid, hit: true, sn: 1 }, 520);
-  // v3.12.4 사격이 남은 상대 유닛을 모두 쓰러뜨리면 X.sniped: 이번 전투에서는 직접 공격(생명 피해)을 하지 않는다 (attackOne)
-  if (!liveUnits(D).length) X.sniped = true;
+  // v3.57.6 사격으로 상대 유닛이 모두 쓰러져도 남은 공격 유닛은 생명을 직접 공격한다 (v3.12.4~v3.57.5: 그 전투에서는 아무도 생명을 치지 않았다)
 }
 
 function attackOne(X, Au) {
   const A = X.P[X.ai], D = X.P[1 - X.ai];
   const Du = queueOf(D)[0];
   const ca = C(Au);
-  if (!Du && X.sniped) {
-    // v3.12.4 이번 전투의 상대는 유닛이었는데 [사격]에 모두 쓰러졌다 → 공격할 대상이 없을 뿐, 생명을 치지 않는다
-    lg(X, `${ca.name}: 맞설 유닛이 [사격]에 모두 쓰러져 공격할 대상이 없다`, "sys");
-    fl(X, Au.uid, "대상 없음", "miss");
-    step(X, {}, 300);
-    return;
-  }
   if (!Du) {
     const dmg = ca.lv;
     step(X, { act: Au.uid, tgt: "life" + D.idx }, 380);
@@ -830,7 +827,7 @@ const SPELL_OPS = {
     for (const u of queueOf(X.P[1 - caster])) {
       if (x <= 0) break;
       const need = hpLeft(u) + (u.t.ward && !u.t.wardUsed ? u.t.ward : 0);
-      const blocked = u.t.shield;
+      const blocked = u.t.shield === true;   // v3.57.5 보호막 코인(절반)은 멈추지 않는다 — 남은 피해가 들어가므로
       hurt(X, u, x, "강철");
       if (blocked || u.t.alive) break;   // 보호막에 막히거나 버티면 거기서 멈춘다
       x -= need; step(X, {}, 240);
@@ -1003,7 +1000,7 @@ const uSideOf = (X, u) => X.P.find(p => p.field.includes(u));
 const uLive = (p, key) => liveUnits(p).filter(u => abilOf(u).u === key);
 const uTokName = id => (CARDS[id] ? CARDS[id].name : id);
 /* 소환물(또는 되살린 카드)을 p의 빈 칸에 놓는다. after가 있으면 그 유닛 바로 다음 칸. 빈 칸이 없으면 부서짐. 놓은 유닛을 돌려준다 */
-function uSpawn(X, p, id, after, keep, why) {
+function uSpawn(X, p, id, after, keep, why, src) {   // src "burn": 소각장에서 꺼낸 카드 — 연출만 소각장에서 날아온다(fx.pyre)
   const at = landSlot(p, after || null);
   if (at < 0) { fizzle(X, p, id, after || null, 1, 1); return null; }
   const u = { uid: tokUid(X), id, item: null, summoned: X.turn };
@@ -1011,13 +1008,14 @@ function uSpawn(X, p, id, after, keep, why) {
   landAt(p, at, u); X.toks[u.uid] = id;
   fl(X, u.uid, why || "소환", "buff");
   lg(X, `${why ? "[" + why + "] " : ""}${C(u).name}(${C(u).a}/${C(u).d}/${C(u).h}) — ${p.name}의 ${at + 1}번 칸`, "good");
-  step(X, { conjure: u.uid }, 650);
+  step(X, src === "burn" ? { conjure: u.uid, pyre: p.idx } : { conjure: u.uid }, src === "burn" ? 800 : 650);
   return u;
 }
 /* [날개 그늘]: u가 쓰러질 피해를 받으면, 같은 편의 날개 유닛(턴마다 한 번)을 돌려준다 */
 function uWings(X, u, x) {
-  if (u.t.shield || u.t.endure) return null;
-  const left = hpLeft(u) - (u.t.ward && !u.t.wardUsed ? Math.max(0, x - u.t.ward) : x);
+  if (u.t.shield === true || u.t.endure) return null;
+  const xh = u.t.shield === "half" ? x - Math.ceil(x / 2) : x;   // v3.57.5 보호막 코인(절반)을 거친 피해
+  const left = hpLeft(u) - (u.t.ward && !u.t.wardUsed ? Math.max(0, xh - u.t.ward) : xh);
   if (left > 0) return null;
   const p = uSideOf(X, u); if (!p) return null;
   const w = uLive(p, "wings").find(v => v !== u && (uK(v).wingT !== X.turn || (uK(v).wingN || 0) < 2));
@@ -1260,7 +1258,7 @@ function uCombatEnd(X, sweep) {
       p.burn.splice(p.burn.lastIndexOf(id), 1);
       X.died[p.idx].splice(X.died[p.idx].indexOf(id), 1);
       k.dawn = (k.dawn || 0) + 1;
-      uSpawn(X, p, id, null, {}, "새벽의 부활");
+      uSpawn(X, p, id, null, {}, "새벽의 부활", "burn");
     }
   }
   if (any) sweep();

@@ -98,7 +98,7 @@ function hardEval(p, seeds) {
     let v = hardState(P, me);
     // 다음 턴도 한 번: 공수가 바뀌고, 남은 유닛은 회복한 채로 (양쪽이 새로 낼 카드는 모른다)
     if (HARD.look2 && P[0].life >= 0 && P[1].life >= 0) {
-      for (const q of P) { q.field = q.field.filter(u => u && isUnit(u) && u.t && u.t.alive && !u.tokTemp); for (const u of q.field) resetTurn(u); while (q.field.length < RULES.slots) q.field.push(null); q.bonus = 0; }
+      for (const q of P) { q.field = q.field.filter(u => u && isUnit(u) && u.t && u.t.alive && !u.tokTemp); for (const u of q.field) resetTurn(u, q.idx === 1 - G.attacker); while (q.field.length < RULES.slots) q.field.push(null); q.bonus = 0; }
       runCombatCore(ctx(P, 1 - G.attacker, G.turn + 1, null, { seed: seed ^ 0x5bd1e995, rules: G.rules }));
       v = v * (1 - HARD.look2) + hardState(P, me) * HARD.look2;
     }
@@ -144,7 +144,7 @@ function hardApply(p, a) {
   if (a.kind === "item") {
     const host = p.field[a.s], keep = { t: host.t, item: host.item };
     host.item = { id: a.it.id, equipped: G.turn };
-    const dmg = host.t ? host.t.dmg : 0; resetTurn(host); host.t.dmg = dmg;
+    const dmg = host.t ? host.t.dmg : 0; resetTurn(host, p.idx === G.attacker); host.t.dmg = dmg;
     return () => { host.t = keep.t; host.item = keep.item; };
   }
   if (a.kind === "move") {
