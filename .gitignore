@@ -43,3 +43,6 @@ server/tailscale/
 
 # iOS 시뮬레이터용으로 만든 앱 (tools/ios/run_sim.sh)
 tools/ios/build/
+
+# 받은 소리 원본(배경음 · 효과음). 다듬은 파일만 audio/bgm 등에 넣는다
+audio/inbox/

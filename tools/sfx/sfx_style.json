@@ -1,0 +1,65 @@
+{
+  "_about": "ETHERION 효과음 프롬프트의 공통 말. build_sfx_prompts.js가 카드별 지시(notes/<깃발>.json)와 합쳐 Gemini용 프롬프트를 만든다. 설명은 tools/sfx/PROMPT_SFX.md 5장.",
+
+  "lead": "Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.",
+  "studio": "Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.",
+  "single": "Single isolated game sound effect, no music, no voice.",
+
+  "flags": {
+    "B1": { "en": "Cinder Goblins", "world": "goblin and human gunners, fearless black-powder geniuses",
+            "palette": "black powder, flintlocks and muskets, fizzing fuses, squat cannons, crackling embers, brass casings, scrappy goblin gear",
+            "guard": "wooden crates, sandbags, dented iron pans, powder barrels, smoke puffs" },
+    "B2": { "en": "Ironbeard Dwarves", "world": "dwarf smiths and the steel golems and automatons they forge",
+            "palette": "forged steel, anvils, rivets, hissing steam valves, grinding gears, stone-and-iron golem bodies",
+            "guard": "tower shields, thick iron plating, golem chassis that ring deep, chain mail" },
+    "B3": { "en": "Thunder Gnomes", "world": "brilliant, frail gnome scholars who store charge and release it at once",
+            "palette": "electric arcs, rising capacitor whine, crackling coils, clockwork ticks, glass vacuum tubes, copper wire",
+            "guard": "humming force fields, crackling energy barriers, sparking coils, brass gadget shields" },
+    "G1": { "en": "Rockfist Orcs", "world": "orc warriors riding wolves and bears, strongest when cornered",
+            "palette": "raw stone, bone clubs, leather and hide, wolves and bears (short growls or snarls only), earth-shaking stomps",
+            "guard": "hide shields, bone armour, stone thuds, thick beast hide, braced stances" },
+    "G2": { "en": "Moss Trolls", "world": "moss trolls and treants that regrow when cut and return pain with thorns",
+            "palette": "creaking timber, bark splitting, roots tearing through earth, thorns, rustling leaves, deep wooden groans",
+            "guard": "bark armour, rising root walls, thorny counter-snaps, spongy moss cushions, regrowing wood" },
+    "G3": { "en": "Bluescale Merfolk", "world": "merfolk and water-spirit priestesses who heal allies and wash away enchantments",
+            "palette": "splashes, bubbles, waves, glassy water drops, conch-like resonance, coral and pearl",
+            "guard": "water veils, bubble shields, wave walls, coral armour, mist" },
+    "A1": { "en": "Abyssal Fiends", "world": "demon pact-makers who pay with their own life for devastating blows",
+            "palette": "low ominous drones, shadow whooshes, rattling chains, blood droplets, muffled ritual bells, reversed swells",
+            "guard": "shadow veils that swallow impacts, blood wards, chain rattles, cursed armour" },
+    "A2": { "en": "Radiant Seraphs", "world": "seraphs and human knights who take blows for allies and guard them with shields",
+            "palette": "bright bell tones, radiant swells, silver armour, shimmering light, feathered wings",
+            "guard": "ringing holy shields, radiant wards, silver plate, glowing halo hum" },
+    "A3": { "en": "Storm High Elves", "world": "proud, frail high-elf storm mages who twist fate and the wind",
+            "palette": "rushing gusts, airy whistles, swift thin blades, feathered arrows, rustling silk, distant thunder",
+            "guard": "wind barriers, deflecting gusts, quick parries, nimble dodges, swirling air" }
+  },
+
+  "_levels": "유닛 레벨 → 크기 말과 길이(초). atk = 공격, def = 방어",
+  "levels": {
+    "1": { "size": "tiny and light, quick",          "atk": 0.6, "def": 0.5 },
+    "2": { "size": "small and light",                "atk": 0.7, "def": 0.6 },
+    "3": { "size": "medium weight",                  "atk": 0.8, "def": 0.7 },
+    "4": { "size": "solid, medium-heavy",            "atk": 0.9, "def": 0.8 },
+    "5": { "size": "heavy and forceful",             "atk": 1.0, "def": 0.9 },
+    "6": { "size": "very heavy and powerful",        "atk": 1.2, "def": 1.0 },
+    "7": { "size": "massive and legendary",          "atk": 1.4, "def": 1.1 },
+    "8": { "size": "colossal and mythic",            "atk": 1.6, "def": 1.2 }
+  },
+
+  "_grades": "등급 → 꼬리에 더하는 말 (없으면 아무것도 안 붙임)",
+  "grades": {
+    "rare":    "Add a subtle magical shimmer in the tail.",
+    "epic":    "Give it a richer, wider tail with a magical shimmer.",
+    "unique":  "Add a distinctive signature layer that makes it instantly recognisable.",
+    "special": "Mythic weight: a deep sub-bass bloom and a long resonant tail.",
+    "upgrade": "This is an upgraded card: brighter and more forceful than its base version.",
+    "token":   "A summoned creature: slightly unreal, with a faint magical edge."
+  },
+
+  "_spell": "마법 길이(초) = base + per × 레벨, 최대 max. 마법의 종류(공격 · 방어 · 공용 · 핸드)는 턴 규칙이라 소리 말에 넣지 않는다 — 소리는 카드별 지시(cast)가 정한다",
+  "spell": { "base": 0.9, "per": 0.2, "max": 2.4,
+             "what": "the whole spell, from casting to its effect" },
+
+  "item": { "len": 0.8, "what": "item being fitted onto a unit" }
+}

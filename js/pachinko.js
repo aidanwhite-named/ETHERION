@@ -63,21 +63,6 @@ const Pachinko = {
     if (!this.spinning && !this.holdMsg) { msg.textContent = ok ? `수레바퀴 표 ${this.spins()}장 · 돌릴 수 있음` : "표 없음 · 대전을 한 판 마치면 1장"; msg.className = "pach-msg"; }
   },
 
-  /* ---------- 소리: 아주 작은 클릭과 틱 (WebAudio, 파일 없음) ---------- */
-  ctx() {
-    if (this.audio === false) return null;
-    try { this.audio = this.audio || new (window.AudioContext || window.webkitAudioContext)(); return this.audio; } catch (e) { this.audio = false; return null; }
-  },
-  blip(freq, dur, vol, type) {
-    const ac = this.ctx(); if (!ac) return;
-    if (typeof FEEL !== "undefined") FEEL.mark();   // v3.7.2 메뉴 단추 소리와 겹치지 않게
-    if (ac.state === "suspended") ac.resume();
-    const o = ac.createOscillator(), g = ac.createGain();
-    o.type = type || "square"; o.frequency.setValueAtTime(freq, ac.currentTime);
-    g.gain.setValueAtTime(vol || 0.04, ac.currentTime); g.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + (dur || 0.05));
-    o.connect(g).connect(ac.destination); o.start(); o.stop(ac.currentTime + (dur || 0.05) + 0.01);
-  },
-
   /* ---------- 돌리기 ---------- */
   spin() {
     if (!this.canSpin()) return;

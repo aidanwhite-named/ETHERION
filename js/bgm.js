@@ -1,10 +1,9 @@
 /* ETHERION — 배경음(BGM)
-   - 타이틀 · 입장 화면(배경 "title"): audio/bgm/title — 약 50초짜리 짧은 곡을 이어서 반복
-   - 대기실 · 상점 · 덱 조정실 · 원정 · 보관소(배경 "calm"): 아홉 단체 테마(audio/bgm/flag_<단체ID>)를 무작위로 이어 튼다.
-     방금 나온 세 곡은 다시 고르지 않는다. 곡이 끝나기 4초 전부터 다음 곡과 겹쳐 넘어간다
-   - 대전(배경 "off"): 대전 곡 다섯(audio/bgm/bgm_reminiscence · bgm_long_ago, v3.17 bgm_last_oath · bgm_ashen_banner · bgm_fallen_star)을
-     무작위로 이어 튼다. 방금 나온 두 곡은 다시 고르지 않는다(끝나기 4초 전부터 겹쳐 넘어감).
-     대전이 끝나 대기실로 돌아오면 단체 테마 새 곡으로 다시 시작. (예전에는 대전에서 멈춰서, ♪를 켜도 소리가 안 났다)
+   - 곡은 Gemini(Lyria)로 만든 15곡(프롬프트 tools/bgm/PROMPT_BGM.md). 장면마다 곡 묶음(tracks)에서 무작위로 이어 튼다.
+     방금 나온 곡(묶음 크기 − 1, 최대 세 곡)은 다시 고르지 않는다. 곡이 끝나기 4초 전부터 다음 곡과 겹쳐 넘어간다
+   - 타이틀 · 입장 화면(배경 "title"): bgm_main — 한 곡뿐이라 끝나기 4초 전부터 처음과 겹쳐 다시
+   - 대기실 · 상점 · 덱 조정실 · 원정 · 보관소(배경 "calm"): 잔잔한 일곱 곡
+   - 대전(배경 "off"): 힘 있는 일곱 곡. 대전이 끝나 대기실로 돌아오면 대기실 곡으로 다시 시작
    - 화면 바뀜은 Bg.set(배경 모드)을 감싸서 안다(js/screens.js를 고치지 않음). 그래서 이 파일은 screens.js 뒤에 읽는다
    - 음량: 설정에서 끄기 / 작게 / 보통 (localStorage etherion.pref.bgm, 기본 보통). 효과음 설정과 따로
    - 화면 오른쪽 아래의 소리 단추 둘(모든 화면): ♪ = 배경음, 스피커 = 효과음. 따로 끄고 켠다.
@@ -21,17 +20,18 @@
 
 const BGM = {
   dir: "audio/bgm/",
-  ver: "n3",          // 음원을 바꾸면 올린다(브라우저가 옛 파일을 기억하지 않게) — v3.55.8 잔잔한 변주판
-  titleTrack: "title",
-  flags: ["B1", "B2", "B3", "G1", "G2", "G3", "A1", "A2", "A3"],
-  battleTracks: ["bgm_reminiscence", "bgm_long_ago", "bgm_last_oath", "bgm_ashen_banner", "bgm_fallen_star"],
-  battleRecent: [],    // v3.17 방금 나온 대전 곡(두 곡까지) — 다시 고르지 않는다
+  ver: "g1",          // 음원을 바꾸면 올린다(브라우저가 옛 파일을 기억하지 않게) — Gemini 15곡판
+  tracks: {
+    title: ["bgm_main"],
+    town: ["bgm_lantern", "bgm_library", "bgm_anvil", "bgm_clockwork", "bgm_moss", "bgm_tide", "bgm_halo"],
+    battle: ["bgm_field", "bgm_oath", "bgm_cinder", "bgm_stonedrum", "bgm_abyss", "bgm_gale", "bgm_lastcard"]
+  },
+  recent: { title: [], town: [], battle: [] },   // 장면마다 방금 나온 곡 — 다시 고르지 않는다
   vol: { off: 0, low: 0.22, mid: 0.5, user: 0.5 },
   MAXV: 0.8,           // 슬라이더 100일 때의 실제 음량
   level: "mid",
   want: null,          // 지금 화면이 원하는 것: "title" | "town" | "battle" | null
   cur: null,           // { el, name, scene }
-  recent: [],
   blocked: false,
   fadeMs: 1800,
   ext: "ogg",
@@ -82,35 +82,29 @@ const BGM = {
   },
 
   pick(scene) {
-    if (scene === "battle") {   // 대전 곡: 무작위, 방금 나온 두 곡은 건너뜀 (v3.17)
-      const pool = this.battleTracks.filter(n => !this.battleRecent.includes(n));
-      const n = pool[Math.floor(Math.random() * pool.length)];
-      this.battleRecent.push(n); if (this.battleRecent.length > 2) this.battleRecent.shift();
-      return n;
-    }
-    const pool = this.flags.filter(g => !this.recent.includes(g));
-    const g = pool[Math.floor(Math.random() * pool.length)];
-    this.recent.push(g); if (this.recent.length > 3) this.recent.shift();
-    return "flag_" + g;
+    const all = this.tracks[scene] || [], rec = this.recent[scene] || (this.recent[scene] = []);
+    if (!all.length) return null;
+    const pool = all.filter(n => !rec.includes(n));
+    const n = (pool.length ? pool : all)[Math.floor(Math.random() * (pool.length || all.length))];
+    rec.push(n); while (rec.length > Math.min(3, all.length - 1)) rec.shift();
+    return n;
   },
 
   start(scene) {
     if (this.level === "off") { this.stop(); return; }
-    const name = scene === "title" ? this.titleTrack : this.pick(scene);
+    const name = this.pick(scene);
+    if (!name) { this.stop(); return; }
     const el = new Audio(this.dir + name + "." + this.ext + "?v=" + this.ver);
     el.preload = "auto";
-    el.loop = scene === "title";
     el.volume = 0;
     const item = { el, name, scene };
-    if (scene !== "title") {   // 대기실 · 대전: 곡이 끝나기 4초 전부터 다음 곡으로 겹쳐 넘어감
-      el.addEventListener("timeupdate", () => {
-        if (this.cur !== item || item.leaving || !el.duration) return;
-        if (el.duration - el.currentTime < 4) { item.leaving = true; this.start(scene); }
-      });
-      el.addEventListener("ended", () => { if (this.cur === item && !item.leaving) this.start(scene); });
-    }
+    el.addEventListener("timeupdate", () => {   // 곡이 끝나기 4초 전부터 다음 곡으로 겹쳐 넘어감(타이틀은 같은 곡 처음으로)
+      if (this.cur !== item || item.leaving || !el.duration) return;
+      if (el.duration - el.currentTime < 4) { item.leaving = true; this.start(scene); }
+    });
+    el.addEventListener("ended", () => { if (this.cur === item && !item.leaving) this.start(scene); });
     el.addEventListener("error", () => { if (this.cur === item) this.cur = null; });
-    if (this.cur) this.fade(this.cur, 0, scene !== "title" && this.cur.scene === scene ? 4000 : this.fadeMs, true);
+    if (this.cur) this.fade(this.cur, 0, this.cur.scene === scene ? 4000 : this.fadeMs, true);
     this.cur = item;
     this.play(item);
   },

@@ -1,0 +1,432 @@
+{
+ "flag": "A2",
+ "cards": {
+  "A2-01": {
+   "en": "Radiant Apprentice",
+   "ko": "작은 빛 불꽃 튕김 · 촛불 같은 빛이 톡 되받음",
+   "atk": "a tiny wooden practice blade flicks forward: a light swish, a dry tap, then a small candle-flame sparkle popping off the fingertip",
+   "def": "a thin padded vest takes the knock with a soft thump, then a tiny flame-like spark flashes back at the attacker with a faint glassy tick"
+  },
+  "A2-03": {
+   "en": "Oath Squire",
+   "ko": "짧은 검 서툰 휘두름 · 맨몸이 퍽 맞음",
+   "atk": "a light shortsword is swung a little clumsily: a quick leather-grip creak, a thin whoosh, a modest steel clack against the target",
+   "def": "no shield to lift: the squire flinches, cloth tunic rustles, a dull body thump and one scuffing boot slide on flagstone"
+  },
+  "A2-04": {
+   "en": "Seraph Child",
+   "ko": "깃털 파닥 · 쓰러져도 따뜻한 빛이 받침",
+   "atk": "a small hop and a flurry of tiny feather flaps, a soft pat of a little fist on the foe, a faint high sparkle trailing off",
+   "def": "the child tumbles with a soft cloth plop, then a warm airy glow gently cushions it: a low breathy hum and a few feathers drifting"
+  },
+  "A2-05": {
+   "en": "Elad Sentry",
+   "ko": "창 자루 찍어 내림 · 성벽 위 가죽 갑옷 부딪힘",
+   "atk": "a spear butt is stamped on stone, then thrust forward: a crisp boot click, a short air hiss, a steel tip tapping into leather",
+   "def": "a light buckler knocks the blow aside with a tight metallic tink, boots scraping on a stone parapet, a faint ring in the air"
+  },
+  "A2-06": {
+   "en": "Light Pilgrim",
+   "ko": "지팡이 끝 등불이 휙 · 천 외투가 맞아 구름",
+   "atk": "a travelling staff is swung with a hanging lantern on its tip: a wooden whoosh, a small glass-and-brass clink, a soft flare of light on impact",
+   "def": "a thick woolen cloak absorbs the hit with a muffled thump while the lantern glass rattles and its flame flutters with a gentle hum"
+  },
+  "A2-07": {
+   "en": "Oath Knight",
+   "ko": "검 뽑아 단칼 내리침 · 갑옷 맞아 무겁게 휘청",
+   "atk": "a longsword drawn with a clean steel rasp, one decisive downward cut, then a bright metallic ring-out as it lands",
+   "def": "bare of shield, the knight takes it on a breastplate: a flat armour clang, rattle of plate joints, a heavy step back"
+  },
+  "A2-09": {
+   "en": "Seraph Guard",
+   "ko": "방패 앞세워 돌진 · 작은 방패에 챙 하고 튕김",
+   "atk": "a short stabbing sword jabs from behind a raised guard: a rapid scrape, a punchy thrust, and a clipped chain-mail jingle",
+   "def": "a small round shield catches the blow with a sharp clank and a quick ring, the arm wobbling with a creak of leather straps"
+  },
+  "A2-11": {
+   "en": "Light Spearman",
+   "ko": "빛 창을 길게 찌름 · 창 자루로 비껴 막음",
+   "atk": "a long spear levelled and driven forward: a bright forged-light hum, a long whistling thrust, a clean piercing tick with a streak of shimmer",
+   "def": "the spear shaft is turned crosswise to parry: a hard wooden crack, a glancing glassy scrape along the tip, no solid ring"
+  },
+  "A2-13": {
+   "en": "Radiant Knight",
+   "ko": "은빛 장검 가름 · 가시 번쩍 되돌림",
+   "atk": "a silver arming sword sweeps in a level arc: a polished steel whistle, a ringing clang on contact, a rising glint of sunlight",
+   "def": "a kite shield takes the strike with a rich metallic clang and a deep thud, then a sharp sunrise flash spits back with a crisp crackle"
+  },
+  "A2-15": {
+   "en": "Solante's Vowsworn",
+   "ko": "맹세의 철퇴 내려침 · 굳게 선 갑옷이 낮게 울림",
+   "atk": "a heavy flanged mace lifted and brought down in a solemn overhead smite: a slow metal creak, a deep dull crunch, a low bell tone swelling afterwards",
+   "def": "planted firmly with plated greaves, the body absorbs the blow with a deep armour thud and a low sustained bell ring that fades slowly"
+  },
+  "A2-16": {
+   "en": "Dawn Patrol",
+   "ko": "질서 있는 발걸음 후 짧은 연타 · 둔탁한 두꺼운 몸",
+   "atk": "a tramp of boots in step, then a quick slash with a curved blade: a cloth swish, a short slicing zing, a dull clip on the target",
+   "def": "a thick stack of padded gambeson soaks the blow: a fat muffled thump, a creak of straps, a long exhale of dust from the cloth"
+  },
+  "A2-17": {
+   "en": "Light Inquisitor",
+   "ko": "등불 번쩍이며 훑음 · 유리등이 흔들려 짤랑",
+   "atk": "a brass-framed lantern is raised and flares: a bright rising whine of light, a sweeping beam hiss, then a sharp crackle where it scorches the foe",
+   "def": "the glass lantern swings and rattles on its chain, a thin pane-like ring absorbing the hit, the flame wavering with a soft flutter"
+  },
+  "A2-20": {
+   "en": "Wing Knight",
+   "ko": "날개 펼쳐 덮쳐 베기 · 큰 날개가 깃털 펄럭이며 감쌈",
+   "atk": "enormous wings snap open with a big feathery boom, a gust, then a longsword sweeps down with a deep steel whoosh and a weighty clang",
+   "def": "a vast pair of wings folds across the front: a dense wall of feather flutter, a muffled whump, and a soft hanging shimmer of settling down"
+  },
+  "A2-21": {
+   "en": "Oath Guardian",
+   "ko": "방패 앞세워 밀어침 · 이름 새긴 방패가 깊게 울림",
+   "atk": "a heavy sword-and-board shoulder charge: a stamp of sabatons, a shield rim bash, then a broad sword chop with a deep clang",
+   "def": "a large engraved shield takes the strike with a resonant boom and a rolling metallic ring, small etched plates buzzing in sympathy"
+  },
+  "A2-22": {
+   "en": "Solante High Priest",
+   "ko": "금빛 향로 휘둘러 종처럼 울림 · 두꺼운 제의로 묵직하게 받음",
+   "atk": "a gilded censer swung on a chain: a chain whirr, a heavy brass swing, a thick bell-like gong as it strikes, incense-like glitter trailing",
+   "def": "layered heavy ceremonial robes absorb the blow with a plush thud while a deep sacred bell rings out once, warm and long"
+  },
+  "A2-24": {
+   "en": "Light Barrier",
+   "ko": "쌓인 빛벽이 밀침 · 얇은 유리벽이 맑게 금감",
+   "atk": "a pane of stacked light surges forward like a shoving wall: a rising crystalline hum, a rushing swell, a broad glassy slam",
+   "def": "a thin standing wall of glowing glass takes the hit: a clear sharp chime, faint spiderweb crackle, then the pane re-settling with a smooth shimmer"
+  },
+  "A2-25": {
+   "en": "Elad Knight Commander",
+   "ko": "지휘검이 높이 가름 · 큰 방패에 일출 가시",
+   "atk": "a commander's broadsword is raised, signalled with a bright metallic flick, then swept down: a deep whoosh, a heavy gleaming clang and a rolling ring-out",
+   "def": "a heavy tower shield booms deeply under the blow, plate groaning, and a bright sunburst flash cracks back at the attacker"
+  },
+  "A2-27": {
+   "en": "Solante's Blade",
+   "ko": "뽑힌 성검 한 번에 베기 · 서서 칼날로 받아 맑게 울림",
+   "atk": "a great sword slides from its sheath with a long pure scrape, hangs a moment, then one clean lightning-quick cut rings bright like struck crystal",
+   "def": "the upright blade is turned to catch the hit: a ringing steel tone, a crisp shower of tiny sparks, a long fading resonance"
+  },
+  "A2-28": {
+   "en": "Citadel Knight",
+   "ko": "성채 같은 몸으로 몸통 박치기 · 거대한 판금이 돌처럼 울림",
+   "atk": "a lumbering full-plate charge ending in a halberd chop: rumbling footfalls, a heavy axe-blade whoosh, a ground-shaking crunch",
+   "def": "a body of plate like a fortress: an immense stony boom, deep armour rumble and a dense low ring, as if a gate has slammed"
+  },
+  "A2-29": {
+   "en": "Dawn Castle Veteran",
+   "ko": "오래된 대검 묵직한 횡베기 · 낡은 갑옷이 세월 소리로 받음",
+   "atk": "a worn greatsword is hauled round in a slow flat arc: aged leather creak, a low rolling whoosh, a heavy ringing chop with a scrape of nicks",
+   "def": "old scarred plate gives a seasoned, weary clank, dents flexing back, a deep stone-like thud and a long calm exhale of metal"
+  },
+  "A2-30": {
+   "en": "Seraph",
+   "ko": "불꽃 날개 휘몰이 · 날개 불꽃이 막아 낮게 웅웅",
+   "atk": "six burning wings sweep forward: a rush of flapping air, crackling golden flame, then a blazing swelling roar that bursts into sparkling embers",
+   "def": "blazing wings snap shut across the body: a thick whoosh of feathers, a fiery crackle absorbing the blow, and a low warm halo hum"
+  },
+  "A2-31": {
+   "en": "Oath Judge",
+   "ko": "저울 추 같은 대검 내려침 · 금빛 갑옷이 저울처럼 울림",
+   "atk": "a massive judging blade is lifted slowly and dropped: a long metallic scrape, a still beat, then a thunderous bright hammer-fall of steel and light",
+   "def": "an unmoving golden plate takes the blow with a deep gong-like boom, balanced scale chains swaying with a quiet clinking afterwards"
+  },
+  "A2-33": {
+   "en": "Solante's Shield",
+   "ko": "거대한 방패로 밀어냄 · 거대한 방패가 종탑처럼 울림",
+   "atk": "a colossal shield is slammed forward like a gate: a huge heavy swoosh, a ground-trembling bash, a broad bronze-like clang with a spreading light flare",
+   "def": "a monumental shield absorbs everything: one huge belltower boom, a deep rolling resonance through stone, and a steady golden hum that does not crack"
+  },
+  "A2-34": {
+   "en": "Saint of Elad",
+   "ko": "양손 성광 내리침 · 성스러운 후광이 흘려보냄",
+   "atk": "a heavy gleaming warhammer is lifted in both hands and brought down in an overhead smite: a slow rise of radiance, a gong-like thud, a bright pulsing blast of light",
+   "def": "a soft golden halo flares around the body and the blow slides off in a smooth liquid shimmer, a low calm hum rising and fading"
+  },
+  "A2-36": {
+   "en": "Dawn Archangel",
+   "ko": "여섯 날개 내리쳐 빛 폭발 · 빛 날개가 몸을 감싸 울림",
+   "atk": "wings of dawn spread with a huge feathered boom, a mounting radiant swell, then a blazing sunrise lance of light slams down with a brilliant chime cluster",
+   "def": "six great wings shut around the body in layered feather rushes; a high bright ring of sunlit glass and a deep warm hum swallow the strike"
+  },
+  "A2-41": {
+   "en": "Zealot Charger",
+   "ko": "방패 없이 맨몸으로 달려 찌름 · 갑옷 없이 부딪혀 나뒹굼",
+   "atk": "an unshielded sprint, a rattle of light armour and wing-folded rush, then a spear lunge punching right through: a sharp pierce crack and a flash of light",
+   "def": "bare of defence, it is bowled over: a hard body thud, a clatter of dropped steel, wings crumpling with a quick feathery rustle"
+  },
+  "A2-42": {
+   "en": "Executioner of Heaven",
+   "ko": "하늘에서 한 번 찍어 관통 · 얇은 몸이 번쩍하고 쓰러짐",
+   "atk": "a long executioner's blade is raised high and plunges with a falling whistle, one pierce-through crack, then an enormous lightning-bright boom of light",
+   "def": "a lightly built body folds under the blow with a thin metallic clatter, wing feathers scattering and a short fading ring"
+  },
+  "A2-43": {
+   "en": "Flame Wing Martyr",
+   "ko": "불꽃 날개 날려 자폭 돌진 · 타다 흩어지는 재",
+   "atk": "burning wings ignite with a roaring flare, then it streaks forward like a comet: a rising firestorm rush, a piercing crack through the target, a blazing detonation of sparks",
+   "def": "frail wings crackle and curl under the blow, embers tinkling like falling glass, a short sizzle and a fading orange hiss"
+  },
+  "SP-A2": {
+   "en": "Solante's First Knight",
+   "ko": "황금 성검 천둥 가름 · 날개와 보호막이 겹쳐 울림",
+   "atk": "a golden sword and rising wings: a heavy feather boom, a long shining blade sweep, a thunderous clang with layered bell-like overtones blossoming outward",
+   "def": "a ringing coin-like shield of light blossoms in front, a deep sunburst bell tone, wings fanning, and a clear glassy sparkle as the blow dissolves"
+  },
+  "UN-A2": {
+   "en": "Elad Wing Shield",
+   "ko": "날개 펼쳐 대신 맞음 · 날개 그늘이 휙 드리워 막음",
+   "atk": "a feathered shield-wing is swung like a battering ram: a huge air-parting whoosh, a heavy feather-and-steel slap, a bright crack, a soft downy flutter after",
+   "def": "a giant wing sweeps across to take the hit for an ally: a rush of feathers, a deep shadowy thump, a dim shaded hum falling over the impact like a curtain"
+  },
+  "UN-A2-7": {
+   "en": "Solante's Dawn Priest",
+   "ko": "새벽 종 내리쳐 빛 번쩍 · 사제복에 빛이 살아남",
+   "atk": "a staff topped with a sun bell is struck down: a ringing swing, a pure crystalline gong, then a shimmering surge of morning light breaking like a wave",
+   "def": "robes absorb the hit with a soft thud, then a rising warm glow and a gentle upward chime, like a fallen thing standing again"
+  },
+  "EP-A2-1": {
+   "en": "Dawn Castle Warden",
+   "ko": "작은 날개 퍼덕이며 검 돌려침 · 큰 방패에 빛 보호막 코인",
+   "atk": "small wings flick open, a sword slash whips round: a quick steel-edge snick, a bright ringing clang, and a coin-sized flash of light off the guard",
+   "def": "a big shield catches the blow with a bright ring, and a tiny coin-shaped ward spins up around it with a quick chiming glimmer and a firm thud"
+  },
+  "EP-A2-2": {
+   "en": "Twilight Wall Warden",
+   "ko": "장벽 위에서 장창 찔러 박음 · 어둑한 방패가 빛을 되받음",
+   "atk": "a heavy pike jabs out from behind a wall: a long dry hiss, a deep iron-headed thrust with a hard crunch, a violet-gold glow flickering at the tip",
+   "def": "a thick shield with a dim glowing rim blocks with a dense iron boom, a sunset-coloured hum envelops it, and a hard counter-flare snaps back"
+  },
+  "EP-A2-3": {
+   "en": "Twilight Archangel",
+   "ko": "여섯 날개 후려침 · 날개 아래 커다란 후광 천막",
+   "atk": "a great wing sweeps in, then a lance of dusk-gold light thunders down: a huge feathered gust, deep swelling bell hum, a heavy brilliant impact",
+   "def": "a vast feathered canopy unfurls overhead and a large halo of light flares like a shimmering dome, sunlight chiming against the blow with a glassy ring"
+  },
+  "PN-A2-C1": {
+   "en": "Dawn Apprentice Shield",
+   "ko": "방패 밀어 툭 치기 · 방패 내리지 않고 버팀",
+   "atk": "a small round shield nudged forward in a poking bash: a short leather creak, a flat wooden thump, a timid metallic tap",
+   "def": "the shield is held fast and the arm braces: a firm wooden-and-iron thud, boots digging in, a short stubborn creak that does not give"
+  },
+  "PN-A2-C2": {
+   "en": "Elad Wall Guardian",
+   "ko": "돌벽 같은 몸으로 슬쩍 밈 · 변하지 않는 성벽처럼 육중",
+   "atk": "a heavy mailed shoulder shoves with little force: stone-like footfalls, a muted chain-mail rattle, a slow dull knock",
+   "def": "immovable as a wall: a very deep stony thump, no wobble, mortar-dust sifting, and a calm single low ring from the plates"
+  },
+  "PN-A2-C3": {
+   "en": "Twilight Wall Patrol",
+   "ko": "장벽 순찰 도끼 내려침 · 서서 버티며 묵직하게 울림",
+   "atk": "a swing of a heavy battle axe with a deep whoosh, a meaty chop and a rattle of mail, fading with a dusk-like low hum",
+   "def": "the patrol braces against a stiff wind of force: a solid steel clang, boots grinding on stone, a long muffled ring settling like a closed gate"
+  },
+  "PN-A2-U1": {
+   "en": "Oath-Engraved Knight",
+   "ko": "새긴 맹세 검 번쩍 · 가시 번쩍임과 단단한 판금",
+   "atk": "an engraved longsword flicks out with a crisp whistle, a clean slash, a bright clang that carries etched-metal overtones",
+   "def": "plate with etched runes takes the blow with a steady clang, hums softly, and returns a snapping flash of light as the attacker recoils"
+  },
+  "PN-A2-U2": {
+   "en": "Solante's Choir",
+   "ko": "유리 종 연타 · 울림이 겹쳐 버팀",
+   "atk": "a cluster of glass bells swung together: a bright scattered chime burst, a swelling light surge, a sharp radiant crack on target",
+   "def": "a ring of hanging glass bells vibrates around the body, absorbing the hit in layers of soft chime and a shimmering hum that holds steady"
+  },
+  "PN-A2-R": {
+   "en": "Dawnlight Shield Knight",
+   "ko": "새벽빛 반사하는 방패로 밀침 · 칼날이 빛에 미끄러져 튕김",
+   "atk": "a gleaming polished shield is shoved edge-first: a bright polished-metal swish, a sharp rim crack, a bar of sunlight flashing across",
+   "def": "an enormous round shield tilted to the dawn: the blade skates off with a bright metallic zing, a gentle halo glimmer, and a firm unyielding thud"
+  },
+  "PN-A2-E": {
+   "en": "Twilight Wall Oathsworn",
+   "ko": "봉인의 대검 땅 울림 · 보호막이 겹겹 맞물림",
+   "atk": "an ancient greatsword drags and swings with a long ringing scrape, a heavy sealed-gate boom and a deep resonant gong bursting with pale light",
+   "def": "layered ward upon ward: a coin-like halo shield rings once, a deep door-like thud follows, pale bars of light locking into place with grinding chimes"
+  },
+  "UP-A2-11": {
+   "en": "Light Lancer",
+   "ko": "돌진하는 창 · 창이 날개 아래 비껴남",
+   "atk": "a lowered lance in a galloping charge: hoof-like pounding, a rising wind whistle, a bright penetrating crack, light splitting like torn silk",
+   "def": "a horse-like body shifts aside under the lance haft, a shield-edge scrape, a snort and a sharp parry clack with light fizzing"
+  },
+  "UP-A2-15": {
+   "en": "Solante's Covenant Knight",
+   "ko": "서약 철퇴 벼락 내림 · 서약 갑주가 낮은 종소리",
+   "atk": "a covenant mace swung down with a heavier deeper smite than before: a stone-like crunch, a bell tone, then a golden pulse of light rippling out",
+   "def": "a full covenant plate suit rings with a rich deep bell tone, a long steady thud, then three faint echoing hums of oaths held"
+  },
+  "UP-A2-17": {
+   "en": "Grand Light Inquisitor",
+   "ko": "큰 등불 눈부신 훑음 · 그림자 없는 빛 막",
+   "atk": "a large lantern's beam sweeps wide: a whining white flare, a shadow-erasing hiss, a bright pitiless crack on the foe",
+   "def": "a tall lantern ward spins a net of light: pane-like chimes cascade, the blow is swallowed with a soft deep hum and a gentle shimmer"
+  },
+  "UP-A2-22": {
+   "en": "Solante High Cleric",
+   "ko": "큰 종 한 번 더 울림 · 두꺼운 후광이 받아 냄",
+   "atk": "an enormous bell tolls with a deep gong as a gold crozier slams down: a gigantic swelling clang, rolling brass overtones, a brilliant white burst",
+   "def": "a great tower bell rings out once more and a thick halo of golden light soaks the blow, bass hum, echoing across stone"
+  },
+  "UP-A2-24": {
+   "en": "Grand Light Bulwark",
+   "ko": "삼중 빛벽 밀어 쾅 · 겹친 유리벽 연달아 금감",
+   "atk": "three layered light walls shoved forward like a landslide: a rumbling glassy roar, a tall crushing slam, shards of light raining down",
+   "def": "stacked sheets of glowing glass absorb the blow in sequence: crack, ring, crack again, then a deep stony settling thud and a steady glow"
+  },
+  "MA-02": {
+   "en": "Solante's Blessing",
+   "ko": "맨 앞 기사 위 빛 보호막 내림",
+   "cast": "a warm descending swell of light settles over the front knight, a soft glassy bubble forming with a bright chime as armour plates unclasp with a metallic loosening"
+  },
+  "SA2-01": {
+   "en": "Charge Horn",
+   "ko": "성벽에서 나팔 한 번 · 앞줄 달려나감",
+   "cast": "a single long brass war horn blast echoes off a wall, then rows of boots begin pounding and a rising sword-rattle swell surges forward"
+  },
+  "SA2-02": {
+   "en": "Radiant Shield",
+   "ko": "빛이 방패 모양으로 맺힘",
+   "cast": "a small glowing disc coalesces from tiny sparkling motes: a soft rising shimmer, a smooth glassy snap as it locks in, a gentle ring"
+  },
+  "SA2-03": {
+   "en": "Guardian Vow",
+   "ko": "뒤 동료 위로 날개가 펼쳐짐",
+   "cast": "wings unfold over a comrade behind: a broad feathery spread, a protective low swell, a soft hushed ring of a promise sealed like a latch closing"
+  },
+  "MA-08": {
+   "en": "Oath Fixing",
+   "ko": "맹세가 쇠처럼 굳음",
+   "cast": "molten gold light pours over every ally and cools into iron: a low pouring hiss, a metallic hardening clink, a final deep anvil-like ring"
+  },
+  "SA2-04": {
+   "en": "Strike of Justice",
+   "ko": "검 내려치고 빛이 되돌아 감쌈",
+   "cast": "a falling sword blow with a hard bright crack, followed by a recoil of light that swirls around the knight with a gentle shield chime"
+  },
+  "MA-10": {
+   "en": "Radiant Phalanx",
+   "ko": "방패들이 철컥 맞물려 진형",
+   "cast": "a long row of shields snap together one after another with sharp clacks, a spreading shimmer of light along the line, one coin-like chime"
+  },
+  "SA2-07": {
+   "en": "Chains of Light",
+   "ko": "빛 사슬이 적의 팔을 감음",
+   "cast": "glowing chains shoot out with a quick links-rattle, wrap with a smooth hum, clamp with a bright snap, and tension creaks softly"
+  },
+  "MA-14": {
+   "en": "Solante's Judgment",
+   "ko": "적에겐 내리쬐고 아군은 감쌈",
+   "cast": "a vast eye-like radiance opens with a deep rising swell, harsh white light sears across the foe with a sizzling crackle, then softens into a warm sheltering hum"
+  },
+  "RA2-1": {
+   "en": "Day of Judgment",
+   "ko": "하늘이 대낮보다 밝아지며 폭발",
+   "cast": "the sky brightens with a rumbling rising whine, a pause, then a world-filling booming flash of light shaking everything, leaving a bell-like silence over one sheltered figure"
+  },
+  "NA2-1": {
+   "en": "Spear of Retribution",
+   "ko": "하늘에서 창 한 자루 떨어짐",
+   "cast": "a high thin whistle of a falling spear, a split-second hush, then a blinding crack as it pierces down and a stone-cracking thud, light ringing out"
+  },
+  "NA2-2": {
+   "en": "Wings of Light",
+   "ko": "여섯 날개 그림자가 전장을 덮음",
+   "cast": "six huge wings beat overhead in a deep feathery thunder, drifting light feathers fall with tiny tinkles, each ally gains a soft shimmering ward"
+  },
+  "US-A2-1": {
+   "en": "Sword of Radiance",
+   "ko": "모든 아군 손에 빛의 검이 쥐어짐",
+   "cast": "a deep blade-forging ring, light pouring into every weapon with a rising sparkle, then a brilliant unison of blades unsheathing with a crisp metallic swell"
+  },
+  "US-A2-2": {
+   "en": "Sun Judgment",
+   "ko": "한낮 햇살이 가장 높은 칼을 태움",
+   "cast": "a blazing high-noon swell, concentrated beams scorching with a searing crackle and the hiss of melting steel, then a quiet protective chime"
+  },
+  "PS-A2-1": {
+   "en": "Light of Oath",
+   "ko": "첫 햇살이 방패에 닿아 굳음",
+   "cast": "a gentle first-light shimmer rising, a bright touch of ring on each shield, then a deep solid lock-in tone like a bolt sliding home"
+  },
+  "PS-A2-2": {
+   "en": "Light of Order",
+   "ko": "날뛰는 칼들이 가지런히 눕는다",
+   "cast": "a calm descending wash of light, blades clattering one by one as they settle flat, then an even smooth glassy hum evening everything out"
+  },
+  "RS-A2-1": {
+   "en": "Dawn Charge",
+   "ko": "햇살이 눈을 멀게 하고 창이 달려듦",
+   "cast": "a sudden sunrise flash with a rising bell-like crescendo, thundering hoofbeats and ringing lances rushing forward, one sharp gap-finding pierce at the end"
+  },
+  "RS-A2-2": {
+   "en": "Guardian Wings",
+   "ko": "큰 날개가 앞으로 나서 막아섬",
+   "cast": "a huge wing spreads with a deep feather boom, a heavy armour step forward, then a bright ward blooms with a ringing shield tone and a wide soft shimmer"
+  },
+  "RS-A2-3": {
+   "en": "Light Seal",
+   "ko": "빛의 원이 그려지고 칼이 무뎌짐",
+   "cast": "a circle of light is drawn with a clean glowing hiss, a protective dome humming up around the ally, while a rival's blade dulls with a dim downward whine"
+  },
+  "CS-A2": {
+   "en": "Purifying Light",
+   "ko": "숨은 마법이 사라지고 창끝에 빛이 맺힘",
+   "cast": "a clean wave of light sweeps across, a hidden trap fizzles out with a short sealed pop and a puff of hush, then a lance tip flashes with a bright ring"
+  },
+  "IA2-1": {
+   "en": "Knight's Longsword",
+   "ko": "장검을 허리에 차고 한번 휘둘러 봄",
+   "equip": "a longsword is slid into a leather scabbard, a belt buckle clicks, and one test draw whispers with a bright steel ring"
+  },
+  "IA2-2": {
+   "en": "Silver Shield",
+   "ko": "은 방패를 팔에 걸어 철컥",
+   "equip": "a polished silver shield's straps are pulled tight with a leather creak, a buckle snaps, and a tap with a knuckle rings clear and bright"
+  },
+  "S2-1": {
+   "en": "Light Sigil",
+   "ko": "성표를 목에 걸자 은은히 빛남",
+   "equip": "a sigil pendant on a thin chain is hung round the neck: a delicate chain jingle, a soft glowing hum, a faint chime"
+  },
+  "I3-2": {
+   "en": "Elad Tower Shield",
+   "ko": "탑 방패를 땅에 쿵 세움",
+   "equip": "a tall tower shield is lifted and planted with a deep thud on stone, a gate-like iron hinge creak, and a long low ring when knocked"
+  },
+  "IA2-5": {
+   "en": "Solante's Holy Sword",
+   "ko": "성검을 높이 들어 축복받음",
+   "equip": "a holy sword is raised from its sheath with a long pure scrape, a warm swelling of light settling on the blade, one gentle bell tone"
+  },
+  "S4-1": {
+   "en": "Solante's Relic",
+   "ko": "성유물 상자가 열려 빛이 스며듦",
+   "equip": "a small reliquary box clicks open on stiff gold hinges, a hush of light spills, glassy sparkles hover, a single low chime"
+  },
+  "SR-A2": {
+   "en": "Seren's Bow",
+   "ko": "활시위를 당겨 먼 곳 겨눔",
+   "equip": "a tall longbow is strung with a tight wooden bend, a bowstring is pulled with a creak and released in a test twang, a faint shimmering whistle trails away"
+  },
+  "IR-A2": {
+   "en": "Solante's Oath Shield",
+   "ko": "맹세 방패를 팔에 끼우자 빛이 번짐",
+   "equip": "a heavy oath shield clamped onto the forearm with a buckle snap, a soft golden glow spreading, and a coin-like ring when it is rapped"
+  },
+  "PI-A2": {
+   "en": "Solante's Wing Feather",
+   "ko": "날개 깃을 갑옷에 꽂음",
+   "equip": "a large feather is slid into an armour clasp with a silky whisper, the plate stiffens with a soft metallic hum, and a faint glimmer of light drifts away"
+  },
+  "TK-A2-1": {
+   "en": "Knight of Light",
+   "ko": "빛 검 반짝 휘두름 · 빛 방패가 꿈쩍 않고 맞음",
+   "atk": "a sword of woven light hums into being and slashes: a fresh electric-glass whine, a clean cutting swish, a tinkling shimmer where it ends",
+   "def": "a body of light stands firm: the strike lands on a faint glowing shield with a soft crystalline thump, light rippling like water and settling back"
+  }
+ }
+}

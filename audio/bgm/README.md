@@ -1,5 +1,9 @@
 # ETHERION 배경음 (BGM)
 
+> **2026-11-14 새 지시서** — 배경음을 Gemini(Lyria)로 다시 만든다: **`tools/bgm/PROMPT_BGM.md`**(15곡: 1부 서정적인 랩소디 5곡 + 2부 성향이 다른 10곡). 아래에 나오는 옛 지시서(`PROMPT_BGM_VARIATION.md` · 예전 `PROMPT_BGM.md`)는 지웠고 git 기록에 남아 있다. 아래 표와 설명은 옛 합성판 15곡 이야기다.
+>
+> **게임에 넣음(같은 날)** — 받은 원본 `audio/inbox/bgm/*.mp3` 15개를 앞뒤 무음을 자르고(−55 dB) 통합 −15 LUFS · 정점 −1.5 dBTP로 맞춰 끝 0.6초 페이드, `.ogg`(oggenc q4) · `.mp3`(128k)로 이 폴더에 넣었다. 장면 배치는 `js/bgm.js`의 `tracks`: 타이틀 `bgm_main` / 대기실 쪽 `lantern · library · anvil · clockwork · moss · tide · halo` / 대전 `field · oath · cinder · stonedrum · abyss · gale · lastcard`.
+
 > **v3.55.8 (2026-11-13) 잔잔한 변주판** — v3.55.1 2차 변주판을 같은 곡 · 같은 길이로 다시 렌더링. 느린 게인 라이더(2.5초 이동 RMS)로 강약 폭을 4.8~8.4 dB로 묶고 통합 음량을 −15.2~−14.6 LUFS로 맞춤, 정점을 부드럽게. 곡마다 수치는 **`NOTES_v3.55.8.md`**. v3.55.1 판은 `_backup_audio/20261113-235828/`.
 
 > **v3.55.1 (2026-11-13) 2차 변주판** — `tools/bgm/PROMPT_BGM_VARIATION.md` 지시서대로 15곡을 다시 만듦. 곡 안에서 결을 바꾼다: ① 피아노 홀로 ② 단일 선율 ③ 실내악 ④ 서정 합주 ⑤ 웅장한 총주 ⑥ 화려한 클라이맥스(곡의 60~80% 지점). **이제 피아노 · 하프를 쓰고, 팀파니는 클라이맥스에서만**(아래 "쓰지 않는 소리"의 피아노 · 하프 · 팀파니는 이 판부터 풀림). 곡마다 흐름 · 길이는 **`NOTES_v3.55.1.md`**, 만든 도구 `tools/bgm/compose_variation.js`(엔진 `synth_new.js`). 1차 판은 `_backup_audio/20261113-213005/`.

@@ -1,0 +1,441 @@
+{
+ "flag": "B3",
+ "cards": {
+  "B3-02": {
+   "en": "Capacitor Apprentice",
+   "ko": "병 들고 튀긴 스파크 · 휘청 넘어짐",
+   "atk": "a small glass jar is shaken and a thin static zap snaps out with a quick high crackle, then a faint frizzy fizz like hair standing on end",
+   "def": "no shield, the jar clinks against a belt as the gnome stumbles back: a soft cloth thump, rattling glass, a tiny startled spark fizzing out"
+  },
+  "B3-03": {
+   "en": "Copper Wire Mender",
+   "ko": "구리선 휘둘러 찌릿 · 맨몸 흠칫",
+   "atk": "a length of loose copper wire is whipped out with a thin metallic swish, its bare tip touching the foe with a bright tick-tick zap and a short buzz",
+   "def": "a light flinch with no guard: a dull fabric thud, a coil of copper wire jangling softly, one weak spark pattering away"
+  },
+  "B3-04": {
+   "en": "Static Experimenter",
+   "ko": "털가죽 마찰 후 작은 번개 · 헛디딤",
+   "atk": "a quick rubbing of fur on amber, a dry crackling build-up, then a snapping little blue spark leaps across with a sharp electric crack and sizzle",
+   "def": "no guard at all, it hops aside awkwardly: scuffing boots, the faint dry rustle of fur, a stray static pop"
+  },
+  "B3-05": {
+   "en": "Voltarium Student",
+   "ko": "공책 든 학도의 스파크 · 책으로 막고 찌릿",
+   "atk": "a notebook is flung open and a flicker of electricity jumps from a pen nib: a paper flutter, a thin zippy crack, a light fizzing sting",
+   "def": "blocks weakly with a thick notebook held up: a papery thump, a small spark skittering across the cover, a frail glass inkwell clinking"
+  },
+  "B3-06": {
+   "en": "Coil Porter",
+   "ko": "코일 짐 휘둘러 퍽 · 구리 코일에 퉁",
+   "atk": "a heavy copper coil is swung off the back like a club: a creaking strap, a low metallic whoosh, a dull bonk with a ringing hum of wire",
+   "def": "takes the blow on the coil strapped to its back: a deep copper bong, humming wire resonance, a few sparks trickling down the windings"
+  },
+  "B3-09": {
+   "en": "Current Prospector",
+   "ko": "탐침 꽂아 땅 전류 쾅 · 바늘 떨며 피함",
+   "atk": "a metal probe is jabbed into the ground: a short clink, a trembling needle ticking fast, then a buried current erupts with a thudding crack and rumbling fizz",
+   "def": "scrambles back while a gauge needle ticks wildly: a light boot scuff, a small metal case rattling, a thin glancing zap off the probe"
+  },
+  "B3-10": {
+   "en": "Lightning Rod Mechanic",
+   "ko": "피뢰침 닦던 천으로 번개 유도 · 피뢰침에 튕김",
+   "atk": "a polishing rag snaps and a brass rod is raised: a squeaky wipe, then a high bright bolt is drawn down with a sharp crack and ringing metal hiss",
+   "def": "raises the rod as a lightning catcher: a thin ringing ping, the hit drained to a sizzling hiss down the brass, a small flinching thump"
+  },
+  "B3-12": {
+   "en": "Discharge Experimenter",
+   "ko": "모은 전하 방전 퍽 · 장치로 살짝 막음",
+   "atk": "a capacitor knob is cranked: ticking clicks, a swelling whine, then everything releases in a sudden loud zap-crack with a burnt-wiring fizzle",
+   "def": "a small brass gadget catches part of the hit: a clanking tin knock, a short buzzing hum, a sputtering spark, a sooty hiss"
+  },
+  "B3-13": {
+   "en": "Voltarium Researcher",
+   "ko": "관측 장치로 약한 전류 흘림 · 기록판 퉁",
+   "atk": "a clipboard scribble and a clicking meter, then a steady medium current is pushed out with a rising hum and a rasping electric zzzt",
+   "def": "holds up a clipboard of metal plates: a flat tin clack, a dry crackle across the plate, a tired thump as the researcher sways"
+  },
+  "B3-14": {
+   "en": "Lightning Gunner",
+   "ko": "번개 장전 포격 · 포신 방패로 받아냄",
+   "atk": "a short cannon is loaded with a glowing charge: a clacking breech, a rising whine, a hard flat boom of a lightning shell and a streaking crack to the target",
+   "def": "hunkers behind the stubby barrel: a deep iron clonk, ringing metal, loose sparks hissing off the muzzle, a gritty slide of boots"
+  },
+  "B3-15": {
+   "en": "Current Chainer",
+   "ko": "전류 고리가 연달아 튐 · 사슬이 짤랑이며 흩어짐",
+   "atk": "links of crackling current whirl out in a chain: a jingling metallic spin, then three snapping blue arcs jump one after another with quick cracks",
+   "def": "chain links jangle up to deflect: a bright rattling clatter, sparks hopping from link to link and fading, a small glancing clang"
+  },
+  "B3-16": {
+   "en": "Charge Golem",
+   "ko": "골렘 주먹에 방전 쾅 · 돌몸에 둔탁",
+   "atk": "a stone fist swings with a grinding creak, lands with a heavy thud, and a capacitor on its back dumps a cracking zap on impact",
+   "def": "a thick stone body takes it: a deep stony thud, gravel pattering, a brief hum from the mounted capacitor as sparks crawl over the surface"
+  },
+  "B3-18": {
+   "en": "Gnome Engineer",
+   "ko": "렌치와 회로 지직 · 톱니판으로 튕김",
+   "atk": "a wrench strikes a circuit box with a clank and a tick, then a sharp arc spits out with a rising whine and bright crackle",
+   "def": "a hinged brass plate flips up with a clack of gears: a tinny clang, whirring cogs, a short spark fizz, a boot skid"
+  },
+  "B3-20": {
+   "en": "Lightning Weapons Scholar",
+   "ko": "설계도대로 시제 병기 발사 · 벽 장치 퉁",
+   "atk": "a blueprint rustles, a prototype device clicks and whirs, then a focused beam fires with a tearing zap and a crisp hissing burn",
+   "def": "a folding prototype shield pops open: a brassy click, a quick humming screen of sparks, a bright ricochet zing and a scrape"
+  },
+  "B3-22": {
+   "en": "Shock Guardian",
+   "ko": "수호기 번개 펀치 · 금속 몸으로 묵직히 받음",
+   "atk": "a heavy metal arm winds up with a servo whine, drops with a heavy clang, and a coil flares with a cracking electric discharge",
+   "def": "a steel body takes the blow: a deep clang that rings out, a humming ground-line, sparks sliding down its plating, immovable and solid"
+  },
+  "B3-23": {
+   "en": "Voltarium Professor",
+   "ko": "강연 지휘봉으로 번개 유도 · 두꺼운 외투와 장치로 막음",
+   "atk": "a long wooden pointer taps a slate, then a slow crackle gathers and a booming bolt drops with a lecture-hall rumble and echoing crack",
+   "def": "wide-sleeved robe and a floating brass lens absorb it: a muffled thud, a deep hum of a shield, glass chiming once, a slow fading fizz"
+  },
+  "B3-24": {
+   "en": "Flash Inventor",
+   "ko": "섬광 장치 번쩍 · 고글 쓰고 흠칫",
+   "atk": "a flash lamp's shutter clicks, a rapid charging whine climbs, then a blinding burst pops with a hard crack and a ringing high whistle",
+   "def": "goggles clack down as it recoils: a thin glass tink, a flat bulb pop, a dull thump, fizzing filament and a stumbling shuffle"
+  },
+  "B3-25": {
+   "en": "Keraun Surveyor",
+   "ko": "땅 위 번개 측정 후 폭발 · 바늘 장치로 가볍게 막음",
+   "atk": "a seismic needle scratches, a deep rumbling vibration builds under the ground, and an upward arc crashes out with a sharp crack",
+   "def": "holds up a humming gauge-plate: a thin metallic ring, the rumble of ground vibration, a flicker of sparks, a brief clatter"
+  },
+  "B3-26": {
+   "en": "Doctor of Thunder",
+   "ko": "상처투성이 몸으로 번개 맞받기 · 감전에 익숙한 몸",
+   "atk": "a scarred hand points and an old stored bolt rips out: a slow rumble, a sudden wide crack and an echoing rolling thunder",
+   "def": "takes the lightning on its marked body with a dry crackle: a low thrum, hair frizzing, a tired groan, sparks sliding off harmlessly"
+  },
+  "B3-27": {
+   "en": "Grand Capacitor",
+   "ko": "거대 축전기 방전 쾅 · 거대한 통이 울림",
+   "atk": "a vast capacitor bank groans, a deep rising whine swells, and the stored charge lets go with a ground-shaking boom and a rolling, roaring crackle",
+   "def": "its huge metal casing rings like a drum: a deep gong-like clang, a growing hum, plates vibrating and sparks flaring along the terminals"
+  },
+  "B3-29": {
+   "en": "Keraun Research Party",
+   "ko": "천막 아래 여럿이 번개 모음 · 천막과 장치로 흩음",
+   "atk": "a tent flap snaps and several coils spit at once: overlapping crackles, a rising crowd of whines, then one ragged boom",
+   "def": "a canvas tent absorbs it with a heavy flap: rustling cloth, copper rods clinking, a spread of hissing sparks, many small thuds"
+  },
+  "B3-31": {
+   "en": "Lightning Fortress",
+   "ko": "번개 울타리가 튕김 · 전기 장벽이 웅웅",
+   "atk": "a gate of electric fence lashes out: a thick humming buzz, a barrage of whipping arcs, a hard booming crack as the wall slams",
+   "def": "a standing curtain of electricity absorbs the blow: a deep resonant hum, crackling sizzle all along the wall, an enormous solid thump that does not give way"
+  },
+  "B3-32": {
+   "en": "Lightning Colossus",
+   "ko": "푸른 거신 쿵쿵 걸어 번개 내리침 · 아다만트 몸에 우르릉",
+   "atk": "a giant adamant fist rises with a groaning of stone, then crashes down with a booming thunder crack and rolling rumble",
+   "def": "its vast blue crystalline body takes the strike: a very deep thud, a resonant ring of crystal, thunder rumbling in the chest, arcs crawling down"
+  },
+  "B3-33": {
+   "en": "Voltarium Dean",
+   "ko": "학장의 지팡이 한 번에 번개 · 보호 구체가 윙",
+   "atk": "a heavy staff rings on stone, a swell of power rises, and a single enormous bolt cracks down with a bell-like ringing tail",
+   "def": "a rotating orb of copper rings flares: a smooth humming dome, a deep thunk against the barrier, glass chiming once, fading sparks"
+  },
+  "B3-34": {
+   "en": "Depth Charge Engine",
+   "ko": "기관 쉬는 소리 후 폭발 · 기관 덮개로 쾅",
+   "atk": "a slow steam-like exhale and ticking gears, then a sudden huge detonation of stored lightning, a heavy boom and shrapnel of sparks",
+   "def": "an armoured housing takes it with a thudding boom: gears grinding, a long metallic groan, vents hissing, sparks bouncing off the casing"
+  },
+  "B3-36": {
+   "en": "Omega Thunder Engine",
+   "ko": "시제품 천둥 기관 포효 · 겹겹 합금판",
+   "atk": "a massive prototype engine whirs up its gears, then discharges a thunderclap that cracks wide with a clanging mechanical rumble",
+   "def": "thick riveted plates slam together: a clanging chorus of metal, a deep hum, sparks flying from rivets, a last grinding rattle of cogs"
+  },
+  "B3-41": {
+   "en": "Insulated Guard",
+   "ko": "고무와 사기로 번개 비켜냄 · 둔한 퉁",
+   "atk": "a rubber-gloved hand swings a small brass hammer: a dull rubbery thwack, a hollow knock on porcelain, a tiny annoyed spark",
+   "def": "rubber and porcelain plates turn the strike aside: a soft dense thump, a hollow porcelain ring, a harmless sizzling skid of sparks off the insulators"
+  },
+  "B3-42": {
+   "en": "Grounding Tower Warden",
+   "ko": "접지 탑이 벼락 땅으로 흘림 · 반격 전기",
+   "atk": "a weak jab, a metal rod clacks, then a flick of leftover charge zaps outward with a short crisp crack",
+   "def": "a tall tower of copper channels the hit into the earth: a huge ringing clang, a long descending hum into the ground, then a sharp counter-shock cracking back"
+  },
+  "SP-B3": {
+   "en": "The Seventh",
+   "ko": "거신경 눈뜬 일곱 번째 · 신경이 울림",
+   "atk": "a deep wake-up groan of machinery, a million-volt whine climbing, then a great swelling bolt tears out with a thunder boom, a thin chorus of crackling nerve-like arcs, and a bell-like ring of glass",
+   "def": "its metal body drinks the hit and hums: an immense low thrum, a glass-like ring, arcs flowing outward in answer, a breath of deep rumble"
+  },
+  "UN-B3": {
+   "en": "Zrak's Jar Keeper",
+   "ko": "빈 병에 번개 다시 고임 · 병 속 번개가 소용돌이",
+   "atk": "a jar is unstopped and an ancient lightning spirit bursts out with a cork pop, a fierce howling whine and a snapping bolt, glass ringing",
+   "def": "empty bottles on its belt catch the magic: tinkling glass, a swirling inner buzz, a flash refilling with crackle, a tiny bell-like ping"
+  },
+  "UN-B3-7": {
+   "en": "Keraun Magnetic Tower",
+   "ko": "자기장으로 번개를 비틀어 쏨 · 자기장이 휘어짐",
+   "atk": "a great field coil hums, a warping oscillating whine bends and a twisting bolt is flung with a sweeping curve and a heavy electromagnetic crack",
+   "def": "a swirling magnetic field wobbles the hit: a deep warbling hum, metal creaking, the strike bent aside with a rising-falling whoosh and loose iron clinking"
+  },
+  "EP-B3-1": {
+   "en": "Voltarium Discharger",
+   "ko": "전하를 조금씩 흘려 쏨 · 방전 장치",
+   "atk": "a spark gap tick-tick-ticks, steady little bolts fire off in a stuttering rhythm with a sharp zapping buzz and ozone hiss",
+   "def": "a leaky capacitor jacket shunts the hit: a humming bleed-off, a rapid fizzing, glass tubes glowing and clinking, a small spark patter"
+  },
+  "EP-B3-2": {
+   "en": "Chain Lightning Scholar",
+   "ko": "번개가 뛰어넘음 · 사슬이 튕김",
+   "atk": "a stylus taps a diagram, then a bolt strikes, leaps, and leaps again: three rapid cracks, each higher, and a trailing rattle",
+   "def": "a ring of copper links catches the strike and spits it onward: a sharp clang, sparks jumping, a rapid trio of fading zaps, a last clatter"
+  },
+  "EP-B3-3": {
+   "en": "Keraun's Lightning Tower",
+   "ko": "걸어 다니는 피뢰탑 · 거대 철탑",
+   "atk": "a walking tower stomps, rods lower with a groaning clank, and a ground-to-sky bolt fires with a cracking boom and thunder echo",
+   "def": "its tall frame groans with a lattice of metal: a huge ringing clang, a rumbling hum, bolts racing up the rods and exploding in a distant boom"
+  },
+  "PN-B3-C1": {
+   "en": "Capacitor Coil Assistant",
+   "ko": "코일이 붙든 전하 · 넘어져도 안 터짐",
+   "atk": "a small coil sparks as the assistant lunges: a steady humming drone, a rubbery snap, a mid-tone zap held without letting go",
+   "def": "stumbles but holds steady with the coil on its back: a firm clanking thump, a patient constant hum, a few flickers that do not release"
+  },
+  "PN-B3-C2": {
+   "en": "Runaway Capacitor",
+   "ko": "터질 듯한 축전기 질주 · 눌림",
+   "atk": "a legged capacitor lurches with a clattering patter, a whine rises dangerously, then an overcharged burst slams with a bursting boom and a searing sizzle",
+   "def": "an overfull casing creaks and bulges: a metallic strain, popping rivets, dangerous hum, a heavy dull thud and a fizz of leaking charge"
+  },
+  "PN-B3-C3": {
+   "en": "Voltarium Insulated Knight",
+   "ko": "고무와 유리 갑옷 · 겹겹이 멈춤",
+   "atk": "a gloved sword stroke clanks on glass-plated armour: a rubbery creak, a heavy glassy clang, a short dry crackle on the blade",
+   "def": "layers of rubber and glass absorb the blow: a thick muffled clunk, glassy chiming, a short sizzle fading to dead stillness, planted and immovable"
+  },
+  "PN-B3-U1": {
+   "en": "Lightning Rod Repairman",
+   "ko": "피뢰탑 위에서 번개에 익숙 · 덜 아픔",
+   "atk": "a spanner clangs on a rod and a trickle of current jumps with a ticking zap and a scrappy buzz, repeated casually",
+   "def": "a rod above shrugs off the hit: a bright ping, a dull familiar zap, a grumbly groan, a hard-hat bonk, loose washers rattling"
+  },
+  "PN-B3-U2": {
+   "en": "Thundering Plateau Surveyor",
+   "ko": "말뚝 꽂자 번개 떨어짐 · 측량 장비",
+   "atk": "a surveyor's stake is hammered in with a thunk, a tripod clicks, then a heavy bolt crashes from the sky onto the spot with a crack and thunder",
+   "def": "a tripod and chain absorb the hit: a clanking of metal rods, a twanging measuring tape, an arc flickering down the stake with a hiss"
+  },
+  "PN-B3-R": {
+   "en": "Bottled Lightning Mage",
+   "ko": "병 속 번개 깨짐 · 병이 쨍그랑",
+   "atk": "a bottle shatters against the foe: glass smash, a trapped bolt exploding free with a bright crack and a long tinkling fizz",
+   "def": "bottles clink on a bandolier and one bursts: a glassy crash, a puff of sparks, tinkling shards, a quick refill of crackle in the others"
+  },
+  "PN-B3-E": {
+   "en": "Keraun Nerve Amplifier",
+   "ko": "신경 줄을 타고 번개가 번짐 · 줄줄이 떨림",
+   "atk": "a taut nerve-like cable twangs, then a lightning surge races down it and chain-jumps with swelling whines and several overlapping cracks",
+   "def": "hanging cables shake and thrum: a taut humming twang, a ripple of vibration along a row of devices, flowing arcs and a deep thrum"
+  },
+  "UP-B3-12": {
+   "en": "Doctor of Discharge",
+   "ko": "세 번 터진 실험 · 안정된 방전",
+   "atk": "a precision-tuned capacitor bank clicks, its whine steady and fierce, then a thick brilliant bolt cracks in a boom with a tight hissing finish",
+   "def": "a chest-high field emitter flares: a smooth humming dome, a hard crack against it, sparks sliding smoothly off, glass tubes ringing"
+  },
+  "UP-B3-18": {
+   "en": "Chief Gnome Engineer",
+   "ko": "합친 설계 · 거대 기계",
+   "atk": "tools click and gears spin, a heavy hammer-like press slams and a combined arc and steam-hiss fires with a booming crack",
+   "def": "interlocked brass plates and a rotating gear shield: a heavy grinding clank, a ringing ping, sparks spraying as gears mesh, a stable thud"
+  },
+  "UP-B3-22": {
+   "en": "Shock Colossus Guardian",
+   "ko": "수호기 셋의 코일 · 번개가 먼저 맞음",
+   "atk": "triple coils flare as a giant steel fist slams: a servo roar, a massive clang, a crack of lightning thundering out",
+   "def": "before the blow lands a field of lightning intercepts it: a roaring arc screen, a huge hollow metallic gong, sparks raining off the plating"
+  },
+  "UP-B3-23": {
+   "en": "Voltarium Elder Professor",
+   "ko": "원로의 강의 · 학술 장막",
+   "atk": "a long lecture bell rings once, a slow crackling orbit gathers and a vast bolt drops with a commanding boom",
+   "def": "a mantle of floating brass rings spins up: a smooth resonant hum, a deep bell-like toll, glass ringing, the blow dissolving into a calm fizz"
+  },
+  "UP-PN-B3-C2": {
+   "en": "Tamed Capacitor",
+   "ko": "고삐 달린 축전기 · 필요한 만큼만",
+   "atk": "a harnessed capacitor snaps its leash, discharges with a controlled thick crack and a clean low boom without chaos",
+   "def": "a governor valve hisses as the casing absorbs and bleeds charge: a solid thud, a regulated hum, a clean gentle release of crackle"
+  },
+  "MB-03": {
+   "en": "Stored Discharge",
+   "ko": "병 속 번개를 한꺼번에 풀음",
+   "cast": "a sealed jar's cork pops, trapped current rushes out with a rising howl and then three snapping zaps hit one after another with a fizzing sting"
+  },
+  "SB3-01": {
+   "en": "Static Shock",
+   "ko": "털가죽 정전기 톡",
+   "cast": "fur is rubbed on amber with a dry rasp, then three tiny sharp static snaps ripple down a line with quick fizzing pops and a thin buzz"
+  },
+  "SB3-02": {
+   "en": "Lightning Rod",
+   "ko": "하늘 번개를 가로채 땅으로",
+   "cast": "a brass rod is raised, a thunder crack from the sky is caught with a bright ping and drained into the earth with a long descending hum, twice"
+  },
+  "SB3-03": {
+   "en": "Charging Coil",
+   "ko": "코일에 감겨 웅웅 커짐",
+   "cast": "wire winding and a ratcheting spool, a rising humming whine swells, then two crisp spark pops seal the energy into the targets"
+  },
+  "MB-07": {
+   "en": "Overload Circuit",
+   "ko": "안전장치 풀고 과부하",
+   "cast": "safety clips clack open, current races whining along wires, a swelling buzz rises and a row of circuits pops with a smoky sizzle and a bright spark chain"
+  },
+  "MC-08": {
+   "en": "Ripple",
+   "ko": "번개 물결이 번져 갑옷 벗김",
+   "cast": "a single bolt strikes and spreads in rippling waves: a ringing arc, a shimmering oscillating hum, then armour layers fall off with rattling metallic pops and fizzes"
+  },
+  "SB3-04": {
+   "en": "Lightning Veil",
+   "ko": "번개 장막이 드리워 저림",
+   "cast": "a curtain of electric threads drops with a soft rushing hiss and a humming screen, then buzzing sparks sweep across the line in two crackling waves"
+  },
+  "MB-11": {
+   "en": "Lightning Strike Targeting",
+   "ko": "정확한 낙뢰, 옆이 탐",
+   "cast": "a clicking range-finder and ticking calculation, a rising whine, then one thunderous bolt drops exactly with a deafening crack and a scorching miss-zap beside it"
+  },
+  "SB3-05": {
+   "en": "Charge Barrier",
+   "ko": "축전기 벽을 세워 방어",
+   "cast": "capacitors thump into a row, a shimmering electric wall rises with a swelling hum, then a bite of crackling spark snaps at the enemy front"
+  },
+  "SB3-06": {
+   "en": "Summon Stormcloud",
+   "ko": "장치로 뇌운을 끌어옴",
+   "cast": "a clockwork device whirs on, a dark rumbling cloud rolls in with a growing rush, then a fine rain of forking zaps crackles down on everything"
+  },
+  "SB3-09": {
+   "en": "Lightning Storm",
+   "ko": "폭풍이 통째로 옮겨짐",
+   "cast": "a vast wind and thunder roll in, then overlapping bolts rain across the field in two heavy waves of crackling cracks and rumbling booms"
+  },
+  "RB3-1": {
+   "en": "Keraun's Great Discharge",
+   "ko": "거인의 신경 방전, 아군도 탐",
+   "cast": "a deep groaning rumble from the earth, a colossal swelling whine, then a blinding white release cracks in three huge pulses, shaking everything with scorching echoing blasts"
+  },
+  "NB3-1": {
+   "en": "Chain Lightning",
+   "ko": "앞부터 뚫고 다음으로 건너뜀",
+   "cast": "one thick bolt pierces the first target with a heavy crack, then jumps with a weaker high snap to the next, trailing a rattling fizz"
+  },
+  "NB3-2": {
+   "en": "Coin of Fate",
+   "ko": "동전이 앞면으로 떨어짐",
+   "cast": "a coin is flipped and spins with a bright ringing whir, lands with a rigged clink, and a quiet click of gears and a sly spark glow follow"
+  },
+  "HB3-1": {
+   "en": "Foresight",
+   "ko": "공기 떨림을 읽고 카드 뽑기",
+   "cast": "a faint static prickle, a quick shuffling of cards, a soft ticking calculation and one sly flick of a card sliding away into a deck"
+  },
+  "US-B3-1": {
+   "en": "Lightning Frenzy",
+   "ko": "병이 연달아 깨져 번개 난사",
+   "cast": "a rack of glass bottles shatters in a rapid cascade, bolts ricochet randomly with six cracking zaps, each from a different direction, chaos of sizzling and tinkling"
+  },
+  "US-B3-2": {
+   "en": "Keraun's Nerve",
+   "ko": "대지의 신경이 줄지어 튀어 오름",
+   "cast": "a deep tremor in the ground, a long wire-like nerve twangs, then bolts erupt upward one after another in a descending rhythm of four heavy cracks and a rolling rumble"
+  },
+  "PS-B3-1": {
+   "en": "Reverse Circuit",
+   "ko": "거꾸로 꽂은 회로로 힘이 역류",
+   "cast": "a plug jammed in backwards, a sputtering reversed whine, a winding-down rewind sound, then a clunk as power is routed to a different place with a fizzing swirl"
+  },
+  "PS-B3-2": {
+   "en": "Electrode Swap",
+   "ko": "양극과 음극을 맞바꿈",
+   "cast": "two clamps clack onto terminals, a rising whine splits into two tones that cross over, then a heavy switch clunk and a single bright pop"
+  },
+  "RS-B3-1": {
+   "en": "Charge Release",
+   "ko": "축전병 셋을 이어 줄줄이",
+   "cast": "three glass jars are linked with a clink, a rolling hum passes through each, and a bright line of three equal cracks zaps down the row"
+  },
+  "RS-B3-2": {
+   "en": "Shock Trap",
+   "ko": "구리선 문턱에 걸려 감전",
+   "cast": "a hidden copper wire mesh twangs underfoot, a snapping buzzing net of sparks closes in, and a clatter of weapons dropping from numb hands follows"
+  },
+  "RS-B3-3": {
+   "en": "Fully Charged",
+   "ko": "눈금이 가득 찬 장치",
+   "cast": "a needle thumps against its stop with a ping, a bright full hum clicks into place, and a precise punchy double zap strikes the front"
+  },
+  "CS-B3": {
+   "en": "Short Circuit",
+   "ko": "주문 흐름에 구리선을 걸침",
+   "cast": "a thin copper wire slaps across two contacts, a sharp spitting flash, then a spell's whine dies with a falling sputter, a pop and a puff of smoke"
+  },
+  "IB3-1": {
+   "en": "Copper Coil",
+   "ko": "손목에 구리 코일 감음",
+   "equip": "a coiled copper wire is wound around a wrist with a springy twang, a clasp clicks, and a thin faint electric hum starts up"
+  },
+  "IB3-2": {
+   "en": "Charge Gauntlet",
+   "ko": "충전 장갑 끼우고 스위치",
+   "equip": "a thick glove is pulled on with a leather creak, snaps shut with a buckle, and a knuckle switch clicks as a spark flickers and hums unreliably"
+  },
+  "IB3-3": {
+   "en": "Lightning Rod Staff",
+   "ko": "피뢰 지팡이 꽂아 세움",
+   "equip": "a staff with a brass needle tip is planted with a knock, a ratchet locks it in, and the tip lets out a stuttering tick-tick of sparks"
+  },
+  "IB3-4": {
+   "en": "Lightning Jar",
+   "ko": "번개 병 마개 끼움",
+   "equip": "a glass jar is corked with a squeak and a pop, it clinks in a holder, a restless crackle buzzes inside as it is swung once"
+  },
+  "IB3-5": {
+   "en": "Academy Codex",
+   "ko": "법전 펼치고 공식 줄",
+   "equip": "a heavy tome is dropped open with a leathery thump, pages flutter, a brass clasp snaps, and a dry whisper-quiet crackle hums over the page"
+  },
+  "C4-1": {
+   "en": "Star-Reading Orb",
+   "ko": "별 읽는 보주가 맞물림",
+   "equip": "a glass orb is seated in a brass cradle with a ringing clink, gears tick as an inner light swells, and a layered resonant hum rises"
+  },
+  "IB3-7": {
+   "en": "Keraun's Detonator",
+   "ko": "신경 결정 뇌관을 꽂음",
+   "equip": "a crystalline detonator is jammed in with a crunch, a plunger clicks, and a hair-raising crystalline buzz starts to jump and pulse"
+  },
+  "IR-B3": {
+   "en": "Copper Lightning Rod",
+   "ko": "피뢰봉 끝을 겨눔",
+   "equip": "a cut rod of copper is hefted with a ringing clang, locks in a bracket with a snap, and a high, sharp spark whistles from its tip"
+  },
+  "PI-B3": {
+   "en": "Zrak's Lightning Bottle",
+   "ko": "잠겼던 병을 쥐자 번개가 타오름",
+   "equip": "an ancient stoppered bottle is gripped with a hard crackling clasp, a storm spirit's howl swells inside, glass trembles, and lightning arcs painfully along the grip with a sizzle"
+  }
+ }
+}

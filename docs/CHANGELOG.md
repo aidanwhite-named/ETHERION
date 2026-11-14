@@ -3,6 +3,14 @@
 버전마다 바뀐 것과 바뀐 파일을 적는다. 새 버전은 맨 위에 쓴다.
 맨 아래 `실행`·`v0.3`·`계정`·`덱`·`규칙`·`파일` 절은 v0.3 무렵의 설명을 그대로 남긴 것이라 지금과 다른 곳이 있다(예: 클래스는 v1.0에서 규칙에서 빠짐). 지금 상태는 `README.md`를 본다.
 
+## v3.61.0 — 새 배경음 15곡(Gemini) · 옛 합성 효과음 걷어 냄 · 소리 지시서 · 장편 원고 3장
+바뀐 파일 `js/bgm.js` · `audio/bgm/*`(새 15곡 `.ogg` · `.mp3`, 옛 합성판 15곡 지움) · `audio/bgm/README.md` · `js/feel.js` · `js/portal.js` · `js/pachinko.js` · `index.html`(캐시 sx561 · g1) · `tools/bgm/PROMPT_BGM.md`(`PROMPT_BGM_VARIATION.md` 지움) · `tools/sfx/`(새) · `AGENTS.md` · `.gitignore` · `docs/NOVEL.md` · `docs/novel/`
+- **배경음**: Gemini(Lyria)로 만든 15곡으로 바꿈. 앞뒤 무음 자르기, −15 LUFS · 정점 −1.5 dBTP. 타이틀 `bgm_main`(한 곡을 겹쳐 반복) / 대기실 쪽 일곱 곡 / 대전 일곱 곡을 장면마다 무작위로 이어 튼다(끝나기 4초 전부터 겹쳐 넘어감, 방금 나온 곡은 건너뜀). 음원 캐시 `BGM.ver` n3 → g1.
+- **효과음**: WebAudio로 합성하던 옛 효과음(누름 · 집기 · 맞기 · 관문 · 파친코)을 걷어 냄. 새 효과음 파일을 잇기 전까지 효과음은 나지 않는다(`FEEL.play` · `atk` · `PORTAL.sound`는 빈 동작, 진동 · 시간 값은 그대로).
+- **소리 지시서**: 배경음 `tools/bgm/PROMPT_BGM.md`(15곡), 효과음 `tools/sfx/`(공용 + 카드마다 공격 · 방어 소리, `node tools/sfx/build_sfx_prompts.js` → `prompts/`). 받은 원본은 `audio/inbox/`(git에 넣지 않음).
+- **장편 《여덟 번째 날》**: 1부 2장 「숨 일곱 번」 마무리, 3장 「실 끝」 초고, 얼개(`docs/NOVEL.md`) 맞춤.
+- 확인: `node tools/replay_check.js` 20 / 20판 같음, 바뀐 js 문법 검사, `js/bgm.js`가 부르는 곡 파일이 모두 있음, 지운 효과음 함수를 부르는 곳 없음. 실제 게임에서 듣지는 않았다.
+
 ## v3.60.0 — 카드 글 읽기 쉽게: 크게 보기의 [능력] 줄바꿈 · 그림 안 자름 · 작은 카드 능력 글자 크게 · 장착 아이템 이름 두 겹 고침
 바뀐 파일 `js/view.js` · `js/cards.js` · `js/uniques.js` · `js/game.js` · `js/kailan.js` · `css/cardtext.css` · `css/style.css` · `index.html` · `docs/STYLE_GUIDE.md`(v6.21)
 - **크게 보기(원본 카드)**: 능력은 `[능력]` 한 줄, 그 아래 줄에 뜻(`cardKwLinesHTML` → `.kw-2l .kw-n`). 뜻을 한 줄 안팎으로 짧게 — `ITEM_KW_SHORT`(약 25자) · `UNIQUE_ABIL_SHORT`(약 45자). 자세한 규칙은 말풍선(`ITEM_KW` · `UNIQUE_ABIL.text`) 그대로.

@@ -1,0 +1,471 @@
+{
+ "flag": "A3",
+ "cards": {
+  "A3-01": {
+   "en": "Wind Apprentice",
+   "ko": "공책 바람 휙 · 맨몸으로 휘청",
+   "atk": "a small hurried puff of wind flicks loose notebook pages, a thin airy whistle, then a light papery slap and fluttering leaves",
+   "def": "no barrier yet, the frail apprentice stumbles: a soft cloth rustle, a startled little gasp of air, pages scattering across a stone floor"
+  },
+  "A3-02": {
+   "en": "Tower Scribe",
+   "ko": "깃펜 긋고 정전기 톡 · 책장 덮음",
+   "atk": "a quill scratches once across parchment, a dry static crackle gathers, then a small sharp zap pops off the page tip",
+   "def": "a heavy ledger is snapped shut in front of the body: a dull paper thud, a soft dust puff, ink bottle clinking as the scribe backs off"
+  },
+  "A3-04": {
+   "en": "Arcane Student",
+   "ko": "책 더미 와르르 · 책 속에 웅크림",
+   "atk": "a stack of books slides off a shelf: leather slaps, a short breathy puff of wind, then a muffled bump of a thick tome landing",
+   "def": "curled up under falling books: several soft hollow thuds of binding, dust hissing out, a small muffled thump from a thin body"
+  },
+  "A3-05": {
+   "en": "Feather Mage",
+   "ko": "깃털 살랑 스침 · 깃털 타고 사뿐 피함",
+   "atk": "a single feather whirls up on a soft breeze, a gentle hushed swish, then a tiny airy tick as its barbs strike the target",
+   "def": "the mage floats away on a feather: a weightless fluttering swirl, silk robe rustling, the hit only brushing past with a faint whisper of air"
+  },
+  "A3-07": {
+   "en": "Gale Adept",
+   "ko": "돌풍이 먼저 튀어나감 · 옷자락 펄럭 흔들림",
+   "atk": "an impatient gust bursts out early: a sharp rising whoosh, a short wind slap that cracks against the foe, robes snapping behind",
+   "def": "a hasty gust thrown up too late: a ragged puff, flapping fabric, then the body knocked sideways with a soft sandy scuff"
+  },
+  "A3-09": {
+   "en": "Spire Student",
+   "ko": "별 문자 베끼고 바람 탁 · 두루마리로 막음",
+   "atk": "a scratching stylus on a parchment scroll, a small pulse of breeze, then a crisp papery whip and a little tapping thud",
+   "def": "a rolled scroll raised to catch the blow: a stiff paper knock, a muted ringing of a brass ink pot, one clumsy foot scrape on stairs"
+  },
+  "A3-10": {
+   "en": "Whirlwind Novice",
+   "ko": "작은 회오리 마당에서 휘몰아침 · 휩쓸려 비틀",
+   "atk": "a loose spiraling whirl builds, dust and gravel hissing round, then it lurches forward with an uneven roar and a clattering burst of debris",
+   "def": "unable to stop its own spin: a wobbling spiral of air, rattling pebbles, a clumsy stumble and a soft thump on stone"
+  },
+  "A3-11": {
+   "en": "Gale Courier",
+   "ko": "바람 타고 쏜살 돌진 · 휙 비켜섬",
+   "atk": "a rapid streak: a quick tearing zip of air, a satchel strap slapping, then a snappy gust-punch arriving before its own echo",
+   "def": "a nimble sidestep on a gust: a short whip of air, boots skidding on gravel, a leather satchel swinging with a light creak"
+  },
+  "A3-13": {
+   "en": "Storm Mage",
+   "ko": "먹구름 빗방울 번개 톡 · 책장으로 비 가림",
+   "atk": "pages flip open, fat raindrops patter, a low cloud rumble swells and a thin lightning snap cracks down on the foe",
+   "def": "rain-slick robes and a raised open book: raindrops drumming on parchment, a damp thud, a distant soft thunder murmur"
+  },
+  "A3-15": {
+   "en": "High Elf Windcaller",
+   "ko": "바람 이름대로 가르는 칼바람 · 공기 흩어 빗나감",
+   "atk": "a smooth breath-like swell, then a long clean slicing gust that sweeps across in one graceful arc ending in a crisp airy hiss",
+   "def": "an effortless parting of air around the body: a gentle whirling sigh, hair and silk streaming, the blow slipping through with a hush"
+  },
+  "A3-16": {
+   "en": "Wind Warder",
+   "ko": "결계 엮고 마력 탁 · 화살이 맴돌다 풀림",
+   "atk": "woven air lines tighten with a taut humming thrum, a bright magical pulse leaps out and snaps with a glassy crack",
+   "def": "a lattice of wind catches the strike: a spinning hum of trapped air, a faint arrow whistle circling and fading, a shimmering settle"
+  },
+  "A3-18": {
+   "en": "Cyclone Mage",
+   "ko": "몸을 축 삼은 회오리 · 고요한 중심",
+   "atk": "a body-centered spiral winds tighter with a rising low howl, then flings outward with a rushing roar and a heavy whooshing impact",
+   "def": "a calm hollow inside a spinning wall: a steady circular roar outside, a muffled deep swirl, the blow shredded into whispering streamers"
+  },
+  "A3-19": {
+   "en": "Stormtower Mage",
+   "ko": "오만한 손짓 뇌우 한 줄기 · 구름 휘장 튕김",
+   "atk": "a disdainful snap of fingers, a charged crackle, a thunderclap jolt, then a hard rolling boom with spitting static",
+   "def": "a curtain of dark cloud swirls up: damp rumbling air, a heavy muffled thud against it, sparks fizzling out proud and slow"
+  },
+  "A3-20": {
+   "en": "Velmir's Oath-Sworn",
+   "ko": "별빛 맑은 종소리 번뜩 · 별빛 휘장",
+   "atk": "a clear glass-bell tone rings once, a thin starlight shimmer rises, then a precise bright crack lashes at the foe",
+   "def": "a veil of starlit air: a held crystalline hum, a soft glassy ripple as the blow dissolves, faint twinkling flecks sinking"
+  },
+  "A3-22": {
+   "en": "Air Pilot",
+   "ko": "기압 뚝 떨어져 진공 · 공기 빠져나감",
+   "atk": "the air pressure drops: a sucking vacuum hush, a limp snapping flag, then a sudden heavy slam of rushing air returning with a deep thump",
+   "def": "fingertips weigh the air: a stiff pressured hum, the hit sliding off a dense cushion of compressed wind with a muffled pop"
+  },
+  "A3-23": {
+   "en": "Velmir Scholar",
+   "ko": "고서 펼치고 마력 슉 · 두꺼운 책으로 막음",
+   "atk": "a heavy tome opens with a creak, dry pages riffle, then a narrow cutting stream of air whips out with a sharp papery hiss",
+   "def": "a thick book held up as a shield: a solid leathery knock, a soft ring of brass corners, dust puffing from the pages"
+  },
+  "A3-24": {
+   "en": "Thundercloud Adept",
+   "ko": "구름 속 우르릉 번개 낙하 · 구름 베개처럼 삼킴",
+   "atk": "a low brooding cloud rumble tightens, static crawls, then a hard sizzling bolt cracks down followed by a rolling boom",
+   "def": "a thick mass of storm cloud swallows the strike: muffled damp rumble, faint sparks fizzing deep inside, a heavy cottony thud"
+  },
+  "A3-26": {
+   "en": "Storm Summoner",
+   "ko": "하늘에 글자 쓰고 폭풍 강림 · 폭풍이 휘감음",
+   "atk": "a stylus line etches a sparkling hiss across the sky, the sky groans, then a hammering gale and thunderclap crash down",
+   "def": "a storm drops around the body: layered howling wind, rain lashing on a barrier, the blow thudding into a swirling wall of storm"
+  },
+  "A3-28": {
+   "en": "Sky Cradle Pilgrim",
+   "ko": "낮은 바람 소리 뒤 고요한 일격 · 바람 속으로 사라짐",
+   "atk": "a soft hollow wind-sigh over high rocks, a pause, then a long deep gust sweeps through with a haunting airy whistle",
+   "def": "the pilgrim dissolves into the breeze: a hollow rushing sigh, thin high whistling over open air, the strike swallowed by soft wind"
+  },
+  "A3-29": {
+   "en": "Stormtower Librarian",
+   "ko": "서가 쾅 내려치는 책 · 서가가 막아줌",
+   "atk": "a tall ladder rattles, a thick stack of books is flung: heavy slapping bindings, gusting pages, a booming wooden slam on impact",
+   "def": "a bookshelf wall: heavy wooden bump, creaking shelf, volumes thudding off, dust and loose pages swirling after"
+  },
+  "A3-30": {
+   "en": "Stormbird Handler",
+   "ko": "폭풍새 날갯짓 급강하 · 날개로 가림",
+   "atk": "a stormbird shrieks briefly overhead, great wing beats thrash, then a diving gust and a raking talon slash with a crackle of static",
+   "def": "big feathered wings fold in front: thick flapping, a muffled feather thump, a short angry bird cry, static sparks ticking"
+  },
+  "A3-31": {
+   "en": "Shard Isle Sage",
+   "ko": "파편 섬의 조각돌 바람 · 바람 속 암석이 맴돎",
+   "atk": "floating shards chime together, a low old wind begins, then fragments of stone whip past with a hollow rushing whistle and clatter",
+   "def": "drifting shards orbit and clink: glassy stone ticks, a slow circling breeze, the blow deflected with a gentle echoing knock"
+  },
+  "A3-32": {
+   "en": "Grand Whirlwind Mage",
+   "ko": "회오리 셋 겹쳐 휩쓸기 · 겹겹이 도는 방패",
+   "atk": "three whirlwinds of different pitch wind together, pages flapping inside, then collapse forward in a thundering layered roar",
+   "def": "three spinning columns around the body: layered rushing hums, the strike chewed apart with a low grinding whirr and fluttering paper"
+  },
+  "A3-33": {
+   "en": "Voice of Velmir",
+   "ko": "천 눈 로브 펄럭임과 울림 · 로브 눈 깜박",
+   "atk": "a deep resonant gong-like hum under heavy robe rustle, a cold pressure wave, then a single vast crack of air pulsing outward",
+   "def": "a huge robe unfurls: dense cloth rustle, a wet blink-like flutter, the impact absorbed into a deep resonant tone fading slowly"
+  },
+  "A3-34": {
+   "en": "Crown of Storms",
+   "ko": "머리 위 번개구름 왕관 · 구름이 첫 타격 흡수",
+   "atk": "a crown of cloud above rumbles, lightning flickers, then a wide branching bolt splits the air with a ringing crack and thunder",
+   "def": "the overhead cloud ring flares: a swelling thunder rumble, static arcs spitting, the blow dispersed in sparks with a muted boom"
+  },
+  "A3-35": {
+   "en": "Sky Render",
+   "ko": "하늘 가르는 가늘고 긴 칼 · 칼날로 쳐냄",
+   "atk": "a thin blade drawn, wind gathers on its edge with a rising keening, then one long ripping slice tears across the air like torn silk",
+   "def": "a swift parry: a ringing steel scrape, the cut aside in a thin whistling swish, a brief cloud-torn hiss trailing"
+  },
+  "A3-36": {
+   "en": "Stormtower Lord",
+   "ko": "열쇠 짤랑 뇌우 소집 · 탑이 흔들림",
+   "atk": "a heavy key jingles, a stately tower bell tone hums, then a mighty thunderclap and surging gust crash down together",
+   "def": "a thick ward from the tower: a deep resonant stone thrum, a metallic key chime, the blow ringing out dully against it"
+  },
+  "A3-41": {
+   "en": "Stillness Warder",
+   "ko": "소리 삼키는 고요 · 칼바람 숨 죽임",
+   "atk": "barely any attack: a soft hush of air, a faint damp pull, then a muffled gentle push like a pillow of still air",
+   "def": "a bubble of silence: sounds vacuum into a hollow soft hum, a wall-like dull thud, then even the blade-wind stops with a faint sigh"
+  },
+  "A3-42": {
+   "en": "Eye Guardian Spirit",
+   "ko": "폭풍 눈 속 가시 · 고요 단단하게 막음",
+   "atk": "a calm hush, then a thorn of compressed air jabs out with a short stinging whistle and sharp snap",
+   "def": "a rock-solid core of calm inside a roaring storm: a deep wall of wind rings out, a heavy thud, then a thin counter-slash of spiking air"
+  },
+  "SP-A3": {
+   "en": "Isaac Who Freed Stars",
+   "ko": "별빛 화살 연발 · 별빛 장벽 울림",
+   "atk": "starry crackles gather, a luminous bowstring-like thrum with no arrow, then multiple streaking star-bolts whistle and burst on impact with a deep boom",
+   "def": "a luminous wall of ascended wind: a high crystalline chime, a deep cosmic hum, the strike scattering into twinkling glass-like sparks"
+  },
+  "UN-A3": {
+   "en": "Needle Tower Stargazer",
+   "ko": "별 문자 읽고 선제 · 주문을 미리 흩음",
+   "atk": "a pre-emptive pulse, a clear soft bell, then a precise slicing gust that arrives just before the motion",
+   "def": "an eye of calm: the incoming spell is seen and blown away early, a thin glassy chime, a gentle opened-pages flutter, then stillness"
+  },
+  "UN-A3-7": {
+   "en": "Spell Devourer",
+   "ko": "주문 삼키는 흡입 · 마력 삼켜 울림",
+   "atk": "a deep inhaling vacuum gulps the air, a charged hum swells, then it unleashes a heavy swelling gust with a booming crack",
+   "def": "the incoming magic is drawn in: a sucking whoosh, a resonant swallowing hum, a bright shimmer swelling and settling"
+  },
+  "EP-A3-1": {
+   "en": "Needle Tower Archer",
+   "ko": "화살 없는 시위와 바람 화살 · 바람 틈 비켜섬",
+   "atk": "a drawn string thrum with no arrow, a bright whistling streak of wind, then a pinpoint star-glyph snap on target",
+   "def": "a quick sidestep with a flick of a cloak: an arrow-like whistle passing close, a puff of air, a soft landing step"
+  },
+  "EP-A3-2": {
+   "en": "Thundercloud Archmage",
+   "ko": "번개구름 증폭 · 첫 칼날 흩음",
+   "atk": "a layered storm swells in pitch, a first thunderclap rolls, then a doubled echoing second clap follows with crackling static ringing out wide",
+   "def": "the first blade parted by a charged cloud: a bright sizzle, a deflected steel zing, a distant resonant rumble"
+  },
+  "EP-A3-3": {
+   "en": "Sky Cradle Watcher",
+   "ko": "하늘 요람 관문 활 · 관문 같은 방어",
+   "atk": "a long watchful silence, a huge bow-like thrum, then two heavy streaking bolts whistle with a deep boom and thunder tail",
+   "def": "a vast gate of wind: a heavy low groan, a ringing boom, the strike absorbed into a high lonely whistling"
+  },
+  "PN-A3-C1": {
+   "en": "Needle Tower Junior Scribe",
+   "ko": "별 문자 베끼다 탁 · 버티며 서 있음",
+   "atk": "a stylus scratch, a brisk snap of paper, then a small tight puff of wind thumps",
+   "def": "bracing against the blow: a wooden stair creak, an unmoved stubborn scuff, a papery thud"
+  },
+  "PN-A3-C3": {
+   "en": "Stormtower Ward Knight",
+   "ko": "바람 갑옷 창 · 늘 같은 두께",
+   "atk": "a thin lance of wind released with a taut snap and whistling travel, striking with a crisp ring",
+   "def": "a constant-thickness cloak of wind: a steady unwavering hum, a solid ringing knock, no flutter at all"
+  },
+  "PN-A3-U1": {
+   "en": "Wind Glyph Caster",
+   "ko": "바람에 새긴 문자 · 버티는 바람",
+   "atk": "a glyph etched with a scratchy crackle, a crisp whistle, then a sharp engraved pop",
+   "def": "carved glyph-wind holds its shape: a resilient humming shell, a scratchy etched shimmer, the hit bouncing off with a firm tap"
+  },
+  "PN-A3-U2": {
+   "en": "Sky Cradle Gatekeeper",
+   "ko": "수문 열듯 마력 · 관문 그대로",
+   "atk": "a heavy gate-like creak, a rush of wind surging forward, then a booming punch of magic",
+   "def": "an immovable sluice-gate: a deep metallic thrum, the strike ringing off with a sealed hush"
+  },
+  "PN-A3-R": {
+   "en": "Velmir's Eye Caster",
+   "ko": "천 눈 한 자락 · 미리 본 듯 막음",
+   "atk": "a soft eye-like blink flutter, a long thin piercing whistle, then a precise crack at distance",
+   "def": "robe corner flicks aside before the blow: a seen-in-advance hush, a firm rustle, a small tonal ring"
+  },
+  "PN-A3-E": {
+   "en": "Isaac's First Disciple",
+   "ko": "스승의 별 문자 · 버티며 별 읽음",
+   "atk": "a calm clear bell, a starry streak whistling out, then a bright cascade of magical impacts",
+   "def": "a steady reading pose: a gentle page-turn flutter, a firm unwavering tone, the blow stilled with a soft chime"
+  },
+  "UP-A3-10": {
+   "en": "Whirlwind Elite",
+   "ko": "회오리 꺼뜨리는 손 · 단단한 와류",
+   "atk": "a tightly controlled spiral snaps out with a roaring crack, then a disciplined scything gust cuts through",
+   "def": "a snuffed cyclone in hand: a sudden quiet, a dense swirling hum, a short ringing deflection"
+  },
+  "UP-A3-11": {
+   "en": "Gale Envoy",
+   "ko": "바람보다 먼저 닿음 · 바람 속 안착",
+   "atk": "a sonic-boom-like snap before its own whoosh, a streaking rush, then a heavy swift punch",
+   "def": "landing softly inside a gust: a bright whistle swirling around, a spring-like thud, a calm settle"
+  },
+  "UP-A3-18": {
+   "en": "Cyclone Magister",
+   "ko": "회오리 엮어 군단 · 겹쳐 돎",
+   "atk": "several cyclones merge: a resounding rising roar, then a huge wall of wind surges forward with a thundering boom",
+   "def": "a rank of woven whirls: a layered roaring wall, the strike swallowed with a deep grinding hum"
+  },
+  "UP-A3-23": {
+   "en": "Velmir's Sage",
+   "ko": "별이 숨긴 것 읽음 · 별빛 책 방패",
+   "atk": "a tome snaps open, starlit chime rings, then a refined needle-thin gust pierces with a crystalline crack",
+   "def": "a book of stars: a luminous page flutter, glassy tone, the blow dissolved into a soft glimmer"
+  },
+  "UP-A3-24": {
+   "en": "Thundercloud Conductor",
+   "ko": "번개구름 지휘 · 번개 길 바꿈",
+   "atk": "a baton-like swish, a clustered thunder swell, then one precisely aimed bolt cracking down with a ringing boom",
+   "def": "a cloud turned like a sail: rolling damp rumble, sparks guided around, the strike redirected with a hissing crackle"
+  },
+  "MA-03": {
+   "en": "Disarming Hex",
+   "ko": "힘이 바람처럼 빠져나감",
+   "cast": "a cold draining sigh: a thin hiss of air slipping out, a limp muscle-slackening sink in pitch, then a faint soft clatter as strength drops away"
+  },
+  "SA3-01": {
+   "en": "Gust",
+   "ko": "앞엔 벌리고 뒤엔 등 떠밉",
+   "cast": "a sharp wedge of wind rattles armor seams with metallic ticks, then the same gust curls behind with a warm rising push and billowing cloth"
+  },
+  "SA3-02": {
+   "en": "Wind Barrier",
+   "ko": "칼이 공기에 걸려 멈춤",
+   "cast": "an invisible wall thickens with a swelling hum, a swung blade whooshes in and sticks with a soft sudden drag, air rippling like taut glass"
+  },
+  "MA-07": {
+   "en": "Equation of Wisdom",
+   "ko": "모두 같은 값으로 맞춰짐",
+   "cast": "a quill scratches a long line, chalk taps, then a bright ringing chime sweeps across and every sound levels into one equal hum"
+  },
+  "MC-06": {
+   "en": "Disarm",
+   "ko": "칼자루를 비틀어 날림",
+   "cast": "a twisting whirl wrenches at hilts, leather grips squeak, then many weapons clatter and skid away across stone on a fading gust"
+  },
+  "SA3-04": {
+   "en": "Summon Storm",
+   "ko": "폭풍이 앞줄 등 뒤로 내려앉음",
+   "cast": "a tower bell tone, the sky groans, then a roaring gale settles behind with thunder rolling and blades crackling with static"
+  },
+  "SA3-05": {
+   "en": "Whirlwind Bulwark",
+   "ko": "앞은 휘감겨 묶임 · 뒤는 흩어짐",
+   "cast": "a coiling cyclone winds around one spot with tightening howl, ropes of air creaking, then far arrows whistle off scattered into hush"
+  },
+  "MA-11": {
+   "en": "Reversal",
+   "ko": "방패와 칼 몰래 바꿔쥠",
+   "cast": "a sly gust passes, steel and wood clink swapping places, a quick fluttering shuffle, then a short dropped-clatter of surprise"
+  },
+  "SA3-06": {
+   "en": "Storm Blade",
+   "ko": "폭풍을 칼로 벼려 던짐",
+   "cast": "a storm is forged: thunder hammered into a bright edge with a ringing scrape, then a hurled blade whistles and slices with a crack"
+  },
+  "SA3-08": {
+   "en": "Great Storm",
+   "ko": "전장 가득 몸 가누기 힘든 바람",
+   "cast": "a vast wind rises across a field, banners snapping, a long deep howl with rolling thunder, then a heavy stilling pressure drop"
+  },
+  "RA3-1": {
+   "en": "Eye of the Storm",
+   "ko": "폭풍 가운데 고요 · 대가",
+   "cast": "a roar of wind spins up around, then suddenly drops to a vacuum-like hush, a faint ringing in the stillness and a soft draining tick"
+  },
+  "NA3-1": {
+   "en": "Rending Wind",
+   "ko": "갑옷 이음매 너덜거림",
+   "cast": "a narrow keening wind picks at plate seams with tiny tin rattles, rivets popping, then metal flaps like cloth in a ragged hiss"
+  },
+  "NA3-2": {
+   "en": "Tornado",
+   "ko": "회오리가 돌개바람을 보냄",
+   "cast": "a deep churning funnel rumbles across open land, debris roaring, then three small twisters whip off with sharp whirring hits in sequence"
+  },
+  "NA3-3": {
+   "en": "Piercing Wind",
+   "ko": "칼끝이 날카롭게 다듬어짐",
+   "cast": "wind whets blade edges with a rising fine hiss like a grindstone, tips ring sharp, and a thin penetrating whistle cuts through"
+  },
+  "NA3-4": {
+   "en": "Mirror Inversion",
+   "ko": "바람이 거울처럼 접힘",
+   "cast": "a shimmering glass-like fold of air, a wide whoosh sweeping sideways as figures swap, then a sharp ringing pop and a heavy knock"
+  },
+  "HA3-1": {
+   "en": "Swap",
+   "ko": "핸드 카드 몰래 바꿔침",
+   "cast": "a sly gust slips through, cards riffle and flick, two quick paper slaps swap places, then a tiny mischievous flutter and a pause"
+  },
+  "HA3-2": {
+   "en": "Mirror Twins",
+   "ko": "같은 얼굴 둘 중 하나 데려감",
+   "cast": "a glassy mirror chime doubled, an echo-like shimmer, then a card slides across the table drawn by a soft gust and lands with a tap"
+  },
+  "US-A3-1": {
+   "en": "Star Glyph",
+   "ko": "상대 패가 빛을 잃음",
+   "cast": "a star-bright ring, glyph scratches etching, then opponents' cards dim with a falling drained hush as one fresh card flips with a snap"
+  },
+  "US-A3-2": {
+   "en": "Velmir's Eye",
+   "ko": "천 개의 눈이 내려다봄",
+   "cast": "a thousand lids open with soft wet flutters, a vast deep pressure hum settles, then drawn blades and spells freeze with a sharp stillness"
+  },
+  "PS-A3-1": {
+   "en": "Cycle",
+   "ko": "값이 한 바퀴 돌아 옮겨감",
+   "cast": "three soft chime ticks rotate in circle, a wheeling whirr of air, a wooden gear clicking, then a hollow settling thud"
+  },
+  "PS-A3-2": {
+   "en": "Star Mimicry",
+   "ko": "본 것을 몸에 옮김",
+   "cast": "a quill scratch as a copy is written, a rising swirling hum, then glowing pulses press into allies with soft resonant pings"
+  },
+  "RS-A3-1": {
+   "en": "Knife Wind",
+   "ko": "칼바람이 두 번 베고 지나감",
+   "cast": "two slim blades of wind whistle in sharp succession, each ends in a dry cutting snap on cloth, the second higher than the first"
+  },
+  "RS-A3-2": {
+   "en": "Headwind Barrier",
+   "ko": "거꾸로 부는 바람 벽",
+   "cast": "a reverse howl blows hard down the stair, blades blunt against a wall of air and rebound with a whipping slap and a rough cutting hiss"
+  },
+  "RS-A3-3": {
+   "en": "Whirlwind Blades",
+   "ko": "바람 칼날 회오리",
+   "cast": "a roaring cyclone thick with thin ringing blades, rapid slicing zips in a spinning flurry, then a deepening lowering sink of weakened air"
+  },
+  "CS-A3": {
+   "en": "Cut the Spell",
+   "ko": "주문 줄을 끊어냄",
+   "cast": "a spell hums into being, a thin taut thread of sound is cut with a bright snip, then it fizzles and dies with a soft puff"
+  },
+  "C2-1": {
+   "en": "Apprentice Grimoire",
+   "ko": "첫 마도서를 건네 받음",
+   "equip": "a worn grimoire is handed over and clasped: a leather strap buckles, a stiff cover creaks, pages riffle, one tiny gust puffs from the spine"
+  },
+  "C3-1": {
+   "en": "Staff of Storms",
+   "ko": "작은 폭풍 갇힌 지팡이",
+   "equip": "a staff is gripped, its cap clinks, a tiny caged storm hums with static crackle, a short sharp spark jumps from the tip"
+  },
+  "IA3-3": {
+   "en": "Magi Council Cloak",
+   "ko": "바람 감싸는 망토",
+   "equip": "a cloak is swung over the shoulders: heavy silk unfurls with a whoosh, a brooch clasps, then a gentle wind curls around with a soft whirl"
+  },
+  "IA3-4": {
+   "en": "Whirlwind Grimoire",
+   "ko": "책장마다 바람",
+   "equip": "a thick book is opened and its pages turn one by one, each releasing a quick whirl of air, a faint spinning roar curling out of the binding"
+  },
+  "IA3-5": {
+   "en": "Velmir's Staff",
+   "ko": "지혜의 신의 지팡이",
+   "equip": "a long staff is planted with a deep wooden knock, a pure resonant tone hums outward, starry shimmer drifts, and a long breeze whistles over it"
+  },
+  "IA3-6": {
+   "en": "Stormtower Orb",
+   "ko": "번개 모은 보주",
+   "equip": "a glass orb is set in a cradle with a smooth clink, static builds into a pulsing hum, and a small bright lightning snap flicks inside"
+  },
+  "SR-A3": {
+   "en": "Ebel's Quill",
+   "ko": "일어난 일로 적는 깃펜",
+   "equip": "a long quill is dipped and tapped on an inkwell, a scratch of nib on vellum, a swelling resonant hum, and an authoritative amplified snap of air"
+  },
+  "IR-A3": {
+   "en": "Star Glyph Scroll",
+   "ko": "별 문자 두루마리",
+   "equip": "a long scroll is unrolled with a papery crackle, a bone roller thunks, glyphs hiss with faint fizzing and the air seems to sway aimlessly"
+  },
+  "PI-A3": {
+   "en": "Velmir's Star Mirror",
+   "ko": "굳히는 별 거울",
+   "equip": "a heavy mirror is unveiled: silk slides off, a deep glass-bell tone rings, a frozen crystalline stillness settles with a final hard glassy lock"
+  },
+  "TS-A3-1": {
+   "en": "Starfall Shard",
+   "ko": "별똥별 조각이 톡",
+   "cast": "a tiny glittering streak falls with a high thin whistle, then a brief crystalline ping and a faint scatter of fine dust"
+  },
+  "TS-A3-2": {
+   "en": "Whirlwind Gust",
+   "ko": "작은 돌개바람이 덮침",
+   "cast": "a squat twister spins up in an eager whirr, grit rattling, then strikes one target with a sudden whipping slap"
+  },
+  "TS-A3-3": {
+   "en": "Ember",
+   "ko": "불씨가 톡 튐",
+   "cast": "a faint dry spark popping from stirred air, a brief glowing sizzle, then a little tick against the foremost armor"
+  },
+  "TS-A3-4": {
+   "en": "Twin Echo",
+   "ko": "메아리처럼 두 번 울림",
+   "cast": "a single clear tap that echoes back as a second softer one, two light impacts bouncing off front lines with a hollow ring"
+  }
+ }
+}

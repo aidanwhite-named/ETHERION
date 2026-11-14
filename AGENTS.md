@@ -68,6 +68,11 @@
 - 두 기기가 같은 시드로 같은 판을 계산한다(`js/online.js`). **판의 결과를 바꾸는 난수는 `GRand()` · `shuffleG()`만 쓴다.** `Math.random`은 연출(흔들림 · 소리)에만.
 - 사람이 둘 수 있는 새 행동을 만들면 `js/online.js`의 `ACT_FNS`에 넣어 상대에게도 보낸다. 핸드 순서도 판에 영향이 있다(맨 왼쪽 카드를 겨냥하는 마법).
 
+## 소리 프롬프트 (2026-11-14, Gemini용)
+- 배경음 · 효과음은 Gemini(Lyria)로 새로 만든다. 배경음 지시서 `tools/bgm/PROMPT_BGM.md`(15곡: 1부 서정적인 랩소디 5 + 2부 성향이 다른 10, 쓸 곳은 타이틀 1 · 대기실 쪽 7 · 대전 7 제안), 효과음 `tools/sfx/PROMPT_SFX.md`(공용 130 + 카드 705장).
+- **카드마다 공격 · 방어 소리가 다르다**(마법은 발동, 아이템은 장착). 새 카드를 만들면 `tools/sfx/notes/<깃발>.json`에 소리 지시도 함께 쓰고(쓰는 법 PROMPT_SFX.md 6장) `node tools/sfx/build_sfx_prompts.js` → `tools/sfx/prompts/`. 지시가 없는 카드는 도구가 알려 준다.
+- 받은 소리 파일은 `audio/inbox/bgm/` · `audio/inbox/sfx/`(카드는 `cards/`)에 들어온다. 테이크 나누기는 `prompts/sfx.jsonl`의 `takes`를 따른다.
+
 ## 단축키 (v3.32.4)
 - 전장 단축키는 `js/game.js` keydown 한 곳(1~9 · Q~T · C · X · S · Enter · Esc · 코인 Space/Enter · R · **A = 코인 자동으로 봉인**). M · N은 `js/bgm.js`(음악 · 효과음). 새 키를 쓰기 전에 둘 다 보고, 한글 자판 글자(ㄱ · ㅁ …)도 받는다. 새 키는 `focusIdleHTML`의 표와 `js/manual.js` 단축키 표에도 적는다.
 
