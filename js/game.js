@@ -2284,12 +2284,10 @@ function focusHTML(me, ctrl) {
       ${info.length ? `<dl class="f-info">${info.map(([k, v]) => `${k ? `<dt>${esc(k)}</dt>` : ""}<dd${k ? "" : ' class="wide"'}>${esc(v)}</dd>`).join("")}</dl>` : ""}
     </div>` : ""}</aside>`;
 }
-/* 아무 카드도 고르지 않았을 때 왼쪽 열: 최근 전투 기록 + (접힌) 단축키 */
+/* 아무 카드도 고르지 않았을 때 왼쪽 열: (접힌) 단축키. v3.64.1 "최근 기록"은 뺐다 — 판의 기록은 전투 기록 창(#logdrawer)에서 본다 */
 function focusIdleHTML(ctrl) {
   const keys = [["1–9", "핸드 고르기"], ["Q–T", "칸에 놓기 · 장착"], ["C", "결정화"], ["X", "소각"], ["S", "셔플"], ["Enter", "준비 완료"], ["A", "코인 자동 봉인 켜고 끄기"], ["Esc", "선택 풀기"]];
-  const recent = G.log.slice(-9);
   return `<aside class="focus-idle${ctrl ? " live" : ""}" aria-hidden="true">
-    <div class="fi-log"><p class="fi-head">최근 기록</p>${recent.map(l => `<div class="l ${l.cls}">${esc(l.text)}</div>`).join("")}</div>
     <details class="fi-keys-wrap"><summary>단축키</summary><dl class="fi-keys">${keys.map(([k, v]) => `<dt><kbd>${k}</kbd></dt><dd>${v}</dd>`).join("")}</dl></details></aside>`;
 }
 /* 고른 카드 패널은 왼쪽 열, 상대 소각장(위)과 내 소각장(아래) 사이에 맞춘다 (v1.4.1).
@@ -2309,7 +2307,6 @@ function placeFocus() {
     const y0 = (kt.length ? Math.max(...kt.map(r => r.bottom)) : t.bottom) + 14, y1 = (kb.length ? Math.min(...kb.map(r => r.top)) : fb.getBoundingClientRect().top) - 14;
     fo.style.left = (t.left - b.left) + "px"; fo.style.top = (y0 - b.top) + "px";
     fo.style.width = Math.max(mw ? mw.getBoundingClientRect().width : t.width, 220) + "px";
-    if (fo.classList.contains("focus-idle")) { fo.style.height = Math.max(80, y1 - y0) + "px"; return; }
     fo.style.height = ""; fo.style.maxHeight = Math.max(80, y1 - y0) + "px";
     return;
   }
@@ -2322,7 +2319,6 @@ function placeFocus() {
   const W = Math.max(w.width, 220);
   fo.style.left = (w.left - b.left) + "px"; fo.style.top = (y0 - b.top) + "px";
   fo.style.width = W + "px";
-  if (fo.classList.contains("focus-idle")) { fo.style.height = Math.max(80, y1 - y0) + "px"; return; }
   fo.style.height = ""; fo.style.maxHeight = Math.max(80, y1 - y0) + "px";
 }
 addEventListener("resize", () => {

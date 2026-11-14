@@ -53,7 +53,7 @@ T('덫 태우기', `const P = [side(0, ["CS-B1", "A1-30"]), side(1, ["SB1-03", "
 T('씻김의 노래', `const d = mk("A2-01"); d.t.shield = true; d.t.taunt = true; const P = [side(0, ["CS-G3", "A1-30"]), side(1, ["SB1-03", d])];
   const X = fight(P, 0, 2); ok(/참호 사격.*무효/.test(logs(X)) && X.rec.some(s => s.floats.some(f => f[0] === d.uid && f[1] === "강화 해제")), "씻김의 노래: 무효 + 맨 앞 유닛 강화 해제");`);
 T('피의 침묵', `const P = [side(0, ["CS-A1", "A1-30"]), side(1, ["SB1-03", "B1-01", "B1-30"])];
-  const X = fight(P, 0, 2); ok(/참호 사격.*무효/.test(logs(X)) && P[0].life <= 29, "피의 침묵: 생명 1 · 무효");`);
+  const X = fight(P, 0, 2); ok(/참호 사격.*무효/.test(logs(X)) && X.paid && X.paid[0] === 1, "피의 침묵: 생명 1 · 무효");`);
 T('이끼 덮기', `const a = mk("A1-30"); const P = [side(0, ["CS-G2", a]), side(1, ["SB1-03", "B1-01"])]; const h0 = a.t.h;
   const X = fight(P, 0, 2); ok(/참호 사격.*무효/.test(logs(X)) && X.rec.some(s => s.floats.some(f => f[0] === a.uid && f[1] === "⚔+1 ♥+2")), "이끼 덮기: 무효 + 아군 맨 앞 체력 +2");`);
 // 6 빼앗긴 마법 · opening 마법 · 소환 마법

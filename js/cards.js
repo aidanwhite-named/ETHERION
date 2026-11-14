@@ -209,6 +209,10 @@ function coinMarkText(co, stat) { return coinMarks(co, stat).map(m => m.s).join(
 function itemAbilities(it) {
   const out = [];
   if (it.u && typeof UNIQUE_ABIL !== "undefined" && UNIQUE_ABIL[it.u]) out.push(`[${UNIQUE_ABIL[it.u].n}]`);   // v3.31 유니크의 강화 특수능력 (js/uniques.js)
+  if (it.rob) out.push("[강탈]");   // v3.65 심연 마족 (js/abyss.js, engine.js 끝 절)
+  if (it.leech) out.push("[흡혈]");
+  if (it.veil) out.push("[그림자 걸음]");
+  if (it.pact) out.push(`[피의 계약 ${it.pact}]`);
   if (it.shred) out.push("[관통]");
   if (it.magic) out.push(`[마력 공격 ${it.magic === true ? "전부" : it.magic}]`);
   if (it.crit) out.push("[치명]");
@@ -292,7 +296,12 @@ const ITEM_KW = {
   "눌림": "▼ {S} 증가 효과를 받지 않는다.",
   "가시": "이 유닛을 맞붙어 공격한 상대 유닛은 체력이 {n} 깎인다.",
   "증폭": "이 유닛이 전장에 있으면 내 공격 마법의 피해가 {n} 늘어난다.",
-  "치유": "장착하는 순간 내 생명이 {n} 늘어난다."
+  "치유": "장착하는 순간 내 생명이 {n} 늘어난다.",
+  /* v3.65 심연 마족 — 규칙은 engine.js 끝 "v3.65 심연 마족" 절 */
+  "강탈": "이 유닛이 상대 유닛을 쓰러뜨리면(공격 · 반격 · 연쇄 · 꿰뚫기 · 사격 · 투척) 내 생명이 쓰러뜨린 유닛의 레벨만큼 늘어난다.",
+  "흡혈": "맞붙어(공격 · 반격) 준 피해의 절반(올림)만큼 이 유닛의 체력이 찬다. 다 찬 뒤 남는 몫은 이번 턴 체력 +.",
+  "그림자 걸음": "자기보다 레벨이 높은 유닛과 맞붙어 받는 피해를 턴에 한 번 받지 않는다. 레벨이 같거나 낮은 유닛에게 맞붙어 받는 피해는 2 늘어난다.",
+  "피의 계약": "내 마법이 생명을 낼 때마다 이 유닛의 공격이 이번 턴 {n} 오른다."
 };
 /* v3.31 유니크의 강화 특수능력 뜻 (js/uniques.js UNIQUE_ABIL) */
 if (typeof UNIQUE_ABIL !== "undefined") for (const k in UNIQUE_ABIL) ITEM_KW[UNIQUE_ABIL[k].n] = UNIQUE_ABIL[k].text;

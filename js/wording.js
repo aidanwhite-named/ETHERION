@@ -10,7 +10,7 @@
 "use strict";
 const WORDING = (() => {
   const josaEulReul = n => (/[013678]$/.test(String(n)) ? "을" : "를");   // 일 · 영 · 삼 · 육 · 칠 · 팔 → 을
-  const DMG_OPS = new Set(["dmg", "multi", "chain", "perAlly", "blast", "sumDef", "echo"]);
+  const DMG_OPS = new Set(["dmg", "multi", "chain", "perAlly", "blast", "sumDef", "echo", "tithe", "paidHit"]);   // v3.65 피의 제물 · 피의 공명
   /* ① 유닛 수 */
   const units = t => t.replace(/(유닛 )?(\d+)기(?![사술병계])/g, (m, u, n) => `유닛 ${n}개`);
   /* ⓪ v3.62 "뒤 N칸"은 칸이 아니라 유닛을 센다(engine.js pickTargets — 사이의 마법 칸은 건너뜀):
@@ -39,7 +39,7 @@ const WORDING = (() => {
   /* 핸드 짧은 문구: {적 앞2} → {적 앞 2개}, 피해2 → ♥−2, +1C → −1C (피해 뒤) */
   function brief(s, hasDmg) {
     s = s.replace(/\{(적|아군) 뒤(\d+)\}/g, "{$1 유닛 $2}").replace(/\{뒤 아군\}/g, "{아군 유닛 1}");   // v3.62 뒤 N = 유닛 N기 (마법 칸은 건너뜀)
-    s = s.replace(/\{([^}]*?)(앞|최강|최약)(\d+)\}/g, (m, a, w, n) => `{${a}${w} ${n}개}`);
+    s = s.replace(/\{([^}]*?)(앞|최강|최약)(\d+)\}/g, (m, a, w, n) => `{${a}${w === "최강" ? "공격 높은" : w === "최약" ? "공격 낮은" : w} ${n}개}`);   // v3.65 "최강"은 뜻이 모호 — 화면에는 "공격 높은 N개"
     if (!hasDmg) return s;
     return s.replace(/(^|[^리] ?)피해 ?(\d+(?:→\d+)+)/g, (m, p, xs) => p + "♥" + xs.split("→").map(x => "−" + x).join("→"))
       .replace(/(^|[^리] ?)피해 ?(\d+) \+(\d+)C(×\d+)?/g, (m, p, n, v, k) => `${p}♥−${n} −${v}C${k || ""}`)

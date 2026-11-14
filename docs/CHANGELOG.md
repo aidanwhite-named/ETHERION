@@ -3,6 +3,18 @@
 버전마다 바뀐 것과 바뀐 파일을 적는다. 새 버전은 맨 위에 쓴다.
 맨 아래 `실행`·`v0.3`·`계정`·`덱`·`규칙`·`파일` 절은 v0.3 무렵의 설명을 그대로 남긴 것이라 지금과 다른 곳이 있다(예: 클래스는 v1.0에서 규칙에서 빠짐). 지금 상태는 `README.md`를 본다.
 
+## v3.65.0 — 심연 마족 개편: 강탈 · 흡혈 · 그림자 걸음 · 피의 계약 · 이번 턴 낸 생명 연계 · 마족 마법 6장 바꿈 · 최근 기록 창 뺌
+바뀐 파일 `js/abyss.js`(새) · `js/engine.js` · `js/cards.js` · `js/wording.js` · `js/grades.js` · `js/lore.js` · `js/manual.js` · `js/briefs.js` · `js/game.js` · `css/style.css` · `css/mobile.css` · `css/swap.css` · `index.html`(캐시 ab365 · sb641 · r364 등) · `tools/abyss/`(새 test.js · sim.js) · `tools/counter/test.js` · `tools/balance/harness.js` · `tools/balance4/load.js` · `tools/art/build_prompts.js` · `tools/sfx/build_sfx_prompts.js` · `tools/sfx/notes/A1.json` · 그림 · 소리 프롬프트 다시 만듦 · `docs/ABYSS_v3.65.md`(새) · `docs/WORLD.md` · `docs/BALANCE_v4_draft.md` · `AGENTS.md`
+- **"최강" 칩 글**: 핸드 칩 "적 최강 N개"는 "적 공격 높은 N개", "최약"은 "공격 낮은 N개"로 보인다(`wording.js`, 데이터 글은 그대로).
+- **새 능력 4가지**(규칙, engine.js 끝 "v3.65 심연 마족" 절): [강탈] 이 유닛이 상대 유닛을 쓰러뜨리면 내 생명 + 그 레벨 · [흡혈] 맞붙어 준 피해의 절반만큼 체력(넘치면 이번 턴 체력 +) · [그림자 걸음] 높은 레벨 유닛의 맞붙는 피해를 턴에 한 번 흘림, 같거나 낮은 레벨에게는 +2 · [피의 계약 N] 내 마법이 생명을 낼 때마다 공격 +N.
+- **생명을 내는 마족 마법은 모두 아군 유닛 전체에게 [강탈]**(이번 턴). 마족 고급 유닛의 하급 능력 [관통](모르크의 악몽은 [마력 1])을 [강탈] · [흡혈] · [그림자 걸음] · [피의 계약]으로, 피의 서약 부적에 [피의 계약 2], 심연의 가면은 [치명] → [흡혈].
+- **이번 턴 낸 생명**(`X.paid`): 앞 칸에서 생명을 낼수록 뒤 칸 마법이 커진다. 마족 마법 6장을 이 짜임으로 바꿈(ID · 등급 그대로): 피의 공명(MA-04) · 피의 제물(SA1-06) · 심연의 부름(SA1-01, 소각장에서 되살림) · 그림자 손아귀(SA1-02, 빼앗기) · 환각(MC-05, 제 편을 침) · 거울 환영(SA1-04, 상대 공격 1위의 환영). 피의 맹약(MA-16)은 공격 +4 → +3 [흡혈].
+- **최근 기록 창 뺌**: 아무 카드도 고르지 않았을 때 왼쪽 열에 보이던 "최근 기록"을 없앴다. 판의 기록은 전투 기록 창에서 본다(`focusIdleHTML`). 왼쪽 열에는 접힌 단축키만 남는다.
+- 컴퓨터의 수 읽기가 소각장도 복제한다(되살리는 마법 · 새벽의 부활을 본다).
+- 잰 값(A1 대 8깃발 기본 덱 1,600판, `tools/abyss/sim.js`): 마족 기본 덱 44.0 → 49.4%, 생명 마법 연계 덱 36.0 → 47.7%. [강탈]을 끄면 −14.6%p, [그림자 걸음]을 끄면 −8%p. 조건 실험(내 레벨 이상 49.6 · 이하 42.3 · 절반 48.1)은 docs/ABYSS_v3.65.md.
+- 9깃발 기본 덱 라운드 로빈(2,160판): 심연 마족 44.8 → 50.4%, 깃발 승률 폭 12 → 11.1%p(번개 노움 56.3 · … · 푸른비늘 인어 45.2), 평균 턴 17.2.
+- 확인: `node tools/abyss/test.js` 40개 · `tools/replay_check.js 40` · `10 hard` 모두 같음 · 무효 마법(피의 침묵은 낸 대가로 보게 고침) · 유니크 · 순례 468 · 강화 233 · 룰북 통과. 서버 다시 켬.
+
 ## v3.64.0 — 에테르 최대 13 · 마법 레벨 −2 (마법 연계 개편 1단계)
 바뀐 파일 `js/cards.js` · `js/game.js` · `js/aihard.js` · `js/data.js` · `js/names.js` · `js/rarespells.js` · `js/counterspells.js` · `js/highcards.js` · `js/pincards.js` · `tools/counter/test.js` · `tools/upgrade/test.js` · `AGENTS.md` · `README.md` · `docs/STYLE_GUIDE.md`(v6.23)
 - **에테르 최대 13**(규칙): 결정 상한 9 → 12(`RULES.maxCrystals`). 에테르 제단의 결정 칸도 12칸 — 자리는 `RULES`에서 계산해 360°/13씩 고르게(`ETHER_SLOTS`). 매뉴얼 · 룰북은 상수를 읽어 저절로 바뀜. 컴퓨터 어려움도 결정을 12개까지 모은다(`HARD.crysTo` 9 → 12).

@@ -126,7 +126,7 @@ html.appui .mull-modal .modal-btns { grid-column: 2; grid-row: 3; display: flex;
 html.appui .mull-modal .modal-btns .btn { width: 100%; min-height: 54px; font-size: 17px; margin: 0; }
 
 /* 3) 전장 */
-/* 왼쪽 가운데의 기록 · 단축키 판(focus-idle)과 가운데 띠의 손짓 글(더블클릭 또는 …)은 폰에서 뺀다 */
+/* 왼쪽 가운데의 단축키 판(focus-idle)과 가운데 띠의 손짓 글(더블클릭 또는 …)은 폰에서 뺀다 */
 html.appui .focus-idle { display: none !important; }
 html.appui .midbar.v7 .actionbar { display: none; }
 /* 가운데 띠를 얇게: 준비 완료는 내 덱 옆으로 갔다(js/game.js render) · 메뉴 단추도 작게 */

@@ -283,19 +283,19 @@
    "cast": "a wrist is cut with a fine slice, blood streams into the air and hardens into sharp blades with a glassy crystalline ring, then two fast whistling slashes land with wet cracks on the front line"
   },
   "MA-04": {
-   "en": "Brand of Curse",
-   "ko": "뒷줄 갑옷에 낙인 찍힘",
-   "cast": "a glowing iron brand hisses in the dark, then presses against metal armour with a searing sizzle and a long thinning groan as the steel buckles like paper behind the lines"
+   "en": "Blood Resonance",
+   "ko": "흘린 피가 땅밑에서 울리다 한꺼번에 터짐",
+   "cast": "a low heartbeat thrums beneath the ground and grows louder with each beat, a dark resonant hum swells, then it bursts upward in one sharp crimson crack into the strongest foe"
   },
   "SA1-01": {
-   "en": "Blood Shield",
-   "ko": "피 계약이 앞줄 감쌈",
-   "cast": "blood droplets pattering into a swirling ring, a thick red ward blooms with a rising protective hum and a seal-like clack, then settles to a thin humming skin around the front line"
+   "en": "Call of the Abyss",
+   "ko": "저울이 기울며 소각장에서 죽은 자가 일어섬",
+   "cast": "a deep scale-beam creaks and tips with a heavy iron clank, cold ash stirs with a low rushing wind, then bones and armour scrape together as a fallen warrior rises with a hollow groan"
   },
   "SA1-02": {
    "en": "Shadow Grasp",
-   "ko": "발밑 그림자 손이 움켜쥠",
-   "cast": "the ground-bound shadow rustles, giant dark hands rise with a stretched creaking pull, then close with a slow squeezing crunch and a strained, tightening leather creak"
+   "ko": "그림자 손이 적을 움켜쥐어 이쪽으로 끌어옴",
+   "cast": "a shadow stretches across the ground with a cold silky slither, a huge hand clamps shut with a muffled crunch, then something heavy is dragged across stone toward us with a long grinding scrape"
   },
   "MA-05": {
    "en": "Scale of Blood",
@@ -303,14 +303,14 @@
    "cast": "blood drips onto a metal scale pan with a clink, the beam creaks and tilts, then the heavy side is hoisted away with a chain-hoist rattle and a final deep boom"
   },
   "MC-05": {
-   "en": "Curse of Weakness",
-   "ko": "숨결 저주 번져 무릎 꺾임",
-   "cast": "a cold breathy draft spreads slowly with a creeping hiss, armour plates groan as they grow heavier, then knees buckle in a row of dull thuds in front"
+   "en": "Hallucination",
+   "ko": "안개 속에서 적이 제 전우를 베어 버림",
+   "cast": "a sweet dark mist breathes out with a hollow whisper and warped echoing laughter, a confused snarl, then a blade strikes the wrong target with a sickening metallic clang and a shocked gasp"
   },
   "SA1-04": {
-   "en": "Cursed Riposte",
-   "ko": "상처의 피가 저주 되어 되돌아감",
-   "cast": "a wound opens with a short wet split, blood flies in a dark spiralling boomerang loop with a reversed swell, then smacks the front line in a double sharp hit"
+   "en": "Mirror Phantom",
+   "ko": "거울 속 그림자가 걸어 나와 적의 모습으로 섬",
+   "cast": "a dark mirror surface ripples with a glassy shimmer, a reflected footstep echoes from inside, then a shadowy double steps out with a crystalline crack and a cold distorted breath"
   },
   "MA-09": {
    "en": "Price of the Pact",
@@ -318,9 +318,9 @@
    "cast": "a blood drop falls into a bell-shaped well, a distant muffled toll answers once, then a spreading shockwave of dark pressure rolls across the whole field with a long rumble"
   },
   "SA1-06": {
-   "en": "Brand of Despair",
-   "ko": "낙인이 방패를 놓게 함",
-   "cast": "a slow dark sweep wipes away a bright hum, brand sizzles hit many shields at once, then metal shields clatter and drop with a hopeless cascading clank"
+   "en": "Blood Offering",
+   "ko": "아군이 손바닥 그어 피를 칼에 먹이고, 그 피가 적 줄을 꿰뚫음",
+   "cast": "several quick blade cuts hiss across palms, blood drips and hisses onto steel with a hungry sizzle, then a heavy crimson surge rips forward through one enemy after another with deep wet impacts"
   },
   "MA-16": {
    "en": "Blood Covenant",

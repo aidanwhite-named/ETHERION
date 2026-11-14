@@ -23,6 +23,14 @@
 - 세계관 이름은 모두 가칭이다. 이름과 설정은 README와 가이드에 적힌 것을 따른다.
 - **v3.64 에테르 최대 13 · 마법 레벨 −2**: 결정 상한 12(`RULES.maxCrystals`, 제단 칸은 `ETHER_SLOTS`가 계산). 덱에 넣는 마법은 모두 2레벨 내렸다(최소 1, 지금 1~5레벨). 새 마법은 이 기준으로 1레벨부터 만든다 — v3.64 전 문서(`docs/RARESPELLS_v3.24.md` · `COUNTERSPELLS_v3.32.md` · `BALANCE_v4_draft.md` 등)의 마법 레벨은 2 높게 적혀 있다. 아이템 레벨은 그대로. 마법 연계 보너스(연계 시 더 셈 · 에테르 덜 듦)는 나중 일.
 
+## 심연 마족 개편 (v3.65)
+- 데이터는 `js/abyss.js`(rebalance.js 다음 · decks.js 앞, 균형 도구가 data.js · rebalance.js를 다시 써도 남는다): 고급 유닛의 하급 능력 · 아이템 · 특색 없던 마법 6장을 새 효과로 바꿈(카드 ID · 등급 그대로 — 피의 공명 · 피의 제물 · 심연의 부름 · 그림자 손아귀 · 환각 · 거울 환영) · 피의 맹약 고침 · "생명을 내는 마족 마법은 모두 아군 유닛 전체에게 [강탈]". 규칙은 `js/engine.js` 끝 "v3.65 심연 마족" 절, 능력 글은 `js/cards.js` `ITEM_KW`, 설명 `docs/ABYSS_v3.65.md`.
+- 능력 4가지(abilOf의 `rob` · `leech` · `veil` · `pact`): [강탈] · [흡혈] · [그림자 걸음] · [피의 계약 N]. 유닛 gift · 아이템 · 마법 grant 어느 쪽이든 붙는다. 수치는 `ABYSS`. 규칙을 바꾸면 `ITEM_KW` 글도 함께.
+- **이번 턴 낸 대가**: 마법이 생명을 내면 `X.paid[시전자]`에 쌓인다(`abPaid`). 생명을 내는 새 효과는 `castSpell`의 `cost.life`를 거치게 해 [피의 계약] · 피의 공명 · 심연의 부름이 함께 센다.
+- 컴퓨터의 수 읽기(`cloneSide`)가 v3.65부터 소각장도 복제한다(되살리는 마법을 본다).
+- 새 효과(engine `SPELL_OPS`): `paidHit` · `tithe` · `rebirth` · `paidSteal` · `confuse`(반격 없음 `t.noCounter`) · `phantom`(환영 `phantom: true` — 소각장에 가지 않음, sweep · uPreSweep이 건너뜀). 빼앗기 본체는 `stealCard`.
+- 시험 `node tools/abyss/test.js`, 승률 `node tools/abyss/sim.js 100 [new|base]`(`ABYSS='{"robCond":"ge"}'` · `ABYSS='{"off":{"veil":true}}'`로 수치 · 능력을 바꿔 잼).
+
 ## 카드 배치 · 핸드 (v3.19)
 - 카드는 판타지 마스터즈식 배치다(왼쪽 위 종류 아이콘 · 왼쪽 세로 레벨 · 그림 아래 글 상자 · 오른쪽 아래 클래스와 공방체). HTML은 `js/view.js` `cardHTML` · `cardFullHTML`, 모양은 `css/fmcard.css`(맨 마지막에 읽음). 카드 모양을 고칠 때 `style.css` · `slim.css`의 옛 카드 규칙보다 이 파일을 먼저 본다.
 - 전장의 내 핸드는 겹치지 않는 똑바른 한 줄(`css/hand-row.css`, 슬롯의 `--i` · `--n`). 부채꼴로 되돌리지 않는다.
