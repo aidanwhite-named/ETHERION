@@ -1068,6 +1068,14 @@ html[data-font="system"] { --kfont: "Batang", "바탕", "AppleMyungjo"; }
 .pc-meta { font-size: 11px; color: var(--muted); }
 .editor .ed-deck, .editor .ed-pool { height: var(--avail, auto); display: flex; flex-direction: column; min-height: 0; }
 .editor .deck-list, .ed-pool .pool-grid { flex: 1; min-height: 0; max-height: none; }
+/* v3.61.1 PC 덱 조정실: 패널 높이(--avail)는 화면에 맞춰 고정인데 위쪽(장수 띠 · 촛대 / 거르기 두 판)이 그 높이를 거의 다 써서
+   덱 목록 · 카드 칸이 몇십 px로 줄어 덱이 안 보였다. 두 칸에 최소 높이를 주고, 모자라면 패널째 스크롤한다. 앱식 배치(html.appui)는 css/mobile.css 그대로 */
+html:not(.appui) .editor .ed-deck, html:not(.appui) .editor .ed-pool { overflow-y: auto; overscroll-behavior: contain; }
+html:not(.appui) .editor .deck-list { flex-shrink: 0; min-height: min(220px, 100%); }
+html:not(.appui) .ed-pool .pool-grid { flex-shrink: 0; min-height: min(340px, 100%); }
+/* 1.5배는 키가 큰 화면(1200px 이상)에서만. 1080p 등에서는 1.25배, 1000px 아래는 1.1배 — js/screens.js fit()이 zoom을 읽어 --avail을 잰다 */
+@media (max-height: 1199px) { .screen-editor > .ed-bar, .screen-editor > .editor { zoom: 1.25; } }
+@media (max-height: 999px) { .screen-editor > .ed-bar, .screen-editor > .editor { zoom: 1.1; } }
 
 /* ===================== v0.6 오른쪽 위 배지: 정사각형 = 카드 종류, 동그라미 = 클래스 ===================== */
 /* 마법 종류(칼·방패)는 아래 띠 대신 오른쪽 위 정사각형으로. 아이템은 보석 정사각형 */
