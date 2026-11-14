@@ -53,7 +53,22 @@
 .card.fm .c-box .c-cls { font-size: .74em; line-height: 1.18; }
 .card.fm .c-chips { gap: .04em .1em; }
 html.mobile .hand-me .card.fm.slim .c-cls { font-size: .78em; }
-.slot .card.fm .c-box .c-cls { font-size: .52em; line-height: normal; }
+
+/* v3.61.1 전장 칸 카드의 글 상자도 핸드와 같게: 능력 칩 .52em → .74em(폰 .78em), 코인 줄 · 칸 사이도 핸드 값 그대로.
+   장착 아이템 칩(.c-eq-ab, ◆)도 능력 칩과 같은 크기 · 줄 높이 — 예전엔 폰에서 능력 칩 .7em · 아이템 칩 .52em, PC에서도 줄 높이(normal · 1.2)가 달라
+   [가호 1] · ◆[보호막 코인]처럼 둘이 한 줄에 서면 글자 높낮이가 어긋났다. 한 줄에 이어 붙일 때는 글자 바닥선(baseline)에 맞춘다.
+   fmcard.css v3.32.4의 전장용 축소(.slot …)를 덮는다 */
+.slot .card.fm .c-boxin { gap: .12em; }
+.slot .card.fm .c-coinline { font-size: .92em; gap: .1em .38em; }
+.slot .card.fm .c-coinline .sti { width: 1.05em; height: 1.05em; }
+.slot .card.fm .c-chips, .slot .card.fm .c-box .c-equip { gap: .04em .1em; }
+.slot .card.fm .c-box .c-cls, .slot .card.fm .c-eq-ab { font-size: calc(.74em * var(--chs, 1)); line-height: 1.18; padding: 0 .12em !important; }
+.slot .card.fm .c-eq-ab::before { font-size: .7em; margin-right: .14em; vertical-align: .08em; }
+html.mobile .frow .card.fm .c-box .c-cls, html.mobile .frow .card.fm .c-eq-ab { font-size: calc(.78em * var(--chs, 1)); }
+.slot .card.fm .c-boxin:has(> .c-equip) { gap: .04em .1em; align-items: baseline; }
+/* 칩이 넘칠 때(js/view.js fitFieldBox): 분위기 글을 먼저 빼고(fit-noflv), --chs로 칩 글자를 줄인다. 다 들어가면 아래쪽 흐림을 끈다(fit-all) */
+.slot .card.fm .c-boxin.fit-noflv > .c-flv { display: none; }
+.slot .card.fm .c-boxin.fit-all { -webkit-mask-image: none; mask-image: none; }
 
 /* v3.60 장착한 유닛: 아래에 깔린 아이템 카드의 이름과 "◆ 이름" 띠(.u-name)가 같은 자리에 겹쳐 두 겹으로 보였다(fmcard.css가 slim.css의 숨김을 되살림).
    아이템 카드 이름은 숨기고 띠만, 아이템을 앞으로 꺼냈을 때(item-front, 띠는 숨음)만 카드 이름을 보인다 */

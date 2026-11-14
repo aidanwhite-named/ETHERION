@@ -50,7 +50,7 @@ const Pachinko = {
     this.refresh();
   },
   setY(r, y) { r.y = y; const n = r.order.length * this.SYM_H; const yy = ((y % n) + n) % n + n; r.strip.style.transform = `translateY(${-yy}px)`; },
-  spins() { const u = Store.user(); return u ? (u.spins || 0) : 0; },
+  spins() { const u = Store.user(); return u ? (u.spins || 0) + (u.gspins || 0) : 0; },   // gspins: 서버 모드 필멸자가 이 기기에서 센 표 (js/net.js onMatchEnd)
   canSpin() { return !this.spinning && this.spins() > 0; },
   refresh() {
     if (!this.el) return;
@@ -68,7 +68,8 @@ const Pachinko = {
     if (!this.canSpin()) return;
     const u = Store.user(); if (!u) return;
     const res = pachinkoRoll();
-    u.spins = Math.max(0, (u.spins || 0) - 1); Store.save();
+    if ((u.gspins || 0) > 0) u.gspins--; else u.spins = Math.max(0, (u.spins || 0) - 1);
+    Store.save();
     if (Store.questEvent && !(typeof Net !== "undefined" && Net.on)) Store.questEvent(u, { k: "wheel" });   // v3.46 임무 (서버 모드는 서버의 wheelSpin이 센다)
     this.spinning = true; this.holdMsg = false;
     this.el.classList.remove("armed", "hit-group", "hit-faction", "hit-card");

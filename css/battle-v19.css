@@ -191,3 +191,7 @@
 .shield-flip.is-heads .sf-tag { color: #10202a; background: linear-gradient(180deg, #d9f3ff, #8fd0f0); }
 .shield-flip.is-tails .sf-tag { color: #b9b9c8; border-color: rgba(255, 255, 255, .2); background: rgba(20, 20, 28, .9); }
 .shield-flip.is-tails .cs-heads { visibility: hidden; }
+/* v3.61.1 보호막이 켜진 유닛의 표시(js/game.js HOLY_SHIELD_ICO, .bd-sh): 검은 칩 없이 은빛 방패 그림만(금은 성광 천족 색), 다른 표시보다 크게.
+   빛 · 움직임 · 필터 없음. 테두리에 색을 두르면 등급 색(레어 파랑)과 겹쳐 쓰지 않는다. 막고 나면 보호막이 사라지므로 표시도 함께 없어진다 */
+.c-badges .bd.bd-sh { font-size: 2em; padding: 0; background: none; border: 0; line-height: 0; }
+.bd-sh .hs-ico { display: block; width: 1em; height: 1em; }

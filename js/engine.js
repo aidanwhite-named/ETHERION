@@ -101,24 +101,38 @@ function pinPass(X) {
   }
 }
 
-/* 턴이 시작될 때: 피해 회복, 마법 효과 해제, 보호막 코인.
+/* 턴이 시작될 때: 피해 회복, 마법 효과 해제. (보호막 코인은 v3.61.1부터 전투가 시작될 때 — shieldCoinsAtCombat)
    코인은 여기서 던지지 않는다 — 유닛끼리 맞붙을 때 던진다(clashCoins). 그 전까지는 적힌 값 그대로.
    v3.5.6: 방어하는 쪽 유닛은 한 전투에서 코인이 한 번 정해지면 그 전투가 끝날 때까지 다시 던지지 않는다.
    v3.5.7: 한 번 정해진 코인은 마법(코인 뒷면 · 운명)으로도 바뀌지 않는다 */
-let SHIELD_ROLLS = 0;   // v3.32.4 보호막 코인을 던질 때마다 번호(화면이 같은 던짐을 두 번 보이지 않게, js/game.js shieldCoinFx)
-function resetTurn(it, atk) {   // atk: 이 유닛 편이 이번 턴 공격하는지(v3.57.4). v3.57.5부터 보호막 코인은 매 턴 던지므로 쓰지 않는다(부르는 곳은 그대로 넘김)
+function resetTurn(it, atk) {   // atk: 이 유닛 편이 이번 턴 공격하는지(v3.57.4). 보호막 코인을 여기서 던지지 않으므로 쓰지 않는다(부르는 곳은 그대로 넘김)
   const keep = (it.t && it.t.keep) || {};   // v3.31 턴이 지나도 남는 값(충전 · 고철 · 낙인 · 불씨 …)
   if (it.t) it.t.gx = null;   // v3.18 지난 턴 마법이 걸어 준 능력은 남지 않는다
   const b = baseStats(it, true), ab = abilOf(it);
   if (keep.grow) for (const k in keep.grow) b[k] += keep.grow[k];   // v3.31 [전리품]으로 판 동안 자란 스탯
-  const roll = !!ab.shield;   // v3.57.5 [보호막 코인]은 다시 매 턴(공격 · 방어) 던진다 — 대신 앞면이면 처음 받는 피해를 절반으로 줄인다(통째로 막지 않음)
-  const sh = roll ? flip() : null;   // [보호막 코인]: 유닛 코인과 상관없이 아이템이 따로 던진다(턴 시작 · 장착할 때)
+  // v3.61.1 [보호막 코인]은 여기(턴 시작 · 장착)서 던지지 않는다 — 전투가 시작될 때 던진다(shieldCoinsAtCombat). 준비하는 동안은 보호막 없음
   it.t = { a: b.a, d: b.d, h: b.h, rb: b, floor: floorOf(it), dmg: 0, alive: true,
-    shield: sh ? "half" : false, sroll: roll ? { h: sh, n: ++SHIELD_ROLLS } : null, ward: ab.ward, wardUsed: false,
+    shield: false, sroll: null, ward: ab.ward, wardUsed: false,
     thorns: ab.thorns, taunt: false, lock: false, rest: false, thrown: false,
     cb: { a: 0, d: 0, h: 0 }, coins: coinDefs(it), noCoin: false, keep };
 }
 const hpLeft = u => u.t.h - u.t.dmg;
+/* v3.61.1 [보호막 코인]: 전투가 시작될 때(양쪽 준비가 끝나고 첫 마법 · 공격보다 먼저) 전장의 보호막 유닛마다 한 번 던진다.
+   앞면이면 이번 전투에서 처음 받는 피해 한 번의 절반(올림)을 막는다(t.shield = "half"). 매 턴 전투마다 다시 던진다.
+   전투 도중에 불려 나온 유닛은 던지지 않는다. 이미 통째로 막는 [보호막](t.shield === true)이 있으면 그대로 둔다.
+   번호 n은 턴 · 유닛으로 정한다 — 코인 다시 던지기로 같은 시드의 전투를 처음부터 다시 굴려도 화면이 같은 던짐을 두 번 보이지 않게 */
+function shieldCoinsAtCombat(X) {
+  let any = false;
+  for (const p of X.P) for (const u of p.field) {
+    if (!isUnit(u) || !u.t || !u.t.alive || !abilOf(u).shield) continue;
+    const h = flip();
+    if (h && !u.t.shield) u.t.shield = "half";
+    u.t.sroll = { h, n: "c" + X.turn + ":" + u.uid };
+    lg(X, `[보호막 코인] ${p.name}의 ${C(u).name}: ${h ? "앞면 — 이번 전투 처음 받는 피해 절반을 막음" : "뒷면 — 이번 전투는 보호막 없음"}`, h ? "good" : "sys");
+    any = true;
+  }
+  if (any) step(X, {}, 700);   // 화면이 동전을 던질 틈 (js/game.js shieldCoinFx)
+}
 
 /* ---------- 코인: 유닛과 유닛이 맞붙을 때 던진다 (방어 쪽은 전투마다 한 번, X.defFix) ----------
    coinDefs: 이 유닛이 가진 코인(카드 코인 + 아이템 코인). heads가 null이면 아직 던지지 않은 것 */
@@ -252,9 +266,11 @@ function pickTargets(X, caster, side, area, k) {
   let out = [];
   for (const P of pools) {
     let L = liveUnits(P);
-    if (area.t === "back") L = P === theirs   // v3.17.1: 상대 쪽 "뒤 N"은 상대 대기열의 맨 뒤 N기 (마법을 놓은 칸과 상관없음)
-      ? queueOf(P).slice(-area.n)
-      : L.filter(u => { const c = colOf(P, u); return c > k && c <= k + area.n; });   // 아군 쪽은 그대로: 이 마법이 놓인 칸 다음부터 N칸
+    // v3.62 "back N"(화면 글 "아군 유닛 N" · "적 유닛 N")은 칸이 아니라 유닛을 센다 — 사이에 놓인 마법 칸은 건너뛴다.
+    //   아군: 이 마법보다 뒤에 있는 아군 유닛 N기(가까운 것부터). 상대: 상대 대기열의 맨 앞 N기(front N과 같음)
+    if (area.t === "back") L = P === theirs
+      ? queueOf(P).slice(0, area.n)
+      : L.filter(u => colOf(P, u) > k).sort((x, y) => colOf(P, x) - colOf(P, y)).slice(0, area.n);
     else if (area.t === "front") L = queueOf(P).slice(0, area.n);
     else if (area.t === "maxA") L = L.slice().sort((x, y) => y.t.a - x.t.a || C(y).lv - C(x).lv || colOf(P, x) - colOf(P, y)).slice(0, area.n);
     else if (area.t === "minA") L = L.slice().sort((x, y) => x.t.a - y.t.a || C(x).lv - C(y).lv || colOf(P, x) - colOf(P, y)).slice(0, area.n);   // v3.20 공격이 가장 낮은 n기
@@ -565,6 +581,7 @@ function runCombatCore(X) {
       sweep([q.it.uid], 560);
     }
   };
+  shieldCoinsAtCombat(X);   // v3.61.1 보호막 코인 (전투가 시작될 때, 다른 무엇보다 먼저)
   uCombatStart(X, sweep);   // v3.31 불씨 · 뿌리 · 축전 (전투가 시작될 때)
   fire(false);
   if (!dead() && uBombs(X, sweep)) fire(false);   // v3.31.4 화약통은 시작 때 마법이 모두 발동한 뒤에 터진다(그 마법에 부서지면 불발). 터져서 앞 유닛이 쓰러지면 풀린 방어 마법이 이어서 발동

@@ -120,13 +120,18 @@ function actPlace(p, uid, slot) {
   if (c.type === "item") return false;
   const why = canPlay(p, c); if (why) { if (!p.isAI) toast(why, "warn"); return false; }
   if (c.type === "hand") return castHand(p, i);
-  if (slot == null || p.field[slot]) slot = p.field.indexOf(null);
-  if (slot < 0) return false;
+  // v3.62 전장은 늘 왼쪽부터 빈틈없이 찬다: 새 카드는 맨 왼쪽 빈 칸(= 마지막 카드 바로 다음)에 놓인다.
+  // slot이 그보다 앞이면 그 자리에 끼워 넣고 뒤 카드가 한 칸씩 밀린다(컴퓨터가 마법을 유닛 사이에 둘 때). 빈 칸 너머는 고를 수 없다
+  packField(p);
+  const free = p.field.indexOf(null);
+  if (free < 0) return false;
   p.hand.splice(i, 1);
   p.spent += costOf(c);
   p.committed = true;   // 전장에 카드를 올렸으면 이번 턴 셔플은 막힌다
   it.summoned = G.turn;
-  p.field[slot] = it;
+  p.field[free] = it;
+  if (slot != null && slot >= 0 && slot < free) p.field = moveField(p.field, free, slot);
+  slot = p.field.indexOf(it);
   if (c.type === "unit") {
     it.item = null; resetTurn(it);
     queueCurse(it);   // v3.9.10 핸드에서 저주가 걸린 카드: 내려앉은 뒤 저주 발동 연출
@@ -136,8 +141,6 @@ function actPlace(p, uid, slot) {
   }
   return true;
 }
-/* v3.32.4 보호막 코인 기록 — 규칙 부분(화면 위)에 둔다: 화면 없는 도구(tools/balance/harness.js)는 "화면" 절 앞까지만 읽는다 */
-function logShieldRoll(p, it) { log(`[보호막 코인] ${p.name}의 ${C(it).name}: ${it.t.sroll.h ? "앞면 — 이번 턴 처음 받는 피해 절반을 막음" : "뒷면 — 이번 턴은 보호막 없음"}`, it.t.sroll.h ? "good" : "sys"); }
 function actEquip(p, uid, slot) {
   const i = p.hand.findIndex(x => x.uid === uid); if (i < 0) return false;
   const card = p.hand[i], c = C(card);
@@ -152,7 +155,6 @@ function actEquip(p, uid, slot) {
   host.item = { id: c.id, equipped: G.turn };
   const dmg = host.t ? host.t.dmg : 0; resetTurn(host, p.idx === G.attacker); host.t.dmg = dmg;
   log(`${p.name}: ${C(host).name}에게 「${c.name}」 장착`);
-  if (host.t.sroll) logShieldRoll(p, host);   // v3.32.4
   if (c.item.evName && /^치유/.test(c.item.evName)) { const n = parseInt(c.item.evName.replace(/\D/g, "")) || 0; const b = p.life; p.life = Math.min(RULES.lifeCap, p.life + n); if (p.life > b) { log(`[${c.item.evName}] ${p.name} 생명 +${p.life - b}`, "good"); floatAt("life" + p.idx, "+" + (p.life - b), "heal"); } }
   return true;
 }
@@ -167,6 +169,7 @@ function actCrystal(p, uid) {
   // v3.19.2: 결정화한 카드 자체는 소각장으로 간다(결정은 남는다). 나중에 소각장에서 핸드로 되살리는 마법이 이 카드도 고를 수 있다
   p.crystals.push(it.id); p.burn.push(it.id); p.made++; p.crysBank = crysLeft(p) - 1;
   if (!G.cfg.headless && p.idx === G.viewer && !p.isAI && typeof CrysHint !== "undefined") CrysHint.learn();   // v3.19.8 결정화 손짓은 몇 번 해 보면 그만
+  if (!G.cfg.headless && p.idx === G.viewer && !p.isAI && typeof Guide !== "undefined") Guide.crystallized();   // v3.61.1 첫 판 안내의 구슬 깜빡임 끄기 (화면 연출만)
   if (G.leave) G.leave[it.uid] = "crys" + p.idx;
   log(`${p.name}: 「${C(it).name}」 결정화 (결정 ${p.crystals.length}) — 카드는 소각장으로`);
   return true;
@@ -209,16 +212,19 @@ function burnFieldAt(p, slot, why) {
   const it = p.field[slot]; if (!it) return false;
   p.field[slot] = null; if (!C(it).tok) (it.from != null && G.players[it.from] ? G.players[it.from] : p).burn.push(it.id); if (it.item) (it.item.from != null && G.players[it.item.from] ? G.players[it.item.from] : p).burn.push(it.item.id);   // v3.31 넘어온 유닛 · 빼앗은 아이템은 원래 주인의 소각장
   log(`${p.name}: 전장의 「${isUnit(it) ? C(it).name : "마법 카드"}」 소각${why ? " — " + why : ""}`);
+  packField(p);   // v3.62 빈 칸은 남기지 않고 왼쪽으로 당긴다
   return true;
 }
 function actBurnField(p, slot) { if (prepIdx() !== p.idx) return false; const ok = burnFieldAt(p, slot); if (ok) p.committed = true; return ok; }
-/* v1.9 자리 옮기기: 빈 칸이면 그 칸으로 옮기기만 하고, 카드가 있는 칸이면 그 칸에 끼워 넣고 사이의 카드가 한 칸씩 밀린다
-   (2번 → 4번: 3번은 2번으로, 4번은 3번으로). 예전에는 두 카드를 맞바꿨다 */
+/* v1.9 자리 옮기기: 카드가 있는 칸이면 그 칸에 끼워 넣고 사이의 카드가 한 칸씩 밀린다
+   (2번 → 4번: 3번은 2번으로, 4번은 3번으로). 예전에는 두 카드를 맞바꿨다.
+   v3.62 빈 칸으로 옮기면 맨 뒤 카드 다음으로 간다 — 전장은 늘 왼쪽부터 빈틈없이 찬다 */
 function moveField(field, from, to) {
-  const f = field.slice();
-  if (!f[to]) { f[to] = f[from]; f[from] = null; return f; }
-  const [it] = f.splice(from, 1); f.splice(to, 0, it);
-  return f;
+  let f = field.slice();
+  if (!f[to]) { f[to] = f[from]; f[from] = null; }
+  else { const [it] = f.splice(from, 1); f.splice(to, 0, it); }
+  const xs = f.filter(Boolean);
+  return xs.concat(Array(field.length - xs.length).fill(null));
 }
 function actMove(p, from, to) {
   if (prepIdx() !== p.idx || from === to || !p.field[from]) return false;
@@ -330,7 +336,7 @@ function beginTurn() {
   for (const p of G.players) {
     p.made = 0; p.crysBank = crysLeft(p) + RULES.crystalsPerTurn; p.spent = 0; p.shuffled = false; p.committed = false; p.reloadNow = p.reload; p.reload = 0; p.bonusNow = p.bonus || 0; p.bonus = 0;
     for (const it of p.field) if (isUnit(it)) { const dmg = it.t ? it.t.dmg : 0; resetTurn(it, p.idx === G.attacker); if (G.rules && G.rules.noHeal && dmg) it.t.dmg = Math.min(dmg, it.t.h - 1); }
-    for (const it of p.field) if (isUnit(it) && it.t && it.t.sroll) logShieldRoll(p, it);   // v3.32.4
+    // v3.61.1 보호막 코인은 턴 시작이 아니라 전투가 시작될 때 던진다(js/engine.js shieldCoinsAtCombat, 기록도 엔진이 남김)
     if (G.rules && G.rules.lifeTide && G.turn > 1) p.life = Math.min(RULES.lifeCap, p.life + G.rules.lifeTide);
     // v3.31 [마력 흡수]: 모은 마력이 이번 턴 에테르가 된다
     for (const it of p.field) if (isUnit(it) && it.t && it.t.keep && it.t.keep.mana) { p.bonusNow += it.t.keep.mana; log(`${p.name}: [마력 흡수] ${C(it).name}이(가) 모은 마력 ${it.t.keep.mana} → 이번 턴 에테르 +${it.t.keep.mana}`, "good"); it.t.keep.mana = 0; }
@@ -569,13 +575,15 @@ function spellGain(p, hit) {
   };
   const base = run();
   let best = null;
-  p.field.forEach((x, s) => {
-    if (x) return;
-    p.field[s] = hit;
-    const v = run() - base + negateHope(p, C(hit), p.field.slice(0, s).filter(isUnit).length);   // v3.32 [무효]는 미리 굴려서는 보이지 않는다
-    p.field[s] = null;
+  // v3.62 전장은 왼쪽부터 빈틈없이 찬다: 빈 칸 대신 카드 사이 자리(0 = 맨 앞 … 맨 뒤 다음)에 끼워 보고 고른다 (actPlace가 그 자리에 끼움)
+  const f0 = p.field, xs = f0.filter(Boolean);
+  if (xs.length < f0.length) for (let s = 0; s <= xs.length; s++) {
+    const f = xs.slice(); f.splice(s, 0, hit);
+    p.field = f.concat(Array(f0.length - f.length).fill(null));
+    const v = run() - base + negateHope(p, C(hit), xs.slice(0, s).filter(isUnit).length);   // v3.32 [무효]는 미리 굴려서는 보이지 않는다
+    p.field = f0;
     if (!best || v > best.v) best = { v, s };
-  });
+  }
   resetRng();
   return best;
 }
@@ -777,14 +785,20 @@ function humanPrep(p) {
    처음 하는 사람에게 단계마다 말풍선 하나씩. 다 보거나 "안내 끄기"를 누르면 다시 보이지 않는다 (Prefs guideDone).
    안내는 화면 요소에 붙어 따라다니고(place), 사람의 조작을 막지 않는다. */
 const Guide = {
-  el: null, queue: [], seen: {}, cur: null,
+  el: null, queue: [], seen: {}, cur: null, tailG: null,
   on() { return !Prefs.get("guideDone", false); },
+  // v3.61.1 나머지 안내를 첫 턴에 다 봤어도 결정화 안내(crys)는 결정화할 수 있게 된 턴에 한 번 더 — 그 판(tailG)에서만
+  tail() { return !!G && this.tailG === G && !this.seen.crys; },
   steps(phase, p) {
     const me = p.idx;
     if (phase === "atkPrep" || phase === "defPrep") {
       const L = [];
+      if (!this.on()) { if (this.tail() && crysLeft(p) > 0 && p.crystals.length < RULES.maxCrystals && p.hand.length) L.push({ key: "crys", sel: "#crys" + me, side: "right", pulse: true, title: "결정화", text: "이제 <b>결정화</b>할 수 있습니다. 핸드 1장을 빛나는 구슬에 <b>끌어다 놓으면</b> 결정이 되어 다음 턴부터 에테르가 1 늘어납니다. 카드를 고른 뒤 <b>C</b> 키를 눌러도 됩니다." }); return L; }
       if (!this.seen.hand) L.push({ key: "hand", sel: ".hand-me", side: "top", title: "핸드", text: "카드를 <b>누르면</b> 상대 전장 오른쪽에 크게(설명까지) 보이고, <b>더블클릭</b>하면 전장에 올라갑니다. 카드 오른쪽 아래 세로 숫자는 위부터 공격 · 방어 · 체력. 그림 아래 글 상자 맨 위 줄의 <b>+</b>와 겹친 동전은 맞붙을 때마다 던지는 코인 — 동전 하나에 앞면이면 +1, <b>+2●</b>처럼 앞에 숫자가 있으면 앞면마다 그 값입니다(동전 수가 곧 코인 수). 공격·방어·체력에 동전이 하나씩 있으면 <b>동전 하나</b>를 던져 셋에 함께 붙습니다." });
-      if (!this.seen.ether) L.push({ key: "ether", sel: "#crys" + me, side: "right", title: "에테르", text: "카드를 내는 힘입니다. <b>레벨 N 카드 = 에테르 N</b>. 핸드 1장을 여기로 끌어 놓으면 <b>결정</b>이 되어 매 턴 에테르가 1 늘어납니다. 바친 카드는 소각장으로 갑니다 (턴마다 1장씩 할 수 있고, 안 하면 쌓여서 나중에 한꺼번에 해도 됩니다). 쓰지 않은 에테르는 다음 턴으로 넘어가지 않으니, 전투 때 <b>코인 뒤집기</b>에 쓰세요." });
+      // v3.61.1 결정화 한도(crysBank)는 beginTurn에서 쌓이므로 첫 턴은 0, 2턴째부터 1장씩. 빛나는 구슬(pulse → .tut-pulse)로 놓을 곳을 보여 준다
+      const canC = crysLeft(p) > 0 && p.crystals.length < RULES.maxCrystals;
+      if (!this.seen.ether) { L.push({ key: "ether", sel: "#crys" + me, side: "right", pulse: true, title: "에테르 · 결정화", text: "카드를 내는 힘입니다. <b>레벨 N 카드 = 에테르 N</b>. 핸드 1장을 지금 빛나는 이 구슬에 <b>끌어다 놓으면</b> <b>결정</b>이 되어 매 턴 에테르가 1 늘어납니다. 바친 카드는 소각장으로 갑니다. " + (canC ? "지금 해 볼 수 있습니다." : "첫 턴에는 아직 못 하고, <b>2턴째부터</b> 할 수 있습니다.") + " (턴마다 1장씩, 안 하면 쌓여서 나중에 한꺼번에 해도 됩니다). 쓰지 않은 에테르는 다음 턴으로 넘어가지 않으니, 전투 때 <b>코인 뒤집기</b>에 쓰세요." }); if (canC) this.seen.crys = true; }
+      else if (!this.seen.crys && canC && p.hand.length) L.push({ key: "crys", sel: "#crys" + me, side: "right", pulse: true, title: "결정화", text: "이제 <b>결정화</b>할 수 있습니다. 핸드 1장을 빛나는 구슬에 <b>끌어다 놓으면</b> 결정이 되어 다음 턴부터 에테르가 1 늘어납니다. 카드를 고른 뒤 <b>C</b> 키를 눌러도 됩니다." });
       if (!this.seen.front) L.push({ key: "front", sel: `.frow-bot .slot[data-s="0"]`, side: "top", title: "맞붙는 순서", text: "내 유닛은 <b>1번 칸부터</b> 차례로 <b>상대의 맨 앞 유닛</b>과 맞붙습니다 (같은 번호끼리가 아닙니다). 피해 = 공격 − 방어. 체력이 0이 되면 쓰러지고, 남은 피해는 턴이 끝나면 낫습니다." });
       if (phase === "defPrep" && !this.seen.def) L.push({ key: "def", sel: ".frow-top .slots", side: "bottom", title: "방어", text: "상대의 배치가 보입니다. 상대 1번 칸 유닛이 내 맨 앞 유닛과 먼저 맞붙습니다. 막지 못한 공격은 생명으로 가지만, 대신 <b>다음 턴 에테르 +1</b>을 받습니다." });
       if (!this.seen.ready) L.push({ key: "ready", sel: ".ready-btn", side: "left", title: "준비 완료", text: "다 놓았으면 누르세요 (Enter). 양쪽이 준비를 마치면 전투가 자동으로 진행됩니다." });
@@ -793,7 +807,7 @@ const Guide = {
     return [];
   },
   maybe(phase, p) {
-    if (!this.on() || G.cfg.headless || G.mode === "hotseat" && p.idx !== 0) return;
+    if (!this.on() && !this.tail() || G.cfg.headless || G.mode === "hotseat" && p.idx !== 0) return;
     const L = this.steps(phase, p);
     if (!L.length) return;
     this.queue = L; this.next();
@@ -801,30 +815,42 @@ const Guide = {
   next() {
     this.hide();
     const st = this.queue.shift();
-    if (!st) { if (this.seen.ready && this.seen.def) Prefs.set("guideDone", true); return; }
+    if (!st) { if (this.seen.ready && this.seen.def && this.on()) { Prefs.set("guideDone", true); if (!this.seen.crys) this.tailG = G; } return; }
     this.seen[st.key] = true; this.cur = st;
     const el = document.createElement("div");
     el.className = "guide gd-" + st.side;
     el.innerHTML = `<p class="gd-eyebrow">첫 판 안내 · ${esc(st.title)}</p><p class="gd-text">${st.text}</p><div class="gd-btns"><button type="button" class="btn xs ghost" data-g="off">안내 끄기</button><button type="button" class="btn xs primary" data-g="next">${this.queue.length ? "다음" : "알겠어요"}</button></div><i class="gd-arrow"></i>`;
-    el.addEventListener("click", e => { const b = e.target.closest("[data-g]"); if (!b) return; if (b.dataset.g === "off") { Prefs.set("guideDone", true); this.queue = []; this.hide(); } else this.next(); });
+    el.addEventListener("click", e => { const b = e.target.closest("[data-g]"); if (!b) return; if (b.dataset.g === "off") { Prefs.set("guideDone", true); this.tailG = null; this.queue = []; this.hide(); } else this.next(); });
     document.body.appendChild(el); this.el = el;
     this.place();
   },
-  hide() { if (this.el) { this.el.remove(); this.el = null; } this.cur = null; document.querySelectorAll(".guide-target").forEach(x => x.classList.remove("guide-target")); },
+  hide() { if (this.el) { this.el.remove(); this.el = null; } this.cur = null; document.querySelectorAll(".guide-target").forEach(x => x.classList.remove("guide-target")); document.querySelectorAll(".tut-pulse").forEach(x => x.classList.remove("tut-pulse")); },
+  // v3.61.1 실제로 결정화하면 구슬 깜빡임은 끈다(말풍선은 그대로 — 다음 · 알겠어요로 닫는다)
+  crystallized() { if (this.cur && this.cur.pulse) { this.cur.pulse = false; document.querySelectorAll(".tut-pulse").forEach(x => x.classList.remove("tut-pulse")); } this.seen.crys = true; },
   place() {
     if (!this.el || !this.cur || !boardEl) return;
     const t = boardEl.querySelector(this.cur.sel);
     if (!t) { this.el.style.visibility = "hidden"; return; }
     document.querySelectorAll(".guide-target").forEach(x => x.classList.remove("guide-target"));
     t.classList.add("guide-target");
+    document.querySelectorAll(".tut-pulse").forEach(x => { if (x !== t || !this.cur.pulse) x.classList.remove("tut-pulse"); });
+    if (this.cur.pulse) t.classList.add("tut-pulse");   // 화면을 다시 그려도(render → place) 깜빡임이 이어진다
     const r = t.getBoundingClientRect(), w = this.el.offsetWidth, h = this.el.offsetHeight, m = 14;
-    let x, y;
-    if (this.cur.side === "top") { x = r.left + r.width / 2 - w / 2; y = r.top - h - m; }
-    else if (this.cur.side === "bottom") { x = r.left + r.width / 2 - w / 2; y = r.bottom + m; }
-    else if (this.cur.side === "left") { x = r.left - w - m; y = r.top + r.height / 2 - h / 2; }
-    else { x = r.right + m; y = r.top + r.height / 2 - h / 2; }
-    x = Math.max(8, Math.min(innerWidth - w - 8, x)); y = Math.max(8, Math.min(innerHeight - h - 8, y));
-    this.el.style.left = x + "px"; this.el.style.top = y + "px"; this.el.style.visibility = "";
+    const at = side => {
+      let x, y;
+      if (side === "top") { x = r.left + r.width / 2 - w / 2; y = r.top - h - m; }
+      else if (side === "bottom") { x = r.left + r.width / 2 - w / 2; y = r.bottom + m; }
+      else if (side === "left") { x = r.left - w - m; y = r.top + r.height / 2 - h / 2; }
+      else { x = r.right + m; y = r.top + r.height / 2 - h / 2; }
+      x = Math.max(8, Math.min(innerWidth - w - 8, x)); y = Math.max(8, Math.min(innerHeight - h - 8, y));
+      const cover = x < r.right - 4 && x + w > r.left + 4 && y < r.bottom - 4 && y + h > r.top + 4;
+      return { side, x, y, cover };
+    };
+    // v3.61.1 폰처럼 좁은 화면에서 정한 쪽에 자리가 없어 말풍선이 짚는 곳(빛나는 구슬)을 덮으면, 덮지 않는 다른 쪽으로
+    let pos = at(this.cur.side);
+    if (pos.cover) pos = ["top", "bottom", "left", "right"].filter(sd => sd !== this.cur.side).map(at).find(o => !o.cover) || pos;
+    this.el.className = "guide gd-" + pos.side;
+    this.el.style.left = pos.x + "px"; this.el.style.top = pos.y + "px"; this.el.style.visibility = "";
   }
 };
 if (typeof addEventListener === "function") addEventListener("resize", () => Guide.place());
@@ -1803,6 +1829,13 @@ function shatterCard(b) {
 const spellHidden = (it, p) => isSpell(it) && p && p.idx !== G.viewer && G.phase !== "combat" && !eyeOpen(G.viewer);
 /* v3.31 [폭풍의 눈]: 내 전장에 이 유닛이 있으면 상대 뒷면 마법이 보인다 */
 function eyeOpen(vi) { const me = G && G.players[vi]; return !!(me && me.field.some(it => isUnit(it) && C(it).gift && C(it).gift.u === "eye")); }
+/* v3.61.1 보호막 표시: 은빛 방패 + 가운데 십자 + 위로 번지는 빛줄기 셋. 파랑은 레어 등급 색, 금은 성광 천족 색이라 쓰지 않는다.
+   검은 칩 대신 어두운 외곽선으로 그림 위에서 읽히게 한다(움직임 · 필터 없음) */
+const HOLY_SHIELD_ICO = '<svg class="hs-ico" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="hsG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#dfe3ea"/><stop offset="1" stop-color="#9aa3b0"/></linearGradient></defs>'
+  + '<path d="M12 .9v1.9M4.9 3l1.2 1.3M19.1 3l-1.2 1.3" stroke="#15181f" stroke-width="2.6" stroke-linecap="round"/><path d="M12 .9v1.9M4.9 3l1.2 1.3M19.1 3l-1.2 1.3" stroke="#f4f6fa" stroke-width="1.2" stroke-linecap="round"/>'
+  + '<path d="M12 4l7.2 2.6v5.2c0 5-3.1 8.5-7.2 10.1-4.1-1.6-7.2-5.1-7.2-10.1V6.6z" fill="url(#hsG)" stroke="#15181f" stroke-width="1.5" stroke-linejoin="round"/>'
+  + '<path d="M12 6l5.3 1.9v3.9c0 3.8-2.3 6.5-5.3 7.8-3-1.3-5.3-4-5.3-7.8V7.9z" fill="none" stroke="#7d8694" stroke-width=".8"/>'
+  + '<path d="M12 8.4v8.2M8.8 11.3h6.4" stroke="#4a5260" stroke-width="1.8" stroke-linecap="round"/></svg>';
 function fieldCardHTML(it, p, s) {
   const c = C(it);
   const hidden = spellHidden(it, p);
@@ -1821,7 +1854,7 @@ function fieldCardHTML(it, p, s) {
   if (isUnit(it) && it.t && !it.t.alive) cls.push("dying");
   let badges = "";
   if (isUnit(it) && it.t) {
-    if (it.t.shield) badges += `<span class="bd bd-shield" data-tip="◈ 보호막${it.t.shield === "half" ? " 코인" : ""}\n${esc(it.t.shield === "half" ? "이번 턴 처음 받는 피해의 절반(올림)을 막는다." : SPELL_KW["보호막"])}">◈</span>`;   // v3.57.5 코인 보호막은 절반
+    if (it.t.shield) badges += `<span class="bd bd-sh" data-tip="◈ 보호막${it.t.shield === "half" ? " 코인" : ""}\n${esc(it.t.shield === "half" ? "이번 전투에서 처음 받는 피해의 절반(올림)을 막는다." : SPELL_KW["보호막"])}">${HOLY_SHIELD_ICO}</span>`;   // v3.57.5 코인 보호막은 절반 · v3.61.1 bd-sh: 검은 칩 없이 성스러운 방패 그림, 다른 표시보다 크게(css/battle-v19.css)
     if (it.t.taunt) badges += `<span class="bd bd-guard" data-tip="수호\n${esc(SPELL_KW["수호"])}">${statIco("d")}</span>`;
     if (it.t.lock) badges += '<span class="bd bd-lock" data-tip="⚓ 저주 면역\n이번 턴 방어가 바뀌지 않는다 (피해는 받는다)">⚓</span>';
     if (it.t.thorns) badges += `<span class="bd bd-thorn" data-tip="${esc(`✶${it.t.thorns} 가시 ${it.t.thorns}\n${itemKwDesc("[가시 " + it.t.thorns + "]")}\n유닛 · 장착한 아이템 · 마법에서 받은 가시를 합친 값`)}">✶${it.t.thorns}</span>`;
@@ -2367,7 +2400,7 @@ function render() {
 }
 
 /* ---------- v3.32.4 보호막 코인 (아이템 능력 [보호막 코인]) ----------
-   엔진은 턴이 시작될 때와 장착할 때 이 동전을 따로 던진다(js/engine.js resetTurn, 유닛 코인이 없어도). 예전에는 화면에 아무것도 없어
+   엔진은 전투가 시작될 때 이 동전을 따로 던진다(v3.61.1 js/engine.js shieldCoinsAtCombat, 유닛 코인이 없어도. 예전엔 턴 시작 · 장착 때). 예전에는 화면에 아무것도 없어
    앞면이면 ◈ 표시만 생기고 뒷면이면 던졌는지조차 알 수 없었다. 이제 그 카드 위에 동전이 떠올라 돌다가 앞 · 뒤로 멈추고,
    앞면이면 "보호막", 뒷면이면 "보호막 실패"가 떠오른다. 던질 때마다 번호(t.sroll.n)가 붙어 같은 던짐은 한 번만 보인다 */
 function shieldCoinFx() {
@@ -3723,7 +3756,7 @@ function showRules() {
     <li><b>전투</b> — 공격 유닛이 1번 칸부터 차례로 상대의 맨 앞 유닛과 싸웁니다. <b>맞붙을 때마다 공격하는 유닛의 코인을 던집니다</b>(앞면 50%). <b>방어하는 유닛의 코인은 그 전투에서 처음 맞붙을 때 한 번만</b> 던지고, 전투가 끝날 때까지 그 결과를 그대로 씁니다. <b>한 번 정해진 코인은 마법으로도 바뀌지 않습니다</b>(코인 뒷면 · 운명은 아직 던지지 않은 코인에만). 유닛의 공격·방어·체력 코인은 순번이 같으면 동전 하나라 함께 앞·뒷면이 됩니다(공격 2개·방어 1개면 동전 2개). 장착한 아이템의 코인도 함께 세고, 동전은 최대 5개입니다. 내 코인은 내가 <b>"운명 봉인"</b>으로, 상대 코인은 상대가 세웁니다(5초가 지나면 저절로 멈춤). 양쪽이 멈추면 나온 대로 스탯이 바뀐 뒤 공격 → 반격이 이어집니다. 피해 = 공격 − 방어(최소 0). 쓰러진 유닛과 쓴 마법은 그 자리에서 부서지고 남은 카드는 바로 왼쪽으로 당겨집니다. 피해는 그 턴 안에서만 쌓이고, 턴이 끝나면 회복됩니다.</li>
     <li><b>코인 뒤집기</b> — 코인이 멈춘 뒤, 내 유닛의 <b>뒷면 코인</b>(− 코인은 <b>앞면 코인</b>)<b>을 누르면 에테르 1</b>을 내고 그 코인만 다시 던집니다. 맞붙을 때마다 한 번(이미 정해진 방어 코인은 다시 던질 수 없음). 준비 단계에서 남겨 둔 에테르를 여기에 씁니다 (남은 에테르는 다음 턴으로 넘어가지 않습니다).</li>
     <li><b>멀리건</b> — 경기 시작 때 한 번, 시작 핸드에서 고른 카드를 덱에 되돌리고 같은 장수를 새로 뽑습니다. 생명은 줄지 않습니다.</li>
-    <li><b>마법 발동</b> — 마법도 대기열의 한 자리입니다. "상대 맨 뒤 N기"는 상대 대기열의 끝에서 N기, "아군 뒤 N칸"은 마법이 놓인 칸 다음부터 N칸입니다.</li>
+    <li><b>마법 발동</b> — 마법도 대기열의 한 자리입니다. "적 유닛 N"은 상대 대기열의 맨 앞 N기, "아군 유닛 N"은 이 마법 뒤의 아군 유닛 N기입니다(마법 칸은 건너뜀).</li>
     <li><b>마법 피해와 물리 피해</b> — 마법의 "피해"는 방어를 무시하고 체력을 깎습니다. "물리 피해"는 공격처럼 방어를 거칩니다(피해 − 방어). 마법이 부른 유닛의 공격도 물리입니다.</li>
     <li><b>소환 · 메아리</b> — 소환 마법은 부서지며 그 칸에 유닛을 부르고, 공격 턴이면 차례가 왔을 때 그 유닛도 공격합니다("이번 턴만"은 전투가 끝나면 사라짐). 메아리 마법은 작은 마법을 불러 이어서 발동합니다. 부른 유닛은 부서져도 카드가 남지 않습니다.</li>
     <li><b>계략 마법</b> — 핸드를 겨냥하는 마법. 공격·방어 준비 어느 때나, 칸 없이 내는 즉시 발동하고 소각 더미로 갑니다. 핸드 카드에 건 스탯 변화는 그 카드가 전장에 나와도 이 판 내내 남습니다.</li>

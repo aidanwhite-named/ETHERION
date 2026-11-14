@@ -321,6 +321,11 @@ const Net = {
         const u0 = Store.user(), sp = u0 && u0.spins;
         const r = om0.apply(this, arguments);
         if (s && u0) u0.spins = sp;   // 수레바퀴 표는 서버가 이미 넣었다 (이 기기의 +1은 되돌림)
+        else if (u0 && u0.guest && (u0.spins || 0) > (sp || 0)) {   // 필멸자: spins는 서버만 바꾸는 칸이라 이 기기의 +1이 다음 응답에 덮인다 → 기기 칸(gspins)으로 옮겨 서버와 같이 둔다
+          u0.gspins = (u0.gspins || 0) + (u0.spins - (sp || 0));
+          if (sp === undefined) delete u0.spins; else u0.spins = sp;
+          Store.save();
+        }
         if (typeof Pilgrim !== "undefined") Pilgrim._srv = null;
         if (s && g.cfg.pil && typeof Pilgrim !== "undefined") { const p = Pilgrim.get(); if (p && !s.done) p.news = (p.news || []).filter(n => n.k !== "done"); }
         if (s && g.mode === "ai" && !g.cfg.pil && !g.cfg.exp) { g._reward = s.winCard || null; return g._reward; }

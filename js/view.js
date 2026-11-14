@@ -378,6 +378,21 @@ function fitDescs(root) {
     let f = d.classList.contains("d-short") ? 0.74 : 0.78; p.style.fontSize = "";
     for (let i = 0; i < 14 && d.scrollHeight > d.clientHeight + 1 && f > min; i++) { f -= 0.04; p.style.fontSize = f + "em"; }
   });
+  (root || document).querySelectorAll(".slot .card.fm > .c-frame .c-boxin").forEach(fitFieldBox);
+}
+/* v3.61.1 전장 칸 카드의 글 상자: 능력 칩은 핸드와 같은 크기(css/cardtext.css)로 두되, 아이템을 달아 칩이 넘치면
+   ① 분위기 글(.c-flv)을 빼고 ② 그래도 넘치면 칩 글자(--chs)를 예전 전장 크기(.52em)까지 조금씩 줄인다. 다 들어가면 아래쪽 흐림(mask)도 끈다 */
+function fitFieldBox(bi) {
+  const chips = bi.querySelectorAll(".c-coinline, .c-cls, .c-eq-ab");
+  const over = () => { const b = bi.getBoundingClientRect().bottom - 0.5; for (const c of chips) if (c.getBoundingClientRect().bottom > b) return true; return false; };
+  if (bi.style.getPropertyValue("--chs")) bi.style.removeProperty("--chs");
+  if (bi.classList.contains("fit-noflv")) bi.classList.remove("fit-noflv");
+  if (chips.length && over()) {
+    const flv = bi.querySelector(":scope > .c-flv");
+    if (flv && getComputedStyle(flv).display !== "none") bi.classList.add("fit-noflv");
+    for (let s = 1, i = 0; i < 9 && over() && s > 0.7; i++) { s -= 0.04; bi.style.setProperty("--chs", s.toFixed(2)); }
+  }
+  bi.classList.toggle("fit-all", bi.scrollHeight <= bi.clientHeight + 1 && !over());
 }
 /* 레벨 아이콘·레벨 구슬 말풍선 (v2.3). 레벨과 유지비는 줄을 나눈다 (data-tip-kw: 두 줄을 같은 크기로) */
 function lvTip(c) {

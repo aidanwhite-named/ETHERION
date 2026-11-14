@@ -517,6 +517,14 @@ html.mobile .crys-ghost .ch-card { box-shadow: 0 0 0 1.5px rgba(143, 220, 255, .
 html.mobile .crys-ghost .ch-ring { box-shadow: 0 0 6px rgba(143, 220, 255, .8), inset 0 0 6px rgba(143, 220, 255, .55); }
 html.mobile .ether.altar .cry-state.cry-teach { box-shadow: 0 0 0 1px rgba(0, 0, 0, .6), 0 0 6px rgba(143, 220, 255, .55), 0 1.8px 6px rgba(0, 0, 0, .75); }
 html.mobile .ether.altar .cry-state.cry-teach b { text-shadow: 0 0 4px rgba(143, 220, 255, .9), 0 1px 2px #000; }
+html.mobile .ether.altar.tut-pulse .eth-ring::before { box-shadow: 0 0 0 2px rgba(246, 226, 168, .55); }
+html.mobile body.is-dragging .ether.altar.tut-pulse .eth-ring, html.mobile body.is-dragging .ether.altar.tut-pulse .eth-ring::after { animation-name: none; }
+html.mobile body.is-dragging .ether.altar.tut-pulse .eth-ring::before { animation-name: none; }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .ether.altar.tut-pulse .eth-ring { animation-name: none; }
+html.mobile .ether.altar.tut-pulse .eth-ring::before { animation-name: none; }
+html.mobile .ether.altar.tut-pulse .eth-ring::after { animation-name: none; }
+}
 
 /* trade.css */
 html.mobile .tb-badge { box-shadow: 0 0 0 1.5px rgba(8, 9, 15, .9), 0 0 6px rgba(240, 200, 120, .55); }

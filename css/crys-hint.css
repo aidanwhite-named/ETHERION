@@ -53,3 +53,26 @@
 @media (prefers-reduced-motion: reduce) {
   .crys-ghost { display: none; }
 }
+
+/* v3.61.1 첫 판 안내의 결정화 손짓 (js/game.js Guide, 단계 ether · crys)
+   카드를 끌어다 구슬 위에 올렸을 때(.drop-hover)처럼 구슬이 살짝 커지며 하늘빛으로 밝아지는 모습을, 카드 없이 천천히 되풀이한다.
+   Guide가 안내 말풍선이 떠 있는 동안 #crys(나)에 .tut-pulse를 붙이고, 넘기거나 끄거나 실제로 결정화하면 뗀다.
+   움직임은 transform · opacity만(nopulse.css · mobile-lite의 뜻). ::before = 둘레 후광(그림 뒤), ::after = 구슬을 밝히는 빛(그림 앞) */
+.ether.altar.tut-pulse .eth-ring { animation: tutRing 1.8s ease-in-out infinite; will-change: transform; }
+.ether.altar.tut-pulse .eth-ring::before { content: ""; display: block; position: absolute; inset: -16%; z-index: -1; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(143, 220, 255, .55) 0 38%, rgba(143, 220, 255, .22) 56%, rgba(143, 220, 255, 0) 70%);
+  box-shadow: 0 0 0 2px rgba(246, 226, 168, .55); opacity: 0; animation: tutGlow 1.8s ease-in-out infinite; will-change: opacity; }
+.ether.altar.tut-pulse .eth-ring::after { content: ""; position: absolute; inset: 22%; z-index: 3; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(225, 248, 255, .5), rgba(143, 220, 255, .18) 60%, rgba(143, 220, 255, 0) 72%);
+  opacity: 0; animation: tutGlow 1.8s ease-in-out infinite; will-change: opacity; }
+@keyframes tutRing { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+@keyframes tutGlow { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+/* 진짜로 끌고 있으면 깜빡임은 멈추고 진짜 효과(.valid · .drop-hover)에 맡긴다. 구슬 위에 닿으면 후광만 켠 채로 둔다 */
+body.is-dragging .ether.altar.tut-pulse .eth-ring, body.is-dragging .ether.altar.tut-pulse .eth-ring::after { animation: none; transform: none; opacity: 0; }
+body.is-dragging .ether.altar.tut-pulse .eth-ring::before { animation: none; opacity: 0; }
+body.is-dragging .ether.altar.tut-pulse.drop-hover .eth-ring::before { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .ether.altar.tut-pulse .eth-ring { animation: none; }
+  .ether.altar.tut-pulse .eth-ring::before { animation: none; opacity: .85; }
+  .ether.altar.tut-pulse .eth-ring::after { animation: none; opacity: .35; }
+}
