@@ -346,22 +346,22 @@ function itemKwGenList(it) {
 }
 /* v3.57.0 카드 면에 적는 짧은 뜻 — N 대신 그 카드의 숫자를 넣는다(그림 자리를 넓히려고 짧게).
    자세한 규칙은 ITEM_KW(말풍선 · 매뉴얼). 규칙을 바꾸면 둘 다 고친다. 유니크 능력은 js/uniques.js UNIQUE_ABIL_SHORT */
-const ITEM_KW_SHORT = {
-  "관통": "공격한 상대의 방어가 이번 턴 내 공격력만큼 줄어든다.",
-  "마력 공격": "공격할 때 상대 방어를 {n}만큼 무시한다.",
-  "마력 공격 전부": "공격할 때 상대 방어를 모두 무시한다.",
-  "치명": "맞붙어 피해를 준 상대가 살아남으면 체력이 1이 된다.",
-  "연쇄": "상대를 쓰러뜨리고 남은 피해로 그 뒤 유닛을 친다.",
-  "투척": "공격 턴마다 맞선 유닛에서 가장 먼 상대 유닛에게 피해 {n}.",
-  "사격": "공격 차례에 체력이 가장 낮은 상대 유닛의 체력을 {n} 깎는다(같으면 앞 유닛).",
-  "원거리": "맞붙어 공격해도 반격을 받지 않는다.",
-  "가호": "매 턴 처음 받는 피해를 {n} 줄인다.",
-  "보호막 코인": "매 턴 코인 앞면이면 처음 받는 피해를 절반으로.",
+const ITEM_KW_SHORT = {   // v3.60 한 줄에 들도록 더 짧게 (크게 보기에서 [능력] 아래 줄에 적힌다)
+  "관통": "공격한 상대의 방어를 내 공격력만큼 깎는다(이번 턴).",
+  "마력 공격": "공격할 때 상대 방어 {n} 무시.",
+  "마력 공격 전부": "공격할 때 상대 방어를 모두 무시.",
+  "치명": "맞붙어 피해를 준 상대가 살아남으면 체력 1.",
+  "연쇄": "쓰러뜨리고 남은 피해로 그 뒤 유닛을 친다.",
+  "투척": "공격 턴마다 가장 먼 상대 유닛에게 피해 {n}.",
+  "사격": "공격 차례에 체력이 가장 낮은 상대에게 체력 −{n}.",
+  "원거리": "맞붙어 공격해도 반격받지 않는다.",
+  "가호": "매 턴 처음 받는 피해 −{n}.",
+  "보호막 코인": "매 턴 코인 앞면이면 첫 피해를 절반으로.",
   "고정": "{S} 늘지도 줄지도 않는다.",
   "버팀": "{S} 줄지 않는다(피해 제외).",
   "눌림": "{S} 늘지 않는다.",
-  "가시": "이 유닛을 맞붙어 공격한 상대의 체력이 {n} 깎인다.",
-  "증폭": "전장에 있으면 내 공격 마법의 피해 +{n}.",
+  "가시": "맞붙어 공격한 상대에게 체력 −{n}.",
+  "증폭": "전장에 있으면 내 공격 마법 피해 +{n}.",
   "치유": "장착할 때 내 생명 +{n}."
 };
 /* 숫자 뒤 조사: 2 · 4 · 5 · 9로 끝나면 "가", 나머지는 "이" (7이 · 2가) */
@@ -371,7 +371,7 @@ const josaIGa = w => { const ch = w.charCodeAt(w.length - 1); return ch >= 0xAC0
 function itemKwCard(raw) {
   const name = raw.replace(/[\[\]]/g, "").trim();
   if (name === "마력 공격 전부") return [raw, ITEM_KW_SHORT["마력 공격 전부"]];
-  if (/^고정 \d/.test(name)) { const v = name.slice(3); return [raw, `장착한 유닛의 공·방·체가 ${v}${numJosa(v)} 된다. 유닛 코인은 던지지 않는다.`]; }
+  if (/^고정 \d/.test(name)) { const v = name.slice(3); return [raw, `장착한 유닛의 공·방·체가 ${v}${numJosa(v)} 된다(코인 없음).`]; }
   if (typeof UNIQUE_ABIL !== "undefined") for (const k in UNIQUE_ABIL) if (UNIQUE_ABIL[k].n === name)
     return [raw, (typeof UNIQUE_ABIL_SHORT !== "undefined" && UNIQUE_ABIL_SHORT[k]) || UNIQUE_ABIL[k].text];
   const key = Object.keys(ITEM_KW_SHORT).find(x => name === x || name.startsWith(x + " ") || name.startsWith(x + ":"));
@@ -380,8 +380,8 @@ function itemKwCard(raw) {
   const st = (name.split(":")[1] || "").trim();
   if (PIN_KO_KEYS.includes(key) && /\d/.test(st)) {   // "[고정: 공격 7]" = 장착하면 공격이 7, 그 뒤 표시 규칙
     const parts = st.split("·").map(x => x.trim()).map(x => { const m = x.match(/^(.*?)\s*(\d+)$/); return m ? [m[1], m[2]] : [x, ""]; });
-    const set = parts.filter(p => p[1]).map(([s, v]) => `${s}${josaIGa(s)} ${v}`).join(", "), last = parts.filter(p => p[1]).pop();
-    return [raw, `장착하면 ${set}${numJosa(last[1])} 되고, 그 뒤 ` + ITEM_KW_SHORT[key].replace(/\{S\}\s*/g, "")];
+    const set = parts.filter(p => p[1]).map(([s, v]) => `${s} ${v}`).join(", ");
+    return [raw, `장착하면 ${set}, 그 뒤 ` + ITEM_KW_SHORT[key].replace(/\{S\}\s*/g, "")];
   }
   const S = st || "그 스탯";
   return [raw, ITEM_KW_SHORT[key].replace(/\{S\}/g, S + josaEunNeun(S)).replace(/\{n\}/g, n)];

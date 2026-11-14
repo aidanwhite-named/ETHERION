@@ -1029,7 +1029,7 @@ html[data-font="system"] { --kfont: "Batang", "바탕", "AppleMyungjo"; }
 .f-id { font-family: var(--caps); opacity: .55; margin-left: .4em; }
 
 /* 원본 카드 미리보기 (덱 조정실·관리자 보관소): 화면 오른쪽에 크게 */
-.card-preview { position: fixed; z-index: 80; top: 50%; right: 20px; transform: translateY(-50%); pointer-events: none; --card-full: clamp(320px, calc((100vh - 48px) / 1.5), 560px); filter: drop-shadow(0 24px 50px rgba(0, 0, 0, .8)); animation: zoomIn .14s ease-out; }
+.card-preview { position: fixed; z-index: 80; top: 50%; right: 20px; transform: translateY(-50%); pointer-events: none; --card-full: clamp(300px, calc((100vh - 48px) / 1.62), 560px); filter: drop-shadow(0 24px 50px rgba(0, 0, 0, .8)); animation: zoomIn .14s ease-out; }
 .card-preview.on-left { right: auto; left: 20px; }
 .card-preview[hidden] { display: none; }
 .card-preview .card { max-height: calc(100vh - 24px); }
@@ -1412,7 +1412,7 @@ html[data-font="system"] { --kfont: "Batang", "바탕", "AppleMyungjo"; }
 
 /* v0.9.1 원본 카드 창: 카드를 누르면 화면 높이에 맞게 크게 (대기실 덱 보기·덱 조정실) */
 .modal.card-modal { width: auto; max-width: calc(100vw - 32px); justify-items: center; padding: 18px; }
-.card-modal .card.size-full { --card-full: min(calc(100vw - 72px), clamp(300px, calc((100vh - 150px) / 1.45), 560px)); }
+.card-modal .card.size-full { --card-full: min(calc(100vw - 72px), clamp(300px, calc((100vh - 150px) / 1.62), 560px)); }   /* v3.60 그림을 자르지 않아 카드가 길어짐(보통 폭 × 1.6). 더 긴 카드는 fitCardModal이 줄임 */
 .card-modal .cm-note { font-size: 14px; color: var(--ink-2); text-align: center; }
 .card-modal .cm-note b { font-family: var(--caps); color: var(--gold-hi); }
 .card-modal .modal-btns { justify-content: center; width: 100%; }

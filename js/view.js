@@ -312,7 +312,9 @@ function cardHTML(c, opts) {
   if (isU && !chips) chips = normalAtkChip();   // 특수 능력이 없어도 같은 규격으로 "일반공격"
   if (isU) chips += pinAbilities(c).map(raw => `<span class="c-cls c-ab c-pin" data-tip="${esc(raw + " " + (itemKwDesc(raw) || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");   // v3.20 카드에 새겨진 표시
   if (isI) chips += itemAbilities(c.item).map(raw => `<span class="c-cls c-ab" data-tip="${esc(raw + " " + (itemKwDesc(raw) || c.item.evText || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");
-  if (isS) { const off = spellKwOff(c); chips += spellKwList(c).map(raw => off.has(raw)   // v3.31.4 상대의 능력을 끄는 키워드는 빨간 칩
+  // v3.60 짧은 문구가 있는 작은 카드: 문구에 이미 적힌 키워드 · "해제"로 적힌 끄는 키워드는 칩으로 다시 쓰지 않는다(칩 글자를 키운 만큼 자리를 아낌)
+  const bsrc = isS && size !== "lg" && typeof SPELL_BRIEF !== "undefined" && SPELL_BRIEF[c.id] || "";
+  if (isS) { const off = spellKwOff(c); chips += spellKwList(c).filter(raw => !bsrc || !(bsrc.includes(raw) || off.has(raw) && /해제/.test(bsrc))).map(raw => off.has(raw)   // v3.31.4 상대의 능력을 끄는 키워드는 빨간 칩
     ? `<span class="c-cls c-ab c-off" data-tip="${esc("상대 유닛의 " + raw + "을(를) 끈다.\n" + raw + " " + (spellKwDesc(raw.replace(/^\[|\]$/g, "")) || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`
     : `<span class="c-cls c-ab" data-tip="${esc(coinNotePlain(raw) + " " + (spellKwDesc(raw.replace(/^\[|\]$/g, "")) || ""))}">${coinNoteHTML(esc(raw.replace(/^\[|\]$/g, "")))}</span>`).join(""); }
   const sBrief = isS && size !== "lg" ? spellBriefHTML(c) : "";   // 큰 카드(lg)는 마법 글 전문
@@ -397,8 +399,9 @@ function itemModsHTML(c) {
 }
 
 /* v3.57.0 카드 면의 능력 줄: "[사격 1] 공격 차례에 … 체력을 1 깎는다" (이름에 마우스를 올리면 자세한 규칙) */
+/* v3.60 [능력] 이름 한 줄, 그 아래 줄에 뜻 (css/cardtext.css .kw-n) */
 function cardKwLinesHTML(c, cls) {
-  return cardKwList(c).map(([k, v]) => `<p class="${cls || "f-kw"}">${k ? `<b>${kwHTML(k)}</b> ` : ""}${esc(v)}</p>`);
+  return cardKwList(c).map(([k, v]) => `<p class="${cls || "f-kw"}${k ? " kw-2l" : ""}">${k ? `<b class="kw-n">${kwHTML(k)}</b>` : ""}<span class="kw-d">${esc(v)}</span></p>`);
 }
 
 /* ---------- 원본 카드 (size "full") ----------
@@ -470,12 +473,33 @@ function cardDetailHTML(c, inst) {
   const extra = instLines(inst);
   return `<div class="detail">${cardHTML(c, { size: "full" })}${extra ? `<div class="d-body">${extra}</div>` : ""}</div>`;
 }
+/* v3.60 원본 카드는 그림을 자르지 않아 글이 길면 카드가 길어진다 — 화면 높이(maxH)를 넘으면 카드 폭(--card-full)을 줄여 맞춘다 */
+function fitFullCard(card, maxH) {
+  if (!card) return;
+  card.style.removeProperty("--card-full");
+  for (let i = 0; i < 3; i++) {
+    const h = card.offsetHeight; if (!h || h <= maxH + 0.5) break;
+    card.style.setProperty("--card-full", Math.max(220, Math.floor(card.offsetWidth * maxH / h)) + "px");
+  }
+}
 /* 원본 카드 창 (대기실 덱 보기·덱 조정실): 카드를 누르면 원본 카드를 화면 높이에 맞게 크게 연다.
    buttons를 주면 그 버튼들을, 없으면 닫기만. note는 카드 아래 한 줄 */
 function showCardModal(c, buttons, note) {
   if (typeof CardPreview !== "undefined") CardPreview.hide(); else { const pv = $("#card-preview"); if (pv) pv.hidden = true; }
   const html = `<div class="detail">${cardHTML(c, { size: "full" })}${note ? `<p class="cm-note">${note}</p>` : ""}</div>`;
-  return modal(html, buttons || [{ label: "닫기", value: null }], { cls: "card-modal" });
+  return modal(html, buttons || [{ label: "닫기", value: null }], { cls: "card-modal", onOpen: fitCardModal });
+}
+function fitCardModal(wrap) {
+  const m = wrap && wrap.querySelector(".modal"), card = m && m.querySelector(".card.size-full"); if (!card) return;
+  card.style.removeProperty("--card-full");
+  const minW = Math.min(300, innerWidth - 72);   // 이보다 좁히면 글이 너무 작아진다 — 낮은 화면(폰 가로)에서는 창을 스크롤
+  for (let i = 0; i < 4; i++) {   // 창이 넘쳐 스크롤이 생기면 넘친 만큼 카드 폭을 줄인다
+    const over = Math.max(m.scrollHeight - m.clientHeight, m.getBoundingClientRect().height - innerHeight + 16), h = card.offsetHeight;
+    if (over <= 1 || !h) break;
+    const w = Math.max(minW, Math.floor(card.offsetWidth * (h - over) / h) - 2);
+    if (w >= card.offsetWidth) break;
+    card.style.setProperty("--card-full", w + "px");
+  }
 }
 function instLines(inst) {
   if (!inst || !inst.t) return "";
@@ -611,7 +635,7 @@ const CardPreview = {
     if (!c || document.querySelector(".modal-wrap")) return this.hide();
     const box = this.box;
     this.el = el;
-    if (this.cur !== c.id) { this.cur = c.id; box.innerHTML = cardHTML(c, { size: "full" }); }
+    if (this.cur !== c.id) { this.cur = c.id; box.innerHTML = cardHTML(c, { size: "full" }); box.hidden = false; fitFullCard(box.querySelector(".card"), innerHeight - 24); }
     // v1.4.3: 화면 끝이 아니라 가운데 가까이에 띄운다. 마우스가 왼쪽 절반이면 가운데 조금 오른쪽, 오른쪽 절반이면 가운데 조금 왼쪽
     const left = (this.x == null ? innerWidth : this.x) > innerWidth * 0.5;
     box.classList.toggle("on-left", left);

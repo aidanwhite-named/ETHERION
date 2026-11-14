@@ -599,7 +599,7 @@ const Kailan = (() => {
     if (cd && typeof CARDS !== "undefined" && CARDS[cd.dataset.card]) {
       const c = CARDS[cd.dataset.card];
       if (typeof showCardModal === "function") showCardModal(c);
-      else if (typeof modal === "function" && typeof cardHTML === "function") modal(`<div class="detail">${cardHTML(c, { size: "full" })}</div>`, [{ label: "닫기", value: null }], { cls: "card-modal" });
+      else if (typeof modal === "function" && typeof cardHTML === "function") modal(`<div class="detail">${cardHTML(c, { size: "full" })}</div>`, [{ label: "닫기", value: null }], { cls: "card-modal", onOpen: typeof fitCardModal === "function" ? fitCardModal : null });
       return;
     }
     const rd = t.closest("[data-read]");

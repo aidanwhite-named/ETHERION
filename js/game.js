@@ -3319,6 +3319,11 @@ function placeZoom(z) {
   z.classList.toggle("side", side);
   if (!side) {
     z.style.removeProperty("--card-full");
+    // v3.60 원본 카드는 그림을 자르지 않아 길어질 수 있다 — 화면 높이를 넘으면 카드 폭을 줄인다
+    for (let i = 0; i < 4 && z.offsetHeight > innerHeight - 16; i++) {
+      const cd = z.querySelector(".card"); if (!cd) break;
+      z.style.setProperty("--card-full", Math.max(220, Math.floor(cd.offsetWidth * (innerHeight - 16) / z.offsetHeight) - 2) + "px");
+    }
     const zr = z.getBoundingClientRect();
     z.style.left = Math.max(8, (innerWidth - zr.width) / 2) + "px";
     z.style.top = Math.max(8, Math.min(innerHeight - zr.height - 8, (innerHeight - zr.height) / 2)) + "px";

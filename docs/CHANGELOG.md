@@ -3,6 +3,14 @@
 버전마다 바뀐 것과 바뀐 파일을 적는다. 새 버전은 맨 위에 쓴다.
 맨 아래 `실행`·`v0.3`·`계정`·`덱`·`규칙`·`파일` 절은 v0.3 무렵의 설명을 그대로 남긴 것이라 지금과 다른 곳이 있다(예: 클래스는 v1.0에서 규칙에서 빠짐). 지금 상태는 `README.md`를 본다.
 
+## v3.60.0 — 카드 글 읽기 쉽게: 크게 보기의 [능력] 줄바꿈 · 그림 안 자름 · 작은 카드 능력 글자 크게 · 장착 아이템 이름 두 겹 고침
+바뀐 파일 `js/view.js` · `js/cards.js` · `js/uniques.js` · `js/game.js` · `js/kailan.js` · `css/cardtext.css` · `css/style.css` · `index.html` · `docs/STYLE_GUIDE.md`(v6.21)
+- **크게 보기(원본 카드)**: 능력은 `[능력]` 한 줄, 그 아래 줄에 뜻(`cardKwLinesHTML` → `.kw-2l .kw-n`). 뜻을 한 줄 안팎으로 짧게 — `ITEM_KW_SHORT`(약 25자) · `UNIQUE_ABIL_SHORT`(약 45자). 자세한 규칙은 말풍선(`ITEM_KW` · `UNIQUE_ABIL.text`) 그대로.
+- **그림을 자르지 않는다**: 크게 보기의 그림 자리 = 그림 비율 4:5(예전엔 그림 높이의 55%쯤만 보였음). 글이 길면 카드가 길어진다(보통 폭 × 1.6, 가장 긴 즈라크의 번개 병 × 2.1). 카드 창은 `fitCardModal`이 넘친 만큼 카드 폭을 줄이되 300px 아래로는 줄이지 않고 창을 스크롤(폰 가로), 덱 조정실 미리보기는 `fitFullCard`, 전투 크게 보기(좁은 화면)는 `placeZoom`이 맞춘다.
+- **작은 카드(핸드 · 덱 · 상점 · 덱 조정실)**: 능력 칩 글자 .6em → .74em(폰 핸드 .66em → .78em). 전장 칸은 그대로. 마법은 짧은 문구에 이미 적힌 키워드 · "해제"로 적힌 끄는 키워드를 칩으로 다시 쓰지 않는다(자리 아낌).
+- **장착한 유닛**: 아래에 깔린 아이템 카드의 이름과 "◆ 이름" 띠가 겹쳐 두 겹으로 보이던 것을 고침 — 띠만, 아이템을 앞으로 꺼냈을 때만 카드 이름.
+- 확인: 헤드리스 Firefox로 모든 카드(덱 · 상점 · 덱 조정실 넘침 0장)와 장착 가능한 유닛+아이템 2,843쌍(전장 위 · 아래 줄, 넘침 0)을 쟀다. 폰 핸드의 마법 3장(넬리아의 노래 · 그림자 강탈 · 그림자 계약)은 짧은 문구가 아래에서 조금 흐려진다(예전부터).
+
 ## v3.59.0 — 스페셜 다듬기: 깃발마다 하나뿐인 존재 · 스페셜 광휘 · 카드에서 덱 장수 문구 빼기 · 일러스트 프롬프트 g3(화려함 사다리)
 바뀐 파일 `js/specials.js`(이름 · 서사), 스페셜을 부르는 글 `js/uniques.js`(브론의 첫 골렘) · `js/lore.js`(두르크하임 대장인 · 강철 심장) · `js/highcards.js`(결투 신청) · `js/pincards.js`(이사크의 첫 제자) · `js/chronicle.js`(승천자 줄) · `js/kailan.js`(코그하번), `js/view.js`(`raceLineHTML` · `specialFxHTML` · 덱 장수 줄 뺌) · `js/upgrade-ui.js`(합성 결과 글), `css/fmcard.css`(끝 "스페셜 광휘") · `css/mobile-lite.css`(`node tools/mobile_lite.js`), `index.html`(캐시 sp59 · sp59b), `tools/art/art_style.json`(g2 → g3) · `art_notes.json` · `build_prompts.js` → `tools/art/prompts/**` · `PROMPT_GUIDE.md`(v1.2) · `art_map.csv` · `art_board.html`, `docs/WORLD.md` · `docs/STYLE_GUIDE.md`(v6.20) · `AGENTS.md`.
 - **스페셜 서사 = 깃발마다 하나뿐인 존재**(`docs/WORLD.md` 5장): 서사가 깃발의 평범한 구성원에서 시작하지 않는다 — 출신 종족 · 옛 직업("한때 고블린 포수였다", "오크의 몸을 벗고", "승천한 마족", "셀레네아의 무녀장", "벨루미르의 제자 … 인간")을 모두 빼고, 지금 무엇이고 세계에 무엇을 남기는지만 쓴다. 아홉 장 모두 다시 씀:

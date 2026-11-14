@@ -35,3 +35,27 @@
 /* v3.40 결과 화면: 서버가 판을 확인하는 중 · 보상 없음 까닭 */
 .res-check { margin: 8px auto 0; max-width: 520px; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--line-gold); background: rgba(0, 0, 0, .35); color: var(--ink-2); font-size: 14px; text-align: center; word-break: keep-all; }
 .res-check.pending { color: var(--ether); border-color: rgba(143, 220, 255, .45); }
+
+/* ---- v3.60 카드 글 읽기 쉽게 ----
+   1) 크게 보기(원본 카드 · 설명 패널): [능력] 이름 한 줄, 그 아래 줄에 뜻 (js/view.js cardKwLinesHTML). 뜻은 js/cards.js ITEM_KW_SHORT · js/uniques.js UNIQUE_ABIL_SHORT — 한 줄에 들도록 짧게
+   2) 크게 보기의 그림은 잘리지 않는다: 그림 자리 = 그림 비율(4:5, 600×750) 그대로. 글이 길면 카드가 그만큼 길어진다(창은 높이에 맞춰 카드 폭을 줄임)
+   3) 핸드 · 덱 · 상점 · 덱 조정실의 작은 카드: 능력 칩 글자를 크게 (.6em → .74em, 폰 핸드 .66em → .78em). 전장 칸(.slot)은 그대로 */
+.card.fm .kw-2l .kw-n, .detail .d-body .kw-2l .kw-n { display: block; line-height: 1.25; }
+.card.fm .kw-2l .kw-d, .detail .d-body .kw-2l .kw-d { display: block; }
+.card.fm.size-full .f-text > p.kw-2l { line-height: 1.38; }
+.card.fm.size-full .f-text > p.kw-2l .kw-n { font-size: 1.04em; margin-bottom: .06em; }
+
+.card.fm.size-full, .zoom.side .card.fm.size-full, .card.fm.size-full > .c-frame { min-height: 0; }
+.card.fm.size-full .c-mid, .zoom.side .card.fm.size-full .c-mid { flex: none; height: auto; min-height: 0; align-items: flex-start; }
+.card.fm.size-full .c-art { flex: 1; aspect-ratio: 4 / 5; height: auto; min-height: 0; }
+.card.fm.size-full .c-side { align-self: stretch; }
+
+.card.fm .c-box .c-cls { font-size: .74em; line-height: 1.18; }
+.card.fm .c-chips { gap: .04em .1em; }
+html.mobile .hand-me .card.fm.slim .c-cls { font-size: .78em; }
+.slot .card.fm .c-box .c-cls { font-size: .52em; line-height: normal; }
+
+/* v3.60 장착한 유닛: 아래에 깔린 아이템 카드의 이름과 "◆ 이름" 띠(.u-name)가 같은 자리에 겹쳐 두 겹으로 보였다(fmcard.css가 slim.css의 숨김을 되살림).
+   아이템 카드 이름은 숨기고 띠만, 아이템을 앞으로 꺼냈을 때(item-front, 띠는 숨음)만 카드 이름을 보인다 */
+.c-under .card.fm.slim .c-name { visibility: hidden; }
+.card.item-front > .c-under .card.fm.slim .c-name { visibility: visible; }
