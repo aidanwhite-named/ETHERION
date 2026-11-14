@@ -886,6 +886,12 @@ const SPELL_OPS = {
   /* ---------- v3.20 스탯을 옮기고 맞바꾸는 마법 · 표시를 거는 마법 (js/pincards.js, docs/PINS_v3.20.md) ----------
      대상은 { side, area }(pickTargets). 체력은 "남은 체력"으로 읽고, 체력이 새 값이 되면 받은 피해는 지워진다(setStats).
      체력이 0이 되는 유닛은 쓰러진다. 고정된 스탯은 제자리에 남고(그 스탯이 내보내는 값은 그대로 옮겨 간다), 버팀 · 눌림은 기준값까지 */
+  /* v3.62.1 방어 합을 공격으로 (철벽 진격 RS-B2-4): 아군 유닛 전체의 방어를 더한 값 S를, 아군 맨 앞(대기열 순서)부터 S, S−1, S−2 … 공격에 더한다.
+     { step: 줄어드는 몫(기본 1) }. 0 이하가 되면 거기서 멈춘다. 방어가 음수인 유닛은 0으로 센다 */
+  dsumA(X, caster, it, k, op) {
+    const Q = queueOf(X.P[caster]), S = Q.reduce((s, u) => s + Math.max(0, u.t.d), 0), st = op.step || 1;
+    Q.forEach((u, i) => { const v = S - i * st; if (v > 0) addStat(X, u, "a", v); });
+  },
   /* 순환 { dir: 1 } 공격 → 방어 → 체력 → 공격 / { dir: -1 } 공격 → 체력 → 방어 → 공격 */
   rot(X, caster, it, k, op) {
     for (const u of pickTargets(X, caster, op.side || "foe", op.area || { t: "front", n: 1 }, k)) {

@@ -1,4 +1,4 @@
-# 레어 (Rare) — 카드 일러스트 프롬프트 (47장, 버전 g3)
+# 레어 (Rare) — 카드 일러스트 프롬프트 (48장, 버전 g3)
 
 > 정예 · 걸작. 팩에서 나오면 눈이 가는 카드. 역동적인 구도, 깊이 있는 배경에 고향의 랜드마크 하나, 사파이어빛 에테르 알갱이와 얇은 테두리 빛.
 
@@ -709,6 +709,33 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## RS-B2-4 · 철벽 진격
+무쇠수염 드워프 · 공격 마법 · 레벨 6 · 레어 — 받은 그림은 `tools/art/inbox/RS-B2-4.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-B2-4.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: RARE — an elite specialist or a masterwork, the card people notice. An elite with a signature move, or a masterwork — clearly special.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "철벽 진격". Depict exactly what this name describes.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: an empowering metal aura rising around allied warriors. Scale and finish: a sweeping effect that reshapes part of the battlefield, layered energies and motion trails.
+Scale (level 6 of 8): a battlefield-wide effect.
+Banner — Ironbeard Dwarves: magic of ironbeard dwarves, signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls; palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
+Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Lore (Korean, use for the scene): 방패를 맞댄 두르크하임의 진은 물러서는 법이 없다. 앞으로 쏠리는 순간, 뒤에 선 모두의 무게가 맨 앞 방패를 망치로 만든다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 유닛 전체 방어 +1. 그 뒤 아군 유닛 전체의 방어를 모두 더한 값만큼, 아군 맨 앞 유닛부터 공격이 오른다 — 한 기 뒤로 갈 때마다 1씩 줄어든다.
+Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
+Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
+Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the colossal underground halls of Durkheim with lava channels, mine shafts and iron gates, glowing ore veins like sinews in the rock; cold steel sheen, sparks from an anvil, rivets.
+Detail: fine filigree and engraved patterns on gear, crisp material rendering (metal, scale, cloth, bark, horn).
+Spectacle: drifting ether motes, a crisp rim light, volumetric haze and sparkling highlights — clearly a step above superior. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: drifting sapphire-blue (#4ea8ff) ether motes and a thin sapphire rim on the silhouette — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
+Mood: precise, impressive, prized.
+Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## IR-B3 · 구리 피뢰봉
 번개 노움 · 아이템 · 레벨 2 · 레어 — 받은 그림은 `tools/art/inbox/IR-B3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IR-B3.jpg` 600×750)
 
@@ -1067,7 +1094,7 @@ Scale (level 4 of 8): an effect over a few targets.
 Banner — Moss Trolls: magic of moss trolls, signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots; palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 땅 밑을 기어간 뿌리는 적의 뒤에서 솟는다. 빨아올린 것은 고스란히 아군의 수액이 된다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 뒤 3기에게 피해 2. 아군 뒤 2칸의 유닛 체력 +2.
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 3에게 피해 2. 아군 뒤 2칸의 유닛 체력 +2.
 Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
 Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; glowing moss, thorny vines, drifting leaves.

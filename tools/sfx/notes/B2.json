@@ -361,6 +361,11 @@
    "ko": "리벳이 비처럼 쏟아짐",
    "cast": "rivet machines flip over and burst: a roaring clatter of countless rivets, pinging off friendly armour, whistling and punching through enemy plate in a metal squall"
   },
+  "RS-B2-4": {
+   "en": "Ironwall Advance",
+   "ko": "방패 벽이 한 몸으로 밀고 나감",
+   "cast": "a wall of iron shields slams together with one deep clang, then the whole line surges forward: a rolling thunder of boots, plates grinding as the weight builds, ending in a single crushing hammer-blow at the front"
+  },
   "CS-B2": {
    "en": "Sealing Wedge",
    "ko": "쇠쐐기로 주문을 끊음",

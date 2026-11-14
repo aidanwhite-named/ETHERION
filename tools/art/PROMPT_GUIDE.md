@@ -14,14 +14,14 @@
 - `<!-- AUTO:… -->` 칸은 `node tools/art/build_prompts.js`가 `tools/art/art_style.json`에서 채운다. **고칠 때는 art_style.json을 고치고 다시 돌린다** — 이 문서의 표만 고치면 다음에 덮인다. 나머지 글은 손으로 고쳐도 된다.
 
 <!-- AUTO:COUNTS -->
-프롬프트 버전 **g3** (2026-11-14) · 카드 705장 (뺀 카드 제외, 소환물 포함)
+프롬프트 버전 **g3** (2026-11-14) · 카드 706장 (뺀 카드 제외, 소환물 포함)
 
 | 등급 | 색 | 장수 | 유닛 · 마법 · 아이템 | 등급별 프롬프트 파일 |
 |---|---|---|---|---|
 | 소환물 (Summoned token) | `#8fdcff` | 17 | 13 · 4 · 0 | `prompts/grades/token.md` |
 | 일반 (Common) | `#f4f1ea` | 385 | 213 · 125 · 47 | `prompts/grades/common.md` |
 | 고급 (Superior) | `#f2cf3d` | 125 | 80 · 31 · 14 | `prompts/grades/uncommon.md` |
-| 레어 (Rare) | `#4ea8ff` | 47 | 9 · 28 · 10 | `prompts/grades/rare.md` |
+| 레어 (Rare) | `#4ea8ff` | 48 | 9 · 29 · 10 | `prompts/grades/rare.md` |
 | 강화 (Empowered) | `#3fe0c0` | 40 | 40 · 0 · 0 | `prompts/grades/upgrade.md` |
 | 에픽 (Epic) | `#b46cff` | 61 | 36 · 17 · 8 | `prompts/grades/epic.md` |
 | 유니크 (Unique) | `#ff8a2a` | 18 | 18 · 0 · 0 | `prompts/grades/unique.md` |

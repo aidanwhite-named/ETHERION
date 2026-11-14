@@ -371,7 +371,7 @@ Subject: attack spell — the instant of impact: aggressive diagonal composition
 Scale (level 2 of 8): a small, local effect.
 Banner — Abyssal Fiends: magic of abyssal fiends, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 뒤 2기 방어 −2, 피해 1.
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 2 방어 −2, 피해 1.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
@@ -2828,7 +2828,7 @@ Subject: versatile spell — a dual effect: a balanced composition with power fl
 Scale (level 4 of 8): an effect over a few targets.
 Banner — Storm High Elves: magic of storm high elves, signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 뒤 4기는 공격과 방어를 맞바꾼다.
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 4는 공격과 방어를 맞바꾼다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
@@ -3413,7 +3413,7 @@ Subject: attack spell — the instant of impact: aggressive diagonal composition
 Scale (level 2 of 8): a small, local effect.
 Banner — Cinder Goblins: magic of cinder goblins, signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks; palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 뒤 유닛에게 피해 2 +1C×2.
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 1에게 피해 2 +1C×2.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
@@ -3488,7 +3488,7 @@ Subject: defense spell — protection forming: stable, symmetrical composition, 
 Scale (level 2 of 8): a small, local effect.
 Banner — Cinder Goblins: magic of cinder goblins, signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks; palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 뒤 3기 공격 −2.
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 3 공격 −2.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
@@ -3684,7 +3684,7 @@ Subject: attack spell — the instant of impact: aggressive diagonal composition
 Scale (level 3 of 8): an effect over a few targets.
 Banner — Cinder Goblins: magic of cinder goblins, signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks; palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 뒤 3기에게 피해 2. [장전 1]
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 3에게 피해 2. [장전 1]
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
@@ -3979,7 +3979,7 @@ Subject: attack spell — the instant of impact: aggressive diagonal composition
 Scale (level 5 of 8): a battlefield-wide effect.
 Banner — Cinder Goblins: magic of cinder goblins, signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks; palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 뒤 3기에게 물리 피해 5.
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 3에게 물리 피해 5.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
@@ -4665,7 +4665,7 @@ Subject: defense spell — protection forming: stable, symmetrical composition, 
 Scale (level 3 of 8): an effect over a few targets.
 Banner — Ironbeard Dwarves: magic of ironbeard dwarves, signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls; palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 뒤 3기에게 피해 1. 아군 뒤 3칸의 유닛 방어 +1.
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 3에게 피해 1. 아군 뒤 3칸의 유닛 방어 +1.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
@@ -4742,7 +4742,7 @@ Scale (level 3 of 8): an effect over a few targets.
 Banner — Ironbeard Dwarves: magic of ironbeard dwarves, signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls; palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 달군 쇠를 두드려 물에 담그면 무른 곳이 단단해지고 단단한 곳이 날이 된다. 골렘도 그렇다.
-Game effect (Korean, mood only — never draw text or numbers): 아군 맨 앞 유닛의 공격이 체력으로, 체력(남은 체력)이 방어로, 방어가 공격으로 옮겨 간다. 체력이 0이 되면 쓰러진다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 맨 앞 유닛의 체력(남은 체력)이 공격으로, 방어가 체력으로, 공격이 방어로 옮겨 간다. 체력이 0이 되면 쓰러진다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
@@ -5574,7 +5574,7 @@ Subject: attack spell — the instant of impact: aggressive diagonal composition
 Scale (level 2 of 8): a small, local effect.
 Banner — Thunder Gnomes: magic of thunder gnomes, signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints; palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 뒤 3기에게 피해 1 +1C.
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 3에게 피해 1 +1C.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
@@ -5894,7 +5894,7 @@ Subject: defense spell — protection forming: stable, symmetrical composition, 
 Scale (level 3 of 8): an effect over a few targets.
 Banner — Thunder Gnomes: magic of thunder gnomes, signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints; palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 뒤 3기에게 피해 1 +1C×2.
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 3에게 피해 1 +1C×2.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
@@ -6826,7 +6826,7 @@ Subject: attack spell — the instant of impact: aggressive diagonal composition
 Scale (level 3 of 8): an effect over a few targets.
 Banner — Rockfist Orcs: magic of rockfist orcs, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 뒤 4기에게 피해 1. 아군 뒤 3칸의 유닛 공격 +1C.
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 4에게 피해 1. 아군 뒤 3칸의 유닛 공격 +1C.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
@@ -7220,7 +7220,7 @@ Subject: defense spell — protection forming: stable, symmetrical composition, 
 Scale (level 5 of 8): a battlefield-wide effect.
 Banner — Rockfist Orcs: magic of rockfist orcs, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 뒤 3기에게 피해 3.
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 3에게 피해 3.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
@@ -7881,7 +7881,7 @@ Subject: defense spell — protection forming: stable, symmetrical composition, 
 Scale (level 3 of 8): an effect over a few targets.
 Banner — Moss Trolls: magic of moss trolls, signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots; palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 뒤 3기 공격 −2 −1C×2.
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 3 공격 −2 −1C×2.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
@@ -8886,7 +8886,7 @@ Subject: attack spell — the instant of impact: aggressive diagonal composition
 Scale (level 2 of 8): a small, local effect.
 Banner — Bluescale Merfolk: magic of bluescale merfolk, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 뒤 2기에게 피해 1. 내 생명 +1.
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 2에게 피해 1. 내 생명 +1.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
@@ -9205,7 +9205,7 @@ Subject: versatile spell — a dual effect: a balanced composition with power fl
 Scale (level 4 of 8): an effect over a few targets.
 Banner — Bluescale Merfolk: magic of bluescale merfolk, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 뒤 2기에게 피해 2. 내 생명 +1.
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 2에게 피해 2. 내 생명 +1.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.

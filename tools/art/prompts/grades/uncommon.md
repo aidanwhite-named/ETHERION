@@ -900,7 +900,7 @@ Subject: defense spell — protection forming: stable, symmetrical composition, 
 Scale (level 3 of 8): an effect over a few targets.
 Banner — Storm High Elves: magic of storm high elves, signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛은 이번 턴 공격도 반격도 하지 않는다. 상대 맨 뒤 2기 공격 −2 −1C.
+Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛은 이번 턴 공격도 반격도 하지 않는다. 적 유닛 2 공격 −2 −1C.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
@@ -1336,7 +1336,7 @@ Subject: defense spell — protection forming: stable, symmetrical composition, 
 Scale (level 4 of 8): an effect over a few targets.
 Banner — Cinder Goblins: magic of cinder goblins, signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks; palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 뒤 2기에게 피해 3.
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 2에게 피해 3.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
@@ -1848,7 +1848,7 @@ Subject: versatile spell — a dual effect: a balanced composition with power fl
 Scale (level 3 of 8): an effect over a few targets.
 Banner — Thunder Gnomes: magic of thunder gnomes, signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints; palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 뒤 유닛에게 피해 2. 상대 맨 앞 2기는 [보호막]·[가시]·[저주 면역]·[수호]가 꺼지고 피해 2를 더 받는다.
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 1에게 피해 2. 상대 맨 앞 2기는 [보호막]·[가시]·[저주 면역]·[수호]가 꺼지고 피해 2를 더 받는다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
