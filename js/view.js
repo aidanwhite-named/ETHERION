@@ -324,7 +324,8 @@ function cardHTML(c, opts) {
   const sText = isS && !sBrief ? `<p class="c-stext">${kwHTML(c.text || "")}</p>` : "";
   const flv = c.flavor || "";   // 카드 고유의 분위기 글만 (단체 소개 글은 원본 카드에)
   const box = (isU ? coinLineHTML(c.co) : isI && c.item ? coinLineHTML(c.item.co) : "") + (chips ? `<div class="c-chips">${chips}</div>` : "") + sBrief + sText + desc + (opts.extra || "") + (flv ? `<p class="c-flv">${esc(flv)}</p>` : "");
-  const rcol = isU ? `<div class="c-rcol">${classIconHTML(c)}${vstats}</div>` : isI && vstats ? `<div class="c-rcol">${vstats}</div>` : "";
+  // v3.63.1 마법도 유닛의 클래스 동그라미 자리(오른쪽 열 위)에 종류 아이콘: 공격 칼 · 방어 방패 · 공용 칼+방패 · 계략 눈 (네모)
+  const rcol = isU ? `<div class="c-rcol">${classIconHTML(c)}${vstats}</div>` : isI && vstats ? `<div class="c-rcol">${vstats}</div>` : isS && RITE_ICON[c.type] ? `<div class="c-rcol r-sp">${classIconHTML(c)}</div>` : "";
   return `<div class="card fm size-${size} ${c.faction ? "fac-" + c.faction : "fac-item"} type-${c.type}${c.legend ? " legend" : ""}${dk ? " has-desc" : ""}${slim ? " slim" : ""}${sBrief ? " has-brief" : ""}${rcol ? " has-rcol" : ""} grade-${gr.id}${opts.cls ? " " + opts.cls : ""}" style="--el:${el.color};--gr:${gr.color}" ${opts.attrs || ""} data-card="${c.id}">${opts.under || ""}
     <div class="c-frame">
       <div class="c-head">${typeIconHTML(c)}${nameHTML(c)}</div>
@@ -466,7 +467,7 @@ function cardFullHTML(c, opts) {
   const coinLine = isU ? coinLineHTML(c.co) : isI && c.item ? coinLineHTML(c.item.co) : "";
   // v3.31.1: 원본 카드(크게 보기)는 클래스 동그라미 아래에 클래스 이름 글자
   const clName = isU ? (c.anyItem ? `<b class="c-clname cln-up">강화</b>` : c.cl ? `<b class="c-clname clc-${c.cl}">${esc(c.cl)}</b>` : "") : "";
-  const rcol = isU ? `<div class="c-rcol">${classIconHTML(c)}${clName}${vstats}</div>` : isI && vstats ? `<div class="c-rcol">${vstats}</div>` : "";
+  const rcol = isU ? `<div class="c-rcol">${classIconHTML(c)}${clName}${vstats}</div>` : isI && vstats ? `<div class="c-rcol">${vstats}</div>` : !isI && RITE_ICON[c.type] ? `<div class="c-rcol r-sp">${classIconHTML(c)}</div>` : "";   // v3.63.1 마법 종류 아이콘
   const idTip = `${G.name} · ${G.en} · ${FACTIONS[c.faction].name}\n카드 ID ${c.id}`;   // v3.19.1: 맨 아래 단체 줄을 빼고 이름 말풍선으로
   return `<div class="card fm size-full ${c.faction ? "fac-" + c.faction : "fac-item"} type-${c.type}${c.legend ? " legend" : ""}${rcol ? " has-rcol" : ""} grade-${gr.id}${opts.cls ? " " + opts.cls : ""}" style="--el:${el.color};--gr:${gr.color}" ${opts.attrs || ""} data-card="${c.id}">${opts.under || ""}
     <div class="c-frame">

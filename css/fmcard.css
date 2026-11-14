@@ -69,6 +69,9 @@
   border-radius: .22em; background: linear-gradient(180deg, rgba(4, 5, 10, .8), rgba(10, 11, 19, .7)); box-shadow: inset 0 0 0 .05em rgba(217, 180, 106, .22); }
 .card.fm .c-rcol .c-clsico { display: flex; flex-direction: column; gap: .08em; }
 .card.fm .c-rcol .c-clsico i { width: 1.36em; height: 1.36em; border-radius: 50%; }   /* v3.19.1: 클래스는 동그라미 */
+/* v3.63.1 마법: 같은 자리에 종류 아이콘(공격 · 방어 · 공용 · 계략). 클래스 동그라미와 헷갈리지 않게 네모, 열 바탕은 비움 */
+.card.fm .c-rcol .c-clsico i.c-kind { border-radius: .3em; }
+.card.fm .c-low .c-rcol.r-sp { background: none; box-shadow: none; }   /* mobile-lite의 테두리보다 앞서게 .c-low까지 */
 .card.fm .c-vstats { flex: 1; min-height: 0; width: 100%; display: flex; flex-direction: column; justify-content: space-around; align-items: center; gap: 0; font-size: 1em; position: static; }
 .card.fm .c-vstats .st { width: auto; height: auto; padding: 0; gap: .05em; justify-content: center; align-items: center; background: none; border: 0; box-shadow: none; white-space: nowrap; }
 .card.fm .c-vstats .st b { font-family: var(--caps); font-weight: 900; font-size: 1.12em; line-height: 1; letter-spacing: -.04em;

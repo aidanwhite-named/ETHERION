@@ -254,7 +254,7 @@ function modCard(it, ch, src) {
   it.mod = it.mod || {};
   const pm = pinModesOf(c);   // v3.20 카드에 새겨진 표시: 고정은 모두, 버팀은 깎기, 눌림은 올리기를 막는다
   for (const k in ch) { const m = pm[k]; if (m === "L" || (m === "U" && ch[k] < 0) || (m === "D" && ch[k] > 0)) { out.push(STAT_KO[k] + " " + PIN_KO[m]); continue; } it.mod[k] = (it.mod[k] || 0) + ch[k]; got[k] = ch[k]; out.push(STAT_KO[k] + sgnNum(ch[k])); }
-  // v3.9.9 누가 바꿨는지 남긴다 — 크게 보기 아래에 까닭으로 보인다(changeLines)
+  // v3.9.9 누가 바꿨는지 남긴다(v3.63.1부터 크게 보기에는 보이지 않음 — 원래 카드만)
   if (Object.keys(got).length) (it.modBy = it.modBy || []).push({ src: src || "", ch: got });
   return out.join(" ");
 }
@@ -3330,39 +3330,10 @@ function zoomTarget() {
   if (FX.peek && FX.peek.c) return { key: "p" + FX.peek.key, c: FX.peek.c, inst: FX.peek.inst || null };
   return null;
 }
+/* v3.63.1 크게 보기는 원래 카드 그대로 — 전장(받은 피해 · 저주 · 장착 아이템 · 코인) · 핸드(손에서 걸린 저주 · 판 규칙) 어느 쪽도 지금 값을 넣지 않는다.
+   (v3.9.9 ~ v3.63.0: 지금 값과 "값이 왜 다른가" 줄 handLive · changeLines) */
 function zoomHTML(t) {
-  const it = t.inst;
-  const live = it && isUnit(it) && it.t ? { a: it.t.a, d: it.t.d, h: Math.max(0, hpLeft(it)), max: it.t.h } : handLive(it);
-  const extra = changeLines(it) + instLines(it);
-  return `<div class="detail">${cardHTML(t.c, { size: "full", live })}${extra ? `<div class="d-body">${extra}</div>` : ""}</div>`;
-}
-/* v3.9.9 전장에 오르기 전(핸드 · 크게 보기)에도 실제로 쓰일 값을 보인다: 카드에 걸린 저주(it.mod) · 판 규칙(방어 · 체력 +N).
-   바뀐 것이 없으면 null(카드에 적힌 값 그대로) */
-function handLive(it) {
-  if (!it || it.t || !isUnit(it) || !G) return null;
-  const c = C(it), b = baseStats(it, true);
-  if (b.a === c.a && b.d === c.d && b.h === c.h) return null;
-  return { a: b.a, d: b.d, h: b.h, max: b.h };
-}
-/* v3.9.9 크게 보기 아래 "값이 왜 다른가" 줄: 핸드에서 걸린 저주(손끝 저주 · 저주 전염 등) · 판 규칙 · 이번 턴 받은 피해 */
-function changeLines(it) {
-  if (!it || !G || !isUnit(it)) return "";
-  const c = C(it), R = G.rules || {}, out = [], onField = !!it.t;
-  const stat = ch => Object.keys(ch).filter(k => ch[k]).map(k => STAT_KO[k] + " " + sgnNum(ch[k])).join(" · ");
-  if (it.mod && stat(it.mod)) {
-    const by = (it.modBy || []).filter(m => stat(m.ch));
-    const tail = onField ? "핸드에 있을 때 걸린 저주라 이 판 내내 남습니다." : "이 판 내내 남고, 전장에 올려도 그대로입니다.";
-    if (by.length) for (const m of by) out.push(`<p class="d-mod"><b>${m.src ? "「" + esc(m.src) + "」" : "저주"}</b> (계략 마법) ${stat(m.ch)} — ${tail}</p>`);
-    else out.push(`<p class="d-mod"><b>걸린 변화</b> ${stat(it.mod)} — ${tail}</p>`);
-  }
-  if (R.defAll || R.hpAll) {
-    const ch = {}; if (R.defAll) ch.d = R.defAll; if (R.hpAll) ch.h = R.hpAll;
-    out.push(`<p class="d-mod"><b>판 규칙${R.name ? " · " + esc(R.name) : ""}</b> ${stat(ch)} — 양쪽 유닛 모두${onField ? "" : ", 전장에 올리면 붙습니다"}.</p>`);
-  }
-  if (R.coinMul && R.coinMul !== 1 && (c.co || []).length) out.push(`<p class="d-mod"><b>판 규칙${R.name ? " · " + esc(R.name) : ""}</b> 코인 앞면의 값이 ${R.coinMul}배입니다.</p>`);
-  if (onField && it.t.alive && it.t.dmg > 0) out.push(`<p class="d-mod"><b>받은 피해 ${it.t.dmg}</b> ${R.noHeal ? `판 규칙${R.name ? " 「" + esc(R.name) + "」" : ""} 때문에 턴이 끝나도 낫지 않습니다(체력 1은 남음).` : "턴이 끝나면 회복됩니다."}</p>`);
-  else if (R.noHeal && !onField) out.push(`<p class="d-mod"><b>판 규칙${R.name ? " · " + esc(R.name) : ""}</b> 받은 피해가 턴이 끝나도 낫지 않습니다.</p>`);
-  return out.join("");
+  return `<div class="detail">${cardHTML(t.c, { size: "full" })}</div>`;
 }
 function syncZoom() {
   const z = $("#zoom"); if (!z) return;
