@@ -454,7 +454,7 @@ const SpellFX = (() => {
     const by = new Map();
     for (const f of s.floats) {
       const key = String(f[0]), c = f[2] || "";
-      const kind = /\bdmg\b/.test(c) ? "dmg" : /\bheal\b/.test(c) ? "heal" : /\bshield\b/.test(c) ? "shield" : /\bdebuff\b/.test(c) ? "debuff" : /\bmiss\b/.test(c) ? "miss" : "buff";
+      const kind = /\bdmg\b/.test(c) ? "dmg" : /\bheal\b/.test(c) ? "heal" : /\bblock\b/.test(c) ? "block" : /\bshield\b/.test(c) ? "shield" : /\bdebuff\b/.test(c) ? "debuff" : /\bmiss\b/.test(c) ? "miss" : "buff";
       if (!by.has(key)) by.set(key, new Set());
       by.get(key).add(kind);
     }
@@ -470,13 +470,15 @@ const SpellFX = (() => {
       const r = el.getBoundingClientRect(), b = ctr(r);
       if (r.width < 2) continue;
       let at = 0;
-      const hitIt = kinds.has("dmg") || kinds.has("miss");
+      // v3.62.1 "block" = 보호막 · 가호가 피해를 막음: 공격은 대상까지 날아가고(막힘 연출), 남은 피해가 있으면(보호막 코인 절반) 맞은 뒤 막는 빛을 더한다
+      const hitIt = kinds.has("dmg") || kinds.has("miss") || kinds.has("block");
       if (hitIt && !life) {
         const st = n * gap, o = { col: th.col, el: th.el, fl, blocked: !kinds.has("dmg"), v: n ? 0.65 : 1 };
         const a = src || { x: b.x, y: -60 };
         once(LAUNCH[th.k], 0.9);
         later(() => go.run(a, b, r, el, o), st);
         at = st + go.at(o);
+        if (kinds.has("block") && kinds.has("dmg")) later(() => block(b, r.width, el), at);
         n++;
       } else if (hitIt && life && /^life/.test(key)) {
         bleed(el, r); once("sp_debuff", 0.6); at = 120 * k;

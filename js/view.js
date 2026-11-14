@@ -169,10 +169,13 @@ const normalAtkChip = () => `<span class="c-cls c-ab c-plain" data-tip="${esc(NO
 /* v3.31.1: 유닛 종류 아이콘 말풍선 첫 줄에 클래스 (핸드에서도 뜬다 — css/battle-v19.css) */
 function unitClassWord(c) { return c.anyItem ? "강화 (클래스 없음)" : c.cl || ""; }
 function unitKindTip(c) { const w = unitClassWord(c); return `유닛${w ? " · " + w : ""}\n전장의 칸에 소환합니다. 레벨만큼 에테르, 살아남으면 매 턴 유지비.`; }
+/* v3.62.1 왼쪽 위 네모 = 레벨 숫자. 네모의 색(유닛 금 · 마법 종류색 · 아이템 바랜 금)이 카드 종류를 알린다.
+   (v3.19 ~ v3.62.0: 네모 안에 종류 그림 — 유닛 투구 · 마법 칼/방패/겹침/눈 · 아이템 보석. TYPE_ICON_UNIT · ITEM_KIND_ICON · RITE_ICON은 다른 곳에서 그대로 씀) */
 function typeIconHTML(c) {
-  if (c.type === "unit") return `<i class="c-type t-unit" data-tip="${esc(unitKindTip(c))}"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${TYPE_ICON_UNIT}</svg></i>`;
-  if (c.type === "item") return `<i class="c-type t-item" data-tip="${esc(itemKindTip(c))}"><svg viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">${ITEM_KIND_ICON}</svg></i>`;
-  return `<i class="c-type t-${c.type} c-kind kind-${c.type}" data-tip="${esc(RITE_TIP[c.type] || "마법")}"><svg viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">${RITE_ICON[c.type] || RITE_SWORD}</svg></i>`;
+  const lv = `<b class="c-tlv">${c.lv || 0}</b>`, tip = t => esc(`레벨 ${c.lv || 0} · ${t}`);
+  if (c.type === "unit") return `<i class="c-type t-unit" data-tip="${tip(unitKindTip(c))}">${lv}</i>`;
+  if (c.type === "item") return `<i class="c-type t-item" data-tip="${tip(itemKindTip(c))}">${lv}</i>`;
+  return `<i class="c-type t-${c.type} c-kind kind-${c.type}" data-tip="${tip(RITE_TIP[c.type] || "마법")}">${lv}</i>`;
 }
 /* 코인 줄: 공 · 방 · 체 아이콘 + 그 스탯의 코인 (+2● +●) — 판타지 마스터즈의 "+2C1 / =C1 / +C1" 자리 */
 function coinLineHTML(co) {

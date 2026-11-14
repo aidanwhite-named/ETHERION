@@ -159,7 +159,9 @@ function applyCoins(u, coins) {
   const delta = { a: nb.a - old.a, d: nb.d - old.d, h: nb.h - old.h };
   const b = { a: u.t.a, d: u.t.d, h: u.t.h };
   u.t.a = Math.max(0, u.t.a + delta.a);
-  if (u.t.lock) delta.d = 0; else u.t.d += delta.d;
+  // v3.62.1 [저주 면역]은 방어가 깎이는 것만 막는다 — + 코인 앞면은 붙고, 앞서 붙은 코인 몫을 걷는 것(다시 던져 뒷면)까지만 내려간다
+  if (u.t.lock && delta.d < 0) delta.d = Math.max(delta.d, -Math.max(0, old.d));
+  u.t.d += delta.d;
   // v1.4: 코인으로 체력이 0 이하가 되면 쓰러진다 (카드가 부서져 소각 더미로)
   u.t.h = u.t.h + delta.h;
   applyFloor(u);
@@ -230,17 +232,19 @@ function step(X, fx, dur) {
   X.floats = []; X.logs = []; X.deaths = [];
 }
 
+/* v3.62.1 피해를 막은 글자(보호막 · 보호막 코인 · 가호)는 cls "shield block" — 보호막을 얻은 글자("shield")와 갈라,
+   마법 연출(js/spellfx.js cast)이 공격을 대상까지 날려 보내고 막는 모습을 보이게 한다 */
 function hurt(X, u, x, tag) {
   if (!u.t.alive || x <= 0) return 0;
   { const w = uWings(X, u, x); if (w) return hurt(X, w, x, "대신"); }   // v3.31 [날개 그늘]
   if (u.t.shield === "half") {   // v3.57.5 [보호막 코인] 앞면: 처음 받는 피해의 절반(올림)을 막는다. 남은 피해는 가호 · 사슬을 거쳐 그대로 들어간다
     u.t.shield = false; const b = Math.ceil(x / 2); x -= b;
-    fl(X, u.uid, "보호막 −" + b, "shield"); lg(X, `[보호막 코인] ${C(u).name}이(가) 피해 ${b}를 막았다`, "good");
+    fl(X, u.uid, "보호막 −" + b, "shield block"); lg(X, `[보호막 코인] ${C(u).name}이(가) 피해 ${b}를 막았다`, "good");
     if (x <= 0) return 0;
-  } else if (u.t.shield) { u.t.shield = false; fl(X, u.uid, "보호막", "shield"); lg(X, `[보호막] ${C(u).name}이(가) 피해를 막았다`, "good"); return 0; }
+  } else if (u.t.shield) { u.t.shield = false; fl(X, u.uid, "보호막", "shield block"); lg(X, `[보호막] ${C(u).name}이(가) 피해를 막았다`, "good"); return 0; }
   if (u.t.ward && !u.t.wardUsed) {
     u.t.wardUsed = true; const r = Math.min(x, u.t.ward); x -= r;
-    if (x <= 0) { fl(X, u.uid, "가호", "shield"); return 0; }
+    if (x <= 0) { fl(X, u.uid, "가호", "shield block"); return 0; }
   }
   x = uLinkSplit(X, u, x);   // v3.31 [강철 사슬]: 짝에게 나눠 준 몫을 뺀 피해
   if (x <= 0) return 0;
@@ -353,7 +357,7 @@ function castSpell(X, caster, it, k) {
           if (op.coin) { const cx = x - (op.x || 0); if (op.cs === "d") md += cx; else if (op.cs === "h") mh += cx; else ma += cx; }
           const b0 = { a: u.t.a, d: u.t.d, h: u.t.h };
           if (ma) u.t.a = Math.max(0, u.t.a + ma);
-          if (md && !u.t.lock) u.t.d += md;
+          if (md && !(u.t.lock && md < 0)) u.t.d += md;   // v3.62.1 [저주 면역]은 깎기만 막음
           if (mh) u.t.h += mh;
           applyFloor(u);
           if (hpLeft(u) <= 0) { u.t.alive = false; lgDeath(X, u); }
@@ -675,7 +679,7 @@ const dmgOf = (u, x, phys) => (phys ? hit(x, u.t.d) : x);
 /* v3.20 스탯 하나에 v를 더하고 표시를 지킨다. 실제로 바뀐 값을 띄우고 돌려준다 */
 function addStat(X, u, k, v) {
   const b = u.t[k];
-  if (k === "d" && u.t.lock) { fl(X, u.uid, "저주 면역", "miss"); return 0; }
+  if (k === "d" && u.t.lock && v < 0) { fl(X, u.uid, "저주 면역", "miss"); return 0; }
   u.t[k] = k === "a" ? Math.max(0, b + v) : b + v;
   applyFloor(u);
   const r = u.t[k] - b;
@@ -688,7 +692,7 @@ function addStat(X, u, k, v) {
 function setStats(X, u, nv, tag) {
   const b = { a: u.t.a, d: u.t.d, h: hpLeft(u) };
   if (nv.a != null) u.t.a = Math.max(0, nv.a);
-  if (nv.d != null && !u.t.lock) u.t.d = nv.d;
+  if (nv.d != null && !(u.t.lock && nv.d < u.t.d)) u.t.d = nv.d;
   if (nv.h != null) { u.t.h = nv.h; u.t.dmg = 0; }
   applyFloor(u);
   const hl = hpLeft(u);
@@ -779,7 +783,7 @@ const SPELL_OPS = {
   guard(X, caster, it, k, op) {
     const L = liveUnits(X.P[caster]).sort((x, y) => (y.t.d * 3 + hpLeft(y)) - (x.t.d * 3 + hpLeft(x)));
     const u = L[0]; if (!u) return;
-    u.t.taunt = true; if (op.d && !u.t.lock) u.t.d += op.d;
+    u.t.taunt = true; if (op.d && !(u.t.lock && op.d < 0)) u.t.d += op.d;
     fl(X, u.uid, "수호" + (op.d ? " ⛨+" + op.d : ""), "shield");
   },
   /* v3.11 아군 유닛 수 × per 만큼 상대 유닛 전체에게 피해: { per, side } */

@@ -114,7 +114,7 @@ const Forge = {
       const nOrb = typeof ORB !== "undefined" ? Store.orbs(u) : 0;
       out = `<div class="fg-res fg-mystery is-rare${S.orb ? " with-orb" : ""}"><i>${fuseIcon("rare")}</i><span>${g ? esc(g.name) + "<br>" : ""}${S.orb ? "좋은 레어<br><small>· 유니크</small>" : "레어 1장"}</span><b>?</b></div>
         <p class="fg-res-cap">${S.orb ? `운명의 구슬: 센 레어만 나오고, ${Math.round(ORB.unique * 100)}% 확률로 유니크.` : P ? `같은 깃발 레어 가운데 하나 — 센 카드일수록 드뭅니다.` : "고급 카드 3장이 같은 깃발 레어 1장이 됩니다."}</p>
-        ${typeof ORB !== "undefined" ? `<button type="button" class="fg-orb${S.orb ? " on" : ""}" data-forb aria-pressed="${!!S.orb}" ${nOrb || S.orb ? "" : "disabled"} title="${esc(ORB.name)} — 파친코 · 수레바퀴에서 낮은 확률로 얻습니다">${orbIcon()}<span>${S.orb ? "구슬 넣음" : "구슬 넣기"}</span><b>${nOrb}</b></button>` : ""}
+        ${typeof ORB !== "undefined" ? `<button type="button" class="fg-orb${S.orb ? " on" : ""}" data-forb aria-pressed="${!!S.orb}" ${nOrb || S.orb ? "" : "disabled"} title="${esc(ORB.name)} — 문양 맞추기 · 수레바퀴에서 낮은 확률로 얻습니다">${orbIcon()}<span>${S.orb ? "구슬 넣음" : "구슬 넣기"}</span><b>${nOrb}</b></button>` : ""}
         <button type="button" class="btn xs fg-odds-btn" data-fodds ${P ? "" : "disabled"}>확률 보기</button>`;
     }
     const msg = !P ? `아래에서 ${K.from} 카드를 고르세요. <span class="muted">재료는 저장한 덱 · 덱 초안에 들지 않은 장수에서만 씁니다.</span>`
@@ -131,7 +131,7 @@ const Forge = {
     S.el.innerHTML = `<div class="fg-box">
       <header class="fg-head">
         <div class="fg-title"><p class="eyebrow">ETHER FORGE</p><h2>합성소</h2></div>
-        ${typeof UPGRADE_SEALS !== "undefined" ? `<span class="fg-seals${Store.seals(u) >= UPGRADE_SEALS ? " ok" : ""}" title="순례의 인장 — 강화에 ${UPGRADE_SEALS}개. 성로 순례의 관문을 이기면 1개, 완주하면 2개 더">${sealIcon()}<b>${Store.seals(u)}</b><small>순례의 인장</small></span>` : ""}${typeof ORB !== "undefined" ? `<span class="fg-seals k-orb${Store.orbs(u) ? " ok" : ""}" title="${esc(ORB.name)} — 파친코 · 수레바퀴에서 낮은 확률로(하루 ${ORB.daily}개까지). 승화에 넣으면 좋은 레어 · ${Math.round(ORB.unique * 100)}% 유니크">${orbIcon()}<b>${Store.orbs(u)}</b><small>${esc(ORB.name)}</small></span>` : ""}
+        ${typeof UPGRADE_SEALS !== "undefined" ? `<span class="fg-seals${Store.seals(u) >= UPGRADE_SEALS ? " ok" : ""}" title="순례의 인장 — 강화에 ${UPGRADE_SEALS}개. 성로 순례의 관문을 이기면 1개, 완주하면 2개 더">${sealIcon()}<b>${Store.seals(u)}</b><small>순례의 인장</small></span>` : ""}${typeof ORB !== "undefined" ? `<span class="fg-seals k-orb${Store.orbs(u) ? " ok" : ""}" title="${esc(ORB.name)} — 문양 맞추기 · 수레바퀴에서 낮은 확률로(하루 ${ORB.daily}개까지). 승화에 넣으면 좋은 레어 · ${Math.round(ORB.unique * 100)}% 유니크">${orbIcon()}<b>${Store.orbs(u)}</b><small>${esc(ORB.name)}</small></span>` : ""}
         <div class="fg-tabs" role="tablist">${["up", "rare"].map(m => `<button type="button" role="tab" class="fg-tab k-${m}${S.mode === m ? " on" : ""}" data-fmode="${m}" aria-selected="${S.mode === m}">${fuseIcon(m)}<span><b>${FUSE_KIND[m].name}</b><small>${FUSE_KIND[m].from} 3장 → ${FUSE_KIND[m].to}</small></span></button>`).join("")}</div>
         <button type="button" class="fg-x" data-fclose aria-label="합성소 닫기">✕</button>
       </header>

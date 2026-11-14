@@ -273,6 +273,7 @@ const IMPACT = (() => {
     const col = o.col || "#ffd27a";
     const hs = stopMs(o) * (o.light ? 0.5 : 1);
     if (o.blocked) { block(from, to, col); return Math.round(hs * 0.7); }
+    if (o.guard) guard(from, to);   // v3.62.1 보호막 코인이 피해 절반을 막음: 맞는 모습에 막는 빛 반달을 함께
     // 1) 번쩍 · 밀려남 (밀려남은 히트 스톱이 끝난 뒤)
     flashEl(to, Math.min(1, p), col);
     knock(to, dir, Math.min(1.3, p), hs * 0.6);
@@ -297,6 +298,21 @@ const IMPACT = (() => {
     duck(TUNE.duck * Math.min(1, 0.4 + p * 0.6), 260 + p * 260);
     if (typeof FEEL !== "undefined") FEEL.buzz(Math.round(18 + p * 30));
     return hs;
+  }
+  /* v3.62.1 일부만 막힘(보호막 코인 절반): 막기와 같은 빛 반달 · 고리만 작게. 튕김 · 흔들림은 피해 쪽 연출에 맡긴다 */
+  function guard(from, to) {
+    if (!on() || !to) return;
+    const r = to.getBoundingClientRect(), c = ctr(r), cw = Math.max(60, r.width);
+    const dir = dirOf(from, to), back = { x: -dir.x, y: -dir.y };
+    const hit = { x: c.x - dir.x * cw * 0.32, y: c.y - dir.y * r.height * 0.3 };
+    const sh = overlay("imp-shield", 380, { "--c": "#d6dde6" });
+    if (sh) {
+      const sz = cw * 1.1;
+      Object.assign(sh.style, { left: hit.x + "px", top: hit.y + "px", width: sz + "px", height: sz + "px", rotate: (Math.atan2(back.y, back.x) * 180 / Math.PI) + "deg" });
+      sh.animate([{ opacity: 0, scale: "0.5" }, { opacity: 0.9, scale: "1", offset: 0.15 }, { opacity: 0, scale: "1.2" }], { duration: 380, easing: "ease-out", fill: "forwards" });
+    }
+    ringAt(hit.x, hit.y, { r0: 4, r1: cw * 0.5, w: 3, col: "#e8eef5", a: 0.8, life: 0.22 });
+    snd("imp_block", 0.6);
   }
   /* 막힘(피해 0 · 보호막 · 가호): 쇠가 튕겨 내는 반달 빛 + 쇠 불꽃 + 친 쪽이 튕김 */
   function block(from, to, col) {

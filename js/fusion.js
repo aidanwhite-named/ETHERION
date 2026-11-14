@@ -63,7 +63,7 @@ Object.assign(Store, {
       const have = u.collection[b.id] || 0;
       return Object.assign(r, { ok: false, msg: `「${b.name}」 ${RARE_FUSE.cost}장이 필요합니다. (가진 ${have}장${have > free ? ` 가운데 덱 · 초안에 든 ${have - free}장은 쓸 수 없음` : ""})` });
     }
-    if (orb && this.orbs(u) < 1) return Object.assign(r, { ok: false, needOrb: true, msg: `${ORB.name}이 없습니다. (파친코 · 수레바퀴에서 낮은 확률로 얻습니다)` });
+    if (orb && this.orbs(u) < 1) return Object.assign(r, { ok: false, needOrb: true, msg: `${ORB.name}이 없습니다. (문양 맞추기 · 수레바퀴에서 낮은 확률로 얻습니다)` });
     return Object.assign(r, { ok: true });
   },
   /* 승화: 재료 3장(+ 운명의 구슬 1개)을 쓰고 한 장을 뽑아 준다. 뽑기는 이 함수를 부른 쪽(서버 모드면 서버)의 난수 */

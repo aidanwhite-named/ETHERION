@@ -132,6 +132,7 @@ html.mobile .st-lock { filter: drop-shadow(0 0 .18em rgba(255, 196, 80, .85)); }
 html.mobile .st.st-locked b { text-shadow: 0 0 4px rgba(255, 196, 80, .55); }
 html.mobile .st-lock.pin-U { filter: drop-shadow(0 0 .16em rgba(110, 220, 140, .8)); }
 html.mobile .st-lock.pin-D { filter: drop-shadow(0 0 .16em rgba(255, 120, 100, .8)); }
+html.mobile #board .logdrawer.docked { box-shadow: 0 2.4px 6px rgba(0, 0, 0, .55); }
 
 /* kailan.css */
 html.mobile .screen-title.kl-1 .seat.empty circle { filter: drop-shadow(0 0 3px rgba(240, 210, 140, .9)); }
@@ -176,10 +177,11 @@ html.mobile .xp-node.lost .emblem { box-shadow: 0 0 6px rgba(239, 106, 92, .5); 
 
 /* arcade.css */
 html.mobile .arcade { box-shadow: 0 2px 6px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(255, 255, 255, .06), inset 0 0 0 1px rgba(217, 180, 106, .08); }
-html.mobile .arc-tab.ready::before { box-shadow: 0 0 5px rgba(239, 106, 92, .8); animation-name: none; }
 html.mobile .sm-win { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .3), inset 0 3px 6px rgba(0, 0, 0, .8); }
 html.mobile .sm-msg.win.big, html.mobile .seed-msg.win.big { text-shadow: 0 0 4px rgba(246, 226, 168, .7); }
 html.mobile .slot-m.armed .sm-btn i { animation-name: none; }
+html.mobile .arc-drawer { box-shadow: 0 2.3px 6px rgba(0, 0, 0, .45), inset 0 -1px 0 rgba(143, 220, 255, .08); }
+html.mobile .arc-drawer.out { box-shadow: 0 2.3px 6px rgba(0, 0, 0, .45), 0 0 6px rgba(143, 220, 255, .28), inset 0 -1px 0 rgba(143, 220, 255, .12); }
 html.mobile .seed-steps i.on { box-shadow: 0 0 6px rgba(143, 220, 255, .7); }
 html.mobile .seed[data-stage="5"] .seed-pot, html.mobile .seed.bloom .seed-pot { box-shadow: 0 0 6px rgba(143, 220, 255, .6); }
 html.mobile .seed-btn { box-shadow: 0 2px 0 #124660, 0 2.3px 6px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .5); }
@@ -494,6 +496,7 @@ html.mobile .float.dmg.imp-num { text-shadow: 0 1.5px 4px #000; }
 
 /* fmcard.css */
 html.mobile .card.fm .c-type svg { filter: drop-shadow(0 0 .12em currentColor); }
+html.mobile .card.fm .c-type .c-tlv { text-shadow: 0 0 .2em currentColor, 0 .05em .08em #000; }
 html.mobile .card.fm .c-name { text-shadow: 0 .06em .1em #000, 0 0 4px rgba(0, 0, 0, .9); }
 html.mobile .card.fm .c-box { box-shadow: inset 0 0 0 .05em rgba(217, 180, 106, .2), inset 0 .1em .3em rgba(0, 0, 0, .6); }
 html.mobile .card.fm .c-rcol { box-shadow: inset 0 0 0 .05em rgba(217, 180, 106, .22); }

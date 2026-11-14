@@ -1842,6 +1842,22 @@ body.is-dragging .hand-me .hand-slot .hand-card { transition: transform .2s ease
 .ld-head .blog-btns .btn { padding-inline: 7px; }
 .blog-btns .blog-need { color: var(--gold); border-color: var(--line-gold); }
 
+/* v3.62.1 전투 기록 자리 (js/game.js placeLog): 머리 줄을 누르면 접고 편다. 기록은 판 전체, 넘치면 스크롤 */
+.ld-fold { all: unset; box-sizing: border-box; display: flex; align-items: center; gap: 8px; min-width: 0; flex: 1 1 auto; cursor: pointer; color: var(--gold); }
+.ld-fold:focus-visible { outline: 1px solid var(--line-gold); outline-offset: 3px; }
+.ld-caret { flex: none; width: 0; height: 0; font-size: 0; border-left: 7px solid currentColor; border-top: 5px solid transparent; border-bottom: 5px solid transparent; transition: transform .18s ease; }
+.logdrawer.open .ld-caret { transform: rotate(90deg); }
+.ld-last { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; color: var(--muted); }
+.logdrawer.open .ld-last { display: none; }
+/* PC: 상대 핸드 오른쪽 ~ 상대 덱 왼쪽 틈에 붙박이. 접으면 머리 줄만, 펼치면 가운데 띠 위까지(--ld-h) */
+#board .logdrawer.docked { right: auto; bottom: auto; height: auto; max-height: var(--ld-h); transform: none; transition: none; z-index: 30;
+  border: 1px solid var(--line-gold); border-radius: 8px; background: rgba(8, 9, 15, .92); box-shadow: 0 12px 30px rgba(0, 0, 0, .55); }
+#board .logdrawer.docked.open { height: var(--ld-h); }
+.logdrawer.docked .ld-head { padding: 7px 10px; flex-wrap: nowrap; }
+.logdrawer.docked:not(.open) .ld-head { border-bottom: 0; }
+.logdrawer.docked:not(.open) .log, .logdrawer.docked:not(.open) .blog-btns, .logdrawer.docked .ld-close { display: none; }
+.logdrawer.docked .log { padding: 8px 12px; }
+
 /* v3.32.4 설정 창: 글꼴 고르기를 빼고(js/game.js showSettings) 남은 설정을 크게 — 제목 · 설명 · 단추 */
 .modal.set-modal { width: min(720px, 100%); }
 .modal.set-modal h3 { font-size: 24px; margin-bottom: 6px; }

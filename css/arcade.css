@@ -1,24 +1,19 @@
-/* ETHERION — 전장의 작은 게임 상자(파친코 · 결정 키우기). 테마: 밤하늘과 금빛 룬 */
+/* ETHERION — 전장의 작은 게임 상자(릴 맞추기 · 결정 키우기). 테마: 밤하늘과 금빛 룬 */
 
-/* ===================== 작은 게임 상자 (v1.4.1: 내 덱 왼쪽, 카드 한 장 크기) =====================
-   크기는 카드 크기(--cw)를 따른다. 위에 탭 둘(파친코 · 결정), 아래는 세로로 쌓은 기계 */
-.arcade { position: relative; z-index: 6; width: 100%; height: calc(var(--cw) * .66 * 1.4); display: flex; flex-direction: column; user-select: none; font-family: var(--caps); font-size: max(9px, calc(var(--cw) * .058)); border: 1px solid var(--line-gold); border-radius: calc(var(--cw) * .05); overflow: hidden;
+/* ===================== 작은 게임 상자 (v1.4.1: 내 덱 왼쪽) =====================
+   크기는 카드 크기(--cw)를 따른다. v3.62.1: 탭과 이름을 뺐다 — 위는 릴 상자(.arcade), 그 밑에서 결정 서랍(.arc-drawer)이 튀어나온다.
+   폭은 카드 한 장 남짓(.92 × 카드 폭)으로 좁혔다(예전 1.34). 둘을 합친 높이가 전장 카드 높이(1.4 × 카드 폭) 안에 들어가게 잡는다 —
+   전장 줄 밑에는 셔플 명판(.shuffle-btn.v19)이 있어서 줄 밖으로 내밀면 겹친다. */
+@media (min-width: 761px) { .f-piles .arc-host { width: calc(var(--cw) * .92); } }   /* style.css의 폭(덱 옆 남은 자리 전부)을 덮어씀 */
+.arc-stack { position: relative; z-index: 6; width: 100%; align-self: stretch; display: flex; flex-direction: column; justify-content: center; user-select: none; font-family: var(--caps); font-size: max(9px, calc(var(--cw) * .058)); }
+.arcade { position: relative; z-index: 2; flex: none; width: 100%; display: flex; flex-direction: column; border: 1px solid var(--line-gold); border-radius: calc(var(--cw) * .05); overflow: hidden;
   background: linear-gradient(180deg, rgba(30, 26, 40, .96), rgba(10, 10, 18, .97)), var(--night-2);
   box-shadow: 0 8px 24px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(255, 255, 255, .06), inset 0 0 0 1px rgba(217, 180, 106, .08); }
-.arc-tabs { flex: none; display: flex; align-items: stretch; border-bottom: 1px solid rgba(217, 180, 106, .22); background: rgba(0, 0, 0, .3); }
-.arc-tab { position: relative; flex: 1 1 0; min-width: 0; padding: .45em .2em .4em; font-family: var(--body); font-size: 1em; font-weight: 700; letter-spacing: 0; white-space: nowrap; color: var(--muted); background: none; border: 0; border-right: 1px solid rgba(217, 180, 106, .12); cursor: pointer; }
-.arc-tab:hover { color: var(--ink); }
-.arc-tab.on { color: var(--gold-hi); background: rgba(217, 180, 106, .1); }
-.arc-tab.on::after { content: ""; position: absolute; left: 20%; right: 20%; bottom: -1px; border-bottom: 1px solid var(--gold); }
-.arc-tab.ready::before { content: ""; position: absolute; top: 3px; right: 3px; width: 5px; height: 5px; border-radius: 50%; background: #ef6a5c; box-shadow: 0 0 5px rgba(239, 106, 92, .8); animation: pachPulse 1.2s ease-in-out infinite; }
-.arc-body { flex: 1 1 auto; min-height: 0; display: flex; }
-.arc-pane { flex: 1 1 auto; min-width: 0; padding: .55em .55em .6em; display: flex; }
-.arc-pane[hidden] { display: none; }
+.arc-pane { flex: 1 1 auto; min-width: 0; padding: .5em .45em .55em; display: flex; }
 
-/* 파친코: 위 이름 · 릴 셋 · 결과 한 줄 · SPIN */
+/* 릴 셋 · 결과 한 줄 · SPIN */
 .slot-m, .seed { position: relative; flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; align-items: stretch; gap: .4em; }
-.sm-top, .seed-top { flex: none; display: flex; justify-content: center; font-size: .82em; letter-spacing: .24em; color: var(--gold); }
-.sm-win { position: relative; flex: 1 1 auto; min-height: 1.8em; max-height: 4.2em; display: grid; grid-template-columns: repeat(3, 1fr); gap: .2em; padding: .2em; border-radius: .3em; background: #05060a; box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .3), inset 0 4px 8px rgba(0, 0, 0, .8); }
+.sm-win { position: relative; flex: none; height: calc(var(--cw) * .34); min-height: 1.8em; display: grid; grid-template-columns: repeat(3, 1fr); gap: .2em; padding: .2em; border-radius: .3em; background: #05060a; box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .3), inset 0 4px 8px rgba(0, 0, 0, .8); }
 .sm-reel { position: relative; overflow: hidden; border-radius: .2em; background: linear-gradient(180deg, #0c0b14, #17151f 50%, #0c0b14); }
 .sm-strip { will-change: transform; }
 .sm-sym { height: var(--sym, 30px); display: grid; place-items: center; color: var(--sc, var(--gold)); }
@@ -30,22 +25,31 @@
 .sm-msg, .seed-msg { flex: none; margin: 0; text-align: center; font-family: var(--body); font-size: 1em; letter-spacing: 0; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .sm-msg.win, .seed-msg.win { color: var(--gold-hi); }
 .sm-msg.win.big, .seed-msg.win.big { color: #fff6d6; text-shadow: 0 0 10px rgba(246, 226, 168, .7); }
-.arcade .pach-btn { flex: none; justify-content: center; height: 2.3em; border-radius: 1.2em; font-size: .95em; padding: 0 .6em; }
+.arc-stack .pach-btn { flex: none; justify-content: center; height: 2.3em; border-radius: 1.2em; font-size: .95em; padding: 0 .6em; }
 .slot-m.armed .sm-btn i { animation: pachPulse 1.2s ease-in-out infinite; }
 .slot-m.spinning .sm-btn { filter: none; background: linear-gradient(180deg, #f08a7a, #b03a2c); border-color: #b03a2c; color: #fff; }
 
-/* 결정 키우기 (세로) */
-.seed-body { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .35em; }
-.seed-pot { width: 3.6em; height: 3.6em; flex: none; border-radius: 50%; display: grid; place-items: center; background: radial-gradient(circle at 50% 60%, rgba(143, 220, 255, .12), transparent 70%); border: 1px solid rgba(217, 180, 106, .22); }
-.seed-pot svg { width: 86%; height: 86%; }
-.seed-steps { display: flex; gap: .45em; justify-content: center; }
-.seed-steps i { width: .7em; height: .7em; transform: rotate(45deg); border: 1px solid rgba(143, 220, 255, .4); background: rgba(143, 220, 255, .05); transition: background .25s, box-shadow .25s; }
+/* 결정 키우기: 릴 상자 밑에서 튀어나온 서랍. 윗부분은 상자 밑에 숨고, 물 줄 차례(.out)면 조금 더 나온다 */
+.arc-drawer { position: relative; z-index: 1; flex: none; margin: calc(var(--cw) * -.05) 5% 0; padding: calc(var(--cw) * .05 + .4em) .45em .45em; display: flex;
+  border: 1px solid rgba(143, 220, 255, .32); border-top: 0; border-radius: 0 0 calc(var(--cw) * .05) calc(var(--cw) * .05);
+  background: linear-gradient(180deg, rgba(8, 14, 22, .97), rgba(14, 24, 36, .96)); box-shadow: 0 6px 16px rgba(0, 0, 0, .45), inset 0 -1px 0 rgba(143, 220, 255, .08);
+  transition: transform .35s cubic-bezier(.2, .9, .3, 1.35), box-shadow .35s; }
+.arc-drawer.out { transform: translateY(calc(var(--cw) * .045)); box-shadow: 0 6px 16px rgba(0, 0, 0, .45), 0 0 10px rgba(143, 220, 255, .28), inset 0 -1px 0 rgba(143, 220, 255, .12); }
+.seed { gap: .35em; }
+.seed-row { display: flex; align-items: center; gap: .4em; min-width: 0; }
+.seed-pot { width: 2.6em; height: 2.6em; flex: none; border-radius: 50%; display: grid; place-items: center; background: radial-gradient(circle at 50% 60%, rgba(143, 220, 255, .12), transparent 70%); border: 1px solid rgba(217, 180, 106, .22); }
+.seed-pot svg { width: 90%; height: 90%; }
+.seed-side { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: .35em; }
+.seed-steps { display: flex; gap: .4em; padding-left: .1em; }
+.seed-steps i { width: .6em; height: .6em; transform: rotate(45deg); border: 1px solid rgba(143, 220, 255, .4); background: rgba(143, 220, 255, .05); transition: background .25s, box-shadow .25s; }
 .seed-steps i.on { background: radial-gradient(circle at 35% 35%, #f2fcff, #6cc9f2 55%, #1c6a99); box-shadow: 0 0 8px rgba(143, 220, 255, .7); }
+.seed-msg { max-width: 100%; text-align: left; font-size: .92em; }
+.arc-drawer .pach-btn { height: 2em; }
 .seed[data-stage="5"] .seed-pot, .seed.bloom .seed-pot { box-shadow: 0 0 18px rgba(143, 220, 255, .6); border-color: #8fdcff; }
 .seed.bloom { animation: pachGlow 1.6s ease-out; }
 .seed.armed .seed-pot { border-color: rgba(217, 180, 106, .5); }
 .seed-btn { background: linear-gradient(180deg, #8fdcff, #2c86b8); border-color: #1c6a99; color: #06202e; box-shadow: 0 2px 0 #124660, 0 3px 8px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .5); }
 .seed-btn i { background: radial-gradient(circle at 35% 35%, #fff, #f2fcff 55%, #3a8ab8); box-shadow: 0 0 5px rgba(143, 220, 255, .8); }
 .seed-btn:not(:disabled):active { box-shadow: 0 0 0 #124660, 0 1px 3px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .3); }
-@media (max-width: 760px) { .arcade { display: none; } }
-
+@media (prefers-reduced-motion: reduce) { .arc-drawer { transition: none; } }
+@media (max-width: 760px) { .arc-stack { display: none; } }

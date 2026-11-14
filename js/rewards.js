@@ -90,8 +90,8 @@ Object.assign(Store, {
       if (m.slot[round]) return { ok: false, msg: "이 라운드에는 이미 돌렸습니다." };
       m.slot[round] = 1;
       if (full) { this.save(); return { ok: true, kind: "miss", gold: 0, cap: true }; }
-      const res = rewardPach(u, pachinkoRoll(), "파친코");
-      if (rewardOrb(u, today, "파친코: " + (typeof ORB !== "undefined" ? ORB.name : ""), m)) res.orb = 1;   // v3.54
+      const res = rewardPach(u, pachinkoRoll(), "문양 맞추기");
+      if (rewardOrb(u, today, "문양 맞추기: " + (typeof ORB !== "undefined" ? ORB.name : ""), m)) res.orb = 1;   // v3.54
       m.arcade += res && res.gold || 0; today.arcade += res && (res.gold || (res.kind === "card" ? 100 : 0)) || 0; this.save();
       return Object.assign({ ok: true }, res);
     }

@@ -1,5 +1,5 @@
 /* ETHERION — 룰북 (v3.55)
-   튜토리얼은 "게임하는 법", 매뉴얼은 "대전 규칙 · 카드 읽기 · 능력 사전", 룰북은 "게임의 짜임" — 컨셉 · 등급 · 상점 · 합성 · 파친코 · 순례 · 보상 · 계정.
+   튜토리얼은 "게임하는 법", 매뉴얼은 "대전 규칙 · 카드 읽기 · 능력 사전", 룰북은 "게임의 짜임" — 컨셉 · 등급 · 상점 · 합성 · 문양 맞추기 · 순례 · 보상 · 계정.
    연대기 머리의 「룰북」 단추(js/chronicle.js, v3.55.4)나 매뉴얼의 연결 글에서 연다.
 
    고치는 법 (이 파일 하나):
@@ -10,7 +10,7 @@
    ② 확률 · 가격 · 보상량 · 장수는 글에 숫자로 쓰지 않는다 → RB_VALUES에 이름을 붙여 게임 상수에서 읽는다.
       값을 읽지 못하면(그 상수가 아직 없거나 빠짐) 그 줄은 화면에 안 나온다. 끝에 "opt"를 붙인 줄만 그래도 되고,
       그 밖의 줄에서 값이 비면 `node tools/rulebook_check.js`가 실패한다(바뀐 상수 이름을 여기서 고치라는 뜻).
-   ③ 행이 여러 개인 표(등급표 · 파친코표 · 순례 뽑기표 …)는 RB_TABLES에서 데이터로 만든다.
+   ③ 행이 여러 개인 표(등급표 · 문양표 · 순례 뽑기표 …)는 RB_TABLES에서 데이터로 만든다.
    화면 코드(RulebookUI)는 맨 끝, 브라우저에서만 돈다. 값 · 표 · 글은 node 검사가 서버 규칙 문맥에서 그대로 읽는다. */
 "use strict";
 
@@ -52,7 +52,7 @@ const RB_VALUES = {
   "orb.daily": () => ORB.daily,
   "orb.unique": () => rbP(ORB.unique),
   "orb.uniqueGrade": () => rbG("unique"),
-  /* 파친코 · 작은 게임 */
+  /* 문양 맞추기 · 작은 게임 (v3.62.1: "파친코"라는 이름은 도박 느낌이라 뺐다. 섹션 id "pachinko"는 링크용으로 그대로) */
   "arcade.daily": () => rbN(REWARD.arcadeDaily),
   "arcade.crystal": () => rbN(REWARD.crystal),
   "arcade.crystalTurns": () => REWARD.crystalTurns,
@@ -126,7 +126,7 @@ const RB_TABLES = {
     const top = w(lv[0]);
     return { cols: ["레어 카드 레벨", "나오는 정도"], rows: lv.map(l => [`${l}레벨`, `×${(w(l) / top).toFixed(2)}`]) };
   },
-  /* 파친코 · 수레바퀴 */
+  /* 문양 맞추기 · 수레바퀴 */
   pachinko: () => { const P = ECON.pachinko; return { cols: ["문양", "확률", "받는 것"], rows: [
     ["깃발 문양 셋", rbP(P.group.p), rbN(P.group.gold) + " 조각"],
     ["진영 문장 셋", rbP(P.faction.p), rbN(P.faction.gold) + " 조각"],
@@ -203,18 +203,18 @@ const RULEBOOK = [
                ["빠지는 카드", "레거시 카드와 이미 최대 장수만큼 가진 카드는 나오지 않고, 그 몫은 나머지가 나눕니다."]] },
       { p: "센 카드일수록 덜 나옵니다. 가장 낮은 레벨과 견주면:" },
       { table: "fuseLevels" },
-      { rows: [["{orb.name}", "승화에 하나를 함께 넣으면 그 깃발의 좋은 {fuse.to}만 나오고, **{orb.unique}** 확률로 {orb.uniqueGrade}가 나옵니다. [[rb:pachinko|파친코]]에서 낮은 확률로 얻습니다.", "opt"]] },
+      { rows: [["{orb.name}", "승화에 하나를 함께 넣으면 그 깃발의 좋은 {fuse.to}만 나오고, **{orb.unique}** 확률로 {orb.uniqueGrade}가 나옵니다. [[rb:pachinko|문양 맞추기 · 수레바퀴]]에서 낮은 확률로 얻습니다.", "opt"]] },
       { tip: "정확한 카드별 확률은 합성소의 「확률 보기」에서, 내가 가진 카드에 맞춰 보여 줍니다." }
     ] },
 
-  { id: "pachinko", t: "파친코 · 수레바퀴", en: "Pachinko", sum: "작은 게임에서 나오는 것",
+  { id: "pachinko", t: "문양 맞추기 · 수레바퀴", en: "Reels & Wheel", sum: "작은 게임에서 나오는 것",
     parts: [
       { p: "문양 셋이 맞으면 상을 받습니다. 두 곳에서 같은 표로 굴립니다." },
-      { rows: [["전장 파친코", "대전 중 전장 옆 작은 게임 상자. 라운드마다 한 번."],
+      { rows: [["문양 맞추기", "대전 중 전장 옆 작은 게임 상자의 릴 셋. 라운드마다 한 번."],
                ["크로네아의 수레바퀴", "대기실. 컴퓨터와 대전 · 순례를 한 판 마칠 때마다 표 한 장."]] },
       { table: "pachinko" },
       { rows: [["{orb.name}", "한 번 돌릴 때마다 따로 **{orb.p}** — 하루 {orb.daily}개까지. [[rb:upgrade|승화]]에 씁니다.", "opt"],
-               ["결정 키우기", "같은 상자의 다른 게임. {arcade.crystalTurns}라운드 이어서 물을 주면 {arcade.crystal} 조각. 한 번 거르면 처음부터."],
+               ["결정 키우기", "같은 상자 밑에서 튀어나오는 서랍. {arcade.crystalTurns}라운드 이어서 물을 주면 {arcade.crystal} 조각. 한 번 거르면 처음부터."],
                ["하루 상한", "작은 게임으로 받는 조각은 하루 {arcade.daily} 조각까지."]] },
       { tip: "카드가 나왔는데 이미 최대 장수만큼 가졌다면 그 카드의 상점 값만큼 조각을 받습니다." }
     ] },

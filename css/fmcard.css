@@ -23,6 +23,10 @@
   border: .08em solid color-mix(in srgb, var(--tc, var(--gold)) 70%, #000);
   box-shadow: 0 0 .45em color-mix(in srgb, var(--tc, var(--gold)) 38%, transparent), inset 0 0 .25em rgba(0, 0, 0, .7); }
 .card.fm .c-type svg { width: 76%; height: 76%; filter: drop-shadow(0 0 .12em currentColor); }
+/* v3.62.1 네모 안 = 레벨 숫자 (종류는 네모 색으로) */
+.card.fm .c-type .c-tlv { font-family: "Cinzel", serif; font-weight: 900; font-size: 1.05em; line-height: 1; color: var(--tc, var(--gold-hi));
+  text-shadow: 0 0 .2em currentColor, 0 .05em .08em #000; pointer-events: none; }
+.card.fm.size-full .c-type .c-tlv { font-size: 1.6em; }
 .card.fm .c-type.t-unit { --tc: var(--k-unit, #d9b46a); }
 .card.fm .c-type.t-item { --tc: #d8c48e; }
 .card.fm .c-type.t-atk { --tc: var(--rite-atk, #e0674f); }

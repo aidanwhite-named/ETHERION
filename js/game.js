@@ -31,7 +31,9 @@ const sfx = (name, v) => { if (typeof FEEL !== "undefined" && G && !G.cfg.headle
 const atkKindOf = (uid, snipe) => {
   const it = G && G.reg && G.reg[uid]; if (!it || typeof FEEL === "undefined" || !FEEL.atkKind) return "punch";
   const k = FEEL.atkKind(C(it), it.item ? CARDS[it.item.id] : null);
-  return snipe && !ATK_SND.RANGED.includes(k) ? "pierce" : k;
+  // v3.62.1 ATK_SND는 v3.61.0에 feel.js에서 빠졌다 — 없으면 건너뛴다 (예전에는 [사격] 연출에서 오류가 나 전투 재생이 멈췄다)
+  const ranged = typeof ATK_SND !== "undefined" && ATK_SND.RANGED ? ATK_SND.RANGED : [];
+  return snipe && !ranged.includes(k) ? "pierce" : k;
 };
 const atkSfx = (uid, phase, v, kind) => {
   if (typeof FEEL === "undefined" || !FEEL.atk || !G || G.cfg.headless || G.speed === 0) return;
@@ -80,7 +82,7 @@ const roundStep = t => ((t - 1) % 2) + 1;   // 이 라운드의 몇 번째 턴�
 function role(p) { return p.idx === G.attacker ? "atk" : "def"; }
 function prepIdx() { return G.phase === "atkPrep" ? G.attacker : G.phase === "defPrep" ? 1 - G.attacker : -1; }
 
-function log(text, cls) { G.log.push({ text, cls: cls || "" }); if (G.log.length > 300) G.log.shift(); if (typeof BLog !== "undefined") BLog.line(text, cls); }   // v3.20.1 개발용 전투 로그 (js/battlelog.js)
+function log(text, cls) { G.log.push({ text, cls: cls || "" }); if (G.log.length > 5000) G.log.shift(); if (typeof BLog !== "undefined") BLog.line(text, cls); }   // v3.20.1 개발용 전투 로그 (js/battlelog.js)
 
 /* ---------- 행동 ---------- */
 /* 비용: 레벨. 판 규칙(원정의 용 페로스)이 있으면 아이템은 0 */
@@ -661,7 +663,7 @@ function startMatch(cfg) {
   G = {
     mode: cfg.mode, turn: 1, attacker: (rand || Math.random)() < 0.5 ? 0 : 1, rand, online: cfg.mode === "online", me: cfg.me || 0, phase: "setup", log: [], sel: null, reg: {},
     fx: { dying: [] }, viewer: 0, control: null, speed: cfg.speed != null ? cfg.speed : Prefs.get("speed", 1), winner: null, reason: "",
-    onExit: cfg.onExit, cfg, players: null, ready: null, handoff: false, leave: {}, inspect: null, showLog: false,
+    onExit: cfg.onExit, cfg, players: null, ready: null, handoff: false, leave: {}, inspect: null, showLog: Prefs.get("logOpen", false) === true,
     econ: typeof newEcon === "function" ? newEcon() : null, rules: cfg.rules || {},
     vlog: (cfg.verify || cfg.keepLog) && !cfg.replay ? [] : null, broken: [], kills: [0, 0]   // v3.40 검산 기록 · 부서진 카드(서버 검산이 센다) · v3.46 keepLog: 다시보기 기록 · kills: 쓰러뜨린 유닛
   };
@@ -794,11 +796,11 @@ const Guide = {
     if (phase === "atkPrep" || phase === "defPrep") {
       const L = [];
       if (!this.on()) { if (this.tail() && crysLeft(p) > 0 && p.crystals.length < RULES.maxCrystals && p.hand.length) L.push({ key: "crys", sel: "#crys" + me, side: "right", pulse: true, title: "결정화", text: "이제 <b>결정화</b>할 수 있습니다. 핸드 1장을 빛나는 구슬에 <b>끌어다 놓으면</b> 결정이 되어 다음 턴부터 에테르가 1 늘어납니다. 카드를 고른 뒤 <b>C</b> 키를 눌러도 됩니다." }); return L; }
-      if (!this.seen.hand) L.push({ key: "hand", sel: ".hand-me", side: "top", title: "핸드", text: "카드를 <b>누르면</b> 상대 전장 오른쪽에 크게(설명까지) 보이고, <b>더블클릭</b>하면 전장에 올라갑니다. 카드 오른쪽 아래 세로 숫자는 위부터 공격 · 방어 · 체력. 그림 아래 글 상자 맨 위 줄의 <b>+</b>와 겹친 동전은 맞붙을 때마다 던지는 코인 — 동전 하나에 앞면이면 +1, <b>+2●</b>처럼 앞에 숫자가 있으면 앞면마다 그 값입니다(동전 수가 곧 코인 수). 공격·방어·체력에 동전이 하나씩 있으면 <b>동전 하나</b>를 던져 셋에 함께 붙습니다." });
       // v3.61.1 결정화 한도(crysBank)는 beginTurn에서 쌓이므로 첫 턴은 0, 2턴째부터 1장씩. 빛나는 구슬(pulse → .tut-pulse)로 놓을 곳을 보여 준다
       const canC = crysLeft(p) > 0 && p.crystals.length < RULES.maxCrystals;
       if (!this.seen.ether) { L.push({ key: "ether", sel: "#crys" + me, side: "right", pulse: true, title: "에테르 · 결정화", text: "카드를 내는 힘입니다. <b>레벨 N 카드 = 에테르 N</b>. 핸드 1장을 지금 빛나는 이 구슬에 <b>끌어다 놓으면</b> <b>결정</b>이 되어 매 턴 에테르가 1 늘어납니다. 바친 카드는 소각장으로 갑니다. " + (canC ? "지금 해 볼 수 있습니다." : "첫 턴에는 아직 못 하고, <b>2턴째부터</b> 할 수 있습니다.") + " (턴마다 1장씩, 안 하면 쌓여서 나중에 한꺼번에 해도 됩니다). 쓰지 않은 에테르는 다음 턴으로 넘어가지 않으니, 전투 때 <b>코인 뒤집기</b>에 쓰세요." }); if (canC) this.seen.crys = true; }
       else if (!this.seen.crys && canC && p.hand.length) L.push({ key: "crys", sel: "#crys" + me, side: "right", pulse: true, title: "결정화", text: "이제 <b>결정화</b>할 수 있습니다. 핸드 1장을 빛나는 구슬에 <b>끌어다 놓으면</b> 결정이 되어 다음 턴부터 에테르가 1 늘어납니다. 카드를 고른 뒤 <b>C</b> 키를 눌러도 됩니다." });
+      if (!this.seen.hand) L.push({ key: "hand", sel: ".hand-me", side: "top", title: "핸드", text: "카드를 <b>누르면</b> 상대 전장 오른쪽에 크게(설명까지) 보이고, <b>더블클릭</b>하면 전장에 올라갑니다. 카드 오른쪽 아래 세로 숫자는 위부터 공격 · 방어 · 체력. 그림 아래 글 상자 맨 위 줄의 <b>+</b>와 겹친 동전은 맞붙을 때마다 던지는 코인 — 동전 하나에 앞면이면 +1, <b>+2●</b>처럼 앞에 숫자가 있으면 앞면마다 그 값입니다(동전 수가 곧 코인 수). 공격·방어·체력에 동전이 하나씩 있으면 <b>동전 하나</b>를 던져 셋에 함께 붙습니다." });
       if (!this.seen.front) L.push({ key: "front", sel: `.frow-bot .slot[data-s="0"]`, side: "top", title: "맞붙는 순서", text: "내 유닛은 <b>1번 칸부터</b> 차례로 <b>상대의 맨 앞 유닛</b>과 맞붙습니다 (같은 번호끼리가 아닙니다). 피해 = 공격 − 방어. 체력이 0이 되면 쓰러지고, 남은 피해는 턴이 끝나면 낫습니다." });
       if (phase === "defPrep" && !this.seen.def) L.push({ key: "def", sel: ".frow-top .slots", side: "bottom", title: "방어", text: "상대의 배치가 보입니다. 상대 1번 칸 유닛이 내 맨 앞 유닛과 먼저 맞붙습니다. 막지 못한 공격은 생명으로 가지만, 대신 <b>다음 턴 에테르 +1</b>을 받습니다." });
       if (!this.seen.ready) L.push({ key: "ready", sel: ".ready-btn", side: "left", title: "준비 완료", text: "다 놓았으면 누르세요 (Enter). 양쪽이 준비를 마치면 전투가 자동으로 진행됩니다." });
@@ -1219,6 +1221,7 @@ function impOf(s) {
     const k = String(tg), c = cls || "", o = m[k] || (m[k] = { dmg: 0 });
     if (/\bdmg\b/.test(c)) { if (/치명/.test(text)) o.crit = true; else { const n = String(text).match(/(\d+)\s*$/); if (n) o.dmg += +n[1]; } }
     else if (/\b(miss|shield)\b/.test(c)) o.stopped = true;
+    if (/\bblock\b/.test(c)) o.guard = true;   // v3.62.1 보호막 · 가호가 막음(일부만 막혀 피해가 남아도 막는 빛을 보인다, js/impact.js guard)
   }
   const U = (s.snap && s.snap.units) || {};
   for (const k in m) {
@@ -1856,7 +1859,7 @@ function fieldCardHTML(it, p, s) {
   if (isUnit(it) && it.t) {
     if (it.t.shield) badges += `<span class="bd bd-sh" data-tip="◈ 보호막${it.t.shield === "half" ? " 코인" : ""}\n${esc(it.t.shield === "half" ? "이번 전투에서 처음 받는 피해의 절반(올림)을 막는다." : SPELL_KW["보호막"])}">${HOLY_SHIELD_ICO}</span>`;   // v3.57.5 코인 보호막은 절반 · v3.61.1 bd-sh: 검은 칩 없이 성스러운 방패 그림, 다른 표시보다 크게(css/battle-v19.css)
     if (it.t.taunt) badges += `<span class="bd bd-guard" data-tip="수호\n${esc(SPELL_KW["수호"])}">${statIco("d")}</span>`;
-    if (it.t.lock) badges += '<span class="bd bd-lock" data-tip="⚓ 저주 면역\n이번 턴 방어가 바뀌지 않는다 (피해는 받는다)">⚓</span>';
+    if (it.t.lock) badges += '<span class="bd bd-lock" data-tip="⚓ 저주 면역\n이번 턴 방어가 깎이지 않는다 (올리는 것은 붙음 · 피해는 받는다)">⚓</span>';
     if (it.t.thorns) badges += `<span class="bd bd-thorn" data-tip="${esc(`✶${it.t.thorns} 가시 ${it.t.thorns}\n${itemKwDesc("[가시 " + it.t.thorns + "]")}\n유닛 · 장착한 아이템 · 마법에서 받은 가시를 합친 값`)}">✶${it.t.thorns}</span>`;
     if (it.t.rest) badges += '<span class="bd bd-rest" data-tip="✖ 행동 불가\n이번 턴에는 공격하지 못한다">✖</span>';
     if (c.tok) badges += `<span class="bd bd-tok" data-tip="✧ 마법이 부른 유닛${it.tokTemp ? "\n이번 턴만 전장에 있다" : ""}">✧</span>`;
@@ -2323,14 +2326,41 @@ function placeFocus() {
 addEventListener("resize", () => {
   if (!(G && boardEl && document.body.contains(boardEl))) return;
   if (FX.swap != null && FX.swap !== wideBoard()) { render(); return; }   // v3.9.3: 760px 경계를 넘으면 왼쪽 열 배치가 바뀐다
-  placeFocus();
+  placeFocus(); placeLog();
   const z = $("#zoom"); if (z && !z.hidden) placeZoom(z);   // v3.9.8
 });
 /* v3.9.3: 넓은 화면이면 깃발 · 에테르를 전장 줄로, 소각장을 핸드 줄로 */
 function wideBoard() { return !window.matchMedia || matchMedia("(min-width: 761px)").matches; }
 
+/* v3.62.1 전투 기록: 판의 기록을 모두(G.log, 5000줄까지) 보여 주고 넘치면 스크롤. 펼쳤을 때만 줄을 그린다 */
+function logLinesHTML() { return G.log.map(l => `<div class="l ${l.cls}">${esc(l.text)}</div>`).join(""); }
+/* PC(넓은 화면 · 폰 아님)에서는 기록을 상대 핸드 오른쪽 ~ 상대 덱(과 생명) 왼쪽 틈에 붙여 둔다(.docked, css/style.css "전투 기록 자리").
+   접으면 머리 줄(마지막 기록 한 줄)만, 펼치면 가운데 띠 위까지 내려온다. 틈이 좁거나 폰 · 앱이면 예전처럼 오른쪽 서랍 */
+const LOGDOCK = { g: null, hr: null };
+function placeLog() {
+  const d = boardEl && boardEl.querySelector("#logdrawer"); if (!d) return;
+  const off = () => { if (d.classList.contains("docked")) { d.classList.remove("docked"); d.removeAttribute("style"); } };
+  const hand = boardEl.querySelector(".prow-top .hand-opp"), deck = boardEl.querySelector(".frow-top .zone.deck"),
+    info = boardEl.querySelector(".prow-top .pinfo"), mid = boardEl.querySelector(".midbar"), pb = d.offsetParent;
+  if (document.documentElement.classList.contains("mobile") || !wideBoard() || !hand || !deck || !mid || !pb) return off();
+  const hrc = hand.getBoundingClientRect(), wk = Math.round(hrc.left) + ":" + Math.round(hrc.width);
+  if (LOGDOCK.g !== G || LOGDOCK.wk !== wk) { LOGDOCK.g = G; LOGDOCK.wk = wk; LOGDOCK.hr = null; }   // 판이 바뀌거나 창 크기가 바뀌면 다시 잰다
+  const hc = [...hand.children].map(e => e.getBoundingClientRect()).filter(r => r.width > 0);
+  // 상대 핸드 오른쪽 끝: 이 판에서 본 가장 먼 끝을 쓴다(카드를 낼 때마다 기록 창이 들썩이지 않게). 아직 못 봤으면 핸드 칸의 80% 자리
+  const now = hc.length ? Math.max(...hc.map(r => r.right)) : null;
+  if (now != null) LOGDOCK.hr = Math.max(LOGDOCK.hr || 0, now);
+  const hr = LOGDOCK.hr != null ? LOGDOCK.hr : hrc.left + hrc.width * .8;
+  const o = pb.getBoundingClientRect();
+  const right = Math.min(deck.getBoundingClientRect().left, info ? info.getBoundingClientRect().left : Infinity) - 12;
+  const left = hr + 14, top = hrc.top + 2, bottom = mid.getBoundingClientRect().top - 8;
+  if (right - left < 200 || bottom - top < 120) return off();
+  d.classList.add("docked");
+  d.style.left = (left - o.left) + "px"; d.style.top = (top - o.top) + "px"; d.style.width = (right - left) + "px";
+  d.style.setProperty("--ld-h", (bottom - top) + "px");
+}
 function render() {
   if (!G || G.cfg.headless || !boardEl) return;
+  const logOld = $("#log"), logKeep = logOld && logOld.scrollHeight - logOld.scrollTop - logOld.clientHeight > 24 ? logOld.scrollTop : null;   // v3.62.1 기록을 올려 읽는 중이면 그 자리를 지킨다
   const me = G.players[G.viewer], them = opp(me);
   const key = G.viewer + "|" + (G.handoff ? 1 : 0);
   const animOK = !!(FX.last && FX.last.g === G && FX.last.key === key && G.speed !== 0 && !RM());
@@ -2376,10 +2406,11 @@ function render() {
   </div>
   ${G.rules.text ? `<div class="rule-chip" data-tip="${esc(`판 규칙 · ${G.rules.who || ""}\n${G.rules.text}`)}"><i>◆</i><b>${esc(G.rules.name)}</b><span>${esc(G.rules.text)}</span></div>` : ""}
   ${focusHTML(me, ctrl)}
-  <aside class="logdrawer${G.showLog ? " open" : ""}" id="logdrawer"><div class="ld-head"><b>전투 기록</b>${typeof BLog !== "undefined" ? BLog.btnsHTML() : ""}<button class="btn xs ghost" data-act="log">닫기</button></div>
-    <div class="log" id="log">${G.log.slice(-120).map(l => `<div class="l ${l.cls}">${esc(l.text)}</div>`).join("")}</div></aside>
+  <aside class="logdrawer${G.showLog ? " open" : ""}" id="logdrawer"><div class="ld-head"><button type="button" class="ld-fold" data-act="log" aria-expanded="${G.showLog}"><i class="ld-caret" aria-hidden="true">▸</i><b>전투 기록</b><span class="ld-last">${G.log.length ? esc(G.log[G.log.length - 1].text) : ""}</span></button>${typeof BLog !== "undefined" ? BLog.btnsHTML() : ""}<button class="btn xs ghost ld-close" data-act="log">닫기</button></div>
+    <div class="log" id="log">${G.showLog ? logLinesHTML() : ""}</div></aside>
   ${G.handoff ? `<div class="handoff" data-act="handoff"><div><p class="ho-eyebrow">PASS THE SCROLL</p><h2>${esc(me.name)}의 차례</h2><p>${G.phase === "atkPrep" ? "공격 준비" : "방어 준비"}를 할 차례입니다. 상대가 화면을 보지 않을 때 눌러 주세요.</p><button class="btn primary">핸드 펼치기</button></div></div>` : ""}`;
-  const lg_ = $("#log"); if (lg_) lg_.scrollTop = lg_.scrollHeight;
+  placeLog();   // 자리를 먼저 잡아야 스크롤 높이가 맞다
+  const lg_ = $("#log"); if (lg_) lg_.scrollTop = logKeep != null ? logKeep : lg_.scrollHeight;
   /* v3.32.1 폰 · 앱: 준비 완료 단추(+모래시계)를 가운데 띠에서 내 덱 왼쪽(f-piles)으로 옮긴다. 가운데 띠를 얇게 하고 그만큼 상대 전장 카드를 키운다(css/mobile.css) */
   if (swap && document.documentElement.classList.contains("appui")) { const rw = boardEl.querySelector(".mb-right .rd-wrap"), pl = boardEl.querySelector(".frow-bot .f-piles"); if (rw && pl) { rw.classList.add("rd-pile"); pl.prepend(rw); } }
   if (typeof Arcade !== "undefined" && !document.documentElement.classList.contains("mobile")) { Arcade.mount(boardEl); Arcade.place(boardEl); }   /* v3.20.5 폰 · 앱에서는 파친코 · 결정 상자를 두지 않는다 */
@@ -3658,7 +3689,14 @@ function onBoardClick(e) {
   if (act === "snd-sfx" && typeof BGM !== "undefined") { BGM.toggleSfx(); return; }
   if (act === "rules") { showRules(); return; }
   if (act === "surrender") { surrender(); return; }
-  if (act === "log") { G.showLog = !G.showLog; const d = $("#logdrawer"); if (d) d.classList.toggle("open", G.showLog); $$('[data-act="log"].tb-btn', boardEl).forEach(b => b.classList.toggle("on", G.showLog)); return; }
+  if (act === "log") {
+    G.showLog = !G.showLog; Prefs.set("logOpen", G.showLog);
+    const d = $("#logdrawer"); if (d) d.classList.toggle("open", G.showLog);
+    $$('[data-act="log"].tb-btn', boardEl).forEach(b => b.classList.toggle("on", G.showLog));
+    const f = $(".ld-fold", boardEl); if (f) f.setAttribute("aria-expanded", G.showLog);
+    const lg_ = $("#log"); if (lg_) { lg_.innerHTML = G.showLog ? logLinesHTML() : ""; lg_.scrollTop = lg_.scrollHeight; }   // v3.62.1 접어 둔 동안은 줄을 그리지 않는다
+    return;
+  }
   if (act === "do-cancel") { G.sel = null; G.inspect = null; render(); return; }
   // 상대 카드나 내 차례가 아닐 때 누른 전장 카드: 크게 보기
   if (act === "slot" && (!ctrl || +t.dataset.p !== me.idx)) {
