@@ -3,6 +3,11 @@
 버전마다 바뀐 것과 바뀐 파일을 적는다. 새 버전은 맨 위에 쓴다.
 맨 아래 `실행`·`v0.3`·`계정`·`덱`·`규칙`·`파일` 절은 v0.3 무렵의 설명을 그대로 남긴 것이라 지금과 다른 곳이 있다(예: 클래스는 v1.0에서 규칙에서 빠짐). 지금 상태는 `README.md`를 본다.
 
+## v3.58.1 — 카드 그림 7장(스페셜 G1 · G2 · G3, 에픽 A1 넷)
+바뀐 파일 새 `img/cards/SP-G1 · SP-G2 · SP-G3 · EP-A1-1 · EP-A1-2 · PI-A1 · US-A1-1.jpg`(600×750, `tools/art/artmap.py` 로 넣어 `img/cards/art_index.js` 에 올라감), `tools/art/art_map.csv` · `art_board.html`(장부), `index.html`(캐시 art_index ai581).
+- 그림: 잿갈기 카르노(SP-G1) · 은월 리시엘(SP-G2) · 물이 된 무녀(SP-G3) · 심연 칼날 무희(EP-A1-1) · 녹타르 처형대장(EP-A1-2) · 모르카스의 저울추(PI-A1) · 침묵의 저울(US-A1-1).
+- 사용자가 만든 그림. 크기 · 그림 목록 등록(`node --check` 포함)을 파일로 확인했고, 화면에서는 보지 않음.
+
 ## v3.58.0 — v3.56 덱 50장 마무리: 덱 40 → 50장 · 생명 40 → 50 기록, 이끼 트롤 체력 손질
 바뀐 파일 `tools/balance4/regrade_tune.json`(G2 −0.3 → −0.15), `js/rebalance.js`(`regrade.js --write`로 다시 씀), `tools/balance4/regrade_plan.json`, `index.html`(캐시 rebalance rb580)
 - **v3.56(ffa2234에 이미 들어감, 여기 처음 적음)**: 덱 40 → 50장, 시작 생명 · 회복 상한 40 → 50(`js/cards.js` `RULES`). 기본 덱 · 어려움 정예 덱은 장수마다 ×1.25(`js/decks.js`). 늘어난 카드는 `DECK50_ADD` — 예전 모험가에게 한 번 보유에 더하고 40장 덱 · 초안을 50장으로 채운다(`js/economy.js` `Store.deck50`, `u.deck50`). 새 모험가는 처음부터 50장.
