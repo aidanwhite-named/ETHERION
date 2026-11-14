@@ -1,4 +1,4 @@
-# 에픽 (Epic) — 카드 일러스트 프롬프트 (61장, 버전 g2)
+# 에픽 (Epic) — 카드 일러스트 프롬프트 (61장, 버전 g3)
 
 > 영웅 · 괴물 · 초월자의 유물. 영화의 한 장면처럼 크고 강하다. 낮은 광각, 빛줄기, 날씨와 전장의 이야기, 보랏빛 비술 알갱이.
 
@@ -10,7 +10,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom.
 Background: rich environmental storytelling: {landmark}; weather (storm, ash, spray, wind) and deep atmosphere.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura.
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 ```
 
@@ -33,7 +34,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -58,7 +60,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -83,7 +86,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -109,7 +113,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -134,7 +139,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -159,7 +165,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -184,7 +191,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; weather (storm, ash, spray, wind) and deep atmosphere; pale gold radiance, halo, feathers of light.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -209,7 +217,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; weather (storm, ash, spray, wind) and deep atmosphere; pale gold radiance, halo, feathers of light.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -235,7 +244,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; weather (storm, ash, spray, wind) and deep atmosphere; pale gold radiance, halo, feathers of light.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -260,7 +270,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; weather (storm, ash, spray, wind) and deep atmosphere; pale gold radiance, halo, feathers of light.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -286,7 +297,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; weather (storm, ash, spray, wind) and deep atmosphere; pale gold radiance, halo, feathers of light.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -311,7 +323,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; weather (storm, ash, spray, wind) and deep atmosphere; pale gold radiance, halo, feathers of light.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -336,7 +349,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; weather (storm, ash, spray, wind) and deep atmosphere; pale gold radiance, halo, feathers of light.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -361,7 +375,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Belumir's Needle piercing the clouds under a night sky full of stars; weather (storm, ash, spray, wind) and deep atmosphere; swirling teal wind, fluttering robes and pages.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -386,7 +401,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Belumir's Needle piercing the clouds under a night sky full of stars; weather (storm, ash, spray, wind) and deep atmosphere; swirling teal wind, fluttering robes and pages.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -412,7 +428,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Belumir's Needle piercing the clouds under a night sky full of stars; weather (storm, ash, spray, wind) and deep atmosphere; swirling teal wind, fluttering robes and pages.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -437,7 +454,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Belumir's Needle piercing the clouds under a night sky full of stars; weather (storm, ash, spray, wind) and deep atmosphere; swirling teal wind, fluttering robes and pages.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -463,7 +481,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Belumir's Needle piercing the clouds under a night sky full of stars; weather (storm, ash, spray, wind) and deep atmosphere; swirling teal wind, fluttering robes and pages.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -483,12 +502,13 @@ Subject: an elite, commanding member of the Storm High Elves — a spellcaster c
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 별의 문자를 해독한 이사크에게 처음 배운 하이엘프. 스승이 승천한 뒤에도 같은 자리에서 별을 읽는다.
+Lore (Korean, use for the scene): 별의 문자를 해독한 이사크에게 처음 배운 하이엘프. 스승이 별 사이로 떠난 뒤에도 같은 자리에서 별을 읽는다.
 Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Belumir's Needle piercing the clouds under a night sky full of stars; weather (storm, ash, spray, wind) and deep atmosphere; swirling teal wind, fluttering robes and pages.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -513,7 +533,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Belumir's Needle piercing the clouds under a night sky full of stars; weather (storm, ash, spray, wind) and deep atmosphere; swirling teal wind, fluttering robes and pages.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -538,7 +559,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: Fortan's chimneys and gun bastions on volcanic slopes, the Crown range volcanoes glowing beyond; weather (storm, ash, spray, wind) and deep atmosphere; embers, flame light, gunpowder smoke.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -563,7 +585,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: Fortan's chimneys and gun bastions on volcanic slopes, the Crown range volcanoes glowing beyond; weather (storm, ash, spray, wind) and deep atmosphere; embers, flame light, gunpowder smoke.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -589,7 +612,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: Fortan's chimneys and gun bastions on volcanic slopes, the Crown range volcanoes glowing beyond; weather (storm, ash, spray, wind) and deep atmosphere; embers, flame light, gunpowder smoke.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -614,7 +638,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: Fortan's chimneys and gun bastions on volcanic slopes, the Crown range volcanoes glowing beyond; weather (storm, ash, spray, wind) and deep atmosphere; embers, flame light, gunpowder smoke.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -639,7 +664,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: Fortan's chimneys and gun bastions on volcanic slopes, the Crown range volcanoes glowing beyond; weather (storm, ash, spray, wind) and deep atmosphere; embers, flame light, gunpowder smoke.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -665,7 +691,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: Fortan's chimneys and gun bastions on volcanic slopes, the Crown range volcanoes glowing beyond; weather (storm, ash, spray, wind) and deep atmosphere; embers, flame light, gunpowder smoke.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -690,7 +717,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: Fortan's chimneys and gun bastions on volcanic slopes, the Crown range volcanoes glowing beyond; weather (storm, ash, spray, wind) and deep atmosphere; embers, flame light, gunpowder smoke.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -715,7 +743,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal underground halls of Durkheim with lava channels, mine shafts and iron gates, glowing ore veins like sinews in the rock; weather (storm, ash, spray, wind) and deep atmosphere; cold steel sheen, sparks from an anvil, rivets.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -740,7 +769,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal underground halls of Durkheim with lava channels, mine shafts and iron gates, glowing ore veins like sinews in the rock; weather (storm, ash, spray, wind) and deep atmosphere; cold steel sheen, sparks from an anvil, rivets.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -766,7 +796,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal underground halls of Durkheim with lava channels, mine shafts and iron gates, glowing ore veins like sinews in the rock; weather (storm, ash, spray, wind) and deep atmosphere; cold steel sheen, sparks from an anvil, rivets.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -791,7 +822,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal underground halls of Durkheim with lava channels, mine shafts and iron gates, glowing ore veins like sinews in the rock; weather (storm, ash, spray, wind) and deep atmosphere; cold steel sheen, sparks from an anvil, rivets.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -817,7 +849,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal underground halls of Durkheim with lava channels, mine shafts and iron gates, glowing ore veins like sinews in the rock; weather (storm, ash, spray, wind) and deep atmosphere; cold steel sheen, sparks from an anvil, rivets.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -842,7 +875,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal underground halls of Durkheim with lava channels, mine shafts and iron gates, glowing ore veins like sinews in the rock; weather (storm, ash, spray, wind) and deep atmosphere; cold steel sheen, sparks from an anvil, rivets.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -867,7 +901,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal underground halls of Durkheim with lava channels, mine shafts and iron gates, glowing ore veins like sinews in the rock; weather (storm, ash, spray, wind) and deep atmosphere; cold steel sheen, sparks from an anvil, rivets.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -892,7 +927,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spiked lightning-rod towers of Voltarium crowned by a lightning storm; weather (storm, ash, spray, wind) and deep atmosphere; crackling electric arcs, glowing coils.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -917,7 +953,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spiked lightning-rod towers of Voltarium crowned by a lightning storm; weather (storm, ash, spray, wind) and deep atmosphere; crackling electric arcs, glowing coils.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -943,7 +980,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spiked lightning-rod towers of Voltarium crowned by a lightning storm; weather (storm, ash, spray, wind) and deep atmosphere; crackling electric arcs, glowing coils.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -968,7 +1006,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spiked lightning-rod towers of Voltarium crowned by a lightning storm; weather (storm, ash, spray, wind) and deep atmosphere; crackling electric arcs, glowing coils.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -994,7 +1033,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spiked lightning-rod towers of Voltarium crowned by a lightning storm; weather (storm, ash, spray, wind) and deep atmosphere; crackling electric arcs, glowing coils.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1019,7 +1059,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spiked lightning-rod towers of Voltarium crowned by a lightning storm; weather (storm, ash, spray, wind) and deep atmosphere; crackling electric arcs, glowing coils.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1044,7 +1085,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spiked lightning-rod towers of Voltarium crowned by a lightning storm; weather (storm, ash, spray, wind) and deep atmosphere; crackling electric arcs, glowing coils.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1069,7 +1111,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; weather (storm, ash, spray, wind) and deep atmosphere; flying rock dust, cracked ground, ochre light.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1089,13 +1132,14 @@ Subject: attack spell — the instant of impact: aggressive diagonal composition
 Scale (level 3 of 8): an effect over a few targets.
 Banner — Rockfist Orcs: magic of rockfist orcs, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 가르운의 오크는 가장 센 자에게 먼저 칼을 던진다. 잿갈기 카르노가 백 번을 그렇게 했다.
+Lore (Korean, use for the scene): 가르운의 오크는 가장 센 자에게 먼저 칼을 던진다. 잿갈기 카르노가 백 번의 결투로 남긴 법이다.
 Game effect (Korean, mood only — never draw text or numbers): 아군 맨 앞 유닛 공격 +4. 그 유닛이 상대 유닛 중 공격이 가장 높은 1기를 먼저 친다(물리 피해). 그 유닛이 살아남으면 되친다.
 Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; weather (storm, ash, spray, wind) and deep atmosphere; flying rock dust, cracked ground, ochre light.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1120,7 +1164,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; weather (storm, ash, spray, wind) and deep atmosphere; flying rock dust, cracked ground, ochre light.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1145,7 +1190,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; weather (storm, ash, spray, wind) and deep atmosphere; flying rock dust, cracked ground, ochre light.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1171,7 +1217,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; weather (storm, ash, spray, wind) and deep atmosphere; flying rock dust, cracked ground, ochre light.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1196,7 +1243,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; weather (storm, ash, spray, wind) and deep atmosphere; flying rock dust, cracked ground, ochre light.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1221,7 +1269,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; weather (storm, ash, spray, wind) and deep atmosphere; flying rock dust, cracked ground, ochre light.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1246,7 +1295,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; weather (storm, ash, spray, wind) and deep atmosphere; glowing moss, thorny vines, drifting leaves.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1272,7 +1322,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; weather (storm, ash, spray, wind) and deep atmosphere; glowing moss, thorny vines, drifting leaves.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1298,7 +1349,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; weather (storm, ash, spray, wind) and deep atmosphere; glowing moss, thorny vines, drifting leaves.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1323,7 +1375,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; weather (storm, ash, spray, wind) and deep atmosphere; glowing moss, thorny vines, drifting leaves.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1348,7 +1401,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; weather (storm, ash, spray, wind) and deep atmosphere; glowing moss, thorny vines, drifting leaves.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1373,7 +1427,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; weather (storm, ash, spray, wind) and deep atmosphere; glowing moss, thorny vines, drifting leaves.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1398,7 +1453,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; weather (storm, ash, spray, wind) and deep atmosphere; glowing moss, thorny vines, drifting leaves.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1423,7 +1479,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; weather (storm, ash, spray, wind) and deep atmosphere; clear water light, spray, ripples, bubbles.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1449,7 +1506,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; weather (storm, ash, spray, wind) and deep atmosphere; clear water light, spray, ripples, bubbles.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1474,7 +1532,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; weather (storm, ash, spray, wind) and deep atmosphere; clear water light, spray, ripples, bubbles.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1499,7 +1558,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; weather (storm, ash, spray, wind) and deep atmosphere; clear water light, spray, ripples, bubbles.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1525,7 +1585,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; weather (storm, ash, spray, wind) and deep atmosphere; clear water light, spray, ripples, bubbles.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1550,7 +1611,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; weather (storm, ash, spray, wind) and deep atmosphere; clear water light, spray, ripples, bubbles.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.

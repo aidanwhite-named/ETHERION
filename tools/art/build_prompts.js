@@ -95,6 +95,8 @@ function subjectOf(c, F, G, D) {
   const el = S.elements[c.el] || S.elements.dark;
   if (c.type === "unit") {
     if (isToken(c)) return `a summoned creature or construct of the ${F.en}: ${G.unit}`;
+    /* v3.59 스페셜은 깃발마다 하나뿐인 신화적 존재 — 깃발의 평범한 구성원으로 그리지 않는다 */
+    if (c.special) return `a one-of-a-kind mythic being who stands above the ${F.en}${NOTES[c.id] ? " (see art direction)" : ""}. ${G.unit || "A one-of-a-kind mythic being"}`;
     const rank = c.special ? "a mythic, ascended" : c.unique ? "a legendary, named" : c.lv >= 7 ? "a legendary, awe-inspiring" : c.lv >= 5 ? "an elite, commanding" : c.lv >= 3 ? "a seasoned, battle-hardened" : "a low-ranking, ordinary";
     const baseCard = c.base && D.CARDS[c.base];
     const clKey = c.cl || (baseCard && baseCard.cl) || "";
@@ -148,6 +150,8 @@ function promptOf(c, D) {
   L.push(`Scale (level ${c.lv} of 8): ${levelText(c)}.`);
   if (isToken(c))
     L.push(`Banner — summoned by the ${F.en}; signature motifs: ${F.motifs}; palette: ${F.palette}.`);
+  else if (c.type === "unit" && gk === "special")   // v3.59 스페셜: 깃발은 원소 · 색 · 재료 · 상징으로만, 종족의 몸(who · silhouette)은 넣지 않는다
+    L.push(`Banner it stands above — ${F.en}: show the banner only through element, palette and a few material or motif accents; do NOT draw an ordinary member of the ${F.en} — this being is one of a kind. Palette: ${F.palette}. Accents to borrow from: ${F.materials}; ${F.motifs}.`);
   else if (c.type === "unit" || c.type === "item")
     L.push(`Banner — ${F.en}: ${F.who}. Silhouette: ${F.silhouette}. Materials: ${F.materials}. Signature motifs: ${F.motifs}.`);
   else
@@ -161,8 +165,15 @@ function promptOf(c, D) {
     `Background: very dark night-blue (#07080d) base; ${fill(G.background, F, c)}; ${el.cue}.`,
     `Detail: ${G.detail}.`
   );
-  if (G.accent) L.push(`Grade accent: ${G.accent} — ${S.accentRule}.`);
-  L.push(`Mood: ${G.mood}.`, `Stay true to the banner: ${F.never}.`, S.composition, S.notext, S.avoid);
+  /* v3.59 화려함 사다리: 등급마다 한 단계씩 더 화려하게(spectacle), 스페셜은 존재를 반쯤 가려 상상하게 하는 기법도(technique) */
+  if (G.spectacle) L.push(`Spectacle: ${G.spectacle}. ${S.spectacleRule || ""}`.trim());
+  if (G.technique && c.type === "unit") L.push(`Presence technique (allowed): ${G.technique}.`);
+  if (G.accent) L.push(`Grade accent: ${G.accent} — ${S.accentRule.replace("{share}", G.accentShare || "15%")}.`);
+  L.push(`Mood: ${G.mood}.`);
+  L.push(gk === "special" && c.type === "unit"
+    ? `Stay true to the banner's identity: ${F.never}; the golden rune rings and divine light are this grade's mythic mark, not banner spellcasting.`
+    : `Stay true to the banner: ${F.never}.`);
+  L.push(S.composition, S.notext, S.avoid);
   return L.join("\n");
 }
 
@@ -184,7 +195,9 @@ function autoBlocks(jobs, D) {
 
   B.GRADES = S.gradeOrder.map(g => {
     const G = S.grades[g];
-    const rows = [["존재감 presence", G.presence], ["카메라 camera", G.camera], ["빛 lighting", G.lighting], ["배경 background", G.background], ["디테일 detail", G.detail], ["등급 강조색 accent", G.accent || "없음 — 원소색만"], ["분위기 mood", G.mood]];
+    const rows = [["존재감 presence", G.presence], ["카메라 camera", G.camera], ["빛 lighting", G.lighting], ["배경 background", G.background], ["디테일 detail", G.detail],
+      ["화려함 spectacle", G.spectacle || ""], ["등급 강조색 accent", G.accent ? `${G.accent} (빛의 약 ${G.accentShare || "15%"})` : "없음 — 원소색만"], ["분위기 mood", G.mood]];
+    if (G.technique) rows.push(["존재감 기법 technique (유닛)", G.technique]);
     if (G.spell) rows.push(["마법이면 spell", G.spell]);
     if (G.item) rows.push(["아이템이면 item", G.item]);
     if (G.reference) rows.push(["참고 그림 reference", G.reference]);
@@ -272,7 +285,8 @@ function main() {
       `> ${G.idea_ko}`, "",
       "## 이 등급의 연출 틀", "", "```",
       `Grade: ${G.tag}. ${G.presence}.`, `Camera: ${G.camera}.`, `Lighting: ${G.lighting}.`, `Background: ${G.background}.`,
-      `Detail: ${G.detail}.`, G.accent ? `Grade accent: ${G.accent}.` : "Grade accent: none (element colour only).", `Mood: ${G.mood}.`,
+      `Detail: ${G.detail}.`, ...(G.spectacle ? [`Spectacle: ${G.spectacle}.`] : []), ...(G.technique ? [`Presence technique (allowed, units): ${G.technique}.`] : []),
+      G.accent ? `Grade accent: ${G.accent} (about ${G.accentShare || "15%"} of the light).` : "Grade accent: none (element colour only).", `Mood: ${G.mood}.`,
       "```", "", "아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다. 그대로 붙여 넣으면 된다.", ""];
     for (const j of list.slice().sort((a, b) => a.group.localeCompare(b.group) || a.lv - b.lv || a.id.localeCompare(b.id))) md.push(cardMd(j));
     fs.writeFileSync(path.join(OUT, "grades", g + ".md"), md.join("\n"));

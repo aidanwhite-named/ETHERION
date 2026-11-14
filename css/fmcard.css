@@ -239,3 +239,35 @@ html.mobile .hand-me .card.fm.slim .c-cls { font-size: .66em; }
 .slot .card.fm .c-boxin:has(> .c-equip) > .c-chips, .slot .card.fm .c-boxin:has(> .c-equip) > .c-equip { display: contents; }
 .slot .card.fm .c-boxin:has(> .c-equip) > :not(.c-chips):not(.c-equip):not(.c-coinline) { flex: 1 0 100%; }
 .slot .card.fm .c-boxin:has(> .c-equip) > .c-coinline { flex: none; margin-right: .15em; }
+
+/* ---- v3.59 스페셜 광휘 (js/view.js specialFxHTML, 가이드 3.4) ----
+   스페셜은 진홍 등급 테두리에 더해 그림 자리를 꾸민다: 금 · 진홍 두 겹 안쪽 액자 + 네 모서리 금 장식(진홍 보석) + 그림 위로 천천히 떠오르는 금 · 진홍 · 에테르빛 불티.
+   불티는 transform만 움직여(폰에서도 그대로 — tools/mobile_lite.js가 멈추지 않음) 가볍다. 누르는 것은 막지 않는다(pointer-events none). */
+.c-art .c-spfx { position: absolute; inset: 0; z-index: 2; pointer-events: none; border-radius: inherit; overflow: hidden; font-style: normal;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath d='M2.4 27V9.2Q2.4 2.4 9.2 2.4H27' fill='none' stroke='%23f6d98e' stroke-width='1.7' stroke-linecap='round'/%3E%3Cpath d='M6.2 24V11.6Q6.2 6.2 11.6 6.2H24' fill='none' stroke='%23f6d98e' stroke-width='.75' stroke-opacity='.6' stroke-linecap='round'/%3E%3Cpath d='M27 .6 28.9 2.4 27 4.2 25.1 2.4zM2.4 25.1 4.2 27 2.4 28.9 .6 27z' fill='%23f6d98e'/%3E%3Ccircle cx='9' cy='9' r='2.5' fill='%23ff4d73' stroke='%23ffe6ad' stroke-width='.7'/%3E%3Ccircle cx='8.3' cy='8.2' r='.8' fill='%23ffd6e0'/%3E%3C/svg%3E") left .12em top .12em / 1.55em 1.55em no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cg transform='translate(30 0) scale(-1 1)'%3E%3Cpath d='M2.4 27V9.2Q2.4 2.4 9.2 2.4H27' fill='none' stroke='%23f6d98e' stroke-width='1.7' stroke-linecap='round'/%3E%3Cpath d='M6.2 24V11.6Q6.2 6.2 11.6 6.2H24' fill='none' stroke='%23f6d98e' stroke-width='.75' stroke-opacity='.6' stroke-linecap='round'/%3E%3Cpath d='M27 .6 28.9 2.4 27 4.2 25.1 2.4zM2.4 25.1 4.2 27 2.4 28.9 .6 27z' fill='%23f6d98e'/%3E%3Ccircle cx='9' cy='9' r='2.5' fill='%23ff4d73' stroke='%23ffe6ad' stroke-width='.7'/%3E%3Ccircle cx='8.3' cy='8.2' r='.8' fill='%23ffd6e0'/%3E%3C/g%3E%3C/svg%3E") right .12em top .12em / 1.55em 1.55em no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cg transform='translate(0 30) scale(1 -1)'%3E%3Cpath d='M2.4 27V9.2Q2.4 2.4 9.2 2.4H27' fill='none' stroke='%23f6d98e' stroke-width='1.7' stroke-linecap='round'/%3E%3Cpath d='M6.2 24V11.6Q6.2 6.2 11.6 6.2H24' fill='none' stroke='%23f6d98e' stroke-width='.75' stroke-opacity='.6' stroke-linecap='round'/%3E%3Cpath d='M27 .6 28.9 2.4 27 4.2 25.1 2.4zM2.4 25.1 4.2 27 2.4 28.9 .6 27z' fill='%23f6d98e'/%3E%3Ccircle cx='9' cy='9' r='2.5' fill='%23ff4d73' stroke='%23ffe6ad' stroke-width='.7'/%3E%3Ccircle cx='8.3' cy='8.2' r='.8' fill='%23ffd6e0'/%3E%3C/g%3E%3C/svg%3E") left .12em bottom .12em / 1.55em 1.55em no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cg transform='translate(30 30) scale(-1 -1)'%3E%3Cpath d='M2.4 27V9.2Q2.4 2.4 9.2 2.4H27' fill='none' stroke='%23f6d98e' stroke-width='1.7' stroke-linecap='round'/%3E%3Cpath d='M6.2 24V11.6Q6.2 6.2 11.6 6.2H24' fill='none' stroke='%23f6d98e' stroke-width='.75' stroke-opacity='.6' stroke-linecap='round'/%3E%3Cpath d='M27 .6 28.9 2.4 27 4.2 25.1 2.4zM2.4 25.1 4.2 27 2.4 28.9 .6 27z' fill='%23f6d98e'/%3E%3Ccircle cx='9' cy='9' r='2.5' fill='%23ff4d73' stroke='%23ffe6ad' stroke-width='.7'/%3E%3Ccircle cx='8.3' cy='8.2' r='.8' fill='%23ffd6e0'/%3E%3C/g%3E%3C/svg%3E") right .12em bottom .12em / 1.55em 1.55em no-repeat;
+  box-shadow: inset 0 0 0 .07em rgba(246, 217, 142, .9), inset 0 0 0 .17em rgba(255, 77, 115, .5), inset 0 0 1.1em rgba(255, 77, 115, .3); }
+.card.size-full .c-art .c-spfx { background-size: 2.9em 2.9em; background-position: left .25em top .25em, right .25em top .25em, left .25em bottom .25em, right .25em bottom .25em;
+  box-shadow: inset 0 0 0 .1em rgba(246, 217, 142, .9), inset 0 0 0 .26em rgba(255, 77, 115, .5), inset 0 0 2.2em rgba(255, 77, 115, .3); }
+/* 불티 두 겹: 그림 높이의 두 배 판에 그림 한 장 크기의 무늬를 세로로 되풀이해 두고, 한 무늬만큼 올리면 이음매 없이 이어진다 */
+.c-art .c-spfx::before, .c-art .c-spfx::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 200%; background-repeat: repeat; background-size: 100% 50%;
+  animation: spRise 9s linear infinite; will-change: transform; }
+.c-art .c-spfx::before {
+  background-image: radial-gradient(circle at 14% 78%, #fff1c4 0 .11em, rgba(255, 205, 110, .5) .16em, transparent .3em),
+    radial-gradient(circle at 37% 34%, #ffe3a0 0 .09em, rgba(255, 190, 90, .45) .14em, transparent .26em),
+    radial-gradient(circle at 63% 88%, #fff1c4 0 .1em, rgba(255, 205, 110, .5) .15em, transparent .28em),
+    radial-gradient(circle at 82% 46%, #ffe3a0 0 .12em, rgba(255, 190, 90, .5) .17em, transparent .32em),
+    radial-gradient(circle at 51% 9%, #fff1c4 0 .08em, rgba(255, 205, 110, .4) .13em, transparent .24em),
+    radial-gradient(circle at 26% 52%, #ffd27a 0 .07em, transparent .2em); }
+.c-art .c-spfx::after { animation-duration: 13s; animation-delay: -5s;
+  background-image: radial-gradient(circle at 22% 22%, #ff8fa6 0 .1em, rgba(255, 77, 115, .55) .15em, transparent .3em),
+    radial-gradient(circle at 71% 64%, #ff8fa6 0 .12em, rgba(255, 77, 115, .55) .17em, transparent .32em),
+    radial-gradient(circle at 46% 70%, #c9f1ff 0 .08em, rgba(143, 220, 255, .5) .13em, transparent .25em),
+    radial-gradient(circle at 90% 14%, #ff8fa6 0 .09em, rgba(255, 77, 115, .5) .14em, transparent .27em),
+    radial-gradient(circle at 8% 40%, #c9f1ff 0 .07em, rgba(143, 220, 255, .45) .12em, transparent .22em); }
+@keyframes spRise { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+/* 이름도 금빛 + 진홍 기운 (강화 카드의 청록 이름처럼) */
+.card.fm.grade-special .c-head .c-name { color: #ffe9bf; text-shadow: 0 .06em .1em #000, 0 0 .45em rgba(255, 77, 115, .6); }
+@media (prefers-reduced-motion: reduce) { .c-art .c-spfx::before, .c-art .c-spfx::after { animation: none; } }

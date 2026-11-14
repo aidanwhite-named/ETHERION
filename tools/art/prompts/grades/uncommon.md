@@ -1,4 +1,4 @@
-# 고급 (Superior) — 카드 일러스트 프롬프트 (125장, 버전 g2)
+# 고급 (Superior) — 카드 일러스트 프롬프트 (125장, 버전 g3)
 
 > 검증된 베테랑 · 잘 만든 물건. 일반보다 장비가 좋고 자세가 자신 있다. 고향의 한 조각이 흐릿하게 보이고, 장식 끝에 따뜻한 금빛이 조금.
 
@@ -10,7 +10,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges.
 Background: a recognisable slice of the banner's home ({home}) with atmosphere and depth, softly focused, light atmospheric particles.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges.
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges (about 5% of the light).
 Mood: proven, capable, confident.
 ```
 
@@ -32,7 +33,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -56,7 +58,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -80,7 +83,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -106,7 +110,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -131,7 +136,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -156,7 +162,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -181,7 +188,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -206,7 +214,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -231,7 +240,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -255,7 +265,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -280,7 +291,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -304,7 +316,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -328,7 +341,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -352,7 +366,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -376,7 +391,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -401,7 +417,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -425,7 +442,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -451,7 +469,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -476,7 +495,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -502,7 +522,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -526,7 +547,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -551,7 +573,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -575,7 +598,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -600,7 +624,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -624,7 +649,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -648,7 +674,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -672,7 +699,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -696,7 +724,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -720,7 +749,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -746,7 +776,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -771,7 +802,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -796,7 +828,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -820,7 +853,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -845,7 +879,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -870,7 +905,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -894,7 +930,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -919,7 +956,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -943,7 +981,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -968,7 +1007,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -993,7 +1033,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1017,7 +1058,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1041,7 +1083,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1065,7 +1108,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1089,7 +1133,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1114,7 +1159,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1138,7 +1184,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1164,7 +1211,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1189,7 +1237,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1213,7 +1262,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1238,7 +1288,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1264,7 +1315,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1289,7 +1341,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1313,7 +1366,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1338,7 +1392,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1362,7 +1417,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1386,7 +1442,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1410,7 +1467,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the underground forge-city of Durkheim) with atmosphere and depth, softly focused, light atmospheric particles; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1434,7 +1492,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the underground forge-city of Durkheim) with atmosphere and depth, softly focused, light atmospheric particles; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1460,7 +1519,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the underground forge-city of Durkheim) with atmosphere and depth, softly focused, light atmospheric particles; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1485,7 +1545,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the underground forge-city of Durkheim) with atmosphere and depth, softly focused, light atmospheric particles; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1509,7 +1570,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the underground forge-city of Durkheim) with atmosphere and depth, softly focused, light atmospheric particles; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1534,7 +1596,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the underground forge-city of Durkheim) with atmosphere and depth, softly focused, light atmospheric particles; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1558,7 +1621,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the underground forge-city of Durkheim) with atmosphere and depth, softly focused, light atmospheric particles; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1583,7 +1647,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the underground forge-city of Durkheim) with atmosphere and depth, softly focused, light atmospheric particles; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1608,7 +1673,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the underground forge-city of Durkheim) with atmosphere and depth, softly focused, light atmospheric particles; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1633,7 +1699,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the underground forge-city of Durkheim) with atmosphere and depth, softly focused, light atmospheric particles; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1657,7 +1724,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the underground forge-city of Durkheim) with atmosphere and depth, softly focused, light atmospheric particles; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1681,7 +1749,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1705,7 +1774,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1731,7 +1801,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1756,7 +1827,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1781,7 +1853,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1806,7 +1879,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1830,7 +1904,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1855,7 +1930,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1879,7 +1955,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1903,7 +1980,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1927,7 +2005,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1951,7 +2030,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1975,7 +2055,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1999,7 +2080,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2025,7 +2107,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2049,7 +2132,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2074,7 +2158,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2099,7 +2184,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2123,7 +2209,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2148,7 +2235,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2172,7 +2260,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2197,7 +2286,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2221,7 +2311,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2246,7 +2337,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2270,7 +2362,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2295,7 +2388,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2319,7 +2413,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2343,7 +2438,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2367,7 +2463,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2392,7 +2489,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2418,7 +2516,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2443,7 +2542,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2469,7 +2569,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2493,7 +2594,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2518,7 +2620,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2543,7 +2646,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2568,7 +2672,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2593,7 +2698,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2617,7 +2723,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2642,7 +2749,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2667,7 +2775,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2692,7 +2801,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2716,7 +2826,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2741,7 +2852,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2765,7 +2877,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2789,7 +2902,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2813,7 +2927,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2839,7 +2954,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2863,7 +2979,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2888,7 +3005,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2913,7 +3031,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2937,7 +3056,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2961,7 +3081,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2986,7 +3107,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3010,7 +3132,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3035,7 +3158,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3060,7 +3184,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3084,7 +3209,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.

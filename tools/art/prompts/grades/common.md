@@ -1,4 +1,4 @@
-# 일반 (Common) — 카드 일러스트 프롬프트 (385장, 버전 g2)
+# 일반 (Common) — 카드 일러스트 프롬프트 (385장, 버전 g3)
 
 > 그 깃발의 평범한 구성원 · 흔한 마법 · 손때 묻은 물건. 완성도는 다른 등급과 같다 — 얼굴 · 손 · 재질 · 빛을 공들여 그리고, 성격이 보이는 표정과 분명한 동작, 그 깃발 세상의 한 구석이 실제로 보이는 배경. 다른 점은 규모뿐: 몸집이 작고, 배경이 가깝고 아담하며, 신비한 장식 · 등급 강조색이 없다.
 
@@ -10,6 +10,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast.
 Background: an intimate, painted corner of the banner's world ({hint}) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles.
 Grade accent: none (element colour only).
 Mood: lively, honest, frontline.
 ```
@@ -32,6 +33,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -55,6 +57,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -78,6 +81,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -101,6 +105,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -124,6 +129,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -147,6 +153,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -170,6 +177,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -193,6 +201,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -217,6 +226,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -241,6 +251,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -265,6 +276,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -289,6 +301,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -313,6 +326,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -337,6 +351,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -361,6 +376,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -385,6 +401,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -409,6 +426,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -433,6 +451,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -456,6 +475,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -479,6 +499,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -502,6 +523,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -526,6 +548,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -550,6 +573,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -574,6 +598,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -599,6 +624,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -624,6 +650,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -648,6 +675,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -671,6 +699,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -694,6 +723,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -717,6 +747,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -740,6 +771,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -764,6 +796,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -788,6 +821,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -812,6 +846,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -835,6 +870,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -858,6 +894,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -882,6 +919,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -906,6 +944,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -929,6 +968,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -952,6 +992,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -975,6 +1016,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -998,6 +1040,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1022,6 +1065,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1045,6 +1089,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1069,6 +1114,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1092,6 +1138,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1115,6 +1162,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1138,6 +1186,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1161,6 +1210,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1184,6 +1234,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1207,6 +1258,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1230,6 +1282,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1254,6 +1307,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1278,6 +1332,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1302,6 +1357,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1326,6 +1382,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1350,6 +1407,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1374,6 +1432,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1398,6 +1457,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1421,6 +1481,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1444,6 +1505,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1467,6 +1529,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1491,6 +1554,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1515,6 +1579,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1540,6 +1605,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1564,6 +1630,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1587,6 +1654,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1610,6 +1678,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1633,6 +1702,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1656,6 +1726,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1680,6 +1751,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1704,6 +1776,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1728,6 +1801,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1752,6 +1826,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1776,6 +1851,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1799,6 +1875,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1822,6 +1899,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1846,6 +1924,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1870,6 +1949,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1893,6 +1973,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1916,6 +1997,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1939,6 +2021,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1963,6 +2046,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1986,6 +2070,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2009,6 +2094,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2033,6 +2119,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2056,6 +2143,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2079,6 +2167,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2102,6 +2191,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2125,6 +2215,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2148,6 +2239,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2172,6 +2264,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2196,6 +2289,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2221,6 +2315,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2245,6 +2340,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2268,6 +2364,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2291,6 +2388,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2314,6 +2412,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2337,6 +2436,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2361,6 +2461,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2385,6 +2486,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2409,6 +2511,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2433,6 +2536,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2457,6 +2561,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2481,6 +2586,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2506,6 +2612,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2530,6 +2637,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2553,6 +2661,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2576,6 +2685,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2599,6 +2709,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2622,6 +2733,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2646,6 +2758,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2670,6 +2783,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2694,6 +2808,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2718,6 +2833,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2742,6 +2858,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2766,6 +2883,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2789,6 +2907,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2812,6 +2931,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2836,6 +2956,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2859,6 +2980,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2882,6 +3004,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2905,6 +3028,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2928,6 +3052,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2952,6 +3077,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -2976,6 +3102,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3000,6 +3127,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3023,6 +3151,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3046,6 +3175,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3069,6 +3199,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3092,6 +3223,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3115,6 +3247,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3138,6 +3271,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3161,6 +3295,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3184,6 +3319,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3207,6 +3343,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3231,6 +3368,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3255,6 +3393,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3279,6 +3418,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3303,6 +3443,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3327,6 +3468,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3351,6 +3493,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3374,6 +3517,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3397,6 +3541,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3420,6 +3565,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3443,6 +3589,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3467,6 +3614,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3491,6 +3639,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3515,6 +3664,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3539,6 +3689,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3564,6 +3715,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3588,6 +3740,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3611,6 +3764,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3634,6 +3788,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3657,6 +3812,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3680,6 +3836,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3704,6 +3861,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3728,6 +3886,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3751,6 +3910,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3774,6 +3934,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3798,6 +3959,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3822,6 +3984,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3846,6 +4009,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3869,6 +4033,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3892,6 +4057,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3915,6 +4081,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3939,6 +4106,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3963,6 +4131,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -3987,6 +4156,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4010,6 +4180,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4033,6 +4204,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4056,6 +4228,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4079,6 +4252,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4102,6 +4276,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4125,6 +4300,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4148,6 +4324,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4171,6 +4348,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4195,6 +4373,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4219,6 +4398,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4243,6 +4423,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4267,6 +4448,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4291,6 +4473,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4315,6 +4498,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4338,6 +4522,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4361,6 +4546,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4384,6 +4570,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4408,6 +4595,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4432,6 +4620,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4456,6 +4645,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4480,6 +4670,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4504,6 +4695,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4529,6 +4721,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4554,6 +4747,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4577,6 +4771,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4600,6 +4795,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4623,6 +4819,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4647,6 +4844,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4671,6 +4869,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4695,6 +4894,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4719,6 +4919,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4743,6 +4944,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4766,6 +4968,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4789,6 +4992,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4812,6 +5016,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4835,6 +5040,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4858,6 +5064,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4881,6 +5088,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4904,6 +5112,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4928,6 +5137,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4952,6 +5162,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4975,6 +5186,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -4998,6 +5210,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5021,6 +5234,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a riveted iron gate in a dim forge hall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; cold steel sheen, sparks from an anvil, rivets.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5044,6 +5258,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5067,6 +5282,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5090,6 +5306,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5113,6 +5330,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5136,6 +5354,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5159,6 +5378,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5183,6 +5403,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5207,6 +5428,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5231,6 +5453,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5255,6 +5478,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5279,6 +5503,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5303,6 +5528,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5328,6 +5554,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5352,6 +5579,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5376,6 +5604,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5400,6 +5629,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5423,6 +5653,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5446,6 +5677,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5469,6 +5701,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5492,6 +5725,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5515,6 +5749,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5538,6 +5773,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5562,6 +5798,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5586,6 +5823,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5610,6 +5848,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5635,6 +5874,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5659,6 +5899,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5682,6 +5923,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5705,6 +5947,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5728,6 +5971,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5752,6 +5996,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5776,6 +6021,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5800,6 +6046,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5824,6 +6071,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5848,6 +6096,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5872,6 +6121,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5895,6 +6145,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5918,6 +6169,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5942,6 +6194,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5965,6 +6218,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -5988,6 +6242,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6012,6 +6267,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6036,6 +6292,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6060,6 +6317,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6083,6 +6341,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6106,6 +6365,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6129,6 +6389,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6152,6 +6413,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6175,6 +6437,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6198,6 +6461,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6221,6 +6485,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6244,6 +6509,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6267,6 +6533,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6291,6 +6558,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6315,6 +6583,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6339,6 +6608,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6363,6 +6633,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6387,6 +6658,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6412,6 +6684,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6436,6 +6709,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6459,6 +6733,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6482,6 +6757,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6505,6 +6781,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6529,6 +6806,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6553,6 +6831,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6578,6 +6857,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6602,6 +6882,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6626,6 +6907,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6650,6 +6932,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6673,6 +6956,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6696,6 +6980,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6719,6 +7004,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6742,6 +7028,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6766,6 +7053,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6790,6 +7078,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6813,6 +7102,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6836,6 +7126,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6859,6 +7150,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6883,6 +7175,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6907,6 +7200,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6931,6 +7225,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6954,6 +7249,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -6977,6 +7273,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7001,6 +7298,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7025,6 +7323,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7049,6 +7348,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7072,6 +7372,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7095,6 +7396,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7118,6 +7420,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7141,6 +7444,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7164,6 +7468,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7187,6 +7492,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7210,6 +7516,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7233,6 +7540,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7256,6 +7564,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7280,6 +7589,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7304,6 +7614,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7328,6 +7639,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7352,6 +7664,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7376,6 +7689,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7400,6 +7714,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7423,6 +7738,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7446,6 +7762,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7469,6 +7786,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7493,6 +7811,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7517,6 +7836,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7541,6 +7861,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7565,6 +7886,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7589,6 +7911,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7614,6 +7937,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7638,6 +7962,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7662,6 +7987,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7685,6 +8011,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7708,6 +8035,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7731,6 +8059,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7754,6 +8083,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7778,6 +8108,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7802,6 +8133,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7826,6 +8158,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7849,6 +8182,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7872,6 +8206,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7895,6 +8230,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7919,6 +8255,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7942,6 +8279,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7965,6 +8303,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -7988,6 +8327,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8012,6 +8352,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8036,6 +8377,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8059,6 +8401,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8082,6 +8425,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8105,6 +8449,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8128,6 +8473,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8151,6 +8497,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8174,6 +8521,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8197,6 +8545,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8220,6 +8569,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8243,6 +8593,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8266,6 +8617,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8289,6 +8641,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8312,6 +8665,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8336,6 +8690,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8360,6 +8715,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8384,6 +8740,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8408,6 +8765,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8432,6 +8790,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8456,6 +8815,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8480,6 +8840,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8505,6 +8866,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8529,6 +8891,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8552,6 +8915,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8575,6 +8939,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8598,6 +8963,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8621,6 +8987,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8644,6 +9011,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8668,6 +9036,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8692,6 +9061,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8716,6 +9086,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8740,6 +9111,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8763,6 +9135,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8787,6 +9160,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8811,6 +9185,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8835,6 +9210,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8859,6 +9235,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8884,6 +9261,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8907,6 +9285,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8930,6 +9309,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8954,6 +9334,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -8977,6 +9358,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -9001,6 +9383,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -9025,6 +9408,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -9048,6 +9432,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -9071,6 +9456,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.

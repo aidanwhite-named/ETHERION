@@ -1,4 +1,6 @@
-# ETHERION 카드 일러스트 프롬프트 가이드 — 등급별 (v1.1, 2026-11-10)
+# ETHERION 카드 일러스트 프롬프트 가이드 — 등급별 (v1.2, 2026-11-14)
+
+> v1.2 (프롬프트 g3, 게임 v3.59): **화려함 사다리**(등급마다 `Spectacle` 줄 — 한 단계씩 더 화려하게, 강조색 몫도 5 → 30%로 커짐)와 **스페셜 = 깃발마다 하나뿐인 거대한 존재**(평범한 고블린 · 오크 · 마족으로 그리지 않음, 깃발은 색 · 재료 · 상징으로만, 반쯤 가려 상상하게 하는 기법 허용).
 
 > **For any AI reading this (GPT, Gemini, Claude…):** this is the rulebook for writing image prompts for ETHERION card illustrations.
 > Every prompt = **base style + grade tier + banner identity + level scale + card name/lore + type rule + safe-area/negatives.**
@@ -12,7 +14,7 @@
 - `<!-- AUTO:… -->` 칸은 `node tools/art/build_prompts.js`가 `tools/art/art_style.json`에서 채운다. **고칠 때는 art_style.json을 고치고 다시 돌린다** — 이 문서의 표만 고치면 다음에 덮인다. 나머지 글은 손으로 고쳐도 된다.
 
 <!-- AUTO:COUNTS -->
-프롬프트 버전 **g2** (2026-11-10) · 카드 705장 (뺀 카드 제외, 소환물 포함)
+프롬프트 버전 **g3** (2026-11-14) · 카드 705장 (뺀 카드 제외, 소환물 포함)
 
 | 등급 | 색 | 장수 | 유닛 · 마법 · 아이템 | 등급별 프롬프트 파일 |
 |---|---|---|---|---|
@@ -35,11 +37,13 @@
 | **등급** (일반 → 스페셜) | 얼마나 웅장하고 화려한가: 카메라 · 빛의 연출 · 배경의 넓이 · 장식 · 등급 강조색. **공들인 정도는 모든 등급이 같다** | 일반 = 눈높이 · 가까운 한 구석 / 스페셜 = 하늘을 채운 근원 존재 · 금빛 룬 고리 |
 | **레벨** (1 → 8) | 얼마나 크고 강한가: 몸집 · 위압감 · 효과의 범위 | 1레벨 = 평범한 몸 / 7레벨 = 주변이 휘는 거대함 |
 | **깃발** (9개) | 누구이고 무엇으로 만들어졌나: 종족 · 실루엣 · 재료 · 상징 · 고향 · 근원 | 잿불 고블린 = 작은 몸 + 커다란 대포 + 화약 연기 |
-| **빛** | 원소색이 늘 주광(약 60%), 등급 강조색은 보조(15% 이하) | 바위주먹 오크 에픽 = 황토 빛 + 보랏빛 알갱이 조금 |
+| **빛** | 원소색이 늘 주광, 등급 강조색은 보조 — 몫이 등급마다 커진다(고급 5% · 레어 10% · 에픽 15% · 유니크 20% · 스페셜 30%) | 바위주먹 오크 에픽 = 황토 빛 + 보랏빛 알갱이 조금 |
 
 - **완성도 바닥선**: 모든 등급이 완성된 카드 일러스트다 — 얼굴 · 손 · 재질 · 빛을 공들여 그리고, 성격이 보이는 표정과 분명한 동작, 실제로 보이는 장소. 높은 등급은 규모 · 볼거리 · 장식을 더할 뿐 정성을 더하지 않는다(프롬프트의 `Quality floor` 줄).
 - 등급과 레벨은 따로 논다. **일반 7레벨**은 거대하지만 배경이 가깝고 장식이 실용적이다. **유니크 5레벨**은 사람 크기여도 포스터 같은 영웅 초상이다.
 - 높은 등급일수록 배경이 "가까운 벽 → 고향 → 랜드마크 → 근원 존재 → 세계 전체"로 멀고 커진다(깃발 표의 hint · home · landmark · source · mythic).
+- **화려함 사다리**(g3): 등급마다 `Spectacle` 줄이 붙는다 — 일반 없음 → 고급 반짝임 몇 점 → 레어 에테르 알갱이 · 테두리 빛 · 안개 → 에픽 빛줄기 · 오라 · 날씨 → 유니크 후광 · 불티 · 금 세공 · 근원 실루엣 → 스페셜 여러 겹 룬 고리 · 하늘을 가르는 빛기둥 · 진홍 금 오라. 늘 바로 아래 등급보다 한 단계 더, 위 등급보다는 덜.
+- **스페셜은 깃발마다 하나뿐인 존재**(g3, `docs/WORLD.md` 5장): 평범한 고블린 · 오크 · 마족으로 그리지 않는다. 제 힘으로 이루어진 몸(불 · 쇠 · 바위 · 물 · 그림자 · 빛 · 별빛)을 가진 거대한 존재로, 요새 · 군대 · 용과 견줄 크기이고 같은 깃발 에픽 · 유니크보다 확실히 강해 보여야 한다. 그림 지시(`art_notes.json`)에도 "한때 ○○였다" 같은 출신을 쓰지 않는다. 프롬프트의 Banner 줄은 `Banner it stands above`(종족의 몸 · 실루엣은 빼고 색 · 재료 · 상징만)로 바뀌고, 존재를 반쯤 가려 배경과 주변의 반응으로 크기를 상상하게 하는 `Presence technique` 줄이 붙는다.
 - 모든 그림: 밤하늘 남색 바탕(`#07080d`), 글자 · 숫자 · 틀 없음, 주인공은 가운데 70%, 위 15% · 아래 20%는 비움(카드 이름 · 숫자가 덮는다).
 
 ## 1. 파일 지도
@@ -77,7 +81,9 @@ Camera: {G.camera}.
 Lighting: {G.lighting}; main light is {원소} ({원소색}) from behind the subject, {F.light}.
 Background: very dark night-blue (#07080d) base; {G.background — {hint}/{home}/{landmark}/{source}/{mythic}을 깃발 값으로}; {원소 cue}.
 Detail: {G.detail}.
-Grade accent: {G.accent} — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: {G.spectacle}. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Presence technique (allowed): {G.technique — 스페셜 유닛만}
+Grade accent: {G.accent} — the element colour stays the main light; the grade accent is a secondary touch (about {G.accentShare} of the light).
 Mood: {G.mood}.
 Stay true to the banner: {F.never}.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -89,6 +95,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 - **강화 카드**는 Subject 다음에 참고 그림 줄을 넣고, 원래 카드 그림(`img/cards/<원래 ID>.jpg`)을 **먼저 받아 그림 AI에 함께 첨부**한다. 프롬프트에는 원래 카드의 이름 · 서사 · 배경이 "Continuity" 줄로 들어 있어, 첨부가 어려워도 같은 인물로 그리게 한다(v3.46).
 - `Quality floor` 줄(모든 등급 같은 완성도)은 Grade 줄 바로 다음에 늘 넣는다.
 - 일반 등급은 Grade accent 줄을 빼고, 소환물은 등급 `token`을 쓴다.
+- **스페셜 유닛**은 Subject가 "a one-of-a-kind mythic being who stands above the {F.en} … A one-of-a-kind mythic being — never drawn as an ordinary member of any race"이고, Banner 줄 대신 `Banner it stands above — {F.en}: show the banner only through element, palette and a few material or motif accents; do NOT draw an ordinary member … — this being is one of a kind. Palette … Accents to borrow from …`(F.who · F.silhouette를 넣지 않음). 맨 끝 Stay true 줄에 "the golden rune rings and divine light are this grade's mythic mark, not banner spellcasting"이 붙는다(마법진을 쓰지 않는 깃발도 스페셜의 룬 고리는 된다).
 
 ## 3. 등급 사다리
 
@@ -98,11 +105,12 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 |---|---|---|---|---|---|---|---|
 | 한마디 | 생생한 전장의 한 사람 | 검증된 베테랑 | 정예 · 걸작 | 셋이 하나로, 한 단계 위 | 영화 같은 영웅 | 이름난 전설의 초상 | 신화 · 키 아트 |
 | 카메라 | 눈높이 · 미디엄 | 살짝 아래 · 자신감 | 3/4 낮은 각 · 대각선 | 원래 카드보다 가깝고 낮게 | 낮은 광각 · 규모 단서 | 가운데 · 거의 대칭 | 기념비적 낮은 각 |
-| 화면 속 크기 | 55% | 60% | 65% | 원래 + 한 걸음 | 70% + 환경 | 70% | 75% + 거대한 배경 |
+| 화면 속 크기 | 55% | 60% | 65% | 원래 + 한 걸음 | 70% + 환경 | 70% | 75~85% + 거대한 배경(요새 · 용이 작아 보임) |
 | 배경 | 가까운 한 구석(hint), 분위기 있게 | 흐린 고향(home) | 고향 랜드마크(landmark) | 원래 카드 배경 + 충격파 | 랜드마크 + 날씨 · 전장 | 랜드마크 + 근원 존재 실루엣 | 하늘을 채운 근원(mythic) + 룬 고리 + 아르케의 빈 원 |
 | 빛 | 원소 역광 + 얼굴 키 라이트 | + 따뜻한 키 라이트 | + 사파이어 테두리 · 안개 | + 아래에서 솟는 청록 | 빛줄기 · 높은 대비 · 블룸 | 명암 대가 · 후광 같은 역광 | 신성한 진홍 · 금 오라 |
-| 장식 | 실용적인 장비, 손때 · 흠집까지 | 단순 각인 · 개인 소품 | 세공 · 각인 무늬 | 보강 장비 · 셋의 표시 | 여러 겹 갑주 · 에너지 | 문장 · 걸작 무기 · 금 상감 | 몸이 승천의 길대로 바뀜 · 성당급 세공 |
-| 강조색 | 없음 | 금 `#f2cf3d` 조금 | 사파이어 `#4ea8ff` 알갱이 | 청록 `#3fe0c0` 이음매 | 보라 `#b46cff` 알갱이 | 주황 금 `#ff8a2a` 불티 | 진홍 `#ff4d73` + 금 + 에테르빛 |
+| 장식 | 실용적인 장비, 손때 · 흠집까지 | 단순 각인 · 개인 소품 | 세공 · 각인 무늬 | 보강 장비 · 셋의 표시 | 여러 겹 갑주 · 에너지 | 문장 · 걸작 무기 · 금 상감 | 제 힘으로 이루어진 몸(평범한 종족 아님) · 성당급 세공 |
+| 화려함 | 없음 | 반짝임 몇 점 · 옅은 알갱이 | 에테르 알갱이 · 테두리 빛 · 안개 | 아래에서 솟는 청록 · 충격파 | 빛줄기 · 오라 · 날씨 · 파편 | 후광 · 불티 · 금 세공 · 근원 실루엣 | 여러 겹 룬 고리 · 빛기둥 · 진홍 금 오라 · 하늘과 땅이 반응 |
+| 강조색 (빛의 몫) | 없음 | 금 `#f2cf3d` 조금 (5%) | 사파이어 `#4ea8ff` 알갱이 (10%) | 청록 `#3fe0c0` 이음매 (15%) | 보라 `#b46cff` 알갱이 (15%) | 주황 금 `#ff8a2a` 불티 (20%) | 진홍 `#ff4d73` + 금 + 에테르빛 (30%) |
 
 - 강조색은 게임의 등급 테두리 색과 같다 — 틀(코드가 칠함)과 그림이 서로 이어 보이게. 원소색을 덮지 않는다.
 - 스페셜 · 유니크 · 레어는 **확실히 고급스러워야 한다**: 깊이 층(앞 · 가운데 · 먼 배경), 재질 표현, 테두리 빛, 공기 원근을 꼭 넣는다. 일반 · 고급도 같은 정성으로 그리되 **규모**로 구분한다 — 주인공이 화면에서 조금 작고, 배경이 가깝고 아담하며, 신비한 장식 · 등급 강조색이 적다.
@@ -120,7 +128,8 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 | 빛 lighting | an element-coloured glow from the summoning with a clean rim light, clear readable contrast |
 | 배경 background | plain dark night-blue with a fading wisp of ether and element light where it was called forth |
 | 디테일 detail | clear, well-rendered forms with slightly translucent, glowing edges where it was conjured |
-| 등급 강조색 accent | faint ether sky-blue (#8fdcff) summoning traces |
+| 화려함 spectacle | a soft conjuring shimmer only |
+| 등급 강조색 accent | faint ether sky-blue (#8fdcff) summoning traces (빛의 약 10%) |
 | 분위기 mood | fleeting, conjured |
 | 마법이면 spell | a small, single conjured effect |
 | 아이템이면 item | a small conjured object |
@@ -136,6 +145,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 | 빛 lighting | a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast |
 | 배경 background | an intimate, painted corner of the banner's world ({hint}) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks |
 | 디테일 detail | fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands |
+| 화려함 spectacle | none beyond the element glow — no magical ornaments, no aura, no floating particles |
 | 등급 강조색 accent | 없음 — 원소색만 |
 | 분위기 mood | lively, honest, frontline |
 | 마법이면 spell | a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles |
@@ -152,7 +162,8 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 | 빛 lighting | element backlight plus a warm key light, clearer rim light, a few glints on metal and edges |
 | 배경 background | a recognisable slice of the banner's home ({home}) with atmosphere and depth, softly focused, light atmospheric particles |
 | 디테일 detail | fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands |
-| 등급 강조색 accent | a few small warm gold (#f2cf3d) highlights on trims and edges |
+| 화려함 spectacle | a few glints on metal and a light haze of atmospheric particles — one small step above common |
+| 등급 강조색 accent | a few small warm gold (#f2cf3d) highlights on trims and edges (빛의 약 5%) |
 | 분위기 mood | proven, capable, confident |
 | 마법이면 spell | a stronger effect with visible flow and a second layer of particles |
 | 아이템이면 item | a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light |
@@ -168,7 +179,8 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 | 빛 lighting | dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights |
 | 배경 background | atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: {landmark} |
 | 디테일 detail | fine filigree and engraved patterns on gear, crisp material rendering (metal, scale, cloth, bark, horn) |
-| 등급 강조색 accent | drifting sapphire-blue (#4ea8ff) ether motes and a thin sapphire rim on the silhouette |
+| 화려함 spectacle | drifting ether motes, a crisp rim light, volumetric haze and sparkling highlights — clearly a step above superior |
+| 등급 강조색 accent | drifting sapphire-blue (#4ea8ff) ether motes and a thin sapphire rim on the silhouette (빛의 약 10%) |
 | 분위기 mood | precise, impressive, prized |
 | 마법이면 spell | a sweeping effect that reshapes part of the battlefield, layered energies and motion trails |
 | 아이템이면 item | a masterwork object on a carved pedestal, faint glowing engraved patterns, small floating particles |
@@ -184,7 +196,8 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 | 빛 lighting | element backlight plus teal energy pouring up from below and glowing through seams of the gear |
 | 배경 background | the same setting as the base card, intensified: more particles and a faint shockwave ring ({home}) |
 | 디테일 detail | reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one |
-| 등급 강조색 accent | teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen |
+| 화려함 spectacle | teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic |
+| 등급 강조색 accent | teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen (빛의 약 15%) |
 | 분위기 mood | ascending, refined, powered-up |
 | 참고 그림 reference | If a reference image is attached, it is the base card ({base}): keep the same character, species, face, colours and silhouette and repaint it as the empowered version. |
 
@@ -199,7 +212,8 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 | 빛 lighting | high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom |
 | 배경 background | rich environmental storytelling: {landmark}; weather (storm, ash, spray, wind) and deep atmosphere |
 | 디테일 detail | ornate, layered armour or garments, battle wear, magical energy wrapping the body |
-| 등급 강조색 accent | violet (#b46cff) arcane particles and a faint violet edge to the aura |
+| 화려함 spectacle | cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare |
+| 등급 강조색 accent | violet (#b46cff) arcane particles and a faint violet edge to the aura (빛의 약 15%) |
 | 분위기 mood | awe, momentum, overwhelming force |
 | 마법이면 spell | a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting |
 | 아이템이면 item | a relic of a transcendent being floating in its own aura above a ruined altar, radiating its element |
@@ -215,24 +229,27 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 | 빛 lighting | masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light |
 | 배경 background | {landmark}; behind it, faint and colossal, the banner's source: {source} |
 | 디테일 detail | masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay |
-| 등급 강조색 accent | molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree |
+| 화려함 spectacle | iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic |
+| 등급 강조색 accent | molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree (빛의 약 20%) |
 | 분위기 mood | legendary, commanding, personal |
 | 마법이면 spell | a legendary spell bearing the banner's source's mark, framed like an icon |
 | 아이템이면 item | a legendary relic displayed like a treasure, the banner's source looming faintly behind |
 
 ### 스페셜 · Special — `special` (#ff4d73)
 
-승천자(신화가 된 필멸자)와 삼좌의 유물. 깃발에서 가장 중요한 그림, 키 아트 급. 세계 크기의 배경(하늘을 채운 근원 존재), 금빛 룬 고리, 진홍 · 금의 신성한 빛, 몸이 그 길에 따라 바뀐 모습.
+최고 등급. 깃발마다 하나뿐인 신화적 존재(승천자 · 깨어난 기계 · 걸어 다니는 숲 · 용의 노래 …)와 삼좌의 유물. 깃발에서 가장 중요한 그림, 키 아트 급. 깃발의 평범한 구성원(고블린 · 오크 · 마족 …)으로 그리지 않는다 — 제 힘으로 이루어진 몸(불 · 쇠 · 바위 · 물 · 그림자 · 빛 · 별빛)을 가진 하나뿐인 존재. 요새 · 군대 · 용과 견줄 만큼 크고, 같은 깃발의 에픽 · 유니크보다 확실히 강하고 웅장해 보여야 한다. 세계 크기의 배경(하늘을 채운 근원 존재), 금빛 룬 고리 여러 겹, 하늘을 가르는 빛기둥, 진홍 · 금의 신성한 빛. 몸 전체를 다 보여 주지 않고 연기 · 빛 · 어둠에 반쯤 가려 배경과 주변의 반응으로 크기를 상상하게 해도 된다.
 
 | 항목 | 넣을 말 (영어 그대로) |
 |---|---|
-| 존재감 presence | mythic: an Ascended mortal who touched divinity, or a relic of the Three Thrones — the single most important image of its banner |
-| 카메라 camera | monumental low angle, epic scale, subject about 75% of the frame against a colossal backdrop; light may spill to the margins but the face and core stay in the safe area |
-| 빛 lighting | divine: a radiant crimson-and-gold aura, golden rune rings orbiting, rays falling from above, the element light at full intensity |
-| 배경 background | world-scale: {mythic}; the night sky opening with stars and golden rune circles; a faint empty circle (the sigil of the lost source-god Arche) as a halo ring |
-| 디테일 detail | transcendent: the body partly transformed by its path of ascension, intricate gold filigree, cathedral-level detail |
-| 등급 강조색 accent | crimson-rose (#ff4d73) and gold divine light, slowly turning golden rune circles, ether sky-blue (#8fdcff) sparks |
+| 존재감 presence | mythic: a one-of-a-kind being, one of the great powers of the world and never an ordinary member of any race, or a relic of the Three Thrones — the single most important image of its banner; it must look clearly stronger and grander than any epic or unique card of the same banner |
+| 카메라 camera | monumental worm's-eye angle, epic scale — the subject towers and fills about 75–85% of the frame against a world-sized backdrop, with scale cues (fortresses, armies, dragons or mountains look small beside it); light may spill to the margins but the face or heart and the core stay in the safe area |
+| 빛 lighting | divine and overwhelming: a radiant crimson-and-gold aura, light bursting from the subject itself, rays falling from above, the element light at full intensity |
+| 배경 background | world-scale: {mythic}; the land and sky visibly bending and reacting to the subject; the night sky opening with stars and golden rune circles; a faint empty circle (the sigil of the lost source-god Arche) as a halo ring |
+| 디테일 detail | transcendent: a body made of its own power (fire, iron, stone, water, shadow, light or starlight), unlike any ordinary race; intricate gold filigree, cathedral-level detail |
+| 화려함 spectacle | the most spectacular grade, clearly beyond unique: several orbiting golden rune rings at different angles, a pillar of light splitting the sky, a radiant crimson-and-gold aura, storms of embers and ether sparks, the ground and sky reacting to its presence, layered depth in front of and behind the subject |
+| 등급 강조색 accent | crimson-rose (#ff4d73) and gold divine light that may rival the element light, slowly turning golden rune circles, ether sky-blue (#8fdcff) sparks (빛의 약 30%) |
 | 분위기 mood | sacred, transcendent, world-shaking |
+| 존재감 기법 technique (유닛) | the being may be partly veiled — half-hidden in smoke, light, storm or darkness, revealed by glimpses (an eye, a hand, a silhouette, a heart of light), so the viewer imagines the full colossal shape from those clues and from how the world reacts around it |
 | 마법이면 spell | a world-altering miracle |
 | 아이템이면 item | a sacred relic suspended in a pillar of divine light inside a ring of golden runes, an empty circle behind it, the world tiny below |
 
@@ -246,7 +263,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 | 3~4 | seasoned: a sturdier body, a bigger weapon, mount or machine | an effect over a few targets | a fine object with a faint aura |
 | 5~6 | elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it | a battlefield-wide effect | a powerful object with a strong aura |
 | 7 | towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power | a devastating, landscape-changing effect | an ancient object of great power |
-| 8 (스페셜) | mythic, beyond mortal scale: even at human size its presence fills the sky and the world reacts to it | ↑ | ↑ |
+| 8 (스페셜) | mythic and colossal, far beyond mortal scale: it towers over fortresses, armies or even dragons, the land cracks and bends around it and lesser creatures look tiny; its presence fills the sky | ↑ | ↑ |
 <!-- /AUTO:LEVELS -->
 
 - 8레벨은 스페셜만이다(v3.29.1). 새 카드도 7레벨까지.
@@ -477,6 +494,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 - [ ] 깃발의 종족 · 재료 · 상징이 한눈에 보이고 "하지 말 것"을 어기지 않았다
 - [ ] 이름의 뜻이 그림에 보인다(이름만 듣고 그림을 고를 수 있을 정도)
 - [ ] 등급이 보인다 — 일반: 공들였지만 아담한 규모 · 가까운 배경 / 레어: 랜드마크 · 사파이어 테두리 / 에픽: 영화 같은 규모 / 유니크: 영웅 초상 + 근원 실루엣 / 스페셜: 하늘을 채운 근원 + 금빛 룬 고리
+- [ ] 스페셜: 같은 깃발의 에픽 · 유니크 그림과 나란히 놓으면 확실히 더 크고 강하고 화려하다. 평범한 그 종족(고블린 · 오크 · 마족 …)으로 보이지 않는다
 - [ ] 레벨이 보인다 — 높을수록 크고 위압적
 - [ ] 강화 카드: 원래 카드와 같은 인물로 보인다
 - [ ] 같은 깃발 · 같은 등급 카드와 나란히 놓아도 결이 같다(보드에서 확인)
@@ -505,6 +523,7 @@ Camera: eye-level or slightly low medium shot, natural expressive pose with a cl
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -527,7 +546,8 @@ Camera: slightly low angle, medium to cowboy shot, confident readied pose, subje
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
 Mood: proven, capable, confident.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -552,7 +572,8 @@ Camera: dynamic three-quarter low angle, action pose or poised decisive moment, 
 Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; clear water light, spray, ripples, bubbles.
 Detail: fine filigree and engraved patterns on gear, crisp material rendering (metal, scale, cloth, bark, horn).
-Grade accent: drifting sapphire-blue (#4ea8ff) ether motes and a thin sapphire rim on the silhouette — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: drifting ether motes, a crisp rim light, volumetric haze and sparkling highlights — clearly a step above superior. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: drifting sapphire-blue (#4ea8ff) ether motes and a thin sapphire rim on the silhouette — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: precise, impressive, prized.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -578,7 +599,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the underground forge-city of Durkheim); cold steel sheen, sparks from an anvil, rivets.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -602,7 +624,8 @@ Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues 
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
 Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -627,7 +650,8 @@ Camera: centred heroic portrait, near-symmetrical, subject about 70% of the fram
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; behind it, faint and colossal, the banner's source: the earth dragon Gorbas, the largest of the seven dragons, with rocks and forests growing on its back; flying rock dust, cracked ground, ochre light.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -635,26 +659,28 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-#### 예: 스페셜 — SP-B2 철심 브론
+#### 예: 스페셜 — SP-B2 철의 심장을 삼킨 자
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SPECIAL — mythic, an Ascended or a relic of the Three Thrones, key-art quality. Mythic: an Ascended mortal who touched divinity, or a relic of the Three Thrones — the single most important image of its banner.
+Grade: SPECIAL — the highest grade: mythic, a one-of-a-kind being of the world or a relic of the Three Thrones, key-art quality. Mythic: a one-of-a-kind being, one of the great powers of the world and never an ordinary member of any race, or a relic of the Three Thrones — the single most important image of its banner; it must look clearly stronger and grander than any epic or unique card of the same banner.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "철심 브론". Depict exactly what this name describes.
-Subject: a mythic, ascended member of the Ironbeard Dwarves (see art direction). One of the Ascended.
-Art direction: Bron Ironheart, the dwarf smith who built the first golem: his chest is an open cage of brass gears around a glowing mechanical heart, a massive forge hammer on his shoulder. He ascended without any god, so instead of a halo a ring of slowly turning gears and golden runes circles behind his head. Silhouettes of golems stand behind him like an army.
-Scale (level 8 of 8): mythic, beyond mortal scale: even at human size its presence fills the sky and the world reacts to it.
-Banner — Ironbeard Dwarves: stocky dwarves with braided iron-grey beards, and the riveted golems and automatons they forge. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
+Card name (Korean — read its meaning, never write it in the image): "철의 심장을 삼킨 자". Depict exactly what this name describes.
+Subject: a one-of-a-kind mythic being who stands above the Ironbeard Dwarves (see art direction). A one-of-a-kind mythic being — never drawn as an ordinary member of any race.
+Art direction: The heart is the focus: an enormous iron heart forged from the giant Sorgrim's sinew-ore — dark adamant plates, brass valves and pistons like arteries, molten forge-light pulsing through its seams — beating at the centre of the image, larger than a forge furnace. The one who swallowed it is a colossal armoured presence that is only partly seen: his vast shape is veiled in steam, shadow and forge smoke and revealed only in glimpses — the edge of a riveted iron shoulder like a cliff, a giant gauntleted hand resting on an anvil the size of a house, two eyes glowing high above in the darkness. Hundreds of chains and pipes run from the heart up into the hidden body; let the viewer imagine the full titan from these clues. Around it stretches the underground forge-cathedral of Durkheim; rows of golems, tiny by comparison, kneel facing the heart, their own chest-lights waking in rhythm with its beat, the oldest and most patched golem kneeling closest. He ascended without any god: instead of a halo, slowly turning rings of gears and golden runes circle the heart.
+Scale (level 8 of 8): mythic and colossal, far beyond mortal scale: it towers over fortresses, armies or even dragons, the land cracks and bends around it and lesser creatures look tiny; its presence fills the sky.
+Banner it stands above — Ironbeard Dwarves: show the banner only through element, palette and a few material or motif accents; do NOT draw an ordinary member of the Ironbeard Dwarves — this being is one of a kind. Palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams. Accents to borrow from: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams; forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 최초의 골렘을 만든 대장장이. 심장을 기계로 바꿔 신의 도움 없이 승천했다. 아다만트가 "증명된 가능성"으로 기린다.
-Camera: monumental low angle, epic scale, subject about 75% of the frame against a colossal backdrop; light may spill to the margins but the face and core stay in the safe area.
-Lighting: divine: a radiant crimson-and-gold aura, golden rune rings orbiting, rays falling from above, the element light at full intensity; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
-Background: very dark night-blue (#07080d) base; world-scale: the giant Sorgrim's mountain-sized arm of iron sinew rising from the earth, and the metal dragon Feros's mirror scales reflecting a thousand forges; the night sky opening with stars and golden rune circles; a faint empty circle (the sigil of the lost source-god Arche) as a halo ring; cold steel sheen, sparks from an anvil, rivets.
-Detail: transcendent: the body partly transformed by its path of ascension, intricate gold filigree, cathedral-level detail.
-Grade accent: crimson-rose (#ff4d73) and gold divine light, slowly turning golden rune circles, ether sky-blue (#8fdcff) sparks — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Lore (Korean, use for the scene): 거인 소르그림의 힘줄을 녹여 벼린 철의 심장을 제 가슴에 삼킨 존재. 그 심장이 처음 뛴 날, 두르크하임의 모든 골렘이 함께 눈을 떴다. 그의 이름이 브론이었다는 것을 기억하는 것은 이제 그가 처음 빚은 골렘뿐이다.
+Camera: monumental worm's-eye angle, epic scale — the subject towers and fills about 75–85% of the frame against a world-sized backdrop, with scale cues (fortresses, armies, dragons or mountains look small beside it); light may spill to the margins but the face or heart and the core stay in the safe area.
+Lighting: divine and overwhelming: a radiant crimson-and-gold aura, light bursting from the subject itself, rays falling from above, the element light at full intensity; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
+Background: very dark night-blue (#07080d) base; world-scale: the giant Sorgrim's mountain-sized arm of iron sinew rising from the earth, and the metal dragon Feros's mirror scales reflecting a thousand forges; the land and sky visibly bending and reacting to the subject; the night sky opening with stars and golden rune circles; a faint empty circle (the sigil of the lost source-god Arche) as a halo ring; cold steel sheen, sparks from an anvil, rivets.
+Detail: transcendent: a body made of its own power (fire, iron, stone, water, shadow, light or starlight), unlike any ordinary race; intricate gold filigree, cathedral-level detail.
+Spectacle: the most spectacular grade, clearly beyond unique: several orbiting golden rune rings at different angles, a pillar of light splitting the sky, a radiant crimson-and-gold aura, storms of embers and ether sparks, the ground and sky reacting to its presence, layered depth in front of and behind the subject. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Presence technique (allowed): the being may be partly veiled — half-hidden in smoke, light, storm or darkness, revealed by glimpses (an eye, a hand, a silhouette, a heart of light), so the viewer imagines the full colossal shape from those clues and from how the world reacts around it.
+Grade accent: crimson-rose (#ff4d73) and gold divine light that may rival the element light, slowly turning golden rune circles, ether sky-blue (#8fdcff) sparks — the element colour stays the main light; the grade accent is a secondary touch (about 30% of the light).
 Mood: sacred, transcendent, world-shaking.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner's identity: no thorns or plant armour, no wizardry or wands; golems are machines, not undead; the golden rune rings and divine light are this grade's mythic mark, not banner spellcasting.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.

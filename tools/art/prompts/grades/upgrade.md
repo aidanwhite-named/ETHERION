@@ -1,4 +1,4 @@
-# 강화 (Empowered) — 카드 일러스트 프롬프트 (40장, 버전 g2)
+# 강화 (Empowered) — 카드 일러스트 프롬프트 (40장, 버전 g3)
 
 > 원래 카드 3장을 합쳐 한 단계 오른 같은 인물. 원래 카드 그림이 있으면 참고 그림으로 넣어 같은 얼굴 · 종족 · 색을 지키고, 장비가 보강되고 셋이 하나가 된 표시(세 줄 띠 · 보석 셋 · 세 겹)와 아래에서 솟는 청록 에너지.
 
@@ -10,7 +10,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear.
 Background: the same setting as the base card, intensified: more particles and a faint shockwave ring ({home}).
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen.
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen (about 15% of the light).
 Mood: ascending, refined, powered-up.
 ```
 
@@ -35,7 +36,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the shadow city of Noctar in a sunless canyon); violet shadow smoke, blood-red accents, contract sigils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -62,7 +64,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the shadow city of Noctar in a sunless canyon); violet shadow smoke, blood-red accents, contract sigils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -89,7 +92,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the shadow city of Noctar in a sunless canyon); violet shadow smoke, blood-red accents, contract sigils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -116,7 +120,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the shadow city of Noctar in a sunless canyon); violet shadow smoke, blood-red accents, contract sigils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -143,7 +148,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the shadow city of Noctar in a sunless canyon); violet shadow smoke, blood-red accents, contract sigils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -170,7 +176,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the white walls of the Dawn Citadel Elad); pale gold radiance, halo, feathers of light.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -197,7 +204,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the white walls of the Dawn Citadel Elad); pale gold radiance, halo, feathers of light.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -224,7 +232,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the white walls of the Dawn Citadel Elad); pale gold radiance, halo, feathers of light.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -251,7 +260,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the white walls of the Dawn Citadel Elad); pale gold radiance, halo, feathers of light.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -278,7 +288,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the white walls of the Dawn Citadel Elad); pale gold radiance, halo, feathers of light.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -305,7 +316,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle); swirling teal wind, fluttering robes and pages.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -332,7 +344,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle); swirling teal wind, fluttering robes and pages.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -359,7 +372,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle); swirling teal wind, fluttering robes and pages.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -386,7 +400,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle); swirling teal wind, fluttering robes and pages.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -413,7 +428,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle); swirling teal wind, fluttering robes and pages.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -440,7 +456,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the fortress-foundry of Fortan, chimneys and gun bastions); embers, flame light, gunpowder smoke.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -467,7 +484,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the fortress-foundry of Fortan, chimneys and gun bastions); embers, flame light, gunpowder smoke.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -494,7 +512,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the fortress-foundry of Fortan, chimneys and gun bastions); embers, flame light, gunpowder smoke.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -521,7 +540,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the fortress-foundry of Fortan, chimneys and gun bastions); embers, flame light, gunpowder smoke.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -548,7 +568,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the underground forge-city of Durkheim); cold steel sheen, sparks from an anvil, rivets.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -575,7 +596,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the underground forge-city of Durkheim); cold steel sheen, sparks from an anvil, rivets.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -602,7 +624,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the underground forge-city of Durkheim); cold steel sheen, sparks from an anvil, rivets.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -629,7 +652,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the underground forge-city of Durkheim); cold steel sheen, sparks from an anvil, rivets.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -656,7 +680,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the underground forge-city of Durkheim); cold steel sheen, sparks from an anvil, rivets.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -683,7 +708,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lightning-rod city of Voltarium on the thundering plateau); crackling electric arcs, glowing coils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -710,7 +736,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lightning-rod city of Voltarium on the thundering plateau); crackling electric arcs, glowing coils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -737,7 +764,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lightning-rod city of Voltarium on the thundering plateau); crackling electric arcs, glowing coils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -764,7 +792,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lightning-rod city of Voltarium on the thundering plateau); crackling electric arcs, glowing coils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -791,7 +820,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lightning-rod city of Voltarium on the thundering plateau); crackling electric arcs, glowing coils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -818,7 +848,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the howling steppe of Garun with its nomad camps); flying rock dust, cracked ground, ochre light.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -845,7 +876,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the howling steppe of Garun with its nomad camps); flying rock dust, cracked ground, ochre light.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -872,7 +904,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the howling steppe of Garun with its nomad camps); flying rock dust, cracked ground, ochre light.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -899,7 +932,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the giant-tree city of Sylvaniel in the great forest of Eilen); glowing moss, thorny vines, drifting leaves.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -926,7 +960,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the giant-tree city of Sylvaniel in the great forest of Eilen); glowing moss, thorny vines, drifting leaves.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -953,7 +988,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the giant-tree city of Sylvaniel in the great forest of Eilen); glowing moss, thorny vines, drifting leaves.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -980,7 +1016,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lagoon temple of Selenea); clear water light, spray, ripples, bubbles.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1007,7 +1044,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lagoon temple of Selenea); clear water light, spray, ripples, bubbles.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1034,7 +1072,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lagoon temple of Selenea); clear water light, spray, ripples, bubbles.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1061,7 +1100,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lagoon temple of Selenea); clear water light, spray, ripples, bubbles.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -1088,7 +1128,8 @@ Camera: the same framing as the base card but one step closer and lower, a risin
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lagoon temple of Selenea); clear water light, spray, ripples, bubbles.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
-Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.

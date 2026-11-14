@@ -107,7 +107,7 @@ const Forge = {
     let out;
     if (S.mode === "up") {
       const up = P && CARDS[UPGRADE_OF[b.id]];
-      out = up ? `<div class="fg-res is-up">${cardHTML(up, { size: "md", brief: true })}</div><p class="fg-res-cap">강화 · Lv ${b.lv} → ${up.lv} · 유지비 ${b.up} → ${up.up}<br>어떤 아이템이든 장착 · 덱에 1장</p>${this.sealNeedHTML(u)}`
+      out = up ? `<div class="fg-res is-up">${cardHTML(up, { size: "md", brief: true })}</div><p class="fg-res-cap">강화 · Lv ${b.lv} → ${up.lv} · 유지비 ${b.up} → ${up.up}<br>어떤 아이템이든 장착</p>${this.sealNeedHTML(u)}`
         : `<div class="fg-res fg-mystery is-up"><i>${fuseIcon("up")}</i><span>강화 카드</span></div><p class="fg-res-cap">일반 카드 3장 + 순례의 인장 ${UPGRADE_SEALS}개로 그 카드의 강화판이 됩니다.</p>${this.sealNeedHTML(u)}`;
     } else {
       const g = P ? GROUPS[b.group] : null;

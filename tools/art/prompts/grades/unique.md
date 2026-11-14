@@ -1,4 +1,4 @@
-# 유니크 (Unique) — 카드 일러스트 프롬프트 (18장, 버전 g2)
+# 유니크 (Unique) — 카드 일러스트 프롬프트 (18장, 버전 g3)
 
 > 그 깃발의 이름난 전설(덱에 1장). 포스터에 걸 만한 상징적 초상. 가운데 영웅 구도, 뒤에 그 깃발의 근원(거인 · 용 · 신)이 거대한 실루엣으로, 녹은 주황 금빛 불티와 금 세공.
 
@@ -10,7 +10,8 @@ Camera: centred heroic portrait, near-symmetrical, subject about 70% of the fram
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light.
 Background: {landmark}; behind it, faint and colossal, the banner's source: {source}.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree.
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree (about 20% of the light).
 Mood: legendary, commanding, personal.
 ```
 
@@ -34,7 +35,8 @@ Camera: centred heroic portrait, near-symmetrical, subject about 70% of the fram
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; behind it, faint and colossal, the banner's source: the god Morkas, the Silent Lord — a faceless shadow king holding balanced scales, eyes closed; violet shadow smoke, blood-red accents, contract sigils.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -60,7 +62,8 @@ Camera: centred heroic portrait, near-symmetrical, subject about 70% of the fram
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; behind it, faint and colossal, the banner's source: the god Morkas, the Silent Lord — a faceless shadow king holding balanced scales, eyes closed; violet shadow smoke, blood-red accents, contract sigils.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -86,7 +89,8 @@ Camera: centred heroic portrait, near-symmetrical, subject about 70% of the fram
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; behind it, faint and colossal, the banner's source: the goddess Solante, Mother of Dawn — a radiant woman with six wings of light; pale gold radiance, halo, feathers of light.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -112,7 +116,8 @@ Camera: centred heroic portrait, near-symmetrical, subject about 70% of the fram
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; behind it, faint and colossal, the banner's source: the goddess Solante, Mother of Dawn — a radiant woman with six wings of light; pale gold radiance, halo, feathers of light.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -138,7 +143,8 @@ Camera: centred heroic portrait, near-symmetrical, subject about 70% of the fram
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; the spires of Belumir's Needle piercing the clouds under a night sky full of stars; behind it, faint and colossal, the banner's source: the god Belumir, the Star-Reader — a robe with a thousand eyes, an open book and stars; swirling teal wind, fluttering robes and pages.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -164,7 +170,8 @@ Camera: centred heroic portrait, near-symmetrical, subject about 70% of the fram
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; the spires of Belumir's Needle piercing the clouds under a night sky full of stars; behind it, faint and colossal, the banner's source: the god Belumir, the Star-Reader — a robe with a thousand eyes, an open book and stars; swirling teal wind, fluttering robes and pages.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -190,7 +197,8 @@ Camera: centred heroic portrait, near-symmetrical, subject about 70% of the fram
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; Fortan's chimneys and gun bastions on volcanic slopes, the Crown range volcanoes glowing beyond; behind it, faint and colossal, the banner's source: the sleeping giant Dormak, whose heart-fire burns inside the volcano like a colossal ember in a mountain-sized chest; embers, flame light, gunpowder smoke.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -216,7 +224,8 @@ Camera: centred heroic portrait, near-symmetrical, subject about 70% of the fram
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; Fortan's chimneys and gun bastions on volcanic slopes, the Crown range volcanoes glowing beyond; behind it, faint and colossal, the banner's source: the sleeping giant Dormak, whose heart-fire burns inside the volcano like a colossal ember in a mountain-sized chest; embers, flame light, gunpowder smoke.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -237,12 +246,13 @@ Art direction: Bron's first golem: an old, patched, riveted golem carefully buil
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Banner — Ironbeard Dwarves: stocky dwarves with braided iron-grey beards, and the riveted golems and automatons they forge. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 철심 브론이 처음 빚은 골렘. 쓰러진 동료의 부품을 주워 모아 새 골렘을 짓는다.
+Lore (Korean, use for the scene): 철의 심장을 삼킨 자가 처음 빚은 골렘. 주인이 브론이라 불리던 때를 기억하는 마지막 존재다. 쓰러진 동료의 부품을 주워 모아 새 골렘을 짓는다.
 Camera: centred heroic portrait, near-symmetrical, subject about 70% of the frame, looking slightly down toward the viewer, a strong iconic silhouette.
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; the colossal underground halls of Durkheim with lava channels, mine shafts and iron gates, glowing ore veins like sinews in the rock; behind it, faint and colossal, the banner's source: the sleeping giant Sorgrim, whose iron sinews form the Ironbone mountains, watched by the mirror-scaled metal dragon Feros; cold steel sheen, sparks from an anvil, rivets.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -268,7 +278,8 @@ Camera: centred heroic portrait, near-symmetrical, subject about 70% of the fram
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; the colossal underground halls of Durkheim with lava channels, mine shafts and iron gates, glowing ore veins like sinews in the rock; behind it, faint and colossal, the banner's source: the sleeping giant Sorgrim, whose iron sinews form the Ironbone mountains, watched by the mirror-scaled metal dragon Feros; cold steel sheen, sparks from an anvil, rivets.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -294,7 +305,8 @@ Camera: centred heroic portrait, near-symmetrical, subject about 70% of the fram
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; the spiked lightning-rod towers of Voltarium crowned by a lightning storm; behind it, faint and colossal, the banner's source: the sleeping giant Keraun, whose lightning nerves branch through the ground like a vast glowing circuit; crackling electric arcs, glowing coils.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -320,7 +332,8 @@ Camera: centred heroic portrait, near-symmetrical, subject about 70% of the fram
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; the spiked lightning-rod towers of Voltarium crowned by a lightning storm; behind it, faint and colossal, the banner's source: the sleeping giant Keraun, whose lightning nerves branch through the ground like a vast glowing circuit; crackling electric arcs, glowing coils.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no mystical magic or wands — their power is science and machines.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -346,7 +359,8 @@ Camera: centred heroic portrait, near-symmetrical, subject about 70% of the fram
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; behind it, faint and colossal, the banner's source: the earth dragon Gorbas, the largest of the seven dragons, with rocks and forests growing on its back; flying rock dust, cracked ground, ochre light.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -372,7 +386,8 @@ Camera: centred heroic portrait, near-symmetrical, subject about 70% of the fram
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; behind it, faint and colossal, the banner's source: the earth dragon Gorbas, the largest of the seven dragons, with rocks and forests growing on its back; flying rock dust, cracked ground, ochre light.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -398,7 +413,8 @@ Camera: centred heroic portrait, near-symmetrical, subject about 70% of the fram
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; behind it, faint and colossal, the banner's source: the forest dragon Verdan, with antlers of ancient tree branches and moss-covered scales; glowing moss, thorny vines, drifting leaves.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -424,7 +440,8 @@ Camera: centred heroic portrait, near-symmetrical, subject about 70% of the fram
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; behind it, faint and colossal, the banner's source: the forest dragon Verdan, with antlers of ancient tree branches and moss-covered scales; glowing moss, thorny vines, drifting leaves.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -450,7 +467,8 @@ Camera: centred heroic portrait, near-symmetrical, subject about 70% of the fram
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; behind it, faint and colossal, the banner's source: the water dragon Marencia, a long translucent body with fins instead of wings; clear water light, spray, ripples, bubbles.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -476,7 +494,8 @@ Camera: centred heroic portrait, near-symmetrical, subject about 70% of the fram
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; behind it, faint and colossal, the banner's source: the water dragon Marencia, a long translucent body with fins instead of wings; clear water light, spray, ripples, bubbles.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light (about 60%); the grade accent is a secondary touch (15% or less).
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.

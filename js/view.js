@@ -115,7 +115,9 @@ const CLASS_INFO = {
 };
 /* v3.28 업그레이드(강화) 마크: 육각 테두리 안의 겹친 위 화살 둘 + 꼭대기 별빛. 강화 카드(js/upgrades.js)의 클래스 동그라미 자리와 그림 왼쪽 위 */
 const UPGRADE_MARK = '<path d="M12 1.6 21 6.8v10.4L12 22.4 3 17.2V6.8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7.2 12.6 12 8l4.8 4.6M7.2 17 12 12.4l4.8 4.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="4.9" r="1.15"/>';
-const upgradeTip = c => `강화 카드\n「${CARDS[c.base] ? CARDS[c.base].name : ""}」 3장을 합친 강화판입니다. 레벨 +1 · 유지비 +1, 스탯이 크게 오릅니다.\n클래스가 없어 어떤 아이템이든 장착할 수 있습니다. 덱에 1장.`;
+const upgradeTip = c => `강화 카드\n「${CARDS[c.base] ? CARDS[c.base].name : ""}」 3장을 합친 강화판입니다. 레벨 +1 · 유지비 +1, 스탯이 크게 오릅니다.\n클래스가 없어 어떤 아이템이든 장착할 수 있습니다.`;
+/* v3.59 스페셜 광휘(css/fmcard.css 끝): 그림 둘레 금 · 진홍 두 겹 액자 + 네 모서리 금 장식 + 그림 위로 떠오르는 진홍 · 금 불티. 그림만 꾸미고 누르는 것은 막지 않는다 */
+const specialFxHTML = (gr) => gr && gr.id === "special" ? '<i class="c-spfx" aria-hidden="true"></i>' : "";
 function upgradeMarkHTML(c, cls) { return `<i class="${cls || "c-clsb c-upmark"}" data-tip="${esc(upgradeTip(c))}"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${UPGRADE_MARK}</svg></i>`; }
 function cardClasses(c) {
   if (c.type === "unit" && c.anyItem) return [];   // v3.28 강화 카드는 클래스가 없다 — 그 자리에 업그레이드 마크(classIconHTML)
@@ -187,8 +189,11 @@ function raceLineHTML(c, gr) {
   const G = GROUPS[c.group], isU = c.type === "unit", isI = c.type === "item";
   const word = isU ? "유닛" : isI ? "아이템" : (RITE_TIP[c.type] || "마법");
   // 핸드 카드 폭에서도 잘리지 않게 짧게: 유닛은 종족 낱말만(바위주먹 오크 → 오크), 아이템은 장착 클래스만. 온전한 이름은 말풍선
-  const rest = isU ? (G ? G.name.split(" ").pop() : "") : isI ? (isAllClass(c) ? "공용" : itemClasses(c).join("·")) : "";
-  const tip = isU ? (G ? `유닛 · ${G.name}` : "") + (unitClassWord(c) ? `\n클래스: ${unitClassWord(c)}` : "") : isI ? `아이템 · ${c.cat || ""}\n${equipWho(c)} 장착` : "";
+  // v3.59 스페셜 유닛은 깃발마다 하나뿐인 존재 — 종족 낱말(고블린 · 드워프 · 노움 …)을 쓰지 않는다. 깃발은 말풍선에만
+  const asc = isU && c.special;
+  const rest = asc ? "" : isU ? (G ? G.name.split(" ").pop() : "") : isI ? (isAllClass(c) ? "공용" : itemClasses(c).join("·")) : "";
+  const tip = asc ? `유닛 · 스페셜 — 깃발마다 하나뿐인 존재${G ? `\n깃발: ${G.name}` : ""}` + (unitClassWord(c) ? `\n클래스: ${unitClassWord(c)}` : "")
+    : isU ? (G ? `유닛 · ${G.name}` : "") + (unitClassWord(c) ? `\n클래스: ${unitClassWord(c)}` : "") : isI ? `아이템 · ${c.cat || ""}\n${equipWho(c)} 장착` : "";
   return `<div class="c-race"><span class="r-l"${tip ? ` data-tip="${esc(tip)}"` : ""}><b class="r-t t-${c.type}">${esc(word)}</b>${rest ? `<span class="r-sep">·</span>${esc(rest)}` : ""}</span><span class="r-g" style="--gr:${gr.color}">${esc(gr.name)}</span></div>`;
 }
 
@@ -320,7 +325,7 @@ function cardHTML(c, opts) {
       <div class="c-head">${typeIconHTML(c)}${nameHTML(c)}</div>
       <div class="c-mid">
         <div class="c-side">${levelPips(c)}</div>
-        <div class="c-art">${artHTML(c)}${c.base ? upgradeMarkHTML(c, "c-upart") : ""}${opts.badges ? `<div class="c-badges">${opts.badges}</div>` : ""}${opts.artx || ""}</div>
+        <div class="c-art">${artHTML(c)}${specialFxHTML(gr)}${c.base ? upgradeMarkHTML(c, "c-upart") : ""}${opts.badges ? `<div class="c-badges">${opts.badges}</div>` : ""}${opts.artx || ""}</div>
       </div>
       <div class="c-low">
         <div class="c-lowl">${raceLineHTML(c, gr)}<div class="c-box"><div class="c-boxin">${box}</div></div></div>
@@ -419,7 +424,7 @@ function cardFullHTML(c, opts) {
     // v3.19.1: 특수 능력이 없는 유닛은 원본 카드에 "일반공격" 줄 · 뜻을 적지 않는다 (작은 카드의 일반공격 칩 말풍선에만)
     L.push(...cardKwLinesHTML(c));
     if (c.base && CARDS[c.base]) L.push(`<p class="f-grant f-upgrade"><b>강화</b> 「${esc(CARDS[c.base].name)}」 3장을 합친 카드. 어떤 아이템이든 장착할 수 있다.</p>`);   // v3.28
-    if (c.limit) L.push(`<p class="f-rule f-dim">덱에 ${c.limit}장까지.</p>`);
+    // v3.59 "덱에 N장까지" 줄은 카드에서 뺐다 — 장수 제한은 덱 조정실(장수 칸 · 알림)과 룰북에서만
     L.push(`<p class="f-flavor">${esc(c.flavor || G.blurb)}</p>`);
     // v1.4.5: 시뮬레이터 승률·교전 승률·이전 수치(v0.7·v1.2) 같은 균형 작업용 값은 카드에 보이지 않는다 (data.js에만 남는다)
   } else if (c.type === "item") {
@@ -432,7 +437,6 @@ function cardFullHTML(c, opts) {
     // v3.38 코인 읽는 법(spellCoinNoteHTML) 줄은 뺐다 — 그 자리에 카드 서사(c.flavor). 코인 읽는 법은 코인에 마우스를 올린 말풍선 · 매뉴얼에
     if (c.cost && c.cost.ether) L.push(`<p class="f-kw"><b>[장전 ${c.cost.ether}]</b> 다음 턴 에테르 −${c.cost.ether}.</p>`);
     { const rule = (RITE_TIP[c.type] || "").split("\n")[1]; if (rule) L.push(`<p class="f-rule f-dim">${rule}</p>`); }
-    if (c.limit && !c.comeback) L.push(`<p class="f-rule f-dim">덱에 ${c.limit}장까지.</p>`);   // v3.18 유니크 마법
     if (c.flavor) L.push(`<p class="f-flavor">${esc(c.flavor)}</p>`);   // v3.11.1: v3.10.6에 RITE_TIP이 한 줄이 되어 둘째 줄이 "undefined"로 나왔다   // v3.9.9: "뒤 N칸" 설명은 뺐다 — 카드 글("뒤 3칸")만으로 읽힌다. 규칙은 매뉴얼에
     // 역전 마법 표시·환산 레벨·이전 문구는 보이지 않는다 (v1.4.5)
   }
@@ -448,7 +452,7 @@ function cardFullHTML(c, opts) {
       <div class="c-head">${typeIconHTML(c)}<span class="c-hname" data-tip="${esc(idTip)}">${nameHTML(c, c.legend ? ' <small class="f-star">★</small>' : "")}</span>${grTag}</div>
       <div class="c-mid">
         <div class="c-side">${levelPips(c)}</div>
-        <div class="c-art">${artHTML(c)}${c.base ? upgradeMarkHTML(c, "c-upart") : ""}</div>
+        <div class="c-art">${artHTML(c)}${specialFxHTML(gr)}${c.base ? upgradeMarkHTML(c, "c-upart") : ""}</div>
       </div>
       <div class="c-low">
         <div class="c-lowl">
