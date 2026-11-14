@@ -7,7 +7,11 @@ let fail = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fail++; console.log('
 const ev = s => ctx.ev(s);
 (async () => {
   const ups = ev('CARD_LIST.filter(c => c.base).map(c => ({ id: c.id, base: c.base, lv: c.lv, up: c.up, g: c.group, limit: c.limit, any: c.anyItem, cl: c.cl, grade: gradeOf(c) }))');
-  ok(ups.length === 50, '강화 카드 50장: ' + ups.length);
+  // v3.50 카드 풀: 강화 카드는 깃발마다 5장까지 — 50장 중 10장은 레거시(CARDS에만 남음), 게임에는 40장
+  ok(ups.length === 40, '게임의 강화 카드 40장: ' + ups.length);
+  { const all = ev('Object.values(CARDS).filter(c => c.base).map(c => ({ id: c.id, g: c.group, retired: !!c.retired }))');
+    ok(all.length === 50 && all.filter(c => c.retired).length === 10, '강화 카드 전체 50장 · 레거시 10장: ' + all.length + ' · ' + all.filter(c => c.retired).length);
+    ok(['B1','B2','B3','G1','G2','G3','A1','A2','A3'].every(g => ups.filter(u => u.g === g).length <= 5), '깃발마다 강화 카드 5장까지'); }
   ok(ups.every(u => u.lv <= 5), 'v3.29 강화 결과는 5레벨까지');
   { const rt = ev('UPGRADE_RETIRED'); ok(Object.keys(rt).length === 13 && Object.keys(rt).every(id => !ev(`CARDS["${id}"]`) && ev(`CARDS["${rt[id]}"]`)), 'v3.29 없앤 13장은 CARDS에 없고 원래 카드는 있음'); }
   for (const u of ups) {

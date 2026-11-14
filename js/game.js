@@ -1,7 +1,7 @@
 /* ETHERION — 대전 흐름, 전장 화면, 컴퓨터 인공지능
    - 생명·덱 50(v3.56, 예전 40), 시작 핸드 6장(생명 44). 매 턴 두 플레이어 모두 6장까지 보충(뽑은 장수만큼, 최소 1 생명 감소)
    - 공격 준비 → 방어 준비 → 전투 → 정리
-   - 에테르 = 위대한 정수 1 + 결정 수. 결정화한 카드는 소각장으로(v3.19.2). 결정화는 턴마다 1장씩 쌓이는 한도 안에서(안 쓰면 다음 턴으로 넘어감), 결정 최대 9. Lv N 카드 비용은 에테르 N (규칙 문서 6)
+   - 에테르 = 위대한 정수 1 + 결정 수. 결정화한 카드는 소각장으로(v3.19.2). 결정화는 턴마다 1장씩 쌓이는 한도 안에서(안 쓰면 다음 턴으로 넘어감), 결정 최대 12(v3.64). Lv N 카드 비용은 에테르 N (규칙 문서 6)
    - 유지비: 레벨 아이콘 중 빈 칸(하늘빛 테두리)의 수, 최대 레벨 − 1. 소환할 때는 레벨만큼 내고, 살아남으면 다음 턴부터 에테르가 유지비만큼 빠진다.
      준비를 마칠 때 에테르가 모자라면 유지비가 큰 유닛부터 소각된다
    - 아이템: 공격·방어 준비 때 전장의 내 유닛 하나에 장착 (유닛 하나에 하나)
@@ -927,7 +927,7 @@ const ctrOf = r => ({ x: r.left + r.width / 2, y: r.top + r.height / 2 });
 
 /* ───────── v2.4 전장의 네 성물 (css/relics.css) ─────────
    세계관(docs/WORLD.md): 근원신 아르케가 에테르를 몸(거인)·뜻(신)·힘(용) 세 갈래로 나눴다.
-   · 에테르  = 힘. 가운데 구슬 둘레에 결정 9칸, 맨 위 금 보석이 위대한 정수. 둘레 그림은 이미지 한 장(etherAltarSVG).
+   · 에테르  = 힘. 가운데 구슬 둘레에 결정 12칸, 맨 위 금 보석이 위대한 정수. 둘레 그림은 이미지 한 장(etherAltarSVG).
    · 소각장  = 귀환의 불. 쓰레기를 태우는 곳이 아니라 카드를 에테르로 되돌려 보내는 성화대.
                불은 아래가 금빛, 끝이 에테르의 하늘빛으로 바뀌며 불티가 하늘빛으로 떠오른다.
    · 덱      = 아직 오지 않은 운명. 뾰족 아치 감실(龕室) 안에 쌓여 있고, 쐐기돌 아래 룬 고리가 천천히 돈다.
@@ -975,7 +975,7 @@ const SHRINE_SVG = `<svg class="shrine" viewBox="-16 -26 132 174" aria-hidden="t
          구슬 = 지름 100. 그림의 가운데 구멍은 104 안팎이 되게 size를 고른다(구멍 px × size ÷ 그림 px ≈ 104).
          v3.19.8 그림: 720px 중 구멍 296px → size 253. 결정 · 정수는 반지름 65 둘레(룬 고리 위).
          파일이 있으면 저절로 쓰고, 없으면 그림 없이 구슬 · 결정 · 금빛 고리만 보인다.
-   코드: 가운데 구슬과 숫자, 결정 9칸, 위대한 정수 1칸. 자리는 아래 ETHER_SLOTS 표 하나 — 새 그림에 맞춰 옮길 때는 이 표만 고친다. */
+   코드: 가운데 구슬과 숫자, 결정 12칸, 위대한 정수 1칸. 자리는 아래 ETHER_SLOTS 표 하나 — 새 그림에 맞춰 옮길 때는 이 표만 고친다. */
 const ETHER_ART = { size: 287, back: "img/ui/ether/ether_back.png?v=5",   /* v3.42 새 그림(1024px 중 구멍 372px → 287, 룬 고리 반지름 52~66 · 결정은 58.8 둘레) */ front: "img/ui/ether/ether_front.png", has: { back: false, front: false } };
 (function probeEtherArt() {
   for (const k of ["back", "front"]) {
@@ -985,12 +985,14 @@ const ETHER_ART = { size: 287, back: "img/ui/ether/ether_back.png?v=5",   /* v3.
   }
 })();
 /* [x, y, 돌림(도)] — viewBox 0..200, 구슬 가운데 (100, 100) 반지름 50. 돌림 0 = 뾰족한 끝이 위.
-   0번 = 위대한 정수(금 마름모), 1~9번 = 결정(차례대로 채워진다). 반지름 65 둘레, 12시에 정수, 시계 방향 36도씩 */
-const ETHER_SLOTS = [   // v3.42 반지름 58.8 둘레 (새 그림의 룬 고리 가운데). 예전 그림(v3.19.8)은 65
-  [100, 41.2, 0],
-  [134.5, 52.5, 36], [155.9, 81.8, 72], [155.9, 118.2, 108], [134.5, 147.5, 144], [100, 158.8, 180],
-  [65.5, 147.5, 216], [44.1, 118.2, 252], [44.1, 81.8, 288], [65.5, 52.5, 324]
-];
+   0번 = 위대한 정수(금 마름모), 1~12번 = 결정(차례대로 채워진다). 12시에 정수, 시계 방향으로 고르게(360 / 13도씩).
+   v3.64: 결정 9 → 12칸. 칸 수는 RULES.essence + RULES.maxCrystals 를 따른다 */
+const ETHER_SLOTS = (() => {   // v3.42 반지름 58.8 둘레 (새 그림의 룬 고리 가운데). 예전 그림(v3.19.8)은 65
+  const n = RULES.essence + RULES.maxCrystals, r = 58.8, out = [];
+  for (let i = 0; i < n; i++) { const deg = 360 * i / n, rad = deg * Math.PI / 180;
+    out.push([+(100 + r * Math.sin(rad)).toFixed(1), +(100 - r * Math.cos(rad)).toFixed(1), +deg.toFixed(1)]); }
+  return out;
+})();
 function etherAltarSVG(idx, slots) {
   const id = "et" + idx, S = ETHER_SLOTS, art = ETHER_ART.has.back || ETHER_ART.has.front;
   const at = s => `transform="translate(${s[0]} ${s[1]}) rotate(${s[2]})"`;
@@ -1966,7 +1968,7 @@ function etherHTML(p, isMe, ctrlAll) {
   const ctrl = ctrlAll && isMe;
   const selC = selHandCard(p, ctrl);
   const up = upkeepOf(p), left = ether(p), tot = etherTotal(p);
-  // v2.4: 칸 0 = 위대한 정수(맨 위 금 보석), 1~9 = 결정(구슬 둘레). 밝음 = 쓸 수 있음, 어두움 = 이번 턴에 씀, 비어 있음 = 아직 결정이 없음
+  // v2.4: 칸 0 = 위대한 정수(맨 위 금 보석), 1~12 = 결정(구슬 둘레). 밝음 = 쓸 수 있음, 어두움 = 이번 턴에 씀, 비어 있음 = 아직 결정이 없음
   const usedN = Math.min(tot, tot - Math.max(0, left));
   const slotsN = RULES.essence + RULES.maxCrystals, slots = [];
   for (let i = 0; i < slotsN; i++) { const has = i < tot; slots.push({ ess: i < RULES.essence, has, used: has && i >= tot - usedN }); }
@@ -1982,7 +1984,7 @@ function etherHTML(p, isMe, ctrlAll) {
     : myTurn && teach ? `<span class="cry-state ok cry-teach" title="핸드를 에테르로 끌어 놓거나 C 키로 결정화. 한 턴에 ${RULES.crystalsPerTurn}장씩 쌓이고, 안 쓰면 다음 턴으로 넘어갑니다"><b>결정화 가능 ${crysLeft(p)}</b><small>핸드 1장을 구슬로 끌어 놓기 · 에테르 +1</small></span>`
     : myTurn ? `<span class="cry-state ok" title="핸드를 에테르로 끌어 놓거나 C 키로 결정화. 한 턴에 ${RULES.crystalsPerTurn}장씩 쌓이고, 안 쓰면 다음 턴으로 넘어갑니다">결정화 가능 ${crysLeft(p)}</span>`
     : `<span class="cry-state" title="자기 준비 단계에만 결정화할 수 있습니다. 한 턴에 ${RULES.crystalsPerTurn}장씩 쌓입니다">결정화 ${crysLeft(p)}</span>`;
-  // 에테르 제단: 가운데 정수 구슬(남은/이번 턴 에테르), 둘레의 마법진에 정수 1 + 결정 9칸이 박힌다
+  // 에테르 제단: 가운데 정수 구슬(남은/이번 턴 에테르), 둘레의 마법진에 정수 1 + 결정 12칸이 박힌다
   return `<div class="ether altar${teach ? " teach" : ""}${canCrys ? " valid" : ""}${left < 0 ? " short" : ""}${p.bonusNow ? " boosted" : ""}" data-act="ether" data-p="${p.idx}" id="crys${p.idx}" data-tip="${esc(`에테르 ${left} / ${tot}\n가운데 = 이번 턴 남은 에테르 / 이번 턴 에테르\n맨 위 금 보석 = 위대한 정수 1(깨지지 않음) · 둘레 = 결정 ${p.crystals.length}/${RULES.maxCrystals}\n빛나는 결정 = 쓸 수 있음 · 어두운 결정 = 이번 턴에 씀\n결정화: 핸드 1장을 여기로 끌어 놓기 (한 턴 ${RULES.crystalsPerTurn}장, 카드는 소각장으로)`)}">
       <div class="eth-ring">
         ${etherAltarSVG(p.idx, slots)}
@@ -3758,7 +3760,7 @@ function showRules() {
   modal(`<h3>전투 규칙 요약</h3>
   <ol class="rules-list">
     <li><b>보충</b> — 턴이 시작되면 두 플레이어 모두 핸드를 6장까지 뽑고, 뽑은 장수만큼(최소 1) 생명이 줄어듭니다.</li>
-    <li><b>에테르</b> — 위대한 정수가 매 턴 에테르 1을 주고, 핸드를 결정으로 바치면(턴당 1장, 최대 9개) 결정마다 매 턴 에테르 1을 더 냅니다. Lv N 카드의 비용은 에테르 N. 남은 에테르는 넘어가지 않습니다.</li>
+    <li><b>에테르</b> — 위대한 정수가 매 턴 에테르 1을 주고, 핸드를 결정으로 바치면(턴당 1장, 최대 12개) 결정마다 매 턴 에테르 1을 더 냅니다. Lv N 카드의 비용은 에테르 N. 남은 에테르는 넘어가지 않습니다.</li>
     <li><b>유지비</b> — 레벨 아이콘의 빈 칸 수가 유지비입니다. 소환할 때는 레벨만큼 에테르를 내고, 유닛이 살아남으면 다음 턴부터 에테르가 유지비만큼 빠집니다. 준비를 마칠 때 모자라면 유지비가 큰 유닛부터 소각됩니다.</li>
     <li><b>공격 준비</b> — 공격자가 유닛·공격 마법·공용 마법을 빈 칸에 올립니다 (핸드 더블클릭 = 왼쪽부터 빈 칸). 아이템은 공격·방어 준비 어느 때나 클래스가 맞는 내 유닛에 장착하며(아이템 이름 옆 [○○ 전용]이 유닛 오른쪽 아래 열의 클래스 아이콘과 같으면 장착, [공용]은 누구에게나), 유지비가 없습니다.</li>
     <li><b>방어 준비</b> — 방어자가 공격자의 유닛 배치를 보고 유닛·방어 마법·공용 마법을 올립니다. 마법은 뒷면이라 상대에게 보이지 않습니다.</li>

@@ -3,6 +3,14 @@
 버전마다 바뀐 것과 바뀐 파일을 적는다. 새 버전은 맨 위에 쓴다.
 맨 아래 `실행`·`v0.3`·`계정`·`덱`·`규칙`·`파일` 절은 v0.3 무렵의 설명을 그대로 남긴 것이라 지금과 다른 곳이 있다(예: 클래스는 v1.0에서 규칙에서 빠짐). 지금 상태는 `README.md`를 본다.
 
+## v3.64.0 — 에테르 최대 13 · 마법 레벨 −2 (마법 연계 개편 1단계)
+바뀐 파일 `js/cards.js` · `js/game.js` · `js/aihard.js` · `js/data.js` · `js/names.js` · `js/rarespells.js` · `js/counterspells.js` · `js/highcards.js` · `js/pincards.js` · `tools/counter/test.js` · `tools/upgrade/test.js` · `AGENTS.md` · `README.md` · `docs/STYLE_GUIDE.md`(v6.23)
+- **에테르 최대 13**(규칙): 결정 상한 9 → 12(`RULES.maxCrystals`). 에테르 제단의 결정 칸도 12칸 — 자리는 `RULES`에서 계산해 360°/13씩 고르게(`ETHER_SLOTS`). 매뉴얼 · 룰북은 상수를 읽어 저절로 바뀜. 컴퓨터 어려움도 결정을 12개까지 모은다(`HARD.crysTo` 9 → 12).
+- **마법 레벨 −2**(최소 1, 규칙): 덱에 넣는 마법 255장 모두(공격 · 방어 · 공용 · 레어 · 무효 · 에픽 · 표시 마법). 아이템 · 유닛 · 소환물은 그대로. 레벨 분포 2~7 → 1~5(1레벨 120 · 2레벨 63 · 3레벨 47 · 4레벨 23 · 5레벨 2). 마법끼리 이어 쓰기 쉽게 하려는 것이고, 연계 마법끼리 더 세지거나 싸지는 규칙은 나중에.
+- 앞으로 새 마법은 이 레벨 기준으로 처음부터 1레벨부터 만든다. 무효 마법은 옛 2 · 3레벨이 모두 1레벨이 되었다(시험 고침).
+- 잰 값(컴퓨터 보통, 기본 덱 9깃발 라운드 로빈 4,320판): 깃발 승률 폭 6.8 → 12%p(성광 천족 56.8 · 번개 노움 54.7 · … · 이끼 트롤 45.5 · 심연 마족 44.8), 평균 턴 16.9 → 17.0. 13까지 차는 판은 6~9%. 마법 22장 덱의 기본 덱 상대 승률 43.6 → 49.1%. 아이템까지 −2는 폭 25.6%p라 하지 않음.
+- 확인: `node tools/replay_check.js 40` · `10 hard` 모두 같음, 룰북 · 순례 · 유니크 · 무효 마법 · 합성 시험 통과· 강화 시험(`tools/upgrade/test.js`)은 v3.50 카드 풀 기준(게임 40장 · 레거시 10장 · 깃발마다 5장까지)으로 고쳐 233개 통과. 서버 다시 켬.
+
 ## v3.63.0 — 카드 레벨 숫자 · [저주 면역]은 깎기만 막음 · 담금질은 순환으로 · 보호막 막힘 연출 · 전투 기록 자리 · 사격 연출 멈춤 고침 · "문양 맞추기"
 바뀐 파일 `js/engine.js` · `js/game.js` · `js/cards.js` · `js/pincards.js` · `js/view.js` · `js/spellfx.js` · `js/impact.js` · `js/manual.js` · `js/rulebook.js` · `js/fusion.js` · `js/rewards.js` · `js/minigames.js` · `js/upgrade-ui.js` · `css/fmcard.css` · `css/style.css` · `css/arcade.css` · `css/mobile-lite.css` · `index.html`(캐시 sb621 · r363 등) · `docs/STYLE_GUIDE.md`(v6.22) · `docs/PINS_v3.20.md`
 - **[사격] 연출에서 전투 재생이 멈추던 것 고침**: v3.61.0에 지운 `ATK_SND`를 `atkKindOf`가 아직 읽어 오류가 났다. 없으면 건너뛴다.

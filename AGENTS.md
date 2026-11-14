@@ -21,6 +21,7 @@
 - 카드 뒷면의 ETHERION 글씨는 그림에 구워 넣은 것이다. 뒷면 그림을 바꾸면 `img/ui/deck/card_back_plain.png`에 넣고 `python tools/art/cardback_text.py`.
 - 수정 전 상태는 `_backup_v<버전>/` 에 남겨 왔다. 큰 변경 전에는 같은 방식으로 백업한다.
 - 세계관 이름은 모두 가칭이다. 이름과 설정은 README와 가이드에 적힌 것을 따른다.
+- **v3.64 에테르 최대 13 · 마법 레벨 −2**: 결정 상한 12(`RULES.maxCrystals`, 제단 칸은 `ETHER_SLOTS`가 계산). 덱에 넣는 마법은 모두 2레벨 내렸다(최소 1, 지금 1~5레벨). 새 마법은 이 기준으로 1레벨부터 만든다 — v3.64 전 문서(`docs/RARESPELLS_v3.24.md` · `COUNTERSPELLS_v3.32.md` · `BALANCE_v4_draft.md` 등)의 마법 레벨은 2 높게 적혀 있다. 아이템 레벨은 그대로. 마법 연계 보너스(연계 시 더 셈 · 에테르 덜 듦)는 나중 일.
 
 ## 카드 배치 · 핸드 (v3.19)
 - 카드는 판타지 마스터즈식 배치다(왼쪽 위 종류 아이콘 · 왼쪽 세로 레벨 · 그림 아래 글 상자 · 오른쪽 아래 클래스와 공방체). HTML은 `js/view.js` `cardHTML` · `cardFullHTML`, 모양은 `css/fmcard.css`(맨 마지막에 읽음). 카드 모양을 고칠 때 `style.css` · `slim.css`의 옛 카드 규칙보다 이 파일을 먼저 본다.

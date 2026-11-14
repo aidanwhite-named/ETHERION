@@ -19,8 +19,8 @@ ctx.IDS = IDS;
 // 카드 · 등급 · 글
 ok(ev('COUNTER_SPELLS.length') === 9 && ev('GROUP_IDS.every(g => COUNTER_SPELLS.filter(s => s.g === g).length === 1)'), '깃발마다 1장 · 9장');
 ok(ev('IDS.every(id => CARDS[id] && CARDS[id].type === "atk" && gradeOf(id) === "uncommon")'), '모두 공격 마법 · 고급');
-ok(ev('IDS.every(id => [2, 3].includes(CARDS[id].lv) && CARDS[id].ops[0].op === "negate")'), '모두 2 · 3레벨, 첫 효과가 [무효]');
-ok(ev('IDS.filter(id => CARDS[id].lv === 2).every(id => CARDS[id].ops.length === 1)') && ev('IDS.filter(id => CARDS[id].lv === 3).every(id => CARDS[id].ops.length >= 2)'), '2레벨은 [무효]만, 3레벨은 [무효] + 효과 하나');
+ok(ev('IDS.every(id => CARDS[id].lv === 1 && CARDS[id].ops[0].op === "negate")'), '모두 1레벨(v3.64: 마법 레벨 −2), 첫 효과가 [무효]');
+ok(ev('IDS.filter(id => CARDS[id].ops.length === 1).length') === 4, '[무효]만 4장(옛 2레벨) · [무효] + 효과 5장(옛 3레벨) — v3.64부터 모두 1레벨');
 ok(ev('IDS.every(id => CARDS[id].name.replace(/\\s/g, "").length <= 6 && COUNTER_SPELLS.find(s => s.id === id).brief && /\\[무효\\]/.test(CARDS[id].text))'), '이름 6글자 이하 · 짧은 문구 · 글에 [무효]');
 ok(ev('new Set(CARD_LIST.map(c => c.name)).size === new Set(CARD_LIST.map(c => c.id)).size || IDS.every(id => CARD_LIST.filter(c => c.name === CARDS[id].name).length === 1)'), '이름이 다른 카드와 겹치지 않음');
 ok(/발동하지 않고 부서진다/.test(ev('spellKwDesc("무효")')), '[무효] 말풍선 뜻');
@@ -59,7 +59,7 @@ T('이끼 덮기', `const a = mk("A1-30"); const P = [side(0, ["CS-G2", a]), sid
 // 6 빼앗긴 마법 · opening 마법 · 소환 마법
 T('opening', `const op = CARD_LIST.find(c => c.opening && c.group === "B2"); if (op) { const P = [side(0, ["CS-G1", "A1-30"]), side(1, ["B2-01", op.id])];
   const X = fight(P, 0, 2); ok(new RegExp(op.name + ".*무효").test(logs(X)), "opening 마법도 무효 (" + op.name + ")"); } else ok(true, "");`);
-T('높은 레벨', `const sm = CARD_LIST.filter(c => c.type === "def" && c.lv >= 5 && !c.unique).sort((a, b) => b.lv - a.lv)[0]; const P = [side(0, ["CS-B2", "A1-30"]), side(1, [sm.id, "B1-01"])];
+T('높은 레벨', `const sm = CARD_LIST.filter(c => c.type === "def" && c.lv >= 3 && !c.unique).sort((a, b) => b.lv - a.lv)[0]; const P = [side(0, ["CS-B2", "A1-30"]), side(1, [sm.id, "B1-01"])];
   const X = fight(P, 0, 2); ok(!new RegExp(sm.name + " 발동").test(logs(X)) && P[1].burn.includes(sm.id), "높은 레벨 방어 마법(" + sm.name + " " + sm.lv + "레벨)도 무효");`);
 // 7 방어 턴에는 낼 수 없음 (공격 마법)
 ok(ev('CARDS["CS-B2"].type') === 'atk', '방어 턴에는 낼 수 없는 공격 마법');
