@@ -12,16 +12,16 @@ this.side=side; this.fight=fight; this.prep=prep;`);
 const CARDS = c.ev('CARDS');
 // 카드 글
 for (const id of ['SA1-06', 'SA1-01', 'MA-04', 'SA1-02', 'MC-05', 'SA1-04', 'MA-16', 'MA-01', 'RS-A1-1', 'US-A1-1', 'CS-A1', 'PS-A1-2']) ok(CARDS[id], id + ' 있음');
-ok(/\[강탈\]/.test(CARDS['MA-01'].text) && CARDS['MA-01'].ops.some(o => o.op === 'grant' && o.ab.rob), 'MA-01 [강탈] 부여');
-ok(/\[강탈\]/.test(CARDS['SA1-01'].text), '심연의 부름도 생명을 내므로 [강탈]');
+ok(/\[제물 2\]/.test(CARDS['MA-01'].text) && CARDS['MA-01'].cost.life === 2, 'MA-01 [제물 2] (v3.66: 마법이 [강탈]을 걸던 것 → [제물])');
+ok(/\[제물 2\]/.test(CARDS['SA1-01'].text), '심연의 부름도 생명을 내므로 [제물]');
 ok(!/\[강탈\]/.test(CARDS['SA1-06'].text), '피의 제물은 생명을 내지 않음');
 ok(CARDS['A1-27'].gift.leech && !CARDS['A1-27'].gift.shred, '피의 군주 [흡혈] (관통 뺌)');
 ok(CARDS['IA1-1'].item.pact === 2, '피의 서약 부적 [피의 계약 2]');
 ok(c.ev('itemAbilities(CARDS["IA1-1"].item)').includes('[피의 계약 2]'), '아이템 능력 글');
 ok(c.ev('itemKwDesc("[흡혈]")').length > 10, '[흡혈] 뜻 글');
-// [강탈]: 공격으로 쓰러뜨리면 생명 + 레벨
-{ const P = [c.side(0, ['A1-13'], 30), c.side(1, ['A1-05'], 30)]; c.ev('(function(P){ this._P=P; })')(P);
-  const X = c.fight(P, 0); ok(P[0].life === 30 + CARDS['A1-05'].lv, '[강탈] 처형인 생명 +' + CARDS['A1-05'].lv + ' → ' + P[0].life); }
+// [강탈]: 공격으로 쓰러뜨리면 다음 턴 에테르 + 레벨의 절반(올림) (v3.66: 생명 → 에테르)
+{ const P = [c.side(0, ['A1-13'], 30), c.side(1, ['A1-05'], 30)];
+  const X = c.fight(P, 0); const g = Math.ceil(CARDS['A1-05'].lv / 2); ok(P[0].bonus >= g && P[0].life === 30, '[강탈] 처형인 다음 턴 에테르 +' + g + ' → bonus ' + P[0].bonus + ' · 생명 ' + P[0].life); }
 // 강탈 없는 유닛은 생명 그대로
 { const P = [c.side(0, ['A1-15'], 30), c.side(1, ['A1-05'], 30)]; c.fight(P, 0); ok(P[0].life === 30, '강탈 없으면 생명 그대로'); }
 // 마법이 건 [강탈] + 대가
@@ -63,7 +63,7 @@ ok(c.ev('itemKwDesc("[흡혈]")').length > 10, '[흡혈] 뜻 글');
 // 환각: 맨 앞 유닛이 바로 뒤 제 편을 친다, 반격 없음
 { const P = [c.side(0, ['MC-05', 'A1-07'], 30), c.side(1, ['A1-29', 'A1-17'], 30)]; c.prep(P); const X = c.ev('ctx')(P, 0, 1, []);
   c.ev('castSpell')(X, 0, P[0].field[0], 1); const v = P[1].field[1];
-  ok(v.t.dmg === Math.max(0, P[1].field[0].t.a - v.t.d) || !v.t.alive, '환각: 제 편을 침 (' + v.t.dmg + ')'); ok(P[1].field[0].t.noCounter, '환각: 반격 없음 표시');
+  ok(v.t.dmg === Math.max(0, P[1].field[0].t.a - v.t.d) || !v.t.alive, '환각: 제 편을 침 (' + v.t.dmg + ')'); ok(!P[1].field[0].t.noCounter, '환각: 반격은 막지 않음 (v3.66)');
   const me = P[0].field[1]; c.ev('attackOne')(X, me); ok(me.t.dmg === 0, '환각에 빠진 유닛은 반격하지 않음'); }
 // 거울 환영: 상대 공격 1위의 환영, 소각장에 가지 않음
 { const P = [c.side(0, ['SA1-04'], 30), c.side(1, ['A1-29', 'A1-02'], 30)]; const X = c.fight(P, 1, 5);

@@ -12,7 +12,7 @@
 
 const ABYSS = {
   robCond: "any",   // [강탈] 조건: any 어떤 유닛이든 · ge 내 레벨 이상만 · le 내 레벨 이하만
-  robGain: "lv",    // [강탈] 되찾는 생명: lv 쓰러뜨린 유닛의 레벨 · half 그 절반(올림) · 숫자 = 그 값
+  robGain: "half",  // [강탈] 다음 턴 에테르(v3.65: 생명 → 에테르): lv 쓰러뜨린 유닛의 레벨 · half 그 절반(올림) · 숫자 = 그 값. v3.65 사용자 결정: lv → half (마족 승률 54.3 → 50.5%, 400판씩)
   leech: 0.5,       // [흡혈] 준 피해 가운데 체력으로 돌아오는 몫(올림)
   leechOver: true,  // [흡혈] 다 찬 체력을 넘는 몫은 이번 턴 체력 +
   veilPlus: 2,      // [그림자 걸음] 같거나 낮은 레벨에게 받는 피해 +
@@ -73,9 +73,9 @@ const ABYSS_KW = { rob: "강탈", leech: "흡혈", veil: "그림자 걸음", pac
       brief: "{적 1} 빼앗음 (레벨 ≤ 이번 턴 낸 생명 +1) · 이번 턴",
       desc: "발밑의 그림자가 손이 되어 적을 움켜쥔다. 피를 많이 바칠수록 손아귀는 더 큰 것을 끌어온다." },
     "MC-05": { n: "환각", kind: "com", lv: 1,   // 전: 쇠약의 저주 (상대 유닛 전체 방어 −1, 맨 앞 2기 피해 1 +1C)
-      text: "상대 맨 앞 유닛이 환각에 빠져, 바로 뒤의 제 편 유닛을 제 공격으로 친다(맞는 유닛의 방어만큼 줄어든다). 그 유닛은 이번 턴 반격하지 않는다.",
+      text: "상대 맨 앞 유닛이 환각에 빠져, 바로 뒤의 제 편 유닛을 제 공격으로 친다.",
       ops: [{ op: "confuse" }],
-      brief: "{적 앞1} 바로 뒤 제 편을 제 ⚔로 물리 피해 · 반격 없음",
+      brief: "{적 앞1} 바로 뒤 제 편을 제 ⚔로 침",
       desc: "녹타르의 안개를 마신 자는 곁의 전우가 마족으로 보인다. 칼을 내리친 뒤에야 그 얼굴을 알아본다." },
     "SA1-04": { n: "거울 환영", kind: "com", lv: 2,   // 전: 저주받은 반격 (생명 3, 상대 맨 앞 2기 피해 3)
       text: "생명 2를 내고, 상대 유닛 중 공격이 가장 높은 1기의 환영을 이 칸에 부른다. 환영은 그 유닛과 같은 카드(아이템 없음)로 이번 턴 내 편에서 싸우고, 전투가 끝나면 사라진다.",
@@ -90,13 +90,15 @@ const ABYSS_KW = { rob: "강탈", leech: "흡혈", veil: "그림자 걸음", pac
     if (typeof SPELL_BRIEF !== "undefined") SPELL_BRIEF[id] = r.brief;
   }
 
-  /* ---------- 생명을 내는 마족 마법은 모두 아군 유닛 전체에게 [강탈] ---------- */
-  for (const s of SIM_SPELLS) {
-    if (s.g !== "A1" || !(s.cost && s.cost.life) || (s.ops || []).some(o => o.op === "grant" && o.ab && o.ab.rob)) continue;
-    s.ops = (s.ops || []).concat([{ op: "grant", side: "ally", area: { t: "all" }, ab: { rob: 1 } }]);
-    s.text = String(s.text || "").replace(/\s*$/, "") + " 아군 유닛 전체에게 [강탈].";
-    if (typeof SPELL_BRIEF !== "undefined" && SPELL_BRIEF[s.id]) SPELL_BRIEF[s.id] += "|{아군 전체} [강탈]";
-  }
+  /* ---------- 생명을 내는 마족 마법 = [제물] (v3.65 사용자 결정) ----------
+     예전엔 "아군 유닛 전체에게 [강탈]"을 함께 걸어 생명을 되찾게 했다. 이제 낸 생명은 제물이고, 이번 턴 내 유닛이
+     상대 유닛을 쓰러뜨리면 바친 생명이 모두 돌아온다(js/engine.js abOffer). 글 "생명 N을 내고," → "[제물 N]" */
+  const SAC = s => { if (s.g !== "A1" || !(s.cost && s.cost.life) || s.kind === "hand" || s.type === "hand") return;
+    s.text = String(s.text || "").replace(/생명 (\d+)[을를] 내고,?\s*/, "[제물 $1] ");
+    if (typeof SPELL_BRIEF !== "undefined" && SPELL_BRIEF[s.id]) SPELL_BRIEF[s.id] = SPELL_BRIEF[s.id].replace("{대가} 생명", "{제물} 생명"); };
+  for (const s of SIM_SPELLS) { SAC(s);
+    if (s.g === "A1") { s.text = String(s.text || "").replace(/이번 턴 낸 생명/g, "이번 턴 바친 제물");
+      if (typeof SPELL_BRIEF !== "undefined" && SPELL_BRIEF[s.id]) SPELL_BRIEF[s.id] = SPELL_BRIEF[s.id].replace(/이번 턴 낸 생명|낸 생명/g, "바친 제물"); } }
 })();
 
 /* 등급: 바꾼 마법은 원래 등급 그대로 (js/grades.js가 읽는 자리만 남김) */

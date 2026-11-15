@@ -349,7 +349,7 @@ function cardHTML(c, opts) {
 }
 /* v3.9.9: 마법 카드의 짧은 문구 (js/briefs.js SPELL_BRIEF). 핸드 · 전장 카드(slim)의 그림 아래쪽에 겹쳐 보인다.
    한 줄 = 효과 하나("|"로 나눔). {대상} = 색 칩, ⚔⛨♥ = 공·방·체 아이콘, +1C×2 = 코인(+●●), [키워드] = 말풍선 */
-const BRIEF_TONE = { "적": "foe", "아군": "ally", "나": "ally", "뒤": "ally", "양쪽": "both", "대가": "cost", "핸드": "hand" };
+const BRIEF_TONE = { "적": "foe", "아군": "ally", "나": "ally", "뒤": "ally", "양쪽": "both", "대가": "cost", "제물": "cost", "핸드": "hand" };
 function spellBriefLine(line) {
   const re = /\{([^}]+)\}|\[([^\[\]]+)\]|([+−])(\d+)C(?:×(\d+))?|([⚔⛨♥])/g;
   let out = "", at = 0, m;

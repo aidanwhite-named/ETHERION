@@ -259,11 +259,9 @@ input:not([type=checkbox]):not([type=radio]):not([type=range]):focus { border-co
 .btn.rite b { font-size: 15px; letter-spacing: .06em; }
 .btn.rite small { font-family: var(--caps); font-size: 9.5px; font-weight: 700; letter-spacing: .28em; padding-left: .28em; opacity: .7; }
 /* 세 관문 중 원정만 금빛, 나머지는 어두운 명판에 색 테두리 (한 줄에 금 하나) */
-.altar .btn.rite#go-ai { --edge: var(--edge-gold); --fill: var(--fill-night); color: var(--ink); text-shadow: none; }
-.altar .btn.rite#go-ai .m-ico { color: var(--gold); }
-.altar .btn.rite#go-pvp { --edge: linear-gradient(180deg, #ded0ff, #4a2f86); --fill: linear-gradient(180deg, #221a38, #110d1c); color: #efe8ff; }
-.altar .btn.rite#go-pvp .m-ico { color: #b9a0f0; }
-.altar .btn.rite#go-exp { color: #1c1407; }
+/* 2026-11-15 출정의 단 단추(덱 조정실 · 컴퓨터와 대전 · 순례 · 온라인 대전 · 원정 계속)는 모두 같은 모양: 금테 · 밤색 바탕 · 금빛 그림 */
+.altar .btn.rite:not(.rb) { --edge: var(--edge-gold); --fill: var(--fill-night); color: var(--ink); text-shadow: none; }
+.altar .btn.rite .m-ico { color: var(--gold); }
 
 /* 덱 조정실 머리: 단체 색 군기 띠 */
 .ed-bar { background: linear-gradient(90deg, color-mix(in srgb, var(--gc, var(--fc)) 18%, transparent), transparent 65%), rgba(8, 9, 15, .6); border-bottom: 0; box-shadow: inset 0 -1px 0 rgba(217, 180, 106, .3); margin-top: calc(var(--crest-drop) + 6px); }

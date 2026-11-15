@@ -119,6 +119,7 @@ function refill(p) {
   const need = Math.max(0, ((G.rules && G.rules.handSize) || RULES.handSize) - p.hand.length);
   const k = draw(p, need, true);
   const loss = Math.max(1, k);
+  if (k > 0 && G.cfg && !G.cfg.headless && G.speed !== 0) LIFE_SHOW[p.idx] = { g: G, v: p.life, on: false };   // v3.62.1 화면만: 뽑힌 카드가 한 장씩 앉을 때 생명이 1씩 준다 (lifeTicks)
   p.life -= loss;
   log(`${p.name}: ${k}장 보충 · 생명 −${loss}`, "sys");
 }
@@ -246,8 +247,8 @@ function settleUpkeep(p) {
     p.field.forEach((it, s) => { if (isUnit(it) && it.summoned < G.turn && uUpkeepOf(it) > up) { up = uUpkeepOf(it); best = s; } });   // v3.31 낙인 유지비 포함
     if (best < 0) break;
     burnFieldAt(p, best, `유지비 ${up}를 낼 에테르가 없음`);
-  }
     sfx("upkeep_burn");
+  }
 }
 
 /* ---------- v1.4 계략 마법 (핸드를 겨냥하는 마법) ----------
@@ -355,7 +356,7 @@ function beginTurn() {
   if (G.turn > 1) { refill(A); refill(D); }
   for (const p of G.players) {
     const up = upkeepOf(p);
-    if (up || p.reloadNow || p.bonusNow) log(`${p.name}: 이번 턴 에테르 ${etherTotal(p)}${p.bonusNow ? ` (직접 공격 보너스 +${p.bonusNow} 포함)` : ""}${up ? ` − 유지비 ${up}` : ""}${p.reloadNow ? ` − 장전 ${p.reloadNow}` : ""}`, "sys");
+    if (up || p.reloadNow || p.bonusNow) log(`${p.name}: 이번 턴 에테르 ${etherTotal(p)}${p.bonusNow ? ` (보너스 +${p.bonusNow} 포함 · 직접 공격 · 강탈)` : ""}${up ? ` − 유지비 ${up}` : ""}${p.reloadNow ? ` − 장전 ${p.reloadNow}` : ""}`, "sys");
   }
   if (typeof BLog !== "undefined") BLog.turnStart();   // v3.20.1 전투 로그: 보충한 뒤의 핸드
   if (checkEnd()) return;
@@ -567,7 +568,8 @@ function aiCrystalPlan(p) {
    v3.24.4: 마법이 없을 때와 있을 때를 **같은 씨앗**으로 굴려 견준다. 예전에는 따로 굴려(2번 · 3번) 코인 운의 차이가
    이득처럼 보였고, 그래서 아군 유닛이 없는 빈 전장에도 강화 마법을 놓았다. 이제 아무 일도 하지 않는 마법의 이득은 정확히 0이다 */
 const AI_SPELL_SEEDS = 4;     // 마법 하나를 굴려 보는 횟수 (칸마다)
-const AI_SPELL_MIN = 0.25;    // 굴려 본 이득이 이보다 작으면 그 마법은 내지 않는다
+const AI_SPELL_BONUS = 3;   // v3.66 마법은 한 번 쓰면 사라지고 굴려 본 이득은 이번 전투 하나뿐이라 유닛보다 낮게 나온다 — 쓸 만한 마법(이득 AI_SPELL_MIN 이상)에 더해 주는 값
+const AI_SPELL_MIN = 0.1;    // 굴려 본 이득이 이보다 작으면 그 마법은 내지 않는다
 function spellGain(p, hit) {
   const hide = opp(p).idx; // 상대 마법은 뒷면이라 모른다
   const sb = (GRand() * 1e9) >>> 0;   // v3.40 판 시드로
@@ -639,7 +641,7 @@ async function aiPrep(p) {
         opts.push({ it, kind: "hand", v: Math.min(v, c.lv + 1.5) });
       } else {
         const g = spellGain(p, it); if (!g || g.v < AI_SPELL_MIN) continue;   // v3.24.4 헛마법은 내지 않는다
-        opts.push({ it, kind: "spell", s: g.s, v: g.v * 1.1 - (c.cost.life || 0) * 0.15 });
+        opts.push({ it, kind: "spell", s: g.s, v: g.v * 1.1 + AI_SPELL_BONUS - (c.cost.life || 0) * 0.15 });
       }
     }
     for (const o of opts) o.score = o.v + (GRand() * 2 - 1) * AI_NOISE;   // v3.40 판 시드로
@@ -664,9 +666,9 @@ async function aiPrep(p) {
 
 /* ---------- 경기 시작/흐름 ---------- */
 function startMatch(cfg) {
+  if (typeof FEEL !== "undefined" && !cfg.headless && !cfg.replayView) FEEL.play("sortie", .9);
   UID = 0;
   const rand = cfg.seed != null ? mulberry32(cfg.seed) : null;   // v3.10 온라인: 두 기기가 같은 시드
-  if (typeof FEEL !== "undefined" && !cfg.headless && !cfg.replayView) FEEL.play("sortie", .9);
   if (typeof FX !== "undefined") { FX.itemFront.clear(); FX.peek = null; if (FX.curse) FX.curse.clear(); if (FX.scrap) { FX.scrap.clear(); FX.scrapNew.clear(); } }
   G = {
     mode: cfg.mode, turn: 1, attacker: (rand || Math.random)() < 0.5 ? 0 : 1, rand, online: cfg.mode === "online", me: cfg.me || 0, phase: "setup", log: [], sel: null, reg: {},
@@ -722,9 +724,9 @@ async function mulliganUI(p) {
     upd();
     w.addEventListener("click", e => { const b = e.target.closest(".mull-card"); if (!b) return; const id = +b.dataset.uid; if (picked.has(id)) picked.delete(id); else picked.add(id); b.classList.toggle("on", picked.has(id)); upd(); });
   } });
+  if (r === "swap" && picked.size) sfx("mulligan");
   if (G && G.online) return r === "swap" ? [...picked] : [];   // v3.10 온라인: 고른 것만 돌려주고, 두 사람 것이 모이면 차례대로 바꾼다
   if (r === "swap" && picked.size) { actMulligan(p, [...picked]); toast(`${picked.size}장을 새로 뽑았습니다.`, "good"); }
-  if (r === "swap" && picked.size) sfx("mulligan");
 }
 function aiMulligan(p) {
   if (p.ai === "hard") return aiMulliganHard(p);
@@ -759,12 +761,12 @@ async function loop(myG, deal) {
     if (G !== myG) return;
     G.viewer = G.mode === "ai" ? 0 : G.online ? G.me : G.attacker; render();
     const first = G.players[G.attacker];
+    sfx("first_turn");
     await phaseBanner(G.mode === "ai" || G.online ? (G.attacker === G.viewer ? "선공" : "후공") : "선공", `동전 던지기 결과: ${first.name}이(가) 먼저 공격합니다`, "coin", 1500);
   } else for (const p of G.players) { if (p.isAI) aiMulligan(p); else if (G.cfg.replay) replayMull(p); }   // v3.40 서버 검산: 사람 쪽 멀리건은 기록대로
-    sfx("first_turn");
   while (G === myG && G.phase !== "over") {
     const bk = G.turn + ":" + G.phase;
-    if (!G.cfg.headless && G.speed !== 0 && bk !== shown && G.phase !== "over") { shown = bk; const b = bannerFor(G.phase); if (b) { bannerSfx(b); await phaseBanner(b[0], b[1], b[2], 0, G.phase === "atkPrep" || G.phase === "defPrep" ? 3 : 1); } if (G !== myG) break; }
+    if (!G.cfg.headless && G.speed !== 0 && bk !== shown && G.phase !== "over") { shown = bk; const b = bannerFor(G.phase); if (b) { bannerSfx(b); await phaseBanner(b[0], b[1], b[2], 0, G.phase === "atkPrep" || G.phase === "defPrep" ? 3 : 1, b[3]); }   /* 2026-11-15 공격 준비 · 방어 준비 띠에 그림(b[3]). 길이는 그대로 3배 */ if (G !== myG) break; }
     if (G.phase === "atkPrep" || G.phase === "defPrep") {
       const p = G.players[prepIdx()];
       if (p.isAI) { G.control = null; await (p.ai === "hard" ? aiPrepHard(p) : aiPrep(p)); }
@@ -1194,15 +1196,18 @@ document.addEventListener("keydown", e => {
 });
 
 /* 단계가 바뀔 때 가운데에 크게 뜨는 띠 (AETHELGARD의 "내 턴" 띠를 참고)
-   hold: 다 펼쳐진 채 머무는 시간을 몇 배로 할지(나타나고 사라지는 빠르기는 그대로). v3.9.2 공격 준비 · 방어 준비 띠는 3배 */
-async function phaseBanner(title, sub, cls, ms, hold) {
+   hold: 띠 전체 길이를 몇 배로 할지(나타나고 사라지는 빠르기는 그대로). v3.9.2 공격 준비 · 방어 준비 띠는 3배. icon: RITE_ICON 열쇠(atk · def) */
+async function phaseBanner(title, sub, cls, ms, hold, icon) {
   if (!G || G.cfg.headless || G.speed === 0 || !fxLayer()) return;
   ms = (ms || 1150) / Math.max(1, G.speed * 0.75);
   const tIn = ms * 0.18, tOut = ms * 0.22;
   ms *= Math.max(1, hold || 1);
   const d = document.createElement("div");
   d.className = "pbanner " + (cls || "");
-  d.innerHTML = `<b>${esc(title)}</b><small>${esc(sub || "")}</small>`;
+  // 2026-11-15 공격 준비 = 칼 · 방어 준비 = 방패 그림을 글자 앞에. 그림도 글자와 같은 흰빛 → 띠 색(--bc) 그러데이션 · 같은 빛번짐(b의 drop-shadow)
+  const gid = "pbg" + (++phaseBanner.n || (phaseBanner.n = 1));
+  const ico = icon && RITE_ICON[icon] ? `<svg class="pb-ico" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="${gid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" style="stop-color:var(--bc, #ffd166)"/></linearGradient></defs><g fill="url(#${gid})">${RITE_ICON[icon]}</g></svg>` : "";
+  d.innerHTML = `<b>${ico}${esc(title)}</b><small>${esc(sub || "")}</small>`;
   fxLayer().appendChild(d);
   if (RM()) { await wait(Math.min(ms, 600)); d.remove(); return; }
   const a = d.animate([
@@ -1213,19 +1218,19 @@ async function phaseBanner(title, sub, cls, ms, hold) {
   ], { duration: ms, easing: "cubic-bezier(.2,.8,.2,1)" });
   await a.finished.catch(() => {}); d.remove();
 }
-function bannerFor(phase) {
-  const A = G.players[G.attacker], D = opp(A), me = G.players[G.viewer];
-  const mine = p => G.mode === "ai" ? p.idx === 0 : true;
-  /* AI 대전: 내 화면에는 내 단계만. 상대가 준비하는 동안은 "상대 차례"로만 보인다 */
-  const pi = phase === "atkPrep" ? G.attacker : phase === "defPrep" ? 1 - G.attacker : -1;
 /* 2026-11-15 단계 띠 소리. 공격 준비 띠에 맞춰 에테르 차오름 · 유지비 (따로 보이는 연출이 없어서 띠에 붙임) */
 function bannerSfx(b) {
   sfx(G.phase === "combat" ? "banner_combat" : b[2] === "foe" ? "banner_foe" : G.phase === "atkPrep" ? "banner_atk" : "banner_def");
   if (G.phase === "atkPrep" && b[2] !== "foe") { setTimeout(() => sfx("ether_gain", 0.7), 300); if (upkeepOf(G.players[G.viewer]) > 0) setTimeout(() => sfx("upkeep", 0.7), 750); }
 }
+function bannerFor(phase) {
+  const A = G.players[G.attacker], D = opp(A), me = G.players[G.viewer];
+  const mine = p => G.mode === "ai" ? p.idx === 0 : true;
+  /* AI 대전: 내 화면에는 내 단계만. 상대가 준비하는 동안은 "상대 차례"로만 보인다 */
+  const pi = phase === "atkPrep" ? G.attacker : phase === "defPrep" ? 1 - G.attacker : -1;
   if (G.mode === "ai" && pi >= 0 && pi !== 0) return [phase === "atkPrep" ? `라운드 ${roundOf(G.turn)} · 상대 차례` : "상대 차례", `${G.players[pi].name}이(가) 준비하고 있습니다`, "foe"];
-  if (phase === "atkPrep") return [`라운드 ${roundOf(G.turn)} · 공격 준비`, `${A.name}${A.group ? " · " + GROUPS[A.group].name : ""}`, mine(A) && G.mode === "ai" ? "me" : G.mode === "ai" ? "foe" : "atk"];
-  if (phase === "defPrep") return ["방어 준비", `${D.name}${D.group ? " · " + GROUPS[D.group].name : ""}`, mine(D) && G.mode === "ai" ? "me" : G.mode === "ai" ? "foe" : "def"];
+  if (phase === "atkPrep") return [`라운드 ${roundOf(G.turn)} · 공격 준비`, `${A.name}${A.group ? " · " + GROUPS[A.group].name : ""}`, mine(A) && G.mode === "ai" ? "me" : G.mode === "ai" ? "foe" : "atk", "atk"];   // [3] 띠 그림(RITE_ICON)
+  if (phase === "defPrep") return ["방어 준비", `${D.name}${D.group ? " · " + GROUPS[D.group].name : ""}`, mine(D) && G.mode === "ai" ? "me" : G.mode === "ai" ? "foe" : "def", "def"];
   if (phase === "combat") return ["전투", `${A.name} → ${D.name}`, "combat"];
   return null;
 }
@@ -1263,11 +1268,6 @@ function plateParts(text, cls) {
     : /\bdebuff\b/.test(c) ? "t-hex" : /\bmiss\b/.test(c) ? "t-silver" : "t-gold";
   return { tag, num, tone };
 }
-function floatAt(target, text, cls) {
-  if (!G || G.cfg.headless || G.speed === 0) return;
-  const el = typeof target === "number" ? uidEl(target) : $("#" + target);
-  const layer = fxLayer();
-  if (!el || !layer) return;
 /* 2026-11-15 떠오르는 효과 글자 → 효과음 (엔진의 fl(...) 은 모두 여기로 온다). 겹치는 block · crit · buff 등은 다른 곳에서 이미 남 */
 const FLOAT_SFX = [
   [/^빗나감/, "miss"], [/^가시 −/, "thorns"], [/^수호/, "guard"], [/^(관통|꿰뚫기 −)/, "pierce"], [/^연쇄/, "chain"],
@@ -1280,12 +1280,17 @@ function floatSfx(target, s, c) {
   for (const [re, k] of FLOAT_SFX) if (re.test(s)) return k;
   return null;
 }
+function floatAt(target, text, cls) {
+  if (!G || G.cfg.headless || G.speed === 0) return;
+  const el = typeof target === "number" ? uidEl(target) : $("#" + target);
+  const layer = fxLayer();
+  if (!el || !layer) return;
+  { const fk = floatSfx(target, String(text), cls || ""); if (fk) sfx(fk, 0.8); }
   const r = el.getBoundingClientRect();
   const f = document.createElement("div");
   f.className = "float " + (cls || "");
   // v1.4.4: 떠오르는 글자 속 ⚔ ⛨ ♥ 기호는 카드와 같은 아이콘(칼 · 음영 방패 · 핏방울)으로
   f.innerHTML = statGlyphs(text);
-  { const fk = floatSfx(target, String(text), cls || ""); if (fk) sfx(fk, 0.8); }
   // v3.18.1 효과 명판: 한글 낱말이 든 떠오르는 글자는 모두 명판(Hahmlet 800 금속 광택 · 양옆 선과 마름모 · 찍히는 움직임 · 베는 사선) 위에,
   //   뒤따르는 숫자 · 스탯 기호는 그 아래에 띄운다. 빛깔은 plateParts가 cls로 고른다(v3.12.3 "반격" · v3.12.7 "대가" 명판을 모든 효과로 넓힘).
   //   새 효과 글자도 따로 할 일 없이 여기서 명판이 된다 — 한글을 Cinzel · 바탕체 맨 글씨로 띄우지 않는다 (스타일 가이드 2.9)
@@ -1436,12 +1441,12 @@ function spellCoinFx(info) {
     const all = [];
     rows.forEach((r, ri) => r.querySelectorAll(".cs-coin").forEach((el, ci) => all.push({ el, heads: info.sets[ri].faces[ci] })));
     const SPIN = 650, GAP = 170, LAND = 560;
+    sfx("coin_flip");
     all.forEach((o, j) => setTimeout(() => {
       if (!alive()) return;
       o.el.classList.remove("spinning");
       o.el.animate([{ transform: "rotateY(0deg) scale(1.15)" }, { transform: `rotateY(${1080 + (o.heads ? 0 : 180)}deg) scale(1)` }], { duration: LAND * k, easing: "cubic-bezier(.2,.7,.2,1)", fill: "forwards" });
       setTimeout(() => {
-    sfx("coin_flip");
         if (!alive()) return;
         o.el.classList.add(o.heads ? "is-heads" : "is-tails");
         if (o.heads) { sfx("coinHeads"); o.el.classList.remove("ching"); void o.el.offsetWidth; o.el.classList.add("ching"); } else sfx("coinTails");
@@ -1470,7 +1475,9 @@ function coinClash(info) {
     const sides = [{ who: "a", u: A, coins: info.coinsA, p: info.pa }, { who: "d", u: D, coins: info.coinsD, p: info.pd }];
     // v1.6.1: 공·방·체 코인 중 같은 동전에 묶인 것은 동전 하나로 보인다 (engine.js coinGroups)
     sides.forEach(sd => { sd.human = human(sd.p); sd.stopped = false; sd.landed = false; sd.groups = coinGroups(sd.coins); });
-    // v3.5.6 방어 쪽 코인이 이 전투에서 이미 정해졌으면 돌리지 않고 정해진 면을 그대로 보여 준다 (다시 던지기도 없음)
+    // v3.5.6 방어 쪽 코인이 이 전투에서 이미 정해졌으면 돌리지 않는다 (다시 던지기도 없음).
+    // 2026-11-15 정해진 방어 코인은 처음 던질 때 한 번만 보이고, 그 뒤 교전에서는 동전을 다시 그리지 않는다 — 방어 창에는 "코인 고정"과 결과 글만
+    //   (공격 쪽에 코인이 없으면 코인 창 자체가 뜨지 않는다: engine.js 코인 단계 조건)
     sides[1].kept = !!info.keptD && sides[1].coins.length > 0;
     /* v3.12.6 같이 굴리는 상대 코인은 가린다: 내가 다시 굴릴지 정하기 전에 상대 결과를 보고 고르면 반칙이다.
        사람 창에 이번에 굴리는 코인이 있으면, 상대(사람이 아닌 창)의 이번 코인은 멈춰도 결과를 숨기고(천천히 돌며),
@@ -1507,9 +1514,9 @@ function coinClash(info) {
       <div class="cs-who"><i>${statIco(sd.who === "a" ? "a" : "d")}</i>${esc(C(sd.u).name)}<small>${sd.who === "a" ? "공격" : "방어"}</small></div>
       ${probHTML(sd)}
       <div class="cs-ctl">${ctlHTML(sd)}</div></div>
-      <div class="cs-roll"><div class="cs-coins">${sd.groups.length ? sd.groups.map((o, i) => coinHTML(sd, o, i)).join("") : `<div class="cs-none">코인 없음</div>`}</div>
+      <div class="cs-roll"><div class="cs-coins">${sd.kept ? "" : sd.groups.length ? sd.groups.map((o, i) => coinHTML(sd, o, i)).join("") : `<div class="cs-none">코인 없음</div>`}</div>
       <div class="cs-res"></div></div><div class="cs-flip"></div>
-      ${sd.coins.length ? `<div class="cs-sand"><i></i></div>` : ""}</div>`;
+      ${sd.coins.length && !sd.kept ? `<div class="cs-sand"><i></i></div>` : ""}</div>`;
     const st = document.createElement("div");
     st.className = "coinstage";
     st.innerHTML = `${sideHTML(order[0], "left")}<div class="cs-mid"><div class="cs-vs">VS</div></div>${sideHTML(order[1], "right")}`;
@@ -1522,6 +1529,7 @@ function coinClash(info) {
     const panel = sd => st.querySelector(`.cs-side.cs-${sd.who}`);
     st.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200 * k, easing: "ease-out" });
     order.forEach((sd, j) => panel(sd).animate([{ opacity: 0, transform: `translateX(${j ? 60 : -60}px)` }, { opacity: 1, transform: "none" }], { duration: 300 * k, easing: "cubic-bezier(.2,.8,.2,1)" }));
+    sfx("coin_flip");
     st.querySelector(".cs-vs").animate([{ opacity: 0, transform: "scale(1.8)" }, { opacity: 1, transform: "scale(1)" }], { duration: 360 * k, delay: 120 * k, easing: "cubic-bezier(.2,.8,.2,1)", fill: "backwards" });
     let finished = false, phase = "spin";
     const timers = new Set();
@@ -1529,7 +1537,6 @@ function coinClash(info) {
     const clearAll = () => { timers.forEach(clearTimeout); timers.clear(); };
     const flips = [];
     const finish = () => {
-    sfx("coin_flip");
       if (finished) return; finished = true; clearAll();
       st.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 240 * k, fill: "forwards" }).onfinish = () => st.remove();
       FX.coinStop = null; FX.coinReflip = null; res(flips);
@@ -1710,6 +1717,7 @@ function coinClash(info) {
         flips.push({ p: sd.p, uid: sd.u.uid, idx: o.g, heads });
         floatAt("crys" + sd.p, "에테르 −1", "debuff");
         c.classList.add("spinning", "reflip");
+        sfx("coin_reflip");
         el.querySelector(".cs-flip").innerHTML = `<span class="cf-hint"><i class="cf-eth"></i>에테르 1 — 다시 던지는 중…</span>`;
         later(() => {
           if (!st.isConnected) return;
@@ -1717,7 +1725,6 @@ function coinClash(info) {
           const good = coinNeg(o) ? !heads : heads;   // v3.12.5 − 동전은 뒷면이 좋은 결과
           later(() => { c.classList.add(heads ? "is-heads" : "is-tails"); c.classList.remove("reflip"); resText(sd); coinRing(null, [heads], [c]);
             el.querySelector(".cs-flip").innerHTML = `<span class="cf-hint ${good ? "ok" : ""}">${coinNeg(o) ? (heads ? "또 앞면… 그대로 깎입니다" : "뒷면! 깎이지 않습니다") : (heads ? "앞면! 값이 붙습니다" : "또 뒷면…")}</span>`;
-        sfx("coin_reflip");
             burstOn(sd, good ? "slam" : "hit", 200); done(sd.who); }, 640 * k);
         }, 520 * k);
       };
@@ -1915,6 +1922,9 @@ function fieldCardHTML(it, p, s) {
     const chips = equipChipsHTML(ic, it.t && it.t.off);
     item = chips ? `<div class="c-equip">${chips}</div>` : "";
   }
+  // v3.65 마법이 이번 턴 걸어 준 능력(t.gx: 치명 · 연쇄 · 흡혈 …)도 같은 띠에 보랏빛 ✦ 칩으로 (css/cardtext.css .c-gx)
+  const gxc = isUnit(it) && it.t ? grantChipsHTML(it.t.gx, it.t.off) : "";
+  if (gxc) item = item ? item.replace(/<\/div>$/, gxc + "</div>") : `<div class="c-equip">${gxc}</div>`;
   const artx = isUnit(it) && it.t && abilOf(it).u === "scrap" ? scrapPileHTML(it) : "";   // v3.31.1 [고철 골렘] 고철 더미
   return cardHTML(c, { size: "md", live, badges, extra: item, under, cls: cls.join(" "), attrs, slim: true, artx });
 }
@@ -1944,6 +1954,15 @@ function scrapPileHTML(it) {
 /* v3.20 전장 유닛의 이번 턴 표시 { 스탯: "L"|"U"|"D" } — 유닛 · 아이템 · 마법이 건 것(t.floor) */
 function livePins(it) { const f = (it.t && it.t.floor) || {}, o = {}; for (const k in f) if (f[k] && f[k].m) o[k] = f[k].m; return o; }
 /* v1.9.3: 장착 아이템의 특수 능력 띠. 능력마다 한 칸, 마우스를 올리면 이름과 뜻. 능력이 없는 아이템(스탯만 올림)은 띠 없음 — 이름은 아래 카드에 보인다 */
+/* v3.65 마법이 이번 턴 걸어 준 능력 칩 { crit: true, magic: 2, … } → 「✦ 치명」. 턴이 바뀌면 resetTurn이 t.gx를 지워 저절로 사라진다 */
+function grantChipsHTML(gx, off) {
+  if (!gx) return "";
+  return Object.keys(gx).filter(k => gx[k] && !chipOff((typeof GRANT_KO !== "undefined" && GRANT_KO[k]) || k, off)).map(k => {   // v3.65.2 꺼진 능력은 감춘다
+    const n = (typeof GRANT_KO !== "undefined" && GRANT_KO[k]) || k, v = gx[k], name = typeof v === "number" && v > 0 && k !== "crit" && k !== "chain" ? `${n} ${v}` : n;
+    const d = typeof itemKwDesc === "function" ? itemKwDesc(`[${name}]`) : "";
+    return `<span class="c-eq-ab c-gx" data-tip="${esc(`[${name}] · 이번 턴\n${d ? d + "\n" : ""}— 마법이 걸어 준 능력`)}">${esc(name)}</span>`;
+  }).join("");
+}
 function equipChipsHTML(ic, off) {   // v3.65.2 off: 능력 끄기에 꺼진 능력 이름들 — 그 칩은 감춘다 (js/view.js chipOff)
   const list = itemKwList(ic.item).filter(([k]) => k && !isPinAb(k));   // v3.33 표시(고정 · 버팀 · 눌림) 칩은 빼고 — 스탯 옆 기호로 보이고, 누르면 설명 패널에 나온다
   if (ic.item.set) list[0] = [`[고정 ${ic.item.set.a}/${ic.item.set.d}/${ic.item.set.h}]`, list[0][1]];
@@ -1981,6 +2000,7 @@ function fieldRowHTML(p, isMe, ctrlAll, side) {
   const burn = side ? "" : burnHTML(p, ctrl);
   // v3.7.6: 덱은 정면을 본 네모난 카드 더미. 맨 위 카드 뒷면 아래로 옆면 몇 장(최대 4)만 비친다. 기울기·아치 감실(SHRINE_SVG)은 뺐다
   const n = p.deck.length, layers = n ? Math.min(5, 1 + Math.ceil(n / 10)) : 0;
+  if (n > 0 && n <= 5 && p.idx === G.viewer && FX.deckLowG !== G) { FX.deckLowG = G; sfx("deck_low"); }   // 2026-11-15 한 판에 한 번
   const deck = `<div class="zone deck${n ? "" : " empty"}" id="deck${p.idx}" title="덱 ${n}장">
       <div class="deck-stack" style="--n:${layers}">${Array.from({ length: layers }, (_, i) => `<div class="deck-card" style="--i:${i}"></div>`).join("")}</div>
       <div class="zone-label">덱</div><div class="deck-n">${n}</div></div>`;
@@ -2000,7 +2020,6 @@ function etherHTML(p, isMe, ctrlAll) {
   const selC = selHandCard(p, ctrl);
   const up = upkeepOf(p), left = ether(p), tot = etherTotal(p);
   // v2.4: 칸 0 = 위대한 정수(맨 위 금 보석), 1~12 = 결정(구슬 둘레). 밝음 = 쓸 수 있음, 어두움 = 이번 턴에 씀, 비어 있음 = 아직 결정이 없음
-  if (n > 0 && n <= 5 && p.idx === G.viewer && FX.deckLowG !== G) { FX.deckLowG = G; sfx("deck_low"); }   // 2026-11-15 한 판에 한 번
   const usedN = Math.min(tot, tot - Math.max(0, left));
   const slotsN = RULES.essence + RULES.maxCrystals, slots = [];
   for (let i = 0; i < slotsN; i++) { const has = i < tot; slots.push({ ess: i < RULES.essence, has, used: has && i >= tot - usedN }); }
@@ -2094,19 +2113,36 @@ function nameplateHTML(p) {
 /* 값이 바뀐 순간에만 붙는 클래스: 숫자가 한 번 튀어 오른다 (줄면 붉게, 늘면 금빛) */
 const BUMP = {};
 function bumpCls(key, v) { const was = BUMP[key]; BUMP[key] = v; return was != null && was !== v ? (v < was ? " bump dn" : " bump up") : ""; }
+/* v3.62.1 보충 드로우의 생명: 판 상태(p.life)는 refill에서 한 번에 줄지만, 화면에서는 덱에서 뽑힌 카드가 핸드에 한 장 앉을 때마다
+   1씩 줄어드는 게 보이게 한다(3장이면 50 → 49 → 48 → 47). LIFE_SHOW[p.idx] = 아직 보여 줄 생명. 판이 바뀌거나 다 줄면 지운다 */
+const LIFE_SHOW = {};
+function lifeShown(p) { const s = LIFE_SHOW[p.idx]; return s && s.g === G && s.v > p.life ? s.v : p.life; }
+function lifeTicks(pi, delays) {
+  const s = LIFE_SHOW[pi], myG = G; if (!s || s.g !== G || s.on) return;
+  s.on = true;
+  const show = () => { const el = document.getElementById("pinfo" + pi); if (el && G === myG) el.outerHTML = infoHTML(G.players[pi]); };
+  const done = () => { if (LIFE_SHOW[pi] === s) { delete LIFE_SHOW[pi]; show(); } };
+  delays.forEach(d => setTimeout(() => {
+    if (G !== myG || LIFE_SHOW[pi] !== s) return;
+    const p = G.players[pi]; if (s.v <= p.life) return done();
+    s.v--; show(); floatAt("life" + pi, "−1", "dmg");
+    if (s.v <= p.life) done();
+  }, d));
+  setTimeout(done, (delays.length ? Math.max(...delays) : 0) + 600);   // 카드 수와 어긋나도 끝에는 실제 값으로
+}
 /* 생명 보석(v2.3까지): 깎은 루비 아이콘. v2.4부터 심장석(heartGemSVG)으로 바뀌어 지금은 쓰지 않는다 */
 const RUBY_SVG = `<svg class="ruby" viewBox="0 0 24 24" aria-hidden="true"><path class="rb1" d="M12 1.5 17 9 12 12 7 9Z"/><path class="rb2" d="M12 1.5 7 9 3 12Z"/><path class="rb3" d="M12 1.5 17 9 21 12Z"/><path class="rb4" d="M3 12 7 9 12 12 12 22.5Z"/><path class="rb5" d="M21 12 17 9 12 12 12 22.5Z"/></svg>`;
 /* 생명·장수: 위는 생명(루비 + 큰 숫자 + 눈금 막대), 아래는 덱·핸드·소각 */
 function infoHTML(p) {
   const gr = p.group ? GROUPS[p.group] : null, top = p.idx !== G.viewer;
   if (p.life > 0 && p.life <= 10 && p.idx === G.viewer && FX.lifeLowG !== G) { FX.lifeLowG = G; sfx("life_low"); }   // 2026-11-15 한 판에 한 번
-  const life = Math.max(0, p.life), pct = Math.min(100, life / RULES.lifeCap * 100);
+  const shown = lifeShown(p), life = Math.max(0, shown), pct = Math.min(100, life / RULES.lifeCap * 100);
   const stat = (k, ico, label, v, tip) => `<div class="ps ps-${k}" data-tip="${esc(tip)}">${uiIcon(ico)}<b class="${bumpCls(k + p.idx, v).trim()}">${v}</b><span>${label}</span></div>`;
   return `<div class="pinfo pv7 ${top ? "pv-top" : "pv-bot"} fac-${p.faction}${G.fx.tgt === "life" + p.idx ? " hit" : ""}${life <= 10 ? " low" : ""}" id="pinfo${p.idx}" style="${gr ? `--gc:${gr.color}` : ""}">
       <div class="pl" data-tip="${esc(`생명 ${life} / ${RULES.lifeCap}\n심장석 속 핏빛이 남은 생명입니다. 0이어도 싸울 수 있고, 0에서 더 깎이면 패배합니다.\n카드를 뽑을 때마다 생명이 줄어듭니다 — 덱과 생명은 한 몸입니다.`)}">
         ${heartGemSVG(pct, p.idx)}
         <div class="pl-head"><span>LIFE</span></div>
-        <div class="pl-val"><b class="pl-num${bumpCls("life" + p.idx, p.life)}" id="life${p.idx}">${p.life}</b><small>/${RULES.lifeCap}</small></div>
+        <div class="pl-val"><b class="pl-num${bumpCls("life" + p.idx, shown)}" id="life${p.idx}">${shown}</b><small>/${RULES.lifeCap}</small></div>
         <div class="pl-ticks">${Array.from({ length: 8 }, (_, i) => `<i class="${life > i * 5 ? (life >= (i + 1) * 5 ? "on" : "half") : ""}"></i>`).join("")}</div>
       </div>
       <div class="pstats">${stat("hand", "hand", "핸드", p.hand.length, `핸드 ${p.hand.length}장`)}</div>
@@ -2396,6 +2432,7 @@ function render() {
   const key = G.viewer + "|" + (G.handoff ? 1 : 0);
   const animOK = !!(FX.last && FX.last.g === G && FX.last.key === key && G.speed !== 0 && !RM());
   const before = animOK ? capture() : null;
+  if (!animOK) for (const pi in LIFE_SHOW) delete LIFE_SHOW[pi];   // v3.62.1 날아오는 카드 연출이 없으면 생명도 바로 실제 값
   const ctrl = G.control === me.idx && !G.handoff;
   if (G.inspect && !onField(G.inspect)) G.inspect = null;
   const ph = phaseText();
@@ -2567,6 +2604,8 @@ function holdHover(ms) {
     }, { once: true });
   }, ms);
 }
+/* 2026-11-15 칸에 내려앉는 카드가 유닛이 아니면(뒷면 마법) spell_set */
+const placeKey = el => { const it = G && G.reg && el && el.dataset && G.reg[+el.dataset.uid]; return it && !isUnit(it) ? "spell_set" : "place"; };
 function animFrom(el, from, to, rotDeg, kind, delay) {
   const k = kAct();
   const a = ctrOf(from), b = ctrOf(to);
@@ -2604,8 +2643,6 @@ function animFrom(el, from, to, rotDeg, kind, delay) {
       { offset: 0.74, translate: `0px ${-to.height * 0.012}px`, scale: "0.97 1.035", rotate: "0deg", easing: "ease-in-out" },
       { offset: 0.88, translate: "0px 0px", scale: "1.012 0.992", rotate: "0deg", easing: "ease-out" }, end];
     dur = FT.place;
-/* 2026-11-15 칸에 내려앉는 카드가 유닛이 아니면(뒷면 마법) spell_set */
-const placeKey = el => { const it = G && G.reg && el && el.dataset && G.reg[+el.dataset.uid]; return it && !isUnit(it) ? "spell_set" : "place"; };
     sfx("suck");
     suckRing(el, (delay || 0) * k, dur * hit * k);
     setTimeout(() => {
@@ -2668,7 +2705,7 @@ function flipAll(before) {
   const after = new Map();
   boardEl.querySelectorAll("[data-uid]").forEach(el => after.set(el.dataset.uid, el));
   let drawN = 0;
-  const mine = [];
+  const mine = [], oppDraw = {};
   for (const [uid, el] of after) {
     let b = before.get(uid);
     if (FX.from[uid]) b = Object.assign({}, b || {}, { r: FX.from[uid], rot: 0, fromGhost: true });
@@ -2679,7 +2716,7 @@ function flipAll(before) {
         const deck = $("#deck" + el.dataset.p);
         // v1.9: 내 핸드로 오는 카드는 drawFly (덱에서 뒷면으로 튀어 올라 날아오며 앞면으로 뒤집힌다)
         if (deck && el.closest(".hand-me")) mine.push(el);
-        else if (deck) animFrom(el, deck.getBoundingClientRect(), nr, 0, "draw", drawN++ * FT.drawGap);
+        else if (deck) { (oppDraw[el.dataset.p] = oppDraw[el.dataset.p] || []).push((drawN * FT.drawGap + FT.draw * 0.85) * kAct()); animFrom(el, deck.getBoundingClientRect(), nr, 0, "draw", drawN++ * FT.drawGap); }
       } else if (el.dataset.zone === "field") {
         el.animate([{ opacity: 0, scale: "1.5" }, { opacity: 1, scale: "1" }], { duration: 380 * kSpeed(), easing: "ease-out" });
       }
@@ -2704,6 +2741,9 @@ function flipAll(before) {
   FX.lift = null; FX.pvUids = null;
   for (const [uid, b] of before) if (!after.has(uid)) vanish(uid, b);
   if (mine.length) drawHand(mine);
+  for (const pi in oppDraw) lifeTicks(+pi, oppDraw[pi]);
+  const minePi = mine.length ? +mine[0].dataset.p : -1;
+  for (const pi in LIFE_SHOW) if (LIFE_SHOW[pi].g === G && !LIFE_SHOW[pi].on && +pi !== minePi && !oppDraw[pi]) lifeTicks(+pi, []);   // 날아오는 카드가 없으면 바로 실제 값
   FX.shuffled = null;
 }
 /* ---------- v1.9 드로우: 덱 → 핸드 ----------
@@ -2721,6 +2761,7 @@ function drawHand(els) {
   // 왼쪽 카드부터
   els.sort((a, b) => a.getBoundingClientRect().left - b.getBoundingClientRect().left);
   els.forEach((el, i) => drawFly(el, deck, (base + i * DRAW_T.gap) * k, DRAW_T.fly * k));
+  if (!shuffled) lifeTicks(p, els.map((_, i) => (base + i * DRAW_T.gap + DRAW_T.fly * 0.86) * k));   // v3.62.1 카드가 핸드에 앉는 순간마다 생명 −1
   const end = performance.now() + (base + (els.length - 1) * DRAW_T.gap + DRAW_T.fly) * k;
   holdHand(end);
 }
@@ -3252,6 +3293,7 @@ function conjureFx(uid, dur, pyreP) {
   const r = el.getBoundingClientRect();
   const pyre = pyreP != null ? $("#burn" + pyreP) : null;
   if (pyre) { pyreRiseFx(el, r, pyre, dur); return; }
+  sfx("summon", 0.85);
   el.classList.add("flying");
   el.animate([
     { translate: `0px ${-r.height * 0.9}px`, scale: "1.12", opacity: 0, filter: "blur(10px) brightness(2)" },
@@ -3293,7 +3335,6 @@ function fizzleFx(z, dur) {
   const left = src ? src.getBoundingClientRect().left + sr.width * 0.55 : rr.left + rr.width / 2 - sr.width / 2;
   const top = rr.top - sr.height * 0.62;
   const r = { left, top, width: sr.width, height: sr.height };
-  sfx("summon", 0.85);
   const html = cardHTML(CARDS[z.id], { size: "md", slim: true });
   const g = ghostAt(r, html);
   g.insertAdjacentHTML("beforeend", `<span class="fz-tag">빈 칸 없음</span>`);
@@ -3791,6 +3832,7 @@ async function surrender() {
   if (G.phase === "over") { exitMatch(); return; }
   const v = await modal(`<h3>항복할까요?</h3><p>지금 항복하면 이 경기는 패배로 기록됩니다.</p>`, [{ label: "계속 싸우기", value: false }, { label: "항복", value: true, cls: "danger" }]);
   if (!v || !G || G.phase === "over") return;
+  sfx("surrender");
   const loser = G.mode === "hotseat" ? (G.control != null ? G.control : G.viewer) : G.online ? G.me : 0;
   G.winner = 1 - loser; G.reason = `${G.players[loser].name}이(가) 항복했습니다.`; G.phase = "over";
   if (G.online) Online.send({ t: "surrender" });
@@ -3830,9 +3872,9 @@ function showResult() {
   const econ = econSettle(G);
   const wrap = document.createElement("div");
   wrap.className = "result " + (won ? "win" : "lose");
+  if (typeof FEEL !== "undefined") FEEL.play(won ? "victory" : "defeat");
   wrap.innerHTML = `<div class="res-inner">
     <p class="res-eyebrow">${G.mode === "ai" || G.online ? (won ? "THE ETHER BENDS TO YOUR WILL" : "THE ETHER FADES") : "THE DUEL IS DECIDED"}</p>
-  sfx("surrender");
     <h2 class="res-title">${won ? "VICTORY" : "DEFEAT"}</h2>
     <p class="res-sub">${G.mode === "hotseat" || G.online ? esc(w.name) + " 승리 · " : ""}${esc(G.reason)}</p>
     <div class="res-stats"><span>라운드 <b>${roundOf(G.turn)}</b></span><span>턴 <b>${G.turn}</b></span><span>${esc(G.players[0].name)} 생명 <b>${G.players[0].life}</b></span><span>${esc(G.players[1].name)} 생명 <b>${G.players[1].life}</b></span></div>
@@ -3845,6 +3887,13 @@ function showResult() {
   </div>`;
   document.body.appendChild(wrap);
   if (econ && typeof LevelUI !== "undefined") LevelUI.playResult(wrap);
+  if (typeof FEEL !== "undefined") {   // 2026-11-15 수입 · 얻은 카드 (등급별 공개 소리)
+    if (econ && econ.total > 0) setTimeout(() => FEEL.play("gold_get", .7), 1200);
+    const lk = econ && econ.lucky && econ.lucky.k === "card" ? econ.lucky.grade : null;
+    const rg = lk || (reward ? gradeOf(CARDS[reward]) : null);
+    const rk = { rare: "reveal_rare", epic: "reveal_epic", unique: "reveal_unique", special: "reveal_special" }[rg];
+    if (lk || reward) setTimeout(() => FEEL.play(rk || "card_get"), 1900);
+  }
   wrap.addEventListener("click", e => {
     const b = e.target.closest("[data-r]"); if (!b) return;
     wrap.remove();
@@ -3853,11 +3902,3 @@ function showResult() {
     else if (b.dataset.r === "again") { const cfg = Object.assign({}, G.cfg); startMatch(cfg); }
   });
 }
-  if (typeof FEEL !== "undefined") FEEL.play(won ? "victory" : "defeat");
-  if (typeof FEEL !== "undefined") {   // 2026-11-15 수입 · 얻은 카드 (등급별 공개 소리)
-    if (econ && econ.total > 0) setTimeout(() => FEEL.play("gold_get", .7), 1200);
-    const lk = econ && econ.lucky && econ.lucky.k === "card" ? econ.lucky.grade : null;
-    const rg = lk || (reward ? gradeOf(CARDS[reward]) : null);
-    const rk = { rare: "reveal_rare", epic: "reveal_epic", unique: "reveal_unique", special: "reveal_special" }[rg];
-    if (lk || reward) setTimeout(() => FEEL.play(rk || "card_get"), 1900);
-  }

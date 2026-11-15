@@ -761,6 +761,8 @@ body.is-dragging .hand-me .hand-slot .hand-card { transform: translateY(var(--y)
 .pbanner { position: fixed; left: 50%; top: 47%; transform: translate(-50%, -50%); z-index: 90; padding: 16px clamp(40px, 10vw, 140px); text-align: center; white-space: nowrap; pointer-events: none; background: linear-gradient(90deg, transparent, rgba(4, 4, 10, .86) 18%, rgba(4, 4, 10, .86) 82%, transparent); border-block: 1px solid color-mix(in srgb, var(--bc, #ffd166) 35%, transparent); }
 .pbanner b { display: block; font-family: var(--body); font-weight: 800; font-size: clamp(30px, 5vw, 58px); letter-spacing: .16em; background: linear-gradient(180deg, #fff, var(--bc, #ffd166)); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 16px color-mix(in srgb, var(--bc, #ffd166) 70%, transparent)); }
 .pbanner small { display: block; margin-top: 2px; font-size: 15px; letter-spacing: .08em; color: #d7dbe6; }
+/* 2026-11-15 단계 띠 그림(공격 준비 칼 · 방어 준비 방패, js/game.js phaseBanner): 글자 크기 · 같은 그러데이션 · 같은 빛번짐 */
+.pbanner .pb-ico { display: inline-block; width: .92em; height: .92em; margin-right: .32em; vertical-align: -.1em; overflow: visible; }
 .pbanner.me, .pbanner.atk { --bc: #ffd166; }
 .pbanner.foe { --bc: #ff7b6b; }
 .pbanner.def { --bc: #8fdcff; }
@@ -1032,8 +1034,10 @@ html[data-font="system"] { --kfont: "Batang", "바탕", "AppleMyungjo"; }
 .card-preview { position: fixed; z-index: 80; top: 50%; right: 20px; transform: translateY(-50%); pointer-events: none; --card-full: clamp(300px, calc((100vh - 48px) / 1.62), 560px); filter: drop-shadow(0 24px 50px rgba(0, 0, 0, .8)); animation: zoomIn .14s ease-out; }
 .card-preview.on-left { right: auto; left: 20px; }
 /* 2026-11-15 고정된 큰 카드(덱 조정실에서 눌러 연 것)는 끌어서 옮긴다 (js/view.js CardPreview). 고정 중에는 큰 카드 안의 말풍선도 뜬다 */
-.card-preview.pinned { pointer-events: auto; cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; }
-.card-preview.pinned.grabbing { cursor: grabbing; }
+/* 틀(#card-preview)은 카드보다 넓을 수 있어(오른쪽 빈 자리) 틀은 누름을 흘려보내고 카드만 받는다 — 카드 옆 빈 곳을 누르면 닫힌다 */
+.card-preview.pinned { pointer-events: none; }
+.card-preview.pinned > .card { pointer-events: auto; cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; }
+.card-preview.pinned.grabbing > .card { cursor: grabbing; }
 .card-preview.moved { transform: none; animation: none; }
 .card-preview[hidden] { display: none; }
 .card-preview .card { max-height: calc(100vh - 24px); }

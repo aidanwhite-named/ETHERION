@@ -21,6 +21,8 @@ const HARD = {
   upW: 0.35,       // 전장에 남는 유닛의 유지비 1당 깎는 값 (다음 턴부터 에테르가 빠진다)
   reloadW: 0.8,    // 장전(다음 턴 에테르 −) 1
   bonusW: 0.6,     // 직접 공격 보너스(맞은 쪽 다음 턴 에테르 +1)
+  spellBonus: 2,   // v3.66 쓸 만한 마법(굴려 본 이득 spellMin 이상)에 더해 주는 값 — 마법은 한 번 쓰면 사라져 이번 전투 이득만으로는 유닛보다 낮게 나온다
+  spellMin: 0.1,
   minGain: 0.05,   // 이보다 덜 좋아지면 두지 않는다
   upSlack: 1,      // 다음 턴 에테르 − 유지비가 이만큼은 남게
   crysTo: 12,      // 결정 목표 (v3.64: 9 → 12, 에테르 최대 13)
@@ -291,7 +293,9 @@ async function aiPrepHard(p) {
     if (k !== nS) { nS = k; S = seeds.slice(0, nS); cur = hardEval(p, S); }
     let best = null;
     for (const a of opts) {
-      a.v = hardTry(p, a, S) - hardHandCost(p) + HARD.spendW * costOf(C(a.it));
+      const raw = hardTry(p, a, S);
+      a.v = raw - hardHandCost(p) + HARD.spendW * costOf(C(a.it));
+      if (a.kind === "spell" && raw >= HARD.spellMin) a.v += HARD.spellBonus;
       if (a.kind === "spell") a.v += negateHope(p, C(a.it), p.field.filter(Boolean).slice(0, a.at).filter(isUnit).length);   // v3.32 [무효]는 미리 굴려서는 보이지 않는다(js/game.js)
       if (!best || a.v > best.v) best = a;
       const w = hardBreath(); if (w) { await w; if (G !== myG) return; }

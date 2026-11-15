@@ -13,6 +13,9 @@
 .card .c-eq-ab { color: #f1d38a; }
 .card .c-eq-ab::before { color: #c9a25a; }
 .card .c-eq-ab:hover { filter: brightness(1.2); box-shadow: none; }
+/* v3.65 마법이 이번 턴 걸어 준 능력 칩(js/game.js grantChipsHTML): 장착 아이템(금 ◆) · 타고난 능력(하늘빛)과 갈라 마법 보랏빛 ✦ */
+.card .c-eq-ab.c-gx { color: #dcbcff; }
+.card .c-eq-ab.c-gx::before { content: "✦"; color: #b48cff; }
 /* 칩 사이 구분: 네모가 없으니 가는 점으로 */
 .card .c-chips > .c-cls + .c-cls::before { content: "·"; margin-right: .25em; color: rgba(255, 255, 255, .35); }
 
