@@ -20,7 +20,18 @@ function mergeAbil(a, b) {
   for (const k in b) { const v = b[k]; if (v === true || o[k] === true) o[k] = true; else if (typeof v === "number") o[k] = (+o[k] || 0) + v; else if (v) o[k] = v; }
   return o;
 }
+/* v3.65.2 능력 끄기(효과 strip): 맞은 유닛의 t.off에 꺼진 능력 이름을 모은다(이번 턴만, resetTurn이 지움).
+   op.abs가 없으면 STRIP_DEF(파문과 같은 넷). 끈 능력은 abilOf에서도 0이 되고, 화면은 같은 이름의 칩을 감춘다(js/view.js chipOff).
+   [가호]는 기본 목록에 없다 — 끄려면 마법의 op.abs에 적는다. 새 마법도 op.abs로 끄는 능력을 고르고, 글에 그 이름을 적는다 */
+const STRIP_DEF = ["보호막", "가시", "저주 면역", "수호"];
+const ABIL_KEY = { "보호막": "shield", "가시": "thorns", "가호": "ward", "관통": "shred", "치명": "crit", "연쇄": "chain", "원거리": "ranged",
+  "마력 공격": "magic", "사격": "snipe", "증폭": "amp", "강탈": "rob", "흡혈": "leech", "그림자 걸음": "veil", "피의 계약": "pact" };
 function abilOf(it) {
+  const ab = abilRaw(it), off = it && it.t && it.t.off;
+  if (off) for (const n of off) { const k = ABIL_KEY[n]; if (k) ab[k] = typeof ab[k] === "number" ? 0 : false; }
+  return ab;
+}
+function abilRaw(it) {
   const im = itemOf(it) || {}, g0 = (it && C(it).gift) || {};
   // v3.18 마법이 이번 턴 걸어 준 능력(t.gx, 효과 grant)은 타고난 능력과 같은 자리에서 더한다. 턴이 바뀌면 resetTurn이 지운다
   const gx = it && it.t && it.t.gx, g = gx ? mergeAbil(g0, gx) : g0;
@@ -108,7 +119,7 @@ function pinPass(X) {
    v3.5.7: 한 번 정해진 코인은 마법(코인 뒷면 · 운명)으로도 바뀌지 않는다 */
 function resetTurn(it, atk) {   // atk: 이 유닛 편이 이번 턴 공격하는지(v3.57.4). 보호막 코인을 여기서 던지지 않으므로 쓰지 않는다(부르는 곳은 그대로 넘김)
   const keep = (it.t && it.t.keep) || {};   // v3.31 턴이 지나도 남는 값(충전 · 고철 · 낙인 · 불씨 …)
-  if (it.t) it.t.gx = null;   // v3.18 지난 턴 마법이 걸어 준 능력은 남지 않는다
+  if (it.t) { it.t.gx = null; it.t.off = null; }   // v3.65.2 꺼진 능력(t.off)도 이번 턴만 · v3.18 지난 턴 마법이 걸어 준 능력은 남지 않는다
   const b = baseStats(it, true), ab = abilOf(it);
   if (keep.grow) for (const k in keep.grow) b[k] += keep.grow[k];   // v3.31 [전리품]으로 판 동안 자란 스탯
   // v3.61.1 [보호막 코인]은 여기(턴 시작 · 장착)서 던지지 않는다 — 전투가 시작될 때 던진다(shieldCoinsAtCombat). 준비하는 동안은 보호막 없음
@@ -383,7 +394,14 @@ function castSpell(X, caster, it, k) {
           u.t.noCoin = true;
           fl(X, u.uid, "코인 뒷면", "debuff"); break; }
         case "rest": u.t.rest = true; fl(X, u.uid, "행동 불가", "debuff"); break;
-        case "strip": u.t.shield = false; u.t.thorns = 0; u.t.lock = false; u.t.taunt = false; fl(X, u.uid, "강화 해제", "debuff"); break;
+        case "strip": {   // v3.65.2 끄는 능력은 op.abs(없으면 STRIP_DEF) — 위 abilOf 설명
+          const abs = op.abs || STRIP_DEF; u.t.off = Array.from(new Set((u.t.off || []).concat(abs)));
+          if (abs.includes("보호막")) u.t.shield = false;
+          if (abs.includes("가시")) u.t.thorns = 0;
+          if (abs.includes("가호")) u.t.ward = 0;
+          if (abs.includes("저주 면역")) u.t.lock = false;
+          if (abs.includes("수호")) u.t.taunt = false;
+          fl(X, u.uid, "강화 해제", "debuff"); break; }
         /* v3.11 새 효과 (소환 마법을 바꾼 카드들) */
         case "def0": if (!u.t.lock) { u.t.d = 0; applyFloor(u); fl(X, u.uid, u.t.d > 0 ? PIN_KO[u.t.floor.d.m] : "방어 0", u.t.d > 0 ? "miss" : "debuff"); } else fl(X, u.uid, "저주 면역", "miss"); break;
         case "d2a": { const v = Math.max(0, u.t.d); if (v) addStat(X, u, "a", v); break; }

@@ -290,6 +290,12 @@ function cardGrade(c) {
    size "sm"   = 컴팩트: 더 간단하게 (레벨·이름·그림·스탯만)
    size "lg"   = 전투 화면의 고른 카드 패널용 큰 카드(노멀 + 설명 글)
    opts: {size, live:{a,d,h,max}, badges, extra, count, cls, attrs} */
+/* v3.65.2 능력 끄기(효과 strip)에 꺼진 칩인가: off = 유닛의 t.off(꺼진 능력 이름들). "[가시 2]" · "[보호막 코인]"처럼 이름 뒤에 수치 · 말이 붙어도 같은 능력 */
+function chipOff(raw, off) {
+  if (!off || !off.length) return false;
+  const k = String(raw).replace(/^\[|\]$/g, "");
+  return off.some(n => k === n || k.startsWith(n + " "));
+}
 function cardHTML(c, opts) {
   opts = opts || {};
   const size = opts.size || "md";
@@ -311,7 +317,7 @@ function cardHTML(c, opts) {
   // v3.19 판타지 마스터즈식 배치 (css/fmcard.css). 글 상자에 코인 · 특수 능력 · 마법 짧은 문구 · 설명(큰 카드만)
   const isU = c.type === "unit", isI = c.type === "item", isS = !isU && !isI;
   let chips = "";
-  if (isU && c.gift) chips += itemGrants(c.gift).map(raw => `<span class="c-cls c-ab" data-tip="${esc(raw + " " + (itemKwDesc(raw) || c.gift.evText || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");
+  if (isU && c.gift) chips += itemGrants(c.gift).filter(raw => !chipOff(raw, live && live.off)).map(raw => `<span class="c-cls c-ab" data-tip="${esc(raw + " " + (itemKwDesc(raw) || c.gift.evText || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");
   if (isU && !chips) chips = normalAtkChip();   // 특수 능력이 없어도 같은 규격으로 "일반공격"
   if (isU) chips += pinAbilities(c).map(raw => `<span class="c-cls c-ab c-pin" data-tip="${esc(raw + " " + (itemKwDesc(raw) || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");   // v3.20 카드에 새겨진 표시
   if (isI) chips += itemAbilities(c.item).map(raw => `<span class="c-cls c-ab" data-tip="${esc(raw + " " + (itemKwDesc(raw) || c.item.evText || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");

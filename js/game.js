@@ -1901,7 +1901,7 @@ function fieldCardHTML(it, p, s) {
     if (it.t.stolen) badges += '<span class="bd bd-tok" data-tip="☾ 빼앗은 유닛\n전투가 끝나면 흩어져 원래 주인의 소각장으로 간다">☾</span>';   // v3.11
     if (it.mod && !(FX.curse && FX.curse.has(it.uid))) badges += `<span class="bd bd-mod" data-tip="이 카드에 걸린 변화\n이 판 내내 남는다${(it.modBy || []).filter(m => m.src).map(m => "\n「" + esc(m.src) + "」").join("")}">${Object.keys(it.mod).filter(k => it.mod[k]).map(k => STAT_KO[k][0] + sgnNum(it.mod[k])).join(" ")}</span>`;
   }
-  const live = isUnit(it) && it.t ? { a: it.t.a, d: it.t.d, h: Math.max(0, hpLeft(it)), max: it.t.h, pins: livePins(it) } : null;
+  const live = isUnit(it) && it.t ? { a: it.t.a, d: it.t.d, h: Math.max(0, hpLeft(it)), max: it.t.h, pins: livePins(it), off: it.t.off || null } : null;
   const cq = live && FX.curse && FX.curse.get(it.uid);   // v3.9.10 저주 발동 연출 전: 아직 깎이지 않은 값
   if (cq) for (const k of ["a", "d", "h"]) if (cq.rem[k]) { live[k] -= cq.rem[k]; if (k === "h") live.max -= cq.rem[k]; }
   // v1.9.3: 장착한 아이템의 특수 능력을 캐릭터 그림 아래에 띠로 보인다(마우스를 올리면 뜻).
@@ -1912,7 +1912,7 @@ function fieldCardHTML(it, p, s) {
     // v1.9.4: 아래 카드 안에 진짜 아이템 카드를 그린다. 누르면 아이템이 앞으로, 유닛이 뒤로 (FX.itemFront, 전투 중에는 늘 유닛이 앞)
     under = `<div class="c-under" data-under="1">${cardHTML(ic, { size: "md", cls: "under-card", slim: true })}<span class="u-name">◆ ${esc(ic.name)}</span></div>`;
     if (FX.itemFront.has(it.uid) && G.phase !== "combat") cls.push("item-front");
-    const chips = equipChipsHTML(ic);
+    const chips = equipChipsHTML(ic, it.t && it.t.off);
     item = chips ? `<div class="c-equip">${chips}</div>` : "";
   }
   const artx = isUnit(it) && it.t && abilOf(it).u === "scrap" ? scrapPileHTML(it) : "";   // v3.31.1 [고철 골렘] 고철 더미
@@ -1944,10 +1944,10 @@ function scrapPileHTML(it) {
 /* v3.20 전장 유닛의 이번 턴 표시 { 스탯: "L"|"U"|"D" } — 유닛 · 아이템 · 마법이 건 것(t.floor) */
 function livePins(it) { const f = (it.t && it.t.floor) || {}, o = {}; for (const k in f) if (f[k] && f[k].m) o[k] = f[k].m; return o; }
 /* v1.9.3: 장착 아이템의 특수 능력 띠. 능력마다 한 칸, 마우스를 올리면 이름과 뜻. 능력이 없는 아이템(스탯만 올림)은 띠 없음 — 이름은 아래 카드에 보인다 */
-function equipChipsHTML(ic) {
+function equipChipsHTML(ic, off) {   // v3.65.2 off: 능력 끄기에 꺼진 능력 이름들 — 그 칩은 감춘다 (js/view.js chipOff)
   const list = itemKwList(ic.item).filter(([k]) => k && !isPinAb(k));   // v3.33 표시(고정 · 버팀 · 눌림) 칩은 빼고 — 스탯 옆 기호로 보이고, 누르면 설명 패널에 나온다
   if (ic.item.set) list[0] = [`[고정 ${ic.item.set.a}/${ic.item.set.d}/${ic.item.set.h}]`, list[0][1]];
-  const chips = list.map(([k, v]) => `<span class="c-eq-ab" data-tip="${esc(k + "\n" + (v || ic.item.evText || "") + "\n— " + ic.name)}">${esc(k.replace(/^\[|\]$/g, ""))}</span>`);
+  const chips = list.filter(([k]) => !chipOff(k, off)).map(([k, v]) => `<span class="c-eq-ab" data-tip="${esc(k + "\n" + (v || ic.item.evText || "") + "\n— " + ic.name)}">${esc(k.replace(/^\[|\]$/g, ""))}</span>`);
   return chips.join("");
 }
 function selHandCard(p, ctrl) {
