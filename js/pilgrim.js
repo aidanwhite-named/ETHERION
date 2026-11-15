@@ -355,6 +355,7 @@ function showPilgrim(f) {
     else if (x === "book") { App.pilTab = "book"; showPilgrim(f); }
     else if (x === "keep" || x === "gamble") {
       const r = x === "keep" ? Pilgrim.keep() : Pilgrim.gamble();
+      if (r && r.ok !== false && r.k && typeof FEEL !== "undefined") FEEL.play("daily_reward");
       if (r && r.ok === false) toast(r.msg, "warn");
       else if (r && r.k === "card") toast(`${TX.gamble.hit} (${gradeName(r.grade)})`, "good");
       else if (r && r.k === "gold") toast(`환석 ${fmtGold(r.gold)}을 받았습니다.`, "good");
@@ -364,7 +365,15 @@ function showPilgrim(f) {
       const cfg = Pilgrim.begin(f);
       if (!cfg) { toast("지금은 싸울 수 없습니다.", "warn"); showPilgrim(f); return; }
       App.screen = "game"; Bg.set("off");
-      cfg.onExit = () => { App.screen = null; App.pilTab = "road"; showPilgrim(f); };
+      if (typeof FEEL !== "undefined") { const pp = Pilgrim.get(); FEEL.play(pp && pp.stage >= PILGRIM.gates - 1 ? "forest_enter" : "gate_open"); }
+      cfg.onExit = () => {
+        App.screen = null; App.pilTab = "road"; showPilgrim(f);
+        const pp = Pilgrim.get();   // 2026-11-15 관문을 넘음 · 다음 관문으로 · 인장 · 완주
+        if (typeof FEEL !== "undefined" && pp && pp.last && pp.last.won) {
+          if (pp.stage >= PILGRIM.gates) FEEL.play("pilgrim_done"); else { FEEL.play("gate_clear"); setTimeout(() => FEEL.play("map_step"), 700); }
+          if (PILGRIM.seal) setTimeout(() => FEEL.play("seal_get"), 1300);
+        }
+      };
       startMatch(cfg);
     }
   });

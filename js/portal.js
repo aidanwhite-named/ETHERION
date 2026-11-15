@@ -24,6 +24,7 @@ const Portal = {
   enter(next, center) {
     if (this.busy) return;
     this.busy = true;
+    if (typeof FEEL !== "undefined") FEEL.play("portal_open", .9);
     const reduced = (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) || document.documentElement.classList.contains("mobile");   // v3.46 폰 · 앱은 캔버스 연출 없이 어둠 전환만
     const el = document.createElement("div");
     el.id = "portal";

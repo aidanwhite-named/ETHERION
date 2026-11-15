@@ -105,7 +105,7 @@ const Pachinko = {
         const k = Math.floor(y / H);
         if (k !== p.lastTick) { p.lastTick = k; if (typeof FEEL !== "undefined") FEEL.play("pach_tick", t > 0.85 ? 0.95 : 0.65, (p.i - 1) * 0.35); }
         p.r.el.classList.toggle("blur", t < 0.8);
-        if (t >= 1) { p.done = true; this.setY(p.r, p.to); p.r.el.classList.remove("blur"); p.r.el.classList.add("stop"); setTimeout(() => p.r.el.classList.remove("stop"), 220); if (typeof FEEL !== "undefined") FEEL.play("pach_stop", 1, 1 + p.i * 0.12); }
+        if (t >= 1) { p.done = true; this.setY(p.r, p.to); p.r.el.classList.remove("blur"); p.r.el.classList.add("stop"); setTimeout(() => p.r.el.classList.remove("stop"), 220); if (typeof FEEL !== "undefined") FEEL.play("pach_stop", 1, 1 + p.i * 0.12); if (p.i === 1 && targets[0] === targets[1]) FEEL.play("pach_reach"); }
         else all = false;
       }
       if (!all) this.raf = requestAnimationFrame(tick);

@@ -282,7 +282,7 @@ async function tradeOpen(lid) {
     if (act === "force") r = await TradeAPI.forceEnd(lid);
     if (r) {
       if (!r.ok) toast(r.msg, "warn");
-      else { toast(act === "withdraw" ? "참여를 거두고 맡긴 것을 돌려받았습니다." : act === "accept" ? "거래가 성사되었습니다." : act === "cancel" ? "거래를 내렸습니다." : "지금 마감했습니다.", "good"); if (act === "accept" && typeof FEEL !== "undefined") FEEL.play("coinHeads", .7); }
+      else { toast(act === "withdraw" ? "참여를 거두고 맡긴 것을 돌려받았습니다." : act === "accept" ? "거래가 성사되었습니다." : act === "cancel" ? "거래를 내렸습니다." : "지금 마감했습니다.", "good"); if (act === "accept" && typeof FEEL !== "undefined") FEEL.play(L && L.kind === "auction" ? "auction_win" : "trade_done", .7); }
       draw(); if (App.screen === "trade") tradeRender();
     }
   });
@@ -474,7 +474,7 @@ function tradeCompose(mode, L) {
         if (!r.ok) { toast(r.msg, "warn"); go.disabled = false; return; }
         done = true; resolve(true); w.close();
         toast(mode === "new" ? `거래 #${r.listing.id} — 올렸습니다. 맡긴 것은 교역소가 지킵니다.` : L.kind === "auction" ? `${fmtGold(S.give.shards)}으로 입찰했습니다.` : "참여했습니다. 기한까지 기다리거나 올린 사람이 고르면 성사됩니다.", "good");
-        if (typeof FEEL !== "undefined") FEEL.play("coinHeads", .5);
+        if (typeof FEEL !== "undefined") FEEL.play(mode !== "new" && L && L.kind === "auction" ? "auction_bid" : "trade_offer", .6);
         if (App.screen === "trade") { if (mode === "new") TradeUI.tab = "mine"; tradeRender(); }
       }
     });

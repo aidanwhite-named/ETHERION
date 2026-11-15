@@ -439,6 +439,7 @@ const SpellFX = (() => {
     }
     // 2026-11-15 마법마다 다른 발동 소리 (audio/sfx/<마법ID>.cast, 없으면 공용 sp_reveal)
     if (it && typeof cardSfx === "function") cardSfx(uid, "cast", 1, "sp_reveal"); else snd("sp_reveal");
+    if (it && CARDS[it.id] && CARDS[it.id].cost && CARDS[it.id].cost.ether) later(() => snd("reload", 0.8), 500);   // [장전]
   }
 
   /* ---------- 마법 효과 한 수 ---------- */

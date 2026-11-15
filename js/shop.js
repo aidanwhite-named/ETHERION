@@ -269,7 +269,7 @@ function shopBuy(id, n, fromBtn) {
   const u = Store.user(), c = CARDS[id];
   const r = Store.buyCard(u, id, n || 1, { toDeck: SHOP.toDeck });
   if (!r.ok) { toast(r.msg, "warn"); return; }
-  if (typeof FEEL !== "undefined") FEEL.play("coinHeads", .6);
+  if (typeof FEEL !== "undefined") FEEL.play("shop_buy", .6);
   let deckMsg = "";
   if (r.put) {
     const g = r.put.g, d = g && (Store.draft(u, g) || Store.deck(u, g)), dn = d ? countMap(d.cards) : 0;
@@ -290,6 +290,7 @@ function shopSell(id) {
   const r = Store.sellCard(u, id);
   if (!r.ok) { toast(r.msg, "warn"); return; }
   toast(`「${c.name}」 판매${r.price ? " · +" + fmtGold(r.price) : ""} (보유 ${r.have}) · 재고로 돌아갔습니다`, "good");
+  if (typeof FEEL !== "undefined") FEEL.play("shop_sell", .6);
   shopRefresh([id]);
   const tile = $(`.shop-card[data-card="${id}"]`);
   if (tile && typeof Scenes !== "undefined") Scenes.shards(tile.querySelector(".sc-face"), $(".shop-wallet"), 6);

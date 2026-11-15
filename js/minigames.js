@@ -231,7 +231,7 @@ const Crystal = {
   state() { if (!G.econ.seed) G.econ.seed = { last: 0, streak: 0 }; return G.econ.seed; },
   can() { if (!G || G.phase === "over" || !G.econ) return false; const s = this.state(); return s.last !== this.round(); },
   /* 거른 턴이 있으면 처음부터 */
-  check() { const s = this.state(); const R = this.round(); if (s.streak && s.last < R - 1) { s.streak = 0; s.wilted = R; } return s; },
+  check() { const s = this.state(); const R = this.round(); if (s.streak && s.last < R - 1) { s.streak = 0; s.wilted = R; if (typeof FEEL !== "undefined") FEEL.play("grow_reset"); } return s; },
   refresh() {
     if (!this.el || !G) return;
     const s = this.check(), ok = this.can();
@@ -259,18 +259,19 @@ const Crystal = {
     this.el.dataset.hold = R;
     const msg = this.el.querySelector("#seed-msg");
     const pot = this.el.querySelector("#seed-pot");
+    if (typeof FEEL !== "undefined") FEEL.play("grow_water");
     pot.animate([{ transform: "scale(1)" }, { transform: "scale(1.12)" }, { transform: "scale(1)" }], { duration: 320, easing: "ease-out" });
     if (s.streak >= ARCADE_PRIZE.crystalTurns) {
       s.streak = 0;
       msg.textContent = `여물었다! +${fmtGold(ARCADE_PRIZE.crystal)}`; msg.className = "seed-msg win big";
       this.el.classList.add("bloom"); setTimeout(() => this.el.classList.remove("bloom"), 1600);
-      Pachinko.chime(3); Pachinko.celebrate("#8fdcff", this.el);
+      if (typeof FEEL !== "undefined") FEEL.play("grow_ripe"); Pachinko.celebrate("#8fdcff", this.el);
       Arcade.award(ARCADE_PRIZE.crystal, "에테르 결정이 여물었다", "turn");
       pot.innerHTML = this.plantSVG(ARCADE_PRIZE.crystalTurns);
       setTimeout(() => Arcade.refresh(), 1500);
       return;
     }
-    msg.textContent = "물을 주었다"; msg.className = "seed-msg win";
+    msg.textContent = "물을 주었다"; msg.className = "seed-msg win"; if (typeof FEEL !== "undefined") setTimeout(() => FEEL.play("grow_up"), 280);
     Arcade.refresh();
     this.el.querySelector("#seed-msg").textContent = "물을 주었다";
   },

@@ -370,6 +370,7 @@ const Chronicle = (() => {
     ov.querySelector(".cr-toc").innerHTML = tocHTML(id);
     if (!first) {
       page.classList.remove("turn"); void page.offsetWidth; page.classList.add("turn");
+      if (typeof FEEL !== "undefined") FEEL.play("page_turn", .7);
       if (matchMedia("(max-width: 900px)").matches) page.parentNode.scrollIntoView({ block: "start" });
       page.focus({ preventScroll: true });
     }

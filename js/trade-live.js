@@ -188,7 +188,7 @@ const TradeLive = {
       this.history.unshift({ at: Date.now(), peer: this.foe.name, give, get, id: r.id });
       this.flash = { give, get, over: r.over, extra: r.extra };
       this.me = this.blank(); this.foe.offer = { cards: {}, shards: 0 }; this.foe.lock = ""; this.foe.go = "";
-      if (typeof FEEL !== "undefined") FEEL.play("coinHeads", .7);
+      if (typeof FEEL !== "undefined") FEEL.play("trade_done", .7);
     } else this.err = r.msg;
     this._settling = null;
     this.changed();

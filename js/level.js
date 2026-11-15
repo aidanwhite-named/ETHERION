@@ -150,6 +150,7 @@ const LevelUI = {
     const A = LEVEL.info(from), B = LEVEL.info(to);
     const reduced = typeof FEEL !== "undefined" && FEEL.reduced && FEEL.reduced();
     const set = (p, lv) => { bar.style.setProperty("--p", p.toFixed(4)); if (lv != null) orb.textContent = lv; };
+    if (to > from && typeof FEEL !== "undefined") setTimeout(() => FEEL.play("xp_fill", .6), 450);
     if (reduced || B.lv === A.lv) { setTimeout(() => set(B.p), 450); if (B.lv > A.lv) { orb.textContent = B.lv; box.classList.add("leveled"); } return; }
     let lv = A.lv;
     const step = () => {

@@ -152,7 +152,7 @@ async function jrClick(e) {
     if (!r || r.ok === false) { toast((r && r.msg) || "받지 못했습니다.", "warn"); return; }
     const parts = [r.gold ? `+${jrNum(r.gold)} 조각` : "", r.spins ? `수레바퀴 표 ${r.spins}장` : "", r.card && CARDS[r.card] ? `카드 「${CARDS[r.card].name}」` : "", r.title ? `칭호 「${titleName(r.title)}」` : ""].filter(Boolean);
     toast(`${what}: ${parts.join(" · ") || "받았습니다"}`, "good");
-    if (typeof FEEL !== "undefined") FEEL.play("coinHeads", 0.9);
+    if (typeof FEEL !== "undefined") FEEL.play(what === "업적" || r.title ? "achievement" : what === "퀘스트" ? "quest_done" : "coinHeads", 0.9);
   };
   if (d.jtab) { Journal.tab = d.jtab; return showJournal(); }
   if (d.jflag) { Journal.flag = d.jflag; return showJournal(); }

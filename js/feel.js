@@ -147,6 +147,23 @@ const FEEL = {
       if (isCard) tm = setTimeout(start, this.t.pressHold); else start();
     });
     addEventListener("pointerup", up); addEventListener("pointercancel", up);
+    /* 2026-11-15 메뉴 소리 (붙잡는 단계에서 듣는다: stopPropagation 하는 단추도 있어서). 전장의 [data-act] 단추는 game.js 가 따로 소리를 낸다 */
+    const TAB = '[role="tab"],.tab,.jr-tab,.t-tab,[data-jtab],[data-ttab],[data-tab]';
+    const TOG = '[data-sp],[data-mt],[data-lay],[data-bbg],[data-fx],[data-sfx],[data-bgm],.sp-tog,.snd-btn,[data-act^="snd-"],.ai-diff-btn';
+    const CLK = '.btn,.tb-nav,.tb-btn,.tb-crest,.tb-shard,.f-cta,.f-sub,.f-x,.ds-x,.hx-x,.cr-close';
+    root.addEventListener("click", e => {
+      const t = e.target; if (!t || !t.closest) return;
+      if (t.closest(TAB)) this.play("ui_tab", .6);
+      else if (t.closest(TOG)) this.play("ui_toggle", .6);
+      else if (t.closest(CLK)) this.play("ui_click", .5);
+    }, true);
+    root.addEventListener("change", e => { if (e.target.matches && e.target.matches('input[type="checkbox"]')) this.play("ui_toggle", .6); }, true);
+    root.addEventListener("pointerover", e => {
+      if (e.pointerType !== "mouse" || !e.target.closest) return;
+      const el = e.target.closest(CLK + ",.deck-tile,.grp-tile," + TAB);
+      if (!el || el.disabled || (e.relatedTarget && el.contains(e.relatedTarget))) return;
+      this.play("ui_hover", .18);
+    }, true);
   },
   reduced() { return !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches); }
 };

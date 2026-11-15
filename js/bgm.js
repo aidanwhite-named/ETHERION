@@ -327,7 +327,7 @@ const BGM = {
       const t = e.target.closest("[data-tog]"); if (!t) return;
       if (t.dataset.tog === "bgm") this.toggleMusic(); else this.toggleSfx();
     });
-    p.addEventListener("input", e => { const r = e.target.closest("[data-vol]"); if (!r) return; (r.dataset.vol === "bgm" ? this.setBgmVolume(+r.value) : this.setSfxVolume(+r.value)); this.paintPanel(r); });
+    p.addEventListener("input", e => { const r = e.target.closest("[data-vol]"); if (!r) return; if (typeof FEEL !== "undefined") FEEL.play("ui_slider", .3); (r.dataset.vol === "bgm" ? this.setBgmVolume(+r.value) : this.setSfxVolume(+r.value)); this.paintPanel(r); });
     p.addEventListener("change", e => { const r = e.target.closest("[data-vol]"); if (r && r.dataset.vol === "sfx" && +r.value > 0) this.setSfxVolume(+r.value, true); });
     document.body.appendChild(p);
     this.pop = p; this.popAnchor = anchor;

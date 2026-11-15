@@ -72,7 +72,7 @@ const Forge = {
       this.S = { el, mode, pick, group: o.group || (pick ? CARDS[pick].group : ""), ready: false, odds: false, busy: false, changed: new Set(), from: o.from || null, done };
       this.render();
       requestAnimationFrame(() => el.classList.add("on"));
-      this.play("ui_open");
+      this.play("forge_open");
       el.addEventListener("click", e => this.onClick(e));
       this.S.key = e => { if (!this.S || this.S.busy) return; if (e.key === "Escape") { e.preventDefault(); this.S.odds ? (this.S.odds = false, this.render()) : this.close(); } };
       addEventListener("keydown", this.S.key);
@@ -178,7 +178,7 @@ const Forge = {
     const gr = t.closest("[data-fgrp]"); if (gr) { S.group = gr.dataset.fgrp; this.render(); return; }
     const rd = t.closest("[data-fready]"); if (rd) { S.ready = rd.checked; this.render(); return; }
     const od = t.closest("[data-fodds]"); if (od) { S.odds = true; this.render(); return; }
-    if (t.closest("[data-forb]")) { S.orb = !S.orb; this.play(S.orb ? "select" : "unselect"); this.render(); return; }
+    if (t.closest("[data-forb]")) { S.orb = !S.orb; this.play(S.orb ? "orb_insert" : "unselect"); this.render(); return; }
     const pk = t.closest("[data-fpick]");
     if (pk) { const id = pk.dataset.fpick; S.pick = S.pick === id ? null : id; this.play(S.pick ? "select" : "unselect"); this.render(); if (S.pick) this.focusBench(); return; }
     if (t.closest("[data-fslot]") && S.pick) { S.pick = null; this.play("unselect"); this.render(); return; }
@@ -282,15 +282,15 @@ function fuseFX(baseId, outId, kind, info) {
     const key = e => { if (e.key === "Escape" || e.key === "Enter" || e.key === " ") { e.preventDefault(); e.stopPropagation(); shown ? end() : show(); } };
     const end = () => { if (ended) return; ended = true; T.forEach(clearTimeout); removeEventListener("keydown", key, true); ov.classList.add("out"); setTimeout(() => { ov.remove(); done(); }, 320); };
     addEventListener("keydown", key, true);
-    if (reduce) { requestAnimationFrame(() => { show(); play("levelUp"); }); }
+    if (reduce) { requestAnimationFrame(() => { show(); play("forge_success"); }); }
     else {
       requestAnimationFrame(() => ov.classList.add("s1"));
       at(80, () => play("ui_open"));
-      at(750, () => { ov.classList.add("s2"); play("sp_buff"); });
-      at(1650, () => { ov.classList.add("s3"); play("shatter"); });
+      at(750, () => { ov.classList.add("s2"); play("forge_merge"); });
+      at(1650, () => { ov.classList.add("s3"); play("forge_hammer"); });
       at(1780, () => play("sp_boom"));
-      at(2150, () => { ov.classList.add("s4"); if (!rare) { shown = true; ov.classList.add("fin"); play("levelUp"); } });
-      if (rare) at(2950, () => { ov.classList.add("s5", "fin"); shown = true; play("levelUp"); });
+      at(2150, () => { ov.classList.add("s4"); if (!rare) { shown = true; ov.classList.add("fin"); play("forge_success"); } });
+      if (rare) at(2950, () => { ov.classList.add("s5", "fin"); shown = true; play("forge_success"); });
     }
     ov.addEventListener("click", e => { if (e.target.closest(".upfx-ok") || shown) end(); else show(); });
   });

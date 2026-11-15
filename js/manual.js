@@ -475,7 +475,7 @@ const Help = (() => {
       });
       this.show();
     },
-    go(d) { const j = this.i + d; if (j < 0 || j >= PAGES.length) return; this.i = j; this.show(); },
+    go(d) { const j = this.i + d; if (j < 0 || j >= PAGES.length) return; this.i = j; if (typeof FEEL !== "undefined") FEEL.play("page_turn", .6); this.show(); },
     show() {
       if (!cur) return;
       const P = PAGES[this.i], last = this.i === PAGES.length - 1;

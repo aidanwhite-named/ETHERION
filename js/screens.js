@@ -282,7 +282,7 @@ function bindFactionPicks(wrap, sumEl) {
 }
 function bindGroupGrid(wrap, def) {
   let v = def;
-  $$(".grp-tile", wrap).forEach(b => b.addEventListener("click", () => { v = b.dataset.g; $$(".grp-tile", wrap).forEach(x => x.classList.toggle("on", x === b)); }));
+  $$(".grp-tile", wrap).forEach(b => b.addEventListener("click", () => { v = b.dataset.g; if (typeof FEEL !== "undefined") FEEL.play("ui_deck", .6); $$(".grp-tile", wrap).forEach(x => x.classList.toggle("on", x === b)); }));
   if (def) { const t = wrap.querySelector(`.grp-tile[data-g="${def}"]`); if (t) t.classList.add("on"); }
   return () => v;
 }
@@ -330,6 +330,7 @@ function showLogin(tab) {
     e.preventDefault();
     const err = Store.login($("#li-id").value, $("#li-pw").value);
     if (err) { $("#li-err").textContent = err; return; }
+    if (typeof FEEL !== "undefined") FEEL.play("login_ok", .8);
     toast(`환영합니다, ${Store.user().id}.`); showLobby();
   });
   $("#f-new").addEventListener("submit", e => {
@@ -498,6 +499,7 @@ function showLobby() {
   $$(".deck-tile", root).forEach(b => b.addEventListener("click", () => {
     if (b.classList.contains("locked")) { toast("보유하지 않은 덱입니다.", "warn"); return; }
     App.lobbyGroup = b.dataset.g;
+    if (typeof FEEL !== "undefined") FEEL.play("flag_pick", .7);
     if (lobbyCompact()) { $$(".deck-tile", root).forEach(x => x.classList.toggle("on", x === b)); openDeckSheet(b.dataset.g); return; }
     showLobby();
   }));
@@ -564,7 +566,7 @@ function bindAltar(box, f, before) {
   on("#go-edit", () => showEditor(f));
   on("#go-ai", () => startVsAI(f));
   on("#go-exp", () => showExpedition(f));
-  on("#go-pil", () => { if (typeof showPilgrim === "function") showPilgrim(f); });
+  on("#go-pil", () => { if (typeof FEEL !== "undefined") FEEL.play("map_open"); if (typeof showPilgrim === "function") showPilgrim(f); });
   on("#go-pvp", () => startPvP(f));
 }
 /* v3.32.2 폰 · 앱(html.mobile): 대기실에는 깃발만. 깃발을 누르면 출정 창 — 덱 이름 · 장수 · 레벨 곡선과 출정의 단.
@@ -648,7 +650,7 @@ function renderChat() {
   box.innerHTML = sys + ChatNet.history().slice(-80).map(m => `<div class="msg${m.from === Store.data.session ? " mine" : ""}"><span class="who">${m.admin ? '<i class="crown">♛</i>' : ""}${esc(m.from)}</span><span class="txt">${esc(m.text)}</span><time>${fmtTime(m.at)}</time></div>`).join("");
   box.scrollTop = box.scrollHeight;
 }
-ChatNet.onMessage(() => { if (App.screen === "lobby") renderChat(); });
+ChatNet.onMessage(m => { if (App.screen === "lobby") renderChat(); const u = Store.user(); if (m && u && m.from !== u.id && typeof FEEL !== "undefined") FEEL.play("chat", .6); });
 
 /* ---------- 대전 시작 ---------- */
 async function startVsAI(f, opts) {   // opts.practice = 튜토리얼 ③ 연습 대전 (v3.24.3, 결정화 손짓은 이 판에서만) · opts.trial = v3.48 친구 초대 체험 덱
@@ -937,7 +939,7 @@ function showEditor(f, focusId) {
     }
     $("#ed-own").innerHTML = ownChips() + '<span class="sep"></span><button class="chip ghost" data-goshop="1" title="이 단체의 카드를 상점에서 삽니다">상점에서 사기 →</button>' + (typeof Forge !== "undefined" && !all ? `<button class="chip ghost fg-open" data-fuse="" data-fuse-g="${f}" title="같은 카드 3장 합치기 — 일반 → 강화 · 고급 → 레어 뽑기">${fuseIcon("up")} 합성소</button>` : "");
     if (typeof Scenes !== "undefined") Scenes.editorState(n, lvN);
-    if (lastN !== -1 && n === N && lastN !== N) { $("#ed-gauge").classList.add("complete"); if (typeof FEEL !== "undefined") FEEL.play("confirm", .55); }
+    if (lastN !== -1 && n === N && lastN !== N) { $("#ed-gauge").classList.add("complete"); if (typeof FEEL !== "undefined") FEEL.play("deck_full", .55); }
     lastN = n;
   };
   /* 경보: 덱 장수(RULES.deckSize)를 넘게 넣으려 할 때 등 */
@@ -985,8 +987,8 @@ function showEditor(f, focusId) {
     if (k) E.cards[id] = k; else delete E.cards[id];
     if (k > inDeck && u.fresh && u.fresh[id]) { delete u.fresh[id]; }
     persist(); draw();
-    if (k > inDeck) { fly(id); if (typeof FEEL !== "undefined") FEEL.play("pick", .5); }
-    else if (typeof FEEL !== "undefined") FEEL.play("unselect", .5);
+    if (k > inDeck) { fly(id); if (typeof FEEL !== "undefined") FEEL.play("deck_add", .5); }
+    else if (typeof FEEL !== "undefined") FEEL.play("deck_remove", .5);
     return true;
   };
   const addCard = (id, n) => setCount(id, (E.cards[id] || 0) + (n || 1));
@@ -1087,7 +1089,7 @@ function showEditor(f, focusId) {
     if (!r.ok) { alarm(esc(r.msg)); return; }
     E.name = Store.deck(u, f).name; $("#ed-name").value = E.name;
     toast("덱을 저장했습니다. 이제 이 덱으로 대전할 수 있습니다.", "good");
-    if (typeof FEEL !== "undefined") FEEL.play("confirm", .8);
+    if (typeof FEEL !== "undefined") FEEL.play("deck_save", .8);
     if (typeof Scenes !== "undefined") Scenes.seal();
     draw();
   });

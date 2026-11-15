@@ -505,6 +505,7 @@ function fitFullCard(card, maxH) {
    buttons를 주면 그 버튼들을, 없으면 닫기만. note는 카드 아래 한 줄 */
 function showCardModal(c, buttons, note) {
   if (typeof CardPreview !== "undefined") CardPreview.hide(); else { const pv = $("#card-preview"); if (pv) pv.hidden = true; }
+  if (typeof FEEL !== "undefined") FEEL.play("ui_card", .6);
   const html = `<div class="detail">${cardHTML(c, { size: "full" })}${note ? `<p class="cm-note">${note}</p>` : ""}</div>`;
   return modal(html, buttons || [{ label: "닫기", value: null }], { cls: "card-modal", onOpen: fitCardModal });
 }
@@ -565,7 +566,7 @@ function toast(msg, kind) {
   if (!box) { box = document.createElement("div"); box.id = "toasts"; document.body.appendChild(box); }
   const t = document.createElement("div");
   t.className = "toast " + (kind || "");
-  if (kind === "warn" && typeof FEEL !== "undefined") FEEL.play("deny", 0.8);
+  if (typeof FEEL !== "undefined") { if (kind === "warn") FEEL.play("deny", 0.8); else if (kind !== "good") FEEL.play("toast", 0.45); }   // good 알림은 그 일의 소리가 따로 남
   t.textContent = msg;
   box.appendChild(t);
   setTimeout(() => t.classList.add("out"), 2600);
@@ -578,9 +579,10 @@ function modal(html, buttons, opts) {
   return new Promise(resolve => {
     const wrap = document.createElement("div");
     wrap.className = "modal-wrap";
+    if (typeof FEEL !== "undefined" && !/card-modal/.test(opts.cls || "") && !(typeof App !== "undefined" && App.screen === "game")) FEEL.play("ui_open", .6);
     wrap.innerHTML = `<div class="modal ${opts.cls || ""}" role="dialog" aria-modal="true">${html}<div class="modal-btns">${(buttons || []).map((b, i) => `<button type="button" class="btn ${b.cls || ""}" data-i="${i}">${esc(b.label)}</button>`).join("")}</div></div>`;
     document.body.appendChild(wrap);
-    const done = v => { wrap.remove(); resolve(v); };
+    const done = v => { wrap.remove(); if (typeof FEEL !== "undefined" && !(typeof App !== "undefined" && App.screen === "game")) FEEL.play("ui_close", .5); resolve(v); };
     wrap.addEventListener("click", e => {
       const b = e.target.closest("[data-i]");
       if (b) { const btn = buttons[+b.dataset.i]; if (btn.onClick && btn.onClick(wrap) === false) return; done(btn.value); }

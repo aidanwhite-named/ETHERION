@@ -172,6 +172,7 @@ const Online = {
   foeGone(reason) {
     if (!this.inMatch() || G.phase === "over") return;
     G.winner = G.me; G.reason = reason; G.phase = "over";
+    if (typeof FEEL !== "undefined") FEEL.play("foe_left", .8);
     log(`◆ ${reason}`, "turn");
     const mb = document.querySelector(".mull-modal .modal-btns .btn"); if (mb) mb.click();   // 멀리건 창은 '그대로 시작'으로 닫는다
     if (G.ready) { const r = G.ready; G.ready = null; G.control = null; r(); }
@@ -217,6 +218,7 @@ const Online = {
     if (typeof App !== "undefined") { App.screen = "game"; if (typeof Bg !== "undefined") Bg.set("off"); }
     cfg.onExit = () => { if (typeof App !== "undefined") App.screen = null; if (typeof showLobby === "function") showLobby(); };
     startMatch(cfg);
+    if (typeof FEEL !== "undefined") FEEL.play("match_found", .9);
     toast(`${this.foeName}와(과) 연결되었습니다. 행운을!`, "good");
   },
 

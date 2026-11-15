@@ -50,7 +50,7 @@ const DeckCode = {
       return;
     }
     if (v === "copy") {
-      try { await navigator.clipboard.writeText(code); toast("덱 코드를 복사했습니다.", "good"); }
+      try { await navigator.clipboard.writeText(code); if (typeof FEEL !== "undefined") FEEL.play("deck_code", .7); toast("덱 코드를 복사했습니다.", "good"); }
       catch (e) { toast("복사하지 못했습니다. 글을 길게 눌러 직접 복사해 주세요.", "warn"); }
       return;
     }
@@ -61,6 +61,7 @@ const DeckCode = {
     const own = {}, short = [];
     for (const id in r.cards) { const have = Store.ownedCount(u, id), k = Math.min(r.cards[id], have); if (k > 0) own[id] = k; if (have < r.cards[id]) short.push(`${CARDS[id].name} ${r.cards[id] - have}장`); }
     apply(own);
+    if (typeof FEEL !== "undefined") FEEL.play("deck_code", .7);
     const got = countMap(own);
     if (short.length || r.skipped.length) await modal(`<h3>덱을 넣었습니다 (${got}장)</h3>${short.length ? `<p>가지지 않아 빠진 카드:</p><p class="muted small">${short.map(esc).join(" · ")}</p>` : ""}${r.skipped.length ? `<p class="muted small">게임에 없는 카드 ${r.skipped.length}종은 건너뛰었습니다.</p>` : ""}<p class="muted small">빈 자리를 채우고 저장해 주세요.</p>`, [{ label: "확인", value: 1, cls: "primary" }]);
     else toast(`덱 코드로 ${got}장을 넣었습니다. 저장해야 반영됩니다.`, "good");
