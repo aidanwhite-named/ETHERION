@@ -34,7 +34,7 @@ const GROUPS = {
   G3: { name: "푸른비늘 인어",     en: "Bluescale Merfolk",   faction: "verdant", role: "전략형", el: "water",     glyph: "spring",  color: "#5cb3e0", ai: "셀레네아의 인어 무녀장",       motto: "물은 모든 상처를 씻는다",       blurb: "인어와 물의 정령 무녀. 물 밖에서는 느리지만, 아군을 치유하고 상대의 강화를 씻어낸다." },
   A1: { name: "심연 마족",     en: "Abyssal Fiends",         faction: "arcane",  role: "공격형", el: "dark",      glyph: "abyss",   color: "#ac82dc", ai: "녹타르의 계약자",     motto: "대가를 치르면 무엇이든 얻는다", blurb: "마족 계약자. 체력을 대가로 내고 게임 최고 수준의 일격을 날린다." },
   A2: { name: "성광 천족",     en: "Radiant Seraphs",    faction: "arcane",  role: "수비형", el: "light",     glyph: "radiant", color: "#f0cf6a", ai: "엘라드의 기사단장",       motto: "빛은 등 뒤의 동료를 지킨다",    blurb: "천족과 인간 기사. 아군 대신 공격을 받고 보호막으로 핵심 카드를 지킨다." },
-  A3: { name: "폭풍 하이엘프",   en: "Storm High Elves",    faction: "arcane",  role: "전략형", el: "wind",      glyph: "storm",   color: "#6cc9c1", ai: "바늘탑의 대마도사",   motto: "바람은 계획을 흩어 놓는다",     blurb: "하이엘프 마법사. 몸은 약하고 오만하지만, 패를 돌려 원하는 카드를 찾고 상대의 계획을 흐트러뜨린다." }
+  A3: { name: "폭풍 하이엘프",   en: "Storm High Elves",    faction: "arcane",  role: "전략형", el: "wind",      glyph: "storm",   color: "#6cc9c1", ai: "바늘탑의 대궁사",     motto: "바람을 읽는 화살은 빗나가지 않는다", blurb: "하이엘프 궁수. 몸은 약하지만, 멀리서 쏘아 갑옷 틈을 꿰뚫고 칼이 닿기 전에 물러선다." }   // v3.70 마법사 → 바람 궁수 (js/elf.js)
 };
 const GROUP_IDS = Object.keys(GROUPS);
 for (const g of GROUP_IDS) GROUPS[g].id = g;
@@ -213,24 +213,37 @@ function itemAbilities(it) {
   if (it.leech) out.push("[흡혈]");
   if (it.veil) out.push("[그림자 걸음]");
   if (it.pact) out.push(`[피의 계약 ${it.pact}]`);
+  if (it.bleed) out.push(`[출혈 ${it.bleed}]`);
   if (it.shred) out.push("[관통]");
-  if (it.magic) out.push(`[마력 공격 ${it.magic === true ? "전부" : it.magic}]`);
+  if (it.magic) out.push(`[방어무시 ${it.magic === true ? "전부" : it.magic}]`);   // v3.68 옛 [마력 공격] → [방어무시]
+  if (it.arcane) out.push(`[마력 공격 ${it.arcane}]`);   // v3.68 새 [마력 공격 N] (인어, engine mrArc)
   if (it.crit) out.push("[치명]");
   if (it.chain) out.push("[연쇄]");
   if (it.throw) out.push(it.every ? `[사격 ${it.throw}]` : `[투척 ${it.throw}]`);
+  if (it.ignite) out.push(`[점화 ${it.ignite}]`);   // v3.73 잿불 고블린 (js/goblin.js, engine gbIgnite)
+  if (it.farmor) out.push(`[화염 갑주 ${it.farmor}]`);   // v3.73 engine gbArmor
   if (it.ranged) out.push("[원거리]");
   if (it.ward) out.push(`[가호 ${it.ward}]`);
+  if (it.heal) out.push(`[치유 ${it.heal}]`);   // v3.68 engine mrHeal
+  if (it.calm) out.push(`[바다의 보호 ${it.calm}]`);   // v3.68 오라, engine mrCalm
+  if (it.aura && it.auraG && typeof RARE_AURA !== "undefined" && RARE_AURA[it.auraG]) out.push(`[${RARE_AURA[it.auraG].n} ${it.aura}]`);   // v3.69 레어 오라 (js/rares.js, engine rareAuraSync)
   if (it.shield) out.push("[보호막 코인]");
   if (it.thorns) out.push(`[가시 ${it.thorns}]`);
+  if (it.regen) out.push(`[재생 ${it.regen}]`);   // v3.74 새 능력 (js/newabil.js, engine "v3.74 새 능력")
+  if (it.bash) out.push("[방패 반격]");
+  if (it.taunt) out.push("[수호]");
+  if (it.purify) out.push("[정화]");
+  if (it.firm) out.push("[굳건]");
+  if (it.intercept) out.push("[요격]");
   out.push(...pinAbilities(it, true));   // v3.20 옛 [저주 면역: 스탯]은 [버팀: 스탯]
   if (it.evName) out.push(`[${it.evName}]`);
   return out;
 }
 /* v2.2: 아이템 글은 두 단계다.
-   ① 아이템이 하는 일: "[관통] 능력 부여" (유닛에게 주는 특수 능력), "장착할 때 [치유 3]" (장착하는 순간 한 번)
+   ① 아이템이 하는 일: "[관통] 능력 부여" (유닛에게 주는 특수 능력), "장착할 때 [생명 +3]" (장착하는 순간 한 번)
    ② 그 능력의 뜻: "[가호 N] 매 턴 처음 받는 피해를 N만큼 줄인다." — 숫자 자리는 N, 고정할 스탯 자리는 "스탯"
    ①은 itemSummary, ②는 itemKwGenList. 숫자를 넣은 문장(itemKwDesc)은 마우스를 올린 말풍선에 쓴다 */
-const ON_EQUIP_KW = /^\[치유/;   // 유닛에게 남지 않고 장착하는 순간 한 번 일어나는 능력
+const ON_EQUIP_KW = /^\[생명 \+/;   // v3.68 옛 [치유 N] → [생명 +N] ([치유 N]은 인어 유닛 능력)   // 유닛에게 남지 않고 장착하는 순간 한 번 일어나는 능력
 function itemGrants(it) {
   const g = itemAbilities(it).filter(r => !ON_EQUIP_KW.test(r));
   if (it.set) g.unshift(`[고정 ${it.set.a}/${it.set.d}/${it.set.h}]`);
@@ -282,38 +295,53 @@ function itemTextPinned(it) {
    문장은 실제 규칙(engine.js)과 같아야 한다: 사격 snipeOne, 투척 attackOne, 마력 공격·관통·치명·연쇄·가시·원거리 attackOne, 가호·보호막 hurt */
 const ITEM_KW = {
   "관통": "공격하면, 상대 유닛의 방어가 이번 턴 동안 내 공격력만큼 줄어든다(0까지만).",
-  "마력 공격": "공격할 때 상대 방어를 {n}만큼 무시한다. 반격할 때는 적용되지 않는다.",
-  "마력 공격 전부": "공격할 때 상대 방어를 모두 무시한다. 반격할 때는 적용되지 않는다.",
+  "방어무시": "공격할 때 상대 방어를 {n}만큼 무시한다. 반격할 때는 적용되지 않는다.",
+  "방어무시 전부": "공격할 때 상대 방어를 모두 무시한다. 반격할 때는 적용되지 않는다.",
+  "마력 공격": "맞붙을 때(공격 · 반격) 상대 방어 가운데 {n}까지는 막지 못하고 오히려 피해에 더해진다. 방어가 없는 상대에게는 보통 공격과 같다.",
+  "바다의 보호": "오라 — 이 유닛이 전장에 있는 동안 양옆 {n}칸 안의 아군 유닛이 받는 피해가 1 줄어든다(맞붙음 · 마법 모두). 한 번 막고 사라지지 않는다.",
   "치명": "맞붙어 피해를 주면(공격 · 반격 모두), 맞은 유닛이 쓰러지지 않았을 때 남은 체력이 1이 된다.",
-  "연쇄": "맞붙어 공격해 상대 유닛을 쓰러뜨리고 피해가 남으면, 남은 피해로 그 뒤의 상대 유닛 하나를 친다(그 유닛의 방어만큼 줄어든다. 마력 공격은 여기에도 적용, 반격은 없다).",
+  "연쇄": "맞붙어 공격해 상대 유닛을 쓰러뜨리고 피해가 남으면, 남은 피해로 그 뒤의 상대 유닛 하나를 친다(그 유닛의 방어만큼 줄어든다. 방어무시는 여기에도 적용, 반격은 없다).",
   "투척": "내 공격 턴마다, 이 유닛이 공격을 시작할 때 맞선 유닛에서 칸이 가장 먼 상대 유닛에게 함께 던져 {n} 피해를 준다(그 유닛의 방어만큼 줄어든다. 거리가 같으면 전장 번호가 큰 유닛). 상대 유닛이 맞선 유닛뿐이면 던지지 않는다.",
   "사격": "내 공격 턴에 이 유닛의 차례가 오면, 맞붙기 바로 전에 상대 유닛 하나의 체력을 {n} 깎는다(방어 무시). 대상: 남은 체력이 가장 낮은 유닛 — 같으면 앞의 유닛. 사격으로 상대 유닛이 모두 쓰러지면 남은 공격 유닛은 생명을 직접 공격한다.",
   "원거리": "맞붙어 공격해도 상대의 반격을 받지 않는다.",
-  "가호": "매 턴 처음 받는 피해를 {n}만큼 줄인다.",
+  "가호": "매 턴 처음 받는 피해를 {n}만큼 줄인다. [출혈]로 깎이는 체력은 깎일 때마다 {n}만큼 줄인다.",
   "보호막 코인": "전투가 시작될 때마다 코인을 던져 앞면이면, 그 전투에서 처음 받는 피해 한 번을 절반(올림)만큼 막는다.",
   "고정": "🔒 {S} 증가 · 감소 효과를 모두 받지 않는다.",
   "버팀": "▲ {S} 감소 효과를 받지 않는다(피해 제외).",
   "눌림": "▼ {S} 증가 효과를 받지 않는다.",
   "가시": "이 유닛을 맞붙어 공격한 상대 유닛은 체력이 {n} 깎인다.",
-  "증폭": "이 유닛이 전장에 있으면 내 공격 마법의 피해가 {n} 늘어난다.",
-  "치유": "장착하는 순간 내 생명이 {n} 늘어난다.",
+  "증폭": "이 유닛이 전장에 있으면 내 마법(공격 · 공용 · 방어)이 상대 유닛에게 주는 피해가 맞는 유닛마다 {n} 늘어난다.",
+  "치유": "맞붙음(공격 · 반격)에서 살아남으면 받은 피해를 {n}만큼 채운다(원래 체력까지). 맞붙을 때마다.",
+  "생명": "장착하는 순간 내 생명이 {n} 늘어난다.",
   /* v3.65 심연 마족 — 규칙은 engine.js 끝 "v3.65 심연 마족" 절 */
   "강탈": "이 유닛이 상대 유닛을 쓰러뜨리면(공격 · 반격 · 사격 · 투척. 연쇄 · 꿰뚫기로 뒤 유닛을 쓰러뜨린 것은 세지 않음) 내 다음 턴 에테르가 쓰러뜨린 유닛 레벨의 절반(올림)만큼 늘어난다.",
   "흡혈": "맞붙어(공격 · 반격) 준 피해의 절반(올림)만큼 이 유닛의 체력이 찬다. 다 찬 뒤 남는 몫은 이번 턴 체력 +.",
   "그림자 걸음": "자기보다 레벨이 높은 유닛과 맞붙어 받는 피해를 턴에 한 번 받지 않는다. 레벨이 같거나 낮은 유닛에게 맞붙어 받는 피해는 2 늘어난다.",
-  "피의 계약": "내 마법이 생명을 낼 때마다 이 유닛의 공격이 이번 턴 {n} 오른다."
+  "피의 계약": "내 마법이 생명을 낼 때마다 이 유닛의 공격이 이번 턴 {n} 오른다.",
+  "출혈": "맞붙어(공격 · 반격) 피해를 준 상대가 살아남으면 그 유닛에 출혈이 {n} 쌓인다(걸 때마다 더해진다). 그 뒤 이번 전투에서 맞붙음이 하나 시작될 때마다 출혈 유닛은 체력이 출혈만큼 깎인다(방어 · 보호막과 상관없이. [가호 N]이 있으면 깎일 때마다 N 줄어든다). 출혈로 쓰러뜨려도 이 유닛이 쓰러뜨린 것으로 친다(강탈 · 제물).",
+  "점화": "내 공격 턴에 이 유닛의 차례가 오면, 맞붙기 바로 전에 남은 체력이 가장 높은 상대 유닛(같으면 앞) 하나에 화상을 {n} 붙인다(그 자리에서는 피해 없음). 화상은 쌓이고, 다음 턴 전투가 시작될 때 한 번 화상만큼 체력이 깎인 뒤(방어 무시) 꺼진다.",
+  "화염 갑주": "이 유닛을 맞붙어 공격한 상대 유닛에 화상을 {n} 붙인다(원거리로 공격해도). 화상은 쌓이고, 다음 턴 전투가 시작될 때 한 번 화상만큼 체력이 깎인 뒤(방어 무시) 꺼진다.",
+  /* v3.74 새 능력 — 규칙은 engine.js 끝 "v3.74 새 능력" 절, 카드는 js/newabil.js */
+  "재생": "전장에서 맞붙음이 하나 시작될 때마다(이 유닛이 맞붙지 않아도) 받은 피해를 {n} 채우고(원래 체력까지), 이번 턴 깎인 방어를 {n} 되돌린다(카드의 방어까지). 화상이나 불씨가 붙어 있으면 재생하지 않는다.",
+  "방패 반격": "반격할 때 피해에 이 유닛의 지금 방어를 더한다(관통으로 깎였으면 깎인 값). 공격할 때는 보통과 같다.",
+  "수호": "상대의 공격이 맨 앞 유닛보다 먼저 이 유닛에게 향한다(상대 마법이 '맨 앞'을 겨눌 때도). 수호가 여럿이면 앞 칸부터.",
+  "정화": "전투가 시작될 때(화상 · 불씨가 타기 전) 이 유닛과 양옆 아군의 화상 · 불씨 · 계약의 낙인을 지운다. 이 유닛에게는 출혈이 붙지 않는다.",
+  "굳건": "상대가 이 유닛의 자리를 바꾸거나(자리 바꾸기 · 뒤집기 · 다시 세우기) 빼앗거나(빼앗기 · 환각의 통제 · 세이렌의 노래) 행동 불가로 묶지 못한다.",
+  "요격": "[원거리]로 공격해 온 유닛에게도 반격한다."
 };
+/* v3.69 레어 오라 뜻 (js/rares.js RARE_AURA) */
+if (typeof RARE_AURA !== "undefined") for (const g in RARE_AURA) ITEM_KW[RARE_AURA[g].n] = "오라 — 이 유닛이 전장에 있는 동안 " + RARE_AURA[g].text;
 /* v3.31 유니크의 강화 특수능력 뜻 (js/uniques.js UNIQUE_ABIL) */
 if (typeof UNIQUE_ABIL !== "undefined") for (const k in UNIQUE_ABIL) ITEM_KW[UNIQUE_ABIL[k].n] = UNIQUE_ABIL[k].text;
 /* 카드에 적는 일반 뜻이 말풍선 문장과 달라야 하는 것만 (나머지는 ITEM_KW의 {n}을 N으로 바꿔 쓴다) */
 const ITEM_KW_GEN = {
-  "치유": "내 생명이 {n} 늘어난다.",
+  "생명": "내 생명이 {n} 늘어난다.",
   "고정 세트": "장착한 유닛의 공·방·체가 적힌 값이 된다. 유닛 코인은 던지지 않는다."
 };
 /* "[사격 2]" → 그 카드에 맞는 뜻 문장 */
 function itemKwDesc(raw) {
   const name = raw.replace(/[\[\]]/g, "").trim();
-  if (name === "마력 공격 전부") return ITEM_KW["마력 공격 전부"];
+  if (name === "방어무시 전부") return ITEM_KW["방어무시 전부"];
   if (/^고정 \d/.test(name)) return ITEM_KW_GEN["고정 세트"].replace("적힌 값", `적힌 값(${name.slice(3)})`);
   const key = Object.keys(ITEM_KW).find(x => name === x || name.startsWith(x + " ") || name.startsWith(x + ":"));
   if (!key) return "";
@@ -334,14 +362,14 @@ function josaEunNeun(w) { const ch = w.charCodeAt(w.length - 1); return ch >= 0x
 /* "[가호 2]" → ["[가호 N]", "매 턴 처음 받는 피해를 N만큼 줄인다."] (카드에 적는 일반 뜻) */
 function itemKwGeneric(raw) {
   const name = raw.replace(/[\[\]]/g, "").trim();
-  if (name === "마력 공격 전부") return ["[마력 공격 전부]", ITEM_KW["마력 공격 전부"]];
+  if (name === "방어무시 전부") return ["[방어무시 전부]", ITEM_KW["방어무시 전부"]];
   if (/^고정 \d/.test(name)) return ["[고정 공/방/체]", ITEM_KW_GEN["고정 세트"]];
   const key = Object.keys(ITEM_KW).find(x => name === x || name.startsWith(x + " ") || name.startsWith(x + ":"));
   if (!key) return null;
   const rest = name.slice(key.length), num = /\d/.test(rest), colon = rest.trim().startsWith(":");
   // v3.20 아이템 절대값 표시 "[고정: 공격 8]" → "[고정: 스탯 N]" = 장착하면 그 스탯이 N이 된 뒤 표시 규칙
   if (PIN_KO_KEYS.includes(key) && num) return [`[${key}: 스탯 N]`, "장착하면 그 스탯이 N이 된다(유닛 카드의 값 · 코인과 상관없이). " + ITEM_KW[key].replace(/\{S\}/g, "그 스탯은")];
-  const label = `[${key}${num ? " N" : ""}${colon ? ": 스탯" : ""}]`;
+  const label = key === "생명" ? "[생명 +N]" : `[${key}${num ? " N" : ""}${colon ? ": 스탯" : ""}]`;
   const text = (ITEM_KW_GEN[key] || ITEM_KW[key]).replace(/\{S\}/g, "그 스탯은").replace(/\{n\}/g, "N").replace(/\{m\}/g, "4 − N");
   return [label, text];
 }
@@ -357,21 +385,33 @@ function itemKwGenList(it) {
    자세한 규칙은 ITEM_KW(말풍선 · 매뉴얼). 규칙을 바꾸면 둘 다 고친다. 유니크 능력은 js/uniques.js UNIQUE_ABIL_SHORT */
 const ITEM_KW_SHORT = {   // v3.60 한 줄에 들도록 더 짧게 (크게 보기에서 [능력] 아래 줄에 적힌다)
   "관통": "공격한 상대의 방어를 내 공격력만큼 깎는다(이번 턴).",
-  "마력 공격": "공격할 때 상대 방어 {n} 무시.",
-  "마력 공격 전부": "공격할 때 상대 방어를 모두 무시.",
+  "방어무시": "공격할 때 상대 방어 {n} 무시.",
+  "방어무시 전부": "공격할 때 상대 방어를 모두 무시.",
+  "마력 공격": "맞붙을 때 상대 방어 {n}까지를 피해에 더한다.",
+  "치유": "맞붙어 살아남으면 체력 +{n}.",
+  "바다의 보호": "양옆 {n}칸 아군이 받는 피해 −1.",
   "치명": "맞붙어(공격 · 반격) 피해를 준 상대가 살아남으면 체력 1.",
   "연쇄": "쓰러뜨리고 남은 피해로 그 뒤 유닛을 친다.",
   "투척": "공격 턴마다 가장 먼 상대 유닛에게 피해 {n}.",
   "사격": "공격 차례에 체력이 가장 낮은 상대에게 체력 −{n}.",
   "원거리": "맞붙어 공격해도 반격받지 않는다.",
-  "가호": "매 턴 처음 받는 피해 −{n}.",
+  "가호": "매 턴 처음 받는 피해 −{n}. 출혈은 매번 −{n}.",
   "보호막 코인": "전투 시작 때 코인 앞면이면 첫 피해를 절반으로.",
   "고정": "{S} 늘지도 줄지도 않는다.",
   "버팀": "{S} 줄지 않는다(피해 제외).",
   "눌림": "{S} 늘지 않는다.",
   "가시": "맞붙어 공격한 상대에게 체력 −{n}.",
-  "증폭": "전장에 있으면 내 공격 마법 피해 +{n}.",
-  "치유": "장착할 때 내 생명 +{n}."
+  "증폭": "전장에 있으면 내 마법 피해 +{n}.",
+  "생명": "장착할 때 내 생명 +{n}.",
+  "출혈": "맞붙어 살아남은 상대에 출혈 {n}(쌓임): 맞붙음마다 체력 −출혈(가호가 줄임).",
+  "점화": "공격 차례에 체력이 가장 높은 상대에 화상 {n} — 다음 턴 시작 때 체력 −화상.",
+  "화염 갑주": "맞붙어 공격한 상대에 화상 {n} — 다음 턴 시작 때 체력 −화상.",
+  "재생": "맞붙음마다 체력 +{n} · 깎인 방어 +{n}(불타면 멈춤).",
+  "방패 반격": "반격 피해 + 내 방어.",
+  "수호": "상대 공격이 이 유닛에게 먼저 온다.",
+  "정화": "전투 시작 때 나와 양옆의 화상 · 불씨 · 낙인을 지움. 출혈 안 붙음.",
+  "굳건": "상대가 자리를 바꾸거나 빼앗거나 묶지 못함.",
+  "요격": "원거리 공격자에게도 반격."
 };
 /* 숫자 뒤 조사: 2 · 4 · 5 · 9로 끝나면 "가", 나머지는 "이" (7이 · 2가) */
 const numJosa = n => /[2459]$/.test(String(n)) ? "가" : "이";
@@ -379,13 +419,13 @@ const josaIGa = w => { const ch = w.charCodeAt(w.length - 1); return ch >= 0xAC0
 /* "[사격 2]" → ["[사격 2]", "공격 차례에 … 체력을 2 깎는다…"] (카드 면에 적는 숫자 넣은 짧은 뜻) */
 function itemKwCard(raw) {
   const name = raw.replace(/[\[\]]/g, "").trim();
-  if (name === "마력 공격 전부") return [raw, ITEM_KW_SHORT["마력 공격 전부"]];
+  if (name === "방어무시 전부") return [raw, ITEM_KW_SHORT["방어무시 전부"]];
   if (/^고정 \d/.test(name)) { const v = name.slice(3); return [raw, `장착한 유닛의 공·방·체가 ${v}${numJosa(v)} 된다(코인 없음).`]; }
   if (typeof UNIQUE_ABIL !== "undefined") for (const k in UNIQUE_ABIL) if (UNIQUE_ABIL[k].n === name)
     return [raw, (typeof UNIQUE_ABIL_SHORT !== "undefined" && UNIQUE_ABIL_SHORT[k]) || UNIQUE_ABIL[k].text];
   const key = Object.keys(ITEM_KW_SHORT).find(x => name === x || name.startsWith(x + " ") || name.startsWith(x + ":"));
   if (!key) { const d = itemKwDesc(raw); return d ? [raw, d] : null; }
-  const n = (name.slice(key.length).match(/^\s*(\d+)/) || [])[1] || "";
+  const n = (name.slice(key.length).match(/^\s*\+?(\d+)/) || [])[1] || "";   // v3.68 "[생명 +3]"
   const st = (name.split(":")[1] || "").trim();
   if (PIN_KO_KEYS.includes(key) && /\d/.test(st)) {   // "[고정: 공격 7]" = 장착하면 공격이 7, 그 뒤 표시 규칙
     const parts = st.split("·").map(x => x.trim()).map(x => { const m = x.match(/^(.*?)\s*(\d+)$/); return m ? [m[1], m[2]] : [x, ""]; });

@@ -20,7 +20,7 @@ const S = JSON.parse(fs.readFileSync(path.join(__dirname, "art_style.json"), "ut
 const NOTES = (() => { try { return JSON.parse(fs.readFileSync(path.join(__dirname, "art_notes.json"), "utf8")); } catch (e) { return {}; } })();
 
 /* ---------- 1. 게임 데이터 읽기 (index.html의 data.js ~ grades.js와 같은 차례) ---------- */
-const DATA_FILES = ["data", "names", "retired", "briefs", "specials", "uniques", "highcards", "pincards", "rarespells", "counterspells", "upgrades", "rebalance", "abyss", "gnome", "decks", "cards", "grades"];
+const DATA_FILES = ["data", "names", "retired", "briefs", "specials", "uniques", "highcards", "pincards", "rarespells", "counterspells", "upgrades", "rebalance", "abyss", "gnome", "orc", "mermaid", "rares", "elf", "goblin", "newabil", "decks", "cards", "grades"];
 function loadGame() {
   const stub = () => null;
   const ctx = {
@@ -78,6 +78,8 @@ function spellScene(c, el) {
   if (has("atk0")) parts.push("enemy weapons frozen and stopped mid-swing");
   if (has("chain") || has("multi")) parts.push(`chained ${el.en} strikes leaping from target to target`);
   if (has("rally") || has("grant")) parts.push("allies rallying as one under a shared surge of power");
+  if (has("volley")) parts.push("a rain of arrows arcing high over the enemy front line and falling on the ranks behind it");   // v3.70 엘프 빗발치는 화살
+  if (has("retreat")) parts.push("a nimble fighter springing back out of reach on a gust of wind while the next ally steps forward");   // v3.70 엘프 후퇴
   if (c.cost && c.cost.life) parts.push("paid for with the caster's own blood");
   if (!parts.length) parts.push(`a burst of ${el.en} power`);
   return parts.slice(0, 3).join("; ");
@@ -100,7 +102,7 @@ function subjectOf(c, F, G, D) {
     const rank = c.special ? "a mythic, ascended" : c.unique ? "a legendary, named" : c.lv >= 7 ? "a legendary, awe-inspiring" : c.lv >= 5 ? "an elite, commanding" : c.lv >= 3 ? "a seasoned, battle-hardened" : "a low-ranking, ordinary";
     const baseCard = c.base && D.CARDS[c.base];
     const clKey = c.cl || (baseCard && baseCard.cl) || "";
-    const cls = (S.classes[clKey] || "a warrior").replace("{el}", el.en + " power");
+    const cls = ((F.classes && F.classes[clKey]) || S.classes[clKey] || "a warrior").replace("{el}", el.en + " power");   // v3.70 깃발마다 클래스 말을 덮을 수 있다(엘프 마도 = 궁수)
     let s = NOTES[c.id] ? `${rank} member of the ${F.en} (see art direction)` : `${rank} member of the ${F.en} — ${cls}`;
     if (c.rev === "벽") s += "; a stubborn defender who stands like a wall";
     if (c.rev === "돌격") s += "; a reckless charging attacker";

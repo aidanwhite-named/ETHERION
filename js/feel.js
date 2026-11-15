@@ -22,6 +22,7 @@ const FEEL = {
     hitStop: 65       // 맞는 순간 멈칫
   },
   vol: { off: 0, low: 0.45, mid: 1 },
+  master: 0.4,      // 2026-11-15 전체 효과음 세기 (0.8 → 0.4, 절반 = −6 dB)
   level: "mid",
   touch: false,
   ac: null,
@@ -115,7 +116,7 @@ const FEEL = {
       if (!this.has(key)) return;
       this.last[key] = now;
       const a = this.mediaEl(key).cloneNode();
-      a.volume = Math.min(1, Math.max(0, v) * this.vol[this.level] * 0.8);
+      a.volume = Math.min(1, Math.max(0, v) * this.vol[this.level] * this.master);
       if (rate && rate !== 1) { a.preservesPitch = a.mozPreservesPitch = a.webkitPreservesPitch = false; a.playbackRate = rate; }
       const pr = a.play(); if (pr && pr.catch) pr.catch(() => {});
       this.mark();
@@ -129,7 +130,7 @@ const FEEL = {
       if (!buf || performance.now() - t0 > 350) return;   // 받는 데 너무 오래 걸렸으면 늦은 소리는 내지 않는다
       const ac = this.ac, src = ac.createBufferSource(), g = ac.createGain();
       src.buffer = buf; src.playbackRate.value = rate || 1;
-      g.gain.value = Math.min(1.5, Math.max(0, v)) * this.vol[this.level] * 0.8;
+      g.gain.value = Math.min(1.5, Math.max(0, v)) * this.vol[this.level] * this.master;
       src.connect(g).connect(ac.destination); src.start();
       this.mark();
     });
@@ -179,10 +180,12 @@ const FEEL = {
     /* 2026-11-15 메뉴 소리 (붙잡는 단계에서 듣는다: stopPropagation 하는 단추도 있어서). 전장의 [data-act] 단추는 game.js 가 따로 소리를 낸다 */
     const TAB = '[role="tab"],.tab,.jr-tab,.t-tab,[data-jtab],[data-ttab],[data-tab]';
     const TOG = '[data-sp],[data-mt],[data-lay],[data-bbg],[data-fx],[data-sfx],[data-bgm],.sp-tog,.snd-btn,[data-act^="snd-"],.ai-diff-btn';
+    const FILT = '.dv-k,.dv-g,.cv-col,.chip:not(.tog),.ed-spell-grp,.ed-sub,.edf-tab';   // 2026-11-15 카드 보기의 종류 · 등급 · 레벨 거르개
     const CLK = '.btn,.tb-nav,.tb-btn,.tb-crest,.tb-shard,.f-cta,.f-sub,.f-x,.ds-x,.hx-x,.cr-close';
     root.addEventListener("click", e => {
       const t = e.target; if (!t || !t.closest) return;
-      if (t.closest(TAB)) this.play("ui_tab", .6);
+      if (t.closest(FILT)) this.play(this.has("ui_filter") ? "ui_filter" : "ui_tab", .55);
+      else if (t.closest(TAB)) this.play("ui_tab", .6);
       else if (t.closest(TOG)) this.play("ui_toggle", .6);
       else if (t.closest(CLK)) this.play("ui_click", .5);
     }, true);

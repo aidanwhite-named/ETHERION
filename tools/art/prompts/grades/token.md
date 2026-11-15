@@ -79,7 +79,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "별똥별 조각". Depict exactly what this name describes.
 Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: chained wind strikes leaping from target to target. Scale and finish: a small, single conjured effect.
 Scale (level 1 of 8): a small, local effect.
-Banner — summoned by the Storm High Elves; signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
+Banner — summoned by the Storm High Elves; signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Game effect (Korean, mood only — never draw text or numbers): 상대 무작위 유닛 1기에게 피해 1.
 Camera: eye-level medium shot, subject about 50% of the frame.
@@ -89,7 +89,7 @@ Detail: clear, well-rendered forms with slightly translucent, glowing edges wher
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: fleeting, conjured.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -105,7 +105,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "돌개바람". Depict exactly what this name describes.
 Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: chained wind strikes leaping from target to target. Scale and finish: a small, single conjured effect.
 Scale (level 1 of 8): a small, local effect.
-Banner — summoned by the Storm High Elves; signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
+Banner — summoned by the Storm High Elves; signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Game effect (Korean, mood only — never draw text or numbers): 상대 무작위 유닛 1기에게 피해 2.
 Camera: eye-level medium shot, subject about 50% of the frame.
@@ -115,7 +115,7 @@ Detail: clear, well-rendered forms with slightly translucent, glowing edges wher
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: fleeting, conjured.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -131,7 +131,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "불씨". Depict exactly what this name describes.
 Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive wind attack striking the enemy ranks. Scale and finish: a small, single conjured effect.
 Scale (level 1 of 8): a small, local effect.
-Banner — summoned by the Storm High Elves; signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
+Banner — summoned by the Storm High Elves; signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛에게 피해 1.
 Camera: eye-level medium shot, subject about 50% of the frame.
@@ -141,7 +141,7 @@ Detail: clear, well-rendered forms with slightly translucent, glowing edges wher
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: fleeting, conjured.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -157,7 +157,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "쌍둥이 메아리". Depict exactly what this name describes.
 Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a destructive wind attack striking the enemy ranks. Scale and finish: a small, single conjured effect.
 Scale (level 1 of 8): a small, local effect.
-Banner — summoned by the Storm High Elves; signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
+Banner — summoned by the Storm High Elves; signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 2기에게 피해 1.
 Camera: eye-level medium shot, subject about 50% of the frame.
@@ -167,7 +167,7 @@ Detail: clear, well-rendered forms with slightly translucent, glowing edges wher
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: fleeting, conjured.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.

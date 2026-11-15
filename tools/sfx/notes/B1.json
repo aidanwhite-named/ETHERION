@@ -165,15 +165,15 @@
   },
   "B1-42": {
    "en": "Blastproof Armoured",
-   "ko": "쇠옷으로 몸통 박치기 · 쾅 하고 먼지만 털어냄",
+   "ko": "쇠옷으로 몸통 박치기 · 쾅 하고 불길이 되튐",
    "atk": "a heavy stomp forward in thick plates, an armoured shoulder shove with a clanking crash, then a few bristling spikes scraping",
-   "def": "the thick suit absorbs a blast: a deep boom muffled by iron, a long ringing clang, loose dust falling, then a spiky metal counter-scrape snapping back"
+   "def": "the thick suit absorbs a blast: a deep boom muffled by iron, a long ringing clang, then a sudden whoosh of flame bursting off the plates back at the attacker"
   },
   "B1-43": {
    "en": "Fortan Iron Bastion",
-   "ko": "보루 포문이 철컥, 쾅 · 두꺼운 철벽이 울림",
+   "ko": "보루 포문이 철컥, 쾅 · 철벽이 울리고 불길이 되튐",
    "atk": "iron gun-ports clank open with big hinge groans, a thunderous slow boom through a stone loophole, then sparks scraping on masonry",
-   "def": "a mighty iron bulwark: a monstrous deep clang, a long resonant ring-out vibrating the whole wall, then a thorny scrape of spikes in return"
+   "def": "a mighty iron bulwark: a monstrous deep clang, a long resonant ring-out vibrating the whole wall, then a roaring tongue of fire spitting out of the loopholes"
   },
   "SP-B1": {
    "en": "Fire Swallower",
@@ -278,8 +278,8 @@
   },
   "MB-04": {
    "en": "Fuse Line",
-   "ko": "도화선이 타 들어가 폭발",
-   "cast": "a match scratches, a long sputtering fizz crawls along a cord, a breathless pause of silence, then a single sharp bang with cinders falling"
+   "ko": "도화선이 타 들어가 터지고 불이 붙음",
+   "cast": "a match scratches, a long sputtering fizz crawls along a cord, a short bang, then the target catches fire with a hungry crackling flame that keeps burning"
   },
   "MC-02": {
    "en": "Sharpening",
@@ -297,14 +297,14 @@
    "cast": "a mortar lobs with a hollow thoomp, a falling whistle, a ground thud and a splitting burst, scattering in a wide crackling spray of fire"
   },
   "SB1-03": {
-   "en": "Trench Fire",
-   "ko": "참호에서 쏘고 모래 올림",
-   "cast": "a quick scoop of sand and canvas bags thumping up, rifles resting on timber, a clustered snap of shots, then a settling creak of a firm wall"
+   "en": "Curtain of Fire",
+   "ko": "아군 앞에 불의 장막이 일어섬",
+   "cast": "a low whoomp as a wall of flame rises in front of the line, a steady roaring curtain of fire, and a crackling hiss that settles into a protective burning hum"
   },
   "SB1-05": {
-   "en": "Concentrated Fire",
-   "ko": "표적 향해 집중 사격",
-   "cast": "a barked drumbeat of rifle clicks locking, two heavy guns firing in tight succession, hammering twin sharp impacts with a clatter of brass casings"
+   "en": "Detonation",
+   "ko": "불을 붙이고 모든 화상을 한꺼번에 터뜨림",
+   "cast": "a quick hissing fuse lights one target, a breathless pause, then a chain of flame bursts popping across many targets at once in a rolling fiery blast"
   },
   "SB1-06": {
    "en": "Defence Battery",

@@ -3,9 +3,9 @@
  "cards": {
   "A2-01": {
    "en": "Radiant Apprentice",
-   "ko": "작은 빛 불꽃 튕김 · 촛불 같은 빛이 톡 되받음",
+   "ko": "작은 빛 불꽃 튕김 · 맑은 빛이 상처를 씻어 냄",
    "atk": "a tiny wooden practice blade flicks forward: a light swish, a dry tap, then a small candle-flame sparkle popping off the fingertip",
-   "def": "a thin padded vest takes the knock with a soft thump, then a tiny flame-like spark flashes back at the attacker with a faint glassy tick"
+   "def": "a thin padded vest takes the knock with a soft thump, then a small clear chime and a soft rinsing shimmer of light washing over it"
   },
   "A2-03": {
    "en": "Oath Squire",
@@ -51,9 +51,9 @@
   },
   "A2-13": {
    "en": "Radiant Knight",
-   "ko": "은빛 장검 가름 · 가시 번쩍 되돌림",
+   "ko": "은빛 장검 가름 · 방패에 맑은 빛이 씻겨 내림",
    "atk": "a silver arming sword sweeps in a level arc: a polished steel whistle, a ringing clang on contact, a rising glint of sunlight",
-   "def": "a kite shield takes the strike with a rich metallic clang and a deep thud, then a sharp sunrise flash spits back with a crisp crackle"
+   "def": "a kite shield takes the strike with a rich metallic clang and a deep thud, then a pure bell-like chime and a cool shimmering wash of light"
   },
   "A2-15": {
    "en": "Solante's Vowsworn",
@@ -99,9 +99,9 @@
   },
   "A2-25": {
    "en": "Elad Knight Commander",
-   "ko": "지휘검이 높이 가름 · 큰 방패에 일출 가시",
+   "ko": "지휘검이 높이 가름 · 큰 방패 위로 정화의 빛",
    "atk": "a commander's broadsword is raised, signalled with a bright metallic flick, then swept down: a deep whoosh, a heavy gleaming clang and a rolling ring-out",
-   "def": "a heavy tower shield booms deeply under the blow, plate groaning, and a bright sunburst flash cracks back at the attacker"
+   "def": "a heavy tower shield booms deeply under the blow, plate groaning, then a bright choir-like chime spreads out in a clean purifying glow"
   },
   "A2-27": {
    "en": "Solante's Blade",
@@ -195,9 +195,9 @@
   },
   "EP-A2-2": {
    "en": "Twilight Wall Warden",
-   "ko": "장벽 위에서 장창 찔러 박음 · 어둑한 방패가 빛을 되받음",
+   "ko": "장벽 위에서 장창 찔러 박음 · 어둑한 방패에 정화의 빛",
    "atk": "a heavy pike jabs out from behind a wall: a long dry hiss, a deep iron-headed thrust with a hard crunch, a violet-gold glow flickering at the tip",
-   "def": "a thick shield with a dim glowing rim blocks with a dense iron boom, a sunset-coloured hum envelops it, and a hard counter-flare snaps back"
+   "def": "a thick shield with a dim glowing rim blocks with a dense iron boom, then a sunset-coloured hum swells into a clear chime that rinses the air clean"
   },
   "EP-A2-3": {
    "en": "Twilight Archangel",
@@ -225,9 +225,9 @@
   },
   "PN-A2-U1": {
    "en": "Oath-Engraved Knight",
-   "ko": "새긴 맹세 검 번쩍 · 가시 번쩍임과 단단한 판금",
+   "ko": "새긴 맹세 검 번쩍 · 판금의 맹세가 빛나 더러움을 씻음",
    "atk": "an engraved longsword flicks out with a crisp whistle, a clean slash, a bright clang that carries etched-metal overtones",
-   "def": "plate with etched runes takes the blow with a steady clang, hums softly, and returns a snapping flash of light as the attacker recoils"
+   "def": "plate with etched runes takes the blow with a steady clang, the runes hum, and a soft clean chime washes outward like light through water"
   },
   "PN-A2-U2": {
    "en": "Solante's Choir",

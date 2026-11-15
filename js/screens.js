@@ -419,7 +419,7 @@ function headerHTML(title) {
         <button type="button" class="tb-nav tb-sound" data-nav="sound" title="소리 — 배경음 · 효과음 켜기/끄기와 음량" aria-label="소리">${typeof BGM !== "undefined" ? BGM.navIcon() : ""}</button>
         ${typeof LevelUI !== "undefined" ? shardChipHTML(u) : ""}
         ${sealHTML(u)}
-        <button type="button" class="tb-nav tb-exit" data-nav="logout" title="${OPEN_PLAY ? "처음으로" : "나가기"}">${menuIcon("exit")}<span>${OPEN_PLAY ? "처음으로" : "나가기"}</span></button>
+        <button type="button" class="tb-nav tb-exit" data-nav="logout" title="${App.screen === "editor" ? "덱 조정실에서 나가 대기실로" : OPEN_PLAY ? "처음으로" : "나가기"}">${menuIcon("exit")}<span>${OPEN_PLAY ? "처음으로" : "나가기"}</span></button>
       </div>
     </div>
   </header>${typeof LevelUI !== "undefined" ? "" : `
@@ -439,7 +439,11 @@ function bindHeader(root, guard) {
     if (b.dataset.nav === "journal" && typeof showJournal === "function") showJournal();   /* v3.46 퀘스트 (js/journal.js) */   /* v3.21 린데어 교역소 (js/trade-ui.js) */
     if (b.dataset.nav === "map") { if (typeof Kailan !== "undefined") Kailan.open(); }
     if (b.dataset.nav === "chronicle") { if (typeof Chronicle !== "undefined") { const r = b.getBoundingClientRect(); Chronicle.open(r.left + r.width / 2, r.top + r.height / 2); } }   /* v3.7 연대기 (js/chronicle.js) */
-    if (b.dataset.nav === "logout") { Store.logout(); showTitle(); }
+    if (b.dataset.nav === "logout") {
+      const back = App.screen === "editor" && root.querySelector("#ed-back");   // 2026-11-15 덱 조정실의 나가기 = 조정실에서 나가기(대기실로 단추와 같음 — 고치던 덱은 초안으로 남는다)
+      if (back) { back.click(); return; }
+      Store.logout(); showTitle();
+    }
   });
 }
 
@@ -939,6 +943,7 @@ function showEditor(f, focusId) {
         <span class="pc-meta">${all ? (bought ? `상점에서 산 것 <b>${bought}</b>` : "관리자 카드") : `남음 <b>${Math.max(0, left)}</b> · 보유 ${bought}`}</span></div>`;
     }
     $("#ed-own").innerHTML = ownChips() + '<span class="sep"></span><button class="chip ghost" data-goshop="1" title="이 단체의 카드를 상점에서 삽니다">상점에서 사기 →</button>' + (typeof Forge !== "undefined" && !all ? `<button class="chip ghost fg-open" data-fuse="" data-fuse-g="${f}" title="같은 카드 3장 합치기 — 일반 → 강화 · 고급 → 레어 뽑기">${fuseIcon("up")} 합성소</button>` : "");
+    if (typeof fitBriefs === "function") fitBriefs($("#ed-pool"));   // 2026-11-15 긴 마법 문구만 글자를 줄여 글 상자에 넣는다
     if (typeof Scenes !== "undefined") Scenes.editorState(n, lvN);
     if (lastN !== -1 && n === N && lastN !== N) { $("#ed-gauge").classList.add("complete"); if (typeof FEEL !== "undefined") FEEL.play("deck_full", .55); }
     lastN = n;
@@ -988,7 +993,7 @@ function showEditor(f, focusId) {
     if (k) E.cards[id] = k; else delete E.cards[id];
     if (k > inDeck && u.fresh && u.fresh[id]) { delete u.fresh[id]; }
     persist(); draw();
-    if (k > inDeck) { fly(id); if (typeof FEEL !== "undefined") FEEL.play("deck_add", .5); }
+    if (k > inDeck) { fly(id); if (typeof FEEL !== "undefined") FEEL.play("deck_add", .3); }   // 2026-11-15 .5 → .3 (파일도 낮고 부드럽게 다시 다듬음)
     else if (typeof FEEL !== "undefined") FEEL.play("deck_remove", .5);
     return true;
   };
@@ -1017,7 +1022,8 @@ function showEditor(f, focusId) {
     if (set) { const k = +set.dataset.k, cur = E.cards[set.dataset.set] || 0; setCount(set.dataset.set, k === cur ? k - 1 : k); return; }
     const rm = e.target.closest("[data-rm]"); if (rm) { rmCard(rm.dataset.rm); return; }
     const add = e.target.closest("[data-add]"); if (add) { if (e.shiftKey) fillCard(add.dataset.add); else addCard(add.dataset.add); return; }
-    const top = () => { const pg = $("#ed-pool"); if (pg) pg.scrollTop = 0; };
+    const top = () => { const pg = $("#ed-pool"); if (pg) pg.scrollTop = 0;
+      const pp = $(".ed-pool", root); if (pp && root.classList.contains("ed-flow") && pp.getBoundingClientRect().top < 0) pp.scrollIntoView({ block: "start" }); };   // 페이지째 스크롤할 때는 카드 칸 맨 위로
     /* v3.12.1 카드 보관함 쪽 거르기를 누르면 보관함을, 내 덱 쪽을 누르면 내 덱만 보인다 */
     const sc = e.target.closest("[data-scope]");
     if (sc) { E.scope = sc.dataset.scope; top(); draw(); return; }
@@ -1072,7 +1078,14 @@ function showEditor(f, focusId) {
     const ed = $(".editor", root); if (!ed || !ed.isConnected) { removeEventListener("resize", fit); return; }
     const z = parseFloat(getComputedStyle(ed).zoom) || 1;
     const top = ed.getBoundingClientRect().top;
-    ed.style.setProperty("--avail", Math.max(lobbyCompact() ? 240 : 320, (innerHeight - top - (lobbyCompact() ? 8 : 14)) / z - (lobbyCompact() ? 14 : 32)) + "px");   /* v3.32.2 폰 · 앱은 아래 여백을 줄인다 */
+    const fitH = (innerHeight - top - (lobbyCompact() ? 8 : 14)) / z - (lobbyCompact() ? 14 : 32);
+    /* 2026-11-15 작은 PC 화면(맞춘 패널 높이가 700 아래): 패널을 화면에 가두면 카드 칸이 몇백 px뿐이라, 페이지째 스크롤한다(ed-flow).
+       보유 카드 칸은 카드 수만큼 길게 흐르고, 왼쪽 운명의 서는 화면 높이로 위에 붙어 따라온다(css/style.css) */
+    const flow = !lobbyCompact() && fitH < 700;
+    root.classList.toggle("ed-flow", flow);
+    const tb = $(".topbar", root), tbH = flow && tb ? tb.getBoundingClientRect().height : 0;   // 위 메뉴 띠(sticky) 아래에 붙인다
+    if (flow) ed.style.setProperty("--edtop", (tbH + 8) / z + "px");
+    ed.style.setProperty("--avail", (flow ? (innerHeight - tbH - 16) / z : Math.max(lobbyCompact() ? 240 : 320, fitH)) + "px");   /* v3.32.2 폰 · 앱은 아래 여백을 줄인다 */
   };
   addEventListener("resize", fit); fit();
   const onKey = e => {

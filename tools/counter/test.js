@@ -30,7 +30,7 @@ ok(ev('spellKwOff(CARDS["CS-G3"]).has("[보호막]") && !spellKwOff(CARDS["CS-G3
 // 1 맨 앞 마법을 무효 — 발동하지 않고 상대 소각장으로
 T('기본', `const P = [side(0, ["CS-B2", "A1-30"]), side(1, ["SB1-03", "B1-01", "SB1-01"])];
   const X = fight(P, 0, 2); const L = logs(X);
-  ok(/참호 사격.*무효/.test(L) && !/참호 사격 발동/.test(L), "무효: 상대 1번 칸 방어 마법이 발동하지 않음");
+  ok(/불의 장막.*무효/.test(L) && !/불의 장막 발동/.test(L), "무효: 상대 1번 칸 방어 마법이 발동하지 않음");
   ok(/연막탄 발동/.test(L), "무효: 1장만 — 뒤의 마법은 그대로 발동");
   ok(P[1].burn.includes("SB1-03") && !P[0].burn.includes("SB1-03"), "무효로 부서진 마법은 원래 주인의 소각장으로");
   ok(X.broken.some(b => b.p === 1 && b.id === "SB1-03" && b.how === "spell"), "부서진 카드 기록(조각 정산)");`);
@@ -41,7 +41,7 @@ T('먼저 발동', `const P = [side(0, ["CS-A3", "A1-30"]), side(1, ["SB1-01", "
 // 3 뒤 칸에 두면 이미 풀린 마법은 겨누지 않고 다음 마법
 T('뒤 칸', `const a = mk("A1-30"); a.t.a = 30; const P = [side(0, [a, "CS-B3"]), side(1, ["SB1-03", "B1-01", "SB1-01"])];
   const X = fight(P, 0, 2); const L = logs(X);
-  ok(/참호 사격 발동/.test(L) && /연막탄.*무효/.test(L), "뒤 칸: 앞 유닛이 싸우는 동안 풀린 마법은 두고 남은 맨 앞 마법을 무효");`);
+  ok(/불의 장막 발동/.test(L) && /연막탄.*무효/.test(L), "뒤 칸: 앞 유닛이 싸우는 동안 풀린 마법은 두고 남은 맨 앞 마법을 무효");`);
 // 4 대상이 없을 때 — 3레벨의 다른 효과는 그대로
 T('대상 없음', `const P = [side(0, ["CS-A2", "A1-30"]), side(1, ["B1-01"])];
   const X = fight(P, 0, 2); const L = logs(X);
@@ -49,13 +49,13 @@ T('대상 없음', `const P = [side(0, ["CS-A2", "A1-30"]), side(1, ["B1-01"])];
   ok(X.rec.some(s => s.floats.some(f => f[1] === "보호막")) && X.rec.some(s => s.floats.some(f => f[1] === "⚔+2")), "대상 없음: 3레벨의 다른 효과(보호막)는 남");`);
 // 5 3레벨 효과
 T('덫 태우기', `const P = [side(0, ["CS-B1", "A1-30"]), side(1, ["SB1-03", "B1-01", "B1-02"])]; const u1 = P[1].field[1], u2 = P[1].field[2];
-  const X = fight(P, 0, 2, 3); ok(/참호 사격.*무효/.test(logs(X)) && X.rec.some(s => s.floats.some(f => f[0] === u2.uid && /−1|1$/.test(f[1]))), "덫 태우기: 무효 + 맨 앞 2기 피해 1");`);
+  const X = fight(P, 0, 2, 3); ok(/불의 장막.*무효/.test(logs(X)) && X.rec.some(s => s.floats.some(f => f[0] === u2.uid && /−1|1$/.test(f[1]))), "덫 태우기: 무효 + 맨 앞 2기 피해 1");`);
 T('씻김의 노래', `const d = mk("A2-01"); d.t.shield = true; d.t.taunt = true; const P = [side(0, ["CS-G3", "A1-30"]), side(1, ["SB1-03", d])];
-  const X = fight(P, 0, 2); ok(/참호 사격.*무효/.test(logs(X)) && X.rec.some(s => s.floats.some(f => f[0] === d.uid && f[1] === "강화 해제")), "씻김의 노래: 무효 + 맨 앞 유닛 강화 해제");`);
+  const X = fight(P, 0, 2); ok(/불의 장막.*무효/.test(logs(X)) && X.rec.some(s => s.floats.some(f => f[0] === d.uid && f[1] === "강화 해제")), "씻김의 노래: 무효 + 맨 앞 유닛 강화 해제");`);
 T('피의 침묵', `const P = [side(0, ["CS-A1", "A1-30"]), side(1, ["SB1-03", "B1-01", "B1-30"])];
-  const X = fight(P, 0, 2); ok(/참호 사격.*무효/.test(logs(X)) && X.paid && X.paid[0] === 1, "피의 침묵: 생명 1 · 무효");`);
+  const X = fight(P, 0, 2); ok(/불의 장막.*무효/.test(logs(X)) && X.paid && X.paid[0] === 1, "피의 침묵: 생명 1 · 무효");`);
 T('이끼 덮기', `const a = mk("A1-30"); const P = [side(0, ["CS-G2", a]), side(1, ["SB1-03", "B1-01"])]; const h0 = a.t.h;
-  const X = fight(P, 0, 2); ok(/참호 사격.*무효/.test(logs(X)) && X.rec.some(s => s.floats.some(f => f[0] === a.uid && f[1] === "⚔+1 ♥+2")), "이끼 덮기: 무효 + 아군 맨 앞 체력 +2");`);
+  const X = fight(P, 0, 2); ok(/불의 장막.*무효/.test(logs(X)) && X.rec.some(s => s.floats.some(f => f[0] === a.uid && f[1] === "⚔+1 ♥+2")), "이끼 덮기: 무효 + 아군 맨 앞 체력 +2");`);
 // 6 빼앗긴 마법 · opening 마법 · 소환 마법
 T('opening', `const op = CARD_LIST.find(c => c.opening && c.group === "B2"); if (op) { const P = [side(0, ["CS-G1", "A1-30"]), side(1, ["B2-01", op.id])];
   const X = fight(P, 0, 2); ok(new RegExp(op.name + ".*무효").test(logs(X)), "opening 마법도 무효 (" + op.name + ")"); } else ok(true, "");`);

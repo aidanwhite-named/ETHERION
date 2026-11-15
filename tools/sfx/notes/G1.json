@@ -291,9 +291,9 @@
    "cast": "a heavy stomp pounds the ground in unison, a deep tremor rolls outward through loose gravel, pebbles bouncing and rattling, and a distant rumbling shudder fading into dust"
   },
   "SG1-02": {
-   "en": "Rock Skin",
-   "ko": "살갗이 바위로 굳으며 불꽃이 튐",
-   "cast": "skin crackles and stiffens like drying clay, grainy stone forming with a gritty crunch, then a blade glances off and rings with a spark-spitting clink"
+   "en": "Finishing Blow",
+   "ko": "비틀대는 적들의 숨통을 차례로 끊음",
+   "cast": "a low orcish grunt, then a quick string of short heavy chops and blunt thuds landing one after another down a line, each ending a ragged wheeze, and a final hush"
   },
   "SG1-03": {
    "en": "Berserk Rage",
@@ -306,9 +306,9 @@
    "cast": "a thumb drags gritty earth across skin with a dry scrape, a hush falls, and then a wolf pack's low interested growls rise, sinking and sharp, locking onto the mark"
   },
   "MG-13": {
-   "en": "Wrath of the Earth",
-   "ko": "발밑이 솟아올라 가장 날카로운 칼을 삼킴",
-   "cast": "the ground cracks apart with a dry splitting groan, an enormous hand of rock heaves up in a thunderous crumble, seizing a blade with a grinding crunch before settling"
+   "en": "Bone Breaker",
+   "ko": "갑옷 벗겨진 몸을 바위 주먹이 내리쳐 뼈가 부서짐",
+   "cast": "a stone-heavy fist winds up with a grinding rumble, slams down on bare flesh with a deep meaty impact, and a sharp crunching crack of bone splinters ring out over a gravelly settle"
   },
   "MG-16": {
    "en": "Earth Collapse",
@@ -316,9 +316,9 @@
    "cast": "a vast hollow groan beneath the earth, a long cascading roar of crumbling rock and soil, a sudden drop with a whooshing fall, and a heavy settling boom with rolling debris"
   },
   "SG1-08": {
-   "en": "Landslide",
-   "ko": "산비탈을 두드려 바위가 쏟아짐",
-   "cast": "a single knock on a mountainside, a sharp crack above, then a rushing avalanche of boulders and gravel pours down with a long thunderous rumble and a burying hush at the end"
+   "en": "Fang Counter",
+   "ko": "궁지에 몰린 무리가 송곳니를 드러내고 으르렁",
+   "cast": "a cornered pack's deep chesty snarl swells, hides creak as bodies brace and thicken, and fangs snap shut together with a wet sharp clack that hangs in the air"
   },
   "SG1-09": {
    "en": "Dragon's Roar",
@@ -392,8 +392,8 @@
   },
   "M2-1": {
    "en": "Orc Tattoo",
-   "ko": "뼈 바늘로 살갗에 문신을 새김",
-   "equip": "a bone needle taps rapidly into skin like tiny pecks, a dry scratching of pigment on stone, and as the mark settles the skin tightens with a faint toughening creak"
+   "ko": "뼈 바늘로 주먹에 송곳니 문신을 새김",
+   "equip": "a bone needle taps rapidly into the skin of a knuckle like tiny pecks, a dry scratch of pigment, then the fist clenches with a leathery creak and a faint tearing rasp like fang through hide"
   },
   "IG1-3": {
    "en": "Rage Tattoo",

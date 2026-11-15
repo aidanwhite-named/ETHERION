@@ -1,7 +1,7 @@
 <!-- 자동 생성: node tools/sfx/build_sfx_prompts.js — 손으로 고치지 말 것. 고칠 곳은 tools/sfx/notes/ · sfx_common.json · sfx_style.json -->
 # ETHERION 공용 효과음 프롬프트
 
-> 130개. Gemini에 `text` 상자를 통째로 붙여 넣는다. 한 번에 같은 소리가 세 테이크(사이 무음) 나온다.
+> 146개. Gemini에 `text` 상자를 통째로 붙여 넣는다. 한 번에 같은 소리가 세 테이크(사이 무음) 나온다.
 > 받은 파일은 항목의 **파일** 이름으로 `audio/inbox/sfx/`에 넣는다(예: `ui_click.mp3`). 설명은 `tools/sfx/PROMPT_SFX.md`.
 > **지금** = 이 자리에서 지금 나는 소리 이름(`js/feel.js`). '새 자리'는 아직 소리가 없는 곳이라, 넣을 때 코드도 함께 고친다.
 
@@ -791,7 +791,7 @@ Short orchestral stinger for a fantasy card game, about 4 seconds long: a melanc
 Warm, natural concert-hall recording; no drums, no synths. Instrumental, no vocals.
 ```
 
-## 전투 — 공용 (카드 소리가 없을 때 · 능력 효과) (25)
+## 전투 — 공용 (카드 소리가 없을 때 · 능력 효과) (41)
 
 ### swing — 공격 유닛이 뛰쳐나갈 때
 지금: `swing` · 약 0.3초 · 파일 `swing`
@@ -1112,6 +1112,214 @@ Clean, close, dry studio recording with a short natural tail. Each take is follo
 Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
 Fantasy card game, interface and battle sounds.
 [00:00] Take 1: wood creaking and knitting back together with a soft rustle of new leaves. About 0.7 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### ignite — [점화] — 고블린이 불씨를 쏘아 날림 (v3.73)
+지금: 새 자리 · 약 0.5초 · 파일 `ignite`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: a flint strikes and a small fireball is flicked away: a sharp spark snap and a quick fiery whoosh flying off. About 0.5 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### scorch — 화상이 붙을 때 ([점화] · 불씨 · 화상 마법)
+지금: 새 자리 · 약 0.6초 · 파일 `scorch`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: a target catches fire: a soft whump of flame igniting, then a hungry crackle and sizzle that keeps smouldering. About 0.6 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### flame_armor — [화염 갑주] — 친 유닛에게 불이 옮겨붙음 (v3.73)
+지금: 새 자리 · 약 0.6초 · 파일 `flame_armor`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: heated armour flares up on contact: a hot metallic clank and a sudden burst of flame lashing back with a roaring whoosh. About 0.6 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### burn_burst — 화상이 터질 때 · 불씨 피해 (전투 시작)
+지금: 새 자리 · 약 0.7초 · 파일 `burn_burst`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: smouldering embers suddenly burst into a bright flare: a sharp fiery pop and a short roaring flame that dies into crackling ash. About 0.7 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### bleed — [출혈] 피가 흘러 체력이 깎일 때 (마족)
+지금: 새 자리 · 약 0.5초 · 파일 `bleed`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: an open wound pulses: a low wet throb and a few heavy drops of blood dripping onto stone, dark and close. About 0.5 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### mend — [치유] — 인어가 맞붙은 뒤 물로 상처를 채움 (v3.68)
+지금: 새 자리 · 약 0.7초 · 파일 `mend`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: cool water flows over a wound: a soft bubbling trickle and a gentle rising watery shimmer that closes the cut. About 0.7 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### arcane — [마력 공격] — 물의 마력이 방어를 뚫고 들어감 (인어)
+지금: 새 자리 · 약 0.5초 · 파일 `arcane`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: a pulse of deep water magic presses through armour: a resonant liquid hum and a dense pressurised thrum that sinks inward. About 0.5 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### sea_guard — [바다의 보호] — 받는 피해를 물결이 줄임 (인어 오라)
+지금: 새 자리 · 약 0.5초 · 파일 `sea_guard`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: a thin wall of water catches a blow: a muffled watery slap and a soft splash that softens the impact into ripples. About 0.5 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### ward — [가호] — 처음 받는 피해를 빛이 줄임 · 출혈을 줄임 (천족)
+지금: 새 자리 · 약 0.5초 · 파일 `ward`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: a blessed halo of light absorbs a hit: a warm muffled thud and a soft bright bell-like chime fading out. About 0.5 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### regen — [재생] — 트롤 살과 껍질이 다시 붙음 (v3.74)
+지금: 새 자리 · 약 0.7초 · 파일 `regen`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: tough troll flesh knitting closed: a wet fleshy squelch, a creak of bark-like skin pulling tight and a low satisfied grumble. About 0.7 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### shield_bash — [방패 반격] — 드워프가 방패로 되받아침 (v3.74)
+지금: 새 자리 · 약 0.5초 · 파일 `shield_bash`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: a heavy iron shield is slammed forward into an attacker: a short grunt-free shove, a big metallic bash and a deep ringing clang. About 0.5 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### firm — [굳건] — 자리 바꾸기 · 빼앗기를 버팀 (v3.74)
+지금: 새 자리 · 약 0.5초 · 파일 `firm`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: an immovable stance holds: heavy iron boots grinding into stone, a deep solid anchoring thud and a short steady metallic hum. About 0.5 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### purify — [정화] — 화상 · 불씨 · 낙인을 지우고 출혈을 막음 (v3.74)
+지금: 새 자리 · 약 0.7초 · 파일 `purify`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: holy light washes a curse away: a clear rising choir-like chime and a soft hiss of dark smoke dissolving into brightness. About 0.7 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### intercept — [요격] — 원거리 공격자에게도 반격 (v3.74 노움)
+지금: 새 자리 · 약 0.5초 · 파일 `intercept`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: a quick electric counter-shot: a sharp crackling zap leaping back along a line and a bright snapping spark at the end. About 0.5 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### retreat — [후퇴] — 유닛이 맨 뒤로 물러남 (엘프 마법)
+지금: 새 자리 · 약 0.6초 · 파일 `retreat`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: a light-footed withdrawal: quick soft footsteps on leaves, a swish of a cloak and a fading rustle as someone slips back into cover. About 0.6 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### aura — [레어 오라] — 전투가 시작될 때 이웃 유닛을 북돋움 (v3.69)
+지금: 새 자리 · 약 0.8초 · 파일 `aura`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: a commanding aura spreads to nearby allies: a warm low swell of energy and a soft shimmering ring that radiates outward. About 0.8 seconds.
 [00:03] Take 2: the same sound, slightly varied.
 [00:06] Take 3: the same sound, slightly varied.
 [00:09] Silence until the end.

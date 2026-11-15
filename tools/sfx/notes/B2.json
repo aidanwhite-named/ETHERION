@@ -15,9 +15,9 @@
   },
   "B2-05": {
    "en": "Durkheim Novice",
-   "ko": "햇빛 냄새 풋내기 · 가시 장갑이 찌름",
+   "ko": "풋내기 어깨 밀치기 · 방패로 막고 되받아침",
    "atk": "a newcomer shoulder-barges with a leather satchel of tools: a scuffed boot step, a canvas whump, a jangle of pliers and nails against the foe",
-   "def": "a thin studded vest takes the hit with a dull thump, then a quick scratchy sting of bent nails snapping back at the attacker"
+   "def": "a thin studded vest takes the hit with a dull thump, then a quick shoulder-and-shield shove back with a solid wooden smack"
   },
   "B2-06": {
    "en": "Steel Gatekeeper",
@@ -27,9 +27,9 @@
   },
   "B2-07": {
    "en": "Rivet Guardsman",
-   "ko": "리벳 방패로 밀침 · 방패가 쾅 · 가시가 쏨",
+   "ko": "리벳 방패로 밀침 · 방패로 막고 그대로 내리침",
    "atk": "a guard bashes forward with a riveted shield: a metal strap creak, a broad iron slam, a rattle of rivet heads shivering across the face",
-   "def": "the riveted shield absorbs a hard strike with a deep bong, rivets chattering, then a sharp scrape of spiked rim lashing back"
+   "def": "the riveted shield absorbs a hard strike with a deep bong, rivets chattering, then the shield is slammed straight back into the attacker with a heavy iron bash"
   },
   "B2-09": {
    "en": "Steam Golem",
@@ -45,9 +45,9 @@
   },
   "B2-15": {
    "en": "Steel Blacksmith",
-   "ko": "관통하는 대장간 쇠뭉치 · 웅웅 울리는 쇳몸",
-   "atk": "a smith drives a long forged spike through the foe: a sizzling quench hiss, a piercing metallic punch, then a humming ring-out lingering in the steel",
-   "def": "thick forge gloves and heavy smith plating stop the blow: a deep clang, a droning resonance humming through hammer and anvil, hot sparks fizzling"
+   "ko": "대장간 망치로 내리침 · 꿈쩍 않는 쇳몸",
+   "atk": "a smith brings a heavy forge hammer down on the foe: a sizzling quench hiss, a crushing metallic slam like an anvil strike, a humming ring-out lingering in the steel",
+   "def": "thick forge gloves and heavy smith plating stop the blow: a deep clang, boots locked to the ground without moving an inch, a steady droning resonance, hot sparks fizzling"
   },
   "B2-16": {
    "en": "Armored Automaton",
@@ -123,9 +123,9 @@
   },
   "B2-33": {
    "en": "Ordun Bone Knight",
-   "ko": "회색 아다만트 검 · 거인뼈 갑옷이 둔탁히 울림",
+   "ko": "회색 아다만트 검 · 뼈 갑옷으로 받고 방패로 되침",
    "atk": "a knight in grey adamant plate swings a bone-pale heavy sword: a dry cold whoosh, a dense low thunk of impact, a stony ring-out like struck marrow",
-   "def": "adamant armour takes the strike: a dull bone-deep clack, a hard muted ring, then a spiky scrape as barbed plates answer the attacker"
+   "def": "adamant armour takes the strike: a dull bone-deep clack, a hard muted ring, then a heavy shield-rim counter-blow thudding back into the attacker"
   },
   "B2-34": {
    "en": "Colossal Steam Golem",
@@ -165,9 +165,9 @@
   },
   "SP-B2": {
    "en": "Iron Heart Eater",
-   "ko": "철의 심장 박동 · 몸이 커다란 종처럼 울림",
+   "ko": "철의 심장 박동 · 맨 앞을 막아서는 거대한 종",
    "atk": "a deep iron heartbeat thuds like a forge bellows, then a titan hammer fist crashes down: shuddering steam, a world-shaking boom, a lingering resonant bronze ring",
-   "def": "a glowing iron heart beats within its chest as the blow lands: a bell-deep clang, a shimmering metallic ward humming outward, steam venting calmly"
+   "def": "a glowing iron heart beats within its chest as it steps in front to take the blow: a bell-deep clang, a planted stomp, then a huge shield-shove back with a booming metallic slam"
   },
   "UN-B2": {
    "en": "Bron's First Golem",
@@ -183,21 +183,21 @@
   },
   "EP-B2-1": {
    "en": "Rivet Thorn Golem",
-   "ko": "리벳 가시 껴안기 · 가시가 사방으로 박힘",
+   "ko": "리벳 가시 껴안기 · 앞을 막고 가시가 박힘",
    "atk": "a spiked golem lunges into a clumsy crushing embrace: a heavy hug of iron, scraping rivets raking across the foe, a bristling crunch of spikes",
-   "def": "outward rivet spines take the hit: a bright ward shimmer, a dense clang, then a ratcheting prickle of rivets snapping back in a spiny counter-sting"
+   "def": "outward rivet spines take the hit as it stands in front: a dense clang, a heavy planted thud, then a ratcheting prickle of rivets snapping back in a spiny counter-sting"
   },
   "EP-B2-2": {
    "en": "Steel Crusher Golem",
-   "ko": "바위 깨는 분쇄 골렘 · 암석 깨짐과 쇠 울림",
+   "ko": "바위 깨는 분쇄 골렘 · 밀리지 않는 돌쇠 몸",
    "atk": "a mining golem hoists a rock-crusher pick: a heavy overhead creak, an armour-piercing crack that splits stone, a long splintering crash with tinkling shards",
-   "def": "a shimmering ward flickers and dense stone-iron plating thuds: a deep dull ring, a ward chime, a grumbling settle of grit"
+   "def": "dense stone-iron plating takes the blow without budging: a deep dull ring, a grinding anchor-like settle into the ground, grit trickling off"
   },
   "EP-B2-3": {
    "en": "Durkheim Gate Colossus",
-   "ko": "성문 거상 · 문짝이 닫히듯 내려치는 소리",
+   "ko": "성문 거상 · 문짝으로 막고 되받아 내리침",
    "atk": "a living gate swings its huge door-fist in an arc: a groaning hinge, a vast wooden-and-iron slam, spikes raking, and a boom rolling through the tunnel",
-   "def": "a mighty gate door meets the hit with a gigantic clang and ward shimmer, then spiked studs lash back with a vicious scraping jab"
+   "def": "a mighty gate door meets the hit with a gigantic clang, then the whole door swings back in a crushing counter-slam with groaning hinges and a booming impact"
   },
   "PN-B2-C1": {
    "en": "Riveted Doorman",
@@ -213,33 +213,33 @@
   },
   "PN-B2-C3": {
    "en": "Ironframe Hammer Golem",
-   "ko": "철골 망치 골렘 · 속이 꽉 찬 쇠 울림",
+   "ko": "철골 망치 골렘 · 막고 쇠 몸으로 되받음",
    "atk": "a beam-limbed golem swings a girder hammer: an iron whoosh, a ringing blow with sparks scattering, a gurgle of molten metal inside",
-   "def": "a solid-cast frame filled with hardened metal takes the blow: a dense unyielding thunk, a faint molten gurgle, a short spiny scrape of counter-spikes"
+   "def": "a solid-cast frame filled with hardened metal takes the blow: a dense unyielding thunk, a faint molten gurgle, then a short heavy iron shove back"
   },
   "PN-B2-U1": {
    "en": "Durkheim Shielder",
-   "ko": "직접 두드린 방패 · 흠집 많은 방패가 막아냄",
+   "ko": "직접 두드린 방패 · 막고 방패 테두리로 되침",
    "atk": "a dwarf bashes with the rim of a hand-forged shield: a short leather strap creak, a crisp forward smack, a ring of beaten metal",
-   "def": "a battered shield takes the hit with a heavy clonk, a long steady ring, and a crisp thorny scrape from the shield rim"
+   "def": "a battered shield takes the hit with a heavy clonk and a long steady ring, then the rim is driven back into the attacker with a crisp hard smack"
   },
   "PN-B2-U2": {
    "en": "Thorgrim Vein Golem",
-   "ko": "힘줄 광맥 골렘 · 녹지 않는 쇠가 울림",
+   "ko": "힘줄 광맥 골렘 · 꿈쩍 않고 되받아침",
    "atk": "a vein-bodied golem whips a rope of ore-metal arm: a sinewy creak, a taut twang, a heavy iron lash with a sparkling crack",
-   "def": "a rooted lode body stands fixed: a vast dull ring with no give, an ore-like crackle, and a short spiny rasp in answer"
+   "def": "a rooted lode body stands fixed: a vast dull ring with no give, an ore-like crackle, then a heavy ore-arm backhand thudding into the attacker"
   },
   "PN-B2-R": {
    "en": "Adamant Armorer",
    "ko": "아다만트 갑주 일격 · 회색 금속이 단단히 울림",
    "atk": "an armoured dwarf swings a grey-metal mace: heavy plate squeaks, a dense low whoosh, a thick stony crack of impact",
-   "def": "grey adamant plate meets the blow with a rock-hard thunk, a shimmering ward chime, a rooted stance grinding into stone"
+   "def": "grey adamant plate meets the blow with a rock-hard thunk, a firm metallic ring, a rooted stance grinding into stone"
   },
   "PN-B2-E": {
    "en": "Ferros-Touched Golem",
-   "ko": "용을 본 거울 골렘 · 되비치는 금속 울림",
+   "ko": "용을 본 거울 골렘 · 앞을 막고 되비쳐 되침",
    "atk": "a mirrored golem thrusts a polished fist: a glassy metal shimmer, a punch with a rippling chime-like echo, a long scintillating ring",
-   "def": "its mirror-bright body reflects the blow: a crystalline metallic chime, a shimmer of ward, a deep immovable clang, a sharp spiny glint of counter"
+   "def": "its mirror-bright body steps in front of the blow: a crystalline metallic chime, a deep immovable clang, then a polished fist snapping back with a ringing counter-punch"
   },
   "UP-B2-12": {
    "en": "Forge Master",

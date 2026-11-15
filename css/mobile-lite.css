@@ -563,3 +563,4 @@ html.mobile .fz-badge, html.mobile .fg-go, html.mobile .fg-slot.filled, html.mob
 /* cardtext.css */
 html.mobile .card .c-box .c-cls, html.mobile .card .c-cls.c-ab, html.mobile .card .c-cls.c-pin, html.mobile .card .c-cls.c-plain, html.mobile .card .c-cls.c-off, html.mobile .card .c-eq-ab, html.mobile .slot .card.fm .c-eq-ab, html.mobile .slot .card.fm .c-box .c-cls { text-shadow: 0 1px 2px rgba(0, 0, 0, .85); }
 html.mobile .dv-cards .card.fm.grade-common > .c-frame, html.mobile .screen-editor .card.fm.grade-common > .c-frame, html.mobile .shop-card .card.fm.grade-common > .c-frame, html.mobile .detail .card.fm.grade-common > .c-frame { box-shadow: 0 0 0 .04em rgba(6, 7, 12, .9); }
+html.mobile .card.has-brief .c-brief .sb-t { text-shadow: 0 .06em .1em #000; }

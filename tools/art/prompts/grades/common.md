@@ -1,4 +1,4 @@
-# 일반 (Common) — 카드 일러스트 프롬프트 (383장, 버전 g3)
+# 일반 (Common) — 카드 일러스트 프롬프트 (375장, 버전 g3)
 
 > 그 깃발의 평범한 구성원 · 흔한 마법 · 손때 묻은 물건. 완성도는 다른 등급과 같다 — 얼굴 · 손 · 재질 · 빛을 공들여 그리고, 성격이 보이는 표정과 분명한 동작, 그 깃발 세상의 한 구석이 실제로 보이는 배경. 다른 점은 규모뿐: 몸집이 작고, 배경이 가깝고 아담하며, 신비한 장식 · 등급 강조색이 없다.
 
@@ -500,7 +500,7 @@ Subject: the item the card name and lore describe — a single object made or ke
 Scale (level 2 of 8): a simple object.
 Banner — Abyssal Fiends: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 녹타르의 흑요석 단검. 급소를 찾아 스스로 휜다.
+Lore (Korean, use for the scene): 녹타르의 흑요석 단검. 벤 자리가 아물지 않고 싸움 내내 피를 흘린다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
@@ -2132,17 +2132,17 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-04 · 마도 서생
+## A3-04 · 망루 파수병
 폭풍 하이엘프 · 유닛 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/A3-04.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-04.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "마도 서생". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary member of the Storm High Elves — a spellcaster channelling wind power.
+Card name (Korean — read its meaning, never write it in the image): "망루 파수병". Depict exactly what this name describes.
+Subject: a low-ranking, ordinary member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -2150,23 +2150,23 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-05 · 깃털 마법사
+## A3-05 · 바람 척후병
 폭풍 하이엘프 · 유닛 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/A3-05.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-05.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "깃털 마법사". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary member of the Storm High Elves — a spellcaster channelling wind power.
+Card name (Korean — read its meaning, never write it in the image): "바람 척후병". Depict exactly what this name describes.
+Subject: a low-ranking, ordinary member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -2174,32 +2174,33 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## MA-07 · 지혜의 등식
+## MA-07 · 치고 빠지기
 폭풍 하이엘프 · 공용 마법 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/MA-07.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MA-07.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "지혜의 등식". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a creature or double emerging from a rune circle. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Card name (Korean — read its meaning, never write it in the image): "치고 빠지기". Depict exactly what this name describes.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: an empowering wind aura rising around allied warriors; a nimble fighter springing back out of reach on a gust of wind while the next ally steps forward. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 1 of 8): a small, local effect.
-Banner — Storm High Elves: magic of storm high elves, signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
+Banner — Storm High Elves: magic of storm high elves, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Game effect (Korean, mood only — never draw text or numbers): 이번 턴, 전장의 모든 유닛(양쪽)의 공격·방어·체력이 이 마법 바로 뒤 아군 유닛과 같아진다.
+Lore (Korean, use for the scene): 쏘고, 물러서고, 다시 쏜다. 하이엘프 사수는 칼이 닿는 거리에 오래 머물지 않는다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 맨 앞 2기 공격 +2. 맨 앞 유닛은 맨 뒤로 물러서고(후퇴) 이번 턴 [원거리].
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2215,7 +2216,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "무장 해제". Depict exactly what this name describes.
 Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a weakening curse sinking over the enemies. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 1 of 8): a small, local effect.
-Banner — Storm High Elves: magic of storm high elves, signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
+Banner — Storm High Elves: magic of storm high elves, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체 공격 −1. 상대 맨 앞 2기는 공격 −2 더.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -2224,7 +2225,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2240,7 +2241,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "순환". Depict exactly what this name describes.
 Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a burst of wind power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 1 of 8): a small, local effect.
-Banner — Storm High Elves: magic of storm high elves, signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
+Banner — Storm High Elves: magic of storm high elves, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 별은 돌고, 돈 별은 제자리에 오지 않는다. 이사크가 처음 읽은 문자는 그 한 바퀴였다.
 Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛의 공격이 방어로, 방어가 체력으로, 체력이 공격으로 옮겨 간다.
@@ -2250,7 +2251,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2266,7 +2267,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "별의 모사". Depict exactly what this name describes.
 Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a burst of wind power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 1 of 8): a small, local effect.
-Banner — Storm High Elves: magic of storm high elves, signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
+Banner — Storm High Elves: magic of storm high elves, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 하이엘프는 본 것을 별의 문자로 적고, 적은 것을 제 몸에 옮긴다.
 Game effect (Korean, mood only — never draw text or numbers): 아군 맨 앞 2기의 공격 · 방어 · 체력 가운데 상대 유닛 중 공격이 가장 높은 1기보다 낮은 것은 그 값이 된다.
@@ -2276,7 +2277,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2292,7 +2293,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "돌풍". Depict exactly what this name describes.
 Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: an empowering wind aura rising around allied warriors; a weakening curse sinking over the enemies. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 1 of 8): a small, local effect.
-Banner — Storm High Elves: magic of storm high elves, signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
+Banner — Storm High Elves: magic of storm high elves, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛 방어 −1 −1C. 아군 뒤 2칸의 유닛 공격 +1.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -2301,48 +2302,49 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## SA3-04 · 폭풍 소환
+## SA3-04 · 시위 당기기
 폭풍 하이엘프 · 공격 마법 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/SA3-04.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SA3-04.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "폭풍 소환". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: an empowering wind aura rising around allied warriors. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Card name (Korean — read its meaning, never write it in the image): "시위 당기기". Depict exactly what this name describes.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: an empowering wind aura rising around allied warriors; allies rallying as one under a shared surge of power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 1 of 8): a small, local effect.
-Banner — Storm High Elves: magic of storm high elves, signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
+Banner — Storm High Elves: magic of storm high elves, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Game effect (Korean, mood only — never draw text or numbers): 아군 맨 앞 2기 공격 +2 +1C, 체력 +1.
+Lore (Korean, use for the scene): 궁사회의 사수들이 한꺼번에 시위를 귀 끝까지 당긴다. 이 거리에서는 칼이 닿지 않는다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 맨 앞 2기 공격 +2 +1C, [원거리].
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-09 · 바늘탑 학도
+## A3-09 · 바늘탑 활잡이
 폭풍 하이엘프 · 유닛 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/A3-09.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-09.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "바늘탑 학도". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary member of the Storm High Elves — a spellcaster channelling wind power.
+Card name (Korean — read its meaning, never write it in the image): "바늘탑 활잡이". Depict exactly what this name describes.
+Subject: a low-ranking, ordinary member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -2350,23 +2352,23 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-10 · 회오리 견습생
+## A3-10 · 속사 견습생
 폭풍 하이엘프 · 유닛 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/A3-10.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-10.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "회오리 견습생". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary member of the Storm High Elves — a spellcaster channelling wind power.
+Card name (Korean — read its meaning, never write it in the image): "속사 견습생". Depict exactly what this name describes.
+Subject: a low-ranking, ordinary member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -2374,7 +2376,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2388,9 +2390,9 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "질풍 전령". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary member of the Storm High Elves — a spellcaster channelling wind power.
+Subject: a low-ranking, ordinary member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -2398,148 +2400,125 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## C2-1 · 견습 마도서
+## C2-1 · 견습 단궁
 폭풍 하이엘프 · 아이템 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/C2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/C2-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "견습 마도서". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Storm High Elves (catalyst; if unsure, a book). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
+Card name (Korean — read its meaning, never write it in the image): "견습 단궁". Depict exactly what this name describes.
+Subject: the item the card name and lore describe — a single object made or kept by the Storm High Elves (catalyst; if unsure, a bow). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 바늘탑 견습생에게 처음 주는 마도서. 주먹 대신 마력으로 친다.
+Lore (Korean, use for the scene): 바늘탑 견습생에게 처음 주는 짧은 활. 주먹 대신 바람으로 친다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## HA3-1 · 바꿔치기
-폭풍 하이엘프 · 핸드 마법 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/HA3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/HA3-1.jpg` 600×750)
+## HA3-1 · 엄호 후퇴
+폭풍 하이엘프 · 방어 마법 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/HA3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/HA3-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "바꿔치기". Depict exactly what this name describes.
-Subject: trick spell played on the opponent's hidden hand — cunning: hidden cards, eyes, threads of fate, a sly hand in shadow; quieter, mysterious lighting. The moment it takes effect: warriors forced to trade places by a trick of magic. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Card name (Korean — read its meaning, never write it in the image): "엄호 후퇴". Depict exactly what this name describes.
+Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: a weakening curse sinking over the enemies; a nimble fighter springing back out of reach on a gust of wind while the next ally steps forward. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 2 of 8): a small, local effect.
-Banner — Storm High Elves: magic of storm high elves, signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
+Banner — Storm High Elves: magic of storm high elves, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Game effect (Korean, mood only — never draw text or numbers): 내 핸드에서 레벨이 가장 낮은 카드와 상대 핸드에서 레벨이 가장 높은 카드를 맞바꾼다.
+Lore (Korean, use for the scene): 앞줄이 물러서는 동안 뒷줄의 화살이 적의 팔을 묶는다. 바람은 물러서는 쪽의 등을 밀어 준다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 맨 앞 유닛이 맨 뒤로 물러선다(후퇴). 상대 맨 앞 2기 공격 −2.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## MA-11 · 공수 역전
-폭풍 하이엘프 · 공용 마법 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/MA-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MA-11.jpg` 600×750)
+## MA-11 · 마무리 화살
+폭풍 하이엘프 · 공격 마법 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/MA-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MA-11.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "공수 역전". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: warriors forced to trade places by a trick of magic. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Card name (Korean — read its meaning, never write it in the image): "마무리 화살". Depict exactly what this name describes.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive wind attack striking the enemy ranks. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 2 of 8): a small, local effect.
-Banner — Storm High Elves: magic of storm high elves, signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
+Banner — Storm High Elves: magic of storm high elves, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Game effect (Korean, mood only — never draw text or numbers): 적 유닛 4는 공격과 방어를 맞바꾼다.
+Lore (Korean, use for the scene): 비틀거리는 적을 고르는 것도 사수의 눈이다. 마지막 한 발은 늘 가장 약한 곳을 찾아간다.
+Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 중 남은 체력이 가장 낮은 2기에게 피해 3.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## NA3-4 · 거울 반전
-폭풍 하이엘프 · 공용 마법 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/NA3-4.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/NA3-4.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "거울 반전". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a destructive wind attack striking the enemy ranks. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
-Scale (level 2 of 8): a small, local effect.
-Banner — Storm High Elves: magic of storm high elves, signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
-Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Game effect (Korean, mood only — never draw text or numbers): 상대 전장의 카드 배치를 좌우 대칭으로 뒤집는다(맨 앞 ↔ 맨 뒤, 뒷면 마법 포함). 그 뒤 상대 맨 앞 유닛에게 피해 2.
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## PN-A3-C1 · 바늘탑 견습 서기
+## PN-A3-C1 · 바늘탑 견습 척후
 폭풍 하이엘프 · 유닛 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/PN-A3-C1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A3-C1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "바늘탑 견습 서기". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary member of the Storm High Elves — a spellcaster channelling wind power.
+Card name (Korean — read its meaning, never write it in the image): "바늘탑 견습 척후". Depict exactly what this name describes.
+Subject: a low-ranking, ordinary member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 바늘탑의 계단을 오르내리며 별의 문자를 베낀다. 한 번 외운 문자는 잊지 않는다.
+Lore (Korean, use for the scene): 바늘탑의 계단을 오르내리며 고원의 길을 외운다. 한 번 지나간 길은 잊지 않는다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## SA3-06 · 폭풍의 칼날
+## SA3-06 · 급소 저격
 폭풍 하이엘프 · 공격 마법 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/SA3-06.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SA3-06.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "폭풍의 칼날". Depict exactly what this name describes.
+Card name (Korean — read its meaning, never write it in the image): "급소 저격". Depict exactly what this name describes.
 Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive wind attack striking the enemy ranks; a weakening curse sinking over the enemies. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 2 of 8): a small, local effect.
-Banner — Storm High Elves: magic of storm high elves, signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
+Banner — Storm High Elves: magic of storm high elves, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 중 공격이 가장 높은 1기 공격 −4, 피해 3.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -2548,23 +2527,23 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-13 · 폭풍 마도사
+## A3-13 · 폭풍 궁수
 폭풍 하이엘프 · 유닛 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/A3-13.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-13.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "폭풍 마도사". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Storm High Elves — a spellcaster channelling wind power.
+Card name (Korean — read its meaning, never write it in the image): "폭풍 궁수". Depict exactly what this name describes.
+Subject: a seasoned, battle-hardened member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -2572,23 +2551,23 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-15 · 하이엘프 바람술사
+## A3-15 · 하이엘프 저격수
 폭풍 하이엘프 · 유닛 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/A3-15.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-15.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "하이엘프 바람술사". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Storm High Elves — a spellcaster channelling wind power.
+Card name (Korean — read its meaning, never write it in the image): "하이엘프 저격수". Depict exactly what this name describes.
+Subject: a seasoned, battle-hardened member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -2596,23 +2575,23 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-18 · 회오리 술사
+## A3-18 · 쌍시위 궁수
 폭풍 하이엘프 · 유닛 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/A3-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-18.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "회오리 술사". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Storm High Elves — a spellcaster channelling wind power.
+Card name (Korean — read its meaning, never write it in the image): "쌍시위 궁수". Depict exactly what this name describes.
+Subject: a seasoned, battle-hardened member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -2620,23 +2599,23 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-41 · 고요의 결계사
+## A3-41 · 고요의 장막지기
 폭풍 하이엘프 · 유닛 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/A3-41.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-41.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "고요의 결계사". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Storm High Elves — a spellcaster channelling wind power; a stubborn defender who stands like a wall.
+Card name (Korean — read its meaning, never write it in the image): "고요의 장막지기". Depict exactly what this name describes.
+Subject: a seasoned, battle-hardened member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar; a stubborn defender who stands like a wall.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -2644,123 +2623,150 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## C3-1 · 폭풍의 지팡이
+## C3-1 · 폭풍의 활
 폭풍 하이엘프 · 아이템 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/C3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/C3-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "폭풍의 지팡이". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Storm High Elves (catalyst; if unsure, a staff). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
+Card name (Korean — read its meaning, never write it in the image): "폭풍의 활". Depict exactly what this name describes.
+Subject: the item the card name and lore describe — a single object made or kept by the Storm High Elves (catalyst; if unsure, a bow). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 끝에 작은 폭풍이 갇힌 지팡이. 휘두르지 않아도 번개가 튄다.
+Lore (Korean, use for the scene): 시위에 작은 폭풍이 감긴 활. 당기지 않아도 번개 화살이 튄다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## IA3-3 · 마도회 망토
+## IA3-3 · 궁사회 망토
 폭풍 하이엘프 · 아이템 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/IA3-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IA3-3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "마도회 망토". Depict exactly what this name describes.
+Card name (Korean — read its meaning, never write it in the image): "궁사회 망토". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Storm High Elves (catalyst; if unsure, a piece of armour). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 바람이 감싸 도는 마도회의 망토.
+Lore (Korean, use for the scene): 바람이 감싸 도는 폭풍탑 궁사회의 망토. 날아든 화살이 옷자락에서 길을 잃는다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## IA3-4 · 회오리 마도서
+## IA3-4 · 회오리 화살통
 폭풍 하이엘프 · 아이템 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/IA3-4.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IA3-4.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "회오리 마도서". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Storm High Elves (catalyst; if unsure, a book). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
+Card name (Korean — read its meaning, never write it in the image): "회오리 화살통". Depict exactly what this name describes.
+Subject: the item the card name and lore describe — a single object made or kept by the Storm High Elves (catalyst; if unsure, a bow). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 책장을 넘길 때마다 바람이 분다.
+Lore (Korean, use for the scene): 화살을 뽑을 때마다 바람이 분다. 바람을 탄 화살은 갑옷 틈을 스스로 찾는다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## NA3-3 · 꿰뚫는 바람
+## NA3-2 · 빗발치는 화살
+폭풍 하이엘프 · 공격 마법 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/NA3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/NA3-2.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "빗발치는 화살". Depict exactly what this name describes.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a rain of arrows arcing high over the enemy front line and falling on the ranks behind it. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Scale (level 3 of 8): an effect over a few targets.
+Banner — Storm High Elves: magic of storm high elves, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
+Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 맨 앞의 방패벽 너머로 화살이 비처럼 떨어진다. 뒤에 숨어 있던 자가 먼저 쓰러진다.
+Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛을 뺀 상대 유닛 전체 체력 −3.
+Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
+Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
+Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
+Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Mood: lively, honest, frontline.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+## NA3-3 · 꿰뚫는 화살
 폭풍 하이엘프 · 공격 마법 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/NA3-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/NA3-3.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "꿰뚫는 바람". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: an empowering wind aura rising around allied warriors. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Card name (Korean — read its meaning, never write it in the image): "꿰뚫는 화살". Depict exactly what this name describes.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: an empowering wind aura rising around allied warriors; allies rallying as one under a shared surge of power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 3 of 8): an effect over a few targets.
-Banner — Storm High Elves: magic of storm high elves, signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
+Banner — Storm High Elves: magic of storm high elves, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Game effect (Korean, mood only — never draw text or numbers): 아군 유닛 전체에게 [꿰뚫기]. 아군 유닛 전체 공격 +1.
+Lore (Korean, use for the scene): 바람이 화살촉을 바늘처럼 벼린다. 방패도 갑옷도, 이 화살 앞에서는 틈투성이다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 유닛 전체 공격 +3, [방어무시 2].
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-A3-U1 · 바람 문자 술사
+## PN-A3-U1 · 바람 문자 사수
 폭풍 하이엘프 · 유닛 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/PN-A3-U1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A3-U1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "바람 문자 술사". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Storm High Elves — a spellcaster channelling wind power.
+Card name (Korean — read its meaning, never write it in the image): "바람 문자 사수". Depict exactly what this name describes.
+Subject: a seasoned, battle-hardened member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 바람에 별의 문자를 새겨 쏜다. 새긴 문자는 어떤 바람에도 흩어지지 않는다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -2769,23 +2775,23 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-19 · 폭풍탑 마도사
+## A3-19 · 폭풍탑 궁수
 폭풍 하이엘프 · 유닛 · 레벨 4 · 일반 — 받은 그림은 `tools/art/inbox/A3-19.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-19.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "폭풍탑 마도사". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Storm High Elves — a spellcaster channelling wind power.
+Card name (Korean — read its meaning, never write it in the image): "폭풍탑 궁수". Depict exactly what this name describes.
+Subject: a seasoned, battle-hardened member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -2793,23 +2799,23 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-22 · 대기 조종사
+## A3-22 · 바람 읽는 사수
 폭풍 하이엘프 · 유닛 · 레벨 4 · 일반 — 받은 그림은 `tools/art/inbox/A3-22.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-22.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "대기 조종사". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Storm High Elves — a spellcaster channelling wind power.
+Card name (Korean — read its meaning, never write it in the image): "바람 읽는 사수". Depict exactly what this name describes.
+Subject: a seasoned, battle-hardened member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -2817,23 +2823,23 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-23 · 벨루미르의 학자
+## A3-23 · 벨루미르의 순찰자
 폭풍 하이엘프 · 유닛 · 레벨 4 · 일반 — 받은 그림은 `tools/art/inbox/A3-23.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-23.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "벨루미르의 학자". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Storm High Elves — a spellcaster channelling wind power.
+Card name (Korean — read its meaning, never write it in the image): "벨루미르의 순찰자". Depict exactly what this name describes.
+Subject: a seasoned, battle-hardened member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -2841,23 +2847,23 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-24 · 번개구름 술사
+## A3-24 · 번개 화살 사수
 폭풍 하이엘프 · 유닛 · 레벨 4 · 일반 — 받은 그림은 `tools/art/inbox/A3-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-24.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "번개구름 술사". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Storm High Elves — a spellcaster channelling wind power.
+Card name (Korean — read its meaning, never write it in the image): "번개 화살 사수". Depict exactly what this name describes.
+Subject: a seasoned, battle-hardened member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -2865,82 +2871,57 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## IA3-5 · 벨루미르의 지팡이
+## IA3-5 · 벨루미르의 장궁
 폭풍 하이엘프 · 아이템 · 레벨 4 · 일반 — 받은 그림은 `tools/art/inbox/IA3-5.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IA3-5.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "벨루미르의 지팡이". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Storm High Elves (catalyst; if unsure, a staff). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
+Card name (Korean — read its meaning, never write it in the image): "벨루미르의 장궁". Depict exactly what this name describes.
+Subject: the item the card name and lore describe — a single object made or kept by the Storm High Elves (catalyst; if unsure, a bow). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 4 of 8): a fine object with a faint aura.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 지혜의 신 벨루미르가 쥐던 지팡이.
+Lore (Korean, use for the scene): 별을 읽는 신 벨루미르의 장궁. 이 활로 쏜 화살 앞에서는 어떤 갑옷도 틈을 숨기지 못한다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## IA3-6 · 폭풍탑 보주
+## IA3-6 · 번개 깃 화살
 폭풍 하이엘프 · 아이템 · 레벨 4 · 일반 — 받은 그림은 `tools/art/inbox/IA3-6.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IA3-6.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "폭풍탑 보주". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Storm High Elves (catalyst + engraving; if unsure, a glowing orb on a small stand). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
+Card name (Korean — read its meaning, never write it in the image): "번개 깃 화살". Depict exactly what this name describes.
+Subject: the item the card name and lore describe — a single object made or kept by the Storm High Elves (catalyst + engraving; if unsure, a bow). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 4 of 8): a fine object with a faint aura.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 탑 꼭대기에서 번개를 모으는 보주.
+Lore (Korean, use for the scene): 폭풍탑 꼭대기에서 번개를 모아 깃에 감은 화살. 쏠 때마다 번개가 함께 날아간다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## NA3-2 · 토네이도
-폭풍 하이엘프 · 공격 마법 · 레벨 4 · 일반 — 받은 그림은 `tools/art/inbox/NA3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/NA3-2.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "토네이도". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a creature or double emerging from a rune circle. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
-Scale (level 4 of 8): an effect over a few targets.
-Banner — Storm High Elves: magic of storm high elves, signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
-Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Game effect (Korean, mood only — never draw text or numbers): 토네이도가 돌개바람 3줄기를 몰고 온다(소환 아님). 돌개바람: 상대 무작위 유닛 1기에게 피해 2. [장전 1]
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (wind-swept clouds) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; swirling teal wind, fluttering robes and pages.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2956,7 +2937,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "폭풍의 눈". Depict exactly what this name describes.
 Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a destructive wind attack striking the enemy ranks; a calm restoring light closing wounds. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles. A desperate last-stand reversal that turns a losing battle.
 Scale (level 4 of 8): an effect over a few targets.
-Banner — Storm High Elves: magic of storm high elves, signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
+Banner — Storm High Elves: magic of storm high elves, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체는 이번 턴 공격도 반격도 하지 않는다. 아군 유닛 전체에게 피해 2. [장전 2]
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -2965,7 +2946,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2981,7 +2962,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "대폭풍". Depict exactly what this name describes.
 Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a weakening curse sinking over the enemies; a calm restoring light closing wounds. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 4 of 8): an effect over a few targets.
-Banner — Storm High Elves: magic of storm high elves, signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers; palette: wind teal #9fe3d6, silver, white, starry indigo.
+Banner — Storm High Elves: magic of storm high elves, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체 공격 −1 −1C. 상대 맨 앞 유닛은 이번 턴 공격도 반격도 하지 않는다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -2990,23 +2971,23 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-26 · 폭풍 소환사
+## A3-26 · 폭풍 사냥꾼
 폭풍 하이엘프 · 유닛 · 레벨 5 · 일반 — 받은 그림은 `tools/art/inbox/A3-26.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-26.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "폭풍 소환사". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Storm High Elves — a spellcaster channelling wind power.
+Card name (Korean — read its meaning, never write it in the image): "폭풍 사냥꾼". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -3014,7 +2995,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3028,9 +3009,9 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "하늘 요람 순례자". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Storm High Elves — a spellcaster channelling wind power.
+Subject: an elite, commanding member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -3038,23 +3019,23 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-29 · 폭풍탑 사서장
+## A3-29 · 폭풍탑 궁술 사범
 폭풍 하이엘프 · 유닛 · 레벨 6 · 일반 — 받은 그림은 `tools/art/inbox/A3-29.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-29.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "폭풍탑 사서장". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Storm High Elves — a spellcaster channelling wind power.
+Card name (Korean — read its meaning, never write it in the image): "폭풍탑 궁술 사범". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -3062,7 +3043,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3076,9 +3057,9 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "폭풍새 조련사". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Storm High Elves — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
+Subject: an elite, commanding member of the Storm High Elves — a high-elf beast-handler with a storm bird or a wind-borne creature.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -3086,23 +3067,23 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-31 · 파편 군도의 현자
+## A3-31 · 파편 군도의 명궁
 폭풍 하이엘프 · 유닛 · 레벨 6 · 일반 — 받은 그림은 `tools/art/inbox/A3-31.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-31.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "파편 군도의 현자". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Storm High Elves — a spellcaster channelling wind power.
+Card name (Korean — read its meaning, never write it in the image): "파편 군도의 명궁". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -3110,23 +3091,23 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-32 · 회오리 대마법사
+## A3-32 · 회오리 명사수
 폭풍 하이엘프 · 유닛 · 레벨 6 · 일반 — 받은 그림은 `tools/art/inbox/A3-32.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-32.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "회오리 대마법사". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Storm High Elves — a spellcaster channelling wind power.
+Card name (Korean — read its meaning, never write it in the image): "회오리 명사수". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -3134,23 +3115,23 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-33 · 벨루미르의 목소리
+## A3-33 · 별을 겨누는 자
 폭풍 하이엘프 · 유닛 · 레벨 7 · 일반 — 받은 그림은 `tools/art/inbox/A3-33.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-33.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "벨루미르의 목소리". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring member of the Storm High Elves — a spellcaster channelling wind power.
+Card name (Korean — read its meaning, never write it in the image): "별을 겨누는 자". Depict exactly what this name describes.
+Subject: a legendary, awe-inspiring member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -3158,7 +3139,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3172,9 +3153,9 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "하늘 찢는 자". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring member of the Storm High Elves — an armed fighter wielding a weapon typical of the banner.
+Subject: a legendary, awe-inspiring member of the Storm High Elves — a high-elf fighter: a nimble blade-dancer or a long-bow knight.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -3182,7 +3163,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3196,9 +3177,9 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "폭풍탑 탑주". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring member of the Storm High Elves — a spellcaster channelling wind power.
+Subject: a legendary, awe-inspiring member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
@@ -3206,31 +3187,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## B1-03 · 포연 척후병
-잿불 고블린 · 유닛 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/B1-03.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-03.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "포연 척후병". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
-Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3244,30 +3201,6 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "장전 수습생". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
-Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## B1-05 · 화승총 신병
-잿불 고블린 · 유닛 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/B1-05.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-05.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "화승총 신병". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
 Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
@@ -3422,7 +3355,8 @@ Subject: defense spell — protection forming: stable, symmetrical composition, 
 Scale (level 1 of 8): a small, local effect.
 Banner — Cinder Goblins: magic of cinder goblins, signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks; palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Game effect (Korean, mood only — never draw text or numbers): 적 유닛 3 공격 −2.
+Lore (Korean, use for the scene): 매캐한 화약 연기가 전장을 덮는다. 불이 옮겨붙은 자는 연기 속에서 눈을 뜨지 못한다.
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 3 공격 −2. 그 가운데 화상이 있는 유닛은 공격 −2 더.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
@@ -3435,43 +3369,20 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## SB1-03 · 참호 사격
+## SB1-03 · 불의 장막
 잿불 고블린 · 방어 마법 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/SB1-03.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SB1-03.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "참호 사격". Depict exactly what this name describes.
-Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: a destructive fire attack striking the enemy ranks; an empowering fire aura rising around allied warriors. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Card name (Korean — read its meaning, never write it in the image): "불의 장막". Depict exactly what this name describes.
+Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: an empowering fire aura rising around allied warriors; allies rallying as one under a shared surge of power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Cinder Goblins: magic of cinder goblins, signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks; palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 2기에게 피해 1. 아군 뒤 2칸의 유닛 방어 +1.
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## B1-10 · 포르탄 경비병
-잿불 고블린 · 유닛 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/B1-10.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-10.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "포르탄 경비병". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
-Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Lore (Korean, use for the scene): 참호 앞에 기름을 붓고 불을 놓는다. 칼을 들고 넘어오는 자는 불을 묻혀 돌아간다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 맨 앞 2기 체력 +1, [화염 갑주 2].
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
@@ -3493,30 +3404,6 @@ Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner c
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "폭약 공병". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
-Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## B1-41 · 모래주머니 참호병
-잿불 고블린 · 유닛 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/B1-41.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-41.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "모래주머니 참호병". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner; a stubborn defender who stands like a wall.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
 Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
@@ -3632,55 +3519,6 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## SB1-05 · 집중포화
-잿불 고블린 · 공격 마법 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/SB1-05.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SB1-05.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "집중포화". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive fire attack striking the enemy ranks. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
-Scale (level 2 of 8): a small, local effect.
-Banner — Cinder Goblins: magic of cinder goblins, signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks; palette: fire orange #ff6b3d with brass #d4893a and soot black.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 중 공격이 가장 높은 2기에게 피해 2. [장전 1]
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## B1-13 · 화염 척탄수
-잿불 고블린 · 유닛 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/B1-13.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-13.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "화염 척탄수". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## B1-14 · 녹철 저격병
 잿불 고블린 · 유닛 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/B1-14.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-14.jpg` 600×750)
 
@@ -3713,30 +3551,6 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "구경포 사수". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## B1-18 · 화약고 수비대
-잿불 고블린 · 유닛 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/B1-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-18.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "화약고 수비대". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
@@ -3853,30 +3667,6 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B1-20 · 작렬 척탄대
-잿불 고블린 · 유닛 · 레벨 4 · 일반 — 받은 그림은 `tools/art/inbox/B1-20.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-20.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "작렬 척탄대". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
-Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## B1-21 · 이동 포차
 잿불 고블린 · 유닛 · 레벨 4 · 일반 — 받은 그림은 `tools/art/inbox/B1-21.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-21.jpg` 600×750)
 
@@ -3885,30 +3675,6 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "이동 포차". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
-Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## B1-22 · 화염방사병
-잿불 고블린 · 유닛 · 레벨 4 · 일반 — 받은 그림은 `tools/art/inbox/B1-22.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-22.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "화염방사병". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
@@ -4023,30 +3789,6 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B1-27 · 폭렬 기술장
-잿불 고블린 · 유닛 · 레벨 5 · 일반 — 받은 그림은 `tools/art/inbox/B1-27.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-27.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "폭렬 기술장". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Cinder Goblins — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
-Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## PN-B1-U2 · 도르마크 화염포수
 잿불 고블린 · 유닛 · 레벨 5 · 일반 — 받은 그림은 `tools/art/inbox/PN-B1-U2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B1-U2.jpg` 600×750)
 
@@ -4080,30 +3822,6 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "화염 철갑포차". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
-Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a soot-stained gun bastion wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; embers, flame light, gunpowder smoke.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## B1-31 · 포병 원수
-잿불 고블린 · 유닛 · 레벨 6 · 일반 — 받은 그림은 `tools/art/inbox/B1-31.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-31.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "포병 원수". Depict exactly what this name describes.
 Subject: an elite, commanding member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
@@ -5295,6 +5013,30 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## B3-04 · 정전기 실험가
+번개 노움 · 유닛 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/B3-04.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-04.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "정전기 실험가". Depict exactly what this name describes.
+Subject: a low-ranking, ordinary member of the Thunder Gnomes — a spellcaster channelling lightning power.
+Scale (level 1 of 8): small and humble: an ordinary body, light gear.
+Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
+Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
+Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
+Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
+Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Mood: lively, honest, frontline.
+Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## B3-06 · 코일 운반인
 번개 노움 · 유닛 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/B3-06.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-06.jpg` 600×750)
 
@@ -5595,6 +5337,30 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## B3-10 · 피뢰침 정비공
+번개 노움 · 유닛 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/B3-10.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-10.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "피뢰침 정비공". Depict exactly what this name describes.
+Subject: a low-ranking, ordinary member of the Thunder Gnomes — a spellcaster channelling lightning power.
+Scale (level 2 of 8): small and humble: an ordinary body, light gear.
+Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
+Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
+Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
+Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
+Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Mood: lively, honest, frontline.
+Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## B3-12 · 방전 실험가
 번개 노움 · 유닛 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/B3-12.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-12.jpg` 600×750)
 
@@ -5657,7 +5423,7 @@ Subject: the item the card name and lore describe — a single object made or ke
 Scale (level 2 of 8): a simple object.
 Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 손목에 감는 구리 코일. 전류가 갑옷 틈으로 스민다.
+Lore (Korean, use for the scene): 손목에 감는 구리 코일. 감은 손으로 부르는 번개는 한 줄기 더 굵다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
@@ -5977,7 +5743,31 @@ Subject: the item the card name and lore describe — a single object made or ke
 Scale (level 3 of 8): a fine object with a faint aura.
 Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 뇌전 학술원의 두꺼운 법전. 공식을 외우면 방어가 의미 없어진다.
+Lore (Korean, use for the scene): 볼타리움 학술원의 두꺼운 법전. 공식 한 줄이 번개 한 갈래를 더 부른다.
+Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
+Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
+Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
+Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Mood: lively, honest, frontline.
+Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+## B3-20 · 번개 병기 학자
+번개 노움 · 유닛 · 레벨 4 · 일반 — 받은 그림은 `tools/art/inbox/B3-20.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-20.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "번개 병기 학자". Depict exactly what this name describes.
+Subject: a seasoned, battle-hardened member of the Thunder Gnomes — a spellcaster channelling lightning power.
+Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
+Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
+Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
@@ -6188,6 +5978,30 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## B3-25 · 케라운 탐사원
+번개 노움 · 유닛 · 레벨 5 · 일반 — 받은 그림은 `tools/art/inbox/B3-25.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-25.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "케라운 탐사원". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Thunder Gnomes — a spellcaster channelling lightning power.
+Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
+Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
+Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
+Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
+Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
+Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Mood: lively, honest, frontline.
+Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## B3-26 · 뇌전 박사
 번개 노움 · 유닛 · 레벨 5 · 일반 — 받은 그림은 `tools/art/inbox/B3-26.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-26.jpg` 600×750)
 
@@ -6285,6 +6099,30 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## B3-32 · 번개 거신
+번개 노움 · 유닛 · 레벨 6 · 일반 — 받은 그림은 `tools/art/inbox/B3-32.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-32.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "번개 거신". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Thunder Gnomes — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
+Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
+Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
+Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
+Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
+Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
+Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Mood: lively, honest, frontline.
+Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## PN-B3-C3 · 볼타리움 절연 기사
 번개 노움 · 유닛 · 레벨 6 · 일반 — 받은 그림은 `tools/art/inbox/PN-B3-C3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B3-C3.jpg` 600×750)
 
@@ -6298,6 +6136,30 @@ Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a bi
 Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 고무와 유리로 겹겹이 두른 갑옷. 번개도 칼도 같은 두께에서 멈춘다.
+Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
+Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
+Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
+Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Mood: lively, honest, frontline.
+Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+## B3-33 · 볼타리움 학장
+번개 노움 · 유닛 · 레벨 7 · 일반 — 받은 그림은 `tools/art/inbox/B3-33.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-33.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "볼타리움 학장". Depict exactly what this name describes.
+Subject: a legendary, awe-inspiring member of the Thunder Gnomes — a spellcaster channelling lightning power.
+Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
+Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
+Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
@@ -6534,19 +6396,21 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## SG1-02 · 바위 가죽
+## SG1-02 · 숨통 끊기
 바위주먹 오크 · 방어 마법 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/SG1-02.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG1-02.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "바위 가죽". Depict exactly what this name describes.
-Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: an empowering earth aura rising around allied warriors. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Card name (Korean — read its meaning, never write it in the image): "숨통 끊기". Depict exactly what this name describes.
+Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: a destructive earth attack striking the enemy ranks. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Art direction: Finishing the staggering: on a rocky battlefield at dusk, several enemy soldiers (dark silhouettes) are already reeling and bloodied, barely standing after orc bites. A grim scarred orc walks down their line and drops each one with a short heavy chop of a stone-weighted fist; a thin ochre earth-glow pulses through the ground under all the wounded foes at once, as one last tremor finishes them. Mood: cold, decisive, no barrier or shield.
 Scale (level 1 of 8): a small, local effect.
 Banner — Rockfist Orcs: magic of rockfist orcs, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 아군 뒤 3칸의 유닛 방어 +1, 체력 +1.
+Lore (Korean, use for the scene): 오크는 비틀거리는 적에게 등을 보이지 않는다. 송곳니에 물려 버티던 자부터 차례로 숨통을 끊는다.
+Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체 체력 −1.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
@@ -6788,10 +6652,11 @@ Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner c
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "오크의 문신". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Rockfist Orcs (engraving; if unsure, a carved stone or engraved plate). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
+Art direction: An orc's tattooed fist: a huge grey-green orc fist, knuckles freshly tattooed with dark fang-shaped marks in ochre and black pigment, beside a bone tattoo needle and a small stone pigment bowl on dark leather; the tattoo glows faintly like it could tear through armour. Show the fist and tools, not a carved plate.
 Scale (level 2 of 8): a simple object.
 Banner — Rockfist Orcs: powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair. Silhouette: massive shoulders and oversized fists; riders on giant wolves or bears. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
 Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 바위송곳니 오크가 첫 사냥을 마치고 새기는 문신. 싸울수록 몸이 단단해진다.
+Lore (Korean, use for the scene): 바위송곳니 오크가 첫 사냥을 마치고 주먹에 새기는 송곳니 문신. 이 주먹은 갑옷부터 찢는다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
@@ -6926,19 +6791,21 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## MG-13 · 대지의 분노
+## MG-13 · 뼈 부수기
 바위주먹 오크 · 공격 마법 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/MG-13.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MG-13.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "대지의 분노". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive earth attack striking the enemy ranks; an empowering earth aura rising around allied warriors. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Card name (Korean — read its meaning, never write it in the image): "뼈 부수기". Depict exactly what this name describes.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a burst of earth power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Art direction: Bone breaker: an enemy warrior whose armour has already been torn and peeled away (broken plates and straps hanging off, bare chest and shoulders exposed, dark silhouette) is struck by a massive orc fist encased in rough stone; at the point of impact a sharp crack of ochre earth-light spreads like fractures through the body. Close, diagonal, brutal composition; the orc mostly out of frame, only the fist and forearm.
 Scale (level 3 of 8): an effect over a few targets.
 Banner — Rockfist Orcs: magic of rockfist orcs, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 중 공격이 가장 높은 1기에게 피해 2. 아군 뒤 3칸의 유닛 공격 +1.
+Lore (Korean, use for the scene): 갑옷이 벗겨진 자에게 남은 것은 뼈뿐이다. 고르바스의 주먹은 그 뼈를 바위처럼 부순다.
+Game effect (Korean, mood only — never draw text or numbers): 방어가 0인 상대 유닛 가운데 공격이 가장 높은 1기의 방어와 체력을 맞바꾼다(체력 0이 되어 쓰러진다).
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
@@ -6976,19 +6843,21 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## SG1-08 · 산사태
+## SG1-08 · 송곳니 반격
 바위주먹 오크 · 방어 마법 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/SG1-08.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG1-08.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "산사태". Depict exactly what this name describes.
-Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: a destructive earth attack striking the enemy ranks. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Card name (Korean — read its meaning, never write it in the image): "송곳니 반격". Depict exactly what this name describes.
+Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: an empowering earth aura rising around allied warriors; allies rallying as one under a shared surge of power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Art direction: Fang counterattack: a small band of cornered Rockfist orcs, backs to a cliff wall, bracing together; their grey-green skin swells and toughens with a warm ochre earth-glow (gaining toughness), tusks bared in a snarl. The nearest orc bites back into the arm of an attacker who has just struck him — the attacker (dark silhouette) recoils, still alive but drained to a thread. Feeling: wounded but defiant, the pack bites back.
 Scale (level 3 of 8): an effect over a few targets.
 Banner — Rockfist Orcs: magic of rockfist orcs, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 적 유닛 3에게 피해 3.
+Lore (Korean, use for the scene): 궁지에 몰린 오크는 물러서지 않고 문다. 덤벼든 자는 살아 돌아가도 숨이 한 가닥만 남는다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 유닛 전체 체력 +2, [치명].
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
@@ -7494,11 +7363,12 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "트롤의 재생". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a burst of forest power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: allies rallying as one under a shared surge of power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Art direction: Troll regeneration: two or three moss trolls in a dim forest clearing, fresh wounds on their bark-like grey-green skin knitting closed before our eyes — torn flesh pulling together with green fibres and tiny sprouting leaves, a gash on an arm already half healed, the trolls grinning and standing back up. Warm green life-glow from the wounds, a few fallen leaves; no fire anywhere (trolls fear fire).
 Scale (level 1 of 8): a small, local effect.
 Banner — Moss Trolls: magic of moss trolls, signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots; palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 아군 유닛 전체에게 [불굴].
+Game effect (Korean, mood only — never draw text or numbers): 아군 유닛 전체에게 [재생 1].
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (mossy roots and ferns) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; glowing moss, thorny vines, drifting leaves.
@@ -8514,19 +8384,21 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## MC-03 · 마력 역류
+## MC-03 · 뒤바뀐 물길
 푸른비늘 인어 · 공용 마법 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/MC-03.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MC-03.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "마력 역류". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a destructive water attack striking the enemy ranks. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Card name (Korean — read its meaning, never write it in the image): "뒤바뀐 물길". Depict exactly what this name describes.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a burst of water power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Art direction: Turned waterway: a lagoon channel whose current has suddenly reversed — a glowing blue-green river runs backwards across the battlefield, and the enemy line (dark silhouettes wading in it) is dragged and shuffled out of order, the heaviest armoured figures pushed to the front, nimble ones swept to the back. A merfolk priestess at the edge, small in frame, guides the reversed flow with one hand; a few drops of the water curl back to her as a soft glow. Show the reversal and the reordered line, not an explosion.
 Scale (level 1 of 8): a small, local effect.
 Banner — Bluescale Merfolk: magic of bluescale merfolk, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛에게 피해 1. 상대 맨 앞 2기에게 피해 2.
+Lore (Korean, use for the scene): 물길이 바뀌면 배는 제 뜻과 상관없이 흘러간다. 단단한 자는 앞으로 떠밀리고, 날랜 자는 뒤로 밀려 칼을 뽑을 틈을 잃는다.
+Game effect (Korean, mood only — never draw text or numbers): 상대 유닛을 방어와 체력의 합이 높은 순으로 맨 앞부터 다시 세운다(마법 칸은 그대로). 내 생명 +1.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
@@ -8628,56 +8500,6 @@ Banner — Bluescale Merfolk: magic of bluescale merfolk, signature motifs: wate
 Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 넬리아의 물에 비친 모습은 거꾸로 선다. 칼날이 몸이 되고, 몸이 칼날이 된다.
 Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 가운데 공격이 체력보다 높은 유닛 전체의 공격과 체력을 맞바꾼다.
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no fire, no heavy plate armour.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## SG3-01 · 물보라
-푸른비늘 인어 · 공격 마법 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/SG3-01.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG3-01.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "물보라". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive water attack striking the enemy ranks. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
-Scale (level 1 of 8): a small, local effect.
-Banner — Bluescale Merfolk: magic of bluescale merfolk, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
-Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 적 유닛 2에게 피해 1. 내 생명 +1.
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no fire, no heavy plate armour.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## SG3-02 · 급류
-푸른비늘 인어 · 공격 마법 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/SG3-02.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG3-02.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "급류". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive water attack striking the enemy ranks. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
-Scale (level 1 of 8): a small, local effect.
-Banner — Bluescale Merfolk: magic of bluescale merfolk, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
-Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛에게 피해 2 +1C.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (rippling lagoon water) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; clear water light, spray, ripples, bubbles.

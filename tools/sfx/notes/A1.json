@@ -237,8 +237,8 @@
   },
   "PN-A1-R": {
    "en": "Shadow Contract Enforcer",
-   "ko": "계약서 한 줄 남김 · 계약 인장이 막음",
-   "atk": "a folded contract is snapped open, a thin dark blade slides out, then a precise critical slash with a bright crack leaves one last breath-like hiss",
+   "ko": "계약서 칼날로 베고 피를 들이켬 · 계약 인장이 막음",
+   "atk": "a folded contract is snapped open, a thin dark blade slides out and slashes, then a low thirsty inhale as a thin trickle of blood is drawn back toward the blade",
    "def": "a blood-stamped contract held up like a shield: a papery shield-like slap, a hot seal sizzling, a wound-open drip that keeps tapping"
   },
   "PN-A1-E": {
@@ -404,8 +404,8 @@
   },
   "IA1-2": {
    "en": "Obsidian Dagger",
-   "ko": "흑요석 단검이 급소 찾아 휨",
-   "equip": "a glassy dagger is slid into a sheath with a smooth click, a faint tick of stone on leather, then a single flex that flicks with a brittle ring and a tiny crack"
+   "ko": "흑요석 단검 · 벤 자리에서 피가 계속 흐름",
+   "equip": "a glassy obsidian dagger is slid into a sheath with a smooth click, a faint tick of stone on leather, then a thin wet drip that keeps falling drop by drop"
   },
   "IA1-3": {
    "en": "Curse Doll",

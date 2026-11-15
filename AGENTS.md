@@ -31,6 +31,56 @@
 - 새 효과(engine `SPELL_OPS`): `paidHit` · `tithe` · `rebirth` · `paidSteal` · `confuse`(반격 없음 `t.noCounter`) · `phantom`(환영 `phantom: true` — 소각장에 가지 않음, sweep · uPreSweep이 건너뜀). 빼앗기 본체는 `stealCard`.
 - 시험 `node tools/abyss/test.js`, 승률 `node tools/abyss/sim.js 100 [new|base]`(`ABYSS='{"robCond":"ge"}'` · `ABYSS='{"off":{"veil":true}}'`로 수치 · 능력을 바꿔 잼).
 
+## 바위주먹 오크 연계 (v3.67)
+- 데이터는 `js/orc.js`(gnome.js 다음 · decks.js 앞): 숨통 끊기(SG1-02) · 송곳니 반격(SG1-08) · 뼈 부수기(MG-13) · 오크의 문신(M2-1)을 [관통] · [치명] 연계로 바꿈(ID · 등급 · 레벨 그대로). 새 효과 `SPELL_OPS.d0Swap`(방어 0 이하 상대 중 공격 최강 n기의 방어 ↔ 남은 체력).
+- 연계의 바탕: [치명]이 남긴 체력 1은 턴이 끝나야 돌아오고, 방어 마법은 앞 아군이 다 쓰러지거나 전투가 끝날 때 발동한다(`runCombatCore` `fire(true)`). [관통]이 깎은 방어도 이번 턴 그대로.
+- 시험 `node tools/orc/test.js`, 승률 `node tools/orc/sim.js 150 [base|elite|덱 json] [js 폴더]`.
+- **카드 이름 · 효과를 바꾸면 그림 · 소리 프롬프트를 다시 뽑고**(`node tools/art/build_prompts.js` · `node tools/sfx/build_sfx_prompts.js`, 마법 · 아이템 장면은 `tools/art/art_notes.json`), 이미 있는 그림 · 소리 파일이 옛 카드 것이면 **`tools/REMAKE.md`(다시 만들 목록)** 에 프롬프트와 함께 올린다. 만들어 넣은 항목은 거기서 지운다.
+
+## 푸른비늘 인어 — 치유와 환상 (v3.68)
+- 데이터는 `js/mermaid.js`(orc.js 다음 · decks.js 앞), 규칙은 `js/engine.js` 끝 "v3.68 푸른비늘 인어" 절(`mrArc` · `mrHeal` · `mrCalm`), 카드 글은 `js/cards.js` `ITEM_KW`.
+- **옛 [마력 공격 N](방어를 N 무시)은 모든 깃발에서 [방어무시 N]** — 데이터 키는 `magic` 그대로. 새 **[마력 공격 N]**(키 `arcane`)은 인어 것: 맞붙을 때(공격 · 반격) 상대 방어 N까지는 막지 못하고 피해에 더해진다(공 4 → 방 3, N ≥ 3이면 7).
+- **[치유 N]**(키 `heal`): 맞붙음에서 살아남을 때마다 받은 피해 N을 채운다. 인어의 가호는 모두 치유로 바뀌었다. 장착할 때 생명을 주던 아이템 능력은 **[생명 +N]**(evName, `game.js` 장착).
+- **레어 오라**: 레어 유닛의 오라 수치 = 범위(1이면 양옆 1칸, 2면 2칸 — 마법 칸은 세지 않음). 쓰고 사라지지 않고 레어가 살아 있는 동안 늘 걸린다. 인어 레어 넬리아의 물그릇 무녀 = [바다의 보호 1](키 `calm`): 범위 안 아군이 받는 피해 −1(맞붙음 · 마법 모두, `MR_CALM_CUT`). 다른 깃발 레어 오라도 같은 틀로.
+- **환상 마법**(특색 없던 카드를 바꿈, ID 그대로 · `MERMAID_GRADES`): 물빛 신기루 SG3-02(무작위 2기 공 ↔ 체, `randSwap`) · 환각의 통제 SG3-01(이 마법 바로 뒤 내 카드와 이름 글자 수가 같은 상대 카드 맨 앞 1장을 빼앗음 — 유닛은 판 끝까지, 마법은 내 마법으로, `mindCapture`) · 뒤바뀐 물길 MC-03(상대 유닛을 방+체 높은 순으로 다시 세움, `sortFoe`) · 씻김의 노래 CS-G3(무효로 했을 때만 상대 전체 해제 · 공격 −1 — 효과의 `ifNeg: true`, castSpell).
+- 시험 `node tools/mermaid/test.js`, 승률 `node tools/mermaid/sim.js 150 [base|elite|덱 json] [js 폴더]`.
+
+## 레어 유닛 = 오라만 (v3.69)
+- **레어 유닛(PN-<깃발>-R) 9장은 스탯과 오라만 가진다. 자기 특수능력은 없다**(표시 ▲ · ▼는 그대로). 데이터 `js/rares.js`(mermaid.js 다음 · decks.js 앞, `RARE_AURA` = 깃발마다 이름 · 하는 일), 규칙 `js/engine.js` 끝 "v3.69 레어 오라" 절(`rareAuraSync`), 카드 글 `ITEM_KW`(RARE_AURA에서 저절로).
+- 오라 수치 = 범위(인어 [바다의 보호]와 같은 셈). 고블린 포격 지휘(사격 +1) · 드워프 무쇠 방벽(방어 +1) · 노움 충전 회로(증폭 +1) · 오크 격노의 함성(공격 +2, **내 전장에 [치명] 유닛이 하나라도 있을 때만** — 범위 밖이어도 됨) · 트롤 가시덤불(가시 +1) · 인어 바다의 보호(v3.68, mermaid.js) · 마족 피의 갈증(흡혈 부여) · 천족 새벽 서약(가호 +1) · 엘프 별의 인도(방어무시 +1). 없는 능력은 그 수치로 생긴다. 오라가 여럿이면 더한다.
+- 셈은 전투 시작 · `sweep` · `step`마다 다시 해서 `t.au`에 적고, 스탯 · 가호 · 가시는 지난 몫과의 차이만 `t`에 더한다. 사격 · 증폭 · 방어무시 · 흡혈은 `abilRaw`가 `t.au`를 더한다. 새 오라를 만들면 `RARE_AURA.eff`에 열쇠를 쓰고, 그 열쇠를 `rareAuraSync`(스탯형) 또는 `abilRaw`(능력형)가 읽게 한다.
+- **무쇠수염 드워프의 🔒 방어는 모두 ▲ 방어**(rares.js가 바꿈) — 오라 · 마법이 올릴 수 있게.
+- 시험 `node tools/rares/test.js`. 설계와 남은 일 `docs/FLAG_IDENTITY_draft.md`.
+
+## 폭풍 하이엘프 = 바람 궁수 (v3.70)
+- **엘프(A3)는 마법사가 아니라 활을 쓰는 사수 · 척후다.** 대표 능력은 [방어무시](멀리서 갑옷 틈을 꿰뚫음)와 [원거리](반격을 받지 않음), 마법은 "조준 사격"(공격)과 "치고 빠지기"(공용 · 방어). 나중에 칼을 쓰는 엘프가 나올 수 있다.
+- 데이터는 `js/elf.js`(rares.js 다음 · decks.js 앞, `ELF_GRADES`는 grades.js가 맨 끝에 덮음): 마법 8장을 새 효과로(ID 그대로) · 유닛 · 아이템 이름과 설명(ID · 스탯 · 능력 · 클래스 그대로). 일반 유닛 서사는 `js/lore.js`. **엘프 카드 이름은 names.js가 아니라 elf.js에서 고친다**(elf.js가 나중에 덮음).
+- 클래스는 마도 그대로(바람 마법을 실어 쏘는 활 · 아이템 종류 촉매). 그림 프롬프트는 `tools/art/art_style.json` flags.A3 — 깃발마다 `classes`로 클래스 말을 덮는다(`build_prompts.js`).
+- 새 효과(`js/engine.js` 끝 "v3.70 바람 궁수 엘프" 절): `retreat`(후퇴 — 내 맨 앞 유닛이 맨 뒤로, `ab`면 그 유닛에게 이번 턴 능력) · `volley`(상대 맨 앞 `skip`기를 뺀 나머지 모두에게 피해 x).
+- 시험 `node tools/elf/test.js`.
+
+## 번개 노움 = [증폭] (v3.72)
+- **노움(B3) 대표 능력은 [증폭 N]**: 전장에 있으면 내 마법이 상대 유닛에게 주는 피해 +N(맞는 유닛마다, 전장의 증폭을 모두 더함). v3.72부터 공격 마법만이 아니라 **공용 · 방어 마법 피해에도** 붙는다(핸드 마법 빼고) — `js/engine.js` `AMP_KINDS` · `ampKind` · `amplify`. CARDS의 마법 type은 공격 `atk` · 공용 `any` · 방어 `def` · 핸드 `hand`. 피해를 주는 새 SPELL_OPS는 `ampKind(C(it)) ? amplify(X.P[caster]) : 0`을 더한다.
+- **[방어무시]는 엘프 것** — 노움 유닛 · 아이템에서 걷었다(`js/gnome.js` 끝 `GNOME_V372`): 피뢰탑 수리공 · 천둥 기관 오메가 · 연쇄 번개 학자 → 증폭 1, 일곱 번째 → 증폭 2 · 정전기 실험가 · 피뢰침 정비공 · 케라운 탐사원 · 번개 병기 학자 · 번개 거신 · 볼타리움 학장 → 능력 없는 일반(v3.49 전 스탯) · 아이템 5장(구리 코일 · 학술원 법전 → 증폭 1, 별을 읽는 보주 · 케라운의 뇌관 · 즈라크의 번개 병 → 방어무시만 뺌). 증폭 글(evText)은 gnome.js가 모든 깃발 카드에서 새 규칙으로 고쳐 쓴다.
+- 증폭은 합이 쌓여 광역 마법에서 크게 튄다 — 증폭 유닛을 늘릴 때는 승률을 꼭 잰다(방어무시 10장을 모두 증폭으로 바꾸면 기본 덱 52 → 59%).
+- 시험 `node tools/gnome/test.js`.
+
+## 잿불 고블린 = 불붙이기 (v3.73)
+- **고블린(B1) 대표 능력은 [점화 N]**(키 `ignite`): 고블린의 옛 [사격 N]을 바꿨다. 내 공격 차례에 맞붙기 바로 전에 남은 체력이 가장 높은 상대 유닛에 **화상 N**(그 자리 피해 없음). 다른 깃발의 [사격]은 그대로.
+- **화상**(`keep.scorch`): 쌓이고, 다음 턴 전투가 시작될 때(불씨 다음 · 첫 마법 전) 한 번 체력이 깎이고(방어 무시) 꺼진다. 마족 [출혈](이번 전투 맞붙음마다) · 고블린 유니크 불씨 전염(꺼지지 않고 옮김)과 다르다.
+- **[화염 갑주 N]**(키 `farmor`): 이 유닛을 맞붙어 공격한 상대에 화상 N(원거리도). 고블린 [가시]는 모두 이것으로. 갑주 수치는 1로 둔다 — 2~3이면 기본 덱 승률이 70%까지 올랐다(벽 하나를 여럿이 치면 모두 탄다).
+- 레어 오라 [포격 지휘] = 양옆 아군 공격 +1(`js/goblin.js`가 `RARE_AURA.B1`을 덮음).
+- 데이터는 `js/goblin.js`(elf.js 다음 · decks.js 앞, `GOBLIN_GRADES`는 grades.js가 맨 끝에 덮음): 유닛 14장 재구성(1 · 2레벨 포함, 일반 → 고급), 마법 4장(ID 그대로) 도화선 · 기폭(공용) · 불의 장막(방어) · 연막탄(방어). 규칙은 `js/engine.js` 끝 "v3.73 잿불 고블린" 절(`gbScorch` · `gbIgnite` · `gbArmor` · `gbBurnTick` · 효과 `scorch` · `detonate` · `scorchMod`).
+- 시험 `node tools/goblin/test.js`.
+
+## 새 특수능력 (v3.74, 사전 `docs/ABILITIES.md`)
+- 능력을 새로 만들거나 바꿀 때는 먼저 `docs/ABILITIES.md`(엔진 기준 능력 사전 · 비교표)를 읽고, 바꾼 뒤 그 문서도 고친다.
+- 카드 데이터 `js/newabil.js`(goblin.js 다음 · decks.js 앞), 규칙 `js/engine.js` 끝 "v3.74 새 능력" 절.
+- **[재생 N]**(트롤, 키 `regen`): 맞붙음이 시작될 때마다(출혈 다음) 체력 +N · 깎인 방어 +N(카드 방어까지), 화상 · 불씨가 붙으면 멈춤. 받은 피해는 턴 끝에 어차피 나으니 회복 능력은 전투 도중에만 뜻이 있다.
+- **[방패 반격]**(`bash`, 반격 + 방어) · **[수호]**(`taunt`, 유닛 능력 — resetTurn이 t.taunt를 켬) · **[굳건]**(`firm`, 자리 바꾸기 · 빼앗기 · 행동 불가 면역 — 새 자리 바꾸기 · 빼앗기 효과는 `nwFirm`/`nwFirmArrange`를 거친다)는 드워프. **[정화]**(`purify`)는 천족, **[요격]**(`intercept`)은 노움.
+- [가호 N]은 [출혈]을 깎일 때마다 N 줄인다(마족 ↔ 천족 상극). 보호막 · 바다의 보호는 출혈을 못 막는다.
+- 시험 `node tools/newabil/test.js` · `node tools/abyss/bleed_ward_test.js`.
+
 ## 카드 배치 · 핸드 (v3.19)
 - 카드는 판타지 마스터즈식 배치다(왼쪽 위 종류 아이콘 · 왼쪽 세로 레벨 · 그림 아래 글 상자 · 오른쪽 아래 클래스와 공방체). HTML은 `js/view.js` `cardHTML` · `cardFullHTML`, 모양은 `css/fmcard.css`(맨 마지막에 읽음). 카드 모양을 고칠 때 `style.css` · `slim.css`의 옛 카드 규칙보다 이 파일을 먼저 본다.
 - 전장의 내 핸드는 겹치지 않는 똑바른 한 줄(`css/hand-row.css`, 슬롯의 `--i` · `--n`). 부채꼴로 되돌리지 않는다.
@@ -78,7 +128,7 @@
 - 사람이 둘 수 있는 새 행동을 만들면 `js/online.js`의 `ACT_FNS`에 넣어 상대에게도 보낸다. 핸드 순서도 판에 영향이 있다(맨 왼쪽 카드를 겨냥하는 마법).
 
 ## 소리 프롬프트 (2026-11-14, Gemini용)
-- 배경음 · 효과음은 Gemini(Lyria)로 새로 만든다. 배경음 지시서 `tools/bgm/PROMPT_BGM.md`(15곡: 1부 서정적인 랩소디 5 + 2부 성향이 다른 10, 쓸 곳은 타이틀 1 · 대기실 쪽 7 · 대전 7 제안), 효과음 `tools/sfx/PROMPT_SFX.md`(공용 130 + 카드 705장).
+- **배경음은 Gemini(Lyria), 효과음은 이 맥에서 Stable Audio Open 1.0으로 만든다**(v3.65.1~). 효과음 도구는 `~/develop/stable-audio/gen.py`(MPS) — `tools/sfx/prompts/sfx.jsonl`의 `sounds[].single` 문장을 읽어 `<키>.ogg · .mp3`를 만든다. 일부만 다시 만들 때는 그 카드 줄만 모은 jsonl을 `SAO_SRC`로, 출력은 `SAO_OUT`, `--redo`(예: `SAO_SRC=x.jsonl SAO_OUT=dir .venv/bin/python gen.py 0 100 fp16 cards --redo`, 한 소리에 30초쯤). 만든 파일을 `audio/sfx/`에 같은 이름으로 넣는다(새 키면 `index.json` · `index.js`에도). 배경음 지시서 `tools/bgm/PROMPT_BGM.md`(15곡: 1부 서정적인 랩소디 5 + 2부 성향이 다른 10, 쓸 곳은 타이틀 1 · 대기실 쪽 7 · 대전 7 제안), 효과음 `tools/sfx/PROMPT_SFX.md`(공용 130 + 카드 705장).
 - **카드마다 공격 · 방어 소리가 다르다**(마법은 발동, 아이템은 장착). 새 카드를 만들면 `tools/sfx/notes/<깃발>.json`에 소리 지시도 함께 쓰고(쓰는 법 PROMPT_SFX.md 6장) `node tools/sfx/build_sfx_prompts.js` → `tools/sfx/prompts/`. 지시가 없는 카드는 도구가 알려 준다.
 - 받은 소리 파일은 `audio/inbox/bgm/` · `audio/inbox/sfx/`(카드는 `cards/`)에 들어온다. 테이크 나누기는 `prompts/sfx.jsonl`의 `takes`를 따른다.
 

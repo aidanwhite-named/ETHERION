@@ -134,11 +134,11 @@ Grade: UNIQUE — a named legend of the banner, iconic hero portrait. A named le
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "바늘탑 별지기". Depict exactly what this name describes.
 Subject: a legendary, named member of the Storm High Elves (see art direction).
-Art direction: A high-elf star-keeper atop Belumir's Needle, reading abstract star glyphs carried on the wind before the spells arrive.
+Art direction: A high-elf star-keeper archer on a lookout platform atop Belumir's Needle, bow half-drawn, reading abstract star glyphs carried on the wind before the enemy's spells arrive.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 벨루미르의 바늘탑 꼭대기에서 별의 문자를 지키는 하이엘프. 바람이 옮기는 주문을 미리 읽는다.
+Lore (Korean, use for the scene): 벨루미르의 바늘 꼭대기 망루에서 별과 바람을 함께 읽는 하이엘프 사수. 적의 주문이 바람을 타고 오기 전에 이미 과녁을 정해 둔다.
 Camera: centred heroic portrait, near-symmetrical, subject about 70% of the frame, looking slightly down toward the viewer, a strong iconic silhouette.
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; the spires of Belumir's Needle piercing the clouds under a night sky full of stars; behind it, faint and colossal, the banner's source: the god Belumir, the Star-Reader — a robe with a thousand eyes, an open book and stars; swirling teal wind, fluttering robes and pages.
@@ -146,26 +146,26 @@ Detail: masterwork: heraldic ornaments of the banner, a signature personal weapo
 Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UN-A3-7 · 벨루미르의 마력 포식자
+## UN-A3-7 · 벨루미르의 주문 사냥꾼
 폭풍 하이엘프 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-A3-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-A3-7.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: UNIQUE — a named legend of the banner, iconic hero portrait. A named legend of this banner — iconic and instantly recognisable, a hero image you would hang as a poster.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "벨루미르의 마력 포식자". Depict exactly what this name describes.
+Card name (Korean — read its meaning, never write it in the image): "벨루미르의 주문 사냥꾼". Depict exactly what this name describes.
 Subject: a legendary, named member of the Storm High Elves (see art direction).
-Art direction: A high-elf devouring enemy spells: streams of foreign-coloured magic are pulled into his open palm and swallowed as light.
+Art direction: A high-elf spell-hunter archer: his arrow pierces a glowing enemy spell mid-air, and streams of foreign-coloured magic are pulled along the arrow into his bow and swallowed as light.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 벨루미르의 바늘탑에서 남의 주문을 먹고 자란 하이엘프. 상대가 외는 주문이 그의 힘이 된다.
+Lore (Korean, use for the scene): 남의 주문만 골라 쏘아 떨어뜨리는 하이엘프. 화살촉에 꿰인 주문은 빛이 되어 그의 활로 빨려 든다.
 Camera: centred heroic portrait, near-symmetrical, subject about 70% of the frame, looking slightly down toward the viewer, a strong iconic silhouette.
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
 Background: very dark night-blue (#07080d) base; the spires of Belumir's Needle piercing the clouds under a night sky full of stars; behind it, faint and colossal, the banner's source: the god Belumir, the Star-Reader — a robe with a thousand eyes, an open book and stars; swirling teal wind, fluttering robes and pages.
@@ -173,7 +173,7 @@ Detail: masterwork: heraldic ornaments of the banner, a signature personal weapo
 Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.

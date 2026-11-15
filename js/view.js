@@ -389,6 +389,22 @@ function fitDescs(root) {
     for (let i = 0; i < 14 && d.scrollHeight > d.clientHeight + 1 && f > min; i++) { f -= 0.04; p.style.fontSize = f + "em"; }
   });
   (root || document).querySelectorAll(".slot .card.fm > .c-frame .c-boxin").forEach(fitFieldBox);
+  fitBriefs(root);
+}
+/* 2026-11-15 마법 짧은 문구(.c-brief)는 글자를 키웠다(css/cardtext.css). 긴 문구가 글 상자 밑으로 넘치는 카드만 --bfs로 조금씩 줄인다.
+   모두 먼저 재고(읽기) 넘친 것만 한꺼번에 고친다(쓰기) — 덱 조정실처럼 카드가 많아도 화면 다시 그리기를 몇 번만 */
+function fitBriefs(root) {
+  const list = [...(root || document).querySelectorAll(".card.fm .c-box .c-brief")];
+  if (!list.length) return;
+  for (const b of list) if (b.style.getPropertyValue("--bfs")) b.style.removeProperty("--bfs");
+  const over = b => { const box = b.closest(".c-boxin") || b.closest(".c-box"), p = b.lastElementChild;
+    return box && p && p.getBoundingClientRect().bottom > box.getBoundingClientRect().bottom + 0.5; };
+  let bad = list.filter(over);
+  for (const s of [0.95, 0.9, 0.85]) {
+    if (!bad.length) break;
+    for (const b of bad) b.style.setProperty("--bfs", s);
+    bad = bad.filter(over);
+  }
 }
 /* v3.61.1 전장 칸 카드의 글 상자: 능력 칩은 핸드와 같은 크기(css/cardtext.css)로 두되, 아이템을 달아 칩이 넘치면
    ① 분위기 글(.c-flv)을 빼고 ② 그래도 넘치면 칩 글자(--chs)를 예전 전장 크기(.52em)까지 조금씩 줄인다. 다 들어가면 아래쪽 흐림(mask)도 끈다 */

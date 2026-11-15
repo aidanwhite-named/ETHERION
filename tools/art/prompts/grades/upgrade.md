@@ -297,29 +297,29 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-A3-10 · 회오리 정예술사
+## UP-A3-10 · 속사 정예병
 폭풍 하이엘프 · 유닛 · 레벨 3 · 강화 · 원래 카드 `A3-10` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A3-10.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A3-10.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "회오리 정예술사". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Storm High Elves — a spellcaster channelling wind power.
-If a reference image is attached, it is the base card (A3-10): keep the same character, species, face, colours and silhouette and repaint it as the empowered version. (base card: "회오리 견습생")
-Continuity with the base card: this is the very same individual as "회오리 견습생" (A3-10) after a promotion — same species, sex, age, face, hair or beard, colours, weapon type and fighting style, now one rank higher. The base card is set in wind-swept clouds; keep that same place, intensified.
+Card name (Korean — read its meaning, never write it in the image): "속사 정예병". Depict exactly what this name describes.
+Subject: a seasoned, battle-hardened member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
+If a reference image is attached, it is the base card (A3-10): keep the same character, species, face, colours and silhouette and repaint it as the empowered version. (base card: "속사 견습생")
+Continuity with the base card: this is the very same individual as "속사 견습생" (A3-10) after a promotion — same species, sex, age, face, hair or beard, colours, weapon type and fighting style, now one rank higher. The base card is set in wind-swept clouds; keep that same place, intensified.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 견습을 마친 날, 바늘탑 꼭대기에서 회오리 하나를 제 손으로 꺼뜨렸다.
+Lore (Korean, use for the scene): 견습을 마친 날, 바늘탑 꼭대기에서 화살 열 대로 과녁 하나를 꿰었다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle); swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms); swirling teal wind, fluttering robes and pages.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -333,105 +333,105 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "질풍 사자". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Storm High Elves — a spellcaster channelling wind power.
+Subject: a seasoned, battle-hardened member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
 If a reference image is attached, it is the base card (A3-11): keep the same character, species, face, colours and silhouette and repaint it as the empowered version. (base card: "질풍 전령")
 Continuity with the base card: this is the very same individual as "질풍 전령" (A3-11) after a promotion — same species, sex, age, face, hair or beard, colours, weapon type and fighting style, now one rank higher. The base card is set in wind-swept clouds; keep that same place, intensified.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 전령은 소식을 나른다. 사자는 바람보다 먼저 닿아 소식이 된다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle); swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms); swirling teal wind, fluttering robes and pages.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-A3-18 · 회오리 마도장
+## UP-A3-18 · 쌍시위 궁수장
 폭풍 하이엘프 · 유닛 · 레벨 4 · 강화 · 원래 카드 `A3-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A3-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A3-18.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "회오리 마도장". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Storm High Elves — a spellcaster channelling wind power.
-If a reference image is attached, it is the base card (A3-18): keep the same character, species, face, colours and silhouette and repaint it as the empowered version. (base card: "회오리 술사")
-Continuity with the base card: this is the very same individual as "회오리 술사" (A3-18) after a promotion — same species, sex, age, face, hair or beard, colours, weapon type and fighting style, now one rank higher. The base card is set in wind-swept clouds; keep that same place, intensified.
+Card name (Korean — read its meaning, never write it in the image): "쌍시위 궁수장". Depict exactly what this name describes.
+Subject: a seasoned, battle-hardened member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
+If a reference image is attached, it is the base card (A3-18): keep the same character, species, face, colours and silhouette and repaint it as the empowered version. (base card: "쌍시위 궁수")
+Continuity with the base card: this is the very same individual as "쌍시위 궁수" (A3-18) after a promotion — same species, sex, age, face, hair or beard, colours, weapon type and fighting style, now one rank higher. The base card is set in wind-swept clouds; keep that same place, intensified.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 술사들의 회오리를 하나로 엮어 군단의 앞에 세운다.
+Lore (Korean, use for the scene): 사수들의 시위 소리를 하나로 엮어 궁수대의 앞에 세운다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle); swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms); swirling teal wind, fluttering robes and pages.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-A3-23 · 벨루미르의 현자
+## UP-A3-23 · 벨루미르의 순찰대장
 폭풍 하이엘프 · 유닛 · 레벨 5 · 강화 · 원래 카드 `A3-23` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A3-23.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A3-23.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "벨루미르의 현자". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Storm High Elves — a spellcaster channelling wind power.
-If a reference image is attached, it is the base card (A3-23): keep the same character, species, face, colours and silhouette and repaint it as the empowered version. (base card: "벨루미르의 학자")
-Continuity with the base card: this is the very same individual as "벨루미르의 학자" (A3-23) after a promotion — same species, sex, age, face, hair or beard, colours, weapon type and fighting style, now one rank higher. The base card is set in wind-swept clouds; keep that same place, intensified.
+Card name (Korean — read its meaning, never write it in the image): "벨루미르의 순찰대장". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
+If a reference image is attached, it is the base card (A3-23): keep the same character, species, face, colours and silhouette and repaint it as the empowered version. (base card: "벨루미르의 순찰자")
+Continuity with the base card: this is the very same individual as "벨루미르의 순찰자" (A3-23) after a promotion — same species, sex, age, face, hair or beard, colours, weapon type and fighting style, now one rank higher. The base card is set in wind-swept clouds; keep that same place, intensified.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 학자는 별을 읽고, 현자는 별이 무엇을 숨기는지 읽는다.
+Lore (Korean, use for the scene): 순찰자는 길을 걷고, 순찰대장은 적이 어느 길로 올지 먼저 읽는다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle); swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms); swirling teal wind, fluttering robes and pages.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-A3-24 · 번개구름 지휘자
+## UP-A3-24 · 번개 화살 지휘관
 폭풍 하이엘프 · 유닛 · 레벨 5 · 강화 · 원래 카드 `A3-24` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A3-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A3-24.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "번개구름 지휘자". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Storm High Elves — a spellcaster channelling wind power.
-If a reference image is attached, it is the base card (A3-24): keep the same character, species, face, colours and silhouette and repaint it as the empowered version. (base card: "번개구름 술사")
-Continuity with the base card: this is the very same individual as "번개구름 술사" (A3-24) after a promotion — same species, sex, age, face, hair or beard, colours, weapon type and fighting style, now one rank higher. The base card is set in wind-swept clouds; keep that same place, intensified.
+Card name (Korean — read its meaning, never write it in the image): "번개 화살 지휘관". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Storm High Elves — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
+If a reference image is attached, it is the base card (A3-24): keep the same character, species, face, colours and silhouette and repaint it as the empowered version. (base card: "번개 화살 사수")
+Continuity with the base card: this is the very same individual as "번개 화살 사수" (A3-24) after a promotion — same species, sex, age, face, hair or beard, colours, weapon type and fighting style, now one rank higher. The base card is set in wind-swept clouds; keep that same place, intensified.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Storm High Elves: high-elf mages: long pointed ears, silver hair, slender and proud. Silhouette: slender figures whose robes and hair are swept by strong wind, book pages flying around them. Materials: flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls. Signature motifs: swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers.
+Banner — Storm High Elves: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 번개구름을 부르는 것은 쉽다. 그것을 원하는 곳에만 떨어뜨리는 것이 그의 일이다.
+Lore (Korean, use for the scene): 번개를 화살에 싣는 것은 쉽다. 그것을 원하는 곳에만 떨어뜨리는 것이 그의 일이다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle); swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms); swirling teal wind, fluttering robes and pages.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
-Stay true to the banner: no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -503,7 +503,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "화약고 철벽대". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened member of the Cinder Goblins — an armed fighter wielding a weapon typical of the banner.
 If a reference image is attached, it is the base card (B1-18): keep the same character, species, face, colours and silhouette and repaint it as the empowered version. (base card: "화약고 수비대")
-Continuity with the base card: this is the very same individual as "화약고 수비대" (B1-18) after a promotion — same species, sex, age, face, hair or beard, colours, weapon type and fighting style, now one rank higher. The base card is set in a soot-stained gun bastion wall; keep that same place, intensified.
+Continuity with the base card: this is the very same individual as "화약고 수비대" (B1-18) after a promotion — same species, sex, age, face, hair or beard, colours, weapon type and fighting style, now one rank higher. The base card is set in the fortress-foundry of Fortan, chimneys and gun bastions; keep that same place, intensified.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Banner — Cinder Goblins: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.

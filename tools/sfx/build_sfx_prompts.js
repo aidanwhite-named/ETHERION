@@ -22,7 +22,7 @@ const COMMON = JSON.parse(fs.readFileSync(path.join(__dirname, "sfx_common.json"
 const FLAGS = ["B1", "B2", "B3", "G1", "G2", "G3", "A1", "A2", "A3"];
 
 /* ---------- 1. 게임 데이터 (index.html과 같은 차례) ---------- */
-const DATA_FILES = ["data", "names", "retired", "briefs", "specials", "uniques", "highcards", "pincards", "rarespells", "counterspells", "upgrades", "rebalance", "abyss", "gnome", "decks", "cards", "grades"];
+const DATA_FILES = ["data", "names", "retired", "briefs", "specials", "uniques", "highcards", "pincards", "rarespells", "counterspells", "upgrades", "rebalance", "abyss", "gnome", "orc", "mermaid", "rares", "elf", "goblin", "newabil", "decks", "cards", "grades"];
 function loadGame() {
   const stub = () => null;
   const ctx = {

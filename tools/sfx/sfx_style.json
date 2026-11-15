@@ -30,9 +30,9 @@
     "A2": { "en": "Radiant Seraphs", "world": "seraphs and human knights who take blows for allies and guard them with shields",
             "palette": "bright bell tones, radiant swells, silver armour, shimmering light, feathered wings",
             "guard": "ringing holy shields, radiant wards, silver plate, glowing halo hum" },
-    "A3": { "en": "Storm High Elves", "world": "proud, frail high-elf storm mages who twist fate and the wind",
-            "palette": "rushing gusts, airy whistles, swift thin blades, feathered arrows, rustling silk, distant thunder",
-            "guard": "wind barriers, deflecting gusts, quick parries, nimble dodges, swirling air" }
+    "A3": { "en": "Storm High Elves", "world": "proud, frail high-elf wind archers who shoot from afar, pierce armour and slip away on the wind",
+            "palette": "taut bowstrings twanging, feathered arrows whistling on the wind, rushing gusts, light leather and silk, distant thunder",
+            "guard": "nimble dodges and springing retreats, deflecting gusts, bow-limb parries, leather bracers, swirling air" }
   },
 
   "_levels": "유닛 레벨 → 크기 말과 길이(초). atk = 공격, def = 방어",

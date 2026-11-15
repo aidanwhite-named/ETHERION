@@ -52,7 +52,7 @@ T('강철 사슬', `const L = mk("UN-B2-7"), m = mk("B2-36"); const P = [side(0,
   ok(/강철 사슬/.test(logs(X)) && L.t.dmg > 0, "강철 사슬: 앞 유닛이 받는 피해의 절반을 대신 받음 " + L.t.dmg + "/" + m.t.dmg);`);
 // 5 축전
 T('축전', `const c = mk("UN-B3"); c.t.keep.charge = 2; const P = [side(0, [c]), side(1, ["A2-01", "A2-02"])]; const X = fight(P, 0, 2);
-  ok(/모은 번개를 풀었다/.test(logs(X)) && c.t.keep.charge === 0, "축전: 충전 3이면 전투 시작에 전체 피해");
+  ok(/모은 (번개|플라즈마)를 풀었다/.test(logs(X)) && c.t.keep.charge === 0, "축전: 충전 3이면 전투 시작에 전체 피해");
   const P2 = [side(0, ["SB3-01", mk("UN-B3")]), side(1, ["A2-01"])]; const X2 = fight(P2, 0, 2); const u = findId(P2[0], "UN-B3"); ok(u && u.t.keep.charge >= 1, "축전: 내 마법이 발동하면 충전 " + (u && u.t.keep.charge));`);
 // 6 자기장 교란
 T('자기장 교란', `const j = mk("UN-B3-7"); const a = mk("B1-34"); const P = [side(0, [a]), side(1, [j])]; const X = fight(P, 0, 2, 11);

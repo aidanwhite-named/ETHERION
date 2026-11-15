@@ -20,7 +20,7 @@ const ABYSS = {
 };
 
 /* 능력 이름 (화면 · 기록) */
-const ABYSS_KW = { rob: "강탈", leech: "흡혈", veil: "그림자 걸음", pact: "피의 계약" };
+const ABYSS_KW = { rob: "강탈", leech: "흡혈", veil: "그림자 걸음", pact: "피의 계약", bleed: "출혈" };
 
 (function () {
   const U = id => SIM_UNITS.find(u => u.id === id), S = id => SIM_SPELLS.find(s => s.id === id), I = id => SIM_ITEMS.find(i => i.id === id);
@@ -39,6 +39,7 @@ const ABYSS_KW = { rob: "강탈", leech: "흡혈", veil: "그림자 걸음", pac
 
   /* ---------- 아이템 ---------- */
   { const it = I("IA1-1"); if (it) it.pact = 2; }   // 피의 서약 부적 — "대가만큼 힘을 준다"
+  { const it = I("IA1-2"); if (it) { delete it.crit; it.bleed = 2; it.desc = "녹타르의 흑요석 단검. 벤 자리가 아물지 않고 싸움 내내 피를 흘린다."; } }   // 흑요 단검 [치명] → [출혈 2] (처음 1, 사용자 결정으로 2 — 400판 46.3 → 48.8%) (v3.65 사용자 결정: 흡혈은 버팀, 출혈은 공격 — 싸움이 길수록 닳게)
   { const it = I("IA1-4"); if (it) { delete it.crit; it.leech = true; it.desc = "쓰는 순간 얼굴이 사라지는 가면. 벤 자의 피로 그 얼굴을 다시 그린다."; } }   // 심연의 가면 [치명] → [흡혈]
   { const it = I("IR-A1"); if (it) { delete it.crit; it.leech = true; it.desc = "심연 계약단의 처형인이 쓰는 가면. 쓴 자는 벤 상처에서 흐르는 피를 제 숨으로 들이킨다."; } }   // 녹타르 피의 가면 [치명] → [흡혈] (마력 1은 그대로)
 

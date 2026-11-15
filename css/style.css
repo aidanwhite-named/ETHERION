@@ -1084,6 +1084,11 @@ html:not(.appui) .ed-pool .pool-grid { flex-shrink: 0; min-height: min(340px, 10
 /* 1.5배는 키가 큰 화면(1200px 이상)에서만. 1080p 등에서는 1.25배, 1000px 아래는 1.1배 — js/screens.js fit()이 zoom을 읽어 --avail을 잰다 */
 @media (max-height: 1199px) { .screen-editor > .ed-bar, .screen-editor > .editor { zoom: 1.25; } }
 @media (max-height: 999px) { .screen-editor > .ed-bar, .screen-editor > .editor { zoom: 1.1; } }
+/* 2026-11-15 작은 PC 화면(js/screens.js fit()이 붙이는 .ed-flow): 패널을 화면 높이에 가두지 않고 페이지째 스크롤한다.
+   보유 카드 칸 = 카드 수만큼 길게(안쪽 스크롤 없음), 운명의 서 = 화면 높이(--avail)로 위에 붙어(sticky) 스크롤을 따라온다 */
+html:not(.appui) .screen-editor.ed-flow .editor .ed-pool { height: auto; overflow: visible; }
+html:not(.appui) .screen-editor.ed-flow .ed-pool .pool-grid { flex: none; max-height: none; overflow: visible; }
+html:not(.appui) .screen-editor.ed-flow .editor .ed-deck { position: sticky; top: var(--edtop, 8px); height: var(--avail); overscroll-behavior: auto; }
 
 /* ===================== v0.6 오른쪽 위 배지: 정사각형 = 카드 종류, 동그라미 = 클래스 ===================== */
 /* 마법 종류(칼·방패)는 아래 띠 대신 오른쪽 위 정사각형으로. 아이템은 보석 정사각형 */

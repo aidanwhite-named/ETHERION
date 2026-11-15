@@ -14,16 +14,16 @@
 - `<!-- AUTO:… -->` 칸은 `node tools/art/build_prompts.js`가 `tools/art/art_style.json`에서 채운다. **고칠 때는 art_style.json을 고치고 다시 돌린다** — 이 문서의 표만 고치면 다음에 덮인다. 나머지 글은 손으로 고쳐도 된다.
 
 <!-- AUTO:COUNTS -->
-프롬프트 버전 **g3** (2026-11-14) · 카드 708장 (뺀 카드 제외, 소환물 포함)
+프롬프트 버전 **g3** (2026-11-15) · 카드 708장 (뺀 카드 제외, 소환물 포함)
 
 | 등급 | 색 | 장수 | 유닛 · 마법 · 아이템 | 등급별 프롬프트 파일 |
 |---|---|---|---|---|
 | 소환물 (Summoned token) | `#8fdcff` | 17 | 13 · 4 · 0 | `prompts/grades/token.md` |
-| 일반 (Common) | `#f4f1ea` | 383 | 209 · 127 · 47 | `prompts/grades/common.md` |
-| 고급 (Superior) | `#f2cf3d` | 129 | 84 · 31 · 14 | `prompts/grades/uncommon.md` |
-| 레어 (Rare) | `#4ea8ff` | 48 | 9 · 29 · 10 | `prompts/grades/rare.md` |
+| 일반 (Common) | `#f4f1ea` | 375 | 205 · 123 · 47 | `prompts/grades/common.md` |
+| 고급 (Superior) | `#f2cf3d` | 135 | 88 · 33 · 14 | `prompts/grades/uncommon.md` |
+| 레어 (Rare) | `#4ea8ff` | 49 | 9 · 30 · 10 | `prompts/grades/rare.md` |
 | 강화 (Empowered) | `#3fe0c0` | 40 | 40 · 0 · 0 | `prompts/grades/upgrade.md` |
-| 에픽 (Epic) | `#b46cff` | 61 | 36 · 17 · 8 | `prompts/grades/epic.md` |
+| 에픽 (Epic) | `#b46cff` | 62 | 36 · 18 · 8 | `prompts/grades/epic.md` |
 | 유니크 (Unique) | `#ff8a2a` | 18 | 18 · 0 · 0 | `prompts/grades/unique.md` |
 | 스페셜 (Special) | `#ff4d73` | 12 | 9 · 0 · 3 | `prompts/grades/special.md` |
 <!-- /AUTO:COUNTS -->
@@ -419,18 +419,18 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 | 항목 | 넣을 말 |
 |---|---|
-| 누구 who | high-elf mages: long pointed ears, silver hair, slender and proud |
-| 실루엣 silhouette | slender figures whose robes and hair are swept by strong wind, book pages flying around them |
-| 재료 materials | flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls |
+| 누구 who | high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud |
+| 실루엣 silhouette | slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind |
+| 재료 materials | light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour |
 | 색 palette | wind teal #9fe3d6, silver, white, starry indigo |
-| 상징 motifs | swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers |
+| 상징 motifs | arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms |
 | 빛 light | cool teal-white starlight and streaks of wind |
 | 배경 (일반) hint | wind-swept clouds |
-| 배경 (고급 · 강화) home | the cloud-piercing spire towers of Belumir's Needle |
+| 배경 (고급 · 강화) home | the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms |
 | 배경 (레어 · 에픽 · 유니크) landmark | the spires of Belumir's Needle piercing the clouds under a night sky full of stars |
 | 근원 (유니크) source | the god Belumir, the Star-Reader — a robe with a thousand eyes, an open book and stars |
 | 신화 배경 (스페셜) mythic | the god Belumir's robe of a thousand eyes unfolding across the night sky as constellations |
-| 하지 말 것 never | no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters |
+| 하지 말 것 never | no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters |
 
 <!-- /AUTO:FLAGS -->
 

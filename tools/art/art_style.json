@@ -1,7 +1,7 @@
 {
   "_about": "ETHERION 카드 일러스트 프롬프트의 원본(등급 · 레벨 · 깃발 · 진영 · 종류). 여기를 고치면 node tools/art/build_prompts.js 를 다시 돌린다. 문구를 바꿨으면 version을 올린다(g1 → g2) — art_map.csv가 옛 버전으로 그린 그림을 알려 준다. 설명은 tools/art/PROMPT_GUIDE.md.",
   "version": "g3",
-  "updated": "2026-11-14",
+  "updated": "2026-11-15",
 
   "base": "Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.",
   "quality": "Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.",
@@ -308,18 +308,23 @@
     },
     "A3": {
       "ko": "폭풍 하이엘프", "en": "Storm High Elves", "faction": "arcane", "element": "wind",
-      "who": "high-elf mages: long pointed ears, silver hair, slender and proud",
-      "silhouette": "slender figures whose robes and hair are swept by strong wind, book pages flying around them",
-      "materials": "flowing silver-white and teal robes with star embroidery, open spellbooks, crystal staffs, scrolls",
+      "who": "high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud",
+      "silhouette": "slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind",
+      "materials": "light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour",
       "palette": "wind teal #9fe3d6, silver, white, starry indigo",
-      "motifs": "swirling wind, flying pages, abstract star glyphs, constellations, spire towers, feathers",
+      "motifs": "arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms",
       "hint": "wind-swept clouds",
-      "home": "the cloud-piercing spire towers of Belumir's Needle",
+      "home": "the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms",
       "landmark": "the spires of Belumir's Needle piercing the clouds under a night sky full of stars",
       "source": "the god Belumir, the Star-Reader — a robe with a thousand eyes, an open book and stars",
       "mythic": "the god Belumir's robe of a thousand eyes unfolding across the night sky as constellations",
       "light": "cool teal-white starlight and streaks of wind",
-      "never": "no forest elves or nature druids, no bulky muscles; star glyphs are abstract shapes, never readable letters"
+      "never": "no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters",
+      "classes": {
+        "마도": "a high-elf archer whose arrows ride {el} — bow drawn or just loosed, aiming from afar",
+        "무장": "a high-elf fighter: a nimble blade-dancer or a long-bow knight",
+        "무도": "a high-elf beast-handler with a storm bird or a wind-borne creature"
+      }
     }
   },
 

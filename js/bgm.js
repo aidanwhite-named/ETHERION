@@ -20,7 +20,7 @@
 
 const BGM = {
   dir: "audio/bgm/",
-  ver: "g1",          // 음원을 바꾸면 올린다(브라우저가 옛 파일을 기억하지 않게) — Gemini 15곡판
+  ver: "g2",          // 음원을 바꾸면 올린다(브라우저가 옛 파일을 기억하지 않게) — Gemini 15곡 단조판(2026-11-15)
   tracks: {
     title: ["bgm_main"],
     town: ["bgm_lantern", "bgm_library", "bgm_anvil", "bgm_clockwork", "bgm_moss", "bgm_tide", "bgm_halo"],

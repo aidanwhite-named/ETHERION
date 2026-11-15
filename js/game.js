@@ -40,6 +40,16 @@ const atkSfx = (uid, phase, v, kind) => {
   const it = G.reg && G.reg[uid];
   FEEL.atk(kind || atkKindOf(uid), phase, v, it ? C(it).lv : 3, it ? it.id : null);
 };
+/* 2026-11-15 맞붙는 순간 능력 소리 (떠오르는 글자가 없는 능력): [마력 공격](방어가 있는 상대를 칠 때) · 반격 때 [방패 반격] · [원거리]에게 [요격].
+   abilOf는 엔진 것 — 재생 중인 판의 카드 상태로 본다. 카드 소리 뒤에 살짝 늦게 겹친다 */
+const abilSfx = (actUid, tgtUid, counter) => {
+  if (typeof abilOf !== "function" || !G || G.cfg.headless || G.speed === 0) return;
+  const a = G.reg && G.reg[actUid], t = G.reg && G.reg[tgtUid];
+  if (!a || !a.t) return;
+  let ab, tb; try { ab = abilOf(a); tb = t && t.t ? abilOf(t) : {}; } catch (e) { return; }
+  const k = counter && ab.bash ? "shield_bash" : counter && ab.intercept && tb.ranged ? "intercept" : ab.arcane > 0 && t && t.t && t.t.d > 0 ? "arcane" : null;
+  if (k) setTimeout(() => sfx(k, 0.75), 110);
+};
 /* 2026-11-15 카드마다 다른 효과음 (audio/sfx/<카드ID>.atk · def · cast · equip, js/feel.js FEEL.card). 그 카드 소리가 없으면 fb */
 const cardSfx = (uid, part, v, fb) => {
   if (typeof FEEL === "undefined" || !FEEL.card || !G || G.cfg.headless || G.speed === 0) return;
@@ -164,7 +174,7 @@ function actEquip(p, uid, slot) {
   host.item = { id: c.id, equipped: G.turn };
   const dmg = host.t ? host.t.dmg : 0; resetTurn(host, p.idx === G.attacker); host.t.dmg = dmg;
   log(`${p.name}: ${C(host).name}에게 「${c.name}」 장착`);
-  if (c.item.evName && /^치유/.test(c.item.evName)) { const n = parseInt(c.item.evName.replace(/\D/g, "")) || 0; const b = p.life; p.life = Math.min(RULES.lifeCap, p.life + n); if (p.life > b) { log(`[${c.item.evName}] ${p.name} 생명 +${p.life - b}`, "good"); floatAt("life" + p.idx, "+" + (p.life - b), "heal"); } }
+  if (c.item.evName && /^생명 \+/.test(c.item.evName)) { const n = parseInt(c.item.evName.replace(/\D/g, "")) || 0; const b = p.life; p.life = Math.min(RULES.lifeCap, p.life + n); if (p.life > b) { log(`[${c.item.evName}] ${p.name} 생명 +${p.life - b}`, "good"); floatAt("life" + p.idx, "+" + (p.life - b), "heal"); } }
   return true;
 }
 /* v1.9.1: 결정화 한도는 턴마다 RULES.crystalsPerTurn(1)장씩 쌓인다. 3턴 동안 하지 않았으면 한 번에 3장까지 */
@@ -1221,6 +1231,8 @@ async function phaseBanner(title, sub, cls, ms, hold, icon) {
 /* 2026-11-15 단계 띠 소리. 공격 준비 띠에 맞춰 에테르 차오름 · 유지비 (따로 보이는 연출이 없어서 띠에 붙임) */
 function bannerSfx(b) {
   sfx(G.phase === "combat" ? "banner_combat" : b[2] === "foe" ? "banner_foe" : G.phase === "atkPrep" ? "banner_atk" : "banner_def");
+  // 2026-11-15 v3.69 [레어 오라]: 전투가 시작될 때 전장에 오라를 가진 레어 유닛이 있으면 한 번
+  if (G.phase === "combat" && G.players.some(p => p.field.some(it => it && it.t && it.t.alive !== false && C(it).gift && C(it).gift.aura > 0))) setTimeout(() => sfx("aura", 0.7), 450);
   if (G.phase === "atkPrep" && b[2] !== "foe") { setTimeout(() => sfx("ether_gain", 0.7), 300); if (upkeepOf(G.players[G.viewer]) > 0) setTimeout(() => sfx("upkeep", 0.7), 750); }
 }
 function bannerFor(phase) {
@@ -1271,11 +1283,19 @@ function plateParts(text, cls) {
 /* 2026-11-15 떠오르는 효과 글자 → 효과음 (엔진의 fl(...) 은 모두 여기로 온다). 겹치는 block · crit · buff 등은 다른 곳에서 이미 남 */
 const FLOAT_SFX = [
   [/^빗나감/, "miss"], [/^가시 −/, "thorns"], [/^수호/, "guard"], [/^(관통|꿰뚫기 −)/, "pierce"], [/^연쇄/, "chain"],
-  [/^무효$/, "negate"], [/^빼앗김/, "steal"], [/^강화 해제/, "cleanse"], [/^(충전|플라즈마) \d/, "charge"], [/^♥1 ⚔/, "rage"], [/^(다시 )?자람/, "regrow"]
+  [/^무효$/, "negate"], [/^빼앗김/, "steal"], [/^강화 해제/, "cleanse"], [/^(충전|플라즈마) \d/, "charge"], [/^♥1 ⚔/, "rage"], [/^(다시 )?자람/, "regrow"],
+  // v3.65 마족: [출혈] 걸림 = 약화, [흡혈] = 치유, [강탈] 다음 턴 에테르 = 에테르 얻음. 출혈 깎임은 2026-11-15부터 전용 소리 bleed
+  [/^출혈 −/, "bleed"], [/^출혈 \d/, "debuff"], [/^흡혈/, "heal"], [/^강탈 ·/, "ether_gain"],
+  // 2026-11-15 v3.68~v3.74 새 능력 전용 소리 (audio/sfx/<키>, tools/sfx/sfx_common.json combat)
+  [/^화상 −/, "burn_burst"], [/^불씨 −/, "burn_burst"], [/^화상 \d/, "scorch"], [/^불씨( 옮겨붙음)?$/, "scorch"], [/^불길 · 재생 멈춤/, "burn"],
+  [/^재생/, "regen"], [/^치유 \+/, "mend"], [/^바다의 보호/, "sea_guard"], [/^가호/, "ward"], [/^정화/, "purify"], [/^굳건/, "firm"], [/^후퇴$/, "retreat"],
+  [/^마력 \d/, "charge"]
 ];
 function floatSfx(target, s, c) {
   if (/^life\d$/.test(String(target)) && /\bheal\b/.test(c)) return "life_heal";
   if (/^보호막/.test(s) && /\bblock\b/.test(c)) return "shield_break";
+  if (/\bignite\b/.test(c)) return "ignite";   // v3.73 [점화] 겨눔 (엔진 gbIgnite "aim ignite")
+  if (/\bfarmor\b/.test(c)) return "flame_armor";   // v3.73 [화염 갑주]가 붙인 화상 (엔진 gbArmor)
   if (/\baim\b/.test(c)) return "snipe";
   for (const [re, k] of FLOAT_SFX) if (re.test(s)) return k;
   return null;
@@ -1951,7 +1971,10 @@ function fieldCardHTML(it, p, s) {
     item = chips ? `<div class="c-equip">${chips}</div>` : "";
   }
   // v3.65 마법이 이번 턴 걸어 준 능력(t.gx: 치명 · 연쇄 · 흡혈 …)도 같은 띠에 보랏빛 ✦ 칩으로 (css/cardtext.css .c-gx)
-  const gxc = isUnit(it) && it.t ? grantChipsHTML(it.t.gx, it.t.off) : "";
+  let gxc = isUnit(it) && it.t ? grantChipsHTML(it.t.gx, it.t.off) : "";
+  // v3.65 [출혈]: 걸린 출혈(t.bleed, 이번 전투만)을 붉은 칩으로 — 맞붙음이 시작될 때마다 그만큼 체력이 깎인다
+  if (isUnit(it) && it.t && it.t.keep && it.t.keep.scorch > 0) gxc += `<span class="c-eq-ab c-scorch" data-tip="${esc(`화상 ${it.t.keep.scorch}\n다음 턴 전투가 시작될 때 체력 −${it.t.keep.scorch} (방어 무시), 그 뒤 꺼진다`)}">화상 ${it.t.keep.scorch}</span>`;   // v3.73 잿불 고블린 화상 (engine gbScorch)
+  if (isUnit(it) && it.t && it.t.bleed > 0) gxc +=`<span class="c-eq-ab c-bleed" data-tip="${esc(`출혈 ${it.t.bleed}\n맞붙음이 시작될 때마다 체력 −${it.t.bleed} (이번 전투)`)}">출혈 ${it.t.bleed}</span>`;
   if (gxc) item = item ? item.replace(/<\/div>$/, gxc + "</div>") : `<div class="c-equip">${gxc}</div>`;
   const artx = isUnit(it) && it.t && abilOf(it).u === "scrap" ? scrapPileHTML(it) : "";   // v3.31.1 [고철 골렘] 고철 더미
   return cardHTML(c, { size: "md", live, badges, extra: item, under, cls: cls.join(" "), attrs, slim: true, artx });
@@ -3105,7 +3128,7 @@ function strikeHit(actUid, tgt, dur, kind) {
   shakeEl(hitEl, isLife ? 14 : 10);
   atkSfx(actUid, "hit", isLife ? 1.1 : 1, kind);   // v3.7.1 공격 종류에 맞는 소리 (2026-11-15 친 카드의 공격 소리)
   if (isLife) sfx("hitBig", 0.7);
-  else setTimeout(() => cardSfx(tgt, "def", 0.75), 70);   // 2026-11-15 맞은 카드의 방어 소리
+  else { setTimeout(() => cardSfx(tgt, "def", 0.75), 70); abilSfx(actUid, tgt, false); }   // 2026-11-15 맞은 카드의 방어 소리 · [마력 공격]
   // v3.14 타격감: 번쩍 · 밀려남 · 충격파 · 트라우마 흔들림 · 바닥 소리. 히트 스톱 길이는 세기(피해 · 쓰러짐 · 치명)를 따른다
   const hs = typeof IMPACT !== "undefined" ? IMPACT.strike(uidEl(actUid), hitEl, Object.assign({ col, life: isLife, foeLife: isLife && hitEl.classList.contains("pv-top") }, impInfo(tgt))) : (shakeScreen(isLife ? 14 : 6), FT.hitStop * kSpeed());
   if (!s) return;
@@ -3151,6 +3174,7 @@ function counterStrike(defUid, atkUid, dur) {
     shakeEl(a2, 8);
     atkSfx(defUid, "hit", 0.85);   // v3.7.1 반격도 반격하는 유닛의 공격 종류로
     setTimeout(() => cardSfx(atkUid, "def", 0.65), 70);   // 2026-11-15 반격 맞은 카드의 방어 소리
+    abilSfx(defUid, atkUid, true);   // 2026-11-15 [방패 반격] · [요격] · [마력 공격] (반격)
     if (typeof IMPACT !== "undefined") {   // v3.14 반격도 맞는 순간 멈칫(히트 스톱) · 번쩍 · 밀려남
       const hs = IMPACT.strike(uidEl(defUid), a2, Object.assign({ col: s.el.style.getPropertyValue("--el") }, info));
       if (hs > 30 && an.playState === "running") { an.pause(); setTimeout(() => { if (an.playState === "paused") an.play(); }, hs); }

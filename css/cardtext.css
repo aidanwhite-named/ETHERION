@@ -16,6 +16,10 @@
 /* v3.65 마법이 이번 턴 걸어 준 능력 칩(js/game.js grantChipsHTML): 장착 아이템(금 ◆) · 타고난 능력(하늘빛)과 갈라 마법 보랏빛 ✦ */
 .card .c-eq-ab.c-gx { color: #dcbcff; }
 .card .c-eq-ab.c-gx::before { content: "✦"; color: #b48cff; }
+.card .c-eq-ab.c-bleed { color: #ff9a9a; }   /* v3.65 [출혈] 걸린 유닛 (js/game.js) */
+.card .c-eq-ab.c-bleed::before { content: "●"; color: #e04848; }
+.card .c-eq-ab.c-scorch { color: #ffc27a; }   /* v3.73 잿불 고블린 화상 (js/game.js) */
+.card .c-eq-ab.c-scorch::before { content: "🔥"; font-size: .85em; }
 /* 칩 사이 구분: 네모가 없으니 가는 점으로 */
 .card .c-chips > .c-cls + .c-cls::before { content: "·"; margin-right: .25em; color: rgba(255, 255, 255, .35); }
 
@@ -77,3 +81,15 @@ html.mobile .frow .card.fm .c-box .c-cls, html.mobile .frow .card.fm .c-eq-ab { 
    아이템 카드 이름은 숨기고 띠만, 아이템을 앞으로 꺼냈을 때(item-front, 띠는 숨음)만 카드 이름을 보인다 */
 .c-under .card.fm.slim .c-name { visibility: hidden; }
 .card.item-front > .c-under .card.fm.slim .c-name { visibility: visible; }
+
+/* 2026-11-15 작은 화면에서 마법 짧은 문구가 잘 안 읽혀서
+   1) 대상 칩({아군 전체} · {적 앞1} …)의 네모(옅은 바탕 + 테두리)를 빼고 글자 색만 — 칸이 좁아져 글자를 키울 자리가 난다
+   2) 글 상자 안 짧은 문구 글자 .78em → .86em(폰 핸드 .86em → .94em) */
+.card.has-brief .c-brief .sb-t { padding: 0; background: none; box-shadow: none; border-radius: 0; font-size: 1em; text-shadow: 0 .06em .1em #000; }
+.card.fm .c-box .c-brief { font-size: calc(.86em * var(--bfs, 1)); }   /* 넘치는 카드만 js/view.js fitBriefs가 --bfs로 줄인다 */
+html.mobile .hand-me .card.fm .c-box .c-brief { font-size: calc(.94em * var(--bfs, 1)); }
+
+/* 2026-11-15 스탯 표시(🔒 고정 · ▲ 버팀 · ▼ 눌림)는 숫자 왼쪽에. 표시는 자리를 차지하지 않게 띄워(absolute),
+   표시가 있든 없든 공 · 방 · 체 숫자가 한 줄로 가지런하다. 숫자 없이 표시만 있는 아이템 칸(st-pinonly)은 그대로 */
+.c-vstats .st:not(.st-pinonly) { position: relative; }
+.c-vstats .st:not(.st-pinonly) > .st-lock { position: absolute; right: 100%; top: 50%; transform: translateY(-50%); margin: 0 .06em 0 0; }
