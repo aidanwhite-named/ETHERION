@@ -53,16 +53,33 @@ const FEEL = {
     sp_boom: null, sp_zap: null, sp_clang: null, sp_rock: null, sp_quake: null, sp_thorn: null,
     sp_thunk: null, sp_slash: null, sp_smite: null, sp_gust: null, sp_splash: null
   },
-  snd: { keys: null, buf: {}, wait: {}, ext: "ogg", base: "audio/sfx/" },
+  /* media: 파일로 열었을 때(file:// — ETHERION 실행.bat · PC 앱)는 fetch 가 막혀서 <audio> 로 낸다. 목록도 audio/sfx/index.js (window.SFX_KEYS) */
+  snd: { keys: null, buf: {}, wait: {}, ext: "ogg", base: "audio/sfx/", media: false, el: {} },
   sndKeys() {
     const S = this.snd;
-    if (S.keys || S.wait._index || typeof fetch !== "function") return;
+    if (S.keys || S.wait._index) return;
     try { const a = document.createElement("audio"); S.ext = a.canPlayType('audio/ogg; codecs="opus"') ? "ogg" : "mp3"; } catch (e) { S.ext = "mp3"; }
-    S.wait._index = fetch(S.base + "index.json").then(r => r.json()).then(a => { S.keys = new Set(a); this.preload(); }).catch(() => { S.keys = new Set(); });
+    const file = typeof location !== "undefined" && location.protocol === "file:";
+    if (file || typeof fetch !== "function") {
+      S.media = typeof Audio === "function";
+      S.keys = new Set(typeof window !== "undefined" && window.SFX_KEYS || []);
+      this.preload();
+      return;
+    }
+    S.wait._index = fetch(S.base + "index.json").then(r => r.json()).then(a => { S.keys = new Set(a); this.preload(); })
+      .catch(() => { S.media = typeof Audio === "function"; S.keys = new Set(typeof window !== "undefined" && window.SFX_KEYS || []); });
+  },
+  /* <audio> 쪽: 키마다 하나 받아 두고, 낼 때는 복제해서 겹쳐 낼 수 있게 */
+  mediaEl(key) {
+    const S = this.snd;
+    if (!S.el[key]) { const a = new Audio(S.base + encodeURIComponent(key) + "." + S.ext); a.preload = "auto"; a.onerror = () => S.keys.delete(key); S.el[key] = a; }
+    return S.el[key];
   },
   has(key) { return !!(this.snd.keys && this.snd.keys.has(key)); },
   load(key) {
-    const S = this.snd, ac = this.ctx();
+    const S = this.snd;
+    if (S.media) { if (this.has(key)) this.mediaEl(key); return null; }
+    const ac = this.ctx();
     if (!ac || !this.has(key)) return null;
     if (S.buf[key] || S.wait[key]) return S.wait[key] || Promise.resolve(S.buf[key]);
     S.wait[key] = fetch(S.base + encodeURIComponent(key) + "." + S.ext).then(r => r.arrayBuffer())
@@ -75,7 +92,8 @@ const FEEL = {
   preload() {
     const list = ["select", "unselect", "pick", "hover", "handHover", "place", "move", "draw", "shuffle", "swing", "hit", "crit", "block",
       "shatter", "burn", "crystal", "equip", "sp_reveal", "life_hit", "confirm_ready", "deny", "coinHeads", "coinTails", "buff", "debuff", "shield", "heal"];
-    let i = 0; const next = () => { if (i < list.length) { const p = this.load(list[i++]); (p || Promise.resolve()).then(next); } };
+    const al = n => n in this.SND_ALIAS ? this.SND_ALIAS[n] : n;
+    let i = 0; const next = () => { if (i < list.length) { const k = al(list[i++]); const p = k && this.load(k); (p || Promise.resolve()).then(next); } };
     next();
   },
   /* name: 키 또는 예전 이름. v: 세기(1 = 보통). x: pach_win 은 단계(1~3), 그 밖에는 재생 빠르기 손질(pach_stop 1.12 …) */
@@ -88,11 +106,22 @@ const FEEL = {
     this.out(key, v == null ? 1 : v, rate);
   },
   out(key, v, rate) {
-    if (!this.vol[this.level] || !this.ctx()) return;
+    if (!this.vol[this.level]) return;
     this.sndKeys();
     if (!this.snd.keys) { const w = this.snd.wait._index; if (w) w.then(() => this.out(key, v, rate)); return; }
     const now = performance.now();
     if (now - (this.last[key] || 0) < 45) return;   // 같은 소리가 한꺼번에 겹치면 하나만
+    if (this.snd.media) {
+      if (!this.has(key)) return;
+      this.last[key] = now;
+      const a = this.mediaEl(key).cloneNode();
+      a.volume = Math.min(1, Math.max(0, v) * this.vol[this.level] * 0.8);
+      if (rate && rate !== 1) { a.preservesPitch = a.mozPreservesPitch = a.webkitPreservesPitch = false; a.playbackRate = rate; }
+      const pr = a.play(); if (pr && pr.catch) pr.catch(() => {});
+      this.mark();
+      return;
+    }
+    if (!this.ctx()) return;
     this.last[key] = now;
     const t0 = now;
     const p = this.load(key); if (!p) return;
