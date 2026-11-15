@@ -1271,7 +1271,7 @@ function plateParts(text, cls) {
 /* 2026-11-15 떠오르는 효과 글자 → 효과음 (엔진의 fl(...) 은 모두 여기로 온다). 겹치는 block · crit · buff 등은 다른 곳에서 이미 남 */
 const FLOAT_SFX = [
   [/^빗나감/, "miss"], [/^가시 −/, "thorns"], [/^수호/, "guard"], [/^(관통|꿰뚫기 −)/, "pierce"], [/^연쇄/, "chain"],
-  [/^무효$/, "negate"], [/^빼앗김/, "steal"], [/^강화 해제/, "cleanse"], [/^충전 \d/, "charge"], [/^♥1 ⚔/, "rage"], [/^(다시 )?자람/, "regrow"]
+  [/^무효$/, "negate"], [/^빼앗김/, "steal"], [/^강화 해제/, "cleanse"], [/^(충전|플라즈마) \d/, "charge"], [/^♥1 ⚔/, "rage"], [/^(다시 )?자람/, "regrow"]
 ];
 function floatSfx(target, s, c) {
   if (/^life\d$/.test(String(target)) && /\bheal\b/.test(c)) return "life_heal";
@@ -1280,11 +1280,37 @@ function floatSfx(target, s, c) {
   for (const [re, k] of FLOAT_SFX) if (re.test(s)) return k;
   return null;
 }
+/* v3.66.2 [축전] 플라즈마: 발동한 마법 카드가 깨지며 그 빛이 [축전] 유닛으로 빨려 든다 (엔진 uOnCast의 float cls "plasma from-<마법 uid>").
+   transform · opacity만 움직인다(폰 가볍게). 마법 카드가 이미 없으면 유닛만 번쩍인다 */
+function plasmaDrain(fromUid, el, layer) {
+  if (RM()) return;
+  const src = uidEl(fromUid), tr = el.getBoundingClientRect(), tx = tr.left + tr.width / 2, ty = tr.top + tr.height * 0.42;
+  if (src && src !== el) {
+    const sr = src.getBoundingClientRect(), sx = sr.left + sr.width / 2, sy = sr.top + sr.height / 2;
+    src.animate([{ filter: "none", transform: "none" }, { filter: "brightness(1.8) drop-shadow(0 0 10px #8fdcff)", transform: "scale(1.04) rotate(-1deg)", offset: 0.35 }, { filter: "none", transform: "none" }], { duration: 520, easing: "ease-out" });
+    const nS = document.documentElement.classList.contains("mobile") ? 7 : 14;   // 폰은 반만
+    for (let i = 0; i < nS; i++) {
+      const d = document.createElement("i"); d.className = "plasma-spark" + (i % 3 ? "" : " big");
+      const ox = (Math.random() - 0.5) * sr.width * 0.8, oy = (Math.random() - 0.5) * sr.height * 0.7;
+      d.style.left = (sx + ox) + "px"; d.style.top = (sy + oy) + "px"; layer.appendChild(d);
+      const mx = (sx + ox + tx) / 2 + (Math.random() - 0.5) * 120, my = Math.min(sy + oy, ty) - 40 - Math.random() * 60;
+      const a = d.animate([
+        { transform: "translate(-50%,-50%) scale(.4)", opacity: 0 },
+        { transform: "translate(-50%,-50%) scale(1.3)", opacity: 1, offset: 0.18 },
+        { transform: `translate(calc(-50% + ${mx - sx - ox}px), calc(-50% + ${my - sy - oy}px)) scale(1)`, opacity: 1, offset: 0.55 },
+        { transform: `translate(calc(-50% + ${tx - sx - ox}px), calc(-50% + ${ty - sy - oy}px)) scale(.3)`, opacity: 0.2 }
+      ], { duration: 620 + i * 25, delay: i * 18, easing: "cubic-bezier(.5,0,.75,.4)", fill: "both" });
+      a.onfinish = () => d.remove(); setTimeout(() => d.remove(), 1500);
+    }
+  }
+  setTimeout(() => { if (el.isConnected) el.animate([{ filter: "none" }, { filter: "brightness(1.6) drop-shadow(0 0 14px #7fd6ff)", offset: 0.3 }, { filter: "none" }], { duration: 560, easing: "ease-out" }); }, src ? 640 : 0);
+}
 function floatAt(target, text, cls) {
   if (!G || G.cfg.headless || G.speed === 0) return;
   const el = typeof target === "number" ? uidEl(target) : $("#" + target);
   const layer = fxLayer();
   if (!el || !layer) return;
+  { const fm = /\bfrom-(\d+)\b/.exec(cls || ""); if (fm && /\bplasma\b/.test(cls)) plasmaDrain(+fm[1], el, layer); }
   { const fk = floatSfx(target, String(text), cls || ""); if (fk) sfx(fk, 0.8); }
   const r = el.getBoundingClientRect();
   const f = document.createElement("div");
@@ -1900,6 +1926,8 @@ function fieldCardHTML(it, p, s) {
     if (it.t.shield) badges += `<span class="bd bd-sh" data-tip="◈ 보호막${it.t.shield === "half" ? " 코인" : ""}\n${esc(it.t.shield === "half" ? "이번 전투에서 처음 받는 피해의 절반(올림)을 막는다." : SPELL_KW["보호막"])}">${HOLY_SHIELD_ICO}</span>`;   // v3.57.5 코인 보호막은 절반 · v3.61.1 bd-sh: 검은 칩 없이 성스러운 방패 그림, 다른 표시보다 크게(css/battle-v19.css)
     if (it.t.taunt) badges += `<span class="bd bd-guard" data-tip="수호\n${esc(SPELL_KW["수호"])}">${statIco("d")}</span>`;
     if (it.t.lock) badges += '<span class="bd bd-lock" data-tip="⚓ 저주 면역\n이번 턴 방어가 깎이지 않는다 (올리는 것은 붙음 · 피해는 받는다)">⚓</span>';
+    { const pz = abilOf(it).u === "charge" ? Math.max(0, Math.min(2, (it.t.keep && it.t.keep.charge) || 0)) : 0;   // v3.66.2 [축전] 쌓인 플라즈마: 글자 없이 ⚡만(쌓인 만큼), 마우스를 올리면 뜻
+      if (pz) badges += `<span class="bd bd-plasma" data-tip="${esc(`플라즈마: ${pz} / 2\n내 마법이 발동할 때마다 1씩 쌓인다(턴이 지나도 남음). 2가 되면 다음 전투가 시작될 때 상대 유닛 모두 체력 −2, 플라즈마는 0이 된다.`)}">${"⚡".repeat(pz)}</span>`; }
     if (it.t.thorns) badges += `<span class="bd bd-thorn" data-tip="${esc(`✶${it.t.thorns} 가시 ${it.t.thorns}\n${itemKwDesc("[가시 " + it.t.thorns + "]")}\n유닛 · 장착한 아이템 · 마법에서 받은 가시를 합친 값`)}">✶${it.t.thorns}</span>`;
     if (it.t.rest) badges += '<span class="bd bd-rest" data-tip="✖ 행동 불가\n이번 턴에는 공격하지 못한다">✖</span>';
     if (c.tok) badges += `<span class="bd bd-tok" data-tip="✧ 마법이 부른 유닛${it.tokTemp ? "\n이번 턴만 전장에 있다" : ""}">✧</span>`;

@@ -195,3 +195,8 @@
    빛 · 움직임 · 필터 없음. 테두리에 색을 두르면 등급 색(레어 파랑)과 겹쳐 쓰지 않는다. 막고 나면 보호막이 사라지므로 표시도 함께 없어진다 */
 .c-badges .bd.bd-sh { font-size: 2em; padding: 0; background: none; border: 0; line-height: 0; }
 .bd-sh .hs-ico { display: block; width: 1em; height: 1em; }
+/* v3.66.2 [축전] 플라즈마(js/game.js fieldCardHTML .bd-plasma): 글자 없이 ⚡만, 쌓인 만큼. 보호막 · 가시 표시와 같은 세로 줄에 따로 한 칸 */
+.c-badges .bd.bd-plasma { letter-spacing: -.12em; padding: .15em .32em .15em .2em; background: rgba(8, 18, 40, .78); box-shadow: 0 0 0 1px rgba(127, 214, 255, .55) inset; text-shadow: 0 0 6px #7fd6ff; }
+/* 마법 카드에서 [축전] 유닛으로 빨려 드는 빛 (plasmaDrain) */
+.plasma-spark { position: fixed; z-index: 86; width: 8px; height: 8px; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, #fff 0 30%, #9be6ff 55%, rgba(80, 170, 255, 0) 72%); }
+.plasma-spark.big { width: 14px; height: 14px; }

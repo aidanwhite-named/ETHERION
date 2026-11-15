@@ -532,6 +532,7 @@ function instLines(inst) {
   const lines = [];
   const cs = inst.t.coins || [];
   if (cs.length && cs[0].heads != null) lines.push(`<p class="d-coin">마지막으로 던진 코인: ${coinGroups(cs).map(o => `${o.parts.map(k => STAT_KO[k.st] + " " + sgnNum(k.v)).join("·")} ${o.heads ? "앞면" : "뒷면"}`).join(", ")}</p>`);
+  if (abilOf(inst).u === "charge") lines.push(`<p class="d-type"><b>⚡ 플라즈마 ${Math.min(2, (inst.t.keep && inst.t.keep.charge) || 0)} / 2</b> 내 마법이 발동할 때마다 1. 2가 되면 다음 전투에 상대 모두 체력 −2.</p>`);   // v3.66.2
   if (inst.t.keep && abilOf(inst).u === "scrap") lines.push(`<p class="d-type"><b>고철 ${Math.min(4, inst.t.keep.scrap || 0)} / 4</b> 4가 되면 전투가 끝날 때 빈 칸에 고철 골렘(3/2/5)을 세운다.</p>`);   // v3.31.1
   // v3.33 표시(고정 · 버팀 · 눌림)는 말과 뜻 대신 수치 앞의 기호로 (itemTextPinned)
   if (inst.item) lines.push(`<p class="d-equip">장착 · ${esc(CARDS[inst.item.id].name)}<span>${esc(itemTextPinned(CARDS[inst.item.id].item))}</span></p>`);

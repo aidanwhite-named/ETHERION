@@ -254,6 +254,7 @@ html.mobile .c-under > .card > .c-frame { box-shadow: 0 2.6px 6px rgba(0, 0, 0, 
 html.mobile .card.item-front:not(.selected) > .c-under > .card > .c-frame { box-shadow: 0 0 0 .1em rgba(246, 226, 168, .55), 0 2px 6px rgba(0, 0, 0, .6); }
 html.mobile .shield-flip .sf-coin { filter: drop-shadow(0 1.8px 3px rgba(0, 0, 0, .7)); }
 html.mobile .shield-flip .sf-tag { box-shadow: 0 1.5px 6px rgba(0, 0, 0, .6); }
+html.mobile .c-badges .bd.bd-plasma { box-shadow: 0 0 0 1px rgba(127, 214, 255, .55) inset; text-shadow: 0 0 4px #7fd6ff; }
 
 /* spellfx.css */
 html.mobile .float.cpop { text-shadow: 0 3px 0 #1d3a06, 0 1.7px 4px #000, 0 0 4px rgba(166, 240, 74, .75); }

@@ -3,6 +3,13 @@
 버전마다 바뀐 것과 바뀐 파일을 적는다. 새 버전은 맨 위에 쓴다.
 맨 아래 `실행`·`v0.3`·`계정`·`덱`·`규칙`·`파일` 절은 v0.3 무렵의 설명을 그대로 남긴 것이라 지금과 다른 곳이 있다(예: 클래스는 v1.0에서 규칙에서 빠짐). 지금 상태는 `README.md`를 본다.
 
+## v3.66.2 — 즈라크의 병지기 [축전]: 플라즈마 ⚡ 표시 · 마법이 깨지며 빨려 드는 빛
+바뀐 파일 `js/engine.js`(uOnCast) · `js/game.js`(fieldCardHTML · plasmaDrain · FLOAT_SFX) · `js/view.js`(instLines) · `js/uniques.js`(축전 글) · `css/battle-v19.css` · `css/mobile-lite.css` · `docs/UNIQUES_v3.31.md` · `index.html`(캐시 `-pz1`).
+- 쌓인 충전의 이름을 **플라즈마**로(규칙 그대로: 내 마법 발동마다 1, 2까지, 2면 다음 전투에 상대 모두 체력 −2). 떠오르는 글자 "충전 N" → "플라즈마 N".
+- 카드 그림 오른쪽 위 표시 줄(보호막 · 가시와 같은 세로 줄, 따로 한 칸)에 **⚡**(쌓인 만큼 ⚡ · ⚡⚡, 글자 없음). 마우스를 올리면 "플라즈마: N / 2" + 뜻. 크게 보기 설명에도 한 줄.
+- 마법이 발동해 플라즈마가 쌓이면 그 마법 카드가 번쩍 깨지며 푸른 빛 알갱이(폰은 반)가 병지기로 빨려 들고 병지기가 번쩍인다(transform · opacity만, 움직임 줄이기 설정이면 끔). 엔진은 float cls에 `from-<마법 uid>`만 더함.
+- 확인: node로 3턴(플라즈마 1 → 2 → 축전 −2 · 0), 표시 HTML(0 · 1 · 2), `replay_check` 40/40 · hard 10/10. 화면(연출)은 아직 못 봄.
+
 ## v3.66.1 — 번개 노움 [증폭] 보강: 공격 마법 2장 · 고급 유닛 4장
 새 파일 `js/gnome.js`(abyss.js 다음 · decks.js 앞, 등급 `GNOME_GRADES`는 grades.js가 맨 끝에 덮음). 파일 목록에 더함: `index.html`(캐시 번호 gnome `gn1` · grades · decks `-gn1`) · `tools/balance/harness.js` · `tools/balance4/load.js` · `tools/art/build_prompts.js` · `tools/sfx/build_sfx_prompts.js`. 소리 지시 `tools/sfx/notes/B3.json`.
 - **새 공격 마법(일반)**: 번개 바늘(GN-B3-1, 2레벨) "상대 유닛 중 남은 체력이 가장 낮은 2기에게 피해 2 +1C." · 뇌명 포격(GN-B3-2, 4레벨) "상대 맨 앞 유닛에게 피해 4. 상대 유닛 전체에게 피해 1 +1C." [증폭]은 공격 마법에만 붙으므로 둘 다 공격 마법, 맞는 유닛마다 +N.

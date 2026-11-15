@@ -323,7 +323,7 @@ function amplify(p) { return liveUnits(p).reduce((s, u) => s + abilOf(u).amp, 0)
 
 function castSpell(X, caster, it, k) {
   const c = C(it), p = X.P[caster], o = X.P[1 - caster];
-  X.eyeCast = {}; uOnCast(X, caster);   // v3.31 [폭풍의 눈] 이번 마법에서 정한 빗나감 · [축전] · [마력 흡수]
+  X.eyeCast = {}; uOnCast(X, caster, it);   // v3.31 [폭풍의 눈] 이번 마법에서 정한 빗나감 · [축전] · [마력 흡수]
   lg(X, `✦ ${p.name}: ${c.name} 발동 (${k}번 칸) — ${c.text}`, "spell");
   const ops = c.ops.filter(op => op.op !== "lock").concat(c.ops.filter(op => op.op === "lock"));
   /* v3.9.2 마법 코인은 효과마다 한 번, 효과를 내기 전에 먼저 던진다(대상 모두 같은 값 — 문서 07 마법 "코인 표기").
@@ -1213,8 +1213,9 @@ function uEyeDodge(X, P, u) {
   return true;
 }
 /* 마법이 발동할 때: 내 [축전] 충전 +1, 상대 [마력 흡수] 마력 +1 */
-function uOnCast(X, caster) {
-  for (const u of uLive(X.P[caster], "charge")) { const k = uK(u); k.charge = Math.min(2, (k.charge || 0) + 1); fl(X, u.uid, "충전 " + k.charge, "buff"); }
+function uOnCast(X, caster, it) {
+  // v3.66.2 쌓인 충전의 화면 이름은 "플라즈마". cls의 from-<마법 uid>로 화면이 마법 카드에서 이 유닛으로 빨려 드는 빛을 그린다(js/game.js plasmaDrain)
+  for (const u of uLive(X.P[caster], "charge")) { const k = uK(u); k.charge = Math.min(2, (k.charge || 0) + 1); fl(X, u.uid, "플라즈마 " + k.charge, "buff plasma" + (it && it.uid != null ? " from-" + it.uid : "")); }
   for (const u of uLive(X.P[1 - caster], "absorb")) { const k = uK(u); k.mana = Math.min(4, (k.mana || 0) + 1); fl(X, u.uid, "마력 " + k.mana, "buff"); }
 }
 /* 맞붙어 피해를 준 뒤(공격 · 반격): 불씨 · 낙인 표시, 쓰러뜨렸으면 누가 쓰러뜨렸는지 */
@@ -1363,7 +1364,7 @@ function uCombatStart(X, sweep) {
         k.charge = 0;
         const tg = liveUnits(o);
         step(X, { act: u.uid }, 380);
-        lg(X, `[축전] ${C(u).name}이(가) 모은 번개를 풀었다 → 상대 유닛 모두 피해 2`, "spell");
+        lg(X, `[축전] ${C(u).name}이(가) 모은 플라즈마를 풀었다 → 상대 유닛 모두 피해 2`, "spell");
         for (const x of tg) hurt(X, x, 2, "축전");
         step(X, { act: u.uid, hit: true }, 520); any = true;
       }
