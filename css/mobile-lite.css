@@ -75,6 +75,7 @@ html.mobile .c-vstats .st b { text-shadow: 0 .06em .12em #000, 0 0 4px rgba(0, 0
 html.mobile .st em.cm, html.mobile .im em.cm, html.mobile .f-mods em.cm { text-shadow: 0 0 4px #000; }
 html.mobile .c-rite svg { filter: drop-shadow(0 0 3px currentColor); }
 html.mobile .card-preview { filter: drop-shadow(0 1.4px 3px rgba(0, 0, 0, .8)); }
+html.mobile .card-preview.moved { animation-name: none; }
 html.mobile #tip { box-shadow: 0 2px 6px rgba(0, 0, 0, .6); }
 html.mobile .c-clsico i.c-kind svg { filter: drop-shadow(0 0 3px currentColor); }
 html.mobile .focus { box-shadow: 0 2.4px 6px rgba(0, 0, 0, .6); }

@@ -205,6 +205,9 @@
   background: var(--bad); clip-path: polygon(50% 0, 100% 100%, 0 100%); padding-top: 5px; }
 .ed-alarm.warn .al-ico { background: var(--warn); }
 .ed-alarm.ring { animation: alIn .35s cubic-bezier(.2, 1.4, .4, 1), alBlink .9s .35s 2; }
+/* 2026-11-15 경보는 잠깐(2.2초) 보이고 서서히 사라진다. display:flex가 [hidden]을 덮어 예전엔 사라지지 않았다 */
+.ed-alarm[hidden] { display: none; }
+.ed-alarm.out { opacity: 0; transition: opacity .42s ease; }
 @keyframes alIn { from { opacity: 0; transform: translateY(-8px) scale(.97); } }
 @keyframes alBlink { 50% { box-shadow: 0 0 2px rgba(239, 106, 92, .1); filter: brightness(1.3); } }
 

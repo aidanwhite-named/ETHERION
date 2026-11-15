@@ -40,6 +40,7 @@ const ABYSS_KW = { rob: "강탈", leech: "흡혈", veil: "그림자 걸음", pac
   /* ---------- 아이템 ---------- */
   { const it = I("IA1-1"); if (it) it.pact = 2; }   // 피의 서약 부적 — "대가만큼 힘을 준다"
   { const it = I("IA1-4"); if (it) { delete it.crit; it.leech = true; it.desc = "쓰는 순간 얼굴이 사라지는 가면. 벤 자의 피로 그 얼굴을 다시 그린다."; } }   // 심연의 가면 [치명] → [흡혈]
+  { const it = I("IR-A1"); if (it) { delete it.crit; it.leech = true; it.desc = "심연 계약단의 처형인이 쓰는 가면. 쓴 자는 벤 상처에서 흐르는 피를 제 숨으로 들이킨다."; } }   // 녹타르 피의 가면 [치명] → [흡혈] (마력 1은 그대로)
 
   /* ---------- 고친 마법 ---------- */
   { const s = S("MA-16"); if (s) {   // 피의 맹약: 생명 3 → 아군 전체 공격 +4 (같은 레벨 공짜 마법보다 약했다)

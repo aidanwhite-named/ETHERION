@@ -1031,6 +1031,10 @@ html[data-font="system"] { --kfont: "Batang", "바탕", "AppleMyungjo"; }
 /* 원본 카드 미리보기 (덱 조정실·관리자 보관소): 화면 오른쪽에 크게 */
 .card-preview { position: fixed; z-index: 80; top: 50%; right: 20px; transform: translateY(-50%); pointer-events: none; --card-full: clamp(300px, calc((100vh - 48px) / 1.62), 560px); filter: drop-shadow(0 24px 50px rgba(0, 0, 0, .8)); animation: zoomIn .14s ease-out; }
 .card-preview.on-left { right: auto; left: 20px; }
+/* 2026-11-15 고정된 큰 카드(덱 조정실에서 눌러 연 것)는 끌어서 옮긴다 (js/view.js CardPreview). 고정 중에는 큰 카드 안의 말풍선도 뜬다 */
+.card-preview.pinned { pointer-events: auto; cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; }
+.card-preview.pinned.grabbing { cursor: grabbing; }
+.card-preview.moved { transform: none; animation: none; }
 .card-preview[hidden] { display: none; }
 .card-preview .card { max-height: calc(100vh - 24px); }
 .card-preview .c-frame { max-height: calc(100vh - 24px); }

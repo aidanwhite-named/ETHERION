@@ -38,7 +38,13 @@ const atkKindOf = (uid, snipe) => {
 const atkSfx = (uid, phase, v, kind) => {
   if (typeof FEEL === "undefined" || !FEEL.atk || !G || G.cfg.headless || G.speed === 0) return;
   const it = G.reg && G.reg[uid];
-  FEEL.atk(kind || atkKindOf(uid), phase, v, it ? C(it).lv : 3);
+  FEEL.atk(kind || atkKindOf(uid), phase, v, it ? C(it).lv : 3, it ? it.id : null);
+};
+/* 2026-11-15 카드마다 다른 효과음 (audio/sfx/<카드ID>.atk · def · cast · equip, js/feel.js FEEL.card). 그 카드 소리가 없으면 fb */
+const cardSfx = (uid, part, v, fb) => {
+  if (typeof FEEL === "undefined" || !FEEL.card || !G || G.cfg.headless || G.speed === 0) return;
+  const it = G.reg && G.reg[uid];
+  FEEL.card(it ? it.id : null, part, v, fb);
 };
 
 /* v3.10 온라인 대전: 두 기기가 같은 시드로 같은 계산을 한다(js/online.js). 판의 결과를 바꾸는 난수는 모두 GRand · shuffleG를 쓴다.
@@ -2840,7 +2846,8 @@ function vanish(uid, b) {
     { translate: `${dx}px ${dy}px`, scale: String(sc), rotate: `${spin}deg`, opacity: kind === "burn" ? 0.85 : 0.1, filter: filt }
   ], { duration: FT.away * k, easing: "cubic-bezier(.4,0,.25,1)", fill: "forwards" });
   an.onfinish = () => {
-    sfx(kind === "crys" ? "crystal" : kind === "equip" ? "equip" : kind === "burn" ? "burn" : "move", 0.9);
+    if (kind === "equip") cardSfx(uid, "equip", 0.9, "equip");   // 2026-11-15 아이템마다 다른 장착 소리
+    else sfx(kind === "crys" ? "crystal" : kind === "burn" ? "burn" : "move", 0.9);
     if (kind === "burn") g.animate([{ opacity: 0.85, filter: filt }, { opacity: 0, filter: "brightness(3) blur(6px)" }], { duration: 260 * k, fill: "forwards" }).onfinish = () => g.remove();
     else if (kind === "crys") crysToBurn(g, from, dx, dy, b.p, k);
     else g.remove();
@@ -2980,7 +2987,7 @@ function throwShot(actUid, tgt, dur) {
 }
 function throwHit(tgt, actUid) {
   const t = uidEl(tgt); if (!t) return;
-  atkSfx(actUid, "hit", 0.6, "pierce");   // v3.7.1 던진 것이 꽂힘
+  sfx("throw", 0.8);   // v3.7.1 던진 것이 꽂힘 (2026-11-15 공용 [투척] 소리)
   const r = t.getBoundingClientRect(), c = ctrOf(r);
   burst(c.x, c.y, "hit", Math.max(100, r.width * 1.6));
   shakeEl(t, 8);
@@ -2998,8 +3005,9 @@ function strikeHit(actUid, tgt, dur, kind) {
   burst(c.x, c.y, "hit", Math.max(120, tr.width * 2));
   const hitEl = isLife ? ($("#pinfo" + String(tgt).replace("life", "")) || t) : t;
   shakeEl(hitEl, isLife ? 14 : 10);
-  atkSfx(actUid, "hit", isLife ? 1.1 : 1, kind);   // v3.7.1 공격 종류에 맞는 소리
+  atkSfx(actUid, "hit", isLife ? 1.1 : 1, kind);   // v3.7.1 공격 종류에 맞는 소리 (2026-11-15 친 카드의 공격 소리)
   if (isLife) sfx("hitBig", 0.7);
+  else setTimeout(() => cardSfx(tgt, "def", 0.75), 70);   // 2026-11-15 맞은 카드의 방어 소리
   // v3.14 타격감: 번쩍 · 밀려남 · 충격파 · 트라우마 흔들림 · 바닥 소리. 히트 스톱 길이는 세기(피해 · 쓰러짐 · 치명)를 따른다
   const hs = typeof IMPACT !== "undefined" ? IMPACT.strike(uidEl(actUid), hitEl, Object.assign({ col, life: isLife, foeLife: isLife && hitEl.classList.contains("pv-top") }, impInfo(tgt))) : (shakeScreen(isLife ? 14 : 6), FT.hitStop * kSpeed());
   if (!s) return;
@@ -3044,6 +3052,7 @@ function counterStrike(defUid, atkUid, dur) {
     burst(c.x, c.y, "hit", r.width * 1.6);
     shakeEl(a2, 8);
     atkSfx(defUid, "hit", 0.85);   // v3.7.1 반격도 반격하는 유닛의 공격 종류로
+    setTimeout(() => cardSfx(atkUid, "def", 0.65), 70);   // 2026-11-15 반격 맞은 카드의 방어 소리
     if (typeof IMPACT !== "undefined") {   // v3.14 반격도 맞는 순간 멈칫(히트 스톱) · 번쩍 · 밀려남
       const hs = IMPACT.strike(uidEl(defUid), a2, Object.assign({ col: s.el.style.getPropertyValue("--el") }, info));
       if (hs > 30 && an.playState === "running") { an.pause(); setTimeout(() => { if (an.playState === "paused") an.play(); }, hs); }
@@ -3332,6 +3341,14 @@ function zoomTarget() {
    (v3.9.9 ~ v3.63.0: 지금 값과 "값이 왜 다른가" 줄 handLive · changeLines) */
 function zoomHTML(t) {
   return `<div class="detail">${cardHTML(t.c, { size: "full" })}</div>`;
+}
+/* v3.9.9 핸드 카드(handHTML)는 실제로 쓰일 값을 보인다: 카드에 걸린 저주(it.mod) · 판 규칙(방어 · 체력 +N). 바뀐 것이 없으면 null.
+   v3.63.1에 크게 보기에서 빼면서 함수까지 지워 첫 손패를 그리다 멈췄다(2026-11-15 되살림) — handHTML이 부르니 지우지 않는다 */
+function handLive(it) {
+  if (!it || it.t || !isUnit(it) || !G) return null;
+  const c = C(it), b = baseStats(it, true);
+  if (b.a === c.a && b.d === c.d && b.h === c.h) return null;
+  return { a: b.a, d: b.d, h: b.h, max: b.h };
 }
 function syncZoom() {
   const z = $("#zoom"); if (!z) return;

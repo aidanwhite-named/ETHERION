@@ -716,7 +716,7 @@ function onMatchEnd(g) {
 /* v3.0 덱 조정실
    - 넣기: 카드 더블클릭(덱에 없으면 가득, 가득이면 모두 빼기, v3.57.0) · + 단추 1장 · 카드 아래 마름모를 누르면 그 장수로 맞춤 · 덱 칸으로 끌어다 놓기. 한 번 누르기 = 큰 카드 고정
    - 빼기: 오른쪽 누르기(우클릭) · 덱 목록의 − 또는 줄 누르기 · 덱 줄을 보유 카드 쪽으로 끌어다 놓기
-   - 40장 규칙: 위 띠의 40칸 계기판. 40장이 넘게 넣으려 하면 경보(붉은 띠 · 흔들림 · 소리). 정확히 40장일 때만 저장 단추가 켜진다
+   - 덱 장수(RULES.deckSize, 지금 50) 규칙: 위 띠의 계기판. 그보다 많이 넣으려 하면 경보(붉은 띠 · 흔들림 · 소리). 정확히 그 장수일 때만 저장 단추가 켜진다
    - 덱 초안(Store.draft): 고치는 중인 덱은 저장 전에도 남는다. 상점에서 산 카드도 이 초안에 들어온다(js/shop.js)
    - 배경: v3.10.7부터 타이틀 그림(img/title/title_art.jpg) 한 장을 멈춘 채 깐다(css/title-art.css .ed-art). 예전의 운명의 감실(js/scenes.js)은 쓰지 않는다 */
 /* v3.10.8 카드 보관함 종류 거르기: 한 줄에 하나만 켜진다. 공격 · 방어 · 공용 · 계략은 '마법' 칸에 붙은 작은 칸.
@@ -813,21 +813,21 @@ function showEditor(f, focusId) {
             <div class="chips dv-grades ed-grades" id="ed-dgrades" role="group" aria-label="내 덱 카드 등급으로 거르기"></div>
           </div>
         </div>
-        <p class="ed-help"><span><kbd>누르기</kbd> 크게 고정</span><span><kbd>더블클릭</kbd> 없으면 가득 · 가득이면 모두 빼기</span><span><kbd>우클릭</kbd> 1장 빼기</span><span><b>◆</b> 마름모로 장수 맞추기</span><span>끌어서 왼쪽 서에 놓기</span><span><b>⌕</b> 크게 보기</span></p>
+        <p class="ed-help"><span><kbd>누르기</kbd> 크게 보기 · 끌어서 옮김</span><span><kbd>더블클릭</kbd> 없으면 가득 · 가득이면 모두 빼기</span><span><kbd>우클릭</kbd> 1장 빼기</span><span><b>◆</b> 마름모로 장수 맞추기</span><span>끌어서 왼쪽 서에 놓기</span><span><b>⌕</b> 크게 보기</span></p>
         <div id="ed-pool" class="pool-grid"></div>
       </section>
     </div>
   </section>`;
   const root = $(".screen-editor");
   bindHeader(root);
-  bindPreview($("#ed-deck-list"), { pin: true });
-  bindPreview($("#ed-pool"), { pin: true });   // v3.55.5 보관함 카드도 마우스를 올리면 크게 (덱이 가득 차 넣을 수 없어도). v3.57.0 한 번 누르면 큰 카드가 고정
+  bindPreview($("#ed-deck-list"), { pin: true, hover: false });   // 2026-11-15 마우스를 올려서는 크게 보이지 않고 누를 때만(레벨 · 능력 · 클래스 말풍선은 그대로). 뜬 큰 카드는 끌어서 옮긴다
+  bindPreview($("#ed-pool"), { pin: true, hover: false });   // v3.55.5 보관함 카드도 마우스를 올리면 크게 (덱이 가득 차 넣을 수 없어도). v3.57.0 한 번 누르면 큰 카드가 고정
 
   let lastN = -1;
   const draw = () => {
     u = Store.user();
     const n = countMap(E.cards), N = RULES.deckSize, isDirty = dirty(), valid = n === N;
-    const status = n > N ? { c: "bad", t: `${n - N}장 초과 — 빼야 저장할 수 있습니다` } : n < N ? { c: "need", t: `${N - n}장 더 넣어야 저장할 수 있습니다` } : isDirty ? { c: "ready", t: "40장 완성 — 저장할 수 있습니다" } : { c: "ok", t: "저장됨 · 출전 준비 완료" };
+    const status = n > N ? { c: "bad", t: `${n - N}장 초과 — 빼야 저장할 수 있습니다` } : n < N ? { c: "need", t: `${N - n}장 더 넣어야 저장할 수 있습니다` } : isDirty ? { c: "ready", t: `${N}장 완성 — 저장할 수 있습니다` } : { c: "ok", t: "저장됨 · 출전 준비 완료" };
     $("#ed-gauge").className = `ed-gauge st-${status.c}`;
     $("#ed-gauge").innerHTML = `<div class="g-num"><b>${n}</b><span>/ ${N}</span></div><div class="g-body">${deckGaugeHTML(E.cards)}<em class="g-msg">${status.t}</em></div>`;
     $("#ed-deck-n").textContent = `${n} / ${N}`;
@@ -838,7 +838,7 @@ function showEditor(f, focusId) {
     save.classList.toggle("ready", valid && isDirty);
     const canPlayNow = !isDirty && Store.deckPlayable(u, f);
     $("#ed-play").disabled = !canPlayNow;
-    $("#ed-play").title = canPlayNow ? "" : "40장을 채우고 저장해야 게임에 들어갈 수 있습니다.";
+    $("#ed-play").title = canPlayNow ? "" : `${N}장을 채우고 저장해야 게임에 들어갈 수 있습니다.`;
     $("#ed-revert").disabled = !isDirty;
     $("#ed-clear").disabled = !n;
     const ids = sortDeckCards(Object.keys(E.cards).filter(k => E.cards[k] > 0));
@@ -896,7 +896,7 @@ function showEditor(f, focusId) {
       $("#ed-score").innerHTML = `<span class="sc-tier t-${tier === "–" ? "none" : tier}" title="덱 평가 — 기본 덱(${st.total}점)에 견준 비율"><i>${tier}</i></span>
         <span class="sc-main"><em>덱 점수</em><b>${sc.total}</b><small>점${full ? "" : ` · ${sc.n}/${N}장`}</small></span>
         <span class="sc-sub"><span>등급 <b>${sc.grade}</b> + 레벨 <b>${sc.lv}</b></span><span>기본 덱 ${st.total}점 ${sc.n ? (diff >= 0 ? "대비 +" : "대비 ") + diff + "%" : ""}</span></span>`;
-      $("#ed-score").title = `카드 한 장 점수 = 등급 점수 + 레벨\n등급 점수: ${GRADE_IDS.map(g => GRADES[g].name + " " + DECK_GRADE_PT[g]).join(" · ")}\n평가: 기본 덱 대비 S 125%↑ · A 112%↑ · B 95%↑ · C 80%↑ · D 그 아래${full ? "" : "\n(40장이 안 되면 지금 평균으로 40장을 채웠다고 보고 평가)"}`;
+      $("#ed-score").title = `카드 한 장 점수 = 등급 점수 + 레벨\n등급 점수: ${GRADE_IDS.map(g => GRADES[g].name + " " + DECK_GRADE_PT[g]).join(" · ")}\n평가: 기본 덱 대비 S 125%↑ · A 112%↑ · B 95%↑ · C 80%↑ · D 그 아래${full ? "" : "\n(${N}장이 안 되면 지금 평균으로 ${N}장을 채웠다고 보고 평가)"}`;
     }
     $("#ed-filt-pool").classList.toggle("active", E.scope === "pool");
     $("#ed-filt-deck").classList.toggle("active", E.scope === "deck");
@@ -940,15 +940,15 @@ function showEditor(f, focusId) {
     if (lastN !== -1 && n === N && lastN !== N) { $("#ed-gauge").classList.add("complete"); if (typeof FEEL !== "undefined") FEEL.play("confirm", .55); }
     lastN = n;
   };
-  /* 경보: 40장이 넘게 넣으려 할 때 등 */
+  /* 경보: 덱 장수(RULES.deckSize)를 넘게 넣으려 할 때 등 */
   let alarmT = 0;
   const alarm = (msg, kind) => {
-    const a = $("#ed-alarm"); a.hidden = false; a.className = "ed-alarm " + (kind || "bad");
+    const a = $("#ed-alarm"); a.hidden = false; a.className = "ed-alarm " + (kind || "bad");   // .out(서서히 사라짐)도 여기서 떨어진다
     a.innerHTML = `<i class="al-ico" aria-hidden="true">!</i><span>${msg}</span>`;
     a.classList.remove("ring"); void a.offsetWidth; a.classList.add("ring");
     const g = $("#ed-gauge"); g.classList.remove("shake"); void g.offsetWidth; g.classList.add("shake");
     if (typeof FEEL !== "undefined") FEEL.play("deny", .9);
-    clearTimeout(alarmT); alarmT = setTimeout(() => { a.hidden = true; }, 3600);
+    clearTimeout(alarmT); alarmT = setTimeout(() => { a.classList.add("out"); alarmT = setTimeout(() => { a.hidden = true; }, 450); }, 2200);   // 잠깐 보이고 사라진다(css/scenes.css .ed-alarm.out)
   };
   const tile = id => $(`.pool-card[data-pc="${id}"]`, root);
   const row = id => $(`.dl-row[data-card="${id}"]`, root);

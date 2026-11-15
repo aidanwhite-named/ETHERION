@@ -437,7 +437,8 @@ const SpellFX = (() => {
       const p = mk("sfx-p " + (P_OF_EL[th.el] || ""), c.x + Math.cos(a) * d, c.y + Math.sin(a) * d, { "--c": th.col, "--z": px(rnd(4, 8)) });
       anim(p, [{ translate: "0px 0px", opacity: 0, scale: "1" }, { offset: 0.3, opacity: 1 }, { translate: `${px(-Math.cos(a) * d)} ${px(-Math.sin(a) * d)}`, opacity: 0, scale: "0.3" }], ms * 0.5, { easing: "cubic-bezier(.5,0,.8,.5)", delay: rnd(0, ms * 0.3) });
     }
-    snd("sp_reveal");
+    // 2026-11-15 마법마다 다른 발동 소리 (audio/sfx/<마법ID>.cast, 없으면 공용 sp_reveal)
+    if (it && typeof cardSfx === "function") cardSfx(uid, "cast", 1, "sp_reveal"); else snd("sp_reveal");
   }
 
   /* ---------- 마법 효과 한 수 ---------- */

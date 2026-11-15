@@ -3,6 +3,14 @@
 버전마다 바뀐 것과 바뀐 파일을 적는다. 새 버전은 맨 위에 쓴다.
 맨 아래 `실행`·`v0.3`·`계정`·`덱`·`규칙`·`파일` 절은 v0.3 무렵의 설명을 그대로 남긴 것이라 지금과 다른 곳이 있다(예: 클래스는 v1.0에서 규칙에서 빠짐). 지금 상태는 `README.md`를 본다.
 
+## v3.65.1 — 첫 손패에서 멈추던 것 고침 · 카드마다 효과음 · 덱 조정실 손질 · 녹타르 피의 가면 [흡혈]
+바뀐 파일 `js/game.js` · `js/feel.js` · `js/spellfx.js` · `js/view.js` · `js/screens.js` · `js/abyss.js` · `css/style.css` · `css/scenes.css` · `css/mobile-lite.css` · `audio/sfx/`(v3.65.0 커밋에 먼저 들어감) · `index.html`(캐시 fx1115 · r364p 등) · `docs/ABYSS_v3.65.md`
+- **게임이 첫 손패에서 멈추던 것 고침**: e7179eb(크게 보기는 원래 카드)가 `handLive`를 지웠는데 `handHTML`이 아직 불러, 핸드를 그리다 오류가 났다(덱에서 핸드로 카드가 안 들어오는 것처럼 보임). 함수를 되살림.
+- **카드마다 효과음**: Stable Audio Open 1.0으로 만든 `audio/sfx/<카드ID>.atk · def · cast · equip`(ogg · mp3)을 연결(`FEEL.card`, `cardSfx`). 친 카드의 공격 소리, 맞은 카드의 방어 소리, 마법 발동 소리, 아이템 장착 소리. 그 카드 소리가 없으면 예전 공용 소리. 공용 소리 35개쯤도 새 파일로, 90개쯤은 아직 울릴 자리가 없다. 저음이 큰 142개는 손대지 않음.
+- **덱 조정실**: 장수 글은 `RULES.deckSize`(50)를 읽는다 · 경보는 2.2초 뒤 서서히 사라진다(`[hidden]`이 덮여 사라지지 않던 것도 고침) · 마우스를 올려서는 크게 보이지 않고 누를 때만 · 눌러 연 큰 카드는 끌어서 옮긴다.
+- **녹타르 피의 가면(IR-A1)**(규칙): [치명] → [흡혈]. [마력 1]은 그대로. 서사도 [흡혈]에 맞게.
+- 확인: `node tools/replay_check.js` 20 / 20판 같음 · `tools/abyss/test.js` · 마족 덱 40판 · 9깃발 시작 핸드 · 덱 조정실은 헤드리스 Firefox. 효과음은 node 시험만, 게임 안에서 들어 보지 않음. 서버 다시 켬.
+
 ## v3.65.0 — 심연 마족 개편: 강탈 · 흡혈 · 그림자 걸음 · 피의 계약 · 이번 턴 낸 생명 연계 · 마족 마법 6장 바꿈 · 최근 기록 창 뺌
 바뀐 파일 `js/abyss.js`(새) · `js/engine.js` · `js/cards.js` · `js/wording.js` · `js/grades.js` · `js/lore.js` · `js/manual.js` · `js/briefs.js` · `js/game.js` · `css/style.css` · `css/mobile.css` · `css/swap.css` · `index.html`(캐시 ab365 · sb641 · r364 등) · `tools/abyss/`(새 test.js · sim.js) · `tools/counter/test.js` · `tools/balance/harness.js` · `tools/balance4/load.js` · `tools/art/build_prompts.js` · `tools/sfx/build_sfx_prompts.js` · `tools/sfx/notes/A1.json` · 그림 · 소리 프롬프트 다시 만듦 · `docs/ABYSS_v3.65.md`(새) · `docs/WORLD.md` · `docs/BALANCE_v4_draft.md` · `AGENTS.md`
 - **"최강" 칩 글**: 핸드 칩 "적 최강 N개"는 "적 공격 높은 N개", "최약"은 "공격 낮은 N개"로 보인다(`wording.js`, 데이터 글은 그대로).

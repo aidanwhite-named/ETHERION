@@ -600,7 +600,7 @@ function modal(html, buttons, opts) {
 /* v3.57.0 고정(pin): { pin: true }로 묶은 root(덱 조정실)에서는 카드를 한 번 누르면 큰 카드가 고정된다 — 마우스가 카드를 떠나도 남고,
    다른 카드에 마우스를 올리면 그 카드로 바뀌며(고정 풀림), 카드가 아닌 곳을 누르거나 Esc면 닫힌다 */
 const CardPreview = {
-  box: null, roots: new Set(), pinRoots: new Set(), pinned: false, cur: null, el: null, x: null, y: null, touch: false,
+  box: null, roots: new Set(), pinRoots: new Set(), noHover: new Set(), pinned: false, cur: null, el: null, x: null, y: null, touch: false, moved: false, dragging: false,
   init() {
     if (this.box) return;
     let box = $("#card-preview");
@@ -609,7 +609,8 @@ const CardPreview = {
     const at = e => { this.x = e.clientX; this.y = e.clientY; };
     document.addEventListener("pointerdown", e => { this.touch = e.pointerType !== "mouse"; at(e); }, true);
     document.addEventListener("mouseover", e => {
-      if (this.touch) return; at(e);
+      if (this.touch || this.dragging) return; at(e);
+      { const el = this.pick(e.target); if (el && this.inSet(this.noHover, el)) return; }   // 2026-11-15 { hover: false } root(덱 조정실): 마우스를 올려도 큰 카드가 뜨거나 바뀌지 않는다 — 누를 때만
       if (this.pinned) {   // 고정 중: 다른 카드에 올릴 때만 그 카드로 바뀐다(고정 풀림). 빈 곳 · 같은 카드는 그대로
         const el = this.pick(e.target);
         if (el && CARDS[el.dataset.card] && el.dataset.card !== this.cur) { this.pinned = false; this.update(e.target); }
@@ -620,6 +621,7 @@ const CardPreview = {
     // 누른 뒤에는 화면이 다시 그려졌을 수 있으니, 클릭 처리가 끝난 다음 그 자리를 다시 읽는다 (탭도 같은 길: 누른 카드로 바뀌고 빈 곳이면 닫힘)
     document.addEventListener("click", e => {
       at(e);
+      if (box.contains(e.target)) return;   // 고정된 큰 카드 자체를 누르거나 끌고 놓은 것은 닫지 않는다
       setTimeout(() => {
         const el = this.x == null ? null : this.pick(document.elementFromPoint(this.x, this.y));
         if (el && this.inPinRoot(el)) { this.pinned = true; this.update(el); return; }
@@ -627,6 +629,22 @@ const CardPreview = {
       }, 0);
     }, true);
     document.addEventListener("keydown", e => { if (e.key === "Escape") this.hide(); });
+    // 2026-11-15 고정된 큰 카드는 마우스(손가락)로 끌어 옮긴다. 옮긴 자리는 같은 카드를 보는 동안 남고, 다른 카드 · 닫기면 처음 자리로
+    box.addEventListener("pointerdown", e => {
+      if (!this.pinned || e.button > 0) return;
+      e.preventDefault();   // 그림의 기본 끌기(dragstart → 닫힘) · 글자 고르기를 막는다
+      const r = box.getBoundingClientRect(), ox = e.clientX - r.left, oy = e.clientY - r.top;
+      this.moved = this.dragging = true;
+      box.classList.add("moved", "grabbing"); box.style.right = ""; box.style.left = r.left + "px"; box.style.top = r.top + "px";
+      try { box.setPointerCapture(e.pointerId); } catch (er) {}
+      const mv = ev => {
+        const w = box.offsetWidth;
+        box.style.left = Math.max(60 - w, Math.min(innerWidth - 60, ev.clientX - ox)) + "px";
+        box.style.top = Math.max(0, Math.min(innerHeight - 60, ev.clientY - oy)) + "px";
+      };
+      const up = () => { this.dragging = false; box.classList.remove("grabbing"); box.removeEventListener("pointermove", mv); box.removeEventListener("pointerup", up); box.removeEventListener("pointercancel", up); };
+      box.addEventListener("pointermove", mv); box.addEventListener("pointerup", up); box.addEventListener("pointercancel", up);
+    });
     document.addEventListener("dragstart", () => this.hide(), true);
     document.addEventListener("scroll", () => { if (this.box.hidden || this.pinned) return; if (this.touch) this.hide(); else requestAnimationFrame(() => this.refresh()); }, true);
     addEventListener("blur", () => this.hide());
@@ -647,31 +665,36 @@ const CardPreview = {
     for (const r of this.roots) { if (!r.isConnected) { this.roots.delete(r); continue; } if (r.contains(el)) return el; }
     return null;
   },
-  inPinRoot(el) { for (const r of this.pinRoots) { if (!r.isConnected) { this.pinRoots.delete(r); continue; } if (r.contains(el)) return true; } return false; },
+  inSet(set, el) { for (const r of set) { if (!r.isConnected) { set.delete(r); continue; } if (r.contains(el)) return true; } return false; },
+  inPinRoot(el) { return this.inSet(this.pinRoots, el); },
+  unmove() { this.moved = false; if (this.box) { this.box.classList.remove("moved", "grabbing"); this.box.style.top = ""; } },
   refresh() { if (this.x == null) return this.hide(); this.update(document.elementFromPoint(this.x, this.y)); },
   update(t) {
     const el = this.pick(t), c = el && CARDS[el.dataset.card];
     if (!c || document.querySelector(".modal-wrap")) return this.hide();
     const box = this.box;
     this.el = el;
-    if (this.cur !== c.id) { this.cur = c.id; box.innerHTML = cardHTML(c, { size: "full" }); box.hidden = false; fitFullCard(box.querySelector(".card"), innerHeight - 24); }
+    box.classList.toggle("pinned", this.pinned);
+    if (this.cur !== c.id) { this.unmove(); this.cur = c.id; box.innerHTML = cardHTML(c, { size: "full" }); box.hidden = false; fitFullCard(box.querySelector(".card"), innerHeight - 24); }
     // v1.4.3: 화면 끝이 아니라 가운데 가까이에 띄운다. 마우스가 왼쪽 절반이면 가운데 조금 오른쪽, 오른쪽 절반이면 가운데 조금 왼쪽
     const left = (this.x == null ? innerWidth : this.x) > innerWidth * 0.5;
-    box.classList.toggle("on-left", left);
     box.hidden = false;
+    if (this.moved) return;   // 끌어 옮긴 자리 그대로
+    box.classList.toggle("on-left", left);
     const gap = Math.max(24, innerWidth * 0.03), w = box.offsetWidth;
     // 좁은 화면(폰)에서는 화면 밖으로 나가지 않게 안쪽으로 당긴다
     let x = left ? innerWidth / 2 - gap - w : innerWidth / 2 + gap;
     x = Math.max(8, Math.min(innerWidth - w - 8, x));
     box.style.right = ""; box.style.left = x + "px";
   },
-  hide() { this.pinned = false; this.cur = null; this.el = null; if (this.box) this.box.hidden = true; }
+  hide() { this.pinned = false; this.cur = null; this.el = null; this.dragging = false; this.unmove(); if (this.box) { this.box.hidden = true; this.box.classList.remove("pinned"); } }
 };
 function bindPreview(root, opts) {
   if (!root) return;
   CardPreview.init();
   CardPreview.roots.add(root);
   if (opts && opts.pin) CardPreview.pinRoots.add(root);   // v3.57.0 한 번 누르면 큰 카드 고정
+  if (opts && opts.hover === false) CardPreview.noHover.add(root);   // 2026-11-15 마우스를 올려도 크게 보이지 않음(누를 때만) — 말풍선(data-tip)은 그대로
 }
 
 /* 말풍선 설명: data-tip이 있는 요소에 마우스를 올리면 바로 보인다 (줄바꿈 \n) */

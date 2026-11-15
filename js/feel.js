@@ -1,5 +1,5 @@
 /* ETHERION — 손맛(Feel): 진동·누름 동작, 그리고 리듬을 맞추는 시간 값
-   - 기존 WebAudio 합성 효과음은 제거됨 (새 효과음 파일 배선 전까지 play / atk 는 빈 동작)
+   - 효과음: audio/sfx/ 의 파일을 WebAudio 로 튼다 (play · card · atk, 아래 "효과음 파일")
    - 터치로 조작할 때만 아주 짧게 진동한다(지원하는 기기)
    - 시간 값(FEEL.t)은 한곳에 모아 둔다. 리듬을 바꾸고 싶으면 여기 숫자만 고친다 */
 "use strict";
@@ -41,9 +41,84 @@ const FEEL = {
     if (this.ac.state === "suspended") this.ac.resume();
     return this.ac;
   },
-  play() {},
+  /* ---------- 효과음 파일 (2026-11-15, Stable Audio Open 1.0 로 만든 audio/sfx/<키>.ogg · .mp3) ----------
+     목록은 audio/sfx/index.json. 키 이름은 tools/sfx/prompts/sfx.jsonl 의 sounds[].key 그대로.
+     예전 합성음 이름으로 부르는 곳이 많아서 SND_ALIAS 로 새 키에 잇는다(null = 소리 없음: 같은 순간 다른 소리가 이미 남).
+     카드마다 다른 소리: FEEL.card(카드ID, "atk" | "def" | "cast" | "equip", 세기, 없을 때 쓸 공용 키) */
+  SND_ALIAS: {
+    confirm: "confirm_ready", hitBig: "life_hit", suck: null,
+    imp_hit: null, imp_life: null, imp_kill: null, imp_land: null, imp_spell: null,
+    imp_crit: "crit", imp_block: "block", imp_whoosh: "swing",
+    sp_buff: "buff", sp_debuff: "debuff", sp_shield: "shield", sp_heal: "heal", sp_block: "block",
+    sp_boom: null, sp_zap: null, sp_clang: null, sp_rock: null, sp_quake: null, sp_thorn: null,
+    sp_thunk: null, sp_slash: null, sp_smite: null, sp_gust: null, sp_splash: null
+  },
+  snd: { keys: null, buf: {}, wait: {}, ext: "ogg", base: "audio/sfx/" },
+  sndKeys() {
+    const S = this.snd;
+    if (S.keys || S.wait._index || typeof fetch !== "function") return;
+    try { const a = document.createElement("audio"); S.ext = a.canPlayType('audio/ogg; codecs="opus"') ? "ogg" : "mp3"; } catch (e) { S.ext = "mp3"; }
+    S.wait._index = fetch(S.base + "index.json").then(r => r.json()).then(a => { S.keys = new Set(a); this.preload(); }).catch(() => { S.keys = new Set(); });
+  },
+  has(key) { return !!(this.snd.keys && this.snd.keys.has(key)); },
+  load(key) {
+    const S = this.snd, ac = this.ctx();
+    if (!ac || !this.has(key)) return null;
+    if (S.buf[key] || S.wait[key]) return S.wait[key] || Promise.resolve(S.buf[key]);
+    S.wait[key] = fetch(S.base + encodeURIComponent(key) + "." + S.ext).then(r => r.arrayBuffer())
+      .then(b => new Promise((ok, no) => ac.decodeAudioData(b, ok, no)))
+      .then(buf => { S.buf[key] = buf; delete S.wait[key]; return buf; })
+      .catch(() => { delete S.wait[key]; S.keys.delete(key); return null; });
+    return S.wait[key];
+  },
+  /* 자주 나는 공용 소리는 미리 받아 둔다 (카드 소리는 처음 날 때 받음) */
+  preload() {
+    const list = ["select", "unselect", "pick", "hover", "handHover", "place", "move", "draw", "shuffle", "swing", "hit", "crit", "block",
+      "shatter", "burn", "crystal", "equip", "sp_reveal", "life_hit", "confirm_ready", "deny", "coinHeads", "coinTails", "buff", "debuff", "shield", "heal"];
+    let i = 0; const next = () => { if (i < list.length) { const p = this.load(list[i++]); (p || Promise.resolve()).then(next); } };
+    next();
+  },
+  /* name: 키 또는 예전 이름. v: 세기(1 = 보통). x: pach_win 은 단계(1~3), 그 밖에는 재생 빠르기 손질(pach_stop 1.12 …) */
+  play(name, v, x) {
+    if (!name || !this.vol[this.level]) return;
+    let key = name in this.SND_ALIAS ? this.SND_ALIAS[name] : name;
+    if (name === "pach_win") key = "pach_win" + Math.max(1, Math.min(3, Math.round(x || 1)));
+    if (!key) return;
+    const rate = name === "pach_tick" ? 1 + (x || 0) * 0.12 : name === "pach_stop" && x ? x : 1;
+    this.out(key, v == null ? 1 : v, rate);
+  },
+  out(key, v, rate) {
+    if (!this.vol[this.level] || !this.ctx()) return;
+    this.sndKeys();
+    if (!this.snd.keys) { const w = this.snd.wait._index; if (w) w.then(() => this.out(key, v, rate)); return; }
+    const now = performance.now();
+    if (now - (this.last[key] || 0) < 45) return;   // 같은 소리가 한꺼번에 겹치면 하나만
+    this.last[key] = now;
+    const t0 = now;
+    const p = this.load(key); if (!p) return;
+    p.then(buf => {
+      if (!buf || performance.now() - t0 > 350) return;   // 받는 데 너무 오래 걸렸으면 늦은 소리는 내지 않는다
+      const ac = this.ac, src = ac.createBufferSource(), g = ac.createGain();
+      src.buffer = buf; src.playbackRate.value = rate || 1;
+      g.gain.value = Math.min(1.5, Math.max(0, v)) * this.vol[this.level] * 0.8;
+      src.connect(g).connect(ac.destination); src.start();
+      this.mark();
+    });
+  },
+  /* 카드마다 다른 소리. 그 카드의 소리가 없으면 공용 소리(fb) */
+  card(id, part, v, fb) {
+    const key = id ? id + "." + part : null;
+    if (key && this.snd.keys && !this.has(key)) { if (fb) this.play(fb, v); return; }
+    if (!key) { if (fb) this.play(fb, v); return; }
+    if (part === "atk" || part === "def") { this.load(id + ".atk"); this.load(id + ".def"); }   // 공격 · 방어는 붙어 다니니 같이 받아 둔다
+    this.out(key, v == null ? 1 : v, 1);
+  },
   buzz(ms) { if (this.touch && navigator.vibrate) try { navigator.vibrate(ms); } catch (e) {} },
-  atk() {},
+  /* 공격 소리 (js/game.js atkSfx). phase "out" = 뛰쳐나감(소리 없음: 휙은 imp_whoosh 가 냄), "hit" = 맞는 순간 → 그 카드의 공격 소리 */
+  atk(kind, phase, v, lv, id) {
+    if (phase !== "hit") { if (id) { this.sndKeys(); if (this.snd.keys) this.load(id + ".atk"); } return; }
+    this.card(id, "atk", v, "hit");
+  },
   atkKind() { return "punch"; },
 
   /* 누름: 누르는 동안 살짝 들어가고(70ms), 떼면 탄력 있게 돌아온다(220ms).
