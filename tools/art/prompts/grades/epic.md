@@ -51,12 +51,12 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "침묵의 저울". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: an annihilating blow that erases a foe; allies rallying as one under a shared surge of power; paid for with the caster's own blood. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: an annihilating blow that erases a foe; paid for with the caster's own blood. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
 Scale (level 3 of 8): an effect over a few targets.
 Banner — Abyssal Fiends: magic of abyssal fiends, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 침묵의 군주 모르카스의 저울. 한쪽에 피를 올리면 다른 쪽에서 목숨 둘이 내려간다.
-Game effect (Korean, mood only — never draw text or numbers): 생명 4를 내고, 상대 유닛 중 공격이 가장 높은 2기를 파괴한다. 아군 유닛 전체에게 [강탈].
+Game effect (Korean, mood only — never draw text or numbers): [제물 4] 상대 유닛 중 공격이 가장 높은 2기를 파괴한다.
 Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.

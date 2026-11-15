@@ -1,4 +1,4 @@
-# 고급 (Superior) — 카드 일러스트 프롬프트 (125장, 버전 g3)
+# 고급 (Superior) — 카드 일러스트 프롬프트 (129장, 버전 g3)
 
 > 검증된 베테랑 · 잘 만든 물건. 일반보다 장비가 좋고 자세가 자신 있다. 고향의 한 조각이 흐릿하게 보이고, 장식 끝에 따뜻한 금빛이 조금.
 
@@ -50,12 +50,12 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "피의 침묵". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive darkness attack striking the enemy ranks; allies rallying as one under a shared surge of power; paid for with the caster's own blood. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive darkness attack striking the enemy ranks; paid for with the caster's own blood. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Abyssal Fiends: magic of abyssal fiends, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 피 한 방울로 상대의 입을 막는다. 녹타르의 계약자에게 침묵은 가장 싼 주문이다.
-Game effect (Korean, mood only — never draw text or numbers): 생명 1을 내고, 상대 맨 앞 마법 1장을 [무효]로 한다. 상대 유닛 중 공격이 가장 높은 1기에게 피해 3. 아군 유닛 전체에게 [강탈].
+Game effect (Korean, mood only — never draw text or numbers): [제물 1] 상대 맨 앞 마법 1장을 [무효]로 한다. 상대 유닛 중 공격이 가장 높은 1기에게 피해 3.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
@@ -82,7 +82,7 @@ Scale (level 1 of 8): a small, local effect.
 Banner — Abyssal Fiends: magic of abyssal fiends, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 녹타르의 안개를 마신 자는 곁의 전우가 마족으로 보인다. 칼을 내리친 뒤에야 그 얼굴을 알아본다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛이 환각에 빠져, 바로 뒤의 제 편 유닛을 제 공격으로 친다(맞는 유닛의 방어만큼 줄어든다). 그 유닛은 이번 턴 반격하지 않는다.
+Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛이 환각에 빠져, 바로 뒤의 제 편 유닛을 제 공격으로 친다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
@@ -1759,6 +1759,31 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## B3-05 · 볼타리움 학도
+번개 노움 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/B3-05.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-05.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "볼타리움 학도". Depict exactly what this name describes.
+Subject: a low-ranking, ordinary member of the Thunder Gnomes — a spellcaster channelling lightning power.
+Scale (level 1 of 8): small and humble: an ordinary body, light gear.
+Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
+Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
+Mood: proven, capable, confident.
+Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## CS-B3 · 합선
 번개 노움 · 공격 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/CS-B3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/CS-B3.jpg` 600×750)
 
@@ -1850,6 +1875,31 @@ Scale (level 2 of 8): a simple object.
 Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 끝에 피뢰침을 단 지팡이. 모인 번개가 저절로 튄다.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
+Mood: proven, capable, confident.
+Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+## B3-13 · 볼타리움 연구생
+번개 노움 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/B3-13.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-13.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "볼타리움 연구생". Depict exactly what this name describes.
+Subject: a seasoned, battle-hardened member of the Thunder Gnomes — a spellcaster channelling lightning power.
+Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
+Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
+Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
@@ -1990,6 +2040,31 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## B3-29 · 케라운 연구단
+번개 노움 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/B3-29.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-29.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "케라운 연구단". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Thunder Gnomes — a spellcaster channelling lightning power.
+Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
+Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
+Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
+Mood: proven, capable, confident.
+Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## B3-32 · 번개 거신
 번개 노움 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/B3-32.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-32.jpg` 600×750)
 
@@ -2024,6 +2099,31 @@ Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "볼타리움 학장". Depict exactly what this name describes.
 Subject: a legendary, awe-inspiring member of the Thunder Gnomes — a spellcaster channelling lightning power.
+Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
+Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
+Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
+Mood: proven, capable, confident.
+Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+## B3-34 · 폭뢰 기관
+번개 노움 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/B3-34.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-34.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "폭뢰 기관". Depict exactly what this name describes.
+Subject: a legendary, awe-inspiring member of the Thunder Gnomes — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
 Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.

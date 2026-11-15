@@ -436,6 +436,16 @@
    "en": "Zrak's Lightning Bottle",
    "ko": "잠겼던 병을 쥐자 번개가 타오름",
    "equip": "an ancient stoppered bottle is gripped with a hard crackling clasp, a storm spirit's howl swells inside, glass trembles, and lightning arcs painfully along the grip with a sizzle"
+  },
+  "GN-B3-1": {
+   "en": "Lightning Needle",
+   "ko": "구리 바늘이 약한 곳에 꽂히며 찌릿",
+   "cast": "two thin copper needles are flicked out with a tiny metallic ping, each lands with a sharp, precise electric prick and a short sizzling tick"
+  },
+  "GN-B3-2": {
+   "en": "Thunderhead Barrage",
+   "ko": "축전탑 방전 · 맨 앞 벼락 뒤 땅으로 번짐",
+   "cast": "a tall coil tower hums up to a whine and fires one heavy thunderbolt crack at the front, then a low crackling ripple spreads across the ground under every foe"
   }
  }
 }

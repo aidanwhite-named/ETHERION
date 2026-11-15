@@ -1,4 +1,4 @@
-# 일반 (Common) — 카드 일러스트 프롬프트 (385장, 버전 g3)
+# 일반 (Common) — 카드 일러스트 프롬프트 (383장, 버전 g3)
 
 > 그 깃발의 평범한 구성원 · 흔한 마법 · 손때 묻은 물건. 완성도는 다른 등급과 같다 — 얼굴 · 손 · 재질 · 빛을 공들여 그리고, 성격이 보이는 표정과 분명한 동작, 그 깃발 세상의 한 구석이 실제로 보이는 배경. 다른 점은 규모뿐: 몸집이 작고, 배경이 가깝고 아담하며, 신비한 장식 · 등급 강조색이 없다.
 
@@ -171,11 +171,11 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "피의 칼날". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive darkness attack striking the enemy ranks; allies rallying as one under a shared surge of power; paid for with the caster's own blood. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive darkness attack striking the enemy ranks; paid for with the caster's own blood. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Abyssal Fiends: magic of abyssal fiends, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Game effect (Korean, mood only — never draw text or numbers): 생명 2를 내고, 상대 맨 앞 2기에게 피해 2 +1C. 아군 유닛 전체에게 [강탈].
+Game effect (Korean, mood only — never draw text or numbers): [제물 2] 상대 맨 앞 2기에게 피해 2 +1C.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
@@ -201,7 +201,7 @@ Scale (level 1 of 8): a small, local effect.
 Banner — Abyssal Fiends: magic of abyssal fiends, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 흘린 피는 사라지지 않는다. 심연 아래로 스며 울리다가, 마지막 주문에 실려 한꺼번에 터져 나온다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 중 공격이 가장 높은 1기에게 피해 (이번 턴 낸 생명 + 2).
+Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 중 공격이 가장 높은 1기에게 피해 (이번 턴 바친 제물 + 2).
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
@@ -222,11 +222,11 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "피의 저울". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: an annihilating blow that erases a foe; allies rallying as one under a shared surge of power; paid for with the caster's own blood. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: an annihilating blow that erases a foe; paid for with the caster's own blood. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Abyssal Fiends: magic of abyssal fiends, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Game effect (Korean, mood only — never draw text or numbers): 생명 3을 내고, 상대 유닛 중 공격이 가장 높은 1기를 파괴한다. 아군 유닛 전체에게 [강탈].
+Game effect (Korean, mood only — never draw text or numbers): [제물 3] 상대 유닛 중 공격이 가장 높은 1기를 파괴한다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
@@ -252,7 +252,7 @@ Scale (level 1 of 8): a small, local effect.
 Banner — Abyssal Fiends: magic of abyssal fiends, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 녹타르의 계약서에는 늘 한 줄이 더 있다. 빼앗은 것은 빼앗은 자의 것이 된다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 중 공격이 가장 높은 2기 공격 −3. 실제로 깎인 만큼을 합쳐 아군 맨 앞 유닛 공격 +.
+Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 중 공격이 가장 높은 2기 공격 −3(0까지만). 깎인 만큼을 합쳐 아군 맨 앞 유닛 공격 +.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
@@ -273,12 +273,12 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "족쇄". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: allies rallying as one under a shared surge of power; paid for with the caster's own blood. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: paid for with the caster's own blood. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Abyssal Fiends: magic of abyssal fiends, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 모르카스의 족쇄는 무겁지 않다. 다만 풀리지 않을 뿐이다.
-Game effect (Korean, mood only — never draw text or numbers): 생명 1을 내고, 상대 유닛 중 공격이 가장 높은 1기의 공격이 0이 된다. 그 유닛은 이번 턴 [고정: 공격]. 아군 유닛 전체에게 [강탈].
+Game effect (Korean, mood only — never draw text or numbers): [제물 1] 상대 유닛 중 공격이 가장 높은 1기의 공격이 0이 된다. 그 유닛은 이번 턴 [고정: 공격].
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
@@ -304,7 +304,7 @@ Scale (level 1 of 8): a small, local effect.
 Banner — Abyssal Fiends: magic of abyssal fiends, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 발밑의 그림자가 손이 되어 적을 움켜쥔다. 피를 많이 바칠수록 손아귀는 더 큰 것을 끌어온다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 가운데 레벨이 (이번 턴 낸 생명 + 1) 이하인 유닛 하나(레벨이 가장 높은 것)를 빼앗아 내 전장 맨 뒤에 놓는다. 이번 턴 내 유닛으로 싸우고, 전투가 끝나면 흩어진다(원래 주인의 소각장으로).
+Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 가운데 레벨이 (이번 턴 바친 제물 + 1) 이하인 유닛 하나(레벨이 가장 높은 것)를 빼앗아 내 전장 맨 뒤에 놓는다. 이번 턴 내 유닛으로 싸우고, 전투가 끝나면 흩어진다(원래 주인의 소각장으로).
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
@@ -521,11 +521,11 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "계약의 대가". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive darkness attack striking the enemy ranks; allies rallying as one under a shared surge of power; paid for with the caster's own blood. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive darkness attack striking the enemy ranks; paid for with the caster's own blood. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 2 of 8): a small, local effect.
 Banner — Abyssal Fiends: magic of abyssal fiends, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Game effect (Korean, mood only — never draw text or numbers): 생명 2를 내고, 상대 유닛 전체에게 피해 2. 아군 유닛 전체에게 [강탈].
+Game effect (Korean, mood only — never draw text or numbers): [제물 2] 상대 유닛 전체에게 피해 2.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
@@ -571,12 +571,12 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "심연의 부름". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: allies rallying as one under a shared surge of power; paid for with the caster's own blood. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: paid for with the caster's own blood. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 2 of 8): a small, local effect.
 Banner — Abyssal Fiends: magic of abyssal fiends, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 모르카스의 저울은 죽은 자도 단다. 산 자가 피를 충분히 올리면, 맞은편 접시에서 누군가 일어선다.
-Game effect (Korean, mood only — never draw text or numbers): 생명 2를 내고, 내 소각장의 유닛 가운데 레벨이 이번 턴 낸 생명 이하인 유닛 하나(레벨이 가장 높은 것)를 이 칸에 되살린다. 되살린 유닛은 전장에 남는다. 아군 유닛 전체에게 [강탈].
+Game effect (Korean, mood only — never draw text or numbers): [제물 2] 내 소각장의 유닛 가운데 레벨이 이번 턴 바친 제물 이하인 유닛 하나(레벨이 가장 높은 것)를 이 칸에 되살린다. 되살린 유닛은 전장에 남는다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
@@ -597,12 +597,12 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "거울 환영". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: allies rallying as one under a shared surge of power; paid for with the caster's own blood. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: paid for with the caster's own blood. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 2 of 8): a small, local effect.
 Banner — Abyssal Fiends: magic of abyssal fiends, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 모르카스의 거울에 비친 자는 제 그림자와 싸운다. 그림자는 원본의 힘을 그대로 빌리되, 원본의 갑옷은 빌리지 못한다.
-Game effect (Korean, mood only — never draw text or numbers): 생명 2를 내고, 상대 유닛 중 공격이 가장 높은 1기의 환영을 이 칸에 부른다. 환영은 그 유닛과 같은 카드(아이템 없음)로 이번 턴 내 편에서 싸우고, 전투가 끝나면 사라진다. 아군 유닛 전체에게 [강탈].
+Game effect (Korean, mood only — never draw text or numbers): [제물 2] 상대 유닛 중 공격이 가장 높은 1기의 환영을 이 칸에 부른다. 환영은 그 유닛과 같은 카드(아이템 없음)로 이번 턴 내 편에서 싸우고, 전투가 끝나면 사라진다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
@@ -775,7 +775,7 @@ Subject: attack spell — the instant of impact: aggressive diagonal composition
 Scale (level 3 of 8): an effect over a few targets.
 Banner — Abyssal Fiends: magic of abyssal fiends, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Game effect (Korean, mood only — never draw text or numbers): 생명 3을 내고, 아군 전체 공격 +3, [흡혈]. 아군 유닛 전체에게 [강탈].
+Game effect (Korean, mood only — never draw text or numbers): [제물 3] 아군 전체 공격 +3, [흡혈].
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
@@ -5295,30 +5295,6 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B3-05 · 볼타리움 학도
-번개 노움 · 유닛 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/B3-05.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-05.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "볼타리움 학도". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary member of the Thunder Gnomes — a spellcaster channelling lightning power.
-Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## B3-06 · 코일 운반인
 번개 노움 · 유닛 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/B3-06.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-06.jpg` 600×750)
 
@@ -5643,6 +5619,32 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## GN-B3-1 · 번개 바늘
+번개 노움 · 공격 마법 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/GN-B3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/GN-B3-1.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "번개 바늘". Depict exactly what this name describes.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive lightning attack striking the enemy ranks. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Scale (level 2 of 8): a small, local effect.
+Banner — Thunder Gnomes: magic of thunder gnomes, signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints; palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
+Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Lore (Korean, use for the scene): 볼타리움 공방의 구리 바늘은 가장 약한 맥을 찾아 꽂힌다. 버티던 자는 그 한 땀에 무너진다.
+Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 중 남은 체력이 가장 낮은 2기에게 피해 2 +1C.
+Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
+Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
+Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
+Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Mood: lively, honest, frontline.
+Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## IB3-1 · 구리 코일
 번개 노움 · 아이템 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/IB3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IB3-1.jpg` 600×750)
 
@@ -5806,30 +5808,6 @@ Scale (level 2 of 8): a small, local effect.
 Banner — Thunder Gnomes: magic of thunder gnomes, signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints; palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체에게 피해 1 +1C.
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## B3-13 · 볼타리움 연구생
-번개 노움 · 유닛 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/B3-13.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-13.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "볼타리움 연구생". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Thunder Gnomes — a spellcaster channelling lightning power.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
@@ -6084,6 +6062,32 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## GN-B3-2 · 뇌명 포격
+번개 노움 · 공격 마법 · 레벨 4 · 일반 — 받은 그림은 `tools/art/inbox/GN-B3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/GN-B3-2.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "뇌명 포격". Depict exactly what this name describes.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive lightning attack striking the enemy ranks. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Scale (level 4 of 8): an effect over a few targets.
+Banner — Thunder Gnomes: magic of thunder gnomes, signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints; palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
+Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Lore (Korean, use for the scene): 뇌명 고원의 축전탑이 한꺼번에 방전한다. 맨 앞을 꿰뚫은 벼락이 땅을 타고 뒤까지 번진다.
+Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛에게 피해 4. 상대 유닛 전체에게 피해 1 +1C.
+Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
+Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
+Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
+Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Mood: lively, honest, frontline.
+Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## IB3-7 · 케라운의 뇌관
 번개 노움 · 아이템 · 레벨 4 · 일반 — 받은 그림은 `tools/art/inbox/IB3-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IB3-7.jpg` 600×750)
 
@@ -6257,30 +6261,6 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B3-29 · 케라운 연구단
-번개 노움 · 유닛 · 레벨 6 · 일반 — 받은 그림은 `tools/art/inbox/B3-29.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-29.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "케라운 연구단". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Thunder Gnomes — a spellcaster channelling lightning power.
-Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## B3-31 · 전격 요새
 번개 노움 · 유닛 · 레벨 6 · 일반 — 받은 그림은 `tools/art/inbox/B3-31.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-31.jpg` 600×750)
 
@@ -6318,30 +6298,6 @@ Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a bi
 Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
 Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 고무와 유리로 겹겹이 두른 갑옷. 번개도 칼도 같은 두께에서 멈춘다.
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## B3-34 · 폭뢰 기관
-번개 노움 · 유닛 · 레벨 7 · 일반 — 받은 그림은 `tools/art/inbox/B3-34.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-34.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "폭뢰 기관". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring member of the Thunder Gnomes — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
-Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Banner — Thunder Gnomes: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a cluttered workshop bench with coils) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; crackling electric arcs, glowing coils.

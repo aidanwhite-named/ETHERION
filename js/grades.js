@@ -60,6 +60,7 @@ if (typeof UPGRADE_GRADES !== "undefined") Object.assign(CARD_GRADES, UPGRADE_GR
 /* v3.49 스탯 기준 등급 재정비(js/rebalance.js) — 맨 마지막에 덮는다 */
 if (typeof REBAL_GRADES !== "undefined") Object.assign(CARD_GRADES, REBAL_GRADES);
 if (typeof ABYSS_GRADES !== "undefined") Object.assign(CARD_GRADES, ABYSS_GRADES);   // v3.65 심연 마족 새 마법 (js/abyss.js)
+if (typeof GNOME_GRADES !== "undefined") Object.assign(CARD_GRADES, GNOME_GRADES);   // v3.66.1 노움 [증폭] 고급 유닛 (js/gnome.js)
 
 function gradeOf(c) { const id = typeof c === "string" ? c : c && c.id; return CARD_GRADES[id] || "common"; }
 for (const c of CARD_LIST) c.grade = gradeOf(c);

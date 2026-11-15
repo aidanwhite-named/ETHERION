@@ -30,7 +30,7 @@ Scale (level 1 of 8): a small, local effect.
 Banner — Abyssal Fiends: magic of abyssal fiends, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 모르크 협곡의 그림자는 다가오는 자의 힘을 빨아 문지기에게 먹인다. 대가는 늘 상대가 치른다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 2기 공격 −4. 실제로 깎인 만큼을 합쳐 아군 맨 앞 유닛 공격 +, 그 유닛 체력 +2.
+Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 2기 공격 −4(0까지만). 깎인 만큼을 합쳐 아군 맨 앞 유닛 공격 +, 그 유닛 체력 +2.
 Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
 Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; violet shadow smoke, blood-red accents, contract sigils.
@@ -57,7 +57,7 @@ Scale (level 1 of 8): a small, local effect.
 Banner — Abyssal Fiends: magic of abyssal fiends, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 그림자 없는 아즈라가 처음 맺었다는 계약의 사본. 원본에 무엇을 걸었는지는 적혀 있지 않다.
-Game effect (Korean, mood only — never draw text or numbers): 생명 1을 내고, 상대 유닛 중 공격이 가장 높은 1기에게 피해 3. 아군 뒤 3칸의 유닛 공격 +3, [치명], [연쇄]. 아군 유닛 전체에게 [강탈].
+Game effect (Korean, mood only — never draw text or numbers): [제물 1] 상대 유닛 중 공격이 가장 높은 1기에게 피해 3. 아군 뒤 3칸의 유닛 공격 +3, [치명], [연쇄].
 Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
 Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; violet shadow smoke, blood-red accents, contract sigils.
@@ -79,12 +79,12 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: RARE — an elite specialist or a masterwork, the card people notice. An elite with a signature move, or a masterwork — clearly special.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "피의 창". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive darkness attack striking the enemy ranks; allies rallying as one under a shared surge of power; paid for with the caster's own blood. Scale and finish: a sweeping effect that reshapes part of the battlefield, layered energies and motion trails.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive darkness attack striking the enemy ranks; paid for with the caster's own blood. Scale and finish: a sweeping effect that reshapes part of the battlefield, layered energies and motion trails.
 Scale (level 2 of 8): a small, local effect.
 Banner — Abyssal Fiends: magic of abyssal fiends, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 제 피를 굳혀 벼린 창. 녹타르의 계약자는 가장 위험한 적부터 꿰뚫는다.
-Game effect (Korean, mood only — never draw text or numbers): 생명 2를 내고, 상대 유닛 중 공격이 가장 높은 1기에게 피해 6. 아군 유닛 전체에게 [강탈].
+Game effect (Korean, mood only — never draw text or numbers): [제물 2] 상대 유닛 중 공격이 가장 높은 1기에게 피해 6.
 Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
 Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; violet shadow smoke, blood-red accents, contract sigils.
@@ -110,7 +110,7 @@ Subject: the item the card name and lore describe — a single object made or ke
 Scale (level 3 of 8): a fine object with a faint aura.
 Banner — Abyssal Fiends: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 심연 계약단의 처형인이 쓰는 가면. 쓴 자의 눈에는 상대의 갑옷 대신 핏줄만 보인다.
+Lore (Korean, use for the scene): 심연 계약단의 처형인이 쓰는 가면. 쓴 자는 벤 상처에서 흐르는 피를 제 숨으로 들이킨다.
 Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
 Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; violet shadow smoke, blood-red accents, contract sigils.
@@ -132,12 +132,12 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: RARE — an elite specialist or a masterwork, the card people notice. An elite with a signature move, or a masterwork — clearly special.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "피의 저주". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a destructive darkness attack striking the enemy ranks; a weakening curse sinking over the enemies; allies rallying as one under a shared surge of power. Scale and finish: a sweeping effect that reshapes part of the battlefield, layered energies and motion trails.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a destructive darkness attack striking the enemy ranks; a weakening curse sinking over the enemies; paid for with the caster's own blood. Scale and finish: a sweeping effect that reshapes part of the battlefield, layered energies and motion trails.
 Scale (level 3 of 8): an effect over a few targets.
 Banner — Abyssal Fiends: magic of abyssal fiends, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 모르카스의 저울에 피 한 방울을 올리면, 맞은편 접시의 모든 목숨이 조금씩 가벼워진다.
-Game effect (Korean, mood only — never draw text or numbers): 생명 2를 내고, 상대 유닛 전체 방어 −1, 피해 3. 아군 유닛 전체에게 [강탈].
+Game effect (Korean, mood only — never draw text or numbers): [제물 2] 상대 유닛 전체 방어 −1, 피해 3.
 Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
 Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; violet shadow smoke, blood-red accents, contract sigils.
