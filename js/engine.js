@@ -3,7 +3,7 @@
    - 전투·마법 발동 순서: 마법 카드 시뮬레이터의 resolve/cast (문서 07 마법 v0.3)
        마법도 대기열의 한 자리. 앞에 유닛이 없어지는 순간 발동한다.
        공격 마법: 앞 칸의 공격 유닛이 모두 공격을 마치면 / 방어 마법: 앞 칸의 방어 유닛이 모두 쓰러지면
-       끝까지 막히면 유닛 전투가 끝난 뒤 발동. 같은 때면 공격 마법 → 방어 마법, 같은 쪽이면 칸 번호 순
+       끝까지 막히면 유닛 전투가 끝난 뒤 발동. 같은 때면 공격 마법 → 방어 마법 → 공격 마법 … 번갈아(2026-11-16), 같은 쪽이면 칸 번호 순
    - 아이템 능력: 아이템 카드 시뮬레이터 (문서 07 아이템 v0.1)
    - 직접 공격: 피해는 모두 생명에서. 맞은 쪽은 다음 턴 에테르 +1 (일시, 한 턴에 한 번)
    - 유닛: 코인은 소환할 때 한 번 던진다. 받은 피해는 턴이 끝나면 회복 (문서 06)
@@ -667,6 +667,13 @@ function attackOne(X, Au) {
     if (abilOf(Du).crit && g > 0 && Au.t.alive && hpLeft(Au) > 1) { const cut = hpLeft(Au) - 1; Au.t.dmg += cut; gc += cut; ccrit = true; fl(X, Au.uid, "치명 ♥1", "dmg big"); }
     lg(X, `↺ ${cd.name}의 반격 → ${ca.name}: 피해 ${gc}${ccrit ? " (치명)" : ""}`);
     uOnHit(X, Du, Au, gc);   // v3.31 반격도 맞붙은 피해 (v3.65 기록 뒤에 — [출혈]이 반격 줄 다음에 찍히게)
+    // v3.84.3 [가시]는 반격도 공격으로 친다(사용자): 반격받은 공격자에게 가시가 있으면 반격한 유닛이 가시만큼 체력을 잃는다(공격받을 때와 같이 칸마다 따로)
+    if (Au.t.thorns && Du.t.alive) {
+      const ps = fitPieces(Au.t.thornsP || [], Au.t.thorns);
+      if (ps.length) step(X, { act: Au.uid, counter: Du.uid }, 460);
+      ps.forEach((n, i) => { if (!Du.t.alive) return; if (i) step(X, { tgt: Du.uid }, PIECE_MS); const t = hurt(X, Du, n, "가시"); if (t) lg(X, `[가시${ps.length > 1 ? " " + n : ""}] 반격한 ${cd.name} 피해 ${t}`); });
+      if (ps.length) { step(X, { tgt: Du.uid }, PIECE_MS); return; }
+    }
     step(X, { act: Au.uid, counter: Du.uid }, 460);
   }
 }
@@ -705,13 +712,16 @@ function runCombatCore(X) {
     if (gone.length) step(X, { shatter: gone }, dur || 520);
     if (uPostSweep(X)) for (const q of pend) q.k = q.p.field.indexOf(q.it) + 1;   // v3.31 쓰러진 뒤 부르는 소환물
   };
+  // 2026-11-16 같은 때 양쪽 마법이 모두 발동할 수 있으면 번갈아: 공격 → 방어 → 공격 … (예전: 공격 마법을 다 쓴 뒤 방어 마법). 한쪽만 남으면 그쪽을 칸 번호 순으로
   const fire = all => {
+    let last = null;
     for (;;) {
       let q = null;
-      for (const w of ["atk", "def"]) {
-        const L = pend.filter(z => z.who === w && (all || ready(z))).sort((a, b) => a.k - b.k);
-        if (L.length) { q = L[0]; break; }
-      }
+      const L = w => pend.filter(z => z.who === w && (all || ready(z))).sort((a, b) => a.k - b.k);
+      const La = L("atk"), Ld = L("def");
+      if (La.length && Ld.length) q = last === "atk" ? Ld[0] : La[0];
+      else q = La[0] || Ld[0] || null;
+      if (q) last = q.who;
       if (!q || dead()) return;
       pend.splice(pend.indexOf(q), 1);
       step(X, { act: q.it.uid, reveal: q.it.uid }, 950);   // 뒤집기 + 크게 들고 읽을 틈 (v1.2: 700 → 950)
@@ -1259,6 +1269,7 @@ const SPELL_OPS_2 = {
       const bp = ownerOf(X, q.it, q.p); bp.burn.push(q.it.id); brokeCard(X, bp, q.it.id, "spell");
       step(X, { shatter: [q.it.uid], shown: q.it.uid }, 560);
       X.negated = (X.negated || 0) + 1;
+      (X.negBy = X.negBy || {})[it.uid] = ((X.negBy || {})[it.uid] || 0) + 1;   // v3.85 이 마법이 무효로 한 장수(negBuff가 본다)
     }
   }
 };
@@ -1531,8 +1542,7 @@ function uCombatEnd(X, sweep) {
         resetTurn(nu); p.field[i] = nu; X.toks[nu.uid] = nu.id;
         fl(X, nu.uid, "자람", "buff"); lg(X, `[씨앗] 묘목이 어린 고목으로 자랐다`, "good"); step(X, { conjure: nu.uid }, 600);
       }
-      const n = p.field.filter(u => isUnit(u) && u.t.alive && u.id === "TK-U-SAPLING" && uK(u).seed === s.uid).length;
-      if (n < 2) uSpawn(X, p, "TK-U-SAPLING", s, { seed: s.uid, born: X.turn }, "씨앗");
+      uSpawn(X, p, "TK-U-SAPLING", s, { seed: s.uid, born: X.turn }, "씨앗");   // v3.84.2 "묘목은 2기까지"를 뺐다(자라기가 먼저라 늘 1기뿐이어서 뜻이 없었다)
     }
     // [새벽의 부활]: 판에 두 번
     for (const s of uLive(p, "dawn")) {
@@ -1980,7 +1990,8 @@ Object.assign(SPELL_OPS, {
    hpGather { bonus, taunt }: 아군 유닛 가운데 남은 체력이 가장 높은 1기(같으면 앞 칸)가 받는 쪽. 나머지 아군 유닛은 남은 체력이 1이 되고
      (줄어든 만큼을 받은 피해로 친다 → [재생]이 맞붙음마다 도로 채운다 · 턴이 끝나면 낫는다), 줄어든 체력의 합 + (체력을 내준 유닛 수 × bonus)를
      받는 쪽의 체력에 더한다. taunt = 받는 쪽이 이번 턴 [수호](상대가 먼저 친다).
-   hpSlam { sapMul }: 아군 유닛 가운데 남은 체력이 가장 높은 1기가 남은 체력만큼의 피해를 상대 유닛 전체에 나눠 준다 — 한 기마다 피해 = 남은 체력 ÷ 상대 유닛 수(내림).
+   hpSlam { half, need } (v3.84.1 카드가 쓰는 꼴): 체력이 가장 높은 아군 1기의 체력이 절반(내림)이 되고, 줄어든 만큼 방어가 need 이상인 상대 유닛마다 피해. 맞을 상대가 없으면 체력도 그대로.
+   hpSlam { sapMul } (예전 꼴): 아군 유닛 가운데 남은 체력이 가장 높은 1기가 남은 체력만큼의 피해를 상대 유닛 전체에 나눠 준다 — 한 기마다 피해 = 남은 체력 ÷ 상대 유닛 수(내림).
      이번 턴 수액 몰아주기로 받은 체력(t.sap, 남은 체력까지만)은 sapMul 번 센다(콤보 보상).
      마법 피해라 방어로 막지 못한다. 그 뒤 그 유닛의 남은 체력은 1(줄어든 만큼은 받은 피해). 상대 유닛이 없으면 아무 일도 없다.
    둘을 한 턴에 차례로 쓰면(몰아주기가 먼저) 아군 체력 전부가 한 번에 상대에게 떨어진다. 대신 아군이 모두 체력 1로 남아 상대 마법 · 반격에 약하다. */
@@ -2003,12 +2014,12 @@ Object.assign(SPELL_OPS, {
   },
   hpSlam(X, caster, it, k, op) {
     const me = trHpTop(X.P[caster]), F = X.P[1 - caster];
-    const L = uEyeFilter(X, F, liveUnits(F));
+    const L = uEyeFilter(X, F, liveUnits(F).filter(u => Math.max(0, u.t.d) >= (op.need || 0)));   // v3.84.1 need: 방어가 need 이상인 상대만
     if (!me || !L.length) { fl(X, it.uid, me ? "칠 상대 없음" : "아군 없음", "miss"); return; }
     const hp = hpLeft(me);
-    if (op.half) {   // v3.82 혼자 써도 되게: 상대 유닛마다 체력 −(남은 체력 ÷ 2, 내림), 그 아군은 그만큼 체력을 잃는다(수액 몰아주기로 부풀린 체력이면 그만큼 크다)
-      const y = Math.floor(hp / 2);
-      lg(X, `[고목 내려찍기] ${C(me).name}의 체력 ${hp} ÷ 2 → 상대 유닛마다 체력 −${y}`, "spell");
+    if (op.half) {   // v3.82 혼자 써도 되게 · v3.84.1 그 아군의 체력이 절반(내림)이 되고, 줄어든 만큼(= 남은 체력 − 절반) 상대마다 체력 −
+      const y = hp - Math.floor(hp / 2);
+      lg(X, `[고목 내려찍기] ${C(me).name}의 체력 ${hp} → ${hp - y} · 줄어든 ${y}만큼 상대 ${L.length}기 체력 −${y}`, "spell");
       me.t.sap = 0;
       if (y > 0) { me.t.dmg += y; fl(X, me.uid, "♥−" + y, "debuff"); }
       step(X, { act: me.uid }, 300);
@@ -2262,6 +2273,22 @@ Object.assign(SPELL_OPS, {
       hurt(X, u, x, "숲의 무게");
       if (blocked || u.t.alive) break;
       x -= need; step(X, {}, 240);
+    }
+  }
+});
+
+/* ---------- v3.85 이끼 덮기(CS-G2): 무효로 했을 때만 강화 ----------
+   negBuff { side, area, a, d, h }: 같은 마법의 negate가 이번에 마법을 1장 이상 무효로 했으면(X.negBy[이 마법 uid]) 대상에 a · d · h를 더한다. 아니면 아무 일도 없다. */
+Object.assign(SPELL_OPS, {
+  negBuff(X, caster, it, k, op) {
+    if (!(X.negBy && X.negBy[it.uid] > 0)) { lg(X, `${C(it).name}: 무효로 한 마법이 없어 강화도 없다`, "sys"); return; }
+    for (const u of pickTargets(X, caster, op.side || "ally", op.area || { t: "front", n: 2 }, k)) {   // mod와 같이 한 번에 띄운다("⚔+1 ♥+2")
+      const b0 = { a: u.t.a, d: u.t.d, h: u.t.h };
+      if (op.a) u.t.a += op.a; if (op.d) u.t.d += op.d; if (op.h) u.t.h += op.h;
+      applyFloor(u);
+      const ra = u.t.a - b0.a, rd = u.t.d - b0.d, rh = u.t.h - b0.h;
+      const tx = [ra ? "⚔" + sgnNum(ra) : "", rd ? "⛨" + sgnNum(rd) : "", rh ? "♥" + sgnNum(rh) : ""].filter(Boolean).join(" ");
+      if (tx) fl(X, u.uid, tx, "buff");
     }
   }
 });

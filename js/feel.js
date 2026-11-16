@@ -42,7 +42,7 @@ const FEEL = {
     if (this.ac.state === "suspended") this.ac.resume();
     return this.ac;
   },
-  /* ---------- 효과음 파일 (2026-11-15, Stable Audio Open 1.0 로 만든 audio/sfx/<키>.ogg · .mp3) ----------
+  /* ---------- 효과음 파일 (2026-11-16~ 코드로 직접 합성한 audio/sfx/<키>.ogg · .mp3 — tools/sfx/synth/, 그 전은 Stable Audio) ----------
      목록은 audio/sfx/index.json. 키 이름은 tools/sfx/prompts/sfx.jsonl 의 sounds[].key 그대로.
      예전 합성음 이름으로 부르는 곳이 많아서 SND_ALIAS 로 새 키에 잇는다(null = 소리 없음: 같은 순간 다른 소리가 이미 남).
      카드마다 다른 소리: FEEL.card(카드ID, "atk" | "def" | "cast" | "equip", 세기, 없을 때 쓸 공용 키) */
@@ -50,12 +50,19 @@ const FEEL = {
     confirm: "confirm_ready", hitBig: "life_hit", suck: null,
     // 2026-11-16 사용자: 날카로운 금속성 소리 빼기 — 전장 카드 옮김 · 소각장으로 갈 때(move, 거의 4kHz 위만 울림), 코인 도는 소리(coin_flip · coin_reflip · shield_coin), 파친코 SPIN이 멈출 때 차르르(pach_stop)
     move: null, coin_flip: null, coin_reflip: null, shield_coin: null, pach_stop: null,
+    crystal: null,   // 2026-11-16 결정화: 1.9초 내내 같은 크기로 울리는 쇳소리가 카드가 소각장으로 가는 동안 이어졌다 — 빼고 소각장에 닿을 때 불 소리(burn)만
+    banner_foe: null, banner_combat: null,   // 2026-11-16 상대 차례 · 전투 시작 명판 소리 — 잔향이 길어 뺌(공격 · 방어 차례 명판은 꼬리만 잘라 남김)
+    sortie: null,   // 2026-11-16 대전 시작(출정) 칼 뽑는 쇳소리 — 핸드가 들어오는 동안 "지이잉" 하고 길게 울렸다
     imp_hit: null, imp_life: null, imp_kill: null, imp_land: null, imp_spell: null,
     imp_crit: "crit", imp_block: "block", imp_whoosh: "swing",
     sp_buff: "buff", sp_debuff: "debuff", sp_shield: "shield", sp_heal: "heal", sp_block: "block",
     sp_boom: null, sp_zap: null, sp_clang: null, sp_rock: null, sp_quake: null, sp_thorn: null,
     sp_thunk: null, sp_slash: null, sp_smite: null, sp_gust: null, sp_splash: null
   },
+  /* 파일을 고쳐 다시 넣은 소리: 브라우저에 남은 옛 파일 대신 새 파일을 받게 ?v= 를 붙인다 */
+  SND_VER: { banner_atk: "1116", banner_def: "1116" },   // 2026-11-16 상대 · 공격 · 방어 차례 명판 소리의 잔향 꼬리를 잘라 냄
+  SND_ALL: "syn1116",   // 모든 파일을 한꺼번에 바꿨을 때 올린다(2026-11-16 Stable Audio → 직접 합성)
+  sndUrl(key) { const v = this.SND_VER[key] ? this.SND_VER[key] + "." + this.SND_ALL : this.SND_ALL; return this.snd.base + encodeURIComponent(key) + "." + this.snd.ext + "?v=" + v; },
   /* media: 파일로 열었을 때(file:// — ETHERION 실행.bat · PC 앱)는 fetch 가 막혀서 <audio> 로 낸다. 목록도 audio/sfx/index.js (window.SFX_KEYS) */
   snd: { keys: null, buf: {}, wait: {}, ext: "ogg", base: "audio/sfx/", media: false, el: {} },
   sndKeys() {
@@ -75,7 +82,7 @@ const FEEL = {
   /* <audio> 쪽: 키마다 하나 받아 두고, 낼 때는 복제해서 겹쳐 낼 수 있게 */
   mediaEl(key) {
     const S = this.snd;
-    if (!S.el[key]) { const a = new Audio(S.base + encodeURIComponent(key) + "." + S.ext); a.preload = "auto"; a.onerror = () => S.keys.delete(key); S.el[key] = a; }
+    if (!S.el[key]) { const a = new Audio(this.sndUrl(key)); a.preload = "auto"; a.onerror = () => S.keys.delete(key); S.el[key] = a; }
     return S.el[key];
   },
   has(key) { return !!(this.snd.keys && this.snd.keys.has(key)); },
@@ -85,7 +92,7 @@ const FEEL = {
     const ac = this.ctx();
     if (!ac || !this.has(key)) return null;
     if (S.buf[key] || S.wait[key]) return S.wait[key] || Promise.resolve(S.buf[key]);
-    S.wait[key] = fetch(S.base + encodeURIComponent(key) + "." + S.ext).then(r => r.arrayBuffer())
+    S.wait[key] = fetch(this.sndUrl(key)).then(r => r.arrayBuffer())
       .then(b => new Promise((ok, no) => ac.decodeAudioData(b, ok, no)))
       .then(buf => { S.buf[key] = buf; delete S.wait[key]; return buf; })
       .catch(() => { delete S.wait[key]; S.keys.delete(key); return null; });

@@ -534,7 +534,8 @@ function renderDeckView() {
     <div class="dv-cards" id="dv-cards">${ids.map(id => cardHTML(CARDS[id], { size: "md", brief: true })).join("")}</div>`;
   const side = $("#side-altar");   /* v3.36 출정의 단은 오른쪽 열 아래 2 × 2 */
   if (side) { side.innerHTML = altarHTML(f, true); bindAltar(side, f); }
-  $("#dv-cards").addEventListener("click", e => { const c = e.target.closest("[data-card]"); if (c) showCardModal(CARDS[c.dataset.card]); });
+  // 2026-11-17 덱 조정실과 같게: 카드를 누르면 큰 카드가 옆에 고정되고(창으로 가리지 않음), 다른 카드를 누르면 그 카드로 바뀌며, 큰 카드는 끌어 옮긴다. 빈 곳 · Esc면 닫힘 (js/view.js CardPreview)
+  bindPreview($("#dv-cards"), { pin: true, hover: false });
   $(".dv-filter").addEventListener("click", e => {
     const k = e.target.closest("[data-dk]"), g = e.target.closest("[data-dg]");
     if (k && !k.disabled) { App.deckFilter = { type: k.dataset.dk, grade: "" }; applyDeckFilter(ids); }

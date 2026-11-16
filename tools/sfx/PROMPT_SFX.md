@@ -1,5 +1,7 @@
 # ETHERION 효과음 — Gemini용 프롬프트
 
+> **2026-11-16부터 효과음은 이 문장들을 코드로 직접 합성한다**(`tools/sfx/synth/`, 생성 AI 없음 — AGENTS.md "소리 프롬프트"). 문장은 그대로 합성 레시피의 설명서로 쓰인다. 아래 Gemini · Stable Audio 안내는 옛 방식 기록.
+
 > 효과음을 모두 새로 만든다. 지금 효과음은 `js/feel.js`가 WebAudio로 그 자리에서 합성하는 소리라 파일이 없다. 2026-11-14에 새로 썼다.
 > 배경음 프롬프트는 `tools/bgm/PROMPT_BGM.md`.
 

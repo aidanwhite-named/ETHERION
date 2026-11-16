@@ -95,7 +95,7 @@
 - **[방어무시]**(`magic`)는 수치가 없다: 공격할 때 상대 방어를 모두 무시(방어 0으로 계산, [연쇄] 둘째에도). 데이터의 magic 1 · 2 · 3 · true는 모두 "있음" — 엔진 `abilRaw`가 true로 만든다. 카드 글 · 칩에 수치를 쓰지 않는다(`itemAbilities` · `grantChipsHTML` · 레어 오라 [별의 인도]는 양옆에 [방어무시]를 줌).
 - 트롤의 방어 높은 상대 답: `js/troll.js`(newabil.js 다음 · decks.js 앞) 마법 3장 덩굴 조이기(SG2-01) · 뿌리 파고들기(NG2-1) · 갑옷째 휘감기(MC-14). 효과 `armorCrush`(engine 끝 "v3.75 이끼 트롤" 절) — 피해 = 대상 방어 × mul + base(최소 min), zero면 이번 턴 방어 0.
 - 트롤 콤보 한 쌍(v3.76): 수액 몰아주기(SG2-05, `hpGather`) — 체력 최고 아군 1기에게 다른 아군 체력을 1만 남기고 몰아줌(+1씩, [수호]), 몰아 받은 몫은 `t.sap`. 고목 내려찍기(SG2-08, `hpSlam`) — 체력 최고 아군의 남은 체력(+ `t.sap`을 한 번 더) ÷ 상대 유닛 수(내림)를 상대 전체에, 그 뒤 체력 1. 줄인 체력은 받은 피해로 쳐서 [재생]이 채운다. engine 끝 "v3.76 이끼 트롤" 절.
-- v3.83 트롤: 고목 내려찍기(SG2-08)는 혼자 써도 된다(`hpSlam` half — 상대마다 체력 −(최고 체력 ÷ 2), 그 아군은 그만큼 잃음). 숲의 무게(MG-14, 전 베르단의 가호, `g2Weight`) — 아군 체력 합을 몫으로 맨 앞부터 공격 → 방어 → 체력 순으로 깎고, 다 깎아 쓰러뜨리면 남은 몫은 다음으로(기본 덱 2장 +8.4%p — 덱에 넣을 때 승률을 잰다).
+- v3.83 트롤: 고목 내려찍기(SG2-08)는 혼자 써도 된다. v3.84.1부터 `hpSlam` half · need 1 — 체력 최고 아군의 체력이 절반(내림)이 되고, 줄어든 만큼 방어 1 이상인 상대마다 피해(방어 있는 상대가 없으면 체력도 그대로). 숲의 무게(MG-14, 전 베르단의 가호, `g2Weight`) — 아군 체력 합을 몫으로 맨 앞부터 공격 → 방어 → 체력 순으로 깎고, 다 깎아 쓰러뜨리면 남은 몫은 다음으로(기본 덱 2장 +8.4%p — 덱에 넣을 때 승률을 잰다).
 - 시험 `node tools/troll/test.js` · `node tools/elf/magic_floor_test.js`.
 
 ## 성광 천족 = 신성한 막기 (v3.77)
@@ -172,7 +172,7 @@
 - 사람이 둘 수 있는 새 행동을 만들면 `js/online.js`의 `ACT_FNS`에 넣어 상대에게도 보낸다. 핸드 순서도 판에 영향이 있다(맨 왼쪽 카드를 겨냥하는 마법).
 
 ## 소리 프롬프트 (2026-11-14, Gemini용)
-- **배경음은 Gemini(Lyria), 효과음은 이 맥에서 Stable Audio Open 1.0으로 만든다**(v3.65.1~). 효과음 도구는 `~/develop/stable-audio/gen.py`(MPS) — `tools/sfx/prompts/sfx.jsonl`의 `sounds[].single` 문장을 읽어 `<키>.ogg · .mp3`를 만든다. 일부만 다시 만들 때는 그 카드 줄만 모은 jsonl을 `SAO_SRC`로, 출력은 `SAO_OUT`, `--redo`(예: `SAO_SRC=x.jsonl SAO_OUT=dir .venv/bin/python gen.py 0 100 fp16 cards --redo`, 한 소리에 30초쯤). 만든 파일을 `audio/sfx/`에 같은 이름으로 넣는다(새 키면 `index.json` · `index.js`에도). 배경음 지시서 `tools/bgm/PROMPT_BGM.md`(15곡: 1부 서정적인 랩소디 5 + 2부 성향이 다른 10, 쓸 곳은 타이틀 1 · 대기실 쪽 7 · 대전 7 제안), 효과음 `tools/sfx/PROMPT_SFX.md`(공용 130 + 카드 705장).
+- **배경음은 Gemini(Lyria), 효과음은 생성 AI 없이 코드로 직접 합성한다**(2026-11-16~, 사용자가 Stable Audio 결과를 원치 않음). 도구는 `tools/sfx/synth/` — `render.py`가 `tools/sfx/prompts/sfx.jsonl`의 `sounds[].single` 문장을 읽어 `<키>.ogg · .mp3`를 만든다. 손 레시피(`recipes_common.py` · 짧은 음악 `recipes_music.py`)가 있으면 그것, 없으면 문장 엔진(`recipes_text.py`: 낱말 → `layers.py`의 층, 마디 순서 = 시간)이 만든다. 실행 `~/develop/sfx-synth/.venv/bin/python tools/sfx/synth/render.py <폴더> [키 · 접두어* …] -j8`(numpy · scipy venv, ffmpeg), 고른 층만 보기 `--plan`, 검사 `check.py <폴더>`. 같은 키는 늘 같은 소리. 소리가 마음에 안 들면 그 키의 손 레시피를 `recipes_common.py`에 더한다. 만든 파일을 `audio/sfx/`에 같은 이름으로 넣는다(새 키면 `index.json` · `index.js`에도). 배경음 지시서 `tools/bgm/PROMPT_BGM.md`(15곡: 1부 서정적인 랩소디 5 + 2부 성향이 다른 10, 쓸 곳은 타이틀 1 · 대기실 쪽 7 · 대전 7 제안), 효과음 `tools/sfx/PROMPT_SFX.md`(공용 130 + 카드 705장).
 - **카드마다 공격 · 방어 소리가 다르다**(마법은 발동, 아이템은 장착). 새 카드를 만들면 `tools/sfx/notes/<깃발>.json`에 소리 지시도 함께 쓰고(쓰는 법 PROMPT_SFX.md 6장) `node tools/sfx/build_sfx_prompts.js` → `tools/sfx/prompts/`. 지시가 없는 카드는 도구가 알려 준다.
 - 받은 소리 파일은 `audio/inbox/bgm/` · `audio/inbox/sfx/`(카드는 `cards/`)에 들어온다. 테이크 나누기는 `prompts/sfx.jsonl`의 `takes`를 따른다.
 
