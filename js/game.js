@@ -2166,6 +2166,8 @@ function fieldRowHTML(p, isMe, ctrlAll, side) {
     if (ctrl) {
       if (selC && selC.type !== "item" && !it && !canPlay(p, selC)) cls += " valid";
       if (selC && selC.type === "item" && isUnit(it) && !it.item && canEquip(selC, C(it)) && !canPlay(p, selC)) cls += " valid-equip";
+      // 2026-11-16 전장 카드를 끄는 동안에만 다른 칸이 받을 수 있다(누르기로 옮기기는 뺐지만 끌어서 옮기기는 이 표시가 있어야 놓인다)
+      if (FX.drag && FX.drag.kind === "field" && sel && sel.kind === "field" && sel.p === p.idx && s !== sel.slot) cls += " valid-move";
     }
     if (s === 0) cls += " front";
     return `<div class="${cls}" data-act="slot" data-p="${p.idx}" data-s="${s}"><span class="slot-n">${s + 1}</span>${ctrl ? `<span class="hk hk-slot">${SLOT_KEYS[s].toUpperCase()}</span>` : ""}${it ? fieldCardHTML(it, p, s) : ""}</div>`;
@@ -2933,7 +2935,9 @@ function drawHand(els) {
   if (shuffled) setTimeout(() => shuffleDeckFx(deck), (DRAW_T.shuffleWait - 300) * k);
   // 왼쪽 카드부터
   els.sort((a, b) => a.getBoundingClientRect().left - b.getBoundingClientRect().left);
-  els.forEach((el, i) => drawFly(el, deck, (base + i * DRAW_T.gap) * k, DRAW_T.fly * k));
+  // 2026-11-16 여러 장을 한꺼번에 뽑을 때(처음 핸드 등) 장마다 뽑기 · 착지 소리를 0.15초 간격으로 겹치면 태엽 감는 소리처럼 들렸다 — 첫 장 뽑기 · 마지막 장 착지만 소리
+  const many = els.length > 2;
+  els.forEach((el, i) => drawFly(el, deck, (base + i * DRAW_T.gap) * k, DRAW_T.fly * k, many ? { draw: i === 0, land: i === els.length - 1 } : null));
   if (!shuffled) lifeTicks(p, els.map((_, i) => (base + i * DRAW_T.gap + DRAW_T.fly * 0.86) * k));   // v3.62.1 카드가 핸드에 앉는 순간마다 생명 −1
   const end = performance.now() + (base + (els.length - 1) * DRAW_T.gap + DRAW_T.fly) * k;
   holdHand(end);
@@ -2956,7 +2960,7 @@ function shuffleDeckFx(deck) {
   const r = deck.getBoundingClientRect(), c = ctrOf(r);
   burst(c.x, c.y, "crys", r.width * 1.2);
 }
-function drawFly(el, deck, delay, dur) {
+function drawFly(el, deck, delay, dur, snd) {
   const uid = +el.dataset.uid, card = el.querySelector(".card"), layer = fxLayer();
   if (!card || !layer || !deck.isConnected) return;
   FX.drawing.add(uid); el.classList.add("drawing");
@@ -2986,12 +2990,12 @@ function drawFly(el, deck, delay, dur) {
     { duration: dur, delay, fill: "both", easing: "ease-in-out" });
   const trail = g.querySelector(".df-trail");
   trail.animate([{ opacity: 0 }, { offset: 0.2, opacity: 1 }, { offset: 0.8, opacity: 0.7 }, { opacity: 0 }], { duration: dur, delay, fill: "both" });
-  setTimeout(() => { g.style.visibility = ""; sfx("draw"); }, delay);
+  setTimeout(() => { g.style.visibility = ""; if (!snd || snd.draw) sfx("draw"); }, delay);
   const done = () => {
     g.remove(); FX.drawing.delete(uid);
     const cur = uidEl(uid); if (!cur) return;
     cur.classList.remove("drawing");
-    sfx("select", 0.5);
+    if (!snd || snd.land) sfx("select", 0.5);
     const hc = cur.querySelector(".hand-card");
     if (hc && !RM()) hc.animate([{ scale: "1.06", filter: "brightness(1.5)" }, { scale: "1", filter: "brightness(1)" }], { duration: 260, easing: "ease-out" });
   };

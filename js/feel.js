@@ -48,6 +48,8 @@ const FEEL = {
      카드마다 다른 소리: FEEL.card(카드ID, "atk" | "def" | "cast" | "equip", 세기, 없을 때 쓸 공용 키) */
   SND_ALIAS: {
     confirm: "confirm_ready", hitBig: "life_hit", suck: null,
+    // 2026-11-16 사용자: 날카로운 금속성 소리 빼기 — 전장 카드 옮김 · 소각장으로 갈 때(move, 거의 4kHz 위만 울림), 코인 도는 소리(coin_flip · coin_reflip · shield_coin), 파친코 SPIN이 멈출 때 차르르(pach_stop)
+    move: null, coin_flip: null, coin_reflip: null, shield_coin: null, pach_stop: null,
     imp_hit: null, imp_life: null, imp_kill: null, imp_land: null, imp_spell: null,
     imp_crit: "crit", imp_block: "block", imp_whoosh: "swing",
     sp_buff: "buff", sp_debuff: "debuff", sp_shield: "shield", sp_heal: "heal", sp_block: "block",
