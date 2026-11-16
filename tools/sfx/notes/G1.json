@@ -277,14 +277,14 @@
    "cast": "a rustle of hide behind the line, teeth clicking and bared, then a rush of many boots and paws leaps past with a gathering whoosh, ending in a sharp snapping bite"
   },
   "MG-04": {
-   "en": "Furious Roar",
-   "ko": "방패를 던지고 짐승처럼 울부짖음",
-   "cast": "a hide shield clatters to stone, a deep beast roar swells from a bear's throat as pressure builds like a wind, then a ragged brittle crack as the guard breaks away"
+   "en": "Endless Rage",
+   "ko": "끝없는 격노로 방패와 벽을 뚫고 돌진",
+   "cast": "a frenzied howl rising without end, pounding running footsteps, a shield cracking open with a sharp splintering burst, then a pained grunt as the body tears itself"
   },
   "SG1-01": {
-   "en": "Growling Threat",
-   "ko": "무리가 낮게 으르렁거려 적이 물러남",
-   "cast": "a low rumbling growl from many throats builds slowly, deepening in pitch, the rustle of hesitant armour backing away, and weapons sagging with a metallic scrape and chink"
+   "en": "Prey Drive",
+   "ko": "가장 약한 사냥감부터 앞으로 몰아냄",
+   "cast": "sharp whistles and short hunting barks, scattering hooves and stumbling steps pushed forward, a panicked bleat cut short"
   },
   "MG-05": {
    "en": "Earth Tremor",
@@ -297,9 +297,9 @@
    "cast": "a low orcish grunt, then a quick string of short heavy chops and blunt thuds landing one after another down a line, each ending a ragged wheeze, and a final hush"
   },
   "SG1-03": {
-   "en": "Berserk Rage",
-   "ko": "눈앞이 붉어지며 피가 끓어오름",
-   "cast": "a heartbeat pounds faster and faster, a hot hissing swell of breath, bone and metal rattling in shaking hands, then a sharp snap as caution is thrown aside and fury ignites"
+   "en": "Cornered Fang",
+   "ko": "몰린 오크의 송곳니가 길어짐",
+   "cast": "a ragged wounded breath, then a low snarl that sharpens into a vicious bark, teeth grinding and a wet heavy chomp"
   },
   "SG1-04": {
    "en": "Prey Mark",
@@ -322,9 +322,9 @@
    "cast": "a cornered pack's deep chesty snarl swells, hides creak as bodies brace and thicken, and fangs snap shut together with a wet sharp clack that hangs in the air"
   },
   "SG1-09": {
-   "en": "Dragon's Roar",
-   "ko": "잠든 용이 뒤척이며 숨을 내쉼",
-   "cast": "an ancient giant stirs: slow grinding of stone scales, a vast deep inhale, and a long earth-shaking dragon roar that rolls like a landslide, ending with a hot gusting exhale"
+   "en": "Body Slam",
+   "ko": "무리가 한 덩어리로 몸을 던져 부딪침",
+   "cast": "a heavy group charge of thudding feet, then a massive meaty collision boom, bodies grunting in pain on both sides, and gravel scattering"
   },
   "RG1-1": {
    "en": "Leader Hunt",
@@ -352,9 +352,9 @@
    "cast": "many stomps land together, the ground thunders and pebbles dance, a colossal presence turns over beneath the crust with a huge grinding groan and a wide rolling quake"
   },
   "PS-G1-1": {
-   "en": "Bear's Strength",
-   "ko": "곰과 씨름하듯 힘이 차오름",
-   "cast": "a bear's low growl, a thick pelt rubbing against leather, muscles creaking and joints popping as strength swells, ending with a firm heavy stomp that plants the feet"
+   "en": "Victory Howl",
+   "ko": "살아남은 무리가 함께 울부짖음",
+   "cast": "several rough orc voices join one by one into a rising chorus howl, fists thumping chests, and a far-off wall of stone crumbling under the sound"
   },
   "PS-G1-2": {
    "en": "Pack's Wrath",

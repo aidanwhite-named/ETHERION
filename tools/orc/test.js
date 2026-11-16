@@ -1,6 +1,6 @@
 // node tools/orc/test.js — v3.67 바위주먹 오크 [관통] · [치명] 연계 마법 시험 (숨통 끊기 · 송곳니 반격 · 뼈 부수기 · 오크의 문신)
 const path = require('path'); const { load } = require('../balance/harness');
-const c = load(path.join(__dirname, '../../js'));
+const c = load(path.join(__dirname, '../../js'), require('fs').readFileSync(path.join(__dirname, '../../js/grades.js'), 'utf8'));   // v3.82 등급 시험에 grades.js
 let fails = 0, n = 0;
 const ok = (cond, msg) => { n++; if (!cond) { fails++; console.log('✗ ' + msg); } else if (process.argv.includes('-v')) console.log('✓ ' + msg); };
 c.ev(`var TU=6e6;
@@ -37,4 +37,52 @@ ok(CARDS['M2-1'].item.shred && c.ev('itemAbilities(CARDS["M2-1"].item)').include
 { const P = [c.side(0, ['G1-01', 'G1-03'], 30), c.side(1, ['SG1-02'], 30)]; c.prep(P);
   const X = c.ev('ctx')(P, 1, 1, []); c.ev('castSpell')(X, 1, P[1].field[0], 1);
   ok(P[0].field.every(u => !u || !u.t.alive), '숨통 끊기: 체력 1 상대 전체 쓰러짐'); }
+// ---------- v3.82 고르바스의 발톱: 기존 카드 5장을 바꿈 (궁지의 송곳니 · 무한한 격노 · 승전의 함성 · 몸통 박치기 · 사냥감 몰이) ----------
+{ const G = c.ev('gradeOf'), want = { 'SG1-03': ['궁지의 송곳니', 'atk', 1, 'common'], 'MG-04': ['무한한 격노', 'atk', 1, 'common'], 'PS-G1-1': ['승전의 함성', 'atk', 1, 'common'], 'SG1-09': ['몸통 박치기', 'atk', 2, 'uncommon'], 'SG1-01': ['사냥감 몰이', 'any', 1, 'common'] };
+  for (const id in want) { const [nm, ty, lv, gr] = want[id], x = CARDS[id]; ok(x.name === nm && x.type === ty && x.lv === lv && G(id) === gr && x.group === 'G1', `${id} ${nm} · ${ty} · L${lv} · ${gr} (${x.name} ${x.type} L${x.lv} ${G(id)})`); } }
+/* 유닛 스탯을 정해 둔다: [공, 방, 체] */
+c.ev(`this.setU=function(u,s){ u.t.a=s[0]; u.t.d=s[1]; u.t.h=s[2]; u.t.dmg=0; u.t.noCoin=true; u.t.shield=false; u.t.taunt=false; u.t.ward=0; u.t.thorns=0; };`);
+const hp = u => c.ev('hpLeft')(u);
+// 궁지의 송곳니: 대기열 같은 차례끼리 견줘 체력이 낮은 아군만 공격 +3
+{ const P = [c.side(0, ['SG1-03', 'G1-01', 'G1-03'], 30), c.side(1, ['G1-01', 'G1-03'], 30)]; c.prep(P);
+  c.setU(P[0].field[1], [2, 0, 3]); c.setU(P[0].field[2], [2, 0, 10]); c.setU(P[1].field[0], [1, 0, 5]); c.setU(P[1].field[1], [1, 0, 5]);
+  const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1);
+  ok(P[0].field[1].t.a === 5 && P[0].field[2].t.a === 2, '궁지의 송곳니: 체력 3 < 5 → 공 +3, 체력 10 > 5 → 그대로 (' + P[0].field[1].t.a + ' / ' + P[0].field[2].t.a + ')'); }
+// 무한한 격노: 수호를 건너 맨 앞 칸, 보호막을 뚫고(보호막은 남음), 공격 뒤 자기 공격만큼 체력 −, [관통]
+{ const P = [c.side(0, ['MG-04', 'G1-01'], 30), c.side(1, ['G1-01', 'G1-03'], 30)]; c.prep(P);
+  const me = P[0].field[1], f1 = P[1].field[0], f2 = P[1].field[1];
+  c.setU(me, [5, 0, 12]); c.setU(f1, [0, 2, 20]); c.setU(f2, [0, 0, 20]); f1.t.shield = true; f2.t.taunt = true;
+  const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1);
+  ok(me.t.rage && c.ev('abilOf')(me).shred, '무한한 격노: 뒤 1칸 유닛에 격노 · [관통]');
+  c.ev('attackOne')(X, me); c.ev('g1RageCost')(X, me);
+  ok(f1.t.dmg === 3 && f2.t.dmg === 0, '수호(2칸)를 건너 1칸을 치고 보호막에 막히지 않음: 공 5 − 방 2 = 3 (' + f1.t.dmg + ' / ' + f2.t.dmg + ')');
+  ok(f1.t.shield === true, '뚫린 보호막은 그대로 남는다');
+  ok(f1.t.d === 0, '[관통]: 맞은 유닛 방어 2 → 0 (' + f1.t.d + ')');
+  ok(hp(me) === 7, '공격 뒤 자기 공격 5만큼 체력 −: 12 → 7 (' + hp(me) + ')'); }
+{ const P = [c.side(0, ['G1-01'], 30), c.side(1, ['G1-01', 'G1-03'], 30)]; c.prep(P);
+  const me = P[0].field[0], f1 = P[1].field[0], f2 = P[1].field[1];
+  c.setU(me, [5, 0, 12]); c.setU(f1, [0, 0, 20]); c.setU(f2, [0, 0, 20]); f1.t.shield = true; f2.t.taunt = true;
+  const X = c.ev('ctx')(P, 0, 1, []); c.ev('attackOne')(X, me); c.ev('g1RageCost')(X, me);
+  ok(f2.t.dmg === 5 && f1.t.dmg === 0 && hp(me) === 12, '격노 없으면 수호 유닛을 치고 체력도 그대로'); }
+// 승전의 함성: 전투가 끝날 때 살아남은 아군 수만큼 상대 생명 −
+{ const P = [c.side(0, ['PS-G1-1', 'G1-01', 'G1-01', 'G1-03'], 30), c.side(1, [], 30)]; c.prep(P);
+  const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1); P[0].field[2].t.alive = false; c.ev('g1VictoryEnd')(X);
+  ok(P[1].life === 28, '승전의 함성: 살아남은 2기 → 상대 생명 30 → 28 (' + P[1].life + ')'); }
+// 몸통 박치기: 아군 3기 → 상대 전체 체력 −6(방어 무시), 아군마다 체력 −3
+{ const P = [c.side(0, ['SG1-09', 'G1-01', 'G1-01', 'G1-03'], 30), c.side(1, ['G1-01', 'G1-03'], 30)]; c.prep(P);
+  for (const u of P[0].field.slice(1, 4)) c.setU(u, [1, 0, 10]); c.setU(P[0].field[3], [1, 0, 3]);
+  for (const u of P[1].field.slice(0, 2)) c.setU(u, [1, 5, 20]);
+  const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1);
+  ok(P[1].field[0].t.dmg === 6 && P[1].field[1].t.dmg === 6, '몸통 박치기: 상대마다 체력 −6 (방어 5 무시) (' + P[1].field[0].t.dmg + ')');
+  ok(hp(P[0].field[1]) === 7 && !P[0].field[3].t.alive, '아군마다 체력 −3: 10 → 7, 체력 3인 유닛은 쓰러짐'); }
+// 사냥감 몰이: 방어 + 체력이 낮은 순으로 맨 앞부터, [홀림]은 걸지 않는다
+{ const P = [c.side(0, ['SG1-01'], 30), c.side(1, ['G1-01', 'G1-03', 'G1-04'], 30)]; c.prep(P);
+  const [a, b, d] = P[1].field; c.setU(a, [1, 2, 10]); c.setU(b, [1, 0, 3]); c.setU(d, [1, 1, 5]);
+  const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1);
+  ok(P[1].field[0] === b && P[1].field[1] === d && P[1].field[2] === a, '사냥감 몰이: 3 → 6 → 12 순');
+  ok(!a.t.charm && !b.t.charm && !d.t.charm, '사냥감 몰이는 [홀림]을 걸지 않는다'); }
+{ const P = [c.side(0, ['MC-03'], 30), c.side(1, ['G1-01', 'G1-03'], 30)]; c.prep(P);
+  const [a, b] = P[1].field; c.setU(a, [1, 0, 3]); c.setU(b, [1, 2, 10]);
+  const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1);
+  ok(P[1].field[0] === b && b.t.charm, '뒤바뀐 물길(인어)은 그대로: 높은 순 · 자리 바뀐 유닛 [홀림]'); }
 console.log(fails ? `✗ ${fails}/${n} 실패` : `✓ ${n}/${n} 통과`); process.exit(fails ? 1 : 0);

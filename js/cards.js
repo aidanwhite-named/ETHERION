@@ -240,7 +240,7 @@ function itemAbilities(it) {
   for (const [k, n] of SP_ABIL_NAMES) if (it[k]) out.push(`[${n}]`);
   out.push(...pinAbilities(it, true));   // v3.20 옛 [저주 면역: 스탯]은 [버팀: 스탯]
   if (it.evName) out.push(`[${it.evName}]`);
-  /* v3.81 능력 차례: it.abOrder(데이터 키)가 있으면 그 차례로 앞에 둔다 — 먼저 쓴 능력이 더 좋은 것(나중에 유닛 능력 상한이 생기면 뒤가 잘린다) */
+  /* v3.81 능력 차례: it.abOrder(데이터 키)가 있으면 그 차례로 앞에 둔다 — 먼저 쓴 능력이 더 좋은 것(v3.84 유닛 능력 상한 3개에 걸리면 뒤가 잘린다 — unitAbilSlots) */
   if (Array.isArray(it.abOrder)) {
     const first = [];
     for (const k of it.abOrder) { const m = itemAbilities(Object.assign({}, k === "evName" ? { evName: it.evName } : { [k]: it[k], every: it.every })); for (const x of m) if (out.includes(x) && !first.includes(x)) first.push(x); }
@@ -249,6 +249,36 @@ function itemAbilities(it) {
   return out;
 }
 const SP_ABIL_NAMES = [["huntfire", "불꽃 사냥"], ["riposte", "되받기"], ["overload", "과부하"], ["devour", "포식"], ["drain", "뿌리 흡수"], ["flow", "밀물"], ["judge", "심판"], ["sentry", "경계의 화살"], ["mark", "표식"]];
+/* v3.84 유닛 특수능력 상한 (사용자 2026-11-16): 한 유닛에 붙는 특수능력은 ABIL_CAP(3)개까지.
+   - 유닛 카드의 능력(gift)이 먼저 칸을 차지하고 모두 남는다. 남은 칸만큼 장착 아이템 능력을 카드에 적힌 차례(itemAbilities, abOrder)로 붙이고 뒤는 잘린다.
+   - 같은 능력도 합치지 않는다: 유닛 [가시 1] + 아이템 [가시 1] = 두 칸, 발동도 칸마다 따로(engine abilPieces).
+   - 칸으로 세지 않는 것: 표시(고정 · 버팀 · 눌림 · 아이템 [고정 a/d/h]), 장착하는 순간 한 번인 [생명 +N], 마법이 이번 턴 건 능력(✦), 레어 오라(◎).
+   abilSlotsOf(src) = 그 데이터의 능력 칸 [{ k: 데이터 키, v: 값, raw: "[가시 1]" }] (카드에 보이는 차례) */
+const ABIL_CAP = 3;
+const ABIL_SLOT_KEYS = ["u", "rob", "leech", "veil", "pact", "bleed", "shred", "magic", "arcane", "crit", "chain", "throw", "ignite", "farmor", "ranged", "ward", "heal", "calm", "aura",
+  "shield", "thorns", "regen", "bash", "taunt", "purify", "firm", "intercept", "mesmer", ...SP_ABIL_NAMES.map(x => x[0]), "evName"];
+const ABIL_SLOT_CACHE = new WeakMap();
+function abilSlotsOf(src) {
+  if (!src) return [];
+  const hit = ABIL_SLOT_CACHE.get(src); if (hit) return hit;
+  const order = itemAbilities(src), out = [];
+  for (const k of ABIL_SLOT_KEYS) {
+    if (!src[k]) continue;
+    const one = k === "throw" ? { throw: src.throw, every: src.every } : k === "aura" ? { aura: src.aura, auraG: src.auraG } : { [k]: src[k] };
+    const raw = itemAbilities(one).find(r => !isPinAb(r));
+    if (!raw || ON_EQUIP_KW.test(raw)) continue;
+    out.push({ k, v: src[k], raw });
+  }
+  out.sort((a, b) => order.indexOf(a.raw) - order.indexOf(b.raw));
+  ABIL_SLOT_CACHE.set(src, out);
+  return out;
+}
+/* 유닛 카드 c에 아이템 데이터 im을 장착했을 때: own = 유닛 칸, keep = 붙는 아이템 칸, cut = 잘린 아이템 칸 */
+function unitAbilSlots(c, im) {
+  const own = c && c.type === "unit" ? abilSlotsOf(c.gift) : [], all = im ? abilSlotsOf(im) : [];
+  const room = Math.max(0, ABIL_CAP - own.length);
+  return { own, keep: all.slice(0, room), cut: all.slice(room) };
+}
 /* v2.2: 아이템 글은 두 단계다.
    ① 아이템이 하는 일: "[관통] 능력 부여" (유닛에게 주는 특수 능력), "장착할 때 [생명 +3]" (장착하는 순간 한 번)
    ② 그 능력의 뜻: "[가호 N] 매 턴 처음 받는 피해를 N만큼 줄인다." — 숫자 자리는 N, 고정할 스탯 자리는 "스탯"

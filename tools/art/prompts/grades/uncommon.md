@@ -2306,6 +2306,33 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## SG1-09 · 몸통 박치기
+고르바스의 발톱 · 공격 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/SG1-09.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG1-09.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "몸통 박치기". Depict exactly what this name describes.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a burst of earth power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Scale (level 2 of 8): a small, local effect.
+Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
+Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Lore (Korean, use for the scene): 무리가 한 덩어리로 몸을 던진다. 부딪친 쪽도 부서지지만, 맞은 쪽은 더 크게 부서진다.
+Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체 체력 −(아군 유닛 수 × 2). 그 뒤 아군 유닛마다 체력 −(아군 유닛 수).
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
+Mood: proven, capable, confident.
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## G1-14 · 돌격 미노타우로스
 고르바스의 발톱 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/G1-14.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G1-14.jpg` 600×750)
 
@@ -2399,32 +2426,6 @@ Creature kind — Centaur: steppe centaurs: a weathered, war-painted human upper
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 우두머리만 노리는 켄타우로스. 쓰러뜨릴 때마다 활대에 홈을 새겨, 이제 활대가 홈으로 덮였다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
-Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
-Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## SG1-09 · 용의 포효
-고르바스의 발톱 · 공격 마법 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/SG1-09.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG1-09.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "용의 포효". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: an empowering earth aura rising around allied warriors. Scale and finish: a stronger effect with visible flow and a second layer of particles.
-Scale (level 4 of 8): an effect over a few targets.
-Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 아군 전체 공격 +2 +1C, 방어 −2.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
@@ -2754,19 +2755,20 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## MG-14 · 베르단의 가호
-베르단의 뿔 · 방어 마법 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/MG-14.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MG-14.jpg` 600×750)
+## MG-14 · 숲의 무게
+베르단의 뿔 · 공용 마법 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/MG-14.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MG-14.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "베르단의 가호". Depict exactly what this name describes.
-Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: an empowering forest aura rising around allied warriors. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Card name (Korean — read its meaning, never write it in the image): "숲의 무게". Depict exactly what this name describes.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a burst of forest power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 3 of 8): an effect over a few targets.
 Banner — Verdan's Antler: magic of verdan's antler, signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots; palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 아군 전체 방어 +1 +1C, 체력 +1.
+Lore (Korean, use for the scene): 숲 전체가 한쪽으로 기운다. 버텨 온 몸뚱이들의 무게가 그대로 쏟아져, 앞을 막은 것부터 차례로 짓눌린다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 유닛의 남은 체력을 모두 더한 만큼, 상대 맨 앞 유닛부터 공격 → 방어 → 체력 순으로 깎는다(공격 · 방어는 이번 턴). 다 깎아 쓰러뜨리면 남은 몫은 다음 유닛에게 넘어간다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
@@ -2820,8 +2822,8 @@ Art direction: Ancient trunk slam: a huge gnarled tree-troll rearing up with its
 Scale (level 3 of 8): an effect over a few targets.
 Banner — Verdan's Antler: magic of verdan's antler, signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots; palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 고목이 뿌리째 몸을 일으켜, 품은 수액의 무게를 통째로 실어 내리찍는다. 땅이 꺼지고, 고목은 껍질만 남아 휘청인다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체에게 피해(체력이 가장 높은 아군 1기의 남은 체력 ÷ 상대 유닛 수, 내림 — 이번 턴 수액 몰아주기로 받은 체력은 두 번 센다). 그 뒤 그 아군의 체력은 1이 된다.
+Lore (Korean, use for the scene): 고목이 뿌리째 몸을 일으켜, 품은 수액의 무게를 실어 내리찍는다. 땅이 꺼지고, 고목은 껍질 절반을 잃는다.
+Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체 체력 −(체력이 가장 높은 아군 1기의 남은 체력 ÷ 2, 내림). 그 아군은 그만큼 체력을 잃는다(수액 몰아주기로 모은 체력이면 그만큼 크다).
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.

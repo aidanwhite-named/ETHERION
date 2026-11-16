@@ -26,6 +26,9 @@
 :root { --aura: #ffb02e; --aura-hi: #ffd27a; --aura-glow: rgba(255, 168, 40, .8); }
 .card .c-eq-ab.c-aura { color: var(--aura-hi); }   /* 2026-11-15 받은 레어 오라 (js/game.js auraChipsHTML) */
 .card .c-eq-ab.c-aura::before { content: "◎"; color: var(--aura); }
+/* v3.84 능력 상한(3개)에 걸려 붙지 않는 아이템 능력: 흐리게 긋는다 (game.js equipChipsHTML) */
+.card .c-eq-ab.c-cut { opacity: .42; text-decoration: line-through; text-decoration-thickness: .1em; filter: grayscale(1); }
+.d-type.d-cut { opacity: .6; text-decoration: line-through; }
 .card .c-vstats .st.aura b, .card.fm .c-vstats .st.aura b, .card:not(.size-full) .c-vstats .st.aura b, .st.aura b { color: var(--aura); text-shadow: 0 .06em .1em #000, 0 0 .3em rgba(0, 0, 0, .9), 0 0 .55em var(--aura-glow); }
 .card.aura-hit .c-frame { animation: auraHit .9s cubic-bezier(.2, .8, .3, 1); }
 .card.aura-src .c-frame { animation: auraSrc .9s ease-out; }

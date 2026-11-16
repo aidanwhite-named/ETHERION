@@ -6565,19 +6565,20 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## MG-04 · 격노의 포효
+## MG-04 · 무한한 격노
 고르바스의 발톱 · 공격 마법 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/MG-04.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MG-04.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "격노의 포효". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: an empowering earth aura rising around allied warriors. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Card name (Korean — read its meaning, never write it in the image): "무한한 격노". Depict exactly what this name describes.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: allies rallying as one under a shared surge of power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 아군 뒤 1칸의 유닛 공격 +4, 방어 −3.
+Lore (Korean, use for the scene): 격노에 끝이 없으면 몸도 남지 않는다. 그래도 그 한 번의 돌진은 방패도 벽도 멈추지 못한다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 뒤 1칸의 유닛: 이번 턴 [관통], 공격이 [수호] · [보호막]에 막히지 않는다(수호를 건너 맨 앞 칸을 친다). 공격할 때마다 그 뒤 자기 공격만큼 체력 −.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
@@ -6615,20 +6616,20 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PS-G1-1 · 곰의 힘
+## PS-G1-1 · 승전의 함성
 고르바스의 발톱 · 공격 마법 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/PS-G1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PS-G1-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "곰의 힘". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: an empowering earth aura rising around allied warriors. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Card name (Korean — read its meaning, never write it in the image): "승전의 함성". Depict exactly what this name describes.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a burst of earth power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 가르운의 오크는 곰과 씨름해 이긴 날 그 곰의 이름을 받는다. 그날부터 힘은 줄지 않는다.
-Game effect (Korean, mood only — never draw text or numbers): 아군 맨 앞 2기 공격 +3. 그 유닛들은 이번 턴 [버팀: 공격].
+Lore (Korean, use for the scene): 싸움이 끝나고 선 자들이 함께 울부짖는다. 그 소리에 적의 진영이 한 걸음씩 무너진다.
+Game effect (Korean, mood only — never draw text or numbers): 전투가 끝날 때 살아남은 아군 유닛 수만큼 상대 생명 −.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
@@ -6667,19 +6668,20 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## SG1-01 · 으르렁 위협
-고르바스의 발톱 · 방어 마법 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/SG1-01.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG1-01.jpg` 600×750)
+## SG1-01 · 사냥감 몰이
+고르바스의 발톱 · 공용 마법 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/SG1-01.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG1-01.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "으르렁 위협". Depict exactly what this name describes.
-Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: a weakening curse sinking over the enemies. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Card name (Korean — read its meaning, never write it in the image): "사냥감 몰이". Depict exactly what this name describes.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a burst of earth power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 3기 공격 −1, 방어 −1.
+Lore (Korean, use for the scene): 오크 사냥꾼은 무리에서 가장 약한 짐승부터 몰아낸다. 앞으로 떠밀린 자는 송곳니를 피할 곳이 없다.
+Game effect (Korean, mood only — never draw text or numbers): 상대 유닛을 방어와 남은 체력의 합이 낮은 순으로 맨 앞부터 다시 세운다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
@@ -6719,19 +6721,20 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## SG1-03 · 광폭화
+## SG1-03 · 궁지의 송곳니
 고르바스의 발톱 · 공격 마법 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/SG1-03.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG1-03.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "광폭화". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: an empowering earth aura rising around allied warriors. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Card name (Korean — read its meaning, never write it in the image): "궁지의 송곳니". Depict exactly what this name describes.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a burst of earth power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 아군 뒤 2칸의 유닛 공격 +2, 방어 −1.
+Lore (Korean, use for the scene): 몰린 오크는 물러서지 않는다. 피를 더 흘린 쪽의 송곳니가 더 깊이 박힌다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 유닛마다, 맞선 상대 유닛(대기열 같은 차례)보다 남은 체력이 낮으면 공격 +3.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.

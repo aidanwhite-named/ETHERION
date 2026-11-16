@@ -608,7 +608,10 @@ function unitValue(p, c, r) {
 function bestHost(p, c) {
   const hs = equipHosts(p, c); if (!hs.length) return null;
   if (c.item.set) return hs.filter(x => C(x.it).lv <= 2).sort((a, b) => C(a.it).lv - C(b.it).lv)[0] || null;
-  return hs.sort((a, b) => (C(b.it).lv + C(b.it).a * 0.1) - (C(a.it).lv + C(a.it).a * 0.1))[0];
+  // v3.84 능력 상한: 유닛 능력이 칸을 차지해 잘리는 아이템 능력 하나마다 −2 (능력 3개인 유닛에게 능력 아이템을 버리지 않게)
+  const cutN = it => (typeof unitAbilSlots === "function" ? unitAbilSlots(C(it), c.item).cut.length : 0);
+  const sc = x => C(x.it).lv + C(x.it).a * 0.1 - cutN(x.it) * 2;
+  return hs.sort((a, b) => sc(b) - sc(a))[0];
 }
 function aiCrystalPlan(p) {
   const cr = p.crystals.length;
@@ -2016,7 +2019,8 @@ function fieldCardHTML(it, p, s) {
     if (it.t.lock) badges += '<span class="bd bd-lock" data-tip="⚓ 저주 면역\n이번 턴 방어가 깎이지 않는다 (올리는 것은 붙음 · 피해는 받는다)">⚓</span>';
     { const pz = abilOf(it).u === "charge" ? Math.max(0, Math.min(2, (it.t.keep && it.t.keep.charge) || 0)) : 0;   // v3.66.2 [축전] 쌓인 플라즈마: 글자 없이 ⚡만(쌓인 만큼), 마우스를 올리면 뜻
       if (pz) badges += `<span class="bd bd-plasma" data-tip="${esc(`플라즈마: ${pz} / 2\n내 마법이 발동할 때마다 1씩 쌓인다(턴이 지나도 남음). 2가 되면 다음 전투가 시작될 때 상대 유닛 모두 체력 −2, 플라즈마는 0이 된다.`)}">${"⚡".repeat(pz)}</span>`; }
-    if (it.t.thorns) badges += `<span class="bd bd-thorn" data-tip="${esc(`✶${it.t.thorns} 가시 ${it.t.thorns}\n${itemKwDesc("[가시 " + it.t.thorns + "]")}\n유닛 · 장착한 아이템 · 마법에서 받은 가시를 합친 값`)}">✶${it.t.thorns}</span>`;
+    if (it.t.thorns) { const ps = typeof fitPieces === "function" ? fitPieces(it.t.thornsP || [], it.t.thorns) : [it.t.thorns];   // v3.84 같은 능력은 칸마다 따로 — 칸이 여럿이면 "✶1+1"
+      badges += `<span class="bd bd-thorn" data-tip="${esc(`✶${ps.join("+")} ${ps.map(n => "가시 " + n).join(" · ")}\n${itemKwDesc("[가시 " + ps[0] + "]")}${ps.length > 1 ? "\n칸마다 따로 — 공격해 온 유닛이 가시 피해를 하나씩 차례로 받는다" : ""}`)}">✶${ps.join("+")}</span>`; }
     if (it.t.rest) badges += '<span class="bd bd-rest" data-tip="✖ 행동 불가\n이번 턴에는 공격하지 못한다">✖</span>';
     if (it.t.charm) badges += `<span class="bd bd-charm" data-tip="∿ 홀림\n${esc(SPELL_KW["홀림"])}">∿</span>`;   // v3.78 인어 [홀림] (engine mrCharm)
     if (c.tok) badges += `<span class="bd bd-tok" data-tip="✧ 마법이 부른 유닛${it.tokTemp ? "\n이번 턴만 전장에 있다" : ""}">✧</span>`;
@@ -2036,7 +2040,7 @@ function fieldCardHTML(it, p, s) {
     // v1.9.4: 아래 카드 안에 진짜 아이템 카드를 그린다. 누르면 아이템이 앞으로, 유닛이 뒤로 (FX.itemFront, 전투 중에는 늘 유닛이 앞)
     under = `<div class="c-under" data-under="1">${cardHTML(ic, { size: "md", cls: "under-card", slim: true })}<span class="u-name">◆ ${esc(ic.name)}</span></div>`;
     if (FX.itemFront.has(it.uid) && G.phase !== "combat") cls.push("item-front");
-    const chips = equipChipsHTML(ic, it.t && it.t.off);
+    const chips = equipChipsHTML(ic, it.t && it.t.off, it);
     item = chips ? `<div class="c-equip">${chips}</div>` : "";
   }
   // v3.65 마법이 이번 턴 걸어 준 능력(t.gx: 치명 · 연쇄 · 흡혈 …)도 같은 띠에 보랏빛 ✦ 칩으로 (css/cardtext.css .c-gx)
@@ -2129,10 +2133,15 @@ function auraPrepPulse(it) {
   const t0 = pz.get(it.uid);
   return t0 != null && now - t0 < 900;
 }
-function equipChipsHTML(ic, off) {   // v3.65.2 off: 능력 끄기에 꺼진 능력 이름들 — 그 칩은 감춘다 (js/view.js chipOff)
+function equipChipsHTML(ic, off, host) {   // v3.65.2 off: 능력 끄기에 꺼진 능력 이름들 — 그 칩은 감춘다 (js/view.js chipOff)
   const list = itemKwList(ic.item).filter(([k]) => k && !isPinAb(k));   // v3.33 표시(고정 · 버팀 · 눌림) 칩은 빼고 — 스탯 옆 기호로 보이고, 누르면 설명 패널에 나온다
   if (ic.item.set) list[0] = [`[고정 ${ic.item.set.a}/${ic.item.set.d}/${ic.item.set.h}]`, list[0][1]];
-  const chips = list.filter(([k]) => !chipOff(k, off)).map(([k, v]) => `<span class="c-eq-ab" data-tip="${esc(k + "\n" + (v || ic.item.evText || "") + "\n— " + ic.name)}">${esc(k.replace(/^\[|\]$/g, ""))}</span>`);
+  // v3.84 능력 상한: 유닛 능력이 칸을 다 차지해 붙지 않는 아이템 능력은 흐리게 긋는다(js/cards.js ABIL_CAP)
+  const cut = host && typeof unitAbilSlots === "function" ? new Set(unitAbilSlots(C(host), ic.item).cut.map(x => x.raw)) : null;
+  const chips = list.filter(([k]) => !chipOff(k, off)).map(([k, v]) => {
+    const x = cut && cut.has(k);
+    return `<span class="c-eq-ab${x ? " c-cut" : ""}" data-tip="${esc(k + (x ? `\n붙지 않음 — 유닛 특수능력은 ${ABIL_CAP}개까지(유닛 능력이 먼저)` : "") + "\n" + (v || ic.item.evText || "") + "\n— " + ic.name)}">${esc(k.replace(/^\[|\]$/g, ""))}</span>`;
+  });
   return chips.join("");
 }
 function selHandCard(p, ctrl) {

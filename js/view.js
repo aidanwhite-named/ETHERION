@@ -555,7 +555,12 @@ function instLines(inst) {
   if (inst.t.keep && abilOf(inst).u === "scrap") lines.push(`<p class="d-type"><b>고철 ${Math.min(4, inst.t.keep.scrap || 0)} / 4</b> 4가 되면 전투가 끝날 때 빈 칸에 고철 골렘(3/2/5)을 세운다.</p>`);   // v3.31.1
   // v3.33 표시(고정 · 버팀 · 눌림)는 말과 뜻 대신 수치 앞의 기호로 (itemTextPinned)
   if (inst.item) lines.push(`<p class="d-equip">장착 · ${esc(CARDS[inst.item.id].name)}<span>${esc(itemTextPinned(CARDS[inst.item.id].item))}</span></p>`);
-  if (inst.item) for (const [k, v] of itemKwList(CARDS[inst.item.id].item)) if (v && !isPinAb(k)) lines.push(`<p class="d-type">${k ? `<b>${esc(k)}</b> ` : ""}${esc(v)}</p>`);
+  if (inst.item) {   // v3.84 능력 상한: 유닛 능력이 칸을 다 차지해 붙지 않는 아이템 능력은 "붙지 않음"으로 (js/cards.js ABIL_CAP)
+    const im = CARDS[inst.item.id].item, cut = typeof unitAbilSlots === "function" ? new Set(unitAbilSlots(CARDS[inst.id], im).cut.map(x => x.raw)) : new Set();
+    for (const [k, v] of itemKwList(im)) if (v && !isPinAb(k)) lines.push(cut.has(k)
+      ? `<p class="d-type d-cut"><b>${esc(k)}</b> 붙지 않음 — 유닛 특수능력은 ${ABIL_CAP}개까지(유닛 능력이 먼저)</p>`
+      : `<p class="d-type">${k ? `<b>${esc(k)}</b> ` : ""}${esc(v)}</p>`);
+  }
   return lines.join("");
 }
 function cardDetailBody(c, inst) {
