@@ -1,7 +1,7 @@
 <!-- 자동 생성: node tools/sfx/build_sfx_prompts.js — 손으로 고치지 말 것. 고칠 곳은 tools/sfx/notes/ · sfx_common.json · sfx_style.json -->
 # ETHERION 공용 효과음 프롬프트
 
-> 146개. Gemini에 `text` 상자를 통째로 붙여 넣는다. 한 번에 같은 소리가 세 테이크(사이 무음) 나온다.
+> 155개. Gemini에 `text` 상자를 통째로 붙여 넣는다. 한 번에 같은 소리가 세 테이크(사이 무음) 나온다.
 > 받은 파일은 항목의 **파일** 이름으로 `audio/inbox/sfx/`에 넣는다(예: `ui_click.mp3`). 설명은 `tools/sfx/PROMPT_SFX.md`.
 > **지금** = 이 자리에서 지금 나는 소리 이름(`js/feel.js`). '새 자리'는 아직 소리가 없는 곳이라, 넣을 때 코드도 함께 고친다.
 
@@ -303,7 +303,7 @@ Clean, close, dry studio recording with a short natural tail. Each take is follo
 ```text
 Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
 Fantasy card game, interface and battle sounds.
-[00:00] Take 1: a thick card slid off the top of a deck: a quick papery swish ending in a crisp snap. About 0.3 seconds.
+[00:00] Take 1: a single thick card drawn from a deck: a short soft paper slide and a gentle muted tap; warm, low and dry, no hiss. About 0.3 seconds.
 [00:03] Take 2: the same sound, slightly varied.
 [00:06] Take 3: the same sound, slightly varied.
 [00:09] Silence until the end.
@@ -329,7 +329,7 @@ Clean, close, dry studio recording with a short natural tail. Each take is follo
 ```text
 Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
 Fantasy card game, interface and battle sounds.
-[00:00] Take 1: a very soft brush of a card edge, light and silky. About 0.1 seconds.
+[00:00] Take 1: a very soft low paper touch, like a fingertip brushing thick card stock; muffled and warm, no high frequencies. About 0.1 seconds.
 [00:03] Take 2: the same sound, slightly varied.
 [00:06] Take 3: the same sound, slightly varied.
 [00:09] Silence until the end.
@@ -381,7 +381,7 @@ Clean, close, dry studio recording with a short natural tail. Each take is follo
 ```text
 Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
 Fantasy card game, interface and battle sounds.
-[00:00] Take 1: a tiny magnetic tick, precise and soft. About 0.1 seconds.
+[00:00] Take 1: a tiny soft low wooden tock, muffled and gentle, no high frequencies. About 0.1 seconds.
 [00:03] Take 2: the same sound, slightly varied.
 [00:06] Take 3: the same sound, slightly varied.
 [00:09] Silence until the end.
@@ -402,12 +402,12 @@ Clean, close, dry studio recording with a short natural tail. Each take is follo
 ```
 
 ### place — 유닛을 전장에 내려놓을 때
-지금: `place` · 약 0.5초 · 파일 `place`
+지금: `place` · 약 0.4초 · 파일 `place`
 
 ```text
 Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
 Fantasy card game, interface and battle sounds.
-[00:00] Take 1: a heavy card slammed onto a stone table: a deep soft thud with a crisp double latch click locking it in place. About 0.5 seconds.
+[00:00] Take 1: a heavy card set down firmly on a wooden table: a single deep soft thud, dry and short. About 0.4 seconds.
 [00:03] Take 2: the same sound, slightly varied.
 [00:06] Take 3: the same sound, slightly varied.
 [00:09] Silence until the end.
@@ -480,12 +480,12 @@ Clean, close, dry studio recording with a short natural tail. Each take is follo
 ```
 
 ### burn — 소각
-지금: `burn` · 약 0.9초 · 파일 `burn`
+지금: `burn` · 약 0.8초 · 파일 `burn`
 
 ```text
 Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
 Fantasy card game, interface and battle sounds.
-[00:00] Take 1: a card catching fire: a quick whoosh of flame, crackling embers and ash drifting away. About 0.9 seconds.
+[00:00] Take 1: a card dropped into a fire pit: a low soft whoomp of flame and a warm gentle crackle of burning wood; muffled and low, no hiss. About 0.8 seconds.
 [00:03] Take 2: the same sound, slightly varied.
 [00:06] Take 3: the same sound, slightly varied.
 [00:09] Silence until the end.
@@ -599,12 +599,12 @@ Clean, close, dry studio recording with a short natural tail. Each take is follo
 ```
 
 ### confirm_atk — 공격 완료 단추
-지금: `confirm` · 약 0.8초 · 파일 `confirm_atk`
+지금: `confirm` · 약 0.4초 · 파일 `confirm_atk`
 
 ```text
 Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
 Fantasy card game, interface and battle sounds.
-[00:00] Take 1: a sword struck flat against a shield with a decisive clang, then a bright rising metallic ring. About 0.8 seconds.
+[00:00] Take 1: a sword struck flat against a shield: one short decisive clang that stops quickly; dry, no ringing tail, no reverb. About 0.4 seconds.
 [00:03] Take 2: the same sound, slightly varied.
 [00:06] Take 3: the same sound, slightly varied.
 [00:09] Silence until the end.
@@ -612,12 +612,12 @@ Clean, close, dry studio recording with a short natural tail. Each take is follo
 ```
 
 ### confirm_def — 방어 완료 단추
-지금: `confirm` · 약 0.8초 · 파일 `confirm_def`
+지금: `confirm` · 약 0.4초 · 파일 `confirm_def`
 
 ```text
 Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
 Fantasy card game, interface and battle sounds.
-[00:00] Take 1: a tower shield planted hard into the ground: a deep thud, a short chain rattle and a low steady ring. About 0.8 seconds.
+[00:00] Take 1: a tower shield planted hard into the ground: one deep heavy thud with a short dull clank; dry and short, no ringing tail, no reverb. About 0.4 seconds.
 [00:03] Take 2: the same sound, slightly varied.
 [00:06] Take 3: the same sound, slightly varied.
 [00:09] Silence until the end.
@@ -643,7 +643,7 @@ Clean, close, dry studio recording with a short natural tail. Each take is follo
 ```text
 Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
 Fantasy card game, interface and battle sounds.
-[00:00] Take 1: a heavy coin flicked into the air: a sharp thumb flick and a fast spinning metallic whirr. About 0.6 seconds.
+[00:00] Take 1: a heavy gold coin tossed up with a thumb: a soft dull flick, then two muffled low metallic tumbles in the air; warm and round, no whirring, no hiss. About 0.6 seconds.
 [00:03] Take 2: the same sound, slightly varied.
 [00:06] Take 3: the same sound, slightly varied.
 [00:09] Silence until the end.
@@ -682,7 +682,7 @@ Clean, close, dry studio recording with a short natural tail. Each take is follo
 ```text
 Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
 Fantasy card game, interface and battle sounds.
-[00:00] Take 1: a soft ethereal whoosh gathering, then a coin flicked back up with a spinning ring. About 0.7 seconds.
+[00:00] Take 1: a soft low magical swell, then a heavy coin tossed up again with a dull flick and a short muted metallic tumble; warm and round, no whirring, no hiss. About 0.7 seconds.
 [00:03] Take 2: the same sound, slightly varied.
 [00:06] Take 3: the same sound, slightly varied.
 [00:09] Silence until the end.
@@ -791,7 +791,7 @@ Short orchestral stinger for a fantasy card game, about 4 seconds long: a melanc
 Warm, natural concert-hall recording; no drums, no synths. Instrumental, no vocals.
 ```
 
-## 전투 — 공용 (카드 소리가 없을 때 · 능력 효과) (41)
+## 전투 — 공용 (카드 소리가 없을 때 · 능력 효과) (50)
 
 ### swing — 공격 유닛이 뛰쳐나갈 때
 지금: `swing` · 약 0.3초 · 파일 `swing`
@@ -859,12 +859,12 @@ Clean, close, dry studio recording with a short natural tail. Each take is follo
 ```
 
 ### shatter — 유닛 카드가 부서질 때
-지금: `shatter` · 약 0.9초 · 파일 `shatter`
+지금: `shatter` · 약 0.8초 · 파일 `shatter`
 
 ```text
 Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
 Fantasy card game, interface and battle sounds.
-[00:00] Take 1: a stone-and-glass card plaque cracking apart: a heavy crack, a crumbling break and debris scattering to both sides. About 0.9 seconds.
+[00:00] Take 1: a stone card plaque breaking apart: a heavy low crack and chunks of stone crumbling onto a wooden table; dull, earthy and dry, no glass, no hiss. About 0.8 seconds.
 [00:03] Take 2: the same sound, slightly varied.
 [00:06] Take 3: the same sound, slightly varied.
 [00:09] Silence until the end.
@@ -1326,6 +1326,123 @@ Fantasy card game, interface and battle sounds.
 Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
 ```
 
+### huntfire — [불꽃 사냥] — 불붙은 상대를 덮치는 불길 (v3.81 도르마크의 갈비뼈 화로)
+지금: 새 자리 · 약 0.6초 · 파일 `huntfire`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: flames leaping hungrily onto a burning target: a sudden roaring flare of fire and a fierce crackling whoosh. About 0.6 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### riposte — [되받기] — 막아 낸 칼이 되튀는 쇳소리 (v3.81 소르그림의 첫 갑주)
+지금: 새 자리 · 약 0.5초 · 파일 `riposte`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: a heavy iron plate deflecting a blade and snapping back: a sharp metallic clang followed by a bright ringing ricochet. About 0.5 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### overload — [과부하] — 벼락이 팔로 몰리는 소리 (v3.81 케라운의 벼락 심장)
+지금: 새 자리 · 약 0.6초 · 파일 `overload`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: surging lightning gathering along a limb: a rising crackling electric hum ending in a sharp static snap. About 0.6 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### devour — [포식] — 삼키는 듯 낮은 으르렁 (v3.81 고르바스의 부러진 송곳니)
+지금: 새 자리 · 약 0.7초 · 파일 `devour`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: a primal beastly growl swelling as it devours prey: a deep rumbling snarl and a heavy guttural crunch. About 0.7 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### drain — [뿌리 흡수] — 뿌리가 숨을 빨아들이는 소리 (v3.81 베르단의 첫 뿔)
+지금: 새 자리 · 약 0.7초 · 파일 `drain`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: living roots drinking life: a dry woody creak and a soft siphoning whoosh pulling inward into green foliage. About 0.7 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### flow — [밀물] — 밀려드는 물결 (v3.81 마렌시아의 눈물 성배)
+지금: 새 자리 · 약 0.7초 · 파일 `flow`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: a gentle, luminous tide surging forward: a smooth rushing wave of clear water and a soft soothing shimmer. About 0.7 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### judge — [심판] — 판결의 종소리 (v3.81 하르간의 양손검)
+지금: 새 자리 · 약 0.8초 · 파일 `judge`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: a solemn bell of judgment: one deep, clear bronze bell toll with a bright resonant halo fading slowly. About 0.8 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### sentry — [경계의 화살] — 경계 너머에서 날아오는 화살 (v3.81 세렌의 활)
+지금: 새 자리 · 약 0.5초 · 파일 `sentry`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: a warning arrow loosed from afar: a taut bowstring twang, a fast whistling zip through the air and a crisp strike. About 0.5 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### mark — [표식] — 표식이 새겨지는 바람 소리 (v3.81 이벨의 깃펜)
+지금: 새 자리 · 약 0.5초 · 파일 `mark`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: a swift mark etched in mid-air: a sharp whistling sweep of wind and a crisp quill-like scratch sealing with a faint chime. About 0.5 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
 ## 파친코 · 크로네아의 수레바퀴 · 결정 키우기 (12)
 
 ### pach_spin — SPIN — 레버를 당겨 릴이 돌기 시작할 때
@@ -1334,7 +1451,7 @@ Clean, close, dry studio recording with a short natural tail. Each take is follo
 ```text
 Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
 Fantasy card game, interface and battle sounds.
-[00:00] Take 1: a heavy brass lever pulled down with a solid clack, then mechanical reels whirring up to speed. About 0.9 seconds.
+[00:00] Take 1: a heavy brass lever pulled down with a solid wooden clack, then a soft low rolling rumble of wooden reels starting to turn; warm, no whirring, no hiss. About 0.9 seconds.
 [00:03] Take 2: the same sound, slightly varied.
 [00:06] Take 3: the same sound, slightly varied.
 [00:09] Silence until the end.
@@ -1347,7 +1464,7 @@ Clean, close, dry studio recording with a short natural tail. Each take is follo
 ```text
 Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
 Fantasy card game, interface and battle sounds.
-[00:00] Take 1: a tiny, crisp ratchet tick of a brass pin flicking past. About 0.1 seconds.
+[00:00] Take 1: a tiny soft wooden click, muffled and low. About 0.1 seconds.
 [00:03] Take 2: the same sound, slightly varied.
 [00:06] Take 3: the same sound, slightly varied.
 Takes: three takes at slightly different pitches.
@@ -1361,7 +1478,7 @@ Clean, close, dry studio recording with a short natural tail. Each take is follo
 ```text
 Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
 Fantasy card game, interface and battle sounds.
-[00:00] Take 1: a firm mechanical stopper clunk followed by a short, bright ting. About 0.3 seconds.
+[00:00] Take 1: a firm low wooden clunk of a reel stopping, short and dry. About 0.3 seconds.
 [00:03] Take 2: the same sound, slightly varied.
 [00:06] Take 3: the same sound, slightly varied.
 Takes: three takes, each one a little higher in pitch than the last (one per reel).
@@ -1439,7 +1556,7 @@ Clean, close, dry studio recording with a short natural tail. Each take is follo
 ```text
 Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
 Fantasy card game, interface and battle sounds.
-[00:00] Take 1: water droplets falling onto a crystal: a clear drip, a tiny splash and a faint glassy ring. About 0.6 seconds.
+[00:00] Take 1: water poured from a small clay jug onto soil: a short gentle splash and a soft round gurgle; low and warm, no hiss. About 0.6 seconds.
 [00:03] Take 2: the same sound, slightly varied.
 [00:06] Take 3: the same sound, slightly varied.
 [00:09] Silence until the end.
@@ -1790,12 +1907,12 @@ Clean, close, dry studio recording with a short natural tail. Each take is follo
 ## 순례 · 원정 · 지도 (6)
 
 ### map_open — 지도를 펼칠 때
-지금: `ui_open` · 약 0.8초 · 파일 `map_open`
+지금: `ui_open` · 약 0.9초 · 파일 `map_open`
 
 ```text
 Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
 Fantasy card game, interface and battle sounds.
-[00:00] Take 1: a large parchment map unrolled across a table with a broad, crackling rustle. About 0.8 seconds.
+[00:00] Take 1: a heavy oak door opening onto a quiet forest path: a low soft wooden thump, a warm breath of air and one soft footstep on moss; warm, low and muffled, no hiss. About 0.9 seconds.
 [00:03] Take 2: the same sound, slightly varied.
 [00:06] Take 3: the same sound, slightly varied.
 [00:09] Silence until the end.

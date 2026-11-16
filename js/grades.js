@@ -63,7 +63,8 @@ if (typeof ABYSS_GRADES !== "undefined") Object.assign(CARD_GRADES, ABYSS_GRADES
 if (typeof GNOME_GRADES !== "undefined") Object.assign(CARD_GRADES, GNOME_GRADES);   // v3.66.1 노움 [증폭] 고급 유닛 (js/gnome.js)
 if (typeof MERMAID_GRADES !== "undefined") Object.assign(CARD_GRADES, MERMAID_GRADES);   // v3.68 인어 환상 마법 (js/mermaid.js)
 if (typeof ELF_GRADES !== "undefined") Object.assign(CARD_GRADES, ELF_GRADES);   // v3.70 바람 궁수 엘프 마법 (js/elf.js)
-if (typeof GOBLIN_GRADES !== "undefined") Object.assign(CARD_GRADES, GOBLIN_GRADES);   // v3.73 잿불 고블린 [점화] · [화염 갑주] 유닛 · 기폭 (js/goblin.js)
+if (typeof GOBLIN_GRADES !== "undefined") Object.assign(CARD_GRADES, GOBLIN_GRADES);
+if (typeof ITEMREWORK_GRADES !== "undefined") Object.assign(CARD_GRADES, ITEMREWORK_GRADES);   // v3.80 아이템 등급 규칙 — 별 고급 2장 · 노래 에픽 (js/itemrework.js)   // v3.73 잿불 고블린 [점화] · [화염 갑주] 유닛 · 기폭 (js/goblin.js)
 
 function gradeOf(c) { const id = typeof c === "string" ? c : c && c.id; return CARD_GRADES[id] || "common"; }
 for (const c of CARD_LIST) c.grade = gradeOf(c);

@@ -133,12 +133,15 @@ function refill(p) {
   p.life -= loss;
   log(`${p.name}: ${k}장 보충 · 생명 −${loss}`, "sys");
 }
+/* 2026-11-15 레어 오라를 준비 단계에도 센다(전장이 바뀔 때마다). 예전엔 전투가 시작될 때만 세서, 턴이 시작되면(resetTurn) 지워진 채
+   준비하는 동안 카드 숫자 · 표시에 오라가 없었다. 화면이 아니라 판 상태를 고치는 곳(act*)에서 불러 서버 검산 · 컴퓨터도 같은 값을 본다 */
+function prepAura() { if (G && typeof rareAuraSync === "function") rareAuraSync({ P: G.players }, true); }
 function actPlace(p, uid, slot) {
   const i = p.hand.findIndex(x => x.uid === uid); if (i < 0) return false;
   const it = p.hand[i], c = C(it);
   if (c.type === "item") return false;
   const why = canPlay(p, c); if (why) { if (!p.isAI) toast(why, "warn"); return false; }
-  if (c.type === "hand") return castHand(p, i);
+  if (c.type === "hand") { const r = castHand(p, i); prepAura(); return r; }
   // v3.62 전장은 늘 왼쪽부터 빈틈없이 찬다: 새 카드는 맨 왼쪽 빈 칸(= 마지막 카드 바로 다음)에 놓인다.
   // slot이 그보다 앞이면 그 자리에 끼워 넣고 뒤 카드가 한 칸씩 밀린다(컴퓨터가 마법을 유닛 사이에 둘 때). 빈 칸 너머는 고를 수 없다
   packField(p);
@@ -158,6 +161,7 @@ function actPlace(p, uid, slot) {
   } else {
     log(`${p.name}: 마법 카드를 ${slot + 1}번 전장에 뒷면으로 놓음`);
   }
+  prepAura();
   return true;
 }
 function actEquip(p, uid, slot) {
@@ -172,7 +176,7 @@ function actEquip(p, uid, slot) {
   p.hand.splice(i, 1); p.spent += costOf(c); p.committed = true;
   if (G.leave) G.leave[card.uid] = "uid:" + host.uid;
   host.item = { id: c.id, equipped: G.turn };
-  const dmg = host.t ? host.t.dmg : 0; resetTurn(host, p.idx === G.attacker); host.t.dmg = dmg;
+  const dmg = host.t ? host.t.dmg : 0; resetTurn(host, p.idx === G.attacker); host.t.dmg = dmg; prepAura();
   log(`${p.name}: ${C(host).name}에게 「${c.name}」 장착`);
   if (c.item.evName && /^생명 \+/.test(c.item.evName)) { const n = parseInt(c.item.evName.replace(/\D/g, "")) || 0; const b = p.life; p.life = Math.min(RULES.lifeCap, p.life + n); if (p.life > b) { log(`[${c.item.evName}] ${p.name} 생명 +${p.life - b}`, "good"); floatAt("life" + p.idx, "+" + (p.life - b), "heal"); } }
   return true;
@@ -232,6 +236,7 @@ function burnFieldAt(p, slot, why) {
   p.field[slot] = null; if (!C(it).tok) (it.from != null && G.players[it.from] ? G.players[it.from] : p).burn.push(it.id); if (it.item) (it.item.from != null && G.players[it.item.from] ? G.players[it.item.from] : p).burn.push(it.item.id);   // v3.31 넘어온 유닛 · 빼앗은 아이템은 원래 주인의 소각장
   log(`${p.name}: 전장의 「${isUnit(it) ? C(it).name : "마법 카드"}」 소각${why ? " — " + why : ""}`);
   packField(p);   // v3.62 빈 칸은 남기지 않고 왼쪽으로 당긴다
+  prepAura();
   return true;
 }
 function actBurnField(p, slot) { if (prepIdx() !== p.idx) return false; const ok = burnFieldAt(p, slot); if (ok) p.committed = true; return ok; }
@@ -248,6 +253,7 @@ function moveField(field, from, to) {
 function actMove(p, from, to) {
   if (prepIdx() !== p.idx || from === to || !p.field[from]) return false;
   p.field = moveField(p.field, from, to);
+  prepAura();
   return true;
 }
 /* 준비를 마칠 때 유지비를 낼 수 없으면 유지비가 큰 유닛부터 소각 */
@@ -356,6 +362,7 @@ function beginTurn() {
   for (const p of G.players) {
     p.made = 0; p.crysBank = crysLeft(p) + RULES.crystalsPerTurn; p.spent = 0; p.shuffled = false; p.committed = false; p.reloadNow = p.reload; p.reload = 0; p.bonusNow = p.bonus || 0; p.bonus = 0;
     for (const it of p.field) if (isUnit(it)) { const dmg = it.t ? it.t.dmg : 0; resetTurn(it, p.idx === G.attacker); if (G.rules && G.rules.noHeal && dmg) it.t.dmg = Math.min(dmg, it.t.h - 1); }
+    prepAura();   // 2026-11-15 턴이 시작되면 레어 오라를 바로 다시 센다
     // v3.61.1 보호막 코인은 턴 시작이 아니라 전투가 시작될 때 던진다(js/engine.js shieldCoinsAtCombat, 기록도 엔진이 남김)
     if (G.rules && G.rules.lifeTide && G.turn > 1) p.life = Math.min(RULES.lifeCap, p.life + G.rules.lifeTide);
     // v3.31 [마력 흡수]: 모은 마력이 이번 턴 에테르가 된다
@@ -437,16 +444,23 @@ async function runCombat() {
       const cd = counterHit ? s.dur * kSpeed() * 0.45 : 0;   // counterStrike가 상대를 치는 때 (dur × 0.45)
       const hitAt = key => counterHit ? cd : ((delays && delays.get(key)) || 0);
       let maxD = 0;
+      // 2026-11-16 이펙트 서순: 마법이 한 유닛에 해로운 효과를 여럿 주면 공격 ↓ → 방어 ↓ → 체력 ↓ 차례로 띄우고 숫자도 그때그때 바꾼다 (보이는 것만, 판 셈은 그대로)
+      const stg = fxSpell && held && held.size ? harmStages(s.floats) : null, GAP = HARM_GAP * kSpeed();
       if (held && held.size) {
         const tok = ++HOLD.tok;
         for (const key of held) {
-          const d = hitAt(key); maxD = Math.max(maxD, d);
+          const d0 = hitAt(key), rk = stg && stg.ranks.get(key), last = rk ? rk.length - 1 : 0;
+          for (let r = 0; r < last; r++) {   // 앞 차례: 그 차례까지의 스탯만 새 값으로
+            const keys = rk.slice(0, r + 1).flatMap(st => HARM_KEYS[st]);
+            setTimeout(() => { if (HOLD.tok === tok && G === myG) revealPart(key, s.snap, prevSnap, keys); }, d0 + r * GAP);
+          }
+          const d = d0 + last * GAP; maxD = Math.max(maxD, d);
           if (d > 30) setTimeout(() => { if (HOLD.tok === tok && G === myG) revealStat(key, s.snap); }, d); else revealStat(key, s.snap);
         }
       }
-      for (const f of s.floats) {
-        const d = hitAt(String(f[0]));
-        if (d > 30) setTimeout(() => { if (G === myG) floatAt(f[0], f[1], f[2]); }, d); else floatAt(f[0], f[1], f[2]);
+      for (const f of stg ? stg.list : s.floats) {
+        const d = hitAt(String(f[0])) + (f[3] || 0) * GAP;
+        if (d > 30) setTimeout(() => { if (G === myG) floatAt(f[0], f[1], f[2], f[3]); }, d); else floatAt(f[0], f[1], f[2], f[3]);
       }
       if (casting && s.fx.shatter && s.fx.shatter.includes(casting.uid)) casting = null;
       if (s.fx.spellCoin) { await spellCoinFx(s.fx.spellCoin); if (G !== myG) return; i++; continue; }   // v3.9.2 마법 코인
@@ -521,6 +535,46 @@ function revealStat(key, sn) {
   const n = tmp.firstElementChild; if (!n) return;
   el.className = n.className; el.innerHTML = n.innerHTML;
   if (typeof fitDescs === "function") fitDescs(el);
+}
+/* 2026-11-16 이펙트 서순: 마법 한 수의 떠오르는 글자를 해로운 효과의 차례(0 공격 · 1 방어 · 2 체력)로 나눈다.
+   이로운 글자(buff · heal · shield …)와 차례를 알 수 없는 글자는 예전처럼 맞는 순간에 한꺼번에. 한 유닛에 차례가 하나뿐이면 예전과 같다.
+   돌려주는 값: list = [대상, 글자, cls, 몇 번째 차례], ranks = 대상 → 그 대상에게 있는 차례들(오름차순) */
+const HARM_GAP = 280;   // 차례 사이 ms (배속을 곱한다). 효과 셋이면 0.56초 늘고, 마법 효과 수(800 × PACE) 안에서 대개 끝난다
+const HARM_KEYS = [["a"], ["d"], []];
+function harmStage(text, cls) {
+  const t = String(text).trim();
+  if (t[0] === "⚔" || /^공격/.test(t)) return 0;
+  if (t[0] === "⛨" || /^(방어|관통)/.test(t)) return 1;
+  if (t[0] === "♥" || /\bdmg\b/.test(cls)) return 2;
+  return -1;
+}
+function harmStages(floats) {
+  const out = [], seen = new Map();
+  for (const f of floats) {
+    const cls = f[2] || "";
+    if (!/\b(debuff|dmg)\b/.test(cls) || /\b(aim|cpop)\b/.test(cls)) { out.push([f[0], f[1], cls, null]); continue; }
+    const parts = String(f[1]).trim().split(/\s+/);
+    const split = parts.length > 1 && parts.every(x => /^[⚔⛨♥]/.test(x));
+    for (const x of split ? parts : [String(f[1])]) {
+      const st = harmStage(x, cls);
+      out.push([f[0], x, cls, st < 0 ? null : st]);
+      if (st >= 0) { const k = String(f[0]); if (!seen.has(k)) seen.set(k, new Set()); seen.get(k).add(st); }
+    }
+  }
+  const ranks = new Map();
+  for (const [k, s] of seen) ranks.set(k, [...s].sort());
+  // 대상마다 차례 번호(0 공격 · 1 방어 · 2 체력)를 그 대상에게 있는 차례 안의 순번으로 바꾼다 — 방어 · 체력만 깎이면 0 · 1
+  for (const f of out) if (f[3] != null) f[3] = ranks.get(String(f[0])).indexOf(f[3]);
+  return { list: out, ranks };
+}
+/* 앞 수의 카드 값에 keys 스탯만 새 값으로 얹어 그린다 (harmStages의 앞 차례) */
+function revealPart(key, sn, prev, keys) {
+  const was = prev && prev.units[key], now = sn.units[key];
+  if (!was || !now) return;
+  const t = JSON.parse(JSON.stringify(was));
+  for (const k of keys) t[k] = now[k];
+  if (now.floor) t.floor = JSON.parse(JSON.stringify(now.floor));
+  revealStat(key, { units: { [key]: t } });
 }
 function compactFields() {
   let moved = false;
@@ -1275,7 +1329,7 @@ function plateParts(text, cls) {
   if (!/[가-힣]/.test(s) || /\b(cpop|aim)\b/.test(c)) return null;
   const m = /^([가-힣][가-힣\s·]*?)\s*([^가-힣\s·][^가-힣]*)?$/.exec(s);
   const tag = m ? m[1].trim() : s.trim(), num = m && m[2] ? m[2].trim() : "";
-  const tone = tag === "반격" ? "t-gold" : tag === "대가" ? "t-blood"
+  const tone = /\baura\b/.test(c) ? "t-aura" : tag === "반격" ? "t-gold" : tag === "대가" ? "t-blood"
     : /\bdmg\b/.test(c) ? "t-blood" : /\bheal\b/.test(c) ? "t-heal" : /\bshield\b/.test(c) ? "t-ice"
     : /\bdebuff\b/.test(c) ? "t-hex" : /\bmiss\b/.test(c) ? "t-silver" : "t-gold";
   return { tag, num, tone };
@@ -1289,9 +1343,12 @@ const FLOAT_SFX = [
   // 2026-11-15 v3.68~v3.74 새 능력 전용 소리 (audio/sfx/<키>, tools/sfx/sfx_common.json combat)
   [/^화상 −/, "burn_burst"], [/^불씨 −/, "burn_burst"], [/^화상 \d/, "scorch"], [/^불씨( 옮겨붙음)?$/, "scorch"], [/^불길 · 재생 멈춤/, "burn"],
   [/^재생/, "regen"], [/^치유 \+/, "mend"], [/^바다의 보호/, "sea_guard"], [/^가호/, "ward"], [/^정화/, "purify"], [/^굳건/, "firm"], [/^후퇴$/, "retreat"],
-  [/^마력 \d/, "charge"]
+  [/^마력 \d/, "charge"], [/^오라/, "aura"],   // 2026-11-16 레어 오라가 켜지거나 커짐 (engine step · 준비 단계 auraPrepPulse)
+  // v3.81 스페셜 아이템 능력 전용 소리
+  [/^불꽃 사냥/, "huntfire"], [/^되받기 −/, "riposte"], [/^과부하/, "overload"], [/^포식/, "devour"], [/^뿌리 흡수/, "drain"], [/^밀물/, "flow"], [/^심판/, "judge"], [/^경계의 화살 −/, "sentry"], [/^표식/, "mark"]
 ];
 function floatSfx(target, s, c) {
+  if (/^심판/.test(s)) return "judge";
   if (/^life\d$/.test(String(target)) && /\bheal\b/.test(c)) return "life_heal";
   if (/^보호막/.test(s) && /\bblock\b/.test(c)) return "shield_break";
   if (/\bignite\b/.test(c)) return "ignite";   // v3.73 [점화] 겨눔 (엔진 gbIgnite "aim ignite")
@@ -1325,7 +1382,7 @@ function plasmaDrain(fromUid, el, layer) {
   }
   setTimeout(() => { if (el.isConnected) el.animate([{ filter: "none" }, { filter: "brightness(1.6) drop-shadow(0 0 14px #7fd6ff)", offset: 0.3 }, { filter: "none" }], { duration: 560, easing: "ease-out" }); }, src ? 640 : 0);
 }
-function floatAt(target, text, cls) {
+function floatAt(target, text, cls, row) {   // row: 해로운 효과 차례(harmStages) — 뒤 차례일수록 조금 아래에서 떠올라 앞 글자와 겹치지 않게
   if (!G || G.cfg.headless || G.speed === 0) return;
   const el = typeof target === "number" ? uidEl(target) : $("#" + target);
   const layer = fxLayer();
@@ -1371,7 +1428,7 @@ function floatAt(target, text, cls) {
   // v3.14 피해 숫자는 크게 찍혔다 눌리고 튄다(css/impact.css). 피해가 클수록 크게
   if (/\bdmg\b/.test(cls || "") && !pm) { const n = +((String(text).match(/(\d+)\s*$/) || [])[1] || 0); f.classList.add("imp-num"); f.style.setProperty("--pw", Math.min(1, n / 8).toFixed(2)); f.style.setProperty("--rz", (Math.random() * 16 - 8).toFixed(1) + "deg"); }
   f.style.left = (r.left + r.width / 2 + (Math.random() * 20 - 10)) + "px";
-  f.style.top = (r.top + r.height * 0.42 + (Math.random() * 20 - 10)) + "px";
+  f.style.top = (r.top + r.height * 0.42 + (row ? row * 18 : Math.random() * 20 - 10)) + "px";
   layer.appendChild(f);
   setTimeout(() => f.remove(), 1700);
 }
@@ -1386,6 +1443,11 @@ const COIN_LIMIT_MS = 6500;   // v1.9: 5초 → 8초, v1.9.1: 8초 → 6.5초
 /* v3.12.5 − 동전: 같은 동전에 묶인 공·방·체 값의 합이 − 이면 앞면이 손해다 → 다시 굴릴 수 있는 면이 앞면 */
 function coinNeg(o) { return o.parts.reduce((s, k) => s + k.v, 0) < 0; }
 function coinBad(o) { return coinNeg(o) ? !!o.heads : !o.heads; }
+/* 2026-11-16 + · − 코인이 함께 붙은 카드(예: 공격 +3 · 체력 −2)는 어느 면이 이득인지 그때그때 다르다 — 면과 상관없이 다시 굴릴 수 있게 한다 */
+function coinMixed(groups) { let pos = false, neg = false; for (const o of groups || []) for (const k of o.parts) { if (k.v > 0) pos = true; else if (k.v < 0) neg = true; } return pos && neg; }
+/* 컴퓨터가 보는 동전 값: 공격할 때는 공격, 막을 때는 방어 · 체력을 더 친다 (+ · − 가 섞인 동전도 이 값의 부호로 이득 · 손해를 가린다) */
+function coinVal(o, who) { const w = who === "a" ? { a: 1.5, d: 0.5, h: 1 } : { a: 0.4, d: 1.5, h: 1.2 }; return o.parts.reduce((s, k) => s + k.v * w[k.st], 0); }
+function coinBadFor(o, who) { const mix = o.parts.some(k => k.v > 0) && o.parts.some(k => k.v < 0); if (!mix) return coinBad(o); const v = coinVal(o, who); return o.heads ? v < 0 : v > 0; }
 function canReflip(pIdx) { const p = G.players[pIdx]; return !!p && ether(p) >= 1; }
 /* v2.7 코인 앞면: 에테리온 문장(SIGIL과 같은 짜임). 바깥 구슬 테에 거인의 돌 일곱 · 고리에 용의 보석 일곱(동쪽은 빈 홈에 ?) · 가운데 신의 다섯 꼭짓점 별 · 한가운데 아르케(빈 원).
    금화(.cs-heads) 위에 판 무늬(어두운 홈 + 오른쪽 아래 밝은 턱), 색은 보석에만. viewBox -50..50 */
@@ -1680,7 +1742,8 @@ function coinClash(info) {
         if (sd.kept) continue;   // v3.5.6 고정된 방어 코인은 다시 던질 수 없다
         /* v3.12.5 손해 본 동전만 다시 굴린다: + 동전은 뒷면, − 동전(공·방·체 합이 −)은 앞면이 손해 (심연 마족의 − 코인 등).
            v2.4.4 확률 0% · 100%인 동전은 다시 던져도 같은 면이라 빼다 */
-        const tails = sd.groups.map((o, i) => (coinBad(o) && o.p > 0 && o.p < 1 ? i : -1)).filter(i => i >= 0);
+        const mixed = coinMixed(sd.groups);   // 2026-11-16 + · − 가 함께 붙은 카드는 이득인 면이 나와도 다시 굴릴 수 있다
+        const tails = sd.groups.map((o, i) => ((mixed || coinBad(o)) && o.p > 0 && o.p < 1 ? i : -1)).filter(i => i >= 0);
         if (G.cfg.replayView || !tails.length || !canReflip(sd.p) || (noFlip && sd.human)) {   // v3.46 다시보기: 다시 던지기는 기록대로 이미 들어가 있다
           if (sd.human && ctl) ctl.innerHTML = "";
           if (G.online && sd.human && tails.length && canReflip(sd.p)) Online.send({ t: "coin", k: ckey(sd), flip: null });   // 건너뛰기도 알린다
@@ -1691,14 +1754,16 @@ function coinClash(info) {
         // 값이 가장 큰 뒷면 코인 (공격 때는 공격 코인, 방어 때는 방어·체력 코인을 먼저)
         const pref = sd.who === "a" ? { a: 2, h: 1, d: 0 } : { d: 2, h: 2, a: 0 };
         const worth = i => { const o = sd.groups[i], g = coinNeg(o) ? -1 : 1; return o.parts.reduce((s, k) => s + g * k.v + (g * k.v > 0 ? pref[k.st] : 0), 0); };
-        const best = tails.slice().sort((x, y) => worth(y) - worth(x))[0];
+        // 사람 창은 손해 본 코인을 먼저 골라 둔다. 컴퓨터는 + · − 섞인 동전을 공격 · 방어 처지로 따져 손해일 때만 다시 던진다
+        const best = tails.slice().sort((x, y) => (coinBad(sd.groups[x]) ? 0 : 1) - (coinBad(sd.groups[y]) ? 0 : 1) || worth(y) - worth(x))[0];
+        const aiPick = tails.filter(i => coinBadFor(sd.groups[i], sd.who)).sort((x, y) => mixed ? Math.abs(coinVal(sd.groups[y], sd.who)) - Math.abs(coinVal(sd.groups[x], sd.who)) : worth(y) - worth(x))[0];
         if (sd.human) {
           /* v3.9.3 "다시 굴리기"와 "굴리지 않고 넘어가기" 두 단추. 다시 굴릴 코인은 값이 가장 큰 뒷면 코인을 먼저 골라 두고,
              뒷면 코인이 여럿이면 코인을 눌러 바꾼다. 고른 코인을 한 번 더 누르면 바로 다시 굴린다(예전처럼) */
           tails.forEach(i => el.querySelector(`.cs-coin[data-i="${i}"]`).classList.add("can-flip"));
           pickCoin(sd, best);
           const negs = tails.filter(i => coinNeg(sd.groups[i])).length;
-          const what = !negs ? "뒷면 코인을" : negs === tails.length ? "앞면이 나온 <b class=\"neg\">− 코인</b>을" : "뒷면 + 코인 · 앞면 − 코인을";
+          const what = mixed ? "<b>+ · − 코인</b>이 함께 붙은 카드라 코인을" : !negs ? "뒷면 코인을" : negs === tails.length ? "앞면이 나온 <b class=\"neg\">− 코인</b>을" : "뒷면 + 코인 · 앞면 − 코인을";
           /* v3.17.4 안내 · 두 단추 · 체크는 .cs-flip 한 칸에 (창 폭 전체를 쓰는 줄). 예전처럼 .cs-ctl에 넣으면 v3.17.2의 좁은 글 칸에서 단추가 잘렸다 */
           ctl.innerHTML = "";
           box.innerHTML = (tails.length > 1
@@ -1717,9 +1782,9 @@ function coinClash(info) {
             else { panel(sd).querySelector(".cs-flip").innerHTML = ""; done(sd.who, 900); }
           });
         } else {
-          if (worth(best) <= 0) { pending.pop(); box.innerHTML = ""; continue; }   // − 동전은 다시 던지지 않는다
+          if (aiPick == null || (!mixed && worth(aiPick) <= 0)) { pending.pop(); box.innerHTML = ""; continue; }   // 손해 본 동전이 없으면 다시 던지지 않는다
           if (!sd.hide) box.innerHTML = `<span class="cf-hint ai">${esc(p.name)}이(가) 코인을 다시 던집니다…</span>`;
-          later(() => { if (!finished && st.isConnected) doFlip(sd, best); }, 650 * k);
+          later(() => { if (!finished && st.isConnected) doFlip(sd, aiPick); }, 650 * k);
         }
       }
       // v1.9.5 결과를 보여 주는 시간 2배: 1.1초 → 2.2초
@@ -1770,7 +1835,7 @@ function coinClash(info) {
           landAnim(c, heads, 620 * k);
           const good = coinNeg(o) ? !heads : heads;   // v3.12.5 − 동전은 뒷면이 좋은 결과
           later(() => { c.classList.add(heads ? "is-heads" : "is-tails"); c.classList.remove("reflip"); resText(sd); coinRing(null, [heads], [c]);
-            el.querySelector(".cs-flip").innerHTML = `<span class="cf-hint ${good ? "ok" : ""}">${coinNeg(o) ? (heads ? "또 앞면… 그대로 깎입니다" : "뒷면! 깎이지 않습니다") : (heads ? "앞면! 값이 붙습니다" : "또 뒷면…")}</span>`;
+            el.querySelector(".cs-flip").innerHTML = `<span class="cf-hint ${good ? "ok" : ""}">${o.parts.some(x => x.v > 0) && o.parts.some(x => x.v < 0) ? (heads ? "앞면 — " + o.parts.map(x => STAT_KO[x.st] + " " + sgnNum(x.v)).join(" · ") : "뒷면 — 코인 값이 붙지 않습니다") : coinNeg(o) ? (heads ? "또 앞면… 그대로 깎입니다" : "뒷면! 깎이지 않습니다") : (heads ? "앞면! 값이 붙습니다" : "또 뒷면…")}</span>`;
             burstOn(sd, good ? "slam" : "hit", 200); done(sd.who); }, 640 * k);
         }, 520 * k);
       };
@@ -1933,6 +1998,9 @@ function fieldCardHTML(it, p, s) {
   if (G.fx.tgt === it.uid || G.fx.thr === it.uid) cls.push("targeted");
   if (G.fx.counter === it.uid) cls.push("countering");
   if (G.fx.reveal === it.uid) cls.push("revealing");
+  if (isUnit(it) && it.t && G.fx.aura && G.fx.aura.includes(it.uid)) cls.push("aura-hit");   // 2026-11-16 전투 중 오라가 켜지거나 커진 수 (engine step → fx.aura)
+  if (isUnit(it) && G.fx.auraSrc && G.fx.auraSrc.includes(it.uid)) cls.push("aura-src");
+  if (isUnit(it) && it.t && G.phase !== "combat" && auraPrepPulse(it)) cls.push("aura-hit");   // 준비 단계: 놓고 옮길 때 오라가 오르면 바로 빛남
   if ((G.sel && G.sel.kind === "field" && G.sel.p === p.idx && G.sel.slot === s) || G.inspect === it.uid) cls.push("selected");
   if (it.summoned === G.turn && G.phase !== "combat") cls.push("fresh");
   if ((FX.drag && FX.drag.uid === it.uid) || FX.returning === it.uid) cls.push("drag-src");
@@ -1950,13 +2018,14 @@ function fieldCardHTML(it, p, s) {
       if (pz) badges += `<span class="bd bd-plasma" data-tip="${esc(`플라즈마: ${pz} / 2\n내 마법이 발동할 때마다 1씩 쌓인다(턴이 지나도 남음). 2가 되면 다음 전투가 시작될 때 상대 유닛 모두 체력 −2, 플라즈마는 0이 된다.`)}">${"⚡".repeat(pz)}</span>`; }
     if (it.t.thorns) badges += `<span class="bd bd-thorn" data-tip="${esc(`✶${it.t.thorns} 가시 ${it.t.thorns}\n${itemKwDesc("[가시 " + it.t.thorns + "]")}\n유닛 · 장착한 아이템 · 마법에서 받은 가시를 합친 값`)}">✶${it.t.thorns}</span>`;
     if (it.t.rest) badges += '<span class="bd bd-rest" data-tip="✖ 행동 불가\n이번 턴에는 공격하지 못한다">✖</span>';
+    if (it.t.charm) badges += `<span class="bd bd-charm" data-tip="∿ 홀림\n${esc(SPELL_KW["홀림"])}">∿</span>`;   // v3.78 인어 [홀림] (engine mrCharm)
     if (c.tok) badges += `<span class="bd bd-tok" data-tip="✧ 마법이 부른 유닛${it.tokTemp ? "\n이번 턴만 전장에 있다" : ""}">✧</span>`;
     if (it.t.endure) badges += `<span class="bd bd-shield" data-tip="✚ 불굴\n${esc(SPELL_KW["불굴"])}">✚</span>`;   // v3.11
     if (it.t.pierce) badges += `<span class="bd bd-thorn" data-tip="➶ 꿰뚫기\n${esc(SPELL_KW["꿰뚫기"])}">➶</span>`;   // v3.11
     if (it.t.stolen) badges += '<span class="bd bd-tok" data-tip="☾ 빼앗은 유닛\n전투가 끝나면 흩어져 원래 주인의 소각장으로 간다">☾</span>';   // v3.11
     if (it.mod && !(FX.curse && FX.curse.has(it.uid))) badges += `<span class="bd bd-mod" data-tip="이 카드에 걸린 변화\n이 판 내내 남는다${(it.modBy || []).filter(m => m.src).map(m => "\n「" + esc(m.src) + "」").join("")}">${Object.keys(it.mod).filter(k => it.mod[k]).map(k => STAT_KO[k][0] + sgnNum(it.mod[k])).join(" ")}</span>`;
   }
-  const live = isUnit(it) && it.t ? { a: it.t.a, d: it.t.d, h: Math.max(0, hpLeft(it)), max: it.t.h, pins: livePins(it), off: it.t.off || null } : null;
+  const live = isUnit(it) && it.t ? { a: it.t.a, d: it.t.d, h: Math.max(0, hpLeft(it)), max: it.t.h, pins: livePins(it), off: it.t.off || null, au: it.t.au || null } : null;   // au: 레어 오라 몫 — 그 스탯은 오라 색(js/view.js statCellHTML)
   const cq = live && FX.curse && FX.curse.get(it.uid);   // v3.9.10 저주 발동 연출 전: 아직 깎이지 않은 값
   if (cq) for (const k of ["a", "d", "h"]) if (cq.rem[k]) { live[k] -= cq.rem[k]; if (k === "h") live.max -= cq.rem[k]; }
   // v1.9.3: 장착한 아이템의 특수 능력을 캐릭터 그림 아래에 띠로 보인다(마우스를 올리면 뜻).
@@ -1971,7 +2040,7 @@ function fieldCardHTML(it, p, s) {
     item = chips ? `<div class="c-equip">${chips}</div>` : "";
   }
   // v3.65 마법이 이번 턴 걸어 준 능력(t.gx: 치명 · 연쇄 · 흡혈 …)도 같은 띠에 보랏빛 ✦ 칩으로 (css/cardtext.css .c-gx)
-  let gxc = isUnit(it) && it.t ? grantChipsHTML(it.t.gx, it.t.off) : "";
+  let gxc = isUnit(it) && it.t ? grantChipsHTML(it.t.gx, it.t.off) + auraChipsHTML(it.t.au) : "";   // 2026-11-15 받은 레어 오라 ◎ 칩
   // v3.65 [출혈]: 걸린 출혈(t.bleed, 이번 전투만)을 붉은 칩으로 — 맞붙음이 시작될 때마다 그만큼 체력이 깎인다
   if (isUnit(it) && it.t && it.t.keep && it.t.keep.scorch > 0) gxc += `<span class="c-eq-ab c-scorch" data-tip="${esc(`화상 ${it.t.keep.scorch}\n다음 턴 전투가 시작될 때 체력 −${it.t.keep.scorch} (방어 무시), 그 뒤 꺼진다`)}">화상 ${it.t.keep.scorch}</span>`;   // v3.73 잿불 고블린 화상 (engine gbScorch)
   if (isUnit(it) && it.t && it.t.bleed > 0) gxc +=`<span class="c-eq-ab c-bleed" data-tip="${esc(`출혈 ${it.t.bleed}\n맞붙음이 시작될 때마다 체력 −${it.t.bleed} (이번 전투)`)}">출혈 ${it.t.bleed}</span>`;
@@ -2009,10 +2078,56 @@ function livePins(it) { const f = (it.t && it.t.floor) || {}, o = {}; for (const
 function grantChipsHTML(gx, off) {
   if (!gx) return "";
   return Object.keys(gx).filter(k => gx[k] && !chipOff((typeof GRANT_KO !== "undefined" && GRANT_KO[k]) || k, off)).map(k => {   // v3.65.2 꺼진 능력은 감춘다
-    const n = (typeof GRANT_KO !== "undefined" && GRANT_KO[k]) || k, v = gx[k], name = typeof v === "number" && v > 0 && k !== "crit" && k !== "chain" ? `${n} ${v}` : n;
+    const n = (typeof GRANT_KO !== "undefined" && GRANT_KO[k]) || k, v = gx[k], name = typeof v === "number" && v > 0 && k !== "crit" && k !== "chain" && k !== "magic" ? `${n} ${v}` : n;   // 2026-11-16 [방어무시]는 수치 없음
     const d = typeof itemKwDesc === "function" ? itemKwDesc(`[${name}]`) : "";
     return `<span class="c-eq-ab c-gx" data-tip="${esc(`[${name}] · 이번 턴\n${d ? d + "\n" : ""}— 마법이 걸어 준 능력`)}">${esc(name)}</span>`;
   }).join("");
+}
+/* 2026-11-15 레어 오라를 받은 유닛 · 2026-11-16 오라 색(호박, css/cardtext.css .c-aura · --aura): t.au = engine rareAuraSync가 적은 몫
+   (src = 준 오라 깃발, by = 준 레어 [{ u, g, n: 이름, e: 준 것 }]). 오라가 준 능력(사격 · 증폭 · 방어무시 · 흡혈 · 가호 · 가시 · 바다의 보호)은
+   능력마다 ◎ 칩, 스탯만 올린 오라(공격 · 방어)는 오라 이름 칩 하나 — 스탯 숫자도 오라 색이 된다. 마우스를 올리면 "오라 [격노의 함성] +2 (카르노를 쫓는 자)".
+   전투가 시작된 뒤 받은 오라는 레어가 쓰러져도 그 턴 끝까지 남는다 — 칩도 그동안 남는다 */
+const AURA_EFF_KO = { a: "공격 +", d: "방어 +", ward: "[가호] +", thorns: "[가시] +", snipe: "[사격] +", amp: "[증폭] +", magic: "[방어무시]", leech: "[흡혈]", calm: "받는 피해 −" };
+const AURA_AB_KO = { snipe: "사격", amp: "증폭", magic: "방어무시", leech: "흡혈", ward: "가호", thorns: "가시", calm: "바다의 보호" };
+function auraName(g) { return g === "calm" ? "바다의 보호" : (typeof RARE_AURA !== "undefined" && RARE_AURA[g] ? RARE_AURA[g].n : "오라"); }
+/* 이 열쇠(a · d · snipe …)를 준 레어마다 한 줄: "오라 [격노의 함성] 공격 +2 (카르노를 쫓는 자)" */
+function auraWhy(au, k) {
+  if (!au) return [];
+  const by = (au.by || []).filter(b => b.e && b.e[k] != null);
+  const fmt = (g, v, n) => `오라 [${auraName(g)}] ${v === true || k === "magic" ? (AURA_EFF_KO[k] || "").replace(/ [+−]$/, "") : (AURA_EFF_KO[k] || k + " +") + v}${n ? ` (${n})` : ""}`;
+  if (by.length) return by.map(b => fmt(b.g, b.e[k], b.n));
+  return au[k] ? [fmt((au.src || [])[0], au[k], "")] : [];
+}
+function auraChipsHTML(au) {
+  if (!au || !au.src || !au.src.length) return "";
+  const tail = "\n— 레어 유닛의 오라. 전투가 시작된 뒤 받은 오라는 레어가 쓰러져도 이 턴이 끝날 때까지 남는다";
+  const abs = Object.keys(AURA_AB_KO).filter(k => au[k]);
+  const chips = abs.map(k => {
+    const v = au[k], name = v === true || k === "magic" ? AURA_AB_KO[k] : k === "calm" ? `${AURA_AB_KO[k]} ${v}` : `${AURA_AB_KO[k]} +${v}`;
+    const d = typeof itemKwDesc === "function" ? itemKwDesc(`[${k === "magic" || v === true ? AURA_AB_KO[k] : AURA_AB_KO[k] + " " + v}]`) : "";
+    return `<span class="c-eq-ab c-aura" data-tip="${esc(`◎ [${name}] · 오라 · 이번 턴\n${auraWhy(au, k).join("\n")}${d ? "\n" + d : ""}${tail}`)}">${esc(name)}</span>`;
+  });
+  // 스탯만 준 오라(능력 칩이 없는 깃발)는 이름 칩 하나 — 숫자가 오라 색이라 무엇을 받았는지 보인다
+  const statSrc = au.src.filter(g => g !== "calm" && typeof RARE_AURA !== "undefined" && RARE_AURA[g] && !Object.keys(RARE_AURA[g].eff).some(k => AURA_AB_KO[k]));
+  for (const g of statSrc) {
+    const lines = []; for (const k of ["a", "d"]) for (const l of auraWhy(au, k)) if (l.includes(`[${auraName(g)}]`)) lines.push(l);
+    chips.push(`<span class="c-eq-ab c-aura" data-tip="${esc(`◎ [${auraName(g)}] · 오라 · 이번 턴\n${lines.join("\n") || RARE_AURA[g].text.replace("{n}", "1")}${tail}`)}">${esc(auraName(g))}</span>`);
+  }
+  return chips.join("");
+}
+/* 준비 단계: 오라 몫이 오르면(놓기 · 옮기기 · 소각으로) 그 카드가 잠깐 오라 색으로 빛나고 "오라 ⚔+2"가 뜬다. 화면만 — 판 상태와 무관 */
+function auraPrepPulse(it) {
+  const m = FX.auraSeen || (FX.auraSeen = new Map()), pz = FX.auraPz || (FX.auraPz = new Map());
+  const au = it.t.au || null, now = performance.now();
+  const was = m.has(it.uid) ? m.get(it.uid) : it.summoned === G.turn ? null : undefined;   // 방금 낸 유닛은 처음부터 오라 옆에 놓여도 빛난다
+  m.set(it.uid, au ? JSON.parse(JSON.stringify(au)) : null);
+  if (was !== undefined && au && typeof auraFloatText === "function") {
+    const d = {}, o = was || {};
+    for (const k in au) { if (k === "src" || k === "by") continue; if (typeof au[k] === "number") { const dv = au[k] - (typeof o[k] === "number" ? o[k] : 0); if (dv > 0) d[k] = dv; } else if (au[k] === true && !o[k]) d[k] = true; }
+    if (Object.keys(d).length) { pz.set(it.uid, now); const uid = it.uid, tx = auraFloatText(d); setTimeout(() => floatAt(uid, tx, "aura"), 60); }
+  }
+  const t0 = pz.get(it.uid);
+  return t0 != null && now - t0 < 900;
 }
 function equipChipsHTML(ic, off) {   // v3.65.2 off: 능력 끄기에 꺼진 능력 이름들 — 그 칩은 감춘다 (js/view.js chipOff)
   const list = itemKwList(ic.item).filter(([k]) => k && !isPinAb(k));   // v3.33 표시(고정 · 버팀 · 눌림) 칩은 빼고 — 스탯 옆 기호로 보이고, 누르면 설명 패널에 나온다
@@ -2037,13 +2152,11 @@ function burnHTML(p, ctrl) {
 function fieldRowHTML(p, isMe, ctrlAll, side) {
   const ctrl = ctrlAll && isMe;
   const sel = G.sel, selC = selHandCard(p, ctrl);
-  const fieldSel = ctrl && sel && sel.kind === "field";
   const slots = p.field.map((it, s) => {
     let cls = "slot";
     if (ctrl) {
       if (selC && selC.type !== "item" && !it && !canPlay(p, selC)) cls += " valid";
       if (selC && selC.type === "item" && isUnit(it) && !it.item && canEquip(selC, C(it)) && !canPlay(p, selC)) cls += " valid-equip";
-      if (fieldSel && s !== sel.slot) cls += " valid-move";
     }
     if (s === 0) cls += " front";
     return `<div class="${cls}" data-act="slot" data-p="${p.idx}" data-s="${s}"><span class="slot-n">${s + 1}</span>${ctrl ? `<span class="hk hk-slot">${SLOT_KEYS[s].toUpperCase()}</span>` : ""}${it ? fieldCardHTML(it, p, s) : ""}</div>`;
@@ -2674,7 +2787,7 @@ function animFrom(el, from, to, rotDeg, kind, delay) {
       { offset: 0.87, translate: `0px ${-to.height * 0.012}px`, scale: "0.97 1.035", rotate: "0deg", filter: "brightness(1)", easing: "ease-out" },
       Object.assign({ filter: "brightness(1)" }, end)];
     dur = Math.round(FT.place * 2.1);
-    sfx("swing", 0.75);
+    sfx("pick", 0.5);   // 2026-11-15 휙(swing) 대신 카드를 드는 작은 소리 — 상대가 유닛을 올릴 때 휙 소리가 거슬렸다
     setTimeout(() => sfx("suck"), (delay || 0) * k + dur * 0.5 * k);
     if (typeof suckRing === "function") suckRing(el, ((delay || 0) + dur * 0.5) * k, dur * (hit - 0.5) * k);
     setTimeout(() => {
@@ -3856,9 +3969,9 @@ function onBoardClick(e) {
       if (actPlace(me, G.sel.uid, s)) G.sel = null; render(); return;
     }
     if (G.sel && G.sel.kind === "field") {
-      if (G.sel.slot === s) { G.sel = null; sfx("unselect"); render(); return; }
-      const mv = me.field[G.sel.slot]; FX.lift = mv ? mv.uid : null;
-      actMove(me, G.sel.slot, s); G.sel = null; render(); return;
+      // 2026-11-15 누르기로 다른 칸에 옮기는 것은 뺐다(전장은 늘 왼쪽부터 채워짐). 다른 내 카드를 누르면 그 카드를 고르고, 같은 카드 · 빈 칸이면 풀린다. 끌어서 옮기기는 그대로
+      if (G.sel.slot === s || !me.field[s]) { G.sel = null; sfx("unselect"); render(); return; }
+      G.sel = { kind: "field", p: me.idx, slot: s }; sfx("select"); render(); return;
     }
     if (me.field[s]) { G.sel = { kind: "field", p: me.idx, slot: s }; sfx("select"); render(); }
     return;

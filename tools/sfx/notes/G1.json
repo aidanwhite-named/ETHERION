@@ -1,6 +1,7 @@
 {
  "flag": "G1",
  "cards": {
+  "SR-G1": {"en": "Gorvath's Broken Fang", "ko": "부러진 용의 송곳니를 주먹에 동여맴", "equip": "a huge cracked fang is pressed onto a fist, hide cords are pulled tight with creaks, and a low hungry growl-like rumble swells from the stone"},
   "G1-01": {
    "en": "Orc Apprentice",
    "ko": "작은 주먹을 서툴게 휘두름 · 맨몸으로 맞고 휘청",
@@ -8,40 +9,40 @@
    "def": "no guard at all, the youngster stumbles: a soft fleshy thud, a scuff of boots on packed dirt, a rattle of loose bone charms against a leather strap"
   },
   "G1-03": {
-   "en": "Steppe Hound",
-   "ko": "짖으며 달려 멀리서 물어뜯음 · 몸으로 퍽 맞고 깨갱",
-   "atk": "a sharp bark carries across open ground, quick light paws drumming grass, then a snapping bite that clicks shut on leather with a short rasping snarl",
-   "def": "no real defence, the lean hound is knocked sideways: a soft body thump, a brief yelp-like huff, claws skittering on dry earth as it recovers"
+   "en": "Stone-Throwing Baboon",
+   "ko": "꽥꽥대며 돌을 집어 던짐 · 맞고 깩 소리 내며 튀어 물러남",
+   "atk": "a barking hoot and chattering teeth, hands scrabbling over loose pebbles, then a flung stone whistles across the gap and cracks against hide with a sharp clack",
+   "def": "no real guard, the lean ape is knocked back: a soft fur-muffled thump, a shrill screech, palms and feet scrabbling over gravel as it bounds away"
   },
   "G1-04": {
-   "en": "Young Fang",
-   "ko": "작은 이빨을 딱딱 부딪치며 덤빔 · 어깨로 살짝 막음",
-   "atk": "a tiny cub-like snarl, small teeth clacking together, a quick scrabbling lunge and a high snapping nip that tugs at cloth",
-   "def": "it tucks a shoulder in for a glancing block: a light knock against thick hide, a muffled grunt-free scuff, and teeth grinding in stubborn defiance"
+   "en": "Young Hyena",
+   "ko": "짧게 낄낄대며 달려들어 묾 · 어깨로 받고 이를 갊",
+   "atk": "a squeaky juvenile giggle, small paws pattering on dry grass, a scrabbling lunge and a sharp clacking nip that tugs at leather",
+   "def": "it ducks a shoulder into the hit: a light thump on coarse spotted fur, a short whining huff, and teeth grinding in stubborn defiance"
   },
   "G1-05": {
-   "en": "Orc Houndmaster",
-   "ko": "휘파람에 개떼가 달려듦 · 개들이 몸을 부딪쳐 감쌈",
-   "atk": "a sharp whistle cuts the air, a pack of paws scatters across dirt, several overlapping snaps and snarls converge on one target in a ragged flurry of bites",
-   "def": "no real shield, he is wrapped by dogs: a muffled thump on a leather vest, scuffling paws crowding close, a short bark and a rustle of fur absorbing the blow"
+   "en": "Steppe Hyena",
+   "ko": "웃음소리 내며 맴돌다 뼈째 묾 · 털가죽으로 버팀",
+   "atk": "a rising whooping call, paws circling through dry grass, then a lunging bite that closes with a wet crunch of bone-crushing jaws",
+   "def": "coarse spotted fur takes the blow: a dull hide thump, a low cackling grunt, claws digging into packed dirt as it holds its ground"
   },
   "G1-07": {
-   "en": "Steppe Hunter",
-   "ko": "풀숲에서 튀어올라 한 번에 덮침 · 맨몸으로 가볍게 받음",
-   "atk": "long grass rustles, then silence, then a sudden spring: a leathery whoosh through the blades, a hard pouncing slam and a quick tearing claw rake on hide",
-   "def": "lightly armoured, he rolls with the hit: a dull thump on a leather jerkin, dry grass crunching underfoot, a quick exhale and a scrape of a boot sliding"
+   "en": "Steppe Centaur",
+   "ko": "달리며 활을 쏨 · 말 몸으로 비켜 받고 콧김",
+   "atk": "drumming hooves gather pace across hard steppe, a horn bow creaks and snaps, an arrow hisses through the air and thunks into hide",
+   "def": "lightly armoured, the horse body sidesteps: a dull thump on dun hide, a startled snort, hooves skidding on dry earth and a leather quiver rattling"
   },
   "G1-08": {
-   "en": "Stoneclaw Orc",
-   "ko": "돌 손톱이 이음매를 긁어 찢음 · 손톱으로 비껴 막음",
-   "atk": "hardened fingernails scrape on rock as they wind up, a swift swipe whistles, then a shrill stony screech as the claws rake through armour seams",
-   "def": "he raises a clawed forearm for a glancing block: a gritty stone-on-metal scrape, a short knock, and tiny chips of nail pinging away onto gravel"
+   "en": "Stoneclaw Gargoyle",
+   "ko": "돌날개로 덮쳐 발톱으로 이음매를 긁어 찢음 · 돌 몸으로 막고 부스러기",
+   "atk": "heavy stone wings crack open with a gritty grind, a short swooping whoosh, then a shrill stony screech as hooked talons rake through armour seams",
+   "def": "it hunches its rock body against the blow: a hard stone-on-metal knock, a dry grinding of joints, and small chips pinging away onto gravel"
   },
   "G1-10": {
-   "en": "Boar Rider",
-   "ko": "멧돼지가 땅을 갈며 돌진 · 두꺼운 돼지 가죽으로 받음",
-   "atk": "a boar's heavy snorting grunt, hooves churning soil like a plough, a thundering charge and a spear-butt crack as tusks smash through wood and plank",
-   "def": "the mount's bristly hide takes the blow: a thick dull thump, coarse hairs rasping, a wheezing snort, and the saddle's iron buckles clinking as it shrugs off the impact"
+   "en": "Stonetusk Boar",
+   "ko": "땅을 갈며 돌진해 돌엄니로 들이받음 · 두꺼운 가죽으로 받음",
+   "atk": "a heavy snorting grunt, hooves churning soil like a plough, a thundering charge and a stony crack as tusks smash through wood and plank",
+   "def": "bristly mud-caked hide takes the blow: a thick dull thump, coarse hairs rasping, and a wheezing snort as it shrugs off the impact"
   },
   "G1-11": {
    "en": "Obsidian Spearman",
@@ -50,34 +51,34 @@
    "def": "he parries with the spear shaft: a sharp wooden clack, a short vibrating twang, a slide of boots, and a faint scatter of obsidian shards ticking against stone"
   },
   "G1-12": {
-   "en": "Boulder Thrower",
-   "ko": "바위를 번쩍 들어 던져 쾅 · 몸통으로 맞고 비틀",
-   "atk": "a strained heave lifting a heavy rock, a rope-like creak of leather straps, a whooshing arc through air and a huge crunching boom as the boulder shatters on impact",
-   "def": "unprotected, he is hit and rocks back: a meaty thump, a heavy boulder thudding down beside him, gravel skittering, and a long sliding scrape of boots"
+   "en": "Slinging Young Giant",
+   "ko": "바위를 번쩍 들어 던져 쾅 · 돌 몸으로 맞고 자갈 쏟아짐",
+   "atk": "stone fingers grind as they grip a boulder, a low gravelly heave, a whooshing arc through the air and a huge crunching boom as the boulder shatters on impact",
+   "def": "unguarded, the young stone body rocks back: a flat heavy knock, gravel trickling from fresh cracks, and a long grinding scrape of stone feet"
   },
   "G1-13": {
-   "en": "Rock Fighter",
-   "ko": "등짐 바위째 몸통박치기 · 등의 바위로 둔탁하게 받음",
-   "atk": "a plodding step, a grinding groan of the heavy stone strapped to his back, then a shoulder charge that lands with a deep crunching thud and rubble rattling off",
-   "def": "the boulder on his back takes the hit: a dull stony knock that rings low, a creak of rope straps, dust trickling down, and no step backward at all"
+   "en": "Gravel Cockatrice",
+   "ko": "꽥 울며 노려보고 쪼아 굳힘 · 자갈 깃털로 받음",
+   "atk": "a harsh rooster-like screech, stiff wings flapping with a rattle of pebbles, then a hard beak peck and a dry stony crackle spreading where it strikes",
+   "def": "the pebble-crusted feathers take the hit: a gritty knock, loose gravel rattling off its back, a scaly tail scraping the ground and an indignant cluck"
   },
   "G1-14": {
-   "en": "Garun Raiders",
-   "ko": "북소리 뒤 머리 숙이고 돌진해 뚫음 · 어깨로 퍽 받음",
-   "atk": "a single war-drum hit, then a rolling stampede of many boots on hard earth, a low rush of leather and breath, and a charge that punches straight through with a splintering crash",
-   "def": "the front rank lowers its heads and shoulders: a cluster of thuds on leather pauldrons, shields of hide scraping, boots skidding in gravel without losing ground"
+   "en": "Charging Minotaur",
+   "ko": "머리 숙이고 뿔로 돌진해 뚫음 · 어깨로 받고 콧김",
+   "atk": "a deep bellowing snort and a stamp of hooves, a rolling charge over hard earth, then curved horns punch straight through with a splintering crash",
+   "def": "it lowers its horned head into the blow: a heavy thud on thick bull hide, an iron nose ring clinking, hooves grinding into the dirt and a hot furious snort"
   },
   "G1-15": {
-   "en": "Obsidian Claw",
-   "ko": "흑요석 손가락으로 얕게 여러 번 벰 · 가죽 장갑으로 받음",
-   "atk": "a quick sweeping slash: obsidian shards clicking on fingers, a thin hiss through air, and several short glassy scrapes that slice across skin and cloth in a row",
-   "def": "a hide-wrapped forearm blocks: a muted leathery slap, glass slivers skittering across the hide, and a small chink as one stone flake breaks loose and drops"
+   "en": "Obsidian Claw Basilisk",
+   "ko": "쉭 소리 내며 흑요 발톱으로 긁음 · 유리 비늘로 딸깍 받음",
+   "atk": "a dry rattling hiss, glassy claws clicking over rock, then a lightning swipe that scrapes with a thin obsidian screech and a creeping stony tick",
+   "def": "black glassy scales take the blow: a sharp brittle clack, the long body scraping sideways on stone, and a low warning hiss"
   },
   "G1-18": {
-   "en": "Earth Shaman",
-   "ko": "땅을 두드려 돌가루가 솟음 · 흙먼지 막으로 흘림",
-   "atk": "a bone staff taps the ground, a low earthen rumble builds beneath, then stone spikes burst upward with a gritty crunch and a spray of loose soil and pebbles",
-   "def": "a shimmer of dust rises to cushion the blow: a soft gritty swish, a muffled thud on a swirl of earth, and a bone rattle hanging from his belt shaking briefly"
+   "en": "Ogre Shaman",
+   "ko": "북 두드려 땅을 울려 솟구침 · 두꺼운 배로 둔탁하게 받음",
+   "atk": "a slow heavy drum beat, a deep guttural chant, then a low earth rumble surges along the ground and bursts up under the target with a gritty crunch",
+   "def": "no guard, the big body soaks it: a meaty belly thump, a grunt of annoyance, bone charms rattling and a drum skin buzzing faintly"
   },
   "G1-19": {
    "en": "Rockback Bear Rider",
@@ -86,28 +87,28 @@
    "def": "the rocks embedded in the bear's back take it: a hollow stony clonk, matted fur rasping, a deep annoyed huff and a harness strap groaning under the weight"
   },
   "G1-21": {
-   "en": "Obsidian Hunt Captain",
-   "ko": "흑요석 창을 멀리 던져 정확히 꽂음 · 창대로 받아냄",
-   "atk": "a notched spear shaft is slid from a quiver of hide, a sharp pull-back creak, a long whistling flight and a precise glassy crack as the obsidian tip pins its mark",
-   "def": "he catches the blow on a carved spear haft: a hard wooden knock, grooves rasping, a firm braced scrape of boots and a thin lingering vibration through the shaft"
+   "en": "Obsidian Centaur Archer",
+   "ko": "달리며 흑요 화살을 쏨 · 말 몸을 틀어 받음",
+   "atk": "galloping hooves on hard ground, a heavy bow drawn with a deep creak, then a whistling obsidian arrow that bursts with a glassy crack on impact",
+   "def": "the horse body twists aside: a glancing thump on hide, a sharp snort, hooves scraping as it wheels, and loose arrows clattering in a quiver"
   },
   "G1-23": {
-   "en": "Garun War Drum",
-   "ko": "곰가죽 북을 묵직하게 쳐 충격 · 북 가죽이 출렁이며 흡수",
-   "atk": "a mallet is raised against bear-hide tension, a single deep drum boom rolls out as a visible pressure wave, followed by a short skin-rattling quiver and a cracking shockwave",
-   "def": "the taut hide drum absorbs the strike: a muffled low thwump, the stretched skin flexing and creaking, a faint hum of resonance dying away across the frame"
+   "en": "War-Drum Ogre",
+   "ko": "배에 맨 북을 쾅쾅 울리고 주먹으로 내리침 · 북 가죽으로 맞고 웅 울림",
+   "atk": "a huge hand pounds a bearskin drum strapped to a belly, booming beats speeding up, a roar, then a heavy fist slam with a meaty thud",
+   "def": "the blow lands on the drum: a deep hollow boom that rings out, a grunt from the ogre's belly, leather straps creaking and bone rattles shaking"
   },
   "G1-24": {
-   "en": "Howling Packleader",
-   "ko": "짐승 울음에 무리가 달려듦 · 몸을 낮추고 이빨로 버팀",
-   "atk": "a long drawn wolf howl rises from a throat, answering snarls multiply, paws pour over dirt and the whole pack slams in with overlapping snapping bites",
-   "def": "he drops low and braces with bared teeth: a rattling snarl, a heavy thump on thick fur, claws digging deep furrows into the earth, and a deep exhale through the nose"
+   "en": "Hyena Packleader",
+   "ko": "낄낄 웃음에 무리가 몰려들어 묾 · 갈기로 받고 낮게 으르렁",
+   "atk": "a long whooping cackle rises across the steppe, answering giggles close in from all sides, then a heavy bite crunches through leather with a wet crack",
+   "def": "a coarse mane takes the hit: a dull thump, a low rumbling growl that turns into a menacing titter, paws digging into dirt"
   },
   "G1-25": {
-   "en": "Child of Gorbas",
-   "ko": "땅이 움찔하며 주먹이 내리꽂힘 · 바위 같은 몸으로 버팀",
-   "atk": "a fist clenches with a leathery squeak, the ground trembles with a low sub rumble, then a colossal downward punch lands with a deep earth-cracking boom and rolling dust",
-   "def": "his body is like stone: the strike lands with a flat heavy thud, small cracks tick across his skin, loose gravel jumps on the ground, and he barely shifts"
+   "en": "Child of Gorvath",
+   "ko": "땅이 움찔하며 바위 주먹이 내리꽂힘 · 돌 몸으로 버팀",
+   "atk": "a stone fist grinds closed, the ground trembles with a low sub rumble, then a colossal downward punch lands with a deep earth-cracking boom and rolling dust",
+   "def": "its body is living stone: the strike lands with a flat heavy thud, small cracks tick across its surface, loose gravel jumps on the ground, and it barely shifts"
   },
   "G1-26": {
    "en": "Warlord Turk",
@@ -116,70 +117,70 @@
    "def": "bone armour plates take the blow: a hard clacking crunch, a hairline split spidering through the bone, a pause, then a deep low grunt-free thud as he stands firm"
   },
   "G1-27": {
-   "en": "Orc Bear Handler",
-   "ko": "곰이 앞에 나서 앞발로 후려침 · 두꺼운 곰털이 받음",
-   "atk": "a rope leash slackens, a bear cub-turned-giant growls low, then lumbers forward and swats with a wide paw that swishes through the air and slaps hard on armour",
-   "def": "the bear plants itself in front and takes the hit: a deep padded thump on thick fur, a groaning exhale, claws gripping soil and a leather muzzle strap rattling"
+   "en": "Mother Cave Bear",
+   "ko": "일어서서 앞발로 내리침 · 두꺼운 털로 받고 포효",
+   "atk": "a deep chesty growl echoing like a cave, a massive body rising on hind legs, then heavy paws crashing down with a thunderous slam",
+   "def": "thick shaggy fur swallows the blow: a dense muffled thump, a deep protective roar, claws gouging the earth without a step back"
   },
   "G1-28": {
-   "en": "Steppe Stampede",
-   "ko": "들소 떼가 우르르 들이받음 · 떼로 뭉쳐 몸으로 받음",
-   "atk": "a distant drumming grows into a thundering herd, many hooves hammering dry earth, snorting breaths, and a colossal crashing slam of horns and bodies into a wooden barricade",
-   "def": "the herd closes into a mass: a broad thick-hide thud, bodies jostling and grunting, hooves stamping in place and dust billowing as it absorbs the blow without breaking"
+   "en": "Steppe Bison Herd",
+   "ko": "들소 떼가 땅을 울리며 들이받음 · 덥수룩한 앞몸으로 받음",
+   "atk": "a distant rumble swelling into a thundering stampede of hooves, deep lowing calls, then a crushing wave of horns and bodies slamming through",
+   "def": "shaggy humped fronts take the hit: heavy thuds on matted fur, snorting and lowing, hooves stamping in place and dust billowing"
   },
   "G1-29": {
-   "en": "Grom's Chosen",
-   "ko": "땅의 정령이 주먹에 깃들어 폭발 · 돌 막이 올라 막음",
-   "atk": "a low earth hum rises, small stones lift and hover with a clicking rattle, then a fist drives forward and releases a glowing bursting blast of grinding rock",
-   "def": "a slab of stone pushes up from the ground in front of him: a gritty heave, a deep cracking thud against it, and a lingering mineral ring humming in the air"
+   "en": "Grom's Rock Spirit",
+   "ko": "땅 밑에서 바위 기둥이 솟아 막음째 꿰뚫음 · 바위가 흩어졌다 다시 뭉침",
+   "atk": "a very slow subterranean hum, boulders grinding into place, then a column of stone bursts up through any guard with a deep piercing crack",
+   "def": "the blow knocks boulders loose: a heavy stony clatter, gravel cascading, then a low rumble as the rocks roll back together"
   },
   "G1-32": {
-   "en": "Obsidian Beast Cavalry",
-   "ko": "흑요 비늘 거수가 짓밟음 · 유리 비늘이 부딪쳐 딸깍",
-   "atk": "a huge beast's heavy gallop shakes the soil, grass flattens with a long hiss, obsidian scales clatter, and a rider's lance strikes with a shattering glassy crash",
-   "def": "the beast's glassy scales take the strike: a harsh brittle clatter, shards chiming off to the ground, a low rumbling snarl from its chest and a heavy foot stomp for balance"
+   "en": "Obsidian Giant Lizard",
+   "ko": "굵은 꼬리를 휘둘러 후려침 · 흑요 비늘로 받음",
+   "atk": "heavy clawed footfalls, a deep throaty hiss, then a thick tail whips around with a whooshing lash and a crushing slap",
+   "def": "black obsidian scales take the blow: a hard glassy clack, claws scraping on stone, a heavy body shifting with a low hiss"
   },
   "G1-33": {
-   "en": "Throne Peak Pilgrim",
-   "ko": "산을 닮은 묵직한 주먹 한 방 · 바위처럼 꼼짝 않고 받음",
-   "atk": "slow measured steps on loose scree, a deep breath out, then a single mountain-heavy fist lands with a profound low boom that rolls and echoes off rock walls",
-   "def": "he stands like a boulder: a deep slow thud, small rocks tumbling off his shoulders, the faint creak of a rope-tied stone talisman and an unmoving settled silence"
+   "en": "Pilgrim Rock Giant",
+   "ko": "느린 걸음 끝에 바위 주먹을 내리꽂음 · 돌 몸이 깊게 울림",
+   "atk": "slow grinding stone footsteps, a long low rumble as a great arm lifts, then a fist like a rockfall lands with a deep earth-cracking boom",
+   "def": "the stone body barely notices: a deep hollow knock, gravel and moss sliding off its shoulders, and a long grinding settle"
   },
   "G1-34": {
-   "en": "Gorbas Zealot Berserker",
-   "ko": "미친 듯 돌주먹을 연달아 내리침 · 맨살로 맞고도 버팀",
-   "atk": "frenzied stomps, a ragged panting rhythm of breath, bone charms rattling wildly, then a blinding flurry of stone-hard fists that crack together with a flash of grinding earth magic",
-   "def": "a barely armoured torso takes the hit and shrugs: a thick slap of flesh, a raw snarl of breath through teeth, rubble scattering and charms swinging furiously on their cords"
+   "en": "Gorgon of Gorvath",
+   "ko": "뱀 머리칼이 쉭쉭대며 노려봐 막음째 굳힘 · 돌 살갗으로 받음",
+   "atk": "a many-voiced hiss of stone snakes, a low humming stare building, then a dry crackle of stone spreading through the target, ending in a brittle crunch",
+   "def": "her grey stone skin takes the hit: a hard chalky knock, snakes recoiling with a sharp hiss, and small flakes of stone pattering down"
   },
   "G1-35": {
-   "en": "Quake Beast",
-   "ko": "발을 디딜 때마다 땅이 갈라짐 · 거대한 몸이 쿵 흡수",
-   "atk": "a colossal foot lifts with a creaking groan of hide, slams down with a ground-splitting boom, a jagged crack races outward through rock, and a deep guttural beast bellow follows",
-   "def": "a gigantic body absorbs the hit: a deep, slow, hollow thud like a barrel full of stones, thick hide wobbling, and a low rumbling growl rolling underneath"
+   "en": "Earthshaker Wyrm",
+   "ko": "땅을 뚫고 솟아 집어삼킴 · 바위 마디로 받음",
+   "atk": "a deep tunnelling rumble beneath the ground, earth cracking open with a roar, then a stone-toothed maw slams shut with a grinding crunch",
+   "def": "rock-plated segments take the blow: a heavy stony clunk, segments grinding against each other, soil and gravel pouring off"
   },
   "G1-36": {
-   "en": "Garun Warchief",
-   "ko": "큰 돌도끼를 지면까지 내리침 · 쇠 뼈 어깨갑옷으로 막음",
-   "atk": "a great stone axe is hoisted overhead with a heavy leather creak, a deep whoosh of descent, and a thunderous cleave that bites into the ground and shakes loose gravel",
-   "def": "a thick bone-and-iron pauldron catches the blow: a heavy clang followed by a hollow bone knock, a firm settling of boots and an unmoved rumble in the earth"
+   "en": "Minotaur Chieftain",
+   "ko": "포효하며 돌도끼를 내리찍음 · 뿔을 낮추고 버팀",
+   "atk": "a thunderous bellow, a heavy stone-headed axe swung overhead with a deep whoosh, then a ground-shaking chop and a splintering crack",
+   "def": "it braces with horns lowered: a solid thud on thick hide and leather harness, hooves grinding into the earth, and a long hot snort"
   },
   "G1-41": {
-   "en": "Tortoise Shield Orc",
-   "ko": "등딱지 방패로 밀어붙임 · 등딱지에 탕 하고 튕겨냄",
-   "atk": "a hard shell scrapes forward over gravel, a shoulder shoves behind it with a leathery grunt-free effort, and the shell bashes into the foe with a flat hollow clonk",
-   "def": "the giant tortoise shell takes the strike dead centre: a deep hollow bonk, a bright ringing rebound, boots braced with a hard scrape and a solid wall-like stillness"
+   "en": "Shield-Bearing Ogre",
+   "ko": "거북 등딱지 방패로 밀침 · 방패로 둔탁하게 막음",
+   "atk": "a heavy shuffling step, a grunt, then a giant turtle-shell shield shoves forward with a hollow knocking thump",
+   "def": "the turtle shell takes it full on: a deep hollow clonk that rings low, the ogre grunting and sliding back a heel on packed dirt"
   },
   "G1-42": {
-   "en": "Rockshell Bear",
-   "ko": "바위 털가죽으로 눌러 덮침 · 칼이 부러지며 튕겨남",
-   "atk": "a slow rumbling growl from deep within, mossy stone cracking off its fur as it rises, then an enormous paw crashes down with a grinding thud",
-   "def": "blades hit the rock-matted coat: a harsh metallic snap as a sword breaks, sparks of stone chipping, a low irritated rumble and the bear remaining motionless"
+   "en": "Fallen Scale of Gorvath",
+   "ko": "비늘 끝으로 툭 밀침 · 칼이 튕겨 나가는 돌비늘 울림",
+   "atk": "a huge slab of scale tilts with a slow grinding scrape and nudges forward, landing a dull slate-like knock",
+   "def": "the blade meets layered dragon scale: a bright ringing clank as steel glances off, a deep resonant stony hum, and pebbles rattling off the turf on its face"
   },
   "G1-43": {
-   "en": "Earth Wall Shaman",
-   "ko": "땅을 쳐 바위벽이 솟음 · 두꺼운 돌벽이 쿵 받음",
-   "atk": "a staff stamps the soil, a deep rumble swells, and slabs of rock grind upward in a rising crack, rubble spilling, then topple forward with a heavy crushing collapse",
-   "def": "a thick wall of rock erupts between them: a thunderous grinding rise, the blow lands on stone with a profound deep thud, dust billowing and pebbles rattling down its face"
+   "en": "Wall Rock Spirit",
+   "ko": "바위가 굴러와 툭 밂 · 바위가 벽처럼 솟아 막음",
+   "atk": "a loose boulder rolls forward with a gravelly grind and bumps the target with a soft stony knock",
+   "def": "the ground rumbles and rocks heave up into a wall: a deep crunching rise of stone, the blow landing with a dull flat thud, gravel trickling down the face"
   },
   "SP-G1": {
    "en": "Ashmane Karno",
@@ -200,16 +201,16 @@
    "def": "he blocks with a mismatched hoard of stolen armour: a chaotic clanging of dented plates and chains, a hard metal knock and a jingling of dropped coins and loose rings"
   },
   "EP-G1-1": {
-   "en": "Obsidian Fang Fighter",
-   "ko": "흑요 건틀릿 주먹이 급소를 뚫음 · 건틀릿 팔뚝으로 막음",
-   "atk": "an iron gauntlet is clenched with a tight creak, obsidian fangs click along the knuckles, a short whoosh, and a razor-sharp glassy crack as it punches straight through the target",
-   "def": "he crosses a gauntleted forearm to block: a bright metal clang, small obsidian fangs chattering against it, a deep braced thud and one faint chipped shard skittering away"
+   "en": "Obsidian Cyclops Pit Fighter",
+   "ko": "외눈 투사의 흑요 건틀릿 일격 · 굵은 팔로 비껴 막음",
+   "atk": "a guttural one-eyed roar, a massive fist in an obsidian-studded gauntlet whooshes in, then a glassy crack and a bone-deep crunch as it lands",
+   "def": "a huge forearm takes a glancing block: a thick meaty thump, obsidian studs grating, a heavy stamp and a scornful grunt"
   },
   "EP-G1-2": {
-   "en": "Wolf King Rider",
-   "ko": "늑대왕이 연달아 목덜미를 문다 · 늑대 몸으로 날쌔게 비켜 받음",
-   "atk": "a majestic deep wolf snarl, powerful paws pounding earth, a first piercing bite crunching through hide, then an immediate second lunge and bite, trailing a leather saddle creak",
-   "def": "the great wolf dodges and angles its flank: a quick scrabble of claws, a glancing fur-muffled knock, a low rumbling growl, and a saddle strap snapping tight"
+   "en": "Woolly Rhino Rider",
+   "ko": "털코뿔소가 뿔로 들이받고 다음 대열로 내달림 · 털가죽으로 받음",
+   "atk": "a heavy snort and thundering hooves, a rider's war cry, a horn smashing through with a splintering crunch, then the charge thunders straight on into the next rank",
+   "def": "shaggy wool and thick hide take the blow: a dense muffled thump, a deep irritated huff, hooves pawing and harness leather creaking"
   },
   "EP-G1-3": {
    "en": "Throne Peak Duelist King",
@@ -224,16 +225,16 @@
    "def": "a stubborn child's stance on bare feet: a dull slap on tough skin, boots digging into dirt, gritted teeth grinding, and a defiant stomp that stops any slide backward"
   },
   "PN-G1-C3": {
-   "en": "Garun Boulder Giant",
-   "ko": "느린 거대 주먹이 땅을 울림 · 산 같은 배로 받아냄",
-   "atk": "a gigantic frame rises with a groaning leather creak, an unhurried deep thud-thud of a stomp, then a vast slow fist drops like a falling boulder and pounds the ground flat",
-   "def": "his enormous belly and chest absorb the strike: a heavy fleshy thump like a drum of wet clay, a long low groan of breath and a barely shaking pile of loose stones"
+   "en": "Boulder Hulk",
+   "ko": "바윗덩이 몸으로 들이받음 · 바위가 덜그럭대며 받음",
+   "atk": "boulders grind together as the hulk lurches forward, a rolling rumble, then a crushing body slam with a booming crack and rubble flying",
+   "def": "the loosely bound boulders take the hit: a heavy stony clatter, rocks shifting and knocking, dust puffing out of the seams"
   },
   "PN-G1-U2": {
    "en": "Bearskin Berserker",
-   "ko": "곰가죽 두르고 앞발처럼 내리침 · 두꺼운 가죽이 맞고도 버팀",
-   "atk": "a thick bearskin cloak rustles and flaps, a hoarse bear-like growl, heavy paws-like fists swing wide with a whomp and crash through armour in a piercing blow",
-   "def": "the heavy pelt cloak swallows the blow: a dense muffled thump, coarse fur puffing, a defiant deep growl and boots digging in without a single step back"
+   "ko": "곰이 된 몸으로 앞발을 내리쳐 찢음 · 제 털가죽으로 버팀",
+   "atk": "a man's shout twisting into a bear's roar, heavy clawed paws swinging wide with a whomp, then ripping through armour with a tearing crunch",
+   "def": "its own thick pelt swallows the blow: a dense muffled thump, coarse fur puffing, a defiant deep growl and clawed feet digging in without a step back"
   },
   "PN-G1-R": {
    "en": "Karno's Pursuer",
@@ -242,10 +243,10 @@
    "def": "a dusty earth-streaked pauldron takes the hit: a hard dry knock, ash puffing off, a long steady exhale through the nose and boots grinding firmly in place"
   },
   "PN-G1-E": {
-   "en": "Throne Peak Rock Beast",
-   "ko": "산에서 굴러내린 바위가 깨어나 연타 · 돌 몸에 부딪혀 갈라짐",
-   "atk": "a rumbling landslide of stone, a rocky body shaking itself awake with a grinding crack, then a lumbering rider-bearing lunge delivering two heavy piercing slams with echoing booms",
-   "def": "its granite body takes the strike: a deep resonant stone knock, fine cracks sealing with a gritty crackle, dust pouring and a deep rumble that is steady and unmoved"
+   "en": "Throne Peak Mammoth",
+   "ko": "나팔 울음 뒤 엄니로 쓸어 연달아 들이받음 · 긴 털로 받음",
+   "atk": "a trumpeting blast echoing off the mountain, earth-shaking footsteps, then great tusks sweep through one foe and crash into the next with a heavy ivory crack",
+   "def": "long shaggy wool and a rock-crusted brow take the hit: a heavy muffled thud, stones knocking, and a deep rumbling snort"
   },
   "UP-G1-11": {
    "en": "Obsidian Lancer",
@@ -426,22 +427,22 @@
    "equip": "a heavy worn gauntlet is slid onto a fist with metal scraping leather, buckles snap shut one after another, and a clenched knuckle crack booms with a deep stony ring"
   },
   "TK-G1-1": {
-   "en": "Shadow Wolf",
-   "ko": "그림자에서 튀어나와 한 번 물고 사라짐",
-   "atk": "a faint breath of shadow, a silent pounce from darkness, a single quick snap of jaws that tears cloth, and a soft hissing vanishing as it fades away",
-   "def": "no guard, the shadowy body gives way: a brief airy puff as the hit passes through, a faint whimper-like breath, and thin smoke dispersing without any solid thud"
+   "en": "Shadow Hyena",
+   "ko": "그림자에서 튀어나와 한 번 물고 사라짐 · 맞으면 연기처럼 흩어짐",
+   "atk": "a faint giggle from the shadows, a silent pounce, a single bone-crunching snap of jaws, and a fading cackle as it melts away",
+   "def": "no guard, the shadowy body gives way: a brief airy puff as the hit passes through, a thin whine, and smoke dispersing without any solid thud"
   },
   "TK-G1-2": {
-   "en": "Alpha Wolf",
-   "ko": "무리 우두머리가 덮쳐 목을 묾 · 두꺼운 털로 막음",
-   "atk": "a deep commanding snarl, powerful paws thudding over soil, a heavy leap, then a crushing bite that grinds through leather and a short furious shake of the head",
-   "def": "thick scarred fur takes the blow: a solid dull thump, a deep warning growl, claws digging into dirt and a heavy body barely moving back"
+   "en": "Alpha Hyena",
+   "ko": "무리 우두머리가 덮쳐 뼈째 묾 · 두꺼운 갈기로 막음",
+   "atk": "a low commanding whoop, heavy paws thudding over soil, a lunge, then a crushing bite that cracks bone and a short furious shake of the head",
+   "def": "a thick bristly mane takes the blow: a solid dull thump, a deep warning growl, claws digging into dirt and a heavy body barely moving back"
   },
   "TK-U-WOLF": {
-   "en": "Ash Wolf",
+   "en": "Ash Hyena",
    "ko": "달려와 재빨리 물고 지나감 · 몸을 틀어 비켜 맞음",
-   "atk": "light fast pawsteps rushing across grass, a breathy pant, a low snarl as it jumps, a swift snapping bite and then a quick scrabble away through dry leaves",
-   "def": "it twists to take a glancing hit on its flank: a soft muffled thump on grey fur, a short startled huff, claws skidding in dirt and an angry low growl"
+   "atk": "light fast pawsteps rushing across dry grass, a breathy giggle, a swift snapping bite and then a quick scrabble away",
+   "def": "it twists to take a glancing hit on its flank: a soft muffled thump on grey-spotted fur, a short startled yip, claws skidding in dirt"
   }
  }
 }

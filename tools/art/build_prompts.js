@@ -20,7 +20,7 @@ const S = JSON.parse(fs.readFileSync(path.join(__dirname, "art_style.json"), "ut
 const NOTES = (() => { try { return JSON.parse(fs.readFileSync(path.join(__dirname, "art_notes.json"), "utf8")); } catch (e) { return {}; } })();
 
 /* ---------- 1. 게임 데이터 읽기 (index.html의 data.js ~ grades.js와 같은 차례) ---------- */
-const DATA_FILES = ["data", "names", "retired", "briefs", "specials", "uniques", "highcards", "pincards", "rarespells", "counterspells", "upgrades", "rebalance", "abyss", "gnome", "orc", "mermaid", "rares", "elf", "goblin", "newabil", "decks", "cards", "grades"];
+const DATA_FILES = ["data", "names", "retired", "briefs", "specials", "uniques", "highcards", "pincards", "rarespells", "counterspells", "upgrades", "rebalance", "abyss", "gnome", "orc", "mermaid", "rares", "elf", "goblin", "newabil", "troll", "celestial", "kinds", "statguide", "itemtune", "itemrework", "decks", "cards", "grades"];
 function loadGame() {
   const stub = () => null;
   const ctx = {
@@ -93,6 +93,13 @@ const ICON_LOOK = {
 };
 const CAT_LOOK = { "무구": "weapon/armour", "각인": "engraving", "촉매": "catalyst", "성물": "holy relic", "공용": "general gear" };
 
+/* v3.79 유닛 종류(kin)의 그림 말 — 깃발의 옛 종족(flags.<깃발>.oldRaceKo)이면 없음(깃발 who를 그대로 씀) */
+function kindLook(c, F) {
+  if (c.type !== "unit" || !c.kin || c.special) return null;
+  if (F.oldRaceKo && c.kin === F.oldRaceKo) return null;
+  return (F.kinds && F.kinds[c.kin]) || null;
+}
+
 function subjectOf(c, F, G, D) {
   const el = S.elements[c.el] || S.elements.dark;
   if (c.type === "unit") {
@@ -103,7 +110,10 @@ function subjectOf(c, F, G, D) {
     const baseCard = c.base && D.CARDS[c.base];
     const clKey = c.cl || (baseCard && baseCard.cl) || "";
     const cls = ((F.classes && F.classes[clKey]) || S.classes[clKey] || "a warrior").replace("{el}", el.en + " power");   // v3.70 깃발마다 클래스 말을 덮을 수 있다(엘프 마도 = 궁수)
-    let s = NOTES[c.id] ? `${rank} member of the ${F.en} (see art direction)` : `${rank} member of the ${F.en} — ${cls}`;
+    /* v3.79 깃발 아래 종류(js/kinds.js kin): 옛 종족이 아닌 종류는 art_style.json flags.<깃발>.kinds의 몸으로 그린다 */
+    const K = kindLook(c, F);
+    let s = K ? `${rank} ${K.en} of the ${F.en}${NOTES[c.id] ? " (see art direction)" : ""} — ${K.who}`
+      : NOTES[c.id] ? `${rank} member of the ${F.en} (see art direction)` : `${rank} member of the ${F.en} — ${cls}`;
     if (c.rev === "벽") s += "; a stubborn defender who stands like a wall";
     if (c.rev === "돌격") s += "; a reckless charging attacker";
     if (G.unit) s += `. ${G.unit}`;
@@ -154,7 +164,11 @@ function promptOf(c, D) {
     L.push(`Banner — summoned by the ${F.en}; signature motifs: ${F.motifs}; palette: ${F.palette}.`);
   else if (c.type === "unit" && gk === "special")   // v3.59 스페셜: 깃발은 원소 · 색 · 재료 · 상징으로만, 종족의 몸(who · silhouette)은 넣지 않는다
     L.push(`Banner it stands above — ${F.en}: show the banner only through element, palette and a few material or motif accents; do NOT draw an ordinary member of the ${F.en} — this being is one of a kind. Palette: ${F.palette}. Accents to borrow from: ${F.materials}; ${F.motifs}.`);
-  else if (c.type === "unit" || c.type === "item")
+  else if (c.type === "unit" && kindLook(c, F)) {   // v3.79 옛 종족이 아닌 종류: 몸은 종류의 것, 깃발은 재료 · 상징 · 색으로만
+    const K = kindLook(c, F);
+    L.push(`Creature kind — ${K.en}: ${K.who}. Silhouette: ${K.silhouette}. Materials: ${K.materials}. Do NOT draw it as one of the ${F.oldRace || "banner's founding people"} unless the name says so.`);
+    L.push(`Banner — ${F.en}: show the banner through element, palette and a few accents (${F.motifs}); palette: ${F.palette}.`);
+  } else if (c.type === "unit" || c.type === "item")
     L.push(`Banner — ${F.en}: ${F.who}. Silhouette: ${F.silhouette}. Materials: ${F.materials}. Signature motifs: ${F.motifs}.`);
   else
     L.push(`Banner — ${F.en}: magic of ${F.en.toLowerCase()}, signature motifs: ${F.motifs}; palette: ${F.palette}.`);

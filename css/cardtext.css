@@ -20,6 +20,18 @@
 .card .c-eq-ab.c-bleed::before { content: "●"; color: #e04848; }
 .card .c-eq-ab.c-scorch { color: #ffc27a; }   /* v3.73 잿불 고블린 화상 (js/game.js) */
 .card .c-eq-ab.c-scorch::before { content: "🔥"; font-size: .85em; }
+/* 2026-11-16 레어 오라 색 = 호박빛(--aura). 올림 초록 · 내림 빨강 · 마법 보라 ✦ · 에테르 · 레어 파랑 · 보호막 하늘빛 어느 것과도 겹치지 않는
+   따뜻한 "후광" 빛. 오라가 준 능력 칩(js/game.js auraChipsHTML) · 오라가 올린 스탯 숫자(js/view.js statCellHTML .st.aura) · 떠오르는 "오라 ⚔+2"
+   명판(css/spellfx.css t-aura) · 오라가 켜질 때 카드 테두리 빛(.aura-hit, 준 레어는 .aura-src). 스타일 가이드 2.2 */
+:root { --aura: #ffb02e; --aura-hi: #ffd27a; --aura-glow: rgba(255, 168, 40, .8); }
+.card .c-eq-ab.c-aura { color: var(--aura-hi); }   /* 2026-11-15 받은 레어 오라 (js/game.js auraChipsHTML) */
+.card .c-eq-ab.c-aura::before { content: "◎"; color: var(--aura); }
+.card .c-vstats .st.aura b, .card.fm .c-vstats .st.aura b, .card:not(.size-full) .c-vstats .st.aura b, .st.aura b { color: var(--aura); text-shadow: 0 .06em .1em #000, 0 0 .3em rgba(0, 0, 0, .9), 0 0 .55em var(--aura-glow); }
+.card.aura-hit .c-frame { animation: auraHit .9s cubic-bezier(.2, .8, .3, 1); }
+.card.aura-src .c-frame { animation: auraSrc .9s ease-out; }
+@keyframes auraHit { 0% { box-shadow: 0 0 0 0 rgba(255, 176, 46, 0); } 25% { box-shadow: 0 0 0 3px var(--aura), 0 0 22px 6px var(--aura-glow); } 100% { box-shadow: 0 0 0 0 rgba(255, 176, 46, 0); } }
+@keyframes auraSrc { 0% { box-shadow: 0 0 0 0 rgba(255, 176, 46, 0); } 30% { box-shadow: 0 0 30px 10px rgba(255, 176, 46, .55); } 100% { box-shadow: 0 0 0 0 rgba(255, 176, 46, 0); } }
+@media (prefers-reduced-motion: reduce) { .card.aura-hit .c-frame, .card.aura-src .c-frame { animation: none; outline: 2px solid var(--aura); } }
 /* 칩 사이 구분: 네모가 없으니 가는 점으로 */
 .card .c-chips > .c-cls + .c-cls::before { content: "·"; margin-right: .25em; color: rgba(255, 255, 255, .35); }
 
@@ -93,3 +105,16 @@ html.mobile .hand-me .card.fm .c-box .c-brief { font-size: calc(.94em * var(--bf
    표시가 있든 없든 공 · 방 · 체 숫자가 한 줄로 가지런하다. 숫자 없이 표시만 있는 아이템 칸(st-pinonly)은 그대로 */
 .c-vstats .st:not(.st-pinonly) { position: relative; }
 .c-vstats .st:not(.st-pinonly) > .st-lock { position: absolute; right: 100%; top: 50%; transform: translateY(-50%); margin: 0 .06em 0 0; }
+
+/* 2026-11-15 대기실 덱 보기(기본 덱 40~50장) 카드 글이 안 읽혀서: 카드 폭을 116px 아래로 줄이지 않고(js/screens.js fitLobbyCards DV_MIN_W),
+   카드 안 글자도 한 단계 키운다 — 이름 .9 → 1em · 종족 줄 .6 → .68em · 능력 칩 .74 → .86em · 마법 짧은 문구 .86 → .98em(넘치면 fitBriefs가 --bfs로 줄임) · 코인 줄 .92 → 1em.
+   대전 화면 카드(.slot · .hand-me)는 그대로 */
+.screen-lobby .dv-cards .card.fm .c-name { font-size: 1em; }
+.screen-lobby .dv-cards .card.fm .c-race { font-size: .68em; }
+.screen-lobby .dv-cards .card.fm .c-box .c-cls { font-size: .86em; line-height: 1.16; }
+.screen-lobby .dv-cards .card.fm .c-box .c-brief { font-size: calc(.98em * var(--bfs, 1)); }
+.screen-lobby .dv-cards .card.fm .c-coinline { font-size: 1em; }
+
+/* 2026-11-15 덱 조정실: 넣은 카드가 덱 목록으로 날아가는 그림(.ed-fly)은 마우스를 받지 않는다 — 날아가는 카드 위를 지나면
+   카드 속 능력 글(.kw, pointer-events: auto)이 말풍선 · 마우스오버를 띄우던 것 */
+.ed-fly, .ed-fly * { pointer-events: none !important; }

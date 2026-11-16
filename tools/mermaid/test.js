@@ -14,7 +14,8 @@ function setT(u, a, d, h) { u.t.a = a; u.t.d = d; u.t.h = h; u.t.dmg = 0; return
 const T = (name, code) => { try { ctx.ev('{' + code + '}'); } catch (e) { fail++; n++; console.log('  ✗ ' + name + ' 오류: ' + e.message); } };
 
 // 카드 · 글
-ok(ctx.ev('CARDS["G3-19"].gift.arcane === 1 && !CARDS["G3-19"].gift.magic'), '인어 유닛: 옛 마력 공격 → 새 마력 공격');
+ok(ctx.ev('CARDS["G3-01"].gift.arcane === 1 && !CARDS["G3-01"].gift.magic'), '인어 유닛: 옛 마력 공격 → 새 마력 공격');
+ok(ctx.ev('CARDS["G3-19"].gift.arcane === 1 && CARDS["G3-32"].gift.arcane === 3 && CARDS["PN-G3-C3"].gift.arcane === 2'), 'v3.78 핵심 유닛 마력 공격 2~3');
 ok(ctx.ev('CARDS["A3-01"].gift.magic === 1 && !CARDS["A3-01"].gift.arcane'), '엘프 유닛: 방어무시(magic) 그대로');   // v3.72 노움은 방어무시를 걷었다(js/gnome.js)
 ok(ctx.ev('CARDS["PN-G3-R"].gift.calm === 1 && !CARDS["PN-G3-R"].gift.ward'), '레어: [바다의 보호 1]');
 ok(ctx.ev('CARDS["IG3-2"].item.evName === "생명 +3"'), '장착 생명: [생명 +3]');
@@ -60,6 +61,30 @@ T('씻김의 노래', `const d1 = mk("A2-01"), d2 = mk("A2-01"); d1.t.shield = t
   ok(/불의 장막.*무효/.test(logs(X)) && !d2.t.shield && d2.t.a === a0 - 1, "무효 → 상대 전체 해제 · 공격 −1");
   const e = mk("A2-01"); e.t.shield = true; const e0 = e.t.a; const P2 = [side(0, ["CS-G3", "A1-30"]), side(1, ["B1-01", e])]; fight(P2, 0, 2);
   ok(e.t.a === e0, "무효로 할 마법이 없으면 디버프 없음");`);
+
+// v3.78 [홀림]: 코인 뒷면 마법에 걸린 상대에게 마력 공격은 방어 전부
+T('홀림 · 코인 뒷면', `const a = setT(mk("G3-19"), 4, 0, 20), d = setT(mk("B2-01"), 0, 5, 30);
+  const X = fight([side(0, ["MG-07", a]), side(1, [d])], 0);
+  ok(/\\[마력 공격 \\+5 · 홀림\\]/.test(logs(X)), "홀린 방 5 상대 → 마력 공격 +5");
+  const a2 = setT(mk("G3-19"), 4, 0, 20), d2 = setT(mk("B2-01"), 0, 5, 30);
+  const X2 = fight([side(0, [a2]), side(1, [d2])], 0); ok(/\\[마력 공격 \\+1\\]/.test(logs(X2)), "홀리지 않으면 +1(마력 공격 1)까지");
+  ok(/\\[홀림\\]/.test(CARDS["MG-07"].text) && /\\[홀림\\]/.test(CARDS["NG3-2"].text), "코인 뒷면 · 자리 바꿈 마법 글에 [홀림]");`);
+// 뒤집힌 물거울: 상대 앞 2기 공 ↔ 방, 홀림 → 마력 공격이 바뀐 방어를 피해로
+T('뒤집힌 물거울', `const a = setT(mk("G3-19"), 4, 0, 30), e1 = setT(mk("B1-01"), 5, 1, 30), e2 = setT(mk("B1-02"), 3, 0, 30), e3 = setT(mk("B1-03"), 2, 0, 30);
+  const X = fight([side(0, ["MG-11", a]), side(1, [e1, e2, e3])], 0);
+  ok(e1.t.charm && e2.t.charm && !e3.t.charm && e2.t.d === 3 && e2.t.a === 0, "앞 2기 공방 교환 · 홀림 (" + [e1.t.a, e1.t.d, e2.t.a, e2.t.d] + ")");
+  ok(/\\[마력 공격 \\+5 · 홀림\\]/.test(logs(X)), "바뀐 방어 5가 마력 공격 피해로");`);
+// 뒤바뀐 물길: 자리가 바뀐 유닛만 홀림
+T('뒤바뀐 물길 홀림', `const a = setT(mk("B1-01"), 1, 3, 8), b = setT(mk("B1-02"), 5, 0, 2), c = setT(mk("B1-03"), 2, 1, 4);
+  const P = [side(0, ["MC-03"]), side(1, [a, b, c])]; fight(P, 1);
+  ok(!a.t.charm && b.t.charm && c.t.charm, "제자리 유닛은 홀리지 않음");`);
+// 치유를 걸어 주는 마법
+T('샘물 한 모금', `const d = setT(mk("G3-03"), 0, 0, 30), a1 = setT(mk("B1-01"), 3, 0, 9), a2 = setT(mk("B1-02"), 3, 0, 9);
+  const X = fight([side(0, [a1, a2]), side(1, ["MG-03", d])], 0);
+  ok(abilOf(d).heal === 2 && /\\[치유\\] 인어 소년/.test(logs(X)), "맨 앞 유닛 이번 턴 [치유 2]");`);
+T('치유의 조수', `const u1 = setT(mk("G3-03"), 0, 0, 30), u2 = setT(mk("G3-04"), 0, 0, 30);
+  const X = fight([side(0, [mk("B1-01")]), side(1, ["MG-15", u1, u2])], 0);
+  ok(abilOf(u1).heal === 1 && abilOf(u2).heal === 1, "아군 전체 [치유 1]");`);
 
 console.log(fail ? `✗ ${fail}/${n} 실패` : `✓ ${n}개 모두 통과`);
 process.exitCode = fail ? 1 : 0;

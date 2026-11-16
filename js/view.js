@@ -191,12 +191,12 @@ function coinLineHTML(co) {
 function raceLineHTML(c, gr) {
   const G = GROUPS[c.group], isU = c.type === "unit", isI = c.type === "item";
   const word = isU ? "유닛" : isI ? "아이템" : (RITE_TIP[c.type] || "마법");
-  // 핸드 카드 폭에서도 잘리지 않게 짧게: 유닛은 종족 낱말만(바위주먹 오크 → 오크), 아이템은 장착 클래스만. 온전한 이름은 말풍선
+  // 핸드 카드 폭에서도 잘리지 않게 짧게: 유닛은 종류만(v3.79 js/kinds.js의 kin — 이프리트 · 골렘 …), 아이템은 장착 클래스만. 온전한 이름은 말풍선
   // v3.59 스페셜 유닛은 깃발마다 하나뿐인 존재 — 종족 낱말(고블린 · 드워프 · 노움 …)을 쓰지 않는다. 깃발은 말풍선에만
   const asc = isU && c.special;
-  const rest = asc ? "" : isU ? (G ? G.name.split(" ").pop() : "") : isI ? (isAllClass(c) ? "공용" : itemClasses(c).join("·")) : "";
+  const rest = asc ? "" : isU ? (c.kin || "") : isI ? (isAllClass(c) ? "공용" : itemClasses(c).join("·")) : "";
   const tip = asc ? `유닛 · 스페셜 — 깃발마다 하나뿐인 존재${G ? `\n깃발: ${G.name}` : ""}` + (unitClassWord(c) ? `\n클래스: ${unitClassWord(c)}` : "")
-    : isU ? (G ? `유닛 · ${G.name}` : "") + (unitClassWord(c) ? `\n클래스: ${unitClassWord(c)}` : "") : isI ? `아이템 · ${c.cat || ""}\n${equipWho(c)} 장착` : "";
+    : isU ? (G ? `유닛 · ${G.name}` : "") + (c.kin ? `\n종류: ${c.kin}` : "") + (unitClassWord(c) ? `\n클래스: ${unitClassWord(c)}` : "") : isI ? `아이템 · ${c.cat || ""}\n${equipWho(c)} 장착` : "";
   return `<div class="c-race"><span class="r-l"${tip ? ` data-tip="${esc(tip)}"` : ""}><b class="r-t t-${c.type}">${esc(word)}</b>${rest ? `<span class="r-sep">·</span>${esc(rest)}` : ""}</span><span class="r-g" style="--gr:${gr.color}">${esc(gr.name)}</span></div>`;
 }
 
@@ -272,10 +272,13 @@ function statCellHTML(c, k, live, co, full) {
   const base = c[k];
   let val = base, cls = "";
   if (live) { val = k === "h" ? live.h : live[k]; if (val > base) cls = " up"; else if (val < base) cls = " down"; if (k === "h" && live.h < live.max) cls = " hurt"; }
+  // 2026-11-16 레어 오라가 올린 스탯은 초록(올림) · 빨강(내림) 대신 오라 색(호박 --aura, css/cardtext.css .st.aura). 마우스를 올리면 어느 오라가 얼마나
+  const auw = live && live.au && live.au[k] && typeof auraWhy === "function" ? auraWhy(live.au, k) : [];
+  if (auw.length) cls = " aura";
   const marks = coinMarks(co || c.co, k);
   // v3.20 표시: 전장에서는 이번 턴 표시(유닛 + 아이템 + 마법이 건 것, live.pins), 그 밖에는 카드에 새겨진 표시
   const m = live && live.pins ? live.pins[k] : pinModesOf(c)[k];
-  const tip = `${STAT_KO[k]} ${val}` + (marks.length ? "\n" + marks.map(m => `코인 ${m.n}개 · 앞면마다 ${STAT_KO[k]} ${sgnNum(m.v)}`).join("\n") : "") + (m ? "\n" + PIN_TIP[m](k) : "");
+  const tip = `${STAT_KO[k]} ${val}` + (auw.length ? "\n◎ " + auw.join("\n◎ ") + (val - live.au[k] !== base ? `\n(오라 빼면 ${val - live.au[k]} · 카드 ${base})` : "") : "") + (marks.length ? "\n" + marks.map(m => `코인 ${m.n}개 · 앞면마다 ${STAT_KO[k]} ${sgnNum(m.v)}`).join("\n") : "") + (m ? "\n" + PIN_TIP[m](k) : "");
   const coins = coinGroupsHTML(marks);
   return `<span class="st st-${k}${cls}${m ? ` st-pin${m}${m === "L" ? " st-locked" : ""}` : ""}" data-tip="${esc(tip)}">${full ? statIco(k) : ""}<b>${val}</b>${m ? PIN_SVG[m] : ""}${coins ? `<em class="cm">${coins}</em>` : ""}</span>`;
 }
@@ -625,7 +628,7 @@ function modal(html, buttons, opts) {
 /* v3.57.0 고정(pin): { pin: true }로 묶은 root(덱 조정실)에서는 카드를 한 번 누르면 큰 카드가 고정된다 — 마우스가 카드를 떠나도 남고,
    다른 카드에 마우스를 올리면 그 카드로 바뀌며(고정 풀림), 카드가 아닌 곳을 누르거나 Esc면 닫힌다 */
 const CardPreview = {
-  box: null, roots: new Set(), pinRoots: new Set(), noHover: new Set(), pinned: false, cur: null, el: null, x: null, y: null, touch: false, moved: false, dragging: false,
+  box: null, roots: new Set(), pinRoots: new Set(), noHover: new Set(), pinned: false, cur: null, el: null, x: null, y: null, touch: false, moved: false, dragging: false, spot: null,
   init() {
     if (this.box) return;
     let box = $("#card-preview");
@@ -647,14 +650,24 @@ const CardPreview = {
     document.addEventListener("click", e => {
       at(e);
       if (box.contains(e.target)) return;   // 고정된 큰 카드 자체를 누르거나 끌고 놓은 것은 닫지 않는다
+      // 2026-11-16 카드 줄 안의 + · − 같은 단추는 카드를 누른 것이 아니다(덱 목록 줄 전체가 [data-card]라 넣고 뺄 때 큰 카드가 함께 떴다).
+      // 고정은 누른 바로 그 카드일 때만 — 다시 그려져 그 자리에 다른 카드가 와도 고정하지 않는다
+      const ctl = e.target.closest && e.target.closest("button:not([data-face]), input, select, label, a");
+      const hit = ctl ? null : this.pick(e.target), hitId = hit && hit.dataset.card;
+      if (e.detail <= 1) this.prePin = !!(hitId && this.pinned && this.cur === hitId);
       setTimeout(() => {
         const el = this.x == null ? null : this.pick(document.elementFromPoint(this.x, this.y));
-        if (el && this.inPinRoot(el)) { this.pinned = true; this.update(el); return; }
+        if (el && hitId && el.dataset.card === hitId && this.inPinRoot(el)) {
+          if (e.detail > 1 && !this.prePin) return this.hide();   // 더블클릭(넣기 · 빼기): 첫 번째 누름이 띄운 큰 카드를 닫는다. 미리 고정해 둔 카드면 그대로
+          this.pinned = true; this.update(el); return;
+        }
+        if (el && !hitId && this.inSet(this.noHover, el)) return this.hide();   // 단추를 누른 뒤 그 자리에 온 카드는 띄우지 않는다(마우스만 올려서는 안 뜨는 곳)
         this.pinned = false; this.refresh();
       }, 0);
     }, true);
     document.addEventListener("keydown", e => { if (e.key === "Escape") this.hide(); });
-    // 2026-11-15 고정된 큰 카드는 마우스(손가락)로 끌어 옮긴다. 옮긴 자리는 같은 카드를 보는 동안 남고, 다른 카드 · 닫기면 처음 자리로
+    // 2026-11-15 고정된 큰 카드는 마우스(손가락)로 끌어 옮긴다. 옮긴 자리(this.spot)는 기억해 두고, 다른 카드를 눌러 고정해도 그 자리에서 뜬다.
+    // 자리는 페이지를 새로 열 때까지 남는다(덱 조정실을 다시 열어도). 마우스만 올려 보는 큰 카드는 늘 처음 자리
     box.addEventListener("pointerdown", e => {
       if (!this.pinned || e.button > 0) return;
       e.preventDefault();   // 그림의 기본 끌기(dragstart → 닫힘) · 글자 고르기를 막는다
@@ -667,7 +680,7 @@ const CardPreview = {
         box.style.left = Math.max(60 - w, Math.min(innerWidth - 60, ev.clientX - ox)) + "px";
         box.style.top = Math.max(0, Math.min(innerHeight - 60, ev.clientY - oy)) + "px";
       };
-      const up = () => { this.dragging = false; box.classList.remove("grabbing"); box.removeEventListener("pointermove", mv); box.removeEventListener("pointerup", up); box.removeEventListener("pointercancel", up); };
+      const up = () => { this.dragging = false; this.spot = { left: parseFloat(box.style.left) || 0, top: parseFloat(box.style.top) || 0 }; box.classList.remove("grabbing"); box.removeEventListener("pointermove", mv); box.removeEventListener("pointerup", up); box.removeEventListener("pointercancel", up); };
       box.addEventListener("pointermove", mv); box.addEventListener("pointerup", up); box.addEventListener("pointercancel", up);
     });
     document.addEventListener("dragstart", () => this.hide(), true);
@@ -701,6 +714,12 @@ const CardPreview = {
     this.el = el;
     box.classList.toggle("pinned", this.pinned);
     if (this.cur !== c.id) { this.unmove(); this.cur = c.id; box.innerHTML = cardHTML(c, { size: "full" }); box.hidden = false; fitFullCard(box.querySelector(".card"), innerHeight - 24); }
+    if (this.pinned && !this.moved && this.spot) {   // 끌어 옮겨 둔 자리에서 다시 뜬다(카드 크기가 달라도 화면 안에 들게 당김)
+      const w = box.offsetWidth;
+      this.moved = true; box.classList.add("moved"); box.classList.remove("on-left"); box.style.right = "";
+      box.style.left = Math.max(60 - w, Math.min(innerWidth - 60, this.spot.left)) + "px";
+      box.style.top = Math.max(0, Math.min(innerHeight - 60, this.spot.top)) + "px";
+    }
     // v1.4.3: 화면 끝이 아니라 가운데 가까이에 띄운다. 마우스가 왼쪽 절반이면 가운데 조금 오른쪽, 오른쪽 절반이면 가운데 조금 왼쪽
     const left = (this.x == null ? innerWidth : this.x) > innerWidth * 0.5;
     box.hidden = false;

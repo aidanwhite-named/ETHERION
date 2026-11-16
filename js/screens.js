@@ -215,7 +215,7 @@ function showTitle() {
       <button class="t-start" id="t-start" type="button">Press to Begin</button>
       ${typeof BGM !== "undefined" ? `<div class="t-snd" id="t-snd">${BGM.tbHTML()}</div>` : ""}
     </div>
-    <p class="t-foot">Prototype v1.0${OPEN_PLAY ? " · 시험 모드: 로그인 없이 모든 카드 사용" : ""} · 모든 이름은 가칭</p>
+    ${OPEN_PLAY ? `<p class="t-foot">시험 모드: 로그인 없이 모든 카드 사용</p>` : ""}
   </section>`;
   /* 누르면 이세계 입장 연출(js/portal.js): 고리가 깨어나고 가운데 문으로 들어간다 */
   const go = () => {
@@ -244,11 +244,11 @@ function showTitle() {
     e.stopPropagation();
     if (b.dataset.act === "snd-music") BGM.toggleMusic(); else BGM.toggleSfx();
   });
-  $("#title").addEventListener("click", e => { if (!e.target.closest("button")) go(); });
+  /* 입장은 Begin 단추(또는 Enter 키)로만 — 빈 곳을 누르면 들어가던 것은 뺐다(창을 처음 누를 때 바로 들어가 버림) */
   App.titleGo = go;
 }
 document.addEventListener("keydown", e => {
-  if (App.screen === "title" && App.titleGo && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); App.titleGo(); }
+  if (App.screen === "title" && App.titleGo && e.key === "Enter" && !e.repeat) { e.preventDefault(); App.titleGo(); }
 });
 
 /* ---------- 입장 (로그인 / 등록) ---------- */
@@ -627,12 +627,13 @@ function applyDeckFilter(ids) {
   grid.classList.toggle("dv-filtered", F.type !== "all" || !!F.grade);
   for (const el of grid.children) { const id = el.dataset.card; el.classList.toggle("dv-off", !(ofKind(id) && (!F.grade || gradeOf(id) === F.grade))); }
 }
+const DV_MIN_W = 116;
 function fitLobbyCards() {
   /* v3.36 PC 대기실: 덱 보기 · 오른쪽 열의 높이 = 덱 보관함 높이(--lobby-h). 카드 40장이 그 칸에 다 들어가게 카드 폭을 고른다(줄이기도 한다) */
   const grid = $("#dv-cards"), dv = $("#deck-view"), vault = $(".screen-lobby .decks"), lobby = $(".screen-lobby .lobby");
   if (!grid || !dv || !vault || !lobby) return;
   grid.style.removeProperty("--card-md"); dv.style.removeProperty("min-height"); dv.classList.remove("dv-fit"); lobby.style.removeProperty("--lobby-h");
-  if (matchMedia("(max-width: 1180px)").matches) return;
+  if (matchMedia("(max-width: 1180px)").matches) { if (typeof fitBriefs === "function") fitBriefs(grid); return; }
   lobby.style.setProperty("--lobby-h", Math.round(vault.getBoundingClientRect().height) + "px");
   dv.classList.add("dv-fit");
   const first = grid.querySelector(":scope > :not(.dv-off)"); if (!first) return;   /* v3.7.5 거르기로 숨긴 카드는 크기가 0이라 보이는 첫 카드로 잰다 */
@@ -645,7 +646,11 @@ function fitLobbyCards() {
     const cols = Math.max(1, Math.floor((W + gx) / (w + gx))), rows = Math.ceil(n / cols);
     if (rows * w * ratio + (rows - 1) * gy <= H) best = w;
   }
+  /* 2026-11-15 카드가 너무 작아져 글이 안 읽혀서(1366×768에서 폭 85px · 능력 글 6px) 카드 폭은 DV_MIN_W 아래로 줄이지 않는다.
+     그 폭으로 다 들어가지 않으면 판 높이 맞추기를 풀고 덱 보기가 아래로 길어진다(화면을 스크롤해서 본다) */
+  if (best < DV_MIN_W) { best = DV_MIN_W; dv.classList.remove("dv-fit"); }   // 오른쪽 열은 덱 보관함 높이(--lobby-h) 그대로
   grid.style.setProperty("--card-md", best + "px");
+  if (typeof fitBriefs === "function") fitBriefs(grid);   // 글을 키운 대기실 카드에서 긴 마법 문구만 줄인다
 }
 addEventListener("resize", () => { clearTimeout(fitLobbyCards.t); fitLobbyCards.t = setTimeout(() => { if (App.screen === "lobby") fitLobbyCards(); }, 120); });
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (App.screen === "lobby") fitLobbyCards(); });
@@ -967,7 +972,9 @@ function showEditor(f, focusId) {
     if (!src || !dst) { if (dst) { dst.classList.remove("flash"); void dst.offsetWidth; dst.classList.add("flash"); } return; }
     const a = src.getBoundingClientRect(), b = dst.getBoundingClientRect();
     const w = document.createElement("div"); w.className = "ed-fly"; w.style.left = a.left + "px"; w.style.top = a.top + "px";
-    const cl = src.cloneNode(true); w.appendChild(cl); document.body.appendChild(w);
+    const cl = src.cloneNode(true); w.setAttribute("aria-hidden", "true");
+    for (const el of [cl, ...cl.querySelectorAll("[data-card],[data-tip],[title]")]) { el.removeAttribute("data-card"); el.removeAttribute("data-tip"); el.removeAttribute("title"); }   // 2026-11-15 날아가는 사본은 크게 보기 · 말풍선을 띄우지 않는다
+    w.appendChild(cl); document.body.appendChild(w);
     const s0 = a.width / (cl.getBoundingClientRect().width || a.width);
     const dx = b.left + b.width * .5 - (a.left + a.width / 2), dy = b.top + b.height / 2 - (a.top + a.height / 2);
     w.animate([

@@ -14,18 +14,18 @@
 - `<!-- AUTO:… -->` 칸은 `node tools/art/build_prompts.js`가 `tools/art/art_style.json`에서 채운다. **고칠 때는 art_style.json을 고치고 다시 돌린다** — 이 문서의 표만 고치면 다음에 덮인다. 나머지 글은 손으로 고쳐도 된다.
 
 <!-- AUTO:COUNTS -->
-프롬프트 버전 **g3** (2026-11-15) · 카드 708장 (뺀 카드 제외, 소환물 포함)
+프롬프트 버전 **g3** (2026-11-15) · 카드 706장 (뺀 카드 제외, 소환물 포함)
 
 | 등급 | 색 | 장수 | 유닛 · 마법 · 아이템 | 등급별 프롬프트 파일 |
 |---|---|---|---|---|
 | 소환물 (Summoned token) | `#8fdcff` | 17 | 13 · 4 · 0 | `prompts/grades/token.md` |
-| 일반 (Common) | `#f4f1ea` | 375 | 205 · 123 · 47 | `prompts/grades/common.md` |
-| 고급 (Superior) | `#f2cf3d` | 135 | 88 · 33 · 14 | `prompts/grades/uncommon.md` |
-| 레어 (Rare) | `#4ea8ff` | 49 | 9 · 30 · 10 | `prompts/grades/rare.md` |
+| 일반 (Common) | `#f4f1ea` | 374 | 212 · 122 · 40 | `prompts/grades/common.md` |
+| 고급 (Superior) | `#f2cf3d` | 128 | 78 · 34 · 16 | `prompts/grades/uncommon.md` |
+| 레어 (Rare) | `#4ea8ff` | 48 | 9 · 30 · 9 | `prompts/grades/rare.md` |
 | 강화 (Empowered) | `#3fe0c0` | 40 | 40 · 0 · 0 | `prompts/grades/upgrade.md` |
-| 에픽 (Epic) | `#b46cff` | 62 | 36 · 18 · 8 | `prompts/grades/epic.md` |
+| 에픽 (Epic) | `#b46cff` | 63 | 36 · 18 · 9 | `prompts/grades/epic.md` |
 | 유니크 (Unique) | `#ff8a2a` | 18 | 18 · 0 · 0 | `prompts/grades/unique.md` |
-| 스페셜 (Special) | `#ff4d73` | 12 | 9 · 0 · 3 | `prompts/grades/special.md` |
+| 스페셜 (Special) | `#ff4d73` | 18 | 9 · 0 · 9 | `prompts/grades/special.md` |
 <!-- /AUTO:COUNTS -->
 
 ---
@@ -279,7 +279,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 | 비술 성회 | 심연 마족 · 성광 천족 · 폭풍 하이엘프 | 신에게서 **받는다**, 늘 값을 치른다 | 흰 성벽 · 별 · 첨탑 · 마법진 · 협곡의 그림자 |
 
 <!-- AUTO:FLAGS -->
-### B1 잿불 고블린 · Cinder Goblins — 아다만트 연합 · fire `#ff6b3d`
+### B1 도르마크의 심장불 · Dormak's Heartfire — 거골 연합 · fire `#ff6b3d`
 
 | 항목 | 넣을 말 |
 |---|---|
@@ -296,7 +296,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 | 신화 배경 (스페셜) mythic | the giant Dormak's mountain-sized chest with its heart-fire blazing through cracks of rock across the whole sky |
 | 하지 말 것 never | no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords |
 
-### B2 무쇠수염 드워프 · Ironbeard Dwarves — 아다만트 연합 · metal `#a9b4c2`
+### B2 소르그림의 방패 · Sorgrim's Shield — 거골 연합 · metal `#a9b4c2`
 
 | 항목 | 넣을 말 |
 |---|---|
@@ -313,7 +313,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 | 신화 배경 (스페셜) mythic | the giant Sorgrim's mountain-sized arm of iron sinew rising from the earth, and the metal dragon Feros's mirror scales reflecting a thousand forges |
 | 하지 말 것 never | no thorns or plant armour, no wizardry or wands; golems are machines, not undead |
 
-### B3 번개 노움 · Thunder Gnomes — 아다만트 연합 · lightning `#ffd84a`
+### B3 케라운의 벼락 · Keraun's Thunder — 거골 연합 · lightning `#ffd84a`
 
 | 항목 | 넣을 말 |
 |---|---|
@@ -330,7 +330,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 | 신화 배경 (스페셜) mythic | the giant Keraun's lightning nerves blazing across the whole plateau and sky like a living circuit board of storms |
 | 하지 말 것 never | no mystical magic or wands — their power is science and machines |
 
-### G1 바위주먹 오크 · Rockfist Orcs — 푸른숲 맹약 · earth `#b88a5a`
+### G1 고르바스의 발톱 · Gorvath's Claw — 용맥 맹약 · earth `#b88a5a`
 
 | 항목 | 넣을 말 |
 |---|---|
@@ -347,7 +347,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 | 신화 배경 (스페셜) mythic | the earth dragon Gorbas, mountain-sized with forests on its back, rising behind Throne Peak with one great eye opening |
 | 하지 말 것 never | no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth) |
 
-### G2 이끼 트롤 · Moss Trolls — 푸른숲 맹약 · forest `#58b85f`
+### G2 베르단의 뿔 · Verdan's Antler — 용맥 맹약 · forest `#58b85f`
 
 | 항목 | 넣을 말 |
 |---|---|
@@ -364,7 +364,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 | 신화 배경 (스페셜) mythic | the forest dragon Verdan's antlers spreading as a canopy of ancient branches over the whole forest, the First Elder Tree glowing beneath |
 | 하지 말 것 never | no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself) |
 
-### G3 푸른비늘 인어 · Bluescale Merfolk — 푸른숲 맹약 · water `#4fb3ff`
+### G3 마렌시아의 노래 · Marencia's Song — 용맥 맹약 · water `#4fb3ff`
 
 | 항목 | 넣을 말 |
 |---|---|
@@ -381,7 +381,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 | 신화 배경 (스페셜) mythic | the water dragon Marencia's translucent serpentine body coiling through the sky like a river of light |
 | 하지 말 것 never | no fire, no heavy plate armour |
 
-### A1 심연 마족 · Abyssal Fiends — 비술 성회 · darkness `#8b5cf6`
+### A1 모르카스의 그믐 · Morkas's New Moon — 신탁 성회 · darkness `#8b5cf6`
 
 | 항목 | 넣을 말 |
 |---|---|
@@ -398,7 +398,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 | 신화 배경 (스페셜) mythic | the faceless shadow king Morkas towering across the sky with his balanced scales, eyes closed |
 | 하지 말 것 never | no holy light, no crude cartoon devils — they are elegant and ominous |
 
-### A2 성광 천족 · Radiant Seraphs — 비술 성회 · holy light `#ffe9a8`
+### A2 솔란테의 새벽 · Solante's Dawn — 신탁 성회 · holy light `#ffe9a8`
 
 | 항목 | 넣을 말 |
 |---|---|
@@ -415,7 +415,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 | 신화 배경 (스페셜) mythic | the goddess Solante's six vast wings of light spread across the whole sky above a rising sun |
 | 하지 말 것 never | no demonic elements, no gore; they are defenders, so attacks look restrained and righteous |
 
-### A3 폭풍 하이엘프 · Storm High Elves — 비술 성회 · wind `#9fe3d6`
+### A3 벨루미르의 별 · Belumir's Star — 신탁 성회 · wind `#9fe3d6`
 
 | 항목 | 넣을 말 |
 |---|---|
@@ -515,10 +515,10 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "그림자 도둑". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary member of the Abyssal Fiends — a devoted priest, ritualist or pact-bound servant, praying or offering.
+Subject: a low-ranking, ordinary member of the Morkas's New Moon — a devoted priest, ritualist or pact-bound servant, praying or offering.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Banner — Abyssal Fiends: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
-Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
+Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
@@ -531,17 +531,19 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-#### 예: 고급 — A2-01 성광 견습생
+#### 예: 고급 — A2-01 견습생의 기도 촛불
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "성광 견습생". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary member of the Radiant Seraphs — an armed fighter wielding a weapon typical of the banner.
+Card name (Korean — read its meaning, never write it in the image): "견습생의 기도 촛불". Depict exactly what this name describes.
+Subject: a low-ranking, ordinary Prayer Candle of the Solante's Dawn — a small living prayer candle of white beeswax, a calm little face glowing inside its flame, wax drips hanging like a tiny robe.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Banner — Radiant Seraphs: seraphs with white feathered wings and halos, and human knights of the Radiant Order. Silhouette: upright and protective; wings spread wide behind great shields. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
-Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Creature kind — Prayer Candle: a small living prayer candle of white beeswax, a calm little face glowing inside its flame, wax drips hanging like a tiny robe. Silhouette: small and upright, a tall teardrop flame on top. Materials: white beeswax, warm gold flame, a brass candle dish. Do NOT draw it as one of the winged celestials unless the name says so.
+Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
+Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 새벽성 엘라드의 견습생이 처음 올린 기도가 촛불이 되어 일어섰다. 불꽃은 아직 손가락만 하지만, 닿는 상처의 더러움은 빠짐없이 태운다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
@@ -564,8 +566,8 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "작살 물살". Depict exactly what this name describes.
 Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive water attack striking the enemy ranks; a cleansing wave washing away enchantments. Scale and finish: a sweeping effect that reshapes part of the battlefield, layered energies and motion trails.
 Scale (level 1 of 8): a small, local effect.
-Banner — Bluescale Merfolk: magic of bluescale merfolk, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
-Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Banner — Marencia's Song: magic of marencia's song, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
+Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 물살을 타고 날아간 작살은 방패도 축복도 씻어 내고 박힌다. 셀레네아의 사냥꾼은 두 번 던지지 않는다.
 Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛의 [보호막]·[가시]·[저주 면역]·[수호]가 꺼지고, 피해 3. 내 생명 +1.
 Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
@@ -581,20 +583,21 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-#### 예: 강화 — UP-B2-17 무쇠 성벽대장
+#### 예: 강화 — UP-B2-17 무쇠뿔 산양왕
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "무쇠 성벽대장". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Ironbeard Dwarves — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
-If a reference image is attached, it is the base card (B2-17): keep the same character, species, face, colours and silhouette and repaint it as the empowered version. (base card: "무쇠 성벽병")
-Continuity with the base card: this is the very same individual as "무쇠 성벽병" (B2-17) after a promotion — same species, sex, age, face, hair or beard, colours, weapon type and fighting style, now one rank higher. The base card is set in a riveted iron gate in a dim forge hall; keep that same place, intensified.
+Card name (Korean — read its meaning, never write it in the image): "무쇠뿔 산양왕". Depict exactly what this name describes.
+Subject: a seasoned, battle-hardened Iron-Horn Goat of the Sorgrim's Shield — a muscular mountain goat whose huge curled horns have grown into raw iron from licking exposed ore veins, with a shaggy grey coat and hard hooves.
+If a reference image is attached, it is the base card (B2-17): keep the same character, species, face, colours and silhouette and repaint it as the empowered version. (base card: "무쇠뿔 산양")
+Continuity with the base card: this is the very same individual as "무쇠뿔 산양" (B2-17) after a promotion — same species, sex, age, face, hair or beard, colours, weapon type and fighting style, now one rank higher. The base card's lore: 철골 산맥의 드러난 광맥을 핥다가 뿔이 무쇠로 자란 산양. 그가 버티고 선 바위가 곧 성벽의 끝이다. The base card is set in a riveted iron gate in a dim forge hall; keep that same place, intensified.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Ironbeard Dwarves: stocky dwarves with braided iron-grey beards, and the riveted golems and automatons they forge. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 성벽병들이 그의 등 뒤로만 줄을 선다. 그 등이 성벽이다.
+Creature kind — Iron-Horn Goat: a muscular mountain goat whose huge curled horns have grown into raw iron from licking exposed ore veins, with a shaggy grey coat and hard hooves. Silhouette: a goat planted on a rock under massive curled horns. Materials: raw iron horns, shaggy grey wool, ore-streaked rock. Do NOT draw it as one of the dwarves unless the name says so.
+Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
+Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Lore (Korean, use for the scene): 무쇠뿔 산양이 뿔을 몇 번 갈아 치우고 무리의 왕이 되었다. 무리는 그의 등 뒤로만 줄을 서고, 그 등이 성벽이다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the underground forge-city of Durkheim); cold steel sheen, sparks from an anvil, rivets.
@@ -615,10 +618,11 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "장막의 처형자". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring member of the Abyssal Fiends — a devoted priest, ritualist or pact-bound servant, praying or offering.
+Subject: a legendary, awe-inspiring Wraith of the Morkas's New Moon — a hooded ghost of someone still bound to an unpaid price, a translucent legless body wrapped in rusted chains.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Banner — Abyssal Fiends: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
-Faction: Arcane Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Creature kind — Wraith: a hooded ghost of someone still bound to an unpaid price, a translucent legless body wrapped in rusted chains. Silhouette: floating and hooded, legless, trailing chains. Materials: translucent grey-violet mist, rusted chains, a torn shroud. Do NOT draw it as one of the fiends unless the name says so.
+Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
+Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 심연의 장막에서 걸어 나온 것. 무엇을 두고 나왔는지 묻는 자는 다음 차례가 된다.
 Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
@@ -640,11 +644,11 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: UNIQUE — a named legend of the banner, iconic hero portrait. A named legend of this banner — iconic and instantly recognisable, a hero image you would hang as a poster.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "바위송곳니 대족장". Depict exactly what this name describes.
-Subject: a legendary, named member of the Rockfist Orcs (see art direction).
+Subject: a legendary, named member of the Gorvath's Claw (see art direction).
 Art direction: The great chief of the Rockfang tribe: an enormous orc with a stone-fang necklace, howling as his warband charges out of the dust behind him.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Rockfist Orcs: powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair. Silhouette: massive shoulders and oversized fists; riders on giant wolves or bears. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
-Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Banner — Gorvath's Claw: powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair. Silhouette: massive shoulders and oversized fists; riders on giant wolves or bears. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
+Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 가르운 바위송곳니 부족의 우두머리. 그가 적을 쓰러뜨리면 무리가 울부짖으며 달려온다.
 Camera: centred heroic portrait, near-symmetrical, subject about 70% of the frame, looking slightly down toward the viewer, a strong iconic silhouette.
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
@@ -666,11 +670,11 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SPECIAL — the highest grade: mythic, a one-of-a-kind being of the world or a relic of the Three Thrones, key-art quality. Mythic: a one-of-a-kind being, one of the great powers of the world and never an ordinary member of any race, or a relic of the Three Thrones — the single most important image of its banner; it must look clearly stronger and grander than any epic or unique card of the same banner.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "철의 심장을 삼킨 자". Depict exactly what this name describes.
-Subject: a one-of-a-kind mythic being who stands above the Ironbeard Dwarves (see art direction). A one-of-a-kind mythic being — never drawn as an ordinary member of any race.
+Subject: a one-of-a-kind mythic being who stands above the Sorgrim's Shield (see art direction). A one-of-a-kind mythic being — never drawn as an ordinary member of any race.
 Art direction: The heart is the focus: an enormous iron heart forged from the giant Sorgrim's sinew-ore — dark adamant plates, brass valves and pistons like arteries, molten forge-light pulsing through its seams — beating at the centre of the image, larger than a forge furnace. The one who swallowed it is a colossal armoured presence that is only partly seen: his vast shape is veiled in steam, shadow and forge smoke and revealed only in glimpses — the edge of a riveted iron shoulder like a cliff, a giant gauntleted hand resting on an anvil the size of a house, two eyes glowing high above in the darkness. Hundreds of chains and pipes run from the heart up into the hidden body; let the viewer imagine the full titan from these clues. Around it stretches the underground forge-cathedral of Durkheim; rows of golems, tiny by comparison, kneel facing the heart, their own chest-lights waking in rhythm with its beat, the oldest and most patched golem kneeling closest. He ascended without any god: instead of a halo, slowly turning rings of gears and golden runes circle the heart.
 Scale (level 8 of 8): mythic and colossal, far beyond mortal scale: it towers over fortresses, armies or even dragons, the land cracks and bends around it and lesser creatures look tiny; its presence fills the sky.
-Banner it stands above — Ironbeard Dwarves: show the banner only through element, palette and a few material or motif accents; do NOT draw an ordinary member of the Ironbeard Dwarves — this being is one of a kind. Palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams. Accents to borrow from: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams; forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
-Faction: Adamant Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Banner it stands above — Sorgrim's Shield: show the banner only through element, palette and a few material or motif accents; do NOT draw an ordinary member of the Sorgrim's Shield — this being is one of a kind. Palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams. Accents to borrow from: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams; forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
+Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 거인 소르그림의 힘줄을 녹여 벼린 철의 심장을 제 가슴에 삼킨 존재. 그 심장이 처음 뛴 날, 두르크하임의 모든 골렘이 함께 눈을 떴다. 그의 이름이 브론이었다는 것을 기억하는 것은 이제 그가 처음 빚은 골렘뿐이다.
 Camera: monumental worm's-eye angle, epic scale — the subject towers and fills about 75–85% of the frame against a world-sized backdrop, with scale cues (fortresses, armies, dragons or mountains look small beside it); light may spill to the margins but the face or heart and the core stay in the safe area.
 Lighting: divine and overwhelming: a radiant crimson-and-gold aura, light bursting from the subject itself, rays falling from above, the element light at full intensity; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.

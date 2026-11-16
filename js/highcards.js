@@ -218,9 +218,9 @@ const HIGH_SPELLS = [
   /* US-A1-2 그림자 계약은 v3.24.2에 레어로 내려 js/rarespells.js로 옮겼다(카드 ID는 그대로 — 가진 카드 · 저장한 덱이 깨지지 않게). docs/RARESPELLS_v3.24.md */
   /* A2 */
   { id: "US-A2-1", n: "성광의 검", g: "A2", camp: "A", lv: 2, kind: "atk", opening: true,
-    text: "아군 전체 공격 +2, [방어무시 전부]. 이 마법은 놓인 칸과 상관없이 전투가 시작될 때 먼저 발동한다.",
+    text: "아군 전체 공격 +2, [방어무시]. 이 마법은 놓인 칸과 상관없이 전투가 시작될 때 먼저 발동한다.",
     ops: [{ op: "mod", side: "ally", area: ALL, a: 2 }, { op: "grant", side: "ally", area: ALL, ab: { magic: true } }],
-    brief: "{아군 전체} ⚔+2 [방어무시 전부]|전투 시작에 먼저 발동",
+    brief: "{아군 전체} ⚔+2 [방어무시]|전투 시작에 먼저 발동",
     desc: "새벽의 어머니 솔란테가 방패를 든 손에도 검을 쥐여 준 날. 빛으로 벼린 칼날은 갑옷을 보지 않는다." },
   { id: "US-A2-2", n: "태양 심판", g: "A2", camp: "A", lv: 3, kind: "com",
     text: "상대 유닛 중 공격이 가장 높은 2기에게 피해 4. 아군 맨 앞 유닛에게 [보호막].",

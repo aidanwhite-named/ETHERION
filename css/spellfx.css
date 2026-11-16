@@ -233,6 +233,11 @@
 .float.plate.t-silver { --pl-g: linear-gradient(180deg, #ffffff 0%, #e8e8f0 34%, #b9b9c8 50%, #565668 58%, #cfcfdc 78%, #f6f6fa 100%);
   --pl-edge: #14141c; --pl-glow: rgba(200, 200, 220, .35); --pl-line: #c8c8d6; --pl-gem: linear-gradient(135deg, #ffffff, #9a9aac 60%, #44444f); --pl-gem-b: #15151c;
   --pl-slash: #ffffff; --pl-slash-glow: rgba(220, 220, 240, .7); }
+/* 2026-11-16 레어 오라 "오라 ⚔+2" (cls aura, js/game.js plateParts) — 호박빛 후광 (--aura, css/cardtext.css) */
+.float.plate.aura { --pl-num: #ffc04d; }
+.float.plate.t-aura { --pl-g: linear-gradient(180deg, #fffaf0 0%, #ffe3a8 34%, #ffb02e 50%, #8a4a06 58%, #ffc25a 78%, #fff1d2 100%);
+  --pl-edge: #2e1600; --pl-glow: rgba(255, 168, 40, .85); --pl-line: #ffc96a; --pl-gem: radial-gradient(circle, #fff4d6, #ffb02e 55%, #7a3e00); --pl-gem-b: #2a1400;
+  --pl-slash: #fff0c8; --pl-slash-glow: rgba(255, 170, 40, .95); }
 @keyframes counterSlash { 0% { transform: translateY(-50%) rotate(-14deg) scaleX(0); opacity: 1; } 60% { transform: translateY(-50%) rotate(-14deg) scaleX(1); opacity: 1; } 100% { transform: translateY(-50%) rotate(-14deg) scaleX(1); opacity: 0; } }
 @keyframes counterUp { 0% { opacity: 0; transform: translate(-50%, -50%) scale(1.8); } 12% { opacity: 1; transform: translate(-50%, -50%) scale(.92); } 22% { transform: translate(-50%, -52%) scale(1.04); } 32% { transform: translate(-50%, -54%) scale(1); } 100% { opacity: 0; transform: translate(-50%, -160%) scale(1); } }
 @media (prefers-reduced-motion: reduce) { .float.plate .fl-tag::before { animation: none; display: none; } }

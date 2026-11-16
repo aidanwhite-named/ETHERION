@@ -13,12 +13,22 @@ const CARDS = c.ev('CARDS'), ev = s => c.ev(s), hp = u => ev('hpLeft')(u), sc = 
 
 /* 카드 데이터 */
 ok(CARDS['B1-03'].gift.ignite === 1 && CARDS['B1-03'].a === 4 && CARDS['B1-03'].h === 1, '포연 척후병 L1 [점화 1] 4/0/1');
-ok(CARDS['B1-10'].gift.farmor === 1 && CARDS['B1-41'].gift.farmor === 1, '2레벨 [화염 갑주 1] 2장');
+ok(CARDS['B1-41'].gift.farmor === 1 && CARDS['B1-03'].gift.ignite === 1, '1레벨 [점화] · 2레벨 [화염 갑주]');
 ok(CARDS['B1-42'].gift.farmor === 1 && !CARDS['B1-42'].gift.thorns && CARDS['B1-43'].gift.farmor === 1 && !CARDS['B1-43'].gift.thorns, '고블린 가시 → 화염 갑주');
-ok(CARDS['B1-09'].gift.ignite === 1 && !CARDS['B1-09'].gift.ranged, '고블린 포수 원거리 → 점화');
+ok(CARDS['B1-22'].gift.ignite === 2 && CARDS['B1-31'].gift.ignite === 2 && !CARDS['B1-08'].gift.ranged && !CARDS['B1-02'].gift.shred, '화염방사병 · 포병 원수 [점화 2], 일반으로 내린 카드는 능력 없음');
+ok(['B1-04', 'B1-09', 'B1-20'].every(id => ev('RETIRED_CARDS')[id] && !ev('CARD_LIST').some(x => x.id === id)), '레거시 3장(장전 수습생 · 고블린 포수 · 작렬 척탄대)');
+ok(['B1-04', 'B1-09', 'B1-20'].every(id => !ev('STARTER_DECKS').B1[id] && !ev('HARD_DECKS').B1[id]), '기본 · 정예 덱에 레거시 없음');
+{ /* 카드 풀: 다른 깃발처럼 고급 9장 이하 · 레벨마다 2장까지 · 일반 21~24 · 일반은 능력 없음 */
+  const vm = require('vm'), L = require('../balance4/load.js'), g = vm.runInContext('gradeOf', L), CD = vm.runInContext('CARDS', L), R = vm.runInContext('RETIRED_CARDS', L);
+  const us = Object.values(CD).filter(x => x.type === 'unit' && x.group === 'B1' && !R[x.id] && !x.base && !/^TK-/.test(x.id));
+  const unc = us.filter(u => g(u) === 'uncommon'), com = us.filter(u => g(u) === 'common'), lv = {};
+  for (const u of unc) lv[u.lv] = (lv[u.lv] || 0) + 1;
+  ok(unc.length >= 6 && unc.length <= 9 && Object.values(lv).every(n => n <= 2) && Object.keys(lv).length === 7, `고급 ${unc.length}장 · 레벨마다 ${JSON.stringify(lv)}`);
+  ok(com.length >= 21 && com.length <= 24 && com.every(u => !u.gift || !Object.keys(u.gift).length), `일반 ${com.length}장 · 능력 없음`);
+  ok(unc.filter(u => u.gift.ignite).length === 4 && unc.filter(u => u.gift.farmor).length === 3, '고급: [점화] 4 · [화염 갑주] 3'); }
 ok(CARDS['SP-B1'].gift.ignite === 2 && !CARDS['SP-B1'].gift.throw && CARDS['EP-B1-3'].gift.ignite === 2 && CARDS['PN-B1-E'].gift.ignite === 1, '고블린 [사격 N] → [점화 N]');
-ok(CARDS['IB1-5'].item.ignite === 2 && !CARDS['IB1-5'].item.throw && CARDS['IB1-2'].item.throw === 2, '아이템 사격 → 점화, 투척은 그대로');
-ok(ev('itemAbilities')(CARDS['B1-22'].gift).includes('[화염 갑주 1]') && ev('itemAbilities')(CARDS['B1-13'].gift).includes('[점화 1]'), '카드 글 [점화] · [화염 갑주]');
+ok(CARDS['IR-B1'].item.ignite === 1 && !CARDS['IB1-5'].item.throw && CARDS['IB1-5'].item.ranged && CARDS['IB1-2'].item.throw === 2, '아이템 사격 → 점화, 투척은 그대로 (v3.80 화염포는 고급 서브 능력 [원거리])');
+ok(ev('itemAbilities')(CARDS['B1-42'].gift).includes('[화염 갑주 1]') && ev('itemAbilities')(CARDS['B1-13'].gift).includes('[점화 1]'), '카드 글 [점화] · [화염 갑주]');
 ok(!ev('SIM_UNITS').some(u => /B1/.test(u.id) && u.gift && u.gift.throw && u.gift.every), '고블린 유닛에 [사격] 없음');
 ok(CARDS['SP-A3'].gift.throw && CARDS['SP-A3'].gift.every, '다른 깃발 [사격]은 그대로');
 ok(ev('RARE_AURA').B1.eff.a === 1 && !ev('RARE_AURA').B1.eff.snipe, '레어 오라 [포격 지휘] 공격 +1');
@@ -35,7 +45,7 @@ ok(CARDS['MB-04'].name === '도화선' && CARDS['SB1-05'].name === '기폭' && C
   ok(sc(big) === 0 && big.t.dmg === 1, '다음 턴 시작 때 체력 −1 · 꺼짐 (' + big.t.dmg + ')');
   ev('gbBurnTick')(ev('ctx')(P, 0, 3, []), () => {}); ok(big.t.dmg === 1, '한 번만 터짐'); }
 /* 화상은 쌓인다 · 방어 무시 · 쓰러뜨리면 붙인 유닛 몫 */
-{ const P = [c.side(0, ['B1-20'], 30), c.side(1, ['B2-24'], 30)]; c.prep(P); const f = P[1].field[0];
+{ const P = [c.side(0, ['B1-22'], 30), c.side(1, ['B2-24'], 30)]; c.prep(P); const f = P[1].field[0];
   const X = ev('ctx')(P, 0, 1, []); ev('gbScorch')(X, f, 2, P[0].field[0].uid); ev('gbScorch')(X, f, 2, P[0].field[0].uid);
   ok(sc(f) === 4, '화상 쌓임 2+2=4');
   const X2 = ev('ctx')(P, 1, 2, []); ev('gbBurnTick')(X2, () => {});
@@ -55,7 +65,7 @@ ok(CARDS['MB-04'].name === '도화선' && CARDS['SB1-05'].name === '기폭' && C
   ev('castSpell')(X, 0, P[0].field[0], 1);
   ok(f.t.dmg === 4 && s.t.dmg === 3 && t.t.dmg === 0 && sc(f) === 0 && sc(s) === 0, `기폭: 맨 앞 2+2=4 · 화상 1 유닛 1+2=3 · 화상 없는 유닛 그대로 (${f.t.dmg}/${s.t.dmg}/${t.t.dmg})`); }
 /* 불의 장막: 맨 앞 2기 체력 +1 · [화염 갑주 2] */
-{ const P = [c.side(0, ['SB1-03', 'B1-04', 'B1-12', 'B1-13'], 30), c.side(1, ['G1-01'], 30)]; c.prep(P);
+{ const P = [c.side(0, ['SB1-03', 'B1-02', 'B1-12', 'B1-13'], 30), c.side(1, ['G1-01'], 30)]; c.prep(P);
   const X = ev('ctx')(P, 1, 1, []); const h0 = P[0].field[1].t.h; ev('castSpell')(X, 0, P[0].field[0], 1);
   const ab = u => ev('abilOf')(u).farmor;
   ok(ab(P[0].field[1]) === 2 && ab(P[0].field[2]) === 2 && !ab(P[0].field[3]) && P[0].field[1].t.h === h0 + 1, '불의 장막: 맨 앞 2기 체력 +1 · [화염 갑주 2]'); }
@@ -65,7 +75,7 @@ ok(CARDS['MB-04'].name === '도화선' && CARDS['SB1-05'].name === '기폭' && C
   ev('castSpell')(X, 0, P[0].field[0], 1); const d = U.map((u, i) => a0[i] - u.t.a);
   ok(d[0] === 2 && d[1] === 4 && d[2] === 2, '연막탄: 화상 있는 유닛만 공격 −4 (' + d + ')'); }
 /* 레어 오라: 양옆 공격 +1 */
-{ const P = [c.side(0, ['B1-04', 'PN-B1-R', 'B1-12'], 30), c.side(1, ['G1-01'], 30)]; c.prep(P);
+{ const P = [c.side(0, ['B1-02', 'PN-B1-R', 'B1-12'], 30), c.side(1, ['G1-01'], 30)]; c.prep(P);
   const a0 = [P[0].field[0].t.a, P[0].field[2].t.a]; const X = ev('ctx')(P, 0, 1, []); ev('rareAuraSync')(X);
   ok(P[0].field[0].t.a === a0[0] + 1 && P[0].field[2].t.a === a0[1] + 1, '[포격 지휘 1] 양옆 공격 +1'); }
 /* 기본 덱 · 정예 덱 판 몇 개가 끝까지 돈다 */

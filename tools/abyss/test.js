@@ -37,6 +37,7 @@ ok(c.ev('itemKwDesc("[흡혈]")').length > 10, '[흡혈] 뜻 글');
 { const P = [c.side(0, ['A1-29'], 30), c.side(1, ['PN-A1-C2'], 30)]; c.prep(P); const X = c.ev('ctx')(P, 0, 1, []); const d = P[1].field[0];   // 6레벨 > 4레벨
   d.t.veilUsed = true; c.ev('attackOne')(X, P[0].field[0]); ok(d.t.dmg > 0, '[그림자 걸음] 한 번 쓴 뒤에는 맞음'); }
 { const P = [c.side(0, ['A1-02'], 30), c.side(1, ['PN-A1-C2'], 30)]; c.prep(P); const X = c.ev('ctx')(P, 0, 1, []); const d = P[1].field[0];
+  P[0].field[0].t.noCoin = true;   // A1-02의 − 코인(체 −1) 앞면이면 쓰러져 공격하지 못한다 — 난수 순서에 따라 흔들리지 않게 코인을 끈다
   const want = Math.max(0, P[0].field[0].t.a - d.t.d) + 2; c.ev('attackOne')(X, P[0].field[0]); ok(d.t.dmg === want, '[그림자 걸음] 낮은 레벨에게는 피해 +2 (' + d.t.dmg + '/' + want + ')'); }
 // [피의 계약]: 생명을 낼 때마다 공격 +1
 { const P = [c.side(0, ['MA-01', 'A1-01'], 30), c.side(1, ['A1-43'], 30)]; c.prep(P); const u = P[0].field[1], a0 = u.t.a;

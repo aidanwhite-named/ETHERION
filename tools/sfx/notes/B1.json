@@ -1,6 +1,7 @@
 {
  "flag": "B1",
  "cards": {
+  "SR-B1": {"en": "Dormak's Rib Furnace", "ko": "거인 갈비뼈 화로에 불이 크게 일어남", "equip": "a heavy bone-and-iron brazier is set down with a deep hollow thud, a roaring fire whooshes up inside it, and the flames surge hungrily with a rising crackle"},
   "B1-02": {
    "en": "Powder Porter",
    "ko": "화약 자루 내던져 퍽 · 맨몸으로 맞고 휘청",
@@ -8,10 +9,10 @@
    "def": "no armour, it staggers under the blow: a soft cloth-and-flesh thud, creaking sack straps, loose powder grains pattering onto stone"
   },
   "B1-03": {
-   "en": "Smoke Scout",
-   "ko": "연기 속 달려가 작은 권총 탕 · 움찔 물러남",
-   "atk": "a quick scuffing sprint through hissing smoke, a tiny flintlock pistol pops with a sharp spark-snap, then a light thin ping of the ball striking",
-   "def": "no cover, it flinches and ducks: a startled cloth rustle, one light scuff of boots, a faint cough of smoke puffing past"
+   "en": "Burning Fuse",
+   "ko": "도화선 불꽃 쉬익 기어감 · 몸을 사려 불티만 튐",
+   "atk": "a living fuse snakes forward: a dry rope slither over stone, a quickening sputter of sparks racing along its length, then a sharp crackling pop as the flame bites",
+   "def": "no body to strike, it coils away: a soft cord whip, a startled fizzing hiss, a few loose sparks pattering onto the ground"
   },
   "B1-04": {
    "en": "Loading Apprentice",
@@ -20,16 +21,16 @@
    "def": "a clumsy stumble: a soft thump against its chest, rattling cartridge pouches, a brass casing tinkling away across the ground"
   },
   "B1-05": {
-   "en": "Musket Recruit",
-   "ko": "어설프게 화승총 쏨 · 총으로 얼굴 가림",
-   "atk": "a nervous fumbled cock of the match-lock, a fizzing spark of the pan, a delayed ragged musket bang with a wobbly low echo",
-   "def": "it hugs the musket up as a shield: a dull wooden knock on the stock, a metallic scrape of the barrel, a startled boot shuffle"
+   "en": "Flame Imp",
+   "ko": "불덩이 던지며 낄낄 · 몸이 흔들려 불티 흩어짐",
+   "atk": "a tiny flame imp cackles and flings a fistful of fire: a high giggling hiss, a short whoosh of a fireball, then a small crackling splash of flame",
+   "def": "its little flame body gutters under the blow: a soft flaring whump, a startled squeak, embers scattering and flickering back together"
   },
   "B1-08": {
-   "en": "Smoke Thrower",
-   "ko": "연막통 던지면 쉬익 퍼짐 · 연기에 숨어 비켜섬",
-   "atk": "an arm swish, a clay canister clunks and cracks open, a long soft whoosh of billowing smoke with a rasping hiss spreading wide",
-   "def": "it ducks behind its own haze: a muffled cloth swish, a dull miss thud on dirt, soft airy puffs of smoke swallowing the impact"
+   "en": "Smoke Spirit",
+   "ko": "연기 팔로 감싸 조름 · 흩어졌다 다시 모임",
+   "atk": "a billow of gunpowder smoke rolls over the foe: a long soft whoosh, a rasping airy hiss wrapping tight, a muffled choking cough from inside the haze",
+   "def": "the blow passes through smoke: a hollow airy puff, a swirling drift of hiss, the haze slowly curling back together with a soft sigh"
   },
   "B1-09": {
    "en": "Goblin Gunner",
@@ -38,28 +39,28 @@
    "def": "no armour, it takes the hit on its leather jerkin: a muted slap, a stumble of boots, a tin powder flask jangling on its belt"
   },
   "B1-10": {
-   "en": "Fortan Gate Guard",
-   "ko": "창 끝으로 쿡 밀어냄 · 철모와 문 방패로 막음",
-   "atk": "a short heavy spear thrust: a leather creak, a stiff iron-tipped jab and a dull clank as the point meets armour with a grating scrape",
-   "def": "a dented iron helm and gate shield take the blow: a clanging knock, a shallow ring-out of old metal, hinges creaking under the push"
+   "en": "Fortan Fire Hound",
+   "ko": "불 붙은 아가리로 콱 물어뜯음 · 으르렁 버티며 털이 지글",
+   "atk": "a fire hound lunges: scrabbling paws on cinders, a snarling growl, then a sizzling snap of burning jaws clamping down with a crackle of embers",
+   "def": "it braces with a deep growl: a thudding blow on a lean flank, smouldering fur sizzling, a short yelp and a shake that throws off sparks"
   },
   "B1-12": {
-   "en": "Blasting Sapper",
-   "ko": "폭약 묻고 터뜨림 · 흙과 몸으로 버팀",
-   "atk": "a trowel scraping and burying a charge, a quick fizz of a short fuse, then a deep earthy crump that kicks up gravel and falling dirt",
-   "def": "a thick leather apron absorbs the hit: a heavy muffled thump, a clay-and-gravel patter, a ringing high tone fading from half-deaf ears"
+   "en": "Fire Rat Swarm",
+   "ko": "불쥐 떼가 우르르 덮쳐 갉음 · 흩어졌다가 다시 몰려듦",
+   "atk": "a swarm of fire rats pours over the foe: a rushing skitter of many claws, shrill chittering squeaks, the crackle of burning fur and tiny gnawing bites",
+   "def": "the swarm scatters from the blow: squeaks bursting in every direction, claws skittering over gravel, burning fur crackling as they regroup"
   },
   "B1-13": {
-   "en": "Flame Grenadier",
-   "ko": "불항아리 던짐 · 깨지며 불길 번짐",
-   "atk": "a clay jar swung overhead with a creaking arm, a whoosh through air, a crash of shattering pottery, then a rolling roar of spreading flames",
-   "def": "a quick hop back, a jar-shaped satchel thudding against its hip, scorched leather sizzling and a thin pop of a spilled oil spark"
+   "en": "Ember Bat Swarm",
+   "ko": "불씨 박쥐 떼 쏟아져 불이 붙음 · 날개 퍼덕이며 흩어짐",
+   "atk": "a cloud of ember bats swoops down: a rising leathery flutter, shrill squeaks, a pattering rain of falling sparks, then a soft whoomph as the fire catches",
+   "def": "the cloud breaks apart: frantic wing flaps, a few squealing chirps, sparks spiralling away and the flutter re-forming overhead"
   },
   "B1-14": {
-   "en": "Rustiron Sniper",
-   "ko": "녹슨 총열 한 발 · 바위틈에서 납작 엎드림",
-   "atk": "a dry slow bolt of breath, a long rusty barrel cracks with a single sharp report, a thin whine of a distant bullet and a faraway ping on stone",
-   "def": "it presses flat in a rock crevice: a low scrape of stone on leather, a pebble clatter, a small tight thud of the ball chipping the rock above"
+   "en": "Rustiron Fire Monkey",
+   "ko": "달군 돌 던져 퍽 · 바위틈에 납작 숨어 끽끽",
+   "atk": "a fire monkey screeches from a rock ledge and hurls a red-hot stone: an arm whoosh, a sizzling whistle through the air, a hard crack of hot stone striking",
+   "def": "it ducks into a crevice: a quick chattering shriek, claws scrabbling on rusty rock, a glancing thud and a trickle of gravel"
   },
   "B1-16": {
    "en": "Goblin Demolitionist",
@@ -68,16 +69,16 @@
    "def": "no armour, a hasty crouch: a soft thud into charred cloth, a rattle of spare fuse spools, sparks sputtering out against the ground"
   },
   "B1-17": {
-   "en": "Big-Bore Gunner",
-   "ko": "거대한 포구가 쾅 · 묵직한 포신 뒤에서 버팀",
-   "atk": "a heavy rumbling cart wheel halting, a deep drum-like wide-bore cannon boom that shakes the ground, then a rolling echo bouncing off the hills",
-   "def": "it hides behind the thick iron barrel: a heavy clang of metal, a deep dull thud, then a long low ring-out as the barrel settles"
+   "en": "Battery Tortoise",
+   "ko": "등딱지 분화구가 쾅 · 용암 등딱지 속에 움츠림",
+   "atk": "a lava tortoise braces its legs with a stony grind, a deep gurgle wells up in the vent on its shell, then a heavy volcanic boom spits a glowing lava bomb",
+   "def": "it pulls into its basalt shell: a dense rocky clunk, a muffled deep ring inside the dome, magma bubbling softly in the cracks"
   },
   "B1-18": {
-   "en": "Powder Depot Guard",
-   "ko": "화약통 방패로 총 쏨 · 통을 쾅 두드려 막음",
-   "atk": "a clipped sentry volley: boots snapping to a stop, a tight line of musket cracks together, then a dry rattle of cartridge boxes closing",
-   "def": "they brace behind iron-hooped powder barrels: a deep hollow knock of oak, a firm clank of hoops, only a restrained dusty rustle of black powder inside"
+   "en": "Depot Fire Ants",
+   "ko": "불개미 떼 턱으로 집어뜯음 · 등껍질을 맞대고 버팀",
+   "atk": "a column of fire ants surges: a dry rapid clicking of chitin, a hot sizzle, then a crowd of mandibles snapping shut with a crunch and a tiny spark burst",
+   "def": "the ants lock carapaces into a wall: a hard glossy clack, a hum of clicking legs, a heated sizzle rising from the joints"
   },
   "B1-20": {
    "en": "Scatter Grenadiers",
@@ -86,16 +87,16 @@
    "def": "a rounded iron shield catches a glancing knock: a bright metallic clunk, several tiny shards ticking off the plate, boots scraping to hold"
   },
   "B1-21": {
-   "en": "Wheeled Cannon",
-   "ko": "바퀴 굴러 멈추고 쾅 · 나무 포가가 삐걱",
-   "atk": "wooden wheels rumbling down a slope, a squealing axle brake, a lurching stop, then a flat heavy cannon blast with a rolling trundle back",
-   "def": "a thick oak carriage takes the strike: a hollow knock, creaking spokes and axle groaning, a loose cannonball rolling away with a low rumble"
+   "en": "Fire-Tusk Boar",
+   "ko": "달군 엄니로 돌진해 들이받음 · 거친 가죽으로 받고 콧김",
+   "atk": "a fire boar charges downhill: thundering hooves on cinders, a snorting grunt, then a heavy goring crunch of red-hot tusks with a sizzle",
+   "def": "a thick scorched hide takes the hit: a deep meaty thud, an angry squealing grunt, bristles crackling and a hot snort of smoke"
   },
   "B1-22": {
-   "en": "Flamethrower",
-   "ko": "불 뿜는 통 쉬익 · 통 안 연료가 출렁",
-   "atk": "a pressurised tank valve cracks open, a hot pulsing whoosh of a long gush of fire, with crackling spit and flickering roar throughout",
-   "def": "a squat iron fuel tank on its back is struck: a dull sloshing clang, a rattle of hose clamps, nervous low hiss of leaking pressure"
+   "en": "Fire-Breathing Chimera",
+   "ko": "세 머리가 함께 불 뿜음 · 갈기 세우고 세 목소리로 으르렁",
+   "atk": "three heads roar at once, lion, goat and serpent: a layered snarl-bleat-hiss, a deep inhale, then a gushing roaring jet of flame that splashes and keeps burning",
+   "def": "it rears and takes the blow on its hide: a heavy thump, a triple angry roar, the serpent tail hissing and lashing with a crackle of heat"
   },
   "B1-24": {
    "en": "Goblin Mortarman",
@@ -104,52 +105,52 @@
    "def": "it ducks into its helmet-like iron pot: a dented tinny clang, a hollow ring, sand and loose pebbles trickling down the sides"
   },
   "B1-25": {
-   "en": "Siege Battery",
-   "ko": "육중한 대포 여럿이 차례로 포 · 흙 보루 뒤에서 흔들림",
-   "atk": "several heavy guns thunder in staggered order: a deep rolling boom, a second, a third, each with chains clanking and wood recoiling",
-   "def": "thick earthworks and gabions absorb the fire: a deep packed-earth thump, wicker creaking, a long cascade of soil sliding, a muffled ground tremor"
+   "en": "Siege Toad",
+   "ko": "목 주머니 부풀려 용암 멀리 뱉음 · 두꺼운 피부가 출렁",
+   "atk": "a siege toad's throat sac swells with a long rising gurgle, a deep croak, then a heavy spit of lava arcs far away and splats with a sizzling hiss",
+   "def": "its warty bulk wobbles under the hit: a dull rubbery thump, a disgruntled croak, steam puffing from its skin"
   },
   "B1-26": {
-   "en": "Crown Assault Gun",
-   "ko": "내리막 질주하며 쾅 · 쇠 방패판 찌그러짐",
-   "atk": "wheels rattling downhill faster and faster with no brake, a savage blast of cannon fire mid-descent, then a crash of tumbling iron",
-   "def": "a hasty iron plate takes the strike: a shrieking scrape of metal, a sharp bent clang, wheels skipping and wobbling on loose rock"
+   "en": "Crown Fire Giant",
+   "ko": "용암 주먹 내리꽂음 · 바위 껍질이 갈라지며 버팀",
+   "atk": "a lava giant strides downhill with rumbling steps, swings a molten fist with a roaring whoosh, then a crushing impact with a splash of fire and cracking rock",
+   "def": "its rocky crust takes the blow: a deep stony crack, molten fire hissing out of the split, a low grinding rumble as it seals again"
   },
   "B1-27": {
-   "en": "Blast Engineer",
-   "ko": "시험 폭약 펑 · 그을린 작업복에 퍽",
-   "atk": "a workbench tap of tools, a fizzing glass flask tipped into a mixing bowl, then a bursting flash-bang with a rattle of scattering brass bits",
-   "def": "a smoke-blackened leather smock and goggles: a muffled thump, glass lenses ticking, a pot lid clanging off and rolling in a ring"
+   "en": "Blast Ifrit",
+   "ko": "불기둥 몸이 폭발하듯 덮침 · 불길이 흩어졌다 다시 타오름",
+   "atk": "an ifrit swells with a deep roaring inhale, then bursts forward in an explosive whump of flame, a crackling blast and a gust of scorching heat",
+   "def": "the blow tears through its fire body: a ragged flaring whoosh, a guttering crackle, then a rising roar as the flames gather again"
   },
   "B1-30": {
-   "en": "Ironclad Flame Carriage",
-   "ko": "쇠 포차가 불길 뿜음 · 철판에 부딪혀 징 울림",
-   "atk": "a heavy grinding of iron treads, a rumbling surge, then a roaring gout of flame with a boom of the main gun and metal groaning",
-   "def": "thick riveted iron plates: a loud clang, a low resonant ring-out that rolls down the plating, rivets ticking and embers ticking off"
+   "en": "Lava Burrow-Worm",
+   "ko": "땅을 뚫고 솟아 물어삼킴 · 굳은 마디로 받으며 꿈틀",
+   "atk": "the ground rumbles, rock grinds apart, and a lava worm bursts up: a gushing roar of magma, then a deep wet gulp as its ring-toothed maw closes",
+   "def": "hard basalt rings take the blow: a dense stony clunk, a long grinding writhe, magma sloshing deep inside its segments"
   },
   "B1-31": {
-   "en": "Artillery Marshal",
-   "ko": "손짓 한 번에 포대 일제 사격 · 군도로 막고 묵직하게 서있음",
-   "atk": "a single sharp leather-glove snap, a pause, then a whole battery fires in one huge rolling thunder with a shaking ground rumble",
-   "def": "it stands firm in medal-laden armour: a deep dense clank, a jingle of heavy medals, boots planted and unmoved with a grounded rumble"
+   "en": "Crown Fire Serpent",
+   "ko": "불이빨로 물어 불을 옮김 · 비늘 끌며 똬리를 틂",
+   "atk": "a fire serpent rises from a lava stream: a sizzling hiss, a fast whipping strike, then a burning bite with a molten crackle that keeps smouldering",
+   "def": "it coils tight against the blow: coal scales scraping on stone, a hot rattling hiss, a puff of embers shaken loose"
   },
   "B1-32": {
-   "en": "Thalakus Gunner",
-   "ko": "검은 화약 포 · 출렁이는 바다 울림에 기울어",
-   "atk": "a gurgling pour of black-tinted powder, a deep boom heavy as a slow tide, then a distant wash of rolling surf under the echo",
-   "def": "a hit lands in a thick dark coat: a deep wet slap, a slow swell of low rumble like far-off water sloshing against iron hull"
+   "en": "Thalakus Tar Horror",
+   "ko": "끈적한 역청 팔로 덮어씌움 · 몸이 질척하게 삼킴",
+   "atk": "a tar horror lurches forward on heavy slurping steps, a thick bubbling glop, then a smothering sticky slap with a hiss of burning oil",
+   "def": "the blow sinks into its tar: a deep wet squelch, bubbles popping, a long sticky sucking sound as the weapon pulls free"
   },
   "B1-33": {
-   "en": "Dormak Cannon Mouth",
-   "ko": "분화구에서 포효하듯 쾅 · 용암 석벽이 꿈쩍 않음",
-   "atk": "a molten crater rumbling, a bellowing deep boom like a volcano's roar, erupting with a roaring rush of sparks and rock",
-   "def": "a cannon barrel sunk into volcanic rock: a thick unmoving stony thud, a bubbling low gurgle of lava, a ring of heated iron"
+   "en": "Dormak's Crater",
+   "ko": "분화구가 터지듯 불덩이 뿜음 · 바위 몸이 꿈쩍 않음",
+   "atk": "a living crater rumbles deep inside, the ground shudders, then a thunderous eruption boom hurls glowing stones that whistle down and crash far away",
+   "def": "its basalt cone takes the hit: a deep dull stone knock, a low volcanic grumble, ash and pebbles trickling down its sides"
   },
   "B1-34": {
-   "en": "Crown Siege Host",
-   "ko": "공성 망치와 대포가 함께 · 방패 대열로 막음",
-   "atk": "a marching beat of a crowd, a ram's heavy rumble, then a crashing slam of timber against masonry with a booming cannon salvo",
-   "def": "a wall of shields locks together: a chorus of heavy clacks, a deep wooden thud, boots grinding as a long line holds against the shove"
+   "en": "Crown Behemoth",
+   "ko": "산 같은 몸으로 짓밟음 · 바위 가죽이 묵직하게 버팀",
+   "atk": "a behemoth rears and slams down: earthquake footsteps, a cavernous bellow, then a crushing ground-shaking stomp with rock slides and splashing lava",
+   "def": "its craggy hide shrugs off the blow: a deep rocky thud, a long rumbling groan, scree pattering off its ridged back"
   },
   "B1-36": {
    "en": "Blasting Goblin King",
@@ -158,22 +159,22 @@
    "def": "a stout iron crown and fat belly: a deep metallic bong ringing from the crown, jingling coins, and a big fleshy thump with a rolling reverb"
   },
   "B1-41": {
-   "en": "Sandbag Trenchman",
-   "ko": "낮게 엎드려 총 한 발 · 모래주머니가 푹 삼킴",
-   "atk": "a lazy flip of a hatch, a patient dry rifle crack from behind a low mound, then a sandy puff and faint distant whine",
-   "def": "fat stacked sandbags swallow the hit: a heavy soft whump, a trickle of sand pouring out of a ripped seam, burlap stretching with a creak"
+   "en": "Ashshell Snail",
+   "ko": "느릿하게 껍데기로 밀어붙임 · 재 껍데기에 맞으면 불길이 되튐",
+   "atk": "an ash snail slides forward with a slow wet slither and shoves its shell: a hollow crusty knock, a soft sizzling smear of molten slime",
+   "def": "it withdraws into its ash-crusted shell: a dull crusty clunk, then a hot flare of fire spitting back out of the cracks at the attacker"
   },
   "B1-42": {
-   "en": "Blastproof Armoured",
-   "ko": "쇠옷으로 몸통 박치기 · 쾅 하고 불길이 되튐",
-   "atk": "a heavy stomp forward in thick plates, an armoured shoulder shove with a clanking crash, then a few bristling spikes scraping",
-   "def": "the thick suit absorbs a blast: a deep boom muffled by iron, a long ringing clang, then a sudden whoosh of flame bursting off the plates back at the attacker"
+   "en": "Boiling Lava Slime",
+   "ko": "끓는 몸으로 덮쳐 지짐 · 출렁 삼키고 불길이 되튐",
+   "atk": "a lava slime heaves itself forward: a thick bubbling gloop, a heavy molten splash, and a searing sizzle as it smothers the foe",
+   "def": "the blow sinks into molten rock: a deep sloshing splash, a gurgling bubble, then a burst of fire and steam spitting back at the attacker"
   },
   "B1-43": {
-   "en": "Fortan Iron Bastion",
-   "ko": "보루 포문이 철컥, 쾅 · 철벽이 울리고 불길이 되튐",
-   "atk": "iron gun-ports clank open with big hinge groans, a thunderous slow boom through a stone loophole, then sparks scraping on masonry",
-   "def": "a mighty iron bulwark: a monstrous deep clang, a long resonant ring-out vibrating the whole wall, then a roaring tongue of fire spitting out of the loopholes"
+   "en": "Fortan Kiln Spirit",
+   "ko": "가마 문이 철컥 열리며 불길 · 벽돌 몸이 울리고 불길이 되튐",
+   "atk": "a walking kiln grinds forward on brick feet, its iron furnace door clanks open with a groaning hinge, then a roaring blast of furnace fire",
+   "def": "fire-brick and iron take the strike: a heavy dense thud, a long iron clang, then a roaring tongue of furnace fire bursting out of the door at the attacker"
   },
   "SP-B1": {
    "en": "Fire Swallower",
@@ -200,52 +201,52 @@
    "def": "a bandolier of grenades and iron breastplate: a deep clank, a jangle of metal pins, a dull rolling crash like a sack of bombs"
   },
   "EP-B1-2": {
-   "en": "Crown Marksman",
-   "ko": "멀리 총 한 발, 심지 끊김 · 몸을 숨겨 소리 없이",
-   "atk": "a held breath, a razor-sharp rifle crack from afar, a long thin whine across the valley, then a tiny snap of a severed fuse",
-   "def": "it is already gone: a rustle of cloak, a gravel skitter, a quiet empty pebble drop, then a fading far-off echo with nothing struck"
+   "en": "Crown Phoenix",
+   "ko": "하늘에서 불화살처럼 내리꽂힘 · 불꽃 날개가 재로 흩어졌다 되살아남",
+   "atk": "a phoenix cries high and far, a long whooshing dive on flaming wings, then a piercing burning strike with a bright crackle of scattering embers",
+   "def": "its feathers flare and burn away: a soft fiery whoosh, a crackle of falling ash, then a rising warm roar as the flames rekindle"
   },
   "EP-B1-3": {
    "en": "Dragon-Hunter Cannon",
-   "ko": "거대한 대포 관통탄 · 두꺼운 주철 포신이 울림",
-   "atk": "a monstrous cast-iron gun is rammed and aimed with chain winches, an earth-shattering boom, then a piercing shriek of the shot ripping through everything",
-   "def": "a colossal cast-iron barrel rings: a mighty deep gong, thick rattling chain tension, a slow settling groan of massive metal"
+   "ko": "깨어난 거포가 스스로 관통탄 · 주철 포신이 짐승처럼 울림",
+   "atk": "an awakened cast-iron gun groans like a waking beast and lifts its own barrel with rattling chains, an earth-shattering boom, then a shriek of the shot ripping through everything",
+   "def": "its colossal barrel rings when struck: a mighty deep gong, a low iron growl like slow breathing, chains tensing and creaking"
   },
   "PN-B1-C1": {
-   "en": "Fortan Loader",
-   "ko": "빠르게 장전해 발사 · 단단히 버티고 선 자세",
-   "atk": "a rapid flurry of ramrod and powder pours, a quick-fire sharp musket crack, then brass casings clinking in a tidy rhythm",
-   "def": "feet braced, the musket held across: a firm wooden knock, a boot scrape and firm stance, the powder horn clinking only slightly"
+   "en": "Salamander Hatchling",
+   "ko": "작은 불꼬리 휘둘러 화끈 · 몸을 말아 웅크림",
+   "atk": "a salamander hatchling skitters in with a tiny chirp, flicks its burning tail in a quick whip of flame, then a sharp little sizzle on contact",
+   "def": "it curls up tight: a small soft thump, a squeaky chirp, its wick-like tail sputtering and then flaring back up"
   },
   "PN-B1-C3": {
-   "en": "Fortan Battery Barrier",
-   "ko": "쇠 방벽 뒤에서 포 · 철판이 징 울림",
-   "atk": "a rolling barrier planted with a clang, a gunport flap rattles open, a strong boom and a rumble across the plating",
-   "def": "a portable iron screen takes the strike: a loud dense clang with a ringing sustain, solid braced feet, no give and only a tiny rivet tick"
+   "en": "Bombardier Beetle",
+   "ko": "꽁무니로 끓는 즙 쏘아 퍽 · 단단한 등껍질에 탕",
+   "atk": "a bombardier beetle raises its abdomen with a chitin creak, a pressurised pop, then a boiling spray bursts with a scalding hiss and a splatter",
+   "def": "its scorched carapace takes the blow: a hard ringing clack, legs scrabbling for grip, a little warning hiss of steam"
   },
   "PN-B1-U1": {
-   "en": "Depot Overseer",
-   "ko": "열쇠 꾸러미 흔들고 멀리서 한 발 · 단단히 버팀",
-   "atk": "a heavy ring of iron keys jangles, a bolt thrown, then a long-barrel pistol cracks sharply with a calm pop of smoke",
-   "def": "a thick coat and brass-buckled belt: a firm leathery thud, keys jingling once, boots staying planted without a stagger"
+   "en": "Furnace Brazier Spirit",
+   "ko": "화로 문틈으로 불길 확 · 무쇠 화로가 꿋꿋이 버팀",
+   "atk": "a brazier spirit's grate rattles, a bellows-like puff of breath, then a sudden roaring gout of coal fire bursting through the bars",
+   "def": "its riveted iron belly takes the hit: a heavy pot-iron clang, coals shifting and crackling, the steady roar never going out"
   },
   "PN-B1-U2": {
-   "en": "Dormak Flame Gunner",
-   "ko": "달궈진 포신으로 쾅 · 열기에 지글",
-   "atk": "a glowing-red barrel sizzles when lowered, a boom with a lava-hot whoosh, then a sizzling crackle as the barrel cools",
-   "def": "its heated skin hisses against the strike: a sizzling steam-like hiss, a soft thud, cloth bandages smoking and steam puffing"
+   "en": "Dormak's Fire Spider",
+   "ko": "녹은 실 쏘아 칭칭 · 흑요석 다리로 받으며 지글",
+   "atk": "a fire spider clicks across stone on obsidian legs, a hissing jet of molten silk, then a crackling as the threads cool and harden around the foe",
+   "def": "hard obsidian legs take the blow: a glassy clink, a scuttling skitter, its magma abdomen bubbling with a low hiss"
   },
   "PN-B1-R": {
-   "en": "Gunsmoke Sniper",
-   "ko": "연기 속 한 발 · 연기 속에 낮게 숨음",
-   "atk": "a deep breath, a drifting whoosh of thick smoke, a single flat sharp crack out of the haze, then a lingering distant ring",
-   "def": "low in the haze, it takes the hit calmly: a muffled thump, a drift of smoke swirling apart, a solid settle of its stance"
+   "en": "Gunsmoke Fire Hawk",
+   "ko": "연기 속에서 내리꽂힘 · 연기 속으로 솟구쳐 피함",
+   "atk": "a shrill hawk cry from the haze, a fast diving whoosh through thick smoke, then a single sharp burning talon strike and a flare of embers",
+   "def": "it beats up into the smoke: a sudden flap of wings, a glancing swish, a fading cry as the haze closes behind it"
   },
   "PN-B1-E": {
-   "en": "Thalakus Pulse Battery",
-   "ko": "맥박 박자 맞춰 연발 포 · 땅 울림에 몸이 버팀",
-   "atk": "a deep thumping heartbeat from the ground, quickening, then a rapid sharp pulse of cannon booms with a razor-sharp crack on the last",
-   "def": "firmly planted on a pulsing ground: a heavy iron clang, a slow deep throb, the pulse shaking dust off but not shifting it"
+   "en": "Beating Heart-fire Shard",
+   "ko": "심장 박동 맞춰 불길 연달아 · 박동이 흔들리지 않고 버팀",
+   "atk": "a deep heartbeat thump from the shard, quickening, then a rapid pulse of roaring fire bursts, each one sharper, ending in a searing crack",
+   "def": "the blow strikes molten crystal: a dense dull knock, a heavy heartbeat that does not falter, a crackling surge of heat"
   },
   "UP-B1-12": {
    "en": "Master Sapper",

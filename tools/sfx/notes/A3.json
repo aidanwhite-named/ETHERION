@@ -8,52 +8,52 @@
    "def": "no armour, the young archer stumbles back: a soft cloth rustle, a startled gasp of air, a dropped arrow clattering on stone"
   },
   "A3-02": {
-   "en": "Fletcher",
-   "ko": "화살깃 쓸고 휙 · 깃 다발로 가림",
-   "atk": "a thumb strokes crisp feather fletching, a quick dry nock click, then a short buzzing arrow flight ending in a light thunk",
-   "def": "a bundle of loose arrows is raised as a shield: dry shafts rattling together, feathers ruffling, a soft step backward on stone"
+   "en": "Young Harpy",
+   "ko": "작은 깃 쏘아 틈 꿰뚫음 · 날개 퍼덕이며 휘청",
+   "atk": "a young harpy screeches and flings a single sharp feather with a flick of its wing: a thin whistle, then a precise piercing tick through a gap",
+   "def": "no armour, it flaps backward: a flurry of messy feathers, a startled squawk, talons scrabbling on stone"
   },
   "A3-04": {
-   "en": "Watchtower Sentry",
-   "ko": "망루 경적 뒤 화살 · 단단히 버팀",
-   "atk": "a low warning click from a watchtower rail, a slow steady bowstring draw creaking, then a single heavy arrow thump",
-   "def": "the sturdy sentry braces against the rail: a dull wooden knock, a long cloak flapping in high wind, boots grinding firm on planks"
+   "en": "Watchtower Owl",
+   "ko": "소리 없이 내려와 발톱 · 깃 부풀려 버팀",
+   "atk": "near-silent wings glide down with only a soft hush of air, a single low hoot, then talons grip with a sharp scratch",
+   "def": "the owl puffs up its feathers: a soft muffled thump, a ruffle of plumage, a calm two-note hoot"
   },
   "A3-05": {
-   "en": "Wind Scout",
-   "ko": "바람 타고 사뿐 화살 · 바람 속으로 물러남",
-   "atk": "light running footsteps on grass, a quick soft bowstring flick, an arrow carried on a gust with a gentle airy whistle",
-   "def": "the scout slips away before the hit lands: a swift whoosh of a short cloak, a feathery skid, a fading gust carrying it off"
+   "en": "Wind Sylph",
+   "ko": "바람 칼날 휙 · 바람 속으로 흩어짐",
+   "atk": "an airy laugh, a light swirling whoosh, then a thin blade of wind slices past with a crisp whistle",
+   "def": "the blow passes through a body of air: a breathy rush, a scatter of caught leaves, the gust gathering back with a soft whistle"
   },
   "A3-07": {
-   "en": "Gale Archer",
-   "ko": "돌풍이 화살을 채감 · 옷자락 펄럭",
-   "atk": "a hasty half-drawn bow, a sudden gust snatches the arrow with a sharp whoosh, then a fast rattling impact",
-   "def": "no guard at all, the hot-headed archer is buffeted: a loud cloak flap, a sharp exhale, sliding boots on gritty stone"
+   "en": "Gust Imp",
+   "ko": "돌풍 채어 와 꽂음 · 깔깔대며 날아 빠짐",
+   "atk": "a high giggle, a sudden snatching gust, then a quick spinning wind dart jabs through armour with a sharp pop",
+   "def": "the imp tumbles away on the breeze: a squeaky yelp, tiny wings buzzing, a puff of air scattering"
   },
   "A3-09": {
-   "en": "Spire Bowman",
-   "ko": "계단 위 시위 퉁 · 가죽 팔보호대로 받음",
-   "atk": "boots on stone stairs, a steady bowstring twang, an arrow cutting straight through still air and striking a wooden target",
-   "def": "a leather bracer takes the blow: a firm padded smack, a creaking strap, a short grunt of breath held in"
+   "en": "Spire Birdfolk Bowman",
+   "ko": "날개 접고 시위 퉁 · 깃 팔로 받음",
+   "atk": "a beak clicks, folded wings rustle, then a bowstring twangs and an arrow thuds into wood",
+   "def": "feathered arms come up: a soft feather whump, a leather bracer knock, a short indignant chirp"
   },
   "A3-10": {
-   "en": "Rapid-Fire Novice",
-   "ko": "화살 다다닥 연사 · 허둥지둥 비틀",
-   "atk": "three quick clumsy bowstring snaps in a row, arrows buzzing out unevenly, a scatter of light thunks and one wooden clack",
-   "def": "frail and off balance, the novice stumbles: an empty quiver rattling, a quick cloth rustle, arrows spilling onto stone"
+   "en": "Feather-Arrow Harpy",
+   "ko": "깃화살 다다닥 연사 · 깃털 흩날리며 비틀",
+   "atk": "rapid wing flicks fire a flurry of feathers: a fast staccato of whistling quills and a scatter of small piercing thunks",
+   "def": "the harpy wobbles in the air: a messy burst of loose feathers, a squawk, a clumsy wing beat"
   },
   "A3-11": {
-   "en": "Gale Courier",
-   "ko": "바람 타고 쏜살 돌진 · 휙 비켜섬",
-   "atk": "a rapid streak: a quick tearing zip of air, a satchel strap slapping, then a snappy gust-punch arriving before its own echo",
-   "def": "a nimble sidestep on a gust: a short whip of air, boots skidding on gravel, a leather satchel swinging with a light creak"
+   "en": "Griffin Cub",
+   "ko": "날개 치며 쏜살 돌진 · 휙 비켜섬",
+   "atk": "small wings beat fast, a squeaky screech, then a tumbling dive ends in a light talon scratch and a beak peck",
+   "def": "the cub hops aside: a quick flap, a little chirping growl, the blow whooshing past"
   },
   "A3-13": {
-   "en": "Storm Archer",
-   "ko": "빗속 시위 · 젖은 망토로 가림",
-   "atk": "rain pattering on a cloak, a wet bowstring twang, an arrow hissing through falling water with a faint distant thunder roll",
-   "def": "a soaked cloak is swept up against the blow: a heavy wet flap, splashing droplets, a slipping step on wet stone"
+   "en": "Storm Hippogriff",
+   "ko": "빗속 급강하해 발톱 · 젖은 깃으로 가림",
+   "atk": "rain hisses, a sharp eagle screech, then a dive with a rush of wet wings and a heavy talon strike",
+   "def": "rain-soaked feathers flare: a wet heavy flap, a snort, hooves splashing in a puddle"
   },
   "A3-15": {
    "en": "High Elf Sniper",
@@ -62,70 +62,70 @@
    "def": "the sniper twists aside at the last instant: a crisp swish of air, the attack slicing nothing but wind, a light landing step"
   },
   "A3-16": {
-   "en": "Chink-Seeker Archer",
-   "ko": "갑옷 틈 꿰는 화살 · 몸 틀어 흘림",
-   "atk": "a taut twang, a narrow arrow whistling straight, then a sharp metallic scrape as it slips through a gap between steel plates",
-   "def": "a quick sidestep and a twist of the body: a short cloak whoosh, the blow glancing off a leather shoulder with a dull brush"
+   "en": "Chink-Seeking Falcon",
+   "ko": "급강하해 갑옷 틈 꿰뚫음 · 몸 틀어 흘림",
+   "atk": "a thin shriek high above, a fast whistling stoop, then talons slip through an armour joint with a precise metallic tick",
+   "def": "the falcon twists in flight: a quick feather flick, the blow glancing off with a swish of air"
   },
   "A3-18": {
-   "en": "Twin-String Archer",
-   "ko": "활 두 자루 번갈아 · 시위로 쳐냄",
-   "atk": "two bowstrings snap one right after the other, a pair of arrows riding the same windy path with a doubled airy hiss",
-   "def": "a bow limb is swung to knock the blow away: a sharp wooden clack, a humming string, a quick shuffle backward"
+   "en": "Gemini Archer",
+   "ko": "별 둘이 번갈아 쏨 · 별빛 시위로 쳐냄",
+   "atk": "two starlit bowstrings hum in turn, one shimmering arrow whistles off and a second rides its wake, landing in a doubled crystalline chime",
+   "def": "a bowstring of starlight snaps up to deflect: a bright twang, faint chiming sparks, the star lines flickering"
   },
   "A3-19": {
-   "en": "Stormtower Archer",
-   "ko": "오만하게 당긴 장궁 · 구름 휘장 튕김",
-   "atk": "a proud long draw of a heavy longbow, a deep resonant twang, a thick arrow tearing through air with a rumbling whoosh",
-   "def": "a swirl of cloud and wind deflects the blow: a soft billowing puff, a glancing airy thud, cloth snapping in the gust"
+   "en": "Stormtower Birdfolk Archer",
+   "ko": "오만하게 당긴 장궁 · 펼친 날개가 바람 튕김",
+   "atk": "a long bow creaks in a slow proud draw, a beak clicks, then a heavy release and an arrow splits the wind with a clean crack",
+   "def": "wings snap open in a gust: a firm feather slap, a buffet of air turning the blow, a sharp chirp"
   },
   "A3-20": {
-   "en": "Velmir's Oath-Sworn",
-   "ko": "별빛 맑은 종소리 번뜩 · 별빛 휘장",
-   "atk": "a clear glass-bell tone rings once, a thin starlight shimmer rises, then a precise bright crack lashes at the foe",
-   "def": "a veil of starlit air: a held crystalline hum, a soft glassy ripple as the blow dissolves, faint twinkling flecks sinking"
+   "en": "Belumir's Open Book",
+   "ko": "책장 넘기며 별 문자 번뜩 · 책장이 겹쳐 막음",
+   "atk": "pages riffle in a gust of wind, a star glyph lifts off with a clear bell tone, then it lances straight through armour with a bright glassy chime",
+   "def": "the book snaps half shut: a dry thick vellum clap, pages fanning with a rustle, silver clasps clinking"
   },
   "A3-22": {
-   "en": "Wind-Reading Archer",
-   "ko": "바람 멎는 틈에 쏨 · 공기 빠져 흘림",
-   "atk": "a sudden hush as the wind dies, a single soft bowstring release in the stillness, then a clean arrow strike breaking the silence",
-   "def": "the air around the archer drains away and the blow loses force: a hollow suction, a weak muffled thud, a light step aside"
+   "en": "Wind-Riding Griffin",
+   "ko": "바람 멎는 틈에 내리꽂힘 · 기류 타고 흘림",
+   "atk": "the wind suddenly falls silent, then wings fold and a griffin plunges with a rising whistle, landing in a heavy talon strike and a screech",
+   "def": "it slips the blow on a shifting current: a soft rush of air, a wing tilting with a feathered swish"
   },
   "A3-23": {
-   "en": "Velmir's Ranger",
-   "ko": "고원 길 달려 쏨 · 망토로 받아넘김",
-   "atk": "steady boots crunching on a mountain path, a practiced bowstring twang, an arrow sailing far with a long airy whistle",
-   "def": "a heavy travel cloak is swung to turn the blow: a thick wool flap, a scraping glance, gravel shifting under boots"
+   "en": "Belumir's Star Fox",
+   "ko": "별빛 꼬리 휘두름 · 가볍게 뛰어 넘김",
+   "atk": "light paws patter, a sharp yip, then a starlit tail sweeps with a twinkling chime and a quick nip",
+   "def": "the fox bounds aside: a soft scrabble of paws, a shimmer of starlight trailing, a teasing bark"
   },
   "A3-24": {
-   "en": "Thunder Arrow Archer",
-   "ko": "번개 실은 화살 · 구름이 삼킴",
-   "atk": "a bowstring crackling with static, a bright zap as the arrow leaves, then a sharp thunderclap snap on impact",
-   "def": "a dark cloud swallows the blow: a soft damp whump, a low rumble, a faint fizz of discharged static"
+   "en": "Thunder-Arrow Tengu",
+   "ko": "깃부채로 번개 화살 · 구름이 삼킴",
+   "atk": "a crow-like caw, a feather fan snaps open, a bowstring twangs and an arrow crackles with lightning before striking with a sharp electric crack",
+   "def": "a puff of storm cloud swallows the hit: a soft cloudy whump, a fizz of static, black feathers rustling"
   },
   "A3-26": {
-   "en": "Storm Hunter",
-   "ko": "폭풍 쫓아 사냥 화살 · 폭풍에 휘감김",
-   "atk": "howling storm wind, a powerful hunting bow twang, a barbed arrow ripping through the gale and slamming home with a heavy thunk",
-   "def": "the hunter rides the storm around the blow: a roaring gust wrapping the body, flapping leathers, the hit lost in rushing wind"
+   "en": "Storm-Hunting Hippogriff",
+   "ko": "폭풍 쫓아 사냥 돌진 · 폭풍에 휘감김",
+   "atk": "thunder rumbles in the distance, hooves gallop then lift into heavy wing beats, a screech, and a crushing talon strike",
+   "def": "a swirl of storm wind wraps it: a gusty roar, a wet wing flap, a snort as it rights itself"
   },
   "A3-28": {
-   "en": "Sky Cradle Pilgrim",
-   "ko": "낮은 바람 소리 뒤 고요한 일격 · 바람 속으로 사라짐",
-   "atk": "a soft hollow wind-sigh over high rocks, a pause, then a long deep gust sweeps through with a haunting airy whistle",
-   "def": "the pilgrim dissolves into the breeze: a hollow rushing sigh, thin high whistling over open air, the strike swallowed by soft wind"
+   "en": "Shooting-Star Imp",
+   "ko": "불티 꼬리로 들이받음 · 깔깔대며 흩어짐",
+   "atk": "a whistling streak of sparks, a high giggle, then a small blazing head-butt pops with a crackle of starfire",
+   "def": "the imp scatters into sparks: a fizzing burst, a tiny yelp, embers twinkling back into place"
   },
   "A3-29": {
-   "en": "Stormtower Archery Master",
-   "ko": "사범의 시범 한 발 · 단단한 자세",
-   "atk": "a measured instructive bowstring draw, a perfectly clean deep twang, an arrow striking dead centre of a thick straw target",
-   "def": "the master stands planted and turns the blow aside: a firm leather slap, a calm steady breath, unmoving boots on stone"
+   "en": "Sagittarius Drawing the Bow",
+   "ko": "별자리 활 한 발 · 별선이 단단히 버팀",
+   "atk": "lines of starlight stretch into a great bow, a long shimmering draw, then a single star arrow looses with a deep crystalline twang and a ringing hit",
+   "def": "the constellation holds its shape: star points chiming as the blow passes between them, a low steady starlight hum"
   },
   "A3-30": {
-   "en": "Stormbird Handler",
-   "ko": "폭풍새 날갯짓 급강하 · 날개로 가림",
-   "atk": "a stormbird shrieks briefly overhead, great wing beats thrash, then a diving gust and a raking talon slash with a crackle of static",
-   "def": "big feathered wings fold in front: thick flapping, a muffled feather thump, a short angry bird cry, static sparks ticking"
+   "en": "Storm Falcon",
+   "ko": "폭풍 몰고 급강하 · 날개로 가림",
+   "atk": "a gust of storm wind howls, a fierce shriek, then a stooping dive ends in a hard talon smack and a thunder pop",
+   "def": "wings sweep across the body: a sharp feather whoosh, a blast of wind, a defiant cry"
   },
   "A3-31": {
    "en": "Shard Isle Marksman",
@@ -134,28 +134,28 @@
    "def": "small floating rocks swirl into the blow's path: gritty stone clacks, scraping pebbles, a whistling eddy around the body"
   },
   "A3-32": {
-   "en": "Whirlwind Marksman",
+   "en": "Whirlwind Tengu",
    "ko": "회오리 셋 꿰는 한 발 · 겹겹이 도는 바람",
-   "atk": "three whirlwinds roaring at once, a single piercing arrow punching through each with rising whooshes, ending in a sharp crack",
-   "def": "layered spinning winds swallow the blow: overlapping swirling gusts, a glancing thud, air settling with a long sigh"
+   "atk": "a fan swings three times, three whirlwinds spin up roaring, then one arrow threads them all with a rising whistle and a sharp crack",
+   "def": "layered whirlwinds circle the tengu: a deep rushing roar, the blow tossed aside, feathers fluttering"
   },
   "A3-33": {
-   "en": "Star-Aiming Archer",
-   "ko": "별을 겨눈 긴 시위 · 별빛이 깜박",
-   "atk": "a vast slow draw of a great bow, a deep humming release, a starlit arrow soaring upward with a long shimmering whistle and a single faint chime",
-   "def": "a soft flicker of starlight turns the blow: a gentle glassy shimmer, a muted thud, a robe of eyes rustling in the wind"
+   "en": "Star-Aimer",
+   "ko": "별을 겨눈 별똥별 돌진 · 별빛이 깜박",
+   "atk": "a long rising whistle as a blazing streak climbs, a hiss of trailing sparks, then a bright booming impact and a shower of crackling embers",
+   "def": "the falling star flickers under the blow: a fizzing dim, a soft glassy pulse, then its glow blazes back"
   },
   "A3-34": {
-   "en": "Crown of Storms",
-   "ko": "번개 왕관 아래 장궁 · 구름이 첫 타격 흡수",
-   "atk": "thunder grumbling overhead, a heavy longbow twang, an arrow trailing crackling lightning and bursting in a bright thunderclap",
-   "def": "a crown of storm clouds absorbs the first strike: a deep billowing whump, a rolling rumble, static fizzing away"
+   "en": "Harpy Queen",
+   "ko": "번개 왕관 아래 깃 폭풍 · 구름이 첫 타격 흡수",
+   "atk": "thunder rolls over a crown of cloud, a commanding screech, then a storm of razor feathers tears through armour with crackling sparks",
+   "def": "the crowning thundercloud swallows the first blow: a soft cloudy boom, a crackle of static, a furious wing snap"
   },
   "A3-35": {
-   "en": "Sky Render",
-   "ko": "하늘 가르는 가늘고 긴 칼 · 칼날로 쳐냄",
-   "atk": "a thin blade drawn, wind gathers on its edge with a rising keening, then one long ripping slice tears across the air like torn silk",
-   "def": "a swift parry: a ringing steel scrape, the cut aside in a thin whistling swish, a brief cloud-torn hiss trailing"
+   "en": "Sky-Rending Roc",
+   "ko": "거대 날개로 하늘 가름 · 육중한 깃이 막음",
+   "atk": "a colossal wing beat booms like a sail cracking in a gale, a deafening cry, then a sweeping talon strike tears through the air with a long ripping roar",
+   "def": "massive feathers take the hit: a deep heavy thump, a gust of wind, a low rumbling cry"
   },
   "A3-36": {
    "en": "Stormtower Lord",
@@ -164,16 +164,16 @@
    "def": "the whole tower seems to brace with its lord: a deep stone groan, rattling banners in the gale, a heavy settled stance"
   },
   "A3-41": {
-   "en": "Stillness Veilkeeper",
-   "ko": "소리 삼키는 장막 · 칼바람 숨 죽임",
-   "atk": "a soft hush spreads and then a slow muffled push of still air knocks into the foe with a dull padded thump",
-   "def": "a veil of stillness falls: the incoming blow is swallowed in near silence, only a faint cloth whisper and a low hum"
+   "en": "Cloud Whale of Stillness",
+   "ko": "구름 몸으로 덮어 누름 · 칼바람 숨 죽임",
+   "atk": "a deep slow whale song hums, a vast cloud body drifts forward with a soft whoosh, then smothers the foe in a muffled hush",
+   "def": "the blow sinks into cloud: a soft pillowy whump, wind dying to silence, a distant low whale call"
   },
   "A3-42": {
-   "en": "Eye Guardian Spirit",
-   "ko": "폭풍 눈 속 가시 · 고요 단단하게 막음",
-   "atk": "a calm hush, then a thorn of compressed air jabs out with a short stinging whistle and sharp snap",
-   "def": "a rock-solid core of calm inside a roaring storm: a deep wall of wind rings out, a heavy thud, then a thin counter-slash of spiking air"
+   "en": "Eye of the Storm",
+   "ko": "폭풍 눈의 바람 가시 · 고요 단단하게 막음",
+   "atk": "a vast eye blinks with a deep soft thump, the storm hushes, then a thorn of compressed air jabs out with a short stinging whistle",
+   "def": "a calm unblinking core inside a roaring storm: a deep wall of wind rings out, a heavy thud, then a thin counter-slash of spiking air"
   },
   "SP-A3": {
    "en": "Isaac Who Freed Stars",
@@ -188,52 +188,52 @@
    "def": "the stargazer has already read the blow: a quick sidestep, a soft rush of air, an incoming spell scattering into sparkles"
   },
   "UN-A3-7": {
-   "en": "Spell Hunter",
+   "en": "Belumir's Spell Hunter",
    "ko": "주문 꿰는 화살 · 마력 삼켜 울림",
    "atk": "a sharp bowstring twang, an arrow piercing a humming glowing spell with a glassy crack, then a rushing pull of magic into the bow",
    "def": "the hunter draws incoming magic into the bow: a deep suction whoosh, a resonant swallowed hum, a low satisfied thrum of the string"
   },
   "EP-A3-1": {
-   "en": "Needle Tower Wind Archer",
-   "ko": "별 문자 실은 바람 화살 · 바람 틈 비켜섬",
-   "atk": "a bowstring twang wrapped in a bright gust, an arrow etched with star glyphs whistling far and striking with a crisp chime",
-   "def": "the archer slides through a gap in the wind: a quick swish, the blow passing by, a light landing on stone"
+   "en": "Sylph Archer of the Needle",
+   "ko": "별 문자 실은 바람 화살 · 바람이 되어 흩어짐",
+   "atk": "a bright gust takes the shape of a bow, a whistling volley of wind arrows carrying star glyphs fans out and strikes with crisp scattered chimes",
+   "def": "the sylph dissolves into breeze: a quick airy swish, the blow passing straight through, a soft whistle as she reforms"
   },
   "EP-A3-2": {
-   "en": "Thundercloud High Archer",
-   "ko": "번개구름 대궁 · 첫 칼날 흩음",
-   "atk": "storm clouds churning, a heavy war bow released with a deep twang, a lightning arrow splitting the air with a doubled thunderclap",
+   "en": "Thundercloud Whale",
+   "ko": "번개구름 고래 울음 · 첫 칼날 흩음",
+   "atk": "a deep whale call rolls under thunder, storm clouds churn, then a lightning bolt splits from its body with a doubled thunderclap",
    "def": "a ring of thundercloud scatters the first blade: a crackling static burst, a soft cloudy whump, rumbling thunder fading"
   },
   "EP-A3-3": {
    "en": "Sky Cradle Watcher",
-   "ko": "하늘 관문의 장궁 · 관문 같은 방어",
-   "atk": "high-altitude wind howling, a long powerful bowstring draw, an arrow plunging down from above with a rising shriek of air and a heavy impact",
-   "def": "the watcher holds like a gate: a firm ringing block of a bow limb, wind roaring past, a solid unmoving stance"
+   "ko": "별빛 깃 쏟아냄 · 날개 펼쳐 관문처럼 막음",
+   "atk": "huge silent wings unfurl, a deep echoing hoot, then a volley of starlit feathers rains down far and wide with ringing chimes",
+   "def": "great wings spread like a gate: a heavy feathered thump, a calm low hoot, star dots shimmering across the plumage"
   },
   "PN-A3-C1": {
-   "en": "Needle Tower Junior Scout",
-   "ko": "계단 뛰며 화살 · 버티며 서 있음",
-   "atk": "quick light footsteps on stairs, a small bow snap, a short arrow buzzing out and tapping into wood",
-   "def": "the young scout plants its feet and holds: a padded thud, a creaking leather strap, a steadying breath"
+   "en": "Constellation Hound",
+   "ko": "별 사냥개 달려 물기 · 별선이 버팀",
+   "atk": "a bay rings out like a struck crystal, star-dot paws patter with soft chimes, then a starlit bite snaps with a glassy click",
+   "def": "the blow passes between star points: a faint tinkling scatter, starlight lines flickering, a soft whine as they redraw"
   },
   "PN-A3-C3": {
-   "en": "Stormtower Longbow Knight",
-   "ko": "장궁 기사의 묵직한 한 발 · 늘 같은 두께",
-   "atk": "armoured steps, a huge longbow stave creaking under a full draw, a heavy arrow launched with a deep thrumming twang",
-   "def": "a steady wind ward of unchanging thickness takes the hit: a smooth airy thud, a low constant hum, a metal greave scraping"
+   "en": "Longbow Griffin Knight",
+   "ko": "날갯짓으로 먼 바람 화살 · 늘 같은 두께의 바람 결계",
+   "atk": "a griffin rears with a screech and beats its wings, a heavy shaft of wind flies far like a longbow shot and strikes with a deep thunk",
+   "def": "a wind barrier wraps the griffin: a steady roaring hum, the blow skidding off, barding plates clinking"
   },
   "PN-A3-U1": {
-   "en": "Wind Glyph Archer",
-   "ko": "문자 새긴 화살 · 버티는 바람",
-   "atk": "a soft glyph shimmer along the arrow, a clean twang, the arrow riding a steady gust with a bright whistle and a firm strike",
-   "def": "a steady breeze presses back against the blow: a pushing whoosh, a glancing thud, fabric rippling"
+   "en": "Star-Glyph Owl",
+   "ko": "별 문자 깃 날려 보냄 · 버티는 바람",
+   "atk": "a soft hoot, a wing beat sends a glowing star-glyph feather whistling out, striking with a clear chime",
+   "def": "the owl braces in a steady current: a ruffle of feathers, a low hum of air, a calm blink"
   },
   "PN-A3-U2": {
-   "en": "Sky Cradle Gatekeeper",
-   "ko": "관문 앞 시위 · 관문 그대로",
-   "atk": "a heavy gate bar clanks, a firm bowstring release, an arrow crossing the open sky with a long airy hiss",
-   "def": "the gatekeeper does not move: a solid wooden block, wind swirling around, a low steady hum of the gate ward"
+   "en": "Sky Cradle Griffin",
+   "ko": "관문 앞 급강하 · 둥지 지키듯 버팀",
+   "atk": "a screech from a high nest, a steep dive with a rising whistle, then talons pierce through armour with a sharp metallic crack",
+   "def": "the griffin stands its ground like a gatepost: a heavy feathered thud, a growl, claws scraping stone"
   },
   "PN-A3-R": {
    "en": "Starlight Archer Captain",

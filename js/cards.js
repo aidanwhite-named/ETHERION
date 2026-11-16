@@ -19,22 +19,22 @@ const RULES = {
 
 /* 진영: camp 글자는 시뮬레이터의 B/G/A */
 const FACTIONS = {
-  brass:   { id: "brass",   camp: "B", name: "아다만트 연합",   en: "Adamant Concord",    motto: "신 없이, 기술로 신에 닿는다", color: "#d4893a", groups: ["B1", "B2", "B3"] },
-  verdant: { id: "verdant", camp: "G", name: "푸른숲 맹약", en: "Verdant Covenant", motto: "판이 길어질수록 숲은 자란다",  color: "#6fae55", groups: ["G1", "G2", "G3"] },
-  arcane:  { id: "arcane",  camp: "A", name: "비술 성회",   en: "Arcane Conclave",  motto: "모든 힘에는 대가가 따른다",   color: "#9b6ddb", groups: ["A1", "A2", "A3"] }
+  brass:   { id: "brass",   camp: "B", name: "거골 연합",   en: "Titanbone Concord",    motto: "신 없이, 기술로 신에 닿는다", color: "#d4893a", groups: ["B1", "B2", "B3"] },
+  verdant: { id: "verdant", camp: "G", name: "용맥 맹약", en: "Dragonvein Covenant", motto: "판이 길어질수록 숲은 자란다",  color: "#6fae55", groups: ["G1", "G2", "G3"] },
+  arcane:  { id: "arcane",  camp: "A", name: "신탁 성회",   en: "Oracle Conclave",  motto: "모든 힘에는 대가가 따른다",   color: "#9b6ddb", groups: ["A1", "A2", "A3"] }
 };
 const CAMP_TO_FACTION = { B: "brass", G: "verdant", A: "arcane" };
 
 const GROUPS = {
-  B1: { name: "잿불 고블린",     en: "Cinder Goblins",       faction: "brass",   role: "공격형", el: "fire",      glyph: "gun",     color: "#f06a48", ai: "포르탄의 고블린 포대장",     motto: "쏘고, 장전하고, 또 쏜다",       blurb: "고블린과 인간 포병. 작고 겁이 없는 폭약 천재들이다. 광역 피해와 순간 화력이 강하지만, 쏜 다음 턴에는 장전해야 한다." },
-  B2: { name: "무쇠수염 드워프",  en: "Ironbeard Dwarves", faction: "brass",   role: "수비형", el: "metal",     glyph: "golem",   color: "#a3afbd", ai: "두르크하임의 공방장", motto: "강철은 물러서지 않는다",        blurb: "드워프와 그들이 빚은 골렘·오토마톤. 장갑으로 피해를 줄이며 버티지만 느리고 저주에 약하다." },
-  B3: { name: "번개 노움",     en: "Thunder Gnomes",      faction: "brass",   role: "전략형", el: "lightning", glyph: "volt",    color: "#e9bd3c", ai: "볼타리움의 노움 교수", motto: "모은 만큼 터진다",              blurb: "대륙에서 가장 영리하고 몸이 가장 약한 노움 학자들. 충전을 쌓고 장치를 깔아 두었다가 한 번에 터뜨린다." },
-  G1: { name: "바위주먹 오크", en: "Rockfist Orcs",       faction: "verdant", role: "공격형", el: "earth",     glyph: "fang",    color: "#c99260", ai: "가르운의 오크 족장",       motto: "몰릴수록 송곳니는 날카로워진다", blurb: "오크 전사들. 힘은 가장 세지만 꾀가 없고, 늑대와 곰을 타고 싸운다. 몰릴수록 격노해 한 방으로 판을 뒤집는다." },
-  G2: { name: "이끼 트롤",     en: "Moss Trolls",    faction: "verdant", role: "수비형", el: "forest",    glyph: "elder",   color: "#5fbf7a", ai: "실바니엘의 트롤 장로",       motto: "뿌리는 뽑히지 않는다",          blurb: "이끼 트롤과 트렌트. 잘려도 다시 자라는 몸으로 가시로 피해를 돌려주고 재생하며 오래 버틴다. 불에 약하다." },
-  G3: { name: "푸른비늘 인어",     en: "Bluescale Merfolk",   faction: "verdant", role: "전략형", el: "water",     glyph: "spring",  color: "#5cb3e0", ai: "셀레네아의 인어 무녀장",       motto: "물은 모든 상처를 씻는다",       blurb: "인어와 물의 정령 무녀. 물 밖에서는 느리지만, 아군을 치유하고 상대의 강화를 씻어낸다." },
-  A1: { name: "심연 마족",     en: "Abyssal Fiends",         faction: "arcane",  role: "공격형", el: "dark",      glyph: "abyss",   color: "#ac82dc", ai: "녹타르의 계약자",     motto: "대가를 치르면 무엇이든 얻는다", blurb: "마족 계약자. 체력을 대가로 내고 게임 최고 수준의 일격을 날린다." },
-  A2: { name: "성광 천족",     en: "Radiant Seraphs",    faction: "arcane",  role: "수비형", el: "light",     glyph: "radiant", color: "#f0cf6a", ai: "엘라드의 기사단장",       motto: "빛은 등 뒤의 동료를 지킨다",    blurb: "천족과 인간 기사. 아군 대신 공격을 받고 보호막으로 핵심 카드를 지킨다." },
-  A3: { name: "폭풍 하이엘프",   en: "Storm High Elves",    faction: "arcane",  role: "전략형", el: "wind",      glyph: "storm",   color: "#6cc9c1", ai: "바늘탑의 대궁사",     motto: "바람을 읽는 화살은 빗나가지 않는다", blurb: "하이엘프 궁수. 몸은 약하지만, 멀리서 쏘아 갑옷 틈을 꿰뚫고 칼이 닿기 전에 물러선다." }   // v3.70 마법사 → 바람 궁수 (js/elf.js)
+  B1: { name: "도르마크의 심장불", short: "심장불", en: "Dormak's Heartfire",       faction: "brass",   role: "공격형", el: "fire",      glyph: "gun",     color: "#f06a48", ai: "포르탄의 고블린 포대장",     motto: "쏘고, 장전하고, 또 쏜다",       blurb: "거인 도르마크의 식지 않은 심장불이 깨운 것들 — 포르탄의 고블린 포병, 깨어난 화약, 불의 정령, 화산의 짐승. 광역 피해와 순간 화력이 강하지만, 쏜 다음 턴에는 장전해야 한다." },
+  B2: { name: "소르그림의 방패", short: "방패", en: "Sorgrim's Shield", faction: "brass",   role: "수비형", el: "metal",     glyph: "golem",   color: "#a3afbd", ai: "두르크하임의 공방장", motto: "강철은 물러서지 않는다",        blurb: "거인 소르그림의 힘줄 광맥에서 캔 쇠와 그 쇠가 깨운 것들 — 두르크하임의 드워프, 골렘 · 오토마톤, 깨어난 무구, 쇠를 먹는 짐승. 장갑으로 피해를 줄이며 버티지만 느리고 저주에 약하다." },
+  B3: { name: "케라운의 벼락", short: "벼락", en: "Keraun's Thunder",      faction: "brass",   role: "전략형", el: "lightning", glyph: "volt",    color: "#e9bd3c", ai: "볼타리움의 노움 교수", motto: "모은 만큼 터진다",              blurb: "거인 케라운의 번개 신경이 땅 위로 튄 것과 그것을 가둔 볼타리움의 노움 학자들 — 번개 정령, 축전 기계, 폭풍의 짐승. 충전을 쌓고 장치를 깔아 두었다가 한 번에 터뜨린다." },
+  G1: { name: "고르바스의 발톱", short: "발톱", en: "Gorvath's Claw",       faction: "verdant", role: "공격형", el: "earth",     glyph: "fang",    color: "#c99260", ai: "가르운의 오크 족장",       motto: "몰릴수록 송곳니는 날카로워진다", blurb: "산을 업은 용 고르바스의 등에서 자라거나 싸워서 그에게 인정받은 것들 — 가르운의 오크, 바위 거인 · 바위 정령, 오우거 · 미노타우로스, 초원의 짐승. 힘은 가장 세지만 꾀가 없고, 몰릴수록 격노해 한 방으로 판을 뒤집는다." },
+  G2: { name: "베르단의 뿔", short: "뿔", en: "Verdan's Antler",    faction: "verdant", role: "수비형", el: "forest",    glyph: "elder",   color: "#5fbf7a", ai: "실바니엘의 트롤 장로",       motto: "뿌리는 뽑히지 않는다",          blurb: "고목뿔 용 베르단이 지키는 숲과 그 숲이 몸을 얻은 것들 — 실바니엘의 트롤, 트렌트 · 드라이어드, 버섯족, 숲의 짐승. 잘려도 다시 자라는 몸으로 가시로 피해를 돌려주고 재생하며 오래 버틴다. 불에 약하다." },
+  G3: { name: "마렌시아의 노래", short: "노래", en: "Marencia's Song",   faction: "verdant", role: "전략형", el: "water",     glyph: "spring",  color: "#5cb3e0", ai: "셀레네아의 인어 무녀장",       motto: "물은 모든 상처를 씻는다",       blurb: "잊지 않는 바다의 용 마렌시아의 노래가 부른 것들 — 셀레네아의 인어 무녀, 몸을 얻은 노래와 물, 바다의 짐승. 물 밖에서는 느리지만, 아군을 치유하고 상대의 강화를 씻어낸다." },
+  A1: { name: "모르카스의 그믐", short: "그믐", en: "Morkas's New Moon",         faction: "arcane",  role: "공격형", el: "dark",      glyph: "abyss",   color: "#ac82dc", ai: "녹타르의 계약자",     motto: "대가를 치르면 무엇이든 얻는다", blurb: "대가의 신 모르카스 아래 값을 치르고 얻은 것과 값으로 치러진 것들 — 녹타르의 마족 계약자, 망령 · 흡혈귀, 밤의 것. 체력을 대가로 내고 게임 최고 수준의 일격을 날린다." },
+  A2: { name: "솔란테의 새벽", short: "새벽", en: "Solante's Dawn",    faction: "arcane",  role: "수비형", el: "light",     glyph: "radiant", color: "#f0cf6a", ai: "엘라드의 기사단장",       motto: "빛은 등 뒤의 동료를 지킨다",    blurb: "새벽의 어머니 솔란테의 부름을 받은 모든 것 — 천족, 몸을 얻은 기도, 깨어난 대성당, 맹세에 묶인 혼, 새벽의 짐승. 아군 대신 공격을 받고 보호막으로 핵심 카드를 지킨다." },
+  A3: { name: "벨루미르의 별", short: "별", en: "Belumir's Star",    faction: "arcane",  role: "전략형", el: "wind",      glyph: "storm",   color: "#6cc9c1", ai: "바늘탑의 대궁사",     motto: "바람을 읽는 화살은 빗나가지 않는다", blurb: "별을 읽는 신 벨루미르의 앎과 별과 바람이 부른 것들 — 폭풍탑의 엘프 사수, 몸을 얻은 별자리와 책, 바람을 타는 짐승. 몸은 약하지만, 멀리서 쏘아 갑옷 틈을 꿰뚫고 칼이 닿기 전에 물러선다." }   // v3.70 마법사 → 바람 궁수 (js/elf.js) · v3.79 깃발 이름 = "절대자의 상징", 깃발 아래 유닛 종류는 js/kinds.js
 };
 const GROUP_IDS = Object.keys(GROUPS);
 for (const g of GROUP_IDS) GROUPS[g].id = g;
@@ -105,7 +105,7 @@ for (const u of SIM_UNITS) {
     a: u.a, d: u.d, h: u.h, co: u.co, w: u.w, orig: u.orig || null, origCo: u.origCo || null, v12: u.v12 || null, v12Co: u.v12Co || null,
     team: u.team == null ? null : u.team, rev: u.rev || "", legend: u.lv === 8 && u.up >= 2, lock: u.lock || null, pin: u.pin || null, cl: u.anyItem ? "" : (u.cl || "무도"), anyItem: !!u.anyItem, base: u.base || null,   // v3.28 강화 카드(js/upgrades.js): 클래스 없이 어떤 아이템이든
     // v2.9 스페셜 유닛(js/specials.js): 타고난 능력 gift(아이템 능력과 같은 꼴), 덱에 1장(limit), 설명 글
-    gift: u.gift || null, limit: u.limit || 0, special: !!u.special, unique: !!u.unique, flavor: u.desc || "" });   // v3.2 유니크(js/uniques.js)
+    gift: u.gift || null, limit: u.limit || 0, special: !!u.special, unique: !!u.unique, flavor: u.desc || "", kin: u.kin || "" });   // v3.79 kin = 유닛 종류(js/kinds.js) · v3.2 유니크(js/uniques.js)
 }
 for (const s of SIM_SPELLS) {
   const G = GROUPS[s.g];
@@ -136,7 +136,7 @@ for (const t of (typeof SIM_TOKENS !== "undefined" ? SIM_TOKENS : [])) {
   const base = { id: t.id, name: t.n, group: t.g, faction: G.faction, el: G.el, lv: t.lv, up: 0, tok: true, flavor: t.desc || "" };
   CARDS[t.id] = t.kind
     ? Object.assign(base, { type: t.kind === "com" ? "any" : t.kind, a: 0, d: 0, h: 0, co: [], ops: t.ops, cost: {}, gain: {}, text: foeBackText(t.text) })
-    : Object.assign(base, { type: "unit", a: t.a, d: t.d, h: t.h, co: t.co || [], lock: t.lock || null, pin: t.pin || null, w: null, rev: "", legend: false, cl: t.cl || TOKEN_CL[t.id] || "무도", still: !!t.still });   // v3.31 still: 공격 · 반격하지 않는 소환물(화약통 · 뿌리 · 묘목)
+    : Object.assign(base, { type: "unit", a: t.a, d: t.d, h: t.h, co: t.co || [], lock: t.lock || null, pin: t.pin || null, w: null, rev: "", legend: false, cl: t.cl || TOKEN_CL[t.id] || "무도", still: !!t.still, kin: t.kin || "" });   // v3.31 still: 공격 · 반격하지 않는 소환물(화약통 · 뿌리 · 묘목)
 }
 
 /* 소환 비용 = 레벨 (규칙 문서 6. 소환 자원). 유닛·마법·아이템 모두 같다 */
@@ -215,7 +215,7 @@ function itemAbilities(it) {
   if (it.pact) out.push(`[피의 계약 ${it.pact}]`);
   if (it.bleed) out.push(`[출혈 ${it.bleed}]`);
   if (it.shred) out.push("[관통]");
-  if (it.magic) out.push(`[방어무시 ${it.magic === true ? "전부" : it.magic}]`);   // v3.68 옛 [마력 공격] → [방어무시]
+  if (it.magic) out.push("[방어무시]");   // v3.68 옛 [마력 공격] → [방어무시]. 2026-11-16 수치 없이 방어를 전부 무시
   if (it.arcane) out.push(`[마력 공격 ${it.arcane}]`);   // v3.68 새 [마력 공격 N] (인어, engine mrArc)
   if (it.crit) out.push("[치명]");
   if (it.chain) out.push("[연쇄]");
@@ -235,10 +235,20 @@ function itemAbilities(it) {
   if (it.purify) out.push("[정화]");
   if (it.firm) out.push("[굳건]");
   if (it.intercept) out.push("[요격]");
+  if (it.mesmer) out.push("[매혹]");   // v3.80 노래 에픽 (js/itemrework.js, engine attackOne mrCharm)
+  /* v3.81 스페셜 아이템 능력 (engine 끝 "v3.81 스페셜 아이템 능력" 절) */
+  for (const [k, n] of SP_ABIL_NAMES) if (it[k]) out.push(`[${n}]`);
   out.push(...pinAbilities(it, true));   // v3.20 옛 [저주 면역: 스탯]은 [버팀: 스탯]
   if (it.evName) out.push(`[${it.evName}]`);
+  /* v3.81 능력 차례: it.abOrder(데이터 키)가 있으면 그 차례로 앞에 둔다 — 먼저 쓴 능력이 더 좋은 것(나중에 유닛 능력 상한이 생기면 뒤가 잘린다) */
+  if (Array.isArray(it.abOrder)) {
+    const first = [];
+    for (const k of it.abOrder) { const m = itemAbilities(Object.assign({}, k === "evName" ? { evName: it.evName } : { [k]: it[k], every: it.every })); for (const x of m) if (out.includes(x) && !first.includes(x)) first.push(x); }
+    return first.concat(out.filter(x => !first.includes(x)));
+  }
   return out;
 }
+const SP_ABIL_NAMES = [["huntfire", "불꽃 사냥"], ["riposte", "되받기"], ["overload", "과부하"], ["devour", "포식"], ["drain", "뿌리 흡수"], ["flow", "밀물"], ["judge", "심판"], ["sentry", "경계의 화살"], ["mark", "표식"]];
 /* v2.2: 아이템 글은 두 단계다.
    ① 아이템이 하는 일: "[관통] 능력 부여" (유닛에게 주는 특수 능력), "장착할 때 [생명 +3]" (장착하는 순간 한 번)
    ② 그 능력의 뜻: "[가호 N] 매 턴 처음 받는 피해를 N만큼 줄인다." — 숫자 자리는 N, 고정할 스탯 자리는 "스탯"
@@ -295,9 +305,9 @@ function itemTextPinned(it) {
    문장은 실제 규칙(engine.js)과 같아야 한다: 사격 snipeOne, 투척 attackOne, 마력 공격·관통·치명·연쇄·가시·원거리 attackOne, 가호·보호막 hurt */
 const ITEM_KW = {
   "관통": "공격하면, 상대 유닛의 방어가 이번 턴 동안 내 공격력만큼 줄어든다(0까지만).",
-  "방어무시": "공격할 때 상대 방어를 {n}만큼 무시한다. 반격할 때는 적용되지 않는다.",
+  "방어무시": "공격할 때 상대 방어를 모두 무시한다(방어 0으로 친다). 반격할 때는 적용되지 않는다.",
   "방어무시 전부": "공격할 때 상대 방어를 모두 무시한다. 반격할 때는 적용되지 않는다.",
-  "마력 공격": "맞붙을 때(공격 · 반격) 상대 방어 가운데 {n}까지는 막지 못하고 오히려 피해에 더해진다. 방어가 없는 상대에게는 보통 공격과 같다.",
+  "마력 공격": "맞붙을 때(공격 · 반격) 상대 방어 가운데 {n}까지는 막지 못하고 오히려 피해에 더해진다. [홀림]에 걸린 상대라면 방어 전부가 피해에 더해진다. 방어가 없는 상대에게는 보통 공격과 같다.",
   "바다의 보호": "오라 — 이 유닛이 전장에 있는 동안 양옆 {n}칸 안의 아군 유닛이 받는 피해가 1 줄어든다(맞붙음 · 마법 모두). 한 번 막고 사라지지 않는다.",
   "치명": "맞붙어 피해를 주면(공격 · 반격 모두), 맞은 유닛이 쓰러지지 않았을 때 남은 체력이 1이 된다.",
   "연쇄": "맞붙어 공격해 상대 유닛을 쓰러뜨리고 피해가 남으면, 남은 피해로 그 뒤의 상대 유닛 하나를 친다(그 유닛의 방어만큼 줄어든다. 방어무시는 여기에도 적용, 반격은 없다).",
@@ -327,10 +337,21 @@ const ITEM_KW = {
   "수호": "상대의 공격이 맨 앞 유닛보다 먼저 이 유닛에게 향한다(상대 마법이 '맨 앞'을 겨눌 때도). 수호가 여럿이면 앞 칸부터.",
   "정화": "전투가 시작될 때(화상 · 불씨가 타기 전) 이 유닛과 양옆 아군의 화상 · 불씨 · 계약의 낙인을 지운다. 이 유닛에게는 출혈이 붙지 않는다.",
   "굳건": "상대가 이 유닛의 자리를 바꾸거나(자리 바꾸기 · 뒤집기 · 다시 세우기) 빼앗거나(빼앗기 · 환각의 통제 · 세이렌의 노래) 행동 불가로 묶지 못한다.",
-  "요격": "[원거리]로 공격해 온 유닛에게도 반격한다."
+  "요격": "[원거리]로 공격해 온 유닛에게도 반격한다.",
+  "매혹": "맞붙는 상대 유닛(공격 · 반격)을 이번 턴 [홀림]으로 만든다. [마력 공격]은 홀린 상대의 방어 전부를 피해에 더한다.",
+  /* v3.81 스페셜 아이템 능력 — 규칙은 engine.js 끝 "v3.81 스페셜 아이템 능력" 절 */
+  "불꽃 사냥": "화상이 붙은 상대 유닛과 맞붙으면(공격 · 반격) 피해가 그 화상 수치만큼 늘어난다.",
+  "되받기": "맞붙어 공격받을 때, 이 유닛의 방어가 막아 낸 피해만큼(3까지) 공격한 유닛의 체력이 깎인다(방어 무시). 이 유닛이 쓰러져도 되돌린다.",
+  "과부하": "내 마법이 발동할 때마다 이 유닛의 공격이 이번 턴 1 오른다(+3까지).",
+  "포식": "상대 유닛을 쓰러뜨릴 때마다 판이 끝날 때까지 공격 +1 · 체력 +1(각각 +3까지). 연쇄 · 꿰뚫기로 쓰러뜨린 것은 세지 않는다.",
+  "뿌리 흡수": "이 유닛을 맞붙어 공격한 상대 유닛의 체력이 1 깎이고, 이 유닛은 받은 피해를 1 채운다.",
+  "밀물": "전투가 시작될 때 받은 피해가 가장 큰 아군 유닛 하나(자기 포함)의 체력을 2 채운다.",
+  "심판": "상대 유닛을 쓰러뜨리면 내 생명이 1 늘어난다(턴에 한 번). 연쇄 · 꿰뚫기로 쓰러뜨린 것은 세지 않는다.",
+  "경계의 화살": "전투가 시작될 때, 이번 턴 상대 전장에 새로 놓인(낸 · 소환된) 유닛마다 체력이 3 깎인다(방어 무시).",
+  "표식": "이 유닛이 피해를 준 상대 유닛(맞붙음 · 사격)은 이번 턴 방어가 2 줄어든다(유닛마다 턴에 한 번)."
 };
 /* v3.69 레어 오라 뜻 (js/rares.js RARE_AURA) */
-if (typeof RARE_AURA !== "undefined") for (const g in RARE_AURA) ITEM_KW[RARE_AURA[g].n] = "오라 — 이 유닛이 전장에 있는 동안 " + RARE_AURA[g].text;
+if (typeof RARE_AURA !== "undefined") for (const g in RARE_AURA) ITEM_KW[RARE_AURA[g].n] = "오라 — 이 유닛이 전장에 있는 동안 " + RARE_AURA[g].text + " 준비 단계부터 걸리고, 전투가 시작된 뒤 받은 오라는 이 유닛이 쓰러져도 그 턴이 끝날 때까지 남는다(받은 유닛에 ◎ 칩).";   // 2026-11-15
 /* v3.31 유니크의 강화 특수능력 뜻 (js/uniques.js UNIQUE_ABIL) */
 if (typeof UNIQUE_ABIL !== "undefined") for (const k in UNIQUE_ABIL) ITEM_KW[UNIQUE_ABIL[k].n] = UNIQUE_ABIL[k].text;
 /* 카드에 적는 일반 뜻이 말풍선 문장과 달라야 하는 것만 (나머지는 ITEM_KW의 {n}을 N으로 바꿔 쓴다) */
@@ -385,9 +406,9 @@ function itemKwGenList(it) {
    자세한 규칙은 ITEM_KW(말풍선 · 매뉴얼). 규칙을 바꾸면 둘 다 고친다. 유니크 능력은 js/uniques.js UNIQUE_ABIL_SHORT */
 const ITEM_KW_SHORT = {   // v3.60 한 줄에 들도록 더 짧게 (크게 보기에서 [능력] 아래 줄에 적힌다)
   "관통": "공격한 상대의 방어를 내 공격력만큼 깎는다(이번 턴).",
-  "방어무시": "공격할 때 상대 방어 {n} 무시.",
+  "방어무시": "공격할 때 상대 방어를 모두 무시.",
   "방어무시 전부": "공격할 때 상대 방어를 모두 무시.",
-  "마력 공격": "맞붙을 때 상대 방어 {n}까지를 피해에 더한다.",
+  "마력 공격": "상대 방어 {n}까지를 피해에 더한다(홀리면 전부).",
   "치유": "맞붙어 살아남으면 체력 +{n}.",
   "바다의 보호": "양옆 {n}칸 아군이 받는 피해 −1.",
   "치명": "맞붙어(공격 · 반격) 피해를 준 상대가 살아남으면 체력 1.",
@@ -411,7 +432,17 @@ const ITEM_KW_SHORT = {   // v3.60 한 줄에 들도록 더 짧게 (크게 보�
   "수호": "상대 공격이 이 유닛에게 먼저 온다.",
   "정화": "전투 시작 때 나와 양옆의 화상 · 불씨 · 낙인을 지움. 출혈 안 붙음.",
   "굳건": "상대가 자리를 바꾸거나 빼앗거나 묶지 못함.",
-  "요격": "원거리 공격자에게도 반격."
+  "요격": "원거리 공격자에게도 반격.",
+  "매혹": "맞붙는 상대를 이번 턴 [홀림]으로.",
+  "불꽃 사냥": "화상 붙은 상대와 맞붙으면 피해 + 화상.",
+  "되받기": "공격받을 때 방어가 막은 만큼(3까지) 공격자 체력 −.",
+  "과부하": "내 마법 발동마다 공격 +1(이번 턴, +3까지).",
+  "포식": "쓰러뜨릴 때마다 판 끝까지 공 +1 · 체 +1(+3까지).",
+  "뿌리 흡수": "공격해 온 상대 체력 −1, 나는 체력 +1.",
+  "밀물": "전투 시작 때 가장 다친 아군 체력 +2.",
+  "심판": "상대를 쓰러뜨리면 내 생명 +1(턴에 한 번).",
+  "경계의 화살": "전투 시작 때 상대가 이번 턴 새로 놓은 유닛마다 체력 −3.",
+  "표식": "피해를 준 상대는 이번 턴 방어 −2."
 };
 /* 숫자 뒤 조사: 2 · 4 · 5 · 9로 끝나면 "가", 나머지는 "이" (7이 · 2가) */
 const numJosa = n => /[2459]$/.test(String(n)) ? "가" : "이";
@@ -499,7 +530,9 @@ const SPELL_KW = {
   "제물": "이 마법을 쓸 때 생명 {n}을 제물로 바친다. 이번 턴 내 유닛이 상대 유닛을 쓰러뜨리면 바친 생명이 모두 돌아온다. 돌아올 제물이 있는 동안은 전투 중 생명이 0 아래로 내려가도 판이 끝나지 않는다(전투가 끝날 때도 0 아래면 패배).",
   "불굴": "이번 턴, 쓰러질 만큼의 피해를 처음 받으면 쓰러지지 않고 체력 1로 버틴다(한 번). 파괴 · 코인에는 통하지 않는다.",
   "무효": "상대 전장에서 아직 발동하지 않은 마법 중 맨 앞 1장이 발동하지 않고 부서진다(소각장으로). 같은 때라면 공격 마법이 상대 마법보다 먼저 발동하므로, 앞 칸에 둘수록 상대 마법이 풀리기 전에 막는다. 무효로 할 마법이 없으면 헛것이 된다.",
-  "꿰뚫기": "이번 턴, 맞붙어 공격하면 맞선 유닛 바로 뒤의 상대 유닛도 같은 공격을 받는다(그 유닛의 방어를 뺀 피해, 반격은 없음)."
+  "꿰뚫기": "이번 턴, 맞붙어 공격하면 맞선 유닛 바로 뒤의 상대 유닛도 같은 공격을 받는다(그 유닛의 방어를 뺀 피해, 반격은 없음).",
+  "홀림": "인어의 환상에 걸린 상대 유닛(이번 턴). 코인이 뒷면이 되거나, 스탯이 맞바뀌거나, 자리가 바뀌거나, 환각에 빠지면 걸린다. [마력 공격]은 홀린 상대의 방어를 수치와 상관없이 전부 피해에 더한다.",   // v3.78 engine mrCharm
+  "치유": "맞붙음(공격 · 반격)에서 살아남으면 받은 피해를 {n}만큼 채운다(원래 체력까지). 맞붙을 때마다."   // v3.78 마법이 걸어 주는 [치유]
 };
 function spellKwDesc(inner) {
   const name = inner.trim();

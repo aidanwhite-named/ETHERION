@@ -157,6 +157,7 @@ const Slot = {
     this.el.classList.add("spinning");
     this.el.querySelector("#sm-btn").disabled = true;
     const msg = this.el.querySelector("#sm-msg"); msg.textContent = "…"; msg.className = "sm-msg";
+    if (typeof FEEL !== "undefined") FEEL.play("pach_spin", 0.8);   // 2026-11-15 전장 SPIN에도 소리 (예전엔 없어서 물 주기 소리만 들렸다)
     Arcade.refresh();
     const targets = Pachinko.targetsFor.call({ symbols: this.symbols }, res);
     const H = this.H, N = this.symbols.length, now = performance.now();
@@ -177,9 +178,9 @@ const Slot = {
         if (t > 0.93) y += Math.sin((t - 0.93) / 0.07 * Math.PI) * H * 0.28;
         this.setY(p.r, y);
         const k = Math.floor(y / H);
-        if (k !== p.lastTick) p.lastTick = k;
+        if (k !== p.lastTick) { p.lastTick = k; if (t > 0.6 && typeof FEEL !== "undefined") FEEL.play("pach_tick", 0.45); }
         p.r.el.classList.toggle("blur", t < 0.8);
-        if (t >= 1) { p.done = true; this.setY(p.r, p.to); p.r.el.classList.remove("blur"); }
+        if (t >= 1) { p.done = true; this.setY(p.r, p.to); p.r.el.classList.remove("blur"); if (typeof FEEL !== "undefined") FEEL.play("pach_stop", 0.8); }
         else all = false;
       }
       if (!all) this.raf = requestAnimationFrame(tick); else this.finish(res);

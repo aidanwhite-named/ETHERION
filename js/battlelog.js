@@ -123,6 +123,7 @@ const BLog = {
     if (fx.spellCoin) parts.push(`마법 코인: ${this.ct(fx.spellCoin.id)}`);
     if (fx.conjure != null) parts.push(`나타남: ${at(fx.conjure)}`);
     if (fx.shatter && fx.shatter.length) parts.push(`부서짐: ${fx.shatter.map(at).join(", ")}`);
+    if (fx.aura && fx.aura.length) parts.push(`오라: ${fx.aura.map(at).join(", ")}${fx.auraSrc && fx.auraSrc.length ? " ← " + fx.auraSrc.map(at).join(", ") : ""}`);   // 2026-11-16 레어 오라가 켜지거나 커진 수 (engine step)
     if (fx.fizzle) parts.push(`자리 없어 사라짐: P${fx.fizzle.p} ${this.ct(fx.fizzle.id)}`);
     /* 떠오른 글자는 대상마다 모아 적고, 그 수가 끝난 뒤의 스탯을 한 번 붙인다 */
     const by = new Map();

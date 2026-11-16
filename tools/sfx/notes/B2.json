@@ -1,6 +1,7 @@
 {
  "flag": "B2",
  "cards": {
+  "SR-B2": {"en": "Sorgrim's First Armour", "ko": "거인 갈비 마디 갑주를 두르자 칼이 튕겨 나감", "equip": "a massive rib-bone breastplate is strapped on with heavy iron clanks, a test blade strikes it and rebounds with a ringing clang and a shockwave thump"},
   "B2-01": {
    "en": "Rivet Worker",
    "ko": "리벳 망치 톡톡 · 작은 몸이 땡 울림",
@@ -8,10 +9,10 @@
    "def": "a thin apron and little plating take the knock: a light dull clank, a small chink of loose rivets falling, a short wobbling ring"
   },
   "B2-02": {
-   "en": "Gear Apprentice",
-   "ko": "톱니 휘두르며 물어뜯음 · 맨몸으로 휘청",
-   "atk": "a youth swings a greasy cogwheel then snaps its teeth shut: a quick clattering whirr, a sharp clack of brass teeth, a squeaky gnash",
-   "def": "no plating at all, it flinches: a soft cloth-and-flesh thud, a startled clatter of dropped cogs, small oily wrenches rolling away"
+   "en": "Cog Clockwork Mouse",
+   "ko": "톱니 이빨로 갉아 물음 · 작은 태엽 몸이 튕겨 굴러감",
+   "atk": "a clockwork mouse scurries in with a rapid ticking patter, a whirring spring, then a sharp little gear-tooth nibble with a metallic chitter",
+   "def": "its tiny brass body is knocked away: a light tinny clink, a tumbling rattle across stone, its key whirring as it rights itself"
   },
   "B2-05": {
    "en": "Durkheim Novice",
@@ -20,16 +21,16 @@
    "def": "a thin studded vest takes the hit with a dull thump, then a quick shoulder-and-shield shove back with a solid wooden smack"
   },
   "B2-06": {
-   "en": "Steel Gatekeeper",
-   "ko": "강철 경비병이 문처럼 밀침 · 철문 같은 울림",
-   "atk": "a steel sentry slams its flat gauntlet forward like a closing gate: a stiff hinge squeal, a heavy iron smack, a flat metallic reverberation",
-   "def": "a plated chest meets the blow: a firm clang, a short deep bong from the hollow chassis, a quick settling of grinding plates"
+   "en": "Steel Gatekeeper Armour",
+   "ko": "빈 갑옷이 문처럼 밀침 · 속 빈 철판이 웅 울림",
+   "atk": "an empty suit of armour strides in with hollow clanks and shoves like a slamming door: a heavy steel thud, a grinding of plates",
+   "def": "the blow rings through hollow plate: a deep empty clang echoing inside the helm, joints rattling, a slow creak as it straightens"
   },
   "B2-07": {
-   "en": "Rivet Guardsman",
-   "ko": "리벳 방패로 밀침 · 방패로 막고 그대로 내리침",
-   "atk": "a guard bashes forward with a riveted shield: a metal strap creak, a broad iron slam, a rattle of rivet heads shivering across the face",
-   "def": "the riveted shield absorbs a hard strike with a deep bong, rivets chattering, then the shield is slammed straight back into the attacker with a heavy iron bash"
+   "en": "Walking Rivet Shield",
+   "ko": "방패가 몸째 밀침 · 막고 그대로 내리침",
+   "atk": "a walking shield shuffles in on iron feet and rams: a flat broad steel bang, rivets rattling, a scraping push",
+   "def": "the shield takes the blow full-face: a solid ringing clang, then it tips forward and slams down on the attacker with a heavy rim thud"
   },
   "B2-09": {
    "en": "Steam Golem",
@@ -50,40 +51,40 @@
    "def": "thick forge gloves and heavy smith plating stop the blow: a deep clang, boots locked to the ground without moving an inch, a steady droning resonance, hot sparks fizzling"
   },
   "B2-16": {
-   "en": "Armored Automaton",
-   "ko": "겹장갑 오토마톤 박치기 · 쇠판이 연달아 울림",
-   "atk": "a plated automaton lurches forward: gears grinding, a stiff servo whir, then a hard double-bash of armoured forearms with layered plates rattling",
-   "def": "stacked armour plates take the strike: a heavy clank, a cascade of smaller plate chatters, a brief slipping click of a gear catching"
+   "en": "Armoured Clockwork Spider",
+   "ko": "강철 다리로 찍어 누름 · 겹장갑이 연달아 울림",
+   "atk": "a clockwork spider skitters on eight steel legs, gears ratcheting, then a stabbing double clank as its foreleg spikes drive down",
+   "def": "layered plates take the strike: a staggered run of metallic clanks, gears grinding, legs scraping as it holds its ground"
   },
   "B2-17": {
-   "en": "Ironclad Wallman",
-   "ko": "성벽 같은 어깨치기 · 돌벽이 쿵 울림",
-   "atk": "a walking wall of iron lowers its shoulder and shoves: a slow stone-grinding drag, a heavy boom of collision, loose gravel pattering after",
-   "def": "no flexing at all but no true plating either, the slab body shudders: a coarse stony thud, a deep creak of strained masonry, dust sifting down"
+   "en": "Iron-Horn Goat",
+   "ko": "무쇠뿔로 들이받음 · 바위 위에 버티고 섬",
+   "atk": "an iron-horn goat clatters up the rocks, rears with a snort, then a ringing iron crack as its horns slam into the foe",
+   "def": "it plants its hooves on rock: a heavy horn-on-steel clang as it catches the blow, a stubborn bleat, gravel skittering away"
   },
   "B2-18": {
-   "en": "Steam Hammerer",
-   "ko": "증기 해머 내려침 · 둔중한 몸으로 버팀",
-   "atk": "a huge hammer hisses as steam pressure builds, rises with a groaning pulley, then a thunderous piston-driven slam and a long iron ring-out",
-   "def": "a thick boilerplate chest blocks: a jarring dull clang, steam hissing from a jolted valve, a low rumbling vibration in the frame"
+   "en": "Steam-Snort Bull",
+   "ko": "증기 콧김 뿜고 돌진 · 청동 몸통이 둔중하게 울림",
+   "atk": "a bronze bull paws the floor, blasts a hissing snort of steam, then charges on thundering bronze hooves into a heavy goring slam",
+   "def": "its bronze body takes the hit: a deep hollow boiler boom, a pressure hiss from the nostrils, hooves grinding to hold"
   },
   "B2-19": {
-   "en": "Heavy Plate Golem",
-   "ko": "철판 겹겹 골렘 주먹 · 얇은 틈만 뚫리는 소리",
-   "atk": "an iron fist rises with grinding hydraulics, then slams down in a flat deafening crash of stacked plates, bolts shaking and rattling loose",
-   "def": "bare of any real shielding beneath, the plates ripple: a scraping crunch of folded sheet iron, a hollow rattle, a bolt pinging off stone"
+   "en": "Walking Anvil",
+   "ko": "모루 몸통으로 내리찍음 · 맞을 때마다 땡 울림",
+   "atk": "a walking anvil hops and drops its whole weight: a short iron scrape, a heavy plunge, then a bright crushing anvil ring on impact",
+   "def": "a hammer-scarred anvil face takes the blow: a pure bright ring like a forge strike, a long humming tone, not moving an inch"
   },
   "B2-22": {
-   "en": "Rivet Bastion",
-   "ko": "요새 몸 돌격 · 리벳 덩어리가 무겁게 부딪힘",
-   "atk": "a fortress-bodied brute charges: pounding iron footfalls, rivets crackling like hail across its chest, a massive crushing collision of heavy iron",
-   "def": "its riveted shell takes the hit without armour backing: a massive crunch, rivets popping and pinging, a deep groaning shudder of the bulk"
+   "en": "Iron-Eating Bulgasari",
+   "ko": "쇠를 씹어 삼킴 · 못 박힌 가죽이 무겁게 받음",
+   "atk": "a bulgasari lumbers in on heavy pads, then bites down: a crunching chew of metal, iron teeth grinding, a satisfied rumbling gulp",
+   "def": "its nail-studded hide takes the hit: a dull iron-on-iron thud, half-swallowed locks and nails rattling, a low grumbling snort"
   },
   "B2-24": {
-   "en": "Ironframe Sentinel",
-   "ko": "빈 철골이 휘둘림 · 바람 지나는 낮은 울음",
-   "atk": "a skeletal iron frame swings a girder arm: wind whistling through bare struts, a metallic whip-crack, a sharp clang ending in a thin trailing moan",
-   "def": "girders catch the blow: a glancing ring with a hollow tubular hum, wind moaning low through the open frame, a faint rattle of cross-braces"
+   "en": "Ironframe Gargoyle",
+   "ko": "강철 날개 펴고 내리꽂힘 · 빈 뼈대에 바람이 울음",
+   "atk": "a steel gargoyle drops from its ledge with a sheet-metal wing flap, a grating screech, then iron claws raking down with a hard clang",
+   "def": "its hollow girder frame rings: a thin metallic clang, wind moaning low through its ribs, loose rivets ticking"
   },
   "B2-25": {
    "en": "Workshop Guardian",
@@ -92,10 +93,10 @@
    "def": "a thick chassis rings deep when struck: a solid dense clang, a long resonant boom echoing inside a hollow chamber, gears settling with a slow click"
   },
   "B2-26": {
-   "en": "Thorgrim Ironclad",
-   "ko": "검붉은 갑주 검 휘두름 · 힘줄 울음 같은 낮은 울림",
-   "atk": "a dark-red armoured soldier sweeps a heavy blade: plate joints clanking, a long steely whoosh, a crashing cut, then a deep sinew-like creaking hum",
-   "def": "blood-iron armour turns the strike: a sharp ring, a muffled throbbing groan in the metal, a gentle chink of chain linking inside the plates"
+   "en": "Sorgrim's Ironclad Rhino",
+   "ko": "쇠뿔로 육중하게 돌진 · 철판 가죽이 낮게 울림",
+   "atk": "an ironclad rhino stamps its plated feet, a metal-tinged huff, then a thundering charge that ends in a crushing horn crash",
+   "def": "dark-red iron plates take the blow: a deep resonant clank, a groaning low hum like a strained sinew, a heavy stamp"
   },
   "B2-27": {
    "en": "Durkheim Marshal",
@@ -104,34 +105,34 @@
    "def": "a tower shield and mail take the strike: a booming shield clang, chain links rustling, a sturdy thud of a braced heel against stone"
   },
   "B2-28": {
-   "en": "Steel Giant",
-   "ko": "집채만 한 강철 주먹 · 거대한 쇠몸 쿵",
-   "atk": "a house-sized steel fist is raised on groaning joints and dropped: a low rumbling swing, a ground-shaking boom, scraping gravel and a long metal drone",
-   "def": "its vast torso rings like a giant bell: a slow resonant gong, a deep rolling rumble, a rain of small rivets pattering on stone"
+   "en": "Flowing Quicksilver",
+   "ko": "은빛 물결로 덮쳐 짓누름 · 흩어졌다 다시 모임",
+   "atk": "a pool of quicksilver rises with a heavy liquid-metal slosh, a rippling metallic shimmer, then a crashing wave of mercury slaps down",
+   "def": "the strike splashes it apart: a thick metallic splatter, beads pattering on stone, then a sliding ripple as they flow back together"
   },
   "B2-30": {
-   "en": "Ironridge Watcher",
-   "ko": "산맥 파수꾼의 바위 팔 · 광맥 같은 단단한 울림",
-   "atk": "a mountain sentry swings a rock-and-ore arm: a rumble of shifting stone, a heavy swoosh, a grinding smash that splinters into a crackle of ore chunks",
-   "def": "exposed ore veins take the blow: a dense stony crack, a deep ringing of buried metal, loose gravel trickling then a long rumble"
+   "en": "Ironbone Wyvern",
+   "ko": "쇠 꼬리로 후려침 · 쇠비늘이 단단히 울림",
+   "atk": "an iron wyvern swoops down on heavy metal wingbeats, a grating screech, then a barbed steel tail whips in with a cracking clang",
+   "def": "iron scales take the blow: a hard rattling clank, a beat of heavy wings regaining height, an angry metallic shriek"
   },
   "B2-32": {
-   "en": "Iron Citadel",
+   "en": "Walking Iron Citadel",
    "ko": "걸어다니는 성채 짓누름 · 성벽 같은 묵직한 방어",
-   "atk": "a walking citadel stamps: massive gate hinges groan, a floor-shaking footfall, then a crushing slam of a battlement-like arm with stones tumbling",
-   "def": "battlements and gate plating absorb the hit: a colossal clang, a drawn-out castle-like echo, small iron fittings pinging and settling"
+   "atk": "a walking citadel lifts a piston leg with a long hydraulic groan, stone grinding, then a thunderous crushing stomp that shakes the ground",
+   "def": "its battlements take the blow: a massive stone-and-iron thud, chains rattling along the walls, a slow settling rumble"
   },
   "B2-33": {
    "en": "Ordun Bone Knight",
-   "ko": "회색 아다만트 검 · 뼈 갑옷으로 받고 방패로 되침",
-   "atk": "a knight in grey adamant plate swings a bone-pale heavy sword: a dry cold whoosh, a dense low thunk of impact, a stony ring-out like struck marrow",
-   "def": "adamant armour takes the strike: a dull bone-deep clack, a hard muted ring, then a heavy shield-rim counter-blow thudding back into the attacker"
+   "ko": "회색 아다만트 검 · 빈 뼈 갑옷으로 받고 방패로 되침",
+   "atk": "an empty suit of grey adamant plate swings a bone-pale heavy sword: a dry cold whoosh, a dense low thunk of impact, a stony ring-out like struck marrow",
+   "def": "adamant plate takes the strike: a dull bone-deep clack echoing in the empty helm, a hard muted ring, then a heavy shield-rim counter-blow thudding back into the attacker"
   },
   "B2-34": {
-   "en": "Colossal Steam Golem",
-   "ko": "용광로 심장 거대 골렘 · 하얀 김이 뿜어짐",
-   "atk": "a furnace-hearted giant exhales a rolling white gush of steam, then brings a vast fist down: a roaring crash, a furnace roar, a drawn-out dripping hiss",
-   "def": "its glowing furnace chest rings: a vast booming clang, a venting steam geyser from shocked valves, a slow crackle of cooling metal"
+   "en": "Great Steam Colossus",
+   "ko": "용광로 심장 거상의 주먹 · 하얀 김이 뿜어짐",
+   "atk": "a colossus' furnace heart roars, a huge piston arm swings out on a blast of steam, then a gigantic iron slam echoing through the tunnels",
+   "def": "its huge chassis rings like a bell: a gigantic deep clang, then a long white blast of steam hissing from every vent"
   },
   "B2-35": {
    "en": "Durkheim Grandmaster",
@@ -140,16 +141,16 @@
    "def": "a stout beard-braided frame and thick leather-and-iron apron take the hit: a heavy deep thump, a resonant anvil tone, a slow chain-link rustle"
   },
   "B2-36": {
-   "en": "Steel Fortress Golem",
-   "ko": "요새 골렘 철벽 타격 · 단단히 못박힌 울림",
-   "atk": "a rooted fortress golem swings a slab arm: a slow stone-and-iron crunch, a heavy pounding clang like a drawbridge dropping, dust sifting down",
-   "def": "planted feet grind into rock and its bastion plates hold: a thick solid boom, a long deep metal ring-out, almost no give or movement"
+   "en": "Bronze Guardian Giant",
+   "ko": "청동 주먹 내리침 · 거대한 종처럼 울림",
+   "atk": "a bronze giant takes a ground-shaking step, swings a cast-bronze fist with a heavy whoosh, then a deep bell-toned impact",
+   "def": "its cast bronze body rings like a great temple bell: a long deep tone, a low molten hum inside, not budging"
   },
   "B2-41": {
-   "en": "Runaway Steam Golem",
-   "ko": "폭주 증기 골렘 · 터진 밸브 소리와 충돌",
-   "atk": "a pressure valve whistles as the golem charges: a piercing steam jet, stampeding iron footsteps, a reckless crash with metal fragments and hissing",
-   "def": "tiny fragile frame, no armour: a crumpling crunch of thin sheet metal, a sputtering sizzle of broken piping, a rattle of falling bolts"
+   "en": "Runaway Clockwork Doll",
+   "ko": "풀린 태엽으로 마구 돌진 · 얇은 몸이 부서지며 튕김",
+   "atk": "an over-wound doll sprints in with frantic rapid ticking and a screaming spring whir, then a reckless clattering crash of brass limbs",
+   "def": "its thin casing gives way: a brittle metallic crunch, springs pinging loose, a stuttering spin-down of gears"
   },
   "B2-42": {
    "en": "Overheated Press",
@@ -182,10 +183,10 @@
    "def": "a chain links two bodies and stiffens: a loud tense link rattle, a pair of staggered deep clangs ringing in unison, a taut groan of metal"
   },
   "EP-B2-1": {
-   "en": "Rivet Thorn Golem",
-   "ko": "리벳 가시 껴안기 · 앞을 막고 가시가 박힘",
-   "atk": "a spiked golem lunges into a clumsy crushing embrace: a heavy hug of iron, scraping rivets raking across the foe, a bristling crunch of spikes",
-   "def": "outward rivet spines take the hit as it stands in front: a dense clang, a heavy planted thud, then a ratcheting prickle of rivets snapping back in a spiny counter-sting"
+   "en": "Barbed Iron Hedgehog",
+   "ko": "가시 몸으로 껴안듯 부딪침 · 앞을 막고 가시가 박힘",
+   "atk": "an iron hedgehog rolls in with a spiky rattle, a snuffling grunt, then a prickly metallic crunch as it slams its spines into the foe",
+   "def": "it curls into a ball in front: a bristling clatter of iron spines, the strike landing with a sharp pained prick and a scrape for the attacker"
   },
   "EP-B2-2": {
    "en": "Steel Crusher Golem",
@@ -200,22 +201,22 @@
    "def": "a mighty gate door meets the hit with a gigantic clang, then the whole door swings back in a crushing counter-slam with groaning hinges and a booming impact"
   },
   "PN-B2-C1": {
-   "en": "Riveted Doorman",
-   "ko": "리벳 박힌 작은 문지기 · 어디든 같은 소리",
-   "atk": "a little golem pistons its stubby fist: a quick pneumatic puff, a crisp rivet-studded punch, a bright tinkling spray of rivet heads",
-   "def": "wherever struck it gives the same sound: a firm uniform clank, rivets buzzing in sympathy, a steady unmoving thud"
+   "en": "Rivet Pincer Crab",
+   "ko": "쇠 집게로 콱 집음 · 리벳 등딱지가 어디든 같은 소리",
+   "atk": "a rivet crab scuttles sideways on clacking legs, raises its tong-like pincers, then a hard metallic snap clamps down",
+   "def": "its riveted shell takes the blow: the same flat iron knock wherever it is struck, a quick scuttle back, pincers clicking"
   },
   "PN-B2-C2": {
-   "en": "Steam Roller Golem",
-   "ko": "증기 압연 골렘 · 롤러가 철판을 누름",
-   "atk": "a walking rolling mill rumbles forward: rollers grinding, a pressurized hiss, a flattening iron crush ending in a squealing release of steam",
-   "def": "its roller chassis rings under pressure: a thick metallic groan, a low hum of straining gears, a slowly leaking valve hiss"
+   "en": "Steam Burrow Mole",
+   "ko": "땅 파고 들어와 발톱으로 긁음 · 굴 속에 몸을 묻음",
+   "atk": "a steel mole grinds through the ground with a drilling whirr, bursts out in a spray of gravel, then rakes with a screeching steel-claw scrape",
+   "def": "it hunches into its burrow: a dull earthy thud, a puff of hot steamy breath, dirt and ore dust trickling down"
   },
   "PN-B2-C3": {
-   "en": "Ironframe Hammer Golem",
-   "ko": "철골 망치 골렘 · 막고 쇠 몸으로 되받음",
-   "atk": "a beam-limbed golem swings a girder hammer: an iron whoosh, a ringing blow with sparks scattering, a gurgle of molten metal inside",
-   "def": "a solid-cast frame filled with hardened metal takes the blow: a dense unyielding thunk, a faint molten gurgle, then a short heavy iron shove back"
+   "en": "Ironbone Hammer Colossus",
+   "ko": "망치 팔로 내리침 · 막고 쇠 몸으로 되받음",
+   "atk": "a hammer-armed colossus lifts a fist with a grinding gear groan, then a crushing forge-hammer slam with a shower of sparks",
+   "def": "it blocks with a massive hammer arm: a mighty clang, then swings back in a counter-slam with a deep ringing thud"
   },
   "PN-B2-U1": {
    "en": "Durkheim Shielder",
@@ -224,16 +225,16 @@
    "def": "a battered shield takes the hit with a heavy clonk and a long steady ring, then the rim is driven back into the attacker with a crisp hard smack"
   },
   "PN-B2-U2": {
-   "en": "Thorgrim Vein Golem",
-   "ko": "힘줄 광맥 골렘 · 꿈쩍 않고 되받아침",
-   "atk": "a vein-bodied golem whips a rope of ore-metal arm: a sinewy creak, a taut twang, a heavy iron lash with a sparkling crack",
-   "def": "a rooted lode body stands fixed: a vast dull ring with no give, an ore-like crackle, then a heavy ore-arm backhand thudding into the attacker"
+   "en": "Ore Vein Beetle",
+   "ko": "광석 턱으로 물어뜯음 · 꿈쩍 않고 껍질로 되받음",
+   "atk": "an ore beetle trundles forward with a grinding chitin clack, opens rocky mandibles, then a heavy crunch like a pick splitting stone",
+   "def": "its ore shell takes the blow unmoved: a dense stone-and-metal clank, then it butts back with a hard shell slam and flying grit"
   },
   "PN-B2-R": {
-   "en": "Adamant Armorer",
-   "ko": "아다만트 갑주 일격 · 회색 금속이 단단히 울림",
-   "atk": "an armoured dwarf swings a grey-metal mace: heavy plate squeaks, a dense low whoosh, a thick stony crack of impact",
-   "def": "grey adamant plate meets the blow with a rock-hard thunk, a firm metallic ring, a rooted stance grinding into stone"
+   "en": "Sorgrim's Shield Spirit",
+   "ko": "방패 벽이 밀어붙임 · 깊은 쇳소리로 울리며 버팀",
+   "atk": "a shield spirit's plates swing together with a resonant hum, a wall of steel surges forward, then a deep shield-wall clang strikes",
+   "def": "overlapping ghostly plates take the strike: a deep giant-like ring humming through the ground, a shimmer of metal settling back into place"
   },
   "PN-B2-E": {
    "en": "Ferros-Touched Golem",
