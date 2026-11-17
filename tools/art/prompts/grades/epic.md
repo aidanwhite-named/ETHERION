@@ -17,138 +17,11 @@ Mood: awe, momentum, overwhelming force.
 
 아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다. 그대로 붙여 넣으면 된다.
 
-## EP-A1-1 · 심연 칼날 무희
-모르카스의 그믐 · 유닛 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A1-1.jpg` 600×750)
+**그리는 차례**: 1 그림 없는 카드 먼저 → 2 이미 그린 그림 다시 그리기는 맨 나중(Gemini 할당량이 남을 때) → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 "다시"를 읽어 이 차례로 놓는다.)
 
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "심연 칼날 무희". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Morkas's New Moon — a devoted priest, ritualist or pact-bound servant, praying or offering.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 녹타르의 그림자 극장에서 춤을 추는 마족. 춤이 끝나면 관객 하나가 줄어 있다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
+## 1. 그림 없는 카드 — 먼저 그린다 · 58장
 
-## PI-A1 · 모르카스의 저울추
-모르카스의 그믐 · 아이템 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/PI-A1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-A1.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "모르카스의 저울추". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Morkas's New Moon (holy relic; if unsure, a wax seal, signet or sealed contract). a relic of a transcendent being floating in its own aura above a ruined altar, radiating its element.
-Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 침묵의 군주의 저울에서 떼어 낸 추. 쥔 자의 칼은 무거워지고, 저울이 첫 칼날의 무게를 덜어 준다. 그러나 쥔 동안 제 상처는 아물지 않는다. 대가의 법칙이다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## US-A1-1 · 침묵의 저울
-모르카스의 그믐 · 공용 마법 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/US-A1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-A1-1.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "침묵의 저울". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: an annihilating blow that erases a foe; paid for with the caster's own blood. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Scale (level 3 of 8): an effect over a few targets.
-Banner — Morkas's New Moon: magic of morkas's new moon, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 침묵의 군주 모르카스의 저울. 한쪽에 피를 올리면 다른 쪽에서 목숨 둘이 내려간다.
-Game effect (Korean, mood only — never draw text or numbers): [제물 4] 상대 유닛 중 공격이 가장 높은 2기를 파괴한다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## EP-A1-2 · 녹타르 처형대장
-모르카스의 그믐 · 유닛 · 레벨 5 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A1-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A1-2.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "녹타르 처형대장". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Morkas's New Moon — a devoted priest, ritualist or pact-bound servant, praying or offering.
-Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 계약을 어긴 자를 거두러 가는 처형인들의 우두머리. 한 번 휘두르면 줄 선 자들이 차례로 쓰러진다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## PN-A1-E · 심연 장막의 거래인
-모르카스의 그믐 · 유닛 · 레벨 6 · 에픽 — 받은 그림은 `tools/art/inbox/PN-A1-E.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A1-E.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "심연 장막의 거래인". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Morkas's New Moon — a devoted priest, ritualist or pact-bound servant, praying or offering.
-Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 심연의 장막에서 무언가를 두고 나온 마족. 무엇을 두고 왔는지는 그도 기억하지 못한다. 상처가 아물지 않는 것은 그 때문이다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-## EP-A1-3 · 장막의 처형자
+### EP-A1-3 · 장막의 처형자
 모르카스의 그믐 · 유닛 · 레벨 7 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A1-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A1-3.jpg` 600×750)
 
 ```
@@ -175,7 +48,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## US-A2-1 · 성광의 검
+### US-A2-1 · 성광의 검
 솔란테의 새벽 · 공격 마법 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/US-A2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-A2-1.jpg` 600×750)
 
 ```
@@ -202,7 +75,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-A2-1 · 새벽성 문지기 라마수
+### EP-A2-1 · 새벽성 문지기 라마수
 솔란테의 새벽 · 유닛 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A2-1.jpg` 600×750)
 
 ```
@@ -229,7 +102,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PI-A2 · 솔란테의 날개 깃
+### PI-A2 · 솔란테의 날개 깃
 솔란테의 새벽 · 아이템 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/PI-A2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-A2.jpg` 600×750)
 
 ```
@@ -255,7 +128,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## US-A2-2 · 태양 심판
+### US-A2-2 · 태양 심판
 솔란테의 새벽 · 공용 마법 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/US-A2-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-A2-2.jpg` 600×750)
 
 ```
@@ -282,7 +155,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-A2-2 · 황혼 장벽 파수장
+### EP-A2-2 · 황혼 장벽 파수장
 솔란테의 새벽 · 유닛 · 레벨 5 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A2-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A2-2.jpg` 600×750)
 
 ```
@@ -308,7 +181,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-A2-E · 황혼 장벽의 맹세자
+### PN-A2-E · 황혼 장벽의 맹세자
 솔란테의 새벽 · 유닛 · 레벨 6 · 에픽 — 받은 그림은 `tools/art/inbox/PN-A2-E.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A2-E.jpg` 600×750)
 
 ```
@@ -334,7 +207,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-A2-3 · 황혼의 대천사
+### EP-A2-3 · 황혼의 대천사
 솔란테의 새벽 · 유닛 · 레벨 7 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A2-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A2-3.jpg` 600×750)
 
 ```
@@ -361,7 +234,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## US-A3-1 · 별의 문자
+### US-A3-1 · 별의 문자
 벨루미르의 별 · 핸드 마법 · 레벨 1 · 에픽 — 받은 그림은 `tools/art/inbox/US-A3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-A3-1.jpg` 600×750)
 
 ```
@@ -388,7 +261,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PI-A3 · 벨루미르의 별 시위
+### PI-A3 · 벨루미르의 별 시위
 벨루미르의 별 · 아이템 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/PI-A3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-A3.jpg` 600×750)
 
 ```
@@ -414,7 +287,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-A3-1 · 바늘탑의 실프 사수
+### EP-A3-1 · 바늘탑의 실프 사수
 벨루미르의 별 · 유닛 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A3-1.jpg` 600×750)
 
 ```
@@ -441,7 +314,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## US-A3-2 · 벨루미르의 눈
+### US-A3-2 · 벨루미르의 눈
 벨루미르의 별 · 공용 마법 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/US-A3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-A3-2.jpg` 600×750)
 
 ```
@@ -468,7 +341,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## NA3-4 · 바람의 사냥
+### NA3-4 · 바람의 사냥
 벨루미르의 별 · 공용 마법 · 레벨 4 · 에픽 — 받은 그림은 `tools/art/inbox/NA3-4.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/NA3-4.jpg` 600×750)
 
 ```
@@ -495,7 +368,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-A3-2 · 번개구름 고래
+### EP-A3-2 · 번개구름 고래
 벨루미르의 별 · 유닛 · 레벨 5 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A3-2.jpg` 600×750)
 
 ```
@@ -522,7 +395,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-A3-E · 이사크의 첫 제자
+### PN-A3-E · 이사크의 첫 제자
 벨루미르의 별 · 유닛 · 레벨 6 · 에픽 — 받은 그림은 `tools/art/inbox/PN-A3-E.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A3-E.jpg` 600×750)
 
 ```
@@ -548,7 +421,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-A3-3 · 하늘 요람의 감시자
+### EP-A3-3 · 하늘 요람의 감시자
 벨루미르의 별 · 유닛 · 레벨 7 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A3-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A3-3.jpg` 600×750)
 
 ```
@@ -575,7 +448,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## US-B1-1 · 유폭
+### US-B1-1 · 유폭
 도르마크의 심장불 · 공격 마법 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/US-B1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-B1-1.jpg` 600×750)
 
 ```
@@ -602,7 +475,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-B1-1 · 포르탄 척탄수장
+### EP-B1-1 · 포르탄 척탄수장
 도르마크의 심장불 · 유닛 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/EP-B1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-B1-1.jpg` 600×750)
 
 ```
@@ -628,7 +501,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PI-B1 · 도르마크의 심장불
+### PI-B1 · 도르마크의 심장불
 도르마크의 심장불 · 아이템 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/PI-B1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-B1.jpg` 600×750)
 
 ```
@@ -654,7 +527,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## US-B1-2 · 도르마크 포격
+### US-B1-2 · 도르마크 포격
 도르마크의 심장불 · 공격 마법 · 레벨 4 · 에픽 — 받은 그림은 `tools/art/inbox/US-B1-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-B1-2.jpg` 600×750)
 
 ```
@@ -681,7 +554,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-B1-2 · 화관의 불사조
+### EP-B1-2 · 화관의 불사조
 도르마크의 심장불 · 유닛 · 레벨 5 · 에픽 — 받은 그림은 `tools/art/inbox/EP-B1-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-B1-2.jpg` 600×750)
 
 ```
@@ -708,7 +581,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-B1-E · 뛰는 심장불 조각
+### PN-B1-E · 뛰는 심장불 조각
 도르마크의 심장불 · 유닛 · 레벨 6 · 에픽 — 받은 그림은 `tools/art/inbox/PN-B1-E.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B1-E.jpg` 600×750)
 
 ```
@@ -735,7 +608,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-B1-3 · 용을 노린 거포
+### EP-B1-3 · 용을 노린 거포
 도르마크의 심장불 · 유닛 · 레벨 7 · 에픽 — 받은 그림은 `tools/art/inbox/EP-B1-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-B1-3.jpg` 600×750)
 
 ```
@@ -762,7 +635,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## US-B2-2 · 강철 행군
+### US-B2-2 · 강철 행군
 소르그림의 방패 · 공격 마법 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/US-B2-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-B2-2.jpg` 600×750)
 
 ```
@@ -789,7 +662,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-B2-1 · 가시철 고슴도치
+### EP-B2-1 · 가시철 고슴도치
 소르그림의 방패 · 유닛 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/EP-B2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-B2-1.jpg` 600×750)
 
 ```
@@ -816,7 +689,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PI-B2 · 소르그림의 힘줄
+### PI-B2 · 소르그림의 힘줄
 소르그림의 방패 · 아이템 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/PI-B2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-B2.jpg` 600×750)
 
 ```
@@ -842,7 +715,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## US-B2-1 · 철골 해머
+### US-B2-1 · 철골 해머
 소르그림의 방패 · 공격 마법 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/US-B2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-B2-1.jpg` 600×750)
 
 ```
@@ -869,7 +742,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-B2-2 · 강철 분쇄 골렘
+### EP-B2-2 · 강철 분쇄 골렘
 소르그림의 방패 · 유닛 · 레벨 5 · 에픽 — 받은 그림은 `tools/art/inbox/EP-B2-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-B2-2.jpg` 600×750)
 
 ```
@@ -896,7 +769,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-B2-E · 페로스를 본 골렘
+### PN-B2-E · 페로스를 본 골렘
 소르그림의 방패 · 유닛 · 레벨 6 · 에픽 — 받은 그림은 `tools/art/inbox/PN-B2-E.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B2-E.jpg` 600×750)
 
 ```
@@ -923,7 +796,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-B2-3 · 두르크하임 성문 거상
+### EP-B2-3 · 두르크하임 성문 거상
 소르그림의 방패 · 유닛 · 레벨 7 · 에픽 — 받은 그림은 `tools/art/inbox/EP-B2-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-B2-3.jpg` 600×750)
 
 ```
@@ -950,7 +823,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PI-B3 · 즈라크의 번개 병
+### PI-B3 · 즈라크의 번개 병
 케라운의 벼락 · 아이템 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/PI-B3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-B3.jpg` 600×750)
 
 ```
@@ -976,7 +849,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## US-B3-1 · 번개 폭주
+### US-B3-1 · 번개 폭주
 케라운의 벼락 · 공격 마법 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/US-B3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-B3-1.jpg` 600×750)
 
 ```
@@ -1003,7 +876,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-B3-1 · 볼타리움 방전 실험체
+### EP-B3-1 · 볼타리움 방전 실험체
 케라운의 벼락 · 유닛 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/EP-B3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-B3-1.jpg` 600×750)
 
 ```
@@ -1030,7 +903,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## US-B3-2 · 케라운의 신경
+### US-B3-2 · 케라운의 신경
 케라운의 벼락 · 공격 마법 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/US-B3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-B3-2.jpg` 600×750)
 
 ```
@@ -1057,7 +930,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-B3-2 · 연쇄 번개뱀
+### EP-B3-2 · 연쇄 번개뱀
 케라운의 벼락 · 유닛 · 레벨 5 · 에픽 — 받은 그림은 `tools/art/inbox/EP-B3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-B3-2.jpg` 600×750)
 
 ```
@@ -1084,7 +957,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-B3-E · 케라운 신경 증폭기
+### PN-B3-E · 케라운 신경 증폭기
 케라운의 벼락 · 유닛 · 레벨 6 · 에픽 — 받은 그림은 `tools/art/inbox/PN-B3-E.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B3-E.jpg` 600×750)
 
 ```
@@ -1111,7 +984,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-B3-3 · 케라운의 피뢰탑
+### EP-B3-3 · 케라운의 피뢰탑
 케라운의 벼락 · 유닛 · 레벨 7 · 에픽 — 받은 그림은 `tools/art/inbox/EP-B3-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-B3-3.jpg` 600×750)
 
 ```
@@ -1138,7 +1011,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## US-G1-1 · 결투 신청
+### US-G1-1 · 결투 신청
 고르바스의 발톱 · 공격 마법 · 레벨 1 · 에픽 — 받은 그림은 `tools/art/inbox/US-G1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-G1-1.jpg` 600×750)
 
 ```
@@ -1165,7 +1038,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-G1-1 · 흑요 사이클롭스 투사
+### EP-G1-1 · 흑요 사이클롭스 투사
 고르바스의 발톱 · 유닛 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/EP-G1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-G1-1.jpg` 600×750)
 
 ```
@@ -1192,7 +1065,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PI-G1 · 카르노의 결투 장갑
+### PI-G1 · 카르노의 결투 장갑
 고르바스의 발톱 · 아이템 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/PI-G1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-G1.jpg` 600×750)
 
 ```
@@ -1218,7 +1091,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## US-G1-2 · 대지의 격노
+### US-G1-2 · 대지의 격노
 고르바스의 발톱 · 공격 마법 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/US-G1-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-G1-2.jpg` 600×750)
 
 ```
@@ -1245,7 +1118,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-G1-2 · 털코뿔소 기수
+### EP-G1-2 · 털코뿔소 기수
 고르바스의 발톱 · 유닛 · 레벨 5 · 에픽 — 받은 그림은 `tools/art/inbox/EP-G1-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-G1-2.jpg` 600×750)
 
 ```
@@ -1272,7 +1145,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-G1-E · 왕좌봉 맘모스
+### PN-G1-E · 왕좌봉 맘모스
 고르바스의 발톱 · 유닛 · 레벨 6 · 에픽 — 받은 그림은 `tools/art/inbox/PN-G1-E.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G1-E.jpg` 600×750)
 
 ```
@@ -1299,7 +1172,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-G1-3 · 왕좌봉 결투왕
+### EP-G1-3 · 왕좌봉 결투왕
 고르바스의 발톱 · 유닛 · 레벨 7 · 에픽 — 받은 그림은 `tools/art/inbox/EP-G1-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-G1-3.jpg` 600×750)
 
 ```
@@ -1325,7 +1198,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## US-G2-2 · 고목의 분노
+### US-G2-2 · 고목의 분노
 베르단의 뿔 · 공격 마법 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/US-G2-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-G2-2.jpg` 600×750)
 
 ```
@@ -1352,7 +1225,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-G2-1 · 엉겅퀴 덩굴귀
+### EP-G2-1 · 엉겅퀴 덩굴귀
 베르단의 뿔 · 유닛 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/EP-G2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-G2-1.jpg` 600×750)
 
 ```
@@ -1379,7 +1252,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PI-G2 · 드리엔의 씨앗
+### PI-G2 · 드리엔의 씨앗
 베르단의 뿔 · 아이템 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/PI-G2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-G2.jpg` 600×750)
 
 ```
@@ -1405,7 +1278,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## SG2-08 · 고목 내려찍기
+### SG2-08 · 고목 내려찍기
 베르단의 뿔 · 공용 마법 · 레벨 4 · 에픽 — 받은 그림은 `tools/art/inbox/SG2-08.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG2-08.jpg` 600×750)
 
 ```
@@ -1433,7 +1306,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-G2-2 · 실바니엘의 활 드라이어드
+### EP-G2-2 · 실바니엘의 활 드라이어드
 베르단의 뿔 · 유닛 · 레벨 5 · 에픽 — 받은 그림은 `tools/art/inbox/EP-G2-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-G2-2.jpg` 600×750)
 
 ```
@@ -1460,7 +1333,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-G2-E · 태고림 이끼뿔 사슴
+### PN-G2-E · 태고림 이끼뿔 사슴
 베르단의 뿔 · 유닛 · 레벨 6 · 에픽 — 받은 그림은 `tools/art/inbox/PN-G2-E.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G2-E.jpg` 600×750)
 
 ```
@@ -1487,7 +1360,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-G2-3 · 베르단의 고목 거인
+### EP-G2-3 · 베르단의 고목 거인
 베르단의 뿔 · 유닛 · 레벨 7 · 에픽 — 받은 그림은 `tools/art/inbox/EP-G2-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-G2-3.jpg` 600×750)
 
 ```
@@ -1514,7 +1387,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## US-G3-1 · 넬리아의 노래
+### US-G3-1 · 넬리아의 노래
 마렌시아의 노래 · 공용 마법 · 레벨 1 · 에픽 — 받은 그림은 `tools/art/inbox/US-G3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-G3-1.jpg` 600×750)
 
 ```
@@ -1541,7 +1414,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PI-G3 · 마렌시아의 비늘
+### PI-G3 · 마렌시아의 비늘
 마렌시아의 노래 · 아이템 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/PI-G3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-G3.jpg` 600×750)
 
 ```
@@ -1567,7 +1440,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-G3-1 · 진주빛 해파리
+### EP-G3-1 · 진주빛 해파리
 마렌시아의 노래 · 유닛 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/EP-G3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-G3-1.jpg` 600×750)
 
 ```
@@ -1594,7 +1467,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## US-G3-2 · 조수의 귀환
+### US-G3-2 · 조수의 귀환
 마렌시아의 노래 · 공용 마법 · 레벨 4 · 에픽 — 받은 그림은 `tools/art/inbox/US-G3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-G3-2.jpg` 600×750)
 
 ```
@@ -1621,7 +1494,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-G3-2 · 심해 나가 작살 기사
+### EP-G3-2 · 심해 나가 작살 기사
 마렌시아의 노래 · 유닛 · 레벨 5 · 에픽 — 받은 그림은 `tools/art/inbox/EP-G3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-G3-2.jpg` 600×750)
 
 ```
@@ -1648,7 +1521,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-G3-E · 우르보아 비늘 기사
+### PN-G3-E · 우르보아 비늘 기사
 마렌시아의 노래 · 유닛 · 레벨 6 · 에픽 — 받은 그림은 `tools/art/inbox/PN-G3-E.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G3-E.jpg` 600×750)
 
 ```
@@ -1675,7 +1548,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## EP-G3-3 · 마렌시아의 대무녀
+### EP-G3-3 · 마렌시아의 대무녀
 마렌시아의 노래 · 유닛 · 레벨 7 · 에픽 — 받은 그림은 `tools/art/inbox/EP-G3-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-G3-3.jpg` 600×750)
 
 ```
@@ -1696,6 +1569,139 @@ Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, wea
 Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no fire, no heavy plate armour.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 5장
+
+### EP-A1-1 · 심연 칼날 무희 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A1-1.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "심연 칼날 무희". Depict exactly what this name describes.
+Subject: a seasoned, battle-hardened member of the Morkas's New Moon — a devoted priest, ritualist or pact-bound servant, praying or offering.
+Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
+Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
+Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 녹타르의 그림자 극장에서 춤을 추는 마족. 춤이 끝나면 관객 하나가 줄어 있다.
+Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
+Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
+Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
+Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
+Mood: awe, momentum, overwhelming force.
+Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+### PI-A1 · 모르카스의 저울추 — 그림 있음
+모르카스의 그믐 · 아이템 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/PI-A1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-A1.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "모르카스의 저울추". Depict exactly what this name describes.
+Subject: the item the card name and lore describe — a single object made or kept by the Morkas's New Moon (holy relic; if unsure, a wax seal, signet or sealed contract). a relic of a transcendent being floating in its own aura above a ruined altar, radiating its element.
+Scale (level 3 of 8): a fine object with a faint aura.
+Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
+Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 침묵의 군주의 저울에서 떼어 낸 추. 쥔 자의 칼은 무거워지고, 저울이 첫 칼날의 무게를 덜어 준다. 그러나 쥔 동안 제 상처는 아물지 않는다. 대가의 법칙이다.
+Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
+Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
+Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
+Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
+Mood: awe, momentum, overwhelming force.
+Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+### US-A1-1 · 침묵의 저울 — 그림 있음
+모르카스의 그믐 · 공용 마법 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/US-A1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-A1-1.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "침묵의 저울". Depict exactly what this name describes.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: an annihilating blow that erases a foe; paid for with the caster's own blood. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
+Scale (level 3 of 8): an effect over a few targets.
+Banner — Morkas's New Moon: magic of morkas's new moon, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
+Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 침묵의 군주 모르카스의 저울. 한쪽에 피를 올리면 다른 쪽에서 목숨 둘이 내려간다.
+Game effect (Korean, mood only — never draw text or numbers): [제물 4] 상대 유닛 중 공격이 가장 높은 2기를 파괴한다.
+Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
+Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
+Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
+Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
+Mood: awe, momentum, overwhelming force.
+Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+### EP-A1-2 · 녹타르 처형대장 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 5 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A1-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A1-2.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "녹타르 처형대장". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Morkas's New Moon — a devoted priest, ritualist or pact-bound servant, praying or offering.
+Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
+Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
+Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 계약을 어긴 자를 거두러 가는 처형인들의 우두머리. 한 번 휘두르면 줄 선 자들이 차례로 쓰러진다.
+Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
+Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
+Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
+Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
+Mood: awe, momentum, overwhelming force.
+Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+### PN-A1-E · 심연 장막의 거래인 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 6 · 에픽 — 받은 그림은 `tools/art/inbox/PN-A1-E.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A1-E.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "심연 장막의 거래인". Depict exactly what this name describes.
+Subject: an elite, commanding member of the Morkas's New Moon — a devoted priest, ritualist or pact-bound servant, praying or offering.
+Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
+Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
+Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 심연의 장막에서 무언가를 두고 나온 마족. 무엇을 두고 왔는지는 그도 기억하지 못한다. 상처가 아물지 않는 것은 그 때문이다.
+Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
+Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
+Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
+Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
+Mood: awe, momentum, overwhelming force.
+Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.

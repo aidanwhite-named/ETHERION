@@ -17,7 +17,11 @@ Mood: ascending, refined, powered-up.
 
 아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다. 그대로 붙여 넣으면 된다.
 
-## UP-A1-09 · 모르크 거미 여왕
+**그리는 차례**: 1 그림 없는 카드 먼저 → 2 이미 그린 그림 다시 그리기는 맨 나중(Gemini 할당량이 남을 때) → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 "다시"를 읽어 이 차례로 놓는다.)
+
+## 1. 그림 없는 카드 — 먼저 그린다 · 40장
+
+### UP-A1-09 · 모르크 거미 여왕
 모르카스의 그믐 · 유닛 · 레벨 3 · 강화 · 원래 카드 `A1-09` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A1-09.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A1-09.jpg` 600×750)
 
 ```
@@ -46,7 +50,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-A1-11 · 마족 선봉장
+### UP-A1-11 · 마족 선봉장
 모르카스의 그믐 · 유닛 · 레벨 3 · 강화 · 원래 카드 `A1-11` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A1-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A1-11.jpg` 600×750)
 
 ```
@@ -74,7 +78,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-A1-15 · 피를 마시는 마검
+### UP-A1-15 · 피를 마시는 마검
 모르카스의 그믐 · 유닛 · 레벨 4 · 강화 · 원래 카드 `A1-15` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A1-15.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A1-15.jpg` 600×750)
 
 ```
@@ -103,7 +107,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-A1-18 · 그림자 학살자
+### UP-A1-18 · 그림자 학살자
 모르카스의 그믐 · 유닛 · 레벨 4 · 강화 · 원래 카드 `A1-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A1-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A1-18.jpg` 600×750)
 
 ```
@@ -132,7 +136,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-A1-23 · 대낫 사신
+### UP-A1-23 · 대낫 사신
 모르카스의 그믐 · 유닛 · 레벨 5 · 강화 · 원래 카드 `A1-23` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A1-23.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A1-23.jpg` 600×750)
 
 ```
@@ -161,7 +165,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-A2-11 · 창뿔 유니콘
+### UP-A2-11 · 창뿔 유니콘
 솔란테의 새벽 · 유닛 · 레벨 3 · 강화 · 원래 카드 `A2-11` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A2-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A2-11.jpg` 600×750)
 
 ```
@@ -190,7 +194,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-A2-15 · 솔란테의 서약 기사
+### UP-A2-15 · 솔란테의 서약 기사
 솔란테의 새벽 · 유닛 · 레벨 4 · 강화 · 원래 카드 `A2-15` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A2-15.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A2-15.jpg` 600×750)
 
 ```
@@ -218,7 +222,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-A2-17 · 황금 스핑크스
+### UP-A2-17 · 황금 스핑크스
 솔란테의 새벽 · 유닛 · 레벨 4 · 강화 · 원래 카드 `A2-17` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A2-17.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A2-17.jpg` 600×750)
 
 ```
@@ -247,7 +251,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-A2-22 · 솔란테의 대성종
+### UP-A2-22 · 솔란테의 대성종
 솔란테의 새벽 · 유닛 · 레벨 5 · 강화 · 원래 카드 `A2-22` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A2-22.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A2-22.jpg` 600×750)
 
 ```
@@ -276,7 +280,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-A2-24 · 빛의 대거울
+### UP-A2-24 · 빛의 대거울
 솔란테의 새벽 · 유닛 · 레벨 5 · 강화 · 원래 카드 `A2-24` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A2-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A2-24.jpg` 600×750)
 
 ```
@@ -305,7 +309,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-A3-10 · 속사 하피
+### UP-A3-10 · 속사 하피
 벨루미르의 별 · 유닛 · 레벨 3 · 강화 · 원래 카드 `A3-10` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A3-10.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A3-10.jpg` 600×750)
 
 ```
@@ -334,7 +338,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-A3-11 · 질풍 그리핀
+### UP-A3-11 · 질풍 그리핀
 벨루미르의 별 · 유닛 · 레벨 3 · 강화 · 원래 카드 `A3-11` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A3-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A3-11.jpg` 600×750)
 
 ```
@@ -363,7 +367,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-A3-18 · 쌍둥이자리 궁수장
+### UP-A3-18 · 쌍둥이자리 궁수장
 벨루미르의 별 · 유닛 · 레벨 4 · 강화 · 원래 카드 `A3-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A3-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A3-18.jpg` 600×750)
 
 ```
@@ -392,7 +396,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-A3-23 · 별여우 순찰대장
+### UP-A3-23 · 별여우 순찰대장
 벨루미르의 별 · 유닛 · 레벨 5 · 강화 · 원래 카드 `A3-23` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A3-23.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A3-23.jpg` 600×750)
 
 ```
@@ -421,7 +425,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-A3-24 · 번개 텐구 대장
+### UP-A3-24 · 번개 텐구 대장
 벨루미르의 별 · 유닛 · 레벨 5 · 강화 · 원래 카드 `A3-24` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A3-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A3-24.jpg` 600×750)
 
 ```
@@ -450,7 +454,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-B1-12 · 폭약 공병장
+### UP-B1-12 · 폭약 공병장
 도르마크의 심장불 · 유닛 · 레벨 3 · 강화 · 원래 카드 `B1-12` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B1-12.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B1-12.jpg` 600×750)
 
 ```
@@ -479,7 +483,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-B1-17 · 거포 거북
+### UP-B1-17 · 거포 거북
 도르마크의 심장불 · 유닛 · 레벨 4 · 강화 · 원래 카드 `B1-17` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B1-17.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B1-17.jpg` 600×750)
 
 ```
@@ -508,7 +512,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-B1-18 · 불개미 철벽대
+### UP-B1-18 · 불개미 철벽대
 도르마크의 심장불 · 유닛 · 레벨 4 · 강화 · 원래 카드 `B1-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B1-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B1-18.jpg` 600×750)
 
 ```
@@ -537,7 +541,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-B1-24 · 박격포 명사수
+### UP-B1-24 · 박격포 명사수
 도르마크의 심장불 · 유닛 · 레벨 5 · 강화 · 원래 카드 `B1-24` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B1-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B1-24.jpg` 600×750)
 
 ```
@@ -565,7 +569,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-B2-12 · 단조 명장
+### UP-B2-12 · 단조 명장
 소르그림의 방패 · 유닛 · 레벨 3 · 강화 · 원래 카드 `B2-12` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B2-12.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B2-12.jpg` 600×750)
 
 ```
@@ -593,7 +597,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-B2-17 · 무쇠뿔 산양왕
+### UP-B2-17 · 무쇠뿔 산양왕
 소르그림의 방패 · 유닛 · 레벨 4 · 강화 · 원래 카드 `B2-17` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B2-17.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B2-17.jpg` 600×750)
 
 ```
@@ -622,7 +626,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-B2-18 · 증기 황소 우두머리
+### UP-B2-18 · 증기 황소 우두머리
 소르그림의 방패 · 유닛 · 레벨 4 · 강화 · 원래 카드 `B2-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B2-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B2-18.jpg` 600×750)
 
 ```
@@ -651,7 +655,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-B2-22 · 쇠 먹는 불가사리 왕
+### UP-B2-22 · 쇠 먹는 불가사리 왕
 소르그림의 방패 · 유닛 · 레벨 5 · 강화 · 원래 카드 `B2-22` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B2-22.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B2-22.jpg` 600×750)
 
 ```
@@ -680,7 +684,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-B2-24 · 철골 가고일 수문장
+### UP-B2-24 · 철골 가고일 수문장
 소르그림의 방패 · 유닛 · 레벨 5 · 강화 · 원래 카드 `B2-24` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B2-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B2-24.jpg` 600×750)
 
 ```
@@ -709,7 +713,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-B3-12 · 방전 요정 여왕
+### UP-B3-12 · 방전 요정 여왕
 케라운의 벼락 · 유닛 · 레벨 3 · 강화 · 원래 카드 `B3-12` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B3-12.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B3-12.jpg` 600×750)
 
 ```
@@ -738,7 +742,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-B3-18 · 노움 수석공학자
+### UP-B3-18 · 노움 수석공학자
 케라운의 벼락 · 유닛 · 레벨 4 · 강화 · 원래 카드 `B3-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B3-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B3-18.jpg` 600×750)
 
 ```
@@ -766,7 +770,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-B3-22 · 전격 수호거상
+### UP-B3-22 · 전격 수호거상
 케라운의 벼락 · 유닛 · 레벨 5 · 강화 · 원래 카드 `B3-22` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B3-22.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B3-22.jpg` 600×750)
 
 ```
@@ -795,7 +799,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-B3-23 · 병 속의 원로교수 두뇌
+### UP-B3-23 · 병 속의 원로교수 두뇌
 케라운의 벼락 · 유닛 · 레벨 5 · 강화 · 원래 카드 `B3-23` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B3-23.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B3-23.jpg` 600×750)
 
 ```
@@ -824,7 +828,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-PN-B3-C2 · 길들인 축전기
+### UP-PN-B3-C2 · 길들인 축전기
 케라운의 벼락 · 유닛 · 레벨 5 · 강화 · 원래 카드 `PN-B3-C2` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-PN-B3-C2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-PN-B3-C2.jpg` 600×750)
 
 ```
@@ -853,7 +857,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-G1-11 · 흑요 창술사
+### UP-G1-11 · 흑요 창술사
 고르바스의 발톱 · 유닛 · 레벨 3 · 강화 · 원래 카드 `G1-11` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G1-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G1-11.jpg` 600×750)
 
 ```
@@ -881,7 +885,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-G1-18 · 오우거 대주술사
+### UP-G1-18 · 오우거 대주술사
 고르바스의 발톱 · 유닛 · 레벨 4 · 강화 · 원래 카드 `G1-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G1-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G1-18.jpg` 600×750)
 
 ```
@@ -910,7 +914,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-G1-24 · 하이에나 대무리장
+### UP-G1-24 · 하이에나 대무리장
 고르바스의 발톱 · 유닛 · 레벨 5 · 강화 · 원래 카드 `G1-24` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G1-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G1-24.jpg` 600×750)
 
 ```
@@ -939,7 +943,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-G2-17 · 트롤 대주술사
+### UP-G2-17 · 트롤 대주술사
 베르단의 뿔 · 유닛 · 레벨 4 · 강화 · 원래 카드 `G2-17` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G2-17.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G2-17.jpg` 600×750)
 
 ```
@@ -967,7 +971,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-G2-22 · 맨드레이크 수문장
+### UP-G2-22 · 맨드레이크 수문장
 베르단의 뿔 · 유닛 · 레벨 5 · 강화 · 원래 카드 `G2-22` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G2-22.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G2-22.jpg` 600×750)
 
 ```
@@ -996,7 +1000,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-G2-23 · 드리엔의 대사도
+### UP-G2-23 · 드리엔의 대사도
 베르단의 뿔 · 유닛 · 레벨 5 · 강화 · 원래 카드 `G2-23` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G2-23.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G2-23.jpg` 600×750)
 
 ```
@@ -1025,7 +1029,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-G3-11 · 조수 예언 문어
+### UP-G3-11 · 조수 예언 문어
 마렌시아의 노래 · 유닛 · 레벨 3 · 강화 · 원래 카드 `G3-11` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G3-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G3-11.jpg` 600×750)
 
 ```
@@ -1054,7 +1058,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-G3-12 · 산호등 대거북
+### UP-G3-12 · 산호등 대거북
 마렌시아의 노래 · 유닛 · 레벨 3 · 강화 · 원래 카드 `G3-12` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G3-12.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G3-12.jpg` 600×750)
 
 ```
@@ -1083,7 +1087,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-G3-17 · 석호 대치유 듀공
+### UP-G3-17 · 석호 대치유 듀공
 마렌시아의 노래 · 유닛 · 레벨 4 · 강화 · 원래 카드 `G3-17` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G3-17.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G3-17.jpg` 600×750)
 
 ```
@@ -1112,7 +1116,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-G3-18 · 물기둥 산호 조율사
+### UP-G3-18 · 물기둥 산호 조율사
 마렌시아의 노래 · 유닛 · 레벨 4 · 강화 · 원래 카드 `G3-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G3-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G3-18.jpg` 600×750)
 
 ```
@@ -1141,7 +1145,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UP-G3-24 · 검은 갈기 켈피
+### UP-G3-24 · 검은 갈기 켈피
 마렌시아의 노래 · 유닛 · 레벨 5 · 강화 · 원래 카드 `G3-24` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G3-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G3-24.jpg` 600×750)
 
 ```

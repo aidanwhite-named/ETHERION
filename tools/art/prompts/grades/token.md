@@ -17,7 +17,11 @@ Mood: fleeting, conjured.
 
 아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다. 그대로 붙여 넣으면 된다.
 
-## TK-A1-1 · 계약 악마
+**그리는 차례**: 1 그림 없는 카드 먼저 → 2 이미 그린 그림 다시 그리기는 맨 나중(Gemini 할당량이 남을 때) → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 "다시"를 읽어 이 차례로 놓는다.)
+
+## 1. 그림 없는 카드 — 먼저 그린다 · 17장
+
+### TK-A1-1 · 계약 악마
 모르카스의 그믐 · 유닛 · 레벨 4 · 소환물 — 받은 그림은 `tools/art/inbox/TK-A1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-A1-1.jpg` 600×750)
 
 ```
@@ -43,7 +47,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## TK-A2-1 · 빛의 기사
+### TK-A2-1 · 빛의 기사
 솔란테의 새벽 · 유닛 · 레벨 4 · 소환물 — 받은 그림은 `tools/art/inbox/TK-A2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-A2-1.jpg` 600×750)
 
 ```
@@ -69,7 +73,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## TS-A3-1 · 별똥별 조각
+### TS-A3-1 · 별똥별 조각
 벨루미르의 별 · 공격 마법 · 레벨 1 · 소환물 — 받은 그림은 `tools/art/inbox/TS-A3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TS-A3-1.jpg` 600×750)
 
 ```
@@ -95,7 +99,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## TS-A3-2 · 돌개바람
+### TS-A3-2 · 돌개바람
 벨루미르의 별 · 공격 마법 · 레벨 1 · 소환물 — 받은 그림은 `tools/art/inbox/TS-A3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TS-A3-2.jpg` 600×750)
 
 ```
@@ -121,7 +125,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## TS-A3-3 · 불씨
+### TS-A3-3 · 불씨
 벨루미르의 별 · 공격 마법 · 레벨 1 · 소환물 — 받은 그림은 `tools/art/inbox/TS-A3-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TS-A3-3.jpg` 600×750)
 
 ```
@@ -147,7 +151,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## TS-A3-4 · 쌍둥이 메아리
+### TS-A3-4 · 쌍둥이 메아리
 벨루미르의 별 · 공용 마법 · 레벨 1 · 소환물 — 받은 그림은 `tools/art/inbox/TS-A3-4.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TS-A3-4.jpg` 600×750)
 
 ```
@@ -173,7 +177,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## TK-U-BOMB · 불붙은 화약통
+### TK-U-BOMB · 불붙은 화약통
 도르마크의 심장불 · 유닛 · 레벨 1 · 소환물 — 받은 그림은 `tools/art/inbox/TK-U-BOMB.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-U-BOMB.jpg` 600×750)
 
 ```
@@ -199,7 +203,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## TK-B2-1 · 파수 골렘
+### TK-B2-1 · 파수 골렘
 소르그림의 방패 · 유닛 · 레벨 3 · 소환물 — 받은 그림은 `tools/art/inbox/TK-B2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-B2-1.jpg` 600×750)
 
 ```
@@ -225,7 +229,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## TK-U-SCRAP · 고철 골렘
+### TK-U-SCRAP · 고철 골렘
 소르그림의 방패 · 유닛 · 레벨 3 · 소환물 — 받은 그림은 `tools/art/inbox/TK-U-SCRAP.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-U-SCRAP.jpg` 600×750)
 
 ```
@@ -251,7 +255,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## TK-G1-1 · 그림자 하이에나
+### TK-G1-1 · 그림자 하이에나
 고르바스의 발톱 · 유닛 · 레벨 2 · 소환물 — 받은 그림은 `tools/art/inbox/TK-G1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-G1-1.jpg` 600×750)
 
 ```
@@ -277,7 +281,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## TK-U-WOLF · 잿빛 하이에나
+### TK-U-WOLF · 잿빛 하이에나
 고르바스의 발톱 · 유닛 · 레벨 2 · 소환물 — 받은 그림은 `tools/art/inbox/TK-U-WOLF.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-U-WOLF.jpg` 600×750)
 
 ```
@@ -303,7 +307,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## TK-G1-2 · 우두머리 하이에나
+### TK-G1-2 · 우두머리 하이에나
 고르바스의 발톱 · 유닛 · 레벨 4 · 소환물 — 받은 그림은 `tools/art/inbox/TK-G1-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-G1-2.jpg` 600×750)
 
 ```
@@ -329,7 +333,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## TK-G2-1 · 덩굴 방벽
+### TK-G2-1 · 덩굴 방벽
 베르단의 뿔 · 유닛 · 레벨 1 · 소환물 — 받은 그림은 `tools/art/inbox/TK-G2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-G2-1.jpg` 600×750)
 
 ```
@@ -355,7 +359,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## TK-U-ROOT · 뿌리
+### TK-U-ROOT · 뿌리
 베르단의 뿔 · 유닛 · 레벨 1 · 소환물 — 받은 그림은 `tools/art/inbox/TK-U-ROOT.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-U-ROOT.jpg` 600×750)
 
 ```
@@ -381,7 +385,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## TK-U-SAPLING · 묘목
+### TK-U-SAPLING · 묘목
 베르단의 뿔 · 유닛 · 레벨 1 · 소환물 — 받은 그림은 `tools/art/inbox/TK-U-SAPLING.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-U-SAPLING.jpg` 600×750)
 
 ```
@@ -407,7 +411,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## TK-U-TREE · 어린 고목
+### TK-U-TREE · 어린 고목
 베르단의 뿔 · 유닛 · 레벨 3 · 소환물 — 받은 그림은 `tools/art/inbox/TK-U-TREE.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-U-TREE.jpg` 600×750)
 
 ```
@@ -433,7 +437,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## TK-G3-1 · 물의 정령
+### TK-G3-1 · 물의 정령
 마렌시아의 노래 · 유닛 · 레벨 2 · 소환물 — 받은 그림은 `tools/art/inbox/TK-G3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/TK-G3-1.jpg` 600×750)
 
 ```

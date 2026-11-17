@@ -17,7 +17,11 @@ Mood: legendary, commanding, personal.
 
 아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다. 그대로 붙여 넣으면 된다.
 
-## UN-A1 · 피의 서약자
+**그리는 차례**: 1 그림 없는 카드 먼저 → 2 이미 그린 그림 다시 그리기는 맨 나중(Gemini 할당량이 남을 때) → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 "다시"를 읽어 이 차례로 놓는다.)
+
+## 1. 그림 없는 카드 — 먼저 그린다 · 18장
+
+### UN-A1 · 피의 서약자
 모르카스의 그믐 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-A1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-A1.jpg` 600×750)
 
 ```
@@ -44,7 +48,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UN-A1-7 · 모르카스의 영혼 수확자
+### UN-A1-7 · 모르카스의 영혼 수확자
 모르카스의 그믐 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-A1-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-A1-7.jpg` 600×750)
 
 ```
@@ -72,7 +76,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UN-A2 · 엘라드의 날개 방패
+### UN-A2 · 엘라드의 날개 방패
 솔란테의 새벽 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-A2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-A2.jpg` 600×750)
 
 ```
@@ -99,7 +103,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UN-A2-7 · 솔란테의 새벽 사제
+### UN-A2-7 · 솔란테의 새벽 사제
 솔란테의 새벽 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-A2-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-A2-7.jpg` 600×750)
 
 ```
@@ -126,7 +130,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UN-A3 · 바늘탑 별지기
+### UN-A3 · 바늘탑 별지기
 벨루미르의 별 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-A3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-A3.jpg` 600×750)
 
 ```
@@ -153,7 +157,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UN-A3-7 · 벨루미르의 주문 사냥꾼
+### UN-A3-7 · 벨루미르의 주문 사냥꾼
 벨루미르의 별 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-A3-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-A3-7.jpg` 600×750)
 
 ```
@@ -181,7 +185,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UN-B1 · 포르탄 포병대장
+### UN-B1 · 포르탄 포병대장
 도르마크의 심장불 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-B1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-B1.jpg` 600×750)
 
 ```
@@ -208,7 +212,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UN-B1-7 · 탈라쿠스의 불씨 포수
+### UN-B1-7 · 탈라쿠스의 불씨 포수
 도르마크의 심장불 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-B1-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-B1-7.jpg` 600×750)
 
 ```
@@ -235,7 +239,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UN-B2 · 브론의 첫 골렘
+### UN-B2 · 브론의 첫 골렘
 소르그림의 방패 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-B2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-B2.jpg` 600×750)
 
 ```
@@ -263,7 +267,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UN-B2-7 · 두르크하임 사슬 골렘
+### UN-B2-7 · 두르크하임 사슬 골렘
 소르그림의 방패 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-B2-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-B2-7.jpg` 600×750)
 
 ```
@@ -291,7 +295,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UN-B3 · 즈라크의 병지기
+### UN-B3 · 즈라크의 병지기
 케라운의 벼락 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-B3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-B3.jpg` 600×750)
 
 ```
@@ -318,7 +322,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UN-B3-7 · 케라운 자기장 탑
+### UN-B3-7 · 케라운 자기장 탑
 케라운의 벼락 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-B3-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-B3-7.jpg` 600×750)
 
 ```
@@ -346,7 +350,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UN-G1 · 바위송곳니 대족장
+### UN-G1 · 바위송곳니 대족장
 고르바스의 발톱 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-G1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-G1.jpg` 600×750)
 
 ```
@@ -373,7 +377,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UN-G1-7 · 가르운 약탈왕
+### UN-G1-7 · 가르운 약탈왕
 고르바스의 발톱 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-G1-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-G1-7.jpg` 600×750)
 
 ```
@@ -400,7 +404,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UN-G2 · 첫 고목의 가시지기
+### UN-G2 · 첫 고목의 가시지기
 베르단의 뿔 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-G2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-G2.jpg` 600×750)
 
 ```
@@ -428,7 +432,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UN-G2-7 · 베르단의 씨앗지기
+### UN-G2-7 · 베르단의 씨앗지기
 베르단의 뿔 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-G2-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-G2-7.jpg` 600×750)
 
 ```
@@ -456,7 +460,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UN-G3 · 샘물의 노래꾼
+### UN-G3 · 샘물의 노래꾼
 마렌시아의 노래 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-G3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-G3.jpg` 600×750)
 
 ```
@@ -483,7 +487,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## UN-G3-7 · 마렌시아의 세이렌
+### UN-G3-7 · 마렌시아의 세이렌
 마렌시아의 노래 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-G3-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-G3-7.jpg` 600×750)
 
 ```

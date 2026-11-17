@@ -17,7 +17,11 @@ Mood: proven, capable, confident.
 
 아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다. 그대로 붙여 넣으면 된다.
 
-## A1-01 · 계약의 저주 인형
+**그리는 차례**: 1 그림 없는 카드 먼저 → 2 이미 그린 그림 다시 그리기는 맨 나중(Gemini 할당량이 남을 때) → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 "다시"를 읽어 이 차례로 놓는다.)
+
+## 1. 그림 없는 카드 — 먼저 그린다 · 128장
+
+### A1-01 · 계약의 저주 인형
 모르카스의 그믐 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/A1-01.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A1-01.jpg` 600×750)
 
 ```
@@ -44,7 +48,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## CS-A1 · 피의 침묵
+### CS-A1 · 피의 침묵
 모르카스의 그믐 · 공격 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/CS-A1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/CS-A1.jpg` 600×750)
 
 ```
@@ -71,7 +75,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## MC-05 · 환각
+### MC-05 · 환각
 모르카스의 그믐 · 공용 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/MC-05.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MC-05.jpg` 600×750)
 
 ```
@@ -98,7 +102,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A1-41 · 사슬에 묶인 망령
+### A1-41 · 사슬에 묶인 망령
 모르카스의 그믐 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/A1-41.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A1-41.jpg` 600×750)
 
 ```
@@ -125,7 +129,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A1-13 · 녹타르 듀라한
+### A1-13 · 녹타르 듀라한
 모르카스의 그믐 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/A1-13.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A1-13.jpg` 600×750)
 
 ```
@@ -152,7 +156,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## IA1-5 · 계약서 원본
+### IA1-5 · 계약서 원본
 모르카스의 그믐 · 아이템 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/IA1-5.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IA1-5.jpg` 600×750)
 
 ```
@@ -178,7 +182,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-A1-U1 · 피의 맹세 검사
+### PN-A1-U1 · 피의 맹세 검사
 모르카스의 그믐 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/PN-A1-U1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A1-U1.jpg` 600×750)
 
 ```
@@ -205,7 +209,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## S3-1 · 계약의 인장
+### S3-1 · 계약의 인장
 모르카스의 그믐 · 아이템 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/S3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/S3-1.jpg` 600×750)
 
 ```
@@ -231,7 +235,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-A1-C2 · 모르크 협곡 셰이드
+### PN-A1-C2 · 모르크 협곡 셰이드
 모르카스의 그믐 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/PN-A1-C2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A1-C2.jpg` 600×750)
 
 ```
@@ -258,7 +262,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A1-27 · 녹타르 피의 군주
+### A1-27 · 녹타르 피의 군주
 모르카스의 그믐 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/A1-27.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A1-27.jpg` 600×750)
 
 ```
@@ -284,7 +288,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-A1-U2 · 모르카스의 세리
+### PN-A1-U2 · 모르카스의 세리
 모르카스의 그믐 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/PN-A1-U2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A1-U2.jpg` 600×750)
 
 ```
@@ -311,7 +315,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A1-31 · 피의 공작
+### A1-31 · 피의 공작
 모르카스의 그믐 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/A1-31.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A1-31.jpg` 600×750)
 
 ```
@@ -337,7 +341,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A1-35 · 모르크의 나이트메어
+### A1-35 · 모르크의 나이트메어
 모르카스의 그믐 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/A1-35.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A1-35.jpg` 600×750)
 
 ```
@@ -364,7 +368,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A2-01 · 견습생의 기도 촛불
+### A2-01 · 견습생의 기도 촛불
 솔란테의 새벽 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/A2-01.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A2-01.jpg` 600×750)
 
 ```
@@ -391,7 +395,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## CS-A2 · 정화의 빛
+### CS-A2 · 정화의 빛
 솔란테의 새벽 · 공격 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/CS-A2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/CS-A2.jpg` 600×750)
 
 ```
@@ -418,7 +422,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PS-A2-1 · 맹세의 빛
+### PS-A2-1 · 맹세의 빛
 솔란테의 새벽 · 방어 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/PS-A2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PS-A2-1.jpg` 600×750)
 
 ```
@@ -445,7 +449,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A2-41 · 돌격 페가수스
+### A2-41 · 돌격 페가수스
 솔란테의 새벽 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/A2-41.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A2-41.jpg` 600×750)
 
 ```
@@ -472,7 +476,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## SA2-03 · 침묵의 기도
+### SA2-03 · 침묵의 기도
 솔란테의 새벽 · 방어 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/SA2-03.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SA2-03.jpg` 600×750)
 
 ```
@@ -500,7 +504,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A2-13 · 성광 색유리 기사
+### A2-13 · 성광 색유리 기사
 솔란테의 새벽 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/A2-13.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A2-13.jpg` 600×750)
 
 ```
@@ -527,7 +531,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-A2-U1 · 맹세를 새긴 기사
+### PN-A2-U1 · 맹세를 새긴 기사
 솔란테의 새벽 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/PN-A2-U1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A2-U1.jpg` 600×750)
 
 ```
@@ -554,7 +558,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## S4-1 · 솔란테의 성유물
+### S4-1 · 솔란테의 성유물
 솔란테의 새벽 · 아이템 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/S4-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/S4-1.jpg` 600×750)
 
 ```
@@ -580,7 +584,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A2-42 · 천벌의 집행자
+### A2-42 · 천벌의 집행자
 솔란테의 새벽 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/A2-42.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A2-42.jpg` 600×750)
 
 ```
@@ -606,7 +610,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A2-25 · 엘라드의 성화
+### A2-25 · 엘라드의 성화
 솔란테의 새벽 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/A2-25.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A2-25.jpg` 600×750)
 
 ```
@@ -633,7 +637,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-A2-U2 · 솔란테의 성가대
+### PN-A2-U2 · 솔란테의 성가대
 솔란테의 새벽 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/PN-A2-U2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A2-U2.jpg` 600×750)
 
 ```
@@ -660,7 +664,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A2-43 · 불꽃 날개 순교자
+### A2-43 · 불꽃 날개 순교자
 솔란테의 새벽 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/A2-43.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A2-43.jpg` 600×750)
 
 ```
@@ -685,7 +689,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A2-36 · 새벽의 천사장
+### A2-36 · 새벽의 천사장
 솔란테의 새벽 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/A2-36.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A2-36.jpg` 600×750)
 
 ```
@@ -711,7 +715,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-01 · 바늘탑 견습 사수
+### A3-01 · 바늘탑 견습 사수
 벨루미르의 별 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/A3-01.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-01.jpg` 600×750)
 
 ```
@@ -737,7 +741,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-02 · 어린 하피
+### A3-02 · 어린 하피
 벨루미르의 별 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/A3-02.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-02.jpg` 600×750)
 
 ```
@@ -764,7 +768,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## CS-A3 · 주문 끊기
+### CS-A3 · 주문 끊기
 벨루미르의 별 · 공격 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/CS-A3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/CS-A3.jpg` 600×750)
 
 ```
@@ -791,7 +795,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## HA3-2 · 정찰
+### HA3-2 · 정찰
 벨루미르의 별 · 핸드 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/HA3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/HA3-2.jpg` 600×750)
 
 ```
@@ -818,7 +822,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## MA-03 · 무력화
+### MA-03 · 무력화
 벨루미르의 별 · 공용 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/MA-03.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MA-03.jpg` 600×750)
 
 ```
@@ -844,7 +848,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## SA3-02 · 바람 장벽
+### SA3-02 · 바람 장벽
 벨루미르의 별 · 방어 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/SA3-02.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SA3-02.jpg` 600×750)
 
 ```
@@ -870,7 +874,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## SA3-05 · 회오리 방벽
+### SA3-05 · 회오리 방벽
 벨루미르의 별 · 방어 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/SA3-05.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SA3-05.jpg` 600×750)
 
 ```
@@ -896,7 +900,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-07 · 돌풍 임프
+### A3-07 · 돌풍 임프
 벨루미르의 별 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/A3-07.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-07.jpg` 600×750)
 
 ```
@@ -923,7 +927,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## NA3-1 · 찢는 바람
+### NA3-1 · 찢는 바람
 벨루미르의 별 · 공격 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/NA3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/NA3-1.jpg` 600×750)
 
 ```
@@ -949,7 +953,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-16 · 갑옷 틈 송골매
+### A3-16 · 갑옷 틈 송골매
 벨루미르의 별 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/A3-16.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-16.jpg` 600×750)
 
 ```
@@ -976,7 +980,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## IA3-3 · 궁사회 망토
+### IA3-3 · 궁사회 망토
 벨루미르의 별 · 아이템 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/IA3-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IA3-3.jpg` 600×750)
 
 ```
@@ -1002,7 +1006,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## IA3-6 · 번개 깃 화살
+### IA3-6 · 번개 깃 화살
 벨루미르의 별 · 아이템 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/IA3-6.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IA3-6.jpg` 600×750)
 
 ```
@@ -1028,7 +1032,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-20 · 벨루미르의 펼친 책
+### A3-20 · 벨루미르의 펼친 책
 벨루미르의 별 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/A3-20.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-20.jpg` 600×750)
 
 ```
@@ -1055,7 +1059,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-42 · 폭풍의 눈동자
+### A3-42 · 폭풍의 눈동자
 벨루미르의 별 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/A3-42.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-42.jpg` 600×750)
 
 ```
@@ -1082,7 +1086,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-A3-U2 · 하늘 요람 그리핀
+### PN-A3-U2 · 하늘 요람 그리핀
 벨루미르의 별 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/PN-A3-U2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A3-U2.jpg` 600×750)
 
 ```
@@ -1109,7 +1113,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-A3-C3 · 장궁 그리핀 기사
+### PN-A3-C3 · 장궁 그리핀 기사
 벨루미르의 별 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/PN-A3-C3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A3-C3.jpg` 600×750)
 
 ```
@@ -1136,7 +1140,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## A3-34 · 하피 여왕
+### A3-34 · 하피 여왕
 벨루미르의 별 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/A3-34.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A3-34.jpg` 600×750)
 
 ```
@@ -1163,7 +1167,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B1-03 · 타들어 가는 도화선
+### B1-03 · 타들어 가는 도화선
 도르마크의 심장불 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/B1-03.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-03.jpg` 600×750)
 
 ```
@@ -1190,7 +1194,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## CS-B1 · 덫 태우기
+### CS-B1 · 덫 태우기
 도르마크의 심장불 · 공격 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/CS-B1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/CS-B1.jpg` 600×750)
 
 ```
@@ -1217,7 +1221,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## MB-04 · 도화선
+### MB-04 · 도화선
 도르마크의 심장불 · 공격 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/MB-04.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MB-04.jpg` 600×750)
 
 ```
@@ -1244,7 +1248,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B1-41 · 잿껍질 달팽이
+### B1-41 · 잿껍질 달팽이
 도르마크의 심장불 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/B1-41.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-41.jpg` 600×750)
 
 ```
@@ -1271,7 +1275,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PS-B1-1 · 역화
+### PS-B1-1 · 역화
 도르마크의 심장불 · 공용 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/PS-B1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PS-B1-1.jpg` 600×750)
 
 ```
@@ -1298,7 +1302,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## SB1-05 · 기폭
+### SB1-05 · 기폭
 도르마크의 심장불 · 공용 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/SB1-05.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SB1-05.jpg` 600×750)
 
 ```
@@ -1326,7 +1330,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## SB1-06 · 방어 포대
+### SB1-06 · 방어 포대
 도르마크의 심장불 · 방어 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/SB1-06.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SB1-06.jpg` 600×750)
 
 ```
@@ -1352,7 +1356,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## SB1-08 · 화약고 폭파
+### SB1-08 · 화약고 폭파
 도르마크의 심장불 · 공용 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/SB1-08.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SB1-08.jpg` 600×750)
 
 ```
@@ -1380,7 +1384,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B1-13 · 잿불 박쥐 떼
+### B1-13 · 잿불 박쥐 떼
 도르마크의 심장불 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/B1-13.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-13.jpg` 600×750)
 
 ```
@@ -1407,7 +1411,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## IB1-5 · 도르마크의 화염포
+### IB1-5 · 도르마크의 화염포
 도르마크의 심장불 · 아이템 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/IB1-5.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IB1-5.jpg` 600×750)
 
 ```
@@ -1433,7 +1437,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B1-22 · 불 뿜는 키메라
+### B1-22 · 불 뿜는 키메라
 도르마크의 심장불 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/B1-22.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-22.jpg` 600×750)
 
 ```
@@ -1460,7 +1464,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B1-42 · 끓는 용암 슬라임
+### B1-42 · 끓는 용암 슬라임
 도르마크의 심장불 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/B1-42.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-42.jpg` 600×750)
 
 ```
@@ -1487,7 +1491,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B1-25 · 공성 두꺼비
+### B1-25 · 공성 두꺼비
 도르마크의 심장불 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/B1-25.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-25.jpg` 600×750)
 
 ```
@@ -1514,7 +1518,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B1-31 · 화관의 불뱀
+### B1-31 · 화관의 불뱀
 도르마크의 심장불 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/B1-31.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-31.jpg` 600×750)
 
 ```
@@ -1541,7 +1545,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B1-43 · 포르탄 가마 정령
+### B1-43 · 포르탄 가마 정령
 도르마크의 심장불 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/B1-43.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-43.jpg` 600×750)
 
 ```
@@ -1568,7 +1572,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B1-33 · 도르마크의 분화구
+### B1-33 · 도르마크의 분화구
 도르마크의 심장불 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/B1-33.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B1-33.jpg` 600×750)
 
 ```
@@ -1595,7 +1599,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B2-05 · 두르크하임 견습공
+### B2-05 · 두르크하임 견습공
 소르그림의 방패 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/B2-05.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B2-05.jpg` 600×750)
 
 ```
@@ -1620,7 +1624,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## CS-B2 · 봉인 쐐기
+### CS-B2 · 봉인 쐐기
 소르그림의 방패 · 공격 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/CS-B2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/CS-B2.jpg` 600×750)
 
 ```
@@ -1647,7 +1651,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## SB2-01 · 철갑 돌진
+### SB2-01 · 철갑 돌진
 소르그림의 방패 · 공격 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/SB2-01.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SB2-01.jpg` 600×750)
 
 ```
@@ -1673,7 +1677,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B2-07 · 걸어 다니는 리벳 방패
+### B2-07 · 걸어 다니는 리벳 방패
 소르그림의 방패 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/B2-07.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B2-07.jpg` 600×750)
 
 ```
@@ -1700,7 +1704,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B2-15 · 강철 대장장이
+### B2-15 · 강철 대장장이
 소르그림의 방패 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/B2-15.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B2-15.jpg` 600×750)
 
 ```
@@ -1725,7 +1729,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## IB2-6 · 골렘 핵
+### IB2-6 · 골렘 핵
 소르그림의 방패 · 아이템 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/IB2-6.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IB2-6.jpg` 600×750)
 
 ```
@@ -1751,7 +1755,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-B2-U1 · 두르크하임 방패공
+### PN-B2-U1 · 두르크하임 방패공
 소르그림의 방패 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/PN-B2-U1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B2-U1.jpg` 600×750)
 
 ```
@@ -1777,7 +1781,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B2-42 · 과열 압착기
+### B2-42 · 과열 압착기
 소르그림의 방패 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/B2-42.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B2-42.jpg` 600×750)
 
 ```
@@ -1803,7 +1807,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-B2-U2 · 광맥 갑충
+### PN-B2-U2 · 광맥 갑충
 소르그림의 방패 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/PN-B2-U2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B2-U2.jpg` 600×750)
 
 ```
@@ -1830,7 +1834,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-B2-C3 · 철골 망치 거상
+### PN-B2-C3 · 철골 망치 거상
 소르그림의 방패 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/PN-B2-C3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B2-C3.jpg` 600×750)
 
 ```
@@ -1857,7 +1861,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B2-33 · 오르둔의 뼈 기사
+### B2-33 · 오르둔의 뼈 기사
 소르그림의 방패 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/B2-33.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B2-33.jpg` 600×750)
 
 ```
@@ -1884,7 +1888,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B3-05 · 볼타리움 학도
+### B3-05 · 볼타리움 학도
 케라운의 벼락 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/B3-05.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-05.jpg` 600×750)
 
 ```
@@ -1909,7 +1913,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## CS-B3 · 합선
+### CS-B3 · 합선
 케라운의 벼락 · 공격 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/CS-B3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/CS-B3.jpg` 600×750)
 
 ```
@@ -1936,7 +1940,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## MC-08 · 파문
+### MC-08 · 파문
 케라운의 벼락 · 공용 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/MC-08.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MC-08.jpg` 600×750)
 
 ```
@@ -1962,7 +1966,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## IB3-3 · 피뢰 지팡이
+### IB3-3 · 피뢰 지팡이
 케라운의 벼락 · 아이템 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/IB3-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IB3-3.jpg` 600×750)
 
 ```
@@ -1988,7 +1992,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B3-13 · 볼타리움 호문쿨루스
+### B3-13 · 볼타리움 호문쿨루스
 케라운의 벼락 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/B3-13.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-13.jpg` 600×750)
 
 ```
@@ -2015,7 +2019,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## C4-1 · 별을 읽는 보주
+### C4-1 · 별을 읽는 보주
 케라운의 벼락 · 아이템 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/C4-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/C4-1.jpg` 600×750)
 
 ```
@@ -2041,7 +2045,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-B3-U1 · 피뢰탑 자석령
+### PN-B3-U1 · 피뢰탑 자석령
 케라운의 벼락 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/PN-B3-U1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B3-U1.jpg` 600×750)
 
 ```
@@ -2068,7 +2072,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B3-42 · 가시촉수 구름해파리
+### B3-42 · 가시촉수 구름해파리
 케라운의 벼락 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/B3-42.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-42.jpg` 600×750)
 
 ```
@@ -2095,7 +2099,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B3-29 · 케라운의 뇌운
+### B3-29 · 케라운의 뇌운
 케라운의 벼락 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/B3-29.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-29.jpg` 600×750)
 
 ```
@@ -2122,7 +2126,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B3-34 · 폭뢰 기관
+### B3-34 · 폭뢰 기관
 케라운의 벼락 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/B3-34.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-34.jpg` 600×750)
 
 ```
@@ -2148,7 +2152,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## B3-36 · 천둥 뇌수
+### B3-36 · 천둥 뇌수
 케라운의 벼락 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/B3-36.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/B3-36.jpg` 600×750)
 
 ```
@@ -2175,7 +2179,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## CS-G1 · 덫 짓밟기
+### CS-G1 · 덫 짓밟기
 고르바스의 발톱 · 공격 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/CS-G1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/CS-G1.jpg` 600×750)
 
 ```
@@ -2202,7 +2206,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G1-03 · 돌 던지는 개코원숭이
+### G1-03 · 돌 던지는 개코원숭이
 고르바스의 발톱 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/G1-03.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G1-03.jpg` 600×750)
 
 ```
@@ -2229,7 +2233,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## MG-01 · 송곳니 돌격
+### MG-01 · 송곳니 돌격
 고르바스의 발톱 · 공격 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/MG-01.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MG-01.jpg` 600×750)
 
 ```
@@ -2255,7 +2259,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G1-07 · 초원 켄타우로스
+### G1-07 · 초원 켄타우로스
 고르바스의 발톱 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/G1-07.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G1-07.jpg` 600×750)
 
 ```
@@ -2282,7 +2286,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-G1-C1 · 바위송곳니 막내
+### PN-G1-C1 · 바위송곳니 막내
 고르바스의 발톱 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/PN-G1-C1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G1-C1.jpg` 600×750)
 
 ```
@@ -2308,7 +2312,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## SG1-09 · 몸통 박치기
+### SG1-09 · 몸통 박치기
 고르바스의 발톱 · 공격 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/SG1-09.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG1-09.jpg` 600×750)
 
 ```
@@ -2335,7 +2339,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G1-14 · 돌격 미노타우로스
+### G1-14 · 돌격 미노타우로스
 고르바스의 발톱 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/G1-14.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G1-14.jpg` 600×750)
 
 ```
@@ -2362,7 +2366,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## IG1-4 · 바위 주술 토템
+### IG1-4 · 바위 주술 토템
 고르바스의 발톱 · 아이템 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/IG1-4.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IG1-4.jpg` 600×750)
 
 ```
@@ -2388,7 +2392,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## IG1-6 · 송곳니 전쟁 도끼
+### IG1-6 · 송곳니 전쟁 도끼
 고르바스의 발톱 · 아이템 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/IG1-6.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IG1-6.jpg` 600×750)
 
 ```
@@ -2414,7 +2418,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G1-21 · 흑요 켄타우로스 궁수
+### G1-21 · 흑요 켄타우로스 궁수
 고르바스의 발톱 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/G1-21.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G1-21.jpg` 600×750)
 
 ```
@@ -2441,7 +2445,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G1-26 · 전쟁군주 투르크
+### G1-26 · 전쟁군주 투르크
 고르바스의 발톱 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/G1-26.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G1-26.jpg` 600×750)
 
 ```
@@ -2466,7 +2470,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-G1-U2 · 곰가죽 광전사
+### PN-G1-U2 · 곰가죽 광전사
 고르바스의 발톱 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/PN-G1-U2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G1-U2.jpg` 600×750)
 
 ```
@@ -2493,7 +2497,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G1-29 · 그롬의 바위 정령
+### G1-29 · 그롬의 바위 정령
 고르바스의 발톱 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/G1-29.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G1-29.jpg` 600×750)
 
 ```
@@ -2520,7 +2524,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G1-34 · 고르바스의 고르곤
+### G1-34 · 고르바스의 고르곤
 고르바스의 발톱 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/G1-34.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G1-34.jpg` 600×750)
 
 ```
@@ -2547,7 +2551,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G2-04 · 어린 드라이어드
+### G2-04 · 어린 드라이어드
 베르단의 뿔 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/G2-04.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G2-04.jpg` 600×750)
 
 ```
@@ -2574,7 +2578,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PS-G2-1 · 나이테
+### PS-G2-1 · 나이테
 베르단의 뿔 · 방어 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/PS-G2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PS-G2-1.jpg` 600×750)
 
 ```
@@ -2601,7 +2605,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## US-G2-1 · 재생의 숲
+### US-G2-1 · 재생의 숲
 베르단의 뿔 · 공용 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/US-G2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-G2-1.jpg` 600×750)
 
 ```
@@ -2628,7 +2632,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## CS-G2 · 이끼 덮기
+### CS-G2 · 이끼 덮기
 베르단의 뿔 · 공격 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/CS-G2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/CS-G2.jpg` 600×750)
 
 ```
@@ -2655,7 +2659,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G2-41 · 트롤 투창수
+### G2-41 · 트롤 투창수
 베르단의 뿔 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/G2-41.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G2-41.jpg` 600×750)
 
 ```
@@ -2680,7 +2684,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## IG2-3 · 이끼 부적
+### IG2-3 · 이끼 부적
 베르단의 뿔 · 아이템 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/IG2-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IG2-3.jpg` 600×750)
 
 ```
@@ -2706,7 +2710,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## MC-11 · 침묵
+### MC-11 · 침묵
 베르단의 뿔 · 공용 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/MC-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MC-11.jpg` 600×750)
 
 ```
@@ -2732,7 +2736,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## IG2-6 · 베르단의 뿌리
+### IG2-6 · 베르단의 뿌리
 베르단의 뿔 · 아이템 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/IG2-6.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IG2-6.jpg` 600×750)
 
 ```
@@ -2758,7 +2762,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## M4-1 · 트렌트의 나이테
+### M4-1 · 트렌트의 나이테
 베르단의 뿔 · 아이템 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/M4-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/M4-1.jpg` 600×750)
 
 ```
@@ -2784,7 +2788,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## MG-14 · 숲의 무게
+### MG-14 · 숲의 무게
 베르단의 뿔 · 공용 마법 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/MG-14.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MG-14.jpg` 600×750)
 
 ```
@@ -2811,7 +2815,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-G2-U1 · 덩굴손 픽시
+### PN-G2-U1 · 덩굴손 픽시
 베르단의 뿔 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/PN-G2-U1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G2-U1.jpg` 600×750)
 
 ```
@@ -2838,7 +2842,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## SG2-09 · 베르단의 고목
+### SG2-09 · 베르단의 고목
 베르단의 뿔 · 방어 마법 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/SG2-09.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG2-09.jpg` 600×750)
 
 ```
@@ -2864,7 +2868,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G2-42 · 독가시 말벌떼
+### G2-42 · 독가시 말벌떼
 베르단의 뿔 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/G2-42.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G2-42.jpg` 600×750)
 
 ```
@@ -2890,7 +2894,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-G2-C2 · 가시덤불 덩굴귀
+### PN-G2-C2 · 가시덤불 덩굴귀
 베르단의 뿔 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/PN-G2-C2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G2-C2.jpg` 600×750)
 
 ```
@@ -2917,7 +2921,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G2-27 · 베르단의 레쉬
+### G2-27 · 베르단의 레쉬
 베르단의 뿔 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/G2-27.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G2-27.jpg` 600×750)
 
 ```
@@ -2944,7 +2948,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-G2-U2 · 균사 뿌리지기
+### PN-G2-U2 · 균사 뿌리지기
 베르단의 뿔 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/PN-G2-U2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G2-U2.jpg` 600×750)
 
 ```
@@ -2971,7 +2975,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G2-43 · 벼락 맞은 분노목
+### G2-43 · 벼락 맞은 분노목
 베르단의 뿔 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/G2-43.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G2-43.jpg` 600×750)
 
 ```
@@ -2997,7 +3001,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G2-35 · 고목 장로회
+### G2-35 · 고목 장로회
 베르단의 뿔 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/G2-35.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G2-35.jpg` 600×750)
 
 ```
@@ -3022,7 +3026,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## CS-G3 · 씻김의 노래
+### CS-G3 · 씻김의 노래
 마렌시아의 노래 · 공격 마법 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/CS-G3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/CS-G3.jpg` 600×750)
 
 ```
@@ -3049,7 +3053,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G3-01 · 석호 수습 무녀
+### G3-01 · 석호 수습 무녀
 마렌시아의 노래 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/G3-01.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G3-01.jpg` 600×750)
 
 ```
@@ -3074,7 +3078,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G3-08 · 물결의 메아리
+### G3-08 · 물결의 메아리
 마렌시아의 노래 · 유닛 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/G3-08.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G3-08.jpg` 600×750)
 
 ```
@@ -3101,7 +3105,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## MG-11 · 뒤집힌 물거울
+### MG-11 · 뒤집힌 물거울
 마렌시아의 노래 · 공용 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/MG-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MG-11.jpg` 600×750)
 
 ```
@@ -3129,7 +3133,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## SG3-02 · 물빛 신기루
+### SG3-02 · 물빛 신기루
 마렌시아의 노래 · 공용 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/SG3-02.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG3-02.jpg` 600×750)
 
 ```
@@ -3157,7 +3161,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G3-41 · 물살 돌격 범고래
+### G3-41 · 물살 돌격 범고래
 마렌시아의 노래 · 유닛 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/G3-41.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G3-41.jpg` 600×750)
 
 ```
@@ -3184,7 +3188,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## IG3-4 · 진주 성표
+### IG3-4 · 진주 성표
 마렌시아의 노래 · 아이템 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/IG3-4.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IG3-4.jpg` 600×750)
 
 ```
@@ -3210,7 +3214,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## IG3-6 · 인어의 비늘
+### IG3-6 · 인어의 비늘
 마렌시아의 노래 · 아이템 · 레벨 3 · 고급 — 받은 그림은 `tools/art/inbox/IG3-6.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IG3-6.jpg` 600×750)
 
 ```
@@ -3236,7 +3240,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G3-19 · 셀레네아 무녀장
+### G3-19 · 셀레네아 무녀장
 마렌시아의 노래 · 유닛 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/G3-19.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G3-19.jpg` 600×750)
 
 ```
@@ -3261,7 +3265,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## NG3-1 · 거센 파도
+### NG3-1 · 거센 파도
 마렌시아의 노래 · 공용 마법 · 레벨 4 · 고급 — 받은 그림은 `tools/art/inbox/NG3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/NG3-1.jpg` 600×750)
 
 ```
@@ -3287,7 +3291,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G3-27 · 해구 투구게
+### G3-27 · 해구 투구게
 마렌시아의 노래 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/G3-27.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G3-27.jpg` 600×750)
 
 ```
@@ -3314,7 +3318,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-G3-U2 · 탈라쿠스의 아귀
+### PN-G3-U2 · 탈라쿠스의 아귀
 마렌시아의 노래 · 유닛 · 레벨 5 · 고급 — 받은 그림은 `tools/art/inbox/PN-G3-U2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G3-U2.jpg` 600×750)
 
 ```
@@ -3341,7 +3345,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G3-32 · 심해 인어왕
+### G3-32 · 심해 인어왕
 마렌시아의 노래 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/G3-32.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G3-32.jpg` 600×750)
 
 ```
@@ -3366,7 +3370,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PN-G3-C3 · 해구의 노래 고래
+### PN-G3-C3 · 해구의 노래 고래
 마렌시아의 노래 · 유닛 · 레벨 6 · 고급 — 받은 그림은 `tools/art/inbox/PN-G3-C3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G3-C3.jpg` 600×750)
 
 ```
@@ -3393,7 +3397,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## G3-34 · 마렌시아의 왕게
+### G3-34 · 마렌시아의 왕게
 마렌시아의 노래 · 유닛 · 레벨 7 · 고급 — 받은 그림은 `tools/art/inbox/G3-34.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/G3-34.jpg` 600×750)
 
 ```

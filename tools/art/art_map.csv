@@ -1,21 +1,21 @@
 ﻿card_id,name,grade,grade_ko,group,type,lv,base,status,image,art_ver,prompt_ver,source_file,model,added,note
-SP-A1,그림자 없는 아즈라,special,스페셜,A1,unit,8,,다시,img/cards/SP-A1.jpg,g2,g3,SP-A1.jpg,imagen-3,2026-11-13 10:31,"v3.59 다시 — 에픽 무희와 다르게: 녹타르 위에 선 거대한 아즈라, 모든 그림자가 그녀에게 기움"
+SP-A1,그림자 없는 아즈라,special,스페셜,A1,unit,8,,다시,img/cards/SP-A1.jpg,g2,g3,SP-A1.jpg,imagen-3,2026-11-13 10:31,"꼭 · 맨 나중 — v3.59 다시 — 에픽 무희와 다르게: 녹타르 위에 선 거대한 아즈라, 모든 그림자가 그녀에게 기움"
 SR-A1,하르간의 양손검,special,스페셜,A1,item,4,,들어감,img/cards/SR-A1.jpg,g2,g3,SR-A1.jpg,imagen-3,2026-11-13 10:31,
-SP-A2,솔란테의 첫 기사,special,스페셜,A2,unit,8,,들어감,img/cards/SP-A2.jpg,g2,g3,SP-A2.jpg,imagen-3,2026-11-13 10:31,
+SP-A2,솔란테의 첫 기사,special,스페셜,A2,unit,8,,다시,img/cards/SP-A2.jpg,g2,g3,SP-A2.jpg,imagen-3,2026-11-13 10:31,"선택 · 맨 나중 — v3.59 서사 손질로 프롬프트(그림 지시 · 서사) 바뀜, 지금 그림도 쓸 만함"
 SR-A2,세렌의 활,special,스페셜,A2,item,4,,들어감,img/cards/SR-A2.jpg,g2,g3,SR-A2.jpg,imagen-3,2026-11-13 10:31,
-SP-A3,별을 푼 이사크,special,스페셜,A3,unit,8,,들어감,img/cards/SP-A3.jpg,g2,g3,SP-A3.jpg,,2026-11-14 01:35,
+SP-A3,별을 푼 이사크,special,스페셜,A3,unit,8,,다시,img/cards/SP-A3.jpg,g2,g3,SP-A3.jpg,,2026-11-14 01:35,"선택 · 맨 나중 — v3.59 서사 손질로 프롬프트(그림 지시 · 서사) 바뀜, 지금 그림도 쓸 만함"
 SR-A3,이벨의 깃펜,special,스페셜,A3,item,4,,들어감,img/cards/SR-A3.jpg,g2,g3,SR-A3.jpg,imagen-3,2026-11-13 10:31,
-SP-B1,불을 삼킨 자,special,스페셜,B1,unit,8,,다시,img/cards/SP-B1.jpg,g2,g3,SP-B1.jpg,,2026-11-14 01:35,v3.59 다시 — 고블린이 아니라 불이 된 거대한 존재로 (art_notes g3)
+SP-B1,불을 삼킨 자,special,스페셜,B1,unit,8,,다시,img/cards/SP-B1.jpg,g2,g3,SP-B1.jpg,,2026-11-14 01:35,꼭 · 맨 나중 — v3.59 다시 — 고블린이 아니라 불이 된 거대한 존재로 (art_notes g3)
 SR-B1,도르마크의 갈비뼈 화로,special,스페셜,B1,item,4,,없음,,,g3,,,,
-SP-B2,철의 심장을 삼킨 자,special,스페셜,B2,unit,8,,다시,img/cards/SP-B2.jpg,g2,g3,SP-B2.jpg,,2026-11-14 01:35,"v3.59 다시 — 이름 바뀜(철의 심장을 삼킨 자), 커다란 심장 + 반쯤 가려진 거대한 존재"
+SP-B2,철의 심장을 삼킨 자,special,스페셜,B2,unit,8,,다시,img/cards/SP-B2.jpg,g2,g3,SP-B2.jpg,,2026-11-14 01:35,"꼭 · 맨 나중 — v3.59 다시 — 이름 바뀜(철의 심장을 삼킨 자), 커다란 심장 + 반쯤 가려진 거대한 존재"
 SR-B2,소르그림의 첫 갑주,special,스페셜,B2,item,4,,없음,,,g3,,,,
-SP-B3,일곱 번째,special,스페셜,B3,unit,8,,들어감,img/cards/SP-B3.jpg,g2,g3,SP-B3.jpg,,2026-11-14 01:35,
+SP-B3,일곱 번째,special,스페셜,B3,unit,8,,다시,img/cards/SP-B3.jpg,g2,g3,SP-B3.jpg,,2026-11-14 01:35,"선택 · 맨 나중 — v3.59 서사 손질로 프롬프트(그림 지시 · 서사) 바뀜, 지금 그림도 쓸 만함"
 SR-B3,케라운의 벼락 심장,special,스페셜,B3,item,4,,없음,,,g3,,,,
-SP-G1,잿갈기 카르노,special,스페셜,G1,unit,8,,다시,img/cards/SP-G1.jpg,g2,g3,SP-G1.jpg,,2026-11-14 06:06,v3.59 다시 — 오크가 아니라 바위와 잿불의 거대한 투사로
+SP-G1,잿갈기 카르노,special,스페셜,G1,unit,8,,다시,img/cards/SP-G1.jpg,g2,g3,SP-G1.jpg,,2026-11-14 06:06,꼭 · 맨 나중 — v3.59 다시 — 오크가 아니라 바위와 잿불의 거대한 투사로
 SR-G1,고르바스의 부러진 송곳니,special,스페셜,G1,item,4,,없음,,,g3,,,,
-SP-G2,은월 리시엘,special,스페셜,G2,unit,8,,들어감,img/cards/SP-G2.jpg,g2,g3,SP-G2.jpg,,2026-11-14 06:06,
+SP-G2,은월 리시엘,special,스페셜,G2,unit,8,,다시,img/cards/SP-G2.jpg,g2,g3,SP-G2.jpg,,2026-11-14 06:06,"선택 · 맨 나중 — v3.59 서사 손질로 프롬프트(그림 지시 · 서사) 바뀜, 지금 그림도 쓸 만함"
 SR-G2,베르단의 첫 뿔,special,스페셜,G2,item,4,,없음,,,g3,,,,
-SP-G3,바다를 잠재우는 자,special,스페셜,G3,unit,8,,들어감,img/cards/SP-G3.jpg,g2,g3,SP-G3.jpg,,2026-11-14 06:06,
+SP-G3,바다를 잠재우는 자,special,스페셜,G3,unit,8,,다시,img/cards/SP-G3.jpg,g2,g3,SP-G3.jpg,,2026-11-14 06:06,"선택 · 맨 나중 — v3.59 서사 손질로 프롬프트(그림 지시 · 서사) 바뀜, 지금 그림도 쓸 만함"
 SR-G3,마렌시아의 눈물 성배,special,스페셜,G3,item,4,,없음,,,g3,,,,
 UN-A1,피의 서약자,unique,유니크,A1,unit,6,,없음,,,g3,,,,
 UN-A1-7,모르카스의 영혼 수확자,unique,유니크,A1,unit,6,,없음,,,g3,,,,
@@ -393,7 +393,7 @@ NA2-2,빛의 날개,common,일반,A2,any,3,,없음,,,g3,,,,
 PN-A2-C1,새벽성 작은 성상,common,일반,A2,unit,2,,없음,,,g3,,,,
 PN-A2-C2,엘라드의 오파님,common,일반,A2,unit,4,,없음,,,g3,,,,
 PN-A2-C3,황혼 장벽 페가수스,common,일반,A2,unit,6,,없음,,,g3,,,,
-PS-A2-2,질서의 빛,common,일반,A2,any,1,,없음,,,g3,,,,
+PS-A2-2,질서의 빛,common,일반,A2,any,2,,없음,,,g3,,,,
 RA2-1,심판의 날,common,일반,A2,any,5,,없음,,,g3,,,,
 S2-1,빛의 성표,common,일반,A2,item,2,,없음,,,g3,,,,
 SA2-01,돌격 나팔,common,일반,A2,atk,1,,없음,,,g3,,,,

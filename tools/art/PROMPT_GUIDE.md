@@ -53,7 +53,7 @@
 | `tools/art/art_style.json` | **그림 말의 원본** — 등급 8칸(소환물 포함) · 레벨 · 깃발 9 · 진영 3 · 원소 · 종류 · 클래스 | 사람 / AI. 고치면 `version`을 올린다 |
 | `tools/art/art_notes.json` | 카드별 그림 지시(영어). 스페셜 · 유니크는 반드시, 이름만으로 모습이 애매한 카드도 | 사람 / AI |
 | `tools/art/build_prompts.js` | 위 둘 + 게임 데이터 → 카드마다 완성 프롬프트 | 거의 안 고침 |
-| `tools/art/prompts/grades/<등급>.md` | **등급별 프롬프트 모음**(그 등급의 연출 틀 + 카드마다 완성본) | 자동 |
+| `tools/art/prompts/grades/<등급>.md` | **등급별 프롬프트 모음**(그 등급의 연출 틀 + 카드마다 완성본). 그리는 차례대로 세 묶음: 1 그림 없는 카드(먼저) → 2 이미 그린 그림 다시 그리기(장부 상태 "다시", 맨 나중 · 할당량이 남을 때) → 3 그림 있음 | 자동 |
 | `tools/art/prompts/cards/<깃발>.md` | 같은 프롬프트를 깃발별로 | 자동 |
 | `tools/art/prompts/cards.jsonl` | 프로그램용(gen.py · artmap.py가 읽음) | 자동 |
 | `tools/art/inbox/` | **받은 그림을 넣는 곳** — 파일 이름에 카드 ID나 카드 이름 | 사람 |
