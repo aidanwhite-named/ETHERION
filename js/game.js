@@ -444,7 +444,7 @@ async function runCombat() {
     // 기록을 처음 상태부터 다시 보여 준다 (한 수의 길이 = 엔진 ms × PACE ÷ 배속)
     let i = 0, casting = null;   // v1.9.5 casting: 지금 발동 중인 마법 (뒤집힐 때부터 부서질 때까지) — js/spellfx.js 연출에 쓴다
     while (i < rec.length) {
-      if (G !== myG) return;
+      if (G !== myG || G.phase === "over") return;   // 2026-11-17 전투 재생 중에 항복하면 바로 멈춘다
       const s = rec[i];
       s.dur = Math.round(s.dur * PACE);
       const prevSnap = i > 0 ? rec[i - 1].snap : null;
@@ -484,10 +484,10 @@ async function runCombat() {
         if (d > 30) setTimeout(() => { if (G === myG) floatAt(f[0], f[1], f[2], f[3]); }, d); else floatAt(f[0], f[1], f[2], f[3]);
       }
       if (casting && s.fx.shatter && s.fx.shatter.includes(casting.uid)) casting = null;
-      if (s.fx.spellCoin) { await spellCoinFx(s.fx.spellCoin); if (G !== myG) return; i++; continue; }   // v3.9.2 마법 코인
+      if (s.fx.spellCoin) { await spellCoinFx(s.fx.spellCoin); if (G !== myG || G.phase === "over") return; i++; continue; }   // v3.9.2 마법 코인
       if (s.fx.coin) {
         const flips = await coinClash(s.fx.coin);
-        if (G !== myG) return;
+        if (G !== myG || G.phase === "over") return;   // 2026-11-17 코인 창에서 항복
         if (flips && flips.length) {
           for (const f of flips) {
             over[`${s.fx.coin.n}:${f.uid}:${f.idx}`] = f.heads;
@@ -1221,7 +1221,9 @@ async function showSettings() {
     <p class="pick-label">효과음 <small class="muted">— 누르기·놓기·맞기 소리 (파일 없이 합성, 터치 기기에서는 짧은 진동)</small></p>
     <div class="speed set-sfx">${[["off", "끄기"], ["low", "작게"], ["mid", "보통"]].map(([v, n]) => `<button type="button" class="btn xs ${typeof FEEL !== "undefined" && FEEL.level === v ? "on" : ""}" data-sfx="${v}">${n}</button>`).join("")}</div>
     <p class="pick-label">배경음 <small class="muted">— 타이틀 곡과 대기실·상점의 아홉 단체 테마(무작위로 이어 틂). 대전 중에는 멈춥니다</small></p>
-    <div class="speed set-bgm">${[["off", "끄기"], ["low", "작게"], ["mid", "보통"]].map(([v, n]) => `<button type="button" class="btn xs ${typeof BGM !== "undefined" && BGM.level === v ? "on" : ""}" data-bgm="${v}">${n}</button>`).join("")}</div>`;
+    <div class="speed set-bgm">${[["off", "끄기"], ["low", "작게"], ["mid", "보통"]].map(([v, n]) => `<button type="button" class="btn xs ${typeof BGM !== "undefined" && BGM.level === v ? "on" : ""}" data-bgm="${v}">${n}</button>`).join("")}</div>${Store.isAdmin() ? `
+    <p class="pick-label">턴 시간 제한 <small class="muted">— 관리자만: 준비 단계마다 30초. 끄면 시간이 다 되어도 턴이 넘어가지 않습니다 (지금 판에도 바로 적용)</small></p>
+    <div class="speed set-tlimit">${[["on", "켜기 (기본)"], ["off", "끄기"]].map(([v, n]) => `<button type="button" class="btn xs ${(Prefs.get("turnLimitOff", false) === true ? "off" : "on") === v ? "on" : ""}" data-tl="${v}">${n}</button>`).join("")}</div>` : ""}`;
   await modal(html, [{ label: "닫기", value: true, cls: "primary" }], { cls: "wide set-modal", onOpen: w => {
     w.addEventListener("click", e => {
       const b = e.target.closest("[data-sp]");
@@ -1243,6 +1245,8 @@ async function showSettings() {
       if (fx) { Prefs.set("fx", fx.dataset.fx); if (typeof applyFx === "function") applyFx(fx.dataset.fx); if (typeof Titans !== "undefined" && Titans.lite) Titans.lite(fx.dataset.fx !== "rich"); w.querySelectorAll("[data-fx]").forEach(x => x.classList.toggle("on", x.dataset.fx === fx.dataset.fx)); }
       const f = e.target.closest("[data-sfx]");
       if (f && typeof FEEL !== "undefined") { FEEL.setLevel(f.dataset.sfx); w.querySelectorAll("[data-sfx]").forEach(x => x.classList.toggle("on", x.dataset.sfx === FEEL.level)); }
+      const tl = e.target.closest("[data-tl]");
+      if (tl && Store.isAdmin()) { Prefs.set("turnLimitOff", tl.dataset.tl === "off"); w.querySelectorAll("[data-tl]").forEach(x => x.classList.toggle("on", x === tl)); }
       const m = e.target.closest("[data-bgm]");
       if (m && typeof BGM !== "undefined") { BGM.setLevel(m.dataset.bgm); w.querySelectorAll("[data-bgm]").forEach(x => x.classList.toggle("on", x.dataset.bgm === BGM.level)); }
     });
@@ -1469,6 +1473,7 @@ function floatAt(target, text, cls, row) {   // row: 해로운 효과 차례(har
    양쪽이 다 멈추면 "코인 뒤집기": 손해 본 코인(+ 코인은 뒷면, v3.12.5 − 코인은 앞면)을 그 유닛의 주인이 누르면 에테르 1을 내고 그 코인만 다시 던진다 (교전마다 한 번).
    뒤집지 않으려면 "운명 수락". 컴퓨터도 같은 규칙으로 뒤집는다. 돌려주는 값: 뒤집은 코인 목록 [{p, uid, idx, heads}] */
 const COIN_LIMIT_MS = 6500;   // v1.9: 5초 → 8초, v1.9.1: 8초 → 6.5초
+const REFLIP_LIMIT_MS = 8000;   // 2026-11-17 다시 굴릴지 고르는 시간 — 지나면 "굴리지 않고 넘어가기"(에테르 안 씀). 전에는 고르는 단계에 시간제한이 없어 안 누르면 판이 멈췄다
 /* v3.12.5 − 동전: 같은 동전에 묶인 공·방·체 값의 합이 − 이면 앞면이 손해다 → 다시 굴릴 수 있는 면이 앞면 */
 function coinNeg(o) { return o.parts.reduce((s, k) => s + k.v, 0) < 0; }
 function coinBad(o) { return coinNeg(o) ? !!o.heads : !o.heads; }
@@ -1676,8 +1681,10 @@ function coinClash(info) {
     const finish = () => {
       if (finished) return; finished = true; clearAll();
       st.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 240 * k, fill: "forwards" }).onfinish = () => st.remove();
-      FX.coinStop = null; FX.coinReflip = null; res(flips);
+      FX.coinStop = null; FX.coinReflip = null; FX.coinAbort = null; res(flips);
     };
+    /* 2026-11-17 항복하면 코인 창을 바로 닫는다(다시 던지기 없이) */
+    FX.coinAbort = () => { if (finished) return; finished = true; clearAll(); if (st.isConnected) st.remove(); FX.coinStop = null; FX.coinReflip = null; FX.coinAbort = null; res([]); };
     const burstOn = (sd, kind, size) => { const r = panel(sd).querySelector(".cs-coins").getBoundingClientRect(); burst(r.left + r.width / 2, r.top + r.height / 2, kind, size); };
     const landAnim = (el, heads, dur) => {
       el.classList.remove("spinning", "is-heads", "is-tails", "can-flip");
@@ -1820,6 +1827,16 @@ function coinClash(info) {
       if (!pending.length) { const rv = revealAll(); later(() => { if (G === myG) finish(); else { st.remove(); res(flips); } }, (2200 + rv) * k); return; }
       st.classList.add("deciding");
       left = new Set(pending.map(sd => sd.who));
+      /* 2026-11-17 다시 굴릴지 고르는 시간제한: 사람 창마다 모래띠를 다시 채우고, REFLIP_LIMIT_MS가 지나면 넘어가기(skipSide).
+         온라인에서 상대 창은 상대 기기가 같은 시간에 넘어가기를 보낸다 */
+      const mine = pending.filter(sd => sd.human);
+      if (mine.length) {
+        mine.forEach(sd => {
+          const el = panel(sd), bar = el.querySelector(".cs-sand i"); el.classList.add("cs-deciding");
+          if (bar) { bar.style.animation = "none"; void bar.offsetWidth; bar.style.animation = `csSand ${REFLIP_LIMIT_MS}ms linear forwards`; }
+        });
+        later(() => mine.forEach(sd => skipSide(sd)), REFLIP_LIMIT_MS);
+      }
       // v1.9.5 다시 던진 결과도 2배(0.9 → 1.8초). 사람이 "넘기기"를 누른 것은 그대로 0.9초
       const done = (who, ms) => {
         left.delete(who);
@@ -1833,6 +1850,7 @@ function coinClash(info) {
       skipSide = sd => {
         if (!sd.human || !left.has(sd.who) || sd.decided) return;
         sd.decided = true;   // v3.10 다시 굴리는 연출 중에 '넘기기'가 한 번 더 들어오지 않게
+        panel(sd).classList.remove("cs-deciding");
         if (G.online) Online.send({ t: "coin", k: ckey(sd), flip: null });
         const el = panel(sd);
         el.querySelectorAll(".can-flip, .picked").forEach(e => e.classList.remove("can-flip", "picked"));
@@ -1842,7 +1860,7 @@ function coinClash(info) {
       doFlip = (sd, i, forced) => {
         if (!left.has(sd.who) || sd.decided) return;
         const el = panel(sd), c = el.querySelector(`.cs-coin[data-i="${i}"]`); if (!c) return;
-        sd.decided = true;
+        sd.decided = true; el.classList.remove("cs-deciding");
         if (sd.hide) {   // v3.12.6 가린 상대는 조용히 다시 던진다 (결과와 에테르는 창을 열 때 보인다)
           const o = sd.groups[i], heads = forced != null ? !!forced : reflipRand(info.n, sd.u.uid, o.g) < o.p; o.heads = heads;
           sd.coins = sd.coins.map(x => x.g === o.g ? Object.assign({}, x, { heads }) : x);
@@ -3117,9 +3135,11 @@ function clockState() {
   G.clock.last = now;
   return G.clock;
 }
+/* 2026-11-17 관리자는 설정에서 시간 제한을 끌 수 있다(Prefs turnLimitOff). 끄면 예전처럼 흐른 시간만 센다 */
+const turnLimitOn = () => !(typeof Store !== "undefined" && Store.isAdmin() && Prefs.get("turnLimitOff", false) === true);
 const clockLeft = ms => Math.max(0, TURN_LIMIT_MS - ms);
-const clockText = ms => { const t = Math.ceil(clockLeft(ms) / 1000); return Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0"); };
-const clockLow = ms => clockLeft(ms) <= 10000;
+const clockText = ms => { const t = turnLimitOn() ? Math.ceil(clockLeft(ms) / 1000) : Math.floor(ms / 1000); return Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0"); };
+const clockLow = ms => turnLimitOn() && clockLeft(ms) <= 10000;
 const HOURGLASS_SVG = `<svg class="tc-glass" viewBox="0 0 26 36" aria-hidden="true"><g class="tc-flip">
   <path d="M5.5 4c0 7.5 6 10.5 6 14s-6 6.5-6 14h15c0-7.5-6-10.5-6-14s6-6.5 6-14z" fill="rgba(143,220,255,.1)" stroke="#f6e2a8" stroke-width="1.3" stroke-linejoin="round"/>
   <path class="tc-top" d="M7.2 8.5h11.6c-.8 4.2-4.6 6.4-5.3 8.5h-1c-.7-2.1-4.5-4.3-5.3-8.5z" fill="#f0c766"/>
@@ -3130,7 +3150,7 @@ const HOURGLASS_SVG = `<svg class="tc-glass" viewBox="0 0 26 36" aria-hidden="tr
 function clockHTML() {
   const c = clockState(); if (!c) return "";
   const run = clockRunning();
-  return `<div class="turn-clock${run ? "" : " paused"}${clockLow(c.ms) ? " low" : ""}" data-tip="${esc("이번 준비 단계에 남은 시간 (" + TURN_LIMIT_MS / 1000 + "초)\n카드를 뽑는 동안은 멈춥니다.\n0이 되면 준비 완료처럼 턴이 넘어갑니다.")}" style="--tc-period:${CLOCK_PERIOD}s;--tc-delay:${(-(c.ms / 1000) % CLOCK_PERIOD).toFixed(2)}s">${HOURGLASS_SVG}<b class="tc-num">${clockText(c.ms)}</b><span class="tc-state">멈춤</span></div>`;
+  return `<div class="turn-clock${run ? "" : " paused"}${clockLow(c.ms) ? " low" : ""}" data-tip="${esc(turnLimitOn() ? "이번 준비 단계에 남은 시간 (" + TURN_LIMIT_MS / 1000 + "초)\n카드를 뽑는 동안은 멈춥니다.\n0이 되면 준비 완료처럼 턴이 넘어갑니다." : "이번 준비 단계에 흐른 시간\n관리자 설정: 시간 제한 끔")}" style="--tc-period:${CLOCK_PERIOD}s;--tc-delay:${(-(c.ms / 1000) % CLOCK_PERIOD).toFixed(2)}s">${HOURGLASS_SVG}<b class="tc-num">${clockText(c.ms)}</b><span class="tc-state">멈춤</span></div>`;
 }
 function clockTick() {
   if (!G || !boardEl || G.cfg.headless) return;
@@ -3139,7 +3159,7 @@ function clockTick() {
   const num = el.querySelector(".tc-num"), txt = clockText(c.ms);
   if (num.textContent !== txt) num.textContent = txt;
   el.classList.toggle("low", clockLow(c.ms));
-  if (run && c.ms >= TURN_LIMIT_MS) { clockTimeUp(); return; }
+  if (run && c.ms >= TURN_LIMIT_MS && turnLimitOn()) { clockTimeUp(); return; }
   if (el.classList.contains("paused") === run) {
     el.classList.toggle("paused", !run);
     el.style.setProperty("--tc-delay", (-(c.ms / 1000) % CLOCK_PERIOD).toFixed(2) + "s");
@@ -4150,7 +4170,9 @@ async function surrender() {
   sfx("surrender");
   const loser = G.mode === "hotseat" ? (G.control != null ? G.control : G.viewer) : G.online ? G.me : 0;
   G.winner = 1 - loser; G.reason = `${G.players[loser].name}이(가) 항복했습니다.`; G.phase = "over";
-  if (G.online) Online.send({ t: "surrender" });
+  if (G.online) { Online.send({ t: "surrender" }); Online.flush(); }   // 2026-11-17 상대 차례(상대 준비 · 코인 결정)를 기다리던 것도 풀어 판이 끝나게
+  if (FX.coinAbort) FX.coinAbort();   // 2026-11-17 코인 창이 떠 있으면 닫는다 — 전투 재생은 G.phase를 보고 멈춘다
+  G.fx = { dying: [] };   // 멈춘 전투 연출의 남은 표시를 지운다
   if (G.ready) { const r = G.ready; G.ready = null; r(); }
   render();
 }

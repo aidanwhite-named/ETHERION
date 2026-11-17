@@ -618,7 +618,7 @@ function attackOne(X, Au) {
     if (shSave) { Du.t.shield = false; fl(X, Du.uid, "격노 · 보호막 뚫음", "debuff"); lg(X, `[무한한 격노] ${ca.name}의 공격이 ${cd.name}의 보호막을 뚫었다`, "spell"); }
     got = dealt > 0 ? hurt(X, Du, dealt) : (fl(X, Du.uid, "0", "miss"), 0);
     if (shSave && Du.t.alive) Du.t.shield = shSave;
-    abLeech(X, Au, got);   // v3.65 [흡혈]: 맞붙어 준 피해(치명으로 깎은 몫은 빼고)
+    abLeech(X, Au, got, Au.t.a, hpBefore);   // v3.65 [흡혈] · 2026-11-17 내 공격의 절반(올림), 상대가 맞기 전 체력까지만
     // v3.9.6 [치명]: 코인 없이, 피해가 들어갔고(보호막 · 가호에 다 막히지 않음) 상대가 살아 있으면 남은 체력을 1로.
     // 원래 피해로 쓰러지면 그대로 쓰러진다. 예전에는 코인 앞면이면 피해 2배라 공격이 큰 유닛에게 너무 셌다
     if (ab.crit && got > 0 && Du.t.alive && hpLeft(Du) > 1) { const cut = hpLeft(Du) - 1; Du.t.dmg += cut; got += cut; crit = true; fl(X, Du.uid, "치명 ♥1", "dmg big"); }
@@ -660,8 +660,9 @@ function attackOne(X, Au) {
     const bash = abilOf(Du).bash ? Math.max(0, Du.t.d) : 0;   // v3.74 [방패 반격]: 반격 피해에 지금 방어를 더한다(관통에 깎인 뒤의 값)
     if (bash) lg(X, `[방패 반격] ${cd.name}의 반격에 방어 ${bash}를 더한다`, "sys");
     const back = abVeil(X, Du, Au, mrArc(Du.t.a + bash, Au.t.d, abilOf(Du).arcane, Au.t.charm).dmg + spHunt(X, Du, Au));   // v3.81 [불꽃 사냥]은 반격에도   // v3.65 [그림자 걸음] · v3.68 [마력 공격]은 반격에도
+    const auHp = hpLeft(Au);   // 2026-11-17 [흡혈]: 반격 맞기 전 체력 (흡혈 상한)
     const g = back > 0 ? hurt(X, Au, back, "반격") : (fl(X, Au.uid, "반격 0", "miss"), 0);
-    abLeech(X, Du, g);   // v3.65 [흡혈]: 반격도 맞붙은 피해
+    abLeech(X, Du, g, Du.t.a, auHp);   // v3.65 [흡혈]: 반격도 맞붙은 피해 — 반격한 유닛의 공격으로 셈
     if (g > 0) spMark(X, Du, Au);   // v3.81 [표식]: 반격으로 피해를 줘도
     // v3.65 [치명]은 반격에도: 피해가 들어갔고 공격한 유닛이 살아 있으면 남은 체력을 1로 ([연쇄]는 공격할 때만)
     let gc = g, ccrit = false;
@@ -1577,11 +1578,12 @@ function abPaid(X, caster, n) {
   X.paid = X.paid || [0, 0]; X.paid[caster] += n;
   for (const u of liveUnits(X.P[caster])) { const v = abilOf(u).pact; if (v) { const r = addStat(X, u, "a", v); if (r) lg(X, `[피의 계약] ${C(u).name} 공격 +${r} (이번 턴 바친 제물 ${X.paid[caster]})`, "good"); } }
 }
-/* [흡혈]: 맞붙어 준 피해의 절반(올림)만큼 체력을 채운다. 다 찬 뒤 남는 몫은 이번 턴 체력 +. 체력에 눌림(▼)이 있으면 차지 않는다 */
-function abLeech(X, u, got) {
+/* [흡혈]: 맞붙어 피해를 주면(got > 0) 이 유닛 공격의 절반(올림)만큼 체력을 채운다 — 상대가 맞기 전 남은 체력보다 많이는 아니다
+   (2026-11-17 사용자 결정: 준 피해 → 내 공격력 기준, 상한 = 상대 체력). 다 찬 뒤 남는 몫은 이번 턴 체력 +. 체력에 눌림(▼)이 있으면 차지 않는다 */
+function abLeech(X, u, got, atk, foeHp) {
   if (!(got > 0) || !u.t.alive || !abilOf(u).leech) return;
   if (u.t.floor && u.t.floor.h && u.t.floor.h.hi != null) { fl(X, u.uid, "눌림 체력", "miss"); return; }
-  const A = abCfg(), amt = Math.ceil(got * A.leech), heal = Math.min(amt, u.t.dmg);
+  const A = abCfg(), amt = Math.min(Math.ceil(Math.max(0, atk != null ? atk : got) * A.leech), foeHp != null ? Math.max(0, foeHp) : Infinity), heal = Math.min(amt, u.t.dmg);
   u.t.dmg -= heal;
   const over = A.leechOver ? amt - heal : 0;
   if (over > 0) u.t.h += over;
