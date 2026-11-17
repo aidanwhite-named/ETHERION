@@ -1318,32 +1318,6 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## PS-A2-2 · 질서의 빛
-솔란테의 새벽 · 공용 마법 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/PS-A2-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PS-A2-2.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "질서의 빛". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a burst of holy light power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
-Scale (level 1 of 8): a small, local effect.
-Banner — Solante's Dawn: magic of solante's dawn, signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths; palette: holy light #ffe9a8, white, pale gold, soft sky blue.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 솔란테의 질서 아래에서는 무엇도 넘치거나 모자라지 않는다. 날뛰던 칼도 그 빛 아래서는 고르게 눕는다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체의 공격이 그 가운데 가장 낮은 공격과 같아진다.
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## SA2-01 · 돌격 나팔
 솔란테의 새벽 · 공격 마법 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/SA2-01.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SA2-01.jpg` 600×750)
 
@@ -1383,7 +1357,7 @@ Scale (level 1 of 8): a small, local effect.
 Banner — Solante's Dawn: magic of solante's dawn, signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths; palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 새벽이 오기 전이 가장 어둡다. 천족은 그 어둠 속에서 맞은 칼날 하나하나를 기도문처럼 헤아린다 — 헤아린 만큼 동이 터 온다.
-Game effect (Korean, mood only — never draw text or numbers): 아군 맨 앞 유닛 2개에게 [가호 1]. 이 판 동안 [새벽빛]을 모은다: 아군이 [보호막] · [가호]로 막은 피해, 전투가 시작될 때 아군 [정화] 유닛 하나마다 1, [정화]로 씻은 것 하나마다 1, 턴마다 깎인 생명의 절반(최대 12).
+Game effect (Korean, mood only — never draw text or numbers): 아군 맨 앞 유닛 2개에게 [가호 1]. 이 판 동안 [새벽빛]을 모은다: 아군이 [보호막] · [가호]로 막은 피해, 전투가 시작될 때 아군 [정화] 유닛 하나마다 1, [정화]로 씻은 것 하나마다 1, 턴마다 깎인 생명의 절반(최대 37).
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
@@ -1601,6 +1575,32 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+## PS-A2-2 · 질서의 빛
+솔란테의 새벽 · 공용 마법 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/PS-A2-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PS-A2-2.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "질서의 빛". Depict exactly what this name describes.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a burst of holy light power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
+Scale (level 2 of 8): a small, local effect.
+Banner — Solante's Dawn: magic of solante's dawn, signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths; palette: holy light #ffe9a8, white, pale gold, soft sky blue.
+Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 솔란테의 질서 아래에서는 무엇도 넘치거나 모자라지 않는다. 날뛰던 칼도 그 빛 아래서는 고르게 눕는다.
+Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체의 공격이 그 가운데 가장 낮은 공격과 같아진다.
+Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
+Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
+Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.
+Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
+Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Mood: lively, honest, frontline.
+Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ## S2-1 · 빛의 성표
 솔란테의 새벽 · 아이템 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/S2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/S2-1.jpg` 600×750)
 
@@ -1635,12 +1635,12 @@ Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner c
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "심판의 저울". Depict exactly what this name describes.
 Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a burst of holy light power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
-Art direction: Scales of Judgment: an enormous golden balance scale hangs in the sky above a battlefield; several enemy warriors bearing the same glowing mark are lifted onto one pan together and their weapons dim, weighed down to their rank. Solemn, radiant, ordered composition.
+Art direction: Scales of Judgment: an enormous golden balance scale hangs in the sky above a battlefield; several enemy warriors bearing the same glowing mark are lifted onto one pan together and their weapons dim, each blade lightened by the weight of its bearer's rank. Solemn, radiant, ordered composition.
 Scale (level 2 of 8): a small, local effect.
 Banner — Solante's Dawn: magic of solante's dawn, signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths; palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 솔란테의 저울은 무리 지어 같은 힘을 휘두르는 자들을 함께 단다. 저울에 오른 자는 제 몫, 제 계급만큼의 힘만 남는다.
-Game effect (Korean, mood only — never draw text or numbers): 같은 특수능력을 가진 상대 유닛이 2개 이상이면, 그 유닛들의 공격이 이번 턴 각자의 레벨보다 높을 때 레벨과 같아진다.
+Lore (Korean, use for the scene): 솔란테의 저울은 무리 지어 같은 힘을 휘두르는 자들을 함께 단다. 저울에 오른 자는 제 계급이 무거운 만큼 칼이 가벼워진다.
+Game effect (Korean, mood only — never draw text or numbers): 같은 특수능력을 가진 상대 유닛이 2개 이상이면, 그 유닛들의 공격이 이번 턴 각자의 레벨만큼 깎인다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a white stone parapet) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; pale gold radiance, halo, feathers of light.

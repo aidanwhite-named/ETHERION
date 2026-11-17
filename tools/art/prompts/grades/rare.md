@@ -271,7 +271,7 @@ Scale (level 3 of 8): an effect over a few targets.
 Banner — Solante's Dawn: magic of solante's dawn, signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths; palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 천족의 날개에 막힌 칼날은 사라지지 않는다. 빛으로 모였다가, 싸움이 끝나는 순간 그 칼날을 휘두른 자에게 돌아간다.
-Game effect (Korean, mood only — never draw text or numbers): 아군 유닛 전체에게 [가호 1]. 전투가 끝날 때, 이번 턴 아군이 [보호막] · [가호]로 막은 피해만큼(최대 8) 체력이 가장 높은 상대 유닛의 체력을 깎는다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 유닛 전체에게 [가호 1]. 이 마법은 발동한 뒤에도 전장에 남아, 그때부터 아군이 [보호막] · [가호]로 막은 피해를 모은다. 전투가 끝날 때 모은 만큼 체력이 가장 높은 상대 유닛의 체력을 깎고 부서진다.
 Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
 Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; pale gold radiance, halo, feathers of light.

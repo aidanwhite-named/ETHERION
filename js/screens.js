@@ -419,7 +419,7 @@ function headerHTML(title) {
         <button type="button" class="tb-nav tb-sound" data-nav="sound" title="소리 — 배경음 · 효과음 켜기/끄기와 음량" aria-label="소리">${typeof BGM !== "undefined" ? BGM.navIcon() : ""}</button>
         ${typeof LevelUI !== "undefined" ? shardChipHTML(u) : ""}
         ${sealHTML(u)}
-        <button type="button" class="tb-nav tb-exit" data-nav="logout" title="${App.screen === "editor" ? "덱 조정실에서 나가 대기실로" : OPEN_PLAY ? "처음으로" : "나가기"}">${menuIcon("exit")}<span>${OPEN_PLAY ? "처음으로" : "나가기"}</span></button>
+        <button type="button" class="tb-nav tb-exit" data-nav="logout" title="${App.screen === "editor" ? "덱 조정실에서 나가 대기실로" : App.screen !== "lobby" ? "대기실로" : OPEN_PLAY ? "처음으로" : "나가기"}">${menuIcon("exit")}<span>${OPEN_PLAY ? "처음으로" : "나가기"}</span></button>
       </div>
     </div>
   </header>${typeof LevelUI !== "undefined" ? "" : `
@@ -442,6 +442,7 @@ function bindHeader(root, guard) {
     if (b.dataset.nav === "logout") {
       const back = App.screen === "editor" && root.querySelector("#ed-back");   // 2026-11-15 덱 조정실의 나가기 = 조정실에서 나가기(대기실로 단추와 같음 — 고치던 덱은 초안으로 남는다)
       if (back) { back.click(); return; }
+      if (App.screen !== "lobby") { showLobby(); return; }   // 2026-11-17 순례 · 원정 · 상점 · 교역소 …의 나가기 = 대기실로 (처음 화면으로는 대기실에서만)
       Store.logout(); showTitle();
     }
   });

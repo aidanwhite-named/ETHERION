@@ -37,23 +37,27 @@ card('RS-A2-2', '응보의 빛', 'def', 3, 'rare');
 { const r = c.cast('NA2-1', ['A2-36'], [['G2-30', { crit: true }, { dmg: 9 }]]); ok(r[0].red && r[0].hp === 1, '받은 피해가 많아도 체력 1은 남는다 (' + r[0].hp + ')'); }
 { const r = c.cast('NA2-1', ['A2-36'], [['G2-30', { crit: true }, { lock: true }]]); ok(!r[0].red && r[0].crit, '[저주 면역]이면 막힌다'); }
 
+// v3.90 카드 자체가 작은 성상이 된다(이름 · 레벨 · 능력) — 다음 턴엔 되돌아온다 · 쓰러지면 소각장엔 원래 카드
+{ const r = c.ev(`(function(){ const P=[side(0,['NA2-1','A2-36']), side(1,['A2-41'])]; prep(P); const X=ctx(P,0,1,[]); castSpell(X,0,P[0].field[0],1);
+    const u=P[1].field[0], now=[C(u).id, C(u).name, C(u).lv, !!abilOf(u).shred, u.id]; resetTurn(u); return now.concat([C(u).id, !!abilOf(u).shred]); })()`);
+  ok(JSON.stringify(r) === JSON.stringify(['PN-A2-C1', '새벽성 작은 성상', 2, false, 'A2-41', 'A2-41', true]), '구원: 카드가 이번 턴 작은 성상(이름 · 레벨 · 능력 없음), 다음 턴 원래대로 (' + r + ')'); }
 // ---------- 심판의 저울 ----------
 { const r = c.cast('SA2-07', [], [['A2-42'], ['A2-17', { bleed: 1 }], ['A2-41']]);   // 출혈 9/1/1 L4 · 출혈(걸어 줌) 2/2/6 L3 · 관통 5/0/1 L2
-  ok(r[0].a === 4 && r[1].a === 2 && r[2].a === 5, '저울: 같은 [출혈] 둘 → 집행자 공 9 → 4(레벨), 심문관 2는 그대로(올리지 않음), 혼자인 [관통]은 그대로 (' + r.map(x => x.a) + ')'); }
+  ok(r[0].a === 5 && r[1].a === 0 && r[2].a === 5, '저울: 같은 [출혈] 둘 → 집행자 공 9 − L4 = 5, 심문관 2 − L3 → 0(0 아래로 안 내려감), 혼자인 [관통]은 그대로 (' + r.map(x => x.a) + ')'); }
 { const r = c.cast('SA2-07', [], [['A2-41'], ['A2-42']]); ok(r[0].a === 5 && r[1].a === 9, '같은 능력이 없으면 아무 일도 없다'); }
 
 // ---------- 응보의 빛 ----------
 c.ev(`this.fight=function(atk, def){ const P=[side(0,atk), side(1,def)]; prep(P); const X=ctx(P,0,1,[],{seed:5}); runCombatCore(X);
-  return { blk: X.a2Blk ? X.a2Blk.v.slice() : [0,0], atk: P[0].field.filter(Boolean).map(u=>({id:u.id, dmg:u.t.dmg, alive:u.t.alive})), def: P[1].field.filter(Boolean).map(u=>({id:u.id, ward:u.t.ward, dmg:u.t.dmg})), logs: X.rec.flatMap(r=>r.logs.map(l=>l.t||l.text||String(l))).join('\\n') }; };`);
+  return { blk: X.a2Blk ? X.a2Blk.v.slice() : [0,0], atk: P[0].field.filter(Boolean).map(u=>({id:u.id, dmg:u.t.dmg, alive:u.t.alive})), def: P[1].field.filter(Boolean).map(u=>({id:u.id, ward:u.t.ward, dmg:u.t.dmg})), logs: X.rec.flatMap(r=>r.logs.map(l=>l[0]||String(l))).join('\\n') }; };`);
 { const r = c.fight(['A2-29', 'A2-33'], ['RS-A2-2', 'A2-33']);   // 방어 쪽 1번 칸 응보의 빛 → 아군 전체 가호 +1 (솔란테의 방패 가호 1 → 2)
   const ret = /응보의 빛\] P1이\(가\) 이번 턴 막은 피해 (\d+)/.exec(r.logs);
   ok(r.blk[1] >= 2, '가호로 막은 피해를 센다 (' + r.blk + ')');
   ok(ret && +ret[1] === r.blk[1], '전투가 끝날 때 막은 피해만큼 되돌린다 (' + (ret && ret[1]) + ')');
-  const hit = Math.min(8, r.blk[1]); ok(r.atk.some(u => u.dmg >= hit), '체력이 가장 높은 상대 유닛이 체력 −' + hit); }
+  ok(ret && r.atk.some(u => u.dmg >= +ret[1]), '체력이 가장 높은 상대 유닛이 체력 −' + (ret && ret[1])); }
 { const r = c.ev(`(function(){ const P=[side(0,['RS-A2-2','A2-33']), side(1,['G2-30','A2-42'])]; prep(P); const X=ctx(P,1,1,[]);
     castSpell(X,0,P[0].field[0],1); const u=P[0].field[1]; u.t.shield=true; hurt(X,u,20); hurt(X,u,5); a2RetribEnd(X,()=>{});
     return [X.a2Blk.v[0], P[1].field.map(x=>x&&x.t.dmg)]; })()`);
-  ok(r[0] === 22 && r[1][0] === 8, '보호막 20 + 가호 2 = 막은 피해 22 → 최대 8만 (' + r + ')'); }
+  ok(r[0] === 22 && r[1][0] === 22, 'v3.90 상한 없음: 보호막 20 + 가호 2 = 막은 피해 22 → 22 그대로 (' + r + ')'); }
 
 // ---------- 유닛 능력 · 아이템 ----------
 const G = id => CARDS[id].gift || {};

@@ -110,6 +110,8 @@ html.mobile .bump, html.mobile .pinfo.low .pl-num, html.mobile .ready-btn::after
 html.mobile .focus-idle { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .03); }
 html.mobile .coin-dot { box-shadow: 0 0 .25em rgba(240, 200, 100, .55), inset 0 0 0 .08em rgba(255, 255, 255, .35); }
 html.mobile .slot-front { box-shadow: 0 1px 4px rgba(0, 0, 0, .6); }
+html.mobile .light-mote { box-shadow: 0 0 6px 3px rgba(255, 210, 110, .55); }
+html.mobile .light-pop { text-shadow: 0 0 4px rgba(255, 196, 80, .9), 0 1px 2px #000; }
 html.mobile .cf-eth { box-shadow: 0 0 6px rgba(143, 220, 255, .7); }
 html.mobile .coinstage.deciding .cs-stop { animation-name: none; }
 html.mobile .guide { box-shadow: 0 2.4px 6px rgba(0, 0, 0, .7), 0 0 6px rgba(217, 180, 106, .18); }
@@ -248,6 +250,10 @@ html.mobile .shuffle-btn.v19.used { filter: grayscale(.85) drop-shadow(0 1.2px 3
 html.mobile .shuffle-btn.v19.used .sh-ring { animation-name: none; }
 html.mobile .turn-clock { box-shadow: 0 2px 6px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .06); }
 html.mobile .turn-clock .tc-num { text-shadow: 0 0 4px rgba(246, 226, 168, .3); }
+html.mobile .turn-clock.low:not(.paused) .tc-num { text-shadow: 0 0 4px rgba(255, 110, 80, .45); }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .turn-clock.low .tc-num { animation-name: none; }
+}
 html.mobile .c-under { box-shadow: 0 2.6px 6px rgba(0, 0, 0, .6), inset 0 0 0 .08em rgba(246, 226, 168, .12); }
 html.mobile .c-eq-ab:hover { box-shadow: 0 0 6px rgba(246, 226, 168, .6); }
 html.mobile .c-under > .card > .c-frame { box-shadow: 0 2.6px 6px rgba(0, 0, 0, .6); }

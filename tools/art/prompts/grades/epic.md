@@ -188,7 +188,7 @@ Scale (level 2 of 8): a small, local effect.
 Banner — Solante's Dawn: magic of solante's dawn, signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths; palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 새벽의 어머니 솔란테가 방패를 든 손에도 검을 쥐여 준 날. 빛으로 벼린 칼날은 갑옷을 보지 않는다.
-Game effect (Korean, mood only — never draw text or numbers): 아군 전체 공격 +2, [방어무시]. 이 마법은 놓인 칸과 상관없이 전투가 시작될 때 먼저 발동한다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 전체 공격 +2, [방어무시].
 Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; weather (storm, ash, spray, wind) and deep atmosphere; pale gold radiance, halo, feathers of light.
@@ -775,7 +775,7 @@ Scale (level 2 of 8): a small, local effect.
 Banner — Sorgrim's Shield: magic of sorgrim's shield, signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls; palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 두르크하임의 골렘들이 발을 맞추면 철골 산맥이 울린다. 한 기가 늘 때마다 모든 망치가 그만큼 무거워진다.
-Game effect (Korean, mood only — never draw text or numbers): 아군 전체 공격 + (아군 유닛 수). 이 마법은 놓인 칸과 상관없이 전투가 시작될 때 먼저 발동한다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 전체 공격 + (아군 유닛 수).
 Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal underground halls of Durkheim with lava channels, mine shafts and iron gates, glowing ore veins like sinews in the rock; weather (storm, ash, spray, wind) and deep atmosphere; cold steel sheen, sparks from an anvil, rivets.

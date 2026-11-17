@@ -10,7 +10,7 @@
    이 파일은 실제 대전과 컴퓨터의 수 읽기(시뮬레이션)에 같이 쓰인다. */
 "use strict";
 
-const C = it => CARDS[it.id];
+const C = it => CARDS[(it.t && it.t.look) || it.id];   // v3.90 t.look: 이번 턴만 다른 카드가 된 유닛(구원의 빛 → 작은 성상). 이름 · 레벨 · 그림 · 능력이 그 카드를 따른다. 소각장 · 주인 셈은 it.id 그대로
 const itemOf = it => (it && it.item ? CARDS[it.item.id].item : null);
 /* v2.9 전투 능력 = 장착 아이템 능력 + 스페셜 유닛의 타고난 능력(gift). 수치는 더하고, 있음/없음은 하나만 있어도 된다.
    [사격]은 snipe, [증폭]은 amp로 모은다. [투척](장착한 턴 한 번)은 아이템에만 있으므로 itemOf로 따로 본다 */
@@ -163,7 +163,7 @@ function pinPass(X) {
    v3.5.7: 한 번 정해진 코인은 마법(코인 뒷면 · 운명)으로도 바뀌지 않는다 */
 function resetTurn(it, atk) {   // atk: 이 유닛 편이 이번 턴 공격하는지(v3.57.4). 보호막 코인을 여기서 던지지 않으므로 쓰지 않는다(부르는 곳은 그대로 넘김)
   const keep = (it.t && it.t.keep) || {};   // v3.31 턴이 지나도 남는 값(충전 · 고철 · 낙인 · 불씨 …)
-  if (it.t) { it.t.gx = null; it.t.off = null; }   // v3.65.2 꺼진 능력(t.off)도 이번 턴만 · v3.18 지난 턴 마법이 걸어 준 능력은 남지 않는다
+  if (it.t) { it.t.gx = null; it.t.off = null; it.t.look = null; }   // v3.90 바뀐 모습(t.look)도 이번 턴만 · v3.65.2 꺼진 능력(t.off)도 이번 턴만 · v3.18 지난 턴 마법이 걸어 준 능력은 남지 않는다
   const b = baseStats(it, true), ab = abilOf(it);
   if (keep.grow) for (const k in keep.grow) b[k] += keep.grow[k];   // v3.31 [전리품]으로 판 동안 자란 스탯
   // v3.61.1 [보호막 코인]은 여기(턴 시작 · 장착)서 던지지 않는다 — 전투가 시작될 때 던진다(shieldCoinsAtCombat). 준비하는 동안은 보호막 없음
@@ -2068,8 +2068,8 @@ function nwPurify(X) {
     const us = liveUnits(p).sort((a, b) => colOf(p, a) - colOf(p, b));
     const hit = new Set();
     us.forEach(u => { if (abilOf(u).purify) hit.add(u); });   // v3.90 자기만 씻는다(전: 양옆 1칸까지 — 사용자 결정)
-    { const got = a2LightAdd(X, X.P.indexOf(p), hit.size, "정화 유닛");   // v3.90 새벽빛 잇기: 전투가 시작될 때 살아 있는 [정화] 유닛 하나마다 [새벽빛] +1(인내의 기도를 쓴 뒤부터 · 씻을 것이 없어도)
-      if (got) { for (const u of hit) fl(X, u.uid, "새벽빛 +1", "heal"); lg(X, `[새벽빛] [정화] 유닛 ${hit.size}기 — 새벽빛 +${got} (${p.light})`, "good"); } }
+    { let got = 0; for (const u of hit) got += a2LightAdd(X, X.P.indexOf(p), 1, "정화 유닛", u.uid);   // v3.90 새벽빛 잇기: 전투가 시작될 때 살아 있는 [정화] 유닛 하나마다 [새벽빛] +1(인내의 기도를 쓴 뒤부터 · 씻을 것이 없어도) — 유닛마다 빛 알갱이
+      if (got) lg(X, `[새벽빛] [정화] 유닛 ${hit.size}기 — 새벽빛 +${got} (${p.light})`, "good"); }
     for (const v of hit) {
       const k = v.t.keep; if (!k) continue;
       const had = [];
@@ -2077,7 +2077,7 @@ function nwPurify(X) {
       if (k.ember != null) { had.push("불씨"); k.ember = null; }
       if (k.brand) { had.push("낙인"); k.brand = false; }
       if (!had.length) continue;
-      a2LightAdd(X, X.P.indexOf(p), had.length, "정화");   // v3.86 [새벽빛]: 씻은 것 하나마다 1
+      a2LightAdd(X, X.P.indexOf(p), had.length, "정화", v.uid);   // v3.86 [새벽빛]: 씻은 것 하나마다 1
       fl(X, v.uid, "정화", "heal");
       lg(X, `[정화] ${C(v).name}의 ${had.join(" · ")}을(를) 지웠다`, "good");
     }
@@ -2161,9 +2161,9 @@ Object.assign(SPELL_OPS, {
      걸린 보호막 · 가시 · 가호 · 수호도 함께 꺼진다. 레어 오라 · 유니크 능력(gift.u)은 끄지 않는다.
    a2Redeem { into }: 아군 맨 앞 유닛보다 레벨이 낮고 특수능력이 있는 상대 유닛 중 맨 앞 1기를 이번 턴 into 카드의 스탯(공 · 방 · 체)으로 만들고 능력을 모두 끈다.
      받은 피해는 그대로(새 체력에서 1은 남긴다 — 쓰러뜨리는 마법이 아니다). [저주 면역]이면 막힌다. 카드 그림 · 이름은 그대로, 떠오르는 글로 알린다.
-   a2Scale: 상대 유닛의 능력 열쇠를 세어, 같은 능력을 가진 유닛이 둘 이상인 열쇠가 하나라도 있는 유닛은 공격이 레벨보다 높으면 레벨로(올리지는 않는다).
-   a2Retrib { cap }: 이번 턴 이 마법 주인 쪽 유닛이 보호막 · 보호막 코인 · 가호로 막은 피해(hurt가 a2Blk로 셈 — 마법을 쓰기 전에 막은 것도)를
-     전투가 끝날 때(runCombatCore의 a2RetribEnd) 체력이 가장 높은 상대 유닛에게 체력 −로 되돌린다(최대 cap, 여러 장이면 장마다). */
+   a2Scale: 상대 유닛의 능력 열쇠를 세어, 같은 능력을 가진 유닛이 둘 이상인 열쇠가 하나라도 있는 유닛은 공격 − 자기 레벨(0 아래로는 안 내려감. v3.90 사용자 결정 — 전: 레벨보다 높으면 레벨로).
+   a2Retrib: 이번 턴 이 마법 주인 쪽 유닛이 보호막 · 보호막 코인 · 가호로 막은 피해(hurt가 a2Blk로 셈 — 마법을 쓰기 전에 막은 것도)를
+     전투가 끝날 때(runCombatCore의 a2RetribEnd) 체력이 가장 높은 상대 유닛에게 체력 −로 되돌린다(v3.90 상한 없음 — 전: 최대 8, 여러 장이면 장마다). */
 const A2_ALL_ABS = Object.keys(ABIL_KEY);
 function a2HasAbil(u) {
   const ab = abilOf(u);
@@ -2179,16 +2179,16 @@ function a2Blk(X, u, v) {   // hurt가 부른다: 보호막 · 가호로 막은 
   const i = a2SideIdx(X, u); if (i < 0) return;
   if (!X.a2Blk || X.a2Blk.turn !== X.turn) X.a2Blk = { turn: X.turn, v: [0, 0] };
   X.a2Blk.v[i] += v;
-  a2LightAdd(X, i, v, "막음");   // v3.86 [새벽빛]
+  a2LightAdd(X, i, v, "막음", u.uid);   // v3.86 [새벽빛]
 }
 function a2RetribEnd(X, sweep) {
   const R = X.a2Ret; if (!R) return;
   X.a2Ret = null;
-  for (let i = 0; i < 2; i++) for (const cap of (R[i] || [])) {
-    const blk = (X.a2Blk && X.a2Blk.turn === X.turn) ? X.a2Blk.v[i] : 0, x = Math.min(cap, blk);
+  for (let i = 0; i < 2; i++) for (const _ of (R[i] || [])) {
+    const x = (X.a2Blk && X.a2Blk.turn === X.turn) ? X.a2Blk.v[i] : 0;   // v3.90 상한 없음(전: 최대 8)
     const F = X.P[1 - i], tg = liveUnits(F).sort((a, b) => hpLeft(b) - hpLeft(a) || colOf(F, a) - colOf(F, b))[0];
-    if (!x || !tg) { lg(X, `[응보의 빛] ${blk ? "되돌릴 상대가 없다" : "이번 턴 막은 피해가 없어 빛이 흩어졌다"}`, "sys"); continue; }
-    lg(X, `[응보의 빛] ${X.P[i].name}이(가) 이번 턴 막은 피해 ${blk}${blk > cap ? ` (최대 ${cap})` : ""} → ${C(tg).name} 체력 −${x}`, "spell");
+    if (!x || !tg) { lg(X, `[응보의 빛] ${x ? "되돌릴 상대가 없다" : "이번 턴 막은 피해가 없어 빛이 흩어졌다"}`, "sys"); continue; }
+    lg(X, `[응보의 빛] ${X.P[i].name}이(가) 이번 턴 막은 피해 ${x} → ${C(tg).name} 체력 −${x}`, "spell");
     tg.t.dmg += x; fl(X, tg.uid, "응보 −" + x, "dmg big");
     if (hpLeft(tg) <= 0) { tg.t.alive = false; lgDeath(X, tg); }
     step(X, { act: tg.uid }, 520);
@@ -2213,12 +2213,15 @@ Object.assign(SPELL_OPS, {
     const u = L[0];
     if (!u) { fl(X, it.uid, "구원할 상대 없음", "miss"); lg(X, `[구원의 빛] ${C(me).name}(레벨 ${lv})보다 레벨이 낮고 능력이 있는 상대 유닛이 없다`, "sys"); return; }
     if (u.t.lock) { fl(X, u.uid, "저주 면역", "miss"); return; }
-    u.t.a = into.a; u.t.d = into.d; u.t.h = into.h;
+    const was = C(u).name;
+    u.t.look = op.into;   // v3.90 카드 자체가 이번 턴 작은 성상이 된다(이름 · 레벨 · 그림 · 능력 — C(u)가 t.look을 따름). 다음 턴 resetTurn이 되돌린다
+    u.t.a = into.a; u.t.d = into.d; u.t.h = into.h; u.t.rb = { a: into.a, d: into.d, h: into.h };
+    u.t.floor = floorOf(u); u.t.ward = 0; u.t.wardP = []; u.t.thorns = 0; u.t.thornsP = []; u.t.taunt = false;   // 성상은 능력이 없다(아이템 능력은 아래 침묵이 끈다)
     if (u.t.dmg > u.t.h - 1) u.t.dmg = Math.max(0, u.t.h - 1);
     a2Silence(X, u); u.t.redeemed = op.into;
     applyFloor(u);
     fl(X, u.uid, `구원 · ${into.name}`, "debuff");
-    lg(X, `[구원의 빛] ${C(u).name}이(가) 이번 턴 ${into.name}(${into.a}/${into.d}/${into.h}, 능력 없음)이 되었다`, "spell");
+    lg(X, `[구원의 빛] ${was}이(가) 이번 턴 ${into.name}(${into.a}/${into.d}/${into.h}, 능력 없음)이 되었다`, "spell");
   },
   a2Scale(X, caster, it, k, op) {
     const F = X.P[1 - caster], L = liveUnits(F), keys = new Map(), cnt = {};
@@ -2231,14 +2234,14 @@ Object.assign(SPELL_OPS, {
     if (!T.length) { fl(X, it.uid, "같은 능력 없음", "miss"); lg(X, "[심판의 저울] 같은 특수능력을 가진 상대 유닛이 둘 이상 없다", "sys"); return; }
     for (const u of T) {
       const lv = C(u).lv;
-      if (u.t.a <= lv) { fl(X, u.uid, "저울 · 그대로", "miss"); continue; }
-      const b = u.t.a; u.t.a = lv; applyFloor(u);
-      fl(X, u.uid, u.t.a < b ? "⚔ " + u.t.a + " (레벨)" : PIN_KO[u.t.floor.a.m] + " 공격", u.t.a < b ? "debuff" : "miss");
+      if (!(u.t.a > 0)) { fl(X, u.uid, "저울 · 그대로", "miss"); continue; }
+      const b = u.t.a; u.t.a = Math.max(0, b - lv); applyFloor(u);   // v3.90 공격 − 레벨
+      fl(X, u.uid, u.t.a < b ? "⚔ −" + (b - u.t.a) + " (레벨)" : PIN_KO[u.t.floor.a.m] + " 공격", u.t.a < b ? "debuff" : "miss");
     }
     lg(X, `[심판의 저울] ${T.map(u => `${C(u).name} 공 → ${u.t.a}`).join(" · ")}`, "spell");
   },
   a2Retrib(X, caster, it, k, op) {
-    X.a2Ret = X.a2Ret || {}; (X.a2Ret[caster] = X.a2Ret[caster] || []).push(op.cap || 8);
+    X.a2Ret = X.a2Ret || {}; (X.a2Ret[caster] = X.a2Ret[caster] || []).push(1);   // v3.90 상한 없음(전: op.cap 8)
     fl(X, it.uid, "응보 준비", "buff");
     lg(X, "[응보의 빛] 전투가 끝날 때 이번 턴 막은 피해만큼 되돌린다", "sys");
   }
@@ -2255,12 +2258,13 @@ Object.assign(SPELL_OPS, {
      그래도 남은 몫은 내 생명으로(생명 상한까지). 새벽빛은 0이 되고 켜진 채 다시 모인다.
    a2Martyr: 이번 턴(이 전투) 이 마법 주인 쪽 유닛이 쓰러질 때마다 양옆(칸 순서로 가장 가까운 살아 있는 아군 유닛)에게 [보호막].
      sweep이 쓰러진 유닛을 치우기 전에(uPreSweep 다음) a2MartyrSweep이 본다. 이미 보호막이 있으면 그대로. */
-const A2_LIGHT_CAP = 12;
-function a2LightAdd(X, i, v, why) {
+const A2_LIGHT_CAP = 37;   // v3.90 12 → 37 (사용자)
+function a2LightAdd(X, i, v, why, src) {   // src: 빛이 난 곳(유닛 uid · "life"+i) — 화면이 거기서 새벽빛 칸으로 빛 알갱이를 날린다(js/game.js lightMote)
   const p = X.P[i]; if (!p || p.light == null || !(v > 0)) return 0;
   const b = p.light; p.light = Math.min(A2_LIGHT_CAP, b + v);
   const got = p.light - b;
   if (got) { X.a2LightGot = X.a2LightGot || [0, 0]; X.a2LightGot[i] += got; }
+  if (got && src != null) fl(X, src, "새벽빛 +" + got, "lightmote to-" + i);   // v3.90 빛 알갱이 (화면 전용 — 판 셈과 상관없음)
   return got;
 }
 function a2LightStart(X) {
@@ -2270,9 +2274,9 @@ function a2LightEnd(X) {
   for (let i = 0; i < 2; i++) {
     const p = X.P[i]; if (p.light == null) continue;
     const at = X.a2LifeAt && X.a2LifeAt[i];
-    if (at != null && at - p.life >= 2) a2LightAdd(X, i, Math.floor((at - p.life) / 2), "생명");
+    if (at != null && at - p.life >= 2) a2LightAdd(X, i, Math.floor((at - p.life) / 2), "생명", "life" + i);
     const got = X.a2LightGot ? X.a2LightGot[i] : 0;
-    if (got) { lg(X, `[새벽빛] ${p.name}이(가) 이번 턴 새벽빛 ${got}을 모았다 (지금 ${p.light} / ${A2_LIGHT_CAP})`, "good"); fl(X, "life" + i, "새벽빛 +" + got, "heal"); }
+    if (got) { lg(X, `[새벽빛] ${p.name}이(가) 이번 턴 새벽빛 ${got}을 모았다 (지금 ${p.light} / ${A2_LIGHT_CAP})`, "good"); }   // v3.90 "새벽빛 +N" 글자 대신 빛 알갱이가 칸에 닿을 때 +N이 뜬다
   }
   X.a2LightGot = null;
 }

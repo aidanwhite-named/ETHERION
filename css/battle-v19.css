@@ -50,6 +50,9 @@
 .turn-clock .tc-state { position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); font-size: 9.5px; letter-spacing: .1em; padding: 0 6px; border-radius: 6px; background: #1a1526; border: 1px solid rgba(143, 220, 255, .45); color: var(--ether); opacity: 0; transition: opacity .2s; }
 .turn-clock.paused .tc-state { opacity: 1; }
 .turn-clock.paused .tc-num { color: var(--ink-2); text-shadow: none; }
+.turn-clock.low:not(.paused) .tc-num { color: #ff8a6a; text-shadow: 0 0 10px rgba(255, 110, 80, .45); animation: tcLow 1s ease-in-out infinite; }   /* v3.91 남은 10초 */
+@keyframes tcLow { 50% { opacity: .55; } }
+@media (prefers-reduced-motion: reduce) { .turn-clock.low .tc-num { animation: none; } }
 /* 모래: 위 칸은 줄고 아래 칸은 차며, 다 떨어지면 모래시계가 뒤집힌다. 시간이 멈추면 모래도 멈춘다 */
 .tc-glass .tc-flip { transform-origin: 13px 18px; animation: tcFlip var(--tc-period, 8s) linear infinite; animation-delay: var(--tc-delay, 0s); }
 .tc-glass .tc-top { transform-origin: 13px 17px; animation: tcTop var(--tc-period, 8s) linear infinite; animation-delay: var(--tc-delay, 0s); }

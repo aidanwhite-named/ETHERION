@@ -1471,6 +1471,12 @@ html:not(.appui) .screen-editor.ed-flow .editor .ed-deck { position: sticky; top
 /* v3.86 천족 [새벽빛]: 인내의 기도를 쓴 판에만 핸드 옆에 한 칸 더 (옛 덱 · 핸드 · 소각 3칸 배치와 같은 폭) */
 .pstats:has(.ps-light) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .ps-light { --ps-c: #f0cf6a; }
+/* v3.90 새벽빛 빛 알갱이 (js/game.js lightMote): 빛이 난 곳 → 새벽빛 칸, 닿으면 +N */
+.light-mote { position: fixed; z-index: 86; width: 9px; height: 9px; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, #fffbe8 0 28%, #ffd86b 52%, rgba(255, 190, 70, 0) 72%); box-shadow: 0 0 10px 3px rgba(255, 210, 110, .55); }
+.light-mote.big { width: 14px; height: 14px; }
+.light-pop { position: fixed; z-index: 87; pointer-events: none; transform: translate(-50%, -20%); font-weight: 800; font-size: 15px; color: #ffe08a; text-shadow: 0 0 6px rgba(255, 196, 80, .9), 0 1px 2px #000; animation: lightPop 1s ease-out forwards; }
+@keyframes lightPop { 0% { opacity: 0; transform: translate(-50%, 10%) scale(.7); } 20% { opacity: 1; transform: translate(-50%, -40%) scale(1.15); } 100% { opacity: 0; transform: translate(-50%, -140%) scale(1); } }
+@media (prefers-reduced-motion: reduce) { .light-pop { animation-duration: .01s; } }
 
 /* 왼쪽 열 대기 상태: 접힌 단축키 (v3.64.1 최근 기록은 뺌 — 전투 기록 창에서 본다) */
 .focus-idle { justify-content: flex-start; gap: 12px; pointer-events: auto; }

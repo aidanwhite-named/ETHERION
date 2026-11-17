@@ -459,6 +459,7 @@ async function runCombat() {
          바뀐 카드 · 생명을 바로 앞 수의 값으로 그려 두었다가, 맞는 순간에 그 카드만 새 값으로 바꾼다 (공격은 맞는 수에 이미 맞춰져 있다) */
       const counterHit = s.fx.counter != null && !RM();
       const held = (fxSpell || counterHit) && prevSnap && G.speed !== 0 ? holdStats(prevSnap, s.snap) : null;
+      lightHoldFrame(s.floats);   // v3.90 이 수에서 모인 새벽빛은 빛 알갱이가 닿을 때 보인다
       render();
       const delays = fxSpell ? SpellFX.cast(s, casting) : null;
       const cd = counterHit ? s.dur * kSpeed() * 0.45 : 0;   // counterStrike가 상대를 치는 때 (dur × 0.45)
@@ -1332,6 +1333,7 @@ function statGlyphs(text) { return esc(String(text)).replace(/⚔/g, statIco("a"
 function impOf(s) {
   const m = {};
   for (const [tg, text, cls] of s.floats || []) {
+    if (/\blightmote\b/.test(cls || "")) continue;   // v3.90 새벽빛 빛 알갱이는 타격이 아님
     const k = String(tg), c = cls || "", o = m[k] || (m[k] = { dmg: 0 });
     if (/\bdmg\b/.test(c)) { if (/치명/.test(text)) o.crit = true; else { const n = String(text).match(/(\d+)\s*$/); if (n) o.dmg += +n[1]; } }
     else if (/\b(miss|shield)\b/.test(c)) o.stopped = true;
@@ -1410,6 +1412,7 @@ function plasmaDrain(fromUid, el, layer) {
 }
 function floatAt(target, text, cls, row) {   // row: 해로운 효과 차례(harmStages) — 뒤 차례일수록 조금 아래에서 떠올라 앞 글자와 겹치지 않게
   if (!G || G.cfg.headless || G.speed === 0) return;
+  if (/\blightmote\b/.test(cls || "")) { lightMote(target, String(text), cls); return; }   // v3.90 새벽빛 빛 알갱이 (글자 명판 없이)
   const el = typeof target === "number" ? uidEl(target) : $("#" + target);
   const layer = fxLayer();
   if (!el || !layer) return;
@@ -2332,6 +2335,56 @@ function bumpCls(key, v) { const was = BUMP[key]; BUMP[key] = v; return was != n
 /* v3.62.1 보충 드로우의 생명: 판 상태(p.life)는 refill에서 한 번에 줄지만, 화면에서는 덱에서 뽑힌 카드가 핸드에 한 장 앉을 때마다
    1씩 줄어드는 게 보이게 한다(3장이면 50 → 49 → 48 → 47). LIFE_SHOW[p.idx] = 아직 보여 줄 생명. 판이 바뀌거나 다 줄면 지운다 */
 const LIFE_SHOW = {};
+/* v3.90 새벽빛 빛 알갱이: 이 수에서 모인 새벽빛(floats의 "lightmote to-i")은 알갱이가 칸에 닿을 때 숫자에 더해 보인다.
+   LIGHT_HOLD.v[i] = 아직 날아가는 중인 몫. 판 셈(p.light)은 그대로 — 보이는 값만 lightShown */
+const LIGHT_HOLD = { g: null, v: [0, 0] };
+function lightShown(p) { return LIGHT_HOLD.g === G ? Math.max(0, p.light - (LIGHT_HOLD.v[p.idx] || 0)) : p.light; }
+function lightHoldFrame(floats) {
+  if (!G || G.cfg.headless || G.speed === 0 || RM()) return;
+  for (const f of floats || []) {
+    const m = /\blightmote to-(\d)\b/.exec(f[2] || ""); if (!m) continue;
+    if (LIGHT_HOLD.g !== G) { LIGHT_HOLD.g = G; LIGHT_HOLD.v = [0, 0]; }
+    const n = +(/\+(\d+)/.exec(f[1]) || [0, 0])[1]; LIGHT_HOLD.v[+m[1]] += n;
+  }
+}
+function lightRelease(i, n) {
+  if (LIGHT_HOLD.g !== G) return;
+  LIGHT_HOLD.v[i] = Math.max(0, (LIGHT_HOLD.v[i] || 0) - n);
+  const chip = document.querySelector(`#pinfo${i} .ps-light`), p = G.players[i]; if (!chip || !p) return;
+  const b = chip.querySelector("b"), v = lightShown(p);
+  if (b) { b.textContent = v; BUMP["light" + i] = v; b.classList.remove("bump", "up", "dn"); void b.offsetWidth; b.classList.add("bump", "up"); }
+  if (!RM()) chip.animate([{ filter: "none" }, { filter: "brightness(1.7) drop-shadow(0 0 10px #ffd86b)", offset: 0.3 }, { filter: "none" }], { duration: 520, easing: "ease-out" });
+  const layer = fxLayer(); if (!layer) return;
+  const r = chip.getBoundingClientRect(), f = document.createElement("div");
+  f.className = "light-pop"; f.textContent = "+" + n;
+  f.style.left = (r.left + r.width / 2) + "px"; f.style.top = r.top + "px";
+  layer.appendChild(f); setTimeout(() => f.remove(), 1100);
+}
+/* 빛이 난 곳(막은 유닛 · 정화 유닛 · 생명판)에서 금빛 알갱이가 떠올라 그 편의 새벽빛 칸으로 날아간다. 마지막 알갱이가 닿으면 +N */
+function lightMote(target, text, cls) {
+  const to = +(/\bto-(\d)\b/.exec(cls) || [0, 0])[1], n = +(/\+(\d+)/.exec(text) || [0, 0])[1];
+  if (LIGHT_HOLD.g !== G || !(LIGHT_HOLD.v[to] > 0)) return;   // 붙잡아 둔 몫이 없으면(배속 0 · 줄인 움직임) 그릴 것도 없다
+  let done = false; const land = () => { if (!done && G) { done = true; lightRelease(to, n); } };
+  const el = typeof target === "number" ? uidEl(target) : $("#" + target), chip = document.querySelector(`#pinfo${to} .ps-light`), layer = fxLayer();
+  if (!el || !chip || !layer || RM()) { land(); return; }
+  const sr = el.getBoundingClientRect(), cr = chip.getBoundingClientRect();
+  const sx = sr.left + sr.width / 2, sy = sr.top + sr.height * 0.45, tx = cr.left + Math.min(cr.width / 2, 16), ty = cr.top + cr.height / 2;
+  const k = Math.min(4, Math.max(1, n)), D = 720;
+  for (let j = 0; j < k; j++) {
+    const d = document.createElement("i"); d.className = "light-mote" + (j ? "" : " big");
+    const ox = (Math.random() - 0.5) * sr.width * 0.5, oy = (Math.random() - 0.5) * sr.height * 0.3;
+    d.style.left = (sx + ox) + "px"; d.style.top = (sy + oy) + "px"; layer.appendChild(d);
+    const mx = (sx + ox + tx) / 2 + (Math.random() - 0.5) * 80, my = Math.min(sy + oy, ty) - 50 - Math.random() * 40;
+    const a = d.animate([
+      { transform: "translate(-50%,-50%) scale(.3)", opacity: 0 },
+      { transform: "translate(-50%,-50%) scale(1.25)", opacity: 1, offset: 0.2 },
+      { transform: `translate(calc(-50% + ${mx - sx - ox}px), calc(-50% + ${my - sy - oy}px)) scale(1)`, opacity: 1, offset: 0.55 },
+      { transform: `translate(calc(-50% + ${tx - sx - ox}px), calc(-50% + ${ty - sy - oy}px)) scale(.45)`, opacity: 0.9 }
+    ], { duration: D, delay: j * 90, easing: "cubic-bezier(.45,0,.7,.45)", fill: "both" });
+    a.onfinish = () => { d.remove(); if (j === k - 1) land(); };
+  }
+  setTimeout(land, D + k * 90 + 400);   // 애니메이션이 끊겨도 숫자는 맞게
+}
 function lifeShown(p) { const s = LIFE_SHOW[p.idx]; return s && s.g === G && s.v > p.life ? s.v : p.life; }
 function lifeTicks(pi, delays) {
   const s = LIFE_SHOW[pi], myG = G; if (!s || s.g !== G || s.on) return;
@@ -2361,7 +2414,7 @@ function infoHTML(p) {
         <div class="pl-val"><b class="pl-num${bumpCls("life" + p.idx, shown)}" id="life${p.idx}">${shown}</b><small>/${RULES.lifeCap}</small></div>
         <div class="pl-ticks">${Array.from({ length: 8 }, (_, i) => `<i class="${life > i * 5 ? (life >= (i + 1) * 5 ? "on" : "half") : ""}"></i>`).join("")}</div>
       </div>
-      <div class="pstats">${stat("hand", "hand", "핸드", p.hand.length, `핸드 ${p.hand.length}장`)}${p.light != null ? stat("light", "dawn", "새벽빛", p.light, `새벽빛 ${p.light} / 12\n[인내의 기도]로 모으기 시작했습니다. 아군이 보호막 · 가호로 막은 피해, 전투가 시작될 때 [정화] 유닛 하나마다 1, [정화]로 씻은 것 하나마다 1, 깎인 생명의 절반만큼 모입니다.\n[새벽의 해방]이 모두 풀어(내 생명이 상대보다 적으면 그만큼 더) 공격이 높은 상대부터 체력을 깎고, 남은 빛은 생명으로 돌아옵니다.`) : ""}</div>
+      <div class="pstats">${stat("hand", "hand", "핸드", p.hand.length, `핸드 ${p.hand.length}장`)}${p.light != null ? stat("light", "dawn", "새벽빛", lightShown(p), `새벽빛 ${lightShown(p)} / ${typeof A2_LIGHT_CAP !== "undefined" ? A2_LIGHT_CAP : 37}\n[인내의 기도]로 모으기 시작했습니다. 아군이 보호막 · 가호로 막은 피해, 전투가 시작될 때 [정화] 유닛 하나마다 1, [정화]로 씻은 것 하나마다 1, 깎인 생명의 절반만큼 모입니다.\n[새벽의 해방]이 모두 풀어(내 생명이 상대보다 적으면 그만큼 더) 공격이 높은 상대부터 체력을 깎고, 남은 빛은 생명으로 돌아옵니다.`) : ""}</div>
     </div>`;
 }
 /* v3.19.4 핸드 자리: 카드는 번호 자리에 붙박이로 앉는다(내 핸드 · 상대 핸드 모두).
@@ -3044,8 +3097,11 @@ function drawFly(el, deck, delay, dur, snd) {
   an.onfinish = done; an.oncancel = done;
 }
 /* ---------- v1.9 턴 시간 (모래시계) ----------
-   지금은 시간이 다 되어도 아무 일도 없다. 내 준비 단계에서만 흐르고, 드로우가 끝나고 1초 뒤부터 흐른다 */
-const CLOCK_PERIOD = 8;   // 모래시계 한 번 뒤집히는 데 걸리는 초
+   내 준비 단계에서만 흐르고, 드로우가 끝나고 1초 뒤부터 흐른다.
+   2026-11-17 v3.91: 준비 단계마다 30초(TURN_LIMIT_MS). 남은 시간을 거꾸로 세고, 0이 되면 준비 완료를 누른 것처럼 턴이 넘어간다
+   (유지비가 모자라도 묻지 않고 그대로 마친다 — 유지비가 큰 유닛부터 소각) */
+const TURN_LIMIT_MS = 30000;
+const CLOCK_PERIOD = TURN_LIMIT_MS / 1000;   // 모래시계가 한 턴에 한 번 다 흐른다
 function clockRunning() {
   if (!G || G.cfg.headless || G.phase === "over") return false;
   if (G.phase !== "atkPrep" && G.phase !== "defPrep") return false;
@@ -3057,11 +3113,13 @@ function clockState() {
   const key = G.turn + ":" + G.phase + ":" + G.control;
   const now = performance.now();
   if (!G.clock || G.clock.key !== key) G.clock = { key, ms: 0, last: now };
-  if (clockRunning()) G.clock.ms += Math.min(500, now - G.clock.last);
+  if (clockRunning()) G.clock.ms += Math.min(1100, now - G.clock.last);   // 뒤 탭(1초 간격)에서도 시간이 제대로 흐르게
   G.clock.last = now;
   return G.clock;
 }
-const clockText = ms => { const t = Math.floor(ms / 1000); return Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0"); };
+const clockLeft = ms => Math.max(0, TURN_LIMIT_MS - ms);
+const clockText = ms => { const t = Math.ceil(clockLeft(ms) / 1000); return Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0"); };
+const clockLow = ms => clockLeft(ms) <= 10000;
 const HOURGLASS_SVG = `<svg class="tc-glass" viewBox="0 0 26 36" aria-hidden="true"><g class="tc-flip">
   <path d="M5.5 4c0 7.5 6 10.5 6 14s-6 6.5-6 14h15c0-7.5-6-10.5-6-14s6-6.5 6-14z" fill="rgba(143,220,255,.1)" stroke="#f6e2a8" stroke-width="1.3" stroke-linejoin="round"/>
   <path class="tc-top" d="M7.2 8.5h11.6c-.8 4.2-4.6 6.4-5.3 8.5h-1c-.7-2.1-4.5-4.3-5.3-8.5z" fill="#f0c766"/>
@@ -3072,7 +3130,7 @@ const HOURGLASS_SVG = `<svg class="tc-glass" viewBox="0 0 26 36" aria-hidden="tr
 function clockHTML() {
   const c = clockState(); if (!c) return "";
   const run = clockRunning();
-  return `<div class="turn-clock${run ? "" : " paused"}" data-tip="${esc("이번 준비 단계에 흐른 시간\n카드를 뽑는 동안은 멈춥니다.\n(아직 시간이 다 되어도 턴이 끝나지 않습니다)")}" style="--tc-period:${CLOCK_PERIOD}s;--tc-delay:${(-(c.ms / 1000) % CLOCK_PERIOD).toFixed(2)}s">${HOURGLASS_SVG}<b class="tc-num">${clockText(c.ms)}</b><span class="tc-state">멈춤</span></div>`;
+  return `<div class="turn-clock${run ? "" : " paused"}${clockLow(c.ms) ? " low" : ""}" data-tip="${esc("이번 준비 단계에 남은 시간 (" + TURN_LIMIT_MS / 1000 + "초)\n카드를 뽑는 동안은 멈춥니다.\n0이 되면 준비 완료처럼 턴이 넘어갑니다.")}" style="--tc-period:${CLOCK_PERIOD}s;--tc-delay:${(-(c.ms / 1000) % CLOCK_PERIOD).toFixed(2)}s">${HOURGLASS_SVG}<b class="tc-num">${clockText(c.ms)}</b><span class="tc-state">멈춤</span></div>`;
 }
 function clockTick() {
   if (!G || !boardEl || G.cfg.headless) return;
@@ -3080,10 +3138,21 @@ function clockTick() {
   const run = clockRunning();
   const num = el.querySelector(".tc-num"), txt = clockText(c.ms);
   if (num.textContent !== txt) num.textContent = txt;
+  el.classList.toggle("low", clockLow(c.ms));
+  if (run && c.ms >= TURN_LIMIT_MS) { clockTimeUp(); return; }
   if (el.classList.contains("paused") === run) {
     el.classList.toggle("paused", !run);
     el.style.setProperty("--tc-delay", (-(c.ms / 1000) % CLOCK_PERIOD).toFixed(2) + "s");
   }
+}
+/* 시간이 다 됨: 잡고 있던 카드를 놓고, 준비 단계에서 연 확인 창(유지비 · 항복)을 닫고, 준비 완료처럼 넘긴다 */
+function clockTimeUp() {
+  if (!G || !G.ready || G.control == null || G.phase === "over") return;
+  if (FX.drag) { if (FX.drag.over) FX.drag.over.classList.remove("drop-hover"); FX.drag.over = null; onPointerUp(); }
+  document.querySelectorAll(".modal.turn-modal").forEach(m => { const w = m.closest(".modal-wrap"); if (w) w.remove(); });
+  toast("시간이 다 되어 턴이 넘어갑니다.", "warn");
+  sfx(G.phase === "defPrep" ? "confirm_def" : "confirm_atk");
+  G.sel = null; G.inspect = null; Guide.hide(); const r = G.ready; G.ready = null; G.control = null; render(); if (r) r();
 }
 setInterval(clockTick, 100);
 /* 핸드 카드를 고르거나 풀 때: 카드 몸통(.hand-card)이 예전 자세에서 새 자세로 묵직하게 옮겨 간다.
@@ -4067,8 +4136,8 @@ function readyGuarded() {
 async function finishPrep(me) {
   if (ether(me) < 0) {
     const ok = await modal(`<h3>유지비가 모자랍니다</h3><p>이번 턴 에테르가 ${-ether(me)} 모자랍니다. 이대로 마치면 유지비가 큰 유닛부터 소각됩니다.</p><p class="muted">핸드를 결정으로 바꾸면 에테르가 늘어납니다.</p>`,
-      [{ label: "돌아가기", value: false }, { label: "그대로 마치기", value: true, cls: "danger" }]);
-    if (!ok || !G) return;
+      [{ label: "돌아가기", value: false }, { label: "그대로 마치기", value: true, cls: "danger" }], { cls: "turn-modal" });
+    if (!ok || !G || !G.ready) return;   // 창이 떠 있는 동안 시간이 다 되어 이미 넘어갔으면 그만
   }
   sfx(G.phase === "defPrep" ? "confirm_def" : "confirm_atk");
   G.sel = null; G.inspect = null; Guide.hide(); const r = G.ready; G.ready = null; G.control = null; render(); if (r) r();
@@ -4076,7 +4145,7 @@ async function finishPrep(me) {
 
 async function surrender() {
   if (G.phase === "over") { exitMatch(); return; }
-  const v = await modal(`<h3>항복할까요?</h3><p>지금 항복하면 이 경기는 패배로 기록됩니다.</p>`, [{ label: "계속 싸우기", value: false }, { label: "항복", value: true, cls: "danger" }]);
+  const v = await modal(`<h3>항복할까요?</h3><p>지금 항복하면 이 경기는 패배로 기록됩니다.</p>`, [{ label: "계속 싸우기", value: false }, { label: "항복", value: true, cls: "danger" }], { cls: "turn-modal" });
   if (!v || !G || G.phase === "over") return;
   sfx("surrender");
   const loser = G.mode === "hotseat" ? (G.control != null ? G.control : G.viewer) : G.online ? G.me : 0;

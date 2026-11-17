@@ -486,7 +486,7 @@ Scale (level 2 of 8): a small, local effect.
 Banner — Solante's Dawn: magic of solante's dawn, signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths; palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 천족 사제들이 한목소리로 기도를 올리면 전장의 소음이 가라앉는다. 그 침묵 속에서는 어떤 힘도 제 이름을 부르지 못한다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛 2개의 특수능력을 이번 턴 끈다(맞붙을 때 일반 공격만 한다). 아군에 [정화] 유닛이 있으면 상대 유닛 전체.
+Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛 2개의 특수능력을 이번 턴 끈다. 아군에 [정화] 유닛이 있으면 상대 유닛 전체.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.

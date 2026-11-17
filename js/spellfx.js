@@ -456,6 +456,7 @@ const SpellFX = (() => {
     const by = new Map();
     for (const f of s.floats) {
       const key = String(f[0]), c = f[2] || "";
+      if (/\blightmote\b/.test(c)) continue;   // v3.90 새벽빛 빛 알갱이는 마법이 겨눈 대상이 아님 (js/game.js lightMote)
       const kind = /\bdmg\b/.test(c) ? "dmg" : /\bheal\b/.test(c) ? "heal" : /\bblock\b/.test(c) ? "block" : /\bshield\b/.test(c) ? "shield" : /\bdebuff\b/.test(c) ? "debuff" : /\bmiss\b/.test(c) ? "miss" : "buff";
       if (!by.has(key)) by.set(key, new Set());
       by.get(key).add(kind);

@@ -129,8 +129,8 @@ const NAME_FIX = {
   /* v3.19.7 가져온 카드는 내 전장 맨 뒤 */
   "HA3-2": { text: "상대 핸드에 이름이 같은 카드가 2장 있으면 그중 1장을 가져와 내 전장 맨 뒤에 놓는다(유닛은 소환, 마법은 이번 전투에 발동, 아이템은 핸드로). 없으면 카드 1장을 뽑는다." },
   "NA2-2": { n: "빛의 날개", lv: 3, kind: "com", e: 5,
-             text: "아군 유닛 전체에게 [보호막]. 아군 유닛 전체 방어 +1.",
-             ops: [{ op: "shield", side: "ally", area: { t: "all" } }, { op: "mod", side: "ally", area: { t: "all" }, d: 1 }] },
+             text: "아군 맨 앞 유닛 2개에게 [보호막], 방어 +1.",   // v3.90 전체 → 맨 앞 2기 (사용자)
+             ops: [{ op: "shield", side: "ally", area: { t: "front", n: 2 } }, { op: "mod", side: "ally", area: { t: "front", n: 2 }, d: 1 }] },
   "NA3-1": { n: "찢는 바람", lv: 2, kind: "atk", e: 4,
              text: "상대 유닛 전체의 방어가 0이 된다(이번 턴). 상대 유닛 전체에게 피해 1.",
              ops: [{ op: "def0", side: "foe", area: { t: "all" } }, { op: "dmg", side: "foe", area: { t: "all" }, x: 1 }] },

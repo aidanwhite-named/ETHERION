@@ -165,8 +165,8 @@
   },
   "A2-43": {
    "en": "Flame Wing Martyr",
-   "ko": "불꽃 날개 날려 자폭 돌진 · 타다 흩어지는 재",
-   "atk": "burning wings ignite with a roaring flare, then it streaks forward like a comet: a rising firestorm rush, a searing strike on the target, and a purifying burst of white-hot sparks",
+   "ko": "불꽃 날개로 내리꽂는 칼 · 맑은 성광 울림 (v3.90 공격 소리 바꿈)",
+   "atk": "a flame flares on burning wings, a fast swoosh dive, a sharp sword strike on the target, a clear chime and radiant shimmer",
    "def": "frail wings crackle and curl under the blow, embers tinkling like falling glass, a short sizzle and a fading orange hiss"
   },
   "SP-A2": {

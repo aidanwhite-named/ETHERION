@@ -300,7 +300,7 @@ const PIN_SPELLS = [
     ops: [{ op: "mod", side: "ally", area: { t: "front", n: 2 }, d: 1, h: 2 }, { op: "pin", side: "ally", area: { t: "front", n: 2 }, st: ["a", "d", "h"], m: "U" }],
     brief: "{아군 앞2} ⛨+1 ♥+2|{아군 앞2} [버팀: 공격·방어·체력]",
     desc: "새벽의 첫 빛이 맹세한 자의 방패에 닿으면, 그날 해가 질 때까지 그 방패는 꺾이지 않는다." },
-  { id: "PS-A2-2", gr: "common", n: "질서의 빛", g: "A2", camp: "A", lv: 1, kind: "com",
+  { id: "PS-A2-2", gr: "common", n: "질서의 빛", g: "A2", camp: "A", lv: 2, kind: "com",   // v3.90 L1 → L2 (사용자)
     text: "상대 유닛 전체의 공격이 그 가운데 가장 낮은 공격과 같아진다.",
     ops: [{ op: "levelA", side: "foe", area: PIN_ALL }],
     brief: "{적 전체} ⚔ = 적 가운데 가장 낮은 ⚔",
