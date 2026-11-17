@@ -34,16 +34,26 @@ ok(CARDS['SP-A3'].gift.throw && CARDS['SP-A3'].gift.every, '다른 깃발 [사�
 ok(ev('RARE_AURA').B1.eff.a === 1 && !ev('RARE_AURA').B1.eff.snipe, '레어 오라 [포격 지휘] 공격 +1');
 ok(CARDS['MB-04'].name === '도화선' && CARDS['SB1-05'].name === '기폭' && CARDS['SB1-05'].type === 'any' && CARDS['SB1-03'].name === '불의 장막' && CARDS['SB1-03'].type === 'def' && CARDS['SB1-01'].type === 'def', '마법 4장 이름 · 종류');
 
-/* [점화]: 체력이 가장 높은 상대에 화상, 그 자리 피해 없음 */
-{ const P = [c.side(0, ['B1-03'], 30), c.side(1, ['G1-01', 'B1-43'], 30)]; const X = c.fight(P, 0, 1);
-  const big = P[1].field.find(u => u && u.id === 'B1-43');
-  ok(big && sc(big) === 1 && big.t.keep.scorchT === 1 && big.t.dmg === 0, '[점화 1] → 체력 최고 철갑 보루에 화상 1, 피해 0');
+/* [점화] v3.92: 맞붙어 공격한 상대에 화상(붙은 그 자리 피해 없음) · 쓰러뜨린 상대에는 없음 */
+{ const P = [c.side(0, ['B1-03'], 30), c.side(1, ['B1-43', 'G1-01'], 30)]; const X = c.fight(P, 0, 1);
+  const big = P[1].field.find(u => u && u.id === 'B1-43'), back = P[1].field.find(u => u && u.id === 'G1-01');
+  const d0 = big.t.dmg;
+  ok(big && sc(big) === 1 && big.t.keep.scorchT === 1 && sc(back) === 0, '[점화 1] → 공격한 앞 유닛에 화상 1, 뒤 유닛은 없음');
   // 같은 턴에는 터지지 않음
-  ev('gbBurnTick')(X, () => {}); ok(sc(big) === 1, '붙은 턴에는 터지지 않음');
+  ev('gbBurnTick')(X, () => {}); ok(sc(big) === 1 && big.t.dmg === d0, '붙은 턴에는 터지지 않음');
   // 다음 턴 전투 시작: 한 번 터지고 꺼짐
   ev('resetTurn')(big); const X2 = ev('ctx')(P, 1, 2, []); ev('gbBurnTick')(X2, () => {});
   ok(sc(big) === 0 && big.t.dmg === 1, '다음 턴 시작 때 체력 −1 · 꺼짐 (' + big.t.dmg + ')');
   ev('gbBurnTick')(ev('ctx')(P, 0, 3, []), () => {}); ok(big.t.dmg === 1, '한 번만 터짐'); }
+{ const P = [c.side(0, ['B1-22'], 30), c.side(1, ['G1-01', 'B1-43'], 30)]; c.fight(P, 0, 1);
+  const f = P[1].field.find(u => u && u.id === 'G1-01'), w = P[1].field.find(u => u && u.id === 'B1-43');
+  ok((!f || !f.t.alive) && sc(w) === 0, '[점화] 공격으로 쓰러뜨리면 화상 없음 · 다른 유닛에도 안 옮김'); }
+/* v3.92 [불씨 전염]은 한 턴에 한 번만 */
+{ const P = [c.side(0, ['UN-B1-7'], 30), c.side(1, ['G1-01', 'G1-01'], 30)]; c.prep(P);
+  const src = P[0].field[0], a = P[1].field[0], b = P[1].field[1], X = ev('ctx')(P, 0, 5, []);
+  ev('uOnHit')(X, src, a, 3); ev('uOnHit')(X, src, b, 3);
+  ok(a.t.keep.ember === 5 && (b.t.keep || {}).ember == null, '[불씨 전염] 같은 턴 두 번째 상대에는 안 붙음');
+  ev('uOnHit')(ev('ctx')(P, 0, 6, []), src, b, 3); ok(b.t.keep.ember === 6, '[불씨 전염] 다음 턴에는 다시 붙음'); }
 /* 화상은 쌓인다 · 방어 무시 · 쓰러뜨리면 붙인 유닛 몫 */
 { const P = [c.side(0, ['B1-22'], 30), c.side(1, ['B2-24'], 30)]; c.prep(P); const f = P[1].field[0];
   const X = ev('ctx')(P, 0, 1, []); ev('gbScorch')(X, f, 2, P[0].field[0].uid); ev('gbScorch')(X, f, 2, P[0].field[0].uid);

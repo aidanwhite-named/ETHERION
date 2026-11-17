@@ -1371,7 +1371,7 @@ const FLOAT_SFX = [
   [/^빗나감/, "miss"], [/^가시 −/, "thorns"], [/^수호/, "guard"], [/^(관통|꿰뚫기 −)/, "pierce"], [/^연쇄/, "chain"],
   [/^무효$/, "negate"], [/^빼앗김/, "steal"], [/^강화 해제/, "cleanse"], [/^(충전|플라즈마) \d/, "charge"], [/^♥1 ⚔/, "rage"], [/^(다시 )?자람/, "regrow"],
   // v3.65 마족: [출혈] 걸림 = 약화, [흡혈] = 치유, [강탈] 다음 턴 에테르 = 에테르 얻음. 출혈 깎임은 2026-11-15부터 전용 소리 bleed
-  [/^출혈 −/, "bleed"], [/^출혈 \d/, "debuff"], [/^흡혈/, "heal"], [/^강탈 ·/, "ether_gain"],
+  [/^출혈 −/, "bleed"], [/^출혈 \d/, "debuff"], [/^제물 증표/, "mark"], [/^흡혈/, "heal"], [/^강탈 ·/, "ether_gain"],
   // 2026-11-15 v3.68~v3.74 새 능력 전용 소리 (audio/sfx/<키>, tools/sfx/sfx_common.json combat)
   [/^화상 −/, "burn_burst"], [/^불씨 −/, "burn_burst"], [/^화상 \d/, "scorch"], [/^불씨( 옮겨붙음)?$/, "scorch"], [/^불길 · 재생 멈춤/, "burn"],
   [/^재생/, "regen"], [/^치유 \+/, "mend"], [/^바다의 보호/, "sea_guard"], [/^가호/, "ward"], [/^정화/, "purify"], [/^굳건/, "firm"], [/^후퇴$/, "retreat"],
@@ -1383,7 +1383,7 @@ function floatSfx(target, s, c) {
   if (/^심판/.test(s)) return "judge";
   if (/^life\d$/.test(String(target)) && /\bheal\b/.test(c)) return "life_heal";
   if (/^보호막/.test(s) && /\bblock\b/.test(c)) return "shield_break";
-  if (/\bignite\b/.test(c)) return "ignite";   // v3.73 [점화] 겨눔 (엔진 gbIgnite "aim ignite")
+  if (/\bignite\b/.test(c)) return "ignite";   // v3.73 [점화] 불씨 (엔진 gbIgnite → gbScorch cls "ignite")
   if (/\bfarmor\b/.test(c)) return "flame_armor";   // v3.73 [화염 갑주]가 붙인 화상 (엔진 gbArmor)
   if (/\baim\b/.test(c)) return "snipe";
   for (const [re, k] of FLOAT_SFX) if (re.test(s)) return k;
@@ -2108,7 +2108,8 @@ function fieldCardHTML(it, p, s) {
   // v3.65 마법이 이번 턴 걸어 준 능력(t.gx: 치명 · 연쇄 · 흡혈 …)도 같은 띠에 보랏빛 ✦ 칩으로 (css/cardtext.css .c-gx)
   let gxc = isUnit(it) && it.t ? grantChipsHTML(it.t.gx, it.t.off) + auraChipsHTML(it.t.au) : "";   // 2026-11-15 받은 레어 오라 ◎ 칩
   // v3.65 [출혈]: 걸린 출혈(t.bleed, 이번 전투만)을 붉은 칩으로 — 맞붙음이 시작될 때마다 그만큼 체력이 깎인다
-  if (isUnit(it) && it.t && it.t.keep && it.t.keep.scorch > 0) for (const b of gbBurns(it)) gxc += `<span class="c-eq-ab c-scorch" data-tip="${esc(`화상 ${b.n}\n다음 턴 전투가 시작될 때 체력 −${b.n} (방어 무시), 그 뒤 꺼진다.${b.n >= 2 ? `\n꺼지면서 양옆 유닛에게 [화상 ${b.n - 1}]이 옮겨붙는다.` : ""}`)}">화상 ${b.n}</span>`;   // v3.88 [화상 N]은 가시처럼 따로따로 (engine gbScorch · gbBurns)
+  if (isUnit(it) && it.t && it.t.keep && it.t.keep.scorch > 0) for (const b of gbBurns(it)) gxc += `<span class="c-eq-ab c-scorch" data-tip="${esc(`화상 ${b.n}\n붙은 그 자리에서는 피해가 없다.\n다음 턴 전투가 시작될 때 체력 −${b.n} (방어 무시), 그 뒤 꺼진다.${b.n >= 2 ? `\n꺼지면서 양옆 유닛에게 [화상 ${b.n - 1}]이 옮겨붙는다.` : ""}`)}">화상 ${b.n}</span>`;   // v3.88 [화상 N]은 가시처럼 따로따로 (engine gbScorch · gbBurns)
+  if (isUnit(it) && it.t && it.t.sac && it.t.sac.length) gxc += `<span class="c-eq-ab c-sac" data-tip="${esc("제물 증표\n이번 전투에서 쓰러지면 제물을 바친 쪽의 생명이 돌아오고, 이 카드는 그쪽 소각장으로 간다")}">제물</span>`;   // 2026-11-17 [제물 증표] (engine abMark)
   if (isUnit(it) && it.t && it.t.bleed > 0) gxc +=`<span class="c-eq-ab c-bleed" data-tip="${esc(`출혈 ${it.t.bleed}\n맞붙음이 시작될 때마다 체력 −${it.t.bleed} (이번 전투)`)}">출혈 ${it.t.bleed}</span>`;
   if (gxc) item = item ? item.replace(/<\/div>$/, gxc + "</div>") : `<div class="c-equip">${gxc}</div>`;
   const artx = isUnit(it) && it.t && abilOf(it).u === "scrap" ? scrapPileHTML(it) : "";   // v3.31.1 [고철 골렘] 고철 더미

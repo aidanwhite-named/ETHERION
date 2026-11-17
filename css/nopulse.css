@@ -12,7 +12,7 @@
 
 /* 작은 게임 · 상점 · 원정 · 덱 조정실 · 소리 단추 */
 .arc-tab.ready::before, .slot-m.armed .sm-btn i, .pach.armed .pach-btn i,
-.xp-node.cur .emblem, .sc-new, .pc-new, .ed-save.ready,
+.xp-node.cur .emblem, .sc-new, .pc-new, .ed-save.save-ready,
 .snd-btn.blocked { animation: none; }
 
 /* 타이틀: 등장 연출은 그대로, 뒤에 붙은 반짝임 · 숨쉬기만 뺀다 */

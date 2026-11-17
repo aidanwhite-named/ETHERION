@@ -368,6 +368,7 @@ function pickTargets(X, caster, side, area, k) {
     else if (area.t === "minH") L = L.slice().sort((x, y) => hpLeft(x) - hpLeft(y) || C(x).lv - C(y).lv || colOf(P, x) - colOf(P, y)).slice(0, area.n);   // v3.11 남은 체력이 가장 낮은 n기
     else if (area.t === "behind") L =L.filter(u => colOf(P, u) > k).sort((x, y) => colOf(P, x) - colOf(P, y)).slice(0, 1);
     if (P === theirs) L = uEyeFilter(X, P, L);   // v3.31 [폭풍의 눈]: 상대 마법이 겨눈 내 유닛이 코인 앞면이면 빗나감
+    if (P === theirs && X.offerNow && X.offerNow.p === caster) for (const u of L) abMark(X, u);   // 2026-11-17 [제물] 증표
     out = out.concat(L);
   }
   return out;
@@ -401,7 +402,8 @@ function amplify(p) { return liveUnits(p).reduce((s, u) => s + abilOf(u).amp, 0)
 
 function castSpell(X, caster, it, k) {
   X.casting = (X.casting || 0) + 1;   // 2026-11-16 마법이 발동하는 동안 새 오라 연출은 미룬다(step)
-  try { return castSpellCore(X, caster, it, k); } finally { X.casting--; }
+  const prevOffer = X.offerNow; X.offerNow = null;   // 2026-11-17 [제물] 증표: 이 마법이 겨눈 상대 유닛 (abOfferOpen · pickTargets · abOfferClose)
+  try { return castSpellCore(X, caster, it, k); } finally { X.casting--; abOfferClose(X, caster); X.offerNow = prevOffer; }
 }
 function castSpellCore(X, caster, it, k) {
   const c = C(it), p = X.P[caster], o = X.P[1 - caster];
@@ -423,7 +425,7 @@ function castSpellCore(X, caster, it, k) {
     lg(X, `코인: ${sets.map(o => { const h = o.faces.filter(Boolean).length; return `${o.label} ${o.gate ? "" : sgnNum(o.v) + " "}× ${o.faces.length} → ${h ? "앞면 " + h : "모두 뒷면"}`; }).join(" · ")}`, "sys");
     step(X, { spellCoin: { uid: it.uid, id: it.id, sets } }, 1400);
   }
-  if (c.cost.life) { p.life -= c.cost.life; fl(X, "life" + p.idx, "제물 −" + c.cost.life, "dmg"); abPaid(X, caster, c.cost.life); }   // v3.65 [제물]: 이번 턴 바친 생명 · [피의 계약]
+  if (c.cost.life) { p.life -= c.cost.life; fl(X, "life" + p.idx, "제물 −" + c.cost.life, "dmg"); abPaid(X, caster, c.cost.life); abOfferOpen(X, caster, c.cost.life, c.name); }   // v3.65 [제물]: 이번 턴 바친 생명 · [피의 계약]
   if (c.cost.ether) { p.reload += c.cost.ether; lg(X, `[장전 ${c.cost.ether}] ${p.name}의 다음 턴 에테르 −${c.cost.ether}`, "sys"); }
   if (c.gain.life) { const b = p.life; p.life = Math.min(RULES.lifeCap, p.life + c.gain.life); if (p.life > b) fl(X, "life" + p.idx, "+" + (p.life - b), "heal"); }
   const amp = ampKind(c) ? amplify(p) : 0;
@@ -618,7 +620,7 @@ function attackOne(X, Au) {
     if (shSave) { Du.t.shield = false; fl(X, Du.uid, "격노 · 보호막 뚫음", "debuff"); lg(X, `[무한한 격노] ${ca.name}의 공격이 ${cd.name}의 보호막을 뚫었다`, "spell"); }
     got = dealt > 0 ? hurt(X, Du, dealt) : (fl(X, Du.uid, "0", "miss"), 0);
     if (shSave && Du.t.alive) Du.t.shield = shSave;
-    abLeech(X, Au, got, Au.t.a, hpBefore);   // v3.65 [흡혈] · 2026-11-17 내 공격의 절반(올림), 상대가 맞기 전 체력까지만
+    abLeech(X, Au, got, hpBefore);   // v3.65 [흡혈]: 맞붙어 준 피해의 절반(올림) · 2026-11-17 맞선 앞 유닛이 맞기 전 체력까지만(연쇄 · 꿰뚫기 몫은 세지 않음)
     // v3.9.6 [치명]: 코인 없이, 피해가 들어갔고(보호막 · 가호에 다 막히지 않음) 상대가 살아 있으면 남은 체력을 1로.
     // 원래 피해로 쓰러지면 그대로 쓰러진다. 예전에는 코인 앞면이면 피해 2배라 공격이 큰 유닛에게 너무 셌다
     if (ab.crit && got > 0 && Du.t.alive && hpLeft(Du) > 1) { const cut = hpLeft(Du) - 1; Du.t.dmg += cut; got += cut; crit = true; fl(X, Du.uid, "치명 ♥1", "dmg big"); }
@@ -649,6 +651,7 @@ function attackOne(X, Au) {
     }
     spRiposte(X, Au, Du, blocked); spDrain(X, Au, Du);   // v3.81 [되받기] · [뿌리 흡수]: 맞붙어 공격받을 때(이 유닛이 쓰러져도)
     if (got > 0) spMark(X, Au, Du);   // v3.81 [표식]
+    gbIgnite(X, Au, Du);   // v3.92 [점화]: 공격한 상대에 화상을 남긴다(공격으로 쓰러지면 없음)
     gbArmor(X, Au, Du);   // v3.73 [화염 갑주]: 공격해 온 유닛에 화상
   }
   if (thSplit) step(X, { tgt: Au.uid }, PIECE_MS);
@@ -662,7 +665,7 @@ function attackOne(X, Au) {
     const back = abVeil(X, Du, Au, mrArc(Du.t.a + bash, Au.t.d, abilOf(Du).arcane, Au.t.charm).dmg + spHunt(X, Du, Au));   // v3.81 [불꽃 사냥]은 반격에도   // v3.65 [그림자 걸음] · v3.68 [마력 공격]은 반격에도
     const auHp = hpLeft(Au);   // 2026-11-17 [흡혈]: 반격 맞기 전 체력 (흡혈 상한)
     const g = back > 0 ? hurt(X, Au, back, "반격") : (fl(X, Au.uid, "반격 0", "miss"), 0);
-    abLeech(X, Du, g, Du.t.a, auHp);   // v3.65 [흡혈]: 반격도 맞붙은 피해 — 반격한 유닛의 공격으로 셈
+    abLeech(X, Du, g, auHp);   // v3.65 [흡혈]: 반격도 맞붙은 피해
     if (g > 0) spMark(X, Du, Au);   // v3.81 [표식]: 반격으로 피해를 줘도
     // v3.65 [치명]은 반격에도: 피해가 들어갔고 공격한 유닛이 살아 있으면 남은 체력을 1로 ([연쇄]는 공격할 때만)
     let gc = g, ccrit = false;
@@ -753,7 +756,6 @@ function runCombatCore(X) {
     acted.add(Au);
     if (!Au.t.rest && !C(Au).still) {
       if (abilOf(Au).snipe) { snipeOne(X, Au); sweep(); if (dead()) break; }   // v3.17.5 [사격]은 자기 차례에, 맞붙기 바로 전에
-      if (abilOf(Au).ignite) gbIgnite(X, Au);   // v3.73 [점화]: 같은 때에 화상만 붙인다(피해 없음)
       if (Au.t.alive && queueOf(D).length && abBleedTick(X)) { sweep(); if (dead()) break; }   // v3.65 [출혈]: 맞붙음이 시작될 때마다 전장의 출혈 유닛 체력 −N
       if (Au.t.alive && queueOf(D).length) nwRegenTick(X);   // v3.74 [재생 N]: 출혈 다음, 맞붙음이 시작될 때마다
       if (Au.t.alive) { X.clash = null; attackOne(X, Au); g1RageCost(X, Au); mrHeal(X); sweep(); }   // v3.82 [무한한 격노]: 공격한 뒤 자기 공격만큼 체력 −
@@ -1373,7 +1375,7 @@ function uOnCast(X, caster, it) {
 function uOnHit(X, src, tgt, got) {
   if (!src || !tgt) return;
   if (got > 0 && tgt.t.alive && !C(tgt).tok) {
-    if (uHas(src, "ember") && uK(tgt).ember == null) { uK(tgt).ember = X.turn; fl(X, tgt.uid, "불씨", "debuff"); lg(X, `[불씨 전염] ${C(tgt).name}에 불씨가 붙었다 — 다음 전투부터 매 턴 피해 2`, "sys"); }
+    if (uHas(src, "ember") && uK(tgt).ember == null && uK(src).emberT !== X.turn) { uK(src).emberT = X.turn; uK(tgt).ember = X.turn;   /* v3.92 한 턴에 한 번만 (사용자) */ fl(X, tgt.uid, "불씨", "debuff"); lg(X, `[불씨 전염] ${C(tgt).name}에 불씨가 붙었다 — 다음 전투부터 매 턴 피해 2`, "sys"); }
     abBleedOn(X, src, tgt);   // v3.65 [출혈 N]: 맞붙어(공격 · 반격) 피해를 준 상대가 살아남으면 출혈 +N(쌓인다)
     if (uHas(src, "brand") && !uK(tgt).brand) { uK(tgt).brand = true; fl(X, tgt.uid, "낙인 · 유지비 +1", "debuff"); lg(X, `[계약의 낙인] ${C(tgt).name}의 유지비가 판이 끝날 때까지 1 늘었다`, "sys"); }
   }
@@ -1401,7 +1403,7 @@ function uPreSweep(X) {
       step(X, {}, 600);
       continue;
     }
-    if (killer) abOffer(X, o, killer, v);   // v3.65 [제물]: 내 유닛이 상대 유닛을 쓰러뜨리면 이번 턴 바친 생명이 돌아온다
+    abOffer(X, o, v);   // 2026-11-17 [제물]: 제물 증표가 붙은 상대 유닛이 쓰러지면 그 마법에 바친 생명이 돌아오고 카드는 내 소각장으로
     // v3.65 [강탈] → 다음 턴 에테르 (쓰러뜨린 유닛이 같이 쓰러졌어도). 연쇄 · 꿰뚫기로 뒤 유닛을 쓰러뜨린 것은 세지 않는다(사용자 결정 — 한 번 맞붙어 두 몫을 받지 않게)
     if (killer && abilOf(killer).rob && !v.t.killVia) abRob(X, o, killer, v);
     spOnKill(X, o, killer, v);   // v3.81 [심판] · [포식]
@@ -1460,6 +1462,13 @@ function uBury(X, v, p, bp) {
   if (v.t.toDeck) {
     (bp.deckTop = bp.deckTop || []).push(v.id);
     lg(X, `[돌아오는 물결] ${C(v).name}이(가) ${bp.name}의 덱 맨 위로 돌아갔다`, "good");
+    return;
+  }
+  if (v.t.sacTo != null) {   // 2026-11-17 [제물]이 된 상대 유닛은 제물을 바친 쪽의 소각장으로
+    const q = X.P.find(z => z.idx === v.t.sacTo) || bp;
+    q.burn.push(v.id); brokeCard(X, bp, v.id, "unit");
+    X.died = X.died || {}; (X.died[q.idx] = X.died[q.idx] || []).push(v.id);
+    lg(X, `[제물] ${C(v).name} 카드가 ${q.name}의 소각장으로 갔다`, "sys");
     return;
   }
   bp.burn.push(v.id); brokeCard(X, bp, v.id, "unit");
@@ -1578,12 +1587,12 @@ function abPaid(X, caster, n) {
   X.paid = X.paid || [0, 0]; X.paid[caster] += n;
   for (const u of liveUnits(X.P[caster])) { const v = abilOf(u).pact; if (v) { const r = addStat(X, u, "a", v); if (r) lg(X, `[피의 계약] ${C(u).name} 공격 +${r} (이번 턴 바친 제물 ${X.paid[caster]})`, "good"); } }
 }
-/* [흡혈]: 맞붙어 피해를 주면(got > 0) 이 유닛 공격의 절반(올림)만큼 체력을 채운다 — 상대가 맞기 전 남은 체력보다 많이는 아니다
-   (2026-11-17 사용자 결정: 준 피해 → 내 공격력 기준, 상한 = 상대 체력). 다 찬 뒤 남는 몫은 이번 턴 체력 +. 체력에 눌림(▼)이 있으면 차지 않는다 */
-function abLeech(X, u, got, atk, foeHp) {
+/* [흡혈]: 맞붙어 준 피해의 절반(올림)만큼 체력을 채운다 — 맞선 상대가 맞기 전 남은 체력보다 많이는 아니다(2026-11-17 사용자 결정, 연쇄로 친 뒤 유닛은 세지 않음).
+   다 찬 뒤 남는 몫은 이번 턴 체력 +. 체력에 눌림(▼)이 있으면 차지 않는다 */
+function abLeech(X, u, got, foeHp) {
   if (!(got > 0) || !u.t.alive || !abilOf(u).leech) return;
   if (u.t.floor && u.t.floor.h && u.t.floor.h.hi != null) { fl(X, u.uid, "눌림 체력", "miss"); return; }
-  const A = abCfg(), amt = Math.min(Math.ceil(Math.max(0, atk != null ? atk : got) * A.leech), foeHp != null ? Math.max(0, foeHp) : Infinity), heal = Math.min(amt, u.t.dmg);
+  const A = abCfg(), amt = Math.min(Math.ceil(got * A.leech), foeHp != null ? Math.max(0, foeHp) : Infinity), heal = Math.min(amt, u.t.dmg);
   u.t.dmg -= heal;
   const over = A.leechOver ? amt - heal : 0;
   if (over > 0) u.t.h += over;
@@ -1652,15 +1661,44 @@ function abRob(X, o, killer, v) {
   fl(X, "crys" + o.idx, "강탈 · 다음 턴 에테르 +" + g, "heal");
   lg(X, `[강탈] ${C(killer).name}이(가) ${C(v).name}을(를) 쓰러뜨려 ${o.name}의 다음 턴 에테르 +${g}`, "good");
 }
-/* [제물] (v3.65): 마법이 낸 생명(cost.life)은 제물이다. 이번 턴 내 유닛이 상대 유닛을 쓰러뜨리면(공격 · 반격 · 연쇄 · 꿰뚫기 · 사격 · 투척)
-   그때까지 바친 생명이 모두 돌아온다. 그 뒤에 또 바치면 다음에 쓰러뜨릴 때 그만큼 다시 돌아온다 */
-function abOwed(X, i) { return Math.max(0, ((X.paid && X.paid[i]) || 0) - ((X.offered && X.offered[i]) || 0)); }
-function abOffer(X, o, killer, v) {
-  const owed = abOwed(X, o.idx); if (!owed) return;
-  X.offered = X.offered || [0, 0]; X.offered[o.idx] += owed;
-  const b = o.life; o.life = Math.min(RULES.lifeCap, o.life + owed);
-  if (o.life > b) fl(X, "life" + o.idx, "제물 +" + (o.life - b), "heal");
-  lg(X, `[제물] ${C(killer).name}이(가) ${C(v).name}을(를) 쓰러뜨려 바친 제물이 받아들여졌다 — ${o.name}의 생명 +${o.life - b}`, "good");
+/* [제물] (v3.65 · 2026-11-17 사용자 결정으로 바꿈): 마법이 낸 생명(cost.life)은 제물이다.
+   그 마법이 겨눈 상대 유닛마다 [제물 증표](t.sac = 제물 번호들, 이번 턴)가 붙는다. 상대 유닛을 겨누지 않는 마법(아군 강화 · 되살리기 · 핸드)은
+   그때 상대 맨 앞 유닛에 붙인다. 증표가 붙은 유닛이 이번 전투에서 쓰러지면(무엇에 쓰러지든) 그 마법에 바친 생명이 돌아오고,
+   그 유닛 카드는 주인이 아니라 제물을 바친 쪽의 소각장으로 간다(uBury, t.sacTo). 한 마법의 제물은 한 번만 — 증표 유닛이 여럿이면 처음 쓰러진 것이 제물,
+   나머지 유닛의 그 마법 증표는 힘을 잃는다. 돌아올 제물(증표 유닛이 살아 있는 제물)이 있는 동안은 생명이 0 아래여도 전투가 이어진다(runCombatCore dead) */
+function abOfferOpen(X, caster, n, name) {
+  X.offers = X.offers || [];
+  X.offerNow = { id: X.offers.length, p: caster, n, name, uids: [], done: false };
+  X.offers.push(X.offerNow);
+}
+function abMark(X, u) {
+  const off = X.offerNow; if (!off || !u || !u.t || !u.t.alive || off.uids.includes(u.uid)) return;
+  off.uids.push(u.uid);
+  u.t.sac = (u.t.sac || []).concat(off.id);
+  fl(X, u.uid, "제물 증표", "debuff");
+  lg(X, `[제물 증표] ${C(u).name} — 쓰러지면 바친 생명을 되찾는다 (+${off.n})`, "sys");
+}
+function abOfferClose(X, caster) {
+  const off = X.offerNow; if (!off || off.p !== caster) return;
+  if (!off.uids.length) { const u = queueOf(X.P[1 - caster])[0]; if (u) abMark(X, u); }   // 상대 유닛을 겨누지 않은 마법: 상대 맨 앞 유닛
+  X.offerNow = null;
+}
+function abOwed(X, i) {
+  let n = 0;
+  for (const off of X.offers || []) if (off.p === i && !off.done && X.P[1 - i].field.some(u => isUnit(u) && u.t.alive && off.uids.includes(u.uid))) n += off.n;
+  return n;
+}
+function abOffer(X, o, v) {
+  const ids = v.t.sac; if (!ids || !ids.length) return;
+  let back = 0, to = null;
+  const doneIds = [];
+  for (const id of ids) { const off = (X.offers || [])[id]; if (!off || off.done || off.p !== o.idx) continue; off.done = true; back += off.n; to = off.p; doneIds.push(id); }
+  if (to == null) return;
+  for (const q of X.P) for (const u of q.field) if (isUnit(u) && u !== v && u.t && u.t.sac) { u.t.sac = u.t.sac.filter(id => !doneIds.includes(id)); if (!u.t.sac.length) delete u.t.sac; }   // 같은 마법의 다른 증표는 힘을 잃는다(칩도 지움)
+  v.t.sacTo = to;
+  const b = o.life; o.life = Math.min(RULES.lifeCap, o.life + back);
+  fl(X, "life" + o.idx, "제물 +" + (o.life - b), "heal");
+  lg(X, `[제물] ${C(v).name} 쓰러짐 — 제물이 받아들여졌다. ${o.name}의 생명 +${o.life - b}`, "good");
 }
 
 /* ---------- v3.68 푸른비늘 인어: 마력 공격 · 치유 · 바다의 보호 (카드 데이터는 js/mermaid.js) ----------
@@ -1901,17 +1939,13 @@ function gbScorch(X, u, n, by, cls) {   // cls: 떠오르는 글자에 덧붙일
   fl(X, u.uid, "화상 " + n, "debuff" + (cls ? " " + cls : ""));
   lg(X, `[화상 ${n}] ${C(u).name}${cls === "spread" ? "에 불이 번졌다" : ""} (${gbBurnText(u)}) — 다음 턴 전투가 시작될 때 터진다`, "sys");
 }
-function gbIgnite(X, u) {
-  const D = X.P[1 - X.ai], n0 = abilOf(u).ignite;
-  if (!(n0 > 0) || u.t.rest || !u.t.alive) return;
-  abilPieces(u, "ignite", n0).forEach((n, i) => {   // v3.84 [점화]가 여러 칸이면 칸마다 따로 겨눈다
-    const tg = queueOf(D).reduce((b, f) => !b || hpLeft(f) > hpLeft(b) ? f : b, null);
-    if (!tg) return;
-    fl(X, tg.uid, "◎ " + C(tg).name, "aim ignite");   // "ignite" = 효과음을 사격 대신 [점화] 불씨로 (game.js floatSfx)
-    step(X, { act: u.uid, tgt: tg.uid, sn: 1 }, i ? 300 : 380);
+function gbIgnite(X, u, tg) {   // v3.92 [점화 N]: 공격한 상대에 [화상 N] (예전: 맞붙기 전에 체력이 가장 높은 상대를 겨눔)
+  const n0 = abilOf(u).ignite;
+  if (!(n0 > 0) || !tg || !tg.t.alive) return;
+  abilPieces(u, "ignite", n0).forEach((n, i) => {   // v3.84 [점화]가 여러 칸이면 칸마다 따로 붙는다
+    if (i) step(X, { tgt: tg.uid }, PIECE_MS);
     lg(X, `${C(u).name}의 [점화 ${n}] → ${C(tg).name}`);
-    if (!uEyeDodge(X, D, tg)) gbScorch(X, tg, n, u.uid);
-    step(X, { act: u.uid, tgt: tg.uid, hit: true, sn: 1 }, 420);
+    gbScorch(X, tg, n, u.uid, "ignite");   // "ignite" = 효과음을 [점화] 불씨로 (game.js floatSfx)
   });
 }
 function gbArmor(X, Au, Du) {

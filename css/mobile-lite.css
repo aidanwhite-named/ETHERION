@@ -366,7 +366,7 @@ html.mobile .g-cell { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .14); }
 html.mobile .ed-gauge.st-ready { box-shadow: 0 0 6px rgba(240, 200, 120, .25); }
 html.mobile .ed-gauge.st-ready .g-num b, html.mobile .ed-gauge.st-ok .g-num b { text-shadow: 0 0 4px rgba(240, 180, 76, .6); }
 html.mobile .ed-gauge.st-bad { box-shadow: 0 0 6px rgba(239, 106, 92, .35); }
-html.mobile .ed-save.ready { animation-name: none; }
+html.mobile .ed-save.save-ready { animation-name: none; }
 html.mobile .ed-alarm { box-shadow: 0 0 6px rgba(239, 106, 92, .35); }
 html.mobile .ed-alarm.warn { box-shadow: 0 0 6px rgba(240, 180, 76, .3); }
 html.mobile .screen-editor .ed-deck::after { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .5); }
@@ -378,7 +378,7 @@ html.mobile .pip.on { box-shadow: 0 0 6px rgba(240, 180, 76, .6); }
 html.mobile .pip:hover:not(:disabled) { box-shadow: 0 0 0 2px rgba(143, 220, 255, .55); }
 html.mobile .scene-shop.sc-still *, html.mobile .scene-shop.sc-still *::before, html.mobile .scene-shop.sc-still *::after { animation-name: none !important; }
 @media (prefers-reduced-motion: reduce) {
-html.mobile .scene, html.mobile .scene *, html.mobile .ed-alarm.ring, html.mobile .ed-gauge.shake, html.mobile .ed-save.ready, html.mobile .pool-card.focus .pc-face .card, html.mobile .cv-flame { animation-name: none !important; }
+html.mobile .scene, html.mobile .scene *, html.mobile .ed-alarm.ring, html.mobile .ed-gauge.shake, html.mobile .ed-save.save-ready, html.mobile .pool-card.focus .pc-face .card, html.mobile .cv-flame { animation-name: none !important; }
 }
 
 /* bgm.css */
@@ -445,7 +445,7 @@ html.mobile .lv-bar i::after, html.mobile .rx-bar i::after { animation-name: non
 
 /* nopulse.css */
 html.mobile .slot.valid, html.mobile .slot.valid-move, html.mobile .burn.valid, html.mobile .ether.valid, html.mobile .eth-orb, html.mobile .ready, html.mobile .cs-stop, html.mobile .btn.cs-stop:not(.rb), html.mobile .ready-wrap, html.mobile .ether.altar.valid .eth-ring, html.mobile .ether.altar.valid .et-orb, html.mobile .pinfo.low .pl-num:not(.bump), html.mobile .pinfo.low .hgem, html.mobile .pit-floor { animation-name: none; }
-html.mobile .arc-tab.ready::before, html.mobile .slot-m.armed .sm-btn i, html.mobile .pach.armed .pach-btn i, html.mobile .xp-node.cur .emblem, html.mobile .sc-new, html.mobile .pc-new, html.mobile .ed-save.ready, html.mobile .snd-btn.blocked { animation-name: none; }
+html.mobile .arc-tab.ready::before, html.mobile .slot-m.armed .sm-btn i, html.mobile .pach.armed .pach-btn i, html.mobile .xp-node.cur .emblem, html.mobile .sc-new, html.mobile .pc-new, html.mobile .ed-save.save-ready, html.mobile .snd-btn.blocked { animation-name: none; }
 html.mobile .t-title span { animation-name: letterIn, none; }
 html.mobile .t-title .lg { animation-name: lgGlow, none; }
 html.mobile .t-start { animation-name: fadeUp, none; }

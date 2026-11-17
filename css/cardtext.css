@@ -18,6 +18,8 @@
 .card .c-eq-ab.c-gx::before { content: "✦"; color: #b48cff; }
 .card .c-eq-ab.c-bleed { color: #ff9a9a; }   /* v3.65 [출혈] 걸린 유닛 (js/game.js) */
 .card .c-eq-ab.c-bleed::before { content: "●"; color: #e04848; }
+.card .c-eq-ab.c-sac { color: #d7b8ff; }   /* 2026-11-17 [제물 증표] 붙은 상대 유닛 (js/game.js) */
+.card .c-eq-ab.c-sac::before { content: "✠"; color: #b04060; }
 .card .c-eq-ab.c-scorch { color: #ffc27a; }   /* v3.73 잿불 고블린 화상 (js/game.js) */
 .card .c-eq-ab.c-scorch::before { content: "🔥"; font-size: .85em; }
 /* 2026-11-16 레어 오라 색 = 호박빛(--aura). 올림 초록 · 내림 빨강 · 마법 보라 ✦ · 에테르 · 레어 파랑 · 보호막 하늘빛 어느 것과도 겹치지 않는

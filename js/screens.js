@@ -849,7 +849,7 @@ function showEditor(f, focusId) {
     save.disabled = !valid || !isDirty;
     save.innerHTML = !valid ? `저장 <small>${n < N ? N - n + "장 부족" : n - N + "장 초과"}</small>` : isDirty ? "저장" : "저장됨";
     save.title = !valid ? `덱은 정확히 ${N}장이어야 저장할 수 있습니다 (지금 ${n}장)` : isDirty ? "덱을 저장합니다 (Ctrl+S)" : "바뀐 것이 없습니다";
-    save.classList.toggle("ready", valid && isDirty);
+    save.classList.toggle("save-ready", valid && isDirty);   // 2026-11-17 예전 "ready"는 전장 준비 완료(.ready)의 여백이 붙어 띠가 흔들렸다
     const canPlayNow = !isDirty && Store.deckPlayable(u, f);
     $("#ed-play").disabled = !canPlayNow;
     $("#ed-play").title = canPlayNow ? "" : `${N}장을 채우고 저장해야 게임에 들어갈 수 있습니다.`;
