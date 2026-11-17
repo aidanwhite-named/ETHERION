@@ -249,22 +249,22 @@
    "def": "the blow strikes molten crystal: a dense dull knock, a heavy heartbeat that does not falter, a crackling surge of heat"
   },
   "UP-B1-12": {
-   "en": "Master Sapper",
-   "ko": "큰 폭약 묻어 큰 폭발 · 두꺼운 방호복에 퍽",
-   "atk": "a heavy crate dragged and dropped, a long hiss of a thick fuse, then a deep ground-shaking blast with a long shower of stone",
-   "def": "a reinforced blast-vest and iron helm: a heavy muffled thump, a dull clang of the helm, a sprinkling of pebbles and a low ringing tone"
+   "en": "Fire Rat Sapper Swarm",
+   "ko": "불쥐 떼가 화약 자루를 끌고 와 터뜨림 · 흩어졌다 다시 몰려듦",
+   "atk": "a swarm of fire rats drags a sack forward with skittering claws and shrill chittering, a fuse hisses, then a sharp powder burst pops among the burning fur",
+   "def": "the swarm scatters from the blow: squeaks bursting in every direction, claws skittering over gravel, burning fur crackling as they regroup"
   },
   "UP-B1-17": {
-   "en": "Big-Bore Battery Chief",
-   "ko": "대포 셋이 한꺼번에 쾅쾅쾅 · 포신 셋 뒤에 숨어 묵직",
-   "atk": "three cannons fire in an overlapping boom, one after another, a trio of rolling echoes, with a final heavy crack as chains clank",
-   "def": "behind a trio of thick barrels: a layered metallic bong, three overlapping deep rings, a heavy settling clunk of wood and iron"
+   "en": "Great-Bore Tortoise",
+   "ko": "거대한 거북 등 분화구에서 용암탄 쾅 · 현무암 등껍질이 받음",
+   "atk": "a huge lava tortoise braces with a deep stony grind, magma gurgles up in the vent on its shell, then a massive volcanic boom spits a glowing lava bomb with a long rolling echo",
+   "def": "it pulls into its vast basalt shell: a dense rocky clunk, a deep muffled ring inside the dome, magma bubbling heavily in the cracks"
   },
   "UP-B1-18": {
-   "en": "Depot Ironwall",
-   "ko": "맞을수록 단단 · 화약통 철벽 울림",
-   "atk": "a hardened wall of boots marching forward, a tight blast of musket fire, then a heavy slam of an iron barrel shoved ahead",
-   "def": "iron-banded barrels hardened by blows: each knock rings deeper, a stack of low wooden-and-iron thuds growing firmer, dust falling"
+   "en": "Fire Ant Ironwall",
+   "ko": "불개미 떼가 등딱지를 맞물려 벽으로 밀어붙임 · 맞을수록 단단",
+   "atk": "a dense column of fire ants surges: a dry rapid clicking of chitin, a hot sizzle, then many mandibles snapping shut together with a crunch and a spark burst",
+   "def": "the ants lock carapaces into a hard wall: a thick glossy clack that rings firmer with each knock, legs clicking, heat sizzling from the joints"
   },
   "UP-B1-24": {
    "en": "Mortar Ace",
@@ -319,8 +319,8 @@
   },
   "SB1-08": {
    "en": "Depot Blast",
-   "ko": "화약고가 폭발",
-   "cast": "a creaking powder store door, a rising crackle of a lit fuse, then a monstrous blinding explosion, rolling shockwave and long falling debris"
+   "ko": "깔아 둔 화약통이 줄줄이 터져 양쪽을 휩씀",
+   "cast": "a plunger slams down with a wooden clack, then a chain of powder kegs blows one after another in rapid roaring booms, a rolling shockwave, our own side grunting under the blast, and falling debris and cinders"
   },
   "SB1-09": {
    "en": "Grand Bombardment",
@@ -328,9 +328,9 @@
    "cast": "a whole line of cannons rammed in unison with a chorus of scrapes, then a titanic simultaneous boom, ground rumbling and a rolling echo"
   },
   "RB1-1": {
-   "en": "Final Salvo",
-   "ko": "마지막 총포가 전부 터짐",
-   "cast": "a wooden crate smashed open, powder poured in a hissing rush, then a thunderous all-out blast, shaking and long, ending in falling cinders"
+   "en": "Laying the Powder Kegs",
+   "ko": "화약통을 빈자리마다 굴려 놓고 도화선에 불",
+   "cast": "several heavy wooden kegs rolled over stone and set down with hollow thuds one after another, a striker scrapes, and short fuses catch with a row of sputtering hisses that keep fizzing, no explosion"
   },
   "NB1-1": {
    "en": "Armour-Piercing Shell",

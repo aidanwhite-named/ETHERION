@@ -249,10 +249,10 @@
    "def": "hanging cables shake and thrum: a taut humming twang, a ripple of vibration along a row of devices, flowing arcs and a deep thrum"
   },
   "UP-B3-12": {
-   "en": "Doctor of Discharge",
-   "ko": "세 번 터진 실험 · 안정된 방전",
-   "atk": "a precision-tuned capacitor bank clicks, its whine steady and fierce, then a thick brilliant bolt cracks in a boom with a tight hissing finish",
-   "def": "a chest-high field emitter flares: a smooth humming dome, a hard crack against it, sparks sliding smoothly off, glass tubes ringing"
+   "en": "Discharge Sprite Queen",
+   "ko": "방전 요정 여왕이 부풀어 크게 터짐 · 빛이 흩어졌다 모임",
+   "atk": "a sprite queen swells with a rising whine, glowing brighter and brighter with a crown of sparks, then bursts in a big popping crack of light",
+   "def": "the hit scatters her light: a fizzy crackle, a flickering stutter, sparks spinning back into a steady bright glow"
   },
   "UP-B3-18": {
    "en": "Chief Gnome Engineer",
@@ -267,10 +267,10 @@
    "def": "before the blow lands a field of lightning intercepts it: a roaring arc screen, a huge hollow metallic gong, sparks raining off the plating"
   },
   "UP-B3-23": {
-   "en": "Voltarium Elder Professor",
-   "ko": "원로의 강의 · 학술 장막",
-   "atk": "a long lecture bell rings once, a slow crackling orbit gathers and a vast bolt drops with a commanding boom",
-   "def": "a mantle of floating brass rings spins up: a smooth resonant hum, a deep bell-like toll, glass ringing, the blow dissolving into a calm fizz"
+   "en": "Elder Professor's Brain in a Jar",
+   "ko": "병 속 원로 두뇌가 번개로 꾸짖음 · 유리병과 액체가 출렁",
+   "atk": "a big brain in a jar buzzes with thought, electrodes whining higher and higher, then a long lecturing crack of lightning arcs out of the glass with a commanding boom",
+   "def": "its thick jar takes the hit: a heavy glassy clunk, fluid sloshing and bubbling, a stern electric buzz"
   },
   "UP-PN-B3-C2": {
    "en": "Tamed Capacitor",

@@ -60,7 +60,8 @@ const FEEL = {
     sp_thunk: null, sp_slash: null, sp_smite: null, sp_gust: null, sp_splash: null
   },
   /* 파일을 고쳐 다시 넣은 소리: 브라우저에 남은 옛 파일 대신 새 파일을 받게 ?v= 를 붙인다 */
-  SND_VER: { banner_atk: "1116", banner_def: "1116" },   // 2026-11-16 상대 · 공격 · 방어 차례 명판 소리의 잔향 꼬리를 잘라 냄
+  SND_VER: { banner_atk: "1116", banner_def: "1116", "MG-04.cast": "1117", "RS-G1-2.cast": "1117",
+    ...Object.fromEntries("MA-10.cast MA-14.cast SA2-02.cast RB1-1.cast SB1-08.cast MG-11.cast RS-G2-3.cast RG2-1.cast US-G2-1.cast UP-A1-09.atk UP-A1-09.def UP-A1-18.atk UP-A1-18.def UP-A2-11.atk UP-A2-11.def UP-A2-17.atk UP-A2-17.def UP-A2-22.atk UP-A2-22.def UP-A2-24.atk UP-A2-24.def UP-A3-10.atk UP-A3-10.def UP-A3-11.atk UP-A3-11.def UP-A3-18.atk UP-A3-18.def UP-A3-23.atk UP-A3-23.def UP-A3-24.atk UP-A3-24.def UP-B1-12.atk UP-B1-12.def UP-B1-17.atk UP-B1-17.def UP-B1-18.atk UP-B1-18.def UP-B2-17.atk UP-B2-17.def UP-B2-18.atk UP-B2-18.def UP-B2-22.atk UP-B2-22.def UP-B2-24.atk UP-B2-24.def UP-B3-12.atk UP-B3-12.def UP-B3-23.atk UP-B3-23.def UP-G1-24.atk UP-G1-24.def UP-G2-22.atk UP-G2-22.def UP-G3-11.atk UP-G3-11.def UP-G3-12.atk UP-G3-12.def UP-G3-17.atk UP-G3-17.def UP-G3-24.atk UP-G3-24.def".split(" ").map(k => [k, "1117r"])) },   // 2026-11-17 카드 변경 맞춤: 화약통 깔기 · 화약고 폭파 · 뒤집힌 물거울 · 트롤 3장 · 강화 유닛 26장(v3.79 종류) 새 소리 + 새벽빛 3장   // 2026-11-17 v3.87 원한의 일격 · 피의 맹세 새 소리   // 2026-11-16 상대 · 공격 · 방어 차례 명판 소리의 잔향 꼬리를 잘라 냄
   SND_ALL: "syn1116",   // 모든 파일을 한꺼번에 바꿨을 때 올린다(2026-11-16 Stable Audio → 직접 합성)
   sndUrl(key) { const v = this.SND_VER[key] ? this.SND_VER[key] + "." + this.SND_ALL : this.SND_ALL; return this.snd.base + encodeURIComponent(key) + "." + this.snd.ext + "?v=" + v; },
   /* media: 파일로 열었을 때(file:// — ETHERION 실행.bat · PC 앱)는 fetch 가 막혀서 <audio> 로 낸다. 목록도 audio/sfx/index.js (window.SFX_KEYS) */

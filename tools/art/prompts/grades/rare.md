@@ -901,20 +901,21 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## RS-G1-2 · 궁지의 포효
+## RS-G1-2 · 피의 맹세
 고르바스의 발톱 · 방어 마법 · 레벨 2 · 레어 — 받은 그림은 `tools/art/inbox/RS-G1-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/RS-G1-2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: RARE — an elite specialist or a masterwork, the card people notice. An elite with a signature move, or a masterwork — clearly special.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "궁지의 포효". Depict exactly what this name describes.
-Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: an empowering earth aura rising around allied warriors. Scale and finish: a sweeping effect that reshapes part of the battlefield, layered energies and motion trails.
+Card name (Korean — read its meaning, never write it in the image): "피의 맹세". Depict exactly what this name describes.
+Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: a burst of earth power. Scale and finish: a sweeping effect that reshapes part of the battlefield, layered energies and motion trails.
+Art direction: Blood oath: a circle of Rockfist orc warriors at night, each slicing an open palm with a bone knife and clasping hands together over a stone war-drum; their mixed blood glows deep red and runs as one thread from hand to hand down the line toward the warrior at the back. Solemn, tense, a vow before battle; dark crimson and ochre light.
 Scale (level 2 of 8): a small, local effect.
 Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 가르운의 오크를 벼랑 끝까지 몰지 마라. 거기서부터가 그들의 싸움이다.
-Game effect (Korean, mood only — never draw text or numbers): 아군 전체 공격 +3, 방어 +1, 체력 +2.
+Lore (Korean, use for the scene): 가르운의 오크는 손바닥을 갈라 피를 섞는다. 먼저 쓰러진 자의 분노는 뒤에 선 형제의 주먹에서 다시 깨어난다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 유닛마다 피(🩸)로 결속한다. 결속한 유닛이 쓰러지면 가진 피가 모두 바로 뒤 아군에게 옮겨 간다. 전투가 끝날 때 남의 피를 머금고 살아남은 유닛은 다음 턴 준비 때 그 피 주인들이 쓰러질 때의 공격만큼 공격이 오른다(그 턴만).
 Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
 Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; flying rock dust, cracked ground, ochre light.
@@ -1020,7 +1021,7 @@ Scale (level 1 of 8): a small, local effect.
 Banner — Verdan's Antler: magic of verdan's antler, signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots; palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 실바니엘 바깥 숲길은 하룻밤 사이에 덤불로 닫힌다. 베고 들어온 자는 벤 만큼 찔린다.
-Game effect (Korean, mood only — never draw text or numbers): 아군 맨 앞 2기 체력 +3, [가시 2].
+Game effect (Korean, mood only — never draw text or numbers): 아군 전체 체력 +3, [가시 2].
 Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
 Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; glowing moss, thorny vines, drifting leaves.
@@ -1095,12 +1096,12 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: RARE — an elite specialist or a masterwork, the card people notice. An elite with a signature move, or a masterwork — clearly special.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "끈질긴 이끼". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a destructive forest attack striking the enemy ranks; an empowering forest aura rising around allied warriors. Scale and finish: a sweeping effect that reshapes part of the battlefield, layered energies and motion trails.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: an empowering forest aura rising around allied warriors. Scale and finish: a sweeping effect that reshapes part of the battlefield, layered energies and motion trails.
 Scale (level 3 of 8): an effect over a few targets.
 Banner — Verdan's Antler: magic of verdan's antler, signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots; palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 트롤의 몸을 덮은 이끼는 주인이 쓰러지는 것을 허락하지 않는다. 날리는 포자는 적의 숨을 막는다.
-Game effect (Korean, mood only — never draw text or numbers): 아군 전체 체력 +2, [불굴]. 상대 유닛 전체에게 피해 1.
+Game effect (Korean, mood only — never draw text or numbers): 아군 전체 체력 +2, [불굴].
 Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
 Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; glowing moss, thorny vines, drifting leaves.
@@ -1148,12 +1149,12 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: RARE — an elite specialist or a masterwork, the card people notice. An elite with a signature move, or a masterwork — clearly special.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "작살 물살". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive water attack striking the enemy ranks; a cleansing wave washing away enchantments. Scale and finish: a sweeping effect that reshapes part of the battlefield, layered energies and motion trails.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive water attack striking the enemy ranks; a cleansing wave washing away enchantments; allies rallying as one under a shared surge of power. Scale and finish: a sweeping effect that reshapes part of the battlefield, layered energies and motion trails.
 Scale (level 1 of 8): a small, local effect.
 Banner — Marencia's Song: magic of marencia's song, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 물살을 타고 날아간 작살은 방패도 축복도 씻어 내고 박힌다. 셀레네아의 사냥꾼은 두 번 던지지 않는다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛의 [보호막]·[가시]·[저주 면역]·[수호]가 꺼지고, 피해 3. 내 생명 +1.
+Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛의 [보호막]·[가시]·[저주 면역]·[수호]가 꺼지고, 피해 3. 아군 맨 앞 유닛에게 이번 턴 [치유 1].
 Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
 Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; clear water light, spray, ripples, bubbles.
@@ -1206,7 +1207,7 @@ Scale (level 2 of 8): a small, local effect.
 Banner — Marencia's Song: magic of marencia's song, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 샘물 무녀단이 부르는 물거품의 노래. 첫 칼날은 거품에 미끄러지고, 상처는 물방울에 닫힌다.
-Game effect (Korean, mood only — never draw text or numbers): 아군 맨 앞 유닛에게 [보호막]. 아군 전체 체력 +1. 내 생명 +2.
+Game effect (Korean, mood only — never draw text or numbers): 아군 맨 앞 유닛에게 [보호막], 이번 턴 [정화]. 아군 전체 체력 +1.
 Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
 Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; clear water light, spray, ripples, bubbles.
@@ -1233,7 +1234,7 @@ Scale (level 3 of 8): an effect over a few targets.
 Banner — Marencia's Song: magic of marencia's song, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 마렌시아의 바다가 차오르는 시각에 맞춰 부르는 노래. 밀려온 물은 적의 운을 쓸어 가고 아군의 발을 적신다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체의 코인이 뒷면이 되고 [홀림]에 걸린다(이미 정해진 코인은 그대로). 상대 유닛 전체에게 피해 2. 아군 전체 체력 +1. 내 생명 +1.
+Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체의 코인이 뒷면이 되고 [홀림]에 걸린다(이미 정해진 코인은 그대로). 상대 유닛 전체에게 피해 2. 아군 전체 체력 +1. 아군 맨 앞 유닛에게 이번 턴 [치유 1].
 Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
 Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; clear water light, spray, ripples, bubbles.

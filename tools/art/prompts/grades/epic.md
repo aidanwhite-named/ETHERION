@@ -1325,35 +1325,8 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## US-G2-1 · 재생의 숲
-베르단의 뿔 · 공용 마법 · 레벨 1 · 에픽 — 받은 그림은 `tools/art/inbox/US-G2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-G2-1.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "재생의 숲". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: an empowering forest aura rising around allied warriors; a shell of thorns that punishes attackers. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Scale (level 1 of 8): a small, local effect.
-Banner — Verdan's Antler: magic of verdan's antler, signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots; palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 숲의 대정령 드리엔이 지나간 자리. 베인 가지가 그 자리에서 다시 붙고, 붙은 자리마다 가시가 돋는다.
-Game effect (Korean, mood only — never draw text or numbers): 아군 전체 체력 +3, [가시 2].
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; weather (storm, ash, spray, wind) and deep atmosphere; glowing moss, thorny vines, drifting leaves.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ## US-G2-2 · 고목의 분노
-베르단의 뿔 · 공격 마법 · 레벨 1 · 에픽 — 받은 그림은 `tools/art/inbox/US-G2-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-G2-2.jpg` 600×750)
+베르단의 뿔 · 공격 마법 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/US-G2-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-G2-2.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1361,11 +1334,11 @@ Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-li
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "고목의 분노". Depict exactly what this name describes.
 Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a burst of forest power. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Scale (level 1 of 8): a small, local effect.
+Scale (level 2 of 8): a small, local effect.
 Banner — Verdan's Antler: magic of verdan's antler, signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots; palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 숲의 용 베르단이 노하면 천 년을 버틴 고목이 뿌리째 걸어 나온다. 버텨 온 세월이 그대로 무게가 된다.
-Game effect (Korean, mood only — never draw text or numbers): 아군 유닛마다 공격 + (자기 남은 체력의 절반, 올림). 이 마법은 놓인 칸과 상관없이 전투가 시작될 때 먼저 발동한다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 유닛마다 공격 + (자기 남은 체력의 절반, 올림).
 Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; weather (storm, ash, spray, wind) and deep atmosphere; glowing moss, thorny vines, drifting leaves.
@@ -1419,6 +1392,34 @@ Scale (level 3 of 8): a fine object with a faint aura.
 Banner — Verdan's Antler: tall moss trolls with long, lanky, moss-covered limbs, and treants (living trees). Silhouette: tall, hunched and long-armed; treants tower like ancient trees. Materials: bark armour, moss, thorns, vines, roots, mushrooms, amber sap. Signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 숲의 대정령이 품은 첫 씨앗. 심은 몸에 고목의 수명이 깃든다. 베어도 같은 키로 다시 자라고, 뻗은 가지는 숨통을 노린다.
+Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
+Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
+Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; weather (storm, ash, spray, wind) and deep atmosphere; glowing moss, thorny vines, drifting leaves.
+Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
+Mood: awe, momentum, overwhelming force.
+Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+## SG2-08 · 고목 내려찍기
+베르단의 뿔 · 공용 마법 · 레벨 4 · 에픽 — 받은 그림은 `tools/art/inbox/SG2-08.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG2-08.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "고목 내려찍기". Depict exactly what this name describes.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a burst of forest power. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
+Art direction: Ancient trunk slam: a huge gnarled tree-troll rearing up with its roots torn from the ground and bringing its whole trunk-like body crashing down onto a line of enemy silhouettes; a shockwave of soil, splinters and moss bursting outward, the ground caving in. The troll's bark is cracking and drained grey after the blow. Low angle, dramatic, dim green forest light.
+Scale (level 4 of 8): an effect over a few targets.
+Banner — Verdan's Antler: magic of verdan's antler, signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots; palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
+Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Lore (Korean, use for the scene): 고목이 뿌리째 몸을 일으켜, 품은 수액의 무게를 실어 내리찍는다. 땅이 꺼지고, 고목은 껍질 절반을 잃는다.
+Game effect (Korean, mood only — never draw text or numbers): 체력이 가장 높은 아군 유닛의 체력은 절반이 되고(내림), 감소한 만큼 방어력이 1 이상인 상대 유닛에게 피해.
 Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; weather (storm, ash, spray, wind) and deep atmosphere; glowing moss, thorny vines, drifting leaves.
@@ -1526,7 +1527,7 @@ Scale (level 1 of 8): a small, local effect.
 Banner — Marencia's Song: magic of marencia's song, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 물의 대정령 넬리아의 노래. 담긴 그릇에 따라 모습이 바뀌는 물처럼, 듣는 자의 모든 꾸밈을 씻어 낸다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체의 [보호막]·[가시]·[저주 면역]·[수호]가 꺼지고, 코인이 뒷면이 되고 [홀림]에 걸린다(이미 정해진 코인은 그대로). 상대 유닛 전체에게 피해 1. 내 생명 +3.
+Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체의 [보호막]·[가시]·[저주 면역]·[수호]가 꺼지고, 코인이 뒷면이 되고 [홀림]에 걸린다(이미 정해진 코인은 그대로). 상대 유닛 전체에게 피해 1. 아군 맨 앞 유닛에게 이번 턴 [정화].
 Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; weather (storm, ash, spray, wind) and deep atmosphere; clear water light, spray, ripples, bubbles.
@@ -1601,12 +1602,12 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "조수의 귀환". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a destructive water attack striking the enemy ranks; an empowering water aura rising around allied warriors. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a destructive water attack striking the enemy ranks; an empowering water aura rising around allied warriors; allies rallying as one under a shared surge of power. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
 Scale (level 4 of 8): an effect over a few targets.
 Banner — Marencia's Song: magic of marencia's song, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 탈라쿠스의 맥박에 맞춰 물러갔던 바다가 돌아온다. 적은 쓸려 가고 아군은 씻긴다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체에게 피해 2. 아군 전체 체력 +1. 내 생명 +4.
+Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체에게 피해 2. 아군 전체 체력 +1. 아군 맨 앞 유닛에게 이번 턴 [치유 1].
 Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; weather (storm, ash, spray, wind) and deep atmosphere; clear water light, spray, ripples, bubbles.

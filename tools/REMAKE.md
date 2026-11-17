@@ -20,7 +20,7 @@
 ## 효과 · 이름이 바뀐 카드
 
 소리는 2026-11-16에 지금 프롬프트로 모두 코드 합성해 다시 넣었다(아래 "소리" 참고) — 표의 "소리" 칸은 모두 넣음.
-그림은 아직 거의 그리지 않았다 — `tools/art/prompts/cards.jsonl` 708장 가운데 그린 것은 17장(스페셜 · 일부 마족)이고, 나머지 691장은 처음 그릴 때 지금 프롬프트를 쓰면 된다.
+그림은 아직 거의 그리지 않았다 — `tools/art/prompts/cards.jsonl` 706장 가운데 그린 것은 18장(스페셜 · 일부 마족)이고, 나머지는 처음 그릴 때 지금 프롬프트를 쓰면 된다.
 아래 표는 **카드 효과 · 이름이 바뀌어 예전 프롬프트로 그리면 틀리는 카드**다. 그릴 때 꼭 `node tools/art/build_prompts.js`로 다시 뽑은 프롬프트(`tools/art/prompts/cards/<깃발>.md`)를 쓴다.
 
 | 카드 | 바뀐 것 | 그림 | 소리 |
@@ -53,9 +53,17 @@
 | SG1-09 몸통 박치기 | v3.83 예전 용의 포효 → 상대 전체 체력 −(아군 수 × 2), 아군마다 체력 −(아군 수) | 새로 (아직 없음) · `G1.md` | 넣음 (2026-11-16, 직접 합성) |
 | SG1-01 사냥감 몰이 | v3.83 예전 으르렁 위협 → 상대를 방어 + 체력이 낮은 순으로 맨 앞부터 | 새로 (아직 없음) · `G1.md` | 넣음 (2026-11-16, 직접 합성) |
 | MG-14 숲의 무게 | v3.83 예전 베르단의 가호 → 아군 남은 체력 합만큼 상대 맨 앞부터 공격 → 방어 → 체력 순으로 깎음 | 새로 (아직 없음) · `G2.md` | 넣음 (2026-11-16, 직접 합성) |
+| SA2-02 인내의 기도 | v3.86 예전 성광 방패 → 아군 맨 앞 2기 [가호 1] · 새벽빛 모으기 (v3.90 [정화] 유닛도 셈) | 새로 (아직 없음) · `A2.md` (그림 지시 art_notes) | 넣음 (2026-11-17) |
+| MA-14 새벽의 해방 | v3.86 예전 솔란테의 심판 → 새벽빛 + 생명 차를 풀어 공격 높은 상대부터 체력 − | 새로 (아직 없음) · `A2.md` (그림 지시 art_notes) | 넣음 (2026-11-17) |
+| MA-10 순교의 서약 | v3.86 예전 성광 방진 → 아군이 쓰러질 때마다 양옆 아군 [보호막] | 새로 (아직 없음) · `A2.md` (그림 지시 art_notes) | 넣음 (2026-11-17) |
+| RB1-1 화약통 깔기 | v3.88 예전 최후의 포격 → 이 자리 · 아군 빈 칸마다 불붙은 화약통, 다음 턴 맞은편에 [화상 3] | 새로 (아직 없음) · `B1.md` (그림 지시 art_notes) | 넣음 (2026-11-17, 직접 합성) |
+| SB1-08 화약고 폭파 | v3.88 예전 상대 전체 피해 2 → 아군 화약통 N개를 터뜨려 상대 앞 N기 체력 −N² · [화상 2], 아군 전체 −N | 새로 (아직 없음) · `B1.md` (그림 지시 art_notes) | 넣음 (2026-11-17, 직접 합성) |
+| MG-11 뒤집힌 물거울 | 예전 해일(뒤 2칸 피해 2) → 상대 맨 앞 2기 공격 ↔ 방어 · [홀림] | 새로 (아직 없음) · `G3.md` (그림 지시 art_notes) | 넣음 (2026-11-17, 직접 합성) |
+
+**2026-11-17 소리만 다시 만든 카드**(그림 프롬프트는 이미 맞음 · 그린 그림 없음): v3.79에 종류가 바뀐 강화 유닛 26장(UP-A1-09 · A1-18 · A2-11 · A2-17 · A2-22 · A2-24 · A3-10 · A3-11 · A3-18 · A3-23 · A3-24 · B1-12 · B1-17 · B1-18 · B2-17 · B2-18 · B2-22 · B2-24 · B3-12 · B3-23 · G1-24 · G2-22 · G3-11 · G3-12 · G3-17 · G3-24)의 공격 · 방어 소리 지시가 옛 몸(약탈대장 · 공병장 · 성벽대장 …) 그대로였다 → 원래 카드의 새 종류에 맞춰 고치고 합성해 넣음. 트롤 마법 셋(RS-G2-3 끈질긴 이끼 — 상대 포자 피해가 빠짐 · RG2-1 숲의 정적 — 가시가 아니라 피해 3 · US-G2-1 재생의 숲 — 아군 1기)도 소리 지시를 효과에 맞춰 다시 넣음.
 
 유닛 · 아이템은 능력이 바뀌어도 그림 프롬프트에 능력이 들어가지 않아(이름 · 등급 · 깃발 · 설명으로 그림) 따로 적지 않는다. 등급이 바뀐 카드(예: 노움 B3-04 · B3-10 · B3-20 · B3-25 · B3-32 · B3-33 이 일반으로)는 다시 뽑은 프롬프트에 이미 들어 있다.
-이미 그린 17장 가운데 능력이 바뀐 스페셜(SP-B1 · SP-B2 · SP-B3 · SP-G2 · SP-G3)은 그림 지시가 능력과 상관없는 모습이라 다시 그리지 않아도 된다.
+이미 그린 18장 가운데 능력이 바뀐 스페셜(SP-B3 · SP-G2 · SP-G3)은 그림 지시가 능력과 상관없는 모습이라 다시 그리지 않아도 된다. **다만 장부(`tools/art/art_map.csv`) 상태가 "다시"인 스페셜 4장은 다시 그린다** — v3.59에 "평범한 그 종족이 아닌 거대한 존재"로 그림 지시가 바뀌었는데 지금 그림은 그 전 것이다: SP-A1 그림자 없는 아즈라 · SP-B1 불을 삼킨 자 · SP-B2 철의 심장을 삼킨 자 · SP-G1 잿갈기 카르노(프롬프트 `tools/art/prompts/grades/special.md`, 그림 지시 `art_notes.json`).
 
 ## 받은 파일 넣는 곳
 
@@ -67,7 +75,7 @@
 # 그림 프롬프트
 
 ### SG1-02 · 숨통 끊기
-바위주먹 오크 · 방어 마법 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/SG1-02.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG1-02.jpg` 600×750)
+고르바스의 발톱 · 방어 마법 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/SG1-02.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG1-02.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -77,8 +85,8 @@ Card name (Korean — read its meaning, never write it in the image): "숨통 �
 Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: a destructive earth attack striking the enemy ranks. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Art direction: Finishing the staggering: on a rocky battlefield at dusk, several enemy soldiers (dark silhouettes) are already reeling and bloodied, barely standing after orc bites. A grim scarred orc walks down their line and drops each one with a short heavy chop of a stone-weighted fist; a thin ochre earth-glow pulses through the ground under all the wounded foes at once, as one last tremor finishes them. Mood: cold, decisive, no barrier or shield.
 Scale (level 1 of 8): a small, local effect.
-Banner — Rockfist Orcs: magic of rockfist orcs, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
-Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
+Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 오크는 비틀거리는 적에게 등을 보이지 않는다. 송곳니에 물려 버티던 자부터 차례로 숨통을 끊는다.
 Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체 체력 −1.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -94,7 +102,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ### SG1-08 · 송곳니 반격
-바위주먹 오크 · 방어 마법 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/SG1-08.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG1-08.jpg` 600×750)
+고르바스의 발톱 · 방어 마법 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/SG1-08.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG1-08.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -104,8 +112,8 @@ Card name (Korean — read its meaning, never write it in the image): "송곳니
 Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: an empowering earth aura rising around allied warriors; allies rallying as one under a shared surge of power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Art direction: Fang counterattack: a small band of cornered Rockfist orcs, backs to a cliff wall, bracing together; their grey-green skin swells and toughens with a warm ochre earth-glow (gaining toughness), tusks bared in a snarl. The nearest orc bites back into the arm of an attacker who has just struck him — the attacker (dark silhouette) recoils, still alive but drained to a thread. Feeling: wounded but defiant, the pack bites back.
 Scale (level 3 of 8): an effect over a few targets.
-Banner — Rockfist Orcs: magic of rockfist orcs, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
-Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
+Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 궁지에 몰린 오크는 물러서지 않고 문다. 덤벼든 자는 살아 돌아가도 숨이 한 가닥만 남는다.
 Game effect (Korean, mood only — never draw text or numbers): 아군 유닛 전체 체력 +2, [치명].
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -121,7 +129,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ### MG-13 · 뼈 부수기
-바위주먹 오크 · 공격 마법 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/MG-13.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MG-13.jpg` 600×750)
+고르바스의 발톱 · 공격 마법 · 레벨 3 · 일반 — 받은 그림은 `tools/art/inbox/MG-13.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MG-13.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -131,8 +139,8 @@ Card name (Korean — read its meaning, never write it in the image): "뼈 부�
 Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a burst of earth power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
 Art direction: Bone breaker: an enemy warrior whose armour has already been torn and peeled away (broken plates and straps hanging off, bare chest and shoulders exposed, dark silhouette) is struck by a massive orc fist encased in rough stone; at the point of impact a sharp crack of ochre earth-light spreads like fractures through the body. Close, diagonal, brutal composition; the orc mostly out of frame, only the fist and forearm.
 Scale (level 3 of 8): an effect over a few targets.
-Banner — Rockfist Orcs: magic of rockfist orcs, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
-Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
+Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 갑옷이 벗겨진 자에게 남은 것은 뼈뿐이다. 고르바스의 주먹은 그 뼈를 바위처럼 부순다.
 Game effect (Korean, mood only — never draw text or numbers): 방어가 0인 상대 유닛 가운데 공격이 가장 높은 1기의 방어와 체력을 맞바꾼다(체력 0이 되어 쓰러진다).
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -148,18 +156,18 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ### M2-1 · 오크의 문신
-바위주먹 오크 · 아이템 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/M2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/M2-1.jpg` 600×750)
+고르바스의 발톱 · 아이템 · 레벨 2 · 일반 — 받은 그림은 `tools/art/inbox/M2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/M2-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "오크의 문신". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Rockfist Orcs (engraving; if unsure, a carved stone or engraved plate). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
+Subject: the item the card name and lore describe — a single object made or kept by the Gorvath's Claw (engraving; if unsure, a carved stone or engraved plate). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Art direction: An orc's tattooed fist: a huge grey-green orc fist, knuckles freshly tattooed with dark fang-shaped marks in ochre and black pigment, beside a bone tattoo needle and a small stone pigment bowl on dark leather; the tattoo glows faintly like it could tear through armour. Show the fist and tools, not a carved plate.
 Scale (level 2 of 8): a simple object.
-Banner — Rockfist Orcs: powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair. Silhouette: massive shoulders and oversized fists; riders on giant wolves or bears. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
-Faction: Verdant Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Banner — Gorvath's Claw: powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair. Silhouette: massive shoulders and oversized fists; riders on giant wolves or bears. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
+Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 바위송곳니 오크가 첫 사냥을 마치고 주먹에 새기는 송곳니 문신. 이 주먹은 갑옷부터 찢는다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.

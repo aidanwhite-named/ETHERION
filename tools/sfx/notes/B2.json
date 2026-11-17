@@ -249,28 +249,28 @@
    "def": "a thick leather apron and a forged breastplate take the strike: a deep clean anvil ring, a quiet sizzle of quenching steel, a slow warm hum"
   },
   "UP-B2-17": {
-   "en": "Ironclad Wall Captain",
-   "ko": "성벽대장 · 성벽 부수는 거대한 한 발",
-   "atk": "a bastion captain slams a gate-sized shield forward: a deep stone-grinding push, a vast crushing boom, a rolling echo of crumbling masonry",
-   "def": "a rampart-sized iron back takes the hit: a titan-deep bong, a rolling castle echo, rows of small plates settling in line"
+   "en": "Iron-Horn Goat King",
+   "ko": "산양왕이 바위를 박차 무쇠뿔로 들이받음 · 버티고 서서 뿔로 받음",
+   "atk": "heavy hooves clatter up the rocks, a deep snort, then massive iron horns slam into the foe with a ringing iron crack and a boom",
+   "def": "it plants its hooves on rock: a heavy horn-on-steel clang as it catches the blow, a stubborn deep bleat, gravel skittering away"
   },
   "UP-B2-18": {
-   "en": "Steam Hammer Chief",
-   "ko": "세 증기 해머 · 연달아 쾅 쾅 쾅",
-   "atk": "a steam hammer triple rig fires in sequence: a hissing build-up, three thunderous piston slams in a rolling rhythm, a mine-shaking ring-out",
-   "def": "a layered boilerplate hull takes the blow: a heavy ringing gong, three rippling vibrations down the pipes, venting steam drifting off"
+   "en": "Steam Bull Chief",
+   "ko": "청동 황소가 증기를 뿜고 돌진해 들이받음 · 보일러 몸이 웅웅",
+   "atk": "a huge bronze bull paws the floor, blasts a roaring snort of steam, then charges on thundering bronze hooves into a heavy goring slam",
+   "def": "its bronze body takes the hit: a deep hollow boiler boom, a pressure hiss from the nostrils, hooves grinding to hold"
   },
   "UP-B2-22": {
-   "en": "Rivet Fortress Lord",
-   "ko": "리벳 요새장 · 리벳이 연쇄로 터짐",
-   "atk": "a fortress-bodied lord charges as rivets pop and chain like firecrackers: crunching iron steps, a monstrous collision, a stuttering scatter of rivets across stone",
-   "def": "its fortress shell shudders under the strike: a monstrous clang, rivets popping off in sequence, a thick groan of fortress plating settling"
+   "en": "Iron-Eating Bulgasari King",
+   "ko": "불가사리 왕이 쇠를 우두둑 씹어 삼킴 · 못 박힌 가죽이 받음",
+   "atk": "a giant bulgasari lumbers in on heavy pads, then bites down: a crunching chew of iron plate, metal teeth grinding, a deep satisfied rumbling gulp",
+   "def": "its thick nail-studded hide takes the hit: a dull iron-on-iron thud, half-swallowed nails and locks rattling, a low grumbling snort"
   },
   "UP-B2-24": {
-   "en": "Ironframe Gatewarden",
-   "ko": "철골 수문장 · 깊은 갱도 철문 같은 일격",
-   "atk": "a deep-mine gatewarden swings a girder like a portcullis: a rattling, screeching chain-and-winch, a whistling slash, a brutal beam-crack booming down the shaft",
-   "def": "its open iron lattice takes the strike: a bright glancing clang, deep ringing along the girders, a long wind-in-the-tunnel moan"
+   "en": "Ironframe Gargoyle Warden",
+   "ko": "철골 가고일이 내려와 쇠발톱으로 긁음 · 철골 몸이 울림",
+   "atk": "a big steel gargoyle drops from a gate ledge with a sheet-metal wing flap, a grating screech, then heavy iron claws rake down with a hard clang",
+   "def": "its girder frame rings: a deep metallic clang, wind moaning low through its ribs, loose rivets ticking"
   },
   "MB-02": {
    "en": "Rivet Reinforcement",

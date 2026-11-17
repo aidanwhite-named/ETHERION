@@ -248,34 +248,34 @@
    "def": "the disciple holds steady under the blow: a firm padded thud, a quiet breath, the bowstring humming faintly"
   },
   "UP-A3-10": {
-   "en": "Rapid-Fire Elite",
-   "ko": "화살 열 대 연사 · 단단한 자세",
-   "atk": "a rapid drumroll of bowstring snaps, a stream of arrows buzzing out in quick succession and stitching a target with tight thunks",
-   "def": "the elite stands firm now: a crisp leather block, a quiver rattling once, steady boots"
+   "en": "Rapid-Fire Harpy",
+   "ko": "날개를 연달아 쳐 깃털 화살을 쏟음 · 단단히 떠서 버팀",
+   "atk": "rapid strong wing beats fire a stream of feathers: a fast staccato of whistling quills, then a dense rattle of small piercing thunks",
+   "def": "the harpy holds steady in the air: a firm wing snap, a few loose feathers fluttering, a sharp defiant shriek"
   },
   "UP-A3-11": {
-   "en": "Gale Envoy",
-   "ko": "바람보다 먼저 닿음 · 바람 속 안착",
-   "atk": "a blur of rushing wind, a sudden arrival with a sharp air crack, a quick blade-like gust striking before the sound catches up",
-   "def": "the envoy settles lightly inside the wind: a soft whoosh, a gentle landing, the blow passing through empty air"
+   "en": "Gale Griffin",
+   "ko": "질풍처럼 급강하해 발톱으로 낚아챔 · 바람 속에 비켜 섬",
+   "atk": "great wings beat in a rushing gust, a piercing eagle-like screech, then a fast diving whoosh ends in a hard talon rake and a beak strike",
+   "def": "the griffin sweeps aside on the wind: a powerful flap, a low leonine growl, the blow whooshing past through empty air"
   },
   "UP-A3-18": {
-   "en": "Twin-String Captain",
-   "ko": "시위 소리 하나로 엮음 · 겹쳐 받음",
-   "atk": "many bowstrings snapping in perfect unison like one great twang, a thick wave of arrows roaring through the air",
-   "def": "layered bow limbs and bracers catch the blow: a clatter of wood, a doubled leather smack, a steady exhale"
+   "en": "Gemini Archer Captain",
+   "ko": "별빛 시위 둘이 한 소리로 울려 화살이 겹쳐 꽂힘 · 별선이 막음",
+   "atk": "two starlit bowstrings hum together as one, a pair of shimmering arrows whistle off side by side and land in a doubled crystalline chime",
+   "def": "a web of starlight lines snaps up to deflect: a bright double twang, chiming sparks, the star lines flickering and holding"
   },
   "UP-A3-23": {
-   "en": "Velmir's Ranger Captain",
-   "ko": "길을 먼저 읽은 매복 화살 · 망토로 흘림",
-   "atk": "a sudden silence on a mountain trail, then an ambush bowstring twang from the side and a long arrow striking clean",
-   "def": "a heavy ranger cloak sweeps the blow aside: a thick wool flap, a scraping glance, a firm sure step"
+   "en": "Star Fox Patrol Captain",
+   "ko": "별여우가 길목에서 튀어나와 꼬리로 휘둘러 묾 · 별빛 남기고 비킴",
+   "atk": "a sudden hush on a mountain trail, then light paws burst from the side, a sharp yip, a starlit tail sweeps with a twinkling chime and a quick hard bite",
+   "def": "the fox bounds clear: a soft scrabble of paws on stone, a trail of starlight shimmer, a calm low bark"
   },
   "UP-A3-24": {
-   "en": "Thunder Arrow Commander",
-   "ko": "번개 화살 지휘 · 번개 길 바꿈",
-   "atk": "a commanding whistle, several bowstrings crackling with static release together, lightning arrows landing in a rolling series of thunderclaps",
-   "def": "the commander bends a lightning path away: a sharp fizzing deflection, a crackle fading into distance, a steady stance"
+   "en": "Thunder Tengu Captain",
+   "ko": "깃부채 신호에 번개 화살이 줄줄이 · 뇌운이 받아 삼킴",
+   "atk": "a crow-like caw of command, a feather fan snaps open, several bowstrings crackle together and lightning arrows land in a rolling series of electric cracks",
+   "def": "a thick storm cloud swallows the hit: a deep cloudy whump, a fizz of static, black feathers rustling"
   },
   "MA-03": {
    "en": "Disarming Hex",

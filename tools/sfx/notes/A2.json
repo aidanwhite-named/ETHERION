@@ -248,10 +248,10 @@
    "def": "layered ward upon ward: a coin-like halo shield rings once, a deep door-like thud follows, pale bars of light locking into place with grinding chimes"
   },
   "UP-A2-11": {
-   "en": "Light Lancer",
-   "ko": "돌진하는 창 · 창이 날개 아래 비껴남",
-   "atk": "a lowered lance in a galloping charge: hoof-like pounding, a rising wind whistle, a bright penetrating crack, light splitting like torn silk",
-   "def": "a horse-like body shifts aside under the lance haft, a shield-edge scrape, a snort and a sharp parry clack with light fizzing"
+   "en": "Lance-Horn Unicorn",
+   "ko": "뿔을 창처럼 낮추고 돌진 · 흰 옆구리로 비껴 받음",
+   "atk": "galloping hooves pound on grass, a ringing high neigh, then a long spiral horn drives in with a bright piercing crystalline crack and light tearing like silk",
+   "def": "the unicorn wheels aside: hooves scuffle, a sharp snort, the blow glances off a white flank and the horn parries with a clear ringing clack"
   },
   "UP-A2-15": {
    "en": "Solante's Covenant Knight",
@@ -260,22 +260,22 @@
    "def": "a full covenant plate suit rings with a rich deep bell tone, a long steady thud, then three faint echoing hums of oaths held"
   },
   "UP-A2-17": {
-   "en": "Grand Light Inquisitor",
-   "ko": "큰 등불 눈부신 훑음 · 그림자 없는 빛 막",
-   "atk": "a large lantern's beam sweeps wide: a whining white flare, a shadow-erasing hiss, a bright pitiless crack on the foe",
-   "def": "a tall lantern ward spins a net of light: pane-like chimes cascade, the blow is swallowed with a soft deep hum and a gentle shimmer"
+   "en": "Golden Sphinx",
+   "ko": "낮은 물음 뒤 거대한 앞발이 내리침 · 황금 석상처럼 엎드려 받음",
+   "atk": "a deep humming voice poses a question, a held pause, then a huge golden lion paw drops with a massive stone-dense thud and great wings folding with a heavy rustle",
+   "def": "the golden sphinx settles low like a carved monument: a deep solid thump, a slow broad wing rustle, a calm resonant hum that rings in metal"
   },
   "UP-A2-22": {
-   "en": "Solante High Cleric",
-   "ko": "큰 종 한 번 더 울림 · 두꺼운 후광이 받아 냄",
-   "atk": "an enormous bell tolls with a deep gong as a gold crozier slams down: a gigantic swelling clang, rolling brass overtones, a brilliant white burst",
-   "def": "a great tower bell rings out once more and a thick halo of golden light soaks the blow, bass hum, echoing across stone"
+   "en": "Solante's Great Bell",
+   "ko": "거대한 성종이 울려 밀어냄 · 두꺼운 청동이 웅웅 받음",
+   "atk": "a huge bronze bell swings back with a deep creak, then tolls once with a colossal boom, a wave of sound rolling outward and striking with a bright golden shimmer",
+   "def": "the blow lands on thick bronze: a massive clang blooming into a long deep humming overtone that rolls across stone and slowly fades"
   },
   "UP-A2-24": {
-   "en": "Grand Light Bulwark",
-   "ko": "삼중 빛벽 밀어 쾅 · 겹친 유리벽 연달아 금감",
-   "atk": "three layered light walls shoved forward like a landslide: a rumbling glassy roar, a tall crushing slam, shards of light raining down",
-   "def": "stacked sheets of glowing glass absorb the blow in sequence: crack, ring, crack again, then a deep stony settling thud and a steady glow"
+   "en": "Great Mirror of Light",
+   "ko": "큰 거울이 빛을 모아 쏨 · 은빛 유리에 맞아 되튕김",
+   "atk": "a towering gilt mirror tilts with a heavy frame creak, gathers light into a swelling glassy whine, then flashes it out in a blazing ringing beam",
+   "def": "the strike hits a broad silvered pane: a high clear ring, a bright flash throwing the blow back, a cascade of fine tinkles along the gilt frame"
   },
   "MA-02": {
    "en": "Solante's Blessing",

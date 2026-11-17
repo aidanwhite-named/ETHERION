@@ -248,10 +248,10 @@
    "def": "its hollow torso rings like an empty vessel: a resonant boom, a slow draining hiss, a patter of blood that never seems to heal"
   },
   "UP-A1-09": {
-   "en": "Morque Raid Captain",
-   "ko": "약탈대장 깃발과 칼 · 전리품 갑옷 겹겹이",
-   "atk": "a banner snaps in a gust, looted metal clatters, then a spiked war cleaver whips down with a heavy chop that clanks against a pile of plunder",
-   "def": "layers of stolen armour clatter: a thick tiered clanging, a dented shield boom, a clinking cascade of loot coins falling"
+   "en": "Morque Spider Queen",
+   "ko": "여왕 거미가 그림자 실로 감아 물어뜯음 · 큰 등딱지로 받음",
+   "atk": "many long legs skitter fast over rock with dry clicks, thick shadow silk whips out in several twanging lines, then huge twin fangs sink in with a deep wet crunch and a venom hiss",
+   "def": "a broad glossy carapace takes the blow with a heavy chitin knock, long legs creak as they fold in, and a web of thick strands stretches and twangs around her"
   },
   "UP-A1-11": {
    "en": "Fiend Vanguard",
@@ -267,9 +267,9 @@
   },
   "UP-A1-18": {
    "en": "Shadow Slaughterer",
-   "ko": "그림자를 끌고 오는 광폭 · 그림자 천이 무겁게 감쌈",
-   "atk": "a long dragging scrape of a shadow trailing behind, a savage cleaver swish, then a heavy wet crush followed by the shadow slapping down like a thick sheet",
-   "def": "a heavy trailing cloak of dark sheets wraps it: a deep cloth-heavy thud, a dragging rustle, a thick dark hiss rippling away"
+   "ko": "거대한 그림자 짐승이 덮쳐 물어 찢음 · 연기 털이 흩어졌다 뭉침",
+   "atk": "a deep rumbling growl, a heavy padded lunge, then massive jaws snap shut with a bone-crunching bite and a tearing shake in a burst of smoky snarls",
+   "def": "a huge body of black smoke fur takes the hit: a heavy padded thump, a long hiss of scattering smoke, a menacing growl as the shape gathers back"
   },
   "UP-A1-23": {
    "en": "Contract Harvest Master",
