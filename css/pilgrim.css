@@ -255,3 +255,10 @@ html.mobile .screen-pil .pgm-nm { font-size: 21px; stroke-width: 5px; }
 html.mobile .screen-pil .pgm-hub .pgm-nm { font-size: 20px; }
 html.mobile .screen-pil .pgm-node.idle .pgm-nm { font-size: 19px; }
 html.mobile .screen-pil .pgm-node .num, html.mobile .screen-pil .pgm-forest .num { font-size: 18px; }
+/* 2026-11-17 첫 승 보상 세 갈래(계속 간다 · 던진다 · 받는다): 같은 폭 세 칸, 글이 길면 칸 안에서 줄을 바꾼다 */
+.screen-pil .pg-first .xp-btns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.screen-pil .pg-first .xp-btns .btn { padding-inline: 10px; white-space: normal; word-break: keep-all; line-height: 1.25; text-align: center; }
+.screen-pil .pg-later-note { margin-top: 4px; }
+.screen-pil .pg-held a { color: var(--gold-hi); white-space: nowrap; }
+html.mobile .screen-pil .pg-first .xp-btns { gap: 6px; }
+html.mobile .screen-pil .pg-first .xp-btns .btn { font-size: 14.5px; padding: 7px 6px; }

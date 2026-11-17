@@ -62,7 +62,7 @@ const Pilgrim = {
   /* 순례 화면에 돌아왔는데 판이 걸려 있으면(전투 중에 나감) 그 판은 진 것으로 둔다 — 판 수는 이미 셌다 */
   dropCur() { const u = Store.user(), p = u && u.pilgrim; if (p && p.cur) { p.last = { stage: p.cur.stage, won: false, left: true }; this._stat(p, p.cur, false); p.cur = null; Store.save(); } },
   left(p) { return Math.max(0, PILGRIM.fights - p.fights); },
-  canFight(p) { return !!p && !p.pend && p.stage < PILGRIM.gates && p.fights < PILGRIM.fights; },
+  canFight(p) { return !!p && !(p.pend && !p.pend.later) && p.stage < PILGRIM.gates && p.fights < PILGRIM.fights; },
   /* 지금 설 관문: { kind: "flag", g } 또는 { kind: "forest" }. 길은 첫 판을 시작할 때 정해진다 */
   node(p, i) { i = i == null ? p.stage : i; return p.route && i < p.route.length ? { kind: "flag", g: p.route[i] } : i < PILGRIM.gates - 1 ? { kind: "unknown" } : { kind: "forest" }; },
   /* 순례기: 들은 소문 수(깃발) · 동쪽의 기록이 열렸나 */
@@ -139,6 +139,10 @@ const Pilgrim = {
     Store.save();
     return r;
   },
+  /* 2026-11-17 순례길을 계속 간다: 지금은 고르지 않고 보상을 남겨 둔 채 다음 관문으로(p.pend.later).
+     남긴 보상은 그날 안에 언제든 고를 수 있고(pick), 고르지 않고 날이 바뀌면 get()이 조각으로 준다 — 서버는 고를 때만 부르므로 바뀐 것 없음 */
+  later() { const p = this.get(); if (!p || !p.pend) return false; p.pend.later = true; Store.save(); return true; },
+  pick() { const p = this.get(); if (!p || !p.pend) return false; delete p.pend.later; Store.save(); return true; },
   /* 첫 승 보상을 그대로 받는다 / 걸고 카드 한 장 */
   keep() { const u = Store.user(), p = this.get(); if (!p || !p.pend) return p && p.firstResult; const r = this._claim(u, p, "keep"); return r.ok ? p.firstResult : r; },
   gamble() { const u = Store.user(), p = this.get(); if (!p || !p.pend) return null; const r = this._claim(u, p, "gamble"); return r.ok ? p.firstResult : r; },
@@ -287,14 +291,16 @@ function showPilgrim(f) {
     : `<p class="pg-news hit"><b>오늘의 첫 승 · 뽑기</b> ${esc(TX.gamble.hit)} <span class="grade-${fr.grade}">${gradeName(fr.grade)}</span> 「${esc(fr.id ? CARDS[fr.id].name : "")}」${fr.gold ? ` (이미 다 가져서 ${fmtGold(fr.gold)})` : ""}</p>${cardBox(fr.id)}`);
 
   let body;
-  if (p.pend) {
+  if (p.pend && p.pend.later) notes.push(`<p class="pg-news pg-held"><b>오늘의 첫 승</b> 환석 ${fmtGold(p.pend.gold)}을 남겨 두었습니다. 오늘 안에 언제든 고를 수 있고, 고르지 않으면 자정에 조각으로 들어옵니다. <a href="#" data-p="pick">지금 고른다</a></p>`);
+  if (p.pend && !p.pend.later) {
     const G = PILGRIM.gamble;
     body = `<div class="xp-card pg-first">
       <p class="eyebrow">오늘의 첫 승</p><h3>환석 ${fmtGold(p.pend.gold)}</h3>
       <p>${esc(TX.gamble.ask)}</p>
       <ul class="pg-odds">${Object.keys(G).map(g => `<li class="grade-${g}">${gradeName(g)} <b>${pilPct(G[g])}</b></li>`).join("")}</ul>
       <p class="muted small">걸면 이 ${fmtGold(p.pend.gold)} 대신 <b>카드 한 장</b>을 받습니다 — 꽝은 없고, 스페셜은 나오지 않습니다. 카드는 가진 깃발의 카드 가운데 덜 가진 것이 먼저 나옵니다. 하루에 한 번${server ? " — 서버가 서버의 날짜로 확인합니다" : ""}.</p>
-      <div class="xp-btns"><button class="btn" data-p="gamble">환석에 던진다 (카드 뽑기)</button><button class="btn primary" data-p="keep">조각을 받는다</button></div></div>`;
+      <p class="muted small pg-later-note"><b>순례길을 계속 간다</b>를 고르면 지금은 아무것도 받지 않고 다음 관문으로 갑니다. 남긴 보상은 오늘 안에 언제든 고를 수 있고, 고르지 않으면 자정에 조각으로 들어옵니다.</p>
+      <div class="xp-btns"><button class="btn" data-p="later">순례길을 계속 간다</button><button class="btn" data-p="gamble">환석에 던진다 (카드 뽑기)</button><button class="btn primary" data-p="keep">조각을 받는다</button></div></div>`;
   } else if (!Pilgrim.canFight(p)) {
     const done = p.stage >= PILGRIM.gates;
     body = `<div class="xp-card xp-over ${done ? "won" : "lost"}">
@@ -313,7 +319,7 @@ function showPilgrim(f) {
       <p class="eyebrow">${p.stage + 1} / ${PILGRIM.gates} · 오늘 남은 판 ${Pilgrim.left(p)}</p>
       <h3>${title}</h3>${say}
       <p class="xp-deck">${groupEmblem(f)} <b>${esc(G_.name)}</b> 덱으로 싸웁니다${playable ? ` · 기본 덱의 <b>${Math.round(sc * 100)}%</b> → 상대는 ${forest ? `내 깃발 기본 덱의 <b>${Math.round(sc * scale * 100)}%</b> (내 덱보다 ${Math.round((scale - 1) * 100)}% 셈)` : `제 깃발 기본 덱의 <b>${Math.round(sc * scale * 100)}%</b> (내 덱과 같은 세기)`}` : " · <span class=\"bad\">저장된 ${RULES.deckSize}장 덱이 없습니다</span>"} <span class="muted small">(다른 깃발로 싸우려면 대기실에서 깃발을 바꿉니다)</span></p>
-      <p class="muted small">${p.first ? "오늘의 첫 승 보상은 받았습니다. 이 판은 전투 정산(작은 조각)만 있습니다." : `이기면 <b>오늘의 첫 승</b> — ${fmtGold(PILGRIM.first)} 또는 카드 한 장.`}${forest ? ` 숲을 지나면 완주 보너스 ${fmtGold(PILGRIM.done)}.` : ""} 지면 같은 관문에 다시 서고, 그 판도 오늘의 ${PILGRIM.fights}판에 듭니다.</p>
+      <p class="muted small">${p.pend ? "오늘의 첫 승 보상은 남겨 두었습니다(위에서 언제든 고름). 이 판은 전투 정산(작은 조각)만 있습니다." : p.first ? "오늘의 첫 승 보상은 받았습니다. 이 판은 전투 정산(작은 조각)만 있습니다." : `이기면 <b>오늘의 첫 승</b> — ${fmtGold(PILGRIM.first)} 또는 카드 한 장.`}${forest ? ` 숲을 지나면 완주 보너스 ${fmtGold(PILGRIM.done)}.` : ""} 지면 같은 관문에 다시 서고, 그 판도 오늘의 ${PILGRIM.fights}판에 듭니다.</p>
       <div class="xp-btns"><button class="btn" data-p="lobby">대기실로</button><button class="btn primary" data-p="fight" ${playable ? "" : "disabled"}>${forest ? "숲으로 들어간다" : "관문에 선다"}</button></div></div>`;
   }
 
@@ -353,6 +359,8 @@ function showPilgrim(f) {
     const x = b.dataset.p;
     if (x === "lobby") showLobby();
     else if (x === "book") { App.pilTab = "book"; showPilgrim(f); }
+    else if (x === "later") { Pilgrim.later(); showPilgrim(f); }
+    else if (x === "pick") { Pilgrim.pick(); showPilgrim(f); }
     else if (x === "keep" || x === "gamble") {
       const r = x === "keep" ? Pilgrim.keep() : Pilgrim.gamble();
       if (r && r.ok !== false && r.k && typeof FEEL !== "undefined") FEEL.play("daily_reward");

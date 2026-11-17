@@ -1,4 +1,4 @@
-// 성로 순례(js/pilgrim.js · js/pilgrim-rules.js, v3.25 · v3.26) 규칙 시험 — 화면 없이. node tools/pilgrim/test.js
+// 성로 순례(js/pilgrim.js · js/pilgrim-rules.js, v3.25 · v3.26) 규칙 시험 — 화면 없이. node tools/pilgrim/test.js (PIL_QUICK=1이면 실제 대전 12판을 뺌)
 // 날짜 넘김 · 수요일 리셋 · 첫 승 보상(받기 / 뽑기) · 하루 9판 · 완주 · 이정표 · 상대 덱 · 뽑기 확률 · 실제 한 판
 const fs = require('fs'), path = require('path'); const { load } = require('../balance/harness');
 const dir = path.join(__dirname, '../../js'); const rd = f => fs.readFileSync(path.join(dir, f), 'utf8');
@@ -191,6 +191,38 @@ const fight = (f, won) => { const cfg = ev(`Pilgrim.begin("${f}")`); if (!cfg) r
   ctx.__g = { winner: 0, cfg }; ev('Pilgrim.onEnd(__g)'); p = ev('Store.user().pilgrim'); ok(p.pend && p.stage === 1, '자정을 넘겨 끝난 판은 시작한 날의 것');
   p = ev('Pilgrim.get()'); ok(p.day === '2028-03-02' && p.stage === 0 && !p.pend, '그다음에 새 길 (보상은 조각으로)');
   ev('Pilgrim.begin("B1")'); ev('Pilgrim.dropCur()'); p = ev('Pilgrim.get()'); ok(!p.cur && p.fights === 1 && p.stage === 0 && p.last.left, '전투 중에 나가면 진 판');
+
+  // ── 순례길을 계속 간다(2026-11-17): 첫 승 보상을 고르지 않고 남긴 채 다음 관문으로
+  {
+    ev('Store.register("나그네", "pw", ["B1"])');
+    setNow(at(2033, 4, 6));
+    const gL = ev('Store.gold()'), colL = ev('JSON.stringify(Store.user().collection)');
+    fight('B1', true);
+    p = ev('Pilgrim.get()'); ok(p.pend && !p.pend.later && ev('Pilgrim.begin("B1")') === null, '계속 간다 전: 다음 판 막힘');
+    ok(ev('Pilgrim.later()') === true, 'later() 받음');
+    p = ev('Pilgrim.get()');
+    ok(p.pend && p.pend.later && ev('Store.gold()') === gL && ev('JSON.stringify(Store.user().collection)') === colL, '계속 간다: 조각도 카드도 받지 않음');
+    ok(p.stage === 1 && p.first && p.steps === 1 && p.fights === 1, '계속 간다: 관문 · 걸음 · 판 수는 고른 것과 같음');
+    ok(!ev('Store.user().pilClaim'), '계속 간다: 서버 기록(pilClaim)을 건드리지 않음');
+    cfg = fight('B1', true); p = ev('Pilgrim.get()');
+    ok(cfg && p.stage === 2 && p.fights === 2 && p.steps === 1 && p.pend && p.pend.later, '다음 관문으로 이어감 · 둘째 승은 걸음 · 보상 없음');
+    ok(ev('Store.gold()') === gL, '둘째 승: 순례 보너스 없음');
+    ev('if (typeof groupEmblem === "undefined") globalThis.groupEmblem = g => g;');
+    ok(ev('Pilgrim.pick()') === true && !ev('Pilgrim.get()').pend.later && ev('Pilgrim.begin("B1")') === null, '지금 고른다: 다시 고르는 칸으로(판 막힘)');
+    ev('Pilgrim.later()');
+    const rk = ev('Pilgrim.keep()'); p = ev('Pilgrim.get()');
+    ok(rk && rk.k === 'gold' && !p.pend && ev('Store.gold()') === gL + 500, '남긴 보상을 나중에 받음 +500');
+    ok(ev('Pilgrim.later()') === false, '받은 뒤 later() 없음');
+    // 남긴 채 날이 바뀌면 조각으로
+    setNow(at(2033, 4, 7)); fight('B1', true); ev('Pilgrim.later()');
+    for (let i = 0; i < 8; i++) fight('B1', true);
+    p = ev('Pilgrim.get()'); ok(p.stage === 9 && p.pend && p.pend.later && p.news.some(x => x.k === 'done'), '남긴 채 숲까지 완주');
+    const g2 = ev('Store.gold()');
+    setNow(at(2033, 4, 8)); p = ev('Pilgrim.get()');
+    ok(!p.pend && p.stage === 0 && ev('Store.gold()') === g2 + 500, '자정: 남긴 보상은 조각으로');
+    ok(ev('JSON.stringify(Store.user().pilClaim.days)') === '["2033-04-06","2033-04-07"]', '받은 날 기록은 고른 날 · 넘긴 날');
+  }
+  if (process.env.PIL_QUICK) { console.log(fail ? `실패 ${fail} / ${n}` : `모두 통과 (${n}개, PIL_QUICK — 실제 대전 뺌)`); process.exit(fail ? 1 : 0); }
 
   // ── 실제 한 판: 순례 설정으로 화면 없이 (사람 자리는 어려움 컴퓨터가 대신)
   setNow(at(2029, 1, 3)); ev('Pilgrim.get()');
