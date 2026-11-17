@@ -17,7 +17,7 @@ const T = (name, code) => { try { ctx.ev('{' + code + '}'); } catch (e) { fail++
 ok(ctx.ev('CARDS["SA3-04"].name === "시위 당기기" && CARDS["MA-07"].name === "치고 빠지기" && CARDS["NA3-4"].name === "바람의 사냥"'), '마법 이름');
 ok(ctx.ev('gradeOf("NA3-4") === "epic" && gradeOf("HA3-2") === "uncommon" && gradeOf("MA-07") === "common"'), '마법 등급 (에픽 1장)');
 ok(ctx.ev('CARDS["HA3-1"].type === "def" && CARDS["MA-07"].type === "any" && CARDS["HA3-2"].type === "hand"'), '마법 종류');
-ok(ctx.ev('["SA3-04","MA-11","NA3-3","NA3-2","NA3-4","MA-07","HA3-1","HA3-2"].every(id => (typeof SPELL_BRIEF === "undefined" || SPELL_BRIEF[id]) && CARDS[id].flavor)'), '짧은 문구 · 서사');
+ok(ctx.ev('["SA3-04","MA-11","SA3-06","NA3-3","NA3-2","NA3-4","MA-07","HA3-1","HA3-2"].every(id => (typeof SPELL_BRIEF === "undefined" || SPELL_BRIEF[id]) && CARDS[id].flavor)'), '짧은 문구 · 서사');
 ok(ctx.ev('CARDS["A3-01"].name === "바늘탑 견습 사수" && CARDS["C2-1"].name === "견습 단궁" && CARDS["C2-1"].item.icon === "bow"'), '유닛 · 아이템 이름');
 ok(ctx.ev('CARDS["A3-01"].cl === "마도" && CARDS["A3-01"].gift.magic === 1 && CARDS["C2-1"].item.magic === 3'), '클래스 · 능력 그대로');
 ok(ctx.ev('(() => { const R = RETIRED_CARDS, seen = {}; for (const c of Object.values(CARDS)) { if (R[c.id] || /^T[KS]-/.test(c.id)) continue; if (seen[c.name] && (c.group === "A3" || CARDS[seen[c.name]].group === "A3")) return false; seen[c.name] = c.id; } return true; })()'), '엘프 카드 이름이 다른 카드와 겹치지 않음');
@@ -45,8 +45,24 @@ T('빗발치는 화살', `const fs = [0, 1, 2].map(i => setT(mk("B1-0" + (i + 1)
 T('마무리 화살', `const fs = [setT(mk("B1-01"), 0, 0, 9), setT(mk("B1-02"), 0, 0, 2), setT(mk("B1-03"), 0, 0, 3)]; const P = [side(0, ["MA-11"]), side(1, fs)]; fight(P, 0);
   ok(fs[0].t.dmg === 0 && !fs[1].t.alive && !fs[2].t.alive, "체력 2 · 3인 둘을 쓰러뜨림");`);
 // 꿰뚫는 화살 · 시위 당기기 · 바람의 사냥: 능력 부여
-T('꿰뚫는 화살', `const a = setT(mk("A3-04"), 2, 0, 9), d = setT(mk("B3-41"), 0, 2, 30); const P = [side(0, ["NA3-3", a]), side(1, [d])]; fight(P, 0);
-  ok(d.t.dmg === 5, "공 2+3 · 방 2 · 방어무시 2 → 피해 5 (" + d.t.dmg + ")");`);
+// v3.93 활 콤보: 궁사회 무기고(SA3-06) · 별빛 연사(NA3-3)
+ok(ctx.ev('CARDS["SA3-06"].name === "궁사회 무기고" && CARDS["SA3-06"].lv === 2 && CARDS["SA3-06"].type === "atk" && CARDS["NA3-3"].name === "별빛 연사" && CARDS["NA3-3"].lv === 3'), '활 마법 이름 · 레벨 · 종류');
+ok(ctx.ev('(typeof SPELL_BRIEF === "undefined" || (SPELL_BRIEF["SA3-06"] && SPELL_BRIEF["NA3-3"])) && CARDS["SA3-06"].flavor && SPELL_KW["활"]'), '활 마법 짧은 문구 · 서사 · [활] 뜻');
+ok(ctx.ev('a3HasBow(mk("A3-01")) && !a3HasBow(mk("A3-04")) && a3HasBow(mk("A3-04", { item: { id: "C2-1", coins: [] } })) && !a3HasBow(mk("A3-04", { item: { id: "IA3-3", coins: [] } }))'), '[활]: 사수 유닛 · 활 아이템 (망토는 아님)');
+T('궁사회 무기고', `const a = setT(mk("A3-04"), 1, 0, 9), b = mk("A3-05", { item: { id: "IA3-3", coins: [] } }), d = setT(mk("B2-01"), 5, 0, 30);
+  const a0 = a.t.a, b0 = b.t.a; const P = [side(0, ["SA3-06", a, b]), side(1, [d])]; fight(P, 0);
+  ok(a.t.keep && a.t.keep.bow && abilOf(a).ranged && a.t.a === a0 + 2, "아이템 없는 유닛: 활 · [원거리] · 공 +2 (" + [a.t.a, a0] + ")");
+  ok(a.t.alive && a.t.dmg === 0, "[원거리]로 반격 없음");
+  ok(!(b.t.keep && b.t.keep.bow) && b.t.a === b0, "아이템 든 유닛은 그대로");
+  resetTurn(a); ok(a3HasBow(a) && !abilOf(a).ranged, "다음 턴: 활은 남고 [원거리]는 꺼짐");`);
+T('별빛 연사', `const a = setT(mk("A3-01"), 0, 0, 9), b = setT(mk("A3-04", { item: { id: "C2-1", coins: [] } }), 0, 0, 9), c = setT(mk("A3-05"), 0, 0, 9);
+  const d1 = setT(mk("B2-01"), 0, 3, 30), d2 = setT(mk("B2-02"), 0, 5, 30); const P = [side(0, ["NA3-3", a, b, c]), side(1, [d1, d2])]; fight(P, 0);
+  ok(d2.t.dmg === 4, "활 2기 × 2 = 상대 전체 피해 4, 방어 무시 (" + d2.t.dmg + ")");`);
+T('별빛 연사 · 활 없음', `const c = setT(mk("A3-05"), 0, 0, 9), d2 = setT(mk("B2-02"), 0, 0, 30), d1 = setT(mk("B2-01"), 0, 0, 30);
+  const P = [side(0, ["NA3-3", c]), side(1, [d1, d2])]; fight(P, 0); ok(d2.t.dmg === 0, "활이 없으면 헛것");`);
+T('무기고 → 연사 콤보', `const a = setT(mk("A3-04"), 0, 0, 9), b = setT(mk("A3-05"), 0, 0, 9), c = setT(mk("A3-01", { item: { id: "IA3-3", coins: [] } }), 0, 0, 9);
+  const d1 = setT(mk("B2-01"), 0, 0, 40), d2 = setT(mk("B2-02"), 0, 0, 40); const P = [side(0, ["SA3-06", "NA3-3", a, b, c]), side(1, [d1, d2])]; fight(P, 0);
+  ok(d2.t.dmg === 6, "활 받은 2기 + 사수 1기 = 3 × 2 = 6 (" + d2.t.dmg + ")");`);
 T('시위 당기기', `const a = setT(mk("A3-04"), 3, 0, 1), d = setT(mk("B2-01"), 5, 0, 30); const P = [side(0, ["SA3-04", a]), side(1, [d])]; fight(P, 0);
   ok(a.t.alive && a.t.dmg === 0 && abilOf(a).ranged, "[원거리]로 반격 없음");`);
 T('바람의 사냥', `const a = setT(mk("A3-04"), 3, 0, 1), d1 = setT(mk("B2-01"), 5, 0, 30), d2 = setT(mk("B2-02"), 1, 0, 9);

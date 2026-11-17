@@ -2084,6 +2084,7 @@ function fieldCardHTML(it, p, s) {
       if (nb) badges += `<span class="bd bd-blood" data-tip="${esc(`피 ${nb}개 (피의 맹세)\n결속한 아군이 쓰러지면 가진 피가 모두 바로 뒤 아군에게 옮겨 간다. 남의 피를 머금고 전투에서 살아남으면 다음 턴 준비 때 그 피 주인들이 쓰러질 때의 공격만큼 공격이 오른다(그 턴만).`)}">${nb > 3 ? "🩸×" + nb : "🩸".repeat(nb)}</span>`; }
     if (it.t.rest) badges += '<span class="bd bd-rest" data-tip="✖ 행동 불가\n이번 턴에는 공격하지 못한다">✖</span>';
     if (it.t.charm) badges += `<span class="bd bd-charm" data-tip="∿ 홀림\n${esc(SPELL_KW["홀림"])}">∿</span>`;   // v3.78 인어 [홀림] (engine mrCharm)
+    if (typeof a3HasBow === "function" && a3HasBow(it)) badges += `<span class="bd bd-bow" data-tip="🏹 활\n${esc(SPELL_KW["활"])}">🏹</span>`;   // v3.93 벨루미르의 별 [활] (engine a3HasBow)
     if (c.tok) badges += `<span class="bd bd-tok" data-tip="✧ 마법이 부른 유닛${it.tokTemp ? "\n이번 턴만 전장에 있다" : ""}">✧</span>`;
     if (it.t.endure) badges += `<span class="bd bd-shield" data-tip="✚ 불굴\n${esc(SPELL_KW["불굴"])}">✚</span>`;   // v3.11
     if (it.t.pierce) badges += `<span class="bd bd-thorn" data-tip="➶ 꿰뚫기\n${esc(SPELL_KW["꿰뚫기"])}">➶</span>`;   // v3.11

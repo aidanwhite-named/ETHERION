@@ -2596,3 +2596,42 @@ Object.assign(SPELL_OPS, {
     lg(X, `[원한의 일격] 소각장의 유닛 ${n}장 → ${L.map(u => C(u).name).join(" · ")} 공격 +${n}`, "spell");
   }
 });
+
+/* ---------- v3.93 벨루미르의 별: 활 · 별빛 연사 (카드 데이터 js/elf.js, 사용자 설계) ----------
+   [활] = 활을 든 유닛: 활 아이템(아이콘 bow)을 장착했거나, 활을 든 사수 유닛(ELF_BOW_UNITS), 또는 궁사회 무기고로 활을 받은 유닛(keep.bow — 쓰러질 때까지 판 내내).
+   a3Arm { a }: 아이템을 장착하지 않은 아군 유닛 전체(마법이 부른 유닛 빼고)가 활을 받는다 + 이번 턴 공격 +a · [원거리].
+   a3Volley { per }: 살아 있는 아군 [활] 유닛 수 × per를 상대 유닛 전체에게 피해(방어를 보지 않음 · [증폭]은 맞는 유닛마다). 무작위 없음. */
+function a3HasBow(u) {
+  if (!isUnit(u) || !u.t) return false;
+  if (u.t.keep && u.t.keep.bow) return true;
+  if (typeof ELF_BOW_UNITS !== "undefined" && ELF_BOW_UNITS[u.id]) return true;
+  const ic = u.item && CARDS[u.item.id] && CARDS[u.item.id].item;
+  return !!(ic && ic.icon === "bow");
+}
+Object.assign(SPELL_OPS, {
+  a3Arm(X, caster, it, k, op) {
+    const L = liveUnits(X.P[caster]).filter(u => !u.item && !u.phantom && !C(u).tok);
+    if (!L.length) { fl(X, it.uid, "활을 받을 아군 없음", "miss"); lg(X, "[궁사회 무기고] 아이템이 없는 아군 유닛이 없어 활을 나눠 주지 못했다", "sys"); return; }
+    for (const u of L) {
+      uK(u).bow = true;
+      addStat(X, u, "a", op.a == null ? 2 : op.a);
+      u.t.gx = mergeAbil(u.t.gx || {}, { ranged: true });
+      fl(X, u.uid, "활 · 원거리", "buff");
+    }
+    lg(X, `[궁사회 무기고] ${L.map(u => C(u).name).join(" · ")}이(가) 활을 들었다 — 이번 턴 공격 +${op.a == null ? 2 : op.a} · [원거리], 활은 판 내내`, "spell");
+    step(X, {}, 360);
+  },
+  a3Volley(X, caster, it, k, op) {
+    const me = X.P[caster], o = X.P[1 - caster];
+    const B = liveUnits(me).filter(a3HasBow), n = B.length;
+    if (!n) { fl(X, it.uid, "활 든 아군 없음", "miss"); lg(X, "[별빛 연사] 활을 든 아군이 없어 화살이 나가지 않았다", "sys"); return; }
+    const L = uEyeFilter(X, o, queueOf(o));
+    if (!L.length) { lg(X, "[별빛 연사] 맞을 상대 유닛이 없다", "sys"); return; }
+    const x = n * (op.per == null ? 2 : op.per), amp = ampKind(C(it)) ? amplify(me) : 0;
+    for (const u of B) fl(X, u.uid, "활 시위", "buff");
+    lg(X, `[별빛 연사] 활을 든 아군 ${n}기(${B.map(u => C(u).name).join(" · ")}) → 상대 유닛 전체에게 피해 ${x}${amp ? " +증폭 " + amp : ""}`, "spell");
+    step(X, {}, 300);
+    for (const u of L) if (u.t.alive) hurt(X, u, x + amp);
+    step(X, {}, 300);
+  }
+});

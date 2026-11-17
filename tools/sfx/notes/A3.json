@@ -467,5 +467,15 @@
    "ko": "메아리처럼 두 번 울림",
    "cast": "a single clear tap that echoes back as a second softer one, two light impacts bouncing off front lines with a hollow ring"
   }
+ },
+ "SA3-06": {
+  "en": "Archers' Armory",
+  "ko": "무기고 문이 열리고 활이 한 자루씩 쥐어짐",
+  "cast": "a heavy wooden armory door groans open, a rack of bows clattering as they are handed out one by one, then a ripple of bowstrings being tested with bright twangs and a rising wind"
+ },
+ "NA3-3": {
+  "en": "Starlight Volley",
+  "ko": "겹친 시위 소리 · 별빛 화살비",
+  "cast": "many bowstrings drawn and released together as one deep thrum, a shimmering swarm of star-bright arrows whistling upward with a crystalline chime, then a wide rain of glittering impacts across the whole field"
  }
 }

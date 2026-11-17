@@ -410,7 +410,7 @@ input:focus { border-color: var(--gold); outline: none; }
 .float.debuff { color: #c9a2ff; font-size: 16px; font-family: var(--body); }
 .ether.short { border-color: var(--bad); box-shadow: 0 0 14px rgba(239, 106, 92, .35) inset; }
 .ether.short .ether-n b { color: var(--bad); }
-.bd-lock { color: #9fd3ff; } .bd-thorn { color: #8fe08f; } .bd-rest { color: #ff9f93; } .bd-charm { color: #a9c8ff; }   /* v3.78 인어 [홀림] */
+.bd-lock { color: #9fd3ff; } .bd-thorn { color: #8fe08f; } .bd-rest { color: #ff9f93; } .bd-charm { color: #a9c8ff; }   /* v3.78 인어 [홀림] */ .bd-bow { color: #ffe6a8; }   /* v3.93 별 [활] */
 .ed-mix { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; color: var(--ink-2); margin-bottom: 8px; }
 .ed-mix b { font-family: var(--caps); color: var(--ink); }
 .ed-q { width: 180px; padding: 6px 10px; font-size: 14px; }

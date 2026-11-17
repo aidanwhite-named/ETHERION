@@ -12,16 +12,18 @@ const ab = (id, item) => c.ev(`abilOf(${JSON.stringify({ id, item: item ? { id: 
 const slots = (id, item) => c.ev(`(()=>{const s=unitAbilSlots(CARDS[${JSON.stringify(id)}], ${item ? `CARDS[${JSON.stringify(item)}].item` : 'null'}); return {own:s.own.map(x=>x.raw),keep:s.keep.map(x=>x.raw),cut:s.cut.map(x=>x.raw)};})()`);
 
 // 1. 칸 세기
+// v3.93 이사크가 [사격 2] 하나가 되어, 능력 3개 유닛은 옛 이사크 능력으로 만든 시험용 카드로 본다
+c.ev('CARDS["T-3AB"] = Object.assign({}, CARDS["SP-A3"], { id: "T-3AB", gift: { throw: 1, every: 1, ranged: 1, magic: 2 } })');
 ok(c.ev('ABIL_CAP') === 3, '상한 3');
-{ const s = slots('SP-A3', 'SR-G1'); ok(s.own.length === 3 && !s.keep.length && s.cut.join() === '[포식],[관통]', '별을 푼 이사크(3칸) + 아이템 → 아이템 능력 모두 잘림 ' + JSON.stringify(s)); }
-{ const a0 = ab('SP-A3'), a1 = ab('SP-A3', 'SR-G1'); ok(!a1.devour && !a1.shred && a1.snipe === a0.snipe && a1.magic, '이사크: 능력은 그대로(포식 · 관통 없음)'); }
+{ const s = slots('T-3AB', 'SR-G1'); ok(s.own.length === 3 && !s.keep.length && s.cut.join() === '[포식],[관통]', '능력 3칸 유닛 + 아이템 → 아이템 능력 모두 잘림 ' + JSON.stringify(s)); }
+{ const a0 = ab('T-3AB'), a1 = ab('T-3AB', 'SR-G1'); ok(!a1.devour && !a1.shred && a1.snipe === a0.snipe && a1.magic, '3칸 유닛: 능력은 그대로(포식 · 관통 없음)'); }
 { const s = slots('PN-G2-E', 'SR-G2'); ok(s.keep.join() === '[뿌리 흡수]' && s.cut.join() === '[가시 2]', '2칸 유닛 + 2칸 아이템 → 앞 능력만 ' + JSON.stringify(s)); }
 { const a = ab('PN-G2-E', 'SR-G2'); ok(a.drain && a.thorns === 2, '이끼뿔 사슴: 뿌리 흡수 붙음 · 가시는 자기 2만 (' + a.thorns + ')'); }
 { const s = slots('G2-04', 'IG2-1'); ok(s.own.join() === '[가시 1]' && s.keep.join() === '[가시 1]', '같은 능력도 두 칸 ' + JSON.stringify(s)); }
 { const s = slots('G2-01', 'SR-G2'); ok(s.keep.length === 2 && !s.cut.length, '능력 없는 유닛은 아이템 2칸 모두'); }
 { const s = slots('PN-G2-U2', 'IG2-1'); ok(s.own.join() === '[가시 1]' && s.keep.length === 1, '표시(고정 · 버팀)는 칸으로 세지 않음 ' + JSON.stringify(s)); }
 // 투척도 칸 안에서만
-{ const it = c.ev('Object.values(CARDS).find(x=>x.type==="item"&&x.item.throw&&!x.item.every)'); if (it) { const s = slots('SP-A3', it.id); ok(s.cut.some(r => /투척/.test(r)) && !c.ev(`itemKept({id:"SP-A3",item:{id:"${it.id}"}}).throw`), '이사크에게 [투척] 아이템 → 투척 잘림 (' + it.id + ')'); } }
+{ const it = c.ev('Object.values(CARDS).find(x=>x.type==="item"&&x.item.throw&&!x.item.every)'); if (it) { const s = slots('T-3AB', it.id); ok(s.cut.some(r => /투척/.test(r)) && !c.ev(`itemKept({id:"T-3AB",item:{id:"${it.id}"}}).throw`), '3칸 유닛에게 [투척] 아이템 → 투척 잘림 (' + it.id + ')'); } }
 
 // 2. 가시 [1][1]: 피해 1이 두 번
 { const P = [c.side(0, ['G2-01']), c.side(1, [{ id: 'G2-04', item: 'IG2-1' }])]; c.prep(P);
