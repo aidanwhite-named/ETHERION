@@ -37,8 +37,8 @@ ok(CARDS['M2-1'].item.shred && c.ev('itemAbilities(CARDS["M2-1"].item)').include
 { const P = [c.side(0, ['G1-01', 'G1-03'], 30), c.side(1, ['SG1-02'], 30)]; c.prep(P);
   const X = c.ev('ctx')(P, 1, 1, []); c.ev('castSpell')(X, 1, P[1].field[0], 1);
   ok(P[0].field.every(u => !u || !u.t.alive), '숨통 끊기: 체력 1 상대 전체 쓰러짐'); }
-// ---------- v3.82 고르바스의 발톱: 기존 카드 5장을 바꿈 (궁지의 송곳니 · 무한한 격노 · 승전의 함성 · 몸통 박치기 · 사냥감 몰이) ----------
-{ const G = c.ev('gradeOf'), want = { 'SG1-03': ['궁지의 송곳니', 'atk', 1, 'common'], 'MG-04': ['무한한 격노', 'atk', 1, 'common'], 'PS-G1-1': ['승전의 함성', 'atk', 1, 'common'], 'SG1-09': ['몸통 박치기', 'atk', 2, 'uncommon'], 'SG1-01': ['사냥감 몰이', 'any', 1, 'common'] };
+// ---------- v3.82 고르바스의 발톱: 기존 카드 5장을 바꿈 (궁지의 송곳니 · 승전의 함성 · 몸통 박치기 · 사냥감 몰이) ----------
+{ const G = c.ev('gradeOf'), want = { 'SG1-03': ['궁지의 송곳니', 'atk', 1, 'common'], 'PS-G1-1': ['승전의 함성', 'atk', 1, 'common'], 'SG1-09': ['몸통 박치기', 'atk', 2, 'uncommon'], 'SG1-01': ['사냥감 몰이', 'any', 1, 'common'] };
   for (const id in want) { const [nm, ty, lv, gr] = want[id], x = CARDS[id]; ok(x.name === nm && x.type === ty && x.lv === lv && G(id) === gr && x.group === 'G1', `${id} ${nm} · ${ty} · L${lv} · ${gr} (${x.name} ${x.type} L${x.lv} ${G(id)})`); } }
 /* 유닛 스탯을 정해 둔다: [공, 방, 체] */
 c.ev(`this.setU=function(u,s){ u.t.a=s[0]; u.t.d=s[1]; u.t.h=s[2]; u.t.dmg=0; u.t.noCoin=true; u.t.shield=false; u.t.taunt=false; u.t.ward=0; u.t.thorns=0; };`);
@@ -48,22 +48,7 @@ const hp = u => c.ev('hpLeft')(u);
   c.setU(P[0].field[1], [2, 0, 3]); c.setU(P[0].field[2], [2, 0, 10]); c.setU(P[1].field[0], [1, 0, 5]); c.setU(P[1].field[1], [1, 0, 5]);
   const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1);
   ok(P[0].field[1].t.a === 5 && P[0].field[2].t.a === 2, '궁지의 송곳니: 체력 3 < 5 → 공 +3, 체력 10 > 5 → 그대로 (' + P[0].field[1].t.a + ' / ' + P[0].field[2].t.a + ')'); }
-// 무한한 격노: 수호를 건너 맨 앞 칸, 보호막을 뚫고(보호막은 남음), 공격 뒤 자기 공격만큼 체력 −, [관통]
-{ const P = [c.side(0, ['MG-04', 'G1-01'], 30), c.side(1, ['G1-01', 'G1-03'], 30)]; c.prep(P);
-  const me = P[0].field[1], f1 = P[1].field[0], f2 = P[1].field[1];
-  c.setU(me, [5, 0, 12]); c.setU(f1, [0, 2, 20]); c.setU(f2, [0, 0, 20]); f1.t.shield = true; f2.t.taunt = true;
-  const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1);
-  ok(me.t.rage && c.ev('abilOf')(me).shred, '무한한 격노: 뒤 1칸 유닛에 격노 · [관통]');
-  c.ev('attackOne')(X, me); c.ev('g1RageCost')(X, me);
-  ok(f1.t.dmg === 3 && f2.t.dmg === 0, '수호(2칸)를 건너 1칸을 치고 보호막에 막히지 않음: 공 5 − 방 2 = 3 (' + f1.t.dmg + ' / ' + f2.t.dmg + ')');
-  ok(f1.t.shield === true, '뚫린 보호막은 그대로 남는다');
-  ok(f1.t.d === 0, '[관통]: 맞은 유닛 방어 2 → 0 (' + f1.t.d + ')');
-  ok(hp(me) === 7, '공격 뒤 자기 공격 5만큼 체력 −: 12 → 7 (' + hp(me) + ')'); }
-{ const P = [c.side(0, ['G1-01'], 30), c.side(1, ['G1-01', 'G1-03'], 30)]; c.prep(P);
-  const me = P[0].field[0], f1 = P[1].field[0], f2 = P[1].field[1];
-  c.setU(me, [5, 0, 12]); c.setU(f1, [0, 0, 20]); c.setU(f2, [0, 0, 20]); f1.t.shield = true; f2.t.taunt = true;
-  const X = c.ev('ctx')(P, 0, 1, []); c.ev('attackOne')(X, me); c.ev('g1RageCost')(X, me);
-  ok(f2.t.dmg === 5 && f1.t.dmg === 0 && hp(me) === 12, '격노 없으면 수호 유닛을 치고 체력도 그대로'); }
+// (무한한 격노 MG-04는 v3.87에 원한의 일격으로 바뀜 — 아래 v3.87 시험)
 // 승전의 함성: 전투가 끝날 때 살아남은 아군 수만큼 상대 생명 −
 { const P = [c.side(0, ['PS-G1-1', 'G1-01', 'G1-01', 'G1-03'], 30), c.side(1, [], 30)]; c.prep(P);
   const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1); P[0].field[2].t.alive = false; c.ev('g1VictoryEnd')(X);
@@ -85,4 +70,43 @@ const hp = u => c.ev('hpLeft')(u);
   const [a, b] = P[1].field; c.setU(a, [1, 0, 3]); c.setU(b, [1, 2, 10]);
   const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1);
   ok(P[1].field[0] === b && b.t.charm, '뒤바뀐 물길(인어)은 그대로: 높은 순 · 자리 바뀐 유닛 [홀림]'); }
+// ---------- v3.87 원한의 일격(MG-04) · 피의 맹세(RS-G1-2) ----------
+{ const G = c.ev('gradeOf');
+  ok(CARDS['MG-04'].name === '원한의 일격' && CARDS['MG-04'].type === 'atk' && CARDS['MG-04'].lv === 2, '원한의 일격 L2 공격');
+  ok(CARDS['RS-G1-2'].name === '피의 맹세' && CARDS['RS-G1-2'].type === 'def' && CARDS['RS-G1-2'].lv === 2 && G('RS-G1-2') === 'rare', '피의 맹세 L2 방어 · 레어');
+  ok(CARDS['NG1-1'].name === '격노', '격노는 그대로'); }
+// 원한의 일격: 소각장의 유닛 카드 수만큼 뒤 1칸 유닛 공격 + (마법 · 아이템은 세지 않음)
+{ const P = [c.side(0, ['MG-04', 'G1-01', 'G1-03'], 30), c.side(1, ['G1-01'], 30)]; c.prep(P);
+  P[0].burn = ['G1-01', 'G1-03', 'G1-04', 'SG1-02', 'M2-1']; c.setU(P[0].field[1], [2, 0, 5]); c.setU(P[0].field[2], [2, 0, 5]);
+  const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1);
+  ok(P[0].field[1].t.a === 5 && P[0].field[2].t.a === 2, '원한의 일격: 소각장 유닛 3장 → 뒤 1칸 공 2 → 5, 그 뒤는 그대로 (' + P[0].field[1].t.a + ' / ' + P[0].field[2].t.a + ')'); }
+{ const P = [c.side(0, ['MG-04', 'G1-01'], 30), c.side(1, ['G1-01'], 30)]; c.prep(P); P[0].burn = ['SG1-02'];
+  c.setU(P[0].field[1], [2, 0, 5]); const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1);
+  ok(P[0].field[1].t.a === 2, '원한의 일격: 소각장에 유닛이 없으면 그대로'); }
+// 피의 맹세: 결속 → 쓰러지면 피가 뒤로(이어서) → 살아남은 유닛이 다음 턴 쓰러진 유닛 공격의 합만큼 +
+{ const P = [c.side(0, ['RS-G1-2', 'G1-01', 'G1-03', 'G1-04', 'G1-01'], 30), c.side(1, [], 30)]; c.prep(P);
+  const [, a, b, d, e] = P[0].field; c.setU(a, [2, 0, 5]); c.setU(b, [4, 0, 5]); c.setU(d, [0, 0, 5]); c.setU(e, [1, 0, 5]);
+  const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1);
+  ok([a, b, d, e].every(u => u.t.blood && u.t.blood.length === 1), '피의 맹세: 아군마다 피 1개');
+  a.t.alive = false; c.ev('g1OathSweep')(X);
+  ok(b.t.blood.length === 2 && a.t.blood.length === 0, '앞 유닛이 쓰러지면 피가 바로 뒤로: 2개 (' + b.t.blood.length + ')');
+  b.t.alive = false; d.t.alive = false; c.ev('g1OathSweep')(X);
+  ok(e.t.blood.length === 4, '뒤 유닛도 쓰러지면 받은 피까지 다시 뒤로(둘이 같이 쓰러져도 이어짐): 4개 (' + e.t.blood.length + ')');
+  c.ev('g1OathEnd')(X); const kb = e.t.keep && e.t.keep.blood;
+  ok(kb && kb.turn === 2 && kb.v.reduce((s, x) => s + x.a, 0) === 6 && kb.v.length === 3, '살아남은 유닛: 받은 피 3개(2 + 4 + 0) → 다음 턴 공격 +6, 자기 피는 값 없음 (' + JSON.stringify(kb) + ')');
+  c.ev('resetTurn')(e); const base = c.ev('baseStats')(e, true).a;
+  ok(e.t.a === base + 6, '다음 턴 준비(resetTurn): 공격 ' + base + ' + 6 = ' + e.t.a);
+  c.ev('resetTurn')(e); ok(e.t.a === base + 6, '준비 중 다시 세워도(장착 등) 한 번만 더해짐');
+  const X2 = c.ev('ctx')(P, 1, 2, []); c.ev('g1OathEnd')(X2); c.ev('resetTurn')(e);
+  ok(!e.t.keep.blood && e.t.a === base, '그 다음 턴 전투가 끝나면 지워진다 (' + e.t.a + ')'); }
+{ const P = [c.side(0, ['G1-01', 'RS-G1-2'], 30), c.side(1, [], 30)]; c.prep(P); const a = P[0].field[0];
+  const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[1], 2); a.t.alive = false; c.ev('g1OathSweep')(X); c.ev('g1OathEnd')(X);
+  ok(a.t.blood.length === 0 && !(a.t.keep && a.t.keep.blood), '뒤에 아군이 없으면 피는 흩어진다'); }
+// 실제 전투: 방어 턴에 앞 유닛이 쓰러지고 뒤 유닛이 피를 받아 살아남음
+{ const P = [c.side(0, ['G1-01', 'G1-01', 'G1-01'], 30), c.side(1, ['RS-G1-2', 'G1-01', 'G1-03'], 30)]; c.prep(P);
+  c.setU(P[0].field[0], [6, 0, 30]); c.setU(P[0].field[1], [0, 0, 30]); c.setU(P[0].field[2], [0, 0, 30]);
+  const a = P[1].field[1], b = P[1].field[2]; c.setU(a, [3, 0, 4]); c.setU(b, [1, 0, 30]);
+  c.ev('runCombatCore')(c.ev('ctx')(P, 0, 1, [], { seed: 3 }));
+  const kb = b.t.keep && b.t.keep.blood;
+  ok(!a.t.alive && b.t.alive && kb && kb.v.length === 1 && kb.v[0].a === 3, '전투: 맨 앞(공 3)이 쓰러져 피가 뒤로 → 다음 턴 +3 (' + JSON.stringify(kb) + ')'); }
 console.log(fails ? `✗ ${fails}/${n} 실패` : `✓ ${n}/${n} 통과`); process.exit(fails ? 1 : 0);

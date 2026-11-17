@@ -18,7 +18,7 @@ card('NA2-1', '구원의 빛', 'any', 3, 'common');
 card('SA2-07', '심판의 저울', 'any', 2, 'common');
 card('RS-A2-2', '응보의 빛', 'def', 3, 'rare');
 { const lore = fs.readFileSync(path.join(__dirname, '../../js/lore.js'), 'utf8'), cel = fs.readFileSync(path.join(__dirname, '../../js/celestial.js'), 'utf8');
-  ok([['SA2-03', '침묵'], ['NA2-1', '빛이 내려앉은'], ['SA2-07', '저울']].every(([id, w]) => new RegExp('"' + id + '": "[^"]*' + w).test(lore)) && /칼날/.test(CARDS['RS-A2-2'].flavor) && (cel.match(/brief: "/g) || []).length === 4, '짧은 문구 · 서사(lore.js · 카드 설명)'); }
+  ok([['SA2-03', '침묵'], ['NA2-1', '빛이 내려앉은'], ['SA2-07', '저울']].every(([id, w]) => new RegExp('"' + id + '": "[^"]*' + w).test(lore)) && /칼날/.test(CARDS['RS-A2-2'].flavor) && (cel.match(/brief: "/g) || []).length === 7, '짧은 문구 · 서사(lore.js · 카드 설명)'); }
 
 // ---------- 침묵의 기도 ----------
 { const r = c.cast('SA2-03', ['A2-05'], [['G2-30', { crit: true }, { shield: true, ward: 2 }], ['G2-30', { shred: true }], ['G2-30', { crit: true }]]);

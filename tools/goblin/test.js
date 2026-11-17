@@ -54,7 +54,7 @@ ok(CARDS['MB-04'].name === '도화선' && CARDS['SB1-05'].name === '기폭' && C
 { const P = [c.side(0, ['B1-36'], 30), c.side(1, ['B1-42'], 30)]; c.fight(P, 0, 1);
   const a = P[0].field[0]; ok(a && a.t.alive && sc(a) === 1, '[화염 갑주 1] 공격해 온 유닛에 화상 1 (' + (a && sc(a)) + ')'); }
 { const P = [c.side(0, [{ id: 'B1-36' }], 30), c.side(1, ['B1-42'], 30)]; c.prep(P); P[0].field[0].t.gx = { ranged: true };
-  const X = ev('ctx')(P, 0, 1, [], { seed: 3 }); ev('runCombatCore')(X); ok(sc(P[0].field[0]) === 1, '원거리 공격자에게도 화상'); }
+  const X = ev('ctx')(P, 0, 1, [], { seed: 3 }); ev('runCombatCore')(X); ok(sc(P[0].field[0]) === 0, '원거리 공격자에게는 화상 없음(v3.88)'); }
 /* 도화선: 맨 앞 피해 1 · 화상 3 */
 { const P = [c.side(0, ['MB-04'], 30), c.side(1, ['B1-43', 'G1-01'], 30)]; c.prep(P);
   const X = ev('ctx')(P, 0, 1, []); ev('castSpell')(X, 0, P[0].field[0], 1); const f = P[1].field[0];
@@ -63,7 +63,39 @@ ok(CARDS['MB-04'].name === '도화선' && CARDS['SB1-05'].name === '기폭' && C
 { const P = [c.side(0, ['SB1-05'], 30), c.side(1, ['B1-43', 'UP-B1-24', 'G1-01'], 30)]; c.prep(P);
   const X = ev('ctx')(P, 0, 1, []); const [f, s, t] = P[1].field; ev('gbScorch')(X, s, 1, null);
   ev('castSpell')(X, 0, P[0].field[0], 1);
-  ok(f.t.dmg === 4 && s.t.dmg === 3 && t.t.dmg === 0 && sc(f) === 0 && sc(s) === 0, `기폭: 맨 앞 2+2=4 · 화상 1 유닛 1+2=3 · 화상 없는 유닛 그대로 (${f.t.dmg}/${s.t.dmg}/${t.t.dmg})`); }
+  ok(f.t.dmg === 4 && s.t.dmg === 3 && t.t.dmg === 0 && sc(f) === 0 && sc(s) === 1 && sc(t) === 0, `기폭: 맨 앞 2+2=4 · 화상 1 유닛 1+2=3 · 화상 없는 유닛 그대로 · 맨 앞 [화상 2]가 옆에 1 번짐 (${f.t.dmg}/${s.t.dmg}/${t.t.dmg} · ${sc(s)})`); }
+/* v3.88 [화상 N]은 따로따로 쌓이고, 터지면 양옆에 [화상 N−1] */
+{ const P = [c.side(0, ['B1-22'], 30), c.side(1, ['B1-43', 'UP-B1-24', 'B2-24', 'G1-01'], 30)]; c.prep(P);
+  const [a, b, d, e] = P[1].field, by = P[0].field[0].uid, bl = u => ev('gbBurns')(u).map(x => x.n).join(',');
+  ev('gbScorch')(ev('ctx')(P, 0, 1, []), b, 3, by); ev('gbScorch')(ev('ctx')(P, 0, 1, []), b, 2, by);
+  ok(bl(b) === '3,2' && sc(b) === 5, '[화상 3] [화상 2] 따로 쌓임 (' + bl(b) + ')');
+  ev('gbBurnTick')(ev('ctx')(P, 1, 2, []), () => {});
+  ok(b.t.dmg === 5 && sc(b) === 0 && bl(a) === '2,1' && bl(d) === '2,1' && sc(e) === 0, `터짐 3+2 · 양옆에 [화상 2] [화상 1] (${b.t.dmg} · ${bl(a)} · ${bl(d)} · ${bl(e)})`);
+  ev('gbBurnTick')(ev('ctx')(P, 1, 2, []), () => {}); ok(a.t.dmg === 0, '옮겨붙은 턴에는 터지지 않음');
+  ev('gbBurnTick')(ev('ctx')(P, 0, 3, []), () => {});
+  ok(bl(b) === '1,1' && bl(e) === '1', `다음 턴: 2는 양옆에 1, 1은 번지지 않음 (가운데 ${bl(b)} · 끝 ${bl(e)})`);
+  uK = u => u.t.keep; uK(a).scorch = 0; ok(ev('gbBurns')(a).length === 0, '다른 규칙이 화상을 지우면(정화) 목록도 꺼짐'); }
+var uK;
+/* v3.88 화약통 깔기: 이 마법 자리와 빈 칸마다 화약통 → 다음 턴 첫 공격 전 마주 보는 상대에 [화상 3] */
+{ const P = [c.side(0, ['B1-12', 'RB1-1'], 30), c.side(1, ['B1-43', 'UP-B1-24', 'B2-24'], 30)]; c.prep(P);
+  const X = ev('ctx')(P, 0, 1, []); ev('castSpell')(X, 0, P[0].field[1], 1); ev('packField')(P[0]);
+  const kegs = P[0].field.filter(u => u && u.id === 'TK-U-BOMB');
+  ok(kegs.length === 4 && kegs.every(k => k.t.keep.face === 3), '화약통 깔기: 빈 칸 3 + 마법 자리 1 = 화약통 4개');
+  ev('uBombs')(ev('ctx')(P, 0, 1, []), () => {}); ok(P[0].field.filter(u => u && u.id === 'TK-U-BOMB' && u.t.alive).length === 4, '놓은 턴에는 터지지 않음');
+  const X2 = ev('ctx')(P, 1, 2, []); ev('uBombs')(X2, () => {}); const F = P[1].field;
+  ok(sc(F[0]) === 0 && sc(F[1]) === 3 && sc(F[2]) === 9, `다음 턴: 마주 보는 상대에 [화상 3], 마주 보는 칸이 비면 가장 가까운 상대 (${F.slice(0, 3).map(sc)})`);
+  ok(CARDS['RB1-1'].name === '화약통 깔기' && CARDS['RB1-1'].comeback && CARDS['RB1-1'].limit === 1 && CARDS['SB1-08'].name === '화약고 폭파' && CARDS['SB1-08'].type === 'any', '역전 마법 화약통 깔기 · 짝 화약고 폭파(공용)'); }
+/* v3.88 화약고 폭파: 화약통 N개를 터뜨려 부수고(화약통 저마다의 화상 없음), 상대 앞 N기 체력 −N² · [화상 2], 아군 전체 체력 −N */
+{ const P = [c.side(0, ['B1-43', 'RB1-1', 'SB1-08'], 30), c.side(1, ['B1-43', 'UP-B1-24', 'B2-24', 'G1-01'], 30)]; c.prep(P);
+  const X = ev('ctx')(P, 0, 1, []); ev('castSpell')(X, 0, P[0].field[1], 1);
+  const n = P[0].field.filter(u => u && u.id === 'TK-U-BOMB').length, F = P[1].field.slice(0, 4), me = P[0].field[0];
+  ev('castSpell')(X, 0, P[0].field.find(x => x && x.id === 'SB1-08'), 1);
+  ok(n === 3 && F[0].t.dmg === 9 && F[1].t.dmg === 9 && F[2].t.dmg === 9 && F[3].t.dmg === 0 && me.t.dmg === 3,
+    `화약고 폭파: 화약통 ${n}개 → 상대 앞 3기 체력 −9, 넷째 그대로, 아군 −3 (${F.map(u => u.t.dmg)} · 아군 ${me.t.dmg})`);
+  const bl = u => ev('gbBurns')(u).map(x => x.n).join(',');
+  ok(bl(F[0]) === '2' && bl(F[1]) === '2' && (!F[2].t.alive || bl(F[2]) === '2') && sc(F[3]) === 0 && sc(me) === 0 && !P[0].field.some(u => u && u.id === 'TK-U-BOMB' && u.t.alive), `맞고 살아남은 상대만 [화상 2] 하나씩(화약통 저마다의 화상 없음) · 화약통은 부서짐 (${F.map(bl).join(' / ')})`); }
+{ const P = [c.side(0, ['SB1-08', 'B1-43'], 30), c.side(1, ['B1-43'], 30)]; c.prep(P); const X = ev('ctx')(P, 0, 1, []); ev('castSpell')(X, 0, P[0].field[0], 1);
+  ok(P[1].field[0].t.dmg === 0 && P[0].field[1].t.dmg === 0, '화약통이 없으면 아무 일도 없음'); }
 /* 불의 장막: 맨 앞 2기 체력 +1 · [화염 갑주 2] */
 { const P = [c.side(0, ['SB1-03', 'B1-02', 'B1-12', 'B1-13'], 30), c.side(1, ['G1-01'], 30)]; c.prep(P);
   const X = ev('ctx')(P, 1, 1, []); const h0 = P[0].field[1].t.h; ev('castSpell')(X, 0, P[0].field[0], 1);

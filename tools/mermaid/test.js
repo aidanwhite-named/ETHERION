@@ -86,5 +86,20 @@ T('치유의 조수', `const u1 = setT(mk("G3-03"), 0, 0, 30), u2 = setT(mk("G3-
   const X = fight([side(0, [mk("B1-01")]), side(1, ["MG-15", u1, u2])], 0);
   ok(abilOf(u1).heal === 1 && abilOf(u2).heal === 1, "아군 전체 [치유 1]");`);
 
+// v3.79 · v3.89 인어 마법은 생명을 주지 않는다 · 대해류 L3 · 대해일 L4 장전 없음
+ok(ctx.ev('Object.values(CARDS).filter(c => c.type !== "unit" && c.type !== "item" && (c.g === "G3" || /G3/.test(c.id))).every(c => !(c.gain && c.gain.life) && !/내 생명 \\+/.test(c.text || ""))'), '인어 마법에 생명 회복 없음');
+ok(ctx.ev('CARDS["SG3-09"].lv === 3 && CARDS["RG3-1"].lv === 4 && !(CARDS["RG3-1"].cost || {}).ether && !/장전/.test(CARDS["RG3-1"].text)'), '대해류 L3 · 대해일 L4 · 장전 없음');
+// v3.89 물의 몸: 인어 유닛은 화상 −1
+T('물의 몸', `const m = mk("G3-03"), m2 = mk("G3-04"), o = mk("B1-02"); const X = ctx([side(0, [m, m2]), side(1, [o])], 0, 2, [], { seed: 3 });
+  gbScorch(X, m, 2); gbScorch(X, m2, 1); gbScorch(X, o, 2);
+  ok(m.t.keep.scorch === 1 && !(m2.t.keep.scorch > 0) && o.t.keep.scorch === 2, "화상 2 → 1 · 화상 1 → 안 붙음 · 다른 깃발 2 (" + [m.t.keep.scorch, m2.t.keep.scorch, o.t.keep.scorch] + ")");`);
+// v3.89 마법 [정화]: 지금 붙은 화상 · 낙인을 지우고 이번 턴 정화
+T('마법 정화', `const u = mk("G3-03"), v = mk("G3-04"); const X = ctx([side(0, [u, v]), side(1, [mk("B1-02")])], 0, 2, [], { seed: 3 });
+  u.t.keep.scorch = 3; u.t.keep.scorchT = 1; v.t.keep.brand = true;
+  SPELL_OPS.mrPurge(X, 0, mk("MG-07"), null, { area: { t: "all" } });
+  ok(!(u.t.keep.scorch > 0) && !v.t.keep.brand && abilOf(u).purify && abilOf(v).purify, "화상 · 낙인 지움 · 이번 턴 [정화]");`);
+T('대해일 치유', `const u = setT(mk("G3-33"), 0, 0, 30); const X = fight([side(0, [mk("B1-02")]), side(1, ["RG3-1", u])], 0);
+  ok(abilOf(u).heal === 1, "대해일 뒤 아군 [치유 1]");`);
+
 console.log(fail ? `✗ ${fail}/${n} 실패` : `✓ ${n}개 모두 통과`);
 process.exitCode = fail ? 1 : 0;

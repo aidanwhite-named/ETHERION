@@ -213,3 +213,45 @@
   .pg-way { grid-template-columns: minmax(0, 1fr); }
   .screen-pil .xp-card h3 { font-size: 22px; }
 }
+
+/* 2026-11-17 폰(html.mobile): 순례 화면을 한 화면에. 예전에는 머리말 · 한 주의 걸음 · 지도(폭 1.6fr → 높이 600px) 차례라
+   지도 위쪽만 보이고 관문에 서는 단추는 스크롤해야 나왔다. 폰은 지도 + 다음 할 일(단추)을 탭 바로 아래에 두고, 지도 높이를 화면에 맞춘다.
+   한 주의 걸음 · 관문 아치는 그 아래로(스크롤하면 보임). 지도에 관문 번호가 이미 있어 아치는 작게 */
+html.mobile .screen-pil .xp.pg { gap: 8px; padding-top: 6px; padding-bottom: 16px; }
+html.mobile .screen-pil .xp-head { padding: 6px 14px; gap: 12px; }
+html.mobile .screen-pil .xp-head > .emblem { width: 40px; height: 40px; }
+html.mobile .screen-pil .xp-head .eyebrow { display: none; }
+html.mobile .screen-pil .xp-head h2 { font-size: 21px; margin: 0; }
+html.mobile .screen-pil .xp-lead { display: none; }   /* 하루 판 수 · 첫 승 · 숲은 오른쪽 "다음 할 일" 칸과 룰북에 있다 */
+html.mobile .screen-pil .pg-clock { font-size: 13px; gap: 2px; }
+html.mobile .screen-pil .pg-tabs button { font-size: 15px; padding: 5px 14px 4px; }
+html.mobile .screen-pil .pg-way { order: 1; }
+html.mobile .screen-pil .pg-week { order: 2; }
+html.mobile .screen-pil .pg-route { order: 3; }
+html.mobile .screen-pil .xp-card { padding: 12px 14px; }
+html.mobile .screen-pil .xp-card h3 { font-size: 21px; margin: 2px 0 6px; }
+html.mobile .screen-pil .xp-card h3 small { font-size: 14px; }
+html.mobile .screen-pil .xp-card p, html.mobile .screen-pil .xp-deck { font-size: 14px; margin: 4px 0; }
+html.mobile .screen-pil .xp-card .pg-say { font-size: 15px; margin: 6px 0 8px; padding: 8px 12px; line-height: 1.55; }
+html.mobile .screen-pil .xp-card .muted.small, html.mobile .screen-pil .xp-deck .small { font-size: 12.5px; }
+html.mobile .screen-pil .xp-btns { margin-top: 8px; }
+html.mobile .screen-pil .xp-btns .btn { font-size: 16px; padding-block: 8px; }
+html.mobile .screen-pil .pg-map figcaption { padding: 5px 12px 6px; font-size: 12.5px; }
+html.mobile .screen-pil .xp-route.pg-route { padding: 20px 10px 14px; gap: 6px; }
+html.mobile .screen-pil .pg-route .xp-node b { font-size: 13px; margin-top: 4px; }
+html.mobile .screen-pil .pg-route .xp-node small { font-size: 11px; }
+/* 가로 폰(앱): 지도 높이 = 화면 높이 − 위 칸(머리줄 · 머리말 · 탭), 지도 폭은 그 높이의 900/660. 오른쪽 칸(소식 · 다음 할 일)은 같은 높이 안에서
+   스크롤하고, 단추 줄은 칸 아래에 붙어 늘 보인다 */
+@media (min-width: 761px) {
+  html.mobile .screen-pil { --pg-mh: max(250px, calc(100vh - var(--pg-top, 232px))); }
+  html.mobile .screen-pil .pg-way { grid-template-columns: auto minmax(300px, 1fr); gap: 10px; align-items: stretch; }
+  html.mobile .screen-pil .pg-map { width: max-content; align-self: start; }
+  html.mobile .screen-pil .pg-map-svg { height: var(--pg-mh); width: auto; }
+  html.mobile .screen-pil .pg-side { max-height: calc(var(--pg-mh) + 30px); overflow: auto; overscroll-behavior: contain; align-content: start; gap: 8px; }
+  html.mobile .screen-pil .pg-side .xp-btns { position: sticky; bottom: -12px; margin: 8px -14px -12px; padding: 8px 14px 10px; background: linear-gradient(180deg, rgba(14, 16, 26, .7), rgba(14, 16, 26, .97) 40%); z-index: 2; }
+}
+/* 폰: 지도가 작아진 만큼 땅 이름 · 관문 번호를 키운다(지도 좌표 기준, 화면에서는 약 0.6배) */
+html.mobile .screen-pil .pgm-nm { font-size: 21px; stroke-width: 5px; }
+html.mobile .screen-pil .pgm-hub .pgm-nm { font-size: 20px; }
+html.mobile .screen-pil .pgm-node.idle .pgm-nm { font-size: 19px; }
+html.mobile .screen-pil .pgm-node .num, html.mobile .screen-pil .pgm-forest .num { font-size: 18px; }

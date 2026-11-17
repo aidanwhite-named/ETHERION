@@ -197,7 +197,7 @@ function pruneSessions() {
   for (const id of Object.keys(db.users)) if (db.users[id].guest && !live.has(id)) { delete db.users[id]; g++; }
   if (n || g) { log("정리", `끝난 로그인 ${n}개 · 필멸자 ${g}명`); markDirty(); }
 }
-pruneSessions();
+setTimeout(pruneSessions, 0);   // 2026-11-17 켤 때 정리는 파일을 다 읽은 뒤에 — 바로 부르면 정리할 것이 있을 때 log의 t(404줄)가 아직 없어 서버가 켜지지 않았다
 setInterval(pruneSessions, 6 * 3600e3);
 
 /* ---------- 스냅샷: 응답마다 붙이는 내 데이터 ---------- */

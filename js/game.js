@@ -378,6 +378,26 @@ function beginTurn() {
   if (typeof BLog !== "undefined") BLog.turnStart();   // v3.20.1 전투 로그: 보충한 뒤의 핸드
   if (checkEnd()) return;
   G.phase = "atkPrep";
+  bloodRiseFx();   // v3.87 [피의 맹세]: 지난 턴 받은 피가 하나씩 사라지며 공격이 오른다(값은 resetTurn이 이미 더함)
+}
+/* v3.87 [피의 맹세] 다음 턴 준비: 피 하나가 사라질 때마다 그 피 주인의 공격만큼 공격 숫자가 오른다(연출만 — 값은 이미 들어 있다) */
+function bloodRiseFx() {
+  const L = [], H = {};
+  for (const p of G.players) for (const it of p.field) { const b = isUnit(it) && it.t && it.t.keep && it.t.keep.blood; if (b && b.turn === G.turn && b.v && b.v.length) { L.push(it); H[it.uid] = { v: b.v.slice() }; log(`${p.name}: [피의 맹세] ${C(it).name}이(가) 머금은 피 ${b.v.length}개 → 이번 턴 공격 +${g1BloodSum(it)}`, "good"); } }
+  if (G.cfg.headless || G.speed === 0 || typeof document === "undefined" || typeof FX === "undefined") return;   // 서버 검산 · 균형 도구는 화면 쪽(FX)을 읽지 않는다
+  FX.blood = H;
+  if (!L.length) return;
+  const redraw = it => { const el = uidEl(it.uid), p = G.players.find(q => q.field.includes(it)); if (!el || !p) return; const tmp = document.createElement("div"); tmp.innerHTML = fieldCardHTML(it, p, p.field.indexOf(it)); const n = tmp.firstElementChild; if (n) { el.className = n.className; el.innerHTML = n.innerHTML; } };
+  (async () => {
+    await T(500); render();
+    for (;;) {
+      let any = false;
+      for (const it of L) { const f = FX.blood[it.uid]; if (!f || !f.v.length) continue; const e = f.v.shift(); any = true; redraw(it); floatAt(it.uid, `🩸 ⚔+${e.a}`, "buff blood"); }
+      if (!any) break;
+      await T(520);
+    }
+    FX.blood = {}; render();
+  })();
 }
 function checkEnd() {
   if (G.phase === "over") return true;
@@ -399,7 +419,7 @@ function checkEnd() {
    엔진은 실제 상태의 복제본 위에서 시드 난수로 돌므로, 뒤집은 뒤 같은 시드로 처음부터 다시 굴리면 그 교전까지는 똑같이 흘러가고
    그 코인만 바뀐 채 이어진다. 화면은 새 기록의 그 지점부터 이어서 보여 준다. */
 function cloneForCombat(p) {
-  return JSON.parse(JSON.stringify({ idx: p.idx, name: p.name, life: p.life, crystals: p.crystals, burn: p.burn, reload: p.reload, bonus: p.bonus || 0, field: p.field }));
+  return JSON.parse(JSON.stringify({ idx: p.idx, name: p.name, life: p.life, crystals: p.crystals, burn: p.burn, reload: p.reload, bonus: p.bonus || 0, light: p.light, field: p.field }));   // v3.86 light = 천족 [새벽빛]
 }
 async function runCombat() {
   const myG = G;
@@ -593,6 +613,7 @@ function applySnap(sn) {
     const p = G.players[i];
     p.field = s.field.map(uid => (uid ? G.reg[uid] : null));
     p.life = s.life; p.crystals = s.crystals.slice(); p.burn = s.burn.slice(); p.reload = s.reload; p.bonus = s.bonus || 0;
+    if (s.light != null) p.light = s.light;   // v3.86 천족 [새벽빛] (판 내내 남음)
   });
   for (const uid in sn.units) if (G.reg[uid]) G.reg[uid].t = JSON.parse(JSON.stringify(sn.units[uid]));
 }
@@ -853,7 +874,7 @@ async function loop(myG, deal) {
 }
 function humanPrep(p) {
   return new Promise(res => {
-    G.control = p.idx; G.sel = null;
+    G.control = p.idx; G.sel = null; FX.ctrlAt = performance.now();
     if (G.mode === "hotseat" && G.viewer !== p.idx) { G.handoff = true; G.viewer = p.idx; }
     else G.viewer = p.idx;
     G.ready = res;
@@ -997,7 +1018,7 @@ function replayCoins(rec, X, run, over) {
 let boardEl = null;
 const FX = { itemFront: new Set(), last: null, pd: null, drag: null, suppress: false, from: {}, sprite: null, charOut: new Set(), focusKey: null, zoomEl: null, zoomT: 0, arena: null, coinStop: null,
   drawing: new Set(), handHold: 0, handT: 0, clockHold: 0, shuffled: null, pin: null,
-  hov: null, mx: -1, my: -1, selSeen: null };   // v2.6 올린 핸드 카드(uid)와 마지막 마우스 자리 (setHov·syncHov), 마지막으로 그린 고른 카드
+  hov: null, mx: -1, my: -1, selSeen: null, blood: {} };   // v2.6 올린 핸드 카드(uid)와 마지막 마우스 자리 (setHov·syncHov), 마지막으로 그린 고른 카드
 const RM = () => window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
 const kSpeed = () => 1 / ((G && G.speed) || 1);
 const uidEl = uid => (boardEl ? boardEl.querySelector(`[data-uid="${uid}"]`) : null);
@@ -1129,7 +1150,8 @@ function mountBoard() {
   boardEl.addEventListener("pointerdown", onPointerDown);
   boardEl.addEventListener("mouseover", onHover);
   // v2.6: 마지막 마우스 자리 — 화면을 다시 그린 뒤 그 자리의 핸드 카드를 다시 올린다(syncHov)
-  boardEl.addEventListener("pointermove", e => { if (e.pointerType !== "touch") { FX.mx = e.clientX; FX.my = e.clientY; } }, { passive: true });
+  boardEl.addEventListener("pointermove", e => { FX.touch = e.pointerType === "touch"; if (!FX.touch) { FX.mx = e.clientX; FX.my = e.clientY; } }, { passive: true });
+  boardEl.addEventListener("pointerdown", e => { FX.touch = e.pointerType === "touch"; }, { capture: true, passive: true });   // 2026-11-17 손가락인지(더블탭 대기 · 올림 없음)
   boardEl.addEventListener("mouseleave", () => { FX.inHand = false; FX.mx = FX.my = -1; setHov(null); });
   applyFont();
   render();
@@ -1139,6 +1161,7 @@ function mountBoard() {
 /* v1.8: 더블클릭은 onBoardClick에서 같은 카드를 두 번 누른 간격으로 알아낸다.
    첫 클릭에 화면을 다시 그려 카드 요소가 바뀌므로, 브라우저의 dblclick은 떨어지지 않거나 옆으로 밀려 온 카드에 떨어진다 */
 const DBL_MS = 420;
+const DBL_TOUCH_MS = 300;   // 2026-11-17 손가락 더블탭 간격 = 한 번 탭이 큰 카드를 띄우기까지 기다리는 시간(안드로이드 기본 더블탭 간격)
 function onDblClick(e) { if (e.target.closest(".hand-me")) e.preventDefault(); }
 function placeSelected(me, it) {
   const c = C(it);
@@ -1892,23 +1915,38 @@ function coinClash(info) {
 /* 부서지는 카드: 조각으로 갈라져 흩어진다 (쓰러진 유닛, 쓴 마법)
    v3.16.3 더 실감나게: 맞은 자리에서 금이 방사형으로 번지고(선이 자라남) → 그 금을 따라 모양이 제각각인 조각(방사 쐐기 + 안쪽 고리)으로
    갈라져 → 바깥으로 튀었다가 무게로 떨어지며 3D로 뒤집힌다. 조각마다 빛 받는 면이 달라 명암이 다르다. 폰(html.mobile)은 조각 수를 줄임 */
+/* 2026-11-17 폰이 버벅이던 까닭: 부서지는 카드 한 장이 조각 12개로 갈라지는데, 조각마다 카드 전체(그림 · 글 · 틀 HTML)를
+   통째로 복사해 clip-path + 3D 회전 레이어로 굴렸다 — 상대 유닛 셋이 한꺼번에 부서지면 카드 36장을 한 프레임에 새로 그렸다.
+   폰(html.mobile)은 조각에 카드 그림 한 장만 깔고(sh-lite), 같은 때 부서지는 카드는 조금씩(SH_STAGGER) 늦춰 나눠 그리고,
+   둘째 장부터는 캔버스 불꽃 · 가루와 DOM 불티(burst)를 가볍게 한다. 모양(금 → 조각이 튀어 떨어짐)은 그대로 */
+const SH_STAGGER = 70;
 function shatterCard(b) {
   const layer = fxLayer(); if (!layer) return;
+  const phone = document.documentElement.classList.contains("mobile");
+  let crowd = false;   // 폰: 바로 앞에 다른 카드가 부서졌다(한꺼번에 여럿)
+  if (phone) {
+    const now = performance.now(), next = FX.shNext || 0;
+    crowd = next > now - SH_STAGGER;
+    FX.shNext = Math.max(now, next) + SH_STAGGER;
+    if (!b.late && next > now + 1) { b.late = true; setTimeout(() => { if (G && boardEl) shatterCard(b); }, next - now); return; }
+  }
   const r = b.r, k = kSpeed(), W = r.width, H = r.height;
   const g = document.createElement("div");
   g.className = "shatter sh3";
   Object.assign(g.style, { left: r.left + "px", top: r.top + "px", width: W + "px", height: H + "px" });
   const c = ctrOf(r);
   const strip = el => el.querySelectorAll(".card, .card-back").forEach(cd => { cd.removeAttribute("data-uid"); ["acting", "targeted", "countering", "revealing", "selected", "flying", "drag-src", "fresh", "char-out", "struck", "dying"].forEach(x => cd.classList.remove(x)); cd.style.setProperty("--cw", W + "px"); });
-  if (typeof IMPACT !== "undefined") IMPACT.shatter(c, W, null, /\btype-unit\b/.test(b.html || "")); else shakeScreen(4);   // v3.13
+  if (typeof IMPACT !== "undefined") IMPACT.shatter(c, W, null, !crowd && /\btype-unit\b/.test(b.html || "")); else shakeScreen(4);   // v3.13 · 폰에서 한꺼번에 여럿이면 둘째 장부터 가벼운 불꽃
   sfx("shatter"); // v3.5.5 부서지는 소리 (여러 장이 한꺼번에 부서지면 한 번만 난다)
   if (RM()) {   // 움직임 줄이기: 조각 없이 흐려지기만
     g.innerHTML = `<div class="sh-shard">${b.html}</div>`; strip(g); layer.appendChild(g);
     g.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 400, fill: "forwards" }).onfinish = () => g.remove();
     return;
   }
-  burst(c.x, c.y, "burn", W * 1.2);
+  if (!(phone && typeof IMPACT !== "undefined")) burst(c.x, c.y, "burn", W * 1.2);   // 폰은 캔버스 불꽃(IMPACT)만 — 그림자 달린 DOM 불티 10개를 더 띄우지 않는다
   const lite = fxLite();   // v3.17 가볍게(PC 포함)도 조각 수를 줄임
+  const art = phone && /<img class="c-img" src="([^"]+)"/.exec(b.html || "");
+  const inner = art ? `<div class="sh-lite" style="background-image:url('${art[1]}')"></div>` : b.html;   // 폰: 조각마다 카드 HTML 대신 그림 한 장
   const TAU = Math.PI * 2, rnd = (a, z) => a + Math.random() * (z - a);
   // 맞은 자리(금의 중심): 가운데 근처에서 조금씩 다르게
   const P = { x: W * rnd(0.36, 0.64), y: H * rnd(0.34, 0.62) };
@@ -1939,7 +1977,7 @@ function shatterCard(b) {
     const cx = pl.pts.reduce((s, q) => s + q.x, 0) / pl.pts.length, cy = pl.pts.reduce((s, q) => s + q.y, 0) / pl.pts.length;
     pl.c = { x: cx, y: cy };
     const sh = rnd(0.05, 0.42).toFixed(2), hi = rnd(0, 0.22).toFixed(2);
-    h += `<div class="sh-shard" style="clip-path:polygon(${cl});transform-origin:${cx.toFixed(1)}px ${cy.toFixed(1)}px;--sh:${sh};--hi:${hi};--la:${(light + rnd(-40, 40)).toFixed(0)}deg">${b.html}</div>`;
+    h += `<div class="sh-shard" style="clip-path:polygon(${cl});transform-origin:${cx.toFixed(1)}px ${cy.toFixed(1)}px;--sh:${sh};--hi:${hi};--la:${(light + rnd(-40, 40)).toFixed(0)}deg">${inner}</div>`;
   });
   h += `<svg class="sh-crack" viewBox="0 0 ${W.toFixed(1)} ${H.toFixed(1)}" aria-hidden="true"><path class="sh-cg" d="${rays}${ring}"/><path class="sh-cl" d="${rays}${ring}"/></svg><div class="sh-flash"></div>`;
   g.innerHTML = h;
@@ -1976,7 +2014,7 @@ function shatterCard(b) {
   // 3) 금 사이로 날리는 가루 (IMPACT 캔버스)
   if (typeof IMPACT !== "undefined") {
     const px = r.left + P.x, py = r.top + P.y;
-    setTimeout(() => IMPACT.sparks(px, py, { n: lite ? 10 : 18, speed: 260, size: 1.6, col: "#d9c9a8", kind: "chunk", g: 1300, drag: 0.93, life: 0.7 }), crackMs);
+    if (!crowd) setTimeout(() => IMPACT.sparks(px, py, { n: phone ? 6 : lite ? 10 : 18, speed: 260, size: 1.6, col: "#d9c9a8", kind: "chunk", g: 1300, drag: 0.93, life: 0.7 }), crackMs);
   }
   setTimeout(() => g.remove(), end + 120);
 }
@@ -2021,6 +2059,8 @@ function fieldCardHTML(it, p, s) {
       if (pz) badges += `<span class="bd bd-plasma" data-tip="${esc(`플라즈마: ${pz} / 2\n내 마법이 발동할 때마다 1씩 쌓인다(턴이 지나도 남음). 2가 되면 다음 전투가 시작될 때 상대 유닛 모두 체력 −2, 플라즈마는 0이 된다.`)}">${"⚡".repeat(pz)}</span>`; }
     if (it.t.thorns) { const ps = typeof fitPieces === "function" ? fitPieces(it.t.thornsP || [], it.t.thorns) : [it.t.thorns];   // v3.84 같은 능력은 칸마다 따로 — 칸이 여럿이면 "✶1+1"
       badges += `<span class="bd bd-thorn" data-tip="${esc(`✶${ps.join("+")} ${ps.map(n => "가시 " + n).join(" · ")}\n${itemKwDesc("[가시 " + ps[0] + "]")}${ps.length > 1 ? "\n칸마다 따로 — 공격해 온 유닛이 가시 피해를 하나씩 차례로 받는다" : ""}`)}">✶${ps.join("+")}</span>`; }
+    { const fb = FX.blood[it.uid], nb = G.phase === "combat" || !fb ? (it.t.blood ? it.t.blood.length : 0) : fb.v.length;   // v3.87 [피의 맹세] 피(🩸): 전투 중엔 결속 · 옮겨 받은 피, 다음 턴 준비 때는 사라지며 공격이 오르는 동안(bloodRiseFx)
+      if (nb) badges += `<span class="bd bd-blood" data-tip="${esc(`피 ${nb}개 (피의 맹세)\n결속한 아군이 쓰러지면 가진 피가 모두 바로 뒤 아군에게 옮겨 간다. 남의 피를 머금고 전투에서 살아남으면 다음 턴 준비 때 그 피 주인들이 쓰러질 때의 공격만큼 공격이 오른다(그 턴만).`)}">${nb > 3 ? "🩸×" + nb : "🩸".repeat(nb)}</span>`; }
     if (it.t.rest) badges += '<span class="bd bd-rest" data-tip="✖ 행동 불가\n이번 턴에는 공격하지 못한다">✖</span>';
     if (it.t.charm) badges += `<span class="bd bd-charm" data-tip="∿ 홀림\n${esc(SPELL_KW["홀림"])}">∿</span>`;   // v3.78 인어 [홀림] (engine mrCharm)
     if (c.tok) badges += `<span class="bd bd-tok" data-tip="✧ 마법이 부른 유닛${it.tokTemp ? "\n이번 턴만 전장에 있다" : ""}">✧</span>`;
@@ -2030,6 +2070,7 @@ function fieldCardHTML(it, p, s) {
     if (it.mod && !(FX.curse && FX.curse.has(it.uid))) badges += `<span class="bd bd-mod" data-tip="이 카드에 걸린 변화\n이 판 내내 남는다${(it.modBy || []).filter(m => m.src).map(m => "\n「" + esc(m.src) + "」").join("")}">${Object.keys(it.mod).filter(k => it.mod[k]).map(k => STAT_KO[k][0] + sgnNum(it.mod[k])).join(" ")}</span>`;
   }
   const live = isUnit(it) && it.t ? { a: it.t.a, d: it.t.d, h: Math.max(0, hpLeft(it)), max: it.t.h, pins: livePins(it), off: it.t.off || null, au: it.t.au || null } : null;   // au: 레어 오라 몫 — 그 스탯은 오라 색(js/view.js statCellHTML)
+  if (live && FX.blood[it.uid] && G.phase !== "combat") live.a -= FX.blood[it.uid].v.reduce((s, e) => s + e.a, 0);   // v3.87 피가 사라지며 하나씩 오르는 동안: 아직 오르지 않은 몫을 뺀다
   const cq = live && FX.curse && FX.curse.get(it.uid);   // v3.9.10 저주 발동 연출 전: 아직 깎이지 않은 값
   if (cq) for (const k of ["a", "d", "h"]) if (cq.rem[k]) { live[k] -= cq.rem[k]; if (k === "h") live.max -= cq.rem[k]; }
   // v1.9.3: 장착한 아이템의 특수 능력을 캐릭터 그림 아래에 띠로 보인다(마우스를 올리면 뜻).
@@ -2046,7 +2087,7 @@ function fieldCardHTML(it, p, s) {
   // v3.65 마법이 이번 턴 걸어 준 능력(t.gx: 치명 · 연쇄 · 흡혈 …)도 같은 띠에 보랏빛 ✦ 칩으로 (css/cardtext.css .c-gx)
   let gxc = isUnit(it) && it.t ? grantChipsHTML(it.t.gx, it.t.off) + auraChipsHTML(it.t.au) : "";   // 2026-11-15 받은 레어 오라 ◎ 칩
   // v3.65 [출혈]: 걸린 출혈(t.bleed, 이번 전투만)을 붉은 칩으로 — 맞붙음이 시작될 때마다 그만큼 체력이 깎인다
-  if (isUnit(it) && it.t && it.t.keep && it.t.keep.scorch > 0) gxc += `<span class="c-eq-ab c-scorch" data-tip="${esc(`화상 ${it.t.keep.scorch}\n다음 턴 전투가 시작될 때 체력 −${it.t.keep.scorch} (방어 무시), 그 뒤 꺼진다`)}">화상 ${it.t.keep.scorch}</span>`;   // v3.73 잿불 고블린 화상 (engine gbScorch)
+  if (isUnit(it) && it.t && it.t.keep && it.t.keep.scorch > 0) for (const b of gbBurns(it)) gxc += `<span class="c-eq-ab c-scorch" data-tip="${esc(`화상 ${b.n}\n다음 턴 전투가 시작될 때 체력 −${b.n} (방어 무시), 그 뒤 꺼진다.${b.n >= 2 ? `\n꺼지면서 양옆 유닛에게 [화상 ${b.n - 1}]이 옮겨붙는다.` : ""}`)}">화상 ${b.n}</span>`;   // v3.88 [화상 N]은 가시처럼 따로따로 (engine gbScorch · gbBurns)
   if (isUnit(it) && it.t && it.t.bleed > 0) gxc +=`<span class="c-eq-ab c-bleed" data-tip="${esc(`출혈 ${it.t.bleed}\n맞붙음이 시작될 때마다 체력 −${it.t.bleed} (이번 전투)`)}">출혈 ${it.t.bleed}</span>`;
   if (gxc) item = item ? item.replace(/<\/div>$/, gxc + "</div>") : `<div class="c-equip">${gxc}</div>`;
   const artx = isUnit(it) && it.t && abilOf(it).u === "scrap" ? scrapPileHTML(it) : "";   // v3.31.1 [고철 골렘] 고철 더미
@@ -2320,7 +2361,7 @@ function infoHTML(p) {
         <div class="pl-val"><b class="pl-num${bumpCls("life" + p.idx, shown)}" id="life${p.idx}">${shown}</b><small>/${RULES.lifeCap}</small></div>
         <div class="pl-ticks">${Array.from({ length: 8 }, (_, i) => `<i class="${life > i * 5 ? (life >= (i + 1) * 5 ? "on" : "half") : ""}"></i>`).join("")}</div>
       </div>
-      <div class="pstats">${stat("hand", "hand", "핸드", p.hand.length, `핸드 ${p.hand.length}장`)}</div>
+      <div class="pstats">${stat("hand", "hand", "핸드", p.hand.length, `핸드 ${p.hand.length}장`)}${p.light != null ? stat("light", "dawn", "새벽빛", p.light, `새벽빛 ${p.light} / 12\n[인내의 기도]로 모으기 시작했습니다. 아군이 보호막 · 가호로 막은 피해, 전투가 시작될 때 [정화] 유닛 하나마다 1, [정화]로 씻은 것 하나마다 1, 깎인 생명의 절반만큼 모입니다.\n[새벽의 해방]이 모두 풀어(내 생명이 상대보다 적으면 그만큼 더) 공격이 높은 상대부터 체력을 깎고, 남은 빛은 생명으로 돌아옵니다.`) : ""}</div>
     </div>`;
 }
 /* v3.19.4 핸드 자리: 카드는 번호 자리에 붙박이로 앉는다(내 핸드 · 상대 핸드 모두).
@@ -2432,6 +2473,7 @@ function actionBarHTML(me) {
 function onField(uid) { return G.players.some(p => p.field.some(x => x && x.uid === uid)); }
 /* ---------- 판 위 버튼 문양 (viewBox 0 0 24 24) ---------- */
 const UI_ICON = {
+  dawn: '<path d="M3 17.5h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6.5 17.5a5.5 5.5 0 0111 0z"/><path d="M12 4.5v3M5.2 7.6l2 2M18.8 7.6l-2 2M2.8 13h2.4M18.8 13h2.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M8 20.5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".6"/>',   // v3.86 천족 [새벽빛]
   settings: '<circle cx="12" cy="12" r="7.6" fill="none" stroke="currentColor" stroke-width="3.6" stroke-dasharray="2.98 2.99"/><circle cx="12" cy="12" r="5.6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="1.8"/>',
   log: '<path d="M5.5 4.5H18v13.2a2.3 2.3 0 01-2.3 2.3H6.8a2.3 2.3 0 01-2.3-2.3V16H14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M18 4.5a2 2 0 012 2V8h-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 8.5h6M8.5 11.5h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
   rules: '<path d="M12 6.2C9.5 4.6 6.6 4.2 3.8 4.6v13.2c2.8-.4 5.7 0 8.2 1.6 2.5-1.6 5.4-2 8.2-1.6V4.6c-2.8-.4-5.7 0-8.2 1.6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 6.4v12.8" stroke="currentColor" stroke-width="1.6"/>',
@@ -3549,6 +3591,7 @@ function onHover(e) {
   // v2.4.2: 마우스가 핸드 위에 있는지
   FX.inHand = !!e.target.closest(".hand-me");
   if (FX.drag || FX.pd) return;
+  if (FX.touch) return;   // 2026-11-17 손가락 탭이 흉내 내는 mouseover로 핸드 카드가 들썩이지(올라가지) 않게
   // v2.6: 마우스 아래 핸드 카드를 올린다 (.hov). 전투 중에도 자세는 같게
   { const hs = e.target.closest(".hand-me .hand-slot"); setHov(hs && !handLocked() ? +hs.dataset.uid : null); }
   if (hoverHeld()) return;   // v3.9.4 카드가 전장으로 올라가는 중
@@ -3643,7 +3686,7 @@ function placeZoom(z) {
   z.style.left = Math.round(L + Math.max(0, (R - L - zw) / 2)) + "px";
   z.style.top = Math.round(Math.max(T, Math.min(a.top, B - zh))) + "px";
 }
-function hideZoom() { clearTimeout(FX.zoomT); FX.zoomEl = null; const z = $("#zoom"); if (z) { z.hidden = true; z.classList.remove("pinned"); z.dataset.key = ""; } }
+function hideZoom() { clearTimeout(FX.zoomT); FX.zoomEl = null; const z = $("#zoom"); if (z && !z.hidden && performance.now() - (FX.clickAt || 0) > 120) FX.zoomGoneAt = performance.now(); if (z) { z.hidden = true; z.classList.remove("pinned"); z.dataset.key = ""; } }
 
 /* ---------- 끌어서 놓기 ---------- */
 function onPointerDown(e) {
@@ -3902,6 +3945,8 @@ function swapFront(uid) {
 /* ---------- 누르기 ---------- */
 function onBoardClick(e) {
   if (FX.suppress || !G) return;
+  FX.clickAt = performance.now();
+  if (FX.tapT) { clearTimeout(FX.tapT); FX.tapT = 0; }   // 기다리던 한 번 탭(핸드 카드 고르기)은 다음 누름이 오면 버린다(같은 카드면 아래에서 더블탭)
   // v3.9.8 소각장 맨 위 · 장착 아이템 · 내 차례가 아닐 때의 핸드 카드를 크게 본 것(FX.peek)은 다음 누르기에 닫힌다
   const peek0 = FX.peek;
   if (peek0) { FX.peek = null; syncZoom(); }
@@ -3951,22 +3996,30 @@ function onBoardClick(e) {
     render(); return;
   }
   if (!ctrl) return;
-  if (act === "ready") { finishPrep(me); return; }
+  if (act === "ready") { if (readyGuarded()) return; finishPrep(me); return; }
   if (act === "shuffle") { if (actShuffle(me)) { G.sel = null; G.inspect = null; } render(); return; }
   if (act === "hand") {
     const uid = +t.dataset.uid;
-    G.inspect = null;
-    const now = performance.now(), lc = FX.lastHand;
-    if (lc && lc.uid === uid && now - lc.t < DBL_MS) {
-      FX.lastHand = null;
+    const now = performance.now(), lc = FX.lastHand, touch = FX.touch;
+    if (lc && lc.uid === uid && now - lc.t < (lc.touch ? DBL_TOUCH_MS : DBL_MS)) {
+      FX.lastHand = null; G.inspect = null;
       const it = me.hand.find(x => x.uid === uid);
       if (it) { G.sel = { kind: "hand", uid }; FX.rise = uid; placeSelected(me, it); FX.rise = null; }
       return;
     }
-    FX.lastHand = { uid, t: now };
-    G.sel = (G.sel && G.sel.kind === "hand" && G.sel.uid === uid) ? null : { kind: "hand", uid };
-    sfx(G.sel ? "select" : "unselect");
-    render(); return;
+    FX.lastHand = { uid, t: now, touch };
+    /* 2026-11-17 손가락: 첫 탭에 바로 고르면 카드가 들썩이고 큰 카드가 뜬 뒤에 두 번째 탭으로 올라갔다.
+       더블탭 대기(DBL_TOUCH_MS) 동안 두 번째 탭이 없을 때만 고른다(큰 카드) — 더블탭이면 고르기 없이 바로 전장으로 */
+    if (touch) {
+      const g0 = G;
+      FX.tapT = setTimeout(() => {
+        FX.tapT = 0;
+        if (G !== g0 || !G || G.control !== me.idx || G.handoff || FX.drag || FX.pd || !me.hand.some(x => x.uid === uid)) return;
+        pickHand(uid);
+      }, DBL_TOUCH_MS);
+      return;
+    }
+    pickHand(uid); return;
   }
   if (act === "do-place" && G.sel && G.sel.kind === "hand") { if (actPlace(me, G.sel.uid, null)) G.sel = null; render(); return; }
   if (act === "do-crystal" && G.sel && G.sel.kind === "hand") { if (actCrystal(me, G.sel.uid)) G.sel = null; render(); return; }
@@ -3995,6 +4048,21 @@ function onBoardClick(e) {
     else if (G.sel.kind === "field") { if (actBurnField(me, G.sel.slot)) G.sel = null; }
     render(); return;
   }
+}
+/* 핸드 카드 고르기 · 풀기(한 번 누름) — 고르면 큰 카드가 뜬다 */
+function pickHand(uid) {
+  FX.clickAt = performance.now();   // 사용자가 누른 것 — 이 때문에 큰 카드가 닫혀도 준비 완료를 막지 않는다
+  G.inspect = null;
+  G.sel = (G.sel && G.sel.kind === "hand" && G.sel.uid === uid) ? null : { kind: "hand", uid };
+  sfx(G.sel ? "select" : "unselect");
+  render();
+}
+/* 2026-11-17 준비 완료 오입력 막기: 큰 카드가 저절로 사라진 직후(턴이 바뀌거나 보던 카드가 부서짐) · 내 준비 차례가 막 시작된 직후의
+   누름은 버린다 — 큰 카드를 보려던 손가락이 그 아래 준비 완료 단추(폰은 내 전장 줄 오른쪽)에 떨어지는 일 */
+const READY_GUARD_MS = { zoom: 650, ctrl: 450 };
+function readyGuarded() {
+  const now = performance.now();
+  return now - (FX.zoomGoneAt || -1e9) < READY_GUARD_MS.zoom || now - (FX.ctrlAt || -1e9) < READY_GUARD_MS.ctrl;
 }
 async function finishPrep(me) {
   if (ether(me) < 0) {

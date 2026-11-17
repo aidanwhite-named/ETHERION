@@ -47,13 +47,15 @@ ok(c.ev('itemAbilities(CARDS["IR-B2"].item)').includes('[굳건]'), '아다만�
   a.t.gx = { ranged: true }; a.t.h = 30; a.t.d = 0; d.t.h = 30; c.ev('attackOne')(X, a); ok(a.t.dmg > 0, '[요격] 원거리 공격자도 반격받음 (' + a.t.dmg + ')'); }
 { const P = [c.side(0, [{ id: 'G2-01' }]), c.side(1, ['G2-01'])]; const X = c.X(P, 0); const a = P[0].field[0], d = P[1].field[0];
   a.t.gx = { ranged: true }; a.t.h = 30; d.t.h = 30; c.ev('attackOne')(X, a); ok(a.t.dmg === 0, '요격 없으면 원거리는 반격 없음'); }
-// [정화]: 자기와 양옆의 화상 · 불씨 · 낙인을 지우고, 출혈이 안 붙음
+// [정화]: v3.90 자기만 씻는다(양옆은 그대로) · 출혈은 막지 않음 — 대신 천족 유닛 전체가 빛의 몸(출혈 −1)
 { const P = [c.side(0, ['G2-01', 'A2-13', 'G2-01', 'G2-01']), c.side(1, ['G2-01'])]; const X = c.X(P, 1); const f = P[0].field;
-  f[0].t.keep = { scorch: 3, scorchT: 0 }; f[2].t.keep = { ember: 0, brand: true }; f[3].t.keep = { scorch: 2, scorchT: 0 };
+  f[0].t.keep = { scorch: 3, scorchT: 0 }; f[1].t.keep = { scorch: 2, scorchT: 0, ember: 0, brand: true }; f[2].t.keep = { ember: 0, brand: true };
   c.ev('nwPurify')(X);
-  ok(f[0].t.keep.scorch === 0 && f[2].t.keep.ember == null && !f[2].t.keep.brand, '[정화] 양옆의 화상 · 불씨 · 낙인을 지움');
-  ok(f[3].t.keep.scorch === 2, '두 칸 떨어진 유닛은 그대로');
-  const src = c.mk('G2-01'); c.ev('resetTurn')(src); src.t.gx = { bleed: 2 }; c.ev('abBleedOn')(X, src, f[1]); ok(!f[1].t.bleed, '[정화] 유닛에게는 출혈이 붙지 않음'); }
+  ok(f[1].t.keep.scorch === 0 && f[1].t.keep.ember == null && !f[1].t.keep.brand, '[정화] 자기의 화상 · 불씨 · 낙인을 지움');
+  ok(f[0].t.keep.scorch === 3 && f[2].t.keep.ember === 0 && f[2].t.keep.brand, '[정화] 양옆은 그대로');
+  const src = c.mk('G2-01'); c.ev('resetTurn')(src); src.t.gx = { bleed: 2 }; c.ev('abBleedOn')(X, src, f[1]); ok(f[1].t.bleed === 1, '[정화] 천족 유닛에도 출혈이 붙되 빛의 몸으로 −1 (' + f[1].t.bleed + ')');
+  src.t.gx = { bleed: 1 }; c.ev('abBleedOn')(X, src, f[1]); ok(f[1].t.bleed === 1, '천족: [출혈 1]은 붙지 않음');
+  c.ev('abBleedOn')(X, src, f[0]); ok(f[0].t.bleed === 1, '천족이 아닌 유닛은 출혈 그대로 (' + f[0].t.bleed + ')'); }
 // [굳건]: 빼앗기 · 자리 바꾸기 · 행동 불가
 { const P = [c.side(0, ['G2-01']), c.side(1, ['B2-15', 'G2-01', 'G2-02'])]; const X = c.X(P, 0); const o = P[1];
   const firm = o.field[0]; c.ev('stealCard')(X, 0, null, firm); ok(o.field.includes(firm), '[굳건] 빼앗기지 않음');

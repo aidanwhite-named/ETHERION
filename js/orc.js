@@ -81,3 +81,31 @@
     if (typeof SPELL_BRIEF !== "undefined") SPELL_BRIEF[id] = r.brief;
   }
 })();
+
+/* ---------- v3.87 피의 맹세 · 원한의 일격 (사용자 설계) ----------
+   격노(NG1-1, 남은 체력 1 · 깎인 만큼 공격)는 그대로 두고, 같은 "몸을 버려 공격" 줄의 무한한 격노를 원한의 일격으로,
+   궁지의 포효(스탯만 올리던 레어 방어 마법)를 피의 맹세로 바꿨다(카드 ID · 등급 그대로).
+   - 원한의 일격: 쓰러진 아군이 많을수록 세다 → 격노 · 몸통 박치기로 아군이 쓰러진 뒤에 둔다.
+   - 피의 맹세: 쓰러진 결속 유닛의 피가 뒤로 옮겨 가고, 피를 받고 살아남은 유닛은 다음 턴 쓰러진 유닛들의 공격만큼 강해진다.
+   효과는 engine 끝 "v3.87" 절(g1Oath · g1Grudge, g1OathSweep · g1OathEnd · resetTurn). */
+(function () {
+  const S = id => SIM_SPELLS.find(s => s.id === id);
+  const REWORK = {
+    "MG-04": { n: "원한의 일격", kind: "atk", lv: 2,   // 전: 무한한 격노 L1 (v3.82, 뒤 1칸 [관통] · 수호 · 보호막 무시 · 공격 뒤 체력 −)
+      text: "아군 뒤 1칸의 유닛 공격 +(내 소각장의 유닛 카드 수).",
+      ops: [{ op: "g1Grudge", area: { t: "back", n: 1 } }],
+      brief: "{아군 뒤1} ⚔+(소각장 유닛 수)",
+      desc: "쓰러진 형제의 이름을 하나씩 부를 때마다 주먹이 무거워진다. 마지막 이름에서 그 주먹이 떨어진다." },
+    "RS-G1-2": { n: "피의 맹세", kind: "def", lv: 2,   // 전: 궁지의 포효 (아군 전체 공격 +3, 방어 +1, 체력 +2)
+      text: "아군 유닛마다 피(🩸)로 결속한다. 결속한 유닛이 쓰러지면 가진 피가 모두 바로 뒤 아군에게 옮겨 간다. 전투가 끝날 때 남의 피를 머금고 살아남은 유닛은 다음 턴 준비 때 그 피 주인들이 쓰러질 때의 공격만큼 공격이 오른다(그 턴만).",
+      ops: [{ op: "g1Oath" }],
+      brief: "{아군 전체} 🩸결속|쓰러지면 🩸→뒤|다음 턴 ⚔+(쓰러진 ⚔)",
+      desc: "가르운의 오크는 손바닥을 갈라 피를 섞는다. 먼저 쓰러진 자의 분노는 뒤에 선 형제의 주먹에서 다시 깨어난다." }
+  };
+  for (const id in REWORK) {
+    const s = S(id), r = REWORK[id]; if (!s) continue;
+    s.n = r.n; s.kind = r.kind; s.lv = r.lv; s.text = r.text; s.ops = r.ops; s.cost = {}; s.gain = {}; s.desc = r.desc; s.brief = r.brief;
+    delete s.coin; delete s.anchor; delete s.prevText; delete s.grp; delete s.ccl; delete s.dir; delete s.v14;
+    if (typeof SPELL_BRIEF !== "undefined") SPELL_BRIEF[id] = r.brief;
+  }
+})();

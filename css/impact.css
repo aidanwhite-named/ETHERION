@@ -36,6 +36,8 @@
 .shatter.sh3 { perspective: 700px; }
 .sh3 .sh-shard { position: absolute; inset: 0; will-change: transform, opacity; backface-visibility: visible; }
 .sh3 .sh-shard > .card, .sh3 .sh-shard > .card-back { position: absolute; inset: 0; width: 100%; }
+/* 2026-11-17 폰: 조각 안은 카드 HTML 대신 그림 한 장(js/game.js shatterCard) — 금빛 테두리로 카드 틀처럼 */
+.sh3 .sh-lite { position: absolute; inset: 0; border-radius: 6%; border: 2px solid #8a6f3e; background: #14121c center / cover no-repeat; }
 /* 조각마다 빛 받는 정도가 달라 보이게: 한쪽은 밝게, 반대쪽은 어둡게 (필터 없이 덮개 한 장) */
 .sh3 .sh-shard::after { content: ""; position: absolute; inset: 0; z-index: 5; pointer-events: none;
   background: linear-gradient(var(--la, 135deg), rgba(255, 246, 220, var(--hi, .1)), transparent 45%, rgba(0, 0, 0, var(--sh, .25))); }

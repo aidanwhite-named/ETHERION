@@ -171,6 +171,7 @@ function resetTurn(it, atk) {   // atk: 이 유닛 편이 이번 턴 공격하�
     shield: false, sroll: null, ward: ab.ward, wardUsed: false, wardP: abilPieceList(it, "ward"), thornsP: abilPieceList(it, "thorns"),   // v3.84 칸별 가호 · 가시(쓸 때 fitPieces로 t.ward · t.thorns에 맞춘다)
     thorns: ab.thorns, taunt: !!ab.taunt, lock: false, rest: false, thrown: false,
     cb: { a: 0, d: 0, h: 0 }, coins: coinDefs(it), noCoin: false, keep };
+  if (keep.blood && keep.blood.v) it.t.a += g1BloodSum(it);   // v3.87 [피의 맹세]: 지난 턴 받은 피 → 이번 턴 공격 + (전투가 끝나면 g1OathEnd가 지운다)
 }
 const hpLeft = u => u.t.h - u.t.dmg;
 /* v3.61.1 [보호막 코인]: 전투가 시작될 때(양쪽 준비가 끝나고 첫 마법 · 공격보다 먼저) 전장의 보호막 유닛마다 한 번 던진다.
@@ -306,7 +307,7 @@ function recPush(X, fx, dur, sub) {
   for (const p of X.P) for (const it of p.field) if (it && it.t) units[it.uid] = JSON.parse(JSON.stringify(it.t));
   if (sub) for (const n of sub) { const t = units[n.uid]; if (!t) continue; for (const k in n.tv) t[k] -= n.tv[k]; t.au = n.prev ? JSON.parse(JSON.stringify(n.prev)) : null; }
   X.rec.push({ fx: Object.assign({}, fx), dur: dur || 450, floats: X.floats, logs: X.logs.concat(X.deaths),
-    snap: { players: X.P.map(p => ({ field: p.field.map(i => (i ? i.uid : null)), life: p.life, crystals: p.crystals.slice(), burn: p.burn.slice(), reload: p.reload, bonus: p.bonus || 0 })), units, toks: Object.assign({}, X.toks) } });
+    snap: { players: X.P.map(p => ({ field: p.field.map(i => (i ? i.uid : null)), life: p.life, crystals: p.crystals.slice(), burn: p.burn.slice(), reload: p.reload, bonus: p.bonus || 0, light: p.light })), units, toks: Object.assign({}, X.toks) } });
   X.floats = []; X.logs = []; X.deaths = [];
 }
 
@@ -702,6 +703,8 @@ function runCombatCore(X) {
   const sweep = (extraUids, dur) => {
     const gone = extraUids ? extraUids.slice() : [];
     uPreSweep(X);   // v3.31 쓰러지기 전에: 세이렌의 노래 · 전리품 · 영혼 강탈 · 늑대 · 화약통 · 뿌리 · 고철 · 물결
+    a2MartyrSweep(X);   // v3.86 [순교의 서약]: 쓰러진 아군 양옆에 보호막
+    g1OathSweep(X);   // v3.87 [피의 맹세]: 쓰러진 결속 유닛의 피가 바로 뒤 아군에게
     for (const p of X.P) {
       p.field.forEach((it, s) => { if (isUnit(it) && !it.t.alive) { gone.push(it.uid); p.field[s] = null; const bp = ownerOf(X, it, p); if (it.phantom) {} else if (!C(it).tok) uBury(X, it, p, bp); else if (it.t.keep && it.t.keep.rev) { bp.burn.push(it.t.keep.rev); brokeCard(X, bp, it.t.keep.rev, "unit"); } if (it.item) { const ip = it.item.from != null ? (X.P.find(q => q.idx === it.item.from) || bp) : bp; ip.burn.push(it.item.id); brokeCard(X, ip, it.item.id, "item"); } } });   // v3.31 uBury: 소각장 · 핸드(영혼 강탈) · 덱 맨 위(돌아오는 물결), 빼앗은 아이템은 원래 주인에게
       const xs = p.field.filter(Boolean);
@@ -733,6 +736,7 @@ function runCombatCore(X) {
     }
   };
   rareAuraSync(X);   // v3.69 레어 오라 (전투가 시작될 때, 그 뒤 칸이 바뀔 때마다 — sweep · step)
+  a2LightStart(X);   // v3.86 [새벽빛]: 이번 턴 깎인 생명을 셀 기준
   shieldCoinsAtCombat(X);   // v3.61.1 보호막 코인 (전투가 시작될 때, 다른 무엇보다 먼저)
   nwPurify(X);   // v3.74 [정화]: 불씨 · 화상이 타기 전에 지운다
   spCombatStart(X);   // v3.81 [밀물] · [경계의 화살]
@@ -760,7 +764,9 @@ function runCombatCore(X) {
   sweep();
   g1VictoryEnd(X);   // v3.82 [승전의 함성]: 살아남은 아군 수만큼 상대 생명 −
   a2RetribEnd(X, sweep);   // v3.77 [응보의 빛]: 이번 턴 막은 피해를 되돌린다(고철 골렘 · 새벽의 부활보다 먼저)
+  a2LightEnd(X);   // v3.86 [새벽빛]: 깎인 생명의 절반을 모으고 이번 턴 모은 양을 알린다
   uCombatEnd(X, sweep);   // v3.31 고철 골렘 · 씨앗 · 새벽의 부활 · 늑대 흩어짐 (전투가 끝날 때)
+  g1OathEnd(X);   // v3.87 [피의 맹세]: 받은 피를 머금고 살아남은 유닛 → 다음 턴 공격 +
   // "이번 턴만" 부른 유닛은 전투가 끝나면 사라진다
   let fade = false;
   for (const p of X.P) for (const u of p.field) if (isUnit(u) && u.tokTemp && u.t.alive) { u.t.alive = false; fade = true; lg(X, u.from != null ? `빼앗은 ${C(u).name}이(가) 그림자로 흩어져 원래 주인의 소각장으로 갔다` : `${C(u).name}이(가) 사라졌다`, "sys"); }
@@ -771,18 +777,22 @@ function runCombatCore(X) {
 
 /* ---------- 컴퓨터의 수 읽기용: 상태 복제와 점수 ---------- */
 function cloneSide(p, hideSpells) {
-  return { idx: p.idx, name: p.name, life: p.life, crystals: p.crystals.slice(), burn: (p.burn || []).slice(), reload: 0, bonus: p.bonus || 0,   // v3.65 소각장도 복제 — 되살리는 마법(심연의 부름 · 새벽의 부활)을 수 읽기가 본다
+  return { idx: p.idx, name: p.name, life: p.life, crystals: p.crystals.slice(), burn: (p.burn || []).slice(), reload: 0, bonus: p.bonus || 0, light: p.light,   // v3.86 새벽빛 · v3.65 소각장도 복제 — 되살리는 마법(심연의 부름 · 새벽의 부활)을 수 읽기가 본다
     field: p.field.map(it => (!it ? null : (hideSpells && isSpell(it)) ? null : JSON.parse(JSON.stringify(it)))) };
 }
 /* 유닛의 값: 환산 레벨(레벨 + 유지비 0.5) + 아이템 레벨 */
 function unitWorth(it) { const c = C(it); return c.lv + 0.5 * c.up + (it.item ? CARDS[it.item.id].lv * 0.8 : 0); }
+/* v3.88 다음 턴 p의 유닛이 받을 화상(붙은 화상 + 상대가 깔아 둔 화약통) */
+function gbFireSum(p, foe) { return p.field.reduce((s, u) => s + (isUnit(u) && u.t && u.t.alive && u.t.keep && u.t.keep.scorch > 0 ? u.t.keep.scorch : 0), 0) + foe.field.reduce((s, u) => s + (isUnit(u) && u.t && u.t.alive && u.t.keep && u.t.keep.face > 0 ? u.t.keep.face : 0), 0); }
 /* me 쪽 점수: 상대 손실 − 내 손실 + 0.5 × (생명 차이 변화) − 장전 */
 function evalScore(before, after, me) {
   const lost = (b, a) => b.field.filter(isUnit).reduce((s, u) => s + (a.field.some(v => v && v.uid === u.uid) ? 0 : unitWorth(u)), 0);
   const o = 1 - me;
   return lost(before[o], after[o]) - lost(before[me], after[me])
     + 0.5 * ((after[me].life - before[me].life) - (after[o].life - before[o].life)) - 0.8 * (after[me].reload - before[me].reload)
-    + 0.6 * ((after[me].bonus || 0) - (before[me].bonus || 0) - (after[o].bonus || 0) + (before[o].bonus || 0));
+    + 0.6 * ((after[me].bonus || 0) - (before[me].bonus || 0) - (after[o].bonus || 0) + (before[o].bonus || 0))
+    + 0.25 * (after[me].field.reduce((s, u) => s + g1BloodSum(u), 0) - after[o].field.reduce((s, u) => s + g1BloodSum(u), 0))   // v3.87 [피의 맹세]: 다음 턴 오를 공격
+    + 0.25 * (gbFireSum(after[o], after[me]) - gbFireSum(after[me], after[o]));   // v3.88 화상 · 화약통: 다음 턴 깎일 체력
 }
 /* 지금 배치로 전투를 n번 굴려 평균 점수 (me 기준). hideOf: 그 플레이어의 마법은 모르는 것으로 */
 function simulate(players, attacker, turn, me, hideOf, n) {
@@ -1473,11 +1483,7 @@ function uBombs(X, sweep) {
       const k = uK(u);
       if (k.fuse == null || k.fuse >= X.turn) continue;
       step(X, { act: u.uid }, 400);
-      const tg = queueOf(o).slice(0, 3);
-      lg(X, `[시한 화약] 불붙은 화약통이 터졌다 → ${tg.map(x => C(x).name).join(" · ") || "맞은 유닛 없음"}`, "bad");
-      for (const x of tg) hurt(X, x, 3, "화약");
-      u.t.alive = false; any = true;
-      step(X, { act: u.uid, hit: true }, 520);
+      gbKegBurst(X, p, u); any = true;   // v3.88 화약통 깔기로 놓인 것(keep.face)은 마주 보는 상대에게 화상
     }
   }
   if (any) sweep();
@@ -1584,10 +1590,21 @@ function abLeech(X, u, got) {
 /* [출혈 N]: 맞붙어(공격 · 반격) 피해를 준 상대가 살아남으면 그 유닛에 출혈 +N — 걸 때마다 쌓인다(t.bleed, 이번 턴만 · resetTurn이 지움).
    그 뒤 전장에서 맞붙음이 하나 시작될 때마다(abBleedTick, runCombatCore) 출혈 유닛마다 체력 −출혈(방어 · 보호막 · 바다의 보호와 상관없이. v3.74 [가호 N]만 틱마다 N 줄인다).
    출혈로 쓰러지면 마지막으로 출혈을 건 유닛이 쓰러뜨린 것으로 친다 — [강탈] · [제물] 모두 센다(사용자 결정). 그 유닛이 먼저 쓰러져 치워졌어도 X.bleedSrc로 찾는다 */
+const A2_HOLY_CUT = 1;   // v3.90 빛의 몸: 천족 유닛이 받는 출혈 −1
+const a2Holy = u => !!(u && isUnit(u) && C(u) && (C(u).g === "A2" || /(^|-)A2(-|$)/.test(u.id)));
 function abBleedOn(X, src, tgt) {
   const n = abilOf(src).bleed;
   if (!(n > 0) || !tgt.t.alive) return;
-  if (abilOf(tgt).purify) { fl(X, tgt.uid, "정화 · 출혈 없음", "shield block"); return; }   // v3.74 [정화] 유닛에게는 출혈이 붙지 않는다
+  if (tgt.t.noBleed) { fl(X, tgt.uid, "정화 · 출혈 없음", "shield block"); return; }   // v3.89 마법이 이번 턴 걸어 준 [정화](mrPurge)만 출혈을 막는다 — v3.90 유닛의 [정화]는 막지 않음(사용자 결정)
+  if (a2Holy(tgt)) {   // v3.90 빛의 몸: 천족 유닛은 출혈이 1 적게 붙는다(0이면 안 붙음) — 마렌시아의 물의 몸(화상 −1)과 같은 꼴
+    const m = n - A2_HOLY_CUT;
+    if (!(m > 0)) { fl(X, tgt.uid, "빛의 몸 · 출혈 없음", "shield block"); lg(X, `[출혈] ${C(tgt).name}은(는) 빛의 몸이라 출혈이 붙지 않았다`, "sys"); return; }
+    tgt.t.bleed = (tgt.t.bleed || 0) + m; tgt.t.bleedBy = src.uid;
+    X.bleedSrc = X.bleedSrc || {}; X.bleedSrc[src.uid] = src;
+    fl(X, tgt.uid, "출혈 " + tgt.t.bleed, "debuff");
+    lg(X, `[출혈 ${n}] ${C(tgt).name}에 출혈 ${m}이 걸렸다(빛의 몸 −${A2_HOLY_CUT}) — 맞붙음이 시작될 때마다 체력 −${tgt.t.bleed}`, "sys");
+    return;
+  }
   tgt.t.bleed = (tgt.t.bleed || 0) + n; tgt.t.bleedBy = src.uid;
   X.bleedSrc = X.bleedSrc || {}; X.bleedSrc[src.uid] = src;
   fl(X, tgt.uid, "출혈 " + tgt.t.bleed, "debuff");
@@ -1684,6 +1701,10 @@ function mrHeal(X) {
   }
 }
 
+/* v3.89 물의 몸: 마렌시아의 노래(G3) 카드인 유닛은 받는 [화상]이 붙을 때마다 1 줄어든다(0이면 안 붙음) — gbScorch.
+   빼앗은 · 넘어온 유닛도 카드 깃발로 본다. 무작위 없음 */
+const MR_WET_CUT = 1;
+const mrWet = u => !!(u && isUnit(u) && C(u) && (C(u).g === "G3" || /(^|-)G3(-|$)/.test(u.id)));
 /* v3.68 인어 마법 효과 (카드는 js/mermaid.js)
    randSwap { n }: 상대 유닛 가운데 무작위 n기의 공격과 (남은) 체력을 맞바꾼다 — 판 시드(RNG)로 고른다. 공격이 0이던 유닛은 체력 0이 되어 쓰러진다.
    mindCapture: 이 마법 바로 뒤 내 카드와 이름 글자 수(띄어쓰기 빼고)가 같은 상대 카드 가운데 맨 앞 1장을 빼앗는다(유닛 · 아직 발동하지 않은 마법).
@@ -1708,6 +1729,23 @@ Object.assign(SPELL_OPS, {
     const before = o.field.includes(tg);
     stealCard(X, caster, it, tg);
     if (before && !o.field.includes(tg) && isUnit(tg)) { tg.tokTemp = false; if (tg.t) tg.t.stolen = false; fl(X, tg.uid, "포획", "debuff"); }   // 판이 끝날 때까지 내 유닛
+  },
+  /* v3.89 mrPurge { area }: 아군에게 이번 턴 [정화] — 지금 붙은 화상 · 불씨 · 계약의 낙인을 바로 지우고(전투 시작의 정화는 이미 지나서),
+     이번 턴 [출혈]이 붙지 않는다(abilOf purify). 다음 턴에는 남지 않는다 */
+  mrPurge(X, caster, it, k, op) {
+    const L = pickTargets(X, caster, "ally", op.area || { t: "all" }, k);
+    if (!L.length) { fl(X, it.uid, "대상 없음", "miss"); return; }
+    for (const u of L) {
+      u.t.gx = mergeAbil(u.t.gx || {}, { purify: true }); u.t.noBleed = true;   // v3.90 출혈 막기는 이 마법의 [정화]에만(t.noBleed — 유닛의 [정화]는 이제 출혈을 막지 않는다)
+      const kp = u.t.keep, had = [];
+      if (kp) {
+        if (kp.scorch > 0) { had.push("화상 " + kp.scorch); kp.scorch = 0; kp.scorchT = null; kp.burns = []; }
+        if (kp.ember != null) { had.push("불씨"); kp.ember = null; }
+        if (kp.brand) { had.push("낙인"); kp.brand = false; }
+      }
+      fl(X, u.uid, had.length ? "정화 · " + had.join(" · ") : "정화", "heal");
+      if (had.length) lg(X, `[정화] ${C(u).name}의 ${had.join(" · ")}을(를) 씻었다`, "good");
+    }
   },
   sortFoe(X, caster, it, k, op) {
     const o = X.P[1 - caster], slots = [], us = [];
@@ -1832,19 +1870,34 @@ Object.assign(SPELL_OPS, {
 });
 
 /* ---------- v3.73 잿불 고블린 (카드 데이터는 js/goblin.js) ----------
-   화상: 유닛의 keep.scorch(쌓인 값) · keep.scorchT(마지막으로 붙은 턴) · keep.scorchBy(붙인 유닛 uid). 턴이 지나도 남는다.
-     전투가 시작될 때(gbBurnTick, 불씨 다음 · 첫 마법 전) 지난 턴까지 붙은 화상이 한 번 체력을 깎고(방어 무시 — 보호막 · 가호 · 바다의 보호는 막음) 꺼진다.
-     이번 턴에 붙은 화상은 다음 턴 전투가 시작될 때 터진다. 화상으로 쓰러지면 붙인 유닛이 쓰러뜨린 것으로 친다.
-   [점화 N](ignite): 내 공격 차례에 맞붙기 바로 전에(사격과 같은 때) 남은 체력이 가장 높은 상대 유닛(같으면 앞)에게 화상 +N. 피해는 없다.
-   [화염 갑주 N](farmor): 이 유닛을 맞붙어 공격한 상대 유닛에게 화상 +N(공격자가 살아 있으면, 원거리도).
-   마법 효과: scorch { side, area, n } 화상 +n · detonate { bonus } 상대 유닛의 화상을 지금 모두 터뜨린다(화상 + bonus 피해, 방어 무시) ·
-     scorchMod { side, area, a } 그 범위에서 화상이 있는 유닛만 공격 +a. 무작위 없음. */
-function gbScorch(X, u, n, by, cls) {   // cls: 떠오르는 글자에 덧붙일 갈래(소리 고르기용, 예: [화염 갑주] "farmor")
-  if (!u || !u.t || !u.t.alive || !(n > 0)) return;
+   화상(v3.88): 유닛의 keep.burns = [{ n, t, by }] — [화상 N]이 [가시]처럼 따로따로 쌓인다(N이 더해지지 않음). n 수치 · t 붙은 턴 · by 붙인 유닛 uid.
+     keep.scorch = 모두 더한 값 · keep.scorchT = 마지막으로 붙은 턴(다른 규칙이 읽는 값: 재생 멈춤 · [정화] · [불꽃 사냥]). 다른 곳이 scorch를 0으로 지우면 burns도 꺼진다(gbBurns).
+     전투가 시작될 때(gbBurnTick, 불씨 다음 · 첫 마법 전) 지난 턴까지 붙은 [화상 N]마다 체력 −N(방어 무시 — 보호막 · 가호 · 바다의 보호는 막음) 뒤 꺼지고,
+     N이 2 이상이면 양옆 아군 유닛(대기열 바로 앞 · 뒤)에게 [화상 N−1]이 옮겨붙는다(옮겨붙은 화상은 다음 턴에 터짐). 화상으로 쓰러지면 처음 붙인 유닛이 쓰러뜨린 것으로 친다.
+   [점화 N](ignite): 내 공격 차례에 맞붙기 바로 전에(사격과 같은 때) 남은 체력이 가장 높은 상대 유닛(같으면 앞)에게 [화상 N]. 피해는 없다.
+   [화염 갑주 N](farmor): 이 유닛을 맞붙어 공격한 상대 유닛에게 [화상 N](공격자가 살아 있으면. v3.88 원거리 공격자는 빼고 — 사용자 결정).
+   마법 효과: scorch { side, area, n } [화상 n] · detonate { bonus } 상대 유닛의 화상을 지금 모두 터뜨린다(화상마다 피해 + 유닛마다 bonus, 번짐도 그대로) ·
+     scorchMod { side, area, a } 그 범위에서 화상이 있는 유닛만 공격 +a · gbKegs { n } 화약통 깔기 · gbBlast { per, n } 화약고 폭파. 무작위 없음. */
+function gbBurns(u) {   // 지금 붙은 화상 목록(옛 기록 · 숫자만 고친 경우를 하나로 맞춤)
   const k = uK(u);
-  k.scorch = (k.scorch || 0) + n; k.scorchT = X.turn; if (by != null) k.scorchBy = by;
-  fl(X, u.uid, "화상 " + k.scorch, "debuff" + (cls ? " " + cls : ""));
-  lg(X, `[화상] ${C(u).name}에 화상 ${n} (모두 ${k.scorch}) — 다음 턴 전투가 시작될 때 체력 −${k.scorch}`, "sys");
+  if (!(k.scorch > 0)) { k.burns = []; k.scorch = 0; k.scorchT = null; return k.burns; }
+  const sum = Array.isArray(k.burns) ? k.burns.reduce((a, b) => a + b.n, 0) : -1;
+  if (sum !== k.scorch) k.burns = [{ n: k.scorch, t: k.scorchT == null ? -1 : k.scorchT, by: k.scorchBy != null ? k.scorchBy : null }];
+  return k.burns;
+}
+function gbSync(u) {
+  const k = uK(u), L = k.burns || [];
+  k.scorch = L.reduce((a, b) => a + b.n, 0);
+  if (!k.scorch) { k.burns = []; k.scorchT = null; } else k.scorchT = L.reduce((m, b) => Math.max(m, b.t), -1);
+}
+const gbBurnText = u => gbBurns(u).map(b => "화상 " + b.n).join(" · ");
+function gbScorch(X, u, n, by, cls) {   // cls: 떠오르는 글자에 덧붙일 갈래(소리 고르기용, 예: [화염 갑주] "farmor" · 번짐 "spread")
+  if (!u || !u.t || !u.t.alive || !(n > 0)) return;
+  if (mrWet(u)) { n -= MR_WET_CUT; if (!(n > 0)) { fl(X, u.uid, "물에 꺼짐", "miss"); lg(X, `[화상] ${C(u).name}은(는) 물의 몸이라 불이 붙지 않았다`, "sys"); return; } }   // v3.89 마렌시아의 노래 유닛은 화상 −1
+  const L = gbBurns(u); L.push({ n, t: X.turn, by: by != null ? by : null }); gbSync(u);
+  if (by != null) uK(u).scorchBy = by;
+  fl(X, u.uid, "화상 " + n, "debuff" + (cls ? " " + cls : ""));
+  lg(X, `[화상 ${n}] ${C(u).name}${cls === "spread" ? "에 불이 번졌다" : ""} (${gbBurnText(u)}) — 다음 턴 전투가 시작될 때 터진다`, "sys");
 }
 function gbIgnite(X, u) {
   const D = X.P[1 - X.ai], n0 = abilOf(u).ignite;
@@ -1861,28 +1914,64 @@ function gbIgnite(X, u) {
 }
 function gbArmor(X, Au, Du) {
   const n0 = abilOf(Du).farmor;
-  if (!(n0 > 0) || !Au.t.alive) return;
+  if (!(n0 > 0) || !Au.t.alive || abilOf(Au).ranged) return;   // v3.88 원거리 공격자에게는 옮겨붙지 않는다
   abilPieces(Du, "farmor", n0).forEach((n, i) => {   // v3.84 [화염 갑주]가 여러 칸이면 칸마다 따로
     if (i) step(X, { tgt: Au.uid }, PIECE_MS);
     lg(X, `[화염 갑주 ${n}] ${C(Du).name}을(를) 친 ${C(Au).name}에 불이 옮겨붙었다`, "sys");
     gbScorch(X, Au, n, Du.uid, "farmor");
   });
 }
-function gbBurn(X, p, u, extra) {
-  const k = uK(u), n = (k.scorch || 0) + (extra || 0);
-  k.scorch = 0; k.scorchT = null;
-  if (!(n > 0)) return;
-  lg(X, `[화상] ${C(u).name}의 화상이 터졌다 — 체력 −${n}`, "bad");
-  hurt(X, u, n, "화상");
-  if (!u.t.alive && k.scorchBy != null) { const o = X.P.find(q => q !== p); if (o && o.field.some(x => x && x.uid === k.scorchBy)) u.t.killer = k.scorchBy; }
+/* 화상 터뜨리기: 고른 [화상]들이 체력을 깎고 꺼진 뒤, N ≥ 2면 양옆에 [화상 N−1]. due(b) = 이번에 터질 화상인지. extra = 유닛마다 한 번 더하는 피해(기폭) */
+function gbBurnUnits(X, p, units, due, extra) {
+  const Q = queueOf(p), jobs = [];
+  for (const u of units) {
+    if (!u.t.alive) continue;
+    const L = gbBurns(u), go = L.filter(due);
+    if (!go.length && !extra) continue;
+    uK(u).burns = L.filter(b => !go.includes(b)); gbSync(u);
+    const i = Q.indexOf(u);
+    jobs.push({ u, go, nb: [Q[i - 1], Q[i + 1]].filter(Boolean) });
+  }
+  for (const j of jobs) {
+    const u = j.u, o = X.P.find(q => q !== p);
+    j.go.concat(extra ? [{ n: extra, by: null, bonus: true }] : []).forEach((b, i) => {
+      if (!u.t.alive) return;
+      if (i) step(X, { tgt: u.uid }, PIECE_MS);
+      lg(X, b.bonus ? `[기폭] ${C(u).name} 체력 −${b.n} 더` : `[화상 ${b.n}] ${C(u).name}의 화상이 터졌다 — 체력 −${b.n}`, "bad");
+      hurt(X, u, b.n, "화상");
+      if (!u.t.alive && b.by != null && o && o.field.some(x => x && x.uid === b.by)) u.t.killer = b.by;
+    });
+  }
+  for (const j of jobs) for (const b of j.go) if (b.n >= 2) for (const v of j.nb) gbScorch(X, v, b.n - 1, b.by, "spread");
+  return jobs.length > 0;
 }
+function gbBurn(X, p, u, extra) { gbBurnUnits(X, p, [u], () => true, extra); }   // 옛 이름(기폭 · 다른 규칙이 부름)
 function gbBurnTick(X, sweep) {
   let any = false;
-  for (const p of X.P) for (const u of liveUnits(p)) {
-    const k = u.t.keep; if (!k || !(k.scorch > 0) || k.scorchT == null || k.scorchT >= X.turn) continue;
-    gbBurn(X, p, u); any = true;
-  }
+  for (const p of X.P) any = gbBurnUnits(X, p, liveUnits(p), b => b.t < X.turn) || any;
   if (any) { step(X, {}, 420); sweep(); }
+}
+/* v3.88 화약통 깔기(TK-U-BOMB, keep.face = 화상 수치): 터질 때 마주 보는 상대 유닛(대기열 같은 차례, 없으면 가장 가까운 뒤쪽 유닛)에게 [화상 face] */
+function gbKegFace(X, p, keg) {   // 화약통의 차례 = 아군 전장 유닛 가운데 몇째인지(먼저 터진 화약통도 센다 — 같은 때 터지므로)
+  const o = X.P.find(q => q !== p), Q = queueOf(o);
+  if (!Q.length) return null;
+  const col = Math.max(0, p.field.filter(x => isUnit(x) && x.t && (x.t.alive || x.id === "TK-U-BOMB")).indexOf(keg));
+  return Q[Math.min(col, Q.length - 1)];
+}
+function gbKegBurst(X, p, keg) {
+  const k = uK(keg), o = X.P.find(q => q !== p);
+  if (k.face > 0) {
+    const tg = gbKegFace(X, p, keg);
+    lg(X, `[화약통] 불붙은 화약통이 터졌다 → ${tg ? C(tg).name : "맞은 유닛 없음"}`, "bad");
+    step(X, tg ? { act: keg.uid, tgt: tg.uid } : { act: keg.uid }, 360);
+    if (tg && !uEyeDodge(X, o, tg)) gbScorch(X, tg, k.face, null);
+  } else {
+    const tg = queueOf(o).slice(0, 3);
+    lg(X, `[시한 화약] 불붙은 화약통이 터졌다 → ${tg.map(x => C(x).name).join(" · ") || "맞은 유닛 없음"}`, "bad");
+    for (const x of tg) hurt(X, x, 3, "화약");
+  }
+  keg.t.alive = false;
+  step(X, { act: keg.uid, hit: true }, 420);
 }
 Object.assign(SPELL_OPS, {
   scorch(X, caster, it, k, op) {
@@ -1894,7 +1983,36 @@ Object.assign(SPELL_OPS, {
     const o = X.P[1 - caster];
     const L = liveUnits(o).filter(u => u.t.keep && u.t.keep.scorch > 0);
     if (!L.length) { lg(X, "화상이 붙은 상대 유닛이 없다", "sys"); return; }
-    for (const u of L) if (u.t.alive) gbBurn(X, o, u, op.bonus || 0);
+    gbBurnUnits(X, o, L, () => true, op.bonus || 0);
+    step(X, {}, 360);
+  },
+  /* v3.88 화약통 깔기: 이 마법 자리와 아군 빈 칸마다 불붙은 화약통(0/0/2, 공격 · 반격 안 함). 다음 턴 첫 공격 전에 터져 마주 보는 상대에게 [화상 n] */
+  gbKegs(X, caster, it, k, op) {
+    const p = X.P[caster]; let n = 0;
+    const own = it.echo ? -1 : p.field.indexOf(it);
+    for (let s = 0; s < p.field.length; s++) {
+      if (p.field[s] !== null && s !== own) continue;
+      const u = { uid: tokUid(X), id: "TK-U-BOMB", item: null, summoned: X.turn };
+      resetTurn(u); u.t.keep = { fuse: X.turn, face: op.n || 3 };
+      if (s === own) X.tokFrom = it.uid;
+      p.field[s] = u; X.toks[u.uid] = u.id; n++;
+      fl(X, u.uid, "화약통", "buff");
+    }
+    lg(X, n ? `[화약통 깔기] 불붙은 화약통 ${n}개 — 다음 턴 첫 공격 전에 터져 마주 보는 상대 유닛에게 [화상 ${op.n || 3}]` : "화약통을 놓을 빈 칸이 없다", n ? "good" : "sys");
+    if (n) step(X, { conjure: p.field.filter(x => x && x.id === "TK-U-BOMB" && x.summoned === X.turn).map(x => x.uid)[0] }, 650);
+  },
+  /* v3.88 화약고 폭파(사용자 설계): 아군 화약통 N개를 모두 터뜨려 부순다(화약통마다의 화상은 없음).
+     상대 맨 앞부터 N기에게 체력 −N² · [화상 n](기본 2), 아군 유닛 전체에게 체력 −N(부서진 화약통 자신은 이미 없으므로 맞지 않음). 화약통이 없으면 아무 일도 없다 */
+  gbBlast(X, caster, it, k, op) {
+    const p = X.P[caster], o = X.P[1 - caster];
+    const kegs = liveUnits(p).filter(u => u.id === "TK-U-BOMB"), n = kegs.length;
+    if (!n) { lg(X, "[화약고 폭파] 터뜨릴 화약통이 없다", "sys"); return; }
+    for (const kg of kegs) { kg.t.alive = false; fl(X, kg.uid, "폭발", "debuff"); }
+    step(X, { shatter: kegs.map(x => x.uid) }, 420);
+    const L = uEyeFilter(X, o, queueOf(o).slice(0, n)), mine = liveUnits(p);
+    lg(X, `[화약고 폭파] 화약통 ${n}개가 한꺼번에 터졌다 → ${L.map(x => C(x).name).join(" · ") || "맞은 상대 없음"} 체력 −${n * n} · [화상 ${op.n || 2}], 아군 전체 체력 −${n}`, "bad");
+    for (const tg of L) { if (!tg.t.alive) continue; step(X, { tgt: tg.uid }, 220); hurt(X, tg, n * n, "화약"); gbScorch(X, tg, op.n || 2, null); }
+    for (const u of mine) if (u.t.alive) hurt(X, u, n, "화약");
     step(X, {}, 360);
   },
   scorchMod(X, caster, it, k, op) {
@@ -1912,7 +2030,7 @@ Object.assign(SPELL_OPS, {
      체력 ▼눌림이면 체력은 차지 않는다(흡혈과 같음). 받은 피해는 어차피 턴이 끝나면 낫기 때문에 전투 도중에만 뜻이 있다.
    [방패 반격](bash, 드워프): 반격할 때 피해에 지금 방어를 더한다(attackOne 반격 줄). 공격할 때는 보통.
    [수호](taunt, 드워프): 마법 [수호]와 같은 규칙을 늘 가진다 — resetTurn이 t.taunt를 켠다. 능력 끄기 "수호"로 꺼진다.
-   [정화](purify, 천족): 전투가 시작될 때(불씨 · 화상이 타기 전) 이 유닛과 양옆 1칸 아군의 화상 · 불씨 · 계약의 낙인을 지운다. 이 유닛에게는 출혈이 붙지 않는다(abBleedOn).
+   [정화](purify, 천족): 전투가 시작될 때(불씨 · 화상이 타기 전) 이 유닛 자신의 화상 · 불씨 · 계약의 낙인을 지운다(v3.90 자기만 · 출혈은 막지 않음 — 대신 천족 유닛 전체가 빛의 몸으로 출혈 −1, abBleedOn).
    [굳건](firm, 드워프): 상대가 자리를 바꾸거나(swapPos · mirror · sortFoe) 빼앗거나(stealCard · paidSteal · mindCapture · 세이렌의 노래) 행동 불가(rest)로 묶지 못한다. 내 마법(후퇴 · 수호 마법)은 그대로.
    [요격](intercept, 노움): [원거리] 공격자에게도 반격한다(attackOne 반격 줄). 무작위 없음. */
 const nwFirm = u => !!(u && isUnit(u) && u.t && abilOf(u).firm);
@@ -1949,7 +2067,9 @@ function nwPurify(X) {
   for (const p of X.P) {
     const us = liveUnits(p).sort((a, b) => colOf(p, a) - colOf(p, b));
     const hit = new Set();
-    us.forEach((u, i) => { if (abilOf(u).purify) for (const j of [i - 1, i, i + 1]) if (us[j]) hit.add(us[j]); });
+    us.forEach(u => { if (abilOf(u).purify) hit.add(u); });   // v3.90 자기만 씻는다(전: 양옆 1칸까지 — 사용자 결정)
+    { const got = a2LightAdd(X, X.P.indexOf(p), hit.size, "정화 유닛");   // v3.90 새벽빛 잇기: 전투가 시작될 때 살아 있는 [정화] 유닛 하나마다 [새벽빛] +1(인내의 기도를 쓴 뒤부터 · 씻을 것이 없어도)
+      if (got) { for (const u of hit) fl(X, u.uid, "새벽빛 +1", "heal"); lg(X, `[새벽빛] [정화] 유닛 ${hit.size}기 — 새벽빛 +${got} (${p.light})`, "good"); } }
     for (const v of hit) {
       const k = v.t.keep; if (!k) continue;
       const had = [];
@@ -1957,6 +2077,7 @@ function nwPurify(X) {
       if (k.ember != null) { had.push("불씨"); k.ember = null; }
       if (k.brand) { had.push("낙인"); k.brand = false; }
       if (!had.length) continue;
+      a2LightAdd(X, X.P.indexOf(p), had.length, "정화");   // v3.86 [새벽빛]: 씻은 것 하나마다 1
       fl(X, v.uid, "정화", "heal");
       lg(X, `[정화] ${C(v).name}의 ${had.join(" · ")}을(를) 지웠다`, "good");
     }
@@ -2058,6 +2179,7 @@ function a2Blk(X, u, v) {   // hurt가 부른다: 보호막 · 가호로 막은 
   const i = a2SideIdx(X, u); if (i < 0) return;
   if (!X.a2Blk || X.a2Blk.turn !== X.turn) X.a2Blk = { turn: X.turn, v: [0, 0] };
   X.a2Blk.v[i] += v;
+  a2LightAdd(X, i, v, "막음");   // v3.86 [새벽빛]
 }
 function a2RetribEnd(X, sweep) {
   const R = X.a2Ret; if (!R) return;
@@ -2119,6 +2241,91 @@ Object.assign(SPELL_OPS, {
     X.a2Ret = X.a2Ret || {}; (X.a2Ret[caster] = X.a2Ret[caster] || []).push(op.cap || 8);
     fl(X, it.uid, "응보 준비", "buff");
     lg(X, "[응보의 빛] 전투가 끝날 때 이번 턴 막은 피해만큼 되돌린다", "sys");
+  }
+});
+
+/* ---------- v3.86 성광 천족: 새벽빛 · 순교 (카드 데이터는 js/celestial.js) ----------
+   천족의 역전 콤보 — 트롤(체력) · 드워프(방어)는 지금 가진 스탯을 바로 공격으로 바꾸지만, 천족은 "버틴 시간"을 모았다가 한 번에 돌려준다.
+   [새벽빛] p.light: 판 내내 남는 플레이어 몫(없음 = undefined, 켜지면 0 이상, 최대 A2_LIGHT_CAP). 전투 복제(cloneForCombat · cloneSide) · 기록(recPush snap) · applySnap이 실어 나른다.
+     모이는 곳: 아군 유닛이 보호막 · 보호막 코인 · 가호로 막은 피해(a2Blk) · [정화]가 지운 화상 · 불씨 · 낙인 하나마다 1(nwPurify) ·
+     전투가 끝날 때 이번 턴 깎인 생명(켜진 때부터, 회복을 뺀 순손실)의 절반(내림, a2LightEnd).
+   a2Vigil: 새벽빛을 켠다(이미 켜져 있으면 그대로). 같은 마법의 grant가 [가호 1]을 건다.
+   a2Dawn: 새벽빛을 모두 쓴다 — 새벽빛 + 내 생명이 상대보다 적은 만큼(새벽빛을 켠 판만)을, 공격이 가장 높은 상대 유닛부터(같으면 앞 칸) 그만큼 체력을 깎고(방어 · 보호막 무시), 쓰러뜨리면 남은 몫은 다음 유닛에게.
+     (v3.86 잰 값: 밀린 생명을 더하지 않으면 생명 10~19 밀린 판 승률이 그대로 8~9% — 막은 피해가 거의 다라서 앞설 때나 밀릴 때나 똑같이 모였다. 더하면 11%, 전체 승률 그대로)
+     그래도 남은 몫은 내 생명으로(생명 상한까지). 새벽빛은 0이 되고 켜진 채 다시 모인다.
+   a2Martyr: 이번 턴(이 전투) 이 마법 주인 쪽 유닛이 쓰러질 때마다 양옆(칸 순서로 가장 가까운 살아 있는 아군 유닛)에게 [보호막].
+     sweep이 쓰러진 유닛을 치우기 전에(uPreSweep 다음) a2MartyrSweep이 본다. 이미 보호막이 있으면 그대로. */
+const A2_LIGHT_CAP = 12;
+function a2LightAdd(X, i, v, why) {
+  const p = X.P[i]; if (!p || p.light == null || !(v > 0)) return 0;
+  const b = p.light; p.light = Math.min(A2_LIGHT_CAP, b + v);
+  const got = p.light - b;
+  if (got) { X.a2LightGot = X.a2LightGot || [0, 0]; X.a2LightGot[i] += got; }
+  return got;
+}
+function a2LightStart(X) {
+  X.a2LifeAt = X.P.map(p => (p.light != null ? p.life : null));
+}
+function a2LightEnd(X) {
+  for (let i = 0; i < 2; i++) {
+    const p = X.P[i]; if (p.light == null) continue;
+    const at = X.a2LifeAt && X.a2LifeAt[i];
+    if (at != null && at - p.life >= 2) a2LightAdd(X, i, Math.floor((at - p.life) / 2), "생명");
+    const got = X.a2LightGot ? X.a2LightGot[i] : 0;
+    if (got) { lg(X, `[새벽빛] ${p.name}이(가) 이번 턴 새벽빛 ${got}을 모았다 (지금 ${p.light} / ${A2_LIGHT_CAP})`, "good"); fl(X, "life" + i, "새벽빛 +" + got, "heal"); }
+  }
+  X.a2LightGot = null;
+}
+function a2MartyrSweep(X) {
+  const M = X.a2Mar; if (!M) return;
+  for (let i = 0; i < 2; i++) {
+    if (!M[i]) continue;
+    const p = X.P[i], us = p.field.filter(it => isUnit(it) && it.t);
+    us.forEach((v, k) => {
+      if (v.t.alive || v.t.a2Mar || v.phantom) return;
+      v.t.a2Mar = true;
+      const got = [];
+      for (const d of [-1, 1]) {
+        let j = k + d; while (us[j] && !us[j].t.alive) j += d;
+        const w = us[j]; if (!w || w.t.shield === true) continue;
+        w.t.shield = true; got.push(w); fl(X, w.uid, "순교 · 보호막", "shield");
+      }
+      if (got.length) lg(X, `[순교의 서약] 쓰러진 ${C(v).name}의 빛이 ${got.map(w => C(w).name).join(" · ")}에게 [보호막]이 되었다`, "good");
+    });
+  }
+}
+Object.assign(SPELL_OPS, {
+  a2Vigil(X, caster, it, k, op) {
+    const p = X.P[caster];
+    if (p.light == null) {
+      p.light = 0; X.a2LifeAt = X.a2LifeAt || [null, null]; X.a2LifeAt[caster] = p.life;
+      fl(X, it.uid, "새벽빛 모으기", "buff");
+      lg(X, `[인내의 기도] ${p.name}이(가) 이 판 동안 새벽빛을 모은다 — 막은 피해 · 정화 · 깎인 생명의 절반 (최대 ${A2_LIGHT_CAP})`, "spell");
+    } else { fl(X, it.uid, "새벽빛 " + p.light, "buff"); lg(X, `[인내의 기도] 새벽빛은 이미 모이고 있다 (지금 ${p.light})`, "sys"); }
+  },
+  a2Dawn(X, caster, it, k, op) {
+    const p = X.P[caster], F = X.P[1 - caster], L0 = p.light || 0;
+    const behind = p.light == null ? 0 : Math.max(0, F.life - p.life);   // 가장 어두울 때 새벽이 가장 밝다: 내 생명이 상대보다 적은 만큼 더 푼다
+    if (!(L0 + behind)) { fl(X, it.uid, "새벽빛 없음", "miss"); lg(X, `[새벽의 해방] ${p.light == null ? "모으던 새벽빛이 없다(인내의 기도로 모은다)" : "모은 새벽빛이 0이고 생명도 밀리지 않았다"}`, "sys"); return; }
+    p.light = 0;
+    let rem = L0 + behind;
+    const T = uEyeFilter(X, F, liveUnits(F)).sort((a, b) => b.t.a - a.t.a || colOf(F, a) - colOf(F, b));
+    const hit = [];
+    for (const tg of T) {
+      if (rem <= 0) break;
+      const x = Math.min(rem, hpLeft(tg)); if (x <= 0) continue;
+      rem -= x; tg.t.dmg += x; hit.push(`${C(tg).name} −${x}`);
+      fl(X, tg.uid, "새벽빛 −" + x, "dmg big");
+      if (hpLeft(tg) <= 0) { tg.t.alive = false; lgDeath(X, tg); }
+    }
+    let heal = 0;
+    if (rem > 0) { const b = p.life; p.life = Math.min(RULES.lifeCap, p.life + rem); heal = p.life - b; if (heal) fl(X, "life" + caster, "+" + heal, "heal"); }
+    lg(X, `[새벽의 해방] 새벽빛 ${L0}${behind ? ` + 밀린 생명 ${behind}` : ""}을 모두 풀었다${hit.length ? " → " + hit.join(" · ") : ""}${heal ? ` · 남은 빛으로 ${p.name} 생명 +${heal}` : ""}`, "spell");
+  },
+  a2Martyr(X, caster, it, k, op) {
+    X.a2Mar = X.a2Mar || [false, false]; X.a2Mar[caster] = true;
+    fl(X, it.uid, "순교의 서약", "buff");
+    lg(X, "[순교의 서약] 이번 턴 아군이 쓰러질 때마다 양옆 아군에게 [보호막]", "sys");
   }
 });
 
@@ -2290,5 +2497,62 @@ Object.assign(SPELL_OPS, {
       const tx = [ra ? "⚔" + sgnNum(ra) : "", rd ? "⛨" + sgnNum(rd) : "", rh ? "♥" + sgnNum(rh) : ""].filter(Boolean).join(" ");
       if (tx) fl(X, u.uid, tx, "buff");
     }
+  }
+});
+
+/* ---------- v3.87 바위주먹 오크: 피의 맹세(RS-G1-2) · 원한의 일격(MG-04) (카드 데이터 js/orc.js, 사용자 설계) ----------
+   g1Oath: 방어 마법이 발동하면 그때 살아 있는 아군 유닛마다 피 하나(🩸, t.blood = [{u, n, a}])를 맺는다.
+     결속한 유닛이 쓰러지면(sweep 직전 g1OathSweep) 자기 피 + 받은 피가 모두 바로 뒤 유닛에게 옮겨 간다. 그 유닛도 쓰러지면 또 뒤로.
+     옮길 유닛이 없으면 흩어진다. 피의 값 = 그 피 주인이 쓰러질 때의 공격(코인 몫 cb는 빼고, 0 아래는 0).
+     전투가 끝날 때(g1OathEnd) 살아남은 유닛이 남의 피를 가졌으면 t.keep.blood = { turn: 다음 턴, v: [{a, n}] }.
+     다음 턴 준비(resetTurn)에서 그 턴 동안 공격 + 합. 다음 턴 전투가 끝나면 지운다. 자기 피(쓰러지지 않음)는 값이 없다.
+   g1Grudge { area }: 대상 공격 + (내 소각장의 유닛 카드 수). */
+function g1BloodSum(it) { const b = it && it.t && it.t.keep && it.t.keep.blood; return b && b.v ? b.v.reduce((s, e) => s + e.a, 0) : 0; }
+function g1OathSweep(X) {
+  if (!X.g1Oath) return;
+  for (const p of X.P) {
+    const F = p.field;
+    for (let s = 0; s < F.length; s++) {
+      const v = F[s];
+      if (!isUnit(v) || !v.t || v.t.alive || v.phantom || v.t.bloodGone || !(v.t.blood && v.t.blood.length)) continue;
+      v.t.bloodGone = true;
+      for (const e of v.t.blood) if (e.u === v.uid && e.a == null) e.a = Math.max(0, v.t.a);
+      let w = null;
+      for (let j = s + 1; j < F.length && !w; j++) if (isUnit(F[j]) && F[j].t && !F[j].phantom && !F[j].tokTemp && !F[j].t.bloodGone) w = F[j];
+      const L = v.t.blood; v.t.blood = [];
+      if (!w) { lg(X, `[피의 맹세] ${C(v).name}의 피 ${L.length}개가 이어 줄 아군이 없어 흩어졌다`, "sys"); continue; }
+      w.t.blood = (w.t.blood || []).concat(L);
+      fl(X, w.uid, "🩸+" + L.length, "buff blood");
+      lg(X, `[피의 맹세] 쓰러진 ${C(v).name}의 피 ${L.length}개가 ${C(w).name}에게 옮겨 갔다 (지금 ${w.t.blood.length}개)`, "spell");
+    }
+  }
+}
+function g1OathEnd(X) {
+  for (const p of X.P) for (const u of p.field) {
+    if (!isUnit(u) || !u.t) continue;
+    const k = u.t.keep;
+    if (k && k.blood && k.blood.turn <= X.turn) delete k.blood;   // 지난 턴 피는 이번 턴에 썼다
+    if (!u.t.alive || u.tokTemp || !u.t.blood) continue;
+    const got = u.t.blood.filter(e => e.a != null);
+    if (!got.length) continue;
+    uK(u).blood = { turn: X.turn + 1, v: got.map(e => ({ a: e.a, n: e.n })) };
+    lg(X, `[피의 맹세] ${C(u).name}이(가) 피 ${got.length}개를 머금었다 — 다음 턴 공격 +${got.reduce((s, e) => s + e.a, 0)} (${got.map(e => e.n + " " + e.a).join(" · ")})`, "good");
+  }
+}
+Object.assign(SPELL_OPS, {
+  g1Oath(X, caster, it, k, op) {
+    const L = liveUnits(X.P[caster]).filter(u => !u.phantom && !(u.t.blood && u.t.blood.some(e => e.u === u.uid)));
+    if (!L.length) { fl(X, it.uid, "결속할 아군 없음", "miss"); lg(X, "[피의 맹세] 결속할 아군이 없다", "sys"); return; }
+    X.g1Oath = true;
+    for (const u of L) { u.t.blood = (u.t.blood || []).concat([{ u: u.uid, n: C(u).name, a: null }]); fl(X, u.uid, "🩸 피의 결속", "buff blood"); }
+    lg(X, `[피의 맹세] 아군 ${L.length}기가 피로 결속했다 — 쓰러지면 피가 뒤 아군에게 옮겨 가고, 피를 받고 살아남은 유닛은 다음 턴 그 공격만큼 강해진다`, "spell");
+  },
+  g1Grudge(X, caster, it, k, op) {
+    const p = X.P[caster], n = (p.burn || []).filter(id => CARDS[id] && CARDS[id].type === "unit").length;
+    const L = pickTargets(X, caster, "ally", op.area || { t: "back", n: 1 }, k);
+    if (!L.length) { fl(X, it.uid, "대상 없음", "miss"); return; }
+    if (!n) { fl(X, it.uid, "소각장에 유닛 없음", "miss"); lg(X, "[원한의 일격] 소각장에 유닛이 없어 원한이 없다", "sys"); return; }
+    for (const u of L) addStat(X, u, "a", n);
+    lg(X, `[원한의 일격] 소각장의 유닛 ${n}장 → ${L.map(u => C(u).name).join(" · ")} 공격 +${n}`, "spell");
   }
 });

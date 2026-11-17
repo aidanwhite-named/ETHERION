@@ -288,9 +288,9 @@
    "cast": "a single long brass war horn blast echoes off a wall, then rows of boots begin pounding and a rising sword-rattle swell surges forward"
   },
   "SA2-02": {
-   "en": "Radiant Shield",
-   "ko": "빛이 방패 모양으로 맺힘",
-   "cast": "a small glowing disc coalesces from tiny sparkling motes: a soft rising shimmer, a smooth glassy snap as it locks in, a gentle ring"
+   "en": "Prayer of Endurance",
+   "ko": "낮게 버티는 기도 · 막을 때마다 작은 빛 방울이 똑똑 쌓임",
+   "cast": "a low steady murmured prayer, two soft shield shimmers settling in, then a few tiny glassy droplet chimes stacking one on another like light collecting in a bowl"
   },
   "SA2-03": {
    "en": "Prayer of Silence",
@@ -308,9 +308,9 @@
    "cast": "a falling sword blow with a hard bright crack, followed by a recoil of light that swirls around the knight with a gentle shield chime"
   },
   "MA-10": {
-   "en": "Radiant Phalanx",
-   "ko": "방패들이 철컥 맞물려 진형",
-   "cast": "a long row of shields snap together one after another with sharp clacks, a spreading shimmer of light along the line, one coin-like chime"
+   "en": "Oath of the Martyr",
+   "ko": "쓰러지며 깃털처럼 흩어지는 빛 · 양옆에 방울 막이 맺힘",
+   "cast": "a quiet falling exhale and a soft armour slump, a breathy rush of scattering feathers of light, then two gentle glassy bubble chimes forming left and right"
   },
   "SA2-07": {
    "en": "Scales of Judgment",
@@ -318,9 +318,9 @@
    "cast": "a heavy brass balance sets down with a deep metallic thunk, its pans swing with a creaking chain jingle, then settle with one solemn low gong"
   },
   "MA-14": {
-   "en": "Solante's Judgment",
-   "ko": "적에겐 내리쬐고 아군은 감쌈",
-   "cast": "a vast eye-like radiance opens with a deep rising swell, harsh white light sears across the foe with a sizzling crackle, then softens into a warm sheltering hum"
+   "en": "Release of Dawn",
+   "ko": "모인 빛이 한꺼번에 터지는 동틈 · 끝에 따스한 잔빛",
+   "cast": "a deep swelling rumble rising like a sunrise, a bright bursting choir-chord whoosh of light sweeping outward with a sharp sizzle on impact, then fading into a warm soft healing shimmer"
   },
   "RA2-1": {
    "en": "Day of Judgment",

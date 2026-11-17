@@ -197,6 +197,9 @@
 .bd-sh .hs-ico { display: block; width: 1em; height: 1em; }
 /* v3.66.2 [축전] 플라즈마(js/game.js fieldCardHTML .bd-plasma): 글자 없이 ⚡만, 쌓인 만큼. 보호막 · 가시 표시와 같은 세로 줄에 따로 한 칸 */
 .c-badges .bd.bd-plasma { letter-spacing: -.12em; padding: .15em .32em .15em .2em; background: rgba(8, 18, 40, .78); box-shadow: 0 0 0 1px rgba(127, 214, 255, .55) inset; text-shadow: 0 0 6px #7fd6ff; }
+/* v3.87 [피의 맹세] 피(js/game.js .bd-blood): 🩸만, 개수만큼(4개부터 🩸×N). 다음 턴 준비 때 하나씩 사라지며 공격이 오른다(bloodRiseFx) */
+.c-badges .bd.bd-blood { letter-spacing: -.18em; padding: .15em .34em .15em .18em; background: rgba(40, 6, 8, .8); box-shadow: 0 0 0 1px rgba(220, 60, 60, .6) inset; text-shadow: 0 0 6px #ff3b3b; }
+.float.blood { color: #ff8a80; text-shadow: 0 0 8px #b71c1c, 0 1px 2px #000; }
 /* 마법 카드에서 [축전] 유닛으로 빨려 드는 빛 (plasmaDrain) */
 .plasma-spark { position: fixed; z-index: 86; width: 8px; height: 8px; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, #fff 0 30%, #9be6ff 55%, rgba(80, 170, 255, 0) 72%); }
 .plasma-spark.big { width: 14px; height: 14px; }

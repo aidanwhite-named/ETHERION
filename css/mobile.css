@@ -65,6 +65,9 @@ html.mobile .frow .card.fm .c-vstats .st b { font-size: 1.24em; }
 /* 카드를 눌러 크게 보기(오른쪽 창): 원본 카드를 키운다 */
 html.mobile .zoom { --card-full: 380px; }
 html.mobile .zoom .d-body p { font-size: 15px; }
+/* 2026-11-17 큰 카드는 누름을 받는다(PC는 pointer-events: none) — 특수능력을 보려고 큰 카드를 누르면 그 탭이 아래의
+   준비 완료 단추(폰은 내 전장 줄 오른쪽, 큰 카드 밑)로 새어 판이 넘어갔다. 큰 카드를 누르면 말풍선만 뜨고, 닫기는 빈 곳 누르기 */
+html.mobile .zoom.pinned { pointer-events: auto; }
 
 /* 시작 핸드(멀리건): 6장이 한 줄에 들어가게 */
 html.mobile .modal.mull-modal { width: min(1080px, 100%); }
