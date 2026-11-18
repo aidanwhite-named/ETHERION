@@ -12,7 +12,9 @@ this.side=side; this.fight=fight; this.prep=prep;`);
 const CARDS = c.ev('CARDS');
 // 카드 글
 for (const id of ['SA1-06', 'SA1-01', 'MA-04', 'SA1-02', 'MC-05', 'SA1-04', 'MA-16', 'MA-01', 'RS-A1-1', 'US-A1-1', 'CS-A1', 'PS-A1-2']) ok(CARDS[id], id + ' 있음');
-ok(/\[제물 2\]/.test(CARDS['MA-01'].text) && CARDS['MA-01'].cost.life === 2, 'MA-01 [제물 2] (v3.66: 마법이 [강탈]을 걸던 것 → [제물])');
+ok(!(CARDS['MA-01'].cost || {}).life && !/\[제물/.test(CARDS['MA-01'].text), 'MA-01 공포의 칼날은 제물을 내지 않는다 (v3.95 — 전: 피의 칼날 [제물 2])');
+// v3.95 피의 칼날이 [제물]을 내지 않게 되어, 생명 2를 내는 자리는 시험용 마법 T-PAY2(효과 없음 · [제물 2])로 본다
+c.ev(`CARDS['T-PAY2'] = Object.assign({}, CARDS['RS-A1-1'], { id: 'T-PAY2', name: '시험 제물', ops: [], cost: { life: 2 }, text: '[제물 2]' });`);
 ok(/\[제물 2\]/.test(CARDS['SA1-01'].text), '심연의 부름도 생명을 내므로 [제물]');
 ok(!/\[강탈\]/.test(CARDS['SA1-06'].text), '피의 제물은 생명을 내지 않음');
 ok(CARDS['A1-27'].gift.leech && !CARDS['A1-27'].gift.shred, '피의 군주 [흡혈] (관통 뺌)');
@@ -25,7 +27,7 @@ ok(c.ev('itemKwDesc("[흡혈]")').length > 10, '[흡혈] 뜻 글');
 // 강탈 없는 유닛은 생명 그대로
 { const P = [c.side(0, ['A1-15'], 30), c.side(1, ['A1-05'], 30)]; c.fight(P, 0); ok(P[0].life === 30, '강탈 없으면 생명 그대로'); }
 // 마법이 건 [강탈] + 대가
-{ const P = [c.side(0, ['MA-01', 'A1-15'], 30), c.side(1, ['A1-17'], 30)]; const X = c.fight(P, 0, 3);
+{ const P = [c.side(0, ['T-PAY2', 'A1-15'], 30), c.side(1, ['A1-17'], 30)]; const X = c.fight(P, 0, 3);
   ok(X.paid[0] === 2, '이번 턴 낸 대가 2'); ok(P[0].life > 28, '피의 칼날 [강탈]로 생명을 되찾음 (' + P[0].life + ')'); }
 // [흡혈]: 다친 몸을 채우고 넘치면 체력 +
 { const P = [c.side(0, ['A1-27'], 30), c.side(1, ['A1-17'], 30)]; c.prep(P); const u = P[0].field[0], f = P[1].field[0];
@@ -40,23 +42,23 @@ ok(c.ev('itemKwDesc("[흡혈]")').length > 10, '[흡혈] 뜻 글');
   P[0].field[0].t.noCoin = true;   // A1-02의 − 코인(체 −1) 앞면이면 쓰러져 공격하지 못한다 — 난수 순서에 따라 흔들리지 않게 코인을 끈다
   const want = Math.max(0, P[0].field[0].t.a - d.t.d) + 2; c.ev('attackOne')(X, P[0].field[0]); ok(d.t.dmg === want, '[그림자 걸음] 낮은 레벨에게는 피해 +2 (' + d.t.dmg + '/' + want + ')'); }
 // [피의 계약]: 생명을 낼 때마다 공격 +1
-{ const P = [c.side(0, ['MA-01', 'A1-01'], 30), c.side(1, ['A1-43'], 30)]; c.prep(P); const u = P[0].field[1], a0 = u.t.a;
+{ const P = [c.side(0, ['T-PAY2', 'A1-01'], 30), c.side(1, ['A1-43'], 30)]; c.prep(P); const u = P[0].field[1], a0 = u.t.a;
   const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1); ok(u.t.a === a0 + 1, '[피의 계약 1] 공격 +1'); }
 // 피의 공명: 낸 생명 + 1
-{ const P = [c.side(0, ['MA-01', 'MA-04'], 30), c.side(1, ['A1-43'], 30)]; c.prep(P); const f = P[1].field[0];
+{ const P = [c.side(0, ['T-PAY2', 'MA-04'], 30), c.side(1, ['A1-43'], 30)]; c.prep(P); const f = P[1].field[0];
   const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1); const d0 = f.t.dmg; c.ev('castSpell')(X, 0, P[0].field[1], 2); ok(f.t.dmg - d0 === 4, '피의 공명 피해 = 2 + 2 (' + (f.t.dmg - d0) + ')'); }
 // 피의 제물: 아군 2기 체력 −1 → 피해 4
 { const P = [c.side(0, ['SA1-06', 'A1-17', 'A1-17'], 30), c.side(1, ['A1-43'], 30)]; c.prep(P); const f = P[1].field[0];
   const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1); ok(f.t.dmg === 6 && P[0].field[1].t.dmg === 1, '피의 제물 2기 → 피해 6 (' + f.t.dmg + ')'); }
 // 심연의 부름: 소각장에서 레벨 ≤ 낸 생명
-{ const P = [c.side(0, ['MA-01', 'SA1-01'], 30), c.side(1, ['A1-43'], 30)]; P[0].burn = ['A1-29', 'A1-13', 'A1-07', 'MA-09']; c.prep(P);
+{ const P = [c.side(0, ['T-PAY2', 'SA1-01'], 30), c.side(1, ['A1-43'], 30)]; P[0].burn = ['A1-29', 'A1-13', 'A1-07', 'MA-09']; c.prep(P);
   const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1); c.ev('castSpell')(X, 0, P[0].field[1], 2);
   const u = P[0].field[1]; ok(u && u.id === 'A1-13' && !P[0].burn.includes('A1-13'), '심연의 부름: 낸 생명 4 → 3레벨 처형인 (' + (u && u.id) + ')'); }
 { const P = [c.side(0, ['SA1-01'], 30), c.side(1, ['A1-43'], 30)]; P[0].burn = ['A1-29']; c.prep(P);
   const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1); ok(P[0].field[0].id === 'SA1-01' && P[0].burn.length === 1, '심연의 부름: 레벨이 높으면 그대로'); }
 
 // 그림자 손아귀: 낸 생명 2 → 레벨 2 이하 상대 유닛 빼앗음
-{ const P = [c.side(0, ['MA-01', 'SA1-02'], 30), c.side(1, ['A1-29', 'A1-02', 'A1-41'], 30)]; c.prep(P);
+{ const P = [c.side(0, ['T-PAY2', 'SA1-02'], 30), c.side(1, ['A1-29', 'A1-02', 'A1-41'], 30)]; c.prep(P);
   const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1); c.ev('castSpell')(X, 0, P[0].field[1], 2);
   ok(P[0].field.some(u => u && u.id === 'A1-41' && u.t.stolen) && !P[1].field.some(u => u && u.id === 'A1-41'), '그림자 손아귀: 낸 생명 2 → 3레벨 이하 중 가장 높은 2레벨 계약의 볼모'); }
 { const P = [c.side(0, ['SA1-02'], 30), c.side(1, ['A1-07', 'A1-02'], 30)]; c.prep(P); const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1);

@@ -69,5 +69,53 @@ T('바람의 사냥', `const a = setT(mk("A3-04"), 3, 0, 1), d1 = setT(mk("B2-01
   const P = [side(0, ["NA3-4", a]), side(1, [d1, d2])]; fight(P, 0);
   ok(a.t.alive && a.t.dmg === 0 && d2.t.dmg === 3, "상대 전체 −3 · [원거리] (" + [a.t.dmg, d2.t.dmg] + ")");`);
 
+// v3.95 혼란의 바람(SA3-02, 전 바람 장벽): 상대 맨 앞 1기 방어 ↔ 남은 체력(방어 0이면 쓰러짐), 공격 L2
+ok(ctx.ev('CARDS["SA3-02"].name === "혼란의 바람" && CARDS["SA3-02"].lv === 2 && CARDS["SA3-02"].type === "atk" && gradeOf("SA3-02") === "uncommon" && CARDS["SA3-02"].flavor && (typeof SPELL_BRIEF === "undefined" || SPELL_BRIEF["SA3-02"])'), '혼란의 바람 이름 · 레벨 · 공격 · 고급');
+T('혼란의 바람', `const f1 = setT(mk("B2-01"), 0, 3, 7), f2 = setT(mk("B2-02"), 0, 2, 9);
+  const P = [side(0, ["SA3-02"]), side(1, [f1, f2])]; fight(P, 0);
+  ok(f1.t.d === 7 && hpLeft(f1) === 3, "3/7 → 방 7 · 체 3 (" + [f1.t.d, hpLeft(f1)] + ")");
+  ok(f2.t.d === 2 && hpLeft(f2) === 9, "둘째는 그대로 (1기만)");`);
+T('혼란의 바람 · 방어 0', `const f1 = setT(mk("B2-01"), 0, 0, 5); const P = [side(0, ["SA3-02"]), side(1, [f1])]; fight(P, 0);
+  ok(!f1.t.alive, "방어 0이면 체력 0이 되어 쓰러짐");`);
+T('혼란의 바람 · 저주 면역', `const f1 = setT(mk("B2-01"), 0, 6, 2); f1.t.lock = true;
+  const P = [side(0, ["SA3-02"]), side(1, [f1])]; fight(P, 0);
+  ok(f1.t.d === 6 && hpLeft(f1) === 2, "방어가 내려갈 저주 면역 유닛은 그대로 (" + [f1.t.d, hpLeft(f1)] + ")");
+  const g1 = setT(mk("B2-02"), 0, 1, 5); g1.t.lock = true; const Q = [side(0, ["SA3-02"]), side(1, [g1])]; fight(Q, 0);
+  ok(g1.t.d === 5 && hpLeft(g1) === 1, "방어가 오르는 쪽은 맞바꿈 (" + [g1.t.d, hpLeft(g1)] + ")");`);
+T('찢는 바람 → 혼란의 바람', `const f1 = setT(mk("B2-01"), 0, 3, 9), f2 = setT(mk("B2-02"), 0, 3, 9);
+  const P = [side(0, ["NA3-1", "SA3-02"]), side(1, [f1, f2])]; fight(P, 0);
+  ok(!f1.t.alive && f2.t.alive, "방어 0이 된 맨 앞 유닛이 맞바꿈으로 쓰러짐");`);
+T('혼란의 바람 → [방어무시]', `const a = setT(mk("A3-01"), 4, 0, 5), d = setT(mk("B2-01"), 0, 4, 9);
+  const P = [side(0, ["SA3-02", a]), side(1, [d])]; fight(P, 0);
+  ok(abilOf(a).magic && !d.t.alive, "방 9 · 체 4가 된 상대를 [방어무시] 공격 4로 쓰러뜨림");`);
+// v3.95 되쏘는 바람(SA3-05, 전 회오리 방벽): 아군 맨 앞 2기 방어 +2 · 체력 +2 · [방어무시] — 반격에도
+ok(ctx.ev('CARDS["SA3-05"].name === "되쏘는 바람" && CARDS["SA3-05"].lv === 2 && CARDS["SA3-05"].type === "def" && gradeOf("SA3-05") === "uncommon" && CARDS["SA3-05"].flavor'), '되쏘는 바람 이름 · 레벨 · 방어 · 고급');
+T('되쏘는 바람 (방어 턴 반격)', `const f1 = setT(mk("B2-26"), 3, 0, 5), f2 = setT(mk("B2-26"), 1, 0, 5), a = setT(mk("B2-26"), 2, 4, 9);   // 코인 없는 유닛
+  const P = [side(0, [a]), side(1, ["SA3-05", f1, f2])]; fight(P, 0);
+  ok(f1.t.d === 2 && f2.t.d === 2, "아군 맨 앞 2기 방어 +2");
+  ok(f1.t.dmg === 0, "공 2를 방어 2로 막음 (" + f1.t.dmg + ")");
+  ok(a.t.dmg === 3, "반격 [방어무시]: 방 4를 무시하고 피해 3 (" + a.t.dmg + ")");`);
+// v3.95 규칙: [방어무시]는 반격에도, [마력 공격]은 공격 + 상대 방어(N까지) · 반격엔 없음
+T('[방어무시] 반격', `const d = setT(mk("A3-01"), 3, 0, 9), a = setT(mk("B2-26"), 1, 2, 9);
+  const P = [side(0, [a]), side(1, [d])]; fight(P, 0);
+  ok(abilOf(d).magic && a.t.dmg === 3, "반격이 방 2를 무시 (" + a.t.dmg + ")");`);
+T('[마력 공격] 공 + 방', `ok(mrArc(5, 2, 2, false).dmg === 7 && mrArc(5, 4, 2, false).dmg === 7 && mrArc(5, 4, 2, true).dmg === 9 && mrArc(5, 3, 0, false).dmg === 2, "공 5 · 방 2 → 7, 방 4(N 2) → 7, 홀림 → 9, 없으면 2");
+  const a = setT(mk("B2-26"), 5, 0, 9), d = setT(mk("B2-26"), 4, 2, 9); a.t.gx = { arcane: 2 };
+  const P = [side(0, [a]), side(1, [d])]; fight(P, 0);
+  ok(d.t.dmg === 7, "공격: 5 + 방 2 = 7 (" + d.t.dmg + ")");
+  const b = setT(mk("B2-26"), 3, 1, 9), e = setT(mk("B2-26"), 5, 2, 9); e.t.gx = { arcane: 2 };
+  const Q = [side(0, [b]), side(1, [e])]; fight(Q, 0);
+  ok(b.t.dmg === 4, "반격엔 마력 공격 없음: 5 − 방 1 = 4 (" + b.t.dmg + ")");`);
+
+// v3.95 별의 문자(US-A3-1) → 마족 그믐의 계약서: 깃발 · 이름 · 효과 · 저장 덱 정리
+ok(ctx.ev('CARDS["US-A3-1"].group === "A1" && CARDS["US-A3-1"].name === "그믐의 계약서" && gradeOf("US-A3-1") === "epic" && CARDS["US-A3-1"].type === "hand" && CARDS["US-A3-1"].lv === 1'), '그믐의 계약서: 마족 · 에픽 핸드 L1');
+ok(ctx.ev('deckable(CARDS["US-A3-1"], "A1") && !deckable(CARDS["US-A3-1"], "A3") && cardsOfGroup("A1").includes(CARDS["US-A3-1"]) && !cardsOfGroup("A3").includes(CARDS["US-A3-1"])'), '그믐의 계약서: 마족 덱에만');
+ok(ctx.ev('Object.values(STARTER_DECKS).every(d => !d["US-A3-1"]) && [DECK_LISTS, HARD_DECK_LISTS].every(L => Object.values(L).every(d => !(d.cards || d)["US-A3-1"]))'), '기본 · 정예 덱에 없음');
+ok(ctx.ev(`(() => { const d = Object.assign({}, STARTER_DECKS.A3); const k0 = countMap(d); d["US-A3-1"] = 1; const first = Object.keys(d)[0]; d[first]--; if (!d[first]) delete d[first];
+  const col = {}; for (const id in d) col[id] = 4; Object.assign(col, { "US-A3-1": 1 });
+  const u = { collection: col, decks: { A3: { cards: d } }, drafts: {}, owned: { A3: 1 } };
+  const n = Store.fixMovedCards(u);
+  return n === 1 && !u.decks.A3.cards["US-A3-1"] && countMap(u.decks.A3.cards) === k0 && Object.keys(u.decks.A3.cards).every(id => CARDS[id].group === "A3") && u.collection["US-A3-1"] === 1; })()`), '저장한 엘프 덱에서 빼고 같은 장수로 채움 · 보유는 그대로');
+
 console.log(fail ? `✗ ${fail}/${n} 실패` : `✓ ${n}개 모두 통과`);
 process.exitCode = fail ? 1 : 0;

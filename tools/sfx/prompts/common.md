@@ -1,7 +1,7 @@
 <!-- 자동 생성: node tools/sfx/build_sfx_prompts.js — 손으로 고치지 말 것. 고칠 곳은 tools/sfx/notes/ · sfx_common.json · sfx_style.json -->
 # ETHERION 공용 효과음 프롬프트
 
-> 155개. Gemini에 `text` 상자를 통째로 붙여 넣는다. 한 번에 같은 소리가 세 테이크(사이 무음) 나온다.
+> 157개. Gemini에 `text` 상자를 통째로 붙여 넣는다. 한 번에 같은 소리가 세 테이크(사이 무음) 나온다.
 > 받은 파일은 항목의 **파일** 이름으로 `audio/inbox/sfx/`에 넣는다(예: `ui_click.mp3`). 설명은 `tools/sfx/PROMPT_SFX.md`.
 > **지금** = 이 자리에서 지금 나는 소리 이름(`js/feel.js`). '새 자리'는 아직 소리가 없는 곳이라, 넣을 때 코드도 함께 고친다.
 
@@ -791,7 +791,7 @@ Short orchestral stinger for a fantasy card game, about 4 seconds long: a melanc
 Warm, natural concert-hall recording; no drums, no synths. Instrumental, no vocals.
 ```
 
-## 전투 — 공용 (카드 소리가 없을 때 · 능력 효과) (50)
+## 전투 — 공용 (카드 소리가 없을 때 · 능력 효과) (52)
 
 ### swing — 공격 유닛이 뛰쳐나갈 때
 지금: `swing` · 약 0.3초 · 파일 `swing`
@@ -1183,6 +1183,32 @@ Fantasy card game, interface and battle sounds.
 Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
 ```
 
+### fear — [공포 N] 걸림 · 발동 (마족 [저주], v3.95 — 떠오르는 글 '공포 N')
+지금: `debuff` · 약 0.6초 · 파일 `fear`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: a chill creeps close: a cold breathy whisper hissing near the ear, a faint shivering rattle of loose armour and a sinking low hum that fades into hush. About 0.6 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### plague — [역병 N] 걸림 · 발동 · 옮음 (마족 [저주], v3.95 — '역병 N' · '역병 · 능력 꺼짐')
+지금: `debuff` · 약 0.7초 · 파일 `plague`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: sticky rot takes hold: a wet gluey squelch, a slow bubbling ooze of decay and a damp crackling hiss spreading outward like creeping mould. About 0.7 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
 ### mend — [치유] — 인어가 맞붙은 뒤 물로 상처를 채움 (v3.68)
 지금: 새 자리 · 약 0.7초 · 파일 `mend`
 
@@ -1274,7 +1300,7 @@ Fantasy card game, interface and battle sounds.
 Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
 ```
 
-### purify — [정화] — 화상 · 불씨 · 낙인을 지우고 출혈을 막음 (v3.74)
+### purify — [정화] — 화상 · 불씨 · 낙인 · 저주(공포 · 역병)를 지우고 출혈을 막음 (v3.74 · v3.95)
 지금: 새 자리 · 약 0.7초 · 파일 `purify`
 
 ```text

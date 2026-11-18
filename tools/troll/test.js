@@ -121,5 +121,15 @@ c.ev(`this.moss=function(foeSpell){ const P=[side(0,['CS-G2','G2-30','G2-30']), 
 { const r = c.moss(true); ok(r[2] === 1 && r[0] === 1 && r[1] === 2, '이끼 덮기: 무효로 했으면 ⚔+1 ♥+2 (' + r + ')'); }
 { const r = c.moss(false); ok(r[2] === 0 && r[0] === 0 && r[1] === 0, '이끼 덮기: 무효로 한 마법이 없으면 강화 없음 (' + r + ')'); }
 
+// v3.95 새순 갑옷(SG2-02, 전 나무껍질 갑옷): 아군 맨 앞 1기 방어 +1과 [재생 2]
+ok(CARDS['SG2-02'].name === '새순 갑옷' && CARDS['SG2-02'].lv === 1 && c.ev('gradeOf("SG2-02")') === 'common', '새순 갑옷: 이름 · L1 · 일반 그대로');
+c.ev(`this.sprout=function(){ const P=[side(0,['SG2-02','G2-30','G2-30']), side(1,['G2-30'])];
+  for(const p of P) for(const it of p.field) if(it&&isUnit(it)){ resetTurn(it); it.t.noCoin=true; }
+  const f=P[0].field[1], b=P[0].field[2], d0=f.t.d, bd0=b.t.d; const X=ctx(P,0,1,[],{seed:1});
+  castSpell(X,0,P[0].field[0],1);
+  const r=[f.t.d-d0, abilOf(f).regen||0, b.t.d-bd0, abilOf(b).regen||0];
+  f.t.dmg=3; nwRegenTick(X); r.push(f.t.dmg); return r; };`);
+{ const r = c.sprout(); ok(r[0] === 1 && r[1] === 2 && r[2] === 0 && r[3] === 0 && r[4] === 1, '새순 갑옷: 맨 앞만 ⛨+1 [재생 2], 피해 3 → 재생 뒤 1 (' + r + ')'); }
+
 console.log(fails ? `✗ ${fails}/${n} 실패` : `✓ ${n}개 모두 통과`);
 process.exit(fails ? 1 : 0);

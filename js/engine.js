@@ -47,7 +47,7 @@ function abilRaw(it) {
     regen: num("regen"), bash: any("bash"), taunt: any("taunt"), purify: any("purify"), firm: any("firm"), intercept: any("intercept"), mesmer: any("mesmer"),
     huntfire: any("huntfire"), riposte: any("riposte"), overload: any("overload"), devour: any("devour"), drain: any("drain"), flow: any("flow"), judge: any("judge"), sentry: any("sentry"), mark: any("mark"),   // v3.81 스페셜 아이템 능력   // v3.74 [재생 N] · [방패 반격] · [수호] · [정화] · [굳건] · [요격] — js/newabil.js, 이 파일 끝 "v3.74 새 능력" 절   // v3.73 잿불 고블린: [점화 N] · [화염 갑주 N] — js/goblin.js, 이 파일 끝 "v3.73 잿불 고블린" 절
     // v3.68 푸른비늘 인어: [마력 공격 N] · [치유 N] · [바다의 보호 N](오라) — js/mermaid.js, 이 파일 끝 "v3.68 인어" 절
-    snipe: (im.every ? +im.throw || 0 : 0) + (g.every ? +g.throw || 0 : 0) + (au.snipe || 0), amp: amp(im) + amp(g) + (au.amp || 0), u: g0.u || null,
+    snipe: (im.every ? +im.throw || 0 : 0) + (g.every ? +g.throw || 0 : 0) + (au.snipe || 0), amp: amp(im) + amp(g) + (au.amp || 0) + (gx ? +gx.amp || 0 : 0), u: g0.u || null,   /* v3.95 노움: 증폭 회로가 이번 턴 건 [증폭 N](t.gx.amp) */
     rob: abOn("rob") && any("rob"), leech: abOn("leech") && (any("leech") || !!au.leech), veil: abOn("veil") && any("veil"), pact: abOn("pact") ? num("pact") : 0, bleed: abOn("bleed") ? num("bleed") : 0 };   // v3.65 심연 마족: [강탈] · [흡혈] · [그림자 걸음] · [피의 계약 N] (아래 "v3.65 심연 마족")   // v3.31 u: 유니크의 강화 특수능력 (js/uniques.js, 아래 "v3.31 강화 특수능력")
 }
 /* v3.84 유닛 특수능력 상한 (규칙 글은 js/cards.js ABIL_CAP): 장착 아이템 데이터에서 잘린 능력 키를 지운 사본(붙는 능력만).
@@ -171,7 +171,8 @@ function resetTurn(it, atk) {   // atk: 이 유닛 편이 이번 턴 공격하�
     shield: false, sroll: null, ward: ab.ward, wardUsed: false, wardP: abilPieceList(it, "ward"), thornsP: abilPieceList(it, "thorns"),   // v3.84 칸별 가호 · 가시(쓸 때 fitPieces로 t.ward · t.thorns에 맞춘다)
     thorns: ab.thorns, taunt: !!ab.taunt, lock: false, rest: false, thrown: false,
     cb: { a: 0, d: 0, h: 0 }, coins: coinDefs(it), noCoin: false, keep };
-  if (keep.blood && keep.blood.v) it.t.a += g1BloodSum(it);   // v3.87 [피의 맹세]: 지난 턴 받은 피 → 이번 턴 공격 + (전투가 끝나면 g1OathEnd가 지운다)
+  if (keep.blood && keep.blood.v) it.t.a += g1BloodSum(it);
+  if (it.hc) a1HandCurseIn(it);   // v3.95 핸드에서 걸린 [저주](손끝 저주 · 저주 전염)가 전장에 오른 유닛에 옮는다   // v3.87 [피의 맹세]: 지난 턴 받은 피 → 이번 턴 공격 + (전투가 끝나면 g1OathEnd가 지운다)
 }
 const hpLeft = u => u.t.h - u.t.dmg;
 /* v3.61.1 [보호막 코인]: 전투가 시작될 때(양쪽 준비가 끝나고 첫 마법 · 공격보다 먼저) 전장의 보호막 유닛마다 한 번 던진다.
@@ -315,6 +316,7 @@ function recPush(X, fx, dur, sub) {
    마법 연출(js/spellfx.js cast)이 공격을 대상까지 날려 보내고 막는 모습을 보이게 한다 */
 function hurt(X, u, x, tag) {
   if (!u.t.alive || x <= 0) return 0;
+  { const sb = a2SubOf(X, u); if (sb) { X.a2SubOn = true; try { return hurt(X, sb, x, "대신 속죄"); } finally { X.a2SubOn = false; } } }   // v3.95 대신 속죄: 바로 뒤 아군이 대신 받는다
   { const w = uWings(X, u, x); if (w) return hurt(X, w, x, "대신"); }   // v3.31 [날개 그늘]
   { const cm = mrCalm(X, u); if (cm) { x -= cm; if (x <= 0) { fl(X, u.uid, "바다의 보호", "shield block"); return 0; } } }   // v3.68 [바다의 보호] 오라: 받는 피해 −1(맞붙음 · 마법 모두)
   if (u.t.shield === "half") {   // v3.57.5 [보호막 코인] 앞면: 처음 받는 피해의 절반(올림)을 막는다. 남은 피해는 가호 · 사슬을 거쳐 그대로 들어간다
@@ -380,9 +382,9 @@ function coinX(op, faces) {
   return x;
 }
 /* v3.18 grant 효과가 카드 위에 띄우는 글 */
-const GRANT_KO = { crit: "치명", chain: "연쇄", shred: "관통", ranged: "원거리", magic: "방어무시", arcane: "마력 공격", heal: "치유", rob: "강탈", leech: "흡혈", veil: "그림자 걸음", pact: "피의 계약", bleed: "출혈", ignite: "점화", farmor: "화염 갑주", regen: "재생", bash: "방패 반격", taunt: "수호", purify: "정화", firm: "굳건", intercept: "요격" };
+const GRANT_KO = { crit: "치명", chain: "연쇄", shred: "관통", ranged: "원거리", magic: "방어무시", arcane: "마력 공격", heal: "치유", rob: "강탈", leech: "흡혈", veil: "그림자 걸음", pact: "피의 계약", bleed: "출혈", ignite: "점화", farmor: "화염 갑주", regen: "재생", bash: "방패 반격", taunt: "수호", purify: "정화", firm: "굳건", intercept: "요격", amp: "증폭" };   // v3.95 amp: 증폭 회로
 function grantLabel(op) {
-  const xs = Object.keys(op.ab || {}).map(k => (GRANT_KO[k] || k) + ((k === "heal" || k === "arcane") && typeof op.ab[k] === "number" ? " " + op.ab[k] : ""));   // v3.78 [치유 N] · [마력 공격 N]은 수치까지
+  const xs = Object.keys(op.ab || {}).map(k => (GRANT_KO[k] || k) + ((k === "heal" || k === "arcane" || k === "amp") && typeof op.ab[k] === "number" ? " " + op.ab[k] : ""));   // v3.78 [치유 N] · [마력 공격 N]은 수치까지
   if (op.ward) xs.push("가호 " + op.ward);
   return xs.join(" · ");
 }
@@ -469,7 +471,7 @@ function castSpellCore(X, caster, it, k) {
         case "shield": if (!op.coin || x > 0) { u.t.shield = true; fl(X, u.uid, "보호막", "shield"); } break;
         case "thorns": u.t.thorns += x; fl(X, u.uid, "가시 +" + x, "buff"); break;
         case "taunt": u.t.taunt = true; break;
-        case "lock": u.t.lock = true; if (u.t.d < u.t.rb.d) u.t.d = u.t.rb.d; fl(X, u.uid, "저주 면역", "shield"); break;
+        case "lock": { u.t.lock = true; if (u.t.d < u.t.rb.d) u.t.d = u.t.rb.d; const cw = a1CurseWash(u); fl(X, u.uid, cw.length ? "저주 면역 · " + cw.join(" · ") + " 사라짐" : "저주 면역", "shield"); break; }   // v3.95 [저주 면역]은 걸려 있던 [저주]도 지운다
         case "destroy": if (!op.coin || x > 0) { u.t.alive = false; u.t.dmg = u.t.h; fl(X, u.uid, "파괴", "dmg big"); lg(X, `${C(u).name} 파괴`, "bad"); } break;
         case "clean": {
           // 코인을 모두 뒷면으로: 이 턴에 던지는 코인은 앞면이 나오지 않는다.
@@ -606,9 +608,9 @@ function attackOne(X, Au) {
   if (ab.mesmer) mrCharm(X, Du);   // v3.80 [매혹](노래 에픽 마렌시아의 비늘): 맞붙는 상대를 이번 턴 [홀림]으로 — 이 맞붙음의 [마력 공격]부터 셈
   let dd = Du.t.d;
   if (ab.magic) dd = 0;   // 2026-11-16 [방어무시]: 공격할 때 상대 방어를 전부 무시한다
-  const arc = mrArc(Au.t.a, dd, ab.arcane, Du.t.charm);   // v3.68 [마력 공격 N]: 상대 방어 N까지는 막지 못하고 피해에 더해진다 · v3.78 [홀림] 상대면 방어 전부
+  const arc = mrArc(Au.t.a, ab.arcane > 0 ? Du.t.d : dd, ab.arcane, Du.t.charm);   // v3.95 [마력 공격 N]: 공격 + 상대 방어(N까지) · v3.78 [홀림] 상대면 방어 전부
   let dealt = arc.dmg + spHunt(X, Au, Du), crit = false, got = 0;   // v3.81 [불꽃 사냥]
-  const blocked = Math.min(Math.max(0, Au.t.a), Math.max(0, dd - arc.bonus));   // v3.81 [되받기]: 상대 방어가 막아 낸 몫
+  const blocked = ab.arcane > 0 && Au.t.a > 0 ? 0 : Math.min(Math.max(0, Au.t.a), Math.max(0, dd));   // v3.95 [마력 공격]은 방어에 막히지 않는다   // v3.81 [되받기]: 상대 방어가 막아 낸 몫
   X.clash = [Au, Du];   // v3.68 [치유]: 이 맞붙음에서 살아남은 쪽이 체력을 채운다(runCombatCore가 attackOne 뒤에)
   if (dealt > 0 && Du.t.alive && uHas(Du, "eye") && uK(Du).dodgeT !== X.turn && (uK(Du).dodgeT = X.turn, flip())) { dealt = 0; fl(X, Du.uid, "빗나감", "miss"); lg(X, `[폭풍의 눈] ${ca.name}의 공격이 바람에 빗나갔다`, "good"); }   // v3.31
   dealt = abVeil(X, Au, Du, dealt);   // v3.65 [그림자 걸음]
@@ -662,7 +664,8 @@ function attackOne(X, Au) {
     if (abilOf(Du).mesmer) mrCharm(X, Au);   // v3.80 [매혹]: 반격할 때도 맞붙은 상대를 [홀림]으로
     const bash = abilOf(Du).bash ? Math.max(0, Du.t.d) : 0;   // v3.74 [방패 반격]: 반격 피해에 지금 방어를 더한다(관통에 깎인 뒤의 값)
     if (bash) lg(X, `[방패 반격] ${cd.name}의 반격에 방어 ${bash}를 더한다`, "sys");
-    const back = abVeil(X, Du, Au, mrArc(Du.t.a + bash, Au.t.d, abilOf(Du).arcane, Au.t.charm).dmg + spHunt(X, Du, Au));   // v3.81 [불꽃 사냥]은 반격에도   // v3.65 [그림자 걸음] · v3.68 [마력 공격]은 반격에도
+    const cMagic = !!abilOf(Du).magic;   // v3.95 (사용자): [방어무시]는 반격에도 — 공격한 유닛의 방어를 0으로 친다
+    const back = abVeil(X, Du, Au, hit(Du.t.a + bash, cMagic ? 0 : Au.t.d) + spHunt(X, Du, Au));   // v3.81 [불꽃 사냥]은 반격에도 · v3.65 [그림자 걸음] · v3.95 [마력 공격]은 반격에 붙지 않는다(사용자)
     const auHp = hpLeft(Au);   // 2026-11-17 [흡혈]: 반격 맞기 전 체력 (흡혈 상한)
     const g = back > 0 ? hurt(X, Au, back, "반격") : (fl(X, Au.uid, "반격 0", "miss"), 0);
     abLeech(X, Du, g, auHp);   // v3.65 [흡혈]: 반격도 맞붙은 피해
@@ -670,7 +673,7 @@ function attackOne(X, Au) {
     // v3.65 [치명]은 반격에도: 피해가 들어갔고 공격한 유닛이 살아 있으면 남은 체력을 1로 ([연쇄]는 공격할 때만)
     let gc = g, ccrit = false;
     if (abilOf(Du).crit && g > 0 && Au.t.alive && hpLeft(Au) > 1) { const cut = hpLeft(Au) - 1; Au.t.dmg += cut; gc += cut; ccrit = true; fl(X, Au.uid, "치명 ♥1", "dmg big"); }
-    lg(X, `↺ ${cd.name}의 반격 → ${ca.name}: 피해 ${gc}${ccrit ? " (치명)" : ""}`);
+    lg(X, `↺ ${cd.name}의 반격 → ${ca.name}: 피해 ${gc}${ccrit ? " (치명)" : ""}${cMagic && Au.t.d > 0 ? " [방어무시]" : ""}`);
     uOnHit(X, Du, Au, gc);   // v3.31 반격도 맞붙은 피해 (v3.65 기록 뒤에 — [출혈]이 반격 줄 다음에 찍히게)
     // v3.84.3 [가시]는 반격도 공격으로 친다(사용자): 반격받은 공격자에게 가시가 있으면 반격한 유닛이 가시만큼 체력을 잃는다(공격받을 때와 같이 칸마다 따로)
     if (Au.t.thorns && Du.t.alive) {
@@ -743,6 +746,7 @@ function runCombatCore(X) {
   a2LightStart(X);   // v3.86 [새벽빛]: 이번 턴 깎인 생명을 셀 기준
   shieldCoinsAtCombat(X);   // v3.61.1 보호막 코인 (전투가 시작될 때, 다른 무엇보다 먼저)
   nwPurify(X);   // v3.74 [정화]: 불씨 · 화상이 타기 전에 지운다
+  a1CurseTick(X, sweep);   // v3.95 [저주]: 지난 턴까지 걸린 [공포] · [역병]이 발동하고 꺼진다([정화] 다음)
   spCombatStart(X);   // v3.81 [밀물] · [경계의 화살]
   uCombatStart(X, sweep);   // v3.31 불씨 · 뿌리 · 축전 (전투가 시작될 때)
   gbBurnTick(X, sweep);   // v3.73 화상: 지난 턴까지 붙은 화상이 한 번 터지고 꺼진다
@@ -771,6 +775,7 @@ function runCombatCore(X) {
   uCombatEnd(X, sweep);   // v3.31 고철 골렘 · 씨앗 · 새벽의 부활 · 늑대 흩어짐 (전투가 끝날 때)
   g1OathEnd(X);   // v3.87 [피의 맹세]: 받은 피를 머금고 살아남은 유닛 → 다음 턴 공격 +
   // "이번 턴만" 부른 유닛은 전투가 끝나면 사라진다
+  a1MindEnd(X);   // v3.95 [정신 지배]: 살아남은 지배 유닛은 원래 주인의 전장 맨 뒤로
   let fade = false;
   for (const p of X.P) for (const u of p.field) if (isUnit(u) && u.tokTemp && u.t.alive) { u.t.alive = false; fade = true; lg(X, u.from != null ? `빼앗은 ${C(u).name}이(가) 그림자로 흩어져 원래 주인의 소각장으로 갔다` : `${C(u).name}이(가) 사라졌다`, "sys"); }
   if (fade) sweep();
@@ -795,7 +800,8 @@ function evalScore(before, after, me) {
     + 0.5 * ((after[me].life - before[me].life) - (after[o].life - before[o].life)) - 0.8 * (after[me].reload - before[me].reload)
     + 0.6 * ((after[me].bonus || 0) - (before[me].bonus || 0) - (after[o].bonus || 0) + (before[o].bonus || 0))
     + 0.25 * (after[me].field.reduce((s, u) => s + g1BloodSum(u), 0) - after[o].field.reduce((s, u) => s + g1BloodSum(u), 0))   // v3.87 [피의 맹세]: 다음 턴 오를 공격
-    + 0.25 * (gbFireSum(after[o], after[me]) - gbFireSum(after[me], after[o]));   // v3.88 화상 · 화약통: 다음 턴 깎일 체력
+    + 0.25 * (gbFireSum(after[o], after[me]) - gbFireSum(after[me], after[o]))   // v3.88 화상 · 화약통: 다음 턴 깎일 체력
+    + 0.25 * (a1CurseSum(after[o]) - a1CurseSum(after[me]));   // v3.95 [저주]: 다음 턴 발동할 공포 · 역병
 }
 /* 지금 배치로 전투를 n번 굴려 평균 점수 (me 기준). hideOf: 그 플레이어의 마법은 모르는 것으로 */
 function simulate(players, attacker, turn, me, hideOf, n) {
@@ -1709,8 +1715,10 @@ function abOffer(X, o, v) {
      맞붙음 · 마법 · 가시 모두. 한 번 쓰고 사라지지 않는다. 오라가 여럿이면 더한다. */
 const MR_CALM_CUT = 1;
 function mrArc(a, d, n, charm) {   // charm: 상대가 [홀림]이면 N과 상관없이 방어 전부(v3.78)
-  const bonus = n > 0 && a > 0 ? (charm ? Math.max(0, d) : Math.min(n, Math.max(0, d))) : 0;
-  return { dmg: hit(a, d - bonus) + bonus, bonus };
+  // v3.95 (사용자): [마력 공격 N]은 상대 방어에 막히지 않고, 상대 방어(N까지 · 홀리면 전부)를 공격에 더해 체력을 깎는다. 공 5 · 방 2(N ≥ 2) → 7. 반격에는 붙지 않는다(attackOne)
+  if (!(n > 0 && a > 0)) return { dmg: hit(a, d), bonus: 0 };
+  const bonus = charm ? Math.max(0, d) : Math.min(n, Math.max(0, d));
+  return { dmg: a + bonus, bonus };
 }
 /* v3.78 [홀림]: 인어의 환상에 걸린 상대 유닛(이번 턴). 코인을 뒷면으로 만드는 마법(clean) · 공방 교환(swap) · 공체 교환(swapSt · randSwap) ·
    자리 바꿈(swapPos · sortFoe에서 자리가 바뀐 유닛) · 환각(confuse). [마력 공격 N]은 홀린 상대에게 N과 상관없이 방어 전부를 피해에 더한다.
@@ -1725,7 +1733,8 @@ function mrCalm(X, u) {
   const us = p.field.filter(it => isUnit(it) && it.t && it.t.alive), i = us.indexOf(u); if (i < 0) return 0;
   let cut = 0;
   us.forEach((v, j) => { if (v === u) return; const r = abilOf(v).calm; if (r > 0 && Math.abs(i - j) <= r) cut += MR_CALM_CUT; });
-  return Math.max(cut, ((u.t.au && u.t.au.calm) || 0) * MR_CALM_CUT);   // 2026-11-15 이번 턴 받은 [바다의 보호]는 인어 레어가 쓰러져도 남는다(rareAuraSync가 t.au.calm에 적음)
+  return Math.max(cut, ((u.t.au && u.t.au.calm) || 0) * MR_CALM_CUT)   // 2026-11-15 이번 턴 받은 [바다의 보호]는 인어 레어가 쓰러져도 남는다(rareAuraSync가 t.au.calm에 적음)
+    + (u.t.calmT || 0) * MR_CALM_CUT;   // v3.95 인어 물의 장막(mrVeil)이 이번 턴 걸어 준 몫 — 오라와 따로 더한다(t.calmT, resetTurn이 지움)
 }
 function mrHeal(X) {
   const xs = X.clash; X.clash = null; if (!xs) return;
@@ -1749,7 +1758,8 @@ const mrWet = u => !!(u && isUnit(u) && C(u) && (C(u).g === "G3" || /(^|-)G3(-|$
    randSwap { n }: 상대 유닛 가운데 무작위 n기의 공격과 (남은) 체력을 맞바꾼다 — 판 시드(RNG)로 고른다. 공격이 0이던 유닛은 체력 0이 되어 쓰러진다.
    mindCapture: 이 마법 바로 뒤 내 카드와 이름 글자 수(띄어쓰기 빼고)가 같은 상대 카드 가운데 맨 앞 1장을 빼앗는다(유닛 · 아직 발동하지 않은 마법).
      유닛은 판이 끝날 때까지 내 유닛(쓰러지면 원래 주인의 소각장), 마법은 내 마법으로 발동한다. 뒤에 카드가 없거나 같은 글자 수가 없으면 헛것.
-   sortFoe: 상대 유닛을 (방어 + 남은 체력)이 높은 순으로 맨 앞부터 다시 세운다. 마법 칸은 그대로, 같으면 원래 차례. */
+   sortFoe: 상대 유닛을 (방어 + 남은 체력)이 높은 순으로 맨 앞부터 다시 세운다. 마법 칸은 그대로, 같으면 원래 차례.
+     asc: 낮은 순. by:"hp": 방어는 빼고 남은 체력만 본다(v3.95 오크 사냥감 몰이). */
 const mrNameLen = c => String(c.name || "").replace(/\s/g, "").length;
 Object.assign(SPELL_OPS, {
   randSwap(X, caster, it, k, op) {
@@ -1782,18 +1792,28 @@ Object.assign(SPELL_OPS, {
         if (kp.scorch > 0) { had.push("화상 " + kp.scorch); kp.scorch = 0; kp.scorchT = null; kp.burns = []; }
         if (kp.ember != null) { had.push("불씨"); kp.ember = null; }
         if (kp.brand) { had.push("낙인"); kp.brand = false; }
+        had.push(...a1CurseWash(u));   // v3.95 [정화]는 [저주]를 씻는다
       }
       fl(X, u.uid, had.length ? "정화 · " + had.join(" · ") : "정화", "heal");
       if (had.length) lg(X, `[정화] ${C(u).name}의 ${had.join(" · ")}을(를) 씻었다`, "good");
     }
   },
+  /* v3.95 mrVeil { area, n }: 아군에게 이번 턴 [바다의 보호] — 받는 피해 −n(맞붙음 · 마법 · 가시 모두, mrCalm이 t.calmT를 더함).
+     오라가 아니라 옆으로 번지지 않는다. 다음 턴에는 남지 않는다(인어 물의 장막 SG3-03) */
+  mrVeil(X, caster, it, k, op) {
+    const L = pickTargets(X, caster, "ally", op.area || { t: "front", n: 2 }, k);
+    if (!L.length) { fl(X, it.uid, "대상 없음", "miss"); return; }
+    const n = op.n || 1;
+    for (const u of L) { u.t.calmT = (u.t.calmT || 0) + n; fl(X, u.uid, "바다의 보호 −" + n, "shield"); }
+    lg(X, `[물의 장막] ${L.map(u => C(u).name).join(" · ")} — 이번 턴 받는 피해 −${n}`, "good");
+  },
   sortFoe(X, caster, it, k, op) {
     const o = X.P[1 - caster], slots = [], us = [];
     o.field.forEach((c, i) => { if (isUnit(c) && c.t && c.t.alive && !nwFirm(c)) { slots.push(i); us.push(c); } });   // v3.74 [굳건] 유닛은 제자리(나머지만 다시 세운다)
     if (us.length < 2) { lg(X, "상대 유닛이 둘보다 적어 물길이 바뀌지 않았다", "sys"); return; }
-    const w = u => u.t.d + hpLeft(u), sg = op.asc ? -1 : 1, sorted = us.map((u, i) => [u, i]).sort((a, b) => sg * (w(b[0]) - w(a[0])) || (a[1] - b[1])).map(x => x[0]);   // v3.82 asc: 낮은 순(사냥감 몰이)
+    const byHp = op.by === "hp", w = u => byHp ? hpLeft(u) : u.t.d + hpLeft(u), sg = op.asc ? -1 : 1,   /* v3.95 오크 by:"hp": 남은 체력만 본다(사냥감 몰이) */ sorted = us.map((u, i) => [u, i]).sort((a, b) => sg * (w(b[0]) - w(a[0])) || (a[1] - b[1])).map(x => x[0]);   // v3.82 asc: 낮은 순(사냥감 몰이)
     slots.forEach((s, i) => { o.field[s] = sorted[i]; if (sorted[i] !== us[i] && !op.asc) mrCharm(X, sorted[i]); });   // v3.78 자리가 바뀐 유닛은 [홀림](인어 뒤바뀐 물길만)
-    lg(X, `상대 유닛을 방어 + 체력이 ${op.asc ? "낮은" : "높은"} 순으로 다시 세웠다: ${sorted.map(u => `${C(u).name}(${w(u)})`).join(" → ")}`, "sys");
+    lg(X, `상대 유닛을 ${byHp ? "남은 체력이" : "방어 + 체력이"} ${op.asc ? "낮은" : "높은"} 순으로 다시 세웠다: ${sorted.map(u => `${C(u).name}(${w(u)})`).join(" → ")}`, "sys");
     fl(X, sorted[0].uid, "맨 앞으로", "debuff");
     step(X, {}, 520);
   }
@@ -2112,6 +2132,7 @@ function nwPurify(X) {
       if (k.scorch > 0) { had.push("화상 " + k.scorch); k.scorch = 0; k.scorchT = null; }
       if (k.ember != null) { had.push("불씨"); k.ember = null; }
       if (k.brand) { had.push("낙인"); k.brand = false; }
+      had.push(...a1CurseWash(v));   // v3.95 [정화]는 [저주]를 씻는다 — 공포 · 역병이 함께 사라진다
       if (!had.length) continue;
       a2LightAdd(X, X.P.indexOf(p), had.length, "정화", v.uid);   // v3.86 [새벽빛]: 씻은 것 하나마다 1
       fl(X, v.uid, "정화", "heal");
@@ -2633,5 +2654,245 @@ Object.assign(SPELL_OPS, {
     step(X, {}, 300);
     for (const u of L) if (u.t.alive) hurt(X, u, x + amp);
     step(X, {}, 300);
+  }
+});
+
+/* ---------- v3.95 천족: 빛의 심판 · 대신 속죄 (카드 데이터는 js/spelltune.js "v3.95 천족") ----------
+   a2Judge { n }: 아군 맨 앞 n기(대기열 순)의 방어가 이번 턴 0이 된다. 실제로 깎인 방어의 합만큼 상대 대기열 맨 앞부터 체력을 깎는다.
+     쓰러뜨리고 남은 몫은 다음 유닛에게(보호막 · 가호에 막힌 몫은 사라진다 — [연쇄]와 같은 셈). [저주 면역] · 버팀/고정 방어는 깎이지 않아 셈에서 빠진다.
+   a2Sub: 이번 턴 아군 맨 앞 유닛(대기열 순)이 받는 피해를 바로 뒤 아군(대기열 다음)이 대신 받는다(t.sub = 그 유닛 uid, hurt가 a2SubOf로 돌린다).
+     대신 받는 유닛은 [가호 1]. 대신 받는 유닛이 쓰러지면 그 뒤로는 맨 앞 유닛이 직접 맞는다. 돌려받은 피해는 다시 돌리지 않는다(X.a2SubOn).
+     드워프 [수호](상대 공격을 그 유닛으로 끌어옴)와 달리, 상대는 그대로 맨 앞 유닛을 치고(방어 · 반격도 맨 앞 유닛 것) 피해만 옮겨 간다. */
+function a2SubOf(X, u) {
+  const id = u.t.sub; if (!id || X.a2SubOn) return null;
+  const p = uSideOf(X, u), w = p && liveUnits(p).find(v => v.uid === id && v !== u);
+  if (!w) return null;
+  fl(X, u.uid, "대신 속죄", "shield");
+  lg(X, `[대신 속죄] ${C(w).name}이(가) ${C(u).name} 대신 피해를 받는다`, "good");
+  return w;
+}
+Object.assign(SPELL_OPS, {
+  a2Judge(X, caster, it, k, op) {
+    const me = X.P[caster], o = X.P[1 - caster];
+    const A = queueOf(me).slice(0, op.n || 2);
+    if (!A.length) { fl(X, it.uid, "아군 없음", "miss"); lg(X, "[빛의 심판] 방어를 바칠 아군이 없다", "sys"); return; }
+    let pool = 0;
+    for (const u of A) {
+      const b = Math.max(0, u.t.d);
+      if (u.t.lock) { fl(X, u.uid, "저주 면역", "miss"); continue; }
+      u.t.d = 0; applyFloor(u);
+      const cut = b - Math.max(0, u.t.d); pool += cut;
+      fl(X, u.uid, cut ? "방어 0" : (u.t.floor.d ? PIN_KO[u.t.floor.d.m] + " 방어" : "방어 0"), cut ? "debuff" : "miss");
+    }
+    const amp = pool > 0 && ampKind(C(it)) ? amplify(me) : 0;
+    let left = pool + amp;
+    lg(X, `[빛의 심판] 아군 ${A.map(u => C(u).name).join(" · ")}의 방어 ${pool}${amp ? " +증폭 " + amp : ""} → 상대 맨 앞부터 체력 −${left}`, "spell");
+    if (left <= 0) return;
+    step(X, {}, 300);
+    for (const u of uEyeFilter(X, o, queueOf(o))) {
+      if (left <= 0) break;
+      if (!u.t.alive) continue;
+      const hp = hpLeft(u), got = hurt(X, u, left, "심판");
+      if (u.t.alive) break;
+      left = Math.max(0, got - hp);
+    }
+    step(X, {}, 300);
+  },
+  a2Sub(X, caster, it, k, op) {
+    const Q = queueOf(X.P[caster]), f = Q[0], w = Q[1];
+    if (!f || !w) { fl(X, it.uid, "대신 맞을 아군 없음", "miss"); lg(X, "[대신 속죄] 맨 앞 유닛 바로 뒤에 아군이 없다", "sys"); return; }
+    f.t.sub = w.uid;
+    w.t.ward = (w.t.ward || 0) + (op.ward == null ? 1 : op.ward);
+    fl(X, f.uid, "대신 속죄", "shield"); fl(X, w.uid, "가호 +" + (op.ward == null ? 1 : op.ward), "buff");
+    lg(X, `[대신 속죄] 이번 턴 ${C(f).name}이(가) 받는 피해를 ${C(w).name}이(가) 대신 받는다 · ${C(w).name} [가호 ${op.ward == null ? 1 : op.ward}]`, "spell");
+  }
+});
+
+/* ---------- v3.95 엘프: 혼란의 바람 (카드 데이터는 js/spelltune.js 끝 "v3.95 엘프" 절) ----------
+   a3Confuse { n }: 상대 맨 앞 n기의 방어와 남은 체력을 맞바꾼다. 방어가 0이던 유닛은 체력 0이 되어 쓰러진다(사용자 — 뼈 부수기와 같은 결, 대신 맨 앞 1기 · 공격 마법).
+     방어가 커지고 체력이 작아지므로 [방어무시] · [사격] · 마법 피해(방어 무시)로 마무리하는 엘프 콤보. 찢는 바람(방어 0)을 먼저 쓰면 맨 앞 유닛이 쓰러진다.
+     [저주 면역]은 혼란을 막지 않는다(혼란은 [저주]가 아니다 — 순환 · 맞바꾸기와 같은 스탯 옮기기). 다만 "방어가 깎이지 않는다"는 원래 규칙대로,
+     방어가 체력보다 높아 방어가 내려갈 [저주 면역] 유닛은 그대로 둔다(반쪽만 바뀌어 체력이 오르는 일을 막는다). */
+Object.assign(SPELL_OPS, {
+  a3Confuse(X, caster, it, k, op) {
+    const L = pickTargets(X, caster, "foe", { t: "front", n: op.n || 1 }, k);
+    if (!L.length) { fl(X, it.uid, "대상 없음", "miss"); return; }
+    for (const u of L) {
+      const d = u.t.d, h = hpLeft(u);
+      if (u.t.lock && h < d) { fl(X, u.uid, "저주 면역", "miss"); continue; }
+      setStats(X, u, { d: h, h: Math.max(0, d) }, "혼란");
+    }
+    lg(X, `[혼란의 바람] ${L.map(u => `${C(u).name}(방 ${u.t.d} · 체 ${Math.max(0, hpLeft(u))})`).join(" · ")}`, "spell");
+  }
+});
+
+/* ---------- v3.95 마족: [저주] — 공포 · 역병 · 지옥불 · 빙의 · 정신 지배 (카드 데이터는 js/spelltune.js "v3.95 마족" 절, 사용자 결정) ----------
+   [저주]는 묶음 이름이다. 그 아래 능력은 A1_CURSE에 적는다(지금 [공포 N] · [역병 N]) — 새 저주 능력은 여기에 한 줄 더하고 tick을 만들면
+     [저주 면역] · [정화] · 칩 · 컴퓨터 판단이 저절로 따라온다.
+   걸린 저주: 유닛의 keep.curse = { fear: [{ n, t, by }], plague: [...] } — [화상]처럼 따로따로 쌓인다(t = 걸린 턴, by = 건 쪽 플레이어 번호).
+     다음 턴 전투가 시작될 때(a1CurseTick — [정화] 다음 · 불씨 · 화상 전 · 첫 마법 전) 지난 턴까지 걸린 저주가 발동하고 꺼진다.
+     발동한 저주는 이번 턴 t.cursed = { fear: N, plague: true }로 남는다(정신 지배의 조건 · 화면).
+   [공포 N]: 이번 턴 공격 −N(0 아래로는 안 내려감) · 방어 −⌈N/3⌉ (공 3 : 방 1). 드워프(B2) 유닛은 방어 −1 더. 같은 유닛의 공포는 N을 모두 더해 한 번에 깎는다.
+   [역병 N]: 이번 턴 특수능력을 모두 끈다(a2Silence와 같음 — 레어 오라 · 유니크 능력은 그대로). N ≥ 2면 꺼질 때 양옆 유닛(대기열 바로 앞 · 뒤)에
+     [역병 N−1]이 옮는다(다음 턴에 발동 — 고블린 [화상] 번짐과 같은 방식).
+   [저주 면역]: 저주가 걸리지 않고, 이번 턴 [저주 면역]을 받으면 걸려 있던 저주도 사라진다(lock 효과 · a1CurseOn).
+   [정화]: [저주]를 씻는다 — 공포 · 역병이 함께 사라진다(nwPurify · mrPurge가 a1CurseWash를 부른다).
+   핸드의 저주(손끝 저주 · 저주 전염, game.js HAND_OPS.handCurse): 핸드 카드의 it.hc = { fear: n, plague: n } — 전장에 오를 때(resetTurn) keep.curse로 옮겨
+     그 유닛의 첫 전투가 시작될 때 발동한다.
+   마법 효과:
+     curse { side, area, kind, n } — 그 범위에 [공포 n] / [역병 n]. 이번 턴 공격도 깎으려면 따로 mod를 붙인다.
+     a1Hellfire {}  지옥불 — 방어가 가장 높은 상대 유닛 1기(같으면 앞)의 방어 D가 −D가 되고 체력 −D(방어 무시 · 증폭 더함). 방어가 두터울수록 뜨겁게 탄다.
+                    [저주 면역]이면 방어는 그대로 · 피해는 들어간다(지옥불은 저주가 아니다). D가 0 이하면 불이 붙지 않는다.
+     a1Possess {}   빙의 — 남은 체력이 가장 높은 상대 유닛 1기의 남은 체력이, 전장(양쪽)에서 레벨이 가장 낮은 다른 유닛의 남은 체력이 된다(더 낮을 때만).
+                    [저주 면역]이면 막힌다(빙의는 저주 묶음의 혼을 빼는 술법).
+     a1Dominate { lv } 정신 지배 — [저주]가 든(걸려 있거나 이번 턴 발동한) 상대 유닛, 또는 레벨 lv 이하인 상대 유닛 가운데 공격이 가장 높은 1기를
+                    이번 턴 내 전장 맨 뒤로 데려와 내 편으로 싸우게 한다. 살아남으면 전투가 끝날 때 상대 전장 맨 뒤로 돌아간다(a1MindEnd).
+                    [굳건] · [저주 면역]은 막는다. 내 전장에 빈 칸이 없으면 못 데려온다.
+   ※ 이 절은 engine.js 맨 끝에 있다. 다른 절을 고칠 때 파일 끝을 잘라 내지 말 것(2026-11-18 한 번 지워져 다시 붙임). */
+const A1_CURSE = {
+  fear:   { ko: "공포", tip: n => `공포 ${n}\n다음 턴 전투가 시작될 때 공격 −${n} · 방어 −${Math.ceil(n / 3)} (드워프는 방어 −1 더). 그 뒤 꺼진다.\n[저주] — [저주 면역]이면 걸리지 않고 [정화]로 씻긴다.` },
+  plague: { ko: "역병", tip: n => `역병 ${n}\n다음 턴 전투가 시작될 때 이번 턴 특수능력이 모두 꺼진다.${n >= 2 ? `\n꺼지면서 양옆 유닛에게 [역병 ${n - 1}]이 옮는다.` : ""}\n[저주] — [저주 면역]이면 걸리지 않고 [정화]로 씻긴다.` }
+};
+const A1_DWARF = "B2";
+function a1Curses(u) {   // 걸린 저주 { kind: [{n,t,by}] } (없으면 빈 것)
+  const k = u && u.t && u.t.keep;
+  return (k && k.curse) || {};
+}
+function a1CurseList(u) {   // 칩 · 글: [{ kind, n }] 저주마다
+  const c = a1Curses(u), out = [];
+  for (const kind in A1_CURSE) for (const e of (c[kind] || [])) out.push({ kind, n: e.n, ko: A1_CURSE[kind].ko });
+  return out;
+}
+function a1Cursed(u) { return a1CurseList(u).length > 0 || !!(u && u.t && u.t.cursed); }
+function a1CurseOn(X, u, kind, n, by, cls) {
+  if (!u || !u.t || !u.t.alive || !(n > 0) || !A1_CURSE[kind]) return false;
+  const ko = A1_CURSE[kind].ko;
+  if (u.t.lock) { fl(X, u.uid, "저주 면역", "miss"); lg(X, `[저주 면역] ${C(u).name}에게 [${ko} ${n}]이 걸리지 않았다`, "good"); return false; }
+  const k = uK(u), c = k.curse = k.curse || {};
+  (c[kind] = c[kind] || []).push({ n, t: X.turn, by: by == null ? null : by });
+  fl(X, u.uid, ko + " " + n, "debuff curse" + (cls ? " " + cls : ""));
+  lg(X, `[${ko} ${n}] ${C(u).name}${cls === "spread" ? "에 역병이 옮았다" : "에게 저주가 걸렸다"} — 다음 턴 전투가 시작될 때 발동`, "sys");
+  return true;
+}
+function a1CurseWash(u) {   // [정화] · [저주 면역]: 걸린 저주를 모두 지우고 지운 이름 목록을 돌려준다
+  const k = u && u.t && u.t.keep;
+  if (!k || !k.curse) return [];
+  const had = a1CurseList(u).map(e => e.ko + " " + e.n);
+  k.curse = null;
+  return had;
+}
+function a1CurseTick(X, sweep) {
+  let any = false;
+  const spread = [];
+  for (const p of X.P) {
+    const Q = queueOf(p);
+    for (const u of liveUnits(p)) {
+      const c = a1Curses(u); if (!u.t.keep || !u.t.keep.curse) continue;
+      const due = {}, left = {};
+      for (const kind in c) { const L = c[kind] || []; due[kind] = L.filter(e => e.t < X.turn); left[kind] = L.filter(e => e.t >= X.turn); }
+      const has = Object.keys(due).some(kd => due[kd].length);
+      if (!has) continue;
+      u.t.keep.curse = Object.keys(left).some(kd => left[kd].length) ? left : null;
+      u.t.cursed = u.t.cursed || {};
+      any = true;
+      const fear = (due.fear || []).reduce((s, e) => s + e.n, 0);
+      if (fear > 0) {
+        const da = Math.min(fear, Math.max(0, u.t.a)), dd = Math.ceil(fear / 3) + (C(u).group === A1_DWARF ? 1 : 0);
+        step(X, { tgt: u.uid }, 260);
+        lg(X, `[공포 ${fear}] ${C(u).name}이(가) 공포에 질렸다 — 공격 −${fear} · 방어 −${dd}${C(u).group === A1_DWARF ? " (드워프 −1 더)" : ""}`, "bad");
+        if (da) addStat(X, u, "a", -da);
+        addStat(X, u, "d", -dd);
+        u.t.cursed.fear = fear;
+      }
+      if ((due.plague || []).length) {
+        a2Silence(X, u); u.t.cursed.plague = true;
+        fl(X, u.uid, "역병 · 능력 꺼짐", "debuff curse");
+        lg(X, `[역병] ${C(u).name}의 특수능력이 이번 턴 꺼졌다`, "bad");
+        const i = Q.indexOf(u), nb = [Q[i - 1], Q[i + 1]].filter(Boolean);
+        for (const e of due.plague) if (e.n >= 2) for (const v of nb) spread.push([v, e.n - 1, e.by]);
+      }
+    }
+  }
+  for (const [v, n, by] of spread) a1CurseOn(X, v, "plague", n, by, "spread");
+  if (any) { rareAuraSync(X); step(X, {}, 380); sweep(); }
+}
+/* 핸드에서 걸린 저주(it.hc)를 전장에 오른 유닛의 keep.curse로 옮긴다(resetTurn이 부른다). t: −1 = 첫 전투에 발동.
+   it.hc는 지우지 않고 keep.hcIn으로 한 번만 옮긴다 — 컴퓨터(어려움)가 핸드 카드를 미리 놓아 보고 it.t를 되돌려도 저주가 남게 */
+function a1HandCurseIn(it) {
+  if (!it || !it.hc || !it.t) return;
+  const k = it.t.keep = it.t.keep || {};
+  if (k.hcIn) return;
+  k.hcIn = true;
+  const c = k.curse = k.curse || {};
+  for (const kind in it.hc) if (A1_CURSE[kind] && it.hc[kind] > 0) (c[kind] = c[kind] || []).push({ n: it.hc[kind], t: -1, by: null });
+}
+/* 컴퓨터 판단: p의 유닛에 걸린 저주의 무게(공포 N × 0.5 · 역병 1 + (N−1) × 0.5) */
+function a1CurseSum(p) {
+  return p.field.reduce((s, u) => {
+    if (!isUnit(u) || !u.t || !u.t.alive) return s;
+    return s + a1CurseList(u).reduce((t, e) => t + (e.kind === "fear" ? e.n * 0.5 : 1 + (e.n - 1) * 0.5), 0);
+  }, 0);
+}
+/* 정신 지배로 데려온 유닛: 살아남았으면 전투가 끝날 때 원래 주인의 전장 맨 뒤로(칸이 없으면 흩어져 소각장으로 — 빼앗기와 같음) */
+function a1MindEnd(X) {
+  let any = false;
+  for (const p of X.P) for (const u of p.field.slice()) {
+    if (!isUnit(u) || !u.t || !u.t.alive || !u.t.mind) continue;
+    const o = X.P.find(q => q.idx === u.from);
+    if (!o || o === p) continue;
+    const xs = o.field.filter(Boolean);
+    if (xs.length >= RULES.slots) { lg(X, `[정신 지배] ${C(u).name}이(가) 돌아갈 칸이 없어 흩어졌다`, "sys"); continue; }
+    p.field[p.field.indexOf(u)] = null;
+    const mine = p.field.filter(Boolean); p.field = mine.concat(Array(RULES.slots - mine.length).fill(null));
+    xs.push(u); o.field = xs.concat(Array(RULES.slots - xs.length).fill(null));
+    u.from = null; u.tokTemp = false; u.t.stolen = false; u.t.mind = false;
+    fl(X, u.uid, "정신 돌아옴", "heal");
+    lg(X, `[정신 지배] ${C(u).name}이(가) 정신을 차리고 ${o.name}의 전장 맨 뒤로 돌아갔다`, "sys");
+    any = true;
+  }
+  if (any) step(X, {}, 420);
+}
+Object.assign(SPELL_OPS, {
+  curse(X, caster, it, k, op) {
+    const L = pickTargets(X, caster, op.side || "foe", op.area || { t: "front", n: 1 }, k);
+    if (!L.length) { fl(X, it.uid, "대상 없음", "miss"); return; }
+    for (const u of L) a1CurseOn(X, u, op.kind, op.n, caster);
+  },
+  a1Hellfire(X, caster, it, k, op) {
+    const F = X.P[1 - caster];
+    const L = uEyeFilter(X, F, liveUnits(F).sort((a, b) => b.t.d - a.t.d || colOf(F, a) - colOf(F, b)));
+    const u = L[0];
+    if (!u) { fl(X, it.uid, "대상 없음", "miss"); return; }
+    const D = u.t.d;
+    if (!(D > 0)) { fl(X, u.uid, "불이 붙지 않음", "miss"); lg(X, `[지옥불] ${C(u).name}은(는) 방어가 없어 지옥불이 붙지 않았다`, "sys"); return; }
+    const amp = ampKind(C(it)) ? amplify(X.P[caster]) : 0;
+    lg(X, `[지옥불] ${C(u).name}의 방어 ${D}가 불길이 되었다 — 방어 ${D} → −${D}, 체력 −${D + amp}`, "spell");
+    if (u.t.lock) fl(X, u.uid, "저주 면역", "miss"); else { u.t.d = -D; applyFloor(u); fl(X, u.uid, "⛨ " + u.t.d, "debuff"); }
+    hurt(X, u, D + amp, "지옥불");
+  },
+  a1Possess(X, caster, it, k, op) {
+    const F = X.P[1 - caster];
+    const L = uEyeFilter(X, F, liveUnits(F).sort((a, b) => hpLeft(b) - hpLeft(a) || colOf(F, a) - colOf(F, b)));
+    const u = L[0];
+    if (!u) { fl(X, it.uid, "대상 없음", "miss"); return; }
+    const all = X.P.flatMap(p => liveUnits(p)).filter(v => v !== u);
+    const ref = all.sort((a, b) => C(a).lv - C(b).lv || hpLeft(a) - hpLeft(b))[0];
+    if (!ref) { fl(X, u.uid, "빙의할 혼 없음", "miss"); return; }
+    if (u.t.lock) { fl(X, u.uid, "저주 면역", "miss"); lg(X, `[저주 면역] ${C(u).name}은(는) 빙의되지 않았다`, "good"); return; }
+    const v = hpLeft(ref);
+    if (hpLeft(u) <= v) { fl(X, u.uid, "빙의 · 그대로", "miss"); lg(X, `[빙의] ${C(u).name}의 체력이 이미 ${C(ref).name}(L${C(ref).lv})의 체력 ${v} 이하다`, "sys"); return; }
+    lg(X, `[빙의] ${C(ref).name}(L${C(ref).lv})의 혼이 ${C(u).name}에 깃들었다 — 남은 체력 ${hpLeft(u)} → ${v}`, "spell");
+    setStats(X, u, { h: v }, "빙의");
+  },
+  a1Dominate(X, caster, it, k, op) {
+    const F = X.P[1 - caster], lv = op.lv == null ? 3 : op.lv;
+    const L = uEyeFilter(X, F, liveUnits(F).filter(u => a1Cursed(u) || C(u).lv <= lv)
+      .sort((a, b) => b.t.a - a.t.a || C(b).lv - C(a).lv || colOf(F, a) - colOf(F, b)));
+    const u = L[0];
+    if (!u) { fl(X, it.uid, "대상 없음", "miss"); lg(X, `[정신 지배] [저주]가 들었거나 레벨 ${lv} 이하인 상대 유닛이 없다`, "sys"); return; }
+    if (u.t.lock) { fl(X, u.uid, "저주 면역", "miss"); lg(X, `[저주 면역] ${C(u).name}은(는) 지배되지 않았다`, "good"); return; }
+    const before = F.field.includes(u);
+    stealCard(X, caster, it, u);
+    if (before && !F.field.includes(u)) { u.t.mind = true; fl(X, u.uid, "정신 지배", "debuff curse"); }
   }
 });

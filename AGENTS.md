@@ -35,6 +35,7 @@
 - 컴퓨터의 수 읽기(`cloneSide`)가 v3.65부터 소각장도 복제한다(되살리는 마법을 본다).
 - 새 효과(engine `SPELL_OPS`): `paidHit` · `tithe` · `rebirth` · `paidSteal` · `confuse`(반격 없음 `t.noCounter`) · `phantom`(환영 `phantom: true` — 소각장에 가지 않음, sweep · uPreSweep이 건너뜀). 빼앗기 본체는 `stealCard`.
 - 시험 `node tools/abyss/test.js`, 승률 `node tools/abyss/sim.js 100 [new|base]`(`ABYSS='{"robCond":"ge"}'` · `ABYSS='{"off":{"veil":true}}'`로 수치 · 능력을 바꿔 잼).
+- **[저주] 묶음 (v3.95, 사용자 결정)**: [저주] = 상위 이름, 그 아래 [공포 N](다음 턴 공격 −N · 방어 −⌈N/3⌉, 드워프 방어 −1 더) · [역병 N](다음 턴 능력 끔, N ≥ 2면 양옆에 [역병 N−1]). [저주 면역]은 모두 막고, [정화]는 저주를 씻는다. 걸린 저주 `keep.curse`, 새 저주 능력은 engine 끝 "v3.95 마족" 절 `A1_CURSE`에 더한다. 핸드 저주는 `it.hc`(game.js `HAND_OPS.handCurse`). 지옥불 · 빙의 · 정신 지배도 같은 절. 시험 `node tools/curse/test.js`.
 
 ## 바위주먹 오크 연계 (v3.67)
 - 데이터는 `js/orc.js`(gnome.js 다음 · decks.js 앞): 숨통 끊기(SG1-02) · 송곳니 반격(SG1-08) · 뼈 부수기(MG-13) · 오크의 문신(M2-1)을 [관통] · [치명] 연계로 바꿈(ID · 등급 · 레벨 그대로). 새 효과 `SPELL_OPS.d0Swap`(방어 0 이하 상대 중 공격 최강 n기의 방어 ↔ 남은 체력).
@@ -46,7 +47,7 @@
 
 ## 푸른비늘 인어 — 치유와 환상 (v3.68)
 - 데이터는 `js/mermaid.js`(orc.js 다음 · decks.js 앞), 규칙은 `js/engine.js` 끝 "v3.68 푸른비늘 인어" 절(`mrArc` · `mrHeal` · `mrCalm`), 카드 글은 `js/cards.js` `ITEM_KW`.
-- **옛 [마력 공격 N](방어를 N 무시)은 모든 깃발에서 [방어무시 N]** — 데이터 키는 `magic` 그대로. 새 **[마력 공격 N]**(키 `arcane`)은 인어 것: 맞붙을 때(공격 · 반격) 상대 방어 N까지는 막지 못하고 피해에 더해진다(공 4 → 방 3, N ≥ 3이면 7).
+- **옛 [마력 공격 N](방어를 N 무시)은 모든 깃발에서 [방어무시 N]** — 데이터 키는 `magic` 그대로. 새 **[마력 공격 N]**(키 `arcane`)은 인어 것: v3.95부터(사용자) 공격할 때만, 상대 방어에 막히지 않고 상대 방어(N까지 · 홀리면 전부)를 공격에 더해 깎는다(공 5 · 방 2, N ≥ 2이면 7). 반격에는 없다. 같은 v3.95에 [방어무시]는 반격에도 붙는다(engine `attackOne` 반격 줄).
 - **[치유 N]**(키 `heal`): 맞붙음에서 살아남을 때마다 받은 피해 N을 채운다. 인어의 가호는 모두 치유로 바뀌었다. 장착할 때 생명을 주던 아이템 능력은 **[생명 +N]**(evName, `game.js` 장착).
 - **레어 오라**: 레어 유닛의 오라 수치 = 범위(1이면 양옆 1칸, 2면 2칸 — 마법 칸은 세지 않음). 쓰고 사라지지 않고 레어가 살아 있는 동안 늘 걸린다. 인어 레어 넬리아의 물그릇 무녀 = [바다의 보호 1](키 `calm`): 범위 안 아군이 받는 피해 −1(맞붙음 · 마법 모두, `MR_CALM_CUT`). 다른 깃발 레어 오라도 같은 틀로.
 - **환상 마법**(특색 없던 카드를 바꿈, ID 그대로 · `MERMAID_GRADES`): 물빛 신기루 SG3-02(무작위 2기 공 ↔ 체, `randSwap`) · 환각의 통제 SG3-01(이 마법 바로 뒤 내 카드와 이름 글자 수가 같은 상대 카드 맨 앞 1장을 빼앗음 — 유닛은 판 끝까지, 마법은 내 마법으로, `mindCapture`) · 뒤바뀐 물길 MC-03(상대 유닛을 방+체 높은 순으로 다시 세움, `sortFoe`) · 씻김의 노래 CS-G3(무효로 했을 때만 상대 전체 해제 · 공격 −1 — 효과의 `ifNeg: true`, castSpell).
@@ -71,6 +72,7 @@
 - 새 효과(`js/engine.js` 끝 "v3.70 바람 궁수 엘프" 절): `retreat`(후퇴 — 내 맨 앞 유닛이 맨 뒤로, `ab`면 그 유닛에게 이번 턴 능력) · `volley`(상대 맨 앞 `skip`기를 뺀 나머지 모두에게 피해 x).
 - **벨루미르의 별 콤보 = [활] (v3.93, 사용자 설계)**: [활] = 활을 든 유닛 — 활 아이템(아이콘 bow, 엘프 아이템 9장 중 7장)을 장착했거나, 활을 든 사수 유닛(`ELF_BOW_UNITS`, elf.js — 새 사수 유닛을 만들면 여기에 적는다), 또는 궁사회 무기고로 활을 받은 유닛(`keep.bow`, 쓰러질 때까지). 판정 `a3HasBow`(engine 끝 "v3.93 벨루미르의 별: 활" 절), 전장 칩 🏹(`game.js` `.bd-bow`), 뜻 `SPELL_KW["활"]`.
   궁사회 무기고(SA3-06 공격 L2, 전 급소 저격, `a3Arm`) — 아이템이 없는 아군 전체가 [활] · 이번 턴 공격 +2 · [원거리]. 별빛 연사(NA3-3 공격 L3, 전 꿰뚫는 화살, `a3Volley`) — [활] 아군 수 × 2를 상대 전체에(방어 무시, [증폭] 붙음). 두 장은 기본 · 정예 덱에 넣지 않았다.
+- **v3.95 엘프 마법 (사용자)**: 혼란의 바람(SA3-02 공격 L2, 전 바람 장벽, `a3Confuse`) — 상대 맨 앞 1기 방어 ↔ 체력(방어 0이면 쓰러짐, [저주 면역]은 방어가 내려갈 때만 막음). 되쏘는 바람(SA3-05 방어 L2, 전 회오리 방벽) — 아군 맨 앞 2기 방어 +2 · 체력 +2 · [방어무시]. 같은 때 [방어무시]는 반격에도 붙게 됐다. 데이터 `js/spelltune.js` `// v3.95 엘프`. 별의 문자(US-A3-1 에픽 핸드)는 마족으로 옮겨 **그믐의 계약서**(ID · 효과 그대로) — 카드 깃발을 옮기면 저장 덱은 `Store.fixMovedCards`(economy.js)가 서버를 켤 때 다른 깃발 덱에서 빼고 같은 종류로 채운다.
 - 스페셜 별을 푼 이사크(SP-A3)는 v3.93부터 10/1/10 [사격 2](코인 그대로, 사용자). 능력 3개 유닛은 이제 없다 — `tools/abilcap/test.js`는 시험용 카드로 본다.
 - 시험 `node tools/elf/test.js`.
 
@@ -223,6 +225,7 @@
 
 ## 카드 등급
 - 등급(일반·고급·레어·에픽·유니크·스페셜)과 카드별 등급은 `js/grades.js`, 나눈 방법과 새 카드 기준은 `docs/GRADES.md`. **v3.29부터 유니크는 강화 특수능력을 가진 유닛만**(v3.31: 깃발마다 2장 · 18장 · 모두 6레벨, 덱에 유니크 2종까지 `uniqueBlock`. 능력 규칙은 `js/engine.js` 맨 아래 "v3.31 강화 특수능력", 글은 `js/uniques.js` `UNIQUE_ABIL` — 둘을 함께 고친다. 시험 `node tools/uniques/test31.js`, 설명 `docs/UNIQUES_v3.31.md`)(마법 · 아이템 유니크는 에픽으로 내림). 새 수치 기준(레벨 직선 4 + 2 × 레벨 · 유지비 0 또는 1 · 강화는 최대 · 등급 배율 · 7레벨까지)은 `docs/BALANCE_v4_draft.md`, 표 계산은 `node tools/balance4/budget.js`. **v3.49 유닛 등급은 스탯으로 정한다**(고급 = 일반 기준 +8% + 하급 능력 하나) — 바뀐 값은 `js/rebalance.js`(upgrades.js 다음에 SIM_UNITS를 덮고 `REBAL_GRADES`는 grades.js가 맨 끝에 덮음, 손으로 고치지 말고 `node tools/balance4/regrade.js --write`), 깃발 덧보정 `tools/balance4/regrade_offsets.json`, 설명 `docs/GRADES.md` 9장. 새 카드 데이터 도구 목록(harness · balance4/load · art/build_prompts)에 rebalance.js가 들어 있다. **v3.50 카드 풀**: 깃발마다 유닛 일반 21~24 · 고급 6~9(레벨마다 2장까지), 뺀 카드는 레거시(`REBAL_LEGACY` → RETIRED_CARDS, 흔적만 · 바탕이 빠진 강화 카드도 레거시 · 강화 카드는 깃발마다 5장까지) — `docs/GRADES.md` 10장, 덱 바꾸기 `tools/balance4/pool_decks.js`. **v3.30에 유닛을 이 기준으로 맞췄다**(`tools/balance4/rebuild.js`) — 이 도구는 `_backup_v3.30_rebal/js`에서 시작하므로, 그 뒤 손으로 고친 유닛이 있으면 다시 돌리기 전에 `--from js`로.
+- **마법 등급 · 레벨 기준 (v3.94, 사용자 결정)**: 아군 전체에 거는 마법은 레어 이상(일반 · 고급은 드물게, 아군 전체에 피해만 주는 대가는 예외, 마족 제물 마법의 [강탈]은 깃발 규칙이라 예외) · **레벨 2가 주력** · 레벨 1은 약하게 · 레벨 5까지. 새 마법도 이 기준으로 만든다. 기준에 맞춰 옮긴 44장의 레벨 · 대상 · 등급은 `js/spelltune.js`(itemrework.js 다음 · decks.js 앞, 등급 `SPELLTUNE_GRADES` → grades.js)에서 고친다 — 깃발 파일에서 고쳐도 이 파일이 덮는다.
 - 무효 마법(v3.32)은 `js/counterspells.js`(깃발마다 1장, 모두 고급). [무효] = 엔진 `SPELL_OPS.negate`(상대 전장에서 아직 발동하지 않은 마법 중 맨 앞을 부숨). 컴퓨터는 미리 굴리기로 [무효]를 볼 수 없어 `js/game.js` `negateHope`로 어림한다 — 상대 마법을 겨누는 새 효과를 만들면 거기도 본다. 시험 `node tools/counter/test.js`, 실험실 `node tools/counter/lab.js 1500`, 설명 `docs/COUNTERSPELLS_v3.32.md`.
 - 레어 마법(v3.24)은 `js/rarespells.js`(깃발마다 공격 · 방어 · 공용 1장). 새 마법의 세기는 마법 실험실 `node tools/highcards/lab_rare.js 2000 [카드 ID,...]`로 같은 레벨 기존 마법 · 유니크와 견준다(레어 목표는 `docs/RARESPELLS_v3.24.md` 2장). 새 카드 데이터 파일을 만들면 `index.html`(data.js ~ economy.js 사이)과 `tools/balance/harness.js`의 파일 목록에 함께 넣는다.
 

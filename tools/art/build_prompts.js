@@ -23,7 +23,7 @@ const S = JSON.parse(fs.readFileSync(path.join(__dirname, "art_style.json"), "ut
 const NOTES = (() => { try { return JSON.parse(fs.readFileSync(path.join(__dirname, "art_notes.json"), "utf8")); } catch (e) { return {}; } })();
 
 /* ---------- 1. 게임 데이터 읽기 (index.html의 data.js ~ grades.js와 같은 차례) ---------- */
-const DATA_FILES = ["data", "names", "retired", "briefs", "specials", "uniques", "highcards", "pincards", "rarespells", "counterspells", "upgrades", "rebalance", "abyss", "gnome", "orc", "mermaid", "rares", "elf", "goblin", "newabil", "troll", "celestial", "kinds", "statguide", "itemtune", "itemrework", "decks", "cards", "grades"];
+const DATA_FILES = ["data", "names", "retired", "briefs", "specials", "uniques", "highcards", "pincards", "rarespells", "counterspells", "upgrades", "rebalance", "abyss", "gnome", "orc", "mermaid", "rares", "elf", "goblin", "newabil", "troll", "celestial", "kinds", "statguide", "itemtune", "itemrework", "spelltune", "decks", "cards", "grades"];
 function loadGame() {
   const stub = () => null;
   const ctx = {

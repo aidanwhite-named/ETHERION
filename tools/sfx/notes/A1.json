@@ -278,9 +278,9 @@
    "def": "waist-deep paper stacks swallow the strike: a muffled giant paper thump, sliding avalanche of pages, scythe shaft knocking with a hollow wooden clunk"
   },
   "MA-01": {
-   "en": "Blood Blade",
-   "ko": "손목 그어 피 칼날 두 번",
-   "cast": "a wrist is cut with a fine slice, blood streams into the air and hardens into sharp blades with a glassy crystalline ring, then two fast whistling slashes land with wet cracks on the front line"
+   "en": "Blade of Dread",
+   "ko": "그림자 칼날이 스치고 소름 끼치는 속삭임",
+   "cast": "two thin shadow blades slip past with cold airy swishes, a chill breathy whisper creeps close behind, then armour rattles in a shivering tremor as a weapon trembles in a loosened grip"
   },
   "MA-04": {
    "en": "Blood Resonance",
@@ -313,9 +313,9 @@
    "cast": "a dark mirror surface ripples with a glassy shimmer, a reflected footstep echoes from inside, then a shadowy double steps out with a crystalline crack and a cold distorted breath"
   },
   "MA-09": {
-   "en": "Price of the Pact",
-   "ko": "피 값에 전장 전체가 흔들림",
-   "cast": "a blood drop falls into a bell-shaped well, a distant muffled toll answers once, then a spreading shockwave of dark pressure rolls across the whole field with a long rumble"
+   "en": "Hellfire",
+   "ko": "갑옷 속에서 낮게 타오르는 지옥불",
+   "cast": "a clawed hand closes with a dry creak, heavy plate armour groans and ignites from within with a low deep roaring fire, metal hissing and ticking red-hot as the flames burn on"
   },
   "SA1-06": {
    "en": "Blood Offering",
@@ -344,13 +344,13 @@
   },
   "HA1-2": {
    "en": "Fingertip Curse",
-   "ko": "손끝 스친 저주가 기침으로",
-   "cast": "a fingertip brushes a card with a faint dry scratch, a thin dark spark fizzles into it, and a sinking wheeze creeps outward with a dry rasping hiss"
+   "ko": "손끝이 패를 스치고 귓가의 속삭임",
+   "cast": "a fingertip taps a card with a faint dry scratch, a cold breathy whisper hisses close to the ear, then a small shivering tremble like chattering teeth fades into quiet"
   },
   "HA1-3": {
    "en": "Curse Contagion",
-   "ko": "저주가 막사 전체로 번짐",
-   "cast": "a single cough starts a faint dark ripple that fans out with a growing creeping hiss across canvas tents, cloth sagging and blades dulling with soft heavy clanks"
+   "ko": "패 위로 끈적한 부패가 번짐",
+   "cast": "a blood-wax sigil presses down with a soft wet squelch, sticky rot creeps across parchment with a slow crackling ooze, then a damp spreading hiss fans out to the neighbouring cards"
   },
   "US-A1-1": {
    "en": "Scale of Silence",
@@ -363,9 +363,9 @@
    "cast": "a draining reversed sucking whoosh pulls glowing strands out of two foes, a paper-thin tearing, then the stolen energy pours into an ally with a warm swelling thrum"
   },
   "PS-A1-2": {
-   "en": "Shackles",
-   "ko": "쇠고랑 채워 꼼짝 못함",
-   "cast": "heavy iron manacles swing with a rattle, snap shut with a loud clamp and a click of a lock, then a long taut chain groan as the foe is dragged still"
+   "en": "Plague Shackles",
+   "ko": "녹슨 족쇄 철컥 · 끈적한 부패가 번짐",
+   "cast": "a rusted shackle snaps shut with a heavy grinding clank, a wet sticky rot oozes out of the iron, then a slow bubbling decay seeps outward to either side with a damp hiss"
   },
   "RS-A1-1": {
    "en": "Spear of Blood",
@@ -378,9 +378,9 @@
    "cast": "a dark veil unfurls with a heavy cloth whoosh, a long sucking drain pulls from the front line, then a soft heartbeat-like pulse thrums as the ally swells with borrowed strength"
   },
   "RS-A1-3": {
-   "en": "Curse of Blood",
-   "ko": "피 한 방울이 접시 전체를 가볍게",
-   "cast": "a single blood drop hits a scale pan with a bright tick, a spreading dark ripple makes armour groan, then many small crunching thuds roll across the enemy ranks"
+   "en": "Mind Domination",
+   "ko": "보랏빛 실이 당겨 적이 돌아섬",
+   "cast": "taut violet threads hum and pull tight with a stretched creak, a low droning pulse takes hold of a mind, then slow heavy footsteps turn around and march back across the field"
   },
   "US-A1-2": {
    "en": "Shadow Pact",
@@ -388,9 +388,9 @@
    "cast": "a thin parchment unrolls with a brittle crackle, a pen-scratch burns a mark, then a sharp strike hits a foe while a surging dark swell rises behind the allies with a sharp metallic crack"
   },
   "CS-A1": {
-   "en": "Blood Silence",
-   "ko": "피 한 방울이 마법 입을 막음",
-   "cast": "a single blood drop falls with a tiny splat, a closing spell is crushed to a dead hush with a sucking click, then a heavy cold strike thuds into the strongest foe"
+   "en": "Possession of Silence",
+   "ko": "마법이 막히고 여린 혼이 스며듦",
+   "cast": "a spell is choked to a dead hush with a sucking click, a thin hollow ghostly breath glides inward, then a big body sags with a heavy creaking slump and a fading heartbeat"
   },
   "I2-3": {
    "en": "Shadow Throwing Dagger",
@@ -447,6 +447,11 @@
    "ko": "생명 받고 튀어나온 악마 · 그을린 몸이 퍽",
    "atk": "a small spark pops, a hot brimstone hiss, a short growl, then wiry claws rake the air with a quick scratchy whoosh and a bite-sized hit",
    "def": "a scorched little body takes it: a soft leathery thump, a puff of ember smoke, a quick yelp-free hiss as it hops back"
+  },
+  "US-A3-1": {
+   "en": "Contract of the New Moon",
+   "ko": "그믐 계약서가 펼쳐지고 상대 패가 시듦",
+   "cast": "a long black parchment unrolls with a dry rasping slide, a blood-wax seal presses with a heavy muffled thud, enemy cards wither with a falling drained hiss, then a fresh card snaps into a clawed hand"
   }
  }
 }

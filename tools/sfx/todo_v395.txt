@@ -1,0 +1,46 @@
+v3.95 깃발별 마법 손질 — 다음 세션이 합성할 소리 키 (2026-11-18, 프롬프트 세션)
+소리 지시: tools/sfx/notes/<깃발>.json · 공용 tools/sfx/sfx_common.json → 이미 node tools/sfx/build_sfx_prompts.js 로 tools/sfx/prompts/sfx.jsonl 에 반영됨.
+합성: ~/develop/sfx-synth/.venv/bin/python tools/sfx/synth/render.py <폴더> <키들> -j8  → 검사 check.py <폴더> → audio/sfx/<키>.ogg · .mp3 로 덮어쓰기.
+덮어쓴 카드 키는 js/feel.js SND_VER 에 새 꼬리표를 붙인다(브라우저에 남은 옛 파일 대신 새 파일을 받게). js를 고치면 index.html ?v= 도 바꾼다.
+
+## 1. 꼭 — 카드 발동 소리 (지시를 새 효과 · 이름에 맞게 고침, 17개)
+깃발  카드ID     키                이름 (전 이름)
+A1    MA-01      MA-01.cast        공포의 칼날 (피의 칼날) — 그림자 칼날 · 소름 끼치는 속삭임
+A1    PS-A1-2    PS-A1-2.cast      역병의 족쇄 (족쇄) — 녹슨 족쇄 · 끈적한 부패
+A1    MA-09      MA-09.cast        지옥불 (계약의 대가) — 갑옷 속에서 낮게 타오르는 불
+A1    CS-A1      CS-A1.cast        침묵의 빙의 (피의 침묵) — 마법이 막히고 여린 혼이 스며듦
+A1    RS-A1-3    RS-A1-3.cast      정신 지배 (피의 저주) — 보랏빛 실이 당겨 적이 돌아섬
+A1    HA1-2      HA1-2.cast        손끝 저주 — 패를 스치는 손끝 · 귓가의 속삭임
+A1    HA1-3      HA1-3.cast        저주 전염 — 패 위로 번지는 끈적한 부패
+A1    US-A3-1    US-A3-1.cast      그믐의 계약서 (엘프 별의 문자 → 마족) — 계약서가 펼쳐지고 패가 시듦
+A2    RS-A2-1    RS-A2-1.cast      빛의 심판 (새벽 돌격) — 방어를 바쳐 빛의 칼날이 꿰뚫음
+A2    PS-A2-1    PS-A2-1.cast      대신 속죄 (맹세의 빛) — 앞의 칼을 뒤 아군이 대신 받음
+A3    SA3-02     SA3-02.cast       혼란의 바람 (바람 장벽) — 뒤틀리는 바람
+A3    SA3-05     SA3-05.cast       되쏘는 바람 (회오리 방벽) — 회오리로 막고 갑옷 틈을 되쏨
+B1    MB-05      MB-05.cast        불씨 뿌리기 (작렬탄) — 불씨 자루 · 내려앉는 불씨
+B1    NB1-3      NB1-3.cast        불바람 (박격 포격) — 퍼지는 불길 · 맨 앞 불기둥
+B3    PS-B3-1    PS-B3-1.cast      증폭 회로 (역회로) — 구리 회로 · 굵어지는 번개
+G2    SG2-02     SG2-02.cast       새순 갑옷 (나무껍질 갑옷) — 껍질 틈에서 돋는 새순
+G3    SG3-03     SG3-03.cast       물의 장막 — 칼을 무디게 하고 씻어 내는 물의 장막
+
+## 2. 꼭 — 새 공용 상태 소리 (새 키 2개)
+fear     [공포 N] 걸림 (떠오르는 글 "공포 N") — 차가운 속삭임 · 갑옷 떨림
+plague   [역병 N] 걸림 · 발동 · 옮음 ("역병 N" · "역병 · 능력 꺼짐") — 끈적한 부패음
+- 새 키라 audio/sfx/index.json · index.js 에 더하고 index.html 의 index.js?v= 를 바꾼다.
+- 배선(아직 안 함): js/game.js FLOAT_SFX 에 [/^공포 \d/, "fear"], [/^역병/, "plague"] 두 줄(지금은 맞는 줄이 없어 기본 약화 소리). 엔진 fl() 글은 js/engine.js "v3.95 마족" 절(a1Curse · 역병 발동).
+
+## 3. 선택 — 등급 · 레벨 꼬리만 바뀐 카드 (지시 그대로, 프롬프트의 꼬리 문장만 달라짐, 4개)
+G1    RS-G1-1    RS-G1-1.cast      늑대 기습 — 레어 → 고급 (반짝임 꼬리 빠짐)
+G1    RS-G1-3    RS-G1-3.cast      대지 가르기 — 레어 → 고급 (반짝임 꼬리 빠짐)
+B2    RS-B2-1    RS-B2-1.cast      파쇄 망치 — 레어 → 고급 (반짝임 꼬리 빠짐)
+G1    MG-13      MG-13.cast        뼈 부수기 — L3 → L2 (조금 짧고 가볍게)
+
+## 합성하지 않음
+G1    SG1-01     사냥감 몰이 — 효과만 바뀜(체력 낮은 순), 소리 지시 · 프롬프트 그대로(오크 세션: 그대로 써도 됨).
+
+한 줄 키 목록 (1 + 2):
+MA-01.cast PS-A1-2.cast MA-09.cast CS-A1.cast RS-A1-3.cast HA1-2.cast HA1-3.cast US-A3-1.cast RS-A2-1.cast PS-A2-1.cast SA3-02.cast SA3-05.cast MB-05.cast NB1-3.cast PS-B3-1.cast SG2-02.cast SG3-03.cast fear plague
+선택(3):
+RS-G1-1.cast RS-G1-3.cast RS-B2-1.cast MG-13.cast
+
+## 2026-11-18 완료 — 위 23키(꼭 19 + 선택 4) 모두 합성해 audio/sfx 에 넣고 fear · plague 배선함 (docs/CHANGELOG.md '바뀐 마법 소리 합성').

@@ -22,6 +22,9 @@
 .card .c-eq-ab.c-sac::before { content: "✠"; color: #b04060; }
 .card .c-eq-ab.c-scorch { color: #ffc27a; }   /* v3.73 잿불 고블린 화상 (js/game.js) */
 .card .c-eq-ab.c-scorch::before { content: "🔥"; font-size: .85em; }
+.card .c-eq-ab.c-curse { color: #c9a8ff; }   /* v3.95 마족 [저주]: 걸린 공포 · 역병 (js/game.js, engine A1_CURSE) */
+.card .c-eq-ab.c-curse::before { content: "☠"; color: #8a5cd6; }
+.hand-mod.hand-curse { bottom: 13%; background: rgba(60, 24, 96, .92); color: #e2cfff; }   /* v3.95 핸드에 걸린 [저주] */
 /* 2026-11-16 레어 오라 색 = 호박빛(--aura). 올림 초록 · 내림 빨강 · 마법 보라 ✦ · 에테르 · 레어 파랑 · 보호막 하늘빛 어느 것과도 겹치지 않는
    따뜻한 "후광" 빛. 오라가 준 능력 칩(js/game.js auraChipsHTML) · 오라가 올린 스탯 숫자(js/view.js statCellHTML .st.aura) · 떠오르는 "오라 ⚔+2"
    명판(css/spellfx.css t-aura) · 오라가 켜질 때 카드 테두리 빛(.aura-hit, 준 레어는 .aura-src). 스타일 가이드 2.2 */

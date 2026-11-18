@@ -47,7 +47,7 @@ const abilSfx = (actUid, tgtUid, counter) => {
   const a = G.reg && G.reg[actUid], t = G.reg && G.reg[tgtUid];
   if (!a || !a.t) return;
   let ab, tb; try { ab = abilOf(a); tb = t && t.t ? abilOf(t) : {}; } catch (e) { return; }
-  const k = counter && ab.bash ? "shield_bash" : counter && ab.intercept && tb.ranged ? "intercept" : ab.arcane > 0 && t && t.t && t.t.d > 0 ? "arcane" : null;
+  const k = counter && ab.bash ? "shield_bash" : counter && ab.intercept && tb.ranged ? "intercept" : !counter && ab.arcane > 0 && t && t.t && t.t.d > 0 ? "arcane" : null;
   if (k) setTimeout(() => sfx(k, 0.75), 110);
 };
 /* 2026-11-15 카드마다 다른 효과음 (audio/sfx/<카드ID>.atk · def · cast · equip, js/feel.js FEEL.card). 그 카드 소리가 없으면 fb */
@@ -335,6 +335,17 @@ const HAND_OPS = {
       return out.join(", ");
     },
     ai(p, o, op) { const L = handUnits(o); if (!L.length) return 0; if (op.which === "all") return L.length * 0.6; const it = L[0]; return printedStats(it).h + (op.h || 0) <= 0 ? lvOf(it) * 0.6 + 0.5 : 1.2; }
+  },
+  /* v3.95 상대 핸드 유닛에 [저주]: { which: first|all, k: 앞에서 몇 장, kind: fear|plague, n } — 전장에 오르면 첫 전투가 시작될 때 발동(engine a1HandCurseIn) */
+  handCurse: {
+    run(p, o, op) {
+      const all = handUnits(o), L = op.which === "all" ? all : all.slice(0, op.k || 1);
+      if (!L.length) return "상대 핸드에 유닛이 없다";
+      const ko = A1_CURSE[op.kind].ko;
+      for (const it of L) { it.hc = it.hc || {}; it.hc[op.kind] = (it.hc[op.kind] || 0) + op.n; }
+      return L.map(it => `${handName(it)} [${ko} ${it.hc[op.kind]}]`).join(", ");
+    },
+    ai(p, o, op) { const L = handUnits(o).slice(0, op.which === "all" ? 99 : (op.k || 1)); return L.length * (op.kind === "fear" ? op.n * 0.35 : 0.9 + (op.n - 1) * 0.4); }
   },
   /* 상대 핸드 무작위 n장 소각 */
   handBurn: {
@@ -1372,6 +1383,7 @@ const FLOAT_SFX = [
   [/^무효$/, "negate"], [/^빼앗김/, "steal"], [/^강화 해제/, "cleanse"], [/^(충전|플라즈마) \d/, "charge"], [/^♥1 ⚔/, "rage"], [/^(다시 )?자람/, "regrow"],
   // v3.65 마족: [출혈] 걸림 = 약화, [흡혈] = 치유, [강탈] 다음 턴 에테르 = 에테르 얻음. 출혈 깎임은 2026-11-15부터 전용 소리 bleed
   [/^출혈 −/, "bleed"], [/^출혈 \d/, "debuff"], [/^제물 증표/, "mark"], [/^흡혈/, "heal"], [/^강탈 ·/, "ether_gain"],
+  [/^공포 \d/, "fear"], [/^역병/, "plague"],   // v3.95 마족 [저주]: 공포 N 걸림 · 역병 N 걸림 · 발동 · 옮음 (engine a1Curse)
   // 2026-11-15 v3.68~v3.74 새 능력 전용 소리 (audio/sfx/<키>, tools/sfx/sfx_common.json combat)
   [/^화상 −/, "burn_burst"], [/^불씨 −/, "burn_burst"], [/^화상 \d/, "scorch"], [/^불씨( 옮겨붙음)?$/, "scorch"], [/^불길 · 재생 멈춤/, "burn"],
   [/^재생/, "regen"], [/^치유 \+/, "mend"], [/^바다의 보호/, "sea_guard"], [/^가호/, "ward"], [/^정화/, "purify"], [/^굳건/, "firm"], [/^후퇴$/, "retreat"],
@@ -2111,6 +2123,7 @@ function fieldCardHTML(it, p, s) {
   // v3.65 [출혈]: 걸린 출혈(t.bleed, 이번 전투만)을 붉은 칩으로 — 맞붙음이 시작될 때마다 그만큼 체력이 깎인다
   if (isUnit(it) && it.t && it.t.keep && it.t.keep.scorch > 0) for (const b of gbBurns(it)) gxc += `<span class="c-eq-ab c-scorch" data-tip="${esc(`화상 ${b.n}\n붙은 그 자리에서는 피해가 없다.\n다음 턴 전투가 시작될 때 체력 −${b.n} (방어 무시), 그 뒤 꺼진다.${b.n >= 2 ? `\n꺼지면서 양옆 유닛에게 [화상 ${b.n - 1}]이 옮겨붙는다.` : ""}`)}">화상 ${b.n}</span>`;   // v3.88 [화상 N]은 가시처럼 따로따로 (engine gbScorch · gbBurns)
   if (isUnit(it) && it.t && it.t.sac && it.t.sac.length) gxc += `<span class="c-eq-ab c-sac" data-tip="${esc("제물 증표\n이번 전투에서 쓰러지면 제물을 바친 쪽의 생명이 돌아오고, 이 카드는 그쪽 소각장으로 간다")}">제물</span>`;   // 2026-11-17 [제물 증표] (engine abMark)
+  if (isUnit(it) && it.t) for (const e of a1CurseList(it)) gxc += `<span class="c-eq-ab c-curse" data-tip="${esc(A1_CURSE[e.kind].tip(e.n))}">${e.ko} ${e.n}</span>`;   // v3.95 [저주]: 걸린 공포 · 역병 (engine "v3.95 마족" 절)
   if (isUnit(it) && it.t && it.t.bleed > 0) gxc +=`<span class="c-eq-ab c-bleed" data-tip="${esc(`출혈 ${it.t.bleed}\n맞붙음이 시작될 때마다 체력 −${it.t.bleed} (이번 전투)`)}">출혈 ${it.t.bleed}</span>`;
   if (gxc) item = item ? item.replace(/<\/div>$/, gxc + "</div>") : `<div class="c-equip">${gxc}</div>`;
   const artx = isUnit(it) && it.t && abilOf(it).u === "scrap" ? scrapPileHTML(it) : "";   // v3.31.1 [고철 골렘] 고철 더미
@@ -2475,7 +2488,8 @@ function handHTML(p, hidden, ctrl) {
     if (i === hovI) cls.push("hov");
     if ((FX.drag && FX.drag.uid === it.uid) || FX.returning === it.uid) cls.push("drag-src");
     if (FX.drawing.has(it.uid)) cls.push("drawing");
-    const modTag = it.mod ? `<span class="hand-mod" title="이 카드에 걸린 변화 (이 판 내내)">${Object.keys(it.mod).filter(k => it.mod[k]).map(k => statIco(k) + sgnNum(it.mod[k])).join(" ")}</span>` : "";
+    const modTag = (it.mod ? `<span class="hand-mod" title="이 카드에 걸린 변화 (이 판 내내)">${Object.keys(it.mod).filter(k => it.mod[k]).map(k => statIco(k) + sgnNum(it.mod[k])).join(" ")}</span>` : "")
+      + (it.hc ? `<span class="hand-mod hand-curse" title="이 카드에 걸린 [저주] — 전장에 오르면 첫 전투가 시작될 때 발동">${Object.keys(it.hc).filter(k => it.hc[k] > 0 && A1_CURSE[k]).map(k => A1_CURSE[k].ko + " " + it.hc[k]).join(" · ")}</span>` : "");   // v3.95 핸드의 [저주] (engine A1_CURSE)
     return `<div class="${cls.join(" ")}" data-act="hand" data-uid="${it.uid}" data-zone="hand" data-p="${p.idx}" data-rot="${rot}" style="--i:${si};--n:${S};--k:${k};--d:${d};--r:${rot}deg;--y:${y}%;--sk:${straightK(rot)};--pk:${pushK(i, act, pw)};z-index:${si + 1}" title="${why && ctrl ? esc(why) : "누르면 크게 보기 · 끌어서 내기"}"><div class="hand-card">${cardHTML(c, { size: "md", slim: true, live: handLive(it) })}${modTag}${si < 9 ? `<span class="hk hk-hand">${si + 1}</span>` : ""}</div></div>`;
   }).join("") || '<div class="hand-empty">핸드 없음</div>'}</div>`;
 }

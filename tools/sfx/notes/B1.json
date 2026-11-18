@@ -293,9 +293,9 @@
    "cast": "a clay ball pops with a soft thud, a long billowing hiss of smoke spreading outward, a muffled rustle of cloth, a sinking dull hush"
   },
   "MB-05": {
-   "en": "Burst Shell",
-   "ko": "땅에 닿아 사방으로 터짐",
-   "cast": "a mortar lobs with a hollow thoomp, a falling whistle, a ground thud and a splitting burst, scattering in a wide crackling spray of fire"
+   "en": "Ember Scatter",
+   "ko": "불씨 자루를 던져 앞줄에 불씨가 내려앉음",
+   "cast": "a canvas sack swings with a coarse whoosh, a spray of glowing coals hisses through the air, then embers patter onto cloth and catch with small crackling whumps"
   },
   "SB1-03": {
    "en": "Curtain of Fire",
@@ -338,9 +338,9 @@
    "cast": "a heavy shell clunks home, a flat blast, a shrieking whistle, a crashing metal punch through a shield, then a long rolling thud"
   },
   "NB1-3": {
-   "en": "Mortar Barrage",
-   "ko": "박격포탄이 높이 날아 떨어짐",
-   "cast": "three hollow thoomps in a row, long arcing falling whistles overlapping, then three muffled crunching thuds landing deep in packed earth"
+   "en": "Fire Wind",
+   "ko": "뜨거운 바람에 불길이 적진으로 퍼짐",
+   "cast": "a hot roaring gust sweeps in with a rising rush, flames spread wide across the field with a broad crackling flutter, then a whirling pillar of fire roars up at the front"
   },
   "HB1-1": {
    "en": "Magazine Raid",

@@ -116,6 +116,16 @@ var uK;
   const X = ev('ctx')(P, 1, 1, []); const U = P[1].field.filter(Boolean), a0 = U.map(u => u.t.a); ev('gbScorch')(X, U[1], 1, null);
   ev('castSpell')(X, 0, P[0].field[0], 1); const d = U.map((u, i) => a0[i] - u.t.a);
   ok(d[0] === 2 && d[1] === 4 && d[2] === 2, '연막탄: 화상 있는 유닛만 공격 −4 (' + d + ')'); }
+/* v3.95 불씨 뿌리기(MB-05) · 불바람(NB1-3): 뒤 칸 포격 → [화상] */
+ok(CARDS['MB-05'].name === '불씨 뿌리기' && CARDS['MB-05'].lv === 2 && CARDS['NB1-3'].name === '불바람' && CARDS['NB1-3'].lv === 3 && ev('SPELLTUNE_GRADES')['NB1-3'] === 'rare' && !/고블린/.test(CARDS['MB-05'].name + CARDS['NB1-3'].name), '불씨 뿌리기 L2 · 불바람 L3 레어, 이름에 고블린 없음');
+{ const P = [c.side(0, ['MB-05'], 30), c.side(1, ['B1-31', 'B1-27', 'B1-26'], 30)]; c.prep(P);
+  const X = ev('ctx')(P, 0, 1, []); const U = P[1].field.filter(Boolean), d0 = U.map(u => u.t.dmg); ev('castSpell')(X, 0, P[0].field[0], 1);
+  const bl = u => ev('gbBurns')(u).map(x => x.n).join(',');
+  ok(bl(U[0]) === '2' && bl(U[1]) === '2' && sc(U[2]) === 0 && U.every((u, i) => u.t.dmg === d0[i]), '불씨 뿌리기: 맨 앞 2기 [화상 2], 바로 피해 없음'); }
+{ const P = [c.side(0, ['NB1-3'], 30), c.side(1, ['B1-31', 'B1-27', 'B1-26'], 30)]; c.prep(P);
+  const X = ev('ctx')(P, 0, 1, []); const U = P[1].field.filter(Boolean); ev('castSpell')(X, 0, P[0].field[0], 1);
+  const bl = u => ev('gbBurns')(u).map(x => x.n).sort().join(',');
+  ok(bl(U[0]) === '1,3' && sc(U[0]) === 4 && bl(U[1]) === '1' && bl(U[2]) === '1', '불바람: 전체 [화상 1] · 맨 앞은 [화상 3] 따로 (' + U.map(bl) + ')'); }
 /* 레어 오라: 양옆 공격 +1 */
 { const P = [c.side(0, ['B1-02', 'PN-B1-R', 'B1-12'], 30), c.side(1, ['G1-01'], 30)]; c.prep(P);
   const a0 = [P[0].field[0].t.a, P[0].field[2].t.a]; const X = ev('ctx')(P, 0, 1, []); ev('rareAuraSync')(X);

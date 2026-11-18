@@ -21,6 +21,34 @@ Mood: awe, momentum, overwhelming force.
 
 ## 1. 그림 없는 카드 — 먼저 그린다 · 58장
 
+### US-A3-1 · 그믐의 계약서
+모르카스의 그믐 · 핸드 마법 · 레벨 1 · 에픽 — 받은 그림은 `tools/art/inbox/US-A3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-A3-1.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "그믐의 계약서". Depict exactly what this name describes.
+Subject: trick spell played on the opponent's hidden hand — cunning: hidden cards, eyes, threads of fate, a sly hand in shadow; quieter, mysterious lighting. The moment it takes effect: threads of fate and glowing cards being drawn; a sly hand reaching into the enemy's hidden plans. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
+Art direction: Contract of the New Moon (v3.95, now a Morkas's New Moon card — demon, not elf): under a black new-moon sky above the canyon spires of Noctar, a long black-parchment contract unrolls in mid-air, sealed with blood-red wax and violet sigils; the enemy's name is inscribed on it in glowing blood ink (illegible, no real letters). Beneath it a fanned hand of enemy cards (blank backs) withers and greys like dying leaves, while one fresh card slides from the shadows into the caster's elegant clawed hand. Epic: violet light shafts, drifting ash, a faint faceless shadow king with balanced scales behind the moon.
+Scale (level 1 of 8): a small, local effect.
+Banner — Morkas's New Moon: magic of morkas's new moon, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
+Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 그믐밤 녹타르에서 맺는 계약서에는 상대의 이름도 함께 적힌다. 서명한 자는 한 장을 더 쥐고, 적힌 자의 패는 손안에서 시들어 간다.
+Game effect (Korean, mood only — never draw text or numbers): 상대 핸드의 유닛 전체 공격 −1, 체력 −1 (이 판 내내). 체력이 0이 되면 소각된다. 저주 면역인 스탯은 깎이지 않는다. 카드 1장을 뽑는다(생명 소모 없음).
+Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
+Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
+Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
+Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
+Mood: awe, momentum, overwhelming force.
+Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ### EP-A1-3 · 장막의 처형자
 모르카스의 그믐 · 유닛 · 레벨 7 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A1-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A1-3.jpg` 600×750)
 
@@ -229,33 +257,6 @@ Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, wea
 Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: awe, momentum, overwhelming force.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-### US-A3-1 · 별의 문자
-벨루미르의 별 · 핸드 마법 · 레벨 1 · 에픽 — 받은 그림은 `tools/art/inbox/US-A3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-A3-1.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "별의 문자". Depict exactly what this name describes.
-Subject: trick spell played on the opponent's hidden hand — cunning: hidden cards, eyes, threads of fate, a sly hand in shadow; quieter, mysterious lighting. The moment it takes effect: threads of fate and glowing cards being drawn; a sly hand reaching into the enemy's hidden plans. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Scale (level 1 of 8): a small, local effect.
-Banner — Belumir's Star: magic of belumir's star, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 이사크가 처음 읽어 낸 별의 문자 한 줄. 읽는 자에게는 길이 보이고, 상대가 쥔 패는 빛을 잃는다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 핸드의 유닛 전체 공격 −1, 체력 −1 (이 판 내내). 체력이 0이 되면 소각된다. 저주 면역인 스탯은 깎이지 않는다. 카드 1장을 뽑는다(생명 소모 없음).
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Belumir's Needle piercing the clouds under a night sky full of stars; weather (storm, ash, spray, wind) and deep atmosphere; swirling teal wind, fluttering robes and pages.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -1012,7 +1013,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 
 ### US-G1-1 · 결투 신청
-고르바스의 발톱 · 공격 마법 · 레벨 1 · 에픽 — 받은 그림은 `tools/art/inbox/US-G1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-G1-1.jpg` 600×750)
+고르바스의 발톱 · 공격 마법 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/US-G1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-G1-1.jpg` 600×750)
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
@@ -1020,7 +1021,7 @@ Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-li
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "결투 신청". Depict exactly what this name describes.
 Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: an annihilating blow that erases a foe. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Scale (level 1 of 8): a small, local effect.
+Scale (level 2 of 8): a small, local effect.
 Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 가르운의 오크는 가장 센 자에게 먼저 칼을 던진다. 잿갈기 카르노가 백 번의 결투로 남긴 법이다.
@@ -1387,33 +1388,6 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-### US-G3-1 · 넬리아의 노래
-마렌시아의 노래 · 공용 마법 · 레벨 1 · 에픽 — 받은 그림은 `tools/art/inbox/US-G3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-G3-1.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "넬리아의 노래". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a destructive water attack striking the enemy ranks; a cleansing wave washing away enchantments. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Scale (level 1 of 8): a small, local effect.
-Banner — Marencia's Song: magic of marencia's song, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 물의 대정령 넬리아의 노래. 담긴 그릇에 따라 모습이 바뀌는 물처럼, 듣는 자의 모든 꾸밈을 씻어 낸다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체의 [보호막]·[가시]·[저주 면역]·[수호]가 꺼지고, 코인이 뒷면이 되고 [홀림]에 걸린다(이미 정해진 코인은 그대로). 상대 유닛 전체에게 피해 1. 아군 맨 앞 유닛에게 이번 턴 [정화].
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; weather (storm, ash, spray, wind) and deep atmosphere; clear water light, spray, ripples, bubbles.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no fire, no heavy plate armour.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ### PI-G3 · 마렌시아의 비늘
 마렌시아의 노래 · 아이템 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/PI-G3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-G3.jpg` 600×750)
 
@@ -1427,6 +1401,33 @@ Scale (level 2 of 8): a simple object.
 Banner — Marencia's Song: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 물의 용이 맹약의 날 떨군 비늘 한 장. 지닌 자의 모습을 그날 그대로 지키고, 비늘에 비친 빛을 본 상대는 넋을 잃는다.
+Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
+Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
+Background: very dark night-blue (#07080d) base; rich environmental storytelling: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; weather (storm, ash, spray, wind) and deep atmosphere; clear water light, spray, ripples, bubbles.
+Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
+Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
+Mood: awe, momentum, overwhelming force.
+Stay true to the banner: no fire, no heavy plate armour.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+### US-G3-1 · 넬리아의 노래
+마렌시아의 노래 · 공용 마법 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/US-G3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-G3-1.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "넬리아의 노래". Depict exactly what this name describes.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a destructive water attack striking the enemy ranks; a cleansing wave washing away enchantments. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
+Scale (level 2 of 8): a small, local effect.
+Banner — Marencia's Song: magic of marencia's song, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
+Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Lore (Korean, use for the scene): 물의 대정령 넬리아의 노래. 담긴 그릇에 따라 모습이 바뀌는 물처럼, 듣는 자의 모든 꾸밈을 씻어 낸다.
+Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체의 [보호막]·[가시]·[저주 면역]·[수호]가 꺼지고, 코인이 뒷면이 되고 [홀림]에 걸린다(이미 정해진 코인은 그대로). 상대 유닛 전체에게 피해 1. 아군 맨 앞 유닛에게 이번 턴 [정화].
 Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
 Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; rich environmental storytelling: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; weather (storm, ash, spray, wind) and deep atmosphere; clear water light, spray, ripples, bubbles.

@@ -19,9 +19,9 @@
 | 등급 | 색 | 장수 | 유닛 · 마법 · 아이템 | 등급별 프롬프트 파일 |
 |---|---|---|---|---|
 | 소환물 (Summoned token) | `#8fdcff` | 17 | 13 · 4 · 0 | `prompts/grades/token.md` |
-| 일반 (Common) | `#f4f1ea` | 374 | 212 · 122 · 40 | `prompts/grades/common.md` |
-| 고급 (Superior) | `#f2cf3d` | 128 | 78 · 34 · 16 | `prompts/grades/uncommon.md` |
-| 레어 (Rare) | `#4ea8ff` | 48 | 9 · 30 · 9 | `prompts/grades/rare.md` |
+| 일반 (Common) | `#f4f1ea` | 363 | 212 · 111 · 40 | `prompts/grades/common.md` |
+| 고급 (Superior) | `#f2cf3d` | 129 | 78 · 35 · 16 | `prompts/grades/uncommon.md` |
+| 레어 (Rare) | `#4ea8ff` | 58 | 9 · 40 · 9 | `prompts/grades/rare.md` |
 | 강화 (Empowered) | `#3fe0c0` | 40 | 40 · 0 · 0 | `prompts/grades/upgrade.md` |
 | 에픽 (Epic) | `#b46cff` | 63 | 36 · 18 · 9 | `prompts/grades/epic.md` |
 | 유니크 (Unique) | `#ff8a2a` | 18 | 18 · 0 · 0 | `prompts/grades/unique.md` |
@@ -565,7 +565,7 @@ Grade: RARE — an elite specialist or a masterwork, the card people notice. An 
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "작살 물살". Depict exactly what this name describes.
 Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive water attack striking the enemy ranks; a cleansing wave washing away enchantments; allies rallying as one under a shared surge of power. Scale and finish: a sweeping effect that reshapes part of the battlefield, layered energies and motion trails.
-Scale (level 1 of 8): a small, local effect.
+Scale (level 2 of 8): a small, local effect.
 Banner — Marencia's Song: magic of marencia's song, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 물살을 타고 날아간 작살은 방패도 축복도 씻어 내고 박힌다. 셀레네아의 사냥꾼은 두 번 던지지 않는다.

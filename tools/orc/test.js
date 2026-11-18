@@ -12,7 +12,7 @@ this.side=side; this.fight=fight; this.prep=prep;`);
 const CARDS = c.ev('CARDS');
 ok(CARDS['SG1-02'].name === '숨통 끊기' && CARDS['SG1-02'].type === 'def' && CARDS['SG1-02'].lv === 1, '숨통 끊기 L1 방어');
 ok(CARDS['SG1-08'].name === '송곳니 반격' && CARDS['SG1-08'].type === 'def' && CARDS['SG1-08'].lv === 3, '송곳니 반격 L3 방어');
-ok(CARDS['MG-13'].name === '뼈 부수기' && CARDS['MG-13'].type === 'atk' && CARDS['MG-13'].lv === 3, '뼈 부수기 L3 공격');
+ok(CARDS['MG-13'].name === '뼈 부수기' && CARDS['MG-13'].type === 'atk' && CARDS['MG-13'].lv === 2, '뼈 부수기 L2 공격 (v3.95)');
 ok(CARDS['M2-1'].item.shred && c.ev('itemAbilities(CARDS["M2-1"].item)').includes('[관통]'), '오크의 문신 [관통]');
 // 뼈 부수기: 방어 0인 유닛 중 공격이 가장 높은 1기만 쓰러짐, 방어가 있는 유닛은 건너뜀
 { const P = [c.side(0, ['MG-13'], 30), c.side(1, ['G1-01', 'G1-25', 'B2-24'], 30)]; c.prep(P);
@@ -38,7 +38,7 @@ ok(CARDS['M2-1'].item.shred && c.ev('itemAbilities(CARDS["M2-1"].item)').include
   const X = c.ev('ctx')(P, 1, 1, []); c.ev('castSpell')(X, 1, P[1].field[0], 1);
   ok(P[0].field.every(u => !u || !u.t.alive), '숨통 끊기: 체력 1 상대 전체 쓰러짐'); }
 // ---------- v3.82 고르바스의 발톱: 기존 카드 5장을 바꿈 (궁지의 송곳니 · 승전의 함성 · 몸통 박치기 · 사냥감 몰이) ----------
-{ const G = c.ev('gradeOf'), want = { 'SG1-03': ['궁지의 송곳니', 'atk', 1, 'common'], 'PS-G1-1': ['승전의 함성', 'atk', 1, 'common'], 'SG1-09': ['몸통 박치기', 'atk', 2, 'uncommon'], 'SG1-01': ['사냥감 몰이', 'any', 1, 'common'] };
+{ const G = c.ev('gradeOf'), want = { 'SG1-03': ['궁지의 송곳니', 'atk', 2, 'rare'], 'PS-G1-1': ['승전의 함성', 'atk', 1, 'common'], 'SG1-09': ['몸통 박치기', 'atk', 2, 'uncommon'], 'SG1-01': ['사냥감 몰이', 'any', 1, 'common'] };
   for (const id in want) { const [nm, ty, lv, gr] = want[id], x = CARDS[id]; ok(x.name === nm && x.type === ty && x.lv === lv && G(id) === gr && x.group === 'G1', `${id} ${nm} · ${ty} · L${lv} · ${gr} (${x.name} ${x.type} L${x.lv} ${G(id)})`); } }
 /* 유닛 스탯을 정해 둔다: [공, 방, 체] */
 c.ev(`this.setU=function(u,s){ u.t.a=s[0]; u.t.d=s[1]; u.t.h=s[2]; u.t.dmg=0; u.t.noCoin=true; u.t.shield=false; u.t.taunt=false; u.t.ward=0; u.t.thorns=0; };`);
@@ -60,16 +60,22 @@ const hp = u => c.ev('hpLeft')(u);
   const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1);
   ok(P[1].field[0].t.dmg === 6 && P[1].field[1].t.dmg === 6, '몸통 박치기: 상대마다 체력 −6 (방어 5 무시) (' + P[1].field[0].t.dmg + ')');
   ok(hp(P[0].field[1]) === 7 && !P[0].field[3].t.alive, '아군마다 체력 −3: 10 → 7, 체력 3인 유닛은 쓰러짐'); }
-// 사냥감 몰이: 방어 + 체력이 낮은 순으로 맨 앞부터, [홀림]은 걸지 않는다
+// 사냥감 몰이(v3.95): 방어는 빼고 남은 체력이 낮은 순으로 맨 앞부터, [홀림]은 걸지 않는다
 { const P = [c.side(0, ['SG1-01'], 30), c.side(1, ['G1-01', 'G1-03', 'G1-04'], 30)]; c.prep(P);
-  const [a, b, d] = P[1].field; c.setU(a, [1, 2, 10]); c.setU(b, [1, 0, 3]); c.setU(d, [1, 1, 5]);
+  const [a, b, d] = P[1].field; c.setU(a, [1, 0, 6]); c.setU(b, [1, 9, 3]); c.setU(d, [1, 0, 5]); d.t.dmg = 1;
   const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1);
-  ok(P[1].field[0] === b && P[1].field[1] === d && P[1].field[2] === a, '사냥감 몰이: 3 → 6 → 12 순');
+  ok(P[1].field[0] === b && P[1].field[1] === d && P[1].field[2] === a, '사냥감 몰이: 남은 체력 3(방어 9) → 4 → 6 순 — 방어는 보지 않는다');
   ok(!a.t.charm && !b.t.charm && !d.t.charm, '사냥감 몰이는 [홀림]을 걸지 않는다'); }
 { const P = [c.side(0, ['MC-03'], 30), c.side(1, ['G1-01', 'G1-03'], 30)]; c.prep(P);
   const [a, b] = P[1].field; c.setU(a, [1, 0, 3]); c.setU(b, [1, 2, 10]);
   const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1);
   ok(P[1].field[0] === b && b.t.charm, '뒤바뀐 물길(인어)은 그대로: 높은 순 · 자리 바뀐 유닛 [홀림]'); }
+// ---------- v3.95 오크 마법 손질: 늑대 기습 · 대지 가르기 고급, 효과 그대로 ----------
+{ const G = c.ev('gradeOf');
+  ok(G('RS-G1-1') === 'uncommon' && CARDS['RS-G1-1'].name === '늑대 기습' && CARDS['RS-G1-1'].lv === 1, '늑대 기습: 고급 L1 (' + G('RS-G1-1') + ')');
+  ok(G('RS-G1-3') === 'uncommon' && CARDS['RS-G1-3'].name === '대지 가르기' && CARDS['RS-G1-3'].lv === 3, '대지 가르기: 고급 L3 (' + G('RS-G1-3') + ')');
+  ok(/아군 전체 공격 \+1/.test(CARDS['RS-G1-3'].text), '대지 가르기: 아군 전체 공격 +1은 그대로');
+  ok(/남은 체력이 낮은 순/.test(CARDS['SG1-01'].text), '사냥감 몰이 글: 남은 체력이 낮은 순'); }
 // ---------- v3.87 원한의 일격(MG-04) · 피의 맹세(RS-G1-2) ----------
 { const G = c.ev('gradeOf');
   ok(CARDS['MG-04'].name === '원한의 일격' && CARDS['MG-04'].type === 'atk' && CARDS['MG-04'].lv === 2, '원한의 일격 L2 공격');

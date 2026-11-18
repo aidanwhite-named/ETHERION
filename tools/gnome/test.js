@@ -38,5 +38,27 @@ T('증폭 범위', `
   ok(ampKind(CARDS["HB3-1"]) === false, "핸드 마법은 증폭 없음");
   ok(lost("SB3-06", ["B3-29", "B3-34"], foe()) - lost("SB3-06", ["B3-02", "B3-02"], foe()) === 9, "증폭 1 + 2 = 맞는 유닛마다 +3");
 `);
+// v3.95 증폭 회로(PS-B3-1): 아군 맨 앞 2기에게 이번 턴 [증폭 1] — 뒤에 쓰는 내 마법 피해가 맞는 유닛마다 +2
+T('증폭 회로', `
+  const c = CARDS["PS-B3-1"];
+  ok(c.name === "증폭 회로" && c.name.length <= 6 && c.lv === 2 && gradeOf("PS-B3-1") === "rare", "이름 · L2 · 레어: " + c.name + " L" + c.lv + " " + gradeOf("PS-B3-1"));
+  ok(/\\[증폭 1\\]/.test(c.text) && (typeof SPELL_BRIEF === "undefined" || SPELL_BRIEF["PS-B3-1"] === "{아군 앞2} [증폭 1]"), "글 · 짧은 문구");
+  const two = (first, ally, strip) => {
+    const a = ally.map(x => mk(x)), s1 = mk(first), s2 = mk("SB3-06");
+    const foe = [mk("B3-23"), mk("B3-23"), mk("B3-23")];
+    const P = [side(0, a.concat([s1, s2])), side(1, foe)];
+    const X = ctx(P, 0, 2, [], { seed: 7 });
+    const hp = () => foe.reduce((t, u) => t + Math.max(0, hpLeft(u)), 0), b = hp();
+    castSpell(X, 0, s1, a.length + 1); if (strip) a.forEach(u => { u.t.gx = null; }); castSpell(X, 0, s2, a.length + 2); resetRng();
+    return { lost: b - hp(), a };
+  };
+  const on = two("PS-B3-1", ["B3-02", "B3-02", "B3-02"]), off = two("PS-B3-1", ["B3-02", "B3-02", "B3-02"], true);   // 같은 씨앗, 증폭만 지움
+  ok(abilOf(on.a[0]).amp === 1 && abilOf(on.a[1]).amp === 1 && abilOf(on.a[2]).amp === 0, "맨 앞 2기만 증폭 1");
+  ok(on.lost - off.lost === 6, "뒤에 쓴 뇌운 소환(전체 3기) +2 × 3: " + (on.lost - off.lost));
+  ok(grantLabel(c.ops[0]) === "증폭 1", "떠오르는 글: " + grantLabel(c.ops[0]));
+  resetTurn(on.a[0]); ok(abilOf(on.a[0]).amp === 0, "턴이 바뀌면 사라진다");
+  const u = mk("B3-29"); u.t.gx = { amp: 1 }; ok(abilOf(u).amp === 2, "타고난 증폭 1과 더해진다");
+  u.t.off = ["증폭"]; ok(abilOf(u).amp === 0, "능력 끄기에 함께 꺼진다");
+`);
 console.log(fail ? `노움 시험 ${n - fail}/${n} 통과 — ${fail} 실패` : `노움 시험 ${n}개 모두 통과`);
 process.exit(fail ? 1 : 0);

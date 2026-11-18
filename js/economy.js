@@ -313,9 +313,34 @@ Object.assign(Store, {
     u.deck50 = 1;
     return n + 1;
   },
+  /* v3.95 깃발을 옮긴 카드(엘프 별의 문자 US-A3-1 → 마족 그믐의 계약서): 보유는 그대로(이제 새 깃발 카드), 다른 깃발의 저장 덱 · 초안에서는 빼고
+     그 자리를 그 덱 깃발의 같은 종류 · 가까운 레벨 카드로 가진 만큼 채운다(refundGoneCards와 같은 차례). 체험 덱은 친구의 덱이라 보유와 상관없이 채운다. 돌려주는 값: 뺀 장수 */
+  fixMovedCards(u) {
+    if (!u) return 0;
+    const all = this.allCards(u), col = u.collection || {};
+    const kindOf = c => c.type === "unit" ? "unit" : c.type === "item" ? "item" : "spell";
+    let n = 0;
+    const fill = (cards, g, own) => {
+      if (!cards || !GROUPS[g]) return;
+      for (const id of Object.keys(cards)) {
+        const c = CARDS[id]; if (!c || c.retired || c.group === g || !(cards[id] > 0)) continue;
+        const k = cards[id]; delete cards[id]; n += k;
+        const swap = CARD_LIST.filter(x => x.group === g && kindOf(x) === kindOf(c) && !x.retired && !x.base && !x.special && !x.unique)
+          .sort((a, b) => Math.abs(a.lv - c.lv) - Math.abs(b.lv - c.lv) || a.lv - b.lv).map(x => x.id);
+        for (let i = 0; i < k; i++) for (const r of swap) {
+          const now = cards[r] || 0, have = !own || all ? maxCopiesOf(r) : Math.min(maxCopiesOf(r), col[r] || 0);
+          if (now < have) { cards[r] = now + 1; break; }
+        }
+      }
+    };
+    for (const g in (u.decks || {})) fill(u.decks[g] && u.decks[g].cards, g, true);
+    for (const g in (u.drafts || {})) fill(u.drafts[g] && u.drafts[g].cards, g, true);
+    if (u.trial && u.trial.cards) fill(u.trial.cards, u.trial.group, false);
+    return n;
+  },
   refundAllRetiredUpgrades() {
     let n = 0;
-    for (const id in (this.data.users || {})) { const u = this.data.users[id]; n += this.refundRetiredUpgrades(u) + this.refundGoneCards(u) + this.deck50(u); }
+    for (const id in (this.data.users || {})) { const u = this.data.users[id]; n += this.refundRetiredUpgrades(u) + this.refundGoneCards(u) + this.deck50(u) + this.fixMovedCards(u); }
     return n;
   }
 });

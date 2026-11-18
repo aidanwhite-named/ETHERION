@@ -19,7 +19,7 @@ ctx.IDS = IDS;
 // 카드 · 등급 · 글
 ok(ev('COUNTER_SPELLS.length') === 9 && ev('GROUP_IDS.every(g => COUNTER_SPELLS.filter(s => s.g === g).length === 1)'), '깃발마다 1장 · 9장');
 ok(ev('IDS.every(id => CARDS[id] && CARDS[id].type === "atk" && gradeOf(id) === "uncommon")'), '모두 공격 마법 · 고급');
-ok(ev('IDS.every(id => CARDS[id].lv === (id === "CS-G2" ? 2 : 1) && CARDS[id].ops[0].op === "negate")'), '모두 1레벨(v3.64: 마법 레벨 −2, v3.85 이끼 덮기만 2레벨), 첫 효과가 [무효]');
+ok(ev('IDS.every(id => CARDS[id].lv === (["CS-G2", "CS-B1", "CS-A1", "CS-A2"].includes(id) ? 2 : 1) && CARDS[id].ops[0].op === "negate")'), '모두 1레벨(v3.64: 마법 레벨 −2, v3.85 이끼 덮기 · v3.94 덫 태우기 · 피의 침묵 · 정화의 빛은 2레벨), 첫 효과가 [무효]');
 ok(ev('IDS.filter(id => CARDS[id].ops.length === 1).length') === 4, '[무효]만 4장(옛 2레벨) · [무효] + 효과 5장(옛 3레벨) — v3.64부터 모두 1레벨');
 ok(ev('IDS.every(id => CARDS[id].name.replace(/\\s/g, "").length <= 6 && COUNTER_SPELLS.find(s => s.id === id).brief && /\\[무효\\]/.test(CARDS[id].text))'), '이름 6글자 이하 · 짧은 문구 · 글에 [무효]');
 ok(ev('new Set(CARD_LIST.map(c => c.name)).size === new Set(CARD_LIST.map(c => c.id)).size || IDS.every(id => CARD_LIST.filter(c => c.name === CARDS[id].name).length === 1)'), '이름이 다른 카드와 겹치지 않음');
@@ -52,8 +52,8 @@ T('덫 태우기', `const P = [side(0, ["CS-B1", "A1-30"]), side(1, ["SB1-03", "
   const X = fight(P, 0, 2, 3); ok(/불의 장막.*무효/.test(logs(X)) && X.rec.some(s => s.floats.some(f => f[0] === u2.uid && /−1|1$/.test(f[1]))), "덫 태우기: 무효 + 맨 앞 2기 피해 1");`);
 T('씻김의 노래', `const d = mk("A2-01"); d.t.shield = true; d.t.taunt = true; const P = [side(0, ["CS-G3", "A1-30"]), side(1, ["SB1-03", d])];
   const X = fight(P, 0, 2); ok(/불의 장막.*무효/.test(logs(X)) && X.rec.some(s => s.floats.some(f => f[0] === d.uid && f[1] === "강화 해제")), "씻김의 노래: 무효 + 맨 앞 유닛 강화 해제");`);
-T('피의 침묵', `const P = [side(0, ["CS-A1", "A1-30"]), side(1, ["SB1-03", "B1-01", "B1-30"])];
-  const X = fight(P, 0, 2); ok(/불의 장막.*무효/.test(logs(X)) && X.paid && X.paid[0] === 1, "피의 침묵: 생명 1 · 무효");`);
+T('침묵의 빙의', `const P = [side(0, ["CS-A1", "A1-30"]), side(1, ["SB1-03", "B1-01", "B1-30"])];
+  const X = fight(P, 0, 2); ok(/불의 장막.*무효/.test(logs(X)) && /\\[빙의\\]/.test(logs(X)) && !(X.paid && X.paid[0]), "침묵의 빙의(v3.95, 전 피의 침묵): 제물 없이 무효 · 빙의");`);
 T('이끼 덮기', `const a = mk("A1-30"); const P = [side(0, ["CS-G2", a]), side(1, ["SB1-03", "B1-01"])]; const h0 = a.t.h;
   const X = fight(P, 0, 2); ok(/불의 장막.*무효/.test(logs(X)) && X.rec.some(s => s.floats.some(f => f[0] === a.uid && f[1] === "⚔+1 ♥+2")), "이끼 덮기: 무효 + 아군 맨 앞 체력 +2");`);
 // 6 빼앗긴 마법 · opening 마법 · 소환 마법

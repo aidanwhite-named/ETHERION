@@ -18,7 +18,7 @@ ok(ab('EP-B2-1').thorns === 1 && ab('EP-B2-1').taunt && !ab('EP-B2-1').ward, '�
 ok(ab('B2-15').firm && !ab('B2-15').shred, '강철 대장장이 [굳건] (관통 뺌)'); ok(ab('B2-42').shred && !ab('B2-42').firm, '과열 압착기는 [관통] 그대로');
 ok(ab('A2-13').purify && !ab('A2-13').thorns, '성광 기사 [정화] (가시 뺌)');
 ok(ab('EP-B3-1').intercept && !ab('EP-B3-1').snipe && ab('EP-B3-1').amp === 1, '볼타리움 방전수 [요격] [증폭 1] (사격 뺌)');
-ok(/\[재생 1\]/.test(CARDS['NG2-3'].text), '트롤의 재생 = [재생 1]');
+ok(/\[재생 2\]/.test(CARDS['NG2-3'].text), '트롤의 재생 = 맨 앞 2기 [재생 2] (v3.94)');
 for (const k of ['[재생 1]', '[방패 반격]', '[수호]', '[정화]', '[굳건]', '[요격]']) ok(c.ev(`itemKwDesc(${JSON.stringify(k)})`).length > 8 && c.ev(`itemKwCard(${JSON.stringify(k)})`), k + ' 뜻 글');
 ok(c.ev('itemAbilities(CARDS["IR-B2"].item)').includes('[굳건]'), '아다만트 장갑판 칩 [굳건]');
 

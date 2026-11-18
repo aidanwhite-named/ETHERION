@@ -644,6 +644,9 @@ html.appui .screen-editor .pool-grid { --pc-gx: 6px; --pc-gy: 10px; --pg-pad: 7p
 .ed-filt .ed-grades .dv-g { padding: 2px 9px; font-size: 12.5px; line-height: 1.5; }
 .ed-filt #ed-filter2 .chip { padding: 2px 8px; font-size: 12.5px; }
 .ed-filt .dv-gl { font-size: 11.5px; }
+/* 2026-11-17 칩 숫자 칸 폭 고정: Cinzel 숫자는 폭이 제각각(11 = 10px, 22 = 16px)이라 장수가 바뀌면 칩이 넓어져 줄이 하나 늘고,
+   같은 줄의 카드 보관함 칸까지 높아져 아래 카드가 내려갔다. 두 자리 숫자의 가장 넓은 폭(2ch)을 미리 잡아 둔다 */
+.ed-filt .dv-k b, .ed-filt .dv-g b { min-width: 2ch; text-align: center; }
 @media (max-width: 1100px) { .ed-filts { grid-template-columns: minmax(0, 1fr); } }
 
 /* v3.61.1 로그인 탭의 린데어 환석(관문)은 폭만 절반: 1040 → 520px, 높은 화면 1120 → 560px. 높이 · 글자는 그대로.

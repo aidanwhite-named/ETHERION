@@ -288,9 +288,9 @@
    "cast": "a sharp wedge of wind rattles armor seams with metallic ticks, then the same gust curls behind with a warm rising push and billowing cloth"
   },
   "SA3-02": {
-   "en": "Wind Barrier",
-   "ko": "칼이 공기에 걸려 멈춤",
-   "cast": "an invisible wall thickens with a swelling hum, a swung blade whooshes in and sticks with a soft sudden drag, air rippling like taut glass"
+   "en": "Wind of Confusion",
+   "ko": "뒤틀리는 바람에 갑옷과 숨이 뒤섞임",
+   "cast": "a twisting gust spirals in with a warped wobbling howl, armour plates rattle loose and swirl around, then the wind wrenches and bends back on itself with a dizzy lurching whoosh"
   },
   "MA-07": {
    "en": "Hit and Run",
@@ -308,9 +308,9 @@
    "cast": "many bowstrings creak tight together to full draw, a long tense hum of pulled wood, then a single sharp unified snap"
   },
   "SA3-05": {
-   "en": "Whirlwind Bulwark",
-   "ko": "앞은 휘감겨 묶임 · 뒤는 흩어짐",
-   "cast": "a coiling cyclone winds around one spot with tightening howl, ropes of air creaking, then far arrows whistle off scattered into hush"
+   "en": "Wind Recoil",
+   "ko": "회오리로 막고 갑옷 틈을 되쏨",
+   "cast": "a tight whirlwind wraps the front with a rising protective whoosh, a blow skids off with a deflected scrape, then quick return arrows snap off the string and thunk cleanly through armour gaps"
   },
   "MA-11": {
    "en": "Finishing Arrow",
@@ -361,11 +361,6 @@
    "en": "Scouting Report",
    "ko": "척후의 쪽지 · 적의 팔을 묶음",
    "cast": "a soft rustle of a folded scout's note, a quiet whispered breeze, then a cord pulled tight with a short creaking snap"
-  },
-  "US-A3-1": {
-   "en": "Star Glyph",
-   "ko": "상대 패가 빛을 잃음",
-   "cast": "a star-bright ring, glyph scratches etching, then opponents' cards dim with a falling drained hush as one fresh card flips with a snap"
   },
   "US-A3-2": {
    "en": "Velmir's Eye",

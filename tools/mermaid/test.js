@@ -22,12 +22,12 @@ ok(ctx.ev('CARDS["IG3-2"].item.evName === "생명 +3"'), '장착 생명: [생명
 ok(ctx.ev('gradeOf("SG3-01") === "rare" && CARDS["SG3-01"].lv === 3 && gradeOf("SG3-02") === "uncommon" && gradeOf("CS-G3") === "uncommon"'), '마법 등급 · 레벨');
 ok(ctx.ev('["SG3-01","SG3-02","MC-03","CS-G3"].every(id => CARDS[id].name.replace(/\\s/g, "").length <= 6)'), '마법 이름 6글자 이하');
 
-// 마력 공격: 공 4 → 방 3 = 7 (N ≥ 3), 반격에도
+// 마력 공격: 공 4 → 방 3 = 7 (N ≥ 3). v3.95(사용자) 반격에는 없다
 T('마력 공격', `const a = setT(mk("G3-19"), 4, 0, 20); a.t.gx = null; CARDS["G3-19"].gift.arcane = 3;
   const d = setT(mk("B2-01"), 0, 3, 7); const X = fight([side(0, [a]), side(1, [d])], 0);
   CARDS["G3-19"].gift.arcane = 1; ok(!d.t.alive || d.t.dmg === 7, "공 4 · 방 3 · 마력 공격 3 → 피해 7 (" + d.t.dmg + ")");
   const a2 = setT(mk("B1-01"), 3, 2, 20), d2 = setT(mk("G3-19"), 4, 0, 20); const X2 = fight([side(0, [a2]), side(1, [d2])], 0);
-  ok(a2.t.dmg === 4 - 2 + 2 * 1, "반격에도 마력 공격 1: 공 4 · 방 2 → 4 (" + a2.t.dmg + ")");`);
+  ok(a2.t.dmg === 4 - 2, "v3.95 반격엔 마력 공격 없음: 공 4 · 방 2 → 2 (" + a2.t.dmg + ")");`);
 // 치유: 맞붙음에서 살아남으면 +2, 수비 쪽이 여러 번
 T('치유', `const d = setT(mk("PN-G3-E"), 0, 0, 10); const a1 = setT(mk("B1-01"), 3, 0, 9), a2 = setT(mk("B1-01"), 3, 0, 9);
   const X = fight([side(0, [a1, a2]), side(1, [d])], 0); const got = [...logs(X).matchAll(/→ 우르보아 비늘 기사.방 0.: 피해 ([0-9]+)/g)].reduce((s, m) => s + +m[1], 0);
@@ -98,7 +98,19 @@ T('마법 정화', `const u = mk("G3-03"), v = mk("G3-04"); const X = ctx([side(
   u.t.keep.scorch = 3; u.t.keep.scorchT = 1; v.t.keep.brand = true;
   SPELL_OPS.mrPurge(X, 0, mk("MG-07"), null, { area: { t: "all" } });
   ok(!(u.t.keep.scorch > 0) && !v.t.keep.brand && abilOf(u).purify && abilOf(v).purify, "화상 · 낙인 지움 · 이번 턴 [정화]");`);
-T('대해일 치유', `const u = setT(mk("G3-33"), 0, 0, 30); const X = fight([side(0, [mk("B1-02")]), side(1, ["RG3-1", u])], 0);
+// v3.95 물의 장막(SG3-03): [보호막] 없이 이번 턴 맨 앞 2기 받는 피해 −1 · 맨 앞 1기 [정화]
+ok(ctx.ev('CARDS["SG3-03"].name === "물의 장막" && !CARDS["SG3-03"].ops.some(o => o.op === "shield" || o.op === "mod") && CARDS["SG3-03"].ops.some(o => o.op === "mrVeil" && o.area.n === 2) && CARDS["SG3-03"].ops.some(o => o.op === "mrPurge" && o.area.n === 1) && !/보호막|생명/.test(CARDS["SG3-03"].text)'), 'v3.95 물의 장막: 보호막 · 공격 −2 없음, 앞 2기 피해 −1 · 앞 1기 정화');
+ok(ctx.ev('CARDS["RS-G3-2"].ops.some(o => o.op === "shield")'), '포말 장막은 [보호막] 그대로');
+T('물의 장막', `const u1 = setT(mk("G3-03"), 0, 0, 10), u2 = setT(mk("G3-04"), 0, 0, 10), u3 = setT(mk("G3-08"), 0, 0, 10);
+  const X = ctx([side(0, [u1, u2, u3]), side(1, [mk("B1-02")])], 0, 2, [], { seed: 3 });
+  u1.t.keep.scorch = 2; u1.t.keep.scorchT = 1;
+  for (const o of CARDS["SG3-03"].ops) SPELL_OPS[o.op](X, 0, mk("SG3-03"), null, o);
+  hurt(X, u1, 3); hurt(X, u2, 3); hurt(X, u3, 3);
+  ok(u1.t.dmg === 2 && u2.t.dmg === 2 && u3.t.dmg === 3, "앞 2기 피해 3 → 2 · 셋째 3 (" + [u1.t.dmg, u2.t.dmg, u3.t.dmg] + ")");
+  ok(!(u1.t.keep.scorch > 0) && abilOf(u1).purify && !abilOf(u2).purify, "맨 앞 1기만 [정화]");
+  ok(!abilOf(u1).calm, "오라가 아니라 옆으로 번지지 않음");
+  resetTurn(u1); ok(!u1.t.calmT, "다음 턴엔 사라짐");`);
+T('대해일 치유',`const u = setT(mk("G3-33"), 0, 0, 30); const X = fight([side(0, [mk("B1-02")]), side(1, ["RG3-1", u])], 0);
   ok(abilOf(u).heal === 1, "대해일 뒤 아군 [치유 1]");`);
 
 console.log(fail ? `✗ ${fail}/${n} 실패` : `✓ ${n}개 모두 통과`);
