@@ -41,7 +41,7 @@ Detail: clear, well-rendered forms with slightly translucent, glowing edges wher
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: fleeting, conjured.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -93,7 +93,7 @@ Detail: clear, well-rendered forms with slightly translucent, glowing edges wher
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: fleeting, conjured.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -119,7 +119,7 @@ Detail: clear, well-rendered forms with slightly translucent, glowing edges wher
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: fleeting, conjured.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -145,7 +145,7 @@ Detail: clear, well-rendered forms with slightly translucent, glowing edges wher
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: fleeting, conjured.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -171,7 +171,7 @@ Detail: clear, well-rendered forms with slightly translucent, glowing edges wher
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: fleeting, conjured.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -197,7 +197,7 @@ Detail: clear, well-rendered forms with slightly translucent, glowing edges wher
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: fleeting, conjured.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -223,7 +223,7 @@ Detail: clear, well-rendered forms with slightly translucent, glowing edges wher
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: fleeting, conjured.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -249,7 +249,7 @@ Detail: clear, well-rendered forms with slightly translucent, glowing edges wher
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: fleeting, conjured.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -275,7 +275,7 @@ Detail: clear, well-rendered forms with slightly translucent, glowing edges wher
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: fleeting, conjured.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -301,7 +301,7 @@ Detail: clear, well-rendered forms with slightly translucent, glowing edges wher
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: fleeting, conjured.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -327,7 +327,7 @@ Detail: clear, well-rendered forms with slightly translucent, glowing edges wher
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: fleeting, conjured.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -353,7 +353,7 @@ Detail: clear, well-rendered forms with slightly translucent, glowing edges wher
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: fleeting, conjured.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -379,7 +379,7 @@ Detail: clear, well-rendered forms with slightly translucent, glowing edges wher
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: fleeting, conjured.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -405,7 +405,7 @@ Detail: clear, well-rendered forms with slightly translucent, glowing edges wher
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: fleeting, conjured.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -431,7 +431,7 @@ Detail: clear, well-rendered forms with slightly translucent, glowing edges wher
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
 Mood: fleeting, conjured.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.

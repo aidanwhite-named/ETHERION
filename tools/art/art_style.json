@@ -130,18 +130,24 @@
       "ko": "스페셜", "en": "Special", "color": "#ff4d73", "tier": 6,
       "idea_ko": "최고 등급. 깃발마다 하나뿐인 신화적 존재(승천자 · 깨어난 기계 · 걸어 다니는 숲 · 용의 노래 …)와 삼좌의 유물. 깃발에서 가장 중요한 그림, 키 아트 급. 깃발의 평범한 구성원(고블린 · 오크 · 마족 …)으로 그리지 않는다 — 제 힘으로 이루어진 몸(불 · 쇠 · 바위 · 물 · 그림자 · 빛 · 별빛)을 가진 하나뿐인 존재. 요새 · 군대 · 용과 견줄 만큼 크고, 같은 깃발의 에픽 · 유니크보다 확실히 강하고 웅장해 보여야 한다. 세계 크기의 배경(하늘을 채운 근원 존재), 금빛 룬 고리 여러 겹, 하늘을 가르는 빛기둥, 진홍 · 금의 신성한 빛. 몸 전체를 다 보여 주지 않고 연기 · 빛 · 어둠에 반쯤 가려 배경과 주변의 반응으로 크기를 상상하게 해도 된다.",
       "tag": "SPECIAL — the highest grade: mythic, a one-of-a-kind being of the world or a relic of the Three Thrones, key-art quality",
-      "presence": "mythic: a one-of-a-kind being, one of the great powers of the world and never an ordinary member of any race, or a relic of the Three Thrones — the single most important image of its banner; it must look clearly stronger and grander than any epic or unique card of the same banner",
+      "presence": "mythic: a one-of-a-kind being, one of the great powers of the world, or a relic of the Three Thrones — the single most important image of its banner; it must look clearly stronger and grander than any epic or unique card of the same banner",
       "camera": "monumental worm's-eye angle, epic scale — the subject towers and fills about 75–85% of the frame against a world-sized backdrop, with scale cues (fortresses, armies, dragons or mountains look small beside it); light may spill to the margins but the face or heart and the core stay in the safe area",
       "lighting": "divine and overwhelming: a radiant crimson-and-gold aura, light bursting from the subject itself, rays falling from above, the element light at full intensity",
       "background": "world-scale: {mythic}; the land and sky visibly bending and reacting to the subject; the night sky opening with stars and golden rune circles; a faint empty circle (the sigil of the lost source-god Arche) as a halo ring",
-      "detail": "transcendent: a body made of its own power (fire, iron, stone, water, shadow, light or starlight), unlike any ordinary race; intricate gold filigree, cathedral-level detail",
+      "detail": "transcendent: a body made of its own power (fire, iron, stone, water, shadow, light or starlight); intricate gold filigree, cathedral-level detail",
       "accent": "crimson-rose (#ff4d73) and gold divine light that may rival the element light, slowly turning golden rune circles, ether sky-blue (#8fdcff) sparks", "accentShare": "30%",
       "spectacle": "the most spectacular grade, clearly beyond unique: several orbiting golden rune rings at different angles, a pillar of light splitting the sky, a radiant crimson-and-gold aura, storms of embers and ether sparks, the ground and sky reacting to its presence, layered depth in front of and behind the subject",
       "technique": "the being may be partly veiled — half-hidden in smoke, light, storm or darkness, revealed by glimpses (an eye, a hand, a silhouette, a heart of light), so the viewer imagines the full colossal shape from those clues and from how the world reacts around it",
       "mood": "sacred, transcendent, world-shaking",
-      "unit": "A one-of-a-kind mythic being — never drawn as an ordinary member of any race",
+      "unit": "",
       "spell": "a world-altering miracle",
-      "item": "a sacred relic suspended in a pillar of divine light inside a ring of golden runes, an empty circle behind it, the world tiny below"
+      "item": "a sacred relic suspended in a pillar of divine light inside a ring of golden runes, an empty circle behind it, the world tiny below",
+      "_item_ko": "v3.95 스페셜 아이템 전용 줄(유닛용 말 대신) — 품질 · 크기 · 카메라 · 디테일 · 깃발. 종족의 몸은 넣지 않는다",
+      "itemQuality": "Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care",
+      "itemScale": "a relic small enough to hold or wear, taken from a sleeping giant or a dragon — modest in size but ancient and immensely powerful: its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item",
+      "itemCamera": "low heroic angle on the relic, which fills about 55–65% of the frame at its true size, while the world-scale backdrop behind it (the giant or dragon it came from, mountains, the open sky) shows how much it matters; the relic's glowing core stays in the safe area",
+      "itemDetail": "transcendent craftsmanship: the relic's own material (giant bone, adamant, storm crystal, dragon fang, living wood, pearl) rendered at cathedral-level detail, intricate gold filigree and wear that tells its age; the object itself has no face or body",
+      "itemBanner": "draw the relic from the banner's name and its element; no full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale"
     }
   },
 
@@ -199,7 +205,7 @@
       "source": "the sleeping giant Dormak, whose heart-fire burns inside the volcano like a colossal ember in a mountain-sized chest",
       "mythic": "the giant Dormak's mountain-sized chest with its heart-fire blazing through cracks of rock across the whole sky",
       "light": "flashes of cannon fire and glowing embers inside thick gunpowder smoke",
-      "never": "no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords",
+      "never": "no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour",
       "oldRaceKo": "고블린", "oldRace": "goblin gunners",
       "kinds": {
         "도화선 정령": {"en":"Fuse Spirit","who":"a living length of tarred fuse cord that slithers like a snake, its sputtering spark-head serving as a face and trailing a thin thread of smoke","silhouette":"a coiling cord with a fizzing spark at its tip","materials":"tarred hemp cord, black powder grit, bright sparks, wisps of grey smoke"},
@@ -247,7 +253,7 @@
       "source": "the sleeping giant Sorgrim, whose iron sinews form the Ironbone mountains, watched by the mirror-scaled metal dragon Feros",
       "mythic": "the giant Sorgrim's mountain-sized arm of iron sinew rising from the earth, and the metal dragon Feros's mirror scales reflecting a thousand forges",
       "light": "cold steel sheen against molten forge glow, sparks from the anvil",
-      "never": "no thorns or plant armour, no wizardry or wands; golems are machines, not undead",
+      "never": "no wizardry or wands; golems and constructs are machines, not undead",
       "oldRaceKo": "드워프", "oldRace": "dwarves",
       "kinds": {
         "태엽쥐": {"en":"Clockwork Mouse","who":"a palm-sized mechanical mouse of brass and steel with a big wind-up key in its back, gear-wheel teeth and glass-bead eyes","silhouette":"a tiny scurrying mouse with a wind-up key","materials":"brass casing, steel gears, wind-up key, rivets"},
@@ -287,7 +293,7 @@
       "source": "the sleeping giant Keraun, whose lightning nerves branch through the ground like a vast glowing circuit",
       "mythic": "the giant Keraun's lightning nerves blazing across the whole plateau and sky like a living circuit board of storms",
       "light": "harsh flickering arc light and crackling electricity",
-      "never": "no mystical magic or wands — their power is science and machines",
+      "never": "no wands or wizard robes — their lightning comes from coils, machines and storm creatures",
       "oldRaceKo": "노움", "oldRace": "gnomes",
       "kinds": {
         "반딧불이": {"en":"Lightning Firefly","who":"thumb-sized fireflies whose glowing abdomens crackle with tiny electric-yellow sparks, swarming wherever Keraun's nerves break the surface","silhouette":"a drifting cloud of crackling lights","materials":"glowing yellow abdomens, translucent wings, tiny cobalt sparks"},
@@ -327,7 +333,7 @@
       "source": "the earth dragon Gorbas, the largest of the seven dragons, with rocks and forests growing on its back",
       "mythic": "the earth dragon Gorbas, mountain-sized with forests on its back, rising behind Throne Peak with one great eye opening",
       "light": "dusty ochre light and rock dust hanging in the air",
-      "never": "no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth)",
+      "never": "no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth)",
       "oldRaceKo": "오크", "oldRace": "orcs",
       "kinds": {
         "개코원숭이": {"en":"Baboon","who":"a big steppe baboon with a dog-like muzzle, long yellowed canines, a grey-ochre mane over the shoulders and calloused hands that pick up and fling stones","silhouette":"hunched four-limbed ape with a maned shoulder hump and long throwing arms","materials":"coarse ochre-grey fur, bare leathery face and palms, yellowed fangs, pebbles"},
@@ -339,7 +345,7 @@
         "코카트리스": {"en":"Cockatrice","who":"a rooster-headed beast with a long scaly serpent tail whose glare turns things to gravel, its feathers crusted with pebbles and its comb gone to stone","silhouette":"strutting rooster body with stiff spread wings and a long serpent tail","materials":"grey speckled feathers, pebble crust, stony comb and wattles, scaly tail"},
         "미노타우로스": {"en":"Minotaur","who":"bull-headed giants of the steppe with great forward-curving horns, a shaggy mane, cloven hooves and scarred hide, who won Gorvath's notice in the duel ring","silhouette":"towering bull-headed humanoid with forward-swept horns and a lowered head","materials":"dark bull hide, shaggy mane, cracked horns, iron nose ring, rough leather harness, stone-headed axes"},
         "바실리스크": {"en":"Basilisk","who":"a long, low lizard of the obsidian slopes with a crested head, a petrifying glassy stare and claws of black volcanic glass","silhouette":"long low-slung lizard with a crested head and splayed clawed legs","materials":"black obsidian scales, glassy claws, ochre crest, rock dust"},
-        "오우거": {"en":"Ogre","who":"hulking steppe ogres, bigger and slower than orcs: pot-bellied, heavy-browed and small-eyed, with grey-ochre skin, wearing hides and bone charms","silhouette":"huge rounded body on thick short legs with long heavy arms","materials":"grey-ochre hide, furs, bone charms, crude wooden clubs, drums and turtle-shell shields"},
+        "오우거": {"en":"Ogre","who":"hulking steppe ogres, huge and slow: pot-bellied, heavy-browed and small-eyed, with grey-ochre skin, wearing hides and bone charms","silhouette":"huge rounded body on thick short legs with long heavy arms","materials":"grey-ochre hide, furs, bone charms, crude wooden clubs, drums and turtle-shell shields"},
         "곰": {"en":"Bear","who":"great cave bears of Throne Peak whose backs have grown stones and moss through long sleeps on Gorvath's slopes","silhouette":"massive humped bear, often rising on its hind legs","materials":"thick brown fur, embedded stones, moss, heavy claws"},
         "들소": {"en":"Bison","who":"steppe bison running in thundering herds, with humped shoulders, short curved horns and dark shaggy fronts","silhouette":"humped massive forequarters tapering to lean hindquarters, many bodies in a stampede","materials":"dark shaggy fur, horn, dust clouds, trampled grass"},
         "바위 정령": {"en":"Rock Spirit","who":"rock spirits of Grom: boulders drawn together by the great earth spirit's slow will into a powerful, roughly humanoid shape, with dust swirling at the seams and ochre light deep inside","silhouette":"loosely joined boulders hovering in a broad humanoid form","materials":"rough boulders, gravel, dust, faint ochre glow in the cracks"},
@@ -348,9 +354,9 @@
         "대지 웜": {"en":"Earth Wyrm","who":"a vast eyeless burrowing worm that tunnels under Gorvath's back, ringed with plates of rock, its round maw lined with stone teeth and trailing roots","silhouette":"huge segmented body arching out of cracked ground","materials":"segmented rock plates, packed earth, stone teeth, dangling roots"},
         "용비늘": {"en":"Dragon Scale","who":"a single scale shed from the dragon Gorvath, broad as a hut, a curved slab of slate-hard scale with turf and pebbles grown on its outer face, still warm with the dragon's earth power and moving on its own","silhouette":"huge curved upright slab like a standing shield","materials":"layered slate-like dragon scale, ochre veins, turf, pebbles, lichen"},
         "사이클롭스": {"en":"Cyclops","who":"one-eyed cyclopes of the duel ring: towering grey-ochre pit fighters with a single great eye, heavy scars and black obsidian studded into their gauntlets","silhouette":"towering broad-chested humanoid with one huge eye and oversized fists","materials":"grey-ochre skin, scars, obsidian studs, rough leather wraps"},
-        "털코뿔소": {"en":"Woolly Rhino","who":"a woolly rhinoceros of the high steppe with a long shaggy ochre-brown coat, a low heavy head and a great forward horn, ridden by an orc","silhouette":"massive low barrel body with a long forward horn and a rider on top","materials":"shaggy wool, cracked grey hide, horn, leather harness, dust"},
+        "털코뿔소": {"en":"Woolly Rhino","who":"a woolly rhinoceros of the high steppe with a long shaggy ochre-brown coat, a low heavy head and a great forward horn, ridden by a war-painted tribal rider","silhouette":"massive low barrel body with a long forward horn and a rider on top","materials":"shaggy wool, cracked grey hide, horn, leather harness, dust"},
         "웨어베어": {"en":"Werebear","who":"a werebear: a warrior who wore a bear's hide until it grew into his own skin, now a hulking upright bear-man with claws, a bear's head and war paint in the fur","silhouette":"upright hulking bear-man with a human fighting stance","materials":"coarse bear fur, hide, claws, bone charms, war paint"},
-        "맘모스": {"en":"Mammoth","who":"a mammoth of the snowy passes of Throne Peak with long reddish wool, great spiralling tusks and a rock-crusted brow, carrying an orc rider","silhouette":"towering domed head and humped back with spiralling tusks","materials":"long shaggy wool, ivory tusks, rock crust, snow and dust"}
+        "맘모스": {"en":"Mammoth","who":"a mammoth of the snowy passes of Throne Peak with long reddish wool, great spiralling tusks and a rock-crusted brow, carrying a war-painted tribal rider","silhouette":"towering domed head and humped back with spiralling tusks","materials":"long shaggy wool, ivory tusks, rock crust, snow and dust"}
       }
     },
     "G2": {
@@ -366,11 +372,11 @@
       "source": "the forest dragon Verdan, with antlers of ancient tree branches and moss-covered scales",
       "mythic": "the forest dragon Verdan's antlers spreading as a canopy of ancient branches over the whole forest, the First Elder Tree glowing beneath",
       "light": "dappled green light through the canopy and glowing spores",
-      "never": "no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself)",
+      "never": "no fire magic",
       "oldRaceKo": "트롤", "oldRace": "trolls",
       "kinds": {
         "코다마": {"en":"Kodama","who":"kodama of the Eilen forest: small pale tree spirits with round heads, hollow dark eyes and mouths, living inside old trees and rattling their heads when they speak","silhouette":"tiny round-headed figure peeking from a trunk, often in groups","materials":"pale soft wood-like skin, moss, dew, faint green glow"},
-        "드라이어드": {"en":"Dryad","who":"dryads of the Eilen forest: slender women of living wood with smooth bark skin, leaf-and-blossom hair and twig fingers, each bound to her own tree (never elves, no pointed ears)","silhouette":"slender willowy figure with long leaf-hair flowing like branches","materials":"smooth pale bark, leaves, blossoms, vines, sap droplets"},
+        "드라이어드": {"en":"Dryad","who":"dryads of the Eilen forest: slender women of living wood with smooth bark skin, leaf-and-blossom hair and twig fingers, each bound to her own tree (no pointed ears)","silhouette":"slender willowy figure with long leaf-hair flowing like branches","materials":"smooth pale bark, leaves, blossoms, vines, sap droplets"},
         "트렌트": {"en":"Treant","who":"treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks","silhouette":"towering trunk body with spreading branch arms and root feet","materials":"rough bark, moss, leaves, knotted roots, amber sap"},
         "사티로스": {"en":"Satyr","who":"forest satyrs: goat-legged, curl-horned forest folk with shaggy haunches and a pointed beard, carrying reed pipes and a shield of bark","silhouette":"goat-legged figure with curled horns, springing on hooves","materials":"shaggy brown fur, curled horn, bark shield, reed pipes, leaves"},
         "버섯족": {"en":"Mushroom Folk","who":"walking mushroom folk of the forest floor: squat stalk bodies under broad caps, with gills, glowing spores and white mycelium threads linking them to the roots and to each other","silhouette":"stubby stalk body under a wide cap","materials":"spongy pale flesh, gills, glowing spores, white mycelium threads, damp soil"},
@@ -445,7 +451,7 @@
       "source": "the god Morkas, the Silent Lord — a faceless shadow king holding balanced scales, eyes closed",
       "mythic": "the faceless shadow king Morkas towering across the sky with his balanced scales, eyes closed",
       "light": "cold violet underlight, blood-red glints, deep shadows",
-      "never": "no holy light, no crude cartoon devils — they are elegant and ominous",
+      "never": "no holy light, no cartoonish devils — ominous and dread-filled",
       "oldRaceKo": "마족", "oldRace": "fiends",
       "kinds": {
         "저주 인형": {"en":"Curse Doll","who":"a small stitched rag doll brought to life by a pact, with mismatched button eyes, a torn scrap of contract sewn into its chest and rusty pins stuck through its limbs","silhouette":"small and slumped, limp floppy limbs with pins jutting out","materials":"coarse burlap, black thread stitches, rusty pins, a blood-wax seal, a parchment scrap"},
@@ -529,7 +535,7 @@
       "source": "the god Belumir, the Star-Reader — a robe with a thousand eyes, an open book and stars",
       "mythic": "the god Belumir's robe of a thousand eyes unfolding across the night sky as constellations",
       "light": "cool teal-white starlight and streaks of wind",
-      "never": "no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters",
+      "never": "no heavy plate armour; star glyphs are abstract shapes, never readable letters",
       "oldRaceKo": "하이엘프", "oldRace": "high elves",
       "kinds": {
         "엘프": {"en":"Elf","who":"elf archers of the Storm Tower guild: pointed ears shorter than a high elf's, lean and wind-weathered, brown or ash hair tied back, plain practical gear","silhouette":"a lean archer with a plain longbow, hood pushed back, braced against the wind","materials":"worn grey-green leathers, a wool cloak, a plain pale-wood bow, grey goose fletching"},

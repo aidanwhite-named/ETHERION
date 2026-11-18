@@ -143,7 +143,7 @@ function subjectOf(c, F, G, D) {
   if (c.type === "unit") {
     if (isToken(c)) return `a summoned creature or construct of the ${F.en}: ${G.unit}`;
     /* v3.59 스페셜은 깃발마다 하나뿐인 신화적 존재 — 깃발의 평범한 구성원으로 그리지 않는다 */
-    if (c.special) return `a one-of-a-kind mythic being who stands above the ${F.en}${NOTES[c.id] ? " (see art direction)" : ""}. ${G.unit || "A one-of-a-kind mythic being"}`;
+    if (c.special) return `a one-of-a-kind mythic being of the ${F.en}${NOTES[c.id] ? " (see art direction)" : ""}${G.unit ? `. ${G.unit}` : ""}`;   // v3.95 종족 금지 말 뺌 — 깃발 이름 · 원소로 그린다
     const rank = c.special ? "a mythic, ascended" : c.unique ? "a legendary, named" : c.lv >= 7 ? "a legendary, awe-inspiring" : c.lv >= 5 ? "an elite, commanding" : c.lv >= 3 ? "a seasoned, battle-hardened" : "a low-ranking, ordinary";
     const baseCard = c.base && D.CARDS[c.base];
     const clKey = c.cl || (baseCard && baseCard.cl) || "";
@@ -161,7 +161,9 @@ function subjectOf(c, F, G, D) {
     const it = c.item || {};
     const what = ICON_LOOK[it.icon] || "a single object";
     const cat = String(it.cat || "").split("·").map(k => CAT_LOOK[k]).filter(Boolean).join(" + ");
-    return `the item the card name and lore describe — a single object made or kept by the ${F.en}${cat ? ` (${cat}; if unsure, ${what})` : ""}. ${G.item}`;
+    /* v3.95 스페셜 아이템은 그림 지시(art_notes)가 물건을 정하므로 "애매하면 단검 · 구슬" 같은 대체 말을 넣지 않는다 */
+    const hint = cat && !(G.itemScale && NOTES[c.id]) ? ` (${cat}; if unsure, ${what})` : "";
+    return `the item the card name and lore describe — a single object made or kept by the ${F.en}${hint}. ${G.item}`;
   }
   let s = `${S.types[c.type] || "spell"}. The moment it takes effect: ${spellScene(c, el)}`;
   if (G.spell) s += `. Scale and finish: ${G.spell}`;
@@ -178,10 +180,12 @@ function promptOf(c, D) {
   const lore = (c.flavor || (c.item && c.item.desc) || "").trim();
   const text = (c.text || "").replace(/\s+/g, " ").trim();
   const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+  /* v3.95 스페셜 아이템: 유닛용 말(얼굴 · 손 · 제 힘으로 된 몸 · 요새보다 큰 키 · 종족의 몸)을 물건용 말로 바꾼다 — art_style.json grades.special.item* */
+  const spItem = gk === "special" && c.type === "item" && !!G.itemScale;
   const L = [
     S.base,
     `Grade: ${G.tag}. ${cap(G.presence)}.`,
-    S.quality,
+    spItem ? `${G.itemQuality}.` : S.quality,
     `Card name (Korean — read its meaning, never write it in the image): "${c.name}". Depict exactly what this name describes.`,
     `Subject: ${subjectOf(c, F, G, D)}.`
   ];
@@ -197,35 +201,39 @@ function promptOf(c, D) {
         ` The base card is set in ${place}; keep that same place, intensified.`);
     }
   }
-  L.push(`Scale (level ${c.lv} of 8): ${levelText(c)}.`);
-  if (isToken(c))
+  L.push(spItem ? `Scale (special relic, level ${c.lv}): ${G.itemScale}.` : `Scale (level ${c.lv} of 8): ${levelText(c)}.`);
+  if (spItem)
+    L.push(`Banner that forged or kept it — ${F.en} (${el.en}): ${G.itemBanner}. Palette: ${F.palette}. Materials: ${F.materials}. Motifs: ${F.motifs}.`);
+  else if (isToken(c))
     L.push(`Banner — summoned by the ${F.en}; signature motifs: ${F.motifs}; palette: ${F.palette}.`);
   else if (c.type === "unit" && gk === "special")   // v3.59 스페셜: 깃발은 원소 · 색 · 재료 · 상징으로만, 종족의 몸(who · silhouette)은 넣지 않는다
-    L.push(`Banner it stands above — ${F.en}: show the banner only through element, palette and a few material or motif accents; do NOT draw an ordinary member of the ${F.en} — this being is one of a kind. Palette: ${F.palette}. Accents to borrow from: ${F.materials}; ${F.motifs}.`);
+    L.push(`Banner — ${F.en} (${el.en}): draw this being from the banner's name and its element. Palette: ${F.palette}. Accents to borrow from: ${F.materials}; ${F.motifs}.`);   // v3.95 깃발이 더는 종족 이름이 아니라서 "그 종족 금지"를 쓰지 않는다(이름 · 원소로)
   else if (c.type === "unit" && kindLook(c, F)) {   // v3.79 옛 종족이 아닌 종류: 몸은 종류의 것, 깃발은 재료 · 상징 · 색으로만
     const K = kindLook(c, F);
-    L.push(`Creature kind — ${K.en}: ${K.who}. Silhouette: ${K.silhouette}. Materials: ${K.materials}. Do NOT draw it as one of the ${F.oldRace || "banner's founding people"} unless the name says so.`);
+    L.push(`Creature kind — ${K.en}: ${K.who}. Silhouette: ${K.silhouette}. Materials: ${K.materials}.`);   // v3.95 옛 종족 이름을 부정문으로도 넣지 않는다(이름을 넣으면 그림 AI가 끌어옴)
     L.push(`Banner — ${F.en}: show the banner through element, palette and a few accents (${F.motifs}); palette: ${F.palette}.`);
-  } else if (c.type === "unit" || c.type === "item")
+  } else if (c.type === "unit")
     L.push(`Banner — ${F.en}: ${F.who}. Silhouette: ${F.silhouette}. Materials: ${F.materials}. Signature motifs: ${F.motifs}.`);
+  else if (c.type === "item")   // v3.95 아이템은 물건이라 깃발 종족의 몸(who · silhouette)을 넣지 않는다
+    L.push(`Banner — ${F.en} (${el.en}): palette: ${F.palette}. Materials: ${F.materials}. Signature motifs: ${F.motifs}.`);
   else
     L.push(`Banner — ${F.en}: magic of ${F.en.toLowerCase()}, signature motifs: ${F.motifs}; palette: ${F.palette}.`);
   L.push(`Faction: ${fac}.`);
   if (lore) L.push(`Lore (Korean, use for the scene): ${lore}`);
   if (text) L.push(`Game effect (Korean, mood only — never draw text or numbers): ${text}`);
   L.push(
-    `Camera: ${G.camera}.`,
+    `Camera: ${spItem ? G.itemCamera : G.camera}.`,
     `Lighting: ${G.lighting}; main light is ${el.en} (${el.hex}) from behind the subject, ${F.light}.`,
     `Background: very dark night-blue (#07080d) base; ${fill(G.background, F, c)}; ${el.cue}.`,
-    `Detail: ${G.detail}.`
+    `Detail: ${spItem ? G.itemDetail : G.detail}.`
   );
   /* v3.59 화려함 사다리: 등급마다 한 단계씩 더 화려하게(spectacle), 스페셜은 존재를 반쯤 가려 상상하게 하는 기법도(technique) */
   if (G.spectacle) L.push(`Spectacle: ${G.spectacle}. ${S.spectacleRule || ""}`.trim());
   if (G.technique && c.type === "unit") L.push(`Presence technique (allowed): ${G.technique}.`);
   if (G.accent) L.push(`Grade accent: ${G.accent} — ${S.accentRule.replace("{share}", G.accentShare || "15%")}.`);
   L.push(`Mood: ${G.mood}.`);
-  L.push(gk === "special" && c.type === "unit"
-    ? `Stay true to the banner's identity: ${F.never}; the golden rune rings and divine light are this grade's mythic mark, not banner spellcasting.`
+  L.push(gk === "special" && (c.type === "unit" || spItem)   // v3.95 아이템도: 룬 고리는 등급 표시이지 깃발의 마법진이 아니다
+    ? "The golden rune rings and divine light are this grade's mythic mark, not banner spellcasting."   // v3.95 스페셜은 깃발의 종족 금지 줄(never)을 빼고 이것만
     : `Stay true to the banner: ${F.never}.`);
   L.push(S.composition, S.notext, S.avoid);
   return L.join("\n");

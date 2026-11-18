@@ -31,7 +31,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "피의 박쥐 떼". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Blood Bat of the Morkas's New Moon — a swarm of small black bats with red-veined membranous wings, needle fangs and glowing red pin-prick eyes.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Blood Bat: a swarm of small black bats with red-veined membranous wings, needle fangs and glowing red pin-prick eyes. Silhouette: a dark cloud of many small flapping wings. Materials: leathery wing membranes, damp black fur, needle fangs, red eye glints. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Blood Bat: a swarm of small black bats with red-veined membranous wings, needle fangs and glowing red pin-prick eyes. Silhouette: a dark cloud of many small flapping wings. Materials: leathery wing membranes, damp black fur, needle fangs, red eye glints.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 녹타르 문서고 천장에 매달려 산다. 서기들이 잉크가 모자랄 때 누구를 부르는지는 아무도 묻지 않는다.
@@ -41,7 +41,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -57,7 +57,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "녹타르 구울". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Ghoul of the Morkas's New Moon — a gaunt grey-skinned corpse-eater that rose from an unpaid debt, hunched on all fours, with long cracked nails, sunken glowing eyes and a lipless grin.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Ghoul: a gaunt grey-skinned corpse-eater that rose from an unpaid debt, hunched on all fours, with long cracked nails, sunken glowing eyes and a lipless grin. Silhouette: low, hunched and crawling, overlong arms. Materials: grey dead skin, torn rags, grave dirt, cracked yellow nails. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Ghoul: a gaunt grey-skinned corpse-eater that rose from an unpaid debt, hunched on all fours, with long cracked nails, sunken glowing eyes and a lipless grin. Silhouette: low, hunched and crawling, overlong arms. Materials: grey dead skin, torn rags, grave dirt, cracked yellow nails.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 빚을 다 갚지 못하고 죽은 자는 녹타르 뒷골목에서 다시 일어난다. 무엇을 갚아야 했는지는 잊었지만 배고픔은 잊지 않았다.
@@ -67,7 +67,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -83,7 +83,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "값으로 떼인 그림자". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Severed Shadow of the Morkas's New Moon — a living shadow cut away from its owner as payment: a flat, faceless, paper-thin silhouette of a person whose edges are frayed like torn cloth.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Severed Shadow: a living shadow cut away from its owner as payment: a flat, faceless, paper-thin silhouette of a person whose edges are frayed like torn cloth. Silhouette: flat and two-dimensional, stretched long like a shadow at dusk, torn edges. Materials: ink-black smoke, edges like cut black paper, a faint violet glow at the seams. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Severed Shadow: a living shadow cut away from its owner as payment: a flat, faceless, paper-thin silhouette of a person whose edges are frayed like torn cloth. Silhouette: flat and two-dimensional, stretched long like a shadow at dusk, torn edges. Materials: ink-black smoke, edges like cut black paper, a faint violet glow at the seams.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 누군가 모르카스에게 값으로 치른 그림자. 주인은 대낮에도 발밑이 허전하고, 그림자는 밤마다 주인을 찾아 녹타르를 헤맨다.
@@ -93,7 +93,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -118,7 +118,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -144,7 +144,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -171,7 +171,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -197,7 +197,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -223,7 +223,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -250,7 +250,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -276,7 +276,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -292,7 +292,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "그림자 도플갱어". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Doppelganger of the Morkas's New Moon — a featureless grey shapeshifter caught halfway through copying its foe, one half smooth and blank like wet wax, the other half a wavering copy.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Doppelganger: a featureless grey shapeshifter caught halfway through copying its foe, one half smooth and blank like wet wax, the other half a wavering copy. Silhouette: a humanoid with a blurred, doubled outline. Materials: smooth grey wax-like skin, rippling mirror sheen, wisps of shadow. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Doppelganger: a featureless grey shapeshifter caught halfway through copying its foe, one half smooth and blank like wet wax, the other half a wavering copy. Silhouette: a humanoid with a blurred, doubled outline. Materials: smooth grey wax-like skin, rippling mirror sheen, wisps of shadow.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 모르크 협곡의 그늘에서 마주친 자의 모습을 빌려 입는다. 빌린 값은 늘 원래 주인이 치른다.
@@ -302,7 +302,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -318,7 +318,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "계약의 서큐버스". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Succubus of the Morkas's New Moon — a slender night temptress with bat wings, small swept-back horns and a thin tail ending in a quill nib, offering a contract with a knowing smile.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Succubus: a slender night temptress with bat wings, small swept-back horns and a thin tail ending in a quill nib, offering a contract with a knowing smile. Silhouette: slender and poised, bat wings half open, a curling tail. Materials: dark velvet, bat-wing membrane, gold ink, a blood-red wax seal. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Succubus: a slender night temptress with bat wings, small swept-back horns and a thin tail ending in a quill nib, offering a contract with a knowing smile. Silhouette: slender and poised, bat wings half open, a curling tail. Materials: dark velvet, bat-wing membrane, gold ink, a blood-red wax seal.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 꿈속으로 찾아와 계약서를 내민다. 깨어나 보면 손바닥에 지워지지 않는 저울 자국이 남아 있다.
@@ -328,7 +328,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -344,7 +344,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "모르크 그림자 거미". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Shadow Spider of the Morkas's New Moon — a large black spider woven from shadow, with clusters of violet eyes and long jointed legs trailing threads of darkness.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Shadow Spider: a large black spider woven from shadow, with clusters of violet eyes and long jointed legs trailing threads of darkness. Silhouette: low and wide, many long angled legs. Materials: glossy black chitin, silk threads of shadow, violet eye clusters. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Shadow Spider: a large black spider woven from shadow, with clusters of violet eyes and long jointed legs trailing threads of darkness. Silhouette: low and wide, many long angled legs. Materials: glossy black chitin, silk threads of shadow, violet eye clusters.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 협곡 바닥으로 떨어진 것은 무엇이든 제 줄에 걸린 것이라 여긴다. 그림자로 짠 줄이라 등불을 비추면 보이지 않다가, 등불이 꺼지면 다시 팽팽해진다.
@@ -354,7 +354,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -378,7 +378,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -404,7 +404,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -420,7 +420,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "그림자 투척 단검". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Morkas's New Moon (weapon/armour; if unsure, a dagger). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
+Banner — Morkas's New Moon (darkness): palette: violet #8b5cf6, black, blood-red accents. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 녹타르 자객들이 소매에 숨겨 다니는 단검. 장착하는 순간 던진다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -429,7 +429,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -445,7 +445,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "피의 서약 부적". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Morkas's New Moon (holy relic; if unsure, a wax seal, signet or sealed contract). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
+Banner — Morkas's New Moon (darkness): palette: violet #8b5cf6, black, blood-red accents. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 자기 피로 이름을 쓴 부적. 대가만큼 힘을 준다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -454,7 +454,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -470,7 +470,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "흑요 단검". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Morkas's New Moon (weapon/armour + holy relic; if unsure, a dagger). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
+Banner — Morkas's New Moon (darkness): palette: violet #8b5cf6, black, blood-red accents. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 녹타르의 흑요석 단검. 벤 자리가 아물지 않고 싸움 내내 피를 흘린다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -479,7 +479,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -504,7 +504,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -531,7 +531,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -547,7 +547,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "어린 흡혈귀". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Vampire of the Morkas's New Moon — a pale aristocratic vampire of Noctar with sharp fangs, red eyes and a high-collared black and crimson attire.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Vampire: a pale aristocratic vampire of Noctar with sharp fangs, red eyes and a high-collared black and crimson attire. Silhouette: tall and elegant, high collar, sweeping cape. Materials: black velvet, crimson silk, silver rings, a crystal goblet. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Vampire: a pale aristocratic vampire of Noctar with sharp fangs, red eyes and a high-collared black and crimson attire. Silhouette: tall and elegant, high collar, sweeping cape. Materials: black velvet, crimson silk, silver rings, a crystal goblet.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 녹타르 귀족의 연회에서 술잔 대신 서약서를 받은 손님이었다. 이제 송곳니에 피가 마르지 않는 대신 상처도 아물지 않는다.
@@ -557,7 +557,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -583,7 +583,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -609,7 +609,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -635,7 +635,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -651,7 +651,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "피를 마시는 칼". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Cursed Blade of the Morkas's New Moon — a living cursed sword that floats and fights with no wielder, a black blade that swallows light, a closed eye carved on the guard, red smoke trailing from its edge.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Cursed Blade: a living cursed sword that floats and fights with no wielder, a black blade that swallows light, a closed eye carved on the guard, red smoke trailing from its edge. Silhouette: a single floating blade, point down, smoke trailing. Materials: light-swallowing black steel, red veins in the metal, a closed-eye guard, cracked leather grip. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Cursed Blade: a living cursed sword that floats and fights with no wielder, a black blade that swallows light, a closed eye carved on the guard, red smoke trailing from its edge. Silhouette: a single floating blade, point down, smoke trailing. Materials: light-swallowing black steel, red veins in the metal, a closed-eye guard, cracked leather grip.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 심연의 장막 가장자리에서 벼린 칼. 주인이 바뀔 때마다 앞 주인의 피 맛을 기억하고, 새 주인에게 같은 값을 요구한다.
@@ -661,7 +661,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -677,7 +677,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "모르카스의 밴시". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Banshee of the Morkas's New Moon — a wailing woman-spirit with long white hair, hollow dark eyes and a mouth stretched open, her translucent tattered gown fading into mist.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Banshee: a wailing woman-spirit with long white hair, hollow dark eyes and a mouth stretched open, her translucent tattered gown fading into mist. Silhouette: floating, long trailing hair and hem, mouth wide open. Materials: translucent pale mist, torn grey lace, long white hair. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Banshee: a wailing woman-spirit with long white hair, hollow dark eyes and a mouth stretched open, her translucent tattered gown fading into mist. Silhouette: floating, long trailing hair and hem, mouth wide open. Materials: translucent pale mist, torn grey lace, long white hair.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 얼굴 없는 그림자 왕의 말을 전하는 울음. 그녀가 문 앞에서 울면 그 집의 계약이 오늘 만기라는 뜻이다.
@@ -687,7 +687,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -703,7 +703,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "그림자 송곳니". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Shadow Beast of the Morkas's New Moon — a large wolf-like beast of living shadow with too many ivory fangs and violet eyes, its body fraying into smoke at the edges.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Shadow Beast: a large wolf-like beast of living shadow with too many ivory fangs and violet eyes, its body fraying into smoke at the edges. Silhouette: low lunging quadruped with an oversized jaw. Materials: black smoke fur, ivory fangs, violet eye glow. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Shadow Beast: a large wolf-like beast of living shadow with too many ivory fangs and violet eyes, its body fraying into smoke at the edges. Silhouette: low lunging quadruped with an oversized jaw. Materials: black smoke fur, ivory fangs, violet eye glow.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 녹타르 그림자 극장 뒤편에 사는 짐승. 무대 위의 비명이 연기가 아닐 때가 많은 까닭이다.
@@ -713,7 +713,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -729,7 +729,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "저주 인형". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Morkas's New Moon (holy relic + catalyst; if unsure, a wax seal, signet or sealed contract). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
+Banner — Morkas's New Moon (darkness): palette: violet #8b5cf6, black, blood-red accents. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 상대의 머리카락을 넣은 인형. 바늘을 꽂을 때마다 비명이 들린다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -738,7 +738,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -754,7 +754,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "심연의 가면". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Morkas's New Moon (holy relic; if unsure, a wax seal, signet or sealed contract). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
+Banner — Morkas's New Moon (darkness): palette: violet #8b5cf6, black, blood-red accents. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 쓰는 순간 얼굴이 사라지는 가면. 벤 자의 피로 그 얼굴을 다시 그린다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -763,7 +763,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -788,7 +788,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -804,7 +804,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "피의 라미아". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Lamia of the Morkas's New Moon — a serpent-tailed woman, her upper body pale and elegant, her lower body a long dark-crimson snake tail, with red slit eyes and fangs.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Lamia: a serpent-tailed woman, her upper body pale and elegant, her lower body a long dark-crimson snake tail, with red slit eyes and fangs. Silhouette: an upright torso on a coiled S-shaped tail. Materials: dark crimson scales, pale skin, gold armlets, spilled blood. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Lamia: a serpent-tailed woman, her upper body pale and elegant, her lower body a long dark-crimson snake tail, with red slit eyes and fangs. Silhouette: an upright torso on a coiled S-shaped tail. Materials: dark crimson scales, pale skin, gold armlets, spilled blood.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 모르카스의 제단 밑에 똬리를 틀고 바쳐진 피를 센다. 모자라면 바친 자에게서 나머지를 받아 간다.
@@ -814,7 +814,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -830,7 +830,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "계약 수확 사신". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Reaper of the Morkas's New Moon — a hooded skeletal reaper in a tattered black robe holding a great scythe, a ledger of due contracts chained to its belt.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Reaper: a hooded skeletal reaper in a tattered black robe holding a great scythe, a ledger of due contracts chained to its belt. Silhouette: tall hooded figure with a huge curved scythe. Materials: tattered black robe, bone hands, dark iron scythe, chained ledger. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Reaper: a hooded skeletal reaper in a tattered black robe holding a great scythe, a ledger of due contracts chained to its belt. Silhouette: tall hooded figure with a huge curved scythe. Materials: tattered black robe, bone hands, dark iron scythe, chained ledger.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 만기가 된 계약을 거두러 다닌다. 그의 낫이 지나간 자리에는 서명만 남는다.
@@ -840,7 +840,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -856,7 +856,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "달 없는 늑대인간". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Werewolf of the Morkas's New Moon — a hulking black-furred werewolf standing on its hind legs, wolf-headed, scarred and clawed, under a sky with no moon.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Werewolf: a hulking black-furred werewolf standing on its hind legs, wolf-headed, scarred and clawed, under a sky with no moon. Silhouette: hunched, huge-shouldered, long clawed arms. Materials: matted black fur, torn cloth, old scars, yellow claws. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Werewolf: a hulking black-furred werewolf standing on its hind legs, wolf-headed, scarred and clawed, under a sky with no moon. Silhouette: hunched, huge-shouldered, long clawed arms. Materials: matted black fur, torn cloth, old scars, yellow claws.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 보름달 대신 그믐을 골라 모르카스와 계약했다. 달이 없는 밤이면 언제든 변할 수 있지만, 그 값으로 다시는 보름달을 보지 못한다.
@@ -866,7 +866,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -882,7 +882,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "흑요 갑주 해골". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Skeleton of the Morkas's New Moon — a skeleton warrior inside heavy obsidian plate armour, violet light in its eye sockets, holding a black stone shield; a stubborn defender who stands like a wall.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Skeleton: a skeleton warrior inside heavy obsidian plate armour, violet light in its eye sockets, holding a black stone shield. Silhouette: upright and armoured, bulky shield in front. Materials: bleached bone, black obsidian plates, iron rivets. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Skeleton: a skeleton warrior inside heavy obsidian plate armour, violet light in its eye sockets, holding a black stone shield. Silhouette: upright and armoured, bulky shield in front. Materials: bleached bone, black obsidian plates, iron rivets.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 협곡의 검은 돌로 빚은 갑주만 남고 속은 비었다. 갑주를 입던 자는 그 갑주 값으로 살을 치렀다.
@@ -892,7 +892,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -908,7 +908,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "장막의 삼두견". Depict exactly what this name describes.
 Subject: an elite, commanding Hellhound of the Morkas's New Moon — a three-headed black hound guarding the Veil, burning violet eyes on every head, spiked iron collars trailing broken chains.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Hellhound: a three-headed black hound guarding the Veil, burning violet eyes on every head, spiked iron collars trailing broken chains. Silhouette: a broad hound with three heads. Materials: short black fur, spiked iron collars, broken chains, violet ember drool. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Hellhound: a three-headed black hound guarding the Veil, burning violet eyes on every head, spiked iron collars trailing broken chains. Silhouette: a broad hound with three heads. Materials: short black fur, spiked iron collars, broken chains, violet ember drool.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 심연의 장막 입구를 지키는 개. 들어가는 자에게는 짖지 않고, 나오는 자가 무엇을 두고 왔는지 세 머리가 차례로 냄새 맡는다.
@@ -918,7 +918,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -934,7 +934,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "찢기지 않는 계약서". Depict exactly what this name describes.
 Subject: an elite, commanding Living Contract of the Morkas's New Moon — a huge contract scroll that moves on its own, its curling edges lashing like claws, blood-wax seals staring like eyes and signature lines glowing red.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Living Contract: a huge contract scroll that moves on its own, its curling edges lashing like claws, blood-wax seals staring like eyes and signature lines glowing red. Silhouette: a tall coiling scroll with whip-like edges. Materials: thick yellowed parchment, blood-red ink, wax seals, ribbon. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Living Contract: a huge contract scroll that moves on its own, its curling edges lashing like claws, blood-wax seals staring like eyes and signature lines glowing red. Silhouette: a tall coiling scroll with whip-like edges. Materials: thick yellowed parchment, blood-red ink, wax seals, ribbon.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 녹타르 문서고에서 스스로 걸어 나온 계약서. 찢으려던 자는 모두 어느새 서명란에 제 이름을 적고 있다.
@@ -944,7 +944,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -969,7 +969,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -993,7 +993,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -1009,7 +1009,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "모르카스의 칼". Depict exactly what this name describes.
 Subject: an elite, commanding Cursed Blade of the Morkas's New Moon — a living cursed sword that floats and fights with no wielder, a black blade that swallows light, a closed eye carved on the guard, red smoke trailing from its edge.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Cursed Blade: a living cursed sword that floats and fights with no wielder, a black blade that swallows light, a closed eye carved on the guard, red smoke trailing from its edge. Silhouette: a single floating blade, point down, smoke trailing. Materials: light-swallowing black steel, red veins in the metal, a closed-eye guard, cracked leather grip. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Cursed Blade: a living cursed sword that floats and fights with no wielder, a black blade that swallows light, a closed eye carved on the guard, red smoke trailing from its edge. Silhouette: a single floating blade, point down, smoke trailing. Materials: light-swallowing black steel, red veins in the metal, a closed-eye guard, cracked leather grip.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 침묵의 군주에게 이름을 바친 검사가 쥐고 있던 칼. 검사는 오래전에 사라졌고, 이제는 감긴 눈이 새겨진 칼만 홀로 베러 다닌다.
@@ -1019,7 +1019,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -1035,7 +1035,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "저주 군단의 리치". Depict exactly what this name describes.
 Subject: an elite, commanding Lich of the Morkas's New Moon — a skeletal sorcerer-commander in rotted robes and an iron crown, violet flames in its eye sockets, one hand raised to call down curses.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Lich: a skeletal sorcerer-commander in rotted robes and an iron crown, violet flames in its eye sockets, one hand raised to call down curses. Silhouette: gaunt robed skeleton with a crown and an outstretched hand. Materials: yellowed bone, rotted robes, iron crown, violet curse flame. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Lich: a skeletal sorcerer-commander in rotted robes and an iron crown, violet flames in its eye sockets, one hand raised to call down curses. Silhouette: gaunt robed skeleton with a crown and an outstretched hand. Materials: yellowed bone, rotted robes, iron crown, violet curse flame.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 제 목숨을 계약서 한 장에 맡겨 녹타르 문서고 깊이 넣어 두었다. 그래서 그가 이끄는 저주 군단은 행군을 멈출 까닭이 없다.
@@ -1045,7 +1045,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -1061,7 +1061,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "감긴 눈의 저울". Depict exactly what this name describes.
 Subject: an elite, commanding Scale of the Morkas's New Moon — Morkas's scale given a body: a towering balance with a closed eye carved on its beam, its two pans hanging on chains and heavy with shadow; a stubborn defender who stands like a wall.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Scale: Morkas's scale given a body: a towering balance with a closed eye carved on its beam, its two pans hanging on chains and heavy with shadow. Silhouette: a tall T-shaped balance with two hanging pans. Materials: tarnished black bronze, chains, a closed-eye emblem, iron weights. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Scale: Morkas's scale given a body: a towering balance with a closed eye carved on its beam, its two pans hanging on chains and heavy with shadow. Silhouette: a tall T-shaped balance with two hanging pans. Materials: tarnished black bronze, chains, a closed-eye emblem, iron weights.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 모르카스의 상징인 저울이 몸을 얻은 것. 눈을 감고 있어 누가 올라오든 무게만 재고, 맞은 매도 한쪽 접시에 차곡차곡 달아 둔다.
@@ -1071,7 +1071,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -1087,7 +1087,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "계약에 묶인 시체 거인". Depict exactly what this name describes.
 Subject: an elite, commanding Corpse Giant of the Morkas's New Moon — a huge lumbering giant stitched together from many bodies, iron staples and contract chains bolted across it and a wax seal on its chest.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Corpse Giant: a huge lumbering giant stitched together from many bodies, iron staples and contract chains bolted across it and a wax seal on its chest. Silhouette: massive and lumbering, uneven mismatched limbs. Materials: grey stitched flesh, iron staples, chains, a blood-wax seal. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Corpse Giant: a huge lumbering giant stitched together from many bodies, iron staples and contract chains bolted across it and a wax seal on its chest. Silhouette: massive and lumbering, uneven mismatched limbs. Materials: grey stitched flesh, iron staples, chains, a blood-wax seal.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 계약에 적힌 힘만큼만 휘두르도록 꿰매 붙인 거인. 몇 사람 몫인지는 계약서 뒷장에 적혀 있다.
@@ -1097,7 +1097,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -1113,7 +1113,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "대가의 집행자". Depict exactly what this name describes.
 Subject: a legendary, awe-inspiring Faceless One of the Morkas's New Moon — a very tall figure in black robes whose head is a smooth blank oval with no features, echoing Morkas's own faceless face, chains wound across its chest.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Faceless One: a very tall figure in black robes whose head is a smooth blank oval with no features, echoing Morkas's own faceless face, chains wound across its chest. Silhouette: very tall and still, a featureless oval head. Materials: black robes, smooth blank grey skin, heavy chains, a spiked iron weight. Do NOT draw it as one of the fiends unless the name says so.
+Creature kind — Faceless One: a very tall figure in black robes whose head is a smooth blank oval with no features, echoing Morkas's own faceless face, chains wound across its chest. Silhouette: very tall and still, a featureless oval head. Materials: black robes, smooth blank grey skin, heavy chains, a spiked iron weight.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -1122,7 +1122,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -1138,7 +1138,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "새벽 종다리 떼". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Dawn Lark of the Solante's Dawn — small dawn larks with brown and gold-tipped feathers, always flying in a singing flock, sunrise light catching their wings.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Dawn Lark: small dawn larks with brown and gold-tipped feathers, always flying in a singing flock, sunrise light catching their wings. Silhouette: a loose flock of small birds in mid-song. Materials: brown and gold feathers, small sharp beaks, sun glints. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Dawn Lark: small dawn larks with brown and gold-tipped feathers, always flying in a singing flock, sunrise light catching their wings. Silhouette: a loose flock of small birds in mid-song. Materials: brown and gold feathers, small sharp beaks, sun glints.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 해보다 먼저 일어나 엘라드 성벽 위에서 운다. 한 마리라도 늦잠을 자면 그날 아침이 조금 늦게 온다고 성벽의 천족들은 믿는다.
@@ -1188,7 +1188,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "문장 독수리". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Heraldic Eagle of the Solante's Dawn — a white eagle that looks as if it flew straight off a Radiant Order banner, wings spread in a heraldic crest pose, a golden rising sun on its breast.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Heraldic Eagle: a white eagle that looks as if it flew straight off a Radiant Order banner, wings spread in a heraldic crest pose, a golden rising sun on its breast. Silhouette: wings spread wide in a symmetrical crest pose. Materials: white feathers edged in gold leaf, golden talons, banner cloth. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Heraldic Eagle: a white eagle that looks as if it flew straight off a Radiant Order banner, wings spread in a heraldic crest pose, a golden rising sun on its breast. Silhouette: wings spread wide in a symmetrical crest pose. Materials: white feathers edged in gold leaf, golden talons, banner cloth.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 성광 기사단의 깃발에서 날아 나왔다는 독수리. 깃발 위 그 자리는 지금도 비어 있다.
@@ -1214,7 +1214,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "떠도는 후광". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Halo of the Solante's Dawn — a wandering halo with no head beneath it: a floating ring of golden light drifting on its own, trailing faint sparks.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Halo: a wandering halo with no head beneath it: a floating ring of golden light drifting on its own, trailing faint sparks. Silhouette: a single glowing ring floating in the air. Materials: pure gold light, faint drifting sparkles. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Halo: a wandering halo with no head beneath it: a floating ring of golden light drifting on its own, trailing faint sparks. Silhouette: a single glowing ring floating in the air. Materials: pure gold light, faint drifting sparkles.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 주인 없이 고원의 성소를 하나씩 도는 후광. 머리 위에 얹힐 만한 자를 찾지만 아직 맞는 머리가 없다.
@@ -1367,7 +1367,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "맹세의 발키리". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Valkyrie of the Solante's Dawn — a winged shieldmaiden of the dawn: a warrior woman with great white wings, a gold-winged helm, a spear and a round shield.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Valkyrie: a winged shieldmaiden of the dawn: a warrior woman with great white wings, a gold-winged helm, a spear and a round shield. Silhouette: a winged warrior diving or standing with spear and round shield. Materials: white feathers, gold scale armour, a round wood-and-gold shield, a long spear. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Valkyrie: a winged shieldmaiden of the dawn: a warrior woman with great white wings, a gold-winged helm, a spear and a round shield. Silhouette: a winged warrior diving or standing with spear and round shield. Materials: white feathers, gold scale armour, a round wood-and-gold shield, a long spear.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 솔란테 앞에 맹세 하나를 올리고 창을 받았다. 쓰러진 자를 데리러 오는 것이 아니라, 쓰러지기 전에 먼저 내려온다.
@@ -1417,7 +1417,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "어린 유니콘". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Unicorn of the Solante's Dawn — a white horse with a long spiral horn of pearly light and a golden mane that glows like sunrise.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Unicorn: a white horse with a long spiral horn of pearly light and a golden mane that glows like sunrise. Silhouette: an elegant horse with a single long straight horn. Materials: white coat, pearl-white spiral horn, gold mane, silver hooves. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Unicorn: a white horse with a long spiral horn of pearly light and a golden mane that glows like sunrise. Silhouette: an elegant horse with a single long straight horn. Materials: white coat, pearl-white spiral horn, gold mane, silver hooves.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 뿔이 아직 손가락 길이다. 그래도 그 뿔이 가리키는 곳에는 그림자가 오래 머물지 못한다.
@@ -1444,7 +1444,7 @@ Card name (Korean — read its meaning, never write it in the image): "압수한
 Subject: the item the card name and lore describe — a single object made or kept by the Solante's Dawn (weapon/armour + holy relic; if unsure, a dagger). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Art direction: Confiscated Obsidian Blade: a jagged black obsidian demon knife, its hilt wrapped in white linen strips inscribed with golden prayer script, lying on a celestial inquisitor's altar cloth; a thin dark red glint still clings to the edge.
 Scale (level 2 of 8): a simple object.
-Banner — Solante's Dawn: seraphs with white feathered wings and halos, and human knights of the Radiant Order. Silhouette: upright and protective; wings spread wide behind great shields. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
+Banner — Solante's Dawn (holy light): palette: holy light #ffe9a8, white, pale gold, soft sky blue. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 심문관이 마족에게서 거둔 흑요석 칼. 정화 의식이 끝날 때까지만 빌려 쓴다 — 벤 자리는 그때까지 아물지 않는다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -1469,7 +1469,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "은빛 방패". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Solante's Dawn (weapon/armour + holy relic; if unsure, a shield). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Solante's Dawn: seraphs with white feathered wings and halos, and human knights of the Radiant Order. Silhouette: upright and protective; wings spread wide behind great shields. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
+Banner — Solante's Dawn (holy light): palette: holy light #ffe9a8, white, pale gold, soft sky blue. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 빛을 반사하는 은 방패.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -1521,7 +1521,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "새벽성 작은 성상". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Saint Statue of the Solante's Dawn — a cathedral saint statue come to life, white marble with flecks of gold leaf, stepping down from its plinth.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Saint Statue: a cathedral saint statue come to life, white marble with flecks of gold leaf, stepping down from its plinth. Silhouette: a still, upright statue on or beside a plinth. Materials: white marble, gold leaf, polished stone. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Saint Statue: a cathedral saint statue come to life, white marble with flecks of gold leaf, stepping down from its plinth. Silhouette: a still, upright statue on or beside a plinth. Materials: white marble, gold leaf, polished stone.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 새벽성 길가의 벽감마다 놓인 작은 성상. 솔란테의 빛에 씻겨 돌아갈 곳을 잃은 자는 이 모습이 되어 엘라드를 지킨다.
@@ -1573,7 +1573,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "빛의 성표". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Solante's Dawn (holy relic; if unsure, a sacred relic (chalice, reliquary or holy symbol — not a plain cross)). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Solante's Dawn: seraphs with white feathered wings and halos, and human knights of the Radiant Order. Silhouette: upright and protective; wings spread wide behind great shields. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
+Banner — Solante's Dawn (holy light): palette: holy light #ffe9a8, white, pale gold, soft sky blue. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 솔란테의 성표. 매 턴 처음 날아오는 칼날을 조금 무디게 한다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -1649,7 +1649,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "새벽 순찰 사자". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Dawn Lion of the Solante's Dawn — a great golden lion whose mane fans out like the rays of the rising sun.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Dawn Lion: a great golden lion whose mane fans out like the rays of the rising sun. Silhouette: a powerful lion with a wide radiant mane. Materials: golden fur, a sunray mane, white claws. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Dawn Lion: a great golden lion whose mane fans out like the rays of the rising sun. Silhouette: a powerful lion with a wide radiant mane. Materials: golden fur, a sunray mane, white claws.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 어둠이 가장 짙은 새벽 직전에 고원을 돈다. 해가 뜨면 사자의 갈기가 지나간 길부터 밝아진다.
@@ -1675,7 +1675,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "진실을 묻는 스핑크스". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Sphinx of the Solante's Dawn — a lion-bodied sphinx with a calm, solemn face, folded white wings and a sun-disk crown, guarding a question.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Sphinx: a lion-bodied sphinx with a calm, solemn face, folded white wings and a sun-disk crown, guarding a question. Silhouette: a couchant lion body, head raised, wings folded. Materials: pale gold fur, white feathers, a gold sun-disk headdress. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Sphinx: a lion-bodied sphinx with a calm, solemn face, folded white wings and a sun-disk crown, guarding a question. Silhouette: a couchant lion body, head raised, wings folded. Materials: pale gold fur, white feathers, a gold sun-disk headdress.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 엘라드로 들어오는 자에게 물음 하나를 던진다. 답이 틀린 것은 괜찮지만, 거짓이면 문이 열리지 않는다.
@@ -1701,7 +1701,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "엘라드 탑 방패". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Solante's Dawn (weapon/armour; if unsure, a shield). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Solante's Dawn: seraphs with white feathered wings and halos, and human knights of the Radiant Order. Silhouette: upright and protective; wings spread wide behind great shields. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
+Banner — Solante's Dawn (holy light): palette: holy light #ffe9a8, white, pale gold, soft sky blue. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 새벽성 수문 기사가 쓰는 탑 방패. 어떤 저주로도 방패를 든 손을 내리게 할 수 없다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -1726,7 +1726,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "솔란테의 성검". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Solante's Dawn (weapon/armour + holy relic; if unsure, a sword). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Solante's Dawn: seraphs with white feathered wings and halos, and human knights of the Radiant Order. Silhouette: upright and protective; wings spread wide behind great shields. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
+Banner — Solante's Dawn (holy light): palette: holy light #ffe9a8, white, pale gold, soft sky blue. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 태양신 솔란테가 첫 기사에게 내린 성검.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -1854,7 +1854,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "맹세를 지키는 백조". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Swan of the Solante's Dawn — a large white swan with a faint halo above its head, wings arched protectively over what it guards.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Swan: a large white swan with a faint halo above its head, wings arched protectively over what it guards. Silhouette: arched wings and a long curved neck. Materials: pure white feathers, gold beak, faint halo light. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Swan: a large white swan with a faint halo above its head, wings arched protectively over what it guards. Silhouette: arched wings and a long curved neck. Materials: pure white feathers, gold beak, faint halo light.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 평생 짝을 바꾸지 않는 새라 남의 맹세까지 맡는다. 날개 아래에 맡겨 둔 맹세가 많아 늘 조금 무거워 보인다.
@@ -1880,7 +1880,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "새벽을 울리는 성종". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Bell Spirit of the Solante's Dawn — a great living bronze cathedral bell that rings in the dawn, light pouring from its mouth, rising-sun engravings on its rim.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Bell Spirit: a great living bronze cathedral bell that rings in the dawn, light pouring from its mouth, rising-sun engravings on its rim. Silhouette: a large bell hanging in the air. Materials: polished bronze, gold sun engravings, light from within. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Bell Spirit: a great living bronze cathedral bell that rings in the dawn, light pouring from its mouth, rising-sun engravings on its rim. Silhouette: a large bell hanging in the air. Materials: polished bronze, gold sun engravings, light from within.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 새벽성의 아침 기도가 수백 년 동안 쌓여 종 하나에 깃들었다. 첫 종이 울리면 성벽 위로 해가 오른다고들 하고, 해도 대체로 그 말을 따른다.
@@ -1906,7 +1906,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "빛을 되비추는 거울". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Mirror Spirit of the Solante's Dawn — a tall oval cathedral mirror in a gilt frame that has come alive, gathering dawn light and throwing it back.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Mirror Spirit: a tall oval cathedral mirror in a gilt frame that has come alive, gathering dawn light and throwing it back. Silhouette: a tall oval frame standing upright. Materials: silvered glass, gilt frame, bright reflections. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Mirror Spirit: a tall oval cathedral mirror in a gilt frame that has come alive, gathering dawn light and throwing it back. Silhouette: a tall oval frame standing upright. Materials: silvered glass, gilt frame, bright reflections.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 대성당 회랑에 걸려 새벽빛을 모으던 거울. 날아든 것은 빛이든 칼이든 온 길로 돌려보낸다.
@@ -1932,7 +1932,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "엘라드의 오파님". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Ophanim of the Solante's Dawn — two interlocking golden wheels covered in watchful eyes, spinning slowly in white fire.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Ophanim: two interlocking golden wheels covered in watchful eyes, spinning slowly in white fire. Silhouette: two rings intersecting at right angles. Materials: gold rims, many eyes, white fire. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Ophanim: two interlocking golden wheels covered in watchful eyes, spinning slowly in white fire. Silhouette: two rings intersecting at right angles. Materials: gold rims, many eyes, white fire.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 눈이 박힌 금빛 바퀴 두 개가 맞물려 돈다. 엘라드 성벽 한 칸을 맡은 뒤로 그 자리에서 한 치도 굴러간 적이 없다.
@@ -1958,7 +1958,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "새벽 유니콘". Depict exactly what this name describes.
 Subject: an elite, commanding Unicorn of the Solante's Dawn — a white horse with a long spiral horn of pearly light and a golden mane that glows like sunrise.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Unicorn: a white horse with a long spiral horn of pearly light and a golden mane that glows like sunrise. Silhouette: an elegant horse with a single long straight horn. Materials: white coat, pearl-white spiral horn, gold mane, silver hooves. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Unicorn: a white horse with a long spiral horn of pearly light and a golden mane that glows like sunrise. Silhouette: an elegant horse with a single long straight horn. Materials: white coat, pearl-white spiral horn, gold mane, silver hooves.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 떠오르는 해를 등에 지고 달리는 유니콘. 그 뿔은 맹세를 저버린 자 앞에서만 빛을 낸다.
@@ -1984,7 +1984,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "광장의 성자상". Depict exactly what this name describes.
 Subject: an elite, commanding Saint Statue of the Solante's Dawn — a cathedral saint statue come to life, white marble with flecks of gold leaf, stepping down from its plinth.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Saint Statue: a cathedral saint statue come to life, white marble with flecks of gold leaf, stepping down from its plinth. Silhouette: a still, upright statue on or beside a plinth. Materials: white marble, gold leaf, polished stone. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Saint Statue: a cathedral saint statue come to life, white marble with flecks of gold leaf, stepping down from its plinth. Silhouette: a still, upright statue on or beside a plinth. Materials: white marble, gold leaf, polished stone.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 새벽성 광장 한가운데 서 있던 성자상이 깨어났다. 받침돌에서 내려와 싸우러 나가도 광장의 비둘기들은 그 어깨에서 내려오지 않는다.
@@ -2035,7 +2035,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "새벽성 발키리 대장". Depict exactly what this name describes.
 Subject: an elite, commanding Valkyrie of the Solante's Dawn — a winged shieldmaiden of the dawn: a warrior woman with great white wings, a gold-winged helm, a spear and a round shield.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Valkyrie: a winged shieldmaiden of the dawn: a warrior woman with great white wings, a gold-winged helm, a spear and a round shield. Silhouette: a winged warrior diving or standing with spear and round shield. Materials: white feathers, gold scale armour, a round wood-and-gold shield, a long spear. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Valkyrie: a winged shieldmaiden of the dawn: a warrior woman with great white wings, a gold-winged helm, a spear and a round shield. Silhouette: a winged warrior diving or standing with spear and round shield. Materials: white feathers, gold scale armour, a round wood-and-gold shield, a long spear.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 새벽성 발키리들 가운데 가장 오래 내려온 자. 성벽의 돌 하나하나에 그녀가 지켜 낸 아침이 새겨져 있다.
@@ -2061,7 +2061,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "새벽 세라프". Depict exactly what this name describes.
 Subject: an elite, commanding Seraph of the Solante's Dawn — a six-winged fiery being of light, its face half hidden behind burning golden wings.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Seraph: a six-winged fiery being of light, its face half hidden behind burning golden wings. Silhouette: six wings in layers around a small bright core. Materials: flame feathers, gold light, sparks. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Seraph: a six-winged fiery being of light, its face half hidden behind burning golden wings. Silhouette: six wings in layers around a small bright core. Materials: flame feathers, gold light, sparks.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 솔란테의 빛을 가장 가까이에서 쬔 천족. 여섯 날개가 불꽃처럼 타오르지만 곁에 선 동료는 태우지 않는다.
@@ -2087,7 +2087,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "네 얼굴의 케루빔". Depict exactly what this name describes.
 Subject: an elite, commanding Cherub of the Solante's Dawn — a four-faced guardian with the faces of a lion, an eagle, an ox and a solemn calm face, four wings and gold-bronze plumage.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Cherub: a four-faced guardian with the faces of a lion, an eagle, an ox and a solemn calm face, four wings and gold-bronze plumage. Silhouette: a bulky four-winged figure with faces looking four ways. Materials: gold-bronze feathers, burnished plates, bright eyes. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Cherub: a four-faced guardian with the faces of a lion, an eagle, an ox and a solemn calm face, four wings and gold-bronze plumage. Silhouette: a bulky four-winged figure with faces looking four ways. Materials: gold-bronze feathers, burnished plates, bright eyes.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 네 얼굴이 네 방향을 본다. 맹세를 어긴 자가 어느 쪽으로 달아나든 한 얼굴과는 눈이 마주친다.
@@ -2113,7 +2113,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "황혼 장벽 페가수스". Depict exactly what this name describes.
 Subject: an elite, commanding Pegasus of the Solante's Dawn — a white winged horse with broad feathered wings and a pale gold mane.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Pegasus: a white winged horse with broad feathered wings and a pale gold mane. Silhouette: a horse with big wings raised mid-gallop or mid-dive. Materials: white coat, white feathered wings, gold mane, silver hooves. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Pegasus: a white winged horse with broad feathered wings and a pale gold mane. Silhouette: a horse with big wings raised mid-gallop or mid-dive. Materials: white coat, white feathered wings, gold mane, silver hooves.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 빈 땅을 마주한 황혼의 장벽 위를 난다. 장벽 너머에서 무엇이 와도 날개를 접지 않는다.
@@ -2139,7 +2139,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "대성당 색유리 수호자". Depict exactly what this name describes.
 Subject: a legendary, awe-inspiring Stained-Glass Knight of the Solante's Dawn — a knight-shaped figure stepped out of a cathedral window, its body made of coloured glass panes held together by dark lead lines, sunlight shining through it.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Stained-Glass Knight: a knight-shaped figure stepped out of a cathedral window, its body made of coloured glass panes held together by dark lead lines, sunlight shining through it. Silhouette: an upright knight with sword and shield, cut into glass segments. Materials: coloured glass panes, lead cames, gold light shining through. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Stained-Glass Knight: a knight-shaped figure stepped out of a cathedral window, its body made of coloured glass panes held together by dark lead lines, sunlight shining through it. Silhouette: an upright knight with sword and shield, cut into glass segments. Materials: coloured glass panes, lead cames, gold light shining through.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 날개 방패를 든 천사가 그려진 대성당의 큰 창이 통째로 깨어났다. 금이 가도 그 창으로 드는 빛은 새지 않는다.
@@ -2165,7 +2165,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "엘라드의 샛별". Depict exactly what this name describes.
 Subject: a legendary, awe-inspiring Morning Star of the Solante's Dawn — the morning star over Elad given a body: a white-gold star with long cross-shaped rays and a small luminous figure at its heart.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Morning Star: the morning star over Elad given a body: a white-gold star with long cross-shaped rays and a small luminous figure at its heart. Silhouette: a radiant star with four long rays. Materials: white-gold starlight, prism sparkles. Do NOT draw it as one of the winged celestials unless the name says so.
+Creature kind — Morning Star: the morning star over Elad given a body: a white-gold star with long cross-shaped rays and a small luminous figure at its heart. Silhouette: a radiant star with four long rays. Materials: white-gold starlight, prism sparkles.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 해보다 먼저 엘라드 위에 뜨는 별이 몸을 얻었다. 그것이 머문 자리에는 사흘 동안 그림자가 지지 않는다.
@@ -2191,7 +2191,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "망루 부엉이". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Star Owl of the Belumir's Star — an owl whose indigo plumage is dotted with silver star points like a night sky, with round eyes that glow like stars.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Star Owl: an owl whose indigo plumage is dotted with silver star points like a night sky, with round eyes that glow like stars. Silhouette: a round owl with huge eyes, wings folded or spread silently. Materials: indigo feathers with silver star dots, gold glowing eyes, soft down. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Star Owl: an owl whose indigo plumage is dotted with silver star points like a night sky, with round eyes that glow like stars. Silhouette: a round owl with huge eyes, wings folded or spread silently. Materials: indigo feathers with silver star dots, gold glowing eyes, soft down.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 바늘탑 망루에서 밤새 지평선을 지킨다. 궁사들은 활보다 눈이 먼저 늙는다고 하지만, 별을 닮은 이 부엉이의 눈은 늙지 않는다.
@@ -2201,7 +2201,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2217,7 +2217,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "바람 실프". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Sylph of the Belumir's Star — a slender wind spirit shaped like a half-transparent girl of moving air, her hair and limbs streaming off into gusts.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Sylph: a slender wind spirit shaped like a half-transparent girl of moving air, her hair and limbs streaming off into gusts. Silhouette: an airy figure dissolving into wind streaks at the edges. Materials: translucent air, teal swirls, caught leaves and feathers. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Sylph: a slender wind spirit shaped like a half-transparent girl of moving air, her hair and limbs streaming off into gusts. Silhouette: an airy figure dissolving into wind streaks at the edges. Materials: translucent air, teal swirls, caught leaves and feathers.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 깃털처럼 가볍게 고원을 건너 적의 수를 센다. 들켰다 싶을 때면 이미 바람으로 돌아가 있다.
@@ -2227,7 +2227,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2253,7 +2253,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2279,7 +2279,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2304,7 +2304,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2320,7 +2320,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "바늘탑 조인 활잡이". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Birdfolk of the Belumir's Star — bird-people archers who live on the outer walls of Belumir's Needle: feathered heads with hooked beaks, wings folded along their arms, taloned feet gripping the galleries.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Birdfolk: bird-people archers who live on the outer walls of Belumir's Needle: feathered heads with hooked beaks, wings folded along their arms, taloned feet gripping the galleries. Silhouette: an upright bird-headed archer with folded wings drawing a bow. Materials: brown and white feathers, leather bracers, pale-wood bows, slim quivers. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Birdfolk: bird-people archers who live on the outer walls of Belumir's Needle: feathered heads with hooked beaks, wings folded along their arms, taloned feet gripping the galleries. Silhouette: an upright bird-headed archer with folded wings drawing a bow. Materials: brown and white feathers, leather bracers, pale-wood bows, slim quivers.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 벨루미르의 바늘 바깥벽에 사는 새 사람. 계단 대신 날개로 오르내리며 층마다 과녁을 하나씩 세웠다.
@@ -2330,7 +2330,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2346,7 +2346,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "깃화살 하피". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Harpy of the Belumir's Star — storm harpies: bird-women with wide feathered wings for arms, hooked talons for feet and wild wind-tossed hair, nesting under the Needle's eaves.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Harpy: storm harpies: bird-women with wide feathered wings for arms, hooked talons for feet and wild wind-tossed hair, nesting under the Needle's eaves. Silhouette: a bird-woman with wide wings and hooked talons, mid-swoop. Materials: storm-grey and teal feathers, sharp black talons, wild hair. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Harpy: storm harpies: bird-women with wide feathered wings for arms, hooked talons for feet and wild wind-tossed hair, nesting under the Needle's eaves. Silhouette: a bird-woman with wide wings and hooked talons, mid-swoop. Materials: storm-grey and teal feathers, sharp black talons, wild hair.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 제 날개깃을 뽑아 화살로 쏜다. 쏘는 법은 익혔지만 아끼는 법은 아직이라, 지나간 자리에 깃털이 눈처럼 쌓인다.
@@ -2356,7 +2356,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2372,7 +2372,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "새끼 그리핀". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Griffin of the Belumir's Star — a griffin with the head, wings and foreclaws of a storm eagle and the body of a tawny lion.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Griffin: a griffin with the head, wings and foreclaws of a storm eagle and the body of a tawny lion. Silhouette: an eagle-fronted lion with wings raised. Materials: teal-grey feathers, tawny fur, golden beak and talons. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Griffin: a griffin with the head, wings and foreclaws of a storm eagle and the body of a tawny lion. Silhouette: an eagle-fronted lion with wings raised. Materials: teal-grey feathers, tawny fur, golden beak and talons.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 고원의 성소와 바늘탑 사이를 오가며 날기를 배운다. 소식을 맡겨도 소식보다 제가 먼저 도착해 버린다.
@@ -2382,7 +2382,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2398,7 +2398,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "견습 단궁". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Belumir's Star (catalyst; if unsure, a bow). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Belumir's Star: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
+Banner — Belumir's Star (wind): palette: wind teal #9fe3d6, silver, white, starry indigo. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 바늘탑 견습생에게 처음 주는 짧은 활. 주먹 대신 바람으로 친다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -2407,7 +2407,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2433,7 +2433,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2459,7 +2459,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2484,7 +2484,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2500,7 +2500,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "별자리 사냥개". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Constellation of the Belumir's Star — a beast or archer drawn by stars: bright points joined by thin silver lines of light, the body between them only night sky.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Constellation: a beast or archer drawn by stars: bright points joined by thin silver lines of light, the body between them only night sky. Silhouette: an outline traced by stars and connecting lines. Materials: starlight points, thin silver lines, night-blue void. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Constellation: a beast or archer drawn by stars: bright points joined by thin silver lines of light, the body between them only night sky. Silhouette: an outline traced by stars and connecting lines. Materials: starlight points, thin silver lines, night-blue void.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 밤하늘을 달리는 사냥개 별자리. 한 번 지나간 길은 별빛으로 남아 잊히지 않는다.
@@ -2510,7 +2510,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2536,7 +2536,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2562,7 +2562,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2578,7 +2578,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "폭풍 히포그리프". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Hippogriff of the Belumir's Star — a hippogriff with the head, wings and forelegs of an eagle and the hindquarters of a horse, riding storm winds.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Hippogriff: a hippogriff with the head, wings and forelegs of an eagle and the hindquarters of a horse, riding storm winds. Silhouette: an eagle-fronted horse in a galloping leap. Materials: grey-white feathers, a horse coat and tail, hooked beak. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Hippogriff: a hippogriff with the head, wings and forelegs of an eagle and the hindquarters of a horse, riding storm winds. Silhouette: an eagle-fronted horse in a galloping leap. Materials: grey-white feathers, a horse coat and tail, hooked beak.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 먹구름 아래에서만 날개를 편다. 그것이 지나간 자리를 빗줄기가 뒤따른다.
@@ -2588,7 +2588,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2612,7 +2612,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2628,7 +2628,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "쌍둥이자리 궁수". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Constellation of the Belumir's Star — a beast or archer drawn by stars: bright points joined by thin silver lines of light, the body between them only night sky.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Constellation: a beast or archer drawn by stars: bright points joined by thin silver lines of light, the body between them only night sky. Silhouette: an outline traced by stars and connecting lines. Materials: starlight points, thin silver lines, night-blue void. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Constellation: a beast or archer drawn by stars: bright points joined by thin silver lines of light, the body between them only night sky. Silhouette: an outline traced by stars and connecting lines. Materials: starlight points, thin silver lines, night-blue void.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 밤하늘의 쌍둥이 별이 활 두 자루를 들고 내려왔다. 한 별이 쏜 화살 길을 다른 별의 화살이 그대로 탄다.
@@ -2638,7 +2638,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2654,7 +2654,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "고요의 구름고래". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Cloud Whale of the Belumir's Star — a whale made of cloud swimming slowly through the sky, its soft body billowing, sometimes dark with thunder; a stubborn defender who stands like a wall.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Cloud Whale: a whale made of cloud swimming slowly through the sky, its soft body billowing, sometimes dark with thunder. Silhouette: a huge whale shape of billowing cloud. Materials: white or storm-grey cloud, wisps of mist, flickers of lightning. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Cloud Whale: a whale made of cloud swimming slowly through the sky, its soft body billowing, sometimes dark with thunder. Silhouette: a huge whale shape of billowing cloud. Materials: white or storm-grey cloud, wisps of mist, flickers of lightning.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 바람의 것들 가운데 고요를 좋아하는 별난 고래. 그 구름 몸속에 들어온 칼바람은 숨을 죽인다.
@@ -2664,7 +2664,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2680,7 +2680,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "폭풍의 활". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Belumir's Star (catalyst; if unsure, a bow). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Belumir's Star: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
+Banner — Belumir's Star (wind): palette: wind teal #9fe3d6, silver, white, starry indigo. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 시위에 작은 폭풍이 감긴 활. 당기지 않아도 번개 화살이 튄다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -2689,7 +2689,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2705,7 +2705,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "회오리 화살통". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Belumir's Star (catalyst; if unsure, a bow). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Belumir's Star: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
+Banner — Belumir's Star (wind): palette: wind teal #9fe3d6, silver, white, starry indigo. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 화살을 뽑을 때마다 바람이 분다. 바람을 탄 화살은 갑옷 틈을 스스로 찾는다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -2714,7 +2714,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2730,7 +2730,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "벨루미르의 장궁". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Belumir's Star (catalyst; if unsure, a bow). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Belumir's Star: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
+Banner — Belumir's Star (wind): palette: wind teal #9fe3d6, silver, white, starry indigo. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 별을 읽는 신 벨루미르의 장궁. 닿지 않는 곳에서 쏘고, 화살이 꽂힐 때 쏜 자는 이미 그 자리에 없다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -2739,7 +2739,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2765,7 +2765,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2792,7 +2792,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2808,7 +2808,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "별문자 부엉이". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Star Owl of the Belumir's Star — an owl whose indigo plumage is dotted with silver star points like a night sky, with round eyes that glow like stars.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Star Owl: an owl whose indigo plumage is dotted with silver star points like a night sky, with round eyes that glow like stars. Silhouette: a round owl with huge eyes, wings folded or spread silently. Materials: indigo feathers with silver star dots, gold glowing eyes, soft down. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Star Owl: an owl whose indigo plumage is dotted with silver star points like a night sky, with round eyes that glow like stars. Silhouette: a round owl with huge eyes, wings folded or spread silently. Materials: indigo feathers with silver star dots, gold glowing eyes, soft down.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 날개깃마다 별의 문자가 새겨진 부엉이. 날갯짓으로 보낸 문자는 어떤 바람에도 흩어지지 않는다.
@@ -2818,7 +2818,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2834,7 +2834,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "폭풍탑 조인 궁수". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Birdfolk of the Belumir's Star — bird-people archers who live on the outer walls of Belumir's Needle: feathered heads with hooked beaks, wings folded along their arms, taloned feet gripping the galleries.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Birdfolk: bird-people archers who live on the outer walls of Belumir's Needle: feathered heads with hooked beaks, wings folded along their arms, taloned feet gripping the galleries. Silhouette: an upright bird-headed archer with folded wings drawing a bow. Materials: brown and white feathers, leather bracers, pale-wood bows, slim quivers. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Birdfolk: bird-people archers who live on the outer walls of Belumir's Needle: feathered heads with hooked beaks, wings folded along their arms, taloned feet gripping the galleries. Silhouette: an upright bird-headed archer with folded wings drawing a bow. Materials: brown and white feathers, leather bracers, pale-wood bows, slim quivers.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 폭풍탑 궁사회의 정식 사수가 된 첫 새 사람. 오만하다는 말을 들으면 엘프들에게서 배웠다고 답한다.
@@ -2844,7 +2844,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2860,7 +2860,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "바람 타는 그리핀". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Griffin of the Belumir's Star — a griffin with the head, wings and foreclaws of a storm eagle and the body of a tawny lion.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Griffin: a griffin with the head, wings and foreclaws of a storm eagle and the body of a tawny lion. Silhouette: an eagle-fronted lion with wings raised. Materials: teal-grey feathers, tawny fur, golden beak and talons. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Griffin: a griffin with the head, wings and foreclaws of a storm eagle and the body of a tawny lion. Silhouette: an eagle-fronted lion with wings raised. Materials: teal-grey feathers, tawny fur, golden beak and talons.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 공기의 무게를 깃끝으로 잰다. 그것이 날개를 접으면 바람도 따라 멎고, 그 틈에 내리꽂힌다.
@@ -2870,7 +2870,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2886,7 +2886,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "벨루미르의 별여우". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Star Fox of the Belumir's Star — a slim fox with indigo fur speckled with tiny stars and a long brush tail that trails starlight.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Star Fox: a slim fox with indigo fur speckled with tiny stars and a long brush tail that trails starlight. Silhouette: a slim running fox with a long glowing tail. Materials: indigo fur, silver star speckles, a starlight tail. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Star Fox: a slim fox with indigo fur speckled with tiny stars and a long brush tail that trails starlight. Silhouette: a slim running fox with a long glowing tail. Materials: indigo fur, silver star speckles, a starlight tail.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 이벨의 서고를 찾는 궁사들을 따라 성좌 고원을 평생 걸었다. 서고는 아직 못 찾았지만, 꼬리에 묻은 별빛으로 고원의 모든 길에 표시를 해 두었다.
@@ -2896,7 +2896,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2912,7 +2912,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "번개 화살 텐구". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Tengu of the Belumir's Star — black-feathered mountain sky spirits with crow beaks and broad wings, carrying bows and fans of storm feathers.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Tengu: black-feathered mountain sky spirits with crow beaks and broad wings, carrying bows and fans of storm feathers. Silhouette: a winged humanoid with a beaked face and a raised feather fan. Materials: black glossy feathers, a storm-feather fan, a lacquered bow. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Tengu: black-feathered mountain sky spirits with crow beaks and broad wings, carrying bows and fans of storm feathers. Silhouette: a winged humanoid with a beaked face and a raised feather fan. Materials: black glossy feathers, a storm-feather fan, a lacquered bow.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 번개를 품은 구름 아래에서만 활을 든다. 깃부채를 한 번 부치면 화살촉에 번개가 내려앉는다.
@@ -2922,7 +2922,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2947,7 +2947,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2972,7 +2972,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -2988,7 +2988,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "폭풍 사냥 히포그리프". Depict exactly what this name describes.
 Subject: an elite, commanding Hippogriff of the Belumir's Star — a hippogriff with the head, wings and forelegs of an eagle and the hindquarters of a horse, riding storm winds.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Hippogriff: a hippogriff with the head, wings and forelegs of an eagle and the hindquarters of a horse, riding storm winds. Silhouette: an eagle-fronted horse in a galloping leap. Materials: grey-white feathers, a horse coat and tail, hooked beak. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Hippogriff: a hippogriff with the head, wings and forelegs of an eagle and the hindquarters of a horse, riding storm winds. Silhouette: an eagle-fronted horse in a galloping leap. Materials: grey-white feathers, a horse coat and tail, hooked beak.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 폭풍을 쫓아 고원을 떠도는 사냥꾼. 폭풍이 몰고 온 짐승도, 폭풍 뒤에 숨은 적도 그 발톱의 몫이다.
@@ -2998,7 +2998,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3014,7 +3014,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "별똥별 임프". Depict exactly what this name describes.
 Subject: an elite, commanding Imp of the Belumir's Star — small mischievous sky imps with pointed ears and wide grins, one made of a swirling gust, another of a falling star trailing sparks.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Imp: small mischievous sky imps with pointed ears and wide grins, one made of a swirling gust, another of a falling star trailing sparks. Silhouette: tiny, gangly and flitting, small wings. Materials: wisps of air or white-hot sparks, tiny feathered wings. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Imp: small mischievous sky imps with pointed ears and wide grins, one made of a swirling gust, another of a falling star trailing sparks. Silhouette: tiny, gangly and flitting, small wings. Materials: wisps of air or white-hot sparks, tiny feathered wings.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 별똥별 끝에 매달려 떨어진 꼬마. 하늘로 돌아가는 길을 몰라, 바늘탑 꼭대기에서 별이 지나갈 때마다 손을 흔든다.
@@ -3024,7 +3024,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3040,7 +3040,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "활 당기는 사수자리". Depict exactly what this name describes.
 Subject: an elite, commanding Constellation of the Belumir's Star — a beast or archer drawn by stars: bright points joined by thin silver lines of light, the body between them only night sky.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Constellation: a beast or archer drawn by stars: bright points joined by thin silver lines of light, the body between them only night sky. Silhouette: an outline traced by stars and connecting lines. Materials: starlight points, thin silver lines, night-blue void. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Constellation: a beast or archer drawn by stars: bright points joined by thin silver lines of light, the body between them only night sky. Silhouette: an outline traced by stars and connecting lines. Materials: starlight points, thin silver lines, night-blue void.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 폭풍탑의 사수들이 처음 활을 잡을 때 올려다보는 별자리. 사수자리가 시위를 놓는 밤이면 궁사회는 그해 첫 과녁을 정한다.
@@ -3050,7 +3050,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3066,7 +3066,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "폭풍 송골매". Depict exactly what this name describes.
 Subject: an elite, commanding Falcon of the Belumir's Star — a fierce storm falcon with slate-grey wings and sharp eyes, built for the stooping dive.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Falcon: a fierce storm falcon with slate-grey wings and sharp eyes, built for the stooping dive. Silhouette: a sleek falcon in a steep dive, wings swept back. Materials: slate-grey and white barred feathers, yellow talons, hooked beak. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Falcon: a fierce storm falcon with slate-grey wings and sharp eyes, built for the stooping dive. Silhouette: a sleek falcon in a steep dive, wings swept back. Materials: slate-grey and white barred feathers, yellow talons, hooked beak.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 폭풍을 몰고 다니는 새. 궁사회가 길들였다는 말보다 새가 궁사회를 길들였다는 소문이 더 그럴듯하다.
@@ -3076,7 +3076,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3092,7 +3092,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "파편 군도의 명궁". Depict exactly what this name describes.
 Subject: an elite, commanding Elf of the Belumir's Star — elf archers of the Storm Tower guild: pointed ears shorter than a high elf's, lean and wind-weathered, brown or ash hair tied back, plain practical gear.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Elf: elf archers of the Storm Tower guild: pointed ears shorter than a high elf's, lean and wind-weathered, brown or ash hair tied back, plain practical gear. Silhouette: a lean archer with a plain longbow, hood pushed back, braced against the wind. Materials: worn grey-green leathers, a wool cloak, a plain pale-wood bow, grey goose fletching. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Elf: elf archers of the Storm Tower guild: pointed ears shorter than a high elf's, lean and wind-weathered, brown or ash hair tied back, plain practical gear. Silhouette: a lean archer with a plain longbow, hood pushed back, braced against the wind. Materials: worn grey-green leathers, a wool cloak, a plain pale-wood bow, grey goose fletching.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -3101,7 +3101,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3117,7 +3117,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "회오리 텐구". Depict exactly what this name describes.
 Subject: an elite, commanding Tengu of the Belumir's Star — black-feathered mountain sky spirits with crow beaks and broad wings, carrying bows and fans of storm feathers.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Tengu: black-feathered mountain sky spirits with crow beaks and broad wings, carrying bows and fans of storm feathers. Silhouette: a winged humanoid with a beaked face and a raised feather fan. Materials: black glossy feathers, a storm-feather fan, a lacquered bow. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Tengu: black-feathered mountain sky spirits with crow beaks and broad wings, carrying bows and fans of storm feathers. Silhouette: a winged humanoid with a beaked face and a raised feather fan. Materials: black glossy feathers, a storm-feather fan, a lacquered bow.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 회오리 셋을 한꺼번에 일으켜 한 발로 꿰뚫는다. 궁사회는 그것을 재주라 부르고, 텐구는 버릇이라 부른다.
@@ -3127,7 +3127,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3143,7 +3143,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "별을 겨누는 자". Depict exactly what this name describes.
 Subject: a legendary, awe-inspiring Shooting Star of the Belumir's Star — a falling star given a will: a blazing white-hot streak with a small bright head and a long tail of sparks.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Shooting Star: a falling star given a will: a blazing white-hot streak with a small bright head and a long tail of sparks. Silhouette: a long glowing streak with a bright head. Materials: white-hot starlight, sparks, a trailing tail. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Shooting Star: a falling star given a will: a blazing white-hot streak with a small bright head and a long tail of sparks. Silhouette: a long glowing streak with a bright head. Materials: white-hot starlight, sparks, a trailing tail.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 하늘에서 떨어지는 대신 다른 별을 겨누고 날아오르는 별똥별. 그것이 스친 별은 그날 밤 한 번 깜박인다.
@@ -3153,7 +3153,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3169,7 +3169,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "하늘 찢는 로크". Depict exactly what this name describes.
 Subject: a legendary, awe-inspiring Roc of the Belumir's Star — a colossal storm bird whose wingspan splits clouds, with a great hooked beak and talons big enough to carry off a ship.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Roc: a colossal storm bird whose wingspan splits clouds, with a great hooked beak and talons big enough to carry off a ship. Silhouette: an enormous bird with vast spread wings. Materials: huge brown-grey feathers, a horn-coloured beak, giant talons. Do NOT draw it as one of the high elves unless the name says so.
+Creature kind — Roc: a colossal storm bird whose wingspan splits clouds, with a great hooked beak and talons big enough to carry off a ship. Silhouette: an enormous bird with vast spread wings. Materials: huge brown-grey feathers, a horn-coloured beak, giant talons.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 날개를 한 번 펴면 구름이 갈라진다. 그것이 지나간 하늘에는 오래도록 한 줄의 틈이 남는다.
@@ -3179,7 +3179,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3203,7 +3203,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no forest elves or nature druids (moss trolls own the forest), no bulky muscles or heavy plate, no spellbooks or staffs in a unit's hands (they are archers now); star glyphs are abstract shapes, never readable letters.
+Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3227,7 +3227,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3243,7 +3243,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "불꽃 임프". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Flame Imp of the Dormak's Heartfire — a knee-high impish creature of living flame with a cracked cinder-black body, ember eyes, stubby horns and a whip-like tail of fire.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Flame Imp: a knee-high impish creature of living flame with a cracked cinder-black body, ember eyes, stubby horns and a whip-like tail of fire. Silhouette: a small hunched imp mid-leap, trailing fire. Materials: cracked cinder skin, glowing ember seams, licking orange flames, soot. Do NOT draw it as one of the goblin gunners unless the name says so.
+Creature kind — Flame Imp: a knee-high impish creature of living flame with a cracked cinder-black body, ember eyes, stubby horns and a whip-like tail of fire. Silhouette: a small hunched imp mid-leap, trailing fire. Materials: cracked cinder skin, glowing ember seams, licking orange flames, soot.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 화관 산맥의 분화구에서 튄 불티가 팔다리를 얻었다. 포르탄 고블린들은 그를 귀여워하지만, 화약고 앞에서만은 빗자루를 든다.
@@ -3253,7 +3253,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3278,7 +3278,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3303,7 +3303,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3329,7 +3329,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3355,7 +3355,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3381,7 +3381,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3397,7 +3397,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "연막 정령". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Smoke Spirit of the Dormak's Heartfire — a drifting body of thick gunpowder smoke with a vague grinning face and long wispy arms, lit faintly orange by embers inside.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Smoke Spirit: a drifting body of thick gunpowder smoke with a vague grinning face and long wispy arms, lit faintly orange by embers inside. Silhouette: a billowing column of smoke with reaching arms. Materials: dense grey-black smoke, ember glints, soot haze. Do NOT draw it as one of the goblin gunners unless the name says so.
+Creature kind — Smoke Spirit: a drifting body of thick gunpowder smoke with a vague grinning face and long wispy arms, lit faintly orange by embers inside. Silhouette: a billowing column of smoke with reaching arms. Materials: dense grey-black smoke, ember glints, soot haze.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 포대가 한꺼번에 울린 날, 끝내 흩어지지 않은 포연 한 덩이가 몸이 되었다. 적이 기침하는 소리를 따라 천천히 다가간다.
@@ -3407,7 +3407,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3423,7 +3423,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "포르탄 불개". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Fire Hound of the Dormak's Heartfire — a lean wolf-sized hound from the old tale of the dogs that chase the sun, ember-red fur smouldering at the tips, a coal-glowing maw and soot-black paws.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Fire Hound: a lean wolf-sized hound from the old tale of the dogs that chase the sun, ember-red fur smouldering at the tips, a coal-glowing maw and soot-black paws. Silhouette: a lean snarling hound with a blazing open mouth. Materials: smouldering red fur, coal-glow throat, soot, a scorched brass collar. Do NOT draw it as one of the goblin gunners unless the name says so.
+Creature kind — Fire Hound: a lean wolf-sized hound from the old tale of the dogs that chase the sun, ember-red fur smouldering at the tips, a coal-glowing maw and soot-black paws. Silhouette: a lean snarling hound with a blazing open mouth. Materials: smouldering red fur, coal-glow throat, soot, a scorched brass collar.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 톱니 고개 요새의 성문 앞에 사는 불개. 옛날에는 해를 물어뜯으려 했다는데, 지금은 성문을 지나는 발목으로 눈을 낮췄다.
@@ -3433,7 +3433,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3449,7 +3449,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "화서 무리". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Fire Rat of the Dormak's Heartfire — cat-sized rats whose silvery-red fur burns constantly without ever being consumed, with glowing whiskers and ember eyes, always in a swarm.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Fire Rat: cat-sized rats whose silvery-red fur burns constantly without ever being consumed, with glowing whiskers and ember eyes, always in a swarm. Silhouette: a tide of small burning rats pouring over rubble. Materials: flaming silver-red fur, ember eyes, ash, gravel. Do NOT draw it as one of the goblin gunners unless the name says so.
+Creature kind — Fire Rat: cat-sized rats whose silvery-red fur burns constantly without ever being consumed, with glowing whiskers and ember eyes, always in a swarm. Silhouette: a tide of small burning rats pouring over rubble. Materials: flaming silver-red fur, ember eyes, ash, gravel.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 화관 산맥의 식지 않는 바위틈에 사는 불쥐 떼. 털이 불에 들어가도 타지 않아서, 포르탄은 그 털로 화약고 장갑을 짠다.
@@ -3459,7 +3459,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3475,7 +3475,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "화승총 개머리판". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Dormak's Heartfire (weapon/armour; if unsure, a sword). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Dormak's Heartfire: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
+Banner — Dormak's Heartfire (fire): palette: fire orange #ff6b3d with brass #d4893a and soot black. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 포르탄 포수들이 총알이 떨어지면 휘두르는 개머리판. 맞으면 오래 아프다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -3484,7 +3484,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3500,7 +3500,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "불씨 탄띠". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Dormak's Heartfire (weapon/armour + engraving; if unsure, a dagger). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Dormak's Heartfire: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
+Banner — Dormak's Heartfire (fire): palette: fire orange #ff6b3d with brass #d4893a and soot black. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 허리에 감은 작은 화약통. 심지에 불을 붙여 던진다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -3509,7 +3509,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3536,7 +3536,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3561,7 +3561,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3586,7 +3586,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3602,7 +3602,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "새끼 살라만더". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Salamander of the Dormak's Heartfire — a small lizard with wet-looking skin of living flame, glowing spots and a tail that burns like a lit wick.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Salamander: a small lizard with wet-looking skin of living flame, glowing spots and a tail that burns like a lit wick. Silhouette: a small lizard curled around a hearth. Materials: glowing orange skin, ember spots, flame tail, hearth ash. Do NOT draw it as one of the goblin gunners unless the name says so.
+Creature kind — Salamander: a small lizard with wet-looking skin of living flame, glowing spots and a tail that burns like a lit wick. Silhouette: a small lizard curled around a hearth. Materials: glowing orange skin, ember spots, flame tail, hearth ash.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 화약고 아궁이에서 깨어난 새끼 도마뱀. 포르탄 장전병들은 불씨가 모자랄 때 그의 꼬리에 화승을 대고 불을 빌린다.
@@ -3612,7 +3612,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3628,7 +3628,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "녹철 불원숭이". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Fire Monkey of the Dormak's Heartfire — a wiry long-armed monkey with soot-dark fur and a crest of flame on its head and tail tip, clutching red-hot stones.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Fire Monkey: a wiry long-armed monkey with soot-dark fur and a crest of flame on its head and tail tip, clutching red-hot stones. Silhouette: a monkey crouched on a rock, arm cocked to throw. Materials: soot-dark fur, flame crest, red-hot pebbles, rust-coloured rock. Do NOT draw it as one of the goblin gunners unless the name says so.
+Creature kind — Fire Monkey: a wiry long-armed monkey with soot-dark fur and a crest of flame on its head and tail tip, clutching red-hot stones. Silhouette: a monkey crouched on a rock, arm cocked to throw. Materials: soot-dark fur, flame crest, red-hot pebbles, rust-coloured rock.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 녹철 구릉의 바위틈에서 달군 돌을 던지며 노는 원숭이. 포르탄 저격병들이 그에게서 숨는 법을 배웠다는 말은 아무도 인정하지 않는다.
@@ -3638,7 +3638,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3662,7 +3662,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3678,7 +3678,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "포대 거북". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Lava Tortoise of the Dormak's Heartfire — a huge tortoise whose shell is cooled black lava split by glowing magma seams, with a smoking vent-crater rising from the middle of its back.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Lava Tortoise: a huge tortoise whose shell is cooled black lava split by glowing magma seams, with a smoking vent-crater rising from the middle of its back. Silhouette: a low massive dome with a smoking crater on top. Materials: black basalt shell, glowing magma cracks, scorched brass bands, smoke. Do NOT draw it as one of the goblin gunners unless the name says so.
+Creature kind — Lava Tortoise: a huge tortoise whose shell is cooled black lava split by glowing magma seams, with a smoking vent-crater rising from the middle of its back. Silhouette: a low massive dome with a smoking crater on top. Materials: black basalt shell, glowing magma cracks, scorched brass bands, smoke.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 등딱지 한가운데 작은 분화구를 지고 다니는 용암거북. 포르탄 포수들은 그 구멍이 대포보다 멀리 쏜다는 것을 인정하기 싫어한다.
@@ -3688,7 +3688,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3704,7 +3704,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "화약고 불개미". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Fire Ant of the Dormak's Heartfire — dog-sized ants with glossy red-black carapaces glowing hot at the joints and mandibles that drip molten sparks, always in a tight column.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Fire Ant: dog-sized ants with glossy red-black carapaces glowing hot at the joints and mandibles that drip molten sparks, always in a tight column. Silhouette: a packed phalanx of armoured ants. Materials: glossy red-black chitin, glowing joints, ember mandibles, charred powder-keg wood. Do NOT draw it as one of the goblin gunners unless the name says so.
+Creature kind — Fire Ant: dog-sized ants with glossy red-black carapaces glowing hot at the joints and mandibles that drip molten sparks, always in a tight column. Silhouette: a packed phalanx of armoured ants. Materials: glossy red-black chitin, glowing joints, ember mandibles, charred powder-keg wood.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 포르탄 화약고 밑에 굴을 판 불개미 떼. 고블린들은 쫓아내기를 포기하고 화약고를 맡겼는데, 개미들은 원래 제 집이었다고 여긴다.
@@ -3714,7 +3714,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3730,7 +3730,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "고블린 산탄총". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Dormak's Heartfire (weapon/armour; if unsure, a bow). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Dormak's Heartfire: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
+Banner — Dormak's Heartfire (fire): palette: fire orange #ff6b3d with brass #d4893a and soot black. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 총구가 나팔처럼 벌어진 고블린 산탄총. 매 턴 한 발씩 흩뿌린다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -3739,7 +3739,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3755,7 +3755,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "포수의 망원경". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Dormak's Heartfire (weapon/armour; if unsure, a spear). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Dormak's Heartfire: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
+Banner — Dormak's Heartfire (fire): palette: fire orange #ff6b3d with brass #d4893a and soot black. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 코그하번 렌즈공의 망원경. 약점을 짚어 맞히면 겨우 서 있을 힘만 남는다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -3764,7 +3764,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3789,7 +3789,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3805,7 +3805,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "용광로 화로령". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Brazier Spirit of the Dormak's Heartfire — a stout fire spirit living inside a riveted iron furnace-brazier, its flame face glowing behind the grate bars.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Brazier Spirit: a stout fire spirit living inside a riveted iron furnace-brazier, its flame face glowing behind the grate bars. Silhouette: a pot-bellied brazier with a flame face. Materials: riveted iron, grate bars, glowing coals, soot. Do NOT draw it as one of the goblin gunners unless the name says so.
+Creature kind — Brazier Spirit: a stout fire spirit living inside a riveted iron furnace-brazier, its flame face glowing behind the grate bars. Silhouette: a pot-bellied brazier with a flame face. Materials: riveted iron, grate bars, glowing coals, soot.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 포르탄 화약고 곁 용광로에 깃든 불의 정령. 화약고에는 불씨 하나 들이지 않으면서, 저 자신은 좀처럼 꺼지지 않는다.
@@ -3815,7 +3815,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3842,7 +3842,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3858,7 +3858,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "불엄니 멧돼지". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Fire Boar of the Dormak's Heartfire — a hulking wild boar with bristles of smouldering wiry hair and long tusks glowing red-hot at the tips.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Fire Boar: a hulking wild boar with bristles of smouldering wiry hair and long tusks glowing red-hot at the tips. Silhouette: a charging boar with lowered glowing tusks. Materials: smouldering bristles, red-hot tusks, cinder hooves, scorched hide. Do NOT draw it as one of the goblin gunners unless the name says so.
+Creature kind — Fire Boar: a hulking wild boar with bristles of smouldering wiry hair and long tusks glowing red-hot at the tips. Silhouette: a charging boar with lowered glowing tusks. Materials: smouldering bristles, red-hot tusks, cinder hooves, scorched hide.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 엄니 끝이 늘 벌겋게 달아 있는 화관 산맥의 멧돼지. 톱니 고개 비탈을 내달리면 멈출 줄을 몰라, 멈추는 자리가 곧 들이받는 자리다.
@@ -3868,7 +3868,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3892,7 +3892,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3917,7 +3917,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3933,7 +3933,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "화관의 불거인". Depict exactly what this name describes.
 Subject: an elite, commanding Fire Giant of the Dormak's Heartfire — a towering man-shaped figure of half-cooled magma with a rocky crust and fire pouring from its cracks — a small overflow of Dormak's heart-fire, nowhere near the size of the true giant.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Fire Giant: a towering man-shaped figure of half-cooled magma with a rocky crust and fire pouring from its cracks — a small overflow of Dormak's heart-fire, nowhere near the size of the true giant. Silhouette: a tall hulking lava figure striding downhill. Materials: black rock crust, molten cracks, flowing lava, smoke. Do NOT draw it as one of the goblin gunners unless the name says so.
+Creature kind — Fire Giant: a towering man-shaped figure of half-cooled magma with a rocky crust and fire pouring from its cracks — a small overflow of Dormak's heart-fire, nowhere near the size of the true giant. Silhouette: a tall hulking lava figure striding downhill. Materials: black rock crust, molten cracks, flowing lava, smoke.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 도르마크의 심장불이 넘쳐 화관 산맥 비탈로 흘러내리다 사람 꼴로 굳었다. 거인이라 불리지만 도르마크의 손가락 하나만도 못하다는 것을 그 자신이 가장 잘 안다.
@@ -3943,7 +3943,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3959,7 +3959,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "폭렬 이프리트". Depict exactly what this name describes.
 Subject: an elite, commanding Ifrit of the Dormak's Heartfire — a tall muscular fire spirit whose upper body is roaring flame and whose lower half trails into smoke, with burning eyes and a crown of sparks.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Ifrit: a tall muscular fire spirit whose upper body is roaring flame and whose lower half trails into smoke, with burning eyes and a crown of sparks. Silhouette: a towering flame torso rising from a smoke column. Materials: roaring orange flame, smoke trail, soot-blackened brass ornaments. Do NOT draw it as one of the goblin gunners unless the name says so.
+Creature kind — Ifrit: a tall muscular fire spirit whose upper body is roaring flame and whose lower half trails into smoke, with burning eyes and a crown of sparks. Silhouette: a towering flame torso rising from a smoke column. Materials: roaring orange flame, smoke trail, soot-blackened brass ornaments.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 화관 산맥의 연기 기둥에서 태어난 불의 정령. 포르탄 기술장들이 폭약 배합을 물으러 오면, 대답 대신 공방 벽에 그을음 자국을 하나 더 남긴다.
@@ -3969,7 +3969,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -3985,7 +3985,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "도르마크의 불거미". Depict exactly what this name describes.
 Subject: an elite, commanding Fire Spider of the Dormak's Heartfire — a large spider with obsidian legs and a glowing magma abdomen, spinning threads of molten stone that harden as they cool.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Fire Spider: a large spider with obsidian legs and a glowing magma abdomen, spinning threads of molten stone that harden as they cool. Silhouette: a spider on a web of glowing threads. Materials: obsidian legs, magma abdomen, molten silk, ash. Do NOT draw it as one of the goblin gunners unless the name says so.
+Creature kind — Fire Spider: a large spider with obsidian legs and a glowing magma abdomen, spinning threads of molten stone that harden as they cool. Silhouette: a spider on a web of glowing threads. Materials: obsidian legs, magma abdomen, molten silk, ash.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 화관 산맥 아래 도르마크의 가슴뼈 사이에 녹은 돌로 줄을 치는 거미. 걸린 것은 빠져나가기 전에 먼저 굳는다.
@@ -3995,7 +3995,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4011,7 +4011,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "용암 땅굴웜". Depict exactly what this name describes.
 Subject: an elite, commanding Lava Worm of the Dormak's Heartfire — an enormous segmented worm that burrows through rock, its rings glowing with magma and its round mouth lined with obsidian teeth.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Lava Worm: an enormous segmented worm that burrows through rock, its rings glowing with magma and its round mouth lined with obsidian teeth. Silhouette: a huge worm bursting up out of the ground. Materials: cracked basalt rings, molten glow, ring of obsidian teeth, ash. Do NOT draw it as one of the goblin gunners unless the name says so.
+Creature kind — Lava Worm: an enormous segmented worm that burrows through rock, its rings glowing with magma and its round mouth lined with obsidian teeth. Silhouette: a huge worm bursting up out of the ground. Materials: cracked basalt rings, molten glow, ring of obsidian teeth, ash.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 화관 산맥 밑을 파고 다니며 굳은 용암을 먹는 벌레. 그것이 지나간 땅 위로는 다음 해에도 풀이 돋지 않는다.
@@ -4021,7 +4021,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4037,7 +4037,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "탈라쿠스의 역청 괴물". Depict exactly what this name describes.
 Subject: an elite, commanding Tar Horror of the Dormak's Heartfire — a dripping, shambling hulk of the giant Thalakus's black blood risen through the underground veins and heated by Dormak's fire, with embers sunk in its glossy body.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Tar Horror: a dripping, shambling hulk of the giant Thalakus's black blood risen through the underground veins and heated by Dormak's fire, with embers sunk in its glossy body. Silhouette: a slumped dripping hulk leaving sticky footprints. Materials: glossy black bitumen, oily rainbow sheen, sunken embers, smoke. Do NOT draw it as one of the goblin gunners unless the name says so.
+Creature kind — Tar Horror: a dripping, shambling hulk of the giant Thalakus's black blood risen through the underground veins and heated by Dormak's fire, with embers sunk in its glossy body. Silhouette: a slumped dripping hulk leaving sticky footprints. Materials: glossy black bitumen, oily rainbow sheen, sunken embers, smoke.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 땅 밑 핏줄을 타고 올라온 탈라쿠스의 검은 피가 도르마크의 불에 달궈져 일어섰다. 걸음마다 끈적한 발자국이 남고, 포르탄은 그것을 퍼다 화약에 섞는다.
@@ -4047,7 +4047,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4063,7 +4063,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "포격 폭탄벌레". Depict exactly what this name describes.
 Subject: an elite, commanding Bombardier Beetle of the Dormak's Heartfire — a large scorched-black beetle that sprays boiling, burning fluid from its raised abdomen like a little mortar.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Bombardier Beetle: a large scorched-black beetle that sprays boiling, burning fluid from its raised abdomen like a little mortar. Silhouette: a heavy beetle with its abdomen raised to spray. Materials: scorched black-red carapace, boiling spray, steam. Do NOT draw it as one of the goblin gunners unless the name says so.
+Creature kind — Bombardier Beetle: a large scorched-black beetle that sprays boiling, burning fluid from its raised abdomen like a little mortar. Silhouette: a heavy beetle with its abdomen raised to spray. Materials: scorched black-red carapace, boiling spray, steam.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 꽁무니로 끓는 즙을 쏘는 화관 산맥의 딱정벌레. 포르탄 포대보다 장전이 빠르다는 소문을 포수들은 못 들은 척한다.
@@ -4073,7 +4073,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4089,7 +4089,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "화관 베히모스". Depict exactly what this name describes.
 Subject: a legendary, awe-inspiring Behemoth of the Dormak's Heartfire — a mountain-sized horned beast whose back is a volcanic ridge, lava running in the cracks of its craggy hide.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Behemoth: a mountain-sized horned beast whose back is a volcanic ridge, lava running in the cracks of its craggy hide. Silhouette: a colossal quadruped with a ridged back like a mountain range. Materials: craggy rock hide, glowing lava seams, ash, great horns. Do NOT draw it as one of the goblin gunners unless the name says so.
+Creature kind — Behemoth: a mountain-sized horned beast whose back is a volcanic ridge, lava running in the cracks of its craggy hide. Silhouette: a colossal quadruped with a ridged back like a mountain range. Materials: craggy rock hide, glowing lava seams, ash, great horns.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 화관 산맥의 등성이인 줄 알았던 것이 어느 날 일어나 걸었다. 그것이 지나간 뒤로 길 이름이 바뀌곤 했다.
@@ -4099,7 +4099,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4123,7 +4123,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no magic circles or spellcasting (their fire is gunpowder and engineering), no elegant armour, no dwarven greatswords.
+Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4147,7 +4147,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4163,7 +4163,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "톱니 태엽쥐". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Clockwork Mouse of the Sorgrim's Shield — a palm-sized mechanical mouse of brass and steel with a big wind-up key in its back, gear-wheel teeth and glass-bead eyes.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Clockwork Mouse: a palm-sized mechanical mouse of brass and steel with a big wind-up key in its back, gear-wheel teeth and glass-bead eyes. Silhouette: a tiny scurrying mouse with a wind-up key. Materials: brass casing, steel gears, wind-up key, rivets. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Clockwork Mouse: a palm-sized mechanical mouse of brass and steel with a big wind-up key in its back, gear-wheel teeth and glass-bead eyes. Silhouette: a tiny scurrying mouse with a wind-up key. Materials: brass casing, steel gears, wind-up key, rivets.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 두르크하임 견습공들이 처음 빚어 보는 태엽 쥐. 손가락 하나쯤 물려 봐야 장인이 된다는 말은 이 쥐 때문에 생겼다.
@@ -4173,7 +4173,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4189,7 +4189,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "강철 문지기 갑옷". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Living Armour of the Sorgrim's Shield — an empty suit of heavy plate armour that moves on its own, hollow inside, with only a faint forge glow showing through the eye slit and the joints.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Living Armour: an empty suit of heavy plate armour that moves on its own, hollow inside, with only a faint forge glow showing through the eye slit and the joints. Silhouette: an armoured knight with nothing inside the visor. Materials: thick steel or grey adamant plate, rivets, chainmail, faint forge glow. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Living Armour: an empty suit of heavy plate armour that moves on its own, hollow inside, with only a faint forge glow showing through the eye slit and the joints. Silhouette: an armoured knight with nothing inside the visor. Materials: thick steel or grey adamant plate, rivets, chainmail, faint forge glow.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 공방 문 앞에 세워 둔 빈 갑옷이 철의 심장이 처음 뛴 날 함께 눈을 떴다. 들어오려는 자에게 묻는 말은 여전히 하나, "누구 수염이냐".
@@ -4199,7 +4199,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4224,7 +4224,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4249,7 +4249,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4275,7 +4275,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4301,7 +4301,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4326,7 +4326,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4351,7 +4351,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4367,7 +4367,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "증기 골렘". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Golem of the Sorgrim's Shield — a massive forged golem of riveted steel plate and stone with piston joints, glowing forge seams and a boiler or furnace heart.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Golem: a massive forged golem of riveted steel plate and stone with piston joints, glowing forge seams and a boiler or furnace heart. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: riveted steel plate, stone, pistons, chains, glowing seams, steam. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Golem: a massive forged golem of riveted steel plate and stone with piston joints, glowing forge seams and a boiler or furnace heart. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: riveted steel plate, stone, pistons, chains, glowing seams, steam.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -4376,7 +4376,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4400,7 +4400,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4416,7 +4416,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "폭주 태엽 인형". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Automaton of the Sorgrim's Shield — a clockwork automaton of brass and steel built for a single task, with exposed gears, pistons and a ticking core; a reckless charging attacker.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Automaton: a clockwork automaton of brass and steel built for a single task, with exposed gears, pistons and a ticking core. Silhouette: an upright mechanical figure with exposed gears. Materials: brass, steel, gears, springs, pistons. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Automaton: a clockwork automaton of brass and steel built for a single task, with exposed gears, pistons and a ticking core. Silhouette: an upright mechanical figure with exposed gears. Materials: brass, steel, gears, springs, pistons.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 태엽을 너무 세게 감은 채 풀려난 인형. 멈추는 법을 모르니, 부딪히는 것밖에 할 일이 없다.
@@ -4426,7 +4426,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4442,7 +4442,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "리벳 각인". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Sorgrim's Shield (engraving; if unsure, a carved stone or engraved plate). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Sorgrim's Shield: stocky dwarves with braided iron-grey beards, and the riveted golems and automatons they forge. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
+Banner — Sorgrim's Shield (metal): palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 골렘 장갑판을 잇는 리벳 모양의 각인. 한 번 박히면 빠지지 않는다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -4451,7 +4451,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4467,7 +4467,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "강철 장갑판". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Sorgrim's Shield (engraving + weapon/armour; if unsure, a piece of armour). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Sorgrim's Shield: stocky dwarves with braided iron-grey beards, and the riveted golems and automatons they forge. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
+Banner — Sorgrim's Shield (metal): palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 두르크하임 공방의 표준 장갑판. 무겁지만 확실하다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -4476,7 +4476,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4501,7 +4501,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4526,7 +4526,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4542,7 +4542,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "리벳 집게 게". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Ironclad Crab of the Sorgrim's Shield — a large crab with rivets pressed into its iron shell and heavy pincers like forge tongs, living in rusty runoff pools.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Ironclad Crab: a large crab with rivets pressed into its iron shell and heavy pincers like forge tongs, living in rusty runoff pools. Silhouette: a sideways crab raising huge pincers. Materials: riveted iron shell, rust, tong-like pincers. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Ironclad Crab: a large crab with rivets pressed into its iron shell and heavy pincers like forge tongs, living in rusty runoff pools. Silhouette: a sideways crab raising huge pincers. Materials: riveted iron shell, rust, tong-like pincers.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 철골 산맥의 녹물 웅덩이에서 리벳을 주워 등딱지에 박아 넣는 게. 어디를 쳐도 같은 소리가 난다.
@@ -4552,7 +4552,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4577,7 +4577,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4593,7 +4593,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "장갑 태엽거미". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Clockwork Spider of the Sorgrim's Shield — an eight-legged clockwork machine the size of a pony, covered in overlapping armour plates, with jointed steel legs and glass lens eyes.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Clockwork Spider: an eight-legged clockwork machine the size of a pony, covered in overlapping armour plates, with jointed steel legs and glass lens eyes. Silhouette: a low armoured spider on spiked steel legs. Materials: layered armour plates, steel legs, brass gears, glass lenses. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Clockwork Spider: an eight-legged clockwork machine the size of a pony, covered in overlapping armour plates, with jointed steel legs and glass lens eyes. Silhouette: a low armoured spider on spiked steel legs. Materials: layered armour plates, steel legs, brass gears, glass lenses.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 겹장갑을 두른 여덟 다리 태엽 기계. 갱도 천장에 매달려 있다가, 시킨 일을 끝내기 전에는 떨어지지 않는다.
@@ -4603,7 +4603,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4619,7 +4619,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "무쇠뿔 산양". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Iron-Horn Goat of the Sorgrim's Shield — a muscular mountain goat whose huge curled horns have grown into raw iron from licking exposed ore veins, with a shaggy grey coat and hard hooves.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Iron-Horn Goat: a muscular mountain goat whose huge curled horns have grown into raw iron from licking exposed ore veins, with a shaggy grey coat and hard hooves. Silhouette: a goat planted on a rock under massive curled horns. Materials: raw iron horns, shaggy grey wool, ore-streaked rock. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Iron-Horn Goat: a muscular mountain goat whose huge curled horns have grown into raw iron from licking exposed ore veins, with a shaggy grey coat and hard hooves. Silhouette: a goat planted on a rock under massive curled horns. Materials: raw iron horns, shaggy grey wool, ore-streaked rock.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 철골 산맥의 드러난 광맥을 핥다가 뿔이 무쇠로 자란 산양. 그가 버티고 선 바위가 곧 성벽의 끝이다.
@@ -4629,7 +4629,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4645,7 +4645,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "증기 콧김 황소". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Bronze Bull of the Sorgrim's Shield — a forged bull of bronze with a boiler in its belly, steam snorting from its nostrils and riveted plates along its flanks.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Bronze Bull: a forged bull of bronze with a boiler in its belly, steam snorting from its nostrils and riveted plates along its flanks. Silhouette: a head-down charging bull puffing steam. Materials: polished bronze, rivets, boiler, steam. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Bronze Bull: a forged bull of bronze with a boiler in its belly, steam snorting from its nostrils and riveted plates along its flanks. Silhouette: a head-down charging bull puffing steam. Materials: polished bronze, rivets, boiler, steam.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 두르크하임 장인들이 청동으로 빚고 배 속에 보일러를 앉힌 황소. 콧김 한 번에 지하 도시의 등불이 흔들린다.
@@ -4655,7 +4655,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4671,7 +4671,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "오토마톤 심장". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Sorgrim's Shield (engraving; if unsure, a carved stone or engraved plate). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Sorgrim's Shield: stocky dwarves with braided iron-grey beards, and the riveted golems and automatons they forge. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
+Banner — Sorgrim's Shield (metal): palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 오토마톤의 동력로. 첫 충격은 톱니가 받아 낸다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -4680,7 +4680,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4696,7 +4696,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "무쇠 방패". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Sorgrim's Shield (weapon/armour; if unsure, a shield). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Sorgrim's Shield: stocky dwarves with braided iron-grey beards, and the riveted golems and automatons they forge. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
+Banner — Sorgrim's Shield (metal): palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 골렘의 손바닥을 떼어 만든 방패.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -4705,7 +4705,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4721,7 +4721,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "골렘의 룬". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Sorgrim's Shield (engraving; if unsure, a carved stone or engraved plate). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Sorgrim's Shield: stocky dwarves with braided iron-grey beards, and the riveted golems and automatons they forge. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
+Banner — Sorgrim's Shield (metal): palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 두르크하임 룬공이 골렘 심장에 새기는 룬. 새겨진 몸은 어떤 저주로도 줄어들지 않는다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -4730,7 +4730,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4746,7 +4746,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "걸어 다니는 모루". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Awakened Anvil of the Sorgrim's Shield — a great blacksmith's anvil that has woken and walks on stubby iron legs, its horn like a snout and its face scarred by generations of hammer blows.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Awakened Anvil: a great blacksmith's anvil that has woken and walks on stubby iron legs, its horn like a snout and its face scarred by generations of hammer blows. Silhouette: a squat anvil on short legs. Materials: dark forged iron, hammer scars, soot, glowing hot face. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Awakened Anvil: a great blacksmith's anvil that has woken and walks on stubby iron legs, its horn like a snout and its face scarred by generations of hammer blows. Silhouette: a squat anvil on short legs. Materials: dark forged iron, hammer scars, soot, glowing hot face.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 두르크하임에서 가장 오래 두드려진 모루가 철의 심장이 뛴 날 다리를 얻었다. 맞은 만큼 되돌려 주는 법은 몇 대의 장인 망치 아래서 배웠다.
@@ -4756,7 +4756,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4772,7 +4772,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "쇠 먹는 불가사리". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Bulgasari (Iron-Eater) of the Sorgrim's Shield — a bear-sized iron-eating beast from Korean legend — bull-like head, short trunk-like snout, fur of bristling needles and a hide studded with half-swallowed nails and locks.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Bulgasari (Iron-Eater): a bear-sized iron-eating beast from Korean legend — bull-like head, short trunk-like snout, fur of bristling needles and a hide studded with half-swallowed nails and locks. Silhouette: a hulking shaggy beast chewing on a lump of metal. Materials: needle fur, iron-studded hide, swallowed nails and padlocks, rust. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Bulgasari (Iron-Eater): a bear-sized iron-eating beast from Korean legend — bull-like head, short trunk-like snout, fur of bristling needles and a hide studded with half-swallowed nails and locks. Silhouette: a hulking shaggy beast chewing on a lump of metal. Materials: needle fur, iron-studded hide, swallowed nails and padlocks, rust.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 처음엔 바늘 하나만 했다는 짐승이 두르크하임의 못과 자물쇠를 먹고 이만큼 컸다. 쓰러뜨리려면 성 하나를 허무는 만큼의 수고가 든다.
@@ -4782,7 +4782,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4798,7 +4798,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "철골 가고일". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Steel Gargoyle of the Sorgrim's Shield — a gargoyle with a skeletal frame of iron girders, bat-like wings of riveted sheet steel and hollow ribs the wind whistles through, living on rusted ore.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Steel Gargoyle: a gargoyle with a skeletal frame of iron girders, bat-like wings of riveted sheet steel and hollow ribs the wind whistles through, living on rusted ore. Silhouette: a crouching gargoyle on a ledge with folded steel wings. Materials: iron girders, riveted sheet steel, rust, hollow frame. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Steel Gargoyle: a gargoyle with a skeletal frame of iron girders, bat-like wings of riveted sheet steel and hollow ribs the wind whistles through, living on rusted ore. Silhouette: a crouching gargoyle on a ledge with folded steel wings. Materials: iron girders, riveted sheet steel, rust, hollow frame.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 철골 산맥 벼랑에서 녹슨 광맥을 갉아 먹고 사는 가고일. 갱도 입구에 앉아 있으면 석상인 줄 알다가, 바람이 뼈대 사이를 지날 때에야 낮은 울음을 듣는다.
@@ -4808,7 +4808,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4824,7 +4824,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "증기 굴착 두더지". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Steel Mole of the Sorgrim's Shield — a bulky mole with steel-hard claws and a drill-like snout that eats iron ore, hot steam puffing from its nostrils.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Steel Mole: a bulky mole with steel-hard claws and a drill-like snout that eats iron ore, hot steam puffing from its nostrils. Silhouette: a mole bursting out of a tunnel with big claws. Materials: steel claws, drill snout, dark fur, ore dust, steam. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Steel Mole: a bulky mole with steel-hard claws and a drill-like snout that eats iron ore, hot steam puffing from its nostrils. Silhouette: a mole bursting out of a tunnel with big claws. Materials: steel claws, drill snout, dark fur, ore dust, steam.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 쇠 광맥을 파먹고 사는 두더지. 콧김이 증기처럼 뜨거워서, 두르크하임 광부들은 그가 지나간 굴에서 언 손을 녹인다.
@@ -4834,7 +4834,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4859,7 +4859,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4875,7 +4875,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "공방 수호 골렘". Depict exactly what this name describes.
 Subject: an elite, commanding Golem of the Sorgrim's Shield — a massive forged golem of riveted steel plate and stone with piston joints, glowing forge seams and a boiler or furnace heart.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Golem: a massive forged golem of riveted steel plate and stone with piston joints, glowing forge seams and a boiler or furnace heart. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: riveted steel plate, stone, pistons, chains, glowing seams, steam. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Golem: a massive forged golem of riveted steel plate and stone with piston joints, glowing forge seams and a boiler or furnace heart. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: riveted steel plate, stone, pistons, chains, glowing seams, steam.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -4884,7 +4884,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4900,7 +4900,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "소르그림의 철갑 코뿔소". Depict exactly what this name describes.
 Subject: an elite, commanding Ironclad Rhino of the Sorgrim's Shield — a massive rhinoceros whose hide has grown into overlapping dark-red iron plates from eating Sorgrim's sinew-ore, with a horn of sinew-iron.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Ironclad Rhino: a massive rhinoceros whose hide has grown into overlapping dark-red iron plates from eating Sorgrim's sinew-ore, with a horn of sinew-iron. Silhouette: a heavy armoured rhino lowering its horn. Materials: dark-red iron plates, sinew-iron horn, ore dust. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Ironclad Rhino: a massive rhinoceros whose hide has grown into overlapping dark-red iron plates from eating Sorgrim's sinew-ore, with a horn of sinew-iron. Silhouette: a heavy armoured rhino lowering its horn. Materials: dark-red iron plates, sinew-iron horn, ore dust.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 소르그림의 힘줄이 드러난 광맥에서 검붉은 쇠를 뜯어 먹고 자란 코뿔소. 그가 걸을 때마다 잠든 팔이 꿈틀한다는 말이 돈다.
@@ -4910,7 +4910,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4934,7 +4934,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4950,7 +4950,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "흐르는 수은". Depict exactly what this name describes.
 Subject: an elite, commanding Quicksilver Slime of the Sorgrim's Shield — a flowing mass of mirror-bright liquid metal — the silver blood that ran between the giant Sorgrim's sinews — that splits apart and pulls itself back together.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Quicksilver Slime: a flowing mass of mirror-bright liquid metal — the silver blood that ran between the giant Sorgrim's sinews — that splits apart and pulls itself back together. Silhouette: a mirror-bright pool rising into a wave. Materials: liquid mercury, mirror sheen, beading droplets. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Quicksilver Slime: a flowing mass of mirror-bright liquid metal — the silver blood that ran between the giant Sorgrim's sinews — that splits apart and pulls itself back together. Silhouette: a mirror-bright pool rising into a wave. Materials: liquid mercury, mirror sheen, beading droplets.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 소르그림의 힘줄 사이를 흐르던 은빛 피가 갱도로 새어 나왔다. 망치로 내리치면 흩어졌다가 발밑에서 다시 하나로 모인다.
@@ -4960,7 +4960,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -4976,7 +4976,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "철골 산맥 와이번". Depict exactly what this name describes.
 Subject: an elite, commanding Iron Wyvern of the Sorgrim's Shield — a two-legged wyvern with iron-scaled wings and a barbed steel tail, its scales grown from the ore it eats in the Ironbone mountains.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Iron Wyvern: a two-legged wyvern with iron-scaled wings and a barbed steel tail, its scales grown from the ore it eats in the Ironbone mountains. Silhouette: a wyvern swooping on wide iron wings. Materials: iron scales, steel barbs, rust streaks. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Iron Wyvern: a two-legged wyvern with iron-scaled wings and a barbed steel tail, its scales grown from the ore it eats in the Ironbone mountains. Silhouette: a wyvern swooping on wide iron wings. Materials: iron scales, steel barbs, rust streaks.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 철골 산맥의 드러난 광맥 위를 맴도는 쇠비늘 와이번. 그 아래 깊은 곳에서 날지 않는 용 페로스가 지켜보는 것을 아는지, 좀처럼 땅에 내려앉지 않는다.
@@ -4986,7 +4986,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5002,7 +5002,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "걷는 무쇠 성채". Depict exactly what this name describes.
 Subject: an elite, commanding Siege Engine of the Sorgrim's Shield — a walking fortress built by Durkheim — battlements, iron gates and towers carried on huge piston legs.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Siege Engine: a walking fortress built by Durkheim — battlements, iron gates and towers carried on huge piston legs. Silhouette: a castle striding on mechanical legs. Materials: stone battlements, iron plate, pistons, chains, steam. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Siege Engine: a walking fortress built by Durkheim — battlements, iron gates and towers carried on huge piston legs. Silhouette: a castle striding on mechanical legs. Materials: stone battlements, iron plate, pistons, chains, steam.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 두르크하임 장인들이 성채 하나에 다리를 달았다. 아직 쓰러진 적은 없지만, 성문을 드나들게 하느라 도시 절반을 다시 팠다.
@@ -5012,7 +5012,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5028,7 +5028,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "자폭 오토마톤". Depict exactly what this name describes.
 Subject: an elite, commanding Automaton of the Sorgrim's Shield — a clockwork automaton of brass and steel built for a single task, with exposed gears, pistons and a ticking core; a reckless charging attacker.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Automaton: a clockwork automaton of brass and steel built for a single task, with exposed gears, pistons and a ticking core. Silhouette: an upright mechanical figure with exposed gears. Materials: brass, steel, gears, springs, pistons. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Automaton: a clockwork automaton of brass and steel built for a single task, with exposed gears, pistons and a ticking core. Silhouette: an upright mechanical figure with exposed gears. Materials: brass, steel, gears, springs, pistons.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -5037,7 +5037,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5053,7 +5053,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "거대 증기 거상". Depict exactly what this name describes.
 Subject: a legendary, awe-inspiring Colossus of the Sorgrim's Shield — a towering forged colossus of steel many times the height of a golem, with a furnace heart glowing through its chest plates.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Colossus: a towering forged colossus of steel many times the height of a golem, with a furnace heart glowing through its chest plates. Silhouette: a giant humanoid machine filling the frame. Materials: riveted steel plate, furnace glow, steam vents, chains. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Colossus: a towering forged colossus of steel many times the height of a golem, with a furnace heart glowing through its chest plates. Silhouette: a giant humanoid machine filling the frame. Materials: riveted steel plate, furnace glow, steam vents, chains.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 용광로 하나를 심장으로 삼은 증기 거상. 숨을 내쉬면 갱도 전체가 하얀 김에 잠긴다.
@@ -5063,7 +5063,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5087,7 +5087,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5103,7 +5103,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "청동 수호 거인". Depict exactly what this name describes.
 Subject: a legendary, awe-inspiring Bronze Giant of the Sorgrim's Shield — a giant guardian cast in bronze like a temple statue, molten metal sealed inside by a single nail at its ankle.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Bronze Giant: a giant guardian cast in bronze like a temple statue, molten metal sealed inside by a single nail at its ankle. Silhouette: a towering bronze statue-warrior standing guard. Materials: cast bronze, verdigris patches, glowing seam, ankle nail. Do NOT draw it as one of the dwarves unless the name says so.
+Creature kind — Bronze Giant: a giant guardian cast in bronze like a temple statue, molten metal sealed inside by a single nail at its ankle. Silhouette: a towering bronze statue-warrior standing guard. Materials: cast bronze, verdigris patches, glowing seam, ankle nail.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 두르크하임이 청동을 부어 세운 수호 거인. 발목의 못 하나를 뽑으면 쓰러진다지만, 그 못까지 다가간 자는 아직 없다.
@@ -5113,7 +5113,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no thorns or plant armour, no wizardry or wands; golems are machines, not undead.
+Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5137,7 +5137,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5153,7 +5153,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "번개 반딧불 떼". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Lightning Firefly of the Keraun's Thunder — thumb-sized fireflies whose glowing abdomens crackle with tiny electric-yellow sparks, swarming wherever Keraun's nerves break the surface.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Lightning Firefly: thumb-sized fireflies whose glowing abdomens crackle with tiny electric-yellow sparks, swarming wherever Keraun's nerves break the surface. Silhouette: a drifting cloud of crackling lights. Materials: glowing yellow abdomens, translucent wings, tiny cobalt sparks. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Lightning Firefly: thumb-sized fireflies whose glowing abdomens crackle with tiny electric-yellow sparks, swarming wherever Keraun's nerves break the surface. Silhouette: a drifting cloud of crackling lights. Materials: glowing yellow abdomens, translucent wings, tiny cobalt sparks.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 케라운의 신경이 땅 위로 튄 자리마다 꼬이는 반딧불이. 볼타리움 아이들은 병에 담아 등불로 쓰다가 머리카락이 서곤 한다.
@@ -5163,7 +5163,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5179,7 +5179,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "정전기 요정". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Spark Sprite of the Keraun's Thunder — a hand-sized sprite made of a single crackling spark, with a mischievous face, hair standing straight on end and wings like flickering arcs.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Spark Sprite: a hand-sized sprite made of a single crackling spark, with a mischievous face, hair standing straight on end and wings like flickering arcs. Silhouette: a tiny figure with arc-wings and spiky hair. Materials: white-yellow spark light, cobalt-blue arcs, static haze. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Spark Sprite: a hand-sized sprite made of a single crackling spark, with a mischievous face, hair standing straight on end and wings like flickering arcs. Silhouette: a tiny figure with arc-wings and spiky hair. Materials: white-yellow spark light, cobalt-blue arcs, static haze.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 털가죽과 호박 사이에서 태어나는 손톱만 한 요정. 문고리마다 숨어 있다가 손이 닿는 순간 찌릿 하고 웃는다.
@@ -5189,7 +5189,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5205,7 +5205,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "새끼 뇌조". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Thunderbird of the Keraun's Thunder — a large storm bird with dark slate feathers tipped with crackling lightning and eyes like arc lamps, hatched in the clouds over the thundering plateau.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Thunderbird: a large storm bird with dark slate feathers tipped with crackling lightning and eyes like arc lamps, hatched in the clouds over the thundering plateau. Silhouette: a bird with spread wings against storm clouds. Materials: slate-grey feathers, lightning-tipped plumes, storm cloud. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Thunderbird: a large storm bird with dark slate feathers tipped with crackling lightning and eyes like arc lamps, hatched in the clouds over the thundering plateau. Silhouette: a bird with spread wings against storm clouds. Materials: slate-grey feathers, lightning-tipped plumes, storm cloud.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 뇌명 고원의 먹구름 속에서 갓 깬 뇌조. 날갯짓은 서툴러도 깃털 끝에서는 벌써 불꽃이 튄다.
@@ -5215,7 +5215,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5240,7 +5240,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5265,7 +5265,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5290,7 +5290,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5315,7 +5315,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5340,7 +5340,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5365,7 +5365,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5390,7 +5390,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5406,7 +5406,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "전류 날다람쥐". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Volt Flying Squirrel of the Keraun's Thunder — a flying squirrel with charged fur standing on end and gliding membranes that crackle with blue sparks, nesting among copper wires.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Volt Flying Squirrel: a flying squirrel with charged fur standing on end and gliding membranes that crackle with blue sparks, nesting among copper wires. Silhouette: a gliding squirrel with outspread membranes. Materials: fluffy charged fur, thin membranes, blue sparks, copper wire. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Volt Flying Squirrel: a flying squirrel with charged fur standing on end and gliding membranes that crackle with blue sparks, nesting among copper wires. Silhouette: a gliding squirrel with outspread membranes. Materials: fluffy charged fur, thin membranes, blue sparks, copper wire.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 피뢰탑 사이를 활강하는 날다람쥐. 앉는 자리마다 구리선이 끊어져서, 볼타리움 수리공들이 가장 싫어하는 짐승이다.
@@ -5416,7 +5416,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5432,7 +5432,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "피뢰침 까마귀". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Storm Crow of the Keraun's Thunder — a black crow with blue-sheened feathers that calls lightning down to itself, nesting on the tips of lightning rods.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Storm Crow: a black crow with blue-sheened feathers that calls lightning down to itself, nesting on the tips of lightning rods. Silhouette: a crow perched on a spiked lightning rod. Materials: black feathers with cobalt sheen, copper rod, sparks. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Storm Crow: a black crow with blue-sheened feathers that calls lightning down to itself, nesting on the tips of lightning rods. Silhouette: a crow perched on a spiked lightning rod. Materials: black feathers with cobalt sheen, copper rod, sparks.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 볼타리움 피뢰탑 꼭대기에 둥지를 튼 까마귀. 폭풍이 오는 날에도 날아가지 않고, 벼락이 제 둥지를 찾아오기를 기다린다.
@@ -5442,7 +5442,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5458,7 +5458,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "방전 요정". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Spark Sprite of the Keraun's Thunder — a hand-sized sprite made of a single crackling spark, with a mischievous face, hair standing straight on end and wings like flickering arcs.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Spark Sprite: a hand-sized sprite made of a single crackling spark, with a mischievous face, hair standing straight on end and wings like flickering arcs. Silhouette: a tiny figure with arc-wings and spiky hair. Materials: white-yellow spark light, cobalt-blue arcs, static haze. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Spark Sprite: a hand-sized sprite made of a single crackling spark, with a mischievous face, hair standing straight on end and wings like flickering arcs. Silhouette: a tiny figure with arc-wings and spiky hair. Materials: white-yellow spark light, cobalt-blue arcs, static haze.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 모아 둔 번개가 한꺼번에 터지는 순간에만 모습을 드러내는 요정. 볼타리움 실험실 벽이 매번 새로 칠해지는 까닭이다.
@@ -5468,7 +5468,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5494,7 +5494,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5510,7 +5510,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "구리 코일". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Keraun's Thunder (catalyst; if unsure, a staff). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Keraun's Thunder: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
+Banner — Keraun's Thunder (lightning): palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 손목에 감는 구리 코일. 감은 손으로 부르는 번개는 한 줄기 더 굵다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -5519,7 +5519,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5535,7 +5535,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "축전 장갑". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Keraun's Thunder (catalyst + engraving; if unsure, a piece of armour). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Keraun's Thunder: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
+Banner — Keraun's Thunder (lightning): palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 충전이 되면 주먹이 빛나는 장갑. 충전이 될지는 그날 운이다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -5544,7 +5544,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5569,7 +5569,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5594,7 +5594,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5610,7 +5610,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "새끼 뇌수". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Raiju (Thunder Beast) of the Keraun's Thunder — a wolf-and-weasel-like beast from Japanese legend that falls to earth with lightning, with crackling blue-white fur and a jagged lightning-bolt tail.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Raiju (Thunder Beast): a wolf-and-weasel-like beast from Japanese legend that falls to earth with lightning, with crackling blue-white fur and a jagged lightning-bolt tail. Silhouette: a crouching beast with bristling fur and a zigzag tail. Materials: blue-white crackling fur, lightning tail, sparks. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Raiju (Thunder Beast): a wolf-and-weasel-like beast from Japanese legend that falls to earth with lightning, with crackling blue-white fur and a jagged lightning-bolt tail. Silhouette: a crouching beast with bristling fur and a zigzag tail. Materials: blue-white crackling fur, lightning tail, sparks.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 번개 친 자리에서 주워 온 새끼 뇌수. 넘어져도 방전되지 않아서 볼타리움 견습생들이 서로 안고 다니려 한다.
@@ -5620,7 +5620,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5646,7 +5646,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5671,7 +5671,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5696,7 +5696,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5721,7 +5721,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5737,7 +5737,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "벼락 장어". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Thunder Eel of the Keraun's Thunder — a long eel with dark slick skin lined by glowing electric organs from head to tail, living in rusty river water.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Thunder Eel: a long eel with dark slick skin lined by glowing electric organs from head to tail, living in rusty river water. Silhouette: a sinuous eel coiling out of water. Materials: slick dark skin, glowing yellow stripes, rusty river water. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Thunder Eel: a long eel with dark slick skin lined by glowing electric organs from head to tail, living in rusty river water. Silhouette: a sinuous eel coiling out of water. Materials: slick dark skin, glowing yellow stripes, rusty river water.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 녹물강 바닥에서 벼락을 품고 사는 장어. 포르탄 고블린들은 화약 냄새가 안 나는 것은 믿을 수 없다며 그 강에 발을 담그지 않는다.
@@ -5747,7 +5747,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5763,7 +5763,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "사슬 번개 정령". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Lightning Elemental of the Keraun's Thunder — a jagged figure made of branching lightning that flickers in and out of existence around a blinding core.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Lightning Elemental: a jagged figure made of branching lightning that flickers in and out of existence around a blinding core. Silhouette: a humanoid of forking lightning. Materials: white-blue lightning, arc glow, ozone haze. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Lightning Elemental: a jagged figure made of branching lightning that flickers in and out of existence around a blinding core. Silhouette: a humanoid of forking lightning. Materials: white-blue lightning, arc glow, ozone haze.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 한 고리가 닿으면 다음 고리로 튀어 오르는 번개의 정령. 붙잡으려던 학자들은 셋째 고리쯤에서 손을 놓았다.
@@ -5773,7 +5773,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5789,7 +5789,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "충전 거미". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Charge Spider of the Keraun's Thunder — a large spider with copper-sheened legs that spins webs glowing and crackling with stored current between lightning-tower girders.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Charge Spider: a large spider with copper-sheened legs that spins webs glowing and crackling with stored current between lightning-tower girders. Silhouette: a spider in a glowing electric web. Materials: copper-sheen chitin, glowing web strands, sparks. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Charge Spider: a large spider with copper-sheened legs that spins webs glowing and crackling with stored current between lightning-tower girders. Silhouette: a spider in a glowing electric web. Materials: copper-sheen chitin, glowing web strands, sparks.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 피뢰탑 철골 사이에 구리처럼 빛나는 줄을 치는 거미. 걸린 벌레는 몸부림칠수록 거미줄에 번개를 채워 준다.
@@ -5799,7 +5799,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5823,7 +5823,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5839,7 +5839,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "절연 방호기". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Lightning Engine of the Keraun's Thunder — a walking machine of brass, copper coils and riveted steel built by Voltarium scholars, studded with glass lightning jars and electrodes; a stubborn defender who stands like a wall.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Lightning Engine: a walking machine of brass, copper coils and riveted steel built by Voltarium scholars, studded with glass lightning jars and electrodes. Silhouette: a boxy walking machine crowned with coils. Materials: copper coils, brass, riveted steel, glass jars, porcelain insulators. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Lightning Engine: a walking machine of brass, copper coils and riveted steel built by Voltarium scholars, studded with glass lightning jars and electrodes. Silhouette: a boxy walking machine crowned with coils. Materials: copper coils, brass, riveted steel, glass jars, porcelain insulators.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -5848,7 +5848,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5864,7 +5864,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "번개 병". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Keraun's Thunder (catalyst + weapon/armour; if unsure, a glowing orb on a small stand). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Keraun's Thunder: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
+Banner — Keraun's Thunder (lightning): palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 번개를 가둔 유리병. 깨지는 순간이 가장 밝다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -5873,7 +5873,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5889,7 +5889,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "학술원 법전". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Keraun's Thunder (catalyst; if unsure, a book). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Keraun's Thunder: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
+Banner — Keraun's Thunder (lightning): palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 볼타리움 학술원의 두꺼운 법전. 공식 한 줄이 번개 한 갈래를 더 부른다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -5898,7 +5898,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5914,7 +5914,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "뇌침 전갈". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Thunder Scorpion of the Keraun's Thunder — a scorpion with a dark segmented shell whose tail tip gathers a crackling ball of lightning.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Thunder Scorpion: a scorpion with a dark segmented shell whose tail tip gathers a crackling ball of lightning. Silhouette: a scorpion with a raised glowing tail. Materials: dark segmented carapace, glowing stinger, sparks. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Thunder Scorpion: a scorpion with a dark segmented shell whose tail tip gathers a crackling ball of lightning. Silhouette: a scorpion with a raised glowing tail. Materials: dark segmented carapace, glowing stinger, sparks.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 꼬리 끝에 번개를 모아 쏘는 뇌명 고원의 전갈. 그 꼬리를 본뜬 설계도 몇 장은 학술원에서도 금서다.
@@ -5924,7 +5924,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5940,7 +5940,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "전격 수호기". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Lightning Engine of the Keraun's Thunder — a walking machine of brass, copper coils and riveted steel built by Voltarium scholars, studded with glass lightning jars and electrodes.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Lightning Engine: a walking machine of brass, copper coils and riveted steel built by Voltarium scholars, studded with glass lightning jars and electrodes. Silhouette: a boxy walking machine crowned with coils. Materials: copper coils, brass, riveted steel, glass jars, porcelain insulators. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Lightning Engine: a walking machine of brass, copper coils and riveted steel built by Voltarium scholars, studded with glass lightning jars and electrodes. Silhouette: a boxy walking machine crowned with coils. Materials: copper coils, brass, riveted steel, glass jars, porcelain insulators.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -5949,7 +5949,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5965,7 +5965,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "병 속의 교수 두뇌". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Brain in a Jar of the Keraun's Thunder — a professor's brain floating in a large glass jar of glowing fluid, wired with copper and crackling with thought, carried on spindly mechanical legs.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Brain in a Jar: a professor's brain floating in a large glass jar of glowing fluid, wired with copper and crackling with thought, carried on spindly mechanical legs. Silhouette: a glass jar with a brain inside on a walking stand. Materials: glass jar, glowing fluid, copper wires, brass base. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Brain in a Jar: a professor's brain floating in a large glass jar of glowing fluid, wired with copper and crackling with thought, carried on spindly mechanical legs. Silhouette: a glass jar with a brain inside on a walking stand. Materials: glass jar, glowing fluid, copper wires, brass base.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 학술원에서 가장 긴 강의를 하던 교수가 몸을 버리고 병 속으로 들어갔다. 강의는 더 길어졌고, 졸던 학생은 여전히 번개를 맞고 깬다.
@@ -5975,7 +5975,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -5991,7 +5991,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "섬광 나방". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Flash Moth of the Keraun's Thunder — a large moth with dusty wings patterned with eye-spots that burst into blinding flashes when it beats them during a storm.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Flash Moth: a large moth with dusty wings patterned with eye-spots that burst into blinding flashes when it beats them during a storm. Silhouette: a moth with wide wings mid-flash. Materials: dusty wings, glowing eyespots, electric dust. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Flash Moth: a large moth with dusty wings patterned with eye-spots that burst into blinding flashes when it beats them during a storm. Silhouette: a moth with wide wings mid-flash. Materials: dusty wings, glowing eyespots, electric dust.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 번개가 칠 때만 날개를 펴는 나방. 날갯짓 한 번에 눈부신 빛이 터져, 가까이서 들여다본 학자는 사흘을 못 봤다.
@@ -6001,7 +6001,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6027,7 +6027,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6043,7 +6043,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "폭주 축전기". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Capacitor of the Keraun's Thunder — a big copper-banded glass storage jar of captured lightning, often fitted with mechanical legs, crackling at its terminals.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Capacitor: a big copper-banded glass storage jar of captured lightning, often fitted with mechanical legs, crackling at its terminals. Silhouette: a tall jar or drum with terminal knobs on top. Materials: glass, copper bands, brass terminals, crackling charge. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Capacitor: a big copper-banded glass storage jar of captured lightning, often fitted with mechanical legs, crackling at its terminals. Silhouette: a tall jar or drum with terminal knobs on top. Materials: glass, copper bands, brass terminals, crackling charge.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 한계까지 충전한 축전기에 다리를 달았다. 더 넣으면 터진다. 고칠 수도 없다.
@@ -6053,7 +6053,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6078,7 +6078,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6103,7 +6103,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6119,7 +6119,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "케라운의 번개 정령". Depict exactly what this name describes.
 Subject: an elite, commanding Lightning Elemental of the Keraun's Thunder — a jagged figure made of branching lightning that flickers in and out of existence around a blinding core.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Lightning Elemental: a jagged figure made of branching lightning that flickers in and out of existence around a blinding core. Silhouette: a humanoid of forking lightning. Materials: white-blue lightning, arc glow, ozone haze. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Lightning Elemental: a jagged figure made of branching lightning that flickers in and out of existence around a blinding core. Silhouette: a humanoid of forking lightning. Materials: white-blue lightning, arc glow, ozone haze.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 케라운이 꿈을 꾸는 밤, 신경을 타고 땅 위로 튀어나온 번개가 몸을 얻었다. 그것이 지나간 자리의 바늘은 모두 미쳐 날뛴다.
@@ -6129,7 +6129,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6153,7 +6153,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6169,7 +6169,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "대형 축전기". Depict exactly what this name describes.
 Subject: an elite, commanding Capacitor of the Keraun's Thunder — a big copper-banded glass storage jar of captured lightning, often fitted with mechanical legs, crackling at its terminals.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Capacitor: a big copper-banded glass storage jar of captured lightning, often fitted with mechanical legs, crackling at its terminals. Silhouette: a tall jar or drum with terminal knobs on top. Materials: glass, copper bands, brass terminals, crackling charge. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Capacitor: a big copper-banded glass storage jar of captured lightning, often fitted with mechanical legs, crackling at its terminals. Silhouette: a tall jar or drum with terminal knobs on top. Materials: glass, copper bands, brass terminals, crackling charge.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -6178,7 +6178,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6194,7 +6194,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "뇌명 고원의 뇌조". Depict exactly what this name describes.
 Subject: an elite, commanding Thunderbird of the Keraun's Thunder — a large storm bird with dark slate feathers tipped with crackling lightning and eyes like arc lamps, hatched in the clouds over the thundering plateau.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Thunderbird: a large storm bird with dark slate feathers tipped with crackling lightning and eyes like arc lamps, hatched in the clouds over the thundering plateau. Silhouette: a bird with spread wings against storm clouds. Materials: slate-grey feathers, lightning-tipped plumes, storm cloud. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Thunderbird: a large storm bird with dark slate feathers tipped with crackling lightning and eyes like arc lamps, hatched in the clouds over the thundering plateau. Silhouette: a bird with spread wings against storm clouds. Materials: slate-grey feathers, lightning-tipped plumes, storm cloud.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 케라운의 신경이 뻗은 자리를 골라 내려앉는 뇌조. 그가 앉았던 바위마다 번개가 떨어져서, 측량사들은 그를 따라다니며 말뚝을 박는다.
@@ -6204,7 +6204,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6220,7 +6220,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "전격 요새". Depict exactly what this name describes.
 Subject: an elite, commanding Lightning Tower of the Keraun's Thunder — a tall lattice tower of steel and copper bristling with lightning rods, often walking on its own legs, crackling with arcs.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Lightning Tower: a tall lattice tower of steel and copper bristling with lightning rods, often walking on its own legs, crackling with arcs. Silhouette: a tall spiked tower. Materials: steel lattice, copper rods, porcelain insulators, arcs. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Lightning Tower: a tall lattice tower of steel and copper bristling with lightning rods, often walking on its own legs, crackling with arcs. Silhouette: a tall spiked tower. Materials: steel lattice, copper rods, porcelain insulators, arcs.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -6229,7 +6229,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6245,7 +6245,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "천둥 폭풍 거인". Depict exactly what this name describes.
 Subject: an elite, commanding Storm Giant of the Keraun's Thunder — a giant figure of gathered storm wind and blue adamant with lightning for veins, formed where the scattered breath of Auragon met the plateau's lightning.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Storm Giant: a giant figure of gathered storm wind and blue adamant with lightning for veins, formed where the scattered breath of Auragon met the plateau's lightning. Silhouette: a towering giant wreathed in storm clouds. Materials: blue adamant, swirling storm cloud, lightning veins. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Storm Giant: a giant figure of gathered storm wind and blue adamant with lightning for veins, formed where the scattered breath of Auragon met the plateau's lightning. Silhouette: a towering giant wreathed in storm clouds. Materials: blue adamant, swirling storm cloud, lightning veins.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 아우라곤의 흩어진 숨이 뇌명 고원의 번개를 만나 거인의 모습으로 뭉쳤다. 걸음마다 하늘이 대답하듯 우르릉댄다.
@@ -6255,7 +6255,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6271,7 +6271,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "절연 갑주 기관". Depict exactly what this name describes.
 Subject: an elite, commanding Lightning Engine of the Keraun's Thunder — a walking machine of brass, copper coils and riveted steel built by Voltarium scholars, studded with glass lightning jars and electrodes.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Lightning Engine: a walking machine of brass, copper coils and riveted steel built by Voltarium scholars, studded with glass lightning jars and electrodes. Silhouette: a boxy walking machine crowned with coils. Materials: copper coils, brass, riveted steel, glass jars, porcelain insulators. Do NOT draw it as one of the gnomes unless the name says so.
+Creature kind — Lightning Engine: a walking machine of brass, copper coils and riveted steel built by Voltarium scholars, studded with glass lightning jars and electrodes. Silhouette: a boxy walking machine crowned with coils. Materials: copper coils, brass, riveted steel, glass jars, porcelain insulators.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 고무와 유리를 겹겹이 두른 볼타리움의 걸어 다니는 기관. 번개도 칼도 같은 두께에서 멈춘다.
@@ -6281,7 +6281,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6305,7 +6305,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no mystical magic or wands — their power is science and machines.
+Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6329,7 +6329,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6345,7 +6345,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "어린 하이에나". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Hyena of the Gorvath's Claw — spotted steppe hyenas of Garun with high shoulders sloping to low hips, heavy bone-crushing jaws, round ears and dust-grey hides with ochre spots.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Hyena: spotted steppe hyenas of Garun with high shoulders sloping to low hips, heavy bone-crushing jaws, round ears and dust-grey hides with ochre spots. Silhouette: sloping back from high shoulders to low hips, oversized head and jaws. Materials: coarse spotted fur, bristly mane along the spine, cracked teeth, steppe dust. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Hyena: spotted steppe hyenas of Garun with high shoulders sloping to low hips, heavy bone-crushing jaws, round ears and dust-grey hides with ochre spots. Silhouette: sloping back from high shoulders to low hips, oversized head and jaws. Materials: coarse spotted fur, bristly mane along the spine, cracked teeth, steppe dust.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 제 머리만 한 뼈를 물고 끝내 놓지 않는다. 싸움에 진 날 밤에도 낄낄대는 소리를 낸다.
@@ -6355,7 +6355,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6371,7 +6371,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "초원 하이에나". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Hyena of the Gorvath's Claw — spotted steppe hyenas of Garun with high shoulders sloping to low hips, heavy bone-crushing jaws, round ears and dust-grey hides with ochre spots.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Hyena: spotted steppe hyenas of Garun with high shoulders sloping to low hips, heavy bone-crushing jaws, round ears and dust-grey hides with ochre spots. Silhouette: sloping back from high shoulders to low hips, oversized head and jaws. Materials: coarse spotted fur, bristly mane along the spine, cracked teeth, steppe dust. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Hyena: spotted steppe hyenas of Garun with high shoulders sloping to low hips, heavy bone-crushing jaws, round ears and dust-grey hides with ochre spots. Silhouette: sloping back from high shoulders to low hips, oversized head and jaws. Materials: coarse spotted fur, bristly mane along the spine, cracked teeth, steppe dust.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 결투장의 함성이 들리면 어디선가 나타나 울타리 밖을 맴돈다. 끝난 싸움의 뼈까지 깨끗이 치우는 것이 그들 몫이다.
@@ -6381,7 +6381,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6407,7 +6407,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6434,7 +6434,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6461,7 +6461,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6486,7 +6486,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6502,7 +6502,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "돌발톱 가고일". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Gargoyle of the Gorvath's Claw — stone gargoyles that crouch on the crags of Gorvath's back: winged beasts of weathered grey rock with hooked stone talons and lichen growing in their cracks.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Gargoyle: stone gargoyles that crouch on the crags of Gorvath's back: winged beasts of weathered grey rock with hooked stone talons and lichen growing in their cracks. Silhouette: crouching winged stone beast with long hooked talons. Materials: weathered grey granite, lichen, chipped edges, stone talons, rock dust. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Gargoyle: stone gargoyles that crouch on the crags of Gorvath's back: winged beasts of weathered grey rock with hooked stone talons and lichen growing in their cracks. Silhouette: crouching winged stone beast with long hooked talons. Materials: weathered grey granite, lichen, chipped edges, stone talons, rock dust.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 고르바스의 등 위 벼랑에 웅크려 지내는 돌짐승. 오크들은 그것이 날개를 펴기 전까지 그냥 바위인 줄 안다.
@@ -6512,7 +6512,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6528,7 +6528,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "돌엄니 멧돼지". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Boar of the Gorvath's Claw — huge steppe boars with tusks grown hard as rough stone, a bristling ridge of dark hair along the spine and mud-caked flanks.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Boar: huge steppe boars with tusks grown hard as rough stone, a bristling ridge of dark hair along the spine and mud-caked flanks. Silhouette: low, heavy, front-loaded body with upcurving tusks. Materials: coarse dark bristles, caked mud, stone-grey tusks, thick hide. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Boar: huge steppe boars with tusks grown hard as rough stone, a bristling ridge of dark hair along the spine and mud-caked flanks. Silhouette: low, heavy, front-loaded body with upcurving tusks. Materials: coarse dark bristles, caked mud, stone-grey tusks, thick hide.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 엄니가 돌처럼 굳은 초원 멧돼지. 멈추는 법을 모르고, 그것이 지나간 자리는 갈아엎은 밭이 된다.
@@ -6538,7 +6538,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6562,7 +6562,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6578,7 +6578,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "돌팔매 어린 거인". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Rock Giant of the Gorvath's Claw — living-stone giants grown out of Gorvath's back: hulking humanoid bodies of fractured boulders with turf, moss and small trees on their shoulders and ochre light in the cracks for eyes; living rock, never one of the seven primordial Giants.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Rock Giant: living-stone giants grown out of Gorvath's back: hulking humanoid bodies of fractured boulders with turf, moss and small trees on their shoulders and ochre light in the cracks for eyes; living rock, never one of the seven primordial Giants. Silhouette: hunched, broad boulder-humanoid with fists like rockfalls. Materials: fractured granite, ochre earth, moss, grass tufts, small shrubs, rock dust. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Rock Giant: living-stone giants grown out of Gorvath's back: hulking humanoid bodies of fractured boulders with turf, moss and small trees on their shoulders and ochre light in the cracks for eyes; living rock, never one of the seven primordial Giants. Silhouette: hunched, broad boulder-humanoid with fists like rockfalls. Materials: fractured granite, ochre earth, moss, grass tufts, small shrubs, rock dust.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 고르바스의 등에서 돋아난 지 백 년도 안 된 바위 거인. 아직 산을 들 힘이 없어서 바위를 던진다.
@@ -6588,7 +6588,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6602,9 +6602,9 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "방패 든 오우거". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary Ogre of the Gorvath's Claw — hulking steppe ogres, bigger and slower than orcs: pot-bellied, heavy-browed and small-eyed, with grey-ochre skin, wearing hides and bone charms; a stubborn defender who stands like a wall.
+Subject: a low-ranking, ordinary Ogre of the Gorvath's Claw — hulking steppe ogres, huge and slow: pot-bellied, heavy-browed and small-eyed, with grey-ochre skin, wearing hides and bone charms; a stubborn defender who stands like a wall.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Ogre: hulking steppe ogres, bigger and slower than orcs: pot-bellied, heavy-browed and small-eyed, with grey-ochre skin, wearing hides and bone charms. Silhouette: huge rounded body on thick short legs with long heavy arms. Materials: grey-ochre hide, furs, bone charms, crude wooden clubs, drums and turtle-shell shields. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Ogre: hulking steppe ogres, huge and slow: pot-bellied, heavy-browed and small-eyed, with grey-ochre skin, wearing hides and bone charms. Silhouette: huge rounded body on thick short legs with long heavy arms. Materials: grey-ochre hide, furs, bone charms, crude wooden clubs, drums and turtle-shell shields.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 초원 늪지의 큰 거북 등딱지를 방패로 든 오우거. 그 뒤에 오크 막내 셋이 한꺼번에 숨는다.
@@ -6614,7 +6614,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6630,7 +6630,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "송곳니 광전 도끼". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Gorvath's Claw (weapon/armour; if unsure, an axe). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Gorvath's Claw: powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair. Silhouette: massive shoulders and oversized fists; riders on giant wolves or bears. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
+Banner — Gorvath's Claw (earth): palette: earth ochre #b88a5a, rust-red war paint, bone white. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 바위송곳니 광전사들의 양날 도끼. 방어를 버리고 한 방에 건다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -6639,7 +6639,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6655,7 +6655,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "사냥꾼 발톱". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Gorvath's Claw (engraving; if unsure, a carved stone or engraved plate). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Gorvath's Claw: powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair. Silhouette: massive shoulders and oversized fists; riders on giant wolves or bears. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
+Banner — Gorvath's Claw (earth): palette: earth ochre #b88a5a, rust-red war paint, bone white. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 첫 사냥감의 발톱을 손등에 꿰매 단다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -6664,7 +6664,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6681,7 +6681,7 @@ Card name (Korean — read its meaning, never write it in the image): "오크의
 Subject: the item the card name and lore describe — a single object made or kept by the Gorvath's Claw (engraving; if unsure, a carved stone or engraved plate). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Art direction: An orc's tattooed fist: a huge grey-green orc fist, knuckles freshly tattooed with dark fang-shaped marks in ochre and black pigment, beside a bone tattoo needle and a small stone pigment bowl on dark leather; the tattoo glows faintly like it could tear through armour. Show the fist and tools, not a carved plate.
 Scale (level 2 of 8): a simple object.
-Banner — Gorvath's Claw: powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair. Silhouette: massive shoulders and oversized fists; riders on giant wolves or bears. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
+Banner — Gorvath's Claw (earth): palette: earth ochre #b88a5a, rust-red war paint, bone white. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 바위송곳니 오크가 첫 사냥을 마치고 주먹에 새기는 송곳니 문신. 이 주먹은 갑옷부터 찢는다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -6690,7 +6690,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6717,7 +6717,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6742,7 +6742,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6769,7 +6769,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6785,7 +6785,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "자갈 코카트리스". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Cockatrice of the Gorvath's Claw — a rooster-headed beast with a long scaly serpent tail whose glare turns things to gravel, its feathers crusted with pebbles and its comb gone to stone.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Cockatrice: a rooster-headed beast with a long scaly serpent tail whose glare turns things to gravel, its feathers crusted with pebbles and its comb gone to stone. Silhouette: strutting rooster body with stiff spread wings and a long serpent tail. Materials: grey speckled feathers, pebble crust, stony comb and wattles, scaly tail. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Cockatrice: a rooster-headed beast with a long scaly serpent tail whose glare turns things to gravel, its feathers crusted with pebbles and its comb gone to stone. Silhouette: strutting rooster body with stiff spread wings and a long serpent tail. Materials: grey speckled feathers, pebble crust, stony comb and wattles, scaly tail.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 노려본 것을 자갈로 바꾸는 닭 머리 뱀꼬리 짐승. 둥지 둘레가 늘 자갈밭인 것은 그 때문이다.
@@ -6795,7 +6795,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6811,7 +6811,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "흑요 발톱 바실리스크". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Basilisk of the Gorvath's Claw — a long, low lizard of the obsidian slopes with a crested head, a petrifying glassy stare and claws of black volcanic glass.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Basilisk: a long, low lizard of the obsidian slopes with a crested head, a petrifying glassy stare and claws of black volcanic glass. Silhouette: long low-slung lizard with a crested head and splayed clawed legs. Materials: black obsidian scales, glassy claws, ochre crest, rock dust. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Basilisk: a long, low lizard of the obsidian slopes with a crested head, a petrifying glassy stare and claws of black volcanic glass. Silhouette: long low-slung lizard with a crested head and splayed clawed legs. Materials: black obsidian scales, glassy claws, ochre crest, rock dust.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 왕좌봉 기슭의 흑요석을 깨물어 발톱을 갈아 온 바실리스크. 그 눈과 마주친 자는 굳고, 발톱에 긁힌 자는 피가 오래 멎지 않는다.
@@ -6821,7 +6821,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6835,9 +6835,9 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "오우거 주술사". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Ogre of the Gorvath's Claw — hulking steppe ogres, bigger and slower than orcs: pot-bellied, heavy-browed and small-eyed, with grey-ochre skin, wearing hides and bone charms.
+Subject: a seasoned, battle-hardened Ogre of the Gorvath's Claw — hulking steppe ogres, huge and slow: pot-bellied, heavy-browed and small-eyed, with grey-ochre skin, wearing hides and bone charms.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Ogre: hulking steppe ogres, bigger and slower than orcs: pot-bellied, heavy-browed and small-eyed, with grey-ochre skin, wearing hides and bone charms. Silhouette: huge rounded body on thick short legs with long heavy arms. Materials: grey-ochre hide, furs, bone charms, crude wooden clubs, drums and turtle-shell shields. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Ogre: hulking steppe ogres, huge and slow: pot-bellied, heavy-browed and small-eyed, with grey-ochre skin, wearing hides and bone charms. Silhouette: huge rounded body on thick short legs with long heavy arms. Materials: grey-ochre hide, furs, bone charms, crude wooden clubs, drums and turtle-shell shields.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 땅에 귀를 대고 그롬의 한 마디를 기다리는 오우거. 오크보다 귀가 커서 첫 음절의 반은 들었다고 우긴다.
@@ -6847,7 +6847,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6863,7 +6863,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "격노의 문신". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Gorvath's Claw (engraving + weapon/armour; if unsure, a carved stone or engraved plate). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Gorvath's Claw: powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair. Silhouette: massive shoulders and oversized fists; riders on giant wolves or bears. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
+Banner — Gorvath's Claw (earth): palette: earth ochre #b88a5a, rust-red war paint, bone white. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 피가 끓으면 붉게 빛나는 문신. 방어 따위는 잊는다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -6872,7 +6872,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6897,7 +6897,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6913,7 +6913,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "바위등 곰 기수". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Bear of the Gorvath's Claw — great cave bears of Throne Peak whose backs have grown stones and moss through long sleeps on Gorvath's slopes.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Bear: great cave bears of Throne Peak whose backs have grown stones and moss through long sleeps on Gorvath's slopes. Silhouette: massive humped bear, often rising on its hind legs. Materials: thick brown fur, embedded stones, moss, heavy claws. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Bear: great cave bears of Throne Peak whose backs have grown stones and moss through long sleeps on Gorvath's slopes. Silhouette: massive humped bear, often rising on its hind legs. Materials: thick brown fur, embedded stones, moss, heavy claws.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 왕좌봉 기슭에서 오래 잠자다 등에 바위가 박힌 곰. 오크를 태워 주긴 하지만, 일어설 때는 곰이 정한다.
@@ -6923,7 +6923,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6937,9 +6937,9 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "전쟁북 오우거". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Ogre of the Gorvath's Claw — hulking steppe ogres, bigger and slower than orcs: pot-bellied, heavy-browed and small-eyed, with grey-ochre skin, wearing hides and bone charms.
+Subject: a seasoned, battle-hardened Ogre of the Gorvath's Claw — hulking steppe ogres, huge and slow: pot-bellied, heavy-browed and small-eyed, with grey-ochre skin, wearing hides and bone charms.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Ogre: hulking steppe ogres, bigger and slower than orcs: pot-bellied, heavy-browed and small-eyed, with grey-ochre skin, wearing hides and bone charms. Silhouette: huge rounded body on thick short legs with long heavy arms. Materials: grey-ochre hide, furs, bone charms, crude wooden clubs, drums and turtle-shell shields. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Ogre: hulking steppe ogres, huge and slow: pot-bellied, heavy-browed and small-eyed, with grey-ochre skin, wearing hides and bone charms. Silhouette: huge rounded body on thick short legs with long heavy arms. Materials: grey-ochre hide, furs, bone charms, crude wooden clubs, drums and turtle-shell shields.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 곰 가죽 북을 배에 매달고 다니는 오우거. 북소리가 빨라지면 오크들의 숨이 거칠어지고, 그의 배도 같이 울린다.
@@ -6949,7 +6949,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6965,7 +6965,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "하이에나 무리장". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Hyena of the Gorvath's Claw — spotted steppe hyenas of Garun with high shoulders sloping to low hips, heavy bone-crushing jaws, round ears and dust-grey hides with ochre spots.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Hyena: spotted steppe hyenas of Garun with high shoulders sloping to low hips, heavy bone-crushing jaws, round ears and dust-grey hides with ochre spots. Silhouette: sloping back from high shoulders to low hips, oversized head and jaws. Materials: coarse spotted fur, bristly mane along the spine, cracked teeth, steppe dust. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Hyena: spotted steppe hyenas of Garun with high shoulders sloping to low hips, heavy bone-crushing jaws, round ears and dust-grey hides with ochre spots. Silhouette: sloping back from high shoulders to low hips, oversized head and jaws. Materials: coarse spotted fur, bristly mane along the spine, cracked teeth, steppe dust.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 한 번 웃으면 흩어진 무리가 모이고, 두 번 웃으면 적이 흩어진다.
@@ -6975,7 +6975,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -6991,7 +6991,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "떨어진 고르바스의 비늘". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Dragon Scale of the Gorvath's Claw — a single scale shed from the dragon Gorvath, broad as a hut, a curved slab of slate-hard scale with turf and pebbles grown on its outer face, still warm with the dragon's earth power and moving on its own; a stubborn defender who stands like a wall.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Dragon Scale: a single scale shed from the dragon Gorvath, broad as a hut, a curved slab of slate-hard scale with turf and pebbles grown on its outer face, still warm with the dragon's earth power and moving on its own. Silhouette: huge curved upright slab like a standing shield. Materials: layered slate-like dragon scale, ochre veins, turf, pebbles, lichen. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Dragon Scale: a single scale shed from the dragon Gorvath, broad as a hut, a curved slab of slate-hard scale with turf and pebbles grown on its outer face, still warm with the dragon's earth power and moving on its own. Silhouette: huge curved upright slab like a standing shield. Materials: layered slate-like dragon scale, ochre veins, turf, pebbles, lichen.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 고르바스가 몸을 뒤척일 때 왕좌봉 기슭으로 떨어진 비늘 한 장. 용이 잠든 사이에도 저 혼자 일어나 칼을 받아 낸다.
@@ -7001,7 +7001,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7026,7 +7026,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7051,7 +7051,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7067,7 +7067,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "고르바스의 아이". Depict exactly what this name describes.
 Subject: an elite, commanding Rock Giant of the Gorvath's Claw — living-stone giants grown out of Gorvath's back: hulking humanoid bodies of fractured boulders with turf, moss and small trees on their shoulders and ochre light in the cracks for eyes; living rock, never one of the seven primordial Giants.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Rock Giant: living-stone giants grown out of Gorvath's back: hulking humanoid bodies of fractured boulders with turf, moss and small trees on their shoulders and ochre light in the cracks for eyes; living rock, never one of the seven primordial Giants. Silhouette: hunched, broad boulder-humanoid with fists like rockfalls. Materials: fractured granite, ochre earth, moss, grass tufts, small shrubs, rock dust. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Rock Giant: living-stone giants grown out of Gorvath's back: hulking humanoid bodies of fractured boulders with turf, moss and small trees on their shoulders and ochre light in the cracks for eyes; living rock, never one of the seven primordial Giants. Silhouette: hunched, broad boulder-humanoid with fists like rockfalls. Materials: fractured granite, ochre earth, moss, grass tufts, small shrubs, rock dust.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 왕좌봉에 지진이 잦던 해에 고르바스의 등에서 돋아난 바위 거인. 주먹을 쥘 때마다 땅이 같이 움찔한다.
@@ -7077,7 +7077,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7093,7 +7093,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "어미 동굴곰". Depict exactly what this name describes.
 Subject: an elite, commanding Bear of the Gorvath's Claw — great cave bears of Throne Peak whose backs have grown stones and moss through long sleeps on Gorvath's slopes.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Bear: great cave bears of Throne Peak whose backs have grown stones and moss through long sleeps on Gorvath's slopes. Silhouette: massive humped bear, often rising on its hind legs. Materials: thick brown fur, embedded stones, moss, heavy claws. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Bear: great cave bears of Throne Peak whose backs have grown stones and moss through long sleeps on Gorvath's slopes. Silhouette: massive humped bear, often rising on its hind legs. Materials: thick brown fur, embedded stones, moss, heavy claws.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 왕좌봉 동굴에서 새끼를 품고 겨울을 난다. 봄이 오면 새끼보다 먼저 굴 밖으로 나와 앞을 막아선다.
@@ -7103,7 +7103,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7119,7 +7119,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "초원 들소 떼". Depict exactly what this name describes.
 Subject: an elite, commanding Bison of the Gorvath's Claw — steppe bison running in thundering herds, with humped shoulders, short curved horns and dark shaggy fronts.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Bison: steppe bison running in thundering herds, with humped shoulders, short curved horns and dark shaggy fronts. Silhouette: humped massive forequarters tapering to lean hindquarters, many bodies in a stampede. Materials: dark shaggy fur, horn, dust clouds, trampled grass. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Bison: steppe bison running in thundering herds, with humped shoulders, short curved horns and dark shaggy fronts. Silhouette: humped massive forequarters tapering to lean hindquarters, many bodies in a stampede. Materials: dark shaggy fur, horn, dust clouds, trampled grass.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 천둥 같은 소리로 울부짖는 초원을 가로지르는 들소 떼. 멈추는 법은 아무도 가르치지 않았고, 배울 생각도 없다.
@@ -7129,7 +7129,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7145,7 +7145,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "흑요 거수 도마뱀". Depict exactly what this name describes.
 Subject: an elite, commanding Giant Lizard of the Gorvath's Claw — a giant monitor lizard of Gorvath's slopes, broad as an ox, armoured in black obsidian scales, with a thick lashing tail and heavy claws.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Giant Lizard: a giant monitor lizard of Gorvath's slopes, broad as an ox, armoured in black obsidian scales, with a thick lashing tail and heavy claws. Silhouette: long low body with a thick lashing tail. Materials: black obsidian scales, ochre underbelly, glassy claws. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Giant Lizard: a giant monitor lizard of Gorvath's slopes, broad as an ox, armoured in black obsidian scales, with a thick lashing tail and heavy claws. Silhouette: long low body with a thick lashing tail. Materials: black obsidian scales, ochre underbelly, glassy claws.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 흑요석 비늘을 두른 소만 한 도마뱀. 그것이 뛰면 초원의 풀이 모두 한쪽으로 눕는다.
@@ -7155,7 +7155,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7171,7 +7171,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "장벽 바위 정령". Depict exactly what this name describes.
 Subject: an elite, commanding Rock Spirit of the Gorvath's Claw — rock spirits of Grom: boulders drawn together by the great earth spirit's slow will into a powerful, roughly humanoid shape, with dust swirling at the seams and ochre light deep inside; a stubborn defender who stands like a wall.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Rock Spirit: rock spirits of Grom: boulders drawn together by the great earth spirit's slow will into a powerful, roughly humanoid shape, with dust swirling at the seams and ochre light deep inside. Silhouette: loosely joined boulders hovering in a broad humanoid form. Materials: rough boulders, gravel, dust, faint ochre glow in the cracks. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Rock Spirit: rock spirits of Grom: boulders drawn together by the great earth spirit's slow will into a powerful, roughly humanoid shape, with dust swirling at the seams and ochre light deep inside. Silhouette: loosely joined boulders hovering in a broad humanoid form. Materials: rough boulders, gravel, dust, faint ochre glow in the cracks.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 그롬의 뜻을 받아 바위들이 벽처럼 늘어선 정령. 오크가 물러서는 법을 배운 것은 그 벽 뒤에서다.
@@ -7181,7 +7181,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7197,7 +7197,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "바윗덩이 거구". Depict exactly what this name describes.
 Subject: an elite, commanding Rock Spirit of the Gorvath's Claw — rock spirits of Grom: boulders drawn together by the great earth spirit's slow will into a powerful, roughly humanoid shape, with dust swirling at the seams and ochre light deep inside.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Rock Spirit: rock spirits of Grom: boulders drawn together by the great earth spirit's slow will into a powerful, roughly humanoid shape, with dust swirling at the seams and ochre light deep inside. Silhouette: loosely joined boulders hovering in a broad humanoid form. Materials: rough boulders, gravel, dust, faint ochre glow in the cracks. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Rock Spirit: rock spirits of Grom: boulders drawn together by the great earth spirit's slow will into a powerful, roughly humanoid shape, with dust swirling at the seams and ochre light deep inside. Silhouette: loosely joined boulders hovering in a broad humanoid form. Materials: rough boulders, gravel, dust, faint ochre glow in the cracks.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 바윗덩이 수십 개가 한 덩어리로 뭉친 바위 정령. 가르운 대야영지에서 가장 큰 것이 오크가 아니게 된 날, 오크들은 조금 서운해했다.
@@ -7207,7 +7207,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7223,7 +7223,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "순례하는 바위 거인". Depict exactly what this name describes.
 Subject: a legendary, awe-inspiring Rock Giant of the Gorvath's Claw — living-stone giants grown out of Gorvath's back: hulking humanoid bodies of fractured boulders with turf, moss and small trees on their shoulders and ochre light in the cracks for eyes; living rock, never one of the seven primordial Giants.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Rock Giant: living-stone giants grown out of Gorvath's back: hulking humanoid bodies of fractured boulders with turf, moss and small trees on their shoulders and ochre light in the cracks for eyes; living rock, never one of the seven primordial Giants. Silhouette: hunched, broad boulder-humanoid with fists like rockfalls. Materials: fractured granite, ochre earth, moss, grass tufts, small shrubs, rock dust. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Rock Giant: living-stone giants grown out of Gorvath's back: hulking humanoid bodies of fractured boulders with turf, moss and small trees on their shoulders and ochre light in the cracks for eyes; living rock, never one of the seven primordial Giants. Silhouette: hunched, broad boulder-humanoid with fists like rockfalls. Materials: fractured granite, ochre earth, moss, grass tufts, small shrubs, rock dust.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 고르바스의 등에서 왕좌봉 꼭대기까지 걸어 오르는 바위 거인. 한 걸음에 한 해가 걸려서, 오크들은 그 걸음으로 달력을 맞춘다.
@@ -7233,7 +7233,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7249,7 +7249,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "대지 진동 웜". Depict exactly what this name describes.
 Subject: a legendary, awe-inspiring Earth Wyrm of the Gorvath's Claw — a vast eyeless burrowing worm that tunnels under Gorvath's back, ringed with plates of rock, its round maw lined with stone teeth and trailing roots.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Earth Wyrm: a vast eyeless burrowing worm that tunnels under Gorvath's back, ringed with plates of rock, its round maw lined with stone teeth and trailing roots. Silhouette: huge segmented body arching out of cracked ground. Materials: segmented rock plates, packed earth, stone teeth, dangling roots. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Earth Wyrm: a vast eyeless burrowing worm that tunnels under Gorvath's back, ringed with plates of rock, its round maw lined with stone teeth and trailing roots. Silhouette: huge segmented body arching out of cracked ground. Materials: segmented rock plates, packed earth, stone teeth, dangling roots.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 고르바스의 등 밑을 파고 다니는 거대한 벌레. 왕좌봉의 지진 가운데 몇 번은 사실 이것의 하품이다.
@@ -7259,7 +7259,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7275,7 +7275,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "미노타우로스 대족장". Depict exactly what this name describes.
 Subject: a legendary, awe-inspiring Minotaur of the Gorvath's Claw — bull-headed giants of the steppe with great forward-curving horns, a shaggy mane, cloven hooves and scarred hide, who won Gorvath's notice in the duel ring.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Minotaur: bull-headed giants of the steppe with great forward-curving horns, a shaggy mane, cloven hooves and scarred hide, who won Gorvath's notice in the duel ring. Silhouette: towering bull-headed humanoid with forward-swept horns and a lowered head. Materials: dark bull hide, shaggy mane, cracked horns, iron nose ring, rough leather harness, stone-headed axes. Do NOT draw it as one of the orcs unless the name says so.
+Creature kind — Minotaur: bull-headed giants of the steppe with great forward-curving horns, a shaggy mane, cloven hooves and scarred hide, who won Gorvath's notice in the duel ring. Silhouette: towering bull-headed humanoid with forward-swept horns and a lowered head. Materials: dark bull hide, shaggy mane, cracked horns, iron nose ring, rough leather harness, stone-headed axes.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 미노타우로스 무리를 이끄는 대족장. 그가 멈춘 곳이 그해의 싸움터가 되고, 오크들도 굳이 다른 곳을 고르지 않는다.
@@ -7285,7 +7285,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7301,7 +7301,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "이끼 코다마". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Kodama of the Verdan's Antler — kodama of the Eilen forest: small pale tree spirits with round heads, hollow dark eyes and mouths, living inside old trees and rattling their heads when they speak.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Kodama: kodama of the Eilen forest: small pale tree spirits with round heads, hollow dark eyes and mouths, living inside old trees and rattling their heads when they speak. Silhouette: tiny round-headed figure peeking from a trunk, often in groups. Materials: pale soft wood-like skin, moss, dew, faint green glow. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Kodama: kodama of the Eilen forest: small pale tree spirits with round heads, hollow dark eyes and mouths, living inside old trees and rattling their heads when they speak. Silhouette: tiny round-headed figure peeking from a trunk, often in groups. Materials: pale soft wood-like skin, moss, dew, faint green glow.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 고목 그늘에 오래 고인 숲의 숨이 작은 몸을 얻었다. 밟히면 부서지고, 비가 오면 머리를 딸깍이며 다시 돋는다.
@@ -7311,7 +7311,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7335,7 +7335,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7351,7 +7351,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "어린 트렌트". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Treant of the Verdan's Antler — treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Treant: treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks. Silhouette: towering trunk body with spreading branch arms and root feet. Materials: rough bark, moss, leaves, knotted roots, amber sap. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Treant: treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks. Silhouette: towering trunk body with spreading branch arms and root feet. Materials: rough bark, moss, leaves, knotted roots, amber sap.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -7360,7 +7360,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7386,7 +7386,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7412,7 +7412,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7427,7 +7427,7 @@ Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner c
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "덩굴 조이기". Depict exactly what this name describes.
 Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a burst of forest power. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
-Art direction: Vine constrict: a thick thorny vine erupting from forest soil and wrapping a heavily armored dwarf-like warrior (steel plate, no faces of real people), the vine wedging into the armor seams and squeezing — plates denting and bending, rivets popping. Dim green forest light, moss on the ground; the thicker the armor, the deeper the vine bites.
+Art direction: Vine constrict: a thick thorny vine erupting from forest soil and wrapping a heavily armored warrior in steel plate, the vine wedging into the armor seams and squeezing — plates denting and bending, rivets popping. Dim green forest light, moss on the ground; the thicker the armor, the deeper the vine bites.
 Scale (level 1 of 8): a small, local effect.
 Banner — Verdan's Antler: magic of verdan's antler, signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots; palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
@@ -7439,7 +7439,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7465,7 +7465,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7490,7 +7490,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7514,7 +7514,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7530,7 +7530,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "숲 사티로스". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Satyr of the Verdan's Antler — forest satyrs: goat-legged, curl-horned forest folk with shaggy haunches and a pointed beard, carrying reed pipes and a shield of bark.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Satyr: forest satyrs: goat-legged, curl-horned forest folk with shaggy haunches and a pointed beard, carrying reed pipes and a shield of bark. Silhouette: goat-legged figure with curled horns, springing on hooves. Materials: shaggy brown fur, curled horn, bark shield, reed pipes, leaves. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Satyr: forest satyrs: goat-legged, curl-horned forest folk with shaggy haunches and a pointed beard, carrying reed pipes and a shield of bark. Silhouette: goat-legged figure with curled horns, springing on hooves. Materials: shaggy brown fur, curled horn, bark shield, reed pipes, leaves.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 벼락 맞은 고목의 껍질을 방패로 메고 다니는 사티로스. 피리를 불다가 싸우고, 싸우다가 다시 피리를 분다.
@@ -7540,7 +7540,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7556,7 +7556,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "갓버섯 보초". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Mushroom Folk of the Verdan's Antler — walking mushroom folk of the forest floor: squat stalk bodies under broad caps, with gills, glowing spores and white mycelium threads linking them to the roots and to each other.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Mushroom Folk: walking mushroom folk of the forest floor: squat stalk bodies under broad caps, with gills, glowing spores and white mycelium threads linking them to the roots and to each other. Silhouette: stubby stalk body under a wide cap. Materials: spongy pale flesh, gills, glowing spores, white mycelium threads, damp soil. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Mushroom Folk: walking mushroom folk of the forest floor: squat stalk bodies under broad caps, with gills, glowing spores and white mycelium threads linking them to the roots and to each other. Silhouette: stubby stalk body under a wide cap. Materials: spongy pale flesh, gills, glowing spores, white mycelium threads, damp soil.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 실바니엘 출렁다리 밑 그늘에 줄지어 돋은 버섯족. 발소리만 듣고 숲의 손님인지 가려내지만, 대답은 늘 하룻밤 늦다.
@@ -7566,7 +7566,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7582,7 +7582,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "가시 문신". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Verdan's Antler (engraving; if unsure, a carved stone or engraved plate). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Verdan's Antler: tall moss trolls with long, lanky, moss-covered limbs, and treants (living trees). Silhouette: tall, hunched and long-armed; treants tower like ancient trees. Materials: bark armour, moss, thorns, vines, roots, mushrooms, amber sap. Signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots.
+Banner — Verdan's Antler (forest): palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores. Materials: bark armour, moss, thorns, vines, roots, mushrooms, amber sap. Signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 덩굴 가시 모양의 문신. 때린 쪽이 먼저 피를 본다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -7591,7 +7591,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7607,7 +7607,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "나무껍질 각인". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Verdan's Antler (engraving; if unsure, a carved stone or engraved plate). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Verdan's Antler: tall moss trolls with long, lanky, moss-covered limbs, and treants (living trees). Silhouette: tall, hunched and long-armed; treants tower like ancient trees. Materials: bark armour, moss, thorns, vines, roots, mushrooms, amber sap. Signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots.
+Banner — Verdan's Antler (forest): palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores. Materials: bark armour, moss, thorns, vines, roots, mushrooms, amber sap. Signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 고목의 껍질을 본뜬 각인. 해가 갈수록 두꺼워진다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -7616,7 +7616,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7641,7 +7641,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7666,7 +7666,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7693,7 +7693,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7709,7 +7709,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "이끼 덮인 묘목". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Treant of the Verdan's Antler — treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Treant: treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks. Silhouette: towering trunk body with spreading branch arms and root feet. Materials: rough bark, moss, leaves, knotted roots, amber sap. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Treant: treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks. Silhouette: towering trunk body with spreading branch arms and root feet. Materials: rough bark, moss, leaves, knotted roots, amber sap.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 잘라도 다음 날이면 같은 키로 서 있다. 트롤들은 그것을 고집이라 부른다.
@@ -7719,7 +7719,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7744,7 +7744,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7771,7 +7771,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7796,7 +7796,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7812,7 +7812,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "고목 거미". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Forest Spider of the Verdan's Antler — giant elder-tree spiders with bark-patterned bodies and mossy legs, stringing webs between ancient boughs.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Forest Spider: giant elder-tree spiders with bark-patterned bodies and mossy legs, stringing webs between ancient boughs. Silhouette: huge long-legged spider hanging from a branch on a silk line. Materials: bark-textured carapace, moss, silk webs, dew. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Forest Spider: giant elder-tree spiders with bark-patterned bodies and mossy legs, stringing webs between ancient boughs. Silhouette: huge long-legged spider hanging from a branch on a silk line. Materials: bark-textured carapace, moss, silk webs, dew.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 고목 한 그루를 통째로 거미줄로 감아 제 집으로 삼았다. 적은 끝내 줄이 어느 가지에서 날아오는지 모른다.
@@ -7822,7 +7822,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7838,7 +7838,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "에일렌 뿔사슴". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Antlered Stag of the Verdan's Antler — great forest stags whose antlers grow like living branches with leaves and moss, after the dragon Verdan's own.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Antlered Stag: great forest stags whose antlers grow like living branches with leaves and moss, after the dragon Verdan's own. Silhouette: proud stag with an enormous branching antler crown. Materials: russet hide with pale spots, mossy wooden antlers, new leaves. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Antlered Stag: great forest stags whose antlers grow like living branches with leaves and moss, after the dragon Verdan's own. Silhouette: proud stag with an enormous branching antler crown. Materials: russet hide with pale spots, mossy wooden antlers, new leaves.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 에일렌 대삼림의 가장자리를 도는 사슴 무리. 도끼 소리가 들리면 모두가 그쪽으로 뿔을 돌린다.
@@ -7848,7 +7848,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7872,7 +7872,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7888,7 +7888,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "실바니엘 장궁". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Verdan's Antler (weapon/armour; if unsure, a bow). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Verdan's Antler: tall moss trolls with long, lanky, moss-covered limbs, and treants (living trees). Silhouette: tall, hunched and long-armed; treants tower like ancient trees. Materials: bark armour, moss, thorns, vines, roots, mushrooms, amber sap. Signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots.
+Banner — Verdan's Antler (forest): palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores. Materials: bark armour, moss, thorns, vines, roots, mushrooms, amber sap. Signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 트롤 숲지기의 장궁. 멀리서 쏘고 물러나 반격을 받지 않는다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -7897,7 +7897,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7913,7 +7913,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "생명의 씨앗". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Verdan's Antler (engraving; if unsure, a carved stone or engraved plate). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Verdan's Antler: tall moss trolls with long, lanky, moss-covered limbs, and treants (living trees). Silhouette: tall, hunched and long-armed; treants tower like ancient trees. Materials: bark armour, moss, thorns, vines, roots, mushrooms, amber sap. Signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots.
+Banner — Verdan's Antler (forest): palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores. Materials: bark armour, moss, thorns, vines, roots, mushrooms, amber sap. Signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 심장 옆에 심는 씨앗. 시들지 않는 몸이 된다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -7922,7 +7922,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7949,7 +7949,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7974,7 +7974,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -7990,7 +7990,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "실바니엘 호랑이". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Forest Tiger of the Verdan's Antler — great tigers of Sylvaniel with moss-green-tinged stripes and leaves caught in their fur, lying on the giant-tree stairways as guardians.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Forest Tiger: great tigers of Sylvaniel with moss-green-tinged stripes and leaves caught in their fur, lying on the giant-tree stairways as guardians. Silhouette: long muscular striped cat stalking low. Materials: amber fur with dark green-tinged stripes, whiskers, claws, moss. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Forest Tiger: great tigers of Sylvaniel with moss-green-tinged stripes and leaves caught in their fur, lying on the giant-tree stairways as guardians. Silhouette: long muscular striped cat stalking low. Materials: amber fur with dark green-tinged stripes, whiskers, claws, moss.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 맹약의 회의가 열리는 날, 거목 도시의 계단마다 엎드린다. 그날은 바람도 허락 없이 지나가지 못한다.
@@ -8000,7 +8000,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -8016,7 +8016,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "트렌트 전사". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Treant of the Verdan's Antler — treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Treant: treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks. Silhouette: towering trunk body with spreading branch arms and root feet. Materials: rough bark, moss, leaves, knotted roots, amber sap. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Treant: treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks. Silhouette: towering trunk body with spreading branch arms and root feet. Materials: rough bark, moss, leaves, knotted roots, amber sap.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -8025,7 +8025,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -8041,7 +8041,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "가시숲 맨드레이크". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Mandrake of the Verdan's Antler — mandrakes: root creatures half pulled from the soil, with gnarled human-like root bodies, a leafy crown and a gaping screaming mouth.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Mandrake: mandrakes: root creatures half pulled from the soil, with gnarled human-like root bodies, a leafy crown and a gaping screaming mouth. Silhouette: gnarled root body with a crown of leaves and limbs like forked roots. Materials: brown root skin, root hairs, soil clumps, leaves. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Mandrake: mandrakes: root creatures half pulled from the soil, with gnarled human-like root bodies, a leafy crown and a gaping screaming mouth. Silhouette: gnarled root body with a crown of leaves and limbs like forked roots. Materials: brown root skin, root hairs, soil clumps, leaves.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 가시숲 안쪽 흙에 반쯤 묻혀 산다. 뽑으려 드는 자는 그 비명에 길을 잃고 다시는 숲 밖으로 나오지 못한다.
@@ -8051,7 +8051,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -8065,9 +8065,9 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "드리엔의 사도". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Dryad of the Verdan's Antler — dryads of the Eilen forest: slender women of living wood with smooth bark skin, leaf-and-blossom hair and twig fingers, each bound to her own tree (never elves, no pointed ears).
+Subject: a seasoned, battle-hardened Dryad of the Verdan's Antler — dryads of the Eilen forest: slender women of living wood with smooth bark skin, leaf-and-blossom hair and twig fingers, each bound to her own tree (no pointed ears).
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Dryad: dryads of the Eilen forest: slender women of living wood with smooth bark skin, leaf-and-blossom hair and twig fingers, each bound to her own tree (never elves, no pointed ears). Silhouette: slender willowy figure with long leaf-hair flowing like branches. Materials: smooth pale bark, leaves, blossoms, vines, sap droplets. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Dryad: dryads of the Eilen forest: slender women of living wood with smooth bark skin, leaf-and-blossom hair and twig fingers, each bound to her own tree (no pointed ears). Silhouette: slender willowy figure with long leaf-hair flowing like branches. Materials: smooth pale bark, leaves, blossoms, vines, sap droplets.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -8076,7 +8076,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -8092,7 +8092,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "떨어진 베르단의 뿔가지". Depict exactly what this name describes.
 Subject: an elite, commanding Dragon Antler Branch of the Verdan's Antler — a branch shed from the dragon Verdan's ancient-tree antlers, huge and mossy, that has taken root, risen and walks, budding leaves and pulsing with green dragon power in its grain.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Dragon Antler Branch: a branch shed from the dragon Verdan's ancient-tree antlers, huge and mossy, that has taken root, risen and walks, budding leaves and pulsing with green dragon power in its grain. Silhouette: a great forked antler-branch standing upright on root legs. Materials: dark ancient wood, moss, lichen, fresh shoots, faint green glow in the grain. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Dragon Antler Branch: a branch shed from the dragon Verdan's ancient-tree antlers, huge and mossy, that has taken root, risen and walks, budding leaves and pulsing with green dragon power in its grain. Silhouette: a great forked antler-branch standing upright on root legs. Materials: dark ancient wood, moss, lichen, fresh shoots, faint green glow in the grain.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 베르단이 고개를 털 때 태고림 산맥에 떨어진 뿔가지 하나가 뿌리를 내리고 일어섰다. 그 곁에서는 용의 허락 없이 낙엽 하나 옮길 수 없다.
@@ -8102,7 +8102,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -8118,7 +8118,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "에일렌의 코다마". Depict exactly what this name describes.
 Subject: an elite, commanding Kodama of the Verdan's Antler — kodama of the Eilen forest: small pale tree spirits with round heads, hollow dark eyes and mouths, living inside old trees and rattling their heads when they speak.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Kodama: kodama of the Eilen forest: small pale tree spirits with round heads, hollow dark eyes and mouths, living inside old trees and rattling their heads when they speak. Silhouette: tiny round-headed figure peeking from a trunk, often in groups. Materials: pale soft wood-like skin, moss, dew, faint green glow. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Kodama: kodama of the Eilen forest: small pale tree spirits with round heads, hollow dark eyes and mouths, living inside old trees and rattling their heads when they speak. Silhouette: tiny round-headed figure peeking from a trunk, often in groups. Materials: pale soft wood-like skin, moss, dew, faint green glow.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 대삼림 한가운데 늙은 나무에 사는 코다마. 트롤들은 그 아래서 태어나고 그 아래 묻히는데, 코다마는 그 이름을 하나도 잊지 않는다.
@@ -8128,7 +8128,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -8144,7 +8144,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "장벽 뿌리 거수". Depict exactly what this name describes.
 Subject: an elite, commanding Root Behemoth of the Verdan's Antler — a root behemoth: a great four-legged beast made of tangled giant roots and soil, slow and immovable, sinking into the ground where it stands.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Root Behemoth: a root behemoth: a great four-legged beast made of tangled giant roots and soil, slow and immovable, sinking into the ground where it stands. Silhouette: low massive quadruped of knotted roots half sunk in the soil. Materials: knotted roots, packed soil, stones caught in the tangle, moss. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Root Behemoth: a root behemoth: a great four-legged beast made of tangled giant roots and soil, slow and immovable, sinking into the ground where it stands. Silhouette: low massive quadruped of knotted roots half sunk in the soil. Materials: knotted roots, packed soil, stones caught in the tangle, moss.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 톱니 고개 아래 뿌리를 내리고 엎드린 거수. 벌목꾼들은 그것이 짐승인 줄 모르고 도끼를 댔다가, 그 자리에 도끼를 내려놓았다.
@@ -8154,7 +8154,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -8170,7 +8170,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "가시등 고슴도치". Depict exactly what this name describes.
 Subject: an elite, commanding Hedgehog of the Verdan's Antler — a giant thornback hedgehog the size of a boar, whose spines have grown into real bramble thorns.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Hedgehog: a giant thornback hedgehog the size of a boar, whose spines have grown into real bramble thorns. Silhouette: low round body bristling with long thorns, curling into a ball. Materials: bramble-thorn spines, brown furred face, leaf litter. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Hedgehog: a giant thornback hedgehog the size of a boar, whose spines have grown into real bramble thorns. Silhouette: low round body bristling with long thorns, curling into a ball. Materials: bramble-thorn spines, brown furred face, leaf litter.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 실바니엘 문 앞 덤불에 사는 고슴도치. 맹약을 처음 맺던 날부터 같은 자리에서 몸을 둥글게 말고 있다.
@@ -8180,7 +8180,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -8196,7 +8196,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "드리엔의 그린맨". Depict exactly what this name describes.
 Subject: an elite, commanding Green Man of the Verdan's Antler — the green man of Drien: a tall figure woven entirely of leaves, ivy and blossoms around a calm leafy face, the forest's memory walking.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Green Man: the green man of Drien: a tall figure woven entirely of leaves, ivy and blossoms around a calm leafy face, the forest's memory walking. Silhouette: tall humanoid of foliage with a leaf-mask face. Materials: oak leaves, ivy, blossoms, vines, moss. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Green Man: the green man of Drien: a tall figure woven entirely of leaves, ivy and blossoms around a calm leafy face, the forest's memory walking. Silhouette: tall humanoid of foliage with a leaf-mask face. Materials: oak leaves, ivy, blossoms, vines, moss.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 숲의 대정령 드리엔이 품은 기억이 잎과 덩굴로 몸을 얻었다. 그가 지나간 자리에서는 잊힌 꽃들이 다시 핀다.
@@ -8206,7 +8206,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -8222,7 +8222,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "태고림 거목". Depict exactly what this name describes.
 Subject: an elite, commanding Treant of the Verdan's Antler — treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Treant: treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks. Silhouette: towering trunk body with spreading branch arms and root feet. Materials: rough bark, moss, leaves, knotted roots, amber sap. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Treant: treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks. Silhouette: towering trunk body with spreading branch arms and root feet. Materials: rough bark, moss, leaves, knotted roots, amber sap.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -8231,7 +8231,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -8247,7 +8247,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "늪가의 히드라". Depict exactly what this name describes.
 Subject: an elite, commanding Swamp Hydra of the Verdan's Antler — a swamp hydra of the Rusty Swamp's edge: a many-headed serpent with moss-green scales and weed-draped necks, whose cut heads grow back.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Swamp Hydra: a swamp hydra of the Rusty Swamp's edge: a many-headed serpent with moss-green scales and weed-draped necks, whose cut heads grow back. Silhouette: a bulky body rising from water with many swaying necks. Materials: moss-green scales, waterweed, mud, rust-stained water. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Swamp Hydra: a swamp hydra of the Rusty Swamp's edge: a many-headed serpent with moss-green scales and weed-draped necks, whose cut heads grow back. Silhouette: a bulky body rising from water with many swaying necks. Materials: moss-green scales, waterweed, mud, rust-stained water.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 녹물강이 닿는 늪가에 사는 머리 여럿 달린 뱀. 머리 하나를 자르면 녹물 냄새가 나는 머리 둘이 돋는다.
@@ -8257,7 +8257,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -8271,9 +8271,9 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "첫 고목의 드라이어드". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring Dryad of the Verdan's Antler — dryads of the Eilen forest: slender women of living wood with smooth bark skin, leaf-and-blossom hair and twig fingers, each bound to her own tree (never elves, no pointed ears).
+Subject: a legendary, awe-inspiring Dryad of the Verdan's Antler — dryads of the Eilen forest: slender women of living wood with smooth bark skin, leaf-and-blossom hair and twig fingers, each bound to her own tree (no pointed ears).
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Dryad: dryads of the Eilen forest: slender women of living wood with smooth bark skin, leaf-and-blossom hair and twig fingers, each bound to her own tree (never elves, no pointed ears). Silhouette: slender willowy figure with long leaf-hair flowing like branches. Materials: smooth pale bark, leaves, blossoms, vines, sap droplets. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Dryad: dryads of the Eilen forest: slender women of living wood with smooth bark skin, leaf-and-blossom hair and twig fingers, each bound to her own tree (no pointed ears). Silhouette: slender willowy figure with long leaf-hair flowing like branches. Materials: smooth pale bark, leaves, blossoms, vines, sap droplets.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 실바르온으로 가는 문, 첫 고목에서 걸어 나온 드라이어드. 그녀 곁에서는 아직 다른 시간이 흐른다.
@@ -8283,7 +8283,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -8299,7 +8299,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "베르단의 뿔 기사". Depict exactly what this name describes.
 Subject: a legendary, awe-inspiring Antlered Stag of the Verdan's Antler — great forest stags whose antlers grow like living branches with leaves and moss, after the dragon Verdan's own.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Antlered Stag: great forest stags whose antlers grow like living branches with leaves and moss, after the dragon Verdan's own. Silhouette: proud stag with an enormous branching antler crown. Materials: russet hide with pale spots, mossy wooden antlers, new leaves. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Antlered Stag: great forest stags whose antlers grow like living branches with leaves and moss, after the dragon Verdan's own. Silhouette: proud stag with an enormous branching antler crown. Materials: russet hide with pale spots, mossy wooden antlers, new leaves.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 베르단의 뿔에서 떨어진 가지가 제 뿔로 돋은 수사슴. 뿔 끝에서 해마다 새잎이 돋는 것을 보고 트롤들이 기사라 불렀다.
@@ -8309,7 +8309,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -8325,7 +8325,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "에일렌의 균사 심장". Depict exactly what this name describes.
 Subject: a legendary, awe-inspiring Mushroom Folk of the Verdan's Antler — walking mushroom folk of the forest floor: squat stalk bodies under broad caps, with gills, glowing spores and white mycelium threads linking them to the roots and to each other.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Mushroom Folk: walking mushroom folk of the forest floor: squat stalk bodies under broad caps, with gills, glowing spores and white mycelium threads linking them to the roots and to each other. Silhouette: stubby stalk body under a wide cap. Materials: spongy pale flesh, gills, glowing spores, white mycelium threads, damp soil. Do NOT draw it as one of the trolls unless the name says so.
+Creature kind — Mushroom Folk: walking mushroom folk of the forest floor: squat stalk bodies under broad caps, with gills, glowing spores and white mycelium threads linking them to the roots and to each other. Silhouette: stubby stalk body under a wide cap. Materials: spongy pale flesh, gills, glowing spores, white mycelium threads, damp soil.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 대삼림의 땅 밑을 잇는 균사가 한데 모여 뛰는 곳. 이 심장이 멈추지 않는 한 숲은 몇 번이고 다시 자란다.
@@ -8335,7 +8335,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no elves (elves belong to the Storm High Elves), no fire magic, no huge humanoid 'giants' (the giants are the land itself).
+Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -8351,7 +8351,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "물방울 운디네". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Undine of the Marencia's Song — undines: water spirits that take a translucent feminine shape of flowing water, their hair dissolving into spray and droplets.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Undine: undines: water spirits that take a translucent feminine shape of flowing water, their hair dissolving into spray and droplets. Silhouette: flowing translucent figure melting into a column of water below the waist. Materials: clear rippling water, bubbles, spray, caustic light. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Undine: undines: water spirits that take a translucent feminine shape of flowing water, their hair dissolving into spray and droplets. Silhouette: flowing translucent figure melting into a column of water below the waist. Materials: clear rippling water, bubbles, spray, caustic light.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 샘물에서 튀어 오른 작은 운디네. 무녀의 손바닥 위에서 잠시 머물다 다시 물로 돌아간다.
@@ -8401,7 +8401,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "진주조개 파수꾼". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Pearl Clam of the Marencia's Song — a giant pearl clam bedded at the mouth of the Selenea lagoon, its ridged shell gaping just enough to show a glowing pearl.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Pearl Clam: a giant pearl clam bedded at the mouth of the Selenea lagoon, its ridged shell gaping just enough to show a glowing pearl. Silhouette: huge ridged bivalve shell, half open. Materials: ridged grey-blue shell, nacre, a glowing pearl, barnacles, sand. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Pearl Clam: a giant pearl clam bedded at the mouth of the Selenea lagoon, its ridged shell gaping just enough to show a glowing pearl. Silhouette: huge ridged bivalve shell, half open. Materials: ridged grey-blue shell, nacre, a glowing pearl, barnacles, sand.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 석호 입구 바닥에 자리 잡은 커다란 조개. 썰물에도 그 자리를 떠나지 않고, 떠날 다리도 없다.
@@ -8427,7 +8427,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "물결 해마". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Seahorse of the Marencia's Song — giant seahorses big enough to ride, with curled grasping tails, ridged armour-like bodies, long snouts and translucent fin crests.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Seahorse: giant seahorses big enough to ride, with curled grasping tails, ridged armour-like bodies, long snouts and translucent fin crests. Silhouette: upright S-curve body with a curled tail and long snout. Materials: ridged plates, translucent fins, pearl bridles, coral. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Seahorse: giant seahorses big enough to ride, with curled grasping tails, ridged armour-like bodies, long snouts and translucent fin crests. Silhouette: upright S-curve body with a curled tail and long snout. Materials: ridged plates, translucent fins, pearl bridles, coral.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 물결을 타고 셀레네아의 소식을 나르는 해마. 바닷길로 이어진 먼 땅까지 그 꼬리가 닿는다.
@@ -8607,7 +8607,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "작살 든 해달". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Sea Otter of the Marencia's Song — sea otters of the lagoon, sleek and whiskered, floating on their backs and wielding small coral-tipped harpoons scavenged from the shrine maidens.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Sea Otter: sea otters of the lagoon, sleek and whiskered, floating on their backs and wielding small coral-tipped harpoons scavenged from the shrine maidens. Silhouette: small sleek body floating belly-up with a harpoon. Materials: dense wet brown fur, whiskers, coral-tipped harpoon, shells. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Sea Otter: sea otters of the lagoon, sleek and whiskered, floating on their backs and wielding small coral-tipped harpoons scavenged from the shrine maidens. Silhouette: small sleek body floating belly-up with a harpoon. Materials: dense wet brown fur, whiskers, coral-tipped harpoon, shells.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 산호 사이를 누비며 작살을 던지는 해달. 무녀들이 버린 작살을 주워 쓰다 보니 무녀들보다 잘 던지게 되었다.
@@ -8633,7 +8633,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "셀레네아 나가 수비병". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Naga of the Marencia's Song — naga of Marencia's waters: a scaled human upper body joined to a long serpent tail, with fin crests along the head and armour of shell and coral.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Naga: naga of Marencia's waters: a scaled human upper body joined to a long serpent tail, with fin crests along the head and armour of shell and coral. Silhouette: upright torso rising from a long coiled serpent tail. Materials: teal serpent scales, fin crests, shell and coral armour, harpoons and spears. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Naga: naga of Marencia's waters: a scaled human upper body joined to a long serpent tail, with fin crests along the head and armour of shell and coral. Silhouette: upright torso rising from a long coiled serpent tail. Materials: teal serpent scales, fin crests, shell and coral armour, harpoons and spears.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 석호 위 신전 도시의 다리 밑에서 똬리를 틀고 지키는 나가. 그의 창은 물을 머금어 늘 차갑다.
@@ -8659,7 +8659,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "어린 셀키". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Selkie of the Marencia's Song — selkies: seal folk with a sleek grey spotted sealskin that can be shed to show a dark-eyed child or maiden underneath.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Selkie: selkies: seal folk with a sleek grey spotted sealskin that can be shed to show a dark-eyed child or maiden underneath. Silhouette: sleek seal with a half-shed pelt draped like a cloak. Materials: spotted grey sealskin, wet dark hair, foam, shells. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Selkie: selkies: seal folk with a sleek grey spotted sealskin that can be shed to show a dark-eyed child or maiden underneath. Silhouette: sleek seal with a half-shed pelt draped like a cloak. Materials: spotted grey sealskin, wet dark hair, foam, shells.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 물개 가죽을 아직 혼자 벗지 못하는 어린 셀키. 무녀들은 새벽마다 바위에 걸린 그 가죽을 못 본 척해 준다.
@@ -8685,7 +8685,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "조수 점술 문어". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Octopus of the Marencia's Song — a tide-reading octopus with eight long arms, a bulbous mantle, wise golden eyes and skin that shifts colour with the tide.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Octopus: a tide-reading octopus with eight long arms, a bulbous mantle, wise golden eyes and skin that shifts colour with the tide. Silhouette: bulbous mantle with eight curling arms. Materials: soft colour-shifting skin, suckers, ink clouds, shells. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Octopus: a tide-reading octopus with eight long arms, a bulbous mantle, wise golden eyes and skin that shifts colour with the tide. Silhouette: bulbous mantle with eight curling arms. Materials: soft colour-shifting skin, suckers, ink clouds, shells.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 밀물과 썰물의 자리를 여덟 팔로 한꺼번에 짚어 내일을 점친다. 문어가 먹물을 뿜으면 그날 배는 뜨지 않는다.
@@ -8711,7 +8711,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "산호등 거북". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Sea Turtle of the Marencia's Song — great sea turtles whose shells grow living coral like a small reef.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Sea Turtle: great sea turtles whose shells grow living coral like a small reef. Silhouette: broad domed shell with paddle flippers. Materials: coral-encrusted shell, barnacles, leathery flippers, seaweed. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Sea Turtle: great sea turtles whose shells grow living coral like a small reef. Silhouette: broad domed shell with paddle flippers. Materials: coral-encrusted shell, barnacles, leathery flippers, seaweed.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 등딱지 위에 산호가 자라는 바다거북. 깨진 자리에는 다음 해 더 단단한 산호가 덮인다.
@@ -8737,7 +8737,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "조개 부적". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Marencia's Song (holy relic; if unsure, a sacred relic (chalice, reliquary or holy symbol — not a plain cross)). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Marencia's Song: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
+Banner — Marencia's Song (water): palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 파도가 처음 밀어 올린 조개로 만든 부적.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -8762,7 +8762,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "샘물 병". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Marencia's Song (holy relic; if unsure, a wax seal, signet or sealed contract). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Marencia's Song: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
+Banner — Marencia's Song (water): palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 샘물 무녀가 축복한 물병. 마시면 상처가 닫힌다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -8787,7 +8787,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "산호 단검". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Marencia's Song (weapon/armour; if unsure, a dagger). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 2 of 8): a simple object.
-Banner — Marencia's Song: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
+Banner — Marencia's Song (water): palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 붉은 산호를 깎은 단검. 던지면 물살처럼 휜다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -8837,7 +8837,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "살아 있는 물거울". Depict exactly what this name describes.
 Subject: a low-ranking, ordinary Water Mirror of the Marencia's Song — a living water mirror: an upright disc of perfectly still lagoon water standing in the air and reflecting whoever faces it.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
-Creature kind — Water Mirror: a living water mirror: an upright disc of perfectly still lagoon water standing in the air and reflecting whoever faces it. Silhouette: upright oval disc of water with rippling edges. Materials: glassy still water, silver reflections, droplets, moonlight. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Water Mirror: a living water mirror: an upright disc of perfectly still lagoon water standing in the air and reflecting whoever faces it. Silhouette: upright oval disc of water with rippling edges. Materials: glassy still water, silver reflections, droplets, moonlight.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 셀레네아 석호의 가장 고요한 물이 일어서서 거울이 되었다. 비친 모습은 다쳐도 줄지 않는다.
@@ -8889,7 +8889,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "조수 상어 전사". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Shark Folk of the Marencia's Song — shark warriors of the tides: muscular shark-headed humanoids with rough grey skin, a tall dorsal fin and rows of teeth.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Shark Folk: shark warriors of the tides: muscular shark-headed humanoids with rough grey skin, a tall dorsal fin and rows of teeth. Silhouette: broad shark-headed humanoid with a tall dorsal fin. Materials: rough grey sharkskin, teeth, coral blades, shell charms. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Shark Folk: shark warriors of the tides: muscular shark-headed humanoids with rough grey skin, a tall dorsal fin and rows of teeth. Silhouette: broad shark-headed humanoid with a tall dorsal fin. Materials: rough grey sharkskin, teeth, coral blades, shell charms.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 밀물처럼 밀려왔다가 썰물처럼 빠지는 상어족 전사. 적이 따라 나오는 순간 다시 밀물이 된다.
@@ -8915,7 +8915,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "넬리아의 정령". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Undine of the Marencia's Song — undines: water spirits that take a translucent feminine shape of flowing water, their hair dissolving into spray and droplets.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Undine: undines: water spirits that take a translucent feminine shape of flowing water, their hair dissolving into spray and droplets. Silhouette: flowing translucent figure melting into a column of water below the waist. Materials: clear rippling water, bubbles, spray, caustic light. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Undine: undines: water spirits that take a translucent feminine shape of flowing water, their hair dissolving into spray and droplets. Silhouette: flowing translucent figure melting into a column of water below the waist. Materials: clear rippling water, bubbles, spray, caustic light.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -8940,7 +8940,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "해마 근위병". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Seahorse of the Marencia's Song — giant seahorses big enough to ride, with curled grasping tails, ridged armour-like bodies, long snouts and translucent fin crests.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Seahorse: giant seahorses big enough to ride, with curled grasping tails, ridged armour-like bodies, long snouts and translucent fin crests. Silhouette: upright S-curve body with a curled tail and long snout. Materials: ridged plates, translucent fins, pearl bridles, coral. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Seahorse: giant seahorses big enough to ride, with curled grasping tails, ridged armour-like bodies, long snouts and translucent fin crests. Silhouette: upright S-curve body with a curled tail and long snout. Materials: ridged plates, translucent fins, pearl bridles, coral.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 무녀장의 곁을 지키는 큰 해마. 노래가 끝날 때까지 꼬리를 산호에 감고 한 치도 물러서지 않는다.
@@ -8966,7 +8966,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "석호 치유 듀공". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Dugong of the Marencia's Song — gentle dugongs of the Selenea lagoon with plump grey bodies, whiskered faces and fluked tails, whose warm breath heals wounds.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Dugong: gentle dugongs of the Selenea lagoon with plump grey bodies, whiskered faces and fluked tails, whose warm breath heals wounds. Silhouette: plump rounded body with paddle flippers and a fluked tail. Materials: smooth grey skin, whiskers, seagrass, warm lagoon water. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Dugong: gentle dugongs of the Selenea lagoon with plump grey bodies, whiskered faces and fluked tails, whose warm breath heals wounds. Silhouette: plump rounded body with paddle flippers and a fluked tail. Materials: smooth grey skin, whiskers, seagrass, warm lagoon water.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 석호의 따뜻한 물에 사는 듀공. 다친 자를 등에 태우고 한 바퀴 돌면, 죽어 가던 자도 숨을 고른다.
@@ -8992,7 +8992,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "물기둥 산호 정령". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Coral Spirit of the Marencia's Song — coral spirits: reef coral woken into a living branching figure that raises pillars of water, its polyps glowing.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Coral Spirit: coral spirits: reef coral woken into a living branching figure that raises pillars of water, its polyps glowing. Silhouette: branching coral figure with arms like antler coral. Materials: pink and orange coral, glowing polyps, shells, sea foam. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Coral Spirit: coral spirits: reef coral woken into a living branching figure that raises pillars of water, its polyps glowing. Silhouette: branching coral figure with arms like antler coral. Materials: pink and orange coral, glowing polyps, shells, sea foam.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 석호의 산호초가 깨어나 정령이 되었다. 가지를 한 번 들면 바다가 따라 일어서고, 무너질 때 적도 함께 쓸려 간다.
@@ -9018,7 +9018,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "물방울 보주". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Marencia's Song (catalyst + holy relic; if unsure, a glowing orb on a small stand). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Marencia's Song: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
+Banner — Marencia's Song (water): palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 물 한 방울을 가둔 보주. 물은 어떤 틈으로도 스민다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -9043,7 +9043,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "조수의 삼지창". Depict exactly what this name describes.
 Subject: the item the card name and lore describe — a single object made or kept by the Marencia's Song (weapon/armour + holy relic; if unsure, a spear). a used, practical object rendered with loving detail (wear, scratches, stitching), resting on dark stone or cloth, warm low light.
 Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Marencia's Song: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
+Banner — Marencia's Song (water): palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 밀물과 썰물을 부르는 삼지창.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -9093,7 +9093,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "소용돌이 켈피". Depict exactly what this name describes.
 Subject: a seasoned, battle-hardened Kelpie of the Marencia's Song — kelpies: water horses with dark wet hides, streaming seaweed manes and hooves that churn whirlpools.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Kelpie: kelpies: water horses with dark wet hides, streaming seaweed manes and hooves that churn whirlpools. Silhouette: rearing horse with a streaming seaweed mane. Materials: wet black-green hide, kelp mane, foam, shells. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Kelpie: kelpies: water horses with dark wet hides, streaming seaweed manes and hooves that churn whirlpools. Silhouette: rearing horse with a streaming seaweed mane. Materials: wet black-green hide, kelp mane, foam, shells.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 갈기를 한 번 휘저으면 물이 감겨 돌기 시작하는 물말. 그 등에 올라탄 자는 바닥까지 끌려간다.
@@ -9144,7 +9144,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "석호의 자장가". Depict exactly what this name describes.
 Subject: an elite, commanding Lullaby of the Marencia's Song — a verse of Marencia's lullaby that keeps Talakus asleep, given form: a hovering, softly glowing veil of water and mist shaped like cradling arms.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Lullaby: a verse of Marencia's lullaby that keeps Talakus asleep, given form: a hovering, softly glowing veil of water and mist shaped like cradling arms. Silhouette: a soft hooded veil curving like cradling arms. Materials: mist, moonlit water, slow ripples, pale glow. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Lullaby: a verse of Marencia's lullaby that keeps Talakus asleep, given form: a hovering, softly glowing veil of water and mist shaped like cradling arms. Silhouette: a soft hooded veil curving like cradling arms. Materials: mist, moonlit water, slow ripples, pale glow.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 바다 밑에 잠든 탈라쿠스를 재우는 노래의 한 소절이 석호에서 몸을 얻었다. 그것이 지나간 물가에서는 죽은 자도 조용히 바다로 돌아간다.
@@ -9170,7 +9170,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "해일 바다뱀". Depict exactly what this name describes.
 Subject: an elite, commanding Sea Serpent of the Marencia's Song — a tidal sea serpent: a long ribbon-finned serpent that rides the crest of a tidal wave; a reckless charging attacker.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Sea Serpent: a tidal sea serpent: a long ribbon-finned serpent that rides the crest of a tidal wave. Silhouette: long arching coils over a cresting wave. Materials: blue-green scales, ribbon fins, foam, spray. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Sea Serpent: a tidal sea serpent: a long ribbon-finned serpent that rides the crest of a tidal wave. Silhouette: long arching coils over a cresting wave. Materials: blue-green scales, ribbon fins, foam, spray.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 해일을 타고 오는 바다뱀. 그것이 지나간 뒤에 남는 것은 젖은 모래와 흩어진 방패뿐이다.
@@ -9196,7 +9196,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "넬리아의 현신". Depict exactly what this name describes.
 Subject: an elite, commanding Undine of the Marencia's Song — undines: water spirits that take a translucent feminine shape of flowing water, their hair dissolving into spray and droplets.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Undine: undines: water spirits that take a translucent feminine shape of flowing water, their hair dissolving into spray and droplets. Silhouette: flowing translucent figure melting into a column of water below the waist. Materials: clear rippling water, bubbles, spray, caustic light. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Undine: undines: water spirits that take a translucent feminine shape of flowing water, their hair dissolving into spray and droplets. Silhouette: flowing translucent figure melting into a column of water below the waist. Materials: clear rippling water, bubbles, spray, caustic light.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
@@ -9221,7 +9221,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "심해의 크라켄". Depict exactly what this name describes.
 Subject: a legendary, awe-inspiring Kraken of the Marencia's Song — a kraken of the deep: a colossal squid-like beast with barbed tentacles and one huge eye, rising from the Talakus trench as the giant's pulse quickens.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Kraken: a kraken of the deep: a colossal squid-like beast with barbed tentacles and one huge eye, rising from the Talakus trench as the giant's pulse quickens. Silhouette: massive mantle with a mass of tentacles reaching upward. Materials: dark red mottled skin, suckers, hooks, ink. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Kraken: a kraken of the deep: a colossal squid-like beast with barbed tentacles and one huge eye, rising from the Talakus trench as the giant's pulse quickens. Silhouette: massive mantle with a mass of tentacles reaching upward. Materials: dark red mottled skin, suckers, hooks, ink.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 탈라쿠스의 맥박이 빨라질수록 해구에서 더 높이 올라온다. 인어들은 그 촉수가 보이면 노래를 한 소절 더 길게 부른다.
@@ -9247,7 +9247,7 @@ Quality floor for every grade: a finished, professional card illustration — ca
 Card name (Korean — read its meaning, never write it in the image): "샘물의 만조". Depict exactly what this name describes.
 Subject: a legendary, awe-inspiring Tide Spirit of the Marencia's Song — a tide spirit: the high tide given shape, a towering swell of sea and spring water rising like a figure crowned with foam.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Tide Spirit: a tide spirit: the high tide given shape, a towering swell of sea and spring water rising like a figure crowned with foam. Silhouette: a towering swell of water rising like a figure. Materials: surging seawater, foam, spray, shimmering light. Do NOT draw it as one of the merfolk unless the name says so.
+Creature kind — Tide Spirit: a tide spirit: the high tide given shape, a towering swell of sea and spring water rising like a figure crowned with foam. Silhouette: a towering swell of water rising like a figure. Materials: surging seawater, foam, spray, shimmering light.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 샘물 무녀단이 한 번도 멈추지 않은 노래에 밀물이 대답해 몸을 얻었다. 그것이 머무는 샘은 가뭄에도 마르지 않는다.
@@ -9283,7 +9283,7 @@ Background: very dark night-blue (#07080d) base; an intimate, painted corner of 
 Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
 Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Mood: lively, honest, frontline.
-Stay true to the banner: no holy light, no crude cartoon devils — they are elegant and ominous.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
