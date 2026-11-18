@@ -182,6 +182,27 @@ function promptOf(c, D) {
   const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
   /* v3.95 스페셜 아이템: 유닛용 말(얼굴 · 손 · 제 힘으로 된 몸 · 요새보다 큰 키 · 종족의 몸)을 물건용 말로 바꾼다 — art_style.json grades.special.item* */
   const spItem = gk === "special" && c.type === "item" && !!G.itemScale;
+  /* v3.95 스페셜 18장은 짧은 틀: 등급 공통 말을 몇 줄로 묶고 카드 그림 지시 · 서사가 앞장서게(스페셜끼리 같은 문장 몫을 줄임) */
+  if (gk === "special" && G.compactGrade) {
+    const unit = c.type !== "item";
+    return [
+      S.base,
+      `Grade: ${G.compactGrade}.`,
+      `Card name (Korean — read its meaning, never write it in the image): "${c.name}". Depict exactly what this name describes.`,
+      `Subject: ${unit ? `a one-of-a-kind mythic being of the ${F.en}` : `a sacred relic of the ${F.en}, resting on or just above an ancient altar`}.`,
+      NOTES[c.id] && `Art direction: ${NOTES[c.id]}`,
+      lore && `Lore (Korean, use for the scene): ${lore}`,
+      text && `Game effect (Korean, mood only — never draw text or numbers): ${text}`,
+      `${G.compactLead}.`,
+      `Scale: ${unit ? G.compactUnitScale : G.itemScale}.`,
+      `Camera: ${unit ? G.compactUnitCamera : G.itemCamera}.`,
+      `Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; ${unit ? F.mythic : fill(G.itemBackground, F, c)}.`,
+      `Light and colour: ${el.en} (${el.hex}) light ${unit ? "bursting from the being itself" : "glowing from within the relic"} is the main light; palette ${F.palette}; ${unit ? G.compactUnitFinish : G.compactItemFinish}; ${G.compactMark}.`,
+      !unit && "No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.",
+      `Mood: ${unit ? G.mood : G.itemMood}.`,
+      S.composition, S.notext, S.avoid
+    ].filter(Boolean).join("\n");
+  }
   const L = [
     S.base,
     `Grade: ${G.tag}. ${cap(G.presence)}.`,
@@ -223,15 +244,17 @@ function promptOf(c, D) {
   if (text) L.push(`Game effect (Korean, mood only — never draw text or numbers): ${text}`);
   L.push(
     `Camera: ${spItem ? G.itemCamera : G.camera}.`,
-    `Lighting: ${G.lighting}; main light is ${el.en} (${el.hex}) from behind the subject, ${F.light}.`,
-    `Background: very dark night-blue (#07080d) base; ${fill(G.background, F, c)}; ${el.cue}.`,
+    /* v3.95 스페셜 아이템은 같은 깃발 스페셜 유닛과 무대가 겹치지 않게 '성소에 모신 유물'로(빛 · 배경 · 화려함 · 분위기) */
+    spItem ? `Lighting: ${G.itemLighting}; main light is ${el.en} (${el.hex}) glowing from within the relic.`
+      : `Lighting: ${G.lighting}; main light is ${el.en} (${el.hex}) from behind the subject, ${F.light}.`,
+    `Background: very dark night-blue (#07080d) base; ${fill(spItem ? G.itemBackground : G.background, F, c)}; ${el.cue}.`,
     `Detail: ${spItem ? G.itemDetail : G.detail}.`
   );
   /* v3.59 화려함 사다리: 등급마다 한 단계씩 더 화려하게(spectacle), 스페셜은 존재를 반쯤 가려 상상하게 하는 기법도(technique) */
-  if (G.spectacle) L.push(`Spectacle: ${G.spectacle}. ${S.spectacleRule || ""}`.trim());
+  if (G.spectacle) L.push(`Spectacle: ${spItem ? G.itemSpectacle : G.spectacle}. ${S.spectacleRule || ""}`.trim());
   if (G.technique && c.type === "unit") L.push(`Presence technique (allowed): ${G.technique}.`);
   if (G.accent) L.push(`Grade accent: ${G.accent} — ${S.accentRule.replace("{share}", G.accentShare || "15%")}.`);
-  L.push(`Mood: ${G.mood}.`);
+  L.push(`Mood: ${spItem ? G.itemMood : G.mood}.`);
   L.push(gk === "special" && (c.type === "unit" || spItem)   // v3.95 아이템도: 룬 고리는 등급 표시이지 깃발의 마법진이 아니다
     ? "The golden rune rings and divine light are this grade's mythic mark, not banner spellcasting."   // v3.95 스페셜은 깃발의 종족 금지 줄(never)을 빼고 이것만
     : `Stay true to the banner: ${F.never}.`);
@@ -358,11 +381,11 @@ function main() {
     const G = S.grades[g];
     const md = [`# ${G.ko} (${G.en}) — 카드 일러스트 프롬프트 (${list.length}장, 버전 ${S.version})`, "",
       `> ${G.idea_ko}`, "",
-      "## 이 등급의 연출 틀", "", "```",
+      "## 이 등급의 연출 틀 (설명용 — 그림 AI에 넣지 않는다)", "", "```",
       `Grade: ${G.tag}. ${G.presence}.`, `Camera: ${G.camera}.`, `Lighting: ${G.lighting}.`, `Background: ${G.background}.`,
       `Detail: ${G.detail}.`, ...(G.spectacle ? [`Spectacle: ${G.spectacle}.`] : []), ...(G.technique ? [`Presence technique (allowed, units): ${G.technique}.`] : []),
       G.accent ? `Grade accent: ${G.accent} (about ${G.accentShare || "15%"} of the light).` : "Grade accent: none (element colour only).", `Mood: ${G.mood}.`,
-      "```", "", "아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다. 그대로 붙여 넣으면 된다.", "", ORDER_NOTE, ""];
+      "```", "", "아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다(스페셜은 v3.95부터 이 틀을 짧게 묶어 넣음). **그림 AI에는 카드 프롬프트(``` 안) 하나만 붙여 넣는다** — 위 틀을 함께 넣으면 같은 말이 두 번 들어가 그림끼리 닮는다. 카드마다 새 대화에서 그린다.", "", ORDER_NOTE, ""];
     md.push(...sections(list, (a, b) => a.group.localeCompare(b.group) || a.lv - b.lv || a.id.localeCompare(b.id)));
     fs.writeFileSync(path.join(OUT, "grades", g + ".md"), md.join("\n"));
   }

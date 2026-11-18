@@ -2,7 +2,7 @@
 
 > 영웅 · 괴물 · 초월자의 유물. 영화의 한 장면처럼 크고 강하다. 낮은 광각, 빛줄기, 날씨와 전장의 이야기, 보랏빛 비술 알갱이.
 
-## 이 등급의 연출 틀
+## 이 등급의 연출 틀 (설명용 — 그림 AI에 넣지 않는다)
 
 ```
 Grade: EPIC — heroic and larger than life, cinematic. a heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
@@ -15,7 +15,7 @@ Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the a
 Mood: awe, momentum, overwhelming force.
 ```
 
-아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다. 그대로 붙여 넣으면 된다.
+아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다(스페셜은 v3.95부터 이 틀을 짧게 묶어 넣음). **그림 AI에는 카드 프롬프트(``` 안) 하나만 붙여 넣는다** — 위 틀을 함께 넣으면 같은 말이 두 번 들어가 그림끼리 닮는다. 카드마다 새 대화에서 그린다.
 
 **그리는 차례**: 1 그림 없는 카드 먼저 → 2 이미 그린 그림 다시 그리기는 맨 나중(Gemini 할당량이 남을 때) → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 "다시"를 읽어 이 차례로 놓는다.)
 

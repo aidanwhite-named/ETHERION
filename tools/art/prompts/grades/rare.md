@@ -2,7 +2,7 @@
 
 > 정예 · 걸작. 팩에서 나오면 눈이 가는 카드. 역동적인 구도, 깊이 있는 배경에 고향의 랜드마크 하나, 사파이어빛 에테르 알갱이와 얇은 테두리 빛.
 
-## 이 등급의 연출 틀
+## 이 등급의 연출 틀 (설명용 — 그림 AI에 넣지 않는다)
 
 ```
 Grade: RARE — an elite specialist or a masterwork, the card people notice. an elite with a signature move, or a masterwork — clearly special.
@@ -15,7 +15,7 @@ Grade accent: drifting sapphire-blue (#4ea8ff) ether motes and a thin sapphire r
 Mood: precise, impressive, prized.
 ```
 
-아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다. 그대로 붙여 넣으면 된다.
+아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다(스페셜은 v3.95부터 이 틀을 짧게 묶어 넣음). **그림 AI에는 카드 프롬프트(``` 안) 하나만 붙여 넣는다** — 위 틀을 함께 넣으면 같은 말이 두 번 들어가 그림끼리 닮는다. 카드마다 새 대화에서 그린다.
 
 **그리는 차례**: 1 그림 없는 카드 먼저 → 2 이미 그린 그림 다시 그리기는 맨 나중(Gemini 할당량이 남을 때) → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 "다시"를 읽어 이 차례로 놓는다.)
 

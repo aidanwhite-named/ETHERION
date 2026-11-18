@@ -1,6 +1,6 @@
 # ETHERION 카드 일러스트 프롬프트 가이드 — 등급별 (v1.3, 2026-11-18)
 
-> v1.3 (게임 v3.95): **스페셜 아이템은 물건용 말로** — 유닛용 줄(얼굴 · 손 · 제 힘으로 된 몸 · 요새보다 큰 키)과 깃발 종족의 몸 묘사를 빼고, `art_style.json` `grades.special`의 `itemQuality` · `itemScale` · `itemCamera` · `itemDetail` · `itemBanner`를 쓴다(종족은 손 · 팔 또는 멀리 작은 그림자까지만). 그림 지시가 있으면 "애매하면 단검 · 구슬" 대체 말을 넣지 않고, 룬 고리는 등급 표시라는 한 줄만 붙인다. 스페셜(유닛 · 아이템)의 그림 지시 · 깃발 줄에서 종족 이름(고블린 · 오크 · 노움 · 엘프 …)을 부정문까지 모두 뺐다 — 깃발 이름과 원소로 그린다. 이름에 종족이 들어간 카드만 그 종족으로. **모든 등급 공통**: 깃발 금지 줄(`flags.<깃발>.never`)에서 깃발이 종족 이름이던 때 생긴 금지(드워프 대검 · 엘프 · 숲 엘프 · 거인 · 주문책 · "신비한 마법" 전부 금지)를 빼고 원소 · 정체성 금지만 남겼다. 종류(kin) 유닛의 "옛 종족으로 그리지 말 것" 문구를 뺐고, 종류 묘사의 종족 비교("오크보다 큰" · "오크 기수" · "엘프 아님")도 지웠다. 아이템의 깃발 줄에는 종족의 몸(who · silhouette)을 넣지 않는다. 종류가 바뀐 유니크 4장(UN-A1-7 망령 · UN-A3-7 나이트엘프 · UN-G2 · UN-G2-7 트렌트)의 그림 지시를 새 종류로 고쳤다.
+> v1.3 (게임 v3.95): **스페셜 아이템은 물건용 말로** — 유닛용 줄(얼굴 · 손 · 제 힘으로 된 몸 · 요새보다 큰 키)과 깃발 종족의 몸 묘사를 빼고, `art_style.json` `grades.special`의 `itemQuality` · `itemScale` · `itemCamera` · `itemDetail` · `itemBanner`를 쓴다(종족은 손 · 팔 또는 멀리 작은 그림자까지만). 같은 깃발의 스페셜 유닛과 무대가 겹치지 않게 아이템은 **성소에 모신 유물**로 — `itemBackground`(고향 깊은 곳의 성소 · 제단, 근원은 먼 틈으로만) · `itemLighting`(유물 자체의 빛 + 위에서 한 줄기) · `itemSpectacle`(룬 고리 하나 · 빛줄기 하나) · `itemMood`. 유닛은 그대로 하늘을 채운 존재. 같은 깃발 유닛 · 아이템 프롬프트의 같은 문장이 48% → 27% 안팎. 그릴 때는 카드 프롬프트(``` 안)만 넣고, 카드마다 새 대화에서 그린다(같은 대화의 앞 그림을 따라감). **스페셜 18장은 짧은 틀**(`grades.special.compact*`): 등급 공통 줄(Quality · Lighting · Detail · Spectacle · Presence · Accent · 깃발 재료 · 상징 · 진영)을 Scale · Camera · Setting · Light and colour 네 줄로 묶고, 그림 지시 · 서사 바로 뒤에 "이 카드만의 지시가 먼저" 한 줄을 둔다. 프롬프트 약 900 → 500단어, 스페셜끼리 같은 문장 약 520 → 210단어. 카드마다 다른 것은 그림 지시 · 서사뿐이라 아이템처럼 그림 지시가 짧은 카드는 그림 지시를 길게 쓸수록 덜 닮는다. 그림 지시가 있으면 "애매하면 단검 · 구슬" 대체 말을 넣지 않고, 룬 고리는 등급 표시라는 한 줄만 붙인다. 스페셜(유닛 · 아이템)의 그림 지시 · 깃발 줄에서 종족 이름(고블린 · 오크 · 노움 · 엘프 …)을 부정문까지 모두 뺐다 — 깃발 이름과 원소로 그린다. 이름에 종족이 들어간 카드만 그 종족으로. **모든 등급 공통**: 깃발 금지 줄(`flags.<깃발>.never`)에서 깃발이 종족 이름이던 때 생긴 금지(드워프 대검 · 엘프 · 숲 엘프 · 거인 · 주문책 · "신비한 마법" 전부 금지)를 빼고 원소 · 정체성 금지만 남겼다. 종류(kin) 유닛의 "옛 종족으로 그리지 말 것" 문구를 뺐고, 종류 묘사의 종족 비교("오크보다 큰" · "오크 기수" · "엘프 아님")도 지웠다. 아이템의 깃발 줄에는 종족의 몸(who · silhouette)을 넣지 않는다. 종류가 바뀐 유니크 4장(UN-A1-7 망령 · UN-A3-7 나이트엘프 · UN-G2 · UN-G2-7 트렌트)의 그림 지시를 새 종류로 고쳤다.
 
 > v1.2 (프롬프트 g3, 게임 v3.59): **화려함 사다리**(등급마다 `Spectacle` 줄 — 한 단계씩 더 화려하게, 강조색 몫도 5 → 30%로 커짐)와 **스페셜 = 깃발마다 하나뿐인 거대한 존재**(평범한 고블린 · 오크 · 마족으로 그리지 않음, 깃발은 색 · 재료 · 상징으로만, 반쯤 가려 상상하게 하는 기법 허용).
 
@@ -45,7 +45,7 @@
 - 등급과 레벨은 따로 논다. **일반 7레벨**은 거대하지만 배경이 가깝고 장식이 실용적이다. **유니크 5레벨**은 사람 크기여도 포스터 같은 영웅 초상이다.
 - 높은 등급일수록 배경이 "가까운 벽 → 고향 → 랜드마크 → 근원 존재 → 세계 전체"로 멀고 커진다(깃발 표의 hint · home · landmark · source · mythic).
 - **화려함 사다리**(g3): 등급마다 `Spectacle` 줄이 붙는다 — 일반 없음 → 고급 반짝임 몇 점 → 레어 에테르 알갱이 · 테두리 빛 · 안개 → 에픽 빛줄기 · 오라 · 날씨 → 유니크 후광 · 불티 · 금 세공 · 근원 실루엣 → 스페셜 여러 겹 룬 고리 · 하늘을 가르는 빛기둥 · 진홍 금 오라. 늘 바로 아래 등급보다 한 단계 더, 위 등급보다는 덜.
-- **스페셜은 깃발마다 하나뿐인 존재**(g3, `docs/WORLD.md` 5장): 평범한 고블린 · 오크 · 마족으로 그리지 않는다. 제 힘으로 이루어진 몸(불 · 쇠 · 바위 · 물 · 그림자 · 빛 · 별빛)을 가진 거대한 존재로, 요새 · 군대 · 용과 견줄 크기이고 같은 깃발 에픽 · 유니크보다 확실히 강해 보여야 한다. 그림 지시(`art_notes.json`)에도 "한때 ○○였다" 같은 출신을 쓰지 않는다. 프롬프트의 Banner 줄은 `Banner it stands above`(종족의 몸 · 실루엣은 빼고 색 · 재료 · 상징만)로 바뀌고, 존재를 반쯤 가려 배경과 주변의 반응으로 크기를 상상하게 하는 `Presence technique` 줄이 붙는다.
+- **스페셜은 깃발마다 하나뿐인 존재**(g3, `docs/WORLD.md` 5장): 깃발 이름과 원소로 그린다(v3.95부터 프롬프트에 종족 이름을 부정문으로도 넣지 않는다 — 그림 AI가 오히려 끌어온다). 제 힘으로 이루어진 몸(불 · 쇠 · 바위 · 물 · 그림자 · 빛 · 별빛)을 가진 거대한 존재로, 요새 · 군대 · 용과 견줄 크기이고 같은 깃발 에픽 · 유니크보다 확실히 강해 보여야 한다. 그림 지시(`art_notes.json`)에도 "한때 ○○였다" 같은 출신을 쓰지 않는다. 프롬프트의 Banner 줄은 `Banner — {깃발} ({원소}): draw this being from the banner's name and its element`(종족의 몸 · 실루엣은 빼고 색 · 재료 · 상징만)이고, 존재를 반쯤 가려 배경과 주변의 반응으로 크기를 상상하게 하는 `Presence technique` 줄이 붙는다.
 - 모든 그림: 밤하늘 남색 바탕(`#07080d`), 글자 · 숫자 · 틀 없음, 주인공은 가운데 70%, 위 15% · 아래 20%는 비움(카드 이름 · 숫자가 덮는다).
 
 ## 1. 파일 지도
@@ -239,7 +239,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ### 스페셜 · Special — `special` (#ff4d73)
 
-최고 등급. 깃발마다 하나뿐인 신화적 존재(승천자 · 깨어난 기계 · 걸어 다니는 숲 · 용의 노래 …)와 삼좌의 유물. 깃발에서 가장 중요한 그림, 키 아트 급. 깃발의 평범한 구성원(고블린 · 오크 · 마족 …)으로 그리지 않는다 — 제 힘으로 이루어진 몸(불 · 쇠 · 바위 · 물 · 그림자 · 빛 · 별빛)을 가진 하나뿐인 존재. 요새 · 군대 · 용과 견줄 만큼 크고, 같은 깃발의 에픽 · 유니크보다 확실히 강하고 웅장해 보여야 한다. 세계 크기의 배경(하늘을 채운 근원 존재), 금빛 룬 고리 여러 겹, 하늘을 가르는 빛기둥, 진홍 · 금의 신성한 빛. 몸 전체를 다 보여 주지 않고 연기 · 빛 · 어둠에 반쯤 가려 배경과 주변의 반응으로 크기를 상상하게 해도 된다.
+최고 등급. 깃발마다 하나뿐인 신화적 존재(승천자 · 깨어난 기계 · 걸어 다니는 숲 · 용의 노래 …)와 삼좌의 유물. 깃발에서 가장 중요한 그림, 키 아트 급. 깃발 이름과 원소로 그린다 — 제 힘으로 이루어진 몸(불 · 쇠 · 바위 · 물 · 그림자 · 빛 · 별빛)을 가진 하나뿐인 존재. 요새 · 군대 · 용과 견줄 만큼 크고, 같은 깃발의 에픽 · 유니크보다 확실히 강하고 웅장해 보여야 한다. 세계 크기의 배경(하늘을 채운 근원 존재), 금빛 룬 고리 여러 겹, 하늘을 가르는 빛기둥, 진홍 · 금의 신성한 빛. 몸 전체를 다 보여 주지 않고 연기 · 빛 · 어둠에 반쯤 가려 배경과 주변의 반응으로 크기를 상상하게 해도 된다.
 
 | 항목 | 넣을 말 (영어 그대로) |
 |---|---|
@@ -253,7 +253,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 | 분위기 mood | sacred, transcendent, world-shaking |
 | 존재감 기법 technique (유닛) | the being may be partly veiled — half-hidden in smoke, light, storm or darkness, revealed by glimpses (an eye, a hand, a silhouette, a heart of light), so the viewer imagines the full colossal shape from those clues and from how the world reacts around it |
 | 마법이면 spell | a world-altering miracle |
-| 아이템이면 item | a sacred relic suspended in a pillar of divine light inside a ring of golden runes, an empty circle behind it, the world tiny below |
+| 아이템이면 item | a sacred relic resting on or floating just above an ancient altar, lit by a shaft of divine light inside a ring of golden runes, an empty circle behind it |
 
 <!-- /AUTO:GRADES -->
 
@@ -496,7 +496,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 - [ ] 깃발의 종족 · 재료 · 상징이 한눈에 보이고 "하지 말 것"을 어기지 않았다
 - [ ] 이름의 뜻이 그림에 보인다(이름만 듣고 그림을 고를 수 있을 정도)
 - [ ] 등급이 보인다 — 일반: 공들였지만 아담한 규모 · 가까운 배경 / 레어: 랜드마크 · 사파이어 테두리 / 에픽: 영화 같은 규모 / 유니크: 영웅 초상 + 근원 실루엣 / 스페셜: 하늘을 채운 근원 + 금빛 룬 고리
-- [ ] 스페셜: 같은 깃발의 에픽 · 유니크 그림과 나란히 놓으면 확실히 더 크고 강하고 화려하다. 평범한 그 종족(고블린 · 오크 · 마족 …)으로 보이지 않는다
+- [ ] 스페셜: 같은 깃발의 에픽 · 유니크 그림과 나란히 놓으면 확실히 더 크고 강하고 화려하다. 깃발의 평범한 구성원으로 보이지 않는다
 - [ ] 레벨이 보인다 — 높을수록 크고 위압적
 - [ ] 강화 카드: 원래 카드와 같은 인물로 보인다
 - [ ] 같은 깃발 · 같은 등급 카드와 나란히 놓아도 결이 같다(보드에서 확인)
@@ -669,24 +669,17 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SPECIAL — the highest grade: mythic, a one-of-a-kind being of the world or a relic of the Three Thrones, key-art quality. Mythic: a one-of-a-kind being, one of the great powers of the world, or a relic of the Three Thrones — the single most important image of its banner; it must look clearly stronger and grander than any epic or unique card of the same banner.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "철의 심장을 삼킨 자". Depict exactly what this name describes.
-Subject: a one-of-a-kind mythic being of the Sorgrim's Shield (see art direction).
+Subject: a one-of-a-kind mythic being of the Sorgrim's Shield.
 Art direction: The heart is the focus: an enormous iron heart forged from the giant Sorgrim's sinew-ore — dark adamant plates, brass valves and pistons like arteries, molten forge-light pulsing through its seams — beating at the centre of the image, larger than a forge furnace. The one who swallowed it is a colossal armoured presence that is only partly seen: his vast shape is veiled in steam, shadow and forge smoke and revealed only in glimpses — the edge of a riveted iron shoulder like a cliff, a giant gauntleted hand resting on an anvil the size of a house, two eyes glowing high above in the darkness. Hundreds of chains and pipes run from the heart up into the hidden body; let the viewer imagine the full titan from these clues. Around it stretches the underground forge-cathedral of Durkheim; rows of golems, tiny by comparison, kneel facing the heart, their own chest-lights waking in rhythm with its beat, the oldest and most patched golem kneeling closest. He ascended without any god: instead of a halo, slowly turning rings of gears and golden runes circle the heart.
-Scale (level 8 of 8): mythic and colossal, far beyond mortal scale: it towers over fortresses, armies or even dragons, the land cracks and bends around it and lesser creatures look tiny; its presence fills the sky.
-Banner — Sorgrim's Shield (metal): draw this being from the banner's name and its element. Palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams. Accents to borrow from: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams; forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 거인 소르그림의 힘줄을 녹여 벼린 철의 심장을 제 가슴에 삼킨 존재. 그 심장이 처음 뛴 날, 두르크하임의 모든 골렘이 함께 눈을 떴다. 그의 이름이 브론이었다는 것을 기억하는 것은 이제 그가 처음 빚은 골렘뿐이다.
-Camera: monumental worm's-eye angle, epic scale — the subject towers and fills about 75–85% of the frame against a world-sized backdrop, with scale cues (fortresses, armies, dragons or mountains look small beside it); light may spill to the margins but the face or heart and the core stay in the safe area.
-Lighting: divine and overwhelming: a radiant crimson-and-gold aura, light bursting from the subject itself, rays falling from above, the element light at full intensity; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
-Background: very dark night-blue (#07080d) base; world-scale: the giant Sorgrim's mountain-sized arm of iron sinew rising from the earth, and the metal dragon Feros's mirror scales reflecting a thousand forges; the land and sky visibly bending and reacting to the subject; the night sky opening with stars and golden rune circles; a faint empty circle (the sigil of the lost source-god Arche) as a halo ring; cold steel sheen, sparks from an anvil, rivets.
-Detail: transcendent: a body made of its own power (fire, iron, stone, water, shadow, light or starlight); intricate gold filigree, cathedral-level detail.
-Spectacle: the most spectacular grade, clearly beyond unique: several orbiting golden rune rings at different angles, a pillar of light splitting the sky, a radiant crimson-and-gold aura, storms of embers and ether sparks, the ground and sky reacting to its presence, layered depth in front of and behind the subject. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Presence technique (allowed): the being may be partly veiled — half-hidden in smoke, light, storm or darkness, revealed by glimpses (an eye, a hand, a silhouette, a heart of light), so the viewer imagines the full colossal shape from those clues and from how the world reacts around it.
-Grade accent: crimson-rose (#ff4d73) and gold divine light that may rival the element light, slowly turning golden rune circles, ether sky-blue (#8fdcff) sparks — the element colour stays the main light; the grade accent is a secondary touch (about 30% of the light).
+This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
+Scale: colossal, far beyond mortal scale — fortresses, armies or dragons look small beside it; it may be partly veiled in smoke, light or darkness and revealed in glimpses, so the viewer imagines its full shape.
+Camera: monumental low angle, the being fills about 75–85% of the frame; its face or heart stays in the safe area.
+Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; the giant Sorgrim's mountain-sized arm of iron sinew rising from the earth, and the metal dragon Feros's mirror scales reflecting a thousand forges.
+Light and colour: metal (#a9b4c2) light bursting from the being itself is the main light; palette steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams; several golden rune rings orbit at different angles and divine crimson-rose (#ff4d73) and gold light with ether sky-blue (#8fdcff) sparks takes about 30% of the light; the rune rings and divine light are this grade's mark, not banner spellcasting.
 Mood: sacred, transcendent, world-shaking.
-The golden rune rings and divine light are this grade's mythic mark, not banner spellcasting.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.

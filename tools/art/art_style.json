@@ -128,7 +128,7 @@
     },
     "special": {
       "ko": "스페셜", "en": "Special", "color": "#ff4d73", "tier": 6,
-      "idea_ko": "최고 등급. 깃발마다 하나뿐인 신화적 존재(승천자 · 깨어난 기계 · 걸어 다니는 숲 · 용의 노래 …)와 삼좌의 유물. 깃발에서 가장 중요한 그림, 키 아트 급. 깃발의 평범한 구성원(고블린 · 오크 · 마족 …)으로 그리지 않는다 — 제 힘으로 이루어진 몸(불 · 쇠 · 바위 · 물 · 그림자 · 빛 · 별빛)을 가진 하나뿐인 존재. 요새 · 군대 · 용과 견줄 만큼 크고, 같은 깃발의 에픽 · 유니크보다 확실히 강하고 웅장해 보여야 한다. 세계 크기의 배경(하늘을 채운 근원 존재), 금빛 룬 고리 여러 겹, 하늘을 가르는 빛기둥, 진홍 · 금의 신성한 빛. 몸 전체를 다 보여 주지 않고 연기 · 빛 · 어둠에 반쯤 가려 배경과 주변의 반응으로 크기를 상상하게 해도 된다.",
+      "idea_ko": "최고 등급. 깃발마다 하나뿐인 신화적 존재(승천자 · 깨어난 기계 · 걸어 다니는 숲 · 용의 노래 …)와 삼좌의 유물. 깃발에서 가장 중요한 그림, 키 아트 급. 깃발 이름과 원소로 그린다 — 제 힘으로 이루어진 몸(불 · 쇠 · 바위 · 물 · 그림자 · 빛 · 별빛)을 가진 하나뿐인 존재. 요새 · 군대 · 용과 견줄 만큼 크고, 같은 깃발의 에픽 · 유니크보다 확실히 강하고 웅장해 보여야 한다. 세계 크기의 배경(하늘을 채운 근원 존재), 금빛 룬 고리 여러 겹, 하늘을 가르는 빛기둥, 진홍 · 금의 신성한 빛. 몸 전체를 다 보여 주지 않고 연기 · 빛 · 어둠에 반쯤 가려 배경과 주변의 반응으로 크기를 상상하게 해도 된다.",
       "tag": "SPECIAL — the highest grade: mythic, a one-of-a-kind being of the world or a relic of the Three Thrones, key-art quality",
       "presence": "mythic: a one-of-a-kind being, one of the great powers of the world, or a relic of the Three Thrones — the single most important image of its banner; it must look clearly stronger and grander than any epic or unique card of the same banner",
       "camera": "monumental worm's-eye angle, epic scale — the subject towers and fills about 75–85% of the frame against a world-sized backdrop, with scale cues (fortresses, armies, dragons or mountains look small beside it); light may spill to the margins but the face or heart and the core stay in the safe area",
@@ -141,13 +141,25 @@
       "mood": "sacred, transcendent, world-shaking",
       "unit": "",
       "spell": "a world-altering miracle",
-      "item": "a sacred relic suspended in a pillar of divine light inside a ring of golden runes, an empty circle behind it, the world tiny below",
-      "_item_ko": "v3.95 스페셜 아이템 전용 줄(유닛용 말 대신) — 품질 · 크기 · 카메라 · 디테일 · 깃발. 종족의 몸은 넣지 않는다",
+      "item": "a sacred relic resting on or floating just above an ancient altar, lit by a shaft of divine light inside a ring of golden runes, an empty circle behind it",
+      "_item_ko": "v3.95 스페셜 아이템 전용 줄(유닛용 말 대신) — 품질 · 크기 · 카메라 · 디테일 · 깃발 · 배경 · 빛 · 화려함 · 분위기. 종족의 몸은 넣지 않는다. 같은 깃발 스페셜 유닛(하늘을 채운 존재)과 다르게 '성소에 모신 유물'로",
       "itemQuality": "Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care",
       "itemScale": "a relic small enough to hold or wear, taken from a sleeping giant or a dragon — modest in size but ancient and immensely powerful: its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item",
-      "itemCamera": "low heroic angle on the relic, which fills about 55–65% of the frame at its true size, while the world-scale backdrop behind it (the giant or dragon it came from, mountains, the open sky) shows how much it matters; the relic's glowing core stays in the safe area",
+      "itemCamera": "close, reverent eye-level or slightly low view of the relic on its altar, filling about 55–65% of the frame at its true size; the sanctum around it and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area",
       "itemDetail": "transcendent craftsmanship: the relic's own material (giant bone, adamant, storm crystal, dragon fang, living wood, pearl) rendered at cathedral-level detail, intricate gold filigree and wear that tells its age; the object itself has no face or body",
-      "itemBanner": "draw the relic from the banner's name and its element; no full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale"
+      "itemBanner": "draw the relic from the banner's name and its element; no full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale; the motifs below are small accents in the sanctum, never the scene",
+      "itemBackground": "an enshrined sanctum hidden deep within {home} — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: {source}; the night sky glimpsed only through that opening",
+      "itemLighting": "sacred and focused: light pours from the relic itself and a single shaft of divine light falls on it from above, a crimson-and-gold glow on the altar, the sanctum around it in deep shadow",
+      "itemSpectacle": "clearly beyond unique, yet quieter and more intimate than the special beings of the same banner: one slowly turning ring of golden runes around the relic, a single shaft of light, drifting ether sparks and embers, the sanctum's stones and air trembling with its power",
+      "itemMood": "sacred, reverent and ancient — the hush of a holy relic whose power could wake a giant",
+      "_compact_ko": "v3.95 스페셜 18장의 짧은 틀 — 등급 공통 말을 짧게 묶고, 카드 그림 지시 · 서사가 앞장서게. 같은 말이 18장에 되풀이되는 몫을 줄인다",
+      "compactGrade": "SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card",
+      "compactLead": "This card's own art direction and story come first — make it unlike any other card; the lines below only frame it",
+      "compactUnitScale": "colossal, far beyond mortal scale — fortresses, armies or dragons look small beside it; it may be partly veiled in smoke, light or darkness and revealed in glimpses, so the viewer imagines its full shape",
+      "compactUnitCamera": "monumental low angle, the being fills about 75–85% of the frame; its face or heart stays in the safe area",
+      "compactUnitFinish": "several golden rune rings orbit at different angles and divine crimson-rose (#ff4d73) and gold light with ether sky-blue (#8fdcff) sparks takes about 30% of the light",
+      "compactItemFinish": "one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card",
+      "compactMark": "the rune rings and divine light are this grade's mark, not banner spellcasting"
     }
   },
 
