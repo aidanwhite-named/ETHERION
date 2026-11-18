@@ -83,9 +83,24 @@ SPELLTUNE_GRADES["RS-B2-1"] = "uncommon";
     if (typeof SPELL_BRIEF !== "undefined") SPELL_BRIEF["SG1-01"] = "{적} ♥ 낮은 순으로 맨 앞부터"; }
   const mg = SIM_SPELLS.find(x => x.id === "MG-13");   // 뼈 부수기 L3 → L2 (공격 전용 마법, 효과 · 대상 그대로, 사용자)
   if (mg) mg.lv = 2;
+  /* 각성(MC-01, 무도 공격 L1 일반) → 웅크린 늑대: 방어 L2 고급(사용자). 아군 공격을 1로 묶은 만큼 상대 전체 공격 − (engine g1Crouch) */
+  const mc = SIM_SPELLS.find(x => x.id === "MC-01");
+  if (mc) { Object.assign(mc, { n: "웅크린 늑대", kind: "def", lv: 2, cost: {}, gain: {},
+      text: "아군 유닛 전체의 공격을 이번 턴 1로 고정한다. 그래서 줄어든 공격의 합만큼 상대 유닛 전체 공격 −(이번 턴).",
+      ops: [{ op: "g1Crouch" }],
+      desc: "늑대 무리가 이빨을 감추고 땅에 몸을 붙인다. 덤벼들던 적은 어디를 물어야 할지 몰라 머뭇거린다." });
+    for (const f of ["coin", "anchor", "prevText", "grp", "ccl", "dir", "v14"]) delete mc[f];
+    if (typeof SPELL_BRIEF !== "undefined") SPELL_BRIEF["MC-01"] = "{아군 전체} ⚔ 1 고정|{적 전체} ⚔ −(줄어든 합)"; }
+  /* 궁지의 송곳니(SG1-03): 맞선 상대보다 체력 낮은 아군 공 +3 → 아군 공격의 합으로 상대 맨 앞부터 공 → 방 → 체를 깎는다(사용자, 트롤 숲의 무게와 같은 틀 · 몫만 공격) */
+  const cf = SIM_SPELLS.find(x => x.id === "SG1-03");
+  if (cf) { cf.ops = [{ op: "g2Weight", pool: "a", tag: "궁지의 송곳니" }]; cf.lv = 3;   // L2 → L3 (숲의 무게 L3와 맞춤, 사용자)
+    cf.text = "아군 유닛의 공격을 모두 더한 만큼, 상대 맨 앞 유닛부터 공격 → 방어 → 체력 순으로 깎는다(공격 · 방어는 이번 턴). 다 깎아 쓰러뜨리면 남은 몫은 다음 유닛에게 넘어간다.";
+    cf.desc = "몰린 무리가 한꺼번에 송곳니를 박는다. 앞을 막은 놈부터 발톱 · 갑옷 · 숨통 순으로 뜯겨 나간다.";
+    if (typeof SPELL_BRIEF !== "undefined") SPELL_BRIEF["SG1-03"] = "{적 앞부터} ⚔ → ⛨ → ♥ 깎기|몫 = {아군} ⚔ 합 · 남으면 다음으로"; }
 })();
 SPELLTUNE_GRADES["RS-G1-1"] = "uncommon";
 SPELLTUNE_GRADES["RS-G1-3"] = "uncommon";
+SPELLTUNE_GRADES["MC-01"] = "uncommon";   // 웅크린 늑대
 // v3.95 노움 — 역회로(PS-B3-1, 스탯 돌리기) → 증폭 회로: 아군 맨 앞 2기에게 이번 턴 [증폭 1] (L2 레어, ID 그대로, 사용자).
 //   스탯 돌리기는 드워프 담금질 · 엘프 순환과 겹쳐 노움 대표 능력 [증폭]으로 바꿨다. 증폭은 걸린 뒤에 발동하는 내 마법에 붙는다(engine abilRaw의 t.gx.amp).
 (function () {

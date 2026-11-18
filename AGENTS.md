@@ -43,6 +43,7 @@
 - **피의 맹세 · 원한의 일격 (v3.87, 사용자 설계)**: 피의 맹세 RS-G1-2(전 궁지의 포효, 방어 L2 레어) — 발동할 때 살아 있는 아군마다 피 🩸 하나(`t.blood`). 결속 유닛이 쓰러지면 가진 피가 모두 바로 뒤 유닛으로(`g1OathSweep`, sweep 안 — 같이 쓰러지면 이어서 더 뒤로, 뒤가 없으면 흩어짐). 전투가 끝날 때 남의 피를 가진 생존자는 `t.keep.blood = {turn: 다음 턴, v:[{a,n}]}`(`g1OathEnd`) → 다음 턴 `resetTurn`이 공격 + 합(피 값 = 주인이 쓰러질 때 공격, 코인 몫 빼고), 그 턴 전투가 끝나면 지움. 화면: `.bd-blood` 배지, 다음 턴 준비 때 `bloodRiseFx`가 피를 하나씩 지우며 공격 숫자를 올림(연출만). 컴퓨터 점수 `evalScore`에 머금은 피 × 0.25. 원한의 일격 MG-04(전 무한한 격노, 공격 L2) — 뒤 1칸 유닛 공격 +(내 소각장의 유닛 카드 수, `g1Grudge`). 격노 NG1-1은 그대로(사용자).
 - 시험 `node tools/orc/test.js`, 승률 `node tools/orc/sim.js 150 [base|elite|덱 json] [js 폴더]`.
 - v3.83 고르바스의 발톱 마법 5장(새 카드 없이 겹치던 · 안 쓰이던 카드를 바꿈, `js/orc.js` 끝 · engine 끝 "v3.82" 절): 궁지의 송곳니(SG1-03, `g1Cornered`) · 무한한 격노(MG-04, `g1Rage` — `t.rage`면 attackOne이 수호를 건너 맨 앞 칸을 치고 보호막을 뚫음, 공격 뒤 `g1RageCost`) · 승전의 함성(PS-G1-1, `g1Victory` → 전투 끝 `g1VictoryEnd`) · 몸통 박치기(SG1-09, `g1Ram`, 2레벨) · 사냥감 몰이(SG1-01, `sortFoe` asc — 홀림 없음).
+  - **v3.95 (사용자, `js/spelltune.js` `// v3.95 오크` 절)**: 사냥감 몰이는 남은 체력만 본다(`sortFoe` `by: "hp"`). 궁지의 송곳니(L3)는 아군 **공격**의 합을 몫으로 상대 맨 앞부터 공 → 방 → 체를 깎는다(트롤 숲의 무게 `g2Weight`에 `pool: "a"`). 각성(MC-01) → **웅크린 늑대**(방어 L2 고급, `g1Crouch`: 아군 공격 이번 턴 1로 고정 · 줄어든 합만큼 상대 전체 공격 −). 늑대 기습 · 대지 가르기 고급, 뼈 부수기 L2.
 - **카드 이름 · 효과를 바꾸면 그림 · 소리 프롬프트를 다시 뽑고**(`node tools/art/build_prompts.js` · `node tools/sfx/build_sfx_prompts.js`, 마법 · 아이템 장면은 `tools/art/art_notes.json`), 이미 있는 그림 · 소리 파일이 옛 카드 것이면 **`tools/REMAKE.md`(다시 만들 목록)** 에 프롬프트와 함께 올린다. 만들어 넣은 항목은 거기서 지운다.
 
 ## 푸른비늘 인어 — 치유와 환상 (v3.68)

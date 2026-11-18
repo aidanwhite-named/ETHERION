@@ -19,8 +19,8 @@
 | 등급 | 색 | 장수 | 유닛 · 마법 · 아이템 | 등급별 프롬프트 파일 |
 |---|---|---|---|---|
 | 소환물 (Summoned token) | `#8fdcff` | 17 | 13 · 4 · 0 | `prompts/grades/token.md` |
-| 일반 (Common) | `#f4f1ea` | 363 | 212 · 111 · 40 | `prompts/grades/common.md` |
-| 고급 (Superior) | `#f2cf3d` | 129 | 78 · 35 · 16 | `prompts/grades/uncommon.md` |
+| 일반 (Common) | `#f4f1ea` | 362 | 212 · 110 · 40 | `prompts/grades/common.md` |
+| 고급 (Superior) | `#f2cf3d` | 130 | 78 · 36 · 16 | `prompts/grades/uncommon.md` |
 | 레어 (Rare) | `#4ea8ff` | 58 | 9 · 40 · 9 | `prompts/grades/rare.md` |
 | 강화 (Empowered) | `#3fe0c0` | 40 | 40 · 0 · 0 | `prompts/grades/upgrade.md` |
 | 에픽 (Epic) | `#b46cff` | 63 | 36 · 18 · 9 | `prompts/grades/epic.md` |

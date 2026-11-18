@@ -1,4 +1,4 @@
-# 일반 (Common) — 카드 일러스트 프롬프트 (363장, 버전 g3)
+# 일반 (Common) — 카드 일러스트 프롬프트 (362장, 버전 g3)
 
 > 그 깃발의 평범한 구성원 · 흔한 마법 · 손때 묻은 물건. 완성도는 다른 등급과 같다 — 얼굴 · 손 · 재질 · 빛을 공들여 그리고, 성격이 보이는 표정과 분명한 동작, 그 깃발 세상의 한 구석이 실제로 보이는 배경. 다른 점은 규모뿐: 몸집이 작고, 배경이 가깝고 아담하며, 신비한 장식 · 등급 강조색이 없다.
 
@@ -19,7 +19,7 @@ Mood: lively, honest, frontline.
 
 **그리는 차례**: 1 그림 없는 카드 먼저 → 2 이미 그린 그림 다시 그리기는 맨 나중(Gemini 할당량이 남을 때) → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 "다시"를 읽어 이 차례로 놓는다.)
 
-## 1. 그림 없는 카드 — 먼저 그린다 · 362장
+## 1. 그림 없는 카드 — 먼저 그린다 · 361장
 
 ### A1-04 · 피의 박쥐 떼
 모르카스의 그믐 · 유닛 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/A1-04.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A1-04.jpg` 600×750)
@@ -6375,31 +6375,6 @@ Creature kind — Hyena: spotted steppe hyenas of Garun with high shoulders slop
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 결투장의 함성이 들리면 어디선가 나타나 울타리 밖을 맴돈다. 끝난 싸움의 뼈까지 깨끗이 치우는 것이 그들 몫이다.
-Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
-Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
-Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.
-Detail: fully rendered, believable gear with wear, stitching, dents and soot — practical rather than ornate; expressive face and hands.
-Spectacle: none beyond the element glow — no magical ornaments, no aura, no floating particles. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Mood: lively, honest, frontline.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-### MC-01 · 각성
-고르바스의 발톱 · 공격 마법 · 레벨 1 · 일반 — 받은 그림은 `tools/art/inbox/MC-01.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MC-01.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: COMMON — grounded, honest, everyday. An ordinary member of the banner caught in a vivid moment of their work — characterful, believable and beautifully painted; smaller in scale than higher grades, never less finished.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "각성". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: an empowering earth aura rising around allied warriors. Scale and finish: a single clean, beautifully rendered effect on one or two targets, small in scale but vivid, with layered light and particles.
-Scale (level 1 of 8): a small, local effect.
-Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 아군 맨 앞 2기 공격 +1 +1C, 체력 +2.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (tall dry grass and a hide tent) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; flying rock dust, cracked ground, ochre light.

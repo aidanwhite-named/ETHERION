@@ -1124,33 +1124,6 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-### SG1-03 · 궁지의 송곳니
-고르바스의 발톱 · 공격 마법 · 레벨 2 · 레어 — 받은 그림은 `tools/art/inbox/SG1-03.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG1-03.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: RARE — an elite specialist or a masterwork, the card people notice. An elite with a signature move, or a masterwork — clearly special.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "궁지의 송곳니". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a burst of earth power. Scale and finish: a sweeping effect that reshapes part of the battlefield, layered energies and motion trails.
-Scale (level 2 of 8): a small, local effect.
-Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 몰린 오크는 물러서지 않는다. 피를 더 흘린 쪽의 송곳니가 더 깊이 박힌다.
-Game effect (Korean, mood only — never draw text or numbers): 아군 유닛마다, 맞선 상대 유닛(대기열 같은 차례)보다 남은 체력이 낮으면 공격 +3.
-Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
-Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
-Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; flying rock dust, cracked ground, ochre light.
-Detail: fine filigree and engraved patterns on gear, crisp material rendering (metal, scale, cloth, bark, horn).
-Spectacle: drifting ether motes, a crisp rim light, volumetric haze and sparkling highlights — clearly a step above superior. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: drifting sapphire-blue (#4ea8ff) ether motes and a thin sapphire rim on the silhouette — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
-Mood: precise, impressive, prized.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
 ### IR-G1 · 잿갈기 문신
 고르바스의 발톱 · 아이템 · 레벨 3 · 레어 — 받은 그림은 `tools/art/inbox/IR-G1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/IR-G1.jpg` 600×750)
 
@@ -1164,6 +1137,34 @@ Scale (level 3 of 8): a fine object with a faint aura.
 Banner — Gorvath's Claw: powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair. Silhouette: massive shoulders and oversized fists; riders on giant wolves or bears. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 잿갈기 카르노의 결투를 지켜본 자만 새길 수 있는 문신. 새긴 날부터 칼끝이 급소를 찾는다.
+Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
+Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
+Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; flying rock dust, cracked ground, ochre light.
+Detail: fine filigree and engraved patterns on gear, crisp material rendering (metal, scale, cloth, bark, horn).
+Spectacle: drifting ether motes, a crisp rim light, volumetric haze and sparkling highlights — clearly a step above superior. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: drifting sapphire-blue (#4ea8ff) ether motes and a thin sapphire rim on the silhouette — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
+Mood: precise, impressive, prized.
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+### SG1-03 · 궁지의 송곳니
+고르바스의 발톱 · 공격 마법 · 레벨 3 · 레어 — 받은 그림은 `tools/art/inbox/SG1-03.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG1-03.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: RARE — an elite specialist or a masterwork, the card people notice. An elite with a signature move, or a masterwork — clearly special.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "궁지의 송곳니". Depict exactly what this name describes.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a burst of earth power. Scale and finish: a sweeping effect that reshapes part of the battlefield, layered energies and motion trails.
+Art direction: Cornered fang (v3.95): a cornered pack of orcs and wolves surges forward as one at the foremost enemy (dark silhouette); in one sweep the bites tear away its weapon, then its armour plates, then reach its throat, and the leftover momentum already lunges at the next enemy behind. Motion-blurred fangs and claws, dust, brutal frontal composition.
+Scale (level 3 of 8): an effect over a few targets.
+Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
+Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Lore (Korean, use for the scene): 몰린 무리가 한꺼번에 송곳니를 박는다. 앞을 막은 놈부터 발톱 · 갑옷 · 숨통 순으로 뜯겨 나간다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 유닛의 공격을 모두 더한 만큼, 상대 맨 앞 유닛부터 공격 → 방어 → 체력 순으로 깎는다(공격 · 방어는 이번 턴). 다 깎아 쓰러뜨리면 남은 몫은 다음 유닛에게 넘어간다.
 Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
 Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; flying rock dust, cracked ground, ochre light.

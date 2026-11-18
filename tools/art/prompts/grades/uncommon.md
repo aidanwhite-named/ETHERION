@@ -1,4 +1,4 @@
-# 고급 (Superior) — 카드 일러스트 프롬프트 (129장, 버전 g3)
+# 고급 (Superior) — 카드 일러스트 프롬프트 (130장, 버전 g3)
 
 > 검증된 베테랑 · 잘 만든 물건. 일반보다 장비가 좋고 자세가 자신 있다. 고향의 한 조각이 흐릿하게 보이고, 장식 끝에 따뜻한 금빛이 조금.
 
@@ -19,7 +19,7 @@ Mood: proven, capable, confident.
 
 **그리는 차례**: 1 그림 없는 카드 먼저 → 2 이미 그린 그림 다시 그리기는 맨 나중(Gemini 할당량이 남을 때) → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 "다시"를 읽어 이 차례로 놓는다.)
 
-## 1. 그림 없는 카드 — 먼저 그린다 · 129장
+## 1. 그림 없는 카드 — 먼저 그린다 · 130장
 
 ### A1-01 · 계약의 저주 인형
 모르카스의 그믐 · 유닛 · 레벨 1 · 고급 — 받은 그림은 `tools/art/inbox/A1-01.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/A1-01.jpg` 600×750)
@@ -2305,6 +2305,34 @@ Creature kind — Centaur: steppe centaurs: a weathered, war-painted human upper
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 울부짖는 초원을 오크보다 먼저 달린 사냥꾼. 하루 종일 바람을 등지고 달리다가, 활시위는 단 한 번 당긴다.
+Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
+Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
+Mood: proven, capable, confident.
+Stay true to the banner: no high-tech machinery, no elegant plate armour, no magic circles (shamans use drums, bones and earth).
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+### MC-01 · 웅크린 늑대
+고르바스의 발톱 · 방어 마법 · 레벨 2 · 고급 — 받은 그림은 `tools/art/inbox/MC-01.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/MC-01.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "웅크린 늑대". Depict exactly what this name describes.
+Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: a burst of earth power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Art direction: Crouching wolves (v3.95): a pack of grey wolves and Rockfist orc hunters press flat to the ground in tall dry grass, fangs hidden, ears back, coiled and silent; facing them a line of enemy warriors (dark silhouettes) hesitate, weapons lowered and wavering, unsure where to strike. Low eye-level, tense calm before the spring, ochre dusk light.
+Scale (level 2 of 8): a small, local effect.
+Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
+Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Lore (Korean, use for the scene): 늑대 무리가 이빨을 감추고 땅에 몸을 붙인다. 덤벼들던 적은 어디를 물어야 할지 몰라 머뭇거린다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 유닛 전체의 공격을 이번 턴 1로 고정한다. 그래서 줄어든 공격의 합만큼 상대 유닛 전체 공격 −(이번 턴).
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.

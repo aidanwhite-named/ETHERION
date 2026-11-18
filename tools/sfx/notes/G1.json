@@ -267,9 +267,9 @@
    "def": "a thick coarse mane takes the hit: a heavy thump, a low rumbling growl turning into a menacing titter, paws digging into dirt"
   },
   "MC-01": {
-   "en": "Awakening",
-   "ko": "앞선 전사의 눈빛과 땅의 힘이 깨어남",
-   "cast": "a faint earthy hum stirs beneath the ground, small stones tremble and click, then a heart-like low throb swells, finishing in a warm rising rumble and a soft crackle of power"
+   "en": "Crouching Wolves",
+   "ko": "늑대 무리가 이빨을 감추고 엎드리자 적의 칼끝이 머뭇거림 (v3.95 전 각성)",
+   "cast": "a pack of wolves sinks low with a soft rustle of fur and dry grass, a long held low growl hums under the breath, then a muffled sagging whoosh as enemy blades falter and droop, ending in a tense hush"
   },
   "MG-01": {
    "en": "Fang Charge",
@@ -298,8 +298,8 @@
   },
   "SG1-03": {
    "en": "Cornered Fang",
-   "ko": "몰린 오크의 송곳니가 길어짐",
-   "cast": "a ragged wounded breath, then a low snarl that sharpens into a vicious bark, teeth grinding and a wet heavy chomp"
+   "ko": "몰린 무리가 한꺼번에 맨 앞 적의 무기 · 갑옷 · 숨통을 차례로 뜯음 (v3.95)",
+   "cast": "a pack lunges with a sudden snarl, three rapid snapping bites in a row, claws scraping metal, armour ripping with a tearing rasp, a wet crunch at the throat, then a heavy body thuds down as the growl rushes on"
   },
   "SG1-04": {
    "en": "Prey Mark",

@@ -38,16 +38,31 @@ ok(CARDS['M2-1'].item.shred && c.ev('itemAbilities(CARDS["M2-1"].item)').include
   const X = c.ev('ctx')(P, 1, 1, []); c.ev('castSpell')(X, 1, P[1].field[0], 1);
   ok(P[0].field.every(u => !u || !u.t.alive), '숨통 끊기: 체력 1 상대 전체 쓰러짐'); }
 // ---------- v3.82 고르바스의 발톱: 기존 카드 5장을 바꿈 (궁지의 송곳니 · 승전의 함성 · 몸통 박치기 · 사냥감 몰이) ----------
-{ const G = c.ev('gradeOf'), want = { 'SG1-03': ['궁지의 송곳니', 'atk', 2, 'rare'], 'PS-G1-1': ['승전의 함성', 'atk', 1, 'common'], 'SG1-09': ['몸통 박치기', 'atk', 2, 'uncommon'], 'SG1-01': ['사냥감 몰이', 'any', 1, 'common'] };
+{ const G = c.ev('gradeOf'), want = { 'SG1-03': ['궁지의 송곳니', 'atk', 3, 'rare'], 'PS-G1-1': ['승전의 함성', 'atk', 1, 'common'], 'SG1-09': ['몸통 박치기', 'atk', 2, 'uncommon'], 'SG1-01': ['사냥감 몰이', 'any', 1, 'common'] };
   for (const id in want) { const [nm, ty, lv, gr] = want[id], x = CARDS[id]; ok(x.name === nm && x.type === ty && x.lv === lv && G(id) === gr && x.group === 'G1', `${id} ${nm} · ${ty} · L${lv} · ${gr} (${x.name} ${x.type} L${x.lv} ${G(id)})`); } }
 /* 유닛 스탯을 정해 둔다: [공, 방, 체] */
 c.ev(`this.setU=function(u,s){ u.t.a=s[0]; u.t.d=s[1]; u.t.h=s[2]; u.t.dmg=0; u.t.noCoin=true; u.t.shield=false; u.t.taunt=false; u.t.ward=0; u.t.thorns=0; };`);
 const hp = u => c.ev('hpLeft')(u);
-// 궁지의 송곳니: 대기열 같은 차례끼리 견줘 체력이 낮은 아군만 공격 +3
+// 궁지의 송곳니(v3.95): 아군 공격의 합을 몫으로 상대 맨 앞부터 공 → 방 → 체를 깎고, 쓰러뜨리면 남은 몫은 다음 유닛에게
 { const P = [c.side(0, ['SG1-03', 'G1-01', 'G1-03'], 30), c.side(1, ['G1-01', 'G1-03'], 30)]; c.prep(P);
-  c.setU(P[0].field[1], [2, 0, 3]); c.setU(P[0].field[2], [2, 0, 10]); c.setU(P[1].field[0], [1, 0, 5]); c.setU(P[1].field[1], [1, 0, 5]);
+  c.setU(P[0].field[1], [3, 0, 2]); c.setU(P[0].field[2], [4, 0, 9]); c.setU(P[1].field[0], [2, 1, 3]); c.setU(P[1].field[1], [5, 2, 9]);
   const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1);
-  ok(P[0].field[1].t.a === 5 && P[0].field[2].t.a === 2, '궁지의 송곳니: 체력 3 < 5 → 공 +3, 체력 10 > 5 → 그대로 (' + P[0].field[1].t.a + ' / ' + P[0].field[2].t.a + ')'); }
+  const [e1, e2] = P[1].field;
+  ok(!e1.t.alive, '궁지의 송곳니: 몫 7 → 1번 공 2 · 방 1 · 체 3을 깎아 쓰러뜨림');
+  ok(e2.t.a === 4 && e2.t.d === 2 && hp(e2) === 9, '남은 몫 1 → 2번 공격 5 → 4 (' + e2.t.a + '/' + e2.t.d + '/' + hp(e2) + ')');
+  ok(P[0].field[1].t.a === 3 && hp(P[0].field[1]) === 2, '아군 스탯은 그대로 (몫으로 쓰기만)'); }
+{ const G = c.ev('gradeOf'), x = CARDS['SG1-03'];
+  ok(x.name === '궁지의 송곳니' && x.type === 'atk' && x.lv === 3 && G('SG1-03') === 'rare' && /공격을 모두 더한/.test(x.text), '궁지의 송곳니: 공격 L3 레어 · 새 글'); }
+// 웅크린 늑대(MC-01, 전 각성): 아군 공격 1로 고정 → 줄어든 합만큼 상대 전체 공격 −
+{ const G = c.ev('gradeOf'), x = CARDS['MC-01'];
+  ok(x.name === '웅크린 늑대' && x.type === 'def' && x.lv === 2 && G('MC-01') === 'uncommon', '웅크린 늑대: 방어 L2 고급 (' + x.name + ' ' + x.type + ' L' + x.lv + ' ' + G('MC-01') + ')'); }
+{ const P = [c.side(0, ['MC-01', 'G1-01', 'G1-03', 'G1-04'], 30), c.side(1, ['G1-01', 'G1-03'], 30)]; c.prep(P);
+  const A = P[0].field.slice(1, 4); c.setU(A[0], [5, 0, 5]); c.setU(A[1], [3, 0, 5]); c.setU(A[2], [1, 0, 5]);
+  c.setU(P[1].field[0], [8, 0, 5]); c.setU(P[1].field[1], [4, 0, 5]);
+  const X = c.ev('ctx')(P, 1, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1);
+  ok(A.every(u => u.t.a === 1), '아군 공격 모두 1 (' + A.map(u => u.t.a).join('/') + ')');
+  ok(P[1].field[0].t.a === 2 && P[1].field[1].t.a === 0, '줄어든 4 + 2 = 6 → 상대 공격 8 → 2, 4 → 0 (0 아래로 안 내려감) (' + P[1].field[0].t.a + '/' + P[1].field[1].t.a + ')');
+  c.ev('addStat')(X, A[0], 'a', 3); ok(A[0].t.a === 1, '이번 턴 고정: 뒤에 공격 +3이 와도 1'); }
 // (무한한 격노 MG-04는 v3.87에 원한의 일격으로 바뀜 — 아래 v3.87 시험)
 // 승전의 함성: 전투가 끝날 때 살아남은 아군 수만큼 상대 생명 −
 { const P = [c.side(0, ['PS-G1-1', 'G1-01', 'G1-01', 'G1-03'], 30), c.side(1, [], 30)]; c.prep(P);

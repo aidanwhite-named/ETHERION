@@ -2505,6 +2505,20 @@ Object.assign(SPELL_OPS, {
     lg(X, n ? `[궁지의 송곳니] 맞선 상대보다 체력이 낮은 아군 ${n}기 공격 +${op.a || 3}` : "[궁지의 송곳니] 맞선 상대보다 체력이 낮은 아군이 없다", n ? "spell" : "sys");
     if (!n) fl(X, it.uid, "궁지 아님", "miss");
   },
+  /* v3.95 오크 웅크린 늑대(MC-01) g1Crouch: 아군 유닛 전체의 공격을 이번 턴 1로 고정(pin L 1)하고,
+     그래서 줄어든 공격의 합 D만큼 상대 유닛 전체 공격 −D(이번 턴). 공격이 1 이하던 유닛은 D에 보태지 않는다(올라간 몫은 빼지 않음) */
+  g1Crouch(X, caster, it, k, op) {
+    const M = liveUnits(X.P[caster]);
+    if (!M.length) { fl(X, it.uid, "아군 없음", "miss"); return; }
+    const b = M.map(u => u.t.a);
+    SPELL_OPS.pin(X, caster, it, k, { side: "ally", area: { t: "all" }, st: ["a"], m: "L", v: 1 });
+    const D = M.reduce((s, u, i) => s + Math.max(0, b[i] - u.t.a), 0);
+    if (!D) { lg(X, "[웅크린 늑대] 줄어든 아군 공격이 없어 상대 공격도 그대로", "sys"); fl(X, it.uid, "줄어든 공격 0", "miss"); return; }
+    lg(X, `[웅크린 늑대] 아군 공격이 1로 묶이며 줄어든 ${D}만큼 상대 유닛 전체 공격 −${D}`, "spell");
+    step(X, {}, 260);
+    const F = X.P[1 - caster];
+    for (const v of uEyeFilter(X, F, liveUnits(F))) { const c = Math.min(D, Math.max(0, v.t.a)); if (c > 0) addStat(X, v, "a", -c); }   // 0 아래로는 내리지 않는다
+  },
   g1Rage(X, caster, it, k, op) {
     const L = pickTargets(X, caster, op.side || "ally", op.area || { t: "back", n: 1 }, k);
     if (!L.length) { fl(X, it.uid, "대상 없음", "miss"); return; }
@@ -2526,9 +2540,10 @@ Object.assign(SPELL_OPS, {
     for (const u of M) { if (!u.t.alive) continue; u.t.dmg += n; fl(X, u.uid, "박치기 ♥−" + n, "debuff"); if (hpLeft(u) <= 0) { u.t.alive = false; lgDeath(X, u); } }
   },
   g2Weight(X, caster, it, k, op) {
-    let x = liveUnits(X.P[caster]).reduce((s, u) => s + Math.max(0, hpLeft(u)), 0);
-    if (!x) { fl(X, it.uid, "아군 없음", "miss"); return; }
-    lg(X, `[숲의 무게] 아군 체력의 합 ${x} → 상대 맨 앞부터 공격 → 방어 → 체력 순으로 깎는다`, "spell");
+    const byA = op.pool === "a", tag = op.tag || "숲의 무게";   // v3.95 오크 궁지의 송곳니: pool "a" = 아군 공격의 합
+    let x = liveUnits(X.P[caster]).reduce((s, u) => s + Math.max(0, byA ? u.t.a : hpLeft(u)), 0);
+    if (!x) { fl(X, it.uid, byA ? "아군 공격 0" : "아군 없음", "miss"); return; }
+    lg(X, `[${tag}] 아군 ${byA ? "공격" : "체력"}의 합 ${x} → 상대 맨 앞부터 공격 → 방어 → 체력 순으로 깎는다`, "spell");
     for (const u of queueOf(X.P[1 - caster])) {
       if (x <= 0) break;
       for (const st of ["a", "d"]) {   // v3.83 공 → 방 → 체: 깎을 몫만큼 쓴다(고정 · 저주 면역으로 덜 깎여도 그 스탯이 몫을 받아 낸다)
@@ -2538,7 +2553,7 @@ Object.assign(SPELL_OPS, {
       }
       if (x <= 0) break;
       const need = hpLeft(u) + (u.t.ward && !u.t.wardUsed ? u.t.ward : 0), blocked = u.t.shield === true;
-      hurt(X, u, x, "숲의 무게");
+      hurt(X, u, x, tag);
       if (blocked || u.t.alive) break;
       x -= need; step(X, {}, 240);
     }
