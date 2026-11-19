@@ -1,7 +1,7 @@
 ﻿card_id,name,grade,grade_ko,group,type,lv,base,status,image,art_ver,prompt_ver,source_file,model,added,note
-UN-A1,피의 서약자,unique,유니크,A1,unit,6,,없음,,,g3,,,,
+UN-A1,피의 서약자,unique,유니크,A1,unit,6,,들어감,img/cards/UN-A1.jpg,g3,g3,UN-A1.jpg,gemini-3.1-flash-image,2026-11-19 23:49,
 UN-A1-7,모르카스의 영혼 수확자,unique,유니크,A1,unit,6,,없음,,,g3,,,,
-UN-A2,엘라드의 날개 방패,unique,유니크,A2,unit,6,,없음,,,g3,,,,
+UN-A2,엘라드의 날개 방패,unique,유니크,A2,unit,6,,들어감,img/cards/UN-A2.jpg,g3,g3,UN-A2.jpg,gemini-3.1-flash-image,2026-11-19 23:49,
 UN-A2-7,솔란테의 새벽 사제,unique,유니크,A2,unit,6,,없음,,,g3,,,,
 UN-A3,바늘탑 별지기,unique,유니크,A3,unit,6,,없음,,,g3,,,,
 UN-A3-7,벨루미르의 주문 사냥꾼,unique,유니크,A3,unit,6,,없음,,,g3,,,,

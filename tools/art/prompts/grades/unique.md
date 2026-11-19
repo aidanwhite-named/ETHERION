@@ -19,34 +19,7 @@ Mood: legendary, commanding, personal.
 
 **그리는 차례**: 1 그림 없는 카드 먼저(**유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물** 순) → 2 다시 그리기 → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 "다시"를 읽어 이 차례로 놓는다.)
 
-## 1. 그림 없는 카드 — 먼저 그린다 · 18장
-
-### UN-A1 · 피의 서약자
-모르카스의 그믐 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-A1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-A1.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: UNIQUE — a named legend of the banner, iconic hero portrait. A named legend of this banner — iconic and instantly recognisable, a hero image you would hang as a poster.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "피의 서약자". Depict exactly what this name describes.
-Subject: a legendary, named member of the Morkas's New Moon (see art direction).
-Art direction: A demon writing his oath in his own blood with the edge of his blade; a crimson thread of the contract links his sword to his distant foe.
-Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 녹타르 심연 계약단에서 제 피로 서약서를 쓴 마족. 그 칼에 베인 자는 계약의 값을 함께 치른다.
-Camera: centred heroic portrait, near-symmetrical, subject about 70% of the frame, looking slightly down toward the viewer, a strong iconic silhouette.
-Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
-Background: very dark night-blue (#07080d) base; the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; behind it, faint and colossal, the banner's source: the god Morkas, the Silent Lord — a faceless shadow king holding balanced scales, eyes closed; violet shadow smoke, blood-red accents, contract sigils.
-Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
-Mood: legendary, commanding, personal.
-Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
+## 1. 그림 없는 카드 — 먼저 그린다 · 16장
 
 ### UN-A1-7 · 모르카스의 영혼 수확자
 모르카스의 그믐 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-A1-7.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-A1-7.jpg` 600×750)
@@ -71,33 +44,6 @@ Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigre
 Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-### UN-A2 · 엘라드의 날개 방패
-솔란테의 새벽 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-A2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-A2.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: UNIQUE — a named legend of the banner, iconic hero portrait. A named legend of this banner — iconic and instantly recognisable, a hero image you would hang as a poster.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "엘라드의 날개 방패". Depict exactly what this name describes.
-Subject: a legendary, named member of the Solante's Dawn (see art direction).
-Art direction: A radiant knight of Elad spreading her wings like a shield in front of her comrades, arrows breaking against the feathers.
-Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Solante's Dawn: seraphs with white feathered wings and halos, and human knights of the Radiant Order. Silhouette: upright and protective; wings spread wide behind great shields. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 새벽성 엘라드의 성광 기사. 동료 앞에 날개를 펼쳐 대신 맞는다.
-Camera: centred heroic portrait, near-symmetrical, subject about 70% of the frame, looking slightly down toward the viewer, a strong iconic silhouette.
-Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
-Background: very dark night-blue (#07080d) base; the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; behind it, faint and colossal, the banner's source: the goddess Solante, Mother of Dawn — a radiant woman with six wings of light; pale gold radiance, halo, feathers of light.
-Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
-Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
-Mood: legendary, commanding, personal.
-Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -510,6 +456,62 @@ Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigre
 Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
 Mood: legendary, commanding, personal.
 Stay true to the banner: no fire, no heavy plate armour.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 2장
+
+### UN-A1 · 피의 서약자 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-A1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-A1.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: UNIQUE — a named legend of the banner, iconic hero portrait. A named legend of this banner — iconic and instantly recognisable, a hero image you would hang as a poster.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "피의 서약자". Depict exactly what this name describes.
+Subject: a legendary, named member of the Morkas's New Moon (see art direction).
+Art direction: A demon writing his oath in his own blood with the edge of his blade; a crimson thread of the contract links his sword to his distant foe.
+Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
+Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
+Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 녹타르 심연 계약단에서 제 피로 서약서를 쓴 마족. 그 칼에 베인 자는 계약의 값을 함께 치른다.
+Camera: centred heroic portrait, near-symmetrical, subject about 70% of the frame, looking slightly down toward the viewer, a strong iconic silhouette.
+Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
+Background: very dark night-blue (#07080d) base; the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; behind it, faint and colossal, the banner's source: the god Morkas, the Silent Lord — a faceless shadow king holding balanced scales, eyes closed; violet shadow smoke, blood-red accents, contract sigils.
+Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
+Mood: legendary, commanding, personal.
+Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+### UN-A2 · 엘라드의 날개 방패 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 6 · 유니크 — 받은 그림은 `tools/art/inbox/UN-A2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UN-A2.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: UNIQUE — a named legend of the banner, iconic hero portrait. A named legend of this banner — iconic and instantly recognisable, a hero image you would hang as a poster.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Card name (Korean — read its meaning, never write it in the image): "엘라드의 날개 방패". Depict exactly what this name describes.
+Subject: a legendary, named member of the Solante's Dawn (see art direction).
+Art direction: A radiant knight of Elad spreading her wings like a shield in front of her comrades, arrows breaking against the feathers.
+Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
+Banner — Solante's Dawn: seraphs with white feathered wings and halos, and human knights of the Radiant Order. Silhouette: upright and protective; wings spread wide behind great shields. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
+Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 새벽성 엘라드의 성광 기사. 동료 앞에 날개를 펼쳐 대신 맞는다.
+Camera: centred heroic portrait, near-symmetrical, subject about 70% of the frame, looking slightly down toward the viewer, a strong iconic silhouette.
+Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
+Background: very dark night-blue (#07080d) base; the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; behind it, faint and colossal, the banner's source: the goddess Solante, Mother of Dawn — a radiant woman with six wings of light; pale gold radiance, halo, feathers of light.
+Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
+Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
+Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
+Mood: legendary, commanding, personal.
+Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
