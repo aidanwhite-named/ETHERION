@@ -69,9 +69,9 @@ const TROLL_GRADES = { "US-G2-1": "uncommon", "SG2-08": "epic" };
       ops: [{ op: "negate", n: 1 }, { op: "negBuff", side: "ally", area: { t: "front", n: 2 }, a: 1, h: 2 }],
       brief: "{적 마법1} [무효]|무효로 했으면 {아군 앞2} ⚔+1 ♥+2" },
     "PS-G2-1": {           // 나이테: 아군 전체 → 아군 유닛 1
-      text: "아군 뒤 1칸의 유닛 체력 +2, 이번 턴 [버팀: 체력], 방어 +1.",
+      text: "아군 뒤 1칸의 유닛 체력 +2, 방어 +1. 그 유닛의 체력은 이번 턴 줄지 않는다(피해 제외).",
       ops: [{ op: "mod", side: "ally", area: B1, h: 2 }, { op: "pin", side: "ally", area: B1, st: ["h"], m: "U" }, { op: "mod", side: "ally", area: B1, d: 1 }],
-      brief: "{아군 뒤1} ♥+2 [버팀: 체력] ⛨+1" },
+      brief: "{아군 뒤1} ♥+2 ⛨+1|이번 턴 ♥ 줄지 않음" },
     "RS-G2-2": {           // 가시 덤불: 맨 앞 2기 → 아군 전체(v3.85.1)
       text: "아군 전체 체력 +3, [가시 2].",
       ops: [{ op: "mod", side: "ally", area: { t: "all" }, h: 3 }, { op: "thorns", side: "ally", area: { t: "all" }, x: 2 }],

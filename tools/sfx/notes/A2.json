@@ -70,7 +70,7 @@
   "A2-17": {
    "en": "Truth-Seeking Sphinx",
    "ko": "물음 뒤 앞발 내리침 · 석상처럼 엎드려 받음",
-   "atk": "a low humming voice poses a question, a pause, then a heavy lion paw drops with a stone-dense thud and a rustle of folding wings",
+   "atk": "a low resonant stone hum hangs in the air, a tense pause, then a heavy lion paw drops with a stone-dense thud and a rustle of folding wings",
    "def": "the sphinx settles low like a carved statue: a deep solid thump, a slow wing rustle, a calm resonant hum"
   },
   "A2-20": {
@@ -118,7 +118,7 @@
   "A2-29": {
    "en": "Dawn Citadel Valkyrie Captain",
    "ko": "날개 치며 창 휘두름 · 낡은 방패가 세월 소리로 받음",
-   "atk": "broad wings beat in a strong rhythm, a long spear sweeps in a heavy arc with a deep whoosh, then lands with a solid ringing crack",
+   "atk": "broad wings beat in a strong cadence, a long spear sweeps in a heavy arc with a deep whoosh, then lands with a solid ringing crack",
    "def": "a battered round shield takes the blow with a seasoned clang, old armour creaking, wings settling with a calm rustle"
   },
   "A2-30": {
@@ -130,7 +130,7 @@
   "A2-31": {
    "en": "Four-Faced Cherub",
    "ko": "네 얼굴이 함께 포효 · 네 날개 겹쳐 막음",
-   "atk": "four voices roar at once, lion, eagle, ox and a solemn chant, four wings beat, then a heavy bronze-bright impact rings out",
+   "atk": "a lion roar, an eagle screech, an ox snort and a deep solemn bell strike together, four great wings beat, then a heavy bronze-bright impact rings out",
    "def": "four wings fold in layers around the body: thick overlapping feather rushes, a deep bronze clang, a low four-toned hum"
   },
   "A2-33": {
@@ -159,13 +159,13 @@
   },
   "A2-42": {
    "en": "Executioner of Heaven",
-   "ko": "하늘에서 흑요 칼로 한 번 내려침 · 피가 멎지 않음 · 얇은 몸이 번쩍하고 쓰러짐",
+   "ko": "하늘에서 흑요 칼로 내려침 · 얇은 몸이 번쩍 쓰러짐",
    "atk": "a long obsidian executioner's blade is raised high and plunges with a falling whistle, one heavy cleaving chop, then a bright flash of light and a slow dripping bleed",
    "def": "a lightly built body folds under the blow with a thin metallic clatter, wing feathers scattering and a short fading ring"
   },
   "A2-43": {
    "en": "Flame Wing Martyr",
-   "ko": "불꽃 날개로 내리꽂는 칼 · 맑은 성광 울림 (v3.90 공격 소리 바꿈)",
+   "ko": "불꽃 날개로 내리꽂는 칼 · 맑은 성광 울림",
    "atk": "a flame flares on burning wings, a fast swoosh dive, a sharp sword strike on the target, a clear chime and radiant shimmer",
    "def": "frail wings crackle and curl under the blow, embers tinkling like falling glass, a short sizzle and a fading orange hiss"
   },
@@ -227,13 +227,13 @@
    "en": "Oath-Engraved Knight",
    "ko": "빈 갑옷이 맹세 검 휘두름 · 새긴 맹세가 빛나 더러움을 씻음",
    "atk": "hollow plate moves with an empty ringing echo, an engraved sword whistles out, then a clean slash lands with a bright etched-metal clang",
-   "def": "the empty armour rings like a bell, the engraved words hum with light, and a soft clean chime washes outward like light through water"
+   "def": "the empty armour rings like a bell, the engraved runes hum with radiant light, and a soft clean chime washes outward like light through water"
   },
   "PN-A2-U2": {
    "en": "Solante's Choir",
    "ko": "종다리 합창이 밀어냄 · 노래가 겹쳐 버팀",
-   "atk": "a chorus of larks swells: bright overlapping trills, a flurry of wings, then a warm pulse of song striking with a soft radiant chime",
-   "def": "the larks sing on through the hit: layered trills holding steady, a gentle protective shimmer, a few feathers drifting down"
+   "atk": "a flock of dawn larks rises: bright overlapping bird trills, a flurry of small wings, then a warm radiant swell striking with a soft glassy chime",
+   "def": "the larks keep trilling through the hit: bright layered chirps holding steady, a gentle protective shimmer, a few soft feathers drifting down"
   },
   "PN-A2-R": {
    "en": "Dawnlight Shield Lion",
@@ -262,7 +262,7 @@
   "UP-A2-17": {
    "en": "Golden Sphinx",
    "ko": "낮은 물음 뒤 거대한 앞발이 내리침 · 황금 석상처럼 엎드려 받음",
-   "atk": "a deep humming voice poses a question, a held pause, then a huge golden lion paw drops with a massive stone-dense thud and great wings folding with a heavy rustle",
+   "atk": "a deep golden metallic hum hangs in the air, a held pause, then a huge golden lion paw drops with a massive stone-dense thud and great wings folding with a heavy rustle",
    "def": "the golden sphinx settles low like a carved monument: a deep solid thump, a slow broad wing rustle, a calm resonant hum that rings in metal"
   },
   "UP-A2-22": {
@@ -295,7 +295,7 @@
   "SA2-03": {
    "en": "Prayer of Silence",
    "ko": "여럿의 낮은 기도 소리 · 전장의 소음이 빨려 들어가듯 고요해짐",
-   "cast": "a low murmured choir of many voices in unison, a soft bell tap, then the surrounding battle noise is sucked away into a hushed hollow silence with a faint high ring"
+   "cast": "a soft solemn bell tap rings once and dies instantly, a quiet reverent hush sweeps out, and the surrounding battle noise is sucked away into hollow silence with a faint high shimmer"
   },
   "MA-08": {
    "en": "Oath Fixing",
@@ -320,7 +320,7 @@
   "MA-14": {
    "en": "Release of Dawn",
    "ko": "모인 빛이 한꺼번에 터지는 동틈 · 끝에 따스한 잔빛",
-   "cast": "a deep swelling rumble rising like a sunrise, a bright bursting choir-chord whoosh of light sweeping outward with a sharp sizzle on impact, then fading into a warm soft healing shimmer"
+   "cast": "a deep swelling rumble rising like a sunrise, a bright bursting bell-like whoosh of radiant light sweeping outward with a sharp sizzle on impact, then fading into a warm soft shimmer"
   },
   "RA2-1": {
    "en": "Day of Judgment",

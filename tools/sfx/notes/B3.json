@@ -1,7 +1,11 @@
 {
  "flag": "B3",
  "cards": {
-  "SR-B3": {"en": "Keraun's Thunder Heart", "ko": "벼락 심장이 두근거리며 번개가 팔을 타고 오름", "equip": "a caged crystal heart is gripped with a glassy clink, a deep heartbeat thump pulses twice, and a branching crackle of lightning runs up the arm with a rising zap"},
+  "SR-B3": {
+   "en": "Keraun's Thunder Heart",
+   "ko": "벼락 심장이 두근거리며 번개가 팔을 타고 오름",
+   "equip": "a caged crystal heart is gripped with a glassy clink, a deep heartbeat thump pulses twice, and a branching crackle of lightning runs up the arm with a rising zap"
+  },
   "B3-02": {
    "en": "Capacitor Apprentice",
    "ko": "병 들고 튀긴 스파크 · 휘청 넘어짐",
@@ -173,7 +177,7 @@
   "SP-B3": {
    "en": "The Seventh",
    "ko": "거신경 눈뜬 일곱 번째 · 신경이 울림",
-   "atk": "a deep wake-up groan of machinery, a million-volt whine climbing, then a great swelling bolt tears out with a thunder boom, a thin chorus of crackling nerve-like arcs, and a bell-like ring of glass",
+   "atk": "a deep wake-up groan of machinery, a million-volt whine climbing, then a great swelling bolt tears out with a thunder boom, a thin tangle of crackling nerve-like arcs, and a bell-like ring of glass",
    "def": "its metal body drinks the hit and hums: an immense low thrum, a glass-like ring, arcs flowing outward in answer, a breath of deep rumble"
   },
   "UN-B3": {
@@ -361,7 +365,7 @@
   "US-B3-2": {
    "en": "Keraun's Nerve",
    "ko": "대지의 신경이 줄지어 튀어 오름",
-   "cast": "a deep tremor in the ground, a long wire-like nerve twangs, then bolts erupt upward one after another in a descending rhythm of four heavy cracks and a rolling rumble"
+   "cast": "a deep tremor in the ground, a long wire-like nerve twangs, then bolts erupt upward one after another in a descending volley of four heavy cracks and a rolling rumble"
   },
   "PS-B3-1": {
    "en": "Amplifier Circuit",
@@ -422,11 +426,6 @@
    "en": "Star-Reading Orb",
    "ko": "별 읽는 보주가 맞물림",
    "equip": "a glass orb is seated in a brass cradle with a ringing clink, gears tick as an inner light swells, and a layered resonant hum rises"
-  },
-  "IB3-7": {
-   "en": "Keraun's Detonator",
-   "ko": "신경 결정 뇌관을 꽂음",
-   "equip": "a crystalline detonator is jammed in with a crunch, a plunger clicks, and a hair-raising crystalline buzz starts to jump and pulse"
   },
   "IR-B3": {
    "en": "Copper Lightning Rod",

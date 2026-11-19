@@ -1,5 +1,5 @@
 {
-  "_about": "ETHERION 효과음 프롬프트의 공통 말. build_sfx_prompts.js가 카드별 지시(notes/<깃발>.json)와 합쳐 Gemini용 프롬프트를 만든다. 설명은 tools/sfx/PROMPT_SFX.md 5장.",
+  "_about": "ETHERION 효과음 프롬프트의 공통 말. build_sfx_prompts.js가 카드별 지시(notes/<깃발>.json)와 합쳐 Gemini용 프롬프트를 만든다. 설명은 tools/sfx/PROMPT_SFX.md 6장.",
 
   "lead": "Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.",
   "studio": "Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.",

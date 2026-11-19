@@ -3,6 +3,18 @@
 버전마다 바뀐 것과 바뀐 파일을 적는다. 새 버전은 맨 위에 쓴다.
 맨 아래 `실행`·`v0.3`·`계정`·`덱`·`규칙`·`파일` 절은 v0.3 무렵의 설명을 그대로 남긴 것이라 지금과 다른 곳이 있다(예: 클래스는 v1.0에서 규칙에서 빠짐). 지금 상태는 `README.md`를 본다.
 
+## v3.95 — 효과음 프롬프트 점검 · 정리 (2026-11-19)
+- **누락 버그**: `tools/sfx/notes/A3.json` 최상위에 잘못 들어가 있던 SA3-06(궁사회 무기고) · NA3-3(별빛 연사) 지시를 `cards` 안으로 옮겨 옛 v3.70 지시를 덮어썼다.
+- **은퇴 카드 정리**: B1-04 · B1-09 · B1-20 · I4-2 · IB3-7 · IG1-5 · IG2-4 · IG3-7의 지시를 notes에서 빼고 `audio/sfx/`에 남아 있던 소리 11키(.ogg · .mp3)를 지웠다.
+- **낡은 지시 고침**: 개편 뒤 옛 이름이 남은 5장(SP-G3 · UP-G1-18 · UP-G3-18 · UP-A1-15 · UP-A1-23), 방어 0인 UP-A1-11(마족 선봉장)의 피격을 방패 · 중갑 없이, 기본 카드와 똑같던 강화 유닛 .def 4건(UP-B1-12 · UP-B2-18 · UP-G2-22 · UP-G3-11)을 강화판에 맞게.
+- **표기**: 금지어(sing · song · melody · chord · chorus · voice · chant · rhythm 등)를 비언어 · 비음악 표현으로, A3-13.def 단어 수 · ko 40자 초과 · 작업 메모(A2-42 · A2-43 · MC-01 · SG1-03) 정리, 고유명사 철자를 `sfx_style.json` · `art_style.json`에 맞춤(Velmir → Belumir · Marensia → Marencia · Thorgrim → Sorgrim · Thalakus → Talakus).
+- **공용 · 문서 · 도구**: `ui_filter`를 `sfx_common.json`에 편입(`recipes_common.py` 주석). `PROMPT_SFX.md` 수량을 공용 158 · 카드 706장(유닛 415 · 마법 208 · 아이템 83) · 배치 31곡으로, `build_sfx_prompts.js` · `sfx_style.json`의 "5장" 참조를 6장으로. `build_sfx_page.js`가 배경음 단조판 `tools/bgm/PROMPT_BGM_MINOR.md`를 읽게 했고, `PROMPT_SFX.md` · `AGENTS.md`의 배경음 지시서 안내도 단조판 기준으로(옛 판 `PROMPT_BGM.md`는 만드는 법 참고용).
+- **재생성 · 재합성**: `node tools/sfx/build_sfx_prompts.js` → 공용 158 · 카드 706장 → 개별 864개 · 배치 31곡 · 소리 1,279키. 소리 문장이 바뀐 47키 중 45키를 `render.py`로 다시 합성해 `check.py`(문제 0) 뒤 `audio/sfx/`에 넣었다(B2-12.atk · PI-G3.equip · US-B3-2.cast는 다시 합성해도 소리가 같았음, SB1-09.cast · SP-B3.atk는 소리가 같아 두었다). 처음 빠졌던 G2-26.atk · PN-G2-C3.def · RS-G1-2.cast(chorus → rumble 등, 문장 엔진 층이 바뀜)는 뒤따라 합성.
+- `audio/sfx/index.json` · `index.js` 1,279키(`sfx.jsonl`과 1:1), `js/feel.js` `SND_VER`에 45키 `1119sfx`, `index.html` 꼬리표 `audio/sfx/index.js?v=sx1279` · `feel.js?v=fx1119sfx2`.
+
+## v3.95 — 카드 글 손질 (점화 · 화염 갑주 · 화약고 폭파 · 표시 이름) — 글만, 규칙 그대로
+- [점화] · [화염 갑주] 글에서 계산식("양옆에 화상 N−1")을 뺐다: 카드 면은 그 카드의 숫자("[점화 2] … 양옆에 화상 1로 번진다"), 화상 1은 번지지 않으니 번짐 글 없음. 숫자가 없는 일반 뜻(매뉴얼)은 "수치가 2 이상이면 양옆에 1 적은 화상으로 번진다". "가시처럼 따로따로 쌓인다" → "여러 번 붙으면 합쳐지지 않고 하나씩 따로 남는다"(`cards.js` `burnSpreadText`, `{spread}`). 화약고 폭파: "터뜨린 화약통 개수만큼 상대 유닛에게"(엔진은 그대로 맨 앞부터). 모든 카드 글 · 칩에서 "고정 · 버팀 · 눌림" 이름을 뺐다 — 숫자 옆 아이콘 말풍선이 뜻을 맡는다(유닛 · 아이템 능력 줄, 세트 아이템 "[고정 5/1/3]" → "공·방·체가 5/1/3이 된다", 마법 6장 썰물 · 웅크린 늑대 · 족쇄 · 불붙은 각오 · 강철 맹세 · 나이테는 말로). 파일: `js/cards.js` · `js/view.js` · `js/game.js` · `js/manual.js` · `js/goblin.js` · `js/pincards.js` · `js/spelltune.js` · `js/troll.js` · `index.html`(`-kt1`) · `docs/ABILITIES.md`.
+
 ## v3.95 — 바뀐 마법 소리 합성
 - `tools/sfx/todo_v395.txt`의 23키를 `tools/sfx/synth/render.py`(문장 엔진)로 합성해 `audio/sfx/<키>.ogg · .mp3`에 넣었다: 꼭 19키(카드 발동 17 — MA-01 · PS-A1-2 · MA-09 · CS-A1 · RS-A1-3 · HA1-2 · HA1-3 · US-A3-1 · RS-A2-1 · PS-A2-1 · SA3-02 · SA3-05 · MB-05 · NB1-3 · PS-B3-1 · SG2-02 · SG3-03, 새 공용 `fear` · `plague`) + 선택 4키(RS-G1-1 · RS-G1-3 · RS-B2-1 · MG-13). 길이 0.55~1.84초 · 피크 −1.5 dBFS.
 - **새 소리 배선**: `js/game.js` `FLOAT_SFX`에 `[/^공포 \d/, "fear"]` · `[/^역병/, "plague"]` — 엔진 a1Curse가 띄우는 "공포 N" · "역병 N"(걸림 · 옮음) · "역병 · 능력 꺼짐"(발동). `audio/sfx/index.json` · `index.js`에 두 키를 더함(1,290키).

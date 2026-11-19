@@ -11,7 +11,7 @@
      tools/sfx/prompts/batches/<깃발>.md      3분 단위 4초 간격 배치 프롬프트 (카드)
      tools/sfx/prompts/sfx_batches.jsonl      3분 배치 분할용 메타데이터 (LLM이 4초 간격 곡을 쪼갤 때 참조)
    뺀 카드(js/retired.js)는 만들지 않는다. 소리 지시가 없는 카드 · 이제는 없는 카드의 지시는 끝에 알려 준다.
-   새 카드를 만들면 notes/<깃발>.json에 한 줄을 더하고(쓰는 법 PROMPT_SFX.md 5장) 이 도구를 다시 돌린다. */
+   새 카드를 만들면 notes/<깃발>.json에 한 줄을 더하고(쓰는 법 PROMPT_SFX.md 6장) 이 도구를 다시 돌린다. */
 "use strict";
 const fs = require("fs"), path = require("path"), vm = require("vm");
 

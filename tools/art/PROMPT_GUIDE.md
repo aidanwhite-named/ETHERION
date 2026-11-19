@@ -16,7 +16,7 @@
 - `<!-- AUTO:… -->` 칸은 `node tools/art/build_prompts.js`가 `tools/art/art_style.json`에서 채운다. **고칠 때는 art_style.json을 고치고 다시 돌린다** — 이 문서의 표만 고치면 다음에 덮인다. 나머지 글은 손으로 고쳐도 된다.
 
 <!-- AUTO:COUNTS -->
-프롬프트 버전 **g3** (2026-11-15) · 카드 706장 (뺀 카드 제외, 소환물 포함)
+프롬프트 버전 **g3** (2026-11-19) · 카드 706장 (뺀 카드 제외, 소환물 포함)
 
 | 등급 | 색 | 장수 | 유닛 · 마법 · 아이템 | 등급별 프롬프트 파일 |
 |---|---|---|---|---|
@@ -345,8 +345,8 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 | 배경 (일반) hint | tall dry grass and a hide tent |
 | 배경 (고급 · 강화) home | the howling steppe of Garun with its nomad camps |
 | 배경 (레어 · 에픽 · 유니크) landmark | the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring |
-| 근원 (유니크) source | the earth dragon Gorbas, the largest of the seven dragons, with rocks and forests growing on its back |
-| 신화 배경 (스페셜) mythic | the earth dragon Gorbas, mountain-sized with forests on its back, rising behind Throne Peak with one great eye opening |
+| 근원 (유니크) source | the earth dragon Gorvath, the largest of the seven dragons, with rocks and forests growing on its back |
+| 신화 배경 (스페셜) mythic | the earth dragon Gorvath, mountain-sized with forests on its back, rising behind Throne Peak with one great eye opening |
 | 하지 말 것 never | no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth) |
 
 ### G2 베르단의 뿔 · Verdan's Antler — 용맥 맹약 · forest `#58b85f`
@@ -521,6 +521,7 @@ Subject: a low-ranking, ordinary member of the Morkas's New Moon — a devoted p
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
 Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 등불 아래로는 다니지 않는다. 지갑보다 먼저 주인의 그림자를 훔쳐 가기 때문이다.
 Camera: eye-level or slightly low medium shot, natural expressive pose with a clear action, subject about 55% of the frame.
 Lighting: a warm, atmospheric element-coloured backlight with a clean rim light and a soft key light on the face, clear readable contrast; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; an intimate, painted corner of the banner's world (a dark canyon wall) with real atmosphere and soft depth, kept darker and softer than the subject; no distant landmarks; violet shadow smoke, blood-red accents, contract sigils.
@@ -540,7 +541,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "견습생의 기도 촛불". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary Prayer Candle of the Solante's Dawn — a small living prayer candle of white beeswax, a calm little face glowing inside its flame, wax drips hanging like a tiny robe.
+Subject: a low-ranking, ordinary Prayer Candle of the Solante's Dawn.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
 Creature kind — Prayer Candle: a small living prayer candle of white beeswax, a calm little face glowing inside its flame, wax drips hanging like a tiny robe. Silhouette: small and upright, a tall teardrop flame on top. Materials: white beeswax, warm gold flame, a brass candle dish.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
@@ -563,22 +564,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: RARE — an elite specialist or a masterwork, the card people notice. An elite with a signature move, or a masterwork — clearly special.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: RARE — an elite specialist or a masterwork, the card people notice. A signature spell of the banner — sweeping, dramatic and clearly special.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "작살 물살". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive water attack striking the enemy ranks; a cleansing wave washing away enchantments; allies rallying as one under a shared surge of power. Scale and finish: a sweeping effect that reshapes part of the battlefield, layered energies and motion trails.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive water attack striking the enemy ranks; a cleansing wave washing away flames, curses and enchantments; allies rallying as one under a shared surge of power. Scale and finish: a sweeping effect that reshapes part of the battlefield, layered energies and motion trails.
 Scale (level 2 of 8): a small, local effect.
 Banner — Marencia's Song: magic of marencia's song, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 물살을 타고 날아간 작살은 방패도 축복도 씻어 내고 박힌다. 셀레네아의 사냥꾼은 두 번 던지지 않는다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛의 [보호막]·[가시]·[저주 면역]·[수호]가 꺼지고, 피해 3. 아군 맨 앞 유닛에게 이번 턴 [치유 1].
+Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛의 [보호막]·[가시]·[저주 면역]·[수호]가 꺼지고, 체력 −3. 아군 맨 앞 유닛에게 이번 턴 [치유 1].
 Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
 Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; atmospheric environment in depth layers (foreground debris, midground, far distance) with one landmark of the banner's home: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; clear water light, spray, ripples, bubbles.
 Detail: fine filigree and engraved patterns on gear, crisp material rendering (metal, scale, cloth, bark, horn).
 Spectacle: drifting ether motes, a crisp rim light, volumetric haze and sparkling highlights — clearly a step above superior. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: drifting sapphire-blue (#4ea8ff) ether motes and a thin sapphire rim on the silhouette — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
-Mood: precise, impressive, prized.
+Mood: precise, sweeping, striking.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -592,7 +593,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "무쇠뿔 산양왕". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Iron-Horn Goat of the Sorgrim's Shield — a muscular mountain goat whose huge curled horns have grown into raw iron from licking exposed ore veins, with a shaggy grey coat and hard hooves.
+Subject: a seasoned, battle-hardened Iron-Horn Goat of the Sorgrim's Shield.
 If a reference image is attached, it is the base card (B2-17): keep the same character, species, face, colours and silhouette and repaint it as the empowered version. (base card: "무쇠뿔 산양")
 Continuity with the base card: this is the very same individual as "무쇠뿔 산양" (B2-17) after a promotion — same species, sex, age, face, hair or beard, colours, weapon type and fighting style, now one rank higher. The base card's lore: 철골 산맥의 드러난 광맥을 핥다가 뿔이 무쇠로 자란 산양. 그가 버티고 선 바위가 곧 성벽의 끝이다. The base card is set in a riveted iron gate in a dim forge hall; keep that same place, intensified.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
@@ -620,7 +621,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "장막의 처형자". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring Wraith of the Morkas's New Moon — a hooded ghost of someone still bound to an unpaid price, a translucent legless body wrapped in rusted chains.
+Subject: a legendary, awe-inspiring Wraith of the Morkas's New Moon.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
 Creature kind — Wraith: a hooded ghost of someone still bound to an unpaid price, a translucent legless body wrapped in rusted chains. Silhouette: floating and hooded, legless, trailing chains. Materials: translucent grey-violet mist, rusted chains, a torn shroud.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
@@ -654,7 +655,7 @@ Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; 
 Lore (Korean, use for the scene): 가르운 바위송곳니 부족의 우두머리. 그가 적을 쓰러뜨리면 무리가 울부짖으며 달려온다.
 Camera: centred heroic portrait, near-symmetrical, subject about 70% of the frame, looking slightly down toward the viewer, a strong iconic silhouette.
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
-Background: very dark night-blue (#07080d) base; the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; behind it, faint and colossal, the banner's source: the earth dragon Gorbas, the largest of the seven dragons, with rocks and forests growing on its back; flying rock dust, cracked ground, ochre light.
+Background: very dark night-blue (#07080d) base; the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; behind it, faint and colossal, the banner's source: the earth dragon Gorvath, the largest of the seven dragons, with rocks and forests growing on its back; flying rock dust, cracked ground, ochre light.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
 Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).

@@ -1,7 +1,11 @@
 {
  "flag": "B1",
  "cards": {
-  "SR-B1": {"en": "Dormak's Rib Furnace", "ko": "거인 갈비뼈 화로에 불이 크게 일어남", "equip": "a heavy bone-and-iron brazier is set down with a deep hollow thud, a roaring fire whooshes up inside it, and the flames surge hungrily with a rising crackle"},
+  "SR-B1": {
+   "en": "Dormak's Rib Furnace",
+   "ko": "거인 갈비뼈 화로에 불이 크게 일어남",
+   "equip": "a heavy bone-and-iron brazier is set down with a deep hollow thud, a roaring fire whooshes up inside it, and the flames surge hungrily with a rising crackle"
+  },
   "B1-02": {
    "en": "Powder Porter",
    "ko": "화약 자루 내던져 퍽 · 맨몸으로 맞고 휘청",
@@ -14,12 +18,6 @@
    "atk": "a living fuse snakes forward: a dry rope slither over stone, a quickening sputter of sparks racing along its length, then a sharp crackling pop as the flame bites",
    "def": "no body to strike, it coils away: a soft cord whip, a startled fizzing hiss, a few loose sparks pattering onto the ground"
   },
-  "B1-04": {
-   "en": "Loading Apprentice",
-   "ko": "꽂을대 급히 밀어 넣고 발사 · 비틀거림",
-   "atk": "a hurried ramrod scrape down a barrel, a clumsy clatter of dropped cartridges, then a sharp small musket crack and a thin whistle of the ball",
-   "def": "a clumsy stumble: a soft thump against its chest, rattling cartridge pouches, a brass casing tinkling away across the ground"
-  },
   "B1-05": {
    "en": "Flame Imp",
    "ko": "불덩이 던지며 낄낄 · 몸이 흔들려 불티 흩어짐",
@@ -31,12 +29,6 @@
    "ko": "연기 팔로 감싸 조름 · 흩어졌다 다시 모임",
    "atk": "a billow of gunpowder smoke rolls over the foe: a long soft whoosh, a rasping airy hiss wrapping tight, a muffled choking cough from inside the haze",
    "def": "the blow passes through smoke: a hollow airy puff, a swirling drift of hiss, the haze slowly curling back together with a soft sigh"
-  },
-  "B1-09": {
-   "en": "Goblin Gunner",
-   "ko": "표준 화승총 한 방 · 몸으로 받아 주춤",
-   "atk": "a flint snap and spark, a crisp flintlock boom with a puff of expelled air, then a swift whistle ending in a flat smack of lead",
-   "def": "no armour, it takes the hit on its leather jerkin: a muted slap, a stumble of boots, a tin powder flask jangling on its belt"
   },
   "B1-10": {
    "en": "Fortan Fire Hound",
@@ -79,12 +71,6 @@
    "ko": "불개미 떼 턱으로 집어뜯음 · 등껍질을 맞대고 버팀",
    "atk": "a column of fire ants surges: a dry rapid clicking of chitin, a hot sizzle, then a crowd of mandibles snapping shut with a crunch and a tiny spark burst",
    "def": "the ants lock carapaces into a wall: a hard glossy clack, a hum of clicking legs, a heated sizzle rising from the joints"
-  },
-  "B1-20": {
-   "en": "Scatter Grenadiers",
-   "ko": "파편탄 던짐 · 철판 방패에 파편이 튕김",
-   "atk": "a satchel of bombs tossed with a swish, a bright burst-pop mid-air, then a spraying rattle of iron shards pinging in all directions",
-   "def": "a rounded iron shield catches a glancing knock: a bright metallic clunk, several tiny shards ticking off the plate, boots scraping to hold"
   },
   "B1-21": {
    "en": "Fire-Tusk Boar",
@@ -135,7 +121,7 @@
    "def": "it coils tight against the blow: coal scales scraping on stone, a hot rattling hiss, a puff of embers shaken loose"
   },
   "B1-32": {
-   "en": "Thalakus Tar Horror",
+   "en": "Talakus Tar Horror",
    "ko": "끈적한 역청 팔로 덮어씌움 · 몸이 질척하게 삼킴",
    "atk": "a tar horror lurches forward on heavy slurping steps, a thick bubbling glop, then a smothering sticky slap with a hiss of burning oil",
    "def": "the blow sinks into its tar: a deep wet squelch, bubbles popping, a long sticky sucking sound as the weapon pulls free"
@@ -189,7 +175,7 @@
    "def": "veteran plate and sabre block hard: a sturdy clang, a ringing parry, then a slow sizzling fuse crackling under the fallen heap"
   },
   "UN-B1-7": {
-   "en": "Thalakus Ember Gunner",
+   "en": "Talakus Ember Gunner",
    "ko": "불씨 박힌 포탄 쏨 · 불씨가 번져 지직",
    "atk": "a glowing shell loaded with a dull pulse, a low thump of the shot, a streak whistle, then a spreading crackling of clinging embers",
    "def": "its thick smouldering coat swallows the blow: a deep thud, a soft shower of falling sparks, embers spitting hotly and spreading across its sleeves"
@@ -252,7 +238,7 @@
    "en": "Fire Rat Sapper Swarm",
    "ko": "불쥐 떼가 화약 자루를 끌고 와 터뜨림 · 흩어졌다 다시 몰려듦",
    "atk": "a swarm of fire rats drags a sack forward with skittering claws and shrill chittering, a fuse hisses, then a sharp powder burst pops among the burning fur",
-   "def": "the swarm scatters from the blow: squeaks bursting in every direction, claws skittering over gravel, burning fur crackling as they regroup"
+   "def": "the whole sapper swarm scatters under the hit: panicked chittering squeaks, heavy claws scrambling across stone, loose powder sacks thumping and embers crackling as they surge back together"
   },
   "UP-B1-17": {
    "en": "Great-Bore Tortoise",
@@ -325,7 +311,7 @@
   "SB1-09": {
    "en": "Grand Bombardment",
    "ko": "포대 전체가 함께 쾅",
-   "cast": "a whole line of cannons rammed in unison with a chorus of scrapes, then a titanic simultaneous boom, ground rumbling and a rolling echo"
+   "cast": "a whole line of cannons rammed in unison with a flurry of scrapes, then a titanic simultaneous boom, ground rumbling and a rolling echo"
   },
   "RB1-1": {
    "en": "Laying the Powder Kegs",

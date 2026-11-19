@@ -79,7 +79,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUMMONED TOKEN — a conjured, temporary creature or effect. A creature, construct or effect called into being for a moment; simple and readable.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "별똥별 조각". Depict exactly what this name describes.
 Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: chained wind strikes leaping from target to target. Scale and finish: a small, single conjured effect.
 Scale (level 1 of 8): a small, local effect.
@@ -88,7 +88,7 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Game effect (Korean, mood only — never draw text or numbers): 상대 무작위 유닛 1기에게 피해 1.
 Camera: eye-level medium shot, subject about 50% of the frame.
 Lighting: an element-coloured glow from the summoning with a clean rim light, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; plain dark night-blue with a fading wisp of ether and element light where it was called forth; swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; plain dark night-blue with a fading wisp of ether and element light where it was called forth; swirling teal wind, drifting feathers and starlight streaks.
 Detail: clear, well-rendered forms with slightly translucent, glowing edges where it was conjured.
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
@@ -105,7 +105,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUMMONED TOKEN — a conjured, temporary creature or effect. A creature, construct or effect called into being for a moment; simple and readable.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "돌개바람". Depict exactly what this name describes.
 Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: chained wind strikes leaping from target to target. Scale and finish: a small, single conjured effect.
 Scale (level 1 of 8): a small, local effect.
@@ -114,7 +114,7 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Game effect (Korean, mood only — never draw text or numbers): 상대 무작위 유닛 1기에게 피해 2.
 Camera: eye-level medium shot, subject about 50% of the frame.
 Lighting: an element-coloured glow from the summoning with a clean rim light, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; plain dark night-blue with a fading wisp of ether and element light where it was called forth; swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; plain dark night-blue with a fading wisp of ether and element light where it was called forth; swirling teal wind, drifting feathers and starlight streaks.
 Detail: clear, well-rendered forms with slightly translucent, glowing edges where it was conjured.
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
@@ -131,7 +131,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUMMONED TOKEN — a conjured, temporary creature or effect. A creature, construct or effect called into being for a moment; simple and readable.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "불씨". Depict exactly what this name describes.
 Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive wind attack striking the enemy ranks. Scale and finish: a small, single conjured effect.
 Scale (level 1 of 8): a small, local effect.
@@ -140,7 +140,7 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛에게 피해 1.
 Camera: eye-level medium shot, subject about 50% of the frame.
 Lighting: an element-coloured glow from the summoning with a clean rim light, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; plain dark night-blue with a fading wisp of ether and element light where it was called forth; swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; plain dark night-blue with a fading wisp of ether and element light where it was called forth; swirling teal wind, drifting feathers and starlight streaks.
 Detail: clear, well-rendered forms with slightly translucent, glowing edges where it was conjured.
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).
@@ -157,7 +157,7 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SUMMONED TOKEN — a conjured, temporary creature or effect. A creature, construct or effect called into being for a moment; simple and readable.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "쌍둥이 메아리". Depict exactly what this name describes.
 Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a destructive wind attack striking the enemy ranks. Scale and finish: a small, single conjured effect.
 Scale (level 1 of 8): a small, local effect.
@@ -166,7 +166,7 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 2기에게 피해 1.
 Camera: eye-level medium shot, subject about 50% of the frame.
 Lighting: an element-coloured glow from the summoning with a clean rim light, clear readable contrast; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; plain dark night-blue with a fading wisp of ether and element light where it was called forth; swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; plain dark night-blue with a fading wisp of ether and element light where it was called forth; swirling teal wind, drifting feathers and starlight streaks.
 Detail: clear, well-rendered forms with slightly translucent, glowing edges where it was conjured.
 Spectacle: a soft conjuring shimmer only. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: faint ether sky-blue (#8fdcff) summoning traces — the element colour stays the main light; the grade accent is a secondary touch (about 10% of the light).

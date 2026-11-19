@@ -1,7 +1,11 @@
 {
  "flag": "B2",
  "cards": {
-  "SR-B2": {"en": "Sorgrim's First Armour", "ko": "거인 갈비 마디 갑주를 두르자 칼이 튕겨 나감", "equip": "a massive rib-bone breastplate is strapped on with heavy iron clanks, a test blade strikes it and rebounds with a ringing clang and a shockwave thump"},
+  "SR-B2": {
+   "en": "Sorgrim's First Armour",
+   "ko": "거인 갈비 마디 갑주를 두르자 칼이 튕겨 나감",
+   "equip": "a massive rib-bone breastplate is strapped on with heavy iron clanks, a test blade strikes it and rebounds with a ringing clang and a shockwave thump"
+  },
   "B2-01": {
    "en": "Rivet Worker",
    "ko": "리벳 망치 톡톡 · 작은 몸이 땡 울림",
@@ -41,7 +45,7 @@
   "B2-12": {
    "en": "Forge Apprentice",
    "ko": "모루 망치질 · 굳은살 몸이 퉁 울림",
-   "atk": "a smith's mallet swings in steady rhythm: a wooden handle creak, a solid hammer strike on glowing iron, a bright anvil ring with sparks hissing",
+   "atk": "a smith's mallet swings in steady pace: a wooden handle creak, a solid hammer strike on glowing iron, a bright anvil ring with sparks hissing",
    "def": "a stout leather apron and broad frame take the hit: a heavy muffled thump, a deep low anvil hum, a grunt of chains shifting on a belt"
   },
   "B2-15": {
@@ -149,7 +153,7 @@
   "B2-41": {
    "en": "Runaway Clockwork Doll",
    "ko": "풀린 태엽으로 마구 돌진 · 얇은 몸이 부서지며 튕김",
-   "atk": "an over-wound doll sprints in with frantic rapid ticking and a screaming spring whir, then a reckless clattering crash of brass limbs",
+   "atk": "an over-wound doll sprints in with frantic rapid ticking and a shrill whining spring whir, then a reckless clattering crash of brass limbs",
    "def": "its thin casing gives way: a brittle metallic crunch, springs pinging loose, a stuttering spin-down of gears"
   },
   "B2-42": {
@@ -258,7 +262,7 @@
    "en": "Steam Bull Chief",
    "ko": "청동 황소가 증기를 뿜고 돌진해 들이받음 · 보일러 몸이 웅웅",
    "atk": "a huge bronze bull paws the floor, blasts a roaring snort of steam, then charges on thundering bronze hooves into a heavy goring slam",
-   "def": "its bronze body takes the hit: a deep hollow boiler boom, a pressure hiss from the nostrils, hooves grinding to hold"
+   "def": "its massive bronze hull absorbs the strike: a deep booming boiler resonance, twin jets of hot steam venting fiercely from its nostrils, heavy iron hooves scraping hard to hold ground"
   },
   "UP-B2-22": {
    "en": "Iron-Eating Bulgasari King",
@@ -280,7 +284,7 @@
   "SB2-01": {
    "en": "Ironclad Charge",
    "ko": "쇠옷 드워프 일제 돌진",
-   "cast": "a line of armoured dwarves surges: chain mail jingling, heavy boots building to a thundering rhythm, shield rims clashing in a rising iron wave"
+   "cast": "a line of armoured dwarves surges: chain mail jingling, heavy boots building to a thundering cadence, shield rims clashing in a rising iron wave"
   },
   "SB2-02": {
    "en": "Rivet Launch",
@@ -397,11 +401,6 @@
    "ko": "룬을 심장에 새김",
    "equip": "a chisel taps a rune into a stone-iron heart: sharp chip-chip engraving, grains of dust, a glowing low hum rising and fixing with a solid thunk"
   },
-  "I4-2": {
-   "en": "Thorgrim Exoskeleton",
-   "ko": "거대한 외골격을 입음",
-   "equip": "a hulking exoskeleton clamps over a body: hydraulic hiss, heavy latch snaps, ribbed plates sliding together with a low sinewy creak and a deep clunk"
-  },
   "IB2-6": {
    "en": "Golem Core",
    "ko": "골렘 핵을 몸에 새김",
@@ -413,7 +412,7 @@
    "equip": "a thin plate of grey adamant is slid into place: a pure cool metallic whisper, a clean heavy click of latches, a long muted ring when tapped"
   },
   "PI-B2": {
-   "en": "Thorgrim's Sinew",
+   "en": "Sorgrim's Sinew",
    "ko": "거인 힘줄을 몸에 감음",
    "equip": "a thick metal-sinew cable is wound round a body: a taut creaking pull, wire strands twanging, a deep muscle-like hum as it cinches tight with a ringing lock"
   },

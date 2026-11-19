@@ -284,13 +284,14 @@ function unitAbilSlots(c, im) {
    ② 그 능력의 뜻: "[가호 N] 매 턴 처음 받는 피해를 N만큼 줄인다." — 숫자 자리는 N, 고정할 스탯 자리는 "스탯"
    ①은 itemSummary, ②는 itemKwGenList. 숫자를 넣은 문장(itemKwDesc)은 마우스를 올린 말풍선에 쓴다 */
 const ON_EQUIP_KW = /^\[생명 \+/;   // v3.68 옛 [치유 N] → [생명 +N] ([치유 N]은 인어 유닛 능력)   // 유닛에게 남지 않고 장착하는 순간 한 번 일어나는 능력
+/* 2026-11-18 표시(고정 · 버팀 · 눌림)와 세트 값은 카드 글에 이름으로 적지 않는다 — 숫자 옆 아이콘과 그 말풍선이 뜻을 맡는다(사용자) */
 function itemGrants(it) {
-  const g = itemAbilities(it).filter(r => !ON_EQUIP_KW.test(r));
-  if (it.set) g.unshift(`[고정 ${it.set.a}/${it.set.d}/${it.set.h}]`);
-  return g;
+  return itemAbilities(it).filter(r => !ON_EQUIP_KW.test(r) && !isPinAb(r));
 }
+const itemSetText = it => `장착한 유닛의 공·방·체가 ${it.set.a}/${it.set.d}/${it.set.h}${numJosa(it.set.h)} 된다`;
 function itemSummary(it) {
   const out = [], g = itemGrants(it), e = itemAbilities(it).filter(r => ON_EQUIP_KW.test(r));
+  if (it.set) out.push(itemSetText(it) + "(유닛 코인은 쓰지 않음)");
   if (g.length) out.push(g.join(" ") + " 능력 부여");
   if (e.length) out.push("장착할 때 " + e.join(" "));
   if (it.evText && !it.evName) out.push(it.evText);
@@ -300,12 +301,11 @@ function itemSummary(it) {
 function itemAbilityText(it) { return itemSummary(it).join("\n"); }
 function itemText(it) {
   const parts = [];
-  if (it.set) parts.push(`[고정 ${it.set.a}/${it.set.d}/${it.set.h}] 장착한 유닛의 공·방·체가 이 값이 된다 (유닛 코인은 쓰지 않음).`);
-  else {
+  if (!it.set) {
     const m = ["a", "d", "h"].filter(k => it[k]).map(k => `${STAT_KO[k]} ${sgnNum(it[k])}`);
     if (m.length) parts.push(m.join(", ") + ".");
   }
-  for (const s of itemSummary(it).filter(s => !it.set || !s.startsWith("[고정 " + it.set.a))) parts.push(s + ".");
+  for (const s of itemSummary(it)) parts.push(s + ".");
   if (it.co && it.co.length) parts.push("코인 " + coinList(it.co) + ".");
   return parts.join(" ");
 }
@@ -359,8 +359,8 @@ const ITEM_KW = {
   "그림자 걸음": "자기보다 레벨이 높은 유닛과 맞붙어 받는 피해를 턴에 한 번 받지 않는다. 레벨이 같거나 낮은 유닛에게 맞붙어 받는 피해는 2 늘어난다.",
   "피의 계약": "내 마법이 생명을 낼 때마다 이 유닛의 공격이 이번 턴 {n} 오른다.",
   "출혈": "맞붙어(공격 · 반격) 피해를 준 상대가 살아남으면 그 유닛에 출혈이 {n} 쌓인다(걸 때마다 더해진다). 그 뒤 이번 전투에서 맞붙음이 하나 시작될 때마다 출혈 유닛은 체력이 출혈만큼 깎인다(방어 · 보호막과 상관없이. [가호 N]이 있으면 깎일 때마다 N 줄어든다). 출혈로 쓰러뜨려도 이 유닛이 쓰러뜨린 것으로 친다(강탈 · 제물). 천족 유닛에게는 출혈이 1 적게 붙는다(빛의 몸).",   // v3.90
-  "점화": "이 유닛이 맞붙어 공격한 상대 유닛에 [화상 {n}]을 남긴다(그 공격으로 쓰러뜨리면 남지 않음). [화상 N]은 붙은 그 자리에서는 피해가 없다. 가시처럼 따로따로 쌓이고, 다음 턴 전투가 시작될 때 화상마다 체력이 N 깎인 뒤(방어 무시) 꺼지며 양옆 유닛에게 [화상 N−1]이 옮겨붙는다.",
-  "화염 갑주": "이 유닛을 맞붙어 공격한 상대 유닛에 [화상 {n}]을 붙인다. [화상 N]은 붙은 그 자리에서는 피해가 없다. 가시처럼 따로따로 쌓이고, 다음 턴 전투가 시작될 때 화상마다 체력이 N 깎인 뒤(방어 무시) 꺼지며 양옆 유닛에게 [화상 N−1]이 옮겨붙는다.",
+  "점화": "이 유닛이 맞붙어 공격한 상대 유닛에 [화상 {n}]을 남긴다(그 공격으로 쓰러뜨리면 남지 않음). 화상은 붙은 그 자리에서는 피해가 없다. 여러 번 붙으면 합쳐지지 않고 하나씩 따로 남는다. 다음 턴 전투가 시작될 때 화상마다 그 수치만큼 체력이 깎인 뒤(방어 무시) 꺼진다.{spread}",
+  "화염 갑주": "이 유닛을 맞붙어 공격한 상대 유닛에 [화상 {n}]을 붙인다. 화상은 붙은 그 자리에서는 피해가 없다. 여러 번 붙으면 합쳐지지 않고 하나씩 따로 남는다. 다음 턴 전투가 시작될 때 화상마다 그 수치만큼 체력이 깎인 뒤(방어 무시) 꺼진다.{spread}",
   /* v3.74 새 능력 — 규칙은 engine.js 끝 "v3.74 새 능력" 절, 카드는 js/newabil.js */
   "재생": "전장에서 맞붙음이 하나 시작될 때마다(이 유닛이 맞붙지 않아도) 받은 피해를 {n} 채우고(원래 체력까지), 이번 턴 깎인 방어를 {n} 되돌린다(카드의 방어까지). 화상이나 불씨가 붙어 있으면 재생하지 않는다.",
   "방패 반격": "반격할 때 피해에 이 유닛의 지금 방어를 더한다(관통으로 깎였으면 깎인 값). 공격할 때는 보통과 같다.",
@@ -386,6 +386,14 @@ for (const k of ["점화", "화염 갑주"]) if (ITEM_KW[k] && !/물의 몸/.tes
 if (typeof RARE_AURA !== "undefined") for (const g in RARE_AURA) ITEM_KW[RARE_AURA[g].n] = "오라 — 이 유닛이 전장에 있는 동안 " + RARE_AURA[g].text + " 준비 단계부터 걸리고, 전투가 시작된 뒤 받은 오라는 이 유닛이 쓰러져도 그 턴이 끝날 때까지 남는다(받은 유닛에 ◎ 칩).";   // 2026-11-15
 /* v3.31 유니크의 강화 특수능력 뜻 (js/uniques.js UNIQUE_ABIL) */
 if (typeof UNIQUE_ABIL !== "undefined") for (const k in UNIQUE_ABIL) ITEM_KW[UNIQUE_ABIL[k].n] = UNIQUE_ABIL[k].text;
+/* [점화] · [화염 갑주]의 번짐 글 {spread} — 계산식(N−1)을 보이지 않고 그 카드의 숫자로. 화상 1은 번지지 않으니 글을 뺀다.
+   long: 긴 뜻(말풍선) · 짧은 뜻(카드 면). n이 없으면(일반 뜻 N) 말로 */
+function burnSpreadText(n, long) {
+  if (n == null || n === "" || isNaN(n)) return long ? " 수치가 2 이상이면 꺼질 때 양옆 유닛에게 1 적은 화상으로 번진다." : ", 양옆에 1 적은 화상으로 번짐(화상 1은 안 번짐)";
+  n = +n; if (n < 2) return "";
+  const m = n - 1, ro = /[036]$/.test(String(m)) ? "으로" : "로";   // 3으로 · 1로 · 2로
+  return long ? ` 꺼질 때 양옆 유닛에게 [화상 ${m}]${ro} 번진다.` : `, 양옆에 화상 ${m}${ro} 번진다`;
+}
 /* 카드에 적는 일반 뜻이 말풍선 문장과 달라야 하는 것만 (나머지는 ITEM_KW의 {n}을 N으로 바꿔 쓴다) */
 const ITEM_KW_GEN = {
   "생명": "내 생명이 {n} 늘어난다.",
@@ -407,7 +415,7 @@ function itemKwDesc(raw) {
     const w = sts.join("·");
     return `장착하면 ${set}이 된다(유닛 카드의 값 · 코인과 상관없이). ` + ITEM_KW[key].replace(/\{S\}/g, w + josaEunNeun(w));
   }
-  return ITEM_KW[key].replace(/\{S\}/g, st + josaEunNeun(st)).replace(/\{n\}/g, isNaN(n) ? "" : n).replace(/\{m\}/g, isNaN(n) ? "" : Math.max(0, 4 - n));
+  return ITEM_KW[key].replace(/\{spread\}/g, burnSpreadText(isNaN(n) ? null : n, true)).replace(/\{S\}/g, st + josaEunNeun(st)).replace(/\{n\}/g, isNaN(n) ? "" : n).replace(/\{m\}/g, isNaN(n) ? "" : Math.max(0, 4 - n));
 }
 
 /* 받침이 있으면 "은", 없으면 "는" (방어는 · 체력은) */
@@ -423,7 +431,7 @@ function itemKwGeneric(raw) {
   // v3.20 아이템 절대값 표시 "[고정: 공격 8]" → "[고정: 스탯 N]" = 장착하면 그 스탯이 N이 된 뒤 표시 규칙
   if (PIN_KO_KEYS.includes(key) && num) return [`[${key}: 스탯 N]`, "장착하면 그 스탯이 N이 된다(유닛 카드의 값 · 코인과 상관없이). " + ITEM_KW[key].replace(/\{S\}/g, "그 스탯은")];
   const label = key === "생명" ? "[생명 +N]" : `[${key}${num ? " N" : ""}${colon ? ": 스탯" : ""}]`;
-  const text = (ITEM_KW_GEN[key] || ITEM_KW[key]).replace(/\{S\}/g, "그 스탯은").replace(/\{n\}/g, "N").replace(/\{m\}/g, "4 − N");
+  const text = (ITEM_KW_GEN[key] || ITEM_KW[key]).replace(/\{spread\}/g, burnSpreadText(null, true)).replace(/\{S\}/g, "그 스탯은").replace(/\{n\}/g, "N").replace(/\{m\}/g, "4 − N");
   return [label, text];
 }
 /* 아이템 능력의 일반 뜻 목록 [[이름, 뜻]] — 같은 능력은 한 번만 */
@@ -457,8 +465,8 @@ const ITEM_KW_SHORT = {   // v3.60 한 줄에 들도록 더 짧게 (크게 보�
   "증폭": "전장에 있으면 내 마법 피해 +{n}.",
   "생명": "장착할 때 내 생명 +{n}.",
   "출혈": "맞붙어 살아남은 상대에 출혈 {n}(쌓임): 맞붙음마다 체력 −출혈(가호가 줄임).",
-  "점화": "공격한 상대에 화상 {n} — 다음 턴 시작 때 체력 −{n}, 양옆에 화상 {n}−1.",
-  "화염 갑주": "맞붙어 공격한 상대에 화상 {n} — 다음 턴 시작 때 체력 −{n}, 양옆에 화상 {n}−1.",
+  "점화": "공격한 상대에 화상 {n} — 다음 턴 시작 때 체력 −{n}{spread}.",
+  "화염 갑주": "맞붙어 공격한 상대에 화상 {n} — 다음 턴 시작 때 체력 −{n}{spread}.",
   "재생": "맞붙음마다 체력 +{n} · 깎인 방어 +{n}(불타면 멈춤).",
   "방패 반격": "반격 피해 + 내 방어.",
   "수호": "상대 공격이 이 유닛에게 먼저 온다.",
@@ -496,7 +504,7 @@ function itemKwCard(raw) {
     return [raw, `장착하면 ${set}, 그 뒤 ` + ITEM_KW_SHORT[key].replace(/\{S\}\s*/g, "")];
   }
   const S = st || "그 스탯";
-  return [raw, ITEM_KW_SHORT[key].replace(/\{S\}/g, S + josaEunNeun(S)).replace(/\{n\}/g, n)];
+  return [raw, ITEM_KW_SHORT[key].replace(/\{spread\}/g, burnSpreadText(n, false)).replace(/\{S\}/g, S + josaEunNeun(S)).replace(/\{n\}/g, n)];
 }
 /* 카드 면의 능력 줄 [[이름, 숫자 넣은 짧은 뜻]] — 아이템 · 스페셜 유닛의 타고난 능력(gift) · 유닛 표시. 같은 능력은 한 번만.
    v3.57.0: "[관통] 능력 부여" 같은 요약 줄과 "[가호 N] …" 일반 뜻 줄을 이 한 줄로 합쳤다 */
@@ -508,15 +516,16 @@ function cardKwList(c) {
     if (it.evText && !it.evName) extra.push(["", it.evText]);
   };
   if (c.type === "item") take(c.item);
-  else if (c.type === "unit") { take(c.gift); raws.push(...pinAbilities(c)); }
+  else if (c.type === "unit") take(c.gift);   // 2026-11-18 표시(🔒 ▲ ▼)는 줄로 적지 않는다 — 숫자 옆 아이콘 말풍선
   const out = [], seen = new Set();
+  if (c.type === "item" && c.item.set) out.push(["", itemSetText(c.item) + "(코인 없음)."]);   // 옛 "[고정 a/b/c]" 이름 없이
   for (const raw of raws) { if (seen.has(raw)) continue; seen.add(raw); const g = itemKwCard(raw); if (g) out.push(g); }
   return out.concat(extra);
 }
 /* 아이템 능력과 그 뜻: [[이름, 뜻]] (숫자를 넣은 문장. 장착한 유닛의 설명·말풍선에서 쓴다) */
 function itemKwList(it) {
   const out = [];
-  if (it.set) out.push(["[고정]", "장착한 유닛의 공·방·체가 이 값이 된다 (유닛 코인은 쓰지 않음)."]);
+  if (it.set) out.push(["", itemSetText(it) + "(유닛 코인은 쓰지 않음)."]);
   for (const raw of itemAbilities(it)) {
     const name = raw.replace(/[\[\]]/g, "");
     out.push([raw, itemKwDesc(raw)]);
@@ -528,13 +537,12 @@ function itemKwList(it) {
 /* v2.9 스페셜 유닛의 타고난 능력: 아이템 능력 글을 그대로 쓴다 ("[가호 2] 타고난 능력") */
 function giftSummary(c) {
   if (!c) return [];
-  const out = [], pa = c.type === "unit" ? pinAbilities(c) : [];   // v3.20 카드에 새겨진 표시(고정 · 버팀 · 눌림)
+  const out = [];   // 2026-11-18 카드에 새겨진 표시(🔒 ▲ ▼)는 글로 적지 않는다 — 숫자 옆 아이콘 말풍선
   if (c.gift) {
     const g = itemGrants(c.gift);
     if (g.length) out.push(g.join(" ") + " 타고난 능력");
     if (c.gift.evText && !c.gift.evName) out.push(c.gift.evText);
   }
-  if (pa.length) out.push(pa.join(" "));
   return out;
 }
 /* v3.20 유닛 카드의 표시 뜻 [[이름, 뜻]] (원본 카드 · 크게 보기) */

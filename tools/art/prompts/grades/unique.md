@@ -56,7 +56,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: UNIQUE — a named legend of the banner, iconic hero portrait. A named legend of this banner — iconic and instantly recognisable, a hero image you would hang as a poster.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "모르카스의 영혼 수확자". Depict exactly what this name describes.
-Subject: a legendary, named Wraith of the Morkas's New Moon (see art direction) — a hooded ghost of someone still bound to an unpaid price, a translucent legless body wrapped in rusted chains.
+Subject: a legendary, named Wraith of the Morkas's New Moon (see art direction).
 Art direction: A hooded wraith reaping souls with a great scythe; every soul he takes turns into a contract page fluttering into his hand.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Wraith: a hooded ghost of someone still bound to an unpaid price, a translucent legless body wrapped in rusted chains. Silhouette: floating and hooded, legless, trailing chains. Materials: translucent grey-violet mist, rusted chains, a torn shroud.
@@ -146,7 +146,7 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 벨루미르의 바늘 꼭대기 망루에서 별과 바람을 함께 읽는 하이엘프 사수. 적의 주문이 바람을 타고 오기 전에 이미 과녁을 정해 둔다.
 Camera: centred heroic portrait, near-symmetrical, subject about 70% of the frame, looking slightly down toward the viewer, a strong iconic silhouette.
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; the spires of Belumir's Needle piercing the clouds under a night sky full of stars; behind it, faint and colossal, the banner's source: the god Belumir, the Star-Reader — a robe with a thousand eyes, an open book and stars; swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; the spires of Belumir's Needle piercing the clouds under a night sky full of stars; behind it, faint and colossal, the banner's source: the god Belumir, the Star-Reader — a robe with a thousand eyes, an open book and stars; swirling teal wind, drifting feathers and starlight streaks.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
 Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
@@ -165,7 +165,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: UNIQUE — a named legend of the banner, iconic hero portrait. A named legend of this banner — iconic and instantly recognisable, a hero image you would hang as a poster.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "벨루미르의 주문 사냥꾼". Depict exactly what this name describes.
-Subject: a legendary, named Night Elf of the Belumir's Star (see art direction) — night elves of the Storm Tower: dusky violet-blue skin, silver-white hair, very long swept-back ears and eyes glowing faintly like stars.
+Subject: a legendary, named Night Elf of the Belumir's Star (see art direction).
 Art direction: A night-elf spell-hunter archer: his arrow pierces a glowing enemy spell mid-air, and streams of foreign-coloured magic are pulled along the arrow into his bow and swallowed as light.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Night Elf: night elves of the Storm Tower: dusky violet-blue skin, silver-white hair, very long swept-back ears and eyes glowing faintly like stars. Silhouette: a tall slender archer with long swept ears and a dark trailing cloak. Materials: dark indigo leather, silver star embroidery, a moon-silver bow, a night-blue cloak.
@@ -174,7 +174,7 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 남의 주문만 골라 쏘아 떨어뜨리는 나이트엘프. 밤눈이 밝아 주문의 빛을 가장 먼저 보고, 화살촉에 꿰인 주문은 그의 활로 빨려 든다.
 Camera: centred heroic portrait, near-symmetrical, subject about 70% of the frame, looking slightly down toward the viewer, a strong iconic silhouette.
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; the spires of Belumir's Needle piercing the clouds under a night sky full of stars; behind it, faint and colossal, the banner's source: the god Belumir, the Star-Reader — a robe with a thousand eyes, an open book and stars; swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; the spires of Belumir's Needle piercing the clouds under a night sky full of stars; behind it, faint and colossal, the banner's source: the god Belumir, the Star-Reader — a robe with a thousand eyes, an open book and stars; swirling teal wind, drifting feathers and starlight streaks.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
 Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
@@ -247,7 +247,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: UNIQUE — a named legend of the banner, iconic hero portrait. A named legend of this banner — iconic and instantly recognisable, a hero image you would hang as a poster.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "브론의 첫 골렘". Depict exactly what this name describes.
-Subject: a legendary, named Golem of the Sorgrim's Shield (see art direction) — a massive forged golem of riveted steel plate and stone with piston joints, glowing forge seams and a boiler or furnace heart.
+Subject: a legendary, named Golem of the Sorgrim's Shield (see art direction).
 Art direction: Bron's first golem: an old, patched, riveted golem carefully building a new small golem from the parts of fallen comrades with gentle hands.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Golem: a massive forged golem of riveted steel plate and stone with piston joints, glowing forge seams and a boiler or furnace heart. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: riveted steel plate, stone, pistons, chains, glowing seams, steam.
@@ -275,7 +275,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: UNIQUE — a named legend of the banner, iconic hero portrait. A named legend of this banner — iconic and instantly recognisable, a hero image you would hang as a poster.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "두르크하임 사슬 골렘". Depict exactly what this name describes.
-Subject: a legendary, named Golem of the Sorgrim's Shield (see art direction) — a massive forged golem of riveted steel plate and stone with piston joints, glowing forge seams and a boiler or furnace heart.
+Subject: a legendary, named Golem of the Sorgrim's Shield (see art direction).
 Art direction: Two huge gate golems of Durkheim bound together by one massive steel chain, moving as one wall.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Golem: a massive forged golem of riveted steel plate and stone with piston joints, glowing forge seams and a boiler or furnace heart. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: riveted steel plate, stone, pistons, chains, glowing seams, steam.
@@ -330,7 +330,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: UNIQUE — a named legend of the banner, iconic hero portrait. A named legend of this banner — iconic and instantly recognisable, a hero image you would hang as a poster.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "케라운 자기장 탑". Depict exactly what this name describes.
-Subject: a legendary, named Lightning Tower of the Keraun's Thunder (see art direction) — a tall lattice tower of steel and copper bristling with lightning rods, often walking on its own legs, crackling with arcs.
+Subject: a legendary, named Lightning Tower of the Keraun's Thunder (see art direction).
 Art direction: A walking tower wound with Keraun's lightning; its magnetic field bends the air — coins, dice and metal debris spin in orbit around it.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Lightning Tower: a tall lattice tower of steel and copper bristling with lightning rods, often walking on its own legs, crackling with arcs. Silhouette: a tall spiked tower. Materials: steel lattice, copper rods, porcelain insulators, arcs.
@@ -366,7 +366,7 @@ Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; 
 Lore (Korean, use for the scene): 가르운 바위송곳니 부족의 우두머리. 그가 적을 쓰러뜨리면 무리가 울부짖으며 달려온다.
 Camera: centred heroic portrait, near-symmetrical, subject about 70% of the frame, looking slightly down toward the viewer, a strong iconic silhouette.
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
-Background: very dark night-blue (#07080d) base; the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; behind it, faint and colossal, the banner's source: the earth dragon Gorbas, the largest of the seven dragons, with rocks and forests growing on its back; flying rock dust, cracked ground, ochre light.
+Background: very dark night-blue (#07080d) base; the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; behind it, faint and colossal, the banner's source: the earth dragon Gorvath, the largest of the seven dragons, with rocks and forests growing on its back; flying rock dust, cracked ground, ochre light.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
 Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
@@ -393,7 +393,7 @@ Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; 
 Lore (Korean, use for the scene): 쓰러뜨린 적의 무기를 그 자리에서 집어 드는 오크. 가르운에서는 그것을 예의라고 부른다.
 Camera: centred heroic portrait, near-symmetrical, subject about 70% of the frame, looking slightly down toward the viewer, a strong iconic silhouette.
 Lighting: masterful chiaroscuro, a halo-like element backlight behind head and shoulders, molten orange-gold rim light; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
-Background: very dark night-blue (#07080d) base; the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; behind it, faint and colossal, the banner's source: the earth dragon Gorbas, the largest of the seven dragons, with rocks and forests growing on its back; flying rock dust, cracked ground, ochre light.
+Background: very dark night-blue (#07080d) base; the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; behind it, faint and colossal, the banner's source: the earth dragon Gorvath, the largest of the seven dragons, with rocks and forests growing on its back; flying rock dust, cracked ground, ochre light.
 Detail: masterwork: heraldic ornaments of the banner, a signature personal weapon or relic, rich textures, gold inlay.
 Spectacle: iconic: a halo-like backlight, swirling embers, gleaming gold filigree and the faint colossal silhouette of the banner's source behind — a step above epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: molten orange-gold (#ff8a2a) embers and rim light, fine gold filigree — the element colour stays the main light; the grade accent is a secondary touch (about 20% of the light).
@@ -412,7 +412,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: UNIQUE — a named legend of the banner, iconic hero portrait. A named legend of this banner — iconic and instantly recognisable, a hero image you would hang as a poster.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "첫 고목의 가시지기". Depict exactly what this name describes.
-Subject: a legendary, named Treant of the Verdan's Antler (see art direction) — treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks.
+Subject: a legendary, named Treant of the Verdan's Antler (see art direction).
 Art direction: An ancient treant keeper of thorns around the First Elder Tree; cut briars regrow from the roots all around him as he works.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Treant: treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks. Silhouette: towering trunk body with spreading branch arms and root feet. Materials: rough bark, moss, leaves, knotted roots, amber sap.
@@ -440,7 +440,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: UNIQUE — a named legend of the banner, iconic hero portrait. A named legend of this banner — iconic and instantly recognisable, a hero image you would hang as a poster.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "베르단의 씨앗지기". Depict exactly what this name describes.
-Subject: a legendary, named Treant of the Verdan's Antler (see art direction) — treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks.
+Subject: a legendary, named Treant of the Verdan's Antler (see art direction).
 Art direction: An old treant with seed pouches hanging from his branches; wherever he walks after battle, a young forest springs up behind him.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Treant: treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks. Silhouette: towering trunk body with spreading branch arms and root feet. Materials: rough bark, moss, leaves, knotted roots, amber sap.
@@ -495,7 +495,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: UNIQUE — a named legend of the banner, iconic hero portrait. A named legend of this banner — iconic and instantly recognisable, a hero image you would hang as a poster.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "마렌시아의 세이렌". Depict exactly what this name describes.
-Subject: a legendary, named Siren of the Marencia's Song (see art direction) — sirens of Marencia: pale sea-singers rising from deep water, with long dark kelp-like hair, fin-webbed arms and a fish tail, whose song turns blades back.
+Subject: a legendary, named Siren of the Marencia's Song (see art direction).
 Art direction: A siren risen from Marencia's deep waters, singing on a rock; in the distance enemy soldiers turn their swords around against themselves.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Siren: sirens of Marencia: pale sea-singers rising from deep water, with long dark kelp-like hair, fin-webbed arms and a fish tail, whose song turns blades back. Silhouette: a singer rising from the water, arms spread and hair streaming. Materials: pale pearly skin, dark wet hair, fins, conch shells.

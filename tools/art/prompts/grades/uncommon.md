@@ -29,7 +29,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "계약의 저주 인형". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary Curse Doll of the Morkas's New Moon — a small stitched rag doll brought to life by a pact, with mismatched button eyes, a torn scrap of contract sewn into its chest and rusty pins stuck through its limbs.
+Subject: a low-ranking, ordinary Curse Doll of the Morkas's New Moon.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
 Creature kind — Curse Doll: a small stitched rag doll brought to life by a pact, with mismatched button eyes, a torn scrap of contract sewn into its chest and rusty pins stuck through its limbs. Silhouette: small and slumped, limp floppy limbs with pins jutting out. Materials: coarse burlap, black thread stitches, rusty pins, a blood-wax seal, a parchment scrap.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
@@ -53,22 +53,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "환각". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a burst of darkness power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: hallucinatory mist making enemy warriors turn their blades on one another. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Morkas's New Moon: magic of morkas's new moon, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 녹타르의 안개를 마신 자는 곁의 전우가 마족으로 보인다. 칼을 내리친 뒤에야 그 얼굴을 알아본다.
 Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛이 환각에 빠져, 바로 뒤의 제 편 유닛을 제 공격으로 친다. 환각에 빠진 유닛은 [홀림].
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -83,7 +83,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "사슬에 묶인 망령". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary Wraith of the Morkas's New Moon — a hooded ghost of someone still bound to an unpaid price, a translucent legless body wrapped in rusted chains; a stubborn defender who stands like a wall.
+Subject: a low-ranking, ordinary Wraith of the Morkas's New Moon; a stubborn defender who stands like a wall.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
 Creature kind — Wraith: a hooded ghost of someone still bound to an unpaid price, a translucent legless body wrapped in rusted chains. Silhouette: floating and hooded, legless, trailing chains. Materials: translucent grey-violet mist, rusted chains, a torn shroud.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
@@ -107,23 +107,23 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "침묵의 빙의". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a burst of darkness power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
-Art direction: Possession of Silence (v3.95): left, a glowing enemy spell scroll is gagged shut by a ribbon of black smoke and goes dark. Centre, a huge, hale enemy champion (dark silhouette) stiffens as a small, frail, translucent ghost — the faint soul of the weakest little creature on the battlefield — slides into his chest; his mighty body suddenly looks as fragile as that ghost, knees buckling, eyes hollow. Violet underlight, whisper-thin smoke threads linking the two shapes. No blood.
+Subject: attack spell of the Morkas's New Moon (see art direction). Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Art direction: Possession of Silence: left, a glowing enemy spell scroll is gagged shut by a ribbon of black smoke and goes dark. Centre, a huge, hale enemy champion (dark silhouette) stiffens as a small, frail, translucent ghost — the faint soul of the weakest little creature on the battlefield — slides into his chest; his mighty body suddenly looks as fragile as that ghost, knees buckling, eyes hollow. Violet underlight, whisper-thin smoke threads linking the two shapes. No blood.
 Scale (level 2 of 8): a small, local effect.
 Banner — Morkas's New Moon: magic of morkas's new moon, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 주문을 외던 입이 멎고, 가장 굳센 자의 몸에 가장 여린 자의 혼이 깃든다. 모르카스의 그믐에는 둘 다 같은 값이다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 마법 1장을 [무효]로 한다. 상대 유닛 중 남은 체력이 가장 높은 1기에 [빙의] — 남은 체력이 전장에서 레벨이 가장 낮은 다른 유닛의 남은 체력이 된다(더 낮을 때만).
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 마법 1장을 [무효]로 한다. 상대 유닛 중 남은 체력이 가장 높은 유닛 1개에 [빙의] — 남은 체력이 전장에서 레벨이 가장 낮은 다른 유닛의 남은 체력이 된다(더 낮을 때만).
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -138,7 +138,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "녹타르 듀라한". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Dullahan of the Morkas's New Moon — a headless knight in black plate who paid with its own head, carrying the helmeted head under one arm and an executioner's axe in the other, violet ghost-flame rising from the empty neck.
+Subject: a seasoned, battle-hardened Dullahan of the Morkas's New Moon.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Creature kind — Dullahan: a headless knight in black plate who paid with its own head, carrying the helmeted head under one arm and an executioner's axe in the other, violet ghost-flame rising from the empty neck. Silhouette: tall armoured figure with an empty neck, a head held at the hip. Materials: black iron plate, a chained ledger, a glowing head in a helm, violet ghost-flame.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
@@ -162,21 +162,21 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A well-made, reliable object of the banner, finer in craft than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "계약서 원본". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Morkas's New Moon (holy relic; if unsure, a book). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
+Subject: the item the card name and lore describe — a single object made or kept by the Morkas's New Moon (holy relic). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
 Scale (level 3 of 8): a fine object with a faint aura.
 Banner — Morkas's New Moon (darkness): palette: violet #8b5cf6, black, blood-red accents. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 모르카스와 맺은 계약서의 원본. 주인이 피로 값을 치를 때마다 서명한 자의 칼이 무거워진다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low close-up of the well-crafted object on its stand or cloth, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: fully rendered, better-crafted materials with engraved trim and fine surface wear.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: well-crafted, reliable, prized.
 Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -191,7 +191,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "피의 맹세 검사". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Death Knight of the Morkas's New Moon — an undead knight in blackened rusted plate holding a blood-fed sword, cold violet eyes glowing in the visor.
+Subject: a seasoned, battle-hardened Death Knight of the Morkas's New Moon.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Creature kind — Death Knight: an undead knight in blackened rusted plate holding a blood-fed sword, cold violet eyes glowing in the visor. Silhouette: an armoured knight with a long sword held upright. Materials: black rusted plate, blood-red runes on the blade, a torn cape.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
@@ -215,21 +215,21 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A well-made, reliable object of the banner, finer in craft than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "계약의 인장". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Morkas's New Moon (holy relic; if unsure, a wax seal, signet or sealed contract). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
+Subject: the item the card name and lore describe — a single object made or kept by the Morkas's New Moon (holy relic). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
 Scale (level 3 of 8): a fine object with a faint aura.
 Banner — Morkas's New Moon (darkness): palette: violet #8b5cf6, black, blood-red accents. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 모르카스와 맺은 계약의 인장. 대가를 미리 치렀기에, 자기보다 큰 자의 칼은 그림자처럼 비켜 간다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low close-up of the well-crafted object on its stand or cloth, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: fully rendered, better-crafted materials with engraved trim and fine surface wear.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: well-crafted, reliable, prized.
 Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -244,7 +244,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "모르크 협곡 셰이드". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Shade of the Morkas's New Moon — a tall, wavering shadow-spirit risen from the canyon floor, thin as smoke, with long fingers and two faint violet eyes.
+Subject: a seasoned, battle-hardened Shade of the Morkas's New Moon.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Creature kind — Shade: a tall, wavering shadow-spirit risen from the canyon floor, thin as smoke, with long fingers and two faint violet eyes. Silhouette: tall, thin and wavering like a column of smoke. Materials: dusky smoke, canyon dust, faint violet eyes.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
@@ -271,11 +271,12 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "녹타르 피의 군주". Depict exactly what this name describes.
-Subject: an elite, commanding Vampire of the Morkas's New Moon — a pale aristocratic vampire of Noctar with sharp fangs, red eyes and a high-collared black and crimson attire.
+Subject: an elite, commanding Vampire of the Morkas's New Moon.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Vampire: a pale aristocratic vampire of Noctar with sharp fangs, red eyes and a high-collared black and crimson attire. Silhouette: tall and elegant, high collar, sweeping cape. Materials: black velvet, crimson silk, silver rings, a crystal goblet.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 녹타르 문서고의 열쇠를 쥔 군주. 도시에 흐르는 피는 모두 그의 장부를 거쳐 간다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
@@ -297,7 +298,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "모르카스의 세리". Depict exactly what this name describes.
-Subject: an elite, commanding Wraith of the Morkas's New Moon — a hooded ghost of someone still bound to an unpaid price, a translucent legless body wrapped in rusted chains.
+Subject: an elite, commanding Wraith of the Morkas's New Moon.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Wraith: a hooded ghost of someone still bound to an unpaid price, a translucent legless body wrapped in rusted chains. Silhouette: floating and hooded, legless, trailing chains. Materials: translucent grey-violet mist, rusted chains, a torn shroud.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
@@ -324,11 +325,12 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "피의 공작". Depict exactly what this name describes.
-Subject: an elite, commanding Vampire of the Morkas's New Moon — a pale aristocratic vampire of Noctar with sharp fangs, red eyes and a high-collared black and crimson attire.
+Subject: an elite, commanding Vampire of the Morkas's New Moon.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Vampire: a pale aristocratic vampire of Noctar with sharp fangs, red eyes and a high-collared black and crimson attire. Silhouette: tall and elegant, high collar, sweeping cape. Materials: black velvet, crimson silk, silver rings, a crystal goblet.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 녹타르 귀족 가운데 가장 오래된 피. 그의 연회에 초대받은 손님은 술잔 대신 서약서를 받는다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the shadow city of Noctar in a sunless canyon) with atmosphere and depth, softly focused, light atmospheric particles; violet shadow smoke, blood-red accents, contract sigils.
@@ -350,7 +352,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "모르크의 나이트메어". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring Nightmare of the Morkas's New Moon — a black horse made of nightmare smoke, with a flaming violet mane, burning hooves and eyes like coals.
+Subject: a legendary, awe-inspiring Nightmare of the Morkas's New Moon.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
 Creature kind — Nightmare: a black horse made of nightmare smoke, with a flaming violet mane, burning hooves and eyes like coals. Silhouette: a rearing horse with a long smoke-trailing mane. Materials: black smoke hide, violet fire, iron-shod hooves.
 Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
@@ -377,7 +379,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "견습생의 기도 촛불". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary Prayer Candle of the Solante's Dawn — a small living prayer candle of white beeswax, a calm little face glowing inside its flame, wax drips hanging like a tiny robe.
+Subject: a low-ranking, ordinary Prayer Candle of the Solante's Dawn.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
 Creature kind — Prayer Candle: a small living prayer candle of white beeswax, a calm little face glowing inside its flame, wax drips hanging like a tiny robe. Silhouette: small and upright, a tall teardrop flame on top. Materials: white beeswax, warm gold flame, a brass candle dish.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
@@ -404,7 +406,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "돌격 페가수스". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary Pegasus of the Solante's Dawn — a white winged horse with broad feathered wings and a pale gold mane; a reckless charging attacker.
+Subject: a low-ranking, ordinary Pegasus of the Solante's Dawn; a reckless charging attacker.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
 Creature kind — Pegasus: a white winged horse with broad feathered wings and a pale gold mane. Silhouette: a horse with big wings raised mid-gallop or mid-dive. Materials: white coat, white feathered wings, gold mane, silver hooves.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
@@ -428,22 +430,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "정화의 빛". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: an empowering holy light aura rising around allied warriors; a protective barrier or ward shielding allies. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a counter-force shattering and snuffing out an incoming enemy spell mid-air; an empowering holy light aura rising around allied warriors; a protective barrier or ward shielding allies. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 2 of 8): a small, local effect.
 Banner — Solante's Dawn: magic of solante's dawn, signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths; palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 솔란테의 빛 아래에서는 숨겨 둔 것이 남지 않는다. 드러난 함정은 사라지고, 앞장선 기사의 창끝에는 빛이 머문다.
 Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 마법 1장을 [무효]로 한다. 아군 맨 앞 유닛 공격 +2, [보호막].
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -455,23 +457,23 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "침묵의 기도". Depict exactly what this name describes.
-Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: a burst of holy light power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: defense spell of the Solante's Dawn (see art direction). Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Art direction: Prayer of Silence: a circle of robed celestial priests with folded white wings kneel in unison on a battlefield, heads bowed; a soft dome of pale golden quiet spreads from them, and inside it the glowing auras and weapon enchantments of the enemy front line fade out like snuffed candles. Still, hushed, gentle light.
 Scale (level 2 of 8): a small, local effect.
 Banner — Solante's Dawn: magic of solante's dawn, signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths; palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 천족 사제들이 한목소리로 기도를 올리면 전장의 소음이 가라앉는다. 그 침묵 속에서는 어떤 힘도 제 이름을 부르지 못한다.
 Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛 2개의 특수능력을 이번 턴 끈다. 아군에 [정화] 유닛이 있으면 상대 유닛 전체.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -486,7 +488,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "성광 색유리 기사". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Stained-Glass Knight of the Solante's Dawn — a knight-shaped figure stepped out of a cathedral window, its body made of coloured glass panes held together by dark lead lines, sunlight shining through it.
+Subject: a seasoned, battle-hardened Stained-Glass Knight of the Solante's Dawn.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Creature kind — Stained-Glass Knight: a knight-shaped figure stepped out of a cathedral window, its body made of coloured glass panes held together by dark lead lines, sunlight shining through it. Silhouette: an upright knight with sword and shield, cut into glass segments. Materials: coloured glass panes, lead cames, gold light shining through.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
@@ -513,9 +515,9 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "맹세를 새긴 기사". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Oath Spirit of the Solante's Dawn — a sworn oath that outlived its speaker, taking the shape of a knight: hollow white-gold armour filled with light, the words of the oath glowing on its plates.
+Subject: a seasoned, battle-hardened Oath Spirit of the Solante's Dawn.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Oath Spirit: a sworn oath that outlived its speaker, taking the shape of a knight: hollow white-gold armour filled with light, the words of the oath glowing on its plates. Silhouette: a knight shape with an empty glowing visor. Materials: white-gold light, engraved glowing letters, hollow plate.
+Creature kind — Oath Spirit: a sworn oath that outlived its speaker, taking the shape of a knight: hollow white-gold armour filled with light, abstract glowing oath-sigils etched on its plates. Silhouette: a knight shape with an empty glowing visor. Materials: white-gold light, glowing abstract sigils, hollow plate.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 기사는 오래전에 쓰러졌고, 갑옷 안쪽에 새긴 맹세만 남아 그 갑옷을 입고 일어섰다. 맹세가 지켜지는 동안 빈 갑옷은 꺾이지 않는다.
@@ -537,21 +539,21 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A well-made, reliable object of the banner, finer in craft than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "솔란테의 성유물". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Solante's Dawn (holy relic; if unsure, a sacred relic (chalice, reliquary or holy symbol — not a plain cross)). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
+Subject: the item the card name and lore describe — a single object made or kept by the Solante's Dawn (holy relic). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
 Scale (level 3 of 8): a fine object with a faint aura.
 Banner — Solante's Dawn (holy light): palette: holy light #ffe9a8, white, pale gold, soft sky blue. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 태양신의 성유물. 신이 고개를 돌린 날에는 아무것도 막지 못한다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low close-up of the well-crafted object on its stand or cloth, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: fully rendered, better-crafted materials with engraved trim and fine surface wear.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: well-crafted, reliable, prized.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -592,7 +594,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "엘라드의 성화". Depict exactly what this name describes.
-Subject: an elite, commanding Sacred Flame of the Solante's Dawn — the never-extinguished sacred fire of Elad given a body: a white-gold flame in a vaguely human shape rising from a brass brazier.
+Subject: an elite, commanding Sacred Flame of the Solante's Dawn.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Sacred Flame: the never-extinguished sacred fire of Elad given a body: a white-gold flame in a vaguely human shape rising from a brass brazier. Silhouette: a tall flame rising from a brazier. Materials: white-gold fire, a brass brazier, glowing embers.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
@@ -619,7 +621,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "솔란테의 성가대". Depict exactly what this name describes.
-Subject: an elite, commanding Dawn Lark of the Solante's Dawn — small dawn larks with brown and gold-tipped feathers, always flying in a singing flock, sunrise light catching their wings.
+Subject: an elite, commanding Dawn Lark of the Solante's Dawn.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Dawn Lark: small dawn larks with brown and gold-tipped feathers, always flying in a singing flock, sunrise light catching their wings. Silhouette: a loose flock of small birds in mid-song. Materials: brown and gold feathers, small sharp beaks, sun glints.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
@@ -650,6 +652,7 @@ Subject: an elite, commanding member of the Solante's Dawn — a devoted priest,
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Banner — Solante's Dawn: seraphs with white feathered wings and halos, and human knights of the Radiant Order. Silhouette: upright and protective; wings spread wide behind great shields. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 제 날개를 불살라 빛으로 바꾼 천족. 그 불은 곁에 선 동료의 상처에 스민 더러움까지 함께 태운다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
@@ -671,11 +674,12 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "새벽의 천사장". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring Archangel of the Solante's Dawn — a towering archangel of the dawn with many great white wings and gold armour, a lance of light in hand.
+Subject: a legendary, awe-inspiring Archangel of the Solante's Dawn.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
 Creature kind — Archangel: a towering archangel of the dawn with many great white wings and gold armour, a lance of light in hand. Silhouette: a tall figure framed by vast spread wings. Materials: white and gold feathers, gold plate, radiant light.
 Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 솔란테의 새벽빛을 가장 먼저 받는 천사장. 그가 날개를 펴면 고원 전체에 아침이 온다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the white walls of the Dawn Citadel Elad) with atmosphere and depth, softly focused, light atmospheric particles; pale gold radiance, halo, feathers of light.
@@ -697,14 +701,15 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "바늘탑 견습 사수". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary Elf of the Belumir's Star — elf archers of the Storm Tower guild: pointed ears shorter than a high elf's, lean and wind-weathered, brown or ash hair tied back, plain practical gear.
+Subject: a low-ranking, ordinary Elf of the Belumir's Star.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
 Creature kind — Elf: elf archers of the Storm Tower guild: pointed ears shorter than a high elf's, lean and wind-weathered, brown or ash hair tied back, plain practical gear. Silhouette: a lean archer with a plain longbow, hood pushed back, braced against the wind. Materials: worn grey-green leathers, a wool cloak, a plain pale-wood bow, grey goose fletching.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 바늘탑 가장 아래층에서 바람의 이름부터 외우는 견습 사수. 바람을 읽지 못한 화살은 과녁 앞에서 길을 잃는다고 배운다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, drifting feathers and starlight streaks.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
@@ -723,7 +728,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "어린 하피". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary Harpy of the Belumir's Star — storm harpies: bird-women with wide feathered wings for arms, hooked talons for feet and wild wind-tossed hair, nesting under the Needle's eaves.
+Subject: a low-ranking, ordinary Harpy of the Belumir's Star.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
 Creature kind — Harpy: storm harpies: bird-women with wide feathered wings for arms, hooked talons for feet and wild wind-tossed hair, nesting under the Needle's eaves. Silhouette: a bird-woman with wide wings and hooked talons, mid-swoop. Materials: storm-grey and teal feathers, sharp black talons, wild hair.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
@@ -731,7 +736,7 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 바늘탑 처마에 둥지를 튼 하피의 새끼. 궁사회가 버린 화살깃을 주워 둥지를 짓다가, 깃 하나로 갑옷 틈을 찾는 법을 먼저 익혔다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, drifting feathers and starlight streaks.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
@@ -747,22 +752,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "주문 끊기". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a burst of wind power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a counter-force shattering and snuffing out an incoming enemy spell mid-air. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Belumir's Star: magic of belumir's star, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 폭풍탑의 견습생은 주문을 거는 법보다 끊는 법을 먼저 배운다. 남의 주문을 끊지 못하는 자는 탑에 오를 수 없다.
 Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 마법 1장을 [무효]로 한다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, drifting feathers and starlight streaks.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -774,22 +779,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "정찰". Depict exactly what this name describes.
-Subject: trick spell played on the opponent's hidden hand — cunning: hidden cards, eyes, threads of fate, a sly hand in shadow; quieter, mysterious lighting. The moment it takes effect: threads of fate and glowing cards being drawn; a sly hand reaching into the enemy's hidden plans. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: trick spell played on the opponent's hidden hand — cunning: hidden cards, eyes, threads of fate, a sly hand in shadow; quieter, mysterious lighting. The moment it takes effect: threads of fate and glowing cards cycling in motion; a sly hand reaching into the enemy's hidden plans. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Belumir's Star: magic of belumir's star, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 바람 척후병이 적의 막사에서 가져온 소식. 가장 먼저 나설 적의 팔을 미리 묶어 둔다.
 Game effect (Korean, mood only — never draw text or numbers): 상대 핸드의 첫 번째 유닛 공격 −2 (이 판 내내). 저주 면역인 공격은 깎이지 않는다. 카드 1장을 뽑는다(생명 소모 없음).
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, drifting feathers and starlight streaks.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -801,21 +806,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "무력화". Depict exactly what this name describes.
 Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a weakening curse sinking over the enemies. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Belumir's Star: magic of belumir's star, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
+Lore (Korean, use for the scene): 바늘탑에서 가장 먼저 배우는 방어 주문. 상대의 팔에서 힘이 바람처럼 빠져나간다.
 Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛 공격 −5.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, drifting feathers and starlight streaks.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -830,7 +836,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "돌풍 임프". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary Imp of the Belumir's Star — small mischievous sky imps with pointed ears and wide grins, one made of a swirling gust, another of a falling star trailing sparks.
+Subject: a low-ranking, ordinary Imp of the Belumir's Star.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
 Creature kind — Imp: small mischievous sky imps with pointed ears and wide grins, one made of a swirling gust, another of a falling star trailing sparks. Silhouette: tiny, gangly and flitting, small wings. Materials: wisps of air or white-hot sparks, tiny feathered wings.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
@@ -838,7 +844,7 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 성미가 바람보다 급한 꼬마 정령. 궁사들이 시위를 다 당기기도 전에 화살을 채어 가서 제가 먼저 맞힌다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, drifting feathers and starlight streaks.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
@@ -854,21 +860,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "찢는 바람". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive wind attack striking the enemy ranks. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive wind attack striking the enemy ranks; heavy enemy armour splitting, buckling and torn open. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 2 of 8): a small, local effect.
 Banner — Belumir's Star: magic of belumir's star, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체의 방어가 0이 된다(이번 턴). 상대 유닛 전체에게 피해 1.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lore (Korean, use for the scene): 갑옷의 이음매만 골라 파고드는 바람. 지나간 뒤에는 쇠가 천처럼 너덜거린다.
+Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체의 방어가 0이 된다(이번 턴). 상대 유닛 전체에게 체력 −1.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, drifting feathers and starlight streaks.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -880,23 +887,23 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "혼란의 바람". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a burst of wind power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
-Art direction: Wind of Confusion (v3.95, formerly Wind Barrier): a twisting, disorienting gust hurled by a high-elf archer wraps the front enemy warrior (dark silhouette) in a spiral; his armour plates and his life-glow swap places in the whirl — steel pieces float out while a pale heartbeat light sinks inward — he staggers, vision warped, the air itself bent and crooked. Storm-grey and silver wind lines, no text.
+Subject: attack spell of the Belumir's Star (see art direction). Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Art direction: Wind of Confusion: a twisting, disorienting gust hurled by a high-elf archer wraps the front enemy warrior (dark silhouette) in a spiral; his armour plates and his life-glow swap places in the whirl — steel pieces float out while a pale heartbeat light sinks inward — he staggers, vision warped, the air itself bent and crooked. Storm-grey and silver wind lines, no text.
 Scale (level 2 of 8): a small, local effect.
 Banner — Belumir's Star: magic of belumir's star, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 엘프의 바람은 갑옷을 벗기지 않는다. 다만 몸이 갑옷인 줄, 갑옷이 몸인 줄 모르게 뒤섞는다. 그다음은 화살이 안다.
 Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛의 방어와 남은 체력을 맞바꾼다(방어가 0이던 유닛은 체력 0이 되어 쓰러진다).
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, drifting feathers and starlight streaks.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -908,23 +915,23 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "되쏘는 바람". Depict exactly what this name describes.
-Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: an empowering wind aura rising around allied warriors; allies rallying as one under a shared surge of power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
-Art direction: Wind Recoil (v3.95, formerly Whirlwind Bulwark): two high-elf archers at the front stand braced inside a tight protective whirlwind that turns enemy blows aside; from within the cyclone they loose return arrows that slip straight through the gaps of the attackers' armour as if the plate were not there. Defensive and counter-striking at once; silver gusts, flying leaves, taut bowstrings.
+Subject: defense spell of the Belumir's Star (see art direction). Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Art direction: Wind Recoil: two high-elf archers at the front stand braced inside a tight protective whirlwind that turns enemy blows aside; from within the cyclone they loose return arrows that slip straight through the gaps of the attackers' armour as if the plate were not there. Defensive and counter-striking at once; silver gusts, flying leaves, taut bowstrings.
 Scale (level 2 of 8): a small, local effect.
 Banner — Belumir's Star: magic of belumir's star, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 바늘탑 사수는 맞으며 물러서지 않는다. 몸을 감싼 회오리가 칼을 흘리는 동안, 시위는 이미 칼 주인의 갑옷 틈을 겨누고 있다.
-Game effect (Korean, mood only — never draw text or numbers): 아군 맨 앞 2기 방어 +2, 체력 +2, [방어무시](이번 턴 — 반격할 때도 상대 방어를 무시한다).
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Game effect (Korean, mood only — never draw text or numbers): 아군 맨 앞 유닛 2개 방어 +2, 체력 +2, [방어무시](이번 턴 — 반격할 때도 상대 방어를 무시한다).
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, drifting feathers and starlight streaks.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -939,7 +946,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "갑옷 틈 송골매". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Falcon of the Belumir's Star — a fierce storm falcon with slate-grey wings and sharp eyes, built for the stooping dive.
+Subject: a seasoned, battle-hardened Falcon of the Belumir's Star.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Creature kind — Falcon: a fierce storm falcon with slate-grey wings and sharp eyes, built for the stooping dive. Silhouette: a sleek falcon in a steep dive, wings swept back. Materials: slate-grey and white barred feathers, yellow talons, hooked beak.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
@@ -947,7 +954,7 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 갑옷의 이음매만 본다. 발톱은 쇠를 뚫지 않고, 쇠가 비켜 준 틈으로 들어간다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, drifting feathers and starlight streaks.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
@@ -963,21 +970,21 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A well-made, reliable object of the banner, finer in craft than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "궁사회 망토". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Belumir's Star (catalyst; if unsure, a piece of armour). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
+Subject: the item the card name and lore describe — a single object made or kept by the Belumir's Star (archery gear). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
 Scale (level 3 of 8): a fine object with a faint aura.
 Banner — Belumir's Star (wind): palette: wind teal #9fe3d6, silver, white, starry indigo. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 바람이 감싸 도는 폭풍탑 궁사회의 망토. 날아든 화살이 옷자락에서 길을 잃는다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low close-up of the well-crafted object on its stand or cloth, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, drifting feathers and starlight streaks.
+Detail: fully rendered, better-crafted materials with engraved trim and fine surface wear.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: well-crafted, reliable, prized.
 Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -989,21 +996,21 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A well-made, reliable object of the banner, finer in craft than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "번개 깃 화살". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Belumir's Star (catalyst + engraving; if unsure, a bow). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
+Subject: the item the card name and lore describe — a single object made or kept by the Belumir's Star (archery gear + engraving). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
 Scale (level 3 of 8): a fine object with a faint aura.
 Banner — Belumir's Star (wind): palette: wind teal #9fe3d6, silver, white, starry indigo. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
 Lore (Korean, use for the scene): 폭풍탑 꼭대기에서 번개를 모아 깃에 감은 화살. 쏠 때마다 번개가 함께 날아간다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low close-up of the well-crafted object on its stand or cloth, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, drifting feathers and starlight streaks.
+Detail: fully rendered, better-crafted materials with engraved trim and fine surface wear.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: well-crafted, reliable, prized.
 Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -1018,7 +1025,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "벨루미르의 펼친 책". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Grimoire of the Belumir's Star — Belumir's open book come alive: a great book floating open with its pages fanned by wind, abstract star glyphs lifting off the pages as light.
+Subject: a seasoned, battle-hardened Grimoire of the Belumir's Star.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Creature kind — Grimoire: Belumir's open book come alive: a great book floating open with its pages fanned by wind, abstract star glyphs lifting off the pages as light. Silhouette: an open book floating with pages fanned out. Materials: pale vellum pages, silver clasps and corners, glowing abstract star glyphs.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
@@ -1026,7 +1033,7 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 벨루미르의 상징인 펼친 책이 몸을 얻었다. 바람이 넘기는 쪽마다 별의 문자가 떠올라, 갑옷을 지나 그 속을 읽고 꿰뚫는다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, drifting feathers and starlight streaks.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
@@ -1045,7 +1052,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "폭풍의 눈동자". Depict exactly what this name describes.
-Subject: an elite, commanding Heaven's Eye of the Belumir's Star — a single great eye fallen from Belumir's robe of a thousand eyes, floating in the calm centre of a storm, ringed by swirling winds and a torn scrap of starry robe; a stubborn defender who stands like a wall.
+Subject: an elite, commanding Heaven's Eye of the Belumir's Star; a stubborn defender who stands like a wall.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Heaven's Eye: a single great eye fallen from Belumir's robe of a thousand eyes, floating in the calm centre of a storm, ringed by swirling winds and a torn scrap of starry robe. Silhouette: one big floating eye inside a ring of wind. Materials: a glassy star-flecked iris, silver lashes, starry indigo cloth, storm swirls.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
@@ -1053,7 +1060,7 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 벨루미르의 로브에 박힌 천 개의 눈 가운데 하나가 떨어져 나왔다. 폭풍 한가운데에 떠서 바깥이 거셀수록 더 고요히 노려보고, 함부로 다가온 자는 바람이 베어 낸다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, drifting feathers and starlight streaks.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
@@ -1072,7 +1079,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "하늘 요람 그리핀". Depict exactly what this name describes.
-Subject: an elite, commanding Griffin of the Belumir's Star — a griffin with the head, wings and foreclaws of a storm eagle and the body of a tawny lion.
+Subject: an elite, commanding Griffin of the Belumir's Star.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Griffin: a griffin with the head, wings and foreclaws of a storm eagle and the body of a tawny lion. Silhouette: an eagle-fronted lion with wings raised. Materials: teal-grey feathers, tawny fur, golden beak and talons.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
@@ -1080,7 +1087,7 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 바늘탑 꼭대기 관문 앞에 둥지를 틀었다. 바람의 용 시렐이 장난을 걸어도 관문도 둥지도 흔들리지 않는다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, drifting feathers and starlight streaks.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
@@ -1099,7 +1106,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "장궁 그리핀 기사". Depict exactly what this name describes.
-Subject: an elite, commanding Griffin of the Belumir's Star — a griffin with the head, wings and foreclaws of a storm eagle and the body of a tawny lion.
+Subject: an elite, commanding Griffin of the Belumir's Star.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Griffin: a griffin with the head, wings and foreclaws of a storm eagle and the body of a tawny lion. Silhouette: an eagle-fronted lion with wings raised. Materials: teal-grey feathers, tawny fur, golden beak and talons.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
@@ -1107,7 +1114,7 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 폭풍탑 궁사회에서 기사 서임을 받은 그리핀. 장궁을 당길 손은 없지만, 날갯짓 한 번에 바람 화살이 장궁 사거리만큼 날아간다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, drifting feathers and starlight streaks.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
@@ -1126,7 +1133,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "하피 여왕". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring Harpy of the Belumir's Star — storm harpies: bird-women with wide feathered wings for arms, hooked talons for feet and wild wind-tossed hair, nesting under the Needle's eaves.
+Subject: a legendary, awe-inspiring Harpy of the Belumir's Star.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
 Creature kind — Harpy: storm harpies: bird-women with wide feathered wings for arms, hooked talons for feet and wild wind-tossed hair, nesting under the Needle's eaves. Silhouette: a bird-woman with wide wings and hooked talons, mid-swoop. Materials: storm-grey and teal feathers, sharp black talons, wild hair.
 Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
@@ -1134,7 +1141,7 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 머리 위에 늘 번개구름이 왕관처럼 맴돈다. 바늘탑 처마의 하피들은 모두 그녀의 둥지에서 났다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, fluttering robes and pages.
+Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms) with atmosphere and depth, softly focused, light atmospheric particles; swirling teal wind, drifting feathers and starlight streaks.
 Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
@@ -1153,7 +1160,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "타들어 가는 도화선". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary Fuse Spirit of the Dormak's Heartfire — a living length of tarred fuse cord that slithers like a snake, its sputtering spark-head serving as a face and trailing a thin thread of smoke.
+Subject: a low-ranking, ordinary Fuse Spirit of the Dormak's Heartfire.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
 Creature kind — Fuse Spirit: a living length of tarred fuse cord that slithers like a snake, its sputtering spark-head serving as a face and trailing a thin thread of smoke. Silhouette: a coiling cord with a fizzing spark at its tip. Materials: tarred hemp cord, black powder grit, bright sparks, wisps of grey smoke.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
@@ -1177,22 +1184,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "도화선". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive fire attack striking the enemy ranks. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive fire attack striking the enemy ranks; clinging embers and hungry flames catching onto enemy gear and armour. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Dormak's Heartfire: magic of dormak's heartfire, signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks; palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 불붙은 심지가 땅을 기어 적의 발밑까지 간다. 터지는 것은 한참 뒤다 — 고블린은 그 기다림을 좋아한다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛에게 피해 1, 화상 3.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛에게 체력 −1, 화상 3.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -1207,7 +1214,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "잿껍질 달팽이". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary Lava Snail of the Dormak's Heartfire — a large snail with a shell crusted in grey ash over a glowing molten core and a slimy body that leaves a smoking trail; a stubborn defender who stands like a wall.
+Subject: a low-ranking, ordinary Lava Snail of the Dormak's Heartfire; a stubborn defender who stands like a wall.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
 Creature kind — Lava Snail: a large snail with a shell crusted in grey ash over a glowing molten core and a slimy body that leaves a smoking trail. Silhouette: a slow snail under a big ash-crusted shell. Materials: ash-crust shell, molten glow beneath, smoking slime.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
@@ -1231,22 +1238,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "덫 태우기". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive fire attack striking the enemy ranks. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive fire attack striking the enemy ranks; a counter-force shattering and snuffing out an incoming enemy spell mid-air. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 2 of 8): a small, local effect.
 Banner — Dormak's Heartfire: magic of dormak's heartfire, signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks; palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 고블린은 덫을 해체하지 않는다. 불을 던져 넣고, 터지는 것을 구경한다. 덫 앞에 서 있던 자들이 함께 구경하게 된다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 마법 1장을 [무효]로 한다. 상대 맨 앞 2기에게 피해 1.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 마법 1장을 [무효]로 한다. 상대 맨 앞 유닛 2개에게 체력 −1.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -1258,22 +1265,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "역화". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a burst of fire power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: crimson blood-power bursting outward at the enemy ranks. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 2 of 8): a small, local effect.
 Banner — Dormak's Heartfire: magic of dormak's heartfire, signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks; palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 포르탄의 화약은 늘 조금씩 넘친다. 넘친 불은 가장 크게 휘두른 자의 손에서 터진다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 중 공격이 가장 높은 1기가 자기 공격만큼 물리 피해를 받는다(자기 방어만큼 줄어든다).
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 중 공격이 가장 높은 유닛 1개가 자기 공격만큼 물리 피해를 받는다(자기 방어만큼 줄어든다).
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -1285,23 +1292,23 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "기폭". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a burst of fire power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: versatile spell of the Dormak's Heartfire (see art direction). Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Art direction: Detonation: a goblin sapper behind a sandbag crouches and slams down a crude plunger; across the battlefield every enemy (dark silhouettes) that was already smouldering with embers bursts into flame at the same instant — a line of fiery explosions popping one after another, sparks and black smoke. Fortan chimneys in the haze behind. Chaotic, loud, joyful for the goblin.
 Scale (level 2 of 8): a small, local effect.
 Banner — Dormak's Heartfire: magic of dormak's heartfire, signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks; palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 포르탄의 공병은 불씨가 저절로 타오르기를 기다리지 않는다. 신호 하나에 붙여 둔 불이 한꺼번에 터진다.
 Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛에게 화상 2. 그다음 상대 유닛의 화상을 모두 지금 터뜨린다 — 화상이 있던 유닛은 피해 2 더.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -1313,21 +1320,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "방어 포대". Depict exactly what this name describes.
 Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: a destructive fire attack striking the enemy ranks. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 2 of 8): a small, local effect.
 Banner — Dormak's Heartfire: magic of dormak's heartfire, signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks; palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Game effect (Korean, mood only — never draw text or numbers): 적 유닛 2에게 피해 3.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lore (Korean, use for the scene): 성벽 뒤에 숨겨 둔 대포가 다가오는 적의 뒷줄을 노린다. 앞줄은 돌아보고 나서야 알았다.
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 2에게 체력 −3.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -1339,23 +1347,23 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "화약고 폭파". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a burst of fire power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: versatile spell of the Dormak's Heartfire (see art direction). Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Art direction: Blowing the depot: a goblin sapper, ears flattened, slams a crude plunger while a whole row of powder kegs planted along the goblins' own line goes up at once in a chain of roaring fireballs; the blast throws the front enemy warriors (dark silhouettes) back in flames, and the goblins' own fighters nearby are knocked off their feet too, singed and smoking. Mood: reckless, devastating, a price paid on both sides.
 Scale (level 2 of 8): a small, local effect.
 Banner — Dormak's Heartfire: magic of dormak's heartfire, signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks; palette: fire orange #ff6b3d with brass #d4893a and soot black.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 도르마크의 화약고에 불씨 하나가 떨어지면, 포르탄의 모든 화약통이 같은 숨으로 대답한다.
-Game effect (Korean, mood only — never draw text or numbers): 아군 화약통을 모두 터뜨려 부순다. 터뜨린 화약통이 N개면 상대 맨 앞부터 N기에게 체력 −N², [화상 2]. 아군 유닛 전체에게 체력 −N.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Game effect (Korean, mood only — never draw text or numbers): 아군 화약통 N개를 모두 터뜨려 부순다. 터뜨린 화약통 개수만큼 상대 유닛에게 체력 −N², [화상 2]. 아군 유닛 전체에게 체력 −N.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -1370,7 +1378,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "잿불 박쥐 떼". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Ember Bat of the Dormak's Heartfire — bats whose leathery wings glow ember-orange along every vein and drip falling sparks, flying in a dense cloud.
+Subject: a seasoned, battle-hardened Ember Bat of the Dormak's Heartfire.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Creature kind — Ember Bat: bats whose leathery wings glow ember-orange along every vein and drip falling sparks, flying in a dense cloud. Silhouette: a swirling cloud of glowing-winged bats. Materials: thin leathery wings with glowing veins, falling cinders, ash.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
@@ -1394,21 +1402,21 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A well-made, reliable object of the banner, finer in craft than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "도르마크의 화염포". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Dormak's Heartfire (weapon/armour; if unsure, a bow). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
+Subject: the item the card name and lore describe — a single object made or kept by the Dormak's Heartfire (weapon/armour). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
 Scale (level 3 of 8): a fine object with a faint aura.
 Banner — Dormak's Heartfire (fire): palette: fire orange #ff6b3d with brass #d4893a and soot black. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 거인 도르마크의 심장불 조각을 장전한 휴대 화포. 멀리서 쏘고 물러나, 쏠 때마다 땅만 그을린다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low close-up of the well-crafted object on its stand or cloth, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the fortress-foundry of Fortan, chimneys and gun bastions) with atmosphere and depth, softly focused, light atmospheric particles; embers, flame light, gunpowder smoke.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: fully rendered, better-crafted materials with engraved trim and fine surface wear.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: well-crafted, reliable, prized.
 Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -1423,7 +1431,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "불 뿜는 키메라". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Chimera of the Dormak's Heartfire — a fused beast with a lion's head, a goat's head and a serpent for a tail, all three breathing fire, its hide cracked with glowing heat.
+Subject: a seasoned, battle-hardened Chimera of the Dormak's Heartfire.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Creature kind — Chimera: a fused beast with a lion's head, a goat's head and a serpent for a tail, all three breathing fire, its hide cracked with glowing heat. Silhouette: a three-headed beast rearing behind a jet of flame. Materials: singed mane, curled horn, scales, cracked glowing hide, fire jets.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
@@ -1450,7 +1458,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "끓는 용암 슬라임". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Lava Slime of the Dormak's Heartfire — a bubbling blob of molten rock that never cools or hardens, with black crust plates floating on it and a vaguely face-like hollow; a stubborn defender who stands like a wall.
+Subject: a seasoned, battle-hardened Lava Slime of the Dormak's Heartfire; a stubborn defender who stands like a wall.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Creature kind — Lava Slime: a bubbling blob of molten rock that never cools or hardens, with black crust plates floating on it and a vaguely face-like hollow. Silhouette: a bulging, wobbling molten blob. Materials: molten orange magma, black crust plates, steam bubbles.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
@@ -1477,7 +1485,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "공성 두꺼비". Depict exactly what this name describes.
-Subject: an elite, commanding Fire Toad of the Dormak's Heartfire — a boulder-sized toad with warty volcanic skin and a huge throat sac glowing with molten lava ready to be spat.
+Subject: an elite, commanding Fire Toad of the Dormak's Heartfire.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Fire Toad: a boulder-sized toad with warty volcanic skin and a huge throat sac glowing with molten lava ready to be spat. Silhouette: a squat toad with a swollen glowing throat. Materials: warty basalt-grey skin, glowing throat sac, molten spit, steam.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
@@ -1504,7 +1512,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "화관의 불뱀". Depict exactly what this name describes.
-Subject: an elite, commanding Fire Serpent of the Dormak's Heartfire — a long serpent with scales of glowing coal and molten fangs that swims up lava rivers.
+Subject: an elite, commanding Fire Serpent of the Dormak's Heartfire.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Fire Serpent: a long serpent with scales of glowing coal and molten fangs that swims up lava rivers. Silhouette: a coiling serpent rising out of lava. Materials: coal-black scales with glowing edges, molten fangs, dripping lava.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
@@ -1531,7 +1539,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "포르탄 가마 정령". Depict exactly what this name describes.
-Subject: an elite, commanding Kiln Spirit of the Dormak's Heartfire — a hulking fire-brick kiln with riveted iron doors that has stood up and walks, its furnace mouth glowing and its chimney head smoking; a stubborn defender who stands like a wall.
+Subject: an elite, commanding Kiln Spirit of the Dormak's Heartfire; a stubborn defender who stands like a wall.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Kiln Spirit: a hulking fire-brick kiln with riveted iron doors that has stood up and walks, its furnace mouth glowing and its chimney head smoking. Silhouette: a squat walking kiln with a chimney for a head. Materials: fire-brick, riveted iron doors, glowing furnace mouth, soot.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
@@ -1558,7 +1566,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "도르마크의 분화구". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring Living Crater of the Dormak's Heartfire — a walking volcanic cone on stubby rock legs, its open caldera glowing with Dormak's heart-fire and belching smoke and stones.
+Subject: a legendary, awe-inspiring Living Crater of the Dormak's Heartfire.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
 Creature kind — Living Crater: a walking volcanic cone on stubby rock legs, its open caldera glowing with Dormak's heart-fire and belching smoke and stones. Silhouette: a cone of rock with a glowing open top. Materials: basalt rock, glowing caldera, lava bombs, ash plume.
 Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
@@ -1589,6 +1597,7 @@ Subject: a low-ranking, ordinary member of the Sorgrim's Shield — a close-comb
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
 Banner — Sorgrim's Shield: stocky dwarves with braided iron-grey beards, and the riveted golems and automatons they forge. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Lore (Korean, use for the scene): 지하 도시에 갓 들어온 견습공. 아직 햇빛 냄새가 남아 있어 선배들이 킁킁대며 놀린다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the underground forge-city of Durkheim) with atmosphere and depth, softly focused, light atmospheric particles; cold steel sheen, sparks from an anvil, rivets.
@@ -1607,22 +1616,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "봉인 쐐기". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a burst of metal power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a counter-force shattering and snuffing out an incoming enemy spell mid-air. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Sorgrim's Shield: magic of sorgrim's shield, signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls; palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 주문에 몇 번 데어 본 드워프는 쇠쐐기를 만들었다. 두르크하임의 쐐기가 박힌 주문은 다시 열리지 않는다.
 Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 마법 1장을 [무효]로 한다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the underground forge-city of Durkheim) with atmosphere and depth, softly focused, light atmospheric particles; cold steel sheen, sparks from an anvil, rivets.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -1637,7 +1646,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "걸어 다니는 리벳 방패". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary Awakened Shield of the Sorgrim's Shield — a heavy riveted tower shield that walks on its own on short iron feet, its dents studded with extra rivets.
+Subject: a low-ranking, ordinary Awakened Shield of the Sorgrim's Shield.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
 Creature kind — Awakened Shield: a heavy riveted tower shield that walks on its own on short iron feet, its dents studded with extra rivets. Silhouette: a tall shield standing upright on little legs. Materials: riveted steel, dents, brass boss, worn leather straps.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
@@ -1661,22 +1670,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "파쇄 망치". Depict exactly what this name describes.
 Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive metal attack striking the enemy ranks; a weakening curse sinking over the enemies. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 2 of 8): a small, local effect.
 Banner — Sorgrim's Shield: magic of sorgrim's shield, signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls; palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 두르크하임의 장인은 갑옷을 만들 줄 알기에 부술 줄도 안다. 이음매 하나만 치면 된다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 2기 방어 −2, 피해 2.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛 2개 방어 −2, 체력 −2.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the underground forge-city of Durkheim) with atmosphere and depth, softly focused, light atmospheric particles; cold steel sheen, sparks from an anvil, rivets.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -1688,21 +1697,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "철갑 돌진". Depict exactly what this name describes.
 Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: an empowering metal aura rising around allied warriors. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 2 of 8): a small, local effect.
 Banner — Sorgrim's Shield: magic of sorgrim's shield, signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls; palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Game effect (Korean, mood only — never draw text or numbers): 아군 뒤 2칸의 유닛 공격 +2, 방어 +1.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lore (Korean, use for the scene): 쇠옷을 입은 드워프들이 어깨를 맞대고 달려든다. 느리지만, 한 번 출발하면 아무도 세우지 못한다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 유닛 2 공격 +2, 방어 +1.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the underground forge-city of Durkheim) with atmosphere and depth, softly focused, light atmospheric particles; cold steel sheen, sparks from an anvil, rivets.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -1721,6 +1731,7 @@ Subject: a seasoned, battle-hardened member of the Sorgrim's Shield — an armed
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Banner — Sorgrim's Shield: stocky dwarves with braided iron-grey beards, and the riveted golems and automatons they forge. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Lore (Korean, use for the scene): 소르그림의 힘줄에서 캐낸 쇠를 두드린다. 그가 벼린 강철은 식은 뒤에도 웅웅 울린다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the underground forge-city of Durkheim) with atmosphere and depth, softly focused, light atmospheric particles; cold steel sheen, sparks from an anvil, rivets.
@@ -1739,21 +1750,21 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A well-made, reliable object of the banner, finer in craft than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "골렘 핵". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Sorgrim's Shield (engraving; if unsure, a carved stone or engraved plate). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
+Subject: the item the card name and lore describe — a single object made or kept by the Sorgrim's Shield (engraving). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
 Scale (level 3 of 8): a fine object with a faint aura.
 Banner — Sorgrim's Shield (metal): palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 거대 골렘에서 꺼낸 핵. 몸에 새기면 걸어 다니는 요새가 된다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low close-up of the well-crafted object on its stand or cloth, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the underground forge-city of Durkheim) with atmosphere and depth, softly focused, light atmospheric particles; cold steel sheen, sparks from an anvil, rivets.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: fully rendered, better-crafted materials with engraved trim and fine surface wear.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: well-crafted, reliable, prized.
 Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -1794,11 +1805,12 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "과열 압착기". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Automaton of the Sorgrim's Shield — a clockwork automaton of brass and steel built for a single task, with exposed gears, pistons and a ticking core; a reckless charging attacker.
+Subject: a seasoned, battle-hardened Automaton of the Sorgrim's Shield; a reckless charging attacker.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Creature kind — Automaton: a clockwork automaton of brass and steel built for a single task, with exposed gears, pistons and a ticking core. Silhouette: an upright mechanical figure with exposed gears. Materials: brass, steel, gears, springs, pistons.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Lore (Korean, use for the scene): 쇳덩이를 눌러 펴던 압착기가 열에 미쳐 버렸다. 이제 앞에 있는 것은 무엇이든 납작하게 만든다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the underground forge-city of Durkheim) with atmosphere and depth, softly focused, light atmospheric particles; cold steel sheen, sparks from an anvil, rivets.
@@ -1820,7 +1832,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "광맥 갑충". Depict exactly what this name describes.
-Subject: an elite, commanding Ore Beetle of the Sorgrim's Shield — a large beetle whose shell has turned to raw ore — veins of iron and grey adamant — from gnawing Sorgrim's exposed sinew-veins.
+Subject: an elite, commanding Ore Beetle of the Sorgrim's Shield.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Ore Beetle: a large beetle whose shell has turned to raw ore — veins of iron and grey adamant — from gnawing Sorgrim's exposed sinew-veins. Silhouette: a heavy domed beetle. Materials: raw ore shell, iron veins, grey adamant, rock dust.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
@@ -1847,7 +1859,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "철골 망치 거상". Depict exactly what this name describes.
-Subject: an elite, commanding Colossus of the Sorgrim's Shield — a towering forged colossus of steel many times the height of a golem, with a furnace heart glowing through its chest plates.
+Subject: an elite, commanding Colossus of the Sorgrim's Shield.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Colossus: a towering forged colossus of steel many times the height of a golem, with a furnace heart glowing through its chest plates. Silhouette: a giant humanoid machine filling the frame. Materials: riveted steel plate, furnace glow, steam vents, chains.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
@@ -1874,7 +1886,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "오르둔의 뼈 기사". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring Living Armour of the Sorgrim's Shield — an empty suit of heavy plate armour that moves on its own, hollow inside, with only a faint forge glow showing through the eye slit and the joints.
+Subject: a legendary, awe-inspiring Living Armour of the Sorgrim's Shield.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
 Creature kind — Living Armour: an empty suit of heavy plate armour that moves on its own, hollow inside, with only a faint forge glow showing through the eye slit and the joints. Silhouette: an armoured knight with nothing inside the visor. Materials: thick steel or grey adamant plate, rivets, chainmail, faint forge glow.
 Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
@@ -1905,6 +1917,7 @@ Subject: a low-ranking, ordinary member of the Keraun's Thunder — a spellcaste
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
 Banner — Keraun's Thunder: tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets. Silhouette: a tiny figure beside big contraptions — coils, lightning towers, walking machines. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Lore (Korean, use for the scene): 뇌전 학술원에 갓 입학한 학도. 첫 시험은 번개 맞고도 공책을 놓치지 않는 것이었다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
@@ -1923,22 +1936,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "합선". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a burst of lightning power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a counter-force shattering and snuffing out an incoming enemy spell mid-air. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Keraun's Thunder: magic of keraun's thunder, signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints; palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 어떤 주문이든 결국은 흐름이다. 볼타리움의 노움은 흐름의 길목에 구리선 한 가닥을 걸쳐 둘 뿐이다.
 Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 마법 1장을 [무효]로 한다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -1950,21 +1963,21 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A well-made, reliable object of the banner, finer in craft than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "피뢰 지팡이". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Keraun's Thunder (catalyst; if unsure, a staff). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
+Subject: the item the card name and lore describe — a single object made or kept by the Keraun's Thunder (catalyst). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
 Scale (level 2 of 8): a simple object.
 Banner — Keraun's Thunder (lightning): palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 끝에 피뢰침을 단 지팡이. 모인 번개가 저절로 튄다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low close-up of the well-crafted object on its stand or cloth, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: fully rendered, better-crafted materials with engraved trim and fine surface wear.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: well-crafted, reliable, prized.
 Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -1976,21 +1989,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "파문". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a destructive lightning attack striking the enemy ranks; a cleansing wave washing away enchantments. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a destructive lightning attack striking the enemy ranks; a cleansing wave washing away flames, curses and enchantments. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 2 of 8): a small, local effect.
 Banner — Keraun's Thunder: magic of keraun's thunder, signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints; palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Game effect (Korean, mood only — never draw text or numbers): 적 유닛 1에게 피해 2. 상대 맨 앞 2기는 [보호막]·[가시]·[저주 면역]·[수호]가 꺼지고 피해 2를 더 받는다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lore (Korean, use for the scene): 번개 한 줄기가 물결처럼 번져 나간다. 쇠와 마법으로 두른 껍질이 그 떨림에 하나씩 벗겨졌다.
+Game effect (Korean, mood only — never draw text or numbers): 적 유닛 1에게 체력 −2. 상대 맨 앞 유닛 2개는 [보호막]·[가시]·[저주 면역]·[수호]가 꺼지고 체력 −2 더.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -2005,7 +2019,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "볼타리움 호문쿨루스". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Homunculus of the Keraun's Thunder — a small artificial person grown in a glass vat and woken by lightning, pale-skinned, with copper wires and electrodes still clipped to its body.
+Subject: a seasoned, battle-hardened Homunculus of the Keraun's Thunder.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Creature kind — Homunculus: a small artificial person grown in a glass vat and woken by lightning, pale-skinned, with copper wires and electrodes still clipped to its body. Silhouette: a tiny figure stepping out of a glass jar. Materials: pale skin, copper electrodes, glass vat, glowing fluid, brass gauge.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
@@ -2029,21 +2043,21 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A well-made, reliable object of the banner, finer in craft than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "별을 읽는 보주". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Keraun's Thunder (catalyst; if unsure, a glowing orb on a small stand). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
+Subject: the item the card name and lore describe — a single object made or kept by the Keraun's Thunder (catalyst). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
 Scale (level 3 of 8): a fine object with a faint aura.
 Banner — Keraun's Thunder (lightning): palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
 Lore (Korean, use for the scene): 이사크가 별의 문자를 읽을 때 쓴 보주. 한 번 튄 번개가 다음 과녁을 스스로 찾아간다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low close-up of the well-crafted object on its stand or cloth, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: fully rendered, better-crafted materials with engraved trim and fine surface wear.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: well-crafted, reliable, prized.
 Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -2058,7 +2072,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "피뢰탑 자석령". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Magnet Spirit of the Keraun's Thunder — a spirit of iron struck by lightning countless times atop a lightning tower, with nails, keys and iron filings clinging to its body in magnetic swirls.
+Subject: a seasoned, battle-hardened Magnet Spirit of the Keraun's Thunder.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Creature kind — Magnet Spirit: a spirit of iron struck by lightning countless times atop a lightning tower, with nails, keys and iron filings clinging to its body in magnetic swirls. Silhouette: a figure surrounded by orbiting iron bits. Materials: magnetised iron, iron filings, nails, copper rod, blue sparks.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
@@ -2085,7 +2099,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "가시촉수 구름해파리". Depict exactly what this name describes.
-Subject: an elite, commanding Cloud Jellyfish of the Keraun's Thunder — a translucent jellyfish drifting in the sky, its bell like a small cloud and its long trailing tentacles conducting lightning down to the ground; a stubborn defender who stands like a wall.
+Subject: an elite, commanding Cloud Jellyfish of the Keraun's Thunder; a stubborn defender who stands like a wall.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Cloud Jellyfish: a translucent jellyfish drifting in the sky, its bell like a small cloud and its long trailing tentacles conducting lightning down to the ground. Silhouette: a floating bell with long hanging tentacles. Materials: translucent cloud bell, glowing tentacles, arcs.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
@@ -2112,7 +2126,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "케라운의 뇌운". Depict exactly what this name describes.
-Subject: an elite, commanding Thundercloud of the Keraun's Thunder — a brooding living storm cloud hanging low over the ground, lightning flickering inside and a vague face in its billows.
+Subject: an elite, commanding Thundercloud of the Keraun's Thunder.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Thundercloud: a brooding living storm cloud hanging low over the ground, lightning flickering inside and a vague face in its billows. Silhouette: a dark heavy cloud with lightning flickering underneath. Materials: dark storm vapour, lightning flashes, rain.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
@@ -2139,11 +2153,12 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "폭뢰 기관". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring Lightning Engine of the Keraun's Thunder — a walking machine of brass, copper coils and riveted steel built by Voltarium scholars, studded with glass lightning jars and electrodes.
+Subject: a legendary, awe-inspiring Lightning Engine of the Keraun's Thunder.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
 Creature kind — Lightning Engine: a walking machine of brass, copper coils and riveted steel built by Voltarium scholars, studded with glass lightning jars and electrodes. Silhouette: a boxy walking machine crowned with coils. Materials: copper coils, brass, riveted steel, glass jars, porcelain insulators.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
 Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
+Lore (Korean, use for the scene): 번개를 모아 한 번에 터뜨리는 기관. 노움들은 그것이 쉬는 소리만 듣고도 피할 때를 안다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lightning-rod city of Voltarium on the thundering plateau) with atmosphere and depth, softly focused, light atmospheric particles; crackling electric arcs, glowing coils.
@@ -2165,7 +2180,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "천둥 뇌수". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring Raiju (Thunder Beast) of the Keraun's Thunder — a wolf-and-weasel-like beast from Japanese legend that falls to earth with lightning, with crackling blue-white fur and a jagged lightning-bolt tail.
+Subject: a legendary, awe-inspiring Raiju (Thunder Beast) of the Keraun's Thunder.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
 Creature kind — Raiju (Thunder Beast): a wolf-and-weasel-like beast from Japanese legend that falls to earth with lightning, with crackling blue-white fur and a jagged lightning-bolt tail. Silhouette: a crouching beast with bristling fur and a zigzag tail. Materials: blue-white crackling fur, lightning tail, sparks.
 Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
@@ -2189,22 +2204,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "덫 짓밟기". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a burst of earth power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a counter-force shattering and snuffing out an incoming enemy spell mid-air. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 가르운의 오크는 덫을 피해 가는 법을 모른다. 대신 덫이 일어서기 전에 밟아 부수는 법은 안다.
 Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 마법 1장을 [무효]로 한다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -2219,7 +2234,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "돌 던지는 개코원숭이". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary Baboon of the Gorvath's Claw — a big steppe baboon with a dog-like muzzle, long yellowed canines, a grey-ochre mane over the shoulders and calloused hands that pick up and fling stones.
+Subject: a low-ranking, ordinary Baboon of the Gorvath's Claw.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
 Creature kind — Baboon: a big steppe baboon with a dog-like muzzle, long yellowed canines, a grey-ochre mane over the shoulders and calloused hands that pick up and fling stones. Silhouette: hunched four-limbed ape with a maned shoulder hump and long throwing arms. Materials: coarse ochre-grey fur, bare leathery face and palms, yellowed fangs, pebbles.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
@@ -2243,21 +2258,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "송곳니 돌격". Depict exactly what this name describes.
 Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: an empowering earth aura rising around allied warriors. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 아군 뒤 2칸의 유닛 공격 +1 +1C.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lore (Korean, use for the scene): 뒤에 서 있던 오크들이 송곳니를 드러낸다. 앞줄을 뛰어넘어 가장 먼저 닿는 것은 그들이다.
+Game effect (Korean, mood only — never draw text or numbers): 아군 유닛 2 공격 +1 +1C.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -2269,22 +2285,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "늑대 기습". Depict exactly what this name describes.
 Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a destructive earth attack striking the enemy ranks; an empowering earth aura rising around allied warriors; allies rallying as one under a shared surge of power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 울부짖는 초원의 늑대가 먼저 물어뜯고, 그 등에 탄 오크가 벌어진 갑옷을 마저 찢는다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛에게 피해 2. 아군 뒤 2칸의 유닛 공격 +1, [관통].
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛에게 체력 −2. 아군 유닛 2 공격 +1, [관통].
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -2299,7 +2315,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "초원 켄타우로스". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary Centaur of the Gorvath's Claw — steppe centaurs: a weathered, war-painted human upper body with braided hair on a stocky dun horse body, carrying horn bows and obsidian-tipped arrows.
+Subject: a low-ranking, ordinary Centaur of the Gorvath's Claw.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
 Creature kind — Centaur: steppe centaurs: a weathered, war-painted human upper body with braided hair on a stocky dun horse body, carrying horn bows and obsidian-tipped arrows. Silhouette: tall horse-bodied archer with a raised bow arm, mid-gallop. Materials: dun horsehide, braided mane and hair, rough leather, horn bow, obsidian arrowheads, bone beads.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
@@ -2323,23 +2339,23 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "웅크린 늑대". Depict exactly what this name describes.
-Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: a burst of earth power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
-Art direction: Crouching wolves (v3.95): a pack of grey wolves and Rockfist orc hunters press flat to the ground in tall dry grass, fangs hidden, ears back, coiled and silent; facing them a line of enemy warriors (dark silhouettes) hesitate, weapons lowered and wavering, unsure where to strike. Low eye-level, tense calm before the spring, ochre dusk light.
+Subject: defense spell of the Gorvath's Claw (see art direction). Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Art direction: Crouching wolves: a pack of grey wolves and Rockfist orc hunters press flat to the ground in tall dry grass, fangs hidden, ears back, coiled and silent; facing them a line of enemy warriors (dark silhouettes) hesitate, weapons lowered and wavering, unsure where to strike. Low eye-level, tense calm before the spring, ochre dusk light.
 Scale (level 2 of 8): a small, local effect.
 Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 늑대 무리가 이빨을 감추고 땅에 몸을 붙인다. 덤벼들던 적은 어디를 물어야 할지 몰라 머뭇거린다.
-Game effect (Korean, mood only — never draw text or numbers): 아군 유닛 전체의 공격을 이번 턴 1로 고정한다. 그래서 줄어든 공격의 합만큼 상대 유닛 전체 공격 −(이번 턴).
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Game effect (Korean, mood only — never draw text or numbers): 아군 유닛 전체의 공격이 이번 턴 1이 되어 바뀌지 않는다. 그래서 줄어든 공격의 합만큼 상대 유닛 전체 공격 −(이번 턴).
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -2377,22 +2393,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "몸통 박치기". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a burst of earth power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: allies rallying as one under a shared surge of power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 2 of 8): a small, local effect.
 Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 무리가 한 덩어리로 몸을 던진다. 부딪친 쪽도 부서지지만, 맞은 쪽은 더 크게 부서진다.
 Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체 체력 −(아군 유닛 수 × 2). 그 뒤 아군 유닛마다 체력 −(아군 유닛 수).
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -2407,7 +2423,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "돌격 미노타우로스". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Minotaur of the Gorvath's Claw — bull-headed giants of the steppe with great forward-curving horns, a shaggy mane, cloven hooves and scarred hide, who won Gorvath's notice in the duel ring.
+Subject: a seasoned, battle-hardened Minotaur of the Gorvath's Claw.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Creature kind — Minotaur: bull-headed giants of the steppe with great forward-curving horns, a shaggy mane, cloven hooves and scarred hide, who won Gorvath's notice in the duel ring. Silhouette: towering bull-headed humanoid with forward-swept horns and a lowered head. Materials: dark bull hide, shaggy mane, cracked horns, iron nose ring, rough leather harness, stone-headed axes.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
@@ -2431,21 +2447,21 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A well-made, reliable object of the banner, finer in craft than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "바위 주술 토템". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Gorvath's Claw (holy relic; if unsure, a sacred relic (chalice, reliquary or holy symbol — not a plain cross)). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
+Subject: the item the card name and lore describe — a single object made or kept by the Gorvath's Claw (holy relic). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
 Scale (level 3 of 8): a fine object with a faint aura.
 Banner — Gorvath's Claw (earth): palette: earth ochre #b88a5a, rust-red war paint, bone white. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 주술사가 지고 다니는 작은 바위 토템. 저주는 멀리서 걸고, 되받는 주먹은 닿지 않는다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low close-up of the well-crafted object on its stand or cloth, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: fully rendered, better-crafted materials with engraved trim and fine surface wear.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: well-crafted, reliable, prized.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -2457,21 +2473,21 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A well-made, reliable object of the banner, finer in craft than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "송곳니 전쟁 도끼". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Gorvath's Claw (weapon/armour + engraving; if unsure, an axe). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
+Subject: the item the card name and lore describe — a single object made or kept by the Gorvath's Claw (weapon/armour + engraving). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
 Scale (level 3 of 8): a fine object with a faint aura.
 Banner — Gorvath's Claw (earth): palette: earth ochre #b88a5a, rust-red war paint, bone white. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 족장의 전쟁 도끼. 한 번 휘두르면 앞에 선 자를 넘어 그 뒤의 자까지 쪼갠다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low close-up of the well-crafted object on its stand or cloth, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: fully rendered, better-crafted materials with engraved trim and fine surface wear.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: well-crafted, reliable, prized.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -2483,8 +2499,8 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "대지 가르기". Depict exactly what this name describes.
 Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a destructive earth attack striking the enemy ranks; an empowering earth aura rising around allied warriors; a weakening curse sinking over the enemies. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 3 of 8): an effect over a few targets.
@@ -2492,13 +2508,13 @@ Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fist
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 주먹 하나로 땅을 갈랐다는 오크의 노래는 과장이 아니다. 고르바스가 그 주먹을 허락했을 뿐이다.
 Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛 방어 −1. 상대 유닛 전체에게 물리 피해 3. 아군 전체 공격 +1.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -2513,7 +2529,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "흑요 켄타우로스 궁수". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Centaur of the Gorvath's Claw — steppe centaurs: a weathered, war-painted human upper body with braided hair on a stocky dun horse body, carrying horn bows and obsidian-tipped arrows.
+Subject: a seasoned, battle-hardened Centaur of the Gorvath's Claw.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Creature kind — Centaur: steppe centaurs: a weathered, war-painted human upper body with braided hair on a stocky dun horse body, carrying horn bows and obsidian-tipped arrows. Silhouette: tall horse-bodied archer with a raised bow arm, mid-gallop. Materials: dun horsehide, braided mane and hair, rough leather, horn bow, obsidian arrowheads, bone beads.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
@@ -2544,6 +2560,7 @@ Subject: an elite, commanding member of the Gorvath's Claw — a close-combat br
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Banner — Gorvath's Claw: powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair. Silhouette: massive shoulders and oversized fists; riders on giant wolves or bears. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Lore (Korean, use for the scene): 바위송곳니 부족을 이끌고 톱니 고개를 세 번 넘었다. 돌아올 때마다 무리는 더 커져 있었다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the howling steppe of Garun with its nomad camps) with atmosphere and depth, softly focused, light atmospheric particles; flying rock dust, cracked ground, ochre light.
@@ -2565,7 +2582,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "곰가죽 광전사". Depict exactly what this name describes.
-Subject: an elite, commanding Werebear of the Gorvath's Claw — a werebear: a warrior who wore a bear's hide until it grew into his own skin, now a hulking upright bear-man with claws, a bear's head and war paint in the fur.
+Subject: an elite, commanding Werebear of the Gorvath's Claw.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Werebear: a werebear: a warrior who wore a bear's hide until it grew into his own skin, now a hulking upright bear-man with claws, a bear's head and war paint in the fur. Silhouette: upright hulking bear-man with a human fighting stance. Materials: coarse bear fur, hide, claws, bone charms, war paint.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
@@ -2592,7 +2609,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "그롬의 바위 정령". Depict exactly what this name describes.
-Subject: an elite, commanding Rock Spirit of the Gorvath's Claw — rock spirits of Grom: boulders drawn together by the great earth spirit's slow will into a powerful, roughly humanoid shape, with dust swirling at the seams and ochre light deep inside.
+Subject: an elite, commanding Rock Spirit of the Gorvath's Claw.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Rock Spirit: rock spirits of Grom: boulders drawn together by the great earth spirit's slow will into a powerful, roughly humanoid shape, with dust swirling at the seams and ochre light deep inside. Silhouette: loosely joined boulders hovering in a broad humanoid form. Materials: rough boulders, gravel, dust, faint ochre glow in the cracks.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
@@ -2619,7 +2636,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "고르바스의 고르곤". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring Gorgon of the Gorvath's Claw — a gorgon of Gorvath's crags: a tall woman half turned to grey stone, with living stone snakes for hair and ochre-glowing eyes whose stare petrifies.
+Subject: a legendary, awe-inspiring Gorgon of the Gorvath's Claw.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
 Creature kind — Gorgon: a gorgon of Gorvath's crags: a tall woman half turned to grey stone, with living stone snakes for hair and ochre-glowing eyes whose stare petrifies. Silhouette: tall figure crowned with a writhing mass of snakes. Materials: cracked grey stone skin, ochre-scaled stone snakes, rock dust, hide wraps.
 Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
@@ -2646,7 +2663,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "어린 드라이어드". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary Dryad of the Verdan's Antler — dryads of the Eilen forest: slender women of living wood with smooth bark skin, leaf-and-blossom hair and twig fingers, each bound to her own tree (no pointed ears).
+Subject: a low-ranking, ordinary Dryad of the Verdan's Antler.
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
 Creature kind — Dryad: dryads of the Eilen forest: slender women of living wood with smooth bark skin, leaf-and-blossom hair and twig fingers, each bound to her own tree (no pointed ears). Silhouette: slender willowy figure with long leaf-hair flowing like branches. Materials: smooth pale bark, leaves, blossoms, vines, sap droplets.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
@@ -2670,22 +2687,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "나이테". Depict exactly what this name describes.
-Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: an empowering forest aura rising around allied warriors. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: defense spell — protection forming: stable, symmetrical composition, a barrier, ward or wings around allies, incoming harm deflected. The moment it takes effect: an empowering forest aura rising around allied warriors; a protective barrier or ward shielding allies. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Verdan's Antler: magic of verdan's antler, signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots; palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 고목은 한 해를 버틸 때마다 테를 하나 두른다. 두른 테는 벗겨지지 않는다.
-Game effect (Korean, mood only — never draw text or numbers): 아군 뒤 1칸의 유닛 체력 +2, 이번 턴 [버팀: 체력], 방어 +1.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Game effect (Korean, mood only — never draw text or numbers): 아군 유닛 1 체력 +2, 방어 +1. 그 유닛의 체력은 이번 턴 줄지 않는다(피해 제외).
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -2697,22 +2714,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "재생의 숲". Depict exactly what this name describes.
 Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: an empowering forest aura rising around allied warriors; a shell of thorns that punishes attackers. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Verdan's Antler: magic of verdan's antler, signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots; palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 숲의 대정령 드리엔이 지나간 자리. 베인 가지가 그 자리에서 다시 붙고, 붙은 자리마다 가시가 돋는다.
-Game effect (Korean, mood only — never draw text or numbers): 아군 뒤 1칸의 유닛 체력 +3, [가시 2].
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Game effect (Korean, mood only — never draw text or numbers): 아군 유닛 1 체력 +3, [가시 2].
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -2724,22 +2741,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "이끼 덮기". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a burst of forest power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a counter-force shattering and snuffing out an incoming enemy spell mid-air. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 2 of 8): a small, local effect.
 Banner — Verdan's Antler: magic of verdan's antler, signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots; palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 이끼는 무엇이든 덮는다. 덮인 주문은 숨이 막혀 꺼지고, 그 위를 밟고 가는 트롤의 상처는 이끼 밑에서 다시 자란다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 마법 1장을 [무효]로 한다. 무효로 했으면 아군 맨 앞 2기 공격 +1, 체력 +2.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 마법 1장을 [무효]로 한다. 무효로 했으면 아군 맨 앞 유닛 2개 공격 +1, 체력 +2.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -2758,6 +2775,7 @@ Subject: a low-ranking, ordinary member of the Verdan's Antler — an armed figh
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
 Banner — Verdan's Antler: tall moss trolls with long, lanky, moss-covered limbs, and treants (living trees). Silhouette: tall, hunched and long-armed; treants tower like ancient trees. Materials: bark armour, moss, thorns, vines, roots, mushrooms, amber sap. Signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Lore (Korean, use for the scene): 고목 가지를 꺾어 만든 창을 던진다. 빗나간 창은 땅에 박혀 그대로 뿌리를 내린다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
@@ -2776,21 +2794,21 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A well-made, reliable object of the banner, finer in craft than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "이끼 부적". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Verdan's Antler (holy relic; if unsure, a sacred relic (chalice, reliquary or holy symbol — not a plain cross)). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
+Subject: the item the card name and lore describe — a single object made or kept by the Verdan's Antler (holy relic). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
 Scale (level 2 of 8): a simple object.
 Banner — Verdan's Antler (forest): palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores. Materials: bark armour, moss, thorns, vines, roots, mushrooms, amber sap. Signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 오래된 바위의 이끼를 엮은 부적.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low close-up of the well-crafted object on its stand or cloth, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: fully rendered, better-crafted materials with engraved trim and fine surface wear.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: well-crafted, reliable, prized.
 Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -2802,21 +2820,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "침묵". Depict exactly what this name describes.
 Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a destructive forest attack striking the enemy ranks; enemy weapons frozen and stopped mid-swing. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 2 of 8): a small, local effect.
 Banner — Verdan's Antler: magic of verdan's antler, signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots; palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 2기의 공격이 0이 되고, 피해 3을 받는다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lore (Korean, use for the scene): 숲이 숨을 멈추자 모든 소리가 사라진다. 적은 칼을 들어 올리는 법마저 잊는다.
+Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛 2개의 공격이 0이 되고, 체력 −3을 받는다.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -2828,21 +2847,21 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A well-made, reliable object of the banner, finer in craft than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "베르단의 뿌리". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Verdan's Antler (engraving; if unsure, a carved stone or engraved plate). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
+Subject: the item the card name and lore describe — a single object made or kept by the Verdan's Antler (engraving). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
 Scale (level 3 of 8): a fine object with a faint aura.
 Banner — Verdan's Antler (forest): palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores. Materials: bark armour, moss, thorns, vines, roots, mushrooms, amber sap. Signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 숲의 용 베르단의 뿌리가 혈관을 따라 자란다. 뻗은 뿌리는 갑옷의 틈을 비집고 들어가 벌린다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low close-up of the well-crafted object on its stand or cloth, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: fully rendered, better-crafted materials with engraved trim and fine surface wear.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: well-crafted, reliable, prized.
 Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -2854,21 +2873,21 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A well-made, reliable object of the banner, finer in craft than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "트렌트의 나이테". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Verdan's Antler (engraving; if unsure, a carved stone or engraved plate). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
+Subject: the item the card name and lore describe — a single object made or kept by the Verdan's Antler (engraving). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
 Scale (level 3 of 8): a fine object with a faint aura.
 Banner — Verdan's Antler (forest): palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores. Materials: bark armour, moss, thorns, vines, roots, mushrooms, amber sap. Signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 천 년 트렌트의 나이테를 몸에 새긴다. 해마다 한 겹씩 두꺼워진다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low close-up of the well-crafted object on its stand or cloth, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: fully rendered, better-crafted materials with engraved trim and fine surface wear.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: well-crafted, reliable, prized.
 Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -2880,22 +2899,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "숲의 무게". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a burst of forest power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: crushing sheer weight slamming through the enemy front line. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 3 of 8): an effect over a few targets.
 Banner — Verdan's Antler: magic of verdan's antler, signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots; palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 숲 전체가 한쪽으로 기운다. 버텨 온 몸뚱이들의 무게가 그대로 쏟아져, 앞을 막은 것부터 차례로 짓눌린다.
 Game effect (Korean, mood only — never draw text or numbers): 아군 유닛의 남은 체력을 모두 더한 만큼, 상대 맨 앞 유닛부터 공격 → 방어 → 체력 순으로 깎는다(공격 · 방어는 이번 턴). 다 깎아 쓰러뜨리면 남은 몫은 다음 유닛에게 넘어간다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no fire magic.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -2910,7 +2929,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "덩굴손 픽시". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Pixie of the Verdan's Antler — tiny vine pixies with leaf wings and bodies wrapped in curling tendrils, shooting thorn darts from twig bows.
+Subject: a seasoned, battle-hardened Pixie of the Verdan's Antler.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Creature kind — Pixie: tiny vine pixies with leaf wings and bodies wrapped in curling tendrils, shooting thorn darts from twig bows. Silhouette: tiny winged figure trailing curling tendrils. Materials: leaf wings, tendrils, petals, glowing pollen, twig bow.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
@@ -2937,11 +2956,12 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "독가시 말벌떼". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Wasp of the Verdan's Antler — venomthorn wasps of the thorn forest, each as long as a finger, with thorn-tipped stings and nests of chewed bark; a reckless charging attacker.
+Subject: a seasoned, battle-hardened Wasp of the Verdan's Antler; a reckless charging attacker.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Creature kind — Wasp: venomthorn wasps of the thorn forest, each as long as a finger, with thorn-tipped stings and nests of chewed bark. Silhouette: a dense buzzing swarm around a papery nest. Materials: striped chitin, translucent wings, thorn stings, papery bark nest.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Lore (Korean, use for the scene): 가시숲 깊은 곳에 집을 지은 말벌떼. 트롤들조차 그 둥지는 돌아서 지나간다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
@@ -2963,7 +2983,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "가시덤불 덩굴귀". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Vine Horror of the Verdan's Antler — vine horrors of the Rusty Swamp's edge: shambling tangles of thorny vines and briars that knot themselves into a beast-like shape.
+Subject: a seasoned, battle-hardened Vine Horror of the Verdan's Antler.
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Creature kind — Vine Horror: vine horrors of the Rusty Swamp's edge: shambling tangles of thorny vines and briars that knot themselves into a beast-like shape. Silhouette: hulking shambling mass of coiled vines with thorny lashing tendrils. Materials: thorny briars, rust-stained vines, thistle heads, sap, dead leaves.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
@@ -2990,7 +3010,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "베르단의 레쉬". Depict exactly what this name describes.
-Subject: an elite, commanding Leshy of the Verdan's Antler — the leshy of Verdan: a tall, gaunt forest lord with a stag-antlered head, a beard of moss and lichen, a body of bark and twigs and glowing green eyes.
+Subject: an elite, commanding Leshy of the Verdan's Antler.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Leshy: the leshy of Verdan: a tall, gaunt forest lord with a stag-antlered head, a beard of moss and lichen, a body of bark and twigs and glowing green eyes. Silhouette: tall gaunt figure crowned with stag antlers. Materials: bark, moss beard, lichen, antlers, leaves, twigs.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
@@ -3017,7 +3037,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "균사 뿌리지기". Depict exactly what this name describes.
-Subject: an elite, commanding Mushroom Folk of the Verdan's Antler — walking mushroom folk of the forest floor: squat stalk bodies under broad caps, with gills, glowing spores and white mycelium threads linking them to the roots and to each other.
+Subject: an elite, commanding Mushroom Folk of the Verdan's Antler.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Mushroom Folk: walking mushroom folk of the forest floor: squat stalk bodies under broad caps, with gills, glowing spores and white mycelium threads linking them to the roots and to each other. Silhouette: stubby stalk body under a wide cap. Materials: spongy pale flesh, gills, glowing spores, white mycelium threads, damp soil.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
@@ -3044,11 +3064,12 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "벼락 맞은 분노목". Depict exactly what this name describes.
-Subject: an elite, commanding Treant of the Verdan's Antler — treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks; a reckless charging attacker.
+Subject: an elite, commanding Treant of the Verdan's Antler; a reckless charging attacker.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Treant: treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks. Silhouette: towering trunk body with spreading branch arms and root feet. Materials: rough bark, moss, leaves, knotted roots, amber sap.
 Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Lore (Korean, use for the scene): 벼락에 반쪽이 타 버린 고목이 깨어났다. 그 뒤로 불 냄새가 나는 것은 모두 부수고 다닌다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
@@ -3074,6 +3095,7 @@ Subject: a legendary, awe-inspiring member of the Verdan's Antler — a devoted 
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
 Banner — Verdan's Antler: tall moss trolls with long, lanky, moss-covered limbs, and treants (living trees). Silhouette: tall, hunched and long-armed; treants tower like ancient trees. Materials: bark armour, moss, thorns, vines, roots, mushrooms, amber sap. Signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Lore (Korean, use for the scene): 수백 년 묵은 고목들이 둘러앉아 여는 회의. 결론 하나에 계절이 몇 번 바뀐다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the giant-tree city of Sylvaniel in the great forest of Eilen) with atmosphere and depth, softly focused, light atmospheric particles; glowing moss, thorny vines, drifting leaves.
@@ -3092,22 +3114,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "씻김의 노래". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a weakening curse sinking over the enemies; a cleansing wave washing away enchantments. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: attack spell — the instant of impact: aggressive diagonal composition, the force travels toward the enemy (shown as dark silhouettes); the caster, if shown, is small. The moment it takes effect: a counter-force shattering and snuffing out an incoming enemy spell mid-air; a weakening curse sinking over the enemies; a cleansing wave washing away flames, curses and enchantments. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 1 of 8): a small, local effect.
 Banner — Marencia's Song: magic of marencia's song, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 샘물 무녀단의 노래는 걸어 둔 것을 씻어 낸다. 펼치려던 주문이 물에 녹으면, 그 주문을 믿던 자들의 축복과 투지도 함께 씻겨 내려간다.
 Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 마법 1장을 [무효]로 한다. 무효로 했으면 상대 유닛 전체의 [보호막]·[가시]·[저주 면역]·[수호]가 꺼지고 공격 −1.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -3126,6 +3148,7 @@ Subject: a low-ranking, ordinary member of the Marencia's Song — a devoted pri
 Scale (level 1 of 8): small and humble: an ordinary body, light gear.
 Banner — Marencia's Song: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Lore (Korean, use for the scene): 셀레네아 석호에서 첫 노래를 배우는 무녀. 아직 음이 떨리지만 물은 그 떨림까지 따라 부른다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
@@ -3147,7 +3170,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "물결의 메아리". Depict exactly what this name describes.
-Subject: a low-ranking, ordinary Echo of the Marencia's Song — a living echo of Marencia's song: rings of rippling water and light shaped like a faint singing figure that repeats every note a little softer.
+Subject: a low-ranking, ordinary Echo of the Marencia's Song.
 Scale (level 2 of 8): small and humble: an ordinary body, light gear.
 Creature kind — Echo: a living echo of Marencia's song: rings of rippling water and light shaped like a faint singing figure that repeats every note a little softer. Silhouette: faint figure dissolving into expanding ring ripples. Materials: rippling water rings, light, foam, mist.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
@@ -3171,23 +3194,23 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "뒤집힌 물거울". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: warriors forced to trade places by a trick of magic. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: versatile spell of the Marencia's Song (see art direction). Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Art direction: Overturned water-mirror: two enemy warriors (dark silhouettes) at the front stand at the edge of a still lagoon pool; in the water their reflections are upside down and wrong — the shield-bearer's reflection holds a raised blade, the swordsman's reflection hides behind a shield — and the real men falter, their stances flipping to match, dazed eyes glazed by the shimmer. A Selenea songstress, small in frame, touches the water's surface. Mood: eerie, mesmerising, quiet; no wave, no explosion.
 Scale (level 2 of 8): a small, local effect.
 Banner — Marencia's Song: magic of marencia's song, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 물거울에 비친 전사는 칼 대신 방패를 든 자신을 본다. 휘두르려던 힘은 껍질처럼 굳고, 무녀의 노래는 그 껍질째 꿰뚫는다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞부터 유닛 2기의 공격과 방어를 맞바꾸고 [홀림]으로 만든다([저주 면역] 유닛은 빼고).
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞부터 유닛 2개의 공격과 방어를 맞바꾸고 [홀림]으로 만든다([저주 면역] 유닛은 빼고).
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -3199,23 +3222,23 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "물빛 신기루". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a burst of water power. Scale and finish: a stronger effect with visible flow and a second layer of particles.
+Subject: versatile spell of the Marencia's Song (see art direction). Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Art direction: Water mirage: over a glittering lagoon a heat-haze of water-light bends the air. Two enemy soldiers (dark silhouettes) are caught in it and their reflections in the water are swapped — a hulking brute's reflection is a frail reed-thin figure and a slight one's reflection is a towering giant — the real bodies stagger as they take on their reflections. Shimmering, disorienting, no explosion.
 Scale (level 2 of 8): a small, local effect.
 Banner — Marencia's Song: magic of marencia's song, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 물빛이 일렁이면 눈에 비친 것이 뒤집힌다. 거인은 갈대처럼 휘청이고, 겁쟁이는 제 그림자에 놀라 칼을 휘두른다. 누가 그렇게 될지는 물결만 안다.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 가운데 무작위 2기의 공격과 체력을 맞바꾸고 [홀림]으로 만든다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 가운데 무작위 유닛 2개의 공격과 체력을 맞바꾸고 [홀림]으로 만든다.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -3230,7 +3253,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "물살 돌격 범고래". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Orca of the Marencia's Song — orcas that ride the currents into battle, glossy black and white with tall dorsal fins; a reckless charging attacker.
+Subject: a seasoned, battle-hardened Orca of the Marencia's Song; a reckless charging attacker.
 Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Creature kind — Orca: orcas that ride the currents into battle, glossy black and white with tall dorsal fins. Silhouette: sleek black-and-white body with a tall dorsal fin. Materials: glossy black and white skin, teeth, foam.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
@@ -3254,21 +3277,21 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A well-made, reliable object of the banner, finer in craft than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "진주 성표". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Marencia's Song (holy relic; if unsure, a sacred relic (chalice, reliquary or holy symbol — not a plain cross)). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
+Subject: the item the card name and lore describe — a single object made or kept by the Marencia's Song (holy relic). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
 Scale (level 3 of 8): a fine object with a faint aura.
 Banner — Marencia's Song (water): palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 깊은 바다의 진주를 박은 성표. 가슴에 달면 바다가 한 모금 숨을 불어넣는다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low close-up of the well-crafted object on its stand or cloth, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: fully rendered, better-crafted materials with engraved trim and fine surface wear.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: well-crafted, reliable, prized.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -3280,21 +3303,21 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A well-made, reliable object of the banner, finer in craft than the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "인어의 비늘". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Marencia's Song (holy relic; if unsure, a wax seal, signet or sealed contract). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
+Subject: the item the card name and lore describe — a single object made or kept by the Marencia's Song (holy relic). a well-crafted object on a workbench or simple stand, gold-tinted trim catching the light.
 Scale (level 3 of 8): a fine object with a faint aura.
 Banner — Marencia's Song (water): palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
 Lore (Korean, use for the scene): 인어 무녀가 벗어 준 비늘. 운이 좋으면 칼날이 미끄러진다.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Camera: slightly low close-up of the well-crafted object on its stand or cloth, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: fully rendered, better-crafted materials with engraved trim and fine surface wear.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: well-crafted, reliable, prized.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -3313,6 +3336,7 @@ Subject: a seasoned, battle-hardened member of the Marencia's Song — a devoted
 Scale (level 4 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
 Banner — Marencia's Song: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Lore (Korean, use for the scene): 샘물 무녀단을 이끄는 무녀. 그녀가 노래를 시작하면 석호의 물결이 모두 한 방향으로 눕는다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
@@ -3331,21 +3355,22 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 
 ```
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
+Grade: SUPERIOR — a proven veteran, clearly a cut above. A stronger, more practised spell of the banner, clearly a cut above the common rank.
+Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "거센 파도". Depict exactly what this name describes.
 Subject: versatile spell — a dual effect: a balanced composition with power flowing in two directions. The moment it takes effect: a destructive water attack striking the enemy ranks. Scale and finish: a stronger effect with visible flow and a second layer of particles.
 Scale (level 4 of 8): an effect over a few targets.
 Banner — Marencia's Song: magic of marencia's song, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체에게 피해 3.
-Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
+Lore (Korean, use for the scene): 바다가 거칠게 일어나 뭍으로 밀려든다. 인어들은 그 파도 위에서 노래한다.
+Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체에게 체력 −3.
+Camera: slightly low dynamic angle capturing the spell in motion, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
-Detail: fully rendered, better-crafted gear with engraved trim and one personal touch (trophy, badge, charm); expressive face and hands.
+Detail: crisp textures, glowing flow lines and a second layer of particles.
 Spectacle: a few glints on metal and a light haze of atmospheric particles — one small step above common. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: a few small warm gold (#f2cf3d) highlights on trims and edges — the element colour stays the main light; the grade accent is a secondary touch (about 5% of the light).
-Mood: proven, capable, confident.
+Mood: practised, controlled, decisive.
 Stay true to the banner: no fire, no heavy plate armour.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
@@ -3360,7 +3385,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "해구 투구게". Depict exactly what this name describes.
-Subject: an elite, commanding Horseshoe Crab of the Marencia's Song — giant horseshoe crabs of the Talakus trench, ancient domed carapaces with spined rims and a long spike tail.
+Subject: an elite, commanding Horseshoe Crab of the Marencia's Song.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Horseshoe Crab: giant horseshoe crabs of the Talakus trench, ancient domed carapaces with spined rims and a long spike tail. Silhouette: low domed horseshoe shell with a long spike tail. Materials: olive-brown carapace, spines, barnacles, blue blood.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
@@ -3387,7 +3412,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "탈라쿠스의 아귀". Depict exactly what this name describes.
-Subject: an elite, commanding Anglerfish of the Marencia's Song — an anglerfish of the Talakus trench with a gaping fanged mouth and a glowing lure that pulses in time with the sleeping giant's heartbeat.
+Subject: an elite, commanding Anglerfish of the Marencia's Song.
 Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Anglerfish: an anglerfish of the Talakus trench with a gaping fanged mouth and a glowing lure that pulses in time with the sleeping giant's heartbeat. Silhouette: huge-mouthed round fish with a dangling glowing lure. Materials: dark warty skin, needle teeth, glowing lure, black water.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
@@ -3418,6 +3443,7 @@ Subject: an elite, commanding member of the Marencia's Song — a spellcaster ch
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Banner — Marencia's Song: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
 Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
+Lore (Korean, use for the scene): 깊은 바다 밑 어둠에 왕좌를 둔 인어. 그가 수면 위로 오르는 날은 바다 전체가 숨을 죽인다.
 Camera: slightly low angle, medium to cowboy shot, confident readied pose, subject about 60% of the frame.
 Lighting: element backlight plus a warm key light, clearer rim light, a few glints on metal and edges; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
 Background: very dark night-blue (#07080d) base; a recognisable slice of the banner's home (the lagoon temple of Selenea) with atmosphere and depth, softly focused, light atmospheric particles; clear water light, spray, ripples, bubbles.
@@ -3439,7 +3465,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "해구의 노래 고래". Depict exactly what this name describes.
-Subject: an elite, commanding Whale of the Marencia's Song — a great song whale of the Talakus trench, barnacled and scarred, singing only to Marencia.
+Subject: an elite, commanding Whale of the Marencia's Song.
 Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
 Creature kind — Whale: a great song whale of the Talakus trench, barnacled and scarred, singing only to Marencia. Silhouette: vast long body with a broad fluke. Materials: barnacled grey skin, scars, baleen, foam.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
@@ -3466,7 +3492,7 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SUPERIOR — a proven veteran, clearly a cut above. A seasoned veteran or a well-made thing, better equipped and more confident than the common rank.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "마렌시아의 왕게". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring King Crab of the Marencia's Song — a great spiny king crab sworn as a knight of Marencia, with a red armoured carapace and massive raised claws.
+Subject: a legendary, awe-inspiring King Crab of the Marencia's Song.
 Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
 Creature kind — King Crab: a great spiny king crab sworn as a knight of Marencia, with a red armoured carapace and massive raised claws. Silhouette: wide spiky body with huge raised claws. Materials: spiny red carapace, claws, barnacles, coral.
 Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.

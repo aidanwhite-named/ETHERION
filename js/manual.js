@@ -145,7 +145,7 @@ const Help = (() => {
   function kwRows(obj, gen) {
     return Object.keys(obj).map(k => {
       let t = (gen && gen[k]) || obj[k];
-      t = t.replace(/\{S\}/g, "그 스탯은").replace(/\{n\}/g, "N").replace(/\{m\}/g, "4 − N");
+      t = t.replace(/\{spread\}/g, typeof burnSpreadText === "function" ? burnSpreadText(null, true) : "").replace(/\{S\}/g, "그 스탯은").replace(/\{n\}/g, "N").replace(/\{m\}/g, "4 − N");
       const label = /\{n\}/.test(obj[k]) ? `[${k} N]` : `[${k}]`;
       return `<tr><th>${esc(label)}</th><td>${esc(t)}</td></tr>`;
     }).join("");

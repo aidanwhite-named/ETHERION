@@ -2212,7 +2212,6 @@ function auraPrepPulse(it) {
 }
 function equipChipsHTML(ic, off, host) {   // v3.65.2 off: 능력 끄기에 꺼진 능력 이름들 — 그 칩은 감춘다 (js/view.js chipOff)
   const list = itemKwList(ic.item).filter(([k]) => k && !isPinAb(k));   // v3.33 표시(고정 · 버팀 · 눌림) 칩은 빼고 — 스탯 옆 기호로 보이고, 누르면 설명 패널에 나온다
-  if (ic.item.set) list[0] = [`[고정 ${ic.item.set.a}/${ic.item.set.d}/${ic.item.set.h}]`, list[0][1]];
   // v3.84 능력 상한: 유닛 능력이 칸을 다 차지해 붙지 않는 아이템 능력은 흐리게 긋는다(js/cards.js ABIL_CAP)
   const cut = host && typeof unitAbilSlots === "function" ? new Set(unitAbilSlots(C(host), ic.item).cut.map(x => x.raw)) : null;
   const chips = list.filter(([k]) => !chipOff(k, off)).map(([k, v]) => {

@@ -17,6 +17,8 @@
         "desc": "a parchment panel folding shut: a short reverse whoosh ending in a muted soft thud" },
       { "id": "ui_tab",    "when": "탭을 바꿀 때", "now": "", "len": 0.2,
         "desc": "a quick, light flick of a stiff paper tab, crisp and tidy" },
+      { "id": "ui_filter", "when": "덱 조정실 · 보관소 카드 보기 거르개(종류 · 등급 · 레벨)를 누를 때", "now": "ui_filter", "len": 0.15,
+        "desc": "a soft, low wooden tick of a small carved token pressed into a slot of an old oak card box, with a faint muted low thud; warm, dark and quiet, short and clean, not bright, not metallic" },
       { "id": "ui_toggle", "when": "설정의 켜기 · 끄기, 체크 상자", "now": "", "len": 0.15,
         "desc": "a small, precise metal toggle snapping into place with a clean click" },
       { "id": "ui_slider", "when": "음량 막대를 끌 때 (짧게 되풀이)", "now": "", "len": 0.06,

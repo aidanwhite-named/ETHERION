@@ -136,8 +136,8 @@
   "A1-32": {
    "en": "Lich of the Curse Legion",
    "ko": "저주 불꽃 주문 퍼부음 · 뼈 몸이 마른 소리로 받음",
-   "atk": "dry bones creak as a skeletal hand rises, a hollow chant of many voices swells, then a gout of violet curse fire roars out and splashes with a sizzle",
-   "def": "the blow cracks against yellowed bone under rotted robes: a brittle knock, a rattle of the iron crown, a cold whispering laugh"
+   "atk": "dry bones creak as a skeletal hand rises, a hollow dark drone swells through ancient stone, then a gout of violet curse fire roars out and splashes with a sizzle",
+   "def": "the blow cracks against yellowed bone under rotted robes: a brittle knock, a rattle of the iron crown, a cold dry hiss of escaping shadow"
   },
   "A1-34": {
    "en": "Price Enforcer",
@@ -255,15 +255,15 @@
   },
   "UP-A1-11": {
    "en": "Fiend Vanguard",
-   "ko": "선봉 군기 돌격 · 겹쳐 입은 갑주 쿵",
+   "ko": "선봉 군기 돌격 · 방패 없이 몸으로 맞고 비틀",
    "atk": "a short war horn-like grunt, thudding boots charge, then a heavy double-handed sword hews with a wide whistle and a punishing iron slam",
-   "def": "a double layer of iron plate rings: a loud deep metal slam, a heavy shield-bash grunt, boots skidding and holding"
+   "def": "no shield and worn leather only: the blow lands with a heavy flesh-and-hide thud, tattered vanguard cloth snapping, a harsh grunt as boots skid backward in gravel"
   },
   "UP-A1-15": {
-   "en": "Abyss Blade Swordghost",
-   "ko": "세 번 우는 칼 · 녹여 벼린 쇠가 울림",
-   "atk": "a molten-metal hiss, a thick blade wails three times with rising metal shrieks through the air, then a heavy cut that swallows light with a deep suction thud",
-   "def": "a melted-together blade rings thrice: a deep layered metal moan, a long dark echo, a final dull hush as the force is swallowed"
+   "en": "Blood-Drinking Cursed Blade",
+   "ko": "공중에 뜬 마검이 세 번 베며 피를 마심 · 칼날이 울며 쳐냄",
+   "atk": "a cursed floating greatsword hums hungrily, whips through the air with three rising metallic whistles, then bites deep with a wet slurping hiss as the dark steel drinks",
+   "def": "the cursed blade spins edge-on to parry: a deep resonant steel ring, a dark vibrating hum along the blood-slick metal, red droplets pattering onto stone"
   },
   "UP-A1-18": {
    "en": "Shadow Slaughterer",
@@ -272,10 +272,10 @@
    "def": "a huge body of black smoke fur takes the hit: a heavy padded thump, a long hiss of scattering smoke, a menacing growl as the shape gathers back"
   },
   "UP-A1-23": {
-   "en": "Contract Harvest Master",
-   "ko": "쌓인 계약서 위 대낫 · 서류더미가 충격 삼킴",
-   "atk": "a vast pile of papers shifts and rustles, a huge scythe sweeps with a low sonorous whoosh, then a reaping cut and a flurry of pages burst up with a long papery cascade",
-   "def": "waist-deep paper stacks swallow the strike: a muffled giant paper thump, sliding avalanche of pages, scythe shaft knocking with a hollow wooden clunk"
+   "en": "Great-Scythe Reaper",
+   "ko": "거대한 낫이 허공을 갈라 베어냄 · 뼈 손과 낫자루가 둔탁히 막음",
+   "atk": "a towering reaper raises a massive scythe with a rattling bone creak, sweeps it in a wide cold whoosh, then delivers a clean reaping slice followed by a hollow shadow hush",
+   "def": "bony hands thrust the iron-bound scythe shaft across the blow: a heavy wooden-and-steel knock, rattling ribs beneath dark cloth, chains clinking against stone"
   },
   "MA-01": {
    "en": "Blade of Dread",

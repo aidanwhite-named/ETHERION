@@ -322,8 +322,8 @@ function cardHTML(c, opts) {
   let chips = "";
   if (isU && c.gift) chips += itemGrants(c.gift).filter(raw => !chipOff(raw, live && live.off)).map(raw => `<span class="c-cls c-ab" data-tip="${esc(raw + " " + (itemKwDesc(raw) || c.gift.evText || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");
   if (isU && !chips) chips = normalAtkChip();   // 특수 능력이 없어도 같은 규격으로 "일반공격"
-  if (isU) chips += pinAbilities(c).map(raw => `<span class="c-cls c-ab c-pin" data-tip="${esc(raw + " " + (itemKwDesc(raw) || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");   // v3.20 카드에 새겨진 표시
-  if (isI) chips += itemAbilities(c.item).map(raw => `<span class="c-cls c-ab" data-tip="${esc(raw + " " + (itemKwDesc(raw) || c.item.evText || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");
+  // 2026-11-18 카드에 새겨진 표시(🔒 ▲ ▼)는 칩으로 적지 않는다 — 숫자 옆 아이콘과 그 말풍선이 뜻을 맡는다(사용자)
+  if (isI) chips += itemAbilities(c.item).filter(raw => !isPinAb(raw)).map(raw => `<span class="c-cls c-ab" data-tip="${esc(raw + " " + (itemKwDesc(raw) || c.item.evText || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");
   // v3.60 짧은 문구가 있는 작은 카드: 문구에 이미 적힌 키워드 · "해제"로 적힌 끄는 키워드는 칩으로 다시 쓰지 않는다(칩 글자를 키운 만큼 자리를 아낌)
   const bsrc = isS && size !== "lg" && typeof SPELL_BRIEF !== "undefined" && SPELL_BRIEF[c.id] || "";
   if (isS) { const off = spellKwOff(c); chips += spellKwList(c).filter(raw => !bsrc || !(bsrc.includes(raw) || off.has(raw) && /해제/.test(bsrc))).map(raw => off.has(raw)   // v3.31.4 상대의 능력을 끄는 키워드는 빨간 칩
@@ -431,7 +431,7 @@ function lvTip(c) {
 /* 아이템 아래 띠: 붙는 스탯과 코인 (⚔+2 +C1) */
 function itemModsHTML(c) {
   const it = c.item;
-  if (it.set) return `<span data-tip="장착한 유닛의 공·방·체가 이 값이 됩니다.">고정 ${it.set.a}/${it.set.d}/${it.set.h}</span>`;
+  if (it.set) return `<span data-tip="장착한 유닛의 공·방·체가 이 값이 됩니다.">${it.set.a}/${it.set.d}/${it.set.h}</span>`;
   const parts = ["a", "d", "h"].map(k => {
     const marks = coinMarks(it.co, k);
     const m = pinModesOf(it, true)[k], to = it.to && it.to[k] != null ? String(it.to[k]) : "";

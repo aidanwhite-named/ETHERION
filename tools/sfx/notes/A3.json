@@ -53,7 +53,7 @@
    "en": "Storm Hippogriff",
    "ko": "빗속 급강하해 발톱 · 젖은 깃으로 가림",
    "atk": "rain hisses, a sharp eagle screech, then a dive with a rush of wet wings and a heavy talon strike",
-   "def": "rain-soaked feathers flare: a wet heavy flap, a snort, hooves splashing in a puddle"
+   "def": "rain-soaked feathers flare wide around the blow: a wet heavy wing flap, a sharp snort, hooves splashing back in a puddle"
   },
   "A3-15": {
    "en": "High Elf Sniper",
@@ -166,7 +166,7 @@
   "A3-41": {
    "en": "Cloud Whale of Stillness",
    "ko": "구름 몸으로 덮어 누름 · 칼바람 숨 죽임",
-   "atk": "a deep slow whale song hums, a vast cloud body drifts forward with a soft whoosh, then smothers the foe in a muffled hush",
+   "atk": "a deep slow whale call hums through thick air, a vast cloud body drifts forward with a soft whoosh, then smothers the foe in a muffled hush",
    "def": "the blow sinks into cloud: a soft pillowy whump, wind dying to silence, a distant low whale call"
   },
   "A3-42": {
@@ -318,9 +318,9 @@
    "cast": "a calm aimed draw, a crisp twang, two arrows whistling down onto staggering foes with heavy final thunks"
   },
   "SA3-06": {
-   "en": "Vital Shot",
-   "ko": "바람 멎는 순간 급소 저격",
-   "cast": "the wind suddenly stills, a long slow draw, then one sharp release and a deep piercing impact that drains the foe's strength"
+   "en": "Archers' Armory",
+   "ko": "무기고 문이 열리고 활이 한 자루씩 쥐어짐",
+   "cast": "a heavy wooden armory door groans open, a rack of bows clattering as they are handed out one by one, then a ripple of bowstrings being tested with bright twangs and a rising wind"
   },
   "SA3-08": {
    "en": "Great Storm",
@@ -343,9 +343,9 @@
    "cast": "a massed volley of bowstrings released high, a rising swarm of whistling arrows arcing overhead, then a pattering rain of thunks behind a shield wall"
   },
   "NA3-3": {
-   "en": "Piercing Arrows",
-   "ko": "화살촉이 바늘처럼 벼려짐",
-   "cast": "a sharp whetting scrape along arrowheads, a rising thin metallic ring, then a volley of narrow arrows punching through steel plates"
+   "en": "Starlight Volley",
+   "ko": "겹친 시위 소리 · 별빛 화살비",
+   "cast": "many bowstrings drawn and released together as one deep thrum, a shimmering swarm of star-bright arrows whistling upward with a crystalline chime, then a wide rain of glittering impacts across the whole field"
   },
   "NA3-4": {
    "en": "The Wind Hunt",
@@ -363,7 +363,7 @@
    "cast": "a soft rustle of a folded scout's note, a quiet whispered breeze, then a cord pulled tight with a short creaking snap"
   },
   "US-A3-2": {
-   "en": "Velmir's Eye",
+   "en": "Belumir's Eye",
    "ko": "천 개의 눈이 내려다봄",
    "cast": "a thousand lids open with soft wet flutters, a vast deep pressure hum settles, then drawn blades and spells freeze with a sharp stillness"
   },
@@ -418,7 +418,7 @@
    "equip": "a quiver strap is buckled, arrows rattle inside, and a small whirl of wind rises as one arrow is drawn out"
   },
   "IA3-5": {
-   "en": "Velmir's Longbow",
+   "en": "Belumir's Longbow",
    "ko": "신의 장궁 시위가 울림",
    "equip": "a tall divine longbow is lifted, its string drawn and released empty with a deep resonant hum and a faint starry chime"
   },
@@ -438,7 +438,7 @@
    "equip": "an arrow is turned in the hand, glyphs along the shaft glow with a soft rising shimmer, a gentle breeze bending around it"
   },
   "PI-A3": {
-   "en": "Velmir's Star Bowstring",
+   "en": "Belumir's Star Bowstring",
    "ko": "별빛 시위를 걺",
    "equip": "a strand of starlight is twisted and hooked onto a bow, a clear glassy hum rings out and then holds perfectly still"
   },
@@ -462,15 +462,5 @@
    "ko": "메아리처럼 두 번 울림",
    "cast": "a single clear tap that echoes back as a second softer one, two light impacts bouncing off front lines with a hollow ring"
   }
- },
- "SA3-06": {
-  "en": "Archers' Armory",
-  "ko": "무기고 문이 열리고 활이 한 자루씩 쥐어짐",
-  "cast": "a heavy wooden armory door groans open, a rack of bows clattering as they are handed out one by one, then a ripple of bowstrings being tested with bright twangs and a rising wind"
- },
- "NA3-3": {
-  "en": "Starlight Volley",
-  "ko": "겹친 시위 소리 · 별빛 화살비",
-  "cast": "many bowstrings drawn and released together as one deep thrum, a shimmering swarm of star-bright arrows whistling upward with a crystalline chime, then a wide rain of glittering impacts across the whole field"
  }
 }

@@ -1,4 +1,4 @@
-/* ETHERION 소리 프롬프트 페이지 만들기 (2026-11-14): tools/sfx/prompts/sfx.jsonl + tools/sfx/sfx_common.json + tools/bgm/PROMPT_BGM.md → 한 장짜리 HTML
+/* ETHERION 소리 프롬프트 페이지 만들기 (2026-11-14 · 2026-11-19 단조 배경음 반영): tools/sfx/prompts/sfx.jsonl + tools/sfx/sfx_common.json + tools/bgm/PROMPT_BGM_MINOR.md → 한 장짜리 HTML
    claude.ai 아티팩트로 올린 "ETHERION 소리 프롬프트" 페이지의 원본. 프롬프트를 다시 만들었으면(build_sfx_prompts.js) 이것도 다시 돌려 같은 주소에 올린다.
    실행: node tools/sfx/build_sfx_page.js <내보낼 html 경로>   (경로를 안 주면 임시 폴더) */
 "use strict";
@@ -6,9 +6,9 @@ const fs = require("fs"), path = require("path");
 const ROOT = path.resolve(__dirname, "..", "..");
 const OUT = process.argv[2] || path.join(require("os").tmpdir(), "etherion-sound-prompts.html");
 
-/* 배경음 */
-const md = fs.readFileSync(path.join(ROOT, "tools/bgm/PROMPT_BGM.md"), "utf8");
-/* "## 4. 곡별 프롬프트 — 1부 …" 아래의 "### N. 제목 — `id` (쓸 곳)" 하나가 한 곡. 첫 문단이 **굵은 글**로 시작하면 성향 줄 */
+/* 배경음 (서정 · 비장 · 단조판) */
+const md = fs.readFileSync(path.join(ROOT, "tools/bgm/PROMPT_BGM_MINOR.md"), "utf8");
+/* "## 3~4. 곡별 프롬프트 — …" 아래의 "### N. 제목 — `id` (쓸 곳)" 하나가 한 곡. 첫 문단이 **굵은 글**로 시작하면 성향 줄 */
 const TRACK = /^(\d+)\.\s*(.+?)\s+—\s+`([a-z_]+)`\s*\((.+)\)\s*$/;
 const bgm = [];
 for (const sec of md.split(/\n## /).slice(1)) {
@@ -17,16 +17,16 @@ for (const sec of md.split(/\n## /).slice(1)) {
     const m = s.split("\n")[0].match(TRACK);
     if (!m) continue;
     const blocks = [...s.matchAll(/```text\n([\s\S]*?)\n```/g)].map(x => x[1]);
-    const paras = s.split("\n").slice(1).join("\n").split("**프롬프트**")[0].trim().split(/\n\s*\n/);
+    const paras = s.split("\n").slice(1).join("\n").split("**프롬프트**")[0].split("```text")[0].trim().split(/\n\s*\n/);
     const tag = /^\*\*/.test(paras[0] || "") ? paras.shift().trim() : "";
     const place = m[4], sc = [];
     if (/타이틀/.test(place)) sc.push("title");
     if (/대기실|상점|교역소|덱 조정실|보관소|순례|대장간|원정/.test(place)) sc.push("town");
     if (/대전/.test(place)) sc.push("battle");
-    bgm.push({ n: +m[1], title: m[2], id: m[3], place, part, tag, sc, desc: paras.join(" ").replace(/\s*\n\s*/g, " "), prompt: blocks[0], short: blocks[1] });
+    bgm.push({ n: +m[1], title: m[2], id: m[3], place, part, tag, sc, desc: paras.join(" ").replace(/\s*\n\s*/g, " "), prompt: blocks[0], short: blocks[1] || "" });
   }
 }
-if (!bgm.length || bgm.some(b => !b.prompt || !b.short)) throw new Error("PROMPT_BGM.md에서 곡을 읽지 못했다");
+if (!bgm.length || bgm.some(b => !b.prompt)) throw new Error("PROMPT_BGM_MINOR.md에서 곡을 읽지 못했다");
 
 /* 효과음 */
 const rows = fs.readFileSync(path.join(ROOT, "tools/sfx/prompts/sfx.jsonl"), "utf8").trim().split("\n").map(JSON.parse);
@@ -176,7 +176,7 @@ details.how code{font-family:var(--f-mono);font-size:12.5px;background:var(--sur
   <p class="count" id="count"></p>
   <main class="list" id="list" aria-live="polite"></main>
   <div class="more-wrap"><button class="btn" id="more" hidden>더 보기</button></div>
-  <p class="note">프롬프트 원본은 저장소의 <code>tools/bgm/PROMPT_BGM.md</code> · <code>tools/sfx/prompts/</code>에 있습니다.</p>
+  <p class="note">프롬프트 원본은 저장소의 <code>tools/bgm/PROMPT_BGM_MINOR.md</code> · <code>tools/sfx/prompts/</code>에 있습니다.</p>
 </div>
 <div class="toast" id="toast" hidden></div>
 
@@ -273,7 +273,7 @@ details.how code{font-family:var(--f-mono);font-size:12.5px;background:var(--sur
       '<div class="p-head"><div class="p-id"><span class="bgm-num">' + x.n + '</span><span>' + esc(x.id) + '</span><span>' + esc(x.place) + '</span></div>' +
       '<h3>' + esc(x.title) + '</h3>' + (x.tag ? '<p class="bgm-tag">' + bold(x.tag) + '</p>' : '') + '<p class="bgm-desc">' + esc(x.desc) + '</p><p class="meta">받을 파일 <code>' + esc(x.id) + '.mp3</code></p></div>' +
       '<pre class="txt">' + esc(x.prompt) + '</pre>' +
-      '<div class="acts"><button class="btn copy" type="button" data-copy="full">3분판 복사</button><button class="btn" type="button" data-copy="short">30초판 복사</button><button class="btn" type="button" data-open>펼치기</button>' +
+      '<div class="acts"><button class="btn copy" type="button" data-copy="full">' + (x.short ? '3분판 복사' : '프롬프트 복사') + '</button>' + (x.short ? '<button class="btn" type="button" data-copy="short">30초판 복사</button>' : '') + '<button class="btn" type="button" data-open>펼치기</button>' +
       '<label class="mark"><input type="checkbox" data-done' + (done[key] ? " checked" : "") + '> 만듦</label></div></article>';
   }
   function cardCommon(x){

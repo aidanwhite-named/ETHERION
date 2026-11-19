@@ -23,7 +23,7 @@ const S = JSON.parse(fs.readFileSync(path.join(__dirname, "art_style.json"), "ut
 const NOTES = (() => { try { return JSON.parse(fs.readFileSync(path.join(__dirname, "art_notes.json"), "utf8")); } catch (e) { return {}; } })();
 
 /* ---------- 1. 게임 데이터 읽기 (index.html의 data.js ~ grades.js와 같은 차례) ---------- */
-const DATA_FILES = ["data", "names", "retired", "briefs", "specials", "uniques", "highcards", "pincards", "rarespells", "counterspells", "upgrades", "rebalance", "abyss", "gnome", "orc", "mermaid", "rares", "elf", "goblin", "newabil", "troll", "celestial", "kinds", "statguide", "itemtune", "itemrework", "spelltune", "decks", "cards", "grades"];
+const DATA_FILES = ["data", "names", "retired", "briefs", "specials", "uniques", "highcards", "pincards", "rarespells", "counterspells", "upgrades", "rebalance", "abyss", "gnome", "orc", "mermaid", "rares", "elf", "goblin", "newabil", "troll", "celestial", "kinds", "statguide", "itemtune", "itemrework", "spelltune", "decks", "cards", "wording", "lore", "grades"];
 function loadGame() {
   const stub = () => null;
   const ctx = {
@@ -101,35 +101,45 @@ function spellScene(c, el) {
   const up = ops.some(p => p.op === "mod" && ["a", "d", "h"].some(k => (p[k] || 0) > 0));
   const down = ops.some(p => p.op === "mod" && ["a", "d", "h"].some(k => (p[k] || 0) < 0));
   const parts = [];
-  if (has("dmg") || has("blast")) parts.push(both ? `a cataclysmic ${el.en} blast engulfing the whole battlefield` : `a destructive ${el.en} attack striking the enemy ranks`);
+  if (has("dmg") || has("blast") || has("a2Dawn") || has("a2Judge") || has("a2Retrib")) parts.push(both ? `a cataclysmic ${el.en} blast engulfing the whole battlefield` : `a destructive ${el.en} attack striking the enemy ranks`);
   if (has("destroy") || has("duel")) parts.push("an annihilating blow that erases a foe");
+  if (has("negate") || has("negBuff") || has("a1Possess")) parts.push("a counter-force shattering and snuffing out an incoming enemy spell mid-air");
+  if (has("scorch") || has("scorchMod") || has("detonate") || has("a1Hellfire")) parts.push("clinging embers and hungry flames catching onto enemy gear and armour");
+  if (has("gbKegs") || has("gbBlast")) parts.push("lit powder kegs planted along the line and erupting in roaring fireballs");
+  if (has("armorCrush") || has("def0")) parts.push("heavy enemy armour splitting, buckling and torn open");
+  if (has("g2Weight") || has("hpSlam")) parts.push("crushing sheer weight slamming through the enemy front line");
+  if (has("curse") || has("handCurse")) parts.push("a creeping shadow curse of dread and rot clinging to enemies");
+  if (has("a2Scale") || has("levelA") || has("a2Hush") || has("a2Redeem")) parts.push("solemn golden light calming, silencing and humbling enemy warriors");
+  if (has("g1Crouch")) parts.push("hunters crouching low in tense ambush, unnerving the enemy line");
+  if (has("paidHit") || has("tithe") || has("selfHit")) parts.push("crimson blood-power bursting outward at the enemy ranks");
+  if (has("paidSteal") || has("steal") || has("mindCapture") || has("a1Dominate")) parts.push("shadowy tendrils seizing a foe or their power and pulling it to the caster's side");
+  if (has("confuse")) parts.push("hallucinatory mist making enemy warriors turn their blades on one another");
+  if (has("phantom")) parts.push("a translucent mirror-image phantom stepping out of shadow");
+  if (has("rebirth")) parts.push("a fallen warrior rising back out of ash and shadow");
+  if (has("drain")) parts.push("life-force siphoned from an enemy into an allied warrior");
   if (up && (ally || !foe)) parts.push(`an empowering ${el.en} aura rising around allied warriors`);
   if (down && foe) parts.push("a weakening curse sinking over the enemies");
-  if (has("shield") || has("guard") || has("lock") || has("sumDef")) parts.push("a protective barrier or ward shielding allies");
+  if (has("shield") || has("guard") || has("lock") || has("sumDef") || has("mrVeil") || has("a2Vigil") || has("a2Martyr") || has("a2Sub") || has("pin") || has("endure")) parts.push("a protective barrier or ward shielding allies");
   if (has("thorns")) parts.push("a shell of thorns that punishes attackers");
-  if (has("clean") || has("strip")) parts.push("a cleansing wave washing away enchantments");
-  if (has("summon") || has("conjure") || has("copy") || has("echo") || has("mirrorTwin")) parts.push("a creature or double emerging from a rune circle");
-  if (has("rest") || has("heal")) parts.push("a calm restoring light closing wounds");
-  if (has("swap") || has("swapPos") || has("swapLowHigh") || has("swapLeft") || has("taunt")) parts.push("warriors forced to trade places by a trick of magic");
-  if (has("draw") || has("leftToBottom") || has("fate")) parts.push("threads of fate and glowing cards being drawn");
+  if (has("clean") || has("strip") || has("mrPurge")) parts.push("a cleansing wave washing away flames, curses and enchantments");
+  if (has("summon") || has("conjure") || has("copy") || has("echo") || has("mirrorTwin") || has("mimic")) parts.push("a creature or double emerging from a rune circle");
+  if (has("rest") || has("heal") || has("hpGather")) parts.push("a calm restoring light closing wounds and gathering vitality");
+  if (has("swap") || has("swapPos") || has("swapLowHigh") || has("swapLeft") || has("taunt") || has("sortFoe") || has("move")) parts.push("warriors dragged or forced to trade places by a trick of magic");
+  if (has("xchg") || has("swapSt") || has("randSwap") || has("d0Swap") || has("a3Confuse")) parts.push("twisting magic inverting strength and resilience between fighters");
+  if (has("draw") || has("leftToBottom") || has("fate") || has("rot")) parts.push("threads of fate and glowing cards cycling in motion");
   if (has("handMod") || has("handBurn")) parts.push("a sly hand reaching into the enemy's hidden plans");
   if (has("atk0")) parts.push("enemy weapons frozen and stopped mid-swing");
   if (has("chain") || has("multi")) parts.push(`chained ${el.en} strikes leaping from target to target`);
-  if (has("rally") || has("grant")) parts.push("allies rallying as one under a shared surge of power");
-  if (has("volley")) parts.push("a rain of arrows arcing high over the enemy front line and falling on the ranks behind it");   // v3.70 엘프 빗발치는 화살
+  if (has("rally") || has("grant") || has("perAlly") || has("matchA") || has("g1Victory") || has("g1Ram") || has("rage") || has("d2a") || has("hp2a") || has("dsumA") || has("g1Grudge") || has("g1Oath")) parts.push("allies rallying as one under a shared surge of power");
+  if (has("volley") || has("a3Arm") || has("a3Volley")) parts.push("a rain of arrows arcing high over the enemy front line and falling on the ranks behind it");   // v3.70 엘프 빗발치는 화살
   if (has("retreat")) parts.push("a nimble fighter springing back out of reach on a gust of wind while the next ally steps forward");   // v3.70 엘프 후퇴
   if (c.cost && c.cost.life) parts.push("paid for with the caster's own blood");
   if (!parts.length) parts.push(`a burst of ${el.en} power`);
   return parts.slice(0, 3).join("; ");
 }
 
-const ICON_LOOK = {
-  sword: "a sword", dagger: "a dagger", spear: "a spear", bow: "a bow", axe: "an axe", armor: "a piece of armour",
-  shield: "a shield", staff: "a staff", orb: "a glowing orb on a small stand", book: "a book",
-  rune: "a carved stone or engraved plate", holy: "a sacred relic (chalice, reliquary or holy symbol — not a plain cross)",
-  seal: "a wax seal, signet or sealed contract"
-};
 const CAT_LOOK = { "무구": "weapon/armour", "각인": "engraving", "촉매": "catalyst", "성물": "holy relic", "공용": "general gear" };
+const SPELL_KIND = { atk: "attack spell", def: "defense spell", any: "versatile spell", hand: "hand trick spell" };
 
 /* v3.79 유닛 종류(kin)의 그림 말 — 깃발의 옛 종족(flags.<깃발>.oldRaceKo)이면 없음(깃발 who를 그대로 씀) */
 function kindLook(c, F) {
@@ -148,9 +158,9 @@ function subjectOf(c, F, G, D) {
     const baseCard = c.base && D.CARDS[c.base];
     const clKey = c.cl || (baseCard && baseCard.cl) || "";
     const cls = ((F.classes && F.classes[clKey]) || S.classes[clKey] || "a warrior").replace("{el}", el.en + " power");   // v3.70 깃발마다 클래스 말을 덮을 수 있다(엘프 마도 = 궁수)
-    /* v3.79 깃발 아래 종류(js/kinds.js kin): 옛 종족이 아닌 종류는 art_style.json flags.<깃발>.kinds의 몸으로 그린다 */
+    /* v3.79 깃발 아래 종류(js/kinds.js kin): 옛 종족이 아닌 종류는 아래 Creature kind 줄에서 K.who로 묘사(중복 방지) */
     const K = kindLook(c, F);
-    let s = K ? `${rank} ${K.en} of the ${F.en}${NOTES[c.id] ? " (see art direction)" : ""} — ${K.who}`
+    let s = K ? `${rank} ${K.en} of the ${F.en}${NOTES[c.id] ? " (see art direction)" : ""}`
       : NOTES[c.id] ? `${rank} member of the ${F.en} (see art direction)` : `${rank} member of the ${F.en} — ${cls}`;
     if (c.rev === "벽") s += "; a stubborn defender who stands like a wall";
     if (c.rev === "돌격") s += "; a reckless charging attacker";
@@ -159,13 +169,13 @@ function subjectOf(c, F, G, D) {
   }
   if (c.type === "item") {
     const it = c.item || {};
-    const what = ICON_LOOK[it.icon] || "a single object";
-    const cat = String(it.cat || "").split("·").map(k => CAT_LOOK[k]).filter(Boolean).join(" + ");
-    /* v3.95 스페셜 아이템은 그림 지시(art_notes)가 물건을 정하므로 "애매하면 단검 · 구슬" 같은 대체 말을 넣지 않는다 */
-    const hint = cat && !(G.itemScale && NOTES[c.id]) ? ` (${cat}; if unsure, ${what})` : "";
+    const cat = String(it.cat || "").split("·").map(k => (F.cats && F.cats[k]) || CAT_LOOK[k]).filter(Boolean).join(" + ");
+    const hint = cat ? ` (${cat})` : "";
     return `the item the card name and lore describe — a single object made or kept by the ${F.en}${hint}. ${G.item}`;
   }
-  let s = `${S.types[c.type] || "spell"}. The moment it takes effect: ${spellScene(c, el)}`;
+  let s = NOTES[c.id]
+    ? `${SPELL_KIND[c.type] || "spell"} of the ${F.en} (see art direction)`
+    : `${S.types[c.type] || "spell"}. The moment it takes effect: ${spellScene(c, el)}`;
   if (G.spell) s += `. Scale and finish: ${G.spell}`;
   if (c.comeback) s += ". A desperate last-stand reversal that turns a losing battle";
   if (c.classSpell) s += `. A spell of the ${c.classSpell} class`;
@@ -180,8 +190,6 @@ function promptOf(c, D) {
   const lore = (c.flavor || (c.item && c.item.desc) || "").trim();
   const text = (c.text || "").replace(/\s+/g, " ").trim();
   const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
-  /* v3.95 스페셜 아이템: 유닛용 말(얼굴 · 손 · 제 힘으로 된 몸 · 요새보다 큰 키 · 종족의 몸)을 물건용 말로 바꾼다 — art_style.json grades.special.item* */
-  const spItem = gk === "special" && c.type === "item" && !!G.itemScale;
   /* v3.95 스페셜 18장은 짧은 틀: 등급 공통 말을 몇 줄로 묶고 카드 그림 지시 · 서사가 앞장서게(스페셜끼리 같은 문장 몫을 줄임) */
   if (gk === "special" && G.compactGrade) {
     const unit = c.type !== "item";
@@ -189,7 +197,7 @@ function promptOf(c, D) {
       S.base,
       `Grade: ${G.compactGrade}.`,
       `Card name (Korean — read its meaning, never write it in the image): "${c.name}". Depict exactly what this name describes.`,
-      `Subject: ${unit ? `a one-of-a-kind mythic being of the ${F.en}` : `a sacred relic of the ${F.en}, resting on or just above an ancient altar`}.`,
+      `Subject: ${unit ? `a one-of-a-kind mythic being of the ${F.en}` : `a sacred relic of the ${F.en}${NOTES[c.id] ? " (see art direction)" : ""}`}.`,
       NOTES[c.id] && `Art direction: ${NOTES[c.id]}`,
       lore && `Lore (Korean, use for the scene): ${lore}`,
       text && `Game effect (Korean, mood only — never draw text or numbers): ${text}`,
@@ -203,10 +211,13 @@ function promptOf(c, D) {
       S.composition, S.notext, S.avoid
     ].filter(Boolean).join("\n");
   }
+  const isItem = c.type === "item", isSpell = c.type !== "unit" && !isItem;
+  const pick = k => (isItem && G["item" + cap(k)]) || (isSpell && G["spell" + cap(k)]) || G[k];
+  const qualityLine = isItem ? (S.itemQuality || S.quality) : isSpell ? (S.spellQuality || S.quality) : S.quality;
   const L = [
     S.base,
-    `Grade: ${G.tag}. ${cap(G.presence)}.`,
-    spItem ? `${G.itemQuality}.` : S.quality,
+    `Grade: ${G.tag}. ${cap(pick("presence"))}.`,
+    qualityLine,
     `Card name (Korean — read its meaning, never write it in the image): "${c.name}". Depict exactly what this name describes.`,
     `Subject: ${subjectOf(c, F, G, D)}.`
   ];
@@ -222,20 +233,16 @@ function promptOf(c, D) {
         ` The base card is set in ${place}; keep that same place, intensified.`);
     }
   }
-  L.push(spItem ? `Scale (special relic, level ${c.lv}): ${G.itemScale}.` : `Scale (level ${c.lv} of 8): ${levelText(c)}.`);
-  if (spItem)
-    L.push(`Banner that forged or kept it — ${F.en} (${el.en}): ${G.itemBanner}. Palette: ${F.palette}. Materials: ${F.materials}. Motifs: ${F.motifs}.`);
-  else if (isToken(c))
+  L.push(`Scale (level ${c.lv} of 8): ${levelText(c)}.`);
+  if (isToken(c))
     L.push(`Banner — summoned by the ${F.en}; signature motifs: ${F.motifs}; palette: ${F.palette}.`);
-  else if (c.type === "unit" && gk === "special")   // v3.59 스페셜: 깃발은 원소 · 색 · 재료 · 상징으로만, 종족의 몸(who · silhouette)은 넣지 않는다
-    L.push(`Banner — ${F.en} (${el.en}): draw this being from the banner's name and its element. Palette: ${F.palette}. Accents to borrow from: ${F.materials}; ${F.motifs}.`);   // v3.95 깃발이 더는 종족 이름이 아니라서 "그 종족 금지"를 쓰지 않는다(이름 · 원소로)
   else if (c.type === "unit" && kindLook(c, F)) {   // v3.79 옛 종족이 아닌 종류: 몸은 종류의 것, 깃발은 재료 · 상징 · 색으로만
     const K = kindLook(c, F);
     L.push(`Creature kind — ${K.en}: ${K.who}. Silhouette: ${K.silhouette}. Materials: ${K.materials}.`);   // v3.95 옛 종족 이름을 부정문으로도 넣지 않는다(이름을 넣으면 그림 AI가 끌어옴)
     L.push(`Banner — ${F.en}: show the banner through element, palette and a few accents (${F.motifs}); palette: ${F.palette}.`);
   } else if (c.type === "unit")
     L.push(`Banner — ${F.en}: ${F.who}. Silhouette: ${F.silhouette}. Materials: ${F.materials}. Signature motifs: ${F.motifs}.`);
-  else if (c.type === "item")   // v3.95 아이템은 물건이라 깃발 종족의 몸(who · silhouette)을 넣지 않는다
+  else if (isItem)   // v3.95 아이템은 물건이라 깃발 종족의 몸(who · silhouette)을 넣지 않는다
     L.push(`Banner — ${F.en} (${el.en}): palette: ${F.palette}. Materials: ${F.materials}. Signature motifs: ${F.motifs}.`);
   else
     L.push(`Banner — ${F.en}: magic of ${F.en.toLowerCase()}, signature motifs: ${F.motifs}; palette: ${F.palette}.`);
@@ -243,21 +250,17 @@ function promptOf(c, D) {
   if (lore) L.push(`Lore (Korean, use for the scene): ${lore}`);
   if (text) L.push(`Game effect (Korean, mood only — never draw text or numbers): ${text}`);
   L.push(
-    `Camera: ${spItem ? G.itemCamera : G.camera}.`,
-    /* v3.95 스페셜 아이템은 같은 깃발 스페셜 유닛과 무대가 겹치지 않게 '성소에 모신 유물'로(빛 · 배경 · 화려함 · 분위기) */
-    spItem ? `Lighting: ${G.itemLighting}; main light is ${el.en} (${el.hex}) glowing from within the relic.`
-      : `Lighting: ${G.lighting}; main light is ${el.en} (${el.hex}) from behind the subject, ${F.light}.`,
-    `Background: very dark night-blue (#07080d) base; ${fill(spItem ? G.itemBackground : G.background, F, c)}; ${el.cue}.`,
-    `Detail: ${spItem ? G.itemDetail : G.detail}.`
+    `Camera: ${pick("camera")}.`,
+    `Lighting: ${pick("lighting")}; main light is ${el.en} (${el.hex}) from behind the subject, ${F.light}.`,
+    `Background: very dark night-blue (#07080d) base; ${fill(G.background, F, c)}; ${el.cue}.`,
+    `Detail: ${pick("detail")}.`
   );
   /* v3.59 화려함 사다리: 등급마다 한 단계씩 더 화려하게(spectacle), 스페셜은 존재를 반쯤 가려 상상하게 하는 기법도(technique) */
-  if (G.spectacle) L.push(`Spectacle: ${spItem ? G.itemSpectacle : G.spectacle}. ${S.spectacleRule || ""}`.trim());
+  if (G.spectacle) L.push(`Spectacle: ${G.spectacle}. ${S.spectacleRule || ""}`.trim());
   if (G.technique && c.type === "unit") L.push(`Presence technique (allowed): ${G.technique}.`);
   if (G.accent) L.push(`Grade accent: ${G.accent} — ${S.accentRule.replace("{share}", G.accentShare || "15%")}.`);
-  L.push(`Mood: ${spItem ? G.itemMood : G.mood}.`);
-  L.push(gk === "special" && (c.type === "unit" || spItem)   // v3.95 아이템도: 룬 고리는 등급 표시이지 깃발의 마법진이 아니다
-    ? "The golden rune rings and divine light are this grade's mythic mark, not banner spellcasting."   // v3.95 스페셜은 깃발의 종족 금지 줄(never)을 빼고 이것만
-    : `Stay true to the banner: ${F.never}.`);
+  L.push(`Mood: ${pick("mood")}.`);
+  L.push(`Stay true to the banner: ${F.never}.`);
   L.push(S.composition, S.notext, S.avoid);
   return L.join("\n");
 }

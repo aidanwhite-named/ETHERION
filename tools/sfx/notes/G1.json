@@ -1,7 +1,11 @@
 {
  "flag": "G1",
  "cards": {
-  "SR-G1": {"en": "Gorvath's Broken Fang", "ko": "부러진 용의 송곳니를 주먹에 동여맴", "equip": "a huge cracked fang is pressed onto a fist, hide cords are pulled tight with creaks, and a low hungry growl-like rumble swells from the stone"},
+  "SR-G1": {
+   "en": "Gorvath's Broken Fang",
+   "ko": "부러진 용의 송곳니를 주먹에 동여맴",
+   "equip": "a huge cracked fang is pressed onto a fist, hide cords are pulled tight with creaks, and a low hungry growl-like rumble swells from the stone"
+  },
   "G1-01": {
    "en": "Orc Apprentice",
    "ko": "작은 주먹을 서툴게 휘두름 · 맨몸으로 맞고 휘청",
@@ -77,7 +81,7 @@
   "G1-18": {
    "en": "Ogre Shaman",
    "ko": "북 두드려 땅을 울려 솟구침 · 두꺼운 배로 둔탁하게 받음",
-   "atk": "a slow heavy drum beat, a deep guttural chant, then a low earth rumble surges along the ground and bursts up under the target with a gritty crunch",
+   "atk": "a slow heavy drum thump, a deep guttural growl, then a low earth rumble surges along the ground and bursts up under the target with a gritty crunch",
    "def": "no guard, the big body soaks it: a meaty belly thump, a grunt of annoyance, bone charms rattling and a drum skin buzzing faintly"
   },
   "G1-19": {
@@ -233,7 +237,7 @@
   "PN-G1-U2": {
    "en": "Bearskin Berserker",
    "ko": "곰이 된 몸으로 앞발을 내리쳐 찢음 · 제 털가죽으로 버팀",
-   "atk": "a man's shout twisting into a bear's roar, heavy clawed paws swinging wide with a whomp, then ripping through armour with a tearing crunch",
+   "atk": "a fierce guttural snarl twisting into a bear's roar, heavy clawed paws swinging wide with a whomp, then ripping through armour with a tearing crunch",
    "def": "its own thick pelt swallows the blow: a dense muffled thump, coarse fur puffing, a defiant deep growl and clawed feet digging in without a step back"
   },
   "PN-G1-R": {
@@ -255,10 +259,10 @@
    "def": "he whirls the long haft to deflect: a rapid wooden clack against the incoming blow, a sharp twang of the shaft flexing, a steady planted step and shards chiming softly"
   },
   "UP-G1-18": {
-   "en": "Great Earth Shaman",
-   "ko": "세 북이 하나로 맞아 땅이 응답함 · 돌 방벽이 겹쳐 올라옴",
-   "atk": "deep drum hits land together in perfect sync, the ground answers with a rising rumble, and a sudden eruption of rocks bursts in a broad grinding explosion with rolling thunder",
-   "def": "layered stone slabs rise to meet the blow: a double grinding heave, a dense thud that rings through rock, the low echo of a drum skin quivering and dust settling"
+   "en": "Ogre Great Shaman",
+   "ko": "세 북과 오우거 포효에 땅이 솟구침 · 돌 방벽이 겹쳐 막음",
+   "atk": "three heavy shaman drums thump in unison with a deep guttural ogre growl, the ground answers with a rising rumble, and jagged stone erupts in a grinding crash",
+   "def": "layered stone slabs rise around the towering ogre: a double grinding heave, a dense rock thud, heavy leather drum skins quivering as dust settles"
   },
   "UP-G1-24": {
    "en": "Great Hyena Packleader",
@@ -268,7 +272,7 @@
   },
   "MC-01": {
    "en": "Crouching Wolves",
-   "ko": "늑대 무리가 이빨을 감추고 엎드리자 적의 칼끝이 머뭇거림 (v3.95 전 각성)",
+   "ko": "늑대 무리가 이빨을 감추고 엎드리자 적의 칼끝이 머뭇거림",
    "cast": "a pack of wolves sinks low with a soft rustle of fur and dry grass, a long held low growl hums under the breath, then a muffled sagging whoosh as enemy blades falter and droop, ending in a tense hush"
   },
   "MG-01": {
@@ -298,7 +302,7 @@
   },
   "SG1-03": {
    "en": "Cornered Fang",
-   "ko": "몰린 무리가 한꺼번에 맨 앞 적의 무기 · 갑옷 · 숨통을 차례로 뜯음 (v3.95)",
+   "ko": "몰린 무리가 맨 앞 적의 무기 · 갑옷 · 숨통을 차례로 뜯음",
    "cast": "a pack lunges with a sudden snarl, three rapid snapping bites in a row, claws scraping metal, armour ripping with a tearing rasp, a wet crunch at the throat, then a heavy body thuds down as the growl rushes on"
   },
   "SG1-04": {
@@ -354,7 +358,7 @@
   "PS-G1-1": {
    "en": "Victory Howl",
    "ko": "살아남은 무리가 함께 울부짖음",
-   "cast": "several rough orc voices join one by one into a rising chorus howl, fists thumping chests, and a far-off wall of stone crumbling under the sound"
+   "cast": "several rough pack snarls join one by one into a rising layered howl, heavy fists thumping leather chests, and a far-off wall of stone crumbling under the rumble"
   },
   "PS-G1-2": {
    "en": "Pack's Wrath",
@@ -369,7 +373,7 @@
   "RS-G1-2": {
    "en": "Blood Oath",
    "ko": "손바닥을 갈라 피를 섞으며 무리가 맹세함",
-   "cast": "a short blade slices across a palm with a wet hiss, several fists clasp together with a meaty slap, a low chorus of orcish grunts swears as one, and a deep heartbeat thumps twice under a warm swelling hum"
+   "cast": "a short blade slices across a palm with a wet hiss, several fists clasp together with a meaty slap, a low rumble of orcish grunts swears as one, and a deep heartbeat thumps twice under a warm swelling hum"
   },
   "RS-G1-3": {
    "en": "Earth Cleave",
@@ -405,11 +409,6 @@
    "en": "Rock Spirit Totem",
    "ko": "작은 바위 토템을 등에 지고 묶음",
    "equip": "a small rock totem is lifted from the ground with a gritty scrape, tied with rope that creaks, and slung onto a back with a soft thump, a pebble clicking inside it"
-  },
-  "IG1-5": {
-   "en": "Gorbas's Horn",
-   "ko": "부러진 뿔을 이마에 대고 단단히 묶음",
-   "equip": "a broken horn is lifted with a deep hollow knock, scraped along stone, and bound with leather straps that creak tight, ending with a headbutt that makes a solid crack"
   },
   "IG1-6": {
    "en": "Fang War Axe",

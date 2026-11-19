@@ -24,7 +24,7 @@ ETHERION is a browser card-battle game set on the continent of Kailan. Long ago 
 | G3 Bluescale Merfolk | merfolk, water spirits, shrine maidens | water `#4fb3ff` |
 | A1 Abyssal Fiends | demon contractors, horns, shadow, blood pacts | darkness `#8b5cf6` |
 | A2 Radiant Seraphs | seraphs & human knights, white wings, halos, shields | light `#ffe9a8` |
-| A3 Storm High Elves | high-elf mages, silver hair, wind-blown robes & pages | wind `#9fe3d6` |
+| A3 Storm High Elves | high-elf archers & wind-scouts, silver hair, bows, arrows on wind streaks | wind `#9fe3d6` |
 
 ## 3. What to paint
 

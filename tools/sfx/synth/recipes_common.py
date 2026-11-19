@@ -262,7 +262,7 @@ def _():
     return m
 
 
-# ui_filter: 프롬프트 없음(feel.js 필터 단추) — ui_tab 과 같은 집안: 빳빳한 종이 탭을 가볍게 튕김 + 아주 작은 놋쇠 딸깍
+# ui_filter: feel.js 필터 단추(sfx_common.json) — ui_tab 과 같은 집안: 빳빳한 종이 탭을 가볍게 튕김 + 아주 작은 놋쇠 딸깍
 @recipe("ui_filter", lpf=7000, min_len=0.12)
 def _():
     m = Mix(0.2)

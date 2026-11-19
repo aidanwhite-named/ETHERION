@@ -29,16 +29,16 @@ Mood: sacred, transcendent, world-shaking.
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "도르마크의 갈비뼈 화로". Depict exactly what this name describes.
-Subject: a sacred relic of the Dormak's Heartfire, resting on or just above an ancient altar.
+Subject: a sacred relic of the Dormak's Heartfire (see art direction).
 Art direction: A furnace carved from one colossal rib bone of the sleeping giant Dormak: the curved ivory-black rib forms the body of a brazier, glowing heartfire roaring inside, flames leaping hungrily toward a burning ember on the ground, volcanic ash drifting.
 Lore (Korean, use for the scene): 화관 산맥 밑에 누운 거인 도르마크의 갈비뼈 하나를 깎아 만든 화로. 안에서 식지 않는 심장불이 타고, 이미 불이 붙은 것을 보면 더 크게 일어난다.
 This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
-Scale: a relic small enough to hold or wear, taken from a sleeping giant or a dragon — modest in size but ancient and immensely powerful: its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
-Camera: close, reverent eye-level or slightly low view of the relic on its altar, filling about 55–65% of the frame at its true size; the sanctum around it and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
+Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Three Thrones — kept at its true scale (whether handheld or towering on its altar), immensely powerful so its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
+Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
 Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the fortress-foundry of Fortan, chimneys and gun bastions — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the sleeping giant Dormak, whose heart-fire burns inside the volcano like a colossal ember in a mountain-sized chest; the night sky glimpsed only through that opening.
 Light and colour: fire (#ff6b3d) light glowing from within the relic is the main light; palette fire orange #ff6b3d with brass #d4893a and soot black; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
 No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
-Mood: sacred, reverent and ancient — the hush of a holy relic whose power could wake a giant.
+Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -51,16 +51,16 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "소르그림의 첫 갑주". Depict exactly what this name describes.
-Subject: a sacred relic of the Sorgrim's Shield, resting on or just above an ancient altar.
-Art direction: The first armour of the sleeping giant Sorgrim: a huge breastplate made from a single giant rib segment fused with dark iron ore, a sword striking it bounces back with a shockwave of sparks thrown toward the attacker, iron ridge mountains behind.
+Subject: a sacred relic of the Sorgrim's Shield (see art direction).
+Art direction: The first armour of the sleeping giant Sorgrim: a huge breastplate made from a single giant rib segment fused with dark iron ore, resting upright on an iron anvil-altar as an incoming shadow-blade strikes it and bounces back in a shockwave of sparks, iron ridge mountains glimpsed through an opening behind.
 Lore (Korean, use for the scene): 잠든 거인 소르그림의 갈비 마디를 그대로 떼어 낸 갑주. 내리친 칼은 막히는 순간 그 무게 그대로 친 자에게 돌아간다.
 This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
-Scale: a relic small enough to hold or wear, taken from a sleeping giant or a dragon — modest in size but ancient and immensely powerful: its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
-Camera: close, reverent eye-level or slightly low view of the relic on its altar, filling about 55–65% of the frame at its true size; the sanctum around it and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
+Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Three Thrones — kept at its true scale (whether handheld or towering on its altar), immensely powerful so its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
+Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
 Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the underground forge-city of Durkheim — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the sleeping giant Sorgrim, whose iron sinews form the Ironbone mountains, watched by the mirror-scaled metal dragon Feros; the night sky glimpsed only through that opening.
 Light and colour: metal (#a9b4c2) light glowing from within the relic is the main light; palette steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
 No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
-Mood: sacred, reverent and ancient — the hush of a holy relic whose power could wake a giant.
+Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -73,16 +73,16 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "케라운의 벼락 심장". Depict exactly what this name describes.
-Subject: a sacred relic of the Keraun's Thunder, resting on or just above an ancient altar.
-Art direction: A crackling heart fragment of the thunder giant Keraun, held in a brass-and-glass cage: the crystal heart pulses with branching blue lightning that races up the bearer's arm each time a spell circle flares nearby.
+Subject: a sacred relic of the Keraun's Thunder (see art direction).
+Art direction: A crackling heart fragment of the thunder giant Keraun, held in a brass-and-glass cage on a dark stone altar: the crystal heart pulses with branching blue lightning that arcs fiercely outward whenever a faint distant spell circle flares nearby.
 Lore (Korean, use for the scene): 번개를 맞고도 멈추지 않은 거인 케라운의 심장 조각. 마법이 일 때마다 심장이 한 번씩 더 크게 뛰어 쥔 자의 팔에 벼락이 실린다.
 This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
-Scale: a relic small enough to hold or wear, taken from a sleeping giant or a dragon — modest in size but ancient and immensely powerful: its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
-Camera: close, reverent eye-level or slightly low view of the relic on its altar, filling about 55–65% of the frame at its true size; the sanctum around it and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
+Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Three Thrones — kept at its true scale (whether handheld or towering on its altar), immensely powerful so its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
+Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
 Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the lightning-rod city of Voltarium on the thundering plateau — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the sleeping giant Keraun, whose lightning nerves branch through the ground like a vast glowing circuit; the night sky glimpsed only through that opening.
 Light and colour: lightning (#ffd84a) light glowing from within the relic is the main light; palette electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
 No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
-Mood: sacred, reverent and ancient — the hush of a holy relic whose power could wake a giant.
+Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -95,16 +95,16 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "고르바스의 부러진 송곳니". Depict exactly what this name describes.
-Subject: a sacred relic of the Gorvath's Claw, resting on or just above an ancient altar.
-Art direction: The broken fang of the earth dragon Gorvath: a massive cracked stone-and-bone fang strapped to a fist with hide cords, still stained, glowing amber veins pulsing as if it hungers, a fallen beast silhouette in the background.
+Subject: a sacred relic of the Gorvath's Claw (see art direction).
+Art direction: The broken fang of the earth dragon Gorvath: a massive cracked stone-and-bone fang bound with hide cords on a stone altar (at most a single weathered hand reaching toward it), still stained, glowing amber veins pulsing as if it hungers, a tiny fallen beast silhouette in the distant haze.
 Lore (Korean, use for the scene): 대지의 용 고르바스가 첫 사냥에서 부러뜨린 송곳니. 지닌 자는 쓰러뜨린 것을 삼킬 때마다 용처럼 커진다.
 This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
-Scale: a relic small enough to hold or wear, taken from a sleeping giant or a dragon — modest in size but ancient and immensely powerful: its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
-Camera: close, reverent eye-level or slightly low view of the relic on its altar, filling about 55–65% of the frame at its true size; the sanctum around it and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
-Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the howling steppe of Garun with its nomad camps — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the earth dragon Gorbas, the largest of the seven dragons, with rocks and forests growing on its back; the night sky glimpsed only through that opening.
+Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Three Thrones — kept at its true scale (whether handheld or towering on its altar), immensely powerful so its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
+Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
+Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the howling steppe of Garun with its nomad camps — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the earth dragon Gorvath, the largest of the seven dragons, with rocks and forests growing on its back; the night sky glimpsed only through that opening.
 Light and colour: earth (#b88a5a) light glowing from within the relic is the main light; palette earth ochre #b88a5a, rust-red war paint, bone white; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
 No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
-Mood: sacred, reverent and ancient — the hush of a holy relic whose power could wake a giant.
+Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -117,16 +117,16 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "베르단의 첫 뿔". Depict exactly what this name describes.
-Subject: a sacred relic of the Verdan's Antler, resting on or just above an ancient altar.
-Art direction: The first antler of the forest dragon Verdan: a great branching antler of living wood, roots snaking from its base and drinking a faint green glow out of a thorned attacker toward the bearer, moss and leaves sprouting along its tines.
+Subject: a sacred relic of the Verdan's Antler (see art direction).
+Art direction: The first antler of the forest dragon Verdan: a great branching antler of living wood resting on a mossy root altar, roots snaking from its base and drawing wisps of faint green life-light out of a thorned silhouette in the distant shadow, moss and leaves sprouting along its tines.
 Lore (Korean, use for the scene): 숲의 용 베르단이 처음 갈아 낸 뿔. 뿔에서 뻗은 뿌리가 덤벼든 자의 숨을 빨아 주인의 상처를 메운다.
 This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
-Scale: a relic small enough to hold or wear, taken from a sleeping giant or a dragon — modest in size but ancient and immensely powerful: its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
-Camera: close, reverent eye-level or slightly low view of the relic on its altar, filling about 55–65% of the frame at its true size; the sanctum around it and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
+Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Three Thrones — kept at its true scale (whether handheld or towering on its altar), immensely powerful so its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
+Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
 Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the giant-tree city of Sylvaniel in the great forest of Eilen — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the forest dragon Verdan, with antlers of ancient tree branches and moss-covered scales; the night sky glimpsed only through that opening.
 Light and colour: forest (#58b85f) light glowing from within the relic is the main light; palette forest green #58b85f, deep moss, bark brown, bioluminescent spores; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
 No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
-Mood: sacred, reverent and ancient — the hush of a holy relic whose power could wake a giant.
+Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -139,16 +139,16 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "마렌시아의 눈물 성배". Depict exactly what this name describes.
-Subject: a sacred relic of the Marencia's Song, resting on or just above an ancient altar.
-Art direction: The chalice of the sea dragon Marencia's tears: a pearl-and-coral chalice overflowing with luminous blue water, a gentle tide spilling from its rim and flowing first toward a wounded figure, mist and soft light rising.
+Subject: a sacred relic of the Marencia's Song (see art direction).
+Art direction: The chalice of the sea dragon Marencia's tears: a pearl-and-coral chalice on a sea-stone altar overflowing with luminous blue water, a gentle tide spilling from its rim toward a tiny wounded silhouette in the distant shadow, mist and soft light rising.
 Lore (Korean, use for the scene): 물의 용 마렌시아가 맹약의 날 흘린 눈물을 받은 성배. 싸움이 시작되면 밀물이 가장 깊이 베인 자에게 먼저 닿는다.
 This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
-Scale: a relic small enough to hold or wear, taken from a sleeping giant or a dragon — modest in size but ancient and immensely powerful: its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
-Camera: close, reverent eye-level or slightly low view of the relic on its altar, filling about 55–65% of the frame at its true size; the sanctum around it and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
+Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Three Thrones — kept at its true scale (whether handheld or towering on its altar), immensely powerful so its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
+Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
 Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the lagoon temple of Selenea — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the water dragon Marencia, a long translucent body with fins instead of wings; the night sky glimpsed only through that opening.
 Light and colour: water (#4fb3ff) light glowing from within the relic is the main light; palette water blue #4fb3ff, aquamarine, pearl white, deep-sea navy; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
 No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
-Mood: sacred, reverent and ancient — the hush of a holy relic whose power could wake a giant.
+Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -208,12 +208,12 @@ Dark fantasy trading card illustration for the card game ETHERION, painterly dig
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "잿갈기 카르노". Depict exactly what this name describes.
 Subject: a one-of-a-kind mythic being of the Gorvath's Claw.
-Art direction: Karno Ashmane: a colossal duel-titan of living stone and ash, one of a kind. A towering warrior body of cracked dark granite and basalt with glowing ochre-orange magma seams, every one of his hundred duel scars a molten crack; a vast mane of grey ash and drifting embers streams from his head and shoulders like a volcanic plume (the 'ash mane'); fists like boulders bound in ancient leather straps; his face is a stern, noble mask of stone with burning eyes. He stands in a stone duel ring cracked into a crater, mid-stride and roaring a challenge, rock dust and embers exploding around his feet. Behind him the mountain-sized earth dragon Gorbas, forests on its back, lowers its great head to meet him eye to eye, as if for a hundred-and-first duel, while the standing stones and nomad camps of the Garun steppe lie tiny below and a trail of ash-grey smoke drifts across the plain behind him.
+Art direction: Karno Ashmane: a colossal duel-titan of living stone and ash, one of a kind. A towering warrior body of cracked dark granite and basalt with glowing ochre-orange magma seams, every one of his hundred duel scars a molten crack; a vast mane of grey ash and drifting embers streams from his head and shoulders like a volcanic plume (the 'ash mane'); fists like boulders bound in ancient leather straps; his face is a stern, noble mask of stone with burning eyes. He stands in a stone duel ring cracked into a crater, mid-stride and roaring a challenge, rock dust and embers exploding around his feet. Behind him the mountain-sized earth dragon Gorvath, forests on its back, lowers its great head to meet him eye to eye, as if for a hundred-and-first duel, while the standing stones and nomad camps of the Garun steppe lie tiny below and a trail of ash-grey smoke drifts across the plain behind him.
 Lore (Korean, use for the scene): 백 번의 결투 끝에 대지의 용 고르바스에게 인정받은 존재. 백한 번째 상대가 바로 그 용이었다는 말이 있다. 지금도 강한 자를 찾아 결투를 청하고, 그가 지나간 초원에는 잿빛 갈기 같은 연기가 오래 남는다.
 This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
 Scale: colossal, far beyond mortal scale — fortresses, armies or dragons look small beside it; it may be partly veiled in smoke, light or darkness and revealed in glimpses, so the viewer imagines its full shape.
 Camera: monumental low angle, the being fills about 75–85% of the frame; its face or heart stays in the safe area.
-Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; the earth dragon Gorbas, mountain-sized with forests on its back, rising behind Throne Peak with one great eye opening.
+Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; the earth dragon Gorvath, mountain-sized with forests on its back, rising behind Throne Peak with one great eye opening.
 Light and colour: earth (#b88a5a) light bursting from the being itself is the main light; palette earth ochre #b88a5a, rust-red war paint, bone white; several golden rune rings orbit at different angles and divine crimson-rose (#ff4d73) and gold light with ether sky-blue (#8fdcff) sparks takes about 30% of the light; the rune rings and divine light are this grade's mark, not banner spellcasting.
 Mood: sacred, transcendent, world-shaking.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -335,16 +335,16 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "하르간의 양손검". Depict exactly what this name describes.
-Subject: a sacred relic of the Morkas's New Moon, resting on or just above an ancient altar.
+Subject: a sacred relic of the Morkas's New Moon (see art direction).
 Art direction: The greatsword of Hargan the Judge, drawn only once to punish a god: a colossal two-handed sword of dark adamant and gold, scales of judgment engraved on the blade, standing point-down in a cracked divine altar under a beam of judgment light.
 Lore (Korean, use for the scene): 심판자 하르간의 검. 단 한 번, 신을 벌할 때 뽑혔다고 한다. 판결 앞에서 갑옷은 의미가 없다.
 This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
-Scale: a relic small enough to hold or wear, taken from a sleeping giant or a dragon — modest in size but ancient and immensely powerful: its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
-Camera: close, reverent eye-level or slightly low view of the relic on its altar, filling about 55–65% of the frame at its true size; the sanctum around it and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
+Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Three Thrones — kept at its true scale (whether handheld or towering on its altar), immensely powerful so its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
+Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
 Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the shadow city of Noctar in a sunless canyon — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the god Morkas, the Silent Lord — a faceless shadow king holding balanced scales, eyes closed; the night sky glimpsed only through that opening.
 Light and colour: darkness (#8b5cf6) light glowing from within the relic is the main light; palette violet #8b5cf6, black, blood-red accents; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
 No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
-Mood: sacred, reverent and ancient — the hush of a holy relic whose power could wake a giant.
+Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -357,16 +357,16 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "세렌의 활". Depict exactly what this name describes.
-Subject: a sacred relic of the Solante's Dawn, resting on or just above an ancient altar.
+Subject: a sacred relic of the Solante's Dawn (see art direction).
 Art direction: The bow of Seren the Gatekeeper, who guards the edge of the world: a tall bow of pale silver and starlight, a nocked arrow of light drawn by no hand, aimed at a dark horizon where the world ends.
 Lore (Korean, use for the scene): 문지기 세렌이 세계의 경계 너머를 겨누던 활. 넘어오려는 것은 닿기 전에 쓰러진다.
 This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
-Scale: a relic small enough to hold or wear, taken from a sleeping giant or a dragon — modest in size but ancient and immensely powerful: its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
-Camera: close, reverent eye-level or slightly low view of the relic on its altar, filling about 55–65% of the frame at its true size; the sanctum around it and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
+Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Three Thrones — kept at its true scale (whether handheld or towering on its altar), immensely powerful so its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
+Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
 Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the white walls of the Dawn Citadel Elad — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the goddess Solante, Mother of Dawn — a radiant woman with six wings of light; the night sky glimpsed only through that opening.
 Light and colour: holy light (#ffe9a8) light glowing from within the relic is the main light; palette holy light #ffe9a8, white, pale gold, soft sky blue; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
 No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
-Mood: sacred, reverent and ancient — the hush of a holy relic whose power could wake a giant.
+Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
@@ -379,16 +379,16 @@ Avoid: bright or white background, thick cartoon outlines, photorealism, 3D rend
 Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "이벨의 깃펜". Depict exactly what this name describes.
-Subject: a sacred relic of the Belumir's Star, resting on or just above an ancient altar.
+Subject: a sacred relic of the Belumir's Star (see art direction).
 Art direction: The quill of Ivel the Recorder: a great feather quill whose ink is ether light, writing glowing abstract strokes in the air that turn into tiny real scenes; an endless library fades behind it.
 Lore (Korean, use for the scene): 기록자 이벨의 깃펜. 이 펜으로 적힌 일은 일어난 일이 된다.
 This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
-Scale: a relic small enough to hold or wear, taken from a sleeping giant or a dragon — modest in size but ancient and immensely powerful: its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
-Camera: close, reverent eye-level or slightly low view of the relic on its altar, filling about 55–65% of the frame at its true size; the sanctum around it and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
+Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Three Thrones — kept at its true scale (whether handheld or towering on its altar), immensely powerful so its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
+Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
 Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the god Belumir, the Star-Reader — a robe with a thousand eyes, an open book and stars; the night sky glimpsed only through that opening.
 Light and colour: wind (#9fe3d6) light glowing from within the relic is the main light; palette wind teal #9fe3d6, silver, white, starry indigo; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
 No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
-Mood: sacred, reverent and ancient — the hush of a holy relic whose power could wake a giant.
+Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.

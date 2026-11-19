@@ -1,11 +1,11 @@
 <!-- 자동 생성: node tools/sfx/build_sfx_prompts.js — 손으로 고치지 말 것. 고칠 곳은 tools/sfx/notes/ · sfx_common.json · sfx_style.json -->
 # ETHERION 공용 효과음 프롬프트
 
-> 157개. Gemini에 `text` 상자를 통째로 붙여 넣는다. 한 번에 같은 소리가 세 테이크(사이 무음) 나온다.
+> 158개. Gemini에 `text` 상자를 통째로 붙여 넣는다. 한 번에 같은 소리가 세 테이크(사이 무음) 나온다.
 > 받은 파일은 항목의 **파일** 이름으로 `audio/inbox/sfx/`에 넣는다(예: `ui_click.mp3`). 설명은 `tools/sfx/PROMPT_SFX.md`.
 > **지금** = 이 자리에서 지금 나는 소리 이름(`js/feel.js`). '새 자리'는 아직 소리가 없는 곳이라, 넣을 때 코드도 함께 고친다.
 
-## 메뉴 · 화면 (12)
+## 메뉴 · 화면 (13)
 
 ### ui_click — 메뉴 단추를 누를 때
 지금: `ui_click` · 약 0.2초 · 파일 `ui_click`
@@ -92,6 +92,19 @@ Clean, close, dry studio recording with a short natural tail. Each take is follo
 Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
 Fantasy card game, interface and battle sounds.
 [00:00] Take 1: a quick, light flick of a stiff paper tab, crisp and tidy. About 0.2 seconds.
+[00:03] Take 2: the same sound, slightly varied.
+[00:06] Take 3: the same sound, slightly varied.
+[00:09] Silence until the end.
+Clean, close, dry studio recording with a short natural tail. Each take is followed by complete silence.
+```
+
+### ui_filter — 덱 조정실 · 보관소 카드 보기 거르개(종류 · 등급 · 레벨)를 누를 때
+지금: `ui_filter` · 약 0.2초 · 파일 `ui_filter`
+
+```text
+Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
+Fantasy card game, interface and battle sounds.
+[00:00] Take 1: a soft, low wooden tick of a small carved token pressed into a slot of an old oak card box, with a faint muted low thud; warm, dark and quiet, short and clean, not bright, not metallic. About 0.2 seconds.
 [00:03] Take 2: the same sound, slightly varied.
 [00:06] Take 3: the same sound, slightly varied.
 [00:09] Silence until the end.
