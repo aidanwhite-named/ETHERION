@@ -18,75 +18,9 @@ Mood: sacred, transcendent, world-shaking.
 
 아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다(스페셜은 v3.95부터 이 틀을 짧게 묶어 넣음). **그림 AI에는 카드 프롬프트(``` 안) 하나만 붙여 넣는다** — 위 틀을 함께 넣으면 같은 말이 두 번 들어가 그림끼리 닮는다. 카드마다 새 대화에서 그린다.
 
-**그리는 차례**: 1 그림 없는 카드 먼저 → 2 이미 그린 그림 다시 그리기는 맨 나중(Gemini 할당량이 남을 때) → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 "다시"를 읽어 이 차례로 놓는다.)
+**그리는 차례**: 1 그림 없는 카드 먼저(**유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물 → 스페셜** 순) → 2 이미 그린 그림 다시 그리기는 맨 나중(Gemini 할당량이 남을 때) → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 "다시"를 읽어 이 차례로 놓는다.)
 
-## 1. 그림 없는 카드 — 먼저 그린다 · 6장
-
-### SR-B1 · 도르마크의 갈비뼈 화로
-도르마크의 심장불 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-B1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-B1.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
-Card name (Korean — read its meaning, never write it in the image): "도르마크의 갈비뼈 화로". Depict exactly what this name describes.
-Subject: a sacred relic of the Dormak's Heartfire (see art direction).
-Art direction: A furnace carved from one colossal rib bone of the sleeping giant Dormak: the curved ivory-black rib forms the body of a brazier, glowing heartfire roaring inside, flames leaping hungrily toward a burning ember on the ground, volcanic ash drifting.
-Lore (Korean, use for the scene): 화관 산맥 밑에 누운 거인 도르마크의 갈비뼈 하나를 깎아 만든 화로. 안에서 식지 않는 심장불이 타고, 이미 불이 붙은 것을 보면 더 크게 일어난다.
-This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
-Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Three Thrones — kept at its true scale (whether handheld or towering on its altar), immensely powerful so its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
-Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
-Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the fortress-foundry of Fortan, chimneys and gun bastions — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the sleeping giant Dormak, whose heart-fire burns inside the volcano like a colossal ember in a mountain-sized chest; the night sky glimpsed only through that opening.
-Light and colour: fire (#ff6b3d) light glowing from within the relic is the main light; palette fire orange #ff6b3d with brass #d4893a and soot black; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
-No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
-Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-### SR-B2 · 소르그림의 첫 갑주
-소르그림의 방패 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-B2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-B2.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
-Card name (Korean — read its meaning, never write it in the image): "소르그림의 첫 갑주". Depict exactly what this name describes.
-Subject: a sacred relic of the Sorgrim's Shield (see art direction).
-Art direction: The first armour of the sleeping giant Sorgrim: a huge breastplate made from a single giant rib segment fused with dark iron ore, resting upright on an iron anvil-altar as an incoming shadow-blade strikes it and bounces back in a shockwave of sparks, iron ridge mountains glimpsed through an opening behind.
-Lore (Korean, use for the scene): 잠든 거인 소르그림의 갈비 마디를 그대로 떼어 낸 갑주. 내리친 칼은 막히는 순간 그 무게 그대로 친 자에게 돌아간다.
-This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
-Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Three Thrones — kept at its true scale (whether handheld or towering on its altar), immensely powerful so its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
-Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
-Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the underground forge-city of Durkheim — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the sleeping giant Sorgrim, whose iron sinews form the Ironbone mountains, watched by the mirror-scaled metal dragon Feros; the night sky glimpsed only through that opening.
-Light and colour: metal (#a9b4c2) light glowing from within the relic is the main light; palette steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
-No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
-Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-### SR-B3 · 케라운의 벼락 심장
-케라운의 벼락 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-B3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-B3.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
-Card name (Korean — read its meaning, never write it in the image): "케라운의 벼락 심장". Depict exactly what this name describes.
-Subject: a sacred relic of the Keraun's Thunder (see art direction).
-Art direction: A crackling heart fragment of the thunder giant Keraun, held in a brass-and-glass cage on a dark stone altar: the crystal heart pulses with branching blue lightning that arcs fiercely outward whenever a faint distant spell circle flares nearby.
-Lore (Korean, use for the scene): 번개를 맞고도 멈추지 않은 거인 케라운의 심장 조각. 마법이 일 때마다 심장이 한 번씩 더 크게 뛰어 쥔 자의 팔에 벼락이 실린다.
-This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
-Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Three Thrones — kept at its true scale (whether handheld or towering on its altar), immensely powerful so its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
-Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
-Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the lightning-rod city of Voltarium on the thundering plateau — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the sleeping giant Keraun, whose lightning nerves branch through the ground like a vast glowing circuit; the night sky glimpsed only through that opening.
-Light and colour: lightning (#ffd84a) light glowing from within the relic is the main light; palette electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
-No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
-Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
+## 1. 그림 없는 카드 — 먼저 그린다 · 1장
 
 ### SR-G1 · 고르바스의 부러진 송곳니
 고르바스의 발톱 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-G1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-G1.jpg` 600×750)
@@ -103,50 +37,6 @@ Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Thr
 Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
 Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the howling steppe of Garun with its nomad camps — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the earth dragon Gorvath, the largest of the seven dragons, with rocks and forests growing on its back; the night sky glimpsed only through that opening.
 Light and colour: earth (#b88a5a) light glowing from within the relic is the main light; palette earth ochre #b88a5a, rust-red war paint, bone white; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
-No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
-Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-### SR-G2 · 베르단의 첫 뿔
-베르단의 뿔 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-G2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-G2.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
-Card name (Korean — read its meaning, never write it in the image): "베르단의 첫 뿔". Depict exactly what this name describes.
-Subject: a sacred relic of the Verdan's Antler (see art direction).
-Art direction: The first antler of the forest dragon Verdan: a great branching antler of living wood resting on a mossy root altar, roots snaking from its base and drawing wisps of faint green life-light out of a thorned silhouette in the distant shadow, moss and leaves sprouting along its tines.
-Lore (Korean, use for the scene): 숲의 용 베르단이 처음 갈아 낸 뿔. 뿔에서 뻗은 뿌리가 덤벼든 자의 숨을 빨아 주인의 상처를 메운다.
-This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
-Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Three Thrones — kept at its true scale (whether handheld or towering on its altar), immensely powerful so its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
-Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
-Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the giant-tree city of Sylvaniel in the great forest of Eilen — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the forest dragon Verdan, with antlers of ancient tree branches and moss-covered scales; the night sky glimpsed only through that opening.
-Light and colour: forest (#58b85f) light glowing from within the relic is the main light; palette forest green #58b85f, deep moss, bark brown, bioluminescent spores; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
-No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
-Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
-```
-
-### SR-G3 · 마렌시아의 눈물 성배
-마렌시아의 노래 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-G3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-G3.jpg` 600×750)
-
-```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
-Card name (Korean — read its meaning, never write it in the image): "마렌시아의 눈물 성배". Depict exactly what this name describes.
-Subject: a sacred relic of the Marencia's Song (see art direction).
-Art direction: The chalice of the sea dragon Marencia's tears: a pearl-and-coral chalice on a sea-stone altar overflowing with luminous blue water, a gentle tide spilling from its rim toward a tiny wounded silhouette in the distant shadow, mist and soft light rising.
-Lore (Korean, use for the scene): 물의 용 마렌시아가 맹약의 날 흘린 눈물을 받은 성배. 싸움이 시작되면 밀물이 가장 깊이 베인 자에게 먼저 닿는다.
-This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
-Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Three Thrones — kept at its true scale (whether handheld or towering on its altar), immensely powerful so its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
-Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
-Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the lagoon temple of Selenea — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the water dragon Marencia, a long translucent body with fins instead of wings; the night sky glimpsed only through that opening.
-Light and colour: water (#4fb3ff) light glowing from within the relic is the main light; palette water blue #4fb3ff, aquamarine, pearl white, deep-sea navy; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
 No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
 Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
@@ -251,7 +141,7 @@ Grade: SPECIAL — the highest grade: the single most important image of its ban
 Card name (Korean — read its meaning, never write it in the image): "별을 푼 이사크". Depict exactly what this name describes.
 Subject: a one-of-a-kind mythic being of the Belumir's Star.
 Art direction: Isaac who unravelled the stars, the first to read the star glyphs — a transcendent star-mage: he pulls threads of starlight down from the sky into an open book while a whole constellation unravels and re-weaves itself around him as abstract glyphs, and the sky obeys; silver hair and robes swept by star-wind. He is colossal: he stands among the clouds above Belumir's Needle, its tallest spires reaching only to his waist and tiny watchers on its lookout platforms looking up; the constellation he unravels covers the whole sky, and its threads of starlight fall into his book like rivers.
-Lore (Korean, use for the scene): 별의 문자를 처음 읽어 낸 존재. 다 읽은 밤, 그는 별자리 하나를 풀어 다시 엮었고 하늘은 그대로 따랐다. 폭풍탑 마도회는 그가 남긴 첫 장을 아직 다 읽지 못했다.
+Lore (Korean, use for the scene): 별의 문자를 처음 읽어 낸 존재. 다 읽은 밤, 그는 별자리 하나를 풀어 다시 엮었고 하늘은 그대로 따랐다. 폭풍탑 궁사회는 그가 남긴 첫 장을 아직 다 읽지 못했다.
 This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
 Scale: colossal, far beyond mortal scale — fortresses, armies or dragons look small beside it; it may be partly veiled in smoke, light or darkness and revealed in glimpses, so the viewer imagines its full shape.
 Camera: monumental low angle, the being fills about 75–85% of the frame; its face or heart stays in the safe area.
@@ -326,7 +216,7 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 4장
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 9장
 
 ### SR-A1 · 하르간의 양손검 — 그림 있음
 모르카스의 그믐 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-A1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-A1.jpg` 600×750)
@@ -394,6 +284,28 @@ No text, no letters, no readable runes, no numbers, no signature, no watermark, 
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
+### SR-B1 · 도르마크의 갈비뼈 화로 — 그림 있음
+도르마크의 심장불 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-B1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-B1.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
+Card name (Korean — read its meaning, never write it in the image): "도르마크의 갈비뼈 화로". Depict exactly what this name describes.
+Subject: a sacred relic of the Dormak's Heartfire (see art direction).
+Art direction: A furnace carved from one colossal rib bone of the sleeping giant Dormak: the curved ivory-black rib forms the body of a brazier, glowing heartfire roaring inside, flames leaping hungrily toward a burning ember on the ground, volcanic ash drifting.
+Lore (Korean, use for the scene): 화관 산맥 밑에 누운 거인 도르마크의 갈비뼈 하나를 깎아 만든 화로. 안에서 식지 않는 심장불이 타고, 이미 불이 붙은 것을 보면 더 크게 일어난다.
+This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
+Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Three Thrones — kept at its true scale (whether handheld or towering on its altar), immensely powerful so its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
+Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
+Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the fortress-foundry of Fortan, chimneys and gun bastions — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the sleeping giant Dormak, whose heart-fire burns inside the volcano like a colossal ember in a mountain-sized chest; the night sky glimpsed only through that opening.
+Light and colour: fire (#ff6b3d) light glowing from within the relic is the main light; palette fire orange #ff6b3d with brass #d4893a and soot black; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
+No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
+Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
 ### SP-B1 · 불을 삼킨 자 — 그림 있음
 도르마크의 심장불 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-B1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-B1.jpg` 600×750)
 
@@ -410,6 +322,94 @@ Camera: monumental low angle, the being fills about 75–85% of the frame; its f
 Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; the giant Dormak's mountain-sized chest with its heart-fire blazing through cracks of rock across the whole sky.
 Light and colour: fire (#ff6b3d) light bursting from the being itself is the main light; palette fire orange #ff6b3d with brass #d4893a and soot black; several golden rune rings orbit at different angles and divine crimson-rose (#ff4d73) and gold light with ether sky-blue (#8fdcff) sparks takes about 30% of the light; the rune rings and divine light are this grade's mark, not banner spellcasting.
 Mood: sacred, transcendent, world-shaking.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+### SR-B2 · 소르그림의 첫 갑주 — 그림 있음
+소르그림의 방패 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-B2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-B2.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
+Card name (Korean — read its meaning, never write it in the image): "소르그림의 첫 갑주". Depict exactly what this name describes.
+Subject: a sacred relic of the Sorgrim's Shield (see art direction).
+Art direction: The first armour of the sleeping giant Sorgrim: a huge breastplate made from a single giant rib segment fused with dark iron ore, resting upright on an iron anvil-altar as an incoming shadow-blade strikes it and bounces back in a shockwave of sparks, iron ridge mountains glimpsed through an opening behind.
+Lore (Korean, use for the scene): 잠든 거인 소르그림의 갈비 마디를 그대로 떼어 낸 갑주. 내리친 칼은 막히는 순간 그 무게 그대로 친 자에게 돌아간다.
+This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
+Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Three Thrones — kept at its true scale (whether handheld or towering on its altar), immensely powerful so its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
+Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
+Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the underground forge-city of Durkheim — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the sleeping giant Sorgrim, whose iron sinews form the Ironbone mountains, watched by the mirror-scaled metal dragon Feros; the night sky glimpsed only through that opening.
+Light and colour: metal (#a9b4c2) light glowing from within the relic is the main light; palette steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
+No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
+Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+### SR-B3 · 케라운의 벼락 심장 — 그림 있음
+케라운의 벼락 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-B3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-B3.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
+Card name (Korean — read its meaning, never write it in the image): "케라운의 벼락 심장". Depict exactly what this name describes.
+Subject: a sacred relic of the Keraun's Thunder (see art direction).
+Art direction: A crackling heart fragment of the thunder giant Keraun, held in a brass-and-glass cage on a dark stone altar: the crystal heart pulses with branching blue lightning that arcs fiercely outward whenever a faint distant spell circle flares nearby.
+Lore (Korean, use for the scene): 번개를 맞고도 멈추지 않은 거인 케라운의 심장 조각. 마법이 일 때마다 심장이 한 번씩 더 크게 뛰어 쥔 자의 팔에 벼락이 실린다.
+This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
+Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Three Thrones — kept at its true scale (whether handheld or towering on its altar), immensely powerful so its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
+Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
+Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the lightning-rod city of Voltarium on the thundering plateau — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the sleeping giant Keraun, whose lightning nerves branch through the ground like a vast glowing circuit; the night sky glimpsed only through that opening.
+Light and colour: lightning (#ffd84a) light glowing from within the relic is the main light; palette electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
+No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
+Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+### SR-G2 · 베르단의 첫 뿔 — 그림 있음
+베르단의 뿔 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-G2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-G2.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
+Card name (Korean — read its meaning, never write it in the image): "베르단의 첫 뿔". Depict exactly what this name describes.
+Subject: a sacred relic of the Verdan's Antler (see art direction).
+Art direction: The first antler of the forest dragon Verdan: a great branching antler of living wood resting on a mossy root altar, roots snaking from its base and drawing wisps of faint green life-light out of a thorned silhouette in the distant shadow, moss and leaves sprouting along its tines.
+Lore (Korean, use for the scene): 숲의 용 베르단이 처음 갈아 낸 뿔. 뿔에서 뻗은 뿌리가 덤벼든 자의 숨을 빨아 주인의 상처를 메운다.
+This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
+Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Three Thrones — kept at its true scale (whether handheld or towering on its altar), immensely powerful so its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
+Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
+Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the giant-tree city of Sylvaniel in the great forest of Eilen — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the forest dragon Verdan, with antlers of ancient tree branches and moss-covered scales; the night sky glimpsed only through that opening.
+Light and colour: forest (#58b85f) light glowing from within the relic is the main light; palette forest green #58b85f, deep moss, bark brown, bioluminescent spores; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
+No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
+Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
+Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
+Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+```
+
+### SR-G3 · 마렌시아의 눈물 성배 — 그림 있음
+마렌시아의 노래 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-G3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-G3.jpg` 600×750)
+
+```
+Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
+Card name (Korean — read its meaning, never write it in the image): "마렌시아의 눈물 성배". Depict exactly what this name describes.
+Subject: a sacred relic of the Marencia's Song (see art direction).
+Art direction: The chalice of the sea dragon Marencia's tears: a pearl-and-coral chalice on a sea-stone altar overflowing with luminous blue water, a gentle tide spilling from its rim toward a tiny wounded silhouette in the distant shadow, mist and soft light rising.
+Lore (Korean, use for the scene): 물의 용 마렌시아가 맹약의 날 흘린 눈물을 받은 성배. 싸움이 시작되면 밀물이 가장 깊이 베인 자에게 먼저 닿는다.
+This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
+Scale: an ancient mythic relic of a sleeping giant, a dragon or a god of the Three Thrones — kept at its true scale (whether handheld or towering on its altar), immensely powerful so its aura reaches the sky and the world reacts to it, clearly beyond any rare or epic item.
+Camera: close, reverent eye-level or slightly low view of the relic at its true size, filling about 55–65% of the frame; its setting and the faint colossal source beyond show how much it matters; the relic's glowing core stays in the safe area.
+Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; an enshrined sanctum hidden deep within the lagoon temple of Selenea — a dark vaulted shrine or cave altar built of the banner's own materials, the relic on an ancient altar at its heart; through one opening far behind, faint and colossal: the water dragon Marencia, a long translucent body with fins instead of wings; the night sky glimpsed only through that opening.
+Light and colour: water (#4fb3ff) light glowing from within the relic is the main light; palette water blue #4fb3ff, aquamarine, pearl white, deep-sea navy; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
+No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
+Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
 Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.

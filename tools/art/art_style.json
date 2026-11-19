@@ -14,6 +14,7 @@
   "spectacleRule": "Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.",
 
   "gradeOrder": ["token", "common", "uncommon", "rare", "upgrade", "epic", "unique", "special"],
+  "drawOrder": ["unique", "epic", "rare", "upgrade", "uncommon", "common", "token", "special"],
   "grades": {
     "token": {
       "ko": "소환물", "en": "Summoned token", "color": "#8fdcff", "tier": 0,

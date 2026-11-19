@@ -123,8 +123,6 @@ SPELLTUNE_GRADES["PS-B3-1"] = "rare";
   s.text = "아군 맨 앞 2기가 이번 턴 받는 피해 −1(맞붙음 · 마법 · 가시 모두, 인어 오라 바다의 보호와 같은 결). 아군 맨 앞 유닛에게 이번 턴 [정화].";
   s.brief = "{아군 앞2} 받는 피해 −1|{아군 앞1} [정화]";
   if (typeof SPELL_BRIEF !== "undefined") SPELL_BRIEF["SG3-03"] = s.brief;
-  const cs = typeof COUNTER_SPELLS !== "undefined" && COUNTER_SPELLS.find(x => x.id === "SG3-03");
-  if (cs) Object.assign(cs, { ops: s.ops, text: s.text, brief: s.brief });
 })();
 // v3.95 고블린 — 뒤 칸 포격 2장을 [화상] 마법으로(ID 그대로, 사용자). 이름에서 '고블린'을 뺀 새 이름. 콤보(화약통 깔기 · 화약고 폭파)는 그대로.
 (function () {

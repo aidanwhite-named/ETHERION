@@ -3,6 +3,16 @@
 버전마다 바뀐 것과 바뀐 파일을 적는다. 새 버전은 맨 위에 쓴다.
 맨 아래 `실행`·`v0.3`·`계정`·`덱`·`규칙`·`파일` 절은 v0.3 무렵의 설명을 그대로 남긴 것이라 지금과 다른 곳이 있다(예: 클래스는 v1.0에서 규칙에서 빠짐). 지금 상태는 `README.md`를 본다.
 
+## v3.95 — 표시 버그 · 낡은 글 · 죽은 코드 정리 (2026-11-19) — 규칙 그대로
+- **표시 버그**: 핸드 짧은 문구에서 "최강/최약"을 늘 "공격 높은/낮은"으로 바꾸던 탓에 MA-09 · CS-A1 · RS-A1-3이 `{적 ⛨공격 높은 1개}`처럼 보이던 것 — 스탯 아이콘(⚔ ⛨ ♥) 뒤에서는 "높은/낮은"만(`js/wording.js` `brief`). 방어 무시 피해 효과 `volley` · `a3Volley` · `g1Ram` · `gbBlast`를 `DMG_OPS`에 더해 짧은 문구가 ♥−로.
+- **정예 덱**: 베르단의 뿔(G2)의 SG2-08(고목 내려찍기, v3.85부터 에픽 · 1장)이 2장이던 것을 1장으로, MG-14(숲의 무게) 1 → 2장(50장 유지, `js/decks.js`).
+- **능력 사전**: "방어무시 전부"(v3.75부터 [방어무시]에 수치 없음) 항목을 뺐다. wording.js가 덮어쓰던 ITEM_KW 증폭 · 가호 · 보호막 코인과 SPELL_KW 보호막 글을 `js/cards.js`로 모았다. `ITEM_KW_SHORT`에 강탈 · 흡혈 · 그림자 걸음 · 피의 계약, `SPELL_KW`에 화상 · 새벽빛을 더했다(마법 글 말풍선). 정화 글의 "v3.95부터" 표기 정리, 굳건 글에서 없어진 뒤집기를 빼고 정신 지배를 넣었다. 엘프 레어 오라 별의 인도 "공격할 때" → "맞붙을 때"(`js/rares.js`).
+- **짧은 문구 · 글**: NG3-2 · PS-G3-1 · MC-05 짧은 문구에도 "· 홀림"(`js/mermaid.js`). US-A1-2 핸드 문구 "대가 생명 1" → "제물 1"(`js/abyss.js`). NA3-2 · NA3-3 "피해" → "체력 −" · ♥−(`js/elf.js`).
+- **낡은 설정 글**: 매뉴얼의 메아리 · 대칭 · 족쇄 예시, 전장 규칙 요약(showRules)의 옛 마법 설명을 지금 규칙으로(`js/manual.js` · `js/game.js`). SP-A3 서사 폭풍탑 마도회 → 궁사회(`js/specials.js`), RS-A3-1 칼바람 서사를 바람 궁수 설정으로(`js/rarespells.js`). 전투 로그 `BLOG_VER` 3.32 → 3.95(`js/battlelog.js`).
+- **죽은 코드**: 오크 옛 효과 `g1Cornered` · `g1Rage` · `g1RageCost` · `attackOne`의 `t.rage` 분기를 지웠다(v3.87 · v3.95에 이미 다른 효과로 바뀌어 어느 카드도 쓰지 않음). orc.js의 SG1-03은 빈 자리만 두고 spelltune.js가 채운다. 실행 때 무시되던 `js/lore.js` 서사 25건(새 서사가 이미 있는 개편 마법), elf.js 빈 루프, spelltune.js · mermaid.js의 쓰지 않는 `COUNTER_SPELLS` 찾기 · 상수를 지웠다. grades.js 주석 바로잡음.
+- 검사: 수정 전후 카드 데이터(이름 · 글 · 서사 · 레벨 · 짧은 문구 · 마법 ops · 능력 사전)를 견주어 위 항목 말고는 바뀐 것 없음, 정예 덱 9개 모두 50장 · 장수 제한 지킴, `tools/*/test.js` 18개 · `rulebook_check` 모두 통과.
+- 파일: `js/wording.js` · `js/decks.js` · `js/cards.js` · `js/rares.js` · `js/mermaid.js` · `js/abyss.js` · `js/elf.js` · `js/manual.js` · `js/game.js` · `js/specials.js` · `js/rarespells.js` · `js/battlelog.js` · `js/orc.js` · `js/engine.js` · `js/lore.js` · `js/spelltune.js` · `js/grades.js` · `index.html`(꼬리표 `-cl1`) · `AGENTS.md`(오크 v3.83 줄).
+
 ## v3.95 — 효과음 프롬프트 점검 · 정리 (2026-11-19)
 - **누락 버그**: `tools/sfx/notes/A3.json` 최상위에 잘못 들어가 있던 SA3-06(궁사회 무기고) · NA3-3(별빛 연사) 지시를 `cards` 안으로 옮겨 옛 v3.70 지시를 덮어썼다.
 - **은퇴 카드 정리**: B1-04 · B1-09 · B1-20 · I4-2 · IB3-7 · IG1-5 · IG2-4 · IG3-7의 지시를 notes에서 빼고 `audio/sfx/`에 남아 있던 소리 11키(.ogg · .mp3)를 지웠다.

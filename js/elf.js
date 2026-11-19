@@ -41,14 +41,14 @@ const ELF_GRADES = {};   // js/grades.js가 맨 끝에 덮는다
       brief: "{아이템 없는 아군} 🏹[활] (판 내내)|⚔+2 [원거리]",
       desc: "폭풍탑 궁사회의 무기고 문이 열린다. 칼을 쥐던 손에도, 발톱뿐이던 짐승에게도 바람을 감은 활이 한 자루씩 쥐어진다." },
     "NA3-3": { n: "별빛 연사", kind: "atk", lv: 3, gr: "common",   // 전: 꿰뚫는 화살 L3 공격 (아군 전체 공격 +3, [방어무시] — 별의 인도 · 시위 당기기와 겹침)
-      text: "[활]을 든 아군 유닛 하나마다 2씩, 상대 유닛 전체에게 피해.",
+      text: "[활]을 든 아군 유닛 하나마다 2씩, 상대 유닛 전체의 체력을 깎는다.",
       ops: [{ op: "a3Volley", per: 2 }],
-      brief: "{적 전체} 피해 = 🏹[활] 아군 × 2",
+      brief: "{적 전체} ♥− 🏹[활] 아군 × 2",
       desc: "시위 소리가 하나로 겹치는 순간, 화살은 별빛이 되어 하늘을 덮는다. 활을 든 손이 많을수록 별비는 굵어진다." },
     "NA3-2": { n: "빗발치는 화살", kind: "atk", lv: 3, gr: "common",   // 전: 토네이도 L4 (돌개바람 3줄기: 무작위 피해 2 ×3, [장전 1])
       text: "상대 맨 앞 유닛을 뺀 상대 유닛 전체 체력 −3.",
       ops: [{ op: "volley", x: 3, skip: 1 }],
-      brief: "{적 맨 앞 뒤 전부} 피해3",
+      brief: "{적 맨 앞 뒤 전부} ♥−3",
       desc: "맨 앞의 방패벽 너머로 화살이 비처럼 떨어진다. 뒤에 숨어 있던 자가 먼저 쓰러진다." },
     "NA3-4": { n: "바람의 사냥", kind: "com", lv: 4, gr: "epic",   // 전: 거울 반전 L2 공용 (상대 배치 좌우 대칭 · 맨 앞 피해 2)
       text: "상대 유닛 전체 체력 −3. 아군 유닛 전체 [원거리].",
@@ -81,10 +81,6 @@ const ELF_GRADES = {};   // js/grades.js가 맨 끝에 덮는다
     if (typeof SPELL_BRIEF !== "undefined") SPELL_BRIEF[id] = w.brief;
     ELF_GRADES[id] = w.gr;
   }
-  /* 이름만 · 서사만 바꾼 마법 (효과 그대로) */
-  const SPELL_NAME = {};   // v3.93 급소 저격(SA3-06)은 궁사회 무기고로 바뀜
-  for (const id in SPELL_NAME) { const s = SIM_SPELLS.find(x => x.id === id); if (s) s.n = SPELL_NAME[id]; }
-
   /* 유닛 · 아이템 이름과 설명. [이름, 설명] — 설명이 null이면 그대로(일반 유닛의 서사는 lore.js) */
   const RENAME = {
     /* 일반 · 고급 유닛 (js/data.js) */

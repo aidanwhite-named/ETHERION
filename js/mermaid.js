@@ -94,7 +94,10 @@ const MERMAID_GRADES = {};   // js/grades.js가 맨 끝에 덮는다
       s.text = s.text.replace("코인이 뒷면이 된다", "코인이 뒷면이 되고 [홀림]에 걸린다");
       if (typeof SPELL_BRIEF !== "undefined" && SPELL_BRIEF[s.id]) SPELL_BRIEF[s.id] = SPELL_BRIEF[s.id].replace("코인 뒷면", "코인 뒷면 · 홀림");
     }
-    if (MR_CHARM_TEXT[s.id] && !/홀림/.test(s.text || "")) s.text = (s.text || "") + " " + MR_CHARM_TEXT[s.id];
+    if (MR_CHARM_TEXT[s.id] && !/홀림/.test(s.text || "")) {
+      s.text = (s.text || "") + " " + MR_CHARM_TEXT[s.id];
+      if (typeof SPELL_BRIEF !== "undefined" && SPELL_BRIEF[s.id] && !/홀림/.test(SPELL_BRIEF[s.id])) SPELL_BRIEF[s.id] += " · 홀림";
+    }
   }
 
   /* v3.79 인어 마법은 내 생명을 늘리지 않는다(사용자 결정 — 생명 회복이 너무 셌다). 생명을 주던 인어 마법 16장에서 생명 몫과 그 글을 뺀다.
@@ -114,7 +117,7 @@ const MERMAID_GRADES = {};   // js/grades.js가 맨 끝에 덮는다
      글은 통째로 다시 쓴다(text), 핸드 글은 brief. 레벨만 바꾸는 카드는 lv */
   const HEAL = (n, area) => ({ op: "grant", side: "ally", area, ab: { heal: n } });
   const PURE = area => ({ op: "mrPurge", area });
-  const ALL = { t: "all" }, F1 = { t: "front", n: 1 }, F2 = { t: "front", n: 2 };
+  const F1 = { t: "front", n: 1 };
   const MR_REFILL = {
     "SG3-09": { lv: 3, add: [HEAL(1, F1)],   // 대해류: 정화의 물결(L1)과 같아져서 L3으로(L2면 기본 덱 +3%p), 치유를 더함
       text: "상대 유닛 전체의 코인이 뒷면이 되고 [홀림]에 걸린다(코인 확률 −50%, 이미 정해진 코인은 그대로). 아군 맨 앞 유닛에게 이번 턴 [치유 1].",
@@ -156,8 +159,6 @@ const MERMAID_GRADES = {};   // js/grades.js가 맨 끝에 덮는다
     if (w.cost) s.cost = w.cost;
     s.ops = (s.ops || []).concat(w.add); s.text = w.text;
     if (typeof SPELL_BRIEF !== "undefined") SPELL_BRIEF[id] = w.brief;
-    const cs = typeof COUNTER_SPELLS !== "undefined" && COUNTER_SPELLS.find(x => x.id === id);
-    if (cs) Object.assign(cs, { lv: s.lv, ops: s.ops, text: s.text, brief: w.brief });
   }
 
 })();

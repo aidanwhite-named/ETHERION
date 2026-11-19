@@ -11,7 +11,7 @@
      tools/art/prompts/ui.jsonl · ui.md    전장 그림 (ui_assets.json을 펼친 것)
      tools/art/PROMPT_GUIDE.md             <!-- AUTO:… --> 칸만 새로 채운다(손으로 쓴 글은 그대로)
    뺀 카드(js/retired.js)는 만들지 않는다. 소환물(TK- · TS-)은 등급 "token".
-   그리는 차례(2026-11-17): 그림 없는 카드 먼저 → 이미 그린 그림 다시 그리기(장부 art_map.csv 상태 "다시")는 맨 나중 → 그림 있는 카드(그리지 않음).
+   그리는 차례(2026-11-19): 그림 없는 카드 먼저(유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물 → 스페셜 순) → 이미 그린 그림 다시 그리기(장부 art_map.csv 상태 "다시")는 맨 나중 → 그림 있는 카드(그리지 않음).
      장부의 상태 · 메모를 읽어 job.art = "new" | "redo" | "have"로 적고, cards.jsonl · .md 모두 이 차례로 놓는다.
      "다시" 가운데 메모가 "꼭"으로 시작하면 먼저, "선택"이면 그 뒤. */
 "use strict";
@@ -357,7 +357,9 @@ function main() {
     (byGroup[c.group] = byGroup[c.group] || []).push(job);
     (byGrade[job.grade] = byGrade[job.grade] || []).push(job);
   }
-  /* 그리는 차례: 그림 없는 카드 → 다시 그리기(맨 나중) → 그림 있음 */
+  /* 그리는 차례: 그림 없는 카드(유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물 → 스페셜) → 다시 그리기(맨 나중) → 그림 있음 */
+  const DRAW_ORDER = S.drawOrder || ["unique", "epic", "rare", "upgrade", "uncommon", "common", "token", "special"];
+  const drawRank = g => { const i = DRAW_ORDER.indexOf(g); return i < 0 ? 99 : i; };
   const artOrder = (a, b) => ART_RANK[a.art] - ART_RANK[b.art] || (a.art === "redo" ? redoRank(a.id) - redoRank(b.id) : 0);
   const sections = (list, inner) => {
     const out = [];
@@ -367,16 +369,15 @@ function main() {
     }
     return out;
   };
-  const ORDER_NOTE = "**그리는 차례**: 1 그림 없는 카드 먼저 → 2 이미 그린 그림 다시 그리기는 맨 나중(Gemini 할당량이 남을 때) → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 \"다시\"를 읽어 이 차례로 놓는다.)";
-  fs.writeFileSync(path.join(OUT, "cards.jsonl"), jobs.slice().sort((a, b) => artOrder(a, b) || a.id.localeCompare(b.id)).map(j => JSON.stringify(j)).join("\n") + "\n");
+  const ORDER_NOTE = "**그리는 차례**: 1 그림 없는 카드 먼저(**유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물 → 스페셜** 순) → 2 이미 그린 그림 다시 그리기는 맨 나중(Gemini 할당량이 남을 때) → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 \"다시\"를 읽어 이 차례로 놓는다.)";
+  fs.writeFileSync(path.join(OUT, "cards.jsonl"), jobs.slice().sort((a, b) => artOrder(a, b) || drawRank(a.grade) - drawRank(b.grade) || a.id.localeCompare(b.id)).map(j => JSON.stringify(j)).join("\n") + "\n");
 
   for (const g of Object.keys(byGroup).sort()) {
     const F = S.flags[g] || {};
     const md = [`# ${g} ${F.ko || ""} — 카드 일러스트 프롬프트 (${byGroup[g].length}장, 버전 ${S.version})`, "",
       "각 카드: 아래 프롬프트를 그림 AI에 붙여 넣고, 나온 그림(4:5, 600×750 이상)을 `tools/art/inbox/<카드ID>.jpg`로 넣고 `python3 tools/art/artmap.py import` — 600×750 JPG로 `img/cards/`에 들어가고 게임 목록이 새로 쓰인다(v3.41). `img/cards/`에 바로 쓰지 않는다.",
       "등급별 연출 규칙은 `tools/art/PROMPT_GUIDE.md`. 이 파일은 `node tools/art/build_prompts.js`가 만든다 — 손으로 고치지 않는다.", "", ORDER_NOTE, ""];
-    const order = c => S.gradeOrder.indexOf(c.grade);
-    md.push(...sections(byGroup[g], (a, b) => order(b) - order(a) || a.id.localeCompare(b.id)));
+    md.push(...sections(byGroup[g], (a, b) => drawRank(a.grade) - drawRank(b.grade) || a.id.localeCompare(b.id)));
     fs.writeFileSync(path.join(OUT, "cards", g + ".md"), md.join("\n"));
   }
   for (const g of S.gradeOrder) {

@@ -1,7 +1,7 @@
 # 그림 AI 작업 도구 (v3.9.15 · 등급별 프롬프트 v3.31)
 
 > **v3.31 등급별 프롬프트**: 카드 일러스트 프롬프트는 등급마다 연출이 다르고 깃발마다 고유 요소가 고정된다. 규칙서는 **`PROMPT_GUIDE.md`**(다른 AI에게 그대로 넘겨도 된다), 문구 원본은 `art_style.json`, 카드별 지시는 `art_notes.json`.
-> 등급별로 모은 완성 프롬프트는 `prompts/grades/<등급>.md`(special · unique · epic · upgrade · rare · uncommon · common · token).
+> 등급별로 모은 완성 프롬프트는 `prompts/grades/<등급>.md`(unique · epic · rare · upgrade · uncommon · common · token · special).
 > 받은 그림은 `inbox/`에 넣고 `python tools/art/artmap.py import`(또는 `그림 연결.bat`) — 카드에 연결되고 장부 `art_map.csv` · 보드 `art_board.html`이 새로 만들어진다(5장).
 
 카드 일러스트 788장(v3.31, 뺀 카드 제외 · 소환물 포함)과 전장 그림 10장(배경 · 카드 뒷면 · 소각장 · 에테르 · 생명)을
@@ -26,7 +26,7 @@
 | `out/` | 받은 원본(`raw/`) · 기록(`log.jsonl`) · 검토본(`review/`) · 모아 보기(`sheet_*.jpg`). 지워도 된다 |
 
 ## 1. 채팅창에 직접 넣는 방법 (API 키 없이)
-> **그리는 차례(2026-11-17)**: 프롬프트 파일은 "1 그림 없는 카드 → 2 맨 나중에 다시 그리기 → 3 그림 있음" 묶음으로 나뉜다. 1번부터 그리고, 이미 그린 스페셜 다시 그리기(2번)는 할당량이 남을 때 맨 나중에. 다시 그릴 카드는 장부 `art_map.csv`의 상태를 "다시"로 두면 `build_prompts.js`가 2번 묶음으로 옮긴다(`tools/REMAKE.md` "그리는 차례").
+> **그리는 차례(2026-11-19)**: 프롬프트 파일은 "1 그림 없는 카드(**유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물 → 스페셜** 순) → 2 맨 나중에 다시 그리기 → 3 그림 있음" 묶음으로 나뉜다. 스페셜보다 유니크부터 먼저 그리고, 이미 그린 스페셜 다시 그리기(2번)는 할당량이 남을 때 맨 나중에. 다시 그릴 카드는 장부 `art_map.csv`의 상태를 "다시"로 두면 `build_prompts.js`가 2번 묶음으로 옮긴다(`tools/REMAKE.md` "그리는 차례").
 > **Gemini 할당량 아끼기**: 카드마다 새 대화에서 그린다(긴 대화에 이어 붙이지 않는다).
 
 1. `prompts/cards/B1.md`처럼 단체 파일을 연다.

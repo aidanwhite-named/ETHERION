@@ -62,8 +62,9 @@ def load_map():
 
 
 def save_map(rows):
-    order = {g: i for i, g in enumerate(STYLE_DATA.get("gradeOrder", []))}
-    data = sorted(rows.values(), key=lambda r: (r["status"] == "빠진 카드", -order.get(r["grade"], 0), r["group"], r["card_id"]))
+    draw = STYLE_DATA.get("drawOrder") or list(reversed(STYLE_DATA.get("gradeOrder", [])))
+    order = {g: i for i, g in enumerate(draw)}
+    data = sorted(rows.values(), key=lambda r: (r["status"] == "빠진 카드", order.get(r["grade"], 99), r["group"], r["card_id"]))
     try:
         with MAP.open("w", encoding="utf-8-sig", newline="") as f:
             w = csv.DictWriter(f, fieldnames=COLS, extrasaction="ignore")
@@ -298,7 +299,7 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
 </style></head><body>
 <header>
 <h1>ETHERION 일러스트 보드<small id="sum"></small></h1>
-<p style="margin:4px 0 8px;font-size:12px;color:#c9b98a">그리는 차례: 그림 없는 카드 먼저 → <b style="color:#ff9b86">다시</b>(이미 그린 그림 다시 그리기)는 맨 나중, 할당량이 남을 때</p>
+<p style="margin:4px 0 8px;font-size:12px;color:#c9b98a">그리는 차례: 그림 없는 카드(유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물 → 스페셜) 먼저 → <b style="color:#ff9b86">다시</b>(이미 그린 그림 다시 그리기)는 맨 나중, 할당량이 남을 때</p>
 <div class="prog" id="prog"></div>
 <div class="bar">
 <select id="fg"><option value="">모든 깃발</option></select>
@@ -320,19 +321,19 @@ for (const [id,f] of Object.entries(D.flags)) $("#fg").insertAdjacentHTML("befor
 ["fg","ft","fs","q"].forEach(k=>{ $("#"+k).value = grab(k); $("#"+k).addEventListener("input",()=>{stash(k,$("#"+k).value);draw()}); });
 function prog(){
   const by={}; for(const r of D.rows){ if(r.status==="빠진 카드")continue; const g=by[r.grade]=by[r.grade]||{n:0,a:0}; g.n++; if(r.image)g.a++; }
-  $("#prog").innerHTML = D.order.filter(g=>by[g]).slice().reverse().map(g=>{const G=D.grades[g]||{};const b=by[g];
+  $("#prog").innerHTML = (D.drawOrder || D.order.slice().reverse()).filter(g=>by[g]).map(g=>{const G=D.grades[g]||{};const b=by[g];
     return `<button class="chip${gradeOn.has(g)?" on":""}" style="--c:${G.color}" data-g="${g}">${G.ko} <b>${b.a}</b>/${b.n}</button>`}).join("");
   $("#prog").querySelectorAll(".chip").forEach(el=>el.onclick=()=>{const g=el.dataset.g; gradeOn.has(g)?gradeOn.delete(g):gradeOn.add(g); draw();});
   const all=D.rows.filter(r=>r.status!=="빠진 카드"); $("#sum").textContent = `그림 ${all.filter(r=>r.image).length} / ${all.length}장 · 프롬프트 ${D.ver} · ${D.made}`;
 }
 function rowsNow(){
   const fg=$("#fg").value, ft=$("#ft").value, fs=$("#fs").value, q=$("#q").value.trim().toLowerCase();
-  const ord=g=>D.order.indexOf(g);
-  /* 그리는 차례(2026-11-17): 그림 없음 먼저 → 이미 그린 그림 다시(맨 나중) → 그림 있음 */
+  const drawOrd=g=>{const a=D.drawOrder||D.order.slice().reverse();const i=a.indexOf(g);return i<0?99:i;};
+  /* 그리는 차례(2026-11-19): 그림 없음(유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물 → 스페셜) 먼저 → 이미 그린 그림 다시(맨 나중) → 그림 있음 */
   const stRank=r=>r.status==="없음"?0:r.status==="다시"?1:2;
   return D.rows.filter(r=>r.status!=="빠진 카드" && (!gradeOn.size||gradeOn.has(r.grade)) && (!fg||r.group===fg) && (!ft||r.type===ft) && (!fs||r.status===fs)
     && (!q || r.card_id.toLowerCase().includes(q) || r.name.toLowerCase().includes(q)))
-    .sort((a,b)=>stRank(a)-stRank(b) || ord(b.grade)-ord(a.grade) || a.group.localeCompare(b.group) || (+a.lv)-(+b.lv) || a.card_id.localeCompare(b.card_id));
+    .sort((a,b)=>stRank(a)-stRank(b) || drawOrd(a.grade)-drawOrd(b.grade) || a.group.localeCompare(b.group) || (+a.lv)-(+b.lv) || a.card_id.localeCompare(b.card_id));
 }
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
 function draw(){
@@ -379,7 +380,7 @@ def write_board(rows, jobs):
              for k, v in S.get("flags", {}).items()}
     grades = {k: {"ko": v.get("ko", ""), "color": v.get("color", "#888")} for k, v in S.get("grades", {}).items()}
     data = {"rows": out, "prompts": {j["id"]: j.get("prompt", "") for j in jobs}, "flags": flags, "grades": grades,
-            "order": S.get("gradeOrder", []), "ver": S.get("version", ""), "made": time.strftime("%Y-%m-%d %H:%M")}
+            "order": S.get("gradeOrder", []), "drawOrder": S.get("drawOrder", []), "ver": S.get("version", ""), "made": time.strftime("%Y-%m-%d %H:%M")}
     js = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     BOARD.write_text(BOARD_HTML.replace("__DATA__", js), encoding="utf-8")
 

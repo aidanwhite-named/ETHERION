@@ -10,7 +10,7 @@
 "use strict";
 const WORDING = (() => {
   const josaEulReul = n => (/[013678]$/.test(String(n)) ? "을" : "를");   // 일 · 영 · 삼 · 육 · 칠 · 팔 → 을
-  const DMG_OPS = new Set(["dmg", "multi", "chain", "perAlly", "blast", "sumDef", "echo", "tithe", "paidHit"]);   // v3.65 피의 제물 · 피의 공명
+  const DMG_OPS = new Set(["dmg", "multi", "chain", "perAlly", "blast", "sumDef", "echo", "tithe", "paidHit", "volley", "a3Volley", "g1Ram", "gbBlast"]);   // v3.65 피의 제물 · 피의 공명 · v3.70/v3.93 빗발치는 화살 · 별빛 연사 · v3.82/v3.88 몸통 박치기 · 화약고 폭파
   /* ① 유닛 수 */
   const units = t => t.replace(/(유닛 )?(\d+)기(?![사술병계])/g, (m, u, n) => `유닛 ${n}개`);
   /* ⓪ v3.62 "뒤 N칸"은 칸이 아니라 유닛을 센다(engine.js pickTargets — 사이의 마법 칸은 건너뜀):
@@ -39,7 +39,11 @@ const WORDING = (() => {
   /* 핸드 짧은 문구: {적 앞2} → {적 앞 2개}, 피해2 → ♥−2, +1C → −1C (피해 뒤) */
   function brief(s, hasDmg) {
     s = s.replace(/\{(적|아군) 뒤(\d+)\}/g, "{$1 유닛 $2}").replace(/\{뒤 아군\}/g, "{아군 유닛 1}");   // v3.62 뒤 N = 유닛 N기 (마법 칸은 건너뜀)
-    s = s.replace(/\{([^}]*?)(앞|최강|최약)(\d+)\}/g, (m, a, w, n) => `{${a}${w === "최강" ? "공격 높은" : w === "최약" ? "공격 낮은" : w} ${n}개}`);   // v3.65 "최강"은 뜻이 모호 — 화면에는 "공격 높은 N개"
+    s = s.replace(/\{([^}]*?)(앞|최강|최약)(\d+)\}/g, (m, a, w, n) => {
+      const stat = /[⚔⛨♥]\s*$/.test(a);
+      const lbl = w === "최강" ? (stat ? " 높은" : "공격 높은") : w === "최약" ? (stat ? " 낮은" : "공격 낮은") : w;
+      return `{${a}${lbl} ${n}개}`;
+    });   // v3.65 "최강"은 뜻이 모호 — 스탯 아이콘 뒤면 "높은", 없으면 "공격 높은 N개"
     if (!hasDmg) return s;
     return s.replace(/(^|[^리] ?)피해 ?(\d+(?:→\d+)+)/g, (m, p, xs) => p + "♥" + xs.split("→").map(x => "−" + x).join("→"))
       .replace(/(^|[^리] ?)피해 ?(\d+) \+(\d+)C(×\d+)?/g, (m, p, n, v, k) => `${p}♥−${n} −${v}C${k || ""}`)
@@ -64,12 +68,6 @@ const WORDING = (() => {
     const fix = o => { if (!o) return; for (const k in o) { const v = o[k]; if (typeof v === "string") o[k] = v.replace(/피해 (\d+)\(방어 무시\)를 준다/g, "체력 −$1").replace(/피해 (\d+)\(방어 무시\)/g, "체력 −$1"); else if (v && typeof v.text === "string") v.text = v.text.replace(/피해 (\d+)\(방어 무시\)를 준다/g, "체력 −$1").replace(/피해 (\d+)\(방어 무시\)/g, "체력 −$1"); } };
     if (typeof ITEM_KW !== "undefined") fix(ITEM_KW);
     if (typeof UNIQUE_ABIL !== "undefined") fix(UNIQUE_ABIL);
-    if (typeof ITEM_KW !== "undefined") {
-      ITEM_KW["증폭"] = "이 유닛이 전장에 있으면 내 마법(공격 · 공용 · 방어)이 상대 유닛에게서 깎는 체력이 맞는 유닛마다 {n} 늘어난다.";   // v3.57.0 글자 N을 뺐다 · v3.72 공용 · 방어 마법도(js/engine.js AMP_KINDS)
-      ITEM_KW["가호"] = "매 턴 처음 받는 피해(방어를 무시하는 체력 깎임 포함)를 {n}만큼 줄인다. [출혈]로 깎이는 체력은 깎일 때마다 {n}만큼 줄인다.";
-      ITEM_KW["보호막 코인"] = "턴마다 전투가 시작될 때 한 번(첫 마법 · 공격보다 먼저) 코인을 던져 앞면이면, 그 턴 처음 받는 피해 한 번(체력 깎임 포함)을 절반(올림)만큼 막는다.";
-    }
-    if (typeof SPELL_KW !== "undefined" && SPELL_KW["보호막"]) SPELL_KW["보호막"] = "그 턴에 처음 받는 피해 한 번(체력 깎임 포함)을 통째로 막는다. 막고 나면 사라진다.";
     return changed;
   }
   const changed = apply();

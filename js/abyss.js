@@ -101,7 +101,9 @@ const ABYSS_KW = { rob: "강탈", leech: "흡혈", veil: "그림자 걸음", pac
      그 유닛이 쓰러지면 바친 생명이 돌아오고 카드는 내 소각장으로 간다(2026-11-17, js/engine.js abOffer). 글 "생명 N을 내고," → "[제물 N]" */
   const SAC = s => { if (s.g !== "A1" || !(s.cost && s.cost.life) || s.kind === "hand" || s.type === "hand") return;
     s.text = String(s.text || "").replace(/생명 (\d+)[을를] 내고,?\s*/, "[제물 $1] ");
-    if (typeof SPELL_BRIEF !== "undefined" && SPELL_BRIEF[s.id]) SPELL_BRIEF[s.id] = SPELL_BRIEF[s.id].replace("{대가} 생명", "{제물} 생명"); };
+    if (typeof SPELL_BRIEF !== "undefined" && SPELL_BRIEF[s.id]) SPELL_BRIEF[s.id] = SPELL_BRIEF[s.id]
+      .replace("{대가} 생명", "{제물} 생명")
+      .replace(/ · 대가 생명 (\d+)/, " · 제물 $1"); };
   for (const s of SIM_SPELLS) { SAC(s);
     if (s.g === "A1") { s.text = String(s.text || "").replace(/이번 턴 낸 생명/g, "이번 턴 바친 제물");
       if (typeof SPELL_BRIEF !== "undefined" && SPELL_BRIEF[s.id]) SPELL_BRIEF[s.id] = SPELL_BRIEF[s.id].replace(/이번 턴 낸 생명|낸 생명/g, "바친 제물"); } }

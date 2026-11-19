@@ -17,7 +17,7 @@ Mood: precise, impressive, prized.
 
 아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다(스페셜은 v3.95부터 이 틀을 짧게 묶어 넣음). **그림 AI에는 카드 프롬프트(``` 안) 하나만 붙여 넣는다** — 위 틀을 함께 넣으면 같은 말이 두 번 들어가 그림끼리 닮는다. 카드마다 새 대화에서 그린다.
 
-**그리는 차례**: 1 그림 없는 카드 먼저 → 2 이미 그린 그림 다시 그리기는 맨 나중(Gemini 할당량이 남을 때) → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 "다시"를 읽어 이 차례로 놓는다.)
+**그리는 차례**: 1 그림 없는 카드 먼저(**유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물 → 스페셜** 순) → 2 이미 그린 그림 다시 그리기는 맨 나중(Gemini 할당량이 남을 때) → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 "다시"를 읽어 이 차례로 놓는다.)
 
 ## 1. 그림 없는 카드 — 먼저 그린다 · 58장
 
@@ -385,7 +385,7 @@ Subject: attack spell — the instant of impact: aggressive diagonal composition
 Scale (level 1 of 8): a small, local effect.
 Banner — Belumir's Star: magic of belumir's star, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
 Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 폭풍탑의 견습생이 처음 배우는 주문. 그러나 하이엘프의 견습생은 이미 다른 종족의 대마법사다.
+Lore (Korean, use for the scene): 폭풍탑의 견습 사수가 처음 익히는 바람술. 칼날처럼 벼린 바람은 화살보다 먼저 갑옷 틈을 가른다.
 Game effect (Korean, mood only — never draw text or numbers): 상대 무작위 유닛에게 체력 −2를 2번.
 Camera: dynamic three-quarter low angle, action pose or poised decisive moment, strong diagonal, subject about 65% of the frame.
 Lighting: dramatic: strong element backlight plus a cool sapphire rim light, volumetric haze, sparkling highlights; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.

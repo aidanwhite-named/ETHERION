@@ -544,7 +544,7 @@ function snipeOne(X, u) {
 
 function attackOne(X, Au) {
   const A = X.P[X.ai], D = X.P[1 - X.ai];
-  const Du = Au.t.rage ? liveUnits(D)[0] : queueOf(D)[0];   // v3.82 [무한한 격노]: [수호]를 건너 맨 앞 칸 유닛을 친다
+  const Du = queueOf(D)[0];
   const ca = C(Au);
   if (!Du) {
     const dmg = ca.lv;
@@ -618,10 +618,7 @@ function attackOne(X, Au) {
   if (!Du.t.alive) lg(X, `${cd.name}이(가) 투척에 쓰러져 공격은 빗나갔다`, "sys");
   else {
     const hpBefore = hpLeft(Du);
-    const shSave = (Au.t.rage && dealt > 0 && Du.t.shield) ? Du.t.shield : null;   // v3.82 [무한한 격노]: [보호막]에 막히지 않는다(보호막은 그대로 남는다)
-    if (shSave) { Du.t.shield = false; fl(X, Du.uid, "격노 · 보호막 뚫음", "debuff"); lg(X, `[무한한 격노] ${ca.name}의 공격이 ${cd.name}의 보호막을 뚫었다`, "spell"); }
     got = dealt > 0 ? hurt(X, Du, dealt) : (fl(X, Du.uid, "0", "miss"), 0);
-    if (shSave && Du.t.alive) Du.t.shield = shSave;
     abLeech(X, Au, got, hpBefore);   // v3.65 [흡혈]: 맞붙어 준 피해의 절반(올림) · 2026-11-17 맞선 앞 유닛이 맞기 전 체력까지만(연쇄 · 꿰뚫기 몫은 세지 않음)
     // v3.9.6 [치명]: 코인 없이, 피해가 들어갔고(보호막 · 가호에 다 막히지 않음) 상대가 살아 있으면 남은 체력을 1로.
     // 원래 피해로 쓰러지면 그대로 쓰러진다. 예전에는 코인 앞면이면 피해 2배라 공격이 큰 유닛에게 너무 셌다
@@ -762,7 +759,7 @@ function runCombatCore(X) {
       if (abilOf(Au).snipe) { snipeOne(X, Au); sweep(); if (dead()) break; }   // v3.17.5 [사격]은 자기 차례에, 맞붙기 바로 전에
       if (Au.t.alive && queueOf(D).length && abBleedTick(X)) { sweep(); if (dead()) break; }   // v3.65 [출혈]: 맞붙음이 시작될 때마다 전장의 출혈 유닛 체력 −N
       if (Au.t.alive && queueOf(D).length) nwRegenTick(X);   // v3.74 [재생 N]: 출혈 다음, 맞붙음이 시작될 때마다
-      if (Au.t.alive) { X.clash = null; attackOne(X, Au); g1RageCost(X, Au); mrHeal(X); sweep(); }   // v3.82 [무한한 격노]: 공격한 뒤 자기 공격만큼 체력 −
+      if (Au.t.alive) { X.clash = null; attackOne(X, Au); mrHeal(X); sweep(); }
     }
     fire(false);
   }
@@ -2472,21 +2469,12 @@ function spMark(X, src, tgt) {
   if (red > 0) { fl(X, tgt.uid, "표식 ⛨−" + red, "debuff"); lg(X, `[표식] ${C(src).name}이(가) ${C(tgt).name}에 표식 — 이번 턴 방어 −${red}`); }
 }
 
-/* ---------- v3.82 고르바스의 발톱(G1) · 베르단의 뿔(G2) 마법 (카드 데이터는 js/orc.js · js/troll.js, 기존 카드를 바꿈) ----------
-   g1Cornered { a }: 아군 대기열 n번째 유닛과 상대 대기열 n번째 유닛(맞선 유닛)을 견주어, 아군의 남은 체력이 낮으면 그 아군 공격 +a.
-   g1Rage { side, area }: 대상은 이번 턴 [무한한 격노] — 공격할 때 [수호]를 건너 맨 앞 칸 유닛을 치고, [보호막]에 막히지 않는다(attackOne).
-     공격할 때마다 그 뒤 자기 공격만큼 체력 −(runCombatCore → g1RageCost). [관통]은 같은 카드의 grant가 준다.
+/* ---------- v3.82 고르바스의 발톱(G1) · 베르단의 뿔(G2) 마법 (카드 데이터는 js/orc.js · js/troll.js · js/spelltune.js) ----------
    g1Victory { per }: 전투가 끝날 때(g1VictoryEnd) 살아남은 아군 유닛 수 × per만큼 상대 생명 −.
    g1Ram { mul }: 아군 유닛 수 n → 상대 유닛 전체 체력 −(n × mul, [증폭]은 더함), 그 뒤 아군 유닛마다 체력 −n.
-   g2Weight: 아군 유닛 남은 체력의 합을 몫으로, 상대 대기열 맨 앞 유닛부터 공격 → 방어 → 체력 순으로 깎는다(공격 · 방어는 이번 턴, v3.83).
+   g2Weight: 아군 유닛 남은 체력(또는 공격, pool: "a")의 합을 몫으로, 상대 대기열 맨 앞 유닛부터 공격 → 방어 → 체력 순으로 깎는다(공격 · 방어는 이번 턴, v3.83).
      몫은 깎을 만큼(그 스탯 값까지) 쓰인다 — 고정 · 저주 면역으로 덜 깎여도 그 몫은 쓰인다. 체력까지 다 깎아 쓰러뜨리면 남은 몫이 다음 유닛에게.
      보호막에 막히거나 상대가 버티면 거기서 멈춘다. */
-function g1RageCost(X, u) {
-  if (!u.t.rage || !u.t.alive || !(u.t.a > 0)) return;
-  u.t.dmg += u.t.a; fl(X, u.uid, "격노 ♥−" + u.t.a, "dmg");
-  lg(X, `[무한한 격노] ${C(u).name}이(가) 자기 공격만큼 체력 −${u.t.a}`, "bad");
-  if (hpLeft(u) <= 0) { u.t.alive = false; lgDeath(X, u); }
-}
 function g1VictoryEnd(X) {
   const V = X.g1Vic; if (!V) return;
   X.g1Vic = null;
@@ -2499,12 +2487,6 @@ function g1VictoryEnd(X) {
   }
 }
 Object.assign(SPELL_OPS, {
-  g1Cornered(X, caster, it, k, op) {
-    const A = queueOf(X.P[caster]), F = queueOf(X.P[1 - caster]); let n = 0;
-    A.forEach((u, i) => { const f = F[i]; if (f && hpLeft(u) < hpLeft(f)) { addStat(X, u, "a", op.a || 3); n++; } });
-    lg(X, n ? `[궁지의 송곳니] 맞선 상대보다 체력이 낮은 아군 ${n}기 공격 +${op.a || 3}` : "[궁지의 송곳니] 맞선 상대보다 체력이 낮은 아군이 없다", n ? "spell" : "sys");
-    if (!n) fl(X, it.uid, "궁지 아님", "miss");
-  },
   /* v3.95 오크 웅크린 늑대(MC-01) g1Crouch: 아군 유닛 전체의 공격을 이번 턴 1로 고정(pin L 1)하고,
      그래서 줄어든 공격의 합 D만큼 상대 유닛 전체 공격 −D(이번 턴). 공격이 1 이하던 유닛은 D에 보태지 않는다(올라간 몫은 빼지 않음) */
   g1Crouch(X, caster, it, k, op) {
@@ -2518,12 +2500,6 @@ Object.assign(SPELL_OPS, {
     step(X, {}, 260);
     const F = X.P[1 - caster];
     for (const v of uEyeFilter(X, F, liveUnits(F))) { const c = Math.min(D, Math.max(0, v.t.a)); if (c > 0) addStat(X, v, "a", -c); }   // 0 아래로는 내리지 않는다
-  },
-  g1Rage(X, caster, it, k, op) {
-    const L = pickTargets(X, caster, op.side || "ally", op.area || { t: "back", n: 1 }, k);
-    if (!L.length) { fl(X, it.uid, "대상 없음", "miss"); return; }
-    for (const u of L) { u.t.rage = true; fl(X, u.uid, "무한한 격노", "buff"); }
-    lg(X, `[무한한 격노] ${L.map(u => C(u).name).join(" · ")} — 이번 턴 수호 · 보호막을 무시하고, 공격한 뒤 자기 공격만큼 체력을 잃는다`, "spell");
   },
   g1Victory(X, caster, it, k, op) {
     X.g1Vic = X.g1Vic || {}; (X.g1Vic[caster] = X.g1Vic[caster] || []).push(op.per || 1);

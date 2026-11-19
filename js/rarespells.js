@@ -170,7 +170,7 @@ const RARE_SPELLS = [
     text: "상대 무작위 유닛에게 피해 2를 2번.",
     ops: [{ op: "multi", side: "foe", n: 2, x: 2 }],
     brief: "{적 무작위} 피해2 ×2번",
-    desc: "폭풍탑의 견습생이 처음 배우는 주문. 그러나 하이엘프의 견습생은 이미 다른 종족의 대마법사다." },
+    desc: "폭풍탑의 견습 사수가 처음 익히는 바람술. 칼날처럼 벼린 바람은 화살보다 먼저 갑옷 틈을 가른다." },
   { id: "RS-A3-2", n: "역풍 장벽", g: "A3", camp: "A", lv: 2, kind: "def",
     text: "상대 맨 앞 3기 공격 −3, 피해 1.",
     ops: [{ op: "mod", side: "foe", area: { t: "front", n: 3 }, a: -3 }, { op: "dmg", side: "foe", area: { t: "front", n: 3 }, x: 1 }],
