@@ -299,7 +299,7 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
 </style></head><body>
 <header>
 <h1>ETHERION 일러스트 보드<small id="sum"></small></h1>
-<p style="margin:4px 0 8px;font-size:12px;color:#c9b98a">그리는 차례: 그림 없는 카드(유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물 → 스페셜) 먼저 → <b style="color:#ff9b86">다시</b>(이미 그린 그림 다시 그리기)는 맨 나중, 할당량이 남을 때</p>
+<p style="margin:4px 0 8px;font-size:12px;color:#c9b98a">그리는 차례: 그림 없는 카드(유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물) 먼저 → <b style="color:#ff9b86">다시</b>(다시 그리기)</p>
 <div class="prog" id="prog"></div>
 <div class="bar">
 <select id="fg"><option value="">모든 깃발</option></select>
@@ -329,7 +329,7 @@ function prog(){
 function rowsNow(){
   const fg=$("#fg").value, ft=$("#ft").value, fs=$("#fs").value, q=$("#q").value.trim().toLowerCase();
   const drawOrd=g=>{const a=D.drawOrder||D.order.slice().reverse();const i=a.indexOf(g);return i<0?99:i;};
-  /* 그리는 차례(2026-11-19): 그림 없음(유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물 → 스페셜) 먼저 → 이미 그린 그림 다시(맨 나중) → 그림 있음 */
+  /* 그리는 차례: 그림 없음(유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물) 먼저 → 다시 → 그림 있음 */
   const stRank=r=>r.status==="없음"?0:r.status==="다시"?1:2;
   return D.rows.filter(r=>r.status!=="빠진 카드" && (!gradeOn.size||gradeOn.has(r.grade)) && (!fg||r.group===fg) && (!ft||r.type===ft) && (!fs||r.status===fs)
     && (!q || r.card_id.toLowerCase().includes(q) || r.name.toLowerCase().includes(q)))

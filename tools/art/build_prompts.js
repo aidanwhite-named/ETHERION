@@ -11,9 +11,8 @@
      tools/art/prompts/ui.jsonl · ui.md    전장 그림 (ui_assets.json을 펼친 것)
      tools/art/PROMPT_GUIDE.md             <!-- AUTO:… --> 칸만 새로 채운다(손으로 쓴 글은 그대로)
    뺀 카드(js/retired.js)는 만들지 않는다. 소환물(TK- · TS-)은 등급 "token".
-   그리는 차례(2026-11-19): 그림 없는 카드 먼저(유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물 → 스페셜 순) → 이미 그린 그림 다시 그리기(장부 art_map.csv 상태 "다시")는 맨 나중 → 그림 있는 카드(그리지 않음).
-     장부의 상태 · 메모를 읽어 job.art = "new" | "redo" | "have"로 적고, cards.jsonl · .md 모두 이 차례로 놓는다.
-     "다시" 가운데 메모가 "꼭"으로 시작하면 먼저, "선택"이면 그 뒤. */
+   그리는 차례: 그림 없는 카드 먼저(유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물 순) → 다시 그리기(장부 art_map.csv 상태 "다시") → 그림 있는 카드(그리지 않음).
+     장부의 상태를 읽어 job.art = "new" | "redo" | "have"로 적고, cards.jsonl · .md 모두 이 차례로 놓는다. */
 "use strict";
 const fs = require("fs"), path = require("path"), vm = require("vm");
 
@@ -65,16 +64,15 @@ function loadArtMap() {
 }
 const ART_MAP = loadArtMap();
 const hasArt = id => ["jpg", "png", "webp"].some(x => fs.existsSync(path.join(ROOT, "img", "cards", `${id}.${x}`)));
-/* new = 그림 없음(먼저) · redo = 이미 그렸지만 다시(맨 나중) · have = 그림 있음(그리지 않음) */
+/* new = 그림 없음(먼저) · redo = 다시 그리기 · have = 그림 있음(그리지 않음) */
 function artState(id) {
   if (!hasArt(id)) return "new";
   return (ART_MAP[id] && ART_MAP[id].status === "다시") ? "redo" : "have";
 }
 const ART_RANK = { new: 0, redo: 1, have: 2 };
-const redoRank = id => /^꼭/.test((ART_MAP[id] || {}).note || "") ? 0 : 1;
 const ART_SECTION = {
   new: "## 1. 그림 없는 카드 — 먼저 그린다{n}",
-  redo: "## 2. 맨 나중에 — 이미 그린 그림 다시 그리기 (Gemini 할당량이 남을 때만){n}\n\n> 이미 그림이 있어 게임은 그대로 돌아간다. 1번(그림 없는 카드)을 다 그린 뒤, 할당량이 남을 때 그린다. \"꼭\"을 먼저, \"선택\"은 그 뒤.",
+  redo: "## 2. 다시 그리기{n}\n\n> 이미 그림이 있어 게임은 그대로 돌아간다. 1번(그림 없는 카드)을 다 그린 뒤 그린다.",
   have: "## 3. 그림 있음 — 그리지 않는다 (참고용){n}"
 };
 
@@ -330,7 +328,8 @@ function fillGuide(B) {
 /* ---------- 5. 쓰기 ---------- */
 const TYPE_KO = { unit: "유닛", atk: "공격 마법", def: "방어 마법", any: "공용 마법", hand: "핸드 마법", item: "아이템" };
 function cardMd(j) {
-  const redo = j.art === "redo" ? ` — **다시 그리기 (${redoRank(j.id) ? "선택" : "꼭"} · 맨 나중)**: ${((ART_MAP[j.id] || {}).note || "").replace(/^(꼭|선택) · 맨 나중 — /, "")}` : j.art === "have" ? " — 그림 있음" : "";
+  const redoNote = ((ART_MAP[j.id] || {}).note || "").trim();
+  const redo = j.art === "redo" ? ` — **다시 그리기**${redoNote ? `: ${redoNote}` : ""}` : j.art === "have" ? " — 그림 있음" : "";
   return [`### ${j.id} · ${j.name}${redo}`,
     `${S.flags[j.group] ? S.flags[j.group].ko : j.group} · ${TYPE_KO[j.type] || j.type} · 레벨 ${j.lv} · ${S.grades[j.grade].ko}` +
     `${j.base ? ` · 원래 카드 \`${j.base}\`` + (j.refs ? " (참고 그림 함께 넣기)" : " — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습)") : ""} — 받은 그림은 \`tools/art/inbox/${j.id}.jpg\` → \`python3 tools/art/artmap.py import\` (게임 사본 \`${j.out}\` 600×750)`, "", "```", j.prompt, "```", ""].join("\n");
@@ -357,10 +356,10 @@ function main() {
     (byGroup[c.group] = byGroup[c.group] || []).push(job);
     (byGrade[job.grade] = byGrade[job.grade] || []).push(job);
   }
-  /* 그리는 차례: 그림 없는 카드(유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물 → 스페셜) → 다시 그리기(맨 나중) → 그림 있음 */
+  /* 그리는 차례: 그림 없는 카드(유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물) → 다시 그리기 → 그림 있음 */
   const DRAW_ORDER = S.drawOrder || ["unique", "epic", "rare", "upgrade", "uncommon", "common", "token", "special"];
   const drawRank = g => { const i = DRAW_ORDER.indexOf(g); return i < 0 ? 99 : i; };
-  const artOrder = (a, b) => ART_RANK[a.art] - ART_RANK[b.art] || (a.art === "redo" ? redoRank(a.id) - redoRank(b.id) : 0);
+  const artOrder = (a, b) => ART_RANK[a.art] - ART_RANK[b.art];
   const sections = (list, inner) => {
     const out = [];
     for (const st of ["new", "redo", "have"]) {
@@ -369,7 +368,7 @@ function main() {
     }
     return out;
   };
-  const ORDER_NOTE = "**그리는 차례**: 1 그림 없는 카드 먼저(**유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물 → 스페셜** 순) → 2 이미 그린 그림 다시 그리기는 맨 나중(Gemini 할당량이 남을 때) → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 \"다시\"를 읽어 이 차례로 놓는다.)";
+  const ORDER_NOTE = "**그리는 차례**: 1 그림 없는 카드 먼저(**유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물** 순) → 2 다시 그리기 → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 \"다시\"를 읽어 이 차례로 놓는다.)";
   fs.writeFileSync(path.join(OUT, "cards.jsonl"), jobs.slice().sort((a, b) => artOrder(a, b) || drawRank(a.grade) - drawRank(b.grade) || a.id.localeCompare(b.id)).map(j => JSON.stringify(j)).join("\n") + "\n");
 
   for (const g of Object.keys(byGroup).sort()) {
@@ -411,7 +410,7 @@ function main() {
   const miss = jobs.filter(j => (j.grade === "special" || j.grade === "unique") && !NOTES[j.id]).map(j => j.id);
   console.log(`카드 ${jobs.length}장 (버전 ${S.version})`, cnt, `· 전장 그림 ${ui.length}장 → ${path.relative(ROOT, OUT)}${guided ? " · PROMPT_GUIDE.md 자동 칸 채움" : ""}`);
   if (miss.length) console.log("※ art_notes.json에 지시가 없는 스페셜 · 유니크:", miss.join(", "));
-  const redo = jobs.filter(j => j.art === "redo").sort((a, b) => redoRank(a.id) - redoRank(b.id) || a.id.localeCompare(b.id));
-  console.log(`그릴 차례: 그림 없음 ${jobs.filter(j => j.art === "new").length}장 먼저 → 맨 나중 다시 그리기 ${redo.length}장(${redo.map(j => j.id).join(", ")}) · 그림 있음 ${jobs.filter(j => j.art === "have").length}장`);
+  const redo = jobs.filter(j => j.art === "redo").sort((a, b) => a.id.localeCompare(b.id));
+  console.log(`그릴 차례: 그림 없음 ${jobs.filter(j => j.art === "new").length}장 먼저${redo.length ? ` → 다시 그리기 ${redo.length}장(${redo.map(j => j.id).join(", ")})` : ""} · 그림 있음 ${jobs.filter(j => j.art === "have").length}장`);
 }
 main();
