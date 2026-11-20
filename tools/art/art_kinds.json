@@ -1,0 +1,1299 @@
+{
+ "_about": "깃발 아래 유닛 종류(js/kinds.js kin)의 생김새 참고표 — 장면 지시(art_scenes/<깃발>.json)를 쓸 때 본다. 생성기는 읽지 않는다. founder = 깃발을 처음 세운 무리(그 종류인 유닛에만 쓴다).",
+ "B1": {
+  "founder": {
+   "ko": "고블린",
+   "look": "goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up"
+  },
+  "kinds": {
+   "도화선 정령": {
+    "en": "Fuse Spirit",
+    "who": "a living length of tarred fuse cord that slithers like a snake, its sputtering spark-head serving as a face and trailing a thin thread of smoke",
+    "silhouette": "a coiling cord with a fizzing spark at its tip",
+    "materials": "tarred hemp cord, black powder grit, bright sparks, wisps of grey smoke"
+   },
+   "불꽃 임프": {
+    "en": "Flame Imp",
+    "who": "a knee-high impish creature of living flame with a cracked cinder-black body, ember eyes, stubby horns and a whip-like tail of fire",
+    "silhouette": "a small hunched imp mid-leap, trailing fire",
+    "materials": "cracked cinder skin, glowing ember seams, licking orange flames, soot"
+   },
+   "연기 정령": {
+    "en": "Smoke Spirit",
+    "who": "a drifting body of thick gunpowder smoke with a vague grinning face and long wispy arms, lit faintly orange by embers inside",
+    "silhouette": "a billowing column of smoke with reaching arms",
+    "materials": "dense grey-black smoke, ember glints, soot haze"
+   },
+   "불개": {
+    "en": "Fire Hound",
+    "who": "a lean wolf-sized hound from the old tale of the dogs that chase the sun, ember-red fur smouldering at the tips, a coal-glowing maw and soot-black paws",
+    "silhouette": "a lean snarling hound with a blazing open mouth",
+    "materials": "smouldering red fur, coal-glow throat, soot, a scorched brass collar"
+   },
+   "화서": {
+    "en": "Fire Rat",
+    "who": "cat-sized rats whose silvery-red fur burns constantly without ever being consumed, with glowing whiskers and ember eyes, always in a swarm",
+    "silhouette": "a tide of small burning rats pouring over rubble",
+    "materials": "flaming silver-red fur, ember eyes, ash, gravel"
+   },
+   "화염 박쥐": {
+    "en": "Ember Bat",
+    "who": "bats whose leathery wings glow ember-orange along every vein and drip falling sparks, flying in a dense cloud",
+    "silhouette": "a swirling cloud of glowing-winged bats",
+    "materials": "thin leathery wings with glowing veins, falling cinders, ash"
+   },
+   "불원숭이": {
+    "en": "Fire Monkey",
+    "who": "a wiry long-armed monkey with soot-dark fur and a crest of flame on its head and tail tip, clutching red-hot stones",
+    "silhouette": "a monkey crouched on a rock, arm cocked to throw",
+    "materials": "soot-dark fur, flame crest, red-hot pebbles, rust-coloured rock"
+   },
+   "용암거북": {
+    "en": "Lava Tortoise",
+    "who": "a huge tortoise whose shell is cooled black lava split by glowing magma seams, with a smoking vent-crater rising from the middle of its back",
+    "silhouette": "a low massive dome with a smoking crater on top",
+    "materials": "black basalt shell, glowing magma cracks, scorched brass bands, smoke"
+   },
+   "불개미": {
+    "en": "Fire Ant",
+    "who": "dog-sized ants with glossy red-black carapaces glowing hot at the joints and mandibles that drip molten sparks, always in a tight column",
+    "silhouette": "a packed phalanx of armoured ants",
+    "materials": "glossy red-black chitin, glowing joints, ember mandibles, charred powder-keg wood"
+   },
+   "불멧돼지": {
+    "en": "Fire Boar",
+    "who": "a hulking wild boar with bristles of smouldering wiry hair and long tusks glowing red-hot at the tips",
+    "silhouette": "a charging boar with lowered glowing tusks",
+    "materials": "smouldering bristles, red-hot tusks, cinder hooves, scorched hide"
+   },
+   "키메라": {
+    "en": "Chimera",
+    "who": "a fused beast with a lion's head, a goat's head and a serpent for a tail, all three breathing fire, its hide cracked with glowing heat",
+    "silhouette": "a three-headed beast rearing behind a jet of flame",
+    "materials": "singed mane, curled horn, scales, cracked glowing hide, fire jets"
+   },
+   "화염 두꺼비": {
+    "en": "Fire Toad",
+    "who": "a boulder-sized toad with warty volcanic skin and a huge throat sac glowing with molten lava ready to be spat",
+    "silhouette": "a squat toad with a swollen glowing throat",
+    "materials": "warty basalt-grey skin, glowing throat sac, molten spit, steam"
+   },
+   "불거인": {
+    "en": "Fire Giant",
+    "who": "a towering man-shaped figure of half-cooled magma with a rocky crust and fire pouring from its cracks — a small overflow of Dormak's heart-fire, nowhere near the size of the true giant",
+    "silhouette": "a tall hulking lava figure striding downhill",
+    "materials": "black rock crust, molten cracks, flowing lava, smoke"
+   },
+   "이프리트": {
+    "en": "Ifrit",
+    "who": "a tall muscular fire spirit whose upper body is roaring flame and whose lower half trails into smoke, with burning eyes and a crown of sparks",
+    "silhouette": "a towering flame torso rising from a smoke column",
+    "materials": "roaring orange flame, smoke trail, soot-blackened brass ornaments"
+   },
+   "용암 웜": {
+    "en": "Lava Worm",
+    "who": "an enormous segmented worm that burrows through rock, its rings glowing with magma and its round mouth lined with obsidian teeth",
+    "silhouette": "a huge worm bursting up out of the ground",
+    "materials": "cracked basalt rings, molten glow, ring of obsidian teeth, ash"
+   },
+   "불뱀": {
+    "en": "Fire Serpent",
+    "who": "a long serpent with scales of glowing coal and molten fangs that swims up lava rivers",
+    "silhouette": "a coiling serpent rising out of lava",
+    "materials": "coal-black scales with glowing edges, molten fangs, dripping lava"
+   },
+   "역청 괴물": {
+    "en": "Tar Horror",
+    "who": "a dripping, shambling hulk of the giant Talakus's black blood risen through the underground veins and heated by Dormak's fire, with embers sunk in its glossy body",
+    "silhouette": "a slumped dripping hulk leaving sticky footprints",
+    "materials": "glossy black bitumen, oily rainbow sheen, sunken embers, smoke"
+   },
+   "분화구": {
+    "en": "Living Crater",
+    "who": "a walking volcanic cone on stubby rock legs, its open caldera glowing with Dormak's heart-fire and belching smoke and stones",
+    "silhouette": "a cone of rock with a glowing open top",
+    "materials": "basalt rock, glowing caldera, lava bombs, ash plume"
+   },
+   "베히모스": {
+    "en": "Behemoth",
+    "who": "a mountain-sized horned beast whose back is a volcanic ridge, lava running in the cracks of its craggy hide",
+    "silhouette": "a colossal quadruped with a ridged back like a mountain range",
+    "materials": "craggy rock hide, glowing lava seams, ash, great horns"
+   },
+   "용암 달팽이": {
+    "en": "Lava Snail",
+    "who": "a large snail with a shell crusted in grey ash over a glowing molten core and a slimy body that leaves a smoking trail",
+    "silhouette": "a slow snail under a big ash-crusted shell",
+    "materials": "ash-crust shell, molten glow beneath, smoking slime"
+   },
+   "용암 슬라임": {
+    "en": "Lava Slime",
+    "who": "a bubbling blob of molten rock that never cools or hardens, with black crust plates floating on it and a vaguely face-like hollow",
+    "silhouette": "a bulging, wobbling molten blob",
+    "materials": "molten orange magma, black crust plates, steam bubbles"
+   },
+   "가마 정령": {
+    "en": "Kiln Spirit",
+    "who": "a hulking fire-brick kiln with riveted iron doors that has stood up and walks, its furnace mouth glowing and its chimney head smoking",
+    "silhouette": "a squat walking kiln with a chimney for a head",
+    "materials": "fire-brick, riveted iron doors, glowing furnace mouth, soot"
+   },
+   "불사조": {
+    "en": "Phoenix",
+    "who": "a great bird of fire with long trailing plumes of flame, its feathers burning to ash and rekindling as it flies",
+    "silhouette": "a fiery bird with outspread wings and a long tail",
+    "materials": "flame feathers, glowing ash, golden embers"
+   },
+   "깨어난 대포": {
+    "en": "Awakened Cannon",
+    "who": "a monstrous cast-iron cannon that has woken and moves by itself, its carriage wheels working like limbs and its muzzle glowing like a breathing mouth",
+    "silhouette": "a giant cannon rearing its barrel like a head",
+    "materials": "cast iron, riveted carriage, chains, glowing muzzle, soot"
+   },
+   "살라만더": {
+    "en": "Salamander",
+    "who": "a small lizard with wet-looking skin of living flame, glowing spots and a tail that burns like a lit wick",
+    "silhouette": "a small lizard curled around a hearth",
+    "materials": "glowing orange skin, ember spots, flame tail, hearth ash"
+   },
+   "폭탄벌레": {
+    "en": "Bombardier Beetle",
+    "who": "a large scorched-black beetle that sprays boiling, burning fluid from its raised abdomen like a little mortar",
+    "silhouette": "a heavy beetle with its abdomen raised to spray",
+    "materials": "scorched black-red carapace, boiling spray, steam"
+   },
+   "화로 정령": {
+    "en": "Brazier Spirit",
+    "who": "a stout fire spirit living inside a riveted iron furnace-brazier, its flame face glowing behind the grate bars",
+    "silhouette": "a pot-bellied brazier with a flame face",
+    "materials": "riveted iron, grate bars, glowing coals, soot"
+   },
+   "불거미": {
+    "en": "Fire Spider",
+    "who": "a large spider with obsidian legs and a glowing magma abdomen, spinning threads of molten stone that harden as they cool",
+    "silhouette": "a spider on a web of glowing threads",
+    "materials": "obsidian legs, magma abdomen, molten silk, ash"
+   },
+   "불매": {
+    "en": "Fire Hawk",
+    "who": "a sharp-winged hawk with dark feathers edged in embers that leaves a thin fire trail as it dives through gun smoke",
+    "silhouette": "a diving hawk streaking out of smoke",
+    "materials": "dark feathers edged with embers, smoke wisps, burning talons"
+   },
+   "심장불 파편": {
+    "en": "Heart-fire Shard",
+    "who": "a floating fragment of the giant Dormak's heart-fire — a jagged ember like a boulder of glowing crystal that still beats with pulses of light",
+    "silhouette": "a jagged glowing shard pulsing like a heart",
+    "materials": "molten-core crystal, cracked rock rind, pulsing orange-white light"
+   }
+  }
+ },
+ "B2": {
+  "founder": {
+   "ko": "드워프",
+   "look": "stocky dwarves with braided iron-grey beards, and the riveted golems and automatons they forge"
+  },
+  "kinds": {
+   "태엽쥐": {
+    "en": "Clockwork Mouse",
+    "who": "a palm-sized mechanical mouse of brass and steel with a big wind-up key in its back, gear-wheel teeth and glass-bead eyes",
+    "silhouette": "a tiny scurrying mouse with a wind-up key",
+    "materials": "brass casing, steel gears, wind-up key, rivets"
+   },
+   "리빙 아머": {
+    "en": "Living Armour",
+    "who": "an empty suit of heavy plate armour that moves on its own, hollow inside, with only a faint forge glow showing through the eye slit and the joints",
+    "silhouette": "an armoured knight with nothing inside the visor",
+    "materials": "thick steel or grey adamant plate, rivets, chainmail, faint forge glow"
+   },
+   "깨어난 방패": {
+    "en": "Awakened Shield",
+    "who": "a heavy riveted tower shield that walks on its own on short iron feet, its dents studded with extra rivets",
+    "silhouette": "a tall shield standing upright on little legs",
+    "materials": "riveted steel, dents, brass boss, worn leather straps"
+   },
+   "골렘": {
+    "en": "Golem",
+    "who": "a massive forged golem of riveted steel plate and stone with piston joints, glowing forge seams and a boiler or furnace heart",
+    "silhouette": "broad, square and heavy — a walking wall of riveted steel",
+    "materials": "riveted steel plate, stone, pistons, chains, glowing seams, steam"
+   },
+   "태엽거미": {
+    "en": "Clockwork Spider",
+    "who": "an eight-legged clockwork machine the size of a pony, covered in overlapping armour plates, with jointed steel legs and glass lens eyes",
+    "silhouette": "a low armoured spider on spiked steel legs",
+    "materials": "layered armour plates, steel legs, brass gears, glass lenses"
+   },
+   "쇠뿔 산양": {
+    "en": "Iron-Horn Goat",
+    "who": "a muscular mountain goat whose huge curled horns have grown into raw iron from licking exposed ore veins, with a shaggy grey coat and hard hooves",
+    "silhouette": "a goat planted on a rock under massive curled horns",
+    "materials": "raw iron horns, shaggy grey wool, ore-streaked rock"
+   },
+   "청동 황소": {
+    "en": "Bronze Bull",
+    "who": "a forged bull of bronze with a boiler in its belly, steam snorting from its nostrils and riveted plates along its flanks",
+    "silhouette": "a head-down charging bull puffing steam",
+    "materials": "polished bronze, rivets, boiler, steam"
+   },
+   "깨어난 모루": {
+    "en": "Awakened Anvil",
+    "who": "a great blacksmith's anvil that has woken and walks on stubby iron legs, its horn like a snout and its face scarred by generations of hammer blows",
+    "silhouette": "a squat anvil on short legs",
+    "materials": "dark forged iron, hammer scars, soot, glowing hot face"
+   },
+   "불가사리": {
+    "en": "Bulgasari (Iron-Eater)",
+    "who": "a bear-sized iron-eating beast from Korean legend — bull-like head, short trunk-like snout, fur of bristling needles and a hide studded with half-swallowed nails and locks",
+    "silhouette": "a hulking shaggy beast chewing on a lump of metal",
+    "materials": "needle fur, iron-studded hide, swallowed nails and padlocks, rust"
+   },
+   "강철 가고일": {
+    "en": "Steel Gargoyle",
+    "who": "a gargoyle with a skeletal frame of iron girders, bat-like wings of riveted sheet steel and hollow ribs the wind whistles through, living on rusted ore",
+    "silhouette": "a crouching gargoyle on a ledge with folded steel wings",
+    "materials": "iron girders, riveted sheet steel, rust, hollow frame"
+   },
+   "철갑 코뿔소": {
+    "en": "Ironclad Rhino",
+    "who": "a massive rhinoceros whose hide has grown into overlapping dark-red iron plates from eating Sorgrim's sinew-ore, with a horn of sinew-iron",
+    "silhouette": "a heavy armoured rhino lowering its horn",
+    "materials": "dark-red iron plates, sinew-iron horn, ore dust"
+   },
+   "수은 슬라임": {
+    "en": "Quicksilver Slime",
+    "who": "a flowing mass of mirror-bright liquid metal — the silver blood that ran between the giant Sorgrim's sinews — that splits apart and pulls itself back together",
+    "silhouette": "a mirror-bright pool rising into a wave",
+    "materials": "liquid mercury, mirror sheen, beading droplets"
+   },
+   "철 와이번": {
+    "en": "Iron Wyvern",
+    "who": "a two-legged wyvern with iron-scaled wings and a barbed steel tail, its scales grown from the ore it eats in the Ironbone mountains",
+    "silhouette": "a wyvern swooping on wide iron wings",
+    "materials": "iron scales, steel barbs, rust streaks"
+   },
+   "공성 기계": {
+    "en": "Siege Engine",
+    "who": "a walking fortress built by Durkheim — battlements, iron gates and towers carried on huge piston legs",
+    "silhouette": "a castle striding on mechanical legs",
+    "materials": "stone battlements, iron plate, pistons, chains, steam"
+   },
+   "거상": {
+    "en": "Colossus",
+    "who": "a towering forged colossus of steel many times the height of a golem, with a furnace heart glowing through its chest plates",
+    "silhouette": "a giant humanoid machine filling the frame",
+    "materials": "riveted steel plate, furnace glow, steam vents, chains"
+   },
+   "청동 거인": {
+    "en": "Bronze Giant",
+    "who": "a giant guardian cast in bronze like a temple statue, molten metal sealed inside by a single nail at its ankle",
+    "silhouette": "a towering bronze statue-warrior standing guard",
+    "materials": "cast bronze, verdigris patches, glowing seam, ankle nail"
+   },
+   "오토마톤": {
+    "en": "Automaton",
+    "who": "a clockwork automaton of brass and steel built for a single task, with exposed gears, pistons and a ticking core",
+    "silhouette": "an upright mechanical figure with exposed gears",
+    "materials": "brass, steel, gears, springs, pistons"
+   },
+   "쇠 고슴도치": {
+    "en": "Iron Hedgehog",
+    "who": "a boar-sized hedgehog whose spines are iron rivets and nails it swallowed and grew back out",
+    "silhouette": "a round ball of iron spikes",
+    "materials": "iron spikes, rivets, rusty fur"
+   },
+   "철갑 게": {
+    "en": "Ironclad Crab",
+    "who": "a large crab with rivets pressed into its iron shell and heavy pincers like forge tongs, living in rusty runoff pools",
+    "silhouette": "a sideways crab raising huge pincers",
+    "materials": "riveted iron shell, rust, tong-like pincers"
+   },
+   "강철 두더지": {
+    "en": "Steel Mole",
+    "who": "a bulky mole with steel-hard claws and a drill-like snout that eats iron ore, hot steam puffing from its nostrils",
+    "silhouette": "a mole bursting out of a tunnel with big claws",
+    "materials": "steel claws, drill snout, dark fur, ore dust, steam"
+   },
+   "광석 갑충": {
+    "en": "Ore Beetle",
+    "who": "a large beetle whose shell has turned to raw ore — veins of iron and grey adamant — from gnawing Sorgrim's exposed sinew-veins",
+    "silhouette": "a heavy domed beetle",
+    "materials": "raw ore shell, iron veins, grey adamant, rock dust"
+   },
+   "방패 정령": {
+    "en": "Shield Spirit",
+    "who": "a spirit born from the memory of Sorgrim's raised arm: a ghostly figure of shimmering steel plates overlapping like a shield wall around a faint forge-glow core",
+    "silhouette": "a floating wall of overlapping shields around a glowing core",
+    "materials": "translucent steel plates, adamant grey, forge-orange glow"
+   }
+  }
+ },
+ "B3": {
+  "founder": {
+   "ko": "노움",
+   "look": "tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets"
+  },
+  "kinds": {
+   "반딧불이": {
+    "en": "Lightning Firefly",
+    "who": "thumb-sized fireflies whose glowing abdomens crackle with tiny electric-yellow sparks, swarming wherever Keraun's nerves break the surface",
+    "silhouette": "a drifting cloud of crackling lights",
+    "materials": "glowing yellow abdomens, translucent wings, tiny cobalt sparks"
+   },
+   "스파크 요정": {
+    "en": "Spark Sprite",
+    "who": "a hand-sized sprite made of a single crackling spark, with a mischievous face, hair standing straight on end and wings like flickering arcs",
+    "silhouette": "a tiny figure with arc-wings and spiky hair",
+    "materials": "white-yellow spark light, cobalt-blue arcs, static haze"
+   },
+   "뇌조": {
+    "en": "Thunderbird",
+    "who": "a large storm bird with dark slate feathers tipped with crackling lightning and eyes like arc lamps, hatched in the clouds over the thundering plateau",
+    "silhouette": "a bird with spread wings against storm clouds",
+    "materials": "slate-grey feathers, lightning-tipped plumes, storm cloud"
+   },
+   "날다람쥐": {
+    "en": "Volt Flying Squirrel",
+    "who": "a flying squirrel with charged fur standing on end and gliding membranes that crackle with blue sparks, nesting among copper wires",
+    "silhouette": "a gliding squirrel with outspread membranes",
+    "materials": "fluffy charged fur, thin membranes, blue sparks, copper wire"
+   },
+   "폭풍 까마귀": {
+    "en": "Storm Crow",
+    "who": "a black crow with blue-sheened feathers that calls lightning down to itself, nesting on the tips of lightning rods",
+    "silhouette": "a crow perched on a spiked lightning rod",
+    "materials": "black feathers with cobalt sheen, copper rod, sparks"
+   },
+   "호문쿨루스": {
+    "en": "Homunculus",
+    "who": "a small artificial person grown in a glass vat and woken by lightning, pale-skinned, with copper wires and electrodes still clipped to its body",
+    "silhouette": "a tiny figure stepping out of a glass jar",
+    "materials": "pale skin, copper electrodes, glass vat, glowing fluid, brass gauge"
+   },
+   "번개장어": {
+    "en": "Thunder Eel",
+    "who": "a long eel with dark slick skin lined by glowing electric organs from head to tail, living in rusty river water",
+    "silhouette": "a sinuous eel coiling out of water",
+    "materials": "slick dark skin, glowing yellow stripes, rusty river water"
+   },
+   "번개 정령": {
+    "en": "Lightning Elemental",
+    "who": "a jagged figure made of branching lightning that flickers in and out of existence around a blinding core",
+    "silhouette": "a humanoid of forking lightning",
+    "materials": "white-blue lightning, arc glow, ozone haze"
+   },
+   "전기 거미": {
+    "en": "Charge Spider",
+    "who": "a large spider with copper-sheened legs that spins webs glowing and crackling with stored current between lightning-tower girders",
+    "silhouette": "a spider in a glowing electric web",
+    "materials": "copper-sheen chitin, glowing web strands, sparks"
+   },
+   "번개 전갈": {
+    "en": "Thunder Scorpion",
+    "who": "a scorpion with a dark segmented shell whose tail tip gathers a crackling ball of lightning",
+    "silhouette": "a scorpion with a raised glowing tail",
+    "materials": "dark segmented carapace, glowing stinger, sparks"
+   },
+   "뇌전 기관": {
+    "en": "Lightning Engine",
+    "who": "a walking machine of brass, copper coils and riveted steel built by Voltarium scholars, studded with glass lightning jars and electrodes",
+    "silhouette": "a boxy walking machine crowned with coils",
+    "materials": "copper coils, brass, riveted steel, glass jars, porcelain insulators"
+   },
+   "병 속 두뇌": {
+    "en": "Brain in a Jar",
+    "who": "a professor's brain floating in a large glass jar of glowing fluid, wired with copper and crackling with thought, carried on spindly mechanical legs",
+    "silhouette": "a glass jar with a brain inside on a walking stand",
+    "materials": "glass jar, glowing fluid, copper wires, brass base"
+   },
+   "번개 나방": {
+    "en": "Flash Moth",
+    "who": "a large moth with dusty wings patterned with eye-spots that burst into blinding flashes when it beats them during a storm",
+    "silhouette": "a moth with wide wings mid-flash",
+    "materials": "dusty wings, glowing eyespots, electric dust"
+   },
+   "축전기": {
+    "en": "Capacitor",
+    "who": "a big copper-banded glass storage jar of captured lightning, often fitted with mechanical legs, crackling at its terminals",
+    "silhouette": "a tall jar or drum with terminal knobs on top",
+    "materials": "glass, copper bands, brass terminals, crackling charge"
+   },
+   "뇌운": {
+    "en": "Thundercloud",
+    "who": "a brooding living storm cloud hanging low over the ground, lightning flickering inside and a vague face in its billows",
+    "silhouette": "a dark heavy cloud with lightning flickering underneath",
+    "materials": "dark storm vapour, lightning flashes, rain"
+   },
+   "뇌전 탑": {
+    "en": "Lightning Tower",
+    "who": "a tall lattice tower of steel and copper bristling with lightning rods, often walking on its own legs, crackling with arcs",
+    "silhouette": "a tall spiked tower",
+    "materials": "steel lattice, copper rods, porcelain insulators, arcs"
+   },
+   "폭풍 거인": {
+    "en": "Storm Giant",
+    "who": "a giant figure of gathered storm wind and blue adamant with lightning for veins, formed where the scattered breath of Auragon met the plateau's lightning",
+    "silhouette": "a towering giant wreathed in storm clouds",
+    "materials": "blue adamant, swirling storm cloud, lightning veins"
+   },
+   "뇌수": {
+    "en": "Raiju (Thunder Beast)",
+    "who": "a wolf-and-weasel-like beast from Japanese legend that falls to earth with lightning, with crackling blue-white fur and a jagged lightning-bolt tail",
+    "silhouette": "a crouching beast with bristling fur and a zigzag tail",
+    "materials": "blue-white crackling fur, lightning tail, sparks"
+   },
+   "구름해파리": {
+    "en": "Cloud Jellyfish",
+    "who": "a translucent jellyfish drifting in the sky, its bell like a small cloud and its long trailing tentacles conducting lightning down to the ground",
+    "silhouette": "a floating bell with long hanging tentacles",
+    "materials": "translucent cloud bell, glowing tentacles, arcs"
+   },
+   "실험체": {
+    "en": "Test Subject",
+    "who": "a creature woken by lightning in a Voltarium laboratory, stitched together with copper wire, bolts and electrodes that glow at the seams",
+    "silhouette": "a hunched figure with sparking electrodes",
+    "materials": "patched hide, copper wires, bolts, glass gauges, sparks"
+   },
+   "번개뱀": {
+    "en": "Lightning Serpent",
+    "who": "a serpent whose body is a living chain of lightning that leaps from one target to the next",
+    "silhouette": "a snake made of zigzag lightning",
+    "materials": "white-blue lightning scales, arcs, sparks"
+   },
+   "자석 정령": {
+    "en": "Magnet Spirit",
+    "who": "a spirit of iron struck by lightning countless times atop a lightning tower, with nails, keys and iron filings clinging to its body in magnetic swirls",
+    "silhouette": "a figure surrounded by orbiting iron bits",
+    "materials": "magnetised iron, iron filings, nails, copper rod, blue sparks"
+   }
+  }
+ },
+ "G1": {
+  "founder": {
+   "ko": "오크",
+   "look": "powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair"
+  },
+  "kinds": {
+   "개코원숭이": {
+    "en": "Baboon",
+    "who": "a big steppe baboon with a dog-like muzzle, long yellowed canines, a grey-ochre mane over the shoulders and calloused hands that pick up and fling stones",
+    "silhouette": "hunched four-limbed ape with a maned shoulder hump and long throwing arms",
+    "materials": "coarse ochre-grey fur, bare leathery face and palms, yellowed fangs, pebbles"
+   },
+   "하이에나": {
+    "en": "Hyena",
+    "who": "spotted steppe hyenas of Garun with high shoulders sloping to low hips, heavy bone-crushing jaws, round ears and dust-grey hides with ochre spots",
+    "silhouette": "sloping back from high shoulders to low hips, oversized head and jaws",
+    "materials": "coarse spotted fur, bristly mane along the spine, cracked teeth, steppe dust"
+   },
+   "켄타우로스": {
+    "en": "Centaur",
+    "who": "steppe centaurs: a weathered, war-painted human upper body with braided hair on a stocky dun horse body, carrying horn bows and obsidian-tipped arrows",
+    "silhouette": "tall horse-bodied archer with a raised bow arm, mid-gallop",
+    "materials": "dun horsehide, braided mane and hair, rough leather, horn bow, obsidian arrowheads, bone beads"
+   },
+   "가고일": {
+    "en": "Gargoyle",
+    "who": "stone gargoyles that crouch on the crags of Gorvath's back: winged beasts of weathered grey rock with hooked stone talons and lichen growing in their cracks",
+    "silhouette": "crouching winged stone beast with long hooked talons",
+    "materials": "weathered grey granite, lichen, chipped edges, stone talons, rock dust"
+   },
+   "멧돼지": {
+    "en": "Boar",
+    "who": "huge steppe boars with tusks grown hard as rough stone, a bristling ridge of dark hair along the spine and mud-caked flanks",
+    "silhouette": "low, heavy, front-loaded body with upcurving tusks",
+    "materials": "coarse dark bristles, caked mud, stone-grey tusks, thick hide"
+   },
+   "바위 거인": {
+    "en": "Rock Giant",
+    "who": "living-stone giants grown out of Gorvath's back: hulking humanoid bodies of fractured boulders with turf, moss and small trees on their shoulders and ochre light in the cracks for eyes; living rock, never one of the seven primordial Giants",
+    "silhouette": "hunched, broad boulder-humanoid with fists like rockfalls",
+    "materials": "fractured granite, ochre earth, moss, grass tufts, small shrubs, rock dust"
+   },
+   "코카트리스": {
+    "en": "Cockatrice",
+    "who": "a rooster-headed beast with a long scaly serpent tail whose glare turns things to gravel, its feathers crusted with pebbles and its comb gone to stone",
+    "silhouette": "strutting rooster body with stiff spread wings and a long serpent tail",
+    "materials": "grey speckled feathers, pebble crust, stony comb and wattles, scaly tail"
+   },
+   "미노타우로스": {
+    "en": "Minotaur",
+    "who": "bull-headed giants of the steppe with great forward-curving horns, a shaggy mane, cloven hooves and scarred hide, who won Gorvath's notice in the duel ring",
+    "silhouette": "towering bull-headed humanoid with forward-swept horns and a lowered head",
+    "materials": "dark bull hide, shaggy mane, cracked horns, iron nose ring, rough leather harness, stone-headed axes"
+   },
+   "바실리스크": {
+    "en": "Basilisk",
+    "who": "a long, low lizard of the obsidian slopes with a crested head, a petrifying glassy stare and claws of black volcanic glass",
+    "silhouette": "long low-slung lizard with a crested head and splayed clawed legs",
+    "materials": "black obsidian scales, glassy claws, ochre crest, rock dust"
+   },
+   "오우거": {
+    "en": "Ogre",
+    "who": "hulking steppe ogres, huge and slow: pot-bellied, heavy-browed and small-eyed, with grey-ochre skin, wearing hides and bone charms",
+    "silhouette": "huge rounded body on thick short legs with long heavy arms",
+    "materials": "grey-ochre hide, furs, bone charms, crude wooden clubs, drums and turtle-shell shields"
+   },
+   "곰": {
+    "en": "Bear",
+    "who": "great cave bears of Throne Peak whose backs have grown stones and moss through long sleeps on Gorvath's slopes",
+    "silhouette": "massive humped bear, often rising on its hind legs",
+    "materials": "thick brown fur, embedded stones, moss, heavy claws"
+   },
+   "들소": {
+    "en": "Bison",
+    "who": "steppe bison running in thundering herds, with humped shoulders, short curved horns and dark shaggy fronts",
+    "silhouette": "humped massive forequarters tapering to lean hindquarters, many bodies in a stampede",
+    "materials": "dark shaggy fur, horn, dust clouds, trampled grass"
+   },
+   "바위 정령": {
+    "en": "Rock Spirit",
+    "who": "rock spirits of Grom: boulders drawn together by the great earth spirit's slow will into a powerful, roughly humanoid shape, with dust swirling at the seams and ochre light deep inside",
+    "silhouette": "loosely joined boulders hovering in a broad humanoid form",
+    "materials": "rough boulders, gravel, dust, faint ochre glow in the cracks"
+   },
+   "거대 도마뱀": {
+    "en": "Giant Lizard",
+    "who": "a giant monitor lizard of Gorvath's slopes, broad as an ox, armoured in black obsidian scales, with a thick lashing tail and heavy claws",
+    "silhouette": "long low body with a thick lashing tail",
+    "materials": "black obsidian scales, ochre underbelly, glassy claws"
+   },
+   "고르곤": {
+    "en": "Gorgon",
+    "who": "a gorgon of Gorvath's crags: a tall woman half turned to grey stone, with living stone snakes for hair and ochre-glowing eyes whose stare petrifies",
+    "silhouette": "tall figure crowned with a writhing mass of snakes",
+    "materials": "cracked grey stone skin, ochre-scaled stone snakes, rock dust, hide wraps"
+   },
+   "대지 웜": {
+    "en": "Earth Wyrm",
+    "who": "a vast eyeless burrowing worm that tunnels under Gorvath's back, ringed with plates of rock, its round maw lined with stone teeth and trailing roots",
+    "silhouette": "huge segmented body arching out of cracked ground",
+    "materials": "segmented rock plates, packed earth, stone teeth, dangling roots"
+   },
+   "용비늘": {
+    "en": "Dragon Scale",
+    "who": "a single scale shed from the dragon Gorvath, broad as a hut, a curved slab of slate-hard scale with turf and pebbles grown on its outer face, still warm with the dragon's earth power and moving on its own",
+    "silhouette": "huge curved upright slab like a standing shield",
+    "materials": "layered slate-like dragon scale, ochre veins, turf, pebbles, lichen"
+   },
+   "사이클롭스": {
+    "en": "Cyclops",
+    "who": "one-eyed cyclopes of the duel ring: towering grey-ochre pit fighters with a single great eye, heavy scars and black obsidian studded into their gauntlets",
+    "silhouette": "towering broad-chested humanoid with one huge eye and oversized fists",
+    "materials": "grey-ochre skin, scars, obsidian studs, rough leather wraps"
+   },
+   "털코뿔소": {
+    "en": "Woolly Rhino",
+    "who": "a woolly rhinoceros of the high steppe with a long shaggy ochre-brown coat, a low heavy head and a great forward horn, ridden by a war-painted tribal rider",
+    "silhouette": "massive low barrel body with a long forward horn and a rider on top",
+    "materials": "shaggy wool, cracked grey hide, horn, leather harness, dust"
+   },
+   "웨어베어": {
+    "en": "Werebear",
+    "who": "a werebear: a warrior who wore a bear's hide until it grew into his own skin, now a hulking upright bear-man with claws, a bear's head and war paint in the fur",
+    "silhouette": "upright hulking bear-man with a human fighting stance",
+    "materials": "coarse bear fur, hide, claws, bone charms, war paint"
+   },
+   "맘모스": {
+    "en": "Mammoth",
+    "who": "a mammoth of the snowy passes of Throne Peak with long reddish wool, great spiralling tusks and a rock-crusted brow, carrying a war-painted tribal rider",
+    "silhouette": "towering domed head and humped back with spiralling tusks",
+    "materials": "long shaggy wool, ivory tusks, rock crust, snow and dust"
+   }
+  }
+ },
+ "G2": {
+  "founder": {
+   "ko": "트롤",
+   "look": "tall moss trolls with long, lanky, moss-covered limbs, and treants (living trees)"
+  },
+  "kinds": {
+   "코다마": {
+    "en": "Kodama",
+    "who": "kodama of the Eilen forest: small pale tree spirits with round heads, hollow dark eyes and mouths, living inside old trees and rattling their heads when they speak",
+    "silhouette": "tiny round-headed figure peeking from a trunk, often in groups",
+    "materials": "pale soft wood-like skin, moss, dew, faint green glow"
+   },
+   "드라이어드": {
+    "en": "Dryad",
+    "who": "dryads of the Eilen forest: slender women of living wood with smooth bark skin, leaf-and-blossom hair and twig fingers, each bound to her own tree (no pointed ears)",
+    "silhouette": "slender willowy figure with long leaf-hair flowing like branches",
+    "materials": "smooth pale bark, leaves, blossoms, vines, sap droplets"
+   },
+   "트렌트": {
+    "en": "Treant",
+    "who": "treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks",
+    "silhouette": "towering trunk body with spreading branch arms and root feet",
+    "materials": "rough bark, moss, leaves, knotted roots, amber sap"
+   },
+   "사티로스": {
+    "en": "Satyr",
+    "who": "forest satyrs: goat-legged, curl-horned forest folk with shaggy haunches and a pointed beard, carrying reed pipes and a shield of bark",
+    "silhouette": "goat-legged figure with curled horns, springing on hooves",
+    "materials": "shaggy brown fur, curled horn, bark shield, reed pipes, leaves"
+   },
+   "버섯족": {
+    "en": "Mushroom Folk",
+    "who": "walking mushroom folk of the forest floor: squat stalk bodies under broad caps, with gills, glowing spores and white mycelium threads linking them to the roots and to each other",
+    "silhouette": "stubby stalk body under a wide cap",
+    "materials": "spongy pale flesh, gills, glowing spores, white mycelium threads, damp soil"
+   },
+   "숲 거미": {
+    "en": "Forest Spider",
+    "who": "giant elder-tree spiders with bark-patterned bodies and mossy legs, stringing webs between ancient boughs",
+    "silhouette": "huge long-legged spider hanging from a branch on a silk line",
+    "materials": "bark-textured carapace, moss, silk webs, dew"
+   },
+   "뿔사슴": {
+    "en": "Antlered Stag",
+    "who": "great forest stags whose antlers grow like living branches with leaves and moss, after the dragon Verdan's own",
+    "silhouette": "proud stag with an enormous branching antler crown",
+    "materials": "russet hide with pale spots, mossy wooden antlers, new leaves"
+   },
+   "숲 호랑이": {
+    "en": "Forest Tiger",
+    "who": "great tigers of Sylvaniel with moss-green-tinged stripes and leaves caught in their fur, lying on the giant-tree stairways as guardians",
+    "silhouette": "long muscular striped cat stalking low",
+    "materials": "amber fur with dark green-tinged stripes, whiskers, claws, moss"
+   },
+   "맨드레이크": {
+    "en": "Mandrake",
+    "who": "mandrakes: root creatures half pulled from the soil, with gnarled human-like root bodies, a leafy crown and a gaping screaming mouth",
+    "silhouette": "gnarled root body with a crown of leaves and limbs like forked roots",
+    "materials": "brown root skin, root hairs, soil clumps, leaves"
+   },
+   "용뿔 가지": {
+    "en": "Dragon Antler Branch",
+    "who": "a branch shed from the dragon Verdan's ancient-tree antlers, huge and mossy, that has taken root, risen and walks, budding leaves and pulsing with green dragon power in its grain",
+    "silhouette": "a great forked antler-branch standing upright on root legs",
+    "materials": "dark ancient wood, moss, lichen, fresh shoots, faint green glow in the grain"
+   },
+   "레쉬": {
+    "en": "Leshy",
+    "who": "the leshy of Verdan: a tall, gaunt forest lord with a stag-antlered head, a beard of moss and lichen, a body of bark and twigs and glowing green eyes",
+    "silhouette": "tall gaunt figure crowned with stag antlers",
+    "materials": "bark, moss beard, lichen, antlers, leaves, twigs"
+   },
+   "뿌리 거수": {
+    "en": "Root Behemoth",
+    "who": "a root behemoth: a great four-legged beast made of tangled giant roots and soil, slow and immovable, sinking into the ground where it stands",
+    "silhouette": "low massive quadruped of knotted roots half sunk in the soil",
+    "materials": "knotted roots, packed soil, stones caught in the tangle, moss"
+   },
+   "고슴도치": {
+    "en": "Hedgehog",
+    "who": "a giant thornback hedgehog the size of a boar, whose spines have grown into real bramble thorns",
+    "silhouette": "low round body bristling with long thorns, curling into a ball",
+    "materials": "bramble-thorn spines, brown furred face, leaf litter"
+   },
+   "그린맨": {
+    "en": "Green Man",
+    "who": "the green man of Drien: a tall figure woven entirely of leaves, ivy and blossoms around a calm leafy face, the forest's memory walking",
+    "silhouette": "tall humanoid of foliage with a leaf-mask face",
+    "materials": "oak leaves, ivy, blossoms, vines, moss"
+   },
+   "말벌": {
+    "en": "Wasp",
+    "who": "venomthorn wasps of the thorn forest, each as long as a finger, with thorn-tipped stings and nests of chewed bark",
+    "silhouette": "a dense buzzing swarm around a papery nest",
+    "materials": "striped chitin, translucent wings, thorn stings, papery bark nest"
+   },
+   "덩굴 괴물": {
+    "en": "Vine Horror",
+    "who": "vine horrors of the Rusty Swamp's edge: shambling tangles of thorny vines and briars that knot themselves into a beast-like shape",
+    "silhouette": "hulking shambling mass of coiled vines with thorny lashing tendrils",
+    "materials": "thorny briars, rust-stained vines, thistle heads, sap, dead leaves"
+   },
+   "늪 히드라": {
+    "en": "Swamp Hydra",
+    "who": "a swamp hydra of the Rusty Swamp's edge: a many-headed serpent with moss-green scales and weed-draped necks, whose cut heads grow back",
+    "silhouette": "a bulky body rising from water with many swaying necks",
+    "materials": "moss-green scales, waterweed, mud, rust-stained water"
+   },
+   "픽시": {
+    "en": "Pixie",
+    "who": "tiny vine pixies with leaf wings and bodies wrapped in curling tendrils, shooting thorn darts from twig bows",
+    "silhouette": "tiny winged figure trailing curling tendrils",
+    "materials": "leaf wings, tendrils, petals, glowing pollen, twig bow"
+   }
+  }
+ },
+ "G3": {
+  "founder": {
+   "ko": "인어",
+   "look": "merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir"
+  },
+  "kinds": {
+   "운디네": {
+    "en": "Undine",
+    "who": "undines: water spirits that take a translucent feminine shape of flowing water, their hair dissolving into spray and droplets",
+    "silhouette": "flowing translucent figure melting into a column of water below the waist",
+    "materials": "clear rippling water, bubbles, spray, caustic light"
+   },
+   "진주조개": {
+    "en": "Pearl Clam",
+    "who": "a giant pearl clam bedded at the mouth of the Selenea lagoon, its ridged shell gaping just enough to show a glowing pearl",
+    "silhouette": "huge ridged bivalve shell, half open",
+    "materials": "ridged grey-blue shell, nacre, a glowing pearl, barnacles, sand"
+   },
+   "해마": {
+    "en": "Seahorse",
+    "who": "giant seahorses big enough to ride, with curled grasping tails, ridged armour-like bodies, long snouts and translucent fin crests",
+    "silhouette": "upright S-curve body with a curled tail and long snout",
+    "materials": "ridged plates, translucent fins, pearl bridles, coral"
+   },
+   "해달": {
+    "en": "Sea Otter",
+    "who": "sea otters of the lagoon, sleek and whiskered, floating on their backs and wielding small coral-tipped harpoons scavenged from the shrine maidens",
+    "silhouette": "small sleek body floating belly-up with a harpoon",
+    "materials": "dense wet brown fur, whiskers, coral-tipped harpoon, shells"
+   },
+   "메아리": {
+    "en": "Echo",
+    "who": "a living echo of Marencia's song: rings of rippling water and light shaped like a faint singing figure that repeats every note a little softer",
+    "silhouette": "faint figure dissolving into expanding ring ripples",
+    "materials": "rippling water rings, light, foam, mist"
+   },
+   "나가": {
+    "en": "Naga",
+    "who": "naga of Marencia's waters: a scaled human upper body joined to a long serpent tail, with fin crests along the head and armour of shell and coral",
+    "silhouette": "upright torso rising from a long coiled serpent tail",
+    "materials": "teal serpent scales, fin crests, shell and coral armour, harpoons and spears"
+   },
+   "셀키": {
+    "en": "Selkie",
+    "who": "selkies: seal folk with a sleek grey spotted sealskin that can be shed to show a dark-eyed child or maiden underneath",
+    "silhouette": "sleek seal with a half-shed pelt draped like a cloak",
+    "materials": "spotted grey sealskin, wet dark hair, foam, shells"
+   },
+   "문어": {
+    "en": "Octopus",
+    "who": "a tide-reading octopus with eight long arms, a bulbous mantle, wise golden eyes and skin that shifts colour with the tide",
+    "silhouette": "bulbous mantle with eight curling arms",
+    "materials": "soft colour-shifting skin, suckers, ink clouds, shells"
+   },
+   "바다거북": {
+    "en": "Sea Turtle",
+    "who": "great sea turtles whose shells grow living coral like a small reef",
+    "silhouette": "broad domed shell with paddle flippers",
+    "materials": "coral-encrusted shell, barnacles, leathery flippers, seaweed"
+   },
+   "상어족": {
+    "en": "Shark Folk",
+    "who": "shark warriors of the tides: muscular shark-headed humanoids with rough grey skin, a tall dorsal fin and rows of teeth",
+    "silhouette": "broad shark-headed humanoid with a tall dorsal fin",
+    "materials": "rough grey sharkskin, teeth, coral blades, shell charms"
+   },
+   "듀공": {
+    "en": "Dugong",
+    "who": "gentle dugongs of the Selenea lagoon with plump grey bodies, whiskered faces and fluked tails, whose warm breath heals wounds",
+    "silhouette": "plump rounded body with paddle flippers and a fluked tail",
+    "materials": "smooth grey skin, whiskers, seagrass, warm lagoon water"
+   },
+   "산호 정령": {
+    "en": "Coral Spirit",
+    "who": "coral spirits: reef coral woken into a living branching figure that raises pillars of water, its polyps glowing",
+    "silhouette": "branching coral figure with arms like antler coral",
+    "materials": "pink and orange coral, glowing polyps, shells, sea foam"
+   },
+   "켈피": {
+    "en": "Kelpie",
+    "who": "kelpies: water horses with dark wet hides, streaming seaweed manes and hooves that churn whirlpools",
+    "silhouette": "rearing horse with a streaming seaweed mane",
+    "materials": "wet black-green hide, kelp mane, foam, shells"
+   },
+   "투구게": {
+    "en": "Horseshoe Crab",
+    "who": "giant horseshoe crabs of the Talakus trench, ancient domed carapaces with spined rims and a long spike tail",
+    "silhouette": "low domed horseshoe shell with a long spike tail",
+    "materials": "olive-brown carapace, spines, barnacles, blue blood"
+   },
+   "자장가": {
+    "en": "Lullaby",
+    "who": "a verse of Marencia's lullaby that keeps Talakus asleep, given form: a hovering, softly glowing veil of water and mist shaped like cradling arms",
+    "silhouette": "a soft hooded veil curving like cradling arms",
+    "materials": "mist, moonlit water, slow ripples, pale glow"
+   },
+   "크라켄": {
+    "en": "Kraken",
+    "who": "a kraken of the deep: a colossal squid-like beast with barbed tentacles and one huge eye, rising from the Talakus trench as the giant's pulse quickens",
+    "silhouette": "massive mantle with a mass of tentacles reaching upward",
+    "materials": "dark red mottled skin, suckers, hooks, ink"
+   },
+   "왕게": {
+    "en": "King Crab",
+    "who": "a great spiny king crab sworn as a knight of Marencia, with a red armoured carapace and massive raised claws",
+    "silhouette": "wide spiky body with huge raised claws",
+    "materials": "spiny red carapace, claws, barnacles, coral"
+   },
+   "조수 정령": {
+    "en": "Tide Spirit",
+    "who": "a tide spirit: the high tide given shape, a towering swell of sea and spring water rising like a figure crowned with foam",
+    "silhouette": "a towering swell of water rising like a figure",
+    "materials": "surging seawater, foam, spray, shimmering light"
+   },
+   "범고래": {
+    "en": "Orca",
+    "who": "orcas that ride the currents into battle, glossy black and white with tall dorsal fins",
+    "silhouette": "sleek black-and-white body with a tall dorsal fin",
+    "materials": "glossy black and white skin, teeth, foam"
+   },
+   "바다뱀": {
+    "en": "Sea Serpent",
+    "who": "a tidal sea serpent: a long ribbon-finned serpent that rides the crest of a tidal wave",
+    "silhouette": "long arching coils over a cresting wave",
+    "materials": "blue-green scales, ribbon fins, foam, spray"
+   },
+   "세이렌": {
+    "en": "Siren",
+    "who": "sirens of Marencia: pale sea-singers rising from deep water, with long dark kelp-like hair, fin-webbed arms and a fish tail, whose song turns blades back",
+    "silhouette": "a singer rising from the water, arms spread and hair streaming",
+    "materials": "pale pearly skin, dark wet hair, fins, conch shells"
+   },
+   "해파리": {
+    "en": "Jellyfish",
+    "who": "a pearl-luminous jellyfish with a softly glowing bell and long trailing tentacles strung with pearls",
+    "silhouette": "domed glowing bell over streaming tentacles",
+    "materials": "translucent bell, pearlescent glow, tentacles, bubbles"
+   },
+   "물거울": {
+    "en": "Water Mirror",
+    "who": "a living water mirror: an upright disc of perfectly still lagoon water standing in the air and reflecting whoever faces it",
+    "silhouette": "upright oval disc of water with rippling edges",
+    "materials": "glassy still water, silver reflections, droplets, moonlight"
+   },
+   "고래": {
+    "en": "Whale",
+    "who": "a great song whale of the Talakus trench, barnacled and scarred, singing only to Marencia",
+    "silhouette": "vast long body with a broad fluke",
+    "materials": "barnacled grey skin, scars, baleen, foam"
+   },
+   "아귀": {
+    "en": "Anglerfish",
+    "who": "an anglerfish of the Talakus trench with a gaping fanged mouth and a glowing lure that pulses in time with the sleeping giant's heartbeat",
+    "silhouette": "huge-mouthed round fish with a dangling glowing lure",
+    "materials": "dark warty skin, needle teeth, glowing lure, black water"
+   }
+  }
+ },
+ "A1": {
+  "founder": {
+   "ko": "마족",
+   "look": "demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire"
+  },
+  "kinds": {
+   "저주 인형": {
+    "en": "Curse Doll",
+    "who": "a small stitched rag doll brought to life by a pact, with mismatched button eyes, a torn scrap of contract sewn into its chest and rusty pins stuck through its limbs",
+    "silhouette": "small and slumped, limp floppy limbs with pins jutting out",
+    "materials": "coarse burlap, black thread stitches, rusty pins, a blood-wax seal, a parchment scrap"
+   },
+   "흡혈 박쥐": {
+    "en": "Blood Bat",
+    "who": "a swarm of small black bats with red-veined membranous wings, needle fangs and glowing red pin-prick eyes",
+    "silhouette": "a dark cloud of many small flapping wings",
+    "materials": "leathery wing membranes, damp black fur, needle fangs, red eye glints"
+   },
+   "구울": {
+    "en": "Ghoul",
+    "who": "a gaunt grey-skinned corpse-eater that rose from an unpaid debt, hunched on all fours, with long cracked nails, sunken glowing eyes and a lipless grin",
+    "silhouette": "low, hunched and crawling, overlong arms",
+    "materials": "grey dead skin, torn rags, grave dirt, cracked yellow nails"
+   },
+   "떼인 그림자": {
+    "en": "Severed Shadow",
+    "who": "a living shadow cut away from its owner as payment: a flat, faceless, paper-thin silhouette of a person whose edges are frayed like torn cloth",
+    "silhouette": "flat and two-dimensional, stretched long like a shadow at dusk, torn edges",
+    "materials": "ink-black smoke, edges like cut black paper, a faint violet glow at the seams"
+   },
+   "도플갱어": {
+    "en": "Doppelganger",
+    "who": "a featureless grey shapeshifter caught halfway through copying its foe, one half smooth and blank like wet wax, the other half a wavering copy",
+    "silhouette": "a humanoid with a blurred, doubled outline",
+    "materials": "smooth grey wax-like skin, rippling mirror sheen, wisps of shadow"
+   },
+   "서큐버스": {
+    "en": "Succubus",
+    "who": "a slender night temptress with bat wings, small swept-back horns and a thin tail ending in a quill nib, offering a contract with a knowing smile",
+    "silhouette": "slender and poised, bat wings half open, a curling tail",
+    "materials": "dark velvet, bat-wing membrane, gold ink, a blood-red wax seal"
+   },
+   "그림자 거미": {
+    "en": "Shadow Spider",
+    "who": "a large black spider woven from shadow, with clusters of violet eyes and long jointed legs trailing threads of darkness",
+    "silhouette": "low and wide, many long angled legs",
+    "materials": "glossy black chitin, silk threads of shadow, violet eye clusters"
+   },
+   "듀라한": {
+    "en": "Dullahan",
+    "who": "a headless knight in black plate who paid with its own head, carrying the helmeted head under one arm and an executioner's axe in the other, violet ghost-flame rising from the empty neck",
+    "silhouette": "tall armoured figure with an empty neck, a head held at the hip",
+    "materials": "black iron plate, a chained ledger, a glowing head in a helm, violet ghost-flame"
+   },
+   "저주 검": {
+    "en": "Cursed Blade",
+    "who": "a living cursed sword that floats and fights with no wielder, a black blade that swallows light, a closed eye carved on the guard, red smoke trailing from its edge",
+    "silhouette": "a single floating blade, point down, smoke trailing",
+    "materials": "light-swallowing black steel, red veins in the metal, a closed-eye guard, cracked leather grip"
+   },
+   "밴시": {
+    "en": "Banshee",
+    "who": "a wailing woman-spirit with long white hair, hollow dark eyes and a mouth stretched open, her translucent tattered gown fading into mist",
+    "silhouette": "floating, long trailing hair and hem, mouth wide open",
+    "materials": "translucent pale mist, torn grey lace, long white hair"
+   },
+   "그림자 짐승": {
+    "en": "Shadow Beast",
+    "who": "a large wolf-like beast of living shadow with too many ivory fangs and violet eyes, its body fraying into smoke at the edges",
+    "silhouette": "low lunging quadruped with an oversized jaw",
+    "materials": "black smoke fur, ivory fangs, violet eye glow"
+   },
+   "라미아": {
+    "en": "Lamia",
+    "who": "a serpent-tailed woman, her upper body pale and elegant, her lower body a long dark-crimson snake tail, with red slit eyes and fangs",
+    "silhouette": "an upright torso on a coiled S-shaped tail",
+    "materials": "dark crimson scales, pale skin, gold armlets, spilled blood"
+   },
+   "사신": {
+    "en": "Reaper",
+    "who": "a hooded skeletal reaper in a tattered black robe holding a great scythe, a ledger of due contracts chained to its belt",
+    "silhouette": "tall hooded figure with a huge curved scythe",
+    "materials": "tattered black robe, bone hands, dark iron scythe, chained ledger"
+   },
+   "늑대인간": {
+    "en": "Werewolf",
+    "who": "a hulking black-furred werewolf standing on its hind legs, wolf-headed, scarred and clawed, under a sky with no moon",
+    "silhouette": "hunched, huge-shouldered, long clawed arms",
+    "materials": "matted black fur, torn cloth, old scars, yellow claws"
+   },
+   "지옥견": {
+    "en": "Hellhound",
+    "who": "a three-headed black hound guarding the Veil, burning violet eyes on every head, spiked iron collars trailing broken chains",
+    "silhouette": "a broad hound with three heads",
+    "materials": "short black fur, spiked iron collars, broken chains, violet ember drool"
+   },
+   "흡혈귀": {
+    "en": "Vampire",
+    "who": "a pale aristocratic vampire of Noctar with sharp fangs, red eyes and a high-collared black and crimson attire",
+    "silhouette": "tall and elegant, high collar, sweeping cape",
+    "materials": "black velvet, crimson silk, silver rings, a crystal goblet"
+   },
+   "계약서": {
+    "en": "Living Contract",
+    "who": "a huge contract scroll that moves on its own, its curling edges lashing like claws, blood-wax seals staring like eyes and signature lines glowing red",
+    "silhouette": "a tall coiling scroll with whip-like edges",
+    "materials": "thick yellowed parchment, blood-red ink, wax seals, ribbon"
+   },
+   "리치": {
+    "en": "Lich",
+    "who": "a skeletal sorcerer-commander in rotted robes and an iron crown, violet flames in its eye sockets, one hand raised to call down curses",
+    "silhouette": "gaunt robed skeleton with a crown and an outstretched hand",
+    "materials": "yellowed bone, rotted robes, iron crown, violet curse flame"
+   },
+   "얼굴 없는 자": {
+    "en": "Faceless One",
+    "who": "a very tall figure in black robes whose head is a smooth blank oval with no features, echoing Morkas's own faceless face, chains wound across its chest",
+    "silhouette": "very tall and still, a featureless oval head",
+    "materials": "black robes, smooth blank grey skin, heavy chains, a spiked iron weight"
+   },
+   "나이트메어": {
+    "en": "Nightmare",
+    "who": "a black horse made of nightmare smoke, with a flaming violet mane, burning hooves and eyes like coals",
+    "silhouette": "a rearing horse with a long smoke-trailing mane",
+    "materials": "black smoke hide, violet fire, iron-shod hooves"
+   },
+   "망령": {
+    "en": "Wraith",
+    "who": "a hooded ghost of someone still bound to an unpaid price, a translucent legless body wrapped in rusted chains",
+    "silhouette": "floating and hooded, legless, trailing chains",
+    "materials": "translucent grey-violet mist, rusted chains, a torn shroud"
+   },
+   "해골": {
+    "en": "Skeleton",
+    "who": "a skeleton warrior inside heavy obsidian plate armour, violet light in its eye sockets, holding a black stone shield",
+    "silhouette": "upright and armoured, bulky shield in front",
+    "materials": "bleached bone, black obsidian plates, iron rivets"
+   },
+   "저울": {
+    "en": "Scale",
+    "who": "Morkas's scale given a body: a towering balance with a closed eye carved on its beam, its two pans hanging on chains and heavy with shadow",
+    "silhouette": "a tall T-shaped balance with two hanging pans",
+    "materials": "tarnished black bronze, chains, a closed-eye emblem, iron weights"
+   },
+   "셰이드": {
+    "en": "Shade",
+    "who": "a tall, wavering shadow-spirit risen from the canyon floor, thin as smoke, with long fingers and two faint violet eyes",
+    "silhouette": "tall, thin and wavering like a column of smoke",
+    "materials": "dusky smoke, canyon dust, faint violet eyes"
+   },
+   "시체 거인": {
+    "en": "Corpse Giant",
+    "who": "a huge lumbering giant stitched together from many bodies, iron staples and contract chains bolted across it and a wax seal on its chest",
+    "silhouette": "massive and lumbering, uneven mismatched limbs",
+    "materials": "grey stitched flesh, iron staples, chains, a blood-wax seal"
+   },
+   "죽음의 기사": {
+    "en": "Death Knight",
+    "who": "an undead knight in blackened rusted plate holding a blood-fed sword, cold violet eyes glowing in the visor",
+    "silhouette": "an armoured knight with a long sword held upright",
+    "materials": "black rusted plate, blood-red runes on the blade, a torn cape"
+   }
+  }
+ },
+ "A2": {
+  "founder": {
+   "ko": "천족",
+   "look": "seraphs with white feathered wings and halos, and human knights of the Radiant Order"
+  },
+  "kinds": {
+   "촛불 정령": {
+    "en": "Prayer Candle",
+    "who": "a small living prayer candle of white beeswax, a calm little face glowing inside its flame, wax drips hanging like a tiny robe",
+    "silhouette": "small and upright, a tall teardrop flame on top",
+    "materials": "white beeswax, warm gold flame, a brass candle dish"
+   },
+   "종다리": {
+    "en": "Dawn Lark",
+    "who": "small dawn larks with brown and gold-tipped feathers, always flying in a singing flock, sunrise light catching their wings",
+    "silhouette": "a loose flock of small birds in mid-song",
+    "materials": "brown and gold feathers, small sharp beaks, sun glints"
+   },
+   "문장수": {
+    "en": "Heraldic Eagle",
+    "who": "a white eagle that looks as if it flew straight off a Radiant Order banner, wings spread in a heraldic crest pose, a golden rising sun on its breast",
+    "silhouette": "wings spread wide in a symmetrical crest pose",
+    "materials": "white feathers edged in gold leaf, golden talons, banner cloth"
+   },
+   "헤일로": {
+    "en": "Halo",
+    "who": "a wandering halo with no head beneath it: a floating ring of golden light drifting on its own, trailing faint sparks",
+    "silhouette": "a single glowing ring floating in the air",
+    "materials": "pure gold light, faint drifting sparkles"
+   },
+   "발키리": {
+    "en": "Valkyrie",
+    "who": "a winged shieldmaiden of the dawn: a warrior woman with great white wings, a gold-winged helm, a spear and a round shield",
+    "silhouette": "a winged warrior diving or standing with spear and round shield",
+    "materials": "white feathers, gold scale armour, a round wood-and-gold shield, a long spear"
+   },
+   "유니콘": {
+    "en": "Unicorn",
+    "who": "a white horse with a long spiral horn of pearly light and a golden mane that glows like sunrise",
+    "silhouette": "an elegant horse with a single long straight horn",
+    "materials": "white coat, pearl-white spiral horn, gold mane, silver hooves"
+   },
+   "색유리 기사": {
+    "en": "Stained-Glass Knight",
+    "who": "a knight-shaped figure stepped out of a cathedral window, its body made of coloured glass panes held together by dark lead lines, sunlight shining through it",
+    "silhouette": "an upright knight with sword and shield, cut into glass segments",
+    "materials": "coloured glass panes, lead cames, gold light shining through"
+   },
+   "새벽 사자": {
+    "en": "Dawn Lion",
+    "who": "a great golden lion whose mane fans out like the rays of the rising sun",
+    "silhouette": "a powerful lion with a wide radiant mane",
+    "materials": "golden fur, a sunray mane, white claws"
+   },
+   "스핑크스": {
+    "en": "Sphinx",
+    "who": "a lion-bodied sphinx with a calm, solemn face, folded white wings and a sun-disk crown, guarding a question",
+    "silhouette": "a couchant lion body, head raised, wings folded",
+    "materials": "pale gold fur, white feathers, a gold sun-disk headdress"
+   },
+   "백조": {
+    "en": "Swan",
+    "who": "a large white swan with a faint halo above its head, wings arched protectively over what it guards",
+    "silhouette": "arched wings and a long curved neck",
+    "materials": "pure white feathers, gold beak, faint halo light"
+   },
+   "성종 정령": {
+    "en": "Bell Spirit",
+    "who": "a great living bronze cathedral bell that rings in the dawn, light pouring from its mouth, rising-sun engravings on its rim",
+    "silhouette": "a large bell hanging in the air",
+    "materials": "polished bronze, gold sun engravings, light from within"
+   },
+   "거울 정령": {
+    "en": "Mirror Spirit",
+    "who": "a tall oval cathedral mirror in a gilt frame that has come alive, gathering dawn light and throwing it back",
+    "silhouette": "a tall oval frame standing upright",
+    "materials": "silvered glass, gilt frame, bright reflections"
+   },
+   "성화 정령": {
+    "en": "Sacred Flame",
+    "who": "the never-extinguished sacred fire of Elad given a body: a white-gold flame in a vaguely human shape rising from a brass brazier",
+    "silhouette": "a tall flame rising from a brazier",
+    "materials": "white-gold fire, a brass brazier, glowing embers"
+   },
+   "성상": {
+    "en": "Saint Statue",
+    "who": "a cathedral saint statue come to life, white marble with flecks of gold leaf, stepping down from its plinth",
+    "silhouette": "a still, upright statue on or beside a plinth",
+    "materials": "white marble, gold leaf, polished stone"
+   },
+   "세라프": {
+    "en": "Seraph",
+    "who": "a six-winged fiery being of light, its face half hidden behind burning golden wings",
+    "silhouette": "six wings in layers around a small bright core",
+    "materials": "flame feathers, gold light, sparks"
+   },
+   "케루빔": {
+    "en": "Cherub",
+    "who": "a four-faced guardian with the faces of a lion, an eagle, an ox and a solemn calm face, four wings and gold-bronze plumage",
+    "silhouette": "a bulky four-winged figure with faces looking four ways",
+    "materials": "gold-bronze feathers, burnished plates, bright eyes"
+   },
+   "샛별 정령": {
+    "en": "Morning Star",
+    "who": "the morning star over Elad given a body: a white-gold star with long cross-shaped rays and a small luminous figure at its heart",
+    "silhouette": "a radiant star with four long rays",
+    "materials": "white-gold starlight, prism sparkles"
+   },
+   "대천사": {
+    "en": "Archangel",
+    "who": "a towering archangel of the dawn with many great white wings and gold armour, a lance of light in hand",
+    "silhouette": "a tall figure framed by vast spread wings",
+    "materials": "white and gold feathers, gold plate, radiant light"
+   },
+   "페가수스": {
+    "en": "Pegasus",
+    "who": "a white winged horse with broad feathered wings and a pale gold mane",
+    "silhouette": "a horse with big wings raised mid-gallop or mid-dive",
+    "materials": "white coat, white feathered wings, gold mane, silver hooves"
+   },
+   "라마수": {
+    "en": "Lamassu",
+    "who": "a winged bull with a crowned, bearded calm face, carved in white stone at the Dawn Citadel gate and now awake",
+    "silhouette": "a massive winged bull standing square at a gate",
+    "materials": "white limestone, gold inlay, carved feathers"
+   },
+   "오파님": {
+    "en": "Ophanim",
+    "who": "two interlocking golden wheels covered in watchful eyes, spinning slowly in white fire",
+    "silhouette": "two rings intersecting at right angles",
+    "materials": "gold rims, many eyes, white fire"
+   },
+   "맹세혼": {
+    "en": "Oath Spirit",
+    "who": "a sworn oath that outlived its speaker, taking the shape of a knight: hollow white-gold armour filled with light, abstract glowing oath-sigils etched on its plates",
+    "silhouette": "a knight shape with an empty glowing visor",
+    "materials": "white-gold light, glowing abstract sigils, hollow plate"
+   }
+  }
+ },
+ "A3": {
+  "founder": {
+   "ko": "하이엘프",
+   "look": "high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud"
+  },
+  "kinds": {
+   "엘프": {
+    "en": "Elf",
+    "who": "elf archers of the Storm Tower guild: pointed ears shorter than a high elf's, lean and wind-weathered, brown or ash hair tied back, plain practical gear",
+    "silhouette": "a lean archer with a plain longbow, hood pushed back, braced against the wind",
+    "materials": "worn grey-green leathers, a wool cloak, a plain pale-wood bow, grey goose fletching"
+   },
+   "나이트엘프": {
+    "en": "Night Elf",
+    "who": "night elves of the Storm Tower: dusky violet-blue skin, silver-white hair, very long swept-back ears and eyes glowing faintly like stars",
+    "silhouette": "a tall slender archer with long swept ears and a dark trailing cloak",
+    "materials": "dark indigo leather, silver star embroidery, a moon-silver bow, a night-blue cloak"
+   },
+   "하피": {
+    "en": "Harpy",
+    "who": "storm harpies: bird-women with wide feathered wings for arms, hooked talons for feet and wild wind-tossed hair, nesting under the Needle's eaves",
+    "silhouette": "a bird-woman with wide wings and hooked talons, mid-swoop",
+    "materials": "storm-grey and teal feathers, sharp black talons, wild hair"
+   },
+   "별부엉이": {
+    "en": "Star Owl",
+    "who": "an owl whose indigo plumage is dotted with silver star points like a night sky, with round eyes that glow like stars",
+    "silhouette": "a round owl with huge eyes, wings folded or spread silently",
+    "materials": "indigo feathers with silver star dots, gold glowing eyes, soft down"
+   },
+   "실프": {
+    "en": "Sylph",
+    "who": "a slender wind spirit shaped like a half-transparent girl of moving air, her hair and limbs streaming off into gusts",
+    "silhouette": "an airy figure dissolving into wind streaks at the edges",
+    "materials": "translucent air, teal swirls, caught leaves and feathers"
+   },
+   "임프": {
+    "en": "Imp",
+    "who": "small mischievous sky imps with pointed ears and wide grins, one made of a swirling gust, another of a falling star trailing sparks",
+    "silhouette": "tiny, gangly and flitting, small wings",
+    "materials": "wisps of air or white-hot sparks, tiny feathered wings"
+   },
+   "조인족": {
+    "en": "Birdfolk",
+    "who": "bird-people archers who live on the outer walls of Belumir's Needle: feathered heads with hooked beaks, wings folded along their arms, taloned feet gripping the galleries",
+    "silhouette": "an upright bird-headed archer with folded wings drawing a bow",
+    "materials": "brown and white feathers, leather bracers, pale-wood bows, slim quivers"
+   },
+   "그리핀": {
+    "en": "Griffin",
+    "who": "a griffin with the head, wings and foreclaws of a storm eagle and the body of a tawny lion",
+    "silhouette": "an eagle-fronted lion with wings raised",
+    "materials": "teal-grey feathers, tawny fur, golden beak and talons"
+   },
+   "히포그리프": {
+    "en": "Hippogriff",
+    "who": "a hippogriff with the head, wings and forelegs of an eagle and the hindquarters of a horse, riding storm winds",
+    "silhouette": "an eagle-fronted horse in a galloping leap",
+    "materials": "grey-white feathers, a horse coat and tail, hooked beak"
+   },
+   "송골매": {
+    "en": "Falcon",
+    "who": "a fierce storm falcon with slate-grey wings and sharp eyes, built for the stooping dive",
+    "silhouette": "a sleek falcon in a steep dive, wings swept back",
+    "materials": "slate-grey and white barred feathers, yellow talons, hooked beak"
+   },
+   "별자리": {
+    "en": "Constellation",
+    "who": "a beast or archer drawn by stars: bright points joined by thin silver lines of light, the body between them only night sky",
+    "silhouette": "an outline traced by stars and connecting lines",
+    "materials": "starlight points, thin silver lines, night-blue void"
+   },
+   "마도서": {
+    "en": "Grimoire",
+    "who": "Belumir's open book come alive: a great book floating open with its pages fanned by wind, abstract star glyphs lifting off the pages as light",
+    "silhouette": "an open book floating with pages fanned out",
+    "materials": "pale vellum pages, silver clasps and corners, glowing abstract star glyphs"
+   },
+   "별여우": {
+    "en": "Star Fox",
+    "who": "a slim fox with indigo fur speckled with tiny stars and a long brush tail that trails starlight",
+    "silhouette": "a slim running fox with a long glowing tail",
+    "materials": "indigo fur, silver star speckles, a starlight tail"
+   },
+   "텐구": {
+    "en": "Tengu",
+    "who": "black-feathered mountain sky spirits with crow beaks and broad wings, carrying bows and fans of storm feathers",
+    "silhouette": "a winged humanoid with a beaked face and a raised feather fan",
+    "materials": "black glossy feathers, a storm-feather fan, a lacquered bow"
+   },
+   "별똥별": {
+    "en": "Shooting Star",
+    "who": "a falling star given a will: a blazing white-hot streak with a small bright head and a long tail of sparks",
+    "silhouette": "a long glowing streak with a bright head",
+    "materials": "white-hot starlight, sparks, a trailing tail"
+   },
+   "로크": {
+    "en": "Roc",
+    "who": "a colossal storm bird whose wingspan splits clouds, with a great hooked beak and talons big enough to carry off a ship",
+    "silhouette": "an enormous bird with vast spread wings",
+    "materials": "huge brown-grey feathers, a horn-coloured beak, giant talons"
+   },
+   "구름고래": {
+    "en": "Cloud Whale",
+    "who": "a whale made of cloud swimming slowly through the sky, its soft body billowing, sometimes dark with thunder",
+    "silhouette": "a huge whale shape of billowing cloud",
+    "materials": "white or storm-grey cloud, wisps of mist, flickers of lightning"
+   },
+   "천안": {
+    "en": "Heaven's Eye",
+    "who": "a single great eye fallen from Belumir's robe of a thousand eyes, floating in the calm centre of a storm, ringed by swirling winds and a torn scrap of starry robe",
+    "silhouette": "one big floating eye inside a ring of wind",
+    "materials": "a glassy star-flecked iris, silver lashes, starry indigo cloth, storm swirls"
+   }
+  }
+ }
+}

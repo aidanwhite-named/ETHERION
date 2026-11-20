@@ -1,7 +1,8 @@
-# 그림 AI 작업 도구 (v3.9.15 · 등급별 프롬프트 v3.31)
+# 그림 AI 작업 도구 (v3.9.15 · 카드 프롬프트 n판 2026-11-20)
 
-> **v3.31 등급별 프롬프트**: 카드 일러스트 프롬프트는 등급마다 연출이 다르고 깃발마다 고유 요소가 고정된다. 규칙서는 **`PROMPT_GUIDE.md`**(다른 AI에게 그대로 넘겨도 된다), 문구 원본은 `art_style.json`, 카드별 지시는 `art_notes.json`.
-> 등급별로 모은 완성 프롬프트는 `prompts/grades/<등급>.md`(unique · epic · rare · upgrade · uncommon · common · token · special).
+> **n판 (2026-11-20, 처음부터 새로 씀)**: 카드 일러스트 프롬프트 = **카드마다 손으로 쓴 장면**(`art_scenes/<깃발>.json`) + 배색 · 깃발 · 등급 · 화풍 한 줄씩(`art_style.json`). 한 장 약 200단어. 깃발 줄은 종족이 아니라 원소의 재료와 대기이고, 등급 줄은 마감의 결만 정한다(시점 · 구도는 카드마다 다르다). 규칙서는 **`PROMPT_GUIDE.md`**(다른 AI에게 그대로 넘겨도 된다).
+> 모든 등급(706장)이 n판이다. 옛 g4 체계는 `legacy_g4/`에 보관만 한다. 이미 그린 스페셜 · 레어 그림은 옛 프롬프트로 그린 것이다 — 새 프롬프트로 다시 그리려면 장부 `art_map.csv`의 상태를 "다시"로.
+> 완성 프롬프트는 `prompts/grades/<등급>.md` · `prompts/cards/<깃발>.md`.
 > 받은 그림은 `inbox/`에 넣고 `python tools/art/artmap.py import`(또는 `그림 연결.bat`) — 카드에 연결되고 장부 `art_map.csv` · 보드 `art_board.html`이 새로 만들어진다(5장).
 
 카드 일러스트 788장(v3.31, 뺀 카드 제외 · 소환물 포함)과 전장 그림 10장(배경 · 카드 뒷면 · 소각장 · 에테르 · 생명)을
@@ -9,9 +10,13 @@
 
 | 파일 | 무엇 |
 |---|---|
-| `PROMPT_GUIDE.md` | **등급별 프롬프트 규칙서** — 세 축(등급 · 레벨 · 깃발), 등급 사다리, 깃발 고유성, 새 카드 프롬프트 쓰는 법, 연결 방법. 표는 build_prompts.js가 채운다 |
-| `art_style.json` · `art_notes.json` | 그림 말의 원본(등급 · 레벨 · 깃발 · 진영 · 종류) · 카드별 그림 지시. 고치면 build_prompts.js를 다시 |
-| `prompts/grades/<등급>.md` | 등급별 완성 프롬프트(그 등급의 연출 틀 + 카드마다) |
+| `PROMPT_GUIDE.md` | **프롬프트 규칙서(n판)** — 프롬프트의 짜임, 장면 쓰는 법, 틀 낱말, 새 카드가 생겼을 때. 표는 build_prompts.js가 채운다 |
+| `art_scenes/<깃발>.json` | **카드별 장면** — 카드 ID마다 `shot · dir · place · pal · scene · light`. 프롬프트의 중심이고 카드마다 다른 것은 모두 여기 있다 |
+| `art_style.json` | 공통 문구의 원본(화풍 한 줄 · 등급 한 줄 · 깃발 한 줄 · 배색 · 틀 낱말 · 그리는 차례). 고치면 `version`을 올리고 build_prompts.js를 다시 |
+| `art_kinds.json` | 유닛 종류(kin)의 생김새 참고표 — 장면을 쓸 때 본다 |
+| `scene_tool.js` | `todo` = 장면이 없는 카드의 자료와 틀 제안 · `lint` = 장면 검사(겹침 · 종족 낱말 · 고유명사) · `add` = 다른 곳에 써 둔 장면을 깃발 파일에 넣기 |
+| `legacy_g4/` | 옛 등급별 체계 보관(생성기 · 문구 · 카드별 지시 · 옛 스페셜 · 레어 프롬프트) — 지금은 쓰지 않는다 |
+| `prompts/grades/<등급>.md` | 등급별 완성 프롬프트 |
 | `inbox/` · `artmap.py` · `그림 연결.bat` | 받은 그림을 카드에 연결 → `img/cards/<ID>.jpg`(600×750) · 목록 `art_index.js` |
 | `art_map.csv` · `art_board.html` | 카드 ↔ 일러스트 장부(엑셀) · 보드(브라우저로 열기). artmap.py가 만든다 |
 | `BRIEF.md` | **그림 AI에게 주는 지시서**(영어). 세계관 · 그림체 · 만들 그림 목록 · 저장 규칙. AI에게 "이 문서를 읽고 그려" 하고 넘기면 된다 |
@@ -20,13 +25,13 @@
 | `prompts/cards.jsonl` · `ui.jsonl` | 같은 내용을 프로그램용으로 (gen.py가 읽음) |
 | `ui_assets.json` | 전장 그림 작업의 원본(크기 · 층 · 참고 그림 · 투명 처리 · 프롬프트) |
 | `ref/` | 참고 그림 — v3.9.14 전장 그림을 얼려 둔 것. 새 그림이 같은 자리 · 모양을 따르게 한다. 지우지 않는다 |
-| `build_prompts.js` | 게임 데이터에서 프롬프트를 다시 만든다. 카드 이름 · 설명을 고친 뒤 실행 |
+| `build_prompts.js` | 장면 + 공통 문구를 합쳐 프롬프트를 다시 만든다. 장면 · 문구 · 카드를 고친 뒤 실행 |
 | `gen.py` | 그림 AI에 보내고, 받은 그림을 게임 크기 · 투명 모양으로 다듬어 제자리에 넣는다 |
 | `그림 만들기.bat` | Windows에서 gen.py를 여는 단추 |
 | `out/` | 받은 원본(`raw/`) · 기록(`log.jsonl`) · 검토본(`review/`) · 모아 보기(`sheet_*.jpg`). 지워도 된다 |
 
 ## 1. 채팅창에 직접 넣는 방법 (API 키 없이)
-> **그리는 차례**: 프롬프트 파일은 "1 그림 없는 카드(**유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물** 순) → 2 다시 그리기 → 3 그림 있음" 묶음으로 나뉜다. 다시 그릴 카드는 장부 `art_map.csv`의 상태를 "다시"로 두면 `build_prompts.js`가 2번 묶음으로 옮긴다(`tools/REMAKE.md` "그리는 차례").
+> **그리는 차례**: 프롬프트 파일은 "1 그림 없는 카드(**유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어** 순, `art_style.json` `drawOrder`) → 2 다시 그리기 → 3 그림 있음" 묶음으로 나뉜다. 다시 그릴 카드는 장부 `art_map.csv`의 상태를 "다시"로 두면 `build_prompts.js`가 2번 묶음으로 옮긴다(`tools/REMAKE.md` "그리는 차례").
 > **Gemini 할당량 아끼기**: 카드마다 새 대화에서 그린다(긴 대화에 이어 붙이지 않는다).
 
 1. `prompts/cards/B1.md`처럼 단체 파일을 연다.
@@ -67,8 +72,9 @@ python tools/art/gen.py --sheet --group B1                        # 만든 그�
 4. 제자리에 넣는다(있던 그림은 `_backup_art/`로).
 
 ## 3. 카드를 고치거나 새로 만들었을 때
-`node tools/art/build_prompts.js` → 프롬프트가 새로 만들어진다. 새 카드만 그리려면 그냥 gen.py를 다시 돌린다(있는 그림은 건너뜀).
-문구(그림체 · 단체 모습)는 `build_prompts.js` 위쪽 표와 `ui_assets.json`에 있다. 바꾸면 스타일 가이드 6.7도 고친다.
+새 카드: `node tools/art/scene_tool.js todo`(장면이 없는 카드의 자료 · 틀 제안) → `art_scenes/<깃발>.json`에 장면을 쓴다 → `node tools/art/scene_tool.js lint <깃발>` → `node tools/art/build_prompts.js` → `python3 tools/art/artmap.py`. 이름 · 효과가 바뀐 카드는 그 카드의 장면을 다시 쓴다.
+새 카드만 그리려면 그냥 gen.py를 다시 돌린다(있는 그림 · 장면이 없는 카드는 건너뜀).
+카드 공통 문구는 `art_style.json`, 전장 그림 문구는 `ui_assets.json`에 있다. 바꾸면 스타일 가이드 6장도 고친다.
 
 ## 4. 이펙트(마법 연출)는?
 그림 파일이 아니라 코드(`js/spellfx.js` · `css/spellfx.css`, DOM + Web Animations)로 그린다. 이 도구의 대상이 아니다.
@@ -81,4 +87,4 @@ python tools/art/gen.py --sheet --group B1                        # 만든 그�
 3. `art_map.csv`(엑셀로 열림)에 상태 · 출처 · 날짜 · 그린 프롬프트 버전이 적힌다. `status`를 `채택` · `다시`로, `note`에 메모를 직접 적어도 다음 실행 때 지워지지 않는다(엑셀을 닫고 실행).
 4. `art_board.html`을 브라우저로 열면 등급 · 깃발 · 종류 · 상태로 걸러 보고, 카드마다 프롬프트를 복사할 수 있다.
 - gen.py로 만든 그림은 바로 `img/cards/`에 들어가므로 `python tools/art/artmap.py`만 돌리면 장부에 반영된다.
-- 새 카드를 만들었으면 먼저 `node tools/art/build_prompts.js`(스페셜 · 유니크는 `art_notes.json`에 지시부터).
+- 새 카드를 만들었으면 먼저 장면을 쓴다(3장) — 장면이 없는 카드는 프롬프트가 비어 있고 `build_prompts.js`가 알려 준다.

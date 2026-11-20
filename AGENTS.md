@@ -9,8 +9,8 @@
 - 색, 글꼴, 문양, 지도 기호, 일러스트 구도와 프롬프트 틀이 모두 거기 있다.
 - 코드와 가이드가 다르면 코드를 따르고, 가이드를 고친다.
 - 새 그림 규칙을 정하면 가이드에 적고 버전을 올린다.
-- 카드 일러스트는 `tools/art/inbox/`에 넣고 `python3 tools/art/artmap.py import` — `img/cards/<카드ID>.jpg`(600×750)로 들어가고 목록 `img/cards/art_index.js`가 새로 쓰인다(v3.41, 게임은 이 목록으로만 그림을 찾는다. 손으로 넣었으면 `artmap.py index`). 큰 배경을 바꾸면 폰용 작은 판(`*_m`)도 함께.
-- **카드 일러스트 프롬프트는 등급별**(v3.31): 규칙서 `tools/art/PROMPT_GUIDE.md`, 문구 원본 `tools/art/art_style.json`(등급 · 레벨 · 깃발), 카드별 지시 `tools/art/art_notes.json`. 새 카드를 만들면 `node tools/art/build_prompts.js` → `python tools/art/artmap.py`. **스페셜 · 유니크는 `art_notes.json`에 그림 지시를 함께 쓴다.** 받은 그림은 `tools/art/inbox/`에 넣고 `python tools/art/artmap.py import`(장부 `art_map.csv` · 보드 `art_board.html`). 스타일 가이드 6.8.
+- 카드 일러스트는 `tools/art/inbox/`에 넣고 `python3 tools/art/artmap.py import` — `img/cards/<카드ID>.jpg`(새 그림은 가로 5:4 · 750×600, 옛 세로 그림은 600×750)로 들어가고 목록 `img/cards/art_index.js`가 새로 쓰인다(v3.41, 게임은 이 목록으로만 그림을 찾는다. 손으로 넣었으면 `artmap.py index`). 큰 배경을 바꾸면 폰용 작은 판(`*_m`)도 함께.
+- **카드 일러스트 프롬프트 = 카드마다 손으로 쓴 장면 + 짧은 공통 줄**(n판, 2026-11-20 처음부터 새로 씀): 규칙서 `tools/art/PROMPT_GUIDE.md`. **카드별 장면**은 `tools/art/art_scenes/<깃발>.json`(카드 ID마다 `shot · dir · place · pal · scene · light` — 무엇을 · 어디서 보고 · 어디에 놓고 · 어느 쪽을 향하고 · 빛이 어떤지, 영어), 공통 문구(깃발 한 줄 · 배색 · 등급 한 줄 · 화풍)는 `tools/art/art_style.json`, 유닛 종류의 생김새 참고는 `tools/art/art_kinds.json`. **새 카드를 만들면 `node tools/art/scene_tool.js todo`(자료 · 틀 제안) → 장면을 쓰고 → `node tools/art/scene_tool.js lint <깃발>`(오류 없음) → `node tools/art/build_prompts.js` → `python3 tools/art/artmap.py`.** 지킬 것: 깃발은 종족이 아니라 원소다 — 처음 세운 무리(고블린 · 오크 · 노움 …)의 이름 · 모습은 종류가 그 무리인 유닛 장면에만 쓴다. 마법은 마법 현상이, 아이템은 물건 하나가 주인공이다. 한 깃발 안에서 시점 · 방향 · 자리 · 배색이 몰리지 않게 쓴다(lint가 센다). 금지 줄을 덧붙이지 말고 장면 글을 고쳐 쓴다. 스페셜 · 레어도 같은 방식이다(스페셜 = 깃발마다 하나뿐인 신화적 존재 · 성소의 유물 — 장면에 종족 낱말을 쓰지 않는다). 옛 g4 체계는 `tools/art/legacy_g4/`에 보관만 한다. 받은 그림은 `tools/art/inbox/`에 넣고 `python3 tools/art/artmap.py import`(장부 `art_map.csv` · 보드 `art_board.html`). 스타일 가이드 6.8.
 - 이미지 생성 AI로 그릴 때는 `tools/art/`(사용법 `README.md`, 그림 AI용 지시서 `BRIEF.md`, 프롬프트 `prompts/`, 일괄 생성 `gen.py`). 스타일 가이드 6.7.
 
 ## 떠오르는 효과 글자 (v3.18.1)
@@ -44,7 +44,7 @@
 - 시험 `node tools/orc/test.js`, 승률 `node tools/orc/sim.js 150 [base|elite|덱 json] [js 폴더]`.
 - v3.83 고르바스의 발톱 마법 5장(새 카드 없이 겹치던 · 안 쓰이던 카드를 바꿈, `js/orc.js` 끝 · engine 끝 "v3.82" 절): 궁지의 송곳니(SG1-03 — 효과 · 글은 v3.95 `js/spelltune.js`가 채움, orc.js에는 빈 자리만) · 무한한 격노(MG-04 → v3.87 원한의 일격으로 바뀜. 옛 `g1Cornered` · `g1Rage` · `t.rage`는 2026-11-19 코드에서 지움) · 승전의 함성(PS-G1-1, `g1Victory` → 전투 끝 `g1VictoryEnd`) · 몸통 박치기(SG1-09, `g1Ram`, 2레벨) · 사냥감 몰이(SG1-01, `sortFoe` asc — 홀림 없음).
   - **v3.95 (사용자, `js/spelltune.js` `// v3.95 오크` 절)**: 사냥감 몰이는 남은 체력만 본다(`sortFoe` `by: "hp"`). 궁지의 송곳니(L3)는 아군 **공격**의 합을 몫으로 상대 맨 앞부터 공 → 방 → 체를 깎는다(트롤 숲의 무게 `g2Weight`에 `pool: "a"`). 각성(MC-01) → **웅크린 늑대**(방어 L2 고급, `g1Crouch`: 아군 공격 이번 턴 1로 고정 · 줄어든 합만큼 상대 전체 공격 −). 늑대 기습 · 대지 가르기 고급, 뼈 부수기 L2.
-- **카드 이름 · 효과를 바꾸면 그림 · 소리 프롬프트를 다시 뽑고**(`node tools/art/build_prompts.js` · `node tools/sfx/build_sfx_prompts.js`, 마법 · 아이템 장면은 `tools/art/art_notes.json`), 이미 있는 그림 · 소리 파일이 옛 카드 것이면 **`tools/REMAKE.md`(다시 만들 목록)** 에 프롬프트와 함께 올린다. 만들어 넣은 항목은 거기서 지운다.
+- **카드 이름 · 효과를 바꾸면 그림 · 소리 프롬프트를 다시 뽑고**(그림은 그 카드의 장면을 `tools/art/art_scenes/<깃발>.json`에서 다시 쓰고 `node tools/art/build_prompts.js`, 소리는 `node tools/sfx/build_sfx_prompts.js`), 이미 있는 그림 · 소리 파일이 옛 카드 것이면 **`tools/REMAKE.md`(다시 만들 목록)** 에 프롬프트와 함께 올린다. 만들어 넣은 항목은 거기서 지운다.
 
 ## 푸른비늘 인어 — 치유와 환상 (v3.68)
 - 데이터는 `js/mermaid.js`(orc.js 다음 · decks.js 앞), 규칙은 `js/engine.js` 끝 "v3.68 푸른비늘 인어" 절(`mrArc` · `mrHeal` · `mrCalm`), 카드 글은 `js/cards.js` `ITEM_KW`.
@@ -69,7 +69,7 @@
 ## 폭풍 하이엘프 = 바람 궁수 (v3.70)
 - **엘프(A3)는 마법사가 아니라 활을 쓰는 사수 · 척후다.** 대표 능력은 [방어무시](멀리서 갑옷 틈을 꿰뚫음)와 [원거리](반격을 받지 않음), 마법은 "조준 사격"(공격)과 "치고 빠지기"(공용 · 방어). 나중에 칼을 쓰는 엘프가 나올 수 있다.
 - 데이터는 `js/elf.js`(rares.js 다음 · decks.js 앞, `ELF_GRADES`는 grades.js가 맨 끝에 덮음): 마법 8장을 새 효과로(ID 그대로) · 유닛 · 아이템 이름과 설명(ID · 스탯 · 능력 · 클래스 그대로). 일반 유닛 서사는 `js/lore.js`. **엘프 카드 이름은 names.js가 아니라 elf.js에서 고친다**(elf.js가 나중에 덮음).
-- 클래스는 마도 그대로(바람 마법을 실어 쏘는 활 · 아이템 종류 촉매). 그림 프롬프트는 `tools/art/art_style.json` flags.A3 — 깃발마다 `classes`로 클래스 말을 덮는다(`build_prompts.js`).
+- 클래스는 마도 그대로(바람 마법을 실어 쏘는 활 · 아이템 종류 촉매). 그림은 카드별 장면(`tools/art/art_scenes/A3.json`)에 활을 든 사수 · 척후로 쓴다(지팡이 · 책을 든 마법사로 쓰지 않는다).
 - 새 효과(`js/engine.js` 끝 "v3.70 바람 궁수 엘프" 절): `retreat`(후퇴 — 내 맨 앞 유닛이 맨 뒤로, `ab`면 그 유닛에게 이번 턴 능력) · `volley`(상대 맨 앞 `skip`기를 뺀 나머지 모두에게 피해 x).
 - **벨루미르의 별 콤보 = [활] (v3.93, 사용자 설계)**: [활] = 활을 든 유닛 — 활 아이템(아이콘 bow, 엘프 아이템 9장 중 7장)을 장착했거나, 활을 든 사수 유닛(`ELF_BOW_UNITS`, elf.js — 새 사수 유닛을 만들면 여기에 적는다), 또는 궁사회 무기고로 활을 받은 유닛(`keep.bow`, 쓰러질 때까지). 판정 `a3HasBow`(engine 끝 "v3.93 벨루미르의 별: 활" 절), 전장 칩 🏹(`game.js` `.bd-bow`), 뜻 `SPELL_KW["활"]`.
   궁사회 무기고(SA3-06 공격 L2, 전 급소 저격, `a3Arm`) — 아이템이 없는 아군 전체가 [활] · 이번 턴 공격 +2 · [원거리]. 별빛 연사(NA3-3 공격 L3, 전 꿰뚫는 화살, `a3Volley`) — [활] 아군 수 × 2를 상대 전체에(방어 무시, [증폭] 붙음). 두 장은 기본 · 정예 덱에 넣지 않았다.
@@ -123,7 +123,7 @@
 - **깃발은 한 종족이 아니다.** 깃발의 유닛은 그 깃발의 절대자(거인 · 용 · 신)에게서 힘을 받거나 그 힘이 깨운 모든 존재다 — 옛 종족(고블린 · 드워프 · 노움 · 오크 · 트롤 · 인어 · 마족 · 천족 · 하이엘프)은 깃발을 처음 세운 무리로 깃발마다 4~8장만 남고, 나머지는 짐승 · 정령 · 깨어난 물건 · 절대자의 몸에서 떨어져 나온 것(새벽의 "천족" = 솔란테가 부른 모든 것). 무리와 종류 목록은 `docs/UNIT_RENAME.md`, 원칙은 `docs/WORLD.md` 6장.
 - 깃발 이름은 "절대자의 상징": 도르마크의 심장불 · 소르그림의 방패 · 케라운의 벼락 · 고르바스의 발톱 · 베르단의 뿔 · 마렌시아의 노래 · 모르카스의 그믐 · 솔란테의 새벽 · 벨루미르의 별(`GROUPS[g].name`, 짧게 `short`). 진영은 거골 연합 · 용맥 맹약 · 신탁 성회.
 - 데이터는 `js/kinds.js`(celestial.js 다음 · statguide.js 앞): `KIND`(카드 ID → 종류, 적지 않으면 깃발의 `KIND_DEF`) · `KIND_NAME`(새 이름 — names.js · elf.js · goblin.js · highcards.js · pincards.js · upgrades.js의 이름보다 나중에 덮는다) · `KIND_DESC`(새 서사 — 카드 설명 · lore.js보다 앞섬) · `KIND_CLAN`(묶음 이름, 아직 화면에 안 씀). 카드에는 `c.kin`(작은 마법의 `kind`와 겹치지 않게 kin), 카드 종류 줄 `raceLineHTML`은 `c.kin`을 쓴다. 강화 카드는 원래 카드의 종류, 스페셜은 종류 없음.
-- **새 유닛을 만들면 `KIND`에 종류를 적고**, 같은 깃발에 없는 종류를 먼저 찾는다(거의 카드 하나에 한 종류). 골렘은 방패만, 실제 신 이름은 쓰지 않는다. 옛 종족이 아닌 종류는 그림 말이 `tools/art/art_style.json` `flags.<깃발>.kinds`에 있어야 한다(`build_prompts.js`의 `kindLook`).
+- **새 유닛을 만들면 `KIND`에 종류를 적고**, 같은 깃발에 없는 종류를 먼저 찾는다(거의 카드 하나에 한 종류). 골렘은 방패만, 실제 신 이름은 쓰지 않는다. 새 종류의 생김새는 `tools/art/art_kinds.json`(참고표)에 적고, 그 카드의 그림 장면(`tools/art/art_scenes/<깃발>.json`)에 그 몸을 직접 묘사한다 — 깃발을 처음 세운 종족의 모습을 빌려 쓰지 않는다.
 
 ## 카드 배치 · 핸드 (v3.19)
 - 카드는 판타지 마스터즈식 배치다(왼쪽 위 종류 아이콘 · 왼쪽 세로 레벨 · 그림 아래 글 상자 · 오른쪽 아래 클래스와 공방체). HTML은 `js/view.js` `cardHTML` · `cardFullHTML`, 모양은 `css/fmcard.css`(맨 마지막에 읽음). 카드 모양을 고칠 때 `style.css` · `slim.css`의 옛 카드 규칙보다 이 파일을 먼저 본다.
@@ -162,7 +162,7 @@
 ## 카드 이름과 세계관
 - 세 진영의 힘의 근원(거인·용·신)과 거인 일곱은 `docs/WORLD.md`에 있다. 카드 이름을 짓거나 고칠 때 따른다.
 - **카드 이름·설명 고침은 `js/names.js`에 카드 ID로 적는다**(유닛 이름 · 서사는 v3.79부터 `js/kinds.js`가 마지막에 덮으니 거기서 고친다). `js/data.js`는 균형 도구가 옛 백업에서 다시 써서 직접 고친 이름이 사라진다. (스페셜 · 유니크는 `names.js`보다 늦게 더해져 NAME_FIX가 닿지 않으니 `js/specials.js` · `js/uniques.js`에서 직접 고친다.)
-- **스페셜은 깃발마다 하나뿐인 존재다**(v3.59, `docs/WORLD.md` 5장): 서사는 깃발의 평범한 구성원에서 시작하지 않는다(출신 종족 · 옛 직업을 쓰지 않고 지금 무엇인지만), 작은 카드 종족 줄에 종족 낱말 없음(`raceLineHTML`), 그림은 평범한 그 종족이 아닌 거대한 존재(`tools/art/art_style.json` special · `art_notes.json`). 스페셜 카드의 그림 자리 꾸밈은 `specialFxHTML` · `css/fmcard.css` 끝 "스페셜 광휘".
+- **스페셜은 깃발마다 하나뿐인 존재다**(v3.59, `docs/WORLD.md` 5장): 서사는 깃발의 평범한 구성원에서 시작하지 않는다(출신 종족 · 옛 직업을 쓰지 않고 지금 무엇인지만), 작은 카드 종족 줄에 종족 낱말 없음(`raceLineHTML`), 그림은 평범한 그 종족이 아닌 거대한 존재(장면에 종족 낱말을 쓰지 않는다 — `tools/art/art_scenes/<깃발>.json`). 스페셜 카드의 그림 자리 꾸밈은 `specialFxHTML` · `css/fmcard.css` 끝 "스페셜 광휘".
 - **카드를 게임에서 뺄 때는 `js/retired.js`에 카드 ID로 적는다**(= 레거시. v3.51부터 레거시는 어떤 덱에도 못 쓴다 — `deckable`이 막고, 가진 모험가는 `Store.refundGoneCards`로 상점 값을 돌려받고 덱 자리는 같은 깃발 · 같은 종류 카드로 채워짐. 기본 · 정예 덱에 레거시가 남지 않게 함께 바꾼다)(v3.20.7, 같은 까닭으로 `data.js`에서 지우지 않음). 모험가의 보유 · 덱에서도 빼야 하면(v3.29.1 8레벨 35장처럼) 이유를 `8레벨은 스페셜만…`처럼 `GONE_CARDS`가 고르는 문구로 적거나 `GONE_CARDS`에 넣는다 — `Store.refundGoneCards`가 상점 값을 돌려주고 덱 자리를 `GONE_SWAP`으로 채운다. **8레벨은 스페셜만**(v3.29.1). 주 스탯 10 초과는 괜찮다(상한 권장 공 13 · 체 14, `docs/BALANCE_v4_draft.md` 2장). 새 일반 카드는 같은 깃발 · 같은 레벨 카드와 이름 · 역할이 겹치지 않는지, 깃발의 강점 · 원소(`docs/WORLD.md` 6장)에 맞는지 먼저 본다. 뺀 까닭은 `docs/RETIRED_v3.20.7.md`.
 - 마법 카드의 핸드용 짧은 문구는 `js/briefs.js`(`SPELL_BRIEF`)에 카드 ID로 적는다. 마법 글(`text`)을 고치거나 새 마법을 만들면 짧은 문구도 함께 쓴다(적는 법은 파일 맨 위).
 - 이름 짓기 원칙(새 고유명사는 천천히, 마법 이름 6글자 이하, 익숙한 마법은 그대로)은 `docs/WORLD.md` 7장.
@@ -206,7 +206,7 @@
 - 덱 코드는 `js/deckcode.js`(카드 ID를 그대로 써서 카드가 더해져도 예전 코드가 읽힘).
 - 친구 초대 체험 덱(v3.48): 규칙은 `js/quests.js` 끝 절(`TRIAL.days` · `Store.inviteApply`는 서버 등록만 부름), 화면은 `js/deckcode.js`(초대 링크 · 대기실 띠). 내 덱을 쓰는 새 대전 방식을 만들면 체험 덱을 받을지 정하고, 받으면 `matchStart`에 `trial`을 넘기고 서버 덱 검사(`rewards.js` `_checkDecks` · `_pairEnd`)를 함께 본다.
 - **폰 가볍게**: CSS를 고친 뒤 `node tools/mobile_lite.js`로 `css/mobile-lite.css`를 다시 만든다(손으로 고치지 않음). 폰에서 끝없이 도는 효과는 transform · opacity만, 큰 그림자 · 흐림 · 캔버스 효과는 `html.mobile`에서 끈다.
-- 강화 카드 그림은 원래 카드 그림을 먼저 받고 그 그림을 붙여 그린다(프롬프트의 "Continuity" 줄).
+- 강화 카드 그림은 원래 카드 그림을 먼저 받고 그 그림을 붙여 그린다(프롬프트의 "Continuity" 줄). 강화 카드의 장면은 원래 카드와 같은 개체를 같은 생김새 낱말로, 틀(시점 · 방향)은 다르게 쓴다.
 
 ## 서버 (v3.22)
 - **v3.45 가볍게**: 3D 세 존재(`js/titans.js`)는 PC · 폰 모두 끄고(index.html에서 뺌), 메뉴 화면은 그림 한 장(`#menu-art`, `js/screens.js` `MENU_ART` — 지금은 타이틀 그림, 프롬프트 `tools/art/prompts/scenes.md`). 폰 · 앱(`html.mobile`)은 별 배경 절반 · 1초 30장(`Bg.lite`), 흐림 유리 빼기(`css/mobile.css` 끝). 새로 1초에 여러 번 그리는 효과를 넣으면 `html.mobile`에서 줄이거나 멈추는 길을 함께 둔다. 날씨(`js/weather.js`)는 들어냈다.

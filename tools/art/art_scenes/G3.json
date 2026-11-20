@@ -1,0 +1,378 @@
+{
+  "_about": "G3 마렌시아의 노래 — 카드별 장면 지시. 쓰는 법은 tools/art/PROMPT_GUIDE.md, 검사는 node tools/art/scene_tool.js lint G3.",
+  "CS-G3": {
+    "shot": "after", "dir": "N", "place": "X", "pal": "glasscalm",
+    "scene": "What is left a moment after the song passed: a wide stone court awash in a finger of clear water, and across it the wreck of a great spell-circle that had been drawn in glowing amber lines — its arcs now running like wet chalk, bleeding into milky ribbons that drain between the flagstones. One last curved segment still glows, already softening at the edges. Flecks of gold leaf and a loosened wax seal drift on the runoff toward the lower edge.",
+    "light": "Pale, windless morning after rain; flat grey light mirrored in the standing water, with the dying amber of the last line as the only warmth."
+  },
+  "EP-G3-1": {
+    "shot": "far", "dir": "R", "place": "C", "pal": "stormsea",
+    "scene": "Far out on a storm-dark sea the water has done something strange: around one small glowing shape the swell has stood up into a smooth, steep hill of water, rain sliding off it. Inside, drifting toward the right, hangs a pearl-luminous jellyfish as big as a temple bell, its dome clenched tight and its long tentacles trailing strings of light. A volley of arrows meets the raised water and skids away along its flank as thin silver streaks.",
+    "light": "Slate squall light and slanting rain; the jellyfish's own glow lights the lifted water from within, a soft green lantern in the gloom."
+  },
+  "EP-G3-2": {
+    "shot": "top", "dir": "R", "place": "R", "pal": "glasscalm",
+    "scene": "Straight down from high above onto a windless, fog-pale sea. In the right third a naga floats upright at the centre of its own coiled serpent tail, a spiral of teal scales and fin crests, one arm stretched out to the right, open-handed. Across the rest of the frame a single white wake draws a huge loop over the mirror water — the track of a long barbed harpoon now riding its private current home, shaft-first, toward the waiting palm. The fog itself has peeled away along the loop.",
+    "light": "Shadowless white fog-light from all around; the loop of wake and the harpoon's wet barbs carry the only bright glints."
+  },
+  "EP-G3-3": {
+    "shot": "front", "dir": "F", "place": "B", "pal": "coraldawn",
+    "scene": "Dead-centre and facing us, a towering merfolk high priestess rises waist-deep from the sea in the lower part of the frame, blue scales climbing her arms, long fins hanging from her wrists like vestments, both hands lifted. Around her, in perfect symmetry, the dawn sea has stood up in a ring of water walls tall as cliffs; inside the translucent wall behind her a vast finned coil slides past — a sea dragon answering. Pilgrims' lanterns line a far causeway like sparks, and a thrown sword passing through her shoulder leaves only a splash of clear water.",
+    "light": "First rose-pink sunlight comes from directly behind her through the standing water, turning the walls luminous and rimming her fins."
+  },
+  "G3-01": {
+    "shot": "close", "dir": "L", "place": "R", "pal": "lagoon",
+    "scene": "Tight close-up at the waterline: a young merfolk novice, chin-deep in the lagoon on the right of the frame, sings her first note with eyes wide and anxious, glancing left. Pale blue scales freckle her cheekbones and a sprig of red seaweed is tucked behind one ear-fin. The surface in front of her lips carries her voice leftward as a row of fine standing ripples — and they wobble, uneven and trembling, exactly as her note does.",
+    "light": "High clear sun through shallow turquoise water throws dancing light up under her chin; a soft rim from the bright sand behind."
+  },
+  "G3-02": {
+    "shot": "under", "dir": "D", "place": "C", "pal": "lagoon",
+    "scene": "From beneath the surface of a spring basin, looking straight up through clear water: above the shifting ceiling a cupped scaled hand wavers, broken into shards of colour, and from its fingertips a thumb-sized figure of living water has just stepped off. She drops headfirst toward us through the surface — a tiny translucent girl, hair already dissolving into a comet of bubbles, arms folded like a diver's — while the mossy stone walls of the basin frame the edges of the view.",
+    "light": "Midday sun straight overhead pours through the surface in shifting bands; the little figure catches it like a lens."
+  },
+  "G3-03": {
+    "shot": "macro", "dir": "R", "place": "X", "pal": "coraldawn",
+    "scene": "Extreme close-up filling the frame: the lower half of a merfolk boy's face breaking the surface, turned three-quarters to the right, grinning around the prize clamped in his teeth — a bent silver spoon, tarnished and dripping, bright as a fish. Water streams from his chin; a sprinkle of blue scales crosses his cheek and one small ear-fin is nicked. Far behind him, soft and out of focus, lie the reef gap he slipped through and the open sea beyond.",
+    "light": "Low first sunlight from the right flashes on the wet spoon and beads of water; the sea behind is still dawn-pink and dim."
+  },
+  "G3-04": {
+    "shot": "top", "dir": "N", "place": "C", "pal": "lagoon",
+    "scene": "Directly overhead, as a gull would see it: low tide has drained the mouth of a lagoon to furrowed wet sand, and in the middle sits one giant ridged clam, stranded and unbothered, its shell open a hand's width on a pearl's steady glow. Tide channels fork around it and rejoin; the dotted tracks of wading birds and a line of small crabs all detour in neat curves around the spot. A last shallow pool clings to its base.",
+    "light": "Bright noon sun from above flattens the sand to pale cream and turquoise runnels; the pearl glints from inside the shadowed gape."
+  },
+  "G3-06": {
+    "shot": "through", "dir": "F", "place": "L", "pal": "coraldawn",
+    "scene": "Between two barnacled jetty pilings that stand dark in the near foreground, a pony-sized seahorse comes over a small wave straight toward us, set in the left of the gap. Its ridged body is beaded with spray, translucent fin crest raised, and its curled tail grips a sealed courier tube of bamboo capped with red wax. Behind it the sea-lane runs out past a line of marker floats to a thin far coast.",
+    "light": "The rose dawn sun sits low behind it on the sea-lane, haloing the fin crest and leaving the pilings as cool dark frames."
+  },
+  "G3-07": {
+    "shot": "over", "dir": "L", "place": "R", "pal": "moontide",
+    "scene": "Over the wet shoulder of a sea otter floating on its back at the right edge: whiskers, one raised paw, and a chipped coral-tipped harpoon drawn back to throw toward the left. Out across the moonlit lagoon stands a practice target, a hoop of woven reed on a pole, with three scavenged harpoons already bunched in its exact centre. Several others, longer and finer, float uselessly in the water beneath it.",
+    "light": "A high bright moon silvers the lagoon and the otter's slick fur; thin mist softens the far shore."
+  },
+  "G3-08": {
+    "shot": "through", "dir": "L", "place": "R", "pal": "moontide",
+    "scene": "Through a ragged hole in a fishing net hung to dry on mangrove roots, we glimpse the lagoon beyond: on the right a faint singing figure made only of upright rings of water and light glides leftward, each ring trailing a paler copy of itself, and a paler one after that. Where its soft glow falls through the mesh, the torn strands around the hole are quietly knitting themselves closed, knot by knot.",
+    "light": "Moonlight and mist over still water; the figure's own cool glow rims the wet net strands from behind."
+  },
+  "G3-09": {
+    "shot": "close", "dir": "U", "place": "T", "pal": "moontide",
+    "scene": "Close on the head and shoulders of a naga sentry in the upper part of the frame, coiled beneath a bridge of the lagoon city: fin-crested brow, a collar of scallop plates, cheek resting against the shaft of a spear so cold that beads of water run down it and drip from its point. Its eyes are turned upward to the slats of the bridge, where the soles of late walkers pass. Below, its tail winds twice round a weedy stone pier.",
+    "light": "Thin blades of moonlight fall between the bridge planks across its face and the wet spear; everything else is blue shadow."
+  },
+  "G3-10": {
+    "shot": "ground", "dir": "R", "place": "X", "pal": "coraldawn",
+    "scene": "Camera down on a wet tidal rock among barnacles and limpets, at dawn. Stretched across the frame, a spotted grey sealskin is snagged fast on the rough crust, and at its right end a small dark-eyed selkie child has got head and one arm free and is hauling with all her weight, cheeks puffed. Past her, soft in the distance, two shrine singers wade by with their faces turned carefully toward the open sea.",
+    "light": "Rosy first light skims in low from the sea, shining on wet fur and rock pools and leaving long blue shadows."
+  },
+  "G3-11": {
+    "shot": "over", "dir": "L", "place": "B", "pal": "stormsea",
+    "scene": "An octopus with wise golden eyes sits in a harbour rock pool at the bottom of the frame, seen over the hunched shoulders and straw hats of three fishermen, dark and close in the foreground. It has spread all eight arms at once — one on each tide-stained stone, one on a mooring ring, one on a floating cork — and from under its mantle a cloud of black ink is unrolling to the left. Behind the men, every boat is still hauled up on the shingle.",
+    "light": "Heavy slate morning before a blow; dull light from the open sea glints on wet skin and the spreading ink."
+  },
+  "G3-12": {
+    "shot": "profile", "dir": "R", "place": "L", "pal": "lagoon",
+    "scene": "Strict side view underwater, flat as a painted frieze: a sea turtle swims rightward from the left of the frame, flippers mid-stroke, carrying a small living reef on its domed shell — pink and ochre coral, a waving anemone, a few striped fish keeping station above it. Near the crest one old break shows, a pale wedge where newer coral has grown back thicker and knobbier than all the rest. A level floor of pale sand runs along the bottom edge.",
+    "light": "Clear midday sun from above plays over shell and sand in bright nets; the water behind fades to deep blue."
+  },
+  "G3-14": {
+    "shot": "reflect", "dir": "R", "place": "L", "pal": "moontide",
+    "scene": "A film of ebbing water on a dark stone slipway, seen from close above, holds the whole story upside down. Cropped at the knees along the top edge stand the grey legs of a shark-headed fighter; below them, in the left of the mirror, hangs the full reflection — broad shoulders, tall dorsal fin, a whalebone blade edged with teeth already swinging back toward the right. Three sets of wet boot prints hurry into the frame from that side, straight into the returning shallows.",
+    "light": "The moon low behind the figure turns the wet stone to silver and draws the reflection in hard dark shapes."
+  },
+  "G3-15": {
+    "shot": "ground", "dir": "R", "place": "L", "pal": "glasscalm",
+    "scene": "Down among the offering vessels on the wet flagstones of a shrine. One thin stream of water is pouring itself from a smooth round gourd bowl into a dented bronze ewer with a jagged, broken lip — and it is two creatures at once. In the bowl its tail end still curls in a soft laughing loop; rising from the ewer, on the left, its upper half has become a furious little water-woman facing right, fists clenched, hair bristling in sharp spikes of spray.",
+    "light": "Soft grey daylight from an open doorway behind glows through the water figure and gleams on wet stone."
+  },
+  "G3-16": {
+    "shot": "tilt", "dir": "L", "place": "R", "pal": "trench",
+    "scene": "The whole frame tips with the force of a deep current. On the right a big armour-ridged seahorse leans hard into it, facing left, tail wound three times around a branch of black coral and stretched taut as a mooring line; grit, torn weed and a tumbling clay jar streak past its snout. Its fin crest is flattened, its eye steady. Behind its back, a soft pale glow and a few rising bubbles mark someone still singing.",
+    "light": "Deep water, almost black; a cold blue glow from behind outlines its plates, and specks of drifting plankton spark in the current."
+  },
+  "G3-17": {
+    "shot": "far", "dir": "R", "place": "C", "pal": "moontide",
+    "scene": "Far across a night lagoon a plump grey dugong, small in the middle of the frame, swims to the right with a bandaged figure lying slack along its back, whiskered snout just clear of the surface. The water is so still that its wake reads like a drawing: one slow, perfect circle traced around the lagoon, almost closed. Mangrove shadows and the lamps of a distant stilt village rim the horizon.",
+    "light": "A low moon lays one silver path across the lagoon; the circular wake catches it as a thin bright line."
+  },
+  "G3-18": {
+    "shot": "ground", "dir": "L", "place": "R", "pal": "coraldawn",
+    "scene": "A man-high figure of branching pink and orange coral, polyps glowing, stands in the right third of a reef flat, seen from a camera half-sunk at the waterline with foam and grit against the lens. It faces left with one antlered arm thrown upward. Just behind it a pillar of seawater has risen in the very same pose — same lean, same height, same crooked reach — like a shadow copying its owner. A small fish darts out of the lower corner.",
+    "light": "Warm early sun from the left lights the coral and shines through the standing water, which glows green-gold at its edges."
+  },
+  "G3-19": {
+    "shot": "back", "dir": "B", "place": "B", "pal": "stormsea",
+    "scene": "From close behind her: a merfolk choir-mistress stands waist-deep at the bottom of the frame, back to us, long dorsal fins and a mantle of knotted cord and sea-glass, one hand lifted like a conductor's. Before her the whole storm-roughened lagoon has obeyed the first note — every whitecap, every ripple, every reed and strand of floating weed lies combed flat in one direction, away from her, like fur stroked by a hand.",
+    "light": "Slate sky with one bright break ahead of her; cold light edges her fins and every combed wave crest."
+  },
+  "G3-24": {
+    "shot": "high", "dir": "R", "place": "C", "pal": "trench",
+    "scene": "Looking steeply down into a black tarn: at the centre a water horse stands chest-deep and tosses its long seaweed mane to the right, and the pool has begun to turn with it. Pale foam winds outward from its shoulders in a tightening spiral that already fills the frame; a lost riding boot and a single oar ride the outer coil. Its wet back is bare and broad, an easy seat, one ear turned up toward us.",
+    "light": "Night; a cold glow from under the water lights the spiral from below, leaving the horse a dark shape with a wet sheen."
+  },
+  "G3-27": {
+    "shot": "eye", "dir": "L", "place": "R", "pal": "trench",
+    "scene": "At eye level on the seabed, where a shelf of rock ends at a black drop. On the right crouches a horseshoe crab as large as a hay wagon, domed olive carapace rimmed with spines, long spike tail raised, facing left toward the abyss it guards. In the layered cliff behind it, picked out by the dim light, are the stone imprints of others exactly like it — the same dome, the same tail — pressed into rock a hundred strata deep.",
+    "light": "Dim blue light sifts down from far above; a second, colder glow rises from the drop and rims each spine."
+  },
+  "G3-28": {
+    "shot": "far", "dir": "L", "place": "R", "pal": "glasscalm",
+    "scene": "A long grey shore seen from far off, sea and sky a single pale sheet. Small in the right of the frame a tall hooded shape of mist and slow water drifts leftward along the tideline, its edges curving like a pair of cradling arms. Behind it, one after another, a row of little reed rafts, each carrying a white-wrapped bundle and a candle, slides off the sand unpushed and follows it quietly out to sea.",
+    "light": "Windless fog at dusk; the candles and the shape's faint inner glow are the only warm and bright points on the still water."
+  },
+  "G3-29": {
+    "shot": "eye", "dir": "F", "place": "C", "pal": "lagoon",
+    "scene": "On a jetty at eye level, beside three small onlookers seen from behind — a child, an old woman, a fisherman with a net on his shoulder — we face a figure of clear flowing water risen from the lagoon, taller than the temple roofs. Its outline is three at once, sliding over one another like reflections: a laughing girl with loose streaming hair, a crowned queen in armour of spray, a bent elder leaning on a staff of falling water, all sharing one column below the waist.",
+    "light": "High bright sun behind the onlookers shines through the triple figure, scattering nets of light across the jetty and the shallows."
+  },
+  "G3-32": {
+    "shot": "profile", "dir": "R", "place": "L", "pal": "glasscalm",
+    "scene": "In strict side view, flat as a carved relief, the head and shoulders of a huge merfolk king break the surface at the left, facing right: a crown of black urchin spines, a beard of pale barbels, deep-water scales shedding sheets of water. Before him the whole sea has stopped to hold its breath — flat as polished slate to the horizon, a wave halted mid-curl behind his back, three flying fish and their droplets hanging fixed in the air.",
+    "light": "Pale fogged daylight, even and still; a thin cold gleam along his crown and wet shoulders from the bright horizon ahead."
+  },
+  "G3-33": {
+    "shot": "cut", "dir": "U", "place": "B", "pal": "trench",
+    "scene": "The sea cut open in cross-section, top to bottom. Along the upper edge runs the thin bright line of the surface with a row of tiny floating lamps where the singers are; beneath it, the long dark water column. From the black trench at the bottom rises the colossal dark-red mantle of a kraken, one huge eye open, barbed tentacles climbing through layer after layer of fading light — the longest tip coiling a single arm's reach below the lamps.",
+    "light": "Light dies downward from pale blue to black; a faint pulse of cold glow from the trench floor outlines the mantle from beneath."
+  },
+  "G3-34": {
+    "shot": "profile", "dir": "L", "place": "R", "pal": "stormsea",
+    "scene": "Side-on like a stone frieze: on a storm-beaten reef a king crab the size of a gatehouse stands in the right of the frame facing left, one enormous claw raised straight up in the salute of an oath. It has held that salute for ages — barnacles sheathe its legs, weed has grown over its feet, and in the crook of the lifted claw a pair of seabirds has built a nest. Breakers burst against its spined red carapace; a snapped ship's mast leans on the rocks below.",
+    "light": "Storm light under a torn sky; white spray flares behind the claw, and a shaft of pale sun finds the nest."
+  },
+  "G3-36": {
+    "shot": "silhouette", "dir": "L", "place": "X", "pal": "moontide",
+    "scene": "Against an enormous low moon stands the high tide itself: a towering swell of water risen like a striding figure, leaning left, so tall its foam crown brushes the top of the frame. It is all dark outline, with moonlight glowing green through its thin edges. At its feet lies a land cracked by drought, and a line of tiny people with jars and yokes files up to the one brimming spring from which the giant rises.",
+    "light": "The full moon directly behind makes the figure a translucent silhouette and lays its long shadow across the pale cracked earth."
+  },
+  "G3-41": {
+    "shot": "back", "dir": "B", "place": "B", "pal": "lagoon",
+    "scene": "Riding the same wave, just behind its tail: the glossy black back and tall notched dorsal fin of an orca fill the lower part of the frame as a surging current carries it up a bright beach, away from us, at full ramming speed. Ahead, a barricade of wicker screens and stakes is already bursting apart to either side. Beyond it the dry sand climbs wide and empty, a very long way for an orca.",
+    "light": "Noon sun on white surf and turquoise water; spray around the fin catches a second, cooler light from the wave face."
+  },
+  "G3-42": {
+    "shot": "echo", "dir": "R", "place": "X", "pal": "coraldawn",
+    "scene": "One leap shown four times across the frame, left to right, like overlapping exposures: a long ribbon-finned sea serpent arcs out of the crest of a tidal wave, higher in each image, blue-green coils looping over the foam, until in the last it dives toward the right-hand shore. Under the earliest, faintest image the wave has already passed: only wet sand shining and a scatter of round shields lying face-up remain.",
+    "light": "Dawn sun low behind the wave shines pink and green through its lip and through the serpent's translucent fins."
+  },
+  "IG3-1": {
+    "shot": "making", "dir": "N", "place": "L", "pal": "glasscalm",
+    "scene": "Half-made on a salt-bleached driftwood plank, set in the left of the frame: one small ribbed cockle shell, cream and rose, held in a notch, with a neat hole drilled halfway through its hinge. A bone awl and bow-drill lie where they were put down, a pinch of white shell dust beside them, and a cord of braided seagrass waits with its end already waxed for threading. Past the plank, the first thin wave of the tide slides up the sand.",
+    "light": "Soft fogged daylight from the sea; a mild sheen on the shell's ribs and the wet sand beyond."
+  },
+  "IG3-2": {
+    "shot": "hung", "dir": "N", "place": "T", "pal": "moontide",
+    "scene": "A small stoppered flask of thick sea-green glass hangs by a knotted cord from a mangrove root in the upper part of the frame, turning slowly over a spring. Lit from behind, the water inside glows clearer and brighter than the moon that lights it, and a blue wax seal on the stopper carries the print of a thumb. Below, out of focus, its glow lies as a pale disc on the black surface of the spring.",
+    "light": "The moon directly behind the flask shines through the glass; mist drifts between the roots."
+  },
+  "IG3-3": {
+    "shot": "motion", "dir": "D", "place": "X", "pal": "lagoon",
+    "scene": "Caught in mid-air above bright shallows: a dagger carved from one piece of red coral, its blade faintly branched like the reef it came from, grip bound in fish-skin. It was thrown from the upper left, and the thread of spray it trails shows the flight — a long curve that bends clean around a weedy mooring post, like a current rounding a rock, and now carries the dagger down toward the lower right.",
+    "light": "Noon sun from above; the red coral blazes against turquoise water, every droplet of the curved trail a spark."
+  },
+  "IG3-4": {
+    "shot": "reflect", "dir": "N", "place": "R", "pal": "stormsea",
+    "scene": "A holy badge of dark silver, worked as a wreath of cresting waves around one large deep-sea pearl, lies on a fold of wet oilcloth in the right of the frame. The pearl holds the whole world curved in its surface: a grey horizon, storm clouds, a white line of surf. From it rises a thin curl of sea-mist, like breath on cold air, and the fringe of the cloth beside it stirs.",
+    "light": "Stormy daylight from a window off-frame gleams on the pearl; a second, cooler glint runs along the silver wave crests."
+  },
+  "IG3-5": {
+    "shot": "bench", "dir": "N", "place": "C", "pal": "coraldawn",
+    "scene": "On a glassmaker's workbench among tongs, shears and a blowpipe sits a clear orb the size of an apple on a cork collar, and at its very centre floats one perfect drop of water. The bench around it is dry, except for this: thin dark wet lines have crept outward from under the orb along every crack and joint in the old planks, like roots, and one has reached the edge and hangs there as a bead.",
+    "light": "First rosy light through a workshop window on the left shines through the orb and throws a small bright lens-spot on the wood."
+  },
+  "IG3-6": {
+    "shot": "hand", "dir": "N", "place": "R", "pal": "moontide",
+    "scene": "One wet hand reaches in from the right edge, cropped at the wrist: webbed fingers, small pale-blue scales along the knuckles, and a single gap in the neat row on the wrist where one has been taken. Pinched between finger and thumb, held out toward us, is that scale — large as a coin, thin as a petal, flashing violet and green. A bead of water runs down it and hangs at the tip.",
+    "light": "Moonlight from the upper left makes the scale flare like a tiny mirror; a faint silver rim follows the wet fingers."
+  },
+  "IG3-8": {
+    "shot": "used", "dir": "N", "place": "C", "pal": "glasscalm",
+    "scene": "A bronze trident, green with age, stands planted upright in the tidal shallows at the centre of the frame, and the sea has taken sides around it. To the left of the shaft the water is heaped a full hand higher, smooth and brimming; to the right it has drawn back to bare weed-covered rock where starfish and a flapping sole lie stranded. The step between the two levels runs straight out from the tines toward the horizon.",
+    "light": "Windless, soft-grey light; the raised water on one side reflects the sky like a mirror, the wet sand on the other only dully."
+  },
+  "MC-03": {
+    "shot": "top", "dir": "L", "place": "X", "pal": "lagoon",
+    "scene": "Seen from straight above, a braided tidal channel on pale sand has just changed its mind: the bright main current swings into a new loop, drawn in streaks of foam. Caught in it, small crewless boats are being re-sorted like beads on a string — a broad, heavy barge shoved up to the head of the line on the left, a slim racing skiff dragged stern-first to the rear, oars trailing.",
+    "light": "High sun from above; turquoise water over white sand, each streak of the new current sparkling."
+  },
+  "MC-04": {
+    "shot": "before", "dir": "R", "place": "B", "pal": "moontide",
+    "scene": "The held breath before the water arrives. At the foot of worn shrine steps, low in the frame, the lagoon has swelled up in one smooth, unbroken bulge that stands a hand higher than the stone it rests against — trembling, silent, a few floating prayer lamps riding its curve. On the next step up, at the right, waits a row of cracked boots and dented greaves, cropped at the knee, and a single finger of water is already reaching for the nearest.",
+    "light": "Moonlight from behind the lagoon shines through the swollen water's edge; the small lamps add warm points along it."
+  },
+  "MG-03": {
+    "shot": "object", "dir": "N", "place": "R", "pal": "coraldawn",
+    "scene": "A dipper made from half a gourd rests on the mossy rim of a spring, set in the right of the frame, still rocking from the hand that put it down. One mouthful is gone from it; the water left inside glows faintly, and a last bright drop hangs from its lip. Beside the spring the grass holds the long flattened shape of someone who lay there exhausted — and from it, fresh wet footprints stride away uphill.",
+    "light": "Early sun slants in from the left through the trees, warm on the gourd and the dew, the spring itself clear blue."
+  },
+  "MG-11": {
+    "shot": "reflect", "dir": "N", "place": "C", "pal": "moontide",
+    "scene": "A sword stands planted point-down in the shallows of a still pool, and a round shield leans against it. The picture is mostly their reflection, filling the lower two-thirds of the frame in the mirror-flat water — and the reflection has it backwards: where the sword stands, the water shows a broad shield; where the shield leans, a long bright blade. A single ripple is just beginning to cross the image from one side.",
+    "light": "A clear moon overhead, silver on steel and water; the reflected blade gleams brighter than the real one."
+  },
+  "MG-12": {
+    "shot": "swarm", "dir": "R", "place": "X", "pal": "lagoon",
+    "scene": "A flung arc of water droplets fills the whole frame, hundreds of them frozen in the air, sweeping from a wet leafy sprig at the lower left toward the right. Each drop is a tiny lens holding the bright sky. Where the first of them land, on a string of polished brass luck-charms tied along a tent rope, the shine is sliding off the metal like paint in rain, leaving dull grey behind.",
+    "light": "Strong high sun from behind the spray lights every drop to a bright bead; the charms dim as the water touches them."
+  },
+  "NG3-1": {
+    "shot": "pov", "dir": "F", "place": "T", "pal": "stormsea",
+    "scene": "Standing on the shingle with the wave already above us: a steep green wall of sea fills the frame, its lip curling over at the very top edge, about to come down. Through its translucent face show churned sand, torn kelp and a tumbling fence post. Along the crest, small against the sky, a few dark finned singers ride upright as if on a chariot, mouths open.",
+    "light": "Storm light from behind the wave glows through its thin upper lip; the base is slate-dark, streaked with white spray."
+  },
+  "NG3-2": {
+    "shot": "symbol", "dir": "L", "place": "L", "pal": "trench",
+    "scene": "A string of glass net-floats tethered in a narrow rock channel serves as the whole lesson. The current that held them streaming one way has just turned and runs backward, glowing with disturbed plankton, and the line has swung end for end: the smallest float, which trailed safely last, now leads on the left, nose-on to a curl of white water about to break over it, while the big lead float bobs sheltered at the rear.",
+    "light": "Night in the channel; cold blue plankton-light in the reversed current is the single light, glinting inside each glass ball."
+  },
+  "PI-G3": {
+    "shot": "nature", "dir": "N", "place": "L", "pal": "moontide",
+    "scene": "A single scale as broad as a cartwheel, clear and faintly blue like thick ice, stands on edge in knee-deep sea at the left of the frame. The water has arranged itself around it: the tide parts and flows past on both sides, leaving a pool of perfect calm around it. Moonlight striking the scale leaps off as one long beam across the frame, and in that beam a whole shoal of silver fish hangs stopped in mid-turn, every eye fixed on the light.",
+    "light": "A high moon behind drifting cloud; the reflected beam is brighter than its source, with faint mist lifting where it touches the water."
+  },
+  "PN-G3-C1": {
+    "shot": "low", "dir": "F", "place": "L", "pal": "glasscalm",
+    "scene": "Low over a windless lagoon we look up at an upright oval of perfectly still water, taller than a man, standing on the surface in the left of the frame and facing us like a mirror on an invisible stand, its rim trembling with a few slow droplets. On a mooring post before it hangs a bronze helmet, cracked and badly dented. Inside the oval the same helmet hangs whole and polished, bright as the day it was made.",
+    "light": "Even soft-grey fog light; the mirror holds a cleaner, brighter version of it than the world around."
+  },
+  "PN-G3-C3": {
+    "shot": "top", "dir": "R", "place": "L", "pal": "coraldawn",
+    "scene": "High overhead, the open sea is a sheet of hammered pink and blue, and in the left of it lies the long barnacled back of a great whale, heading right, just beneath the surface. Its song shows on the water: broad smooth arcs spreading ahead of it across the whole frame, calming the chop wherever they pass. Far below the camera a long skein of migrating seabirds crosses the arcs, heading for another season.",
+    "light": "Low dawn sun from the right draws long glitter along each arc and a thin bright edge on the whale's back."
+  },
+  "PN-G3-E": {
+    "shot": "through", "dir": "L", "place": "R", "pal": "stormsea",
+    "scene": "Through a fence of levelled spear shafts and driving rain in the foreground, we glimpse it coming: a naga knight rearing on its serpent tail in the right of the frame, advancing left, armoured in the shed scales of some far greater serpent — dark overlapping plates each as broad as a door. Spear points skid off them in spurts of spray and splinter. Behind it the sea heaves under a turning waterspout, and the rain bends toward the armour.",
+    "light": "Bruised storm light; a pale shaft through the cloud catches the wet scale-plates, and white spray rims the knight from behind."
+  },
+  "PN-G3-U2": {
+    "shot": "macro", "dir": "L", "place": "C", "pal": "trench",
+    "scene": "In black water, magnified until it fills our sight: a glowing lure, a soft bulb on a stalk, hangs in the centre of the frame, and inside it the light swells and fades like a heartbeat, a faint branching of veins showing through. Just behind, half-emerged from the dark and angled left, are the things it belongs to — one huge pale eye and a few curved needle teeth. Deep in the background a seam in the trench wall glows and dims in the very same rhythm.",
+    "light": "The lure is the single near light, warm white against navy black; the far seam answers with a colder blue pulse."
+  },
+  "PS-G3-1": {
+    "shot": "macro", "dir": "D", "place": "C", "pal": "stormsea",
+    "scene": "One heavy drop of water hangs from the lowered tip of a halberd, magnified until it fills the centre of the frame. Inside the drop the world stands on its head, tiny and razor-sharp: a grey hillside, a row of battle standards and tent poles, all hanging head-down with the sky lying beneath them. Behind the drop the real field is only a soft blur of slate and green, and a second drop is gathering on the edge above.",
+    "light": "Overcast drizzle light from above; the drop gathers it into one bright inverted picture against the dull steel."
+  },
+  "PS-G3-2": {
+    "shot": "origin", "dir": "B", "place": "R", "pal": "glasscalm",
+    "scene": "At the high-water mark, looking out along the line the sea has taken: a rim of weed and driftwood at our feet, then wet sand ribbed and shining, scored with long keel-marks. On the right a war-boat lies stranded on its side, oars splayed, its standard pole fallen flat. Far ahead the tide is still running away from us in thin glistening sheets toward a horizon that keeps retreating.",
+    "light": "Pale, even evening light under high cloud; the wet flats mirror the sky so that boat and oars seem to float."
+  },
+  "RG3-1": {
+    "shot": "cut", "dir": "U", "place": "B", "pal": "trench",
+    "scene": "The sea in cross-section at the instant of one great heartbeat. Deep in the seabed at the bottom of the frame a vast dark seam like an artery has flashed bright, and from it a dome of pressure is rising through the black water, bending every layer it crosses. At the top the surface is already heaved into a long smooth hump, lifting a toy-small fishing pier and its lighthouse rock toward the sky.",
+    "light": "A pulse of cold blue from the seam below is the single light, fading upward through navy water to a dim grey surface."
+  },
+  "SG3-02": {
+    "shot": "far", "dir": "N", "place": "R", "pal": "lagoon",
+    "scene": "Across a dazzling sheet of shallow water, far off, a great stone watchtower in the right of the frame is misbehaving: caught in a band of shimmering water-light, it bends and sways in a slow S like a reed in wind, its top hanging upside down in the glare. In the near left corner, sharp and dark, a real marsh reed stands rigid as a pillar, perfectly straight, as though the two had exchanged natures.",
+    "light": "Blinding midday sun on the shallows; the wavering mirage band is the brightest thing, with a thin bright edge along the reed."
+  },
+  "SG3-03": {
+    "shot": "transform", "dir": "R", "place": "C", "pal": "trench",
+    "scene": "A sheet of water thin as silk hangs upright in the dark, drawn up from the sea like a curtain, and a sword is caught halfway through it, thrusting from left to right. The half still on the near side is hard, bright, sharp steel. The half that has passed through emerges soft — the blade slumping into a rope of clear water that curves down and scatters as harmless drops.",
+    "light": "Black night; the veil itself glows faint water-blue and puts cold glints on the steel and the falling drops."
+  },
+  "SG3-09": {
+    "shot": "object", "dir": "L", "place": "L", "pal": "stormsea",
+    "scene": "One anchored galley tells it. Out on the open sea the great current beneath her has turned, and the empty ship has swung right round on her anchor chain to lie stern-first, set in the left of the frame. From her prow the wreaths, ribbons and the carved luck-fish that hung there are tearing loose and streaming away to the left on the new flow, a long bright trail of them dwindling across the grey swell.",
+    "light": "Low slate sky; a pale band on the horizon lights the drifting charms and the wet curve of the hull."
+  },
+  "TK-G3-1": {
+    "shot": "high", "dir": "U", "place": "C", "pal": "glasscalm",
+    "scene": "A round stone spring basin seen from above: at its centre a small figure of clear water is rising toward us on a twisting column, head and lifted arms formed, everything below the waist still a rope of spring water. Drops she has shaken loose hang in the air around her in a loose halo, and the surface she left is still dimpled where she stood up.",
+    "light": "Soft misted daylight from above; every hanging drop holds a pale spark, and the basin floor shows blue-grey through her body."
+  },
+  "UN-G3": {
+    "shot": "profile", "dir": "L", "place": "R", "pal": "moontide",
+    "scene": "A moonlit shore in strict profile, composed like a frieze. At the right a merfolk singer kneels in the shallows facing left, head thrown back, throat fins flared, one hand open toward the sea. Rolling in from the left to meet her comes a single long wave, and inside its translucent face stand her fallen comrades — upright, eyes closed, spears still in their hands, carried home like figures in green glass. On the wet sand between, their empty outlines wait.",
+    "light": "A hard white moon behind the wave lights it from within and throws the singer into deep theatrical shadow, one cheek and throat edged in silver."
+  },
+  "UN-G3-7": {
+    "shot": "pov", "dir": "F", "place": "C", "pal": "coraldawn",
+    "scene": "Through the eyes of a soldier wading knee-deep in the surf: our own two gauntleted hands grip our sword the wrong way round, blade clasped in the fists, hilt held out like an offering. Straight ahead, risen from the sea, a pale siren faces us and sings — fin-webbed arms spread wide, long dark hair streaming like kelp, fish tail coiled in the swell, a conch at her throat. At the edges of our sight the men on either side are doing the same.",
+    "light": "Sunrise blazes directly behind her head, burning rose and gold through her fins; our gauntlets and blade stay in cold blue shadow."
+  },
+  "UP-G3-11": {
+    "shot": "silhouette", "dir": "B", "place": "L", "pal": "lagoon",
+    "scene": "A black cut-out against the white glare of sun on the lagoon: the tide-reading octopus, grown heavy and sure, sits on a sea-stack in the left of the frame with its back to us, one golden eye catching a spark. Seven arms are lifted and spread like the spokes of a wheel, each tip pinching a long bright thread of water drawn up from the sea, hauling the tide line in like a net. The eighth arm, off to one side, is busy with a half-eaten crab.",
+    "light": "Blinding afternoon sun low on the water straight ahead; rim light slides along each wet arm and turns the lifted threads to wire."
+  },
+  "UP-G3-12": {
+    "shot": "far", "dir": "L", "place": "R", "pal": "glasscalm",
+    "scene": "Far off on a flat grey sea lies what seems a small rock islet, set in the right of the frame: three tiers of pink and ochre coral crag, a few gulls roosting, a fishing skiff moored to a spur with its anchor line slack. Then the details arrive — a paddle flipper lying along the waterline, a blunt beaked head just lifting at the left end, and a slow bow-wave showing that the whole island is drifting patiently leftward.",
+    "light": "Still, fog-white morning; sea and sky share one pale tone, and the islet's reflection hangs beneath it almost unbroken."
+  },
+  "UP-G3-17": {
+    "shot": "inside", "dir": "B", "place": "B", "pal": "glasscalm",
+    "scene": "Out through the dark stone arch of a water-gate: gliding away from us in the lower part of the opening is the broad grey back of a great dugong, wide as a ferry, with three bandaged figures laid side by side along it. It has just breathed out — a warm plume rolls from its whiskered snout, and the whole lagoon ahead has begun to steam, pale mist lifting off the water in sheets.",
+    "light": "Cold shade inside the arch; outside, soft white light fills the rising mist and outlines the three riders."
+  },
+  "UP-G3-18": {
+    "shot": "front", "dir": "F", "place": "C", "pal": "stormsea",
+    "scene": "Head-on and symmetrical: the coral spirit, now grown three great antlered branches, stands dead-centre on the reef facing us, pink and orange limbs spread level like the arms of a balance. Directly behind it three pillars of seawater stand shoulder to shoulder, trimmed to exactly the same height, their flat tops lined up like a parapet — a wall where there was open sea. Loose spray falls from the outer two as it corrects them.",
+    "light": "Grey squall light from above; the glowing polyps light the figure warmly from within against the cold green wall."
+  },
+  "UP-G3-24": {
+    "shot": "pov", "dir": "B", "place": "R", "pal": "stormsea",
+    "scene": "We are on its back. Our own hands are knotted deep in a mane of kelp gone black as the abyss, and ahead, right of centre, the water horse's neck and laid-back ears plunge away from us across open sea at full gallop. Wherever its hooves strike, the grey swell bends and follows, winding into broad spiral currents on both sides. Straight ahead the sea is opening into a wide dark funnel, and its stride only lengthens.",
+    "light": "Storm daylight, flat and grey-green; white spray flying back from its neck is the brightest thing in the frame."
+  },
+  "US-G3-1": {
+    "shot": "under", "dir": "D", "place": "X", "pal": "trench",
+    "scene": "Lying on the seabed, we look straight up through a column of deep blue water toward a pale wavering disc of daylight. Sinking slowly toward us, scattered across the whole frame, comes everything the song has rinsed off the listeners above: gilded crests, plumes, enamelled badges, medals on ribbons, a jewelled scabbard, flakes of gold leaf turning as they fall. High overhead the surface flexes with the slow rhythm of a song, each pulse shaking loose another glittering fall.",
+    "light": "Shafts of cold light slant down from the surface through drifting particles, flashing on each sinking ornament before the dark takes it."
+  },
+  "US-G3-2": {
+    "shot": "path", "dir": "R", "place": "L", "pal": "coraldawn",
+    "scene": "Side-on across a mile of drained tidal flat at dawn: the sea is coming back as one long low wall of foam, racing from left to right, its front set in the left third of the frame. Ahead of it, on the dry right, a palisaded camp with tents and tethered pack beasts is seconds from being swept. Behind it, where it has already passed, beached fishing boats float upright again on calm rose-coloured water, and gulls wheel over the returning tide.",
+    "light": "The sun rises behind the bore, shooting pink rays through its spray and long shadows across the bare flats."
+  },
+  "IR-G3": {
+    "shot": "cut", "dir": "L", "place": "L", "pal": "trench",
+    "scene": "A cutaway view on the left of the frame: a small sea-worn clay ewer, spout turned left, sliced cleanly in half from lip to foot to show the thickness of its wall. In the hollow hangs a single drop of water, round as a pearl and bright as a cold star, clear of every wall. The clay is cracked through in five places, and in the cut face each crack is filling from the inside with a seam of blue-white light, the innermost already closed to smooth new clay. Around it lies the dark of a deep spring.",
+    "light": "The drop is the only light, a cold water-blue point that picks out the cut edge of the clay and fades into navy darkness all around."
+  },
+  "MG-15": {
+    "shot": "through", "dir": "U", "place": "T", "pal": "trench",
+    "scene": "Framed by the broken ribs of a beached boat, we look out over a night battlefield on a tidal flat as the flood drains away. The ebbing water glows from within, a sheet of water-blue light sliding back toward the sea and steaming faintly with warmth. High in the frame, wherever it has passed, small dark figures are getting up — one on hands and knees, one sitting, one already standing — each still streaming bright water from shoulders and fingertips, while spears lie where they fell and glowing drops run down the timbers beside us.",
+    "light": "Deep night under a black sky; the tide's own cold blue glow lights the flat from below and outlines the rising figures and the boat's ribs."
+  },
+  "PN-G3-R": {
+    "shot": "tilt", "dir": "F", "place": "C", "pal": "lagoon",
+    "scene": "The horizon tips steeply as a merfolk shrine maiden comes straight toward us at the centre, waist-deep in sunlit turquoise shallows — blue-scaled, long fins trailing from her forearms, pearls at her brow — bearing a wide pearl-white bowl level in both hands. The water in it is deep-sea dark, and from it pale rings spread through the air like ripples. A volley of arrows slants down across the tilted sky; each one that crosses a ring turns to a string of bright drops and spatters as rain on the shoulders of the two spearmen flanking her.",
+    "light": "High midday sun from the upper right; the turquoise shallows throw rippling light up under the bowl and every falling drop flashes pearl white."
+  },
+  "RS-G3-1": {
+    "shot": "inside", "dir": "D", "place": "L", "pal": "stormsea",
+    "scene": "From inside the spell itself: we ride within a hollow, spiralling tube of green-blue water, its walls streaked white with speed, plunging steeply down toward the lower left. Ahead of us a long bone harpoon rides the tube, barbs first, its line trailing back past us, and at the tube's mouth its point is just meeting a raised round shield — whose painted rings and pale glow are peeling off in the flow like wet pigment, streaming back along the walls in ribbons, while the bare wood splits around the barb.",
+    "light": "Slate storm daylight filters through the rushing green-blue walls, and white spray and the harpoon's wet barbs take the brightest highlights."
+  },
+  "RS-G3-2": {
+    "shot": "ring", "dir": "F", "place": "L", "pal": "coraldawn",
+    "scene": "A wall of sea foam faces us in the dawn shallows, built ring within ring: fine white froth at the rim, then circles of ever larger bubbles, and at its heart, left of centre, one clear bubble as wide as a cartwheel, holding the tiny upside-down image of the figures sheltering behind it. A sword blade has just struck from the right and is skidding away along the curve, its edge trailing a comet of suds, while the groove it left is already filling with fresh bubbles, ring by ring.",
+    "light": "First coral-pink sun from low behind us puts a rose highlight in every bubble over water-blue shallows, and the blade carries one cold glint."
+  },
+  "RS-G3-3": {
+    "shot": "impact", "dir": "F", "place": "L", "pal": "lagoon",
+    "scene": "A clear, sunlit wave has just burst over a gaming blanket spread on white sand at the left of the frame and surges straight toward us, its face combed into fine even ripples as if a sound were passing through it. It is carrying the whole game away — a spill of coins, a rabbit-foot charm, a braided lucky knot, a handful of knucklebones, the wooden stake-bowl — all tumbling in turquoise foam right before us. Every coin in the water has turned the same smooth, unmarked side up.",
+    "light": "High sun through shallow turquoise water throws dancing bright nets over the white sand, and the foam and coin faces flash pearl white."
+  },
+  "SG3-01": {
+    "shot": "column", "dir": "B", "place": "C", "pal": "stormsea",
+    "scene": "On a storm-beaten shore, heavy green-blue swells break white everywhere except along one narrow lane of water that lies flat as glass, running straight out from the beach. A lone bare-headed figure, small and seen from behind, wades down that lane, already waist-deep, spear trailing slack from one hand. Ahead of him, dead centre, the lane ends at a single tall column of pale mist and light standing on the sea from wave to cloud, its foot ringed with slow ripples. His helmet rolls in the foam at our feet.",
+    "light": "Slate storm cloud and flying spray overhead; the column is the one pale source, silvering the flat lane and the wet back of the walking figure."
+  },
+  "SP-G3": {
+    "shot": "swarm", "dir": "N", "place": "T", "pal": "trench",
+    "scene": "Deep in the open sea the whole frame is hung with sleepers: sperm whales standing upright like grey pillars, slack-finned sharks, turtles, furled shoals — hundreds of bodies, edge to edge, all asleep and all tilted toward one place. Along the top the surface glows where a being of clear water leans down through it, a calm face, joined hands and hair as long as rivers, each whale the size of one of her fingers. From her lips pale rings sink through the sleepers into the dark, where one long curve far below is a closed eyelid.",
+    "light": "Navy-black depth lit only by the water-blue glow of her body at the surface and the pale sinking rings, with small cold glints on the sleepers' backs."
+  },
+  "SR-G3": {
+    "shot": "macro", "dir": "R", "place": "T", "pal": "moontide",
+    "scene": "Extreme close-up of a chalice's rim across the top of the frame: a lip of pearl nacre clasped by tiny pale coral branches. The water in it — one single tear, too large for the cup — stands above the lip in a trembling curve and keeps its own tide: a line of hair-fine white breakers runs around the rim toward the right, where one bright thread has just spilled over and slides down the bowl. Below, out of focus, it crosses a sea-stone altar scored by old blade marks and turns into the deepest first.",
+    "light": "Silver-blue moonlight from behind and above shines through the standing water and pale mist, and each tiny breaker and the spilled thread carries a white glint."
+  }
+}

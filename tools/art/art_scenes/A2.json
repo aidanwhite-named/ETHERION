@@ -1,0 +1,383 @@
+{
+  "_about": "A2 솔란테의 새벽 — 카드별 장면 지시. 쓰는 법은 tools/art/PROMPT_GUIDE.md, 검사는 node tools/art/scene_tool.js lint A2.",
+  "A2-01": {
+    "shot": "far", "dir": "R", "place": "L", "pal": "vigil",
+    "scene": "A long infirmary hall at night, seen from far down its aisle: two rows of empty cots recede into darkness. Small in the left of the frame, a living prayer candle of white beeswax, barely a hand tall, pads across the flagstones on stubby feet of melted wax, a calm tiny face glowing inside its finger-sized flame. It is heading right, toward the single occupied cot, where a bandaged arm hangs down to the floor.",
+    "light": "Its own small flame is the only light, a warm ring on the stone that barely reaches the nearest cot legs."
+  },
+  "A2-03": {
+    "shot": "silhouette", "dir": "R", "place": "R", "pal": "firstlight",
+    "scene": "Backlit against the first thin band of dawn, a row of small larks perches along the teeth of a battlement — black shapes with beaks wide open in song, all facing right toward the coming sun. One bird in the right of the frame still sleeps, head tucked under its wing, and in the sky exactly behind it a notch of night lingers, darker than the rest.",
+    "light": "Pale gold light rises from below the wall line; everything in front of it is clean black silhouette under a blue-grey sky."
+  },
+  "A2-04": {
+    "shot": "eye", "dir": "L", "place": "C", "pal": "rosedawn",
+    "scene": "At eye level on a garden stair, a small seraph child has tripped on the worn top step and hangs in mid-fall, arms flung forward to the left, one sandal flying — its wings only three or four downy feathers on each shoulder blade. Under the child a soft pane of warm light has slid out across the stones like a cushion and holds it a hand's breadth above the steps.",
+    "light": "Low pink-gold morning light slants across the garden from the left, with lilac shadow under the stair and the hedges."
+  },
+  "A2-05": {
+    "shot": "back", "dir": "B", "place": "R", "pal": "rosedawn",
+    "scene": "From just behind a white eagle perched on an upturned helmet in the right foreground: its gold-edged wings are half open in a stiff, symmetrical crest pose, and it looks away from us at a great white banner hanging in the hall beyond. There, among the embroidered sun-rays, an eagle-shaped patch of bare unfaded linen and loose gold threads shows exactly where it used to be.",
+    "light": "Rose-gold dawn comes through the cloth from behind, so the empty patch glows brighter than the stitched parts around it."
+  },
+  "A2-06": {
+    "shot": "ground", "dir": "L", "place": "C", "pal": "firstlight",
+    "scene": "Camera down in wet roadside grass, looking up a pilgrim road lined with knee-high stone saints in little niches. Over the nearest saint's bald stone head hovers a plain ring of golden light, far too wide for it and tilted like an oversized hat, already sliding off to the left toward the next statue in the row. Faint sparks trail from it and bead on the grass blades in the foreground.",
+    "light": "Blue-grey hour before sunrise; the ring is the warmest thing in sight and gilds the stone head beneath it."
+  },
+  "A2-07": {
+    "shot": "profile", "dir": "L", "place": "R", "pal": "whitegold",
+    "scene": "Strict side view, flat as a carved frieze, along the rail of a narrow stone bridge: at the right a winged shieldmaiden in gold scale armour drops out of the sky feet-first, great white wings swept straight up, her round wood-and-gold shield thrust out to the left. It meets a falling axe-blade that enters from the left edge, a hand's width above a young spearman who has slipped to one knee beneath it. Her spear is still held upright, unused.",
+    "light": "High clear morning sun from behind the viewer, flat and bright on white stone and feathers, with thin blue shadows."
+  },
+  "A2-09": {
+    "shot": "over", "dir": "F", "place": "C", "pal": "glare",
+    "scene": "Over the dark, spiked shoulder of an advancing attacker in the near foreground: a line of the citadel's spearmen stands in blinding morning light. Dead centre in the front rank is the plainest of them — a young seraph guard with small wings, an undecorated helmet a little too big for him and a spear with a mended shaft — feet planted, looking straight at us. Behind him rise the taller plumes and gilded crests of every higher rank.",
+    "light": "The sun stands directly behind the line, burning its edges white and turning the attacker's shoulder into a black shape."
+  },
+  "A2-11": {
+    "shot": "tilt", "dir": "F", "place": "C", "pal": "vigil",
+    "scene": "A tilted frame catches a gangly white foal mid-skid in the straw of a night stable, legs splayed, gold mane flying, head swung toward us. The horn on its brow is a pearly stub as long as a finger, yet straight ahead of it the darkness is cut away in a clean wedge: every straw, bucket and cobweb inside that wedge stands clear, while the stalls on either side stay black.",
+    "light": "One hanging stable lantern glows small and amber behind the foal; the wedge of clear air in front of the horn is cool and shadowless."
+  },
+  "A2-13": {
+    "shot": "through", "dir": "R", "place": "C", "pal": "stainedglass",
+    "scene": "Through a knight-shaped hole in a tall leaded window — the empty lead outline still holding the shape of helm, shield and sword — we look into a shadowed nave. Inside, the missing figure walks to the right across the flagstones: a knight made of coloured glass panes joined by dark lead lines. The sunbeam pouring through the hole passes through his body and fans out as seven bands of colour over the floor and a dropped, stained bandage, which lies clean wherever the colours touch.",
+    "light": "A single hard morning beam enters through the hole from behind the viewer; the rest of the nave is deep cool shade."
+  },
+  "A2-15": {
+    "shot": "reflect", "dir": "F", "place": "C", "pal": "rosedawn",
+    "scene": "A still puddle on a rain-washed terrace fills most of the frame, and in it, upside down, stands the reflection of a robed seraph with folded wings, both hands on the pommel of a plain sword set point-down, chin level, perfectly upright. Only his bare feet and the sword's tip enter the top edge of the picture. In the reflection a thin sword-shaped ray of light hangs point-down exactly over his head.",
+    "light": "Pink-gold dawn clouds fill the water around the reflected figure; the wet stone at the frame's edges is dull lilac."
+  },
+  "A2-16": {
+    "shot": "back", "dir": "R", "place": "R", "pal": "firstlight",
+    "scene": "From behind a great golden lion as it pads away up a ridge of plateau grass toward the upper right, tail low, mane spread like a fan of rays. Everything ahead of it is the blackest hour of night. Behind it, running from the bottom-left corner of the frame up to its hind paws, the strip of grass it has already walked glows soft gold, as if morning had arrived there first.",
+    "light": "The sun is still below the horizon; only the glowing track and the lion's mane light the scene, under a blue-black sky with one pale line at its edge."
+  },
+  "A2-17": {
+    "shot": "high", "dir": "L", "place": "C", "pal": "whitegold",
+    "scene": "Looking down from the top of a gatehouse: a lion-bodied sphinx lies across the threshold of a closed white gate, folded white wings along her flanks, sun-disk crown seen from above, her calm face turned left toward one small traveller who stands before her twisting his hat in his hands. Off to the side of the road a handful of earlier arrivals sit on their bundles around a cold cooking pot, still waiting.",
+    "light": "Clear mid-morning sun from the right throws the gate tower's cool blue shadow across half the road and leaves the sphinx in full light."
+  },
+  "A2-20": {
+    "shot": "high", "dir": "L", "place": "R", "pal": "firstlight",
+    "scene": "Seen from high on the keep above: a seraph knight stands at the right of a wide stair landing with both wings spread to their full span and curved forward like a roof. From this height the wings are two great white fans, and under their trailing feathers the helmets of a dozen smaller comrades are still ducking in, the last one running. His right hand rests on a sword hilt that has yet to leave its scabbard, and his head is turned left, counting them.",
+    "light": "Grey-blue half-light before sunrise; a low gold band at the horizon catches only the upper edges of the feathers."
+  },
+  "A2-21": {
+    "shot": "under", "dir": "F", "place": "T", "pal": "rosedawn",
+    "scene": "From under the surface of a clear cloister pond, looking up: the broad white belly of a great swan floats overhead in the upper part of the frame, riding low in the water, black webbed feet paddling slowly. From beneath both folded wings hang dozens of knotted cords, each ending in a small gold ring or a wax-sealed token, trailing down into the water like roots. Its long neck curves down through the surface and one calm eye regards us.",
+    "light": "Pink-gold dawn sky shimmers through the rippled surface above the swan, and the hanging rings catch it as they turn in lilac water."
+  },
+  "A2-22": {
+    "shot": "over", "dir": "B", "place": "L", "pal": "firstlight",
+    "scene": "Over the bronze shoulder of a great bell hanging in an open belfry, close at the left of the frame: it has swung out toward the arch and hangs at the top of its stroke, light spilling from its mouth, rising-sun engravings running round its rim. Beyond the arch lie the sleeping citadel and dark country — and exactly in line with the bell's lip, the first sliver of sun has just come over the horizon, as if called.",
+    "light": "Cold blue-grey before dawn; the bell's own inner glow and the single sliver of sun are the two warm notes."
+  },
+  "A2-24": {
+    "shot": "echo", "dir": "L", "place": "X", "pal": "rosedawn",
+    "scene": "A tall oval mirror in a gilt frame stands upright on its own in a cloister walk at the right, its silvered face turned left. One thrown javelin is painted as five overlapping moments along a single line across the frame: three ghost-images flying in from the left edge, one with its tip just touching the glass, and one already speeding back out the way it came, point first. The glass itself holds only bright dawn sky, perfectly calm.",
+    "light": "Pink-gold dawn fills the mirror and spills from it across the paving; the arches behind are lilac shadow."
+  },
+  "A2-25": {
+    "shot": "close", "dir": "F", "place": "L", "pal": "stainedglass",
+    "scene": "Tight on the upper body of a living flame: a white-gold fire in the rough shape of a slender person rises from a brass brazier at the left of the frame and leans toward us, its face only two calm brighter hollows. Between its cupped hands of fire a clot of black, oily smoke is burning away into clean white sparks. The brazier's rim, at the bottom edge, is worn smooth and bright by centuries of tending hands.",
+    "light": "The flame is its own white-gold light; behind it lies deep shade broken by a few jewel-coloured patches from high windows."
+  },
+  "A2-27": {
+    "shot": "far", "dir": "L", "place": "R", "pal": "rosedawn",
+    "scene": "Far across a wide plateau at sunrise, a white unicorn gallops along the crest of a long ridge from right to left, small against the sky. The rising sun sits exactly on its back like a rider, so that horse and sun seem to travel together. Ahead of it, down on the darker plain at the far left, one tiny horseman is fleeing, and the unicorn's horn burns as a single needle of light aimed at him.",
+    "light": "The sun is the only light, low and pink-gold behind the ridge; long lilac shadows run toward the viewer across the grass."
+  },
+  "A2-28": {
+    "shot": "silhouette", "dir": "R", "place": "L", "pal": "glare",
+    "scene": "Against a blazing morning sky, a larger-than-life stone saint strides to the right across an open plaza, left of centre, one heavy foot just lifted, robes carved in stiff folds, its blessing hand now closed into a fist. Along its shoulders and on its bald head sits a row of pigeons, riding calmly; one flaps to keep its balance. At the far left stands the empty plinth it stepped down from, with a few pigeons still waiting on it.",
+    "light": "The sun is directly behind the figure, so statue, birds and plinth are dark shapes rimmed in white-gold glare."
+  },
+  "A2-29": {
+    "shot": "macro", "dir": "R", "place": "T", "pal": "whitegold",
+    "scene": "Extreme close-up of a weathered hand in a dented gold gauntlet, coming in from the top of the frame, cutting one more small half-sun notch into a block of white wall-stone with the butt-spike of a spear. The stone, and every stone around it to the edges of the picture, is already crowded with hundreds of the same little notches, the oldest worn almost smooth. A single white feather, greyed at the tip, has drifted into the corner.",
+    "light": "Raking early sun from the left makes every notch a small crisp shadow in the pale stone."
+  },
+  "A2-30": {
+    "shot": "profile", "dir": "L", "place": "C", "pal": "vigil",
+    "scene": "Painted like a figure on a wall, in pure profile: a six-winged seraph of gold fire stands facing left in a snow-covered orchard, two burning wings folded across its face, two across its body, two spread behind. Tucked against the lowest wing, a small night sentry has fallen asleep on his feet, cheek resting in the flames, cloak and hair untouched; a sparrow roosts on one blazing feather above him, and the snow around them lies unmelted.",
+    "light": "Winter night; the wings are the only light, a steady gold glow that warms the sleeper's face and fades a few paces out across the snow."
+  },
+  "A2-31": {
+    "shot": "cut", "dir": "R", "place": "X", "pal": "whitegold",
+    "scene": "A wall cut away like a doll's house shows the inside of a white guard tower: a square central chamber with a low passage running off to each side. In the chamber stands a bulky four-winged guardian in gold-bronze plumage whose head has four faces — a lion's in profile watching the left passage, an eagle's watching the right, a calm human face toward us. In the right-hand passage a small cloaked figure creeps away and glances back, straight into the eagle's bright eye.",
+    "light": "Daylight falls in through the cut wall, pale and even on ivory stone; the passages darken toward their far ends."
+  },
+  "A2-33": {
+    "shot": "far", "dir": "F", "place": "C", "pal": "vigil",
+    "scene": "From the far end of a night-dark cathedral, looking down its whole length: at the other end stands a figure as tall as the vault, built from thousands of coloured glass panes and dark lead lines — a winged guardian holding a wing-shaped shield, facing us. It glows from within with stored daylight, like a lantern the size of a tower. A long crack runs across its breast, yet every pane beside the crack is as bright as the rest. At its ankles, a few night watchmen with lanterns are the size of its smallest panes.",
+    "light": "The figure's own held daylight throws soft jewel colours on the nearest pillars; the watchmen's lanterns are tiny warm points in the dark below."
+  },
+  "A2-34": {
+    "shot": "top", "dir": "N", "place": "C", "pal": "rosedawn",
+    "scene": "Straight down from high above a walled courtyard at sunrise: a white-gold star with four long cross-shaped rays hangs over it, its rays reaching from wall to wall, a small luminous figure at its heart. Outside a wide circle beneath it, everything throws a long lilac dawn shadow — trees, a handcart, the well, three early risers. Inside the circle the same kinds of things stand on bare bright paving with their shadows simply missing.",
+    "light": "Low pink-gold sunrise from the right draws long lilac shadows everywhere except under the star, where the light is white and falls from straight above."
+  },
+  "A2-36": {
+    "shot": "ground", "dir": "R", "place": "C", "pal": "firstlight",
+    "scene": "Camera low in dew-wet plateau grass; a few blades and a spider's thread cross the foreground. Beyond them the white citadel is small on the skyline, and standing behind it, taller than its towers, an archangel in gold armour turns to the right with a lance of light upright in one hand, his many white wings just starting to open. Behind the opened wings the sky is already morning; behind the wings still folded it is night with stars.",
+    "light": "Pale gold spreads from the opened wings across a blue-grey sky and has just reached the nearest dewdrops."
+  },
+  "A2-41": {
+    "shot": "high", "dir": "L", "place": "L", "pal": "whitegold",
+    "scene": "From above, looking down on a training field of pale grass: a white winged horse gallops hard toward the left, head lowered like a ram, broad wings clamped flat against its flanks, pale gold mane streaming. Behind it a dead-straight furrow of torn turf runs back across the frame through a row of straw practice figures and wicker hurdles, every one of them bowled over or split, a few feathers and straws still turning in the air.",
+    "light": "Bright early sun from the upper right lays the horse's cool blue shadow ahead of it on the grass."
+  },
+  "A2-42": {
+    "shot": "ground", "dir": "F", "place": "L", "pal": "rosedawn",
+    "scene": "On the white flagstones of a judgment court, seen from floor level: in the near foreground lies a small gold oath-ring broken in two halves. Just beyond it stands a hooded seraph, set to the left of the frame and facing us, wings mantled close like a cloak. From his lowered right hand a sword of black volcanic glass hangs point-down — the one dark thing in the picture — a single red drop running to its tip. A dotted line of the same red leads away between the columns.",
+    "light": "Soft pink-gold dawn fills the open court behind him and lays lilac shadows along the floor toward the camera."
+  },
+  "A2-43": {
+    "shot": "swarm", "dir": "B", "place": "L", "pal": "firstlight",
+    "scene": "The whole frame is full of burning feathers — hundreds of small tongues of white-gold fire streaming back toward us on the wind. They pour from a seraph running away from us at the left, already far ahead of his line, his two wings now only blazing ribs that shed flame with every stride. In the foreground the feathers settle on the bandaged arms and shoulders of the comrades he has left behind, and each dark stain they touch turns white.",
+    "light": "Blue-grey sky before sunrise; the falling fire lights everything from above and behind the runner."
+  },
+  "CS-A2": {
+    "shot": "transform", "dir": "L", "place": "B", "pal": "whitegold",
+    "scene": "A hard edge of morning light is sliding from right to left across a paved road, and it has reached the middle of a hidden trap: a ring of black iron jaws set under scattered leaves in the lower part of the frame. The half still in shadow is sharp, dark, cocked iron. The half the light has crossed keeps its toothed shape for one last moment as pale ash, already lifting away on the air. A spearhead enters from the right edge, low and level, with the light gathered bright along its blade.",
+    "light": "Clear low sun from the right, ivory and pale gold on the lit paving, cool blue in the shadow the edge has yet to reach."
+  },
+  "EP-A2-1": {
+    "shot": "front", "dir": "F", "place": "B", "pal": "glare",
+    "scene": "Dead-on and symmetrical: a white gate arch fills the frame, and square in its opening, low in the picture, stands a winged bull of pale limestone with a crowned, bearded, calm human face, gold inlay glinting in its carved feathers, looking straight at us. A storm of sleet drives in from behind the viewer and stops along the line of its front hooves; behind it the paving is dry and the street blazes with morning. On the left gate-pillar a bull-shaped recess stands empty; on the right its stone twin still sleeps in the wall.",
+    "light": "White-gold light pours out of the gate behind the bull, turning it into a dark shape with burning edges, while the sleet in front is grey and wind-driven."
+  },
+  "EP-A2-2": {
+    "shot": "eye", "dir": "L", "place": "R", "pal": "rosedawn",
+    "scene": "On the walk of an immense white wall, standing beside its captain: a tall seraph in scarred pale armour holds the outermost bastion at the right, a step ahead of his sentries, facing left with wings half spread and one gauntlet raised. Left of the wall the land is empty — flat, colourless, featureless — and from it a towering bank of grey dust is rolling in. Its first gust breaks on his breastplate and comes apart into clean bright air; his cloak streams back toward the lit city side.",
+    "light": "Late pink-gold light comes from the city side behind him, warm on his back and the wall, while the grey front ahead swallows all colour."
+  },
+  "EP-A2-3": {
+    "shot": "pov", "dir": "R", "place": "R", "pal": "stainedglass",
+    "scene": "First person, from the ranks sheltering beneath it: our own gauntleted hand rises at the bottom edge to shade our eyes, and overhead one colossal wing roofs the whole sky, each feather as long as a ship's sail, sunlight glowing through them in bands of colour. The wing reaches in from the right, where its owner towers over the field in gold armour, as tall as a citadel keep. A storm of dark missiles bursts into sparks along the wing's upper side. Under its far edge the sun is low and red, still above the horizon.",
+    "light": "Low sun shines through the feathers from above, laying jewel-coloured patches on helmets and spear-points in the deep shade beneath."
+  },
+  "I3-2": {
+    "shot": "pair", "dir": "N", "place": "L", "pal": "whitegold",
+    "scene": "A tall rectangular tower shield of pale steel, as high as a man's chest, stands upright on its own at the left of a white gate threshold, grounded on its bottom spike, its gilded rim nicked along the top edge. Directly behind it the threshold stone is worn into two shallow, foot-shaped hollows, polished smooth by generations standing in exactly that place. Leaf litter has blown into every corner of the gateway except those two hollows.",
+    "light": "Morning sun slants through the gate arch from the right, bright on the shield face, with a cool blue shadow stretching behind it over the hollows."
+  },
+  "IA2-1": {
+    "shot": "stand", "dir": "L", "place": "L", "pal": "firstlight",
+    "scene": "A dagger of black volcanic glass, its edge chipped like flint and its hilt wrapped in dark hide, lies in a cradle of white marble at the left of a bare sacristy shelf, point toward the left. It is tied down like a prisoner: three white linen tapes cross the blade, each pressed to the marble with a round seal of pale wax. Where the black glass touches the stone, a faint grey stain has begun to spread into the white.",
+    "light": "Cool grey-blue light before sunrise from a narrow window, a low stripe of pale gold just touching the wax seals."
+  },
+  "IA2-2": {
+    "shot": "hung", "dir": "N", "place": "R", "pal": "whitegold",
+    "scene": "A small round shield of polished silver hangs from a wall peg by its strap at the right of a whitewashed guardroom, its face plain and slightly domed, the rim rubbed thin by years of polishing. A single sunbeam from a high window strikes it and is thrown back across the room as a bright trembling disc of light, which has landed on a row of dull helmets on the far shelf and set one of them blazing.",
+    "light": "One hard beam of morning sun from the upper left; the rest of the room is soft ivory with cool blue shadow."
+  },
+  "IA2-5": {
+    "shot": "reflect", "dir": "N", "place": "L", "pal": "stainedglass",
+    "scene": "A plain, perfectly kept longsword lies on a folded white cloth on a stone bench in a shadowed hall, at the left of the frame, its crossguard straight and its grip bound in white leather worn grey. Patches of red, blue and green from high windows lie on the flagstones all around. The mirror-bright flat of the blade shows something else: a clear pale-gold sunrise over a far, flat horizon, small and sharp, as if the steel still looked at one particular morning.",
+    "light": "Deep cool shade with jewel-coloured window patches on the floor; the sunrise held in the blade is the brightest, purest light."
+  },
+  "MA-02": {
+    "shot": "object", "dir": "L", "place": "R", "pal": "rosedawn",
+    "scene": "A steel breastplate, a pair of pauldrons and a helmet lie where they were dropped in trampled grass at the right of the frame, straps still swinging. From them a line of bare footprints leads away to the left toward a distant battle line — and each footprint is brimming with soft light, like a cup filled to the lip. A single feather of the same light is settling into the empty breastplate.",
+    "light": "Low pink-gold dawn from the left, the direction the footprints lead, leaves the abandoned steel in lilac shadow."
+  },
+  "MA-08": {
+    "shot": "symbol", "dir": "N", "place": "L", "pal": "stainedglass",
+    "scene": "On a deep stone windowsill, set to the left of the frame, two empty steel gauntlets lie clasped as if shaking hands, lashed together with white cord. The knot at the centre has hardened into a lump of bright iron, still glowing at its core. Thick black drops are falling onto it from above; each one beads up like rain on wax and rolls away, leaving the cord and the steel clean.",
+    "light": "The coloured window above puts patches of red and blue on the sill; the hardened knot glows pale gold of its own."
+  },
+  "MA-10": {
+    "shot": "path", "dir": "N", "place": "X", "pal": "vigil",
+    "scene": "Three tall candles stand in a row on a chapel rail, seen side-on in the dark. The middle one has just been struck through: its upper half is toppling, wick trailing smoke. Its flame has split in two and is leaping away in twin bright arcs, left and right, across the gaps to its neighbours — whose own flames are swelling as it lands, each widening into a flat, shield-shaped sheet of light.",
+    "light": "Night in a side chapel; the three flames and the two travelling arcs are the only light, haloed pale gold in the dark."
+  },
+  "MA-14": {
+    "shot": "inside", "dir": "L", "place": "R", "pal": "glare",
+    "scene": "From inside a flood of dawn as it bursts through a long tear in the night sky: streaks of white-gold light race past the camera toward the left, where the land is still dark. There a line of raised weapons stands black against the glare, and the light is reaching them tallest first: the highest-held sword is already a bar of blinding white, the next half-lit, the lowest still dark. Behind the blades, the leftover light is settling softly over the ground like warm mist.",
+    "light": "All light comes from behind and around the viewer on the right, overexposed white-gold, cutting hard black shapes out of everything in front of it."
+  },
+  "NA2-1": {
+    "shot": "far", "dir": "D", "place": "L", "pal": "rosedawn",
+    "scene": "Far off across a grey field at dawn, a dark battle line stands along a low rise — spears, horned helms and ragged standards, all in silhouette. One soft shaft of light comes down through the clouds onto a single place left of centre in that line, and the figure standing there has turned small, white and still: a knee-high marble saint with folded hands, bright as a chess piece among black ones. Its neighbours lean away from it; an axe lies dropped in the grass at its foot.",
+    "light": "A break in pink-gold dawn cloud lets one beam through; the rest of the field lies in lilac-grey shade."
+  },
+  "NA2-2": {
+    "shot": "macro", "dir": "L", "place": "C", "pal": "whitegold",
+    "scene": "The instant of contact, in extreme close-up: the tip of a steel sword, thrusting in from the right, presses into a single feather made of light — and stops. The feather bows under the point like a drawn bow, its fine barbs flaring brighter where the steel touches, a few motes shaken loose. Behind it, soft and out of focus, overlapping rows of the same glowing feathers curve away like the inside of an enormous folded wing.",
+    "light": "The feathers give their own soft pale-gold light; a cool blue reflection runs along the steel."
+  },
+  "PI-A2": {
+    "shot": "used", "dir": "D", "place": "R", "pal": "glare",
+    "scene": "On a storm-swept pilgrim road, a single white feather as long as a lance stands quill-up at the right of the frame, its tip driven down through a waist-high boundary stone that it has sliced cleanly in two, the cut faces smooth as mirrors. Rain drives sideways across the whole road, yet around the feather the drops slow, hang and slide away, leaving a calm dry sheath of air. Far above it the storm cloud has opened in one long feather-shaped rift.",
+    "light": "The feather blazes white-gold from within and the rift above pours the same light down; road, rain and split stone are dark shapes against it."
+  },
+  "PN-A2-C1": {
+    "shot": "macro", "dir": "N", "place": "C", "pal": "vigil",
+    "scene": "Inside a street-side wall niche, very close: the two small marble hands of a knee-high saint figure pressed together in prayer, veined white stone flecked with worn gold leaf. Looped over the stone wrists hangs a real, weather-cracked leather sword-belt with an empty scabbard, long since stiff. A tiny clay votive lamp burns on the niche floor by the figure's toes, and someone has tucked a fresh sprig of white flowers between the stone fingers.",
+    "light": "The little lamp lights the hands from below in warm gold; the street beyond the niche is night."
+  },
+  "PN-A2-C2": {
+    "shot": "through", "dir": "F", "place": "L", "pal": "firstlight",
+    "scene": "From outside and a little below the battlements, looking in through one narrow gap between two white merlons at the left of the frame: the gap is filled by two interlocking golden wheels turning slowly in white fire, their rims set with dozens of watchful eyes, every eye on this side looking out at us. The stone sill beneath them is worn into a smooth shallow bowl. Across the rest of the wall, ivy and old swallows' nests have grown undisturbed right up to that one gap.",
+    "light": "Blue-grey hour before dawn on the wall face; the wheels' white fire spills out through the gap as the only warm light."
+  },
+  "PN-A2-C3": {
+    "shot": "close", "dir": "L", "place": "X", "pal": "whitegold",
+    "scene": "Head and one outstretched wing of a white winged horse fill the frame, in flight and heading left into a hard wind: pale mane blown flat along its neck, ears back, nostrils wide, eye calm. The great wing spans the picture behind its head, flight feathers frayed and grey with dust at the tips, held rigidly open as grit rattles off them. Far below, along the bottom edge, a white wall runs like a chalk line between warm fields and flat grey emptiness.",
+    "light": "Thin high daylight from the right, behind the horse, rims mane and feather edges in pale gold; the air ahead of it is flat grey."
+  },
+  "PN-A2-E": {
+    "shot": "echo", "dir": "R", "place": "B", "pal": "glare",
+    "scene": "Low in the frame an ancient seraph kneels before a sealed door of grey stone, both palms pressed flat on its seam, wings mantled, head bowed to the right — one figure, perfectly sharp. Everything around him is painted as many moments at once: the sun as a string of overlapping discs arcing over the wall, drifts of snow, leaves and dust lying in layers against his greaves, ivy that has climbed his grounded lance. A sheet of light as thin as glass still covers the door under his hands.",
+    "light": "The streak of overlapping suns blazes white-gold across the top of the frame; he and the grey door are dark, clear shapes beneath it."
+  },
+  "PN-A2-U1": {
+    "shot": "eye", "dir": "F", "place": "L", "pal": "vigil",
+    "scene": "A few steps away, at the height of its visor: a suit of white-gold plate stands guard at the left, at the head of a crypt stair, facing us with its visor raised — and the helmet is hollow. Where a face should be we see the inner curve of the helm's back, covered in fine glowing knot-like marks. The same light leaks from every joint, at elbow, knee and gorget. A faded cloak still hangs from its shoulders, pinned by a brooch gone green with age.",
+    "light": "Night in the crypt porch; the armour is lit from inside like a lantern, throwing thin bars of light through its joints onto the steps."
+  },
+  "PN-A2-U2": {
+    "shot": "close", "dir": "F", "place": "T", "pal": "stainedglass",
+    "scene": "A row of small brown-and-gold larks, seen close, perches shoulder to shoulder along the top rail of a choir stall, set high in the frame and facing us: chests puffed, beaks wide open in full song, eyes shut with effort, one visibly hoarse and hunched but still singing. Behind them, soft and blurred, hundreds more fill every ledge. Along the rail between their feet the dawn candles have burnt down to flat puddles of wax that have run in long drips down the carved wood.",
+    "light": "High sun through coloured windows — long past dawn — spots the birds and the old wood with small patches of red, blue and gold."
+  },
+  "PS-A2-2": {
+    "shot": "top", "dir": "N", "place": "X", "pal": "firstlight",
+    "scene": "Straight down onto bare ground where a rank of mismatched weapons lies side by side, hilts aligned along the bottom: a huge cleaver, a pike, a hooked axe, a broadsword and, at one end, a small dagger. A ruler-straight bar of pale-gold light lies across them all at the height of the dagger's point. Below the bar every blade is solid steel; above it the longer blades have gone pale and glassy, mere outlines of themselves, already fading.",
+    "light": "Even blue-grey light on the ground; the bar is the one pale-gold line in the picture and casts thin shadows from the hilts."
+  },
+  "RA2-1": {
+    "shot": "under", "dir": "D", "place": "C", "pal": "glare",
+    "scene": "Flat on the ground in the middle of a battle, looking at the sky: spear points, pike shafts and the tops of two different armies' standards lean in from every edge of the frame toward a sky that has become one sheet of white, brighter than noon. Every tip and banner, on both sides alike, is bleaching away from the top down. Directly overhead, one vast feathered wing crosses the glare as a dark shape, and the small patch of air beneath it keeps its ordinary colours.",
+    "light": "The whole sky is the light source, flat and blinding; only the underside of the wing and what lies beneath it hold shadow and colour."
+  },
+  "S2-1": {
+    "shot": "motion", "dir": "R", "place": "R", "pal": "whitegold",
+    "scene": "A small pendant — a thin disc of pale gold stamped with a rising sun, on a knotted linen cord — is caught in mid-air as it swings out to the right, the cord running off the top of the frame. At that instant the point of a thrusting sword has met it: the steel tip is flattening against the little disc like soft wax, a bright ring of sparks spreading from the touch, while the disc shows only one shallow new dent among several old ones.",
+    "light": "Bright open daylight from the left; the pendant's face flares pale gold and the blunted steel carries a cool blue sheen."
+  },
+  "S4-1": {
+    "shot": "found", "dir": "D", "place": "R", "pal": "firstlight",
+    "scene": "A gold reliquary shaped like a small sunburst, its rays finely chased and a rock-crystal window at its heart, lies tilted on its side in rain-pocked mud at the right of the frame, half sunk, a broken neck-chain trailing from it. The crystal is dull as fogged glass, with only the faintest ember far inside. The sky above is one lid of grey cloud — except at the far horizon, where a single narrow band of gold light falls on some other part of the land.",
+    "light": "Flat grey-blue overcast light with rain; the distant gold band on the horizon puts one thin warm edge along the reliquary's upper rays."
+  },
+  "SA2-01": {
+    "shot": "origin", "dir": "B", "place": "B", "pal": "whitegold",
+    "scene": "Looking down the length of a long brass trumpet from just behind its mouthpiece, high on a watchtower: the dented tube runs away from us along the bottom of the frame to its flared bell, and from the bell the note is leaving as widening rings of bright, trembling air. The rings roll out over the field below, and where the first one passes, two small plumes of dust have already broken forward from the front of a waiting line.",
+    "light": "Early sun from behind the viewer gilds the brass and throws the tower's long cool shadow out across the field below."
+  },
+  "SA2-02": {
+    "shot": "after", "dir": "N", "place": "L", "pal": "vigil",
+    "scene": "A plain round shield leans alone against a camp stool beside a dead campfire, at the left of the frame, in the darkest hour of night. Its pale face is hacked by dozens of sword cuts and dents, and every cut is filled with a thin seam of soft gold light, like cracks mended with gold; the oldest, deepest cuts glow brightest. A fresh notch near the rim is only just beginning to kindle. Far off, the sky is black except for the faintest grey line at the horizon.",
+    "light": "The seams of light in the shield are the only glow, pale gold on the trampled ground around it; the horizon line is still cold grey."
+  },
+  "SA2-03": {
+    "shot": "swarm", "dir": "D", "place": "X", "pal": "vigil",
+    "scene": "Slow white down is falling straight through windless air across the whole frame, flake after flake, each faintly glowing. In the foreground a great curled war-horn lies on its side, its mouth packed soft with settled flakes, beside a drum whose skin is quilted white. Behind them stands a row of planted weapons that were burning and sparking a moment ago: wherever a flake has landed the fire has gone out in a neat dark ring, and thin threads of smoke rise perfectly vertical.",
+    "light": "Night; the falling flakes carry their own faint pale-gold glow, and the last few weapon-fires still burning are small and shrinking."
+  },
+  "SA2-04": {
+    "shot": "path", "dir": "R", "place": "X", "pal": "glare",
+    "scene": "A longsword has just finished a downward cut, its point resting in the split crown of a black iron helm at the lower right. The stroke still hangs in the air as a bright crescent sweeping down from the upper left. From the cleft in the helm the same light is already running back the other way — up the flat of the blade, round the crossguard, and on in a widening spiral that closes like a sleeve over the gauntlet at the top left corner.",
+    "light": "The crescent and the returning spiral are the light, white-gold and hard; helm, steel and ground are dark shapes against them."
+  },
+  "SA2-07": {
+    "shot": "symbol", "dir": "N", "place": "C", "pal": "stainedglass",
+    "scene": "A tall balance of pale gold stands on a stone table in a dim hall. In its left pan lie three identical black axes heaped together, with plumed officers' helmets stacked beside them; in its right pan, a single white feather. The beam has tipped the wrong way: the heaped iron rides high, weightless, the axes beginning to drift up off the pan like smoke, while the feather's pan has sunk to the table and pressed a dent into the stone.",
+    "light": "One tall coloured window throws red and blue patches across the table; a pale-gold beam falls exactly on the feather."
+  },
+  "TK-A2-1": {
+    "shot": "front", "dir": "F", "place": "C", "pal": "whitegold",
+    "scene": "Face-on and centred: a knight made wholly of white-gold light stands on bare sunlit flagstones, a plain sword of the same light held upright before its empty, glowing visor. It is only just finished — helm, breastplate and sword-arm are solid and bright, while its legs are still being drawn up in fine threads of light from a small steady flame burning on the stone at its feet.",
+    "light": "Clear pale daylight with cool blue shadows; the figure is brighter than the day and lays a soft gold pool on the stones around it."
+  },
+  "UN-A2": {
+    "shot": "reflect", "dir": "R", "place": "X", "pal": "vigil",
+    "scene": "The pale stone flank of a great hall at night fills the frame, and across it falls one enormous shadow: a figure with both wings flung wide. Inside the shadow's outline the stone is clean, and a huddle of weary soldiers sits untouched at the wall's foot. Outside the outline, wall and ground bristle with burning arrows. The shadow's owner stands at the far right edge, cropped by the frame — a seraph knight braced toward the firelight, a dozen arrow shafts standing in her spread wing.",
+    "light": "A great blaze beyond the right edge throws her shadow leftward; the burning arrows are small gold flames scattered through the dark."
+  },
+  "UN-A2-7": {
+    "shot": "ground", "dir": "L", "place": "R", "pal": "rosedawn",
+    "scene": "Daybreak on a battlefield, seen from the ground at the eye level of the fallen. Across the near foreground stretches an armoured arm and an open gauntlet, palm up, in cold blue shadow. Walking toward us from the right comes a seraph priestess in pale robes, barefoot, wings half open, the rising sun exactly behind her, so that the edge of daylight on the ground advances with her feet. Its first gold line has just reached the gauntlet's fingertips, and two fingers have begun to curl. Behind her, in full light, fallen knights are already rising to their knees.",
+    "light": "Sunrise from directly behind her: warm pink-gold on everything she has passed, cold blue-lilac shadow on everything still ahead of her."
+  },
+  "UP-A2-11": {
+    "shot": "inside", "dir": "R", "place": "L", "pal": "firstlight",
+    "scene": "From deep inside a dark tunnel under the citadel, looking out toward its arched mouth at the left: a young white stallion with a gold mane steps in from the daylight, head lowered, a pearly spiral horn as long as a spear levelled before him like a lance. Ahead of the horn's tip, a full stride before any light could reach, the blackness of the tunnel is splitting open along a straight seam that runs to the right across the frame, the dark peeling back to both sides like a slit curtain.",
+    "light": "Pale morning light frames the horse from the tunnel mouth behind; the seam it cuts through the dark glows soft gold from within."
+  },
+  "UP-A2-15": {
+    "shot": "through", "dir": "L", "place": "R", "pal": "vigil",
+    "scene": "Through the gap of a heavy chapel door left ajar — dark wood filling both sides of the frame — we see a narrow slice of the vigil inside, right of centre. A seraph stands there in new white-gold plate, wings folded, both hands on the pommel of the same plain sword set point-down, facing left toward an unseen altar. Three narrow white ribbons are tied above his left elbow, each a little more faded than the last. A thin sword-shaped ray of light rests across his shoulder like an accolade.",
+    "light": "One small oil lamp burns low inside; the single ray falls from a high slit window, and the door in the foreground stays black."
+  },
+  "UP-A2-17": {
+    "shot": "back", "dir": "B", "place": "R", "pal": "firstlight",
+    "scene": "From behind the right shoulder of a couchant sphinx whose fur has turned bright gold, wing feathers gilded at their edges, the back of her sun-disk crown blazing like a lamp. She faces a short line of travellers waiting at the foot of a white stair, and her glow throws each one's shadow long across the road behind them — a shepherd's, a pedlar's, a child's. The fourth, a well-dressed man already edging backward, stands on bare bright paving, his shadow gone.",
+    "light": "Blue-grey dawn before the sun; the sphinx's own golden glow is the light that casts the travellers' shadows away from her."
+  },
+  "UP-A2-22": {
+    "shot": "under", "dir": "D", "place": "L", "pal": "glare",
+    "scene": "Looking straight up through the open trapdoor of a belfry floor, its dark timber edges framing the view: the mouth of an enormous bronze bell hangs overhead, filling the upper left, its great clapper swung to one side at the instant of striking. Light pours down out of the bell onto us, the rising-sun engravings along its rim seen from beneath, and rings of pale gold spread outward from the rim through the rafters and away through the open arches. A bell rope falls past the camera to the lower right.",
+    "light": "The bell's inner light is the single source, blinding at its centre and bronze-gold on the rim, with the trapdoor frame and rafters black against it."
+  },
+  "UP-A2-24": {
+    "shot": "profile", "dir": "L", "place": "R", "pal": "firstlight",
+    "scene": "Side-on, on a bare terrace: three tall oval mirrors in gilt frames stand at the right, overlapping one behind another like half-folded wings, their bright faces turned left and seen as three thin blazing edges. Their backs, toward the right, are dull grey and gritty like wall-stone. From the left a single dark bolt streaks in level across the frame, and from the three faces three bright bolts are already streaking back along the same line.",
+    "light": "Cold blue-grey before sunrise; the mirror faces blaze pale gold as if they already held the day, and the returning bolts are the brightest marks in the picture."
+  },
+  "US-A2-1": {
+    "shot": "ring", "dir": "N", "place": "C", "pal": "rosedawn",
+    "scene": "From high above a dark heath at dawn: a company has locked its round shields into one tight ring on the ground. From the boss of every shield a long blade of pure light is thrusting outward, so the ring has become a sun with thirty straight rays. Where the rays cross the armour of the surrounding enemy, they pass clean through plate and helm as if through mist. Wind flattens the grass outward in rings, and the low fog is blown back in a widening circle.",
+    "light": "The blades are white-gold and cast long lilac shadows outward from every enemy shape; the retreating fog catches pink-gold."
+  },
+  "US-A2-2": {
+    "shot": "column", "dir": "D", "place": "L", "pal": "glare",
+    "scene": "High noon over a packed battle line, every shadow shrunk to a small pool underfoot. From a small white sun at the very top of the frame, two needle-straight columns of concentrated light stand down into a thicket of raised weapons — one on the tallest greatsword at the left, one on the second-tallest halberd. Both blades are white-hot from the tip downward, beads of molten steel running to the hilt, heat shimmer bending the air. Every lower blade around them is untouched, and the dust between hangs in slow bright curtains.",
+    "light": "Vertical midday glare from straight overhead, white-gold and merciless, with the crowd below reduced to dark shapes and short black shadows."
+  },
+  "IR-A2": {
+    "shot": "top", "dir": "U", "place": "T", "pal": "stainedglass",
+    "scene": "Overhead, the pale flagstones of an oath hall after a night's vigil. In the upper part a kite shield of ivory enamel lies face up, tapered end toward the top edge, a gilded half-sun on its broad end, and a skin of pale-gold light rests on its face like oil on water, level to the rim. A white cord is looped round its rim and tied in one fresh knot. Below it lie two unbuckled arm straps and a candle burnt down to a stub in a pool of cooled wax.",
+    "light": "Deep morning shade under tall windows; ruby and blue patches lie on the pale floor, and one pale-gold beam rests exactly on the shield."
+  },
+  "PN-A2-R": {
+    "shot": "tilt", "dir": "B", "place": "T", "pal": "stainedglass",
+    "scene": "A thrown hatchet wheels in from the right across a steeply tilted frame. At the top of a flight of pale steps a great golden lion stands with its back to us, facing a tall east window, mane flared wide like the rays of the sun rising behind the glass. Light comes through window and mane together and fans out in jewel-coloured rays across the two spearmen flanking it. The hatchet, aimed at the right-hand spearman, has met one ray in mid-air and skids off it in a spray of gold.",
+    "light": "Sunrise through the east window: pale-gold beams and ruby, blue and green patches on pale stone, the steps below still in deep shade."
+  },
+  "PS-A2-1": {
+    "shot": "through", "dir": "F", "place": "R", "pal": "vigil",
+    "scene": "Framed by the dark arch of a wall gate, a torch-lit bridge at night. At the right of the opening two shield-bearers stand in file, facing us, the second a step behind the first. A war hammer swung in from the left edge has landed square on the front shield, and that shield stays smooth and whole. The crack has opened in the shield behind it, in the same place, its edges glowing gold, and a thread of light runs between the two, taut as a plucked string. The rear bearer only bows its head.",
+    "light": "Deep night on the wall; two small torches with pale-gold halos light the bridge, and the glowing crack is the brightest thing in view."
+  },
+  "RS-A2-1": {
+    "shot": "cut", "dir": "R", "place": "X", "pal": "stainedglass",
+    "scene": "A cutaway side view in the deep shade of a white wall. At the left two enamelled shields, one ruby, one blue, lie face up on pale paving. From each a ribbon of coloured light lifts, and the two braid into one level shaft of pale gold, thick as a mast, that runs across the whole frame to the right. It has bored through a first dark tower shield planted upright, shown sliced in half around the glowing tunnel, comes out thinner, and enters a second as fine as a needle.",
+    "light": "Deep morning shade below the wall; the shaft throws ruby, blue and pale-gold patches along the paving and rims each sliced edge."
+  },
+  "RS-A2-2": {
+    "shot": "impact", "dir": "U", "place": "B", "pal": "glare",
+    "scene": "At arm's length, the instant a blow lands. Low in the frame a dark pike thrust in from the right has stopped dead against one great feather of solid white-gold light, broad as a door. Where point meets feather, a bright copy of the pike head is peeling off the steel like a cast from a mould. Above, a dozen such copies hang in the air, axe heads, sword blades, arrow points, climbing in a neat stack toward the top, and every one has turned to point back the way it came.",
+    "light": "Blinding white-gold glare from the feather of light itself fills the frame behind the impact and cuts the pike into a hard black shape."
+  },
+  "RS-A2-3": {
+    "shot": "reflect", "dir": "R", "place": "C", "pal": "glare",
+    "scene": "A sword blade thrust level from the left fills the middle of the frame, tip toward the right, and its polished flat works as a mirror. Reflected there, a ring of white-gold light is drawn on dark ground, and inside the ring stand two planted boots and the butt of a grounded spear. The front half of the blade has already crossed above the ring. From that line on, the steel holds only blank white glare, its reflection burnt out, and the tip sags like a candle left in the sun.",
+    "light": "The ring of light is the only source, blinding white-gold in the mirror of the blade; everything around the steel is dark."
+  },
+  "SP-A2": {
+    "shot": "far", "dir": "F", "place": "T", "pal": "glare",
+    "scene": "Before sunrise, from far out on the empty plain, a pilgrim road runs straight toward the horizon, and the horizon is a body. Along the top of the frame kneels a figure made wholly of daybreak, facing us: its two outspread wings are the whole band of first light, its upright sword a single ray climbing out of sight. The white citadel stands against its bent knee like a chess piece, towers dark against the glow. Overhead the night sky and its stars stop in a clean arc around the raised blade.",
+    "light": "White-gold glare pours from the kneeling figure along the horizon; citadel, road and a few pilgrim lanterns are dark shapes and sparks before it under lingering stars."
+  },
+  "SR-A2": {
+    "shot": "making", "dir": "N", "place": "R", "pal": "stainedglass",
+    "scene": "In a gate chapel a pale silver bow taller than the doorway stands upright in a wooden stringing frame at the right. Its string is being made of light: thin pale-gold beams slant in through a tall coloured window that faces the empty land, and a small twisting-hook at the upper nock has wound a dozen of them into one bright cord reaching halfway down the bow. The remaining beams hang loose in the air like warp threads. A stringer's glove and a block of beeswax at its foot look like toys.",
+    "light": "Morning sun through stained glass lays jewel-coloured patches on pale stone in deep shade; the pale-gold beams are the brightest things in the chapel."
+  }
+}

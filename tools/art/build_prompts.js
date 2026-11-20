@@ -1,27 +1,32 @@
-/* ETHERION — 그림 AI용 프롬프트 만들기 (v2 · 등급별, 2026-11-10 · 스타일 가이드 6.7 · 6.8)
-   게임 데이터(index.html과 같은 파일 · 같은 차례)를 읽어 카드마다 프롬프트 하나를 만든다.
-   그림 말(등급 · 레벨 · 깃발 · 진영 · 종류)은 tools/art/art_style.json, 카드별 지시는 tools/art/art_notes.json.
-   카드 이름 · 설명 · 등급을 고쳤거나 새 카드를 만들었거나 art_style.json을 고쳤으면 다시 돌린다.
+/* ETHERION — 그림 AI용 카드 일러스트 프롬프트 만들기 (n판 · 2026-11-20 처음부터 새로 씀 · 스타일 가이드 6장)
+
+   프롬프트 = ① 카드 장면(카드마다 손으로 쓴 것 — tools/art/art_scenes/<깃발>.json)
+            + ② 배색 한 줄(깃발의 배색 묶음 가운데 그 카드가 고른 것)
+            + ③ 깃발 한 줄(원소의 재료 · 대기 — 종족이 아니다)
+            + ④ 등급 한 줄(마감의 결과 등급 강조색 — 시점은 정하지 않는다)
+            + ⑤ 화풍 한 줄(모든 카드 같음)
+   카드끼리 달라야 하는 것(무엇을 · 어디서 보나 · 어디에 놓나 · 어느 쪽을 보나 · 빛)은 모두 ①에 있고,
+   ②~⑤는 art_style.json의 짧은 말이다. 등급 · 깃발의 통일감은 ②~⑤가, 카드의 개성은 ①이 맡는다.
+
+   스페셜 · 레어(art_style.json legacyGrades)는 옛 g4 프롬프트를 그대로 쓴다 — legacy_g4/prompts_special_rare.jsonl.
 
    실행 (게임 폴더 맨 위에서):  node tools/art/build_prompts.js
    만드는 파일:
      tools/art/prompts/cards.jsonl        카드 그림 작업 목록 (gen.py · artmap.py가 읽음) — 한 줄 = 한 장
-     tools/art/prompts/grades/<등급>.md    등급별 — 그 등급의 연출 틀 + 카드마다 프롬프트 (사람 · 다른 AI용)
-     tools/art/prompts/cards/<깃발>.md     깃발별 — 같은 프롬프트를 깃발로 묶은 것
+     tools/art/prompts/grades/<등급>.md    등급별 · tools/art/prompts/cards/<깃발>.md 깃발별 (사람이 붙여 넣는 용)
      tools/art/prompts/ui.jsonl · ui.md    전장 그림 (ui_assets.json을 펼친 것)
-     tools/art/PROMPT_GUIDE.md             <!-- AUTO:… --> 칸만 새로 채운다(손으로 쓴 글은 그대로)
-   뺀 카드(js/retired.js)는 만들지 않는다. 소환물(TK- · TS-)은 등급 "token".
-   그리는 차례: 그림 없는 카드 먼저(유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물 순) → 다시 그리기(장부 art_map.csv 상태 "다시") → 그림 있는 카드(그리지 않음).
-     장부의 상태를 읽어 job.art = "new" | "redo" | "have"로 적고, cards.jsonl · .md 모두 이 차례로 놓는다. */
+     tools/art/PROMPT_GUIDE.md             <!-- AUTO:… --> 칸만 새로 채운다
+   새 카드를 만들었으면: node tools/art/scene_tool.js todo → 장면을 쓰고 → lint → 이 파일.
+   그리는 차례: 그림 없는 카드(art_style.json drawOrder 순) → 다시 그리기(장부 art_map.csv 상태 "다시") → 그림 있는 카드. */
 "use strict";
 const fs = require("fs"), path = require("path"), vm = require("vm");
 
 const ROOT = path.resolve(__dirname, "..", "..");
 const OUT = path.join(__dirname, "prompts");
 const S = JSON.parse(fs.readFileSync(path.join(__dirname, "art_style.json"), "utf8"));
-const NOTES = (() => { try { return JSON.parse(fs.readFileSync(path.join(__dirname, "art_notes.json"), "utf8")); } catch (e) { return {}; } })();
+const LEGACY = new Set(S.legacyGrades || []);
 
-/* ---------- 1. 게임 데이터 읽기 (index.html의 data.js ~ grades.js와 같은 차례) ---------- */
+/* ---------- 1. 게임 데이터 (index.html의 data.js ~ grades.js와 같은 차례) ---------- */
 const DATA_FILES = ["data", "names", "retired", "briefs", "specials", "uniques", "highcards", "pincards", "rarespells", "counterspells", "upgrades", "rebalance", "abyss", "gnome", "orc", "mermaid", "rares", "elf", "goblin", "newabil", "troll", "celestial", "kinds", "statguide", "itemtune", "itemrework", "spelltune", "decks", "cards", "wording", "lore", "grades"];
 function loadGame() {
   const stub = () => null;
@@ -33,21 +38,32 @@ function loadGame() {
   };
   ctx.window = ctx; vm.createContext(ctx);
   let src = "";
-  for (const f of DATA_FILES) {
-    const p = path.join(ROOT, "js", f + ".js");
-    if (fs.existsSync(p)) src += fs.readFileSync(p, "utf8") + "\n;\n";
-  }
-  src += "this.__o = { CARDS, GROUPS, FACTIONS, RETIRED: (typeof RETIRED_CARDS !== 'undefined' ? RETIRED_CARDS : {}) };";
+  for (const f of DATA_FILES) { const p = path.join(ROOT, "js", f + ".js"); if (fs.existsSync(p)) src += fs.readFileSync(p, "utf8") + "\n;\n"; }
+  src += "this.__o = { CARDS, GROUPS, RETIRED: (typeof RETIRED_CARDS !== 'undefined' ? RETIRED_CARDS : {}) };";
   vm.runInContext(src, ctx, { filename: "etherion-data" });
   return ctx.__o;
 }
 
-/* ---------- 1b. 그림 장부 (art_map.csv: 상태 · 메모) — 그리는 차례를 정한다 ---------- */
-function loadArtMap() {
+/* ---------- 2. 장면 · 옛 프롬프트 · 장부 ---------- */
+function loadScenes() {
+  const dir = path.join(__dirname, "art_scenes"), all = {};
+  if (!fs.existsSync(dir)) return all;
+  for (const f of fs.readdirSync(dir).filter(x => x.endsWith(".json")).sort()) {
+    const j = JSON.parse(fs.readFileSync(path.join(dir, f), "utf8"));
+    for (const id of Object.keys(j)) if (id[0] !== "_") all[id] = j[id];
+  }
+  return all;
+}
+function loadLegacy() {
+  const p = path.join(__dirname, "legacy_g4", "prompts_special_rare.jsonl"), M = {};
+  if (!fs.existsSync(p)) return M;
+  for (const line of fs.readFileSync(p, "utf8").split("\n")) if (line.trim()) { const j = JSON.parse(line); M[j.id] = j; }
+  return M;
+}
+function loadArtMap() {   // 장부 art_map.csv (상태 · 메모) — 작은 CSV 읽기
   const p = path.join(__dirname, "art_map.csv");
   if (!fs.existsSync(p)) return {};
-  const txt = fs.readFileSync(p, "utf8").replace(/^\uFEFF/, "");
-  const rows = [];   // 작은 CSV 읽기 (따옴표 · 줄바꿈 처리)
+  const txt = fs.readFileSync(p, "utf8").replace(/^﻿/, ""), rows = [];
   let row = [], cell = "", q = false;
   for (let i = 0; i < txt.length; i++) {
     const ch = txt[i];
@@ -62,285 +78,92 @@ function loadArtMap() {
   for (const r of rows) { const o = {}; head.forEach((h, k) => o[h] = r[k] || ""); if (o.card_id) M[o.card_id] = o; }
   return M;
 }
-const ART_MAP = loadArtMap();
+const SCENES = loadScenes(), OLD = loadLegacy(), ART_MAP = loadArtMap();
 const hasArt = id => ["jpg", "png", "webp"].some(x => fs.existsSync(path.join(ROOT, "img", "cards", `${id}.${x}`)));
-/* new = 그림 없음(먼저) · redo = 다시 그리기 · have = 그림 있음(그리지 않음) */
-function artState(id) {
-  if (!hasArt(id)) return "new";
-  return (ART_MAP[id] && ART_MAP[id].status === "다시") ? "redo" : "have";
-}
+const artState = id => !hasArt(id) ? "new" : (ART_MAP[id] && ART_MAP[id].status === "다시") ? "redo" : "have";   // new 먼저 · redo 다시 그리기 · have 그리지 않음
 const ART_RANK = { new: 0, redo: 1, have: 2 };
 const ART_SECTION = {
   new: "## 1. 그림 없는 카드 — 먼저 그린다{n}",
-  redo: "## 2. 다시 그리기{n}\n\n> 이미 그림이 있어 게임은 그대로 돌아간다. 1번(그림 없는 카드)을 다 그린 뒤 그린다.",
+  redo: "## 2. 다시 그리기{n}\n\n> 이미 그림이 있어 게임은 그대로 돌아간다. 1번을 다 그린 뒤 그린다.",
   have: "## 3. 그림 있음 — 그리지 않는다 (참고용){n}"
 };
 
-/* ---------- 2. 카드 → 등급 · 레벨 · 장면 ---------- */
+/* ---------- 3. 카드 → 프롬프트 ---------- */
 const isToken = c => /^T[KS]-/.test(c.id);
 const gradeKey = c => isToken(c) ? "token" : (c.grade || "common");
-const kindOf = c => c.type === "unit" ? "unit" : c.type === "item" ? "item" : "spell";
-function levelText(c) {
-  const t = S.levels[kindOf(c)], lv = c.lv || 1;
-  const k = Object.keys(t).map(Number).sort((a, b) => a - b).filter(n => n <= lv).pop() || 1;
-  return t[k];
-}
-function fill(str, F, c) {
-  return String(str || "")
-    .replace(/\{hint\}/g, F.hint).replace(/\{home\}/g, F.home).replace(/\{landmark\}/g, F.landmark)
-    .replace(/\{source\}/g, F.source).replace(/\{mythic\}/g, F.mythic).replace(/\{base\}/g, (c && c.base) || "the base card");
-}
-
-/* 마법 효과(ops) → 장면 */
-function spellScene(c, el) {
-  const ops = c.ops || [];
-  const has = o => ops.some(p => p.op === o);
-  const foe = ops.some(p => p.side === "foe"), ally = ops.some(p => p.side === "ally"), both = ops.some(p => p.side === "both");
-  const up = ops.some(p => p.op === "mod" && ["a", "d", "h"].some(k => (p[k] || 0) > 0));
-  const down = ops.some(p => p.op === "mod" && ["a", "d", "h"].some(k => (p[k] || 0) < 0));
-  const parts = [];
-  if (has("dmg") || has("blast") || has("a2Dawn") || has("a2Judge") || has("a2Retrib")) parts.push(both ? `a cataclysmic ${el.en} blast engulfing the whole battlefield` : `a destructive ${el.en} bolt or blast tearing across the field into the distant enemy line`);
-  if (has("destroy") || has("duel")) parts.push("an annihilating strike of pure force that leaves only an empty, scorched outline where a foe stood");
-  if (has("negate") || has("negBuff") || has("a1Possess")) parts.push("a counter-force shattering an incoming enemy spell mid-air into fading shards of light");
-  if (has("scorch") || has("scorchMod") || has("detonate") || has("a1Hellfire")) parts.push("clinging embers and hungry flames catching onto abandoned enemy shields, banners and armour");
-  if (has("gbKegs") || has("gbBlast")) parts.push("lit powder kegs planted along the line and erupting in roaring fireballs");
-  if (has("armorCrush") || has("def0")) parts.push("heavy enemy armour plates splitting, buckling and flying apart under the spell");
-  if (has("g2Weight") || has("hpSlam")) parts.push("a crushing invisible weight slamming down and cratering the ground where the enemy line stands");
-  if (has("curse") || has("handCurse")) parts.push("a creeping shadow curse mark of dread and rot spreading over the ground and enemy banners");
-  if (has("a2Scale") || has("levelA") || has("a2Hush") || has("a2Redeem")) parts.push("a solemn column of golden light that dims and silences the glow of enemy weapons");
-  if (has("g1Crouch")) parts.push("tall grass and shadows hiding glinting eyes in tense ambush, a hush falling over the field");
-  if (has("paidHit") || has("tithe") || has("selfHit")) parts.push("crimson blood-power bursting outward in a ring of red light");
-  if (has("paidSteal") || has("steal") || has("mindCapture") || has("a1Dominate")) parts.push("shadowy tendrils seizing a glowing orb of stolen power and pulling it across the field");
-  if (has("confuse")) parts.push("hallucinatory mist swirling with distorted mirror images and crossed blades");
-  if (has("phantom")) parts.push("a translucent mirror-image phantom shape peeling out of a shadow");
-  if (has("rebirth")) parts.push("a pillar of light rising from a pile of ash and an empty helm, a faint shape reforming");
-  if (has("drain")) parts.push("a glowing stream of life-force siphoned across the field from one distant silhouette to another");
-  if (up && (ally || !foe)) parts.push(`an empowering ${el.en} surge rising from the ground in spiralling light, lifting allied banners`);
-  if (down && foe) parts.push("a weakening curse sinking over the enemy side like heavy dark fog");
-  if (has("shield") || has("guard") || has("lock") || has("sumDef") || has("mrVeil") || has("a2Vigil") || has("a2Martyr") || has("a2Sub") || has("pin") || has("endure")) parts.push("a glowing protective barrier or ward of runes forming in the air, deflecting incoming blows");
-  if (has("thorns")) parts.push("a shell of thorns bristling outward, breaking the blades that strike it");
-  if (has("clean") || has("strip") || has("mrPurge")) parts.push("a cleansing wave of clear light washing away flames, curses and enchantments");
-  if (has("summon") || has("conjure") || has("copy") || has("echo") || has("mirrorTwin") || has("mimic")) parts.push("a rune circle blazing on the ground with a glowing shape just forming inside it");
-  if (has("rest") || has("heal") || has("hpGather")) parts.push("a calm restoring light falling like warm rain, motes of vitality gathering");
-  if (has("swap") || has("swapPos") || has("swapLowHigh") || has("swapLeft") || has("taunt") || has("sortFoe") || has("move")) parts.push("two glowing places on the field swapped along crossing arcs of light by a trick of magic");
-  if (has("xchg") || has("swapSt") || has("randSwap") || has("d0Swap") || has("a3Confuse")) parts.push("twisting magic inverting a sword and a shield of light around each other in a spiral");
-  if (has("draw") || has("leftToBottom") || has("fate") || has("rot")) parts.push("threads of fate and glowing cards cycling in motion");
-  if (has("handMod") || has("handBurn")) parts.push("a sly shadow reaching into a fan of blank-backed enemy cards");
-  if (has("atk0")) parts.push("enemy weapons frozen and stopped in mid-air, caught in glowing shackles");
-  if (has("chain") || has("multi")) parts.push(`chained ${el.en} strikes leaping from target to target`);
-  if (has("rally") || has("grant") || has("perAlly") || has("matchA") || has("g1Victory") || has("g1Ram") || has("rage") || has("d2a") || has("hp2a") || has("dsumA") || has("g1Grudge") || has("g1Oath")) parts.push("a shared surge of power rising like a banner of light over the allied side");
-  if (has("volley") || has("a3Arm") || has("a3Volley")) parts.push("a rain of arrows arcing high over the enemy front line and falling on the ranks behind it");   // v3.70 엘프 빗발치는 화살
-  if (has("retreat")) parts.push("a gust of wind sweeping a cloak and feathers back out of reach, leaving an empty space");   // v3.70 엘프 후퇴
-  if (c.cost && c.cost.life) parts.push("paid for with the caster's own blood");
-  if (!parts.length) parts.push(`a burst of ${el.en} power`);
-  return parts.slice(0, 3).join("; ");
-}
-
-const CAT_LOOK = { "무구": "weapon/armour", "각인": "engraving", "촉매": "catalyst", "성물": "holy relic", "공용": "general gear" };
-const SPELL_KIND = { atk: "attack spell", def: "defense spell", any: "versatile spell", hand: "hand trick spell" };
-
-/* v3.79 유닛 종류(kin)의 그림 말 — 깃발의 옛 종족(flags.<깃발>.oldRaceKo)이면 없음(깃발 who를 그대로 씀) */
-function kindLook(c, F) {
-  if (c.type !== "unit" || !c.kin || c.special) return null;
-  if (F.oldRaceKo && c.kin === F.oldRaceKo) return null;
-  return (F.kinds && F.kinds[c.kin]) || null;
-}
-
-function subjectOf(c, F, G, D) {
-  const el = S.elements[c.el] || S.elements.dark;
-  if (c.type === "unit") {
-    if (isToken(c)) return `a summoned creature or construct of the ${F.en}: ${G.unit}`;
-    /* v3.59 스페셜은 깃발마다 하나뿐인 신화적 존재 — 깃발의 평범한 구성원으로 그리지 않는다 */
-    if (c.special) return `a one-of-a-kind mythic being of the ${F.en}${NOTES[c.id] ? " (see art direction)" : ""}${G.unit ? `. ${G.unit}` : ""}`;   // v3.95 종족 금지 말 뺌 — 깃발 이름 · 원소로 그린다
-    const rank = c.special ? "a mythic, ascended" : c.unique ? "a legendary, named" : c.lv >= 7 ? "a legendary, awe-inspiring" : c.lv >= 5 ? "an elite, commanding" : c.lv >= 3 ? "a seasoned, battle-hardened" : "a low-ranking, ordinary";
-    const baseCard = c.base && D.CARDS[c.base];
-    const clKey = c.cl || (baseCard && baseCard.cl) || "";
-    const cls = ((F.classes && F.classes[clKey]) || S.classes[clKey] || "a warrior").replace("{el}", el.en + " power");   // v3.70 깃발마다 클래스 말을 덮을 수 있다(엘프 마도 = 궁수)
-    /* v3.79 깃발 아래 종류(js/kinds.js kin): 옛 종족이 아닌 종류는 아래 Creature kind 줄에서 K.who로 묘사(중복 방지) */
-    const K = kindLook(c, F);
-    let s = K ? `${rank} ${K.en} of the ${F.en}${NOTES[c.id] ? " (see art direction)" : ""}`
-      : NOTES[c.id] ? `${rank} member of the ${F.en} (see art direction)` : `${rank} member of the ${F.en} — ${cls}`;
-    if (c.rev === "벽") s += "; a stubborn defender who stands like a wall";
-    if (c.rev === "돌격") s += "; a reckless charging attacker";
-    if (G.unit) s += `. ${G.unit}`;
-    return s;
-  }
-  if (c.type === "item") {
-    const it = c.item || {};
-    const cat = String(it.cat || "").split("·").map(k => (F.cats && F.cats[k]) || CAT_LOOK[k]).filter(Boolean).join(" + ");
-    const hint = cat ? ` (${cat})` : "";
-    return `the item the card name and lore describe — a single object made or kept by the ${F.en}${hint}. ${G.item}`;
-  }
-  let s = NOTES[c.id]
-    ? `${SPELL_KIND[c.type] || "spell"} of the ${F.en} (see art direction)`
-    : `${S.types[c.type] || "spell"}. The moment it takes effect: ${spellScene(c, el)}`;
-  if (G.spell) s += `. Scale and finish: ${G.spell}`;
-  if (c.comeback) s += ". A desperate last-stand reversal that turns a losing battle";
-  if (c.classSpell) s += `. A spell of the ${c.classSpell} class`;
-  return s;
-}
+const typeOf = c => c.type === "unit" ? "unit" : c.type === "item" ? "item" : "spell";
+const sentence = s => { s = String(s || "").trim(); return s && !/[.!?]$/.test(s) ? s + "." : s; };
 
 function promptOf(c, D) {
-  const gk = gradeKey(c), G = S.grades[gk] || S.grades.common;
-  const F = S.flags[c.group] || S.flags.A1;
-  const el = S.elements[c.el] || S.elements[F.element] || S.elements.dark;
-  const fac = (S.factions[c.faction] || S.factions[F.faction] || {}).text || "";
-  const lore = (c.flavor || (c.item && c.item.desc) || "").trim();
-  const text = (c.text || "").replace(/\s+/g, " ").trim();
-  const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
-  /* v3.95 스페셜 18장은 짧은 틀: 등급 공통 말을 몇 줄로 묶고 카드 그림 지시 · 서사가 앞장서게(스페셜끼리 같은 문장 몫을 줄임) */
-  if (gk === "special" && G.compactGrade) {
-    const unit = c.type !== "item";
-    return [
-      S.base,
-      `Grade: ${G.compactGrade}.`,
-      `Card name (Korean — read its meaning, never write it in the image): "${c.name}". Depict exactly what this name describes.`,
-      `Subject: ${unit ? `a one-of-a-kind mythic being of the ${F.en}` : `a sacred relic of the ${F.en}${NOTES[c.id] ? " (see art direction)" : ""}`}.`,
-      NOTES[c.id] && `Art direction: ${NOTES[c.id]}`,
-      lore && `Lore (Korean, use for the scene): ${lore}`,
-      text && `Game effect (Korean, mood only — never draw text or numbers): ${text}`,
-      `${G.compactLead}.`,
-      `Scale: ${unit ? G.compactUnitScale : G.itemScale}.`,
-      `Camera: ${unit ? G.compactUnitCamera : G.itemCamera}.`,
-      `Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; ${unit ? F.mythic : fill(G.itemBackground, F, c)}.`,
-      /* art_notes.json _light: 카드별 색감 덮어쓰기(예: SP-B2 은빛) */
-      (NOTES._light && NOTES._light[c.id]) ||
-      `Light and colour: ${el.en} (${el.hex}) light ${unit ? "bursting from the being itself" : "glowing from within the relic"} is the main light; palette ${F.palette}; ${unit ? G.compactUnitFinish : G.compactItemFinish}; ${G.compactMark}.`,
-      !unit && "No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.",
-      `Mood: ${unit ? G.mood : G.itemMood}.`,
-      S.composition, S.notext, S.avoid
-    ].filter(Boolean).join("\n");
-  }
-  const isItem = c.type === "item", isSpell = c.type !== "unit" && !isItem;
-  const pick = k => (isItem && G["item" + cap(k)]) || (isSpell && G["spell" + cap(k)]) || G[k];
-  const qualityLine = isItem ? (S.itemQuality || S.quality) : isSpell ? (S.spellQuality || S.quality) : S.quality;
+  const gk = gradeKey(c);
+  if (LEGACY.has(gk)) return OLD[c.id] ? { prompt: OLD[c.id].prompt, ver: OLD[c.id].prompt_ver || S.legacyVersion } : { prompt: "", ver: S.legacyVersion, todo: "옛 프롬프트 없음" };
+  const sc = SCENES[c.id], F = S.flags[c.group], G = S.grades[gk];
+  if (!sc || !F || !G) return { prompt: "", ver: S.version, todo: "장면 없음" };
   const L = [
-    S.base,
-    `Grade: ${G.tag}. ${cap(pick("presence"))}.`,
-    qualityLine,
-    `Card name (Korean — read its meaning, never write it in the image): "${c.name}". Depict exactly what this name describes.`,
-    `Subject: ${subjectOf(c, F, G, D)}.`
+    `${S.lead[typeOf(c)]} ${sentence(sc.scene)} ${sentence(sc.light)}`.trim(),
+    `Colour: ${sentence(F.palettes[sc.pal] || "")}`,
+    F.world,
+    G.finish
   ];
-  if (isSpell && S.spellFocus) L.push(S.spellFocus);   // v3.96 마법은 유닛이 아니라 마법 자체가 주인공
-  if (NOTES[c.id]) L.push(`Art direction: ${NOTES[c.id]}`);
-  if (gk === "upgrade" && G.reference) {
-    const B = c.base && D.CARDS[c.base];
-    L.push(fill(G.reference, F, c) + (B ? ` (base card: "${B.name}")` : ""));
-    /* v3.46 강화 카드의 연속성: 참고 그림이 없어도 원래 카드와 같은 인물 · 같은 곳으로 그리게, 원래 카드의 이름 · 서사 · 배경을 함께 넣는다 */
-    if (B) {
-      const BF = S.flags[B.group] || F, blore = (B.flavor || "").trim(), place = gradeKey(B) === "common" ? BF.hint : BF.home;
-      L.push(`Continuity with the base card: this is the very same individual as "${B.name}" (${B.id}) after a promotion — same species, sex, age, face, hair or beard, colours, weapon type and fighting style, now one rank higher.` +
-        (blore ? ` The base card's lore: ${blore}` : "") +
-        ` The base card is set in ${place}; keep that same place, intensified.`);
-    }
-  }
-  L.push(`Scale (level ${c.lv} of 8): ${levelText(c)}.`);
-  if (isToken(c))
-    L.push(`Banner — summoned by the ${F.en}; signature motifs: ${F.motifs}; palette: ${F.palette}.`);
-  else if (c.type === "unit" && kindLook(c, F)) {   // v3.79 옛 종족이 아닌 종류: 몸은 종류의 것, 깃발은 재료 · 상징 · 색으로만
-    const K = kindLook(c, F);
-    L.push(`Creature kind — ${K.en}: ${K.who}. Silhouette: ${K.silhouette}. Materials: ${K.materials}.`);   // v3.95 옛 종족 이름을 부정문으로도 넣지 않는다(이름을 넣으면 그림 AI가 끌어옴)
-    L.push(`Banner — ${F.en}: show the banner through element, palette and a few accents (${F.motifs}); palette: ${F.palette}.`);
-  } else if (c.type === "unit")
-    L.push(`Banner — ${F.en}: ${F.who}. Silhouette: ${F.silhouette}. Materials: ${F.materials}. Signature motifs: ${F.motifs}.`);
-  else if (isItem)   // v3.95 아이템은 물건이라 깃발 종족의 몸(who · silhouette)을 넣지 않는다
-    L.push(`Banner — ${F.en} (${el.en}): palette: ${F.palette}. Materials: ${F.materials}. Signature motifs: ${F.motifs}.`);
-  else
-    L.push(`Banner — ${F.en}: magic of ${F.en.toLowerCase()}, signature motifs: ${F.motifs}; palette: ${F.palette}.`);
-  L.push(`Faction: ${fac}.`);
-  /* v3.96 마법의 배경 글은 뜻만 빌린다: 글에 나오는 오크 · 기사 같은 인물을 그림 AI가 주인공으로 그려서(SG1-08) */
-  if (lore) L.push(isSpell ? `Lore (Korean, meaning and mood only): ${lore} — the people this lore names stay off-stage; show their spell, not them.` : `Lore (Korean, use for the scene): ${lore}`);
-  if (text) L.push(`Game effect (Korean, mood only — never draw text or numbers): ${text}`);
-  /* v3.96 유니크는 카드마다 다른 구도: art_notes.json _shot.<ID> = { camera, light } (레어 · 에픽 · 스페셜의 '올려다보는 가운데 영웅'과 구별) */
-  const shot = (NOTES._shot && NOTES._shot[c.id]) || null;
-  L.push(
-    `Camera: ${shot && shot.camera ? shot.camera : pick("camera")}.`,
-    `Lighting: ${pick("lighting")}; main light is ${el.en} (${el.hex}) ${shot && shot.light ? shot.light : "from behind the subject"}, ${F.light}.`,
-    /* v3.96 깃발 색 지키기: 땅(황토) 마법이 불빛 주황 · 금빛으로 나와서(SG1-08) 색 이름과 질감을 한 번 더 못박는다 */
-    `Colour fidelity: the whole image reads at a glance as the banner colour ${el.hex} (${F.palette})${el.look ? ` — ${el.look}` : ""}; every glow, spark and highlight stays in that hue family.`,
-    `Background: very dark night-blue (#07080d) base; ${fill(G.background, F, c)}; ${el.cue}.`,
-    `Detail: ${pick("detail")}.`
-  );
-  /* v3.59 화려함 사다리: 등급마다 한 단계씩 더 화려하게(spectacle), 스페셜은 존재를 반쯤 가려 상상하게 하는 기법도(technique) */
-  if (G.spectacle) L.push(`Spectacle: ${pick("spectacle")}. ${S.spectacleRule || ""}`.trim());
-  if (G.technique && c.type === "unit") L.push(`Presence technique (allowed): ${G.technique}.`);
-  if (G.accent) L.push(`Grade accent: ${pick("accent")} — ${S.accentRule.replace("{share}", G.accentShare || "15%")}.`);
-  L.push(`Mood: ${pick("mood")}.`);
-  L.push(`Stay true to the banner: ${F.never}.`);
-  L.push((isSpell && S.spellComposition) || G.composition || S.composition, S.notext, S.avoid);
-  return L.join("\n");
+  if (gk === "upgrade" && S.upgradeRef) L.push(S.upgradeRef);   // 원래 카드 그림을 함께 넣는다(카드 머리말이 알려 준다)
+  L.push(S.house);
+  return { prompt: L.join("\n"), ver: S.version };
 }
 
-/* ---------- 3. 전장 그림 (ui_assets.json) ---------- */
+/* ---------- 4. 전장 그림 (ui_assets.json) ---------- */
 function loadUI() {
   const j = JSON.parse(fs.readFileSync(path.join(__dirname, "ui_assets.json"), "utf8"));
   const style = j.style.join("\n");
   return j.assets.map(a => Object.assign({}, a, { kind: "ui", prompt: [a.prompt.join("\n"), style, (a.avoid || j.avoid).join("\n")].join("\n") }));
 }
 
-/* ---------- 4. PROMPT_GUIDE.md 자동 칸 ---------- */
-function autoBlocks(jobs, D) {
-  const B = {};
-  const cnt = {};
-  for (const j of jobs) { cnt[j.grade] = cnt[j.grade] || { n: 0, unit: 0, spell: 0, item: 0 }; cnt[j.grade].n++; cnt[j.grade][j.type === "unit" ? "unit" : j.type === "item" ? "item" : "spell"]++; }
+/* ---------- 5. PROMPT_GUIDE.md 자동 칸 ---------- */
+const TYPE_KO = { unit: "유닛", atk: "공격 마법", def: "방어 마법", any: "공용 마법", hand: "핸드 마법", item: "아이템" };
+function autoBlocks(jobs) {
+  const B = {}, cnt = {};
+  for (const j of jobs) { const k = cnt[j.grade] = cnt[j.grade] || { n: 0, unit: 0, spell: 0, item: 0, todo: 0 }; k.n++; k[j.type === "unit" ? "unit" : j.type === "item" ? "item" : "spell"]++; if (j.todo) k.todo++; }
   B.COUNTS = [`프롬프트 버전 **${S.version}** (${S.updated}) · 카드 ${jobs.length}장 (뺀 카드 제외, 소환물 포함)`, "",
-    "| 등급 | 색 | 장수 | 유닛 · 마법 · 아이템 | 등급별 프롬프트 파일 |", "|---|---|---|---|---|",
-    ...S.gradeOrder.filter(g => cnt[g]).map(g => { const G = S.grades[g], k = cnt[g]; return `| ${G.ko} (${G.en}) | \`${G.color}\` | ${k.n} | ${k.unit} · ${k.spell} · ${k.item} | \`prompts/grades/${g}.md\` |`; })].join("\n");
-
-  B.GRADES = S.gradeOrder.map(g => {
-    const G = S.grades[g];
-    const rows = [["존재감 presence", G.presence], ["카메라 camera", G.camera], ["빛 lighting", G.lighting], ["배경 background", G.background], ["디테일 detail", G.detail],
-      ["화려함 spectacle", G.spectacle || ""], ["등급 강조색 accent", G.accent ? `${G.accent} (빛의 약 ${G.accentShare || "15%"})` : "없음 — 원소색만"], ["분위기 mood", G.mood]];
-    if (G.technique) rows.push(["존재감 기법 technique (유닛)", G.technique]);
-    if (G.spell) rows.push(["마법이면 spell", G.spell]);
-    if (G.item) rows.push(["아이템이면 item", G.item]);
-    if (G.reference) rows.push(["참고 그림 reference", G.reference]);
-    return [`### ${G.ko} · ${G.en} — \`${g}\` (${G.color})`, "", G.idea_ko, "", "| 항목 | 넣을 말 (영어 그대로) |", "|---|---|", ...rows.map(r => `| ${r[0]} | ${String(r[1]).replace(/\|/g, "/")} |`), ""].join("\n");
-  }).join("\n");
-
-  B.LEVELS = ["| 레벨 | 유닛 | 마법 | 아이템 |", "|---|---|---|---|",
-    ...Object.keys(S.levels.unit).map(k => `| ${k === "8" ? "8 (스페셜)" : k === "7" ? "7" : k + "~" + (+k + 1)} | ${S.levels.unit[k]} | ${S.levels.spell[k] || "↑"} | ${S.levels.item[k] || "↑"} |`)].join("\n");
-
+    "| 등급 | 색 | 장수 | 유닛 · 마법 · 아이템 | 프롬프트 | 파일 |", "|---|---|---|---|---|---|",
+    ...S.gradeOrder.filter(g => cnt[g]).map(g => { const G = S.grades[g], k = cnt[g]; return `| ${G.ko} (${G.en}) | \`${G.color}\` | ${k.n} | ${k.unit} · ${k.spell} · ${k.item} | ${G.legacy ? `옛 ${S.legacyVersion} 그대로` : `${S.version}${k.todo ? ` (장면 없음 ${k.todo})` : ""}`} | \`prompts/grades/${g}.md\` |`; })].join("\n");
+  B.GRADES = ["| 등급 | 뜻 | 프롬프트에 들어가는 한 줄 |", "|---|---|---|",
+    ...S.gradeOrder.filter(g => !S.grades[g].legacy).map(g => { const G = S.grades[g]; return `| ${G.ko} \`${g}\` | ${G.idea_ko} | ${G.finish} |`; })].join("\n");
   B.FLAGS = Object.keys(S.flags).map(id => {
     const F = S.flags[id], el = S.elements[F.element];
-    return [`### ${id} ${F.ko} · ${F.en} — ${S.factions[F.faction].ko} · ${el.en} \`${el.hex}\``, "",
-      "| 항목 | 넣을 말 |", "|---|---|",
-      `| 누구 who | ${F.who} |`, `| 실루엣 silhouette | ${F.silhouette} |`, `| 재료 materials | ${F.materials} |`, `| 색 palette | ${F.palette} |`,
-      `| 상징 motifs | ${F.motifs} |`, `| 빛 light | ${F.light} |`,
-      `| 배경 (일반) hint | ${F.hint} |`, `| 배경 (고급 · 강화) home | ${F.home} |`, `| 배경 (레어 · 에픽 · 유니크) landmark | ${F.landmark} |`,
-      `| 근원 (유니크) source | ${F.source} |`, `| 신화 배경 (스페셜) mythic | ${F.mythic} |`, `| 하지 말 것 never | ${F.never} |`, ""].join("\n");
+    return [`### ${id} ${F.ko} — ${el.en} \`${el.hex}\``, "", `- 깃발 한 줄: ${F.world}`,
+      `- 배색: ${Object.keys(F.palettes).map(k => `\`${k}\` ${F.palettes[k]}`).join(" / ")}`,
+      `- 장소 낱말(장면을 쓸 때): ${F.locales.join(", ")}`,
+      `- 처음 세운 무리 — 종류가 「${F.founderKo}」인 유닛에만: ${F.founder}`, ""].join("\n");
   }).join("\n");
-
-  B.TYPES = ["| 종류 | 넣을 말 |", "|---|---|", ...Object.keys(S.types).map(k => `| ${k} | ${S.types[k]} |`), "",
-    "| 클래스 (유닛) | 넣을 말 |", "|---|---|", ...Object.keys(S.classes).map(k => `| ${k} | ${S.classes[k]} |`)].join("\n");
-
-  const pick = { token: "TK-G1-1", common: "B1-01", uncommon: "A2-01", rare: "RS-G3-1", upgrade: "UP-B2-17", epic: "EP-A1-3", unique: "UN-G1", special: "SP-B2" };
-  B.EXAMPLES = Object.keys(pick).filter(g => g !== "token").map(g => {
-    const j = jobs.find(x => x.id === pick[g]) || jobs.find(x => x.grade === g); if (!j) return "";
-    return [`#### 예: ${S.grades[g].ko} — ${j.id} ${j.name}`, "", "```", j.prompt, "```", ""].join("\n");
-  }).join("\n");
+  const tbl = t => ["| shot | 뜻 |", "|---|---|", ...Object.keys(S.shots[t]).map(k => `| \`${k}\` | ${S.shots[t][k].en} |`)].join("\n");
+  B.SHOTS = ["**유닛**", "", tbl("unit"), "", "**마법**", "", tbl("spell"), "", "**아이템**", "", tbl("item"), "",
+    `**dir** — ${Object.keys(S.dirs).filter(k => k[0] !== "_").map(k => `\`${k}\` ${S.dirs[k]}`).join(" · ")}`, "",
+    `**place** — ${Object.keys(S.places).filter(k => k[0] !== "_").map(k => `\`${k}\` ${S.places[k]}`).join(" · ")}`].join("\n");
+  const ex = [];
+  for (const g of ["common", "uncommon", "epic", "unique"]) for (const t of ["unit", "spell", "item"]) {
+    const j = jobs.find(x => x.grade === g && (x.type === "unit" ? "unit" : x.type === "item" ? "item" : "spell") === t && x.prompt);
+    if (j) ex.push(`#### ${S.grades[g].ko} · ${TYPE_KO[j.type]} — ${j.id} ${j.name}`, "", "```", j.prompt, "```", "");
+  }
+  B.EXAMPLES = ex.join("\n");
   return B;
 }
 function fillGuide(B) {
   const p = path.join(__dirname, "PROMPT_GUIDE.md");
   if (!fs.existsSync(p)) return false;
   let md = fs.readFileSync(p, "utf8");
-  for (const k of Object.keys(B)) {
-    const re = new RegExp(`(<!-- AUTO:${k} -->)[\\s\\S]*?(<!-- /AUTO:${k} -->)`);
-    md = md.replace(re, `$1\n${B[k]}\n$2`);
-  }
+  for (const k of Object.keys(B)) md = md.replace(new RegExp(`(<!-- AUTO:${k} -->)[\\s\\S]*?(<!-- /AUTO:${k} -->)`), (m, a, z) => `${a}\n${B[k]}\n${z}`);
   fs.writeFileSync(p, md);
   return true;
 }
 
-/* ---------- 5. 쓰기 ---------- */
-const TYPE_KO = { unit: "유닛", atk: "공격 마법", def: "방어 마법", any: "공용 마법", hand: "핸드 마법", item: "아이템" };
+/* ---------- 6. 쓰기 ---------- */
 function cardMd(j) {
-  const redoNote = ((ART_MAP[j.id] || {}).note || "").trim();
-  const redo = j.art === "redo" ? ` — **다시 그리기**${redoNote ? `: ${redoNote}` : ""}` : j.art === "have" ? " — 그림 있음" : "";
-  return [`### ${j.id} · ${j.name}${redo}`,
-    `${S.flags[j.group] ? S.flags[j.group].ko : j.group} · ${TYPE_KO[j.type] || j.type} · 레벨 ${j.lv} · ${S.grades[j.grade].ko}` +
-    `${j.base ? ` · 원래 카드 \`${j.base}\`` + (j.refs ? " (참고 그림 함께 넣기)" : " — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습)") : ""} — 받은 그림은 \`tools/art/inbox/${j.id}.jpg\` → \`python3 tools/art/artmap.py import\` (게임 사본 \`${j.out}\` 750×600)`, "", "```", j.prompt, "```", ""].join("\n");
+  const note = ((ART_MAP[j.id] || {}).note || "").trim();
+  const st = j.art === "redo" ? ` — **다시 그리기**${note ? `: ${note}` : ""}` : j.art === "have" ? " — 그림 있음" : "";
+  const frame = j.shot ? ` · 틀 \`${j.shot}\` ${j.dir || ""} ${j.place || ""} \`${j.pal || ""}\`` : "";
+  const base = j.base ? ` · 원래 카드 \`${j.base}\`${j.refs ? " (그 그림을 함께 넣기)" : " — **원래 카드 그림을 먼저 그려 함께 넣을 것**"}` : "";
+  return [`### ${j.id} · ${j.name}${st}`,
+    `${S.flags[j.group] ? S.flags[j.group].ko : j.group} · ${TYPE_KO[j.type] || j.type} · 레벨 ${j.lv} · ${S.grades[j.grade].ko}${frame}${base} · 프롬프트 ${j.prompt_ver} → \`tools/art/inbox/${j.id}.jpg\``, "",
+    ...(j.prompt ? ["```", j.prompt, "```"] : [`> **${j.todo}** — \`node tools/art/scene_tool.js todo ${j.group}\` 로 자료를 보고 \`tools/art/art_scenes/${j.group}.json\`에 장면을 쓴다.`]), ""].join("\n");
 }
 function main() {
   const D = loadGame();
@@ -349,56 +172,47 @@ function main() {
   fs.mkdirSync(path.join(OUT, "grades"), { recursive: true });
   const jobs = [], byGroup = {}, byGrade = {};
   for (const id of ids) {
-    const c = D.CARDS[id];
+    const c = D.CARDS[id], P = promptOf(c, D), sc = SCENES[id];
     const job = {
-      id, kind: "card", out: `img/cards/${id}.jpg`, size: [750, 600], format: "jpg",   /* 2026-11-20 카드 일러스트 = 가로 5:4, 750×600 JPG (artmap.py와 같음, 깃발 프레임 그림 창 ≈ 1.16:1). 옛 그림은 600×750 */ background: "opaque",
-      name: c.name, group: c.group, faction: c.faction, type: c.type, lv: c.lv, grade: gradeKey(c), prompt_ver: S.version
+      id, kind: "card", out: `img/cards/${id}.jpg`, size: [750, 600], format: "jpg", background: "opaque",   // 가로 5:4, 750×600 JPG (artmap.py와 같음)
+      name: c.name, group: c.group, faction: c.faction, type: c.type, lv: c.lv, grade: gradeKey(c), prompt_ver: P.ver
     };
-    if (c.base) {
-      job.base = c.base;
-      if (fs.existsSync(path.join(ROOT, "img", "cards", c.base + ".jpg"))) job.refs = [`img/cards/${c.base}.jpg`];   // v3.46 카드 그림은 v3.41부터 .jpg
-    }
+    if (c.base) { job.base = c.base; if (hasArt(c.base)) job.refs = [`img/cards/${c.base}.jpg`]; }
+    if (sc && !LEGACY.has(job.grade)) { job.shot = sc.shot; job.dir = sc.dir; job.place = sc.place; job.pal = sc.pal; }
+    if (P.todo) job.todo = P.todo;
     job.art = artState(id);
-    job.prompt = promptOf(c, D);
+    job.prompt = P.prompt;
     jobs.push(job);
     (byGroup[c.group] = byGroup[c.group] || []).push(job);
     (byGrade[job.grade] = byGrade[job.grade] || []).push(job);
   }
-  /* 그리는 차례: 그림 없는 카드(유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물) → 다시 그리기 → 그림 있음 */
-  const DRAW_ORDER = S.drawOrder || ["unique", "epic", "rare", "upgrade", "uncommon", "common", "token", "special"];
-  const drawRank = g => { const i = DRAW_ORDER.indexOf(g); return i < 0 ? 99 : i; };
+  const DRAW = S.drawOrder, drawRank = g => { const i = DRAW.indexOf(g); return i < 0 ? 99 : i; };
   const artOrder = (a, b) => ART_RANK[a.art] - ART_RANK[b.art];
   const sections = (list, inner) => {
     const out = [];
     for (const st of ["new", "redo", "have"]) {
-      const part = list.filter(j => j.art === st).sort((a, b) => artOrder(a, b) || inner(a, b));
+      const part = list.filter(j => j.art === st).sort(inner);
       if (part.length) out.push(ART_SECTION[st].replace("{n}", ` · ${part.length}장`), "", ...part.map(cardMd));
     }
     return out;
   };
-  const ORDER_NOTE = "**그리는 차례**: 1 그림 없는 카드 먼저(**유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물** 순) → 2 다시 그리기 → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 \"다시\"를 읽어 이 차례로 놓는다.)";
+  const ORDER_NOTE = `**그리는 차례**: 1 그림 없는 카드(${DRAW.map(g => S.grades[g].ko).join(" → ")}) → 2 다시 그리기(장부 \`art_map.csv\` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저.`;
+  const HOW = "카드 하나의 ``` 안 글만 그림 AI에 붙여 넣는다(카드마다 새 대화). 나온 그림(가로 5:4)은 `tools/art/inbox/<카드ID>.jpg` → `python3 tools/art/artmap.py import`.";
   fs.writeFileSync(path.join(OUT, "cards.jsonl"), jobs.slice().sort((a, b) => artOrder(a, b) || drawRank(a.grade) - drawRank(b.grade) || a.id.localeCompare(b.id)).map(j => JSON.stringify(j)).join("\n") + "\n");
 
   for (const g of Object.keys(byGroup).sort()) {
     const F = S.flags[g] || {};
-    const md = [`# ${g} ${F.ko || ""} — 카드 일러스트 프롬프트 (${byGroup[g].length}장, 버전 ${S.version})`, "",
-      "각 카드: 아래 프롬프트를 그림 AI에 붙여 넣고, 나온 그림(가로 5:4, 750×600 이상)을 `tools/art/inbox/<카드ID>.jpg`로 넣고 `python3 tools/art/artmap.py import` — 750×600 JPG로 `img/cards/`에 들어가고 게임 목록이 새로 쓰인다(v3.41). `img/cards/`에 바로 쓰지 않는다.",
-      "등급별 연출 규칙은 `tools/art/PROMPT_GUIDE.md`. 이 파일은 `node tools/art/build_prompts.js`가 만든다 — 손으로 고치지 않는다.", "", ORDER_NOTE, ""];
-    md.push(...sections(byGroup[g], (a, b) => drawRank(a.grade) - drawRank(b.grade) || a.id.localeCompare(b.id)));
-    fs.writeFileSync(path.join(OUT, "cards", g + ".md"), md.join("\n"));
+    fs.writeFileSync(path.join(OUT, "cards", g + ".md"), [`# ${g} ${F.ko || ""} — 카드 일러스트 프롬프트 (${byGroup[g].length}장, ${S.version})`, "",
+      HOW, "이 파일은 `node tools/art/build_prompts.js`가 만든다 — 손으로 고치지 않는다(장면은 `tools/art/art_scenes/" + g + ".json`, 규칙은 `tools/art/PROMPT_GUIDE.md`).", "", ORDER_NOTE, "",
+      ...sections(byGroup[g], (a, b) => drawRank(a.grade) - drawRank(b.grade) || a.id.localeCompare(b.id))].join("\n"));
   }
   for (const g of S.gradeOrder) {
     const list = byGrade[g]; if (!list) continue;
     const G = S.grades[g];
-    const md = [`# ${G.ko} (${G.en}) — 카드 일러스트 프롬프트 (${list.length}장, 버전 ${S.version})`, "",
-      `> ${G.idea_ko}`, "",
-      "## 이 등급의 연출 틀 (설명용 — 그림 AI에 넣지 않는다)", "", "```",
-      `Grade: ${G.tag}. ${G.presence}.`, `Camera: ${G.camera}.`, `Lighting: ${G.lighting}.`, `Background: ${G.background}.`,
-      `Detail: ${G.detail}.`, ...(G.spectacle ? [`Spectacle: ${G.spectacle}.`] : []), ...(G.technique ? [`Presence technique (allowed, units): ${G.technique}.`] : []),
-      G.accent ? `Grade accent: ${G.accent} (about ${G.accentShare || "15%"} of the light).` : "Grade accent: none (element colour only).", `Mood: ${G.mood}.`,
-      "```", "", "아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다(스페셜은 v3.95부터 이 틀을 짧게 묶어 넣음). **그림 AI에는 카드 프롬프트(``` 안) 하나만 붙여 넣는다** — 위 틀을 함께 넣으면 같은 말이 두 번 들어가 그림끼리 닮는다. 카드마다 새 대화에서 그린다.", "", ORDER_NOTE, ""];
-    md.push(...sections(list, (a, b) => a.group.localeCompare(b.group) || a.lv - b.lv || a.id.localeCompare(b.id)));
-    fs.writeFileSync(path.join(OUT, "grades", g + ".md"), md.join("\n"));
+    fs.writeFileSync(path.join(OUT, "grades", g + ".md"), [`# ${G.ko} (${G.en}) — 카드 일러스트 프롬프트 (${list.length}장, ${G.legacy ? "옛 " + S.legacyVersion : S.version})`, "",
+      `> ${G.idea_ko}`, "", ...(G.finish ? [`등급 한 줄(모든 ${G.ko} 프롬프트에 들어 있다): \`${G.finish}\``, ""] : []),
+      HOW, "", ORDER_NOTE, "",
+      ...sections(list, (a, b) => a.group.localeCompare(b.group) || a.lv - b.lv || a.id.localeCompare(b.id))].join("\n"));
   }
 
   const ui = loadUI();
@@ -406,19 +220,17 @@ function main() {
   const um = ["# 전장 그림 프롬프트", "",
     "참고 그림(지금 게임 그림)을 함께 넣어야 자리가 맞는다. 층으로 나뉜 그림은 같은 묶음끼리 차례로 만든다.",
     "저장 크기 · 투명 처리는 각 항목의 설명대로. 자동으로 하려면 `tools/art/README.md`.", ""];
-  for (const a of ui) {
-    um.push(`## ${a.id} — ${a.title}`, `저장 파일 \`${a.out}\` · ${a.size[0]}×${a.size[1]} ${a.format.toUpperCase()}` +
-      ` · 참고 그림: ${(a.refs || []).map(r => "`" + r + "`").join(", ") || "없음"}`, "", a.note || "", "", "```", a.prompt, "```", "");
-  }
+  for (const a of ui) um.push(`## ${a.id} — ${a.title}`, `저장 파일 \`${a.out}\` · ${a.size[0]}×${a.size[1]} ${a.format.toUpperCase()} · 참고 그림: ${(a.refs || []).map(r => "`" + r + "`").join(", ") || "없음"}`, "", a.note || "", "", "```", a.prompt, "```", "");
   fs.writeFileSync(path.join(OUT, "ui.md"), um.join("\n"));
 
-  const guided = fillGuide(autoBlocks(jobs, D));
-  const cnt = {};
-  for (const j of jobs) cnt[j.grade] = (cnt[j.grade] || 0) + 1;
-  const miss = jobs.filter(j => (j.grade === "special" || j.grade === "unique") && !NOTES[j.id]).map(j => j.id);
-  console.log(`카드 ${jobs.length}장 (버전 ${S.version})`, cnt, `· 전장 그림 ${ui.length}장 → ${path.relative(ROOT, OUT)}${guided ? " · PROMPT_GUIDE.md 자동 칸 채움" : ""}`);
-  if (miss.length) console.log("※ art_notes.json에 지시가 없는 스페셜 · 유니크:", miss.join(", "));
-  const redo = jobs.filter(j => j.art === "redo").sort((a, b) => a.id.localeCompare(b.id));
-  console.log(`그릴 차례: 그림 없음 ${jobs.filter(j => j.art === "new").length}장 먼저${redo.length ? ` → 다시 그리기 ${redo.length}장(${redo.map(j => j.id).join(", ")})` : ""} · 그림 있음 ${jobs.filter(j => j.art === "have").length}장`);
+  const guided = fillGuide(autoBlocks(jobs));
+  const cnt = {}; for (const j of jobs) cnt[j.grade] = (cnt[j.grade] || 0) + 1;
+  const wc = jobs.filter(j => j.prompt && !LEGACY.has(j.grade)).map(j => j.prompt.split(/\s+/).length);
+  console.log(`카드 ${jobs.length}장 (${S.version})`, cnt, `· 전장 그림 ${ui.length}장 → ${path.relative(ROOT, OUT)}${guided ? " · PROMPT_GUIDE.md 자동 칸 채움" : ""}`);
+  if (wc.length) console.log(`새 프롬프트 ${wc.length}장 · 평균 ${Math.round(wc.reduce((a, b) => a + b, 0) / wc.length)}단어 (가장 긴 것 ${Math.max(...wc)})`);
+  const miss = jobs.filter(j => j.todo);
+  if (miss.length) console.log(`※ 프롬프트가 없는 카드 ${miss.length}장 (node tools/art/scene_tool.js todo): ${miss.slice(0, 40).map(j => j.id).join(", ")}${miss.length > 40 ? " …" : ""}`);
+  const redo = jobs.filter(j => j.art === "redo");
+  console.log(`그릴 차례: 그림 없음 ${jobs.filter(j => j.art === "new").length}장${redo.length ? ` → 다시 그리기 ${redo.length}장(${redo.map(j => j.id).join(", ")})` : ""} · 그림 있음 ${jobs.filter(j => j.art === "have").length}장`);
 }
 main();

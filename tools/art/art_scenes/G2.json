@@ -1,0 +1,413 @@
+{
+  "_about": "G2 베르단의 뿔 — 카드별 장면 지시. 쓰는 법은 tools/art/PROMPT_GUIDE.md, 검사는 node tools/art/scene_tool.js lint G2.",
+  "CS-G2": {
+    "shot": "ring", "dir": "U", "place": "L", "pal": "rainmist",
+    "scene": "A hostile spell-circle of burning lines lies on a stone floor, left of centre, and moss is closing over it from every side at once: ring after ring of thick green cushion creeping inward, hissing where it meets the fire. Only a hand-wide eye of orange light is left in the middle, guttering, with a thread of smoke rising straight up from it. Across the mossed-over outer rings two deep footprints are already filling with tiny new shoots.",
+    "light": "Grey overcast light on wet moss; the last orange glow underlights the smoke and the innermost green ring."
+  },
+  "EP-G2-1": {
+    "shot": "under", "dir": "L", "place": "L", "pal": "mossdeep",
+    "scene": "Under the surface of a rust-brown swamp pool, we look up: the water above ripples with rain, and through it looms the warped dark shape of a beast knotted from thistle and briar, wading leftward along the left of the frame. Its trailing tendrils hang down into the water like drinking straws, each drawing up a twisting thread of rust from the sunken iron around us — a boiler plate, a cartwheel rim, links of chain. Where the tendrils break the surface, their thorns have the grey gleam of forged spikes.",
+    "light": "Storm daylight filters down green-brown through the pool, and a flash of lightning above the surface outlines the creature for an instant."
+  },
+  "EP-G2-2": {
+    "shot": "eye", "dir": "F", "place": "L", "pal": "thorndark",
+    "scene": "On the topmost bough of a giant tree, at arm's length to our left, a slender woman of pale living bark has just loosed her bow straight past us — the string still a blur, her twig fingers open. Already the foliage is closing over her: leaves slide across her shoulder and bow arm like a curtain, leaving one calm eye and a few red blossoms in her leaf-hair uncovered. Wind strips leaves from the crown and whirls them into the dark gulf on the right, where the lamps of a tree-city glimmer far below.",
+    "light": "Night wind under a thin green moon; her pale bark and the red blossoms catch what little light comes through the leaves."
+  },
+  "EP-G2-3": {
+    "shot": "echo", "dir": "B", "place": "L", "pal": "mossdeep",
+    "scene": "Walking away from us down a mountainside of ancient pines, a colossal tree-giant is caught as three overlapping moments of one stride, each ghost of it farther downhill on the left of the frame. Its trunk-body carries a forked crown shaped like a stag's antlers, and tall pines reach only to its root-ankles. In each footprint behind it a thicket of thorns is already sprouting. Low cloud tears open around its shoulders, and a flock of birds scatters at the height of its knees.",
+    "light": "Storm light breaks through the torn cloud ahead of the giant, rimming its bark in green while the slope behind stays in deep wet shade."
+  },
+  "G2-02": {
+    "shot": "tilt", "dir": "R", "place": "R", "pal": "mossdeep",
+    "scene": "The frame tilts with its cocked head: a thumb-high pale spirit with a round head and hollow dark eyes pushes up out of a deep boot-print in the moss, on the right of the picture, leaning rightward as its head rattles mid-turn, blurred like a shaken seedpod. Chalky fragments of its former body lie in the print around it, and fat raindrops burst on the moss.",
+    "light": "Dim green shade under old trees during a shower; each raindrop and the spirit's pale wet head hold one small soft highlight."
+  },
+  "G2-03": {
+    "shot": "ground", "dir": "L", "place": "L", "pal": "sunshaft",
+    "scene": "Between fern stems on the forest floor, among arrows stuck crookedly in the leaf mould, we look across to the lowest bough of an immense tree on the left, where a young, lanky moss troll sits astride the branch with long legs dangling, drawing a bow much too big for him toward the left. A straw target hangs untouched beyond him; far above, out of focus, rope bridges and platforms crowd the higher branches.",
+    "light": "Golden-green sun slants down through the canopy in dusty shafts, lighting the apprentice and leaving the missed arrows in soft shade."
+  },
+  "G2-04": {
+    "shot": "top", "dir": "R", "place": "X", "pal": "mossdeep",
+    "scene": "A bird's view, straight down: a small dryad of smooth pale bark sleeps curled around the foot of a sapling, leaf-hair fanned over the moss. Thorny vines spiral outward from her across the whole frame like the arms of a galaxy — and on the right side three of them have lifted off the ground, thorns bared, toward the toe of a boot just entering the picture. She sleeps on.",
+    "light": "Soft green shade with one warm fleck of sun on her cheek; dew along the raised vines catches a clean rim of light."
+  },
+  "G2-05": {
+    "shot": "over", "dir": "F", "place": "C", "pal": "autumnrot",
+    "scene": "Over the rough, mossy shoulder of an old tree-elder, a knee-high young treant stands in the middle of a leaf-strewn deer path, facing us. Its bark face is turned up with its knothole mouth half open, stuck mid-word — while its bare root-toes are spread wide and pressed into the soil, where fallen acorns hop and tremble from some far-off footfall only it can feel.",
+    "light": "Low amber afternoon light through thinning russet leaves, warm on the little one's face, with the elder's shoulder a dark soft blur in front."
+  },
+  "G2-08": {
+    "shot": "eye", "dir": "R", "place": "C", "pal": "thorndark",
+    "scene": "At eye level in a dark grove, a tall, lanky moss troll kneels in the middle of the frame, turned to the right, pressing fresh soil flat with both long hands at the foot of a great tree; a wooden spade leans against his shoulder. Behind him, older mounds recede between the trunks, each one overgrown with a small crowd of red flowers — the nearest thick, the farthest only a few bright specks.",
+    "light": "Last grey-green daylight falls from one gap in the canopy onto his mossy back and the newest mound; the red flowers glow faintly in the gloom."
+  },
+  "G2-09": {
+    "shot": "profile", "dir": "L", "place": "X", "pal": "rainmist",
+    "scene": "Flat as a painted frieze, in strict side view: a goat-legged satyr with curled horns and shaggy haunches strides leftward across the full width of the frame along a fallen log. He keeps blowing a set of reed pipes held in one hand while the other swings a shield of charred bark, split by a pale forked lightning scar, into the path of a thrown javelin that splinters against it. His pointed beard and the pipes' tassels stream behind him.",
+    "light": "Even grey rain-light from above, soft and shadowless, with fine drizzle beading on horn, fur and bark."
+  },
+  "G2-11": {
+    "shot": "under", "dir": "U", "place": "R", "pal": "thorndark",
+    "scene": "Beneath a hanging plank bridge, looking up from the shadows: daylight shows in thin slits between the planks, and across one slit the dark sole of a boot is passing. Along a root-ledge just under the planks, on the right, a row of five squat mushroom folk tilt their broad blood-red caps upward to listen, stalk-bodies pressed together. From each cap a fine white thread runs up to the underside of the bridge, quivering.",
+    "light": "Green twilight falls through the gaps in narrow blades; the row of red caps is the only colour in the damp near-dark."
+  },
+  "G2-13": {
+    "shot": "through", "dir": "L", "place": "C", "pal": "autumnrot",
+    "scene": "Through a ragged tear in a curtain of grey silk we peer into the web-shrouded crown of an old tree: every branch is wrapped, and russet leaves hang caught in the veils like coins. In the middle, flattened against the trunk and patterned exactly like its bark, a spider the size of a cart shows itself only by eight dew-wet knees and a single forelimb flicking a fresh line of silk out toward the left.",
+    "light": "Amber autumn light glows through the silk from behind, turning the veils translucent and the hidden spider into a darker patch of bark."
+  },
+  "G2-15": {
+    "shot": "inside", "dir": "F", "place": "R", "pal": "mossdeep",
+    "scene": "From inside the fresh pale notch an axe has cut into a trunk — the wedge of raw wood framing the view above and below — we look out at the forest edge, where a herd of great stags has stopped grazing on the right. Every head is lifted, and every crown of mossy, branch-like antlers is turned straight toward us. A single wood chip is still falling past the opening.",
+    "light": "Dim green shade under the edge trees; the raw wood of the notch glows pale around the view and the stags' eyes hold small wet highlights."
+  },
+  "G2-17": {
+    "shot": "back", "dir": "B", "place": "C", "pal": "sporeglow",
+    "scene": "A lanky troll shaman squats on a root with his back to us, a wad of moss bulging one cheek, his staff hung with seed-rattles and snail shells laid across his knees. What he is talking to stands before him: a half-circle of old trees whose trunks all bend inward, crowns lowered like listening heads. A string of pale green breath-puffs drifts from his mouth up into the leaning branches.",
+    "light": "Night; the breath-puffs glow pale lime and light the undersides of the leaning branches and the edge of his mossy shoulders."
+  },
+  "G2-20": {
+    "shot": "over", "dir": "F", "place": "R", "pal": "sunshaft",
+    "scene": "Over the cloaked shoulder of a climber halted on a broad wooden stair that winds around a giant trunk, we meet the stare of a great tiger lying across the next step on the right — amber fur, moss-green stripes, one paw hanging over the edge. Behind it, on every higher step curving out of sight, another tiger lies the same way. A single falling leaf has stopped in the air in front of its nose.",
+    "light": "Golden-green sunshafts fall through the canopy across the stair, striping the tigers a second time with light and shadow."
+  },
+  "G2-21": {
+    "shot": "inside", "dir": "L", "place": "T", "pal": "rainmist",
+    "scene": "A burnt-out hollow trunk frames the view like a black cave mouth; from inside it we watch a broad treant stride leftward along a ridge in the upper part of the picture. One flank of its trunk is still scorched black and cracked; the other has leafed again. Its branch-arms are balled into fists of knotted wood, and around its root-feet a burnt clearing shows the first green shoots through wet ash.",
+    "light": "Grey rain-light over the clearing; drizzle streaks the opening, and the fresh shoots are the brightest green in a field of ash."
+  },
+  "G2-22": {
+    "shot": "back", "dir": "R", "place": "R", "pal": "sporeglow",
+    "scene": "A mandrake sunk waist-deep in black soil, seen from just behind: its gnarled, root-skinned shoulders and crown of broad leaves fill the right foreground, turned toward the right, forked root-arms braced on the ground as it screams. The scream shows as rings of shuddering air that bend the thorn thicket ahead of it, and at their far edge a dropped spade and an overturned lantern lie on a path that forks five ways into the briars.",
+    "light": "Night; cold blue-green fungus-light among the briars edges its leaves and catches the trembling rings of air."
+  },
+  "G2-23": {
+    "shot": "close", "dir": "L", "place": "R", "pal": "thorndark",
+    "scene": "Close on the face of a dryad singing, on the right of the frame: smooth pale bark, eyes closed, lips parted, blossom-and-leaf hair lifted as if by her own breath. From her mouth a ribbon of leaves streams out to the left across the picture — fresh green ones first, and among them a few leaves burnt black, their edges still rimmed with ember-red. A single bead of sap runs down her cheek like a tear.",
+    "light": "Dark forest dusk behind her; a cool green skylight from above shapes her face, and the ember-edged leaves are the only warm sparks."
+  },
+  "G2-25": {
+    "shot": "top", "dir": "R", "place": "T", "pal": "autumnrot",
+    "scene": "Directly from above, an autumn forest floor: in the upper half of the frame stands a huge forked branch shaped like a stag's antler, dark ancient wood furred with moss, walking on splayed root-legs toward the right, a faint green glow running in its grain. Around it every fallen leaf lies in neat concentric rings, each leaf turned the same way, while beyond the outermost ring the leaves are a wind-blown jumble. At the ring's edge a squirrel sits frozen with one leaf in its paws.",
+    "light": "Low amber sun rakes across the floor from the left, throwing the antler's long forked shadow over the ordered leaves."
+  },
+  "G2-26": {
+    "shot": "low", "dir": "L", "place": "R", "pal": "rainmist",
+    "scene": "Looking up from the foot of an immense old tree in drifting fog: on the right, perched on a burl a little above us, sits a pale round-headed spirit the size of a child, hollow dark eyes turned down and to the left, one hand resting on the bark as if counting. All the way up the trunk, hundreds of small round knots in the bark look like faces. At the bottom edge of the frame a woven cradle hangs from one root, and beside another root stands a small cairn of mossy stones.",
+    "light": "Soft silver light sifts down the trunk through the fog from far above; the spirit's pale body is the brightest shape in the grey-green haze."
+  },
+  "G2-27": {
+    "shot": "far", "dir": "L", "place": "R", "pal": "autumnrot",
+    "scene": "Far off between autumn trunks, a trail of footprints through fallen leaves runs in one wide loop and returns to its own beginning, where a small traveller stands staring at a rag tied to a twig — the marker they left an hour ago. On the right, taller than the saplings and almost one of them, a gaunt figure of bark and twigs with a stag's antlers and a beard of grey lichen watches, turned to the left, two green eyes alight.",
+    "light": "Dull amber dusk seeps through bare branches; the green glow of its eyes and a fine bright rim on the antlers set it apart from the trunks."
+  },
+  "G2-28": {
+    "shot": "close", "dir": "F", "place": "C", "pal": "sunshaft",
+    "scene": "What seemed a bank of giant tangled roots and packed soil, up close: an axe stands sunk an inch deep in one root, and right beside the cut an eye the size of a cartwheel has opened among the roots — amber, calm, looking straight at us. Pebbles and moss shift where a brow of knotted wood has lifted. Along the lower edge three more axes lie set down neatly on the moss, handles side by side.",
+    "light": "Green-gold light slants through mist onto the roots; the wet eye carries one bright highlight."
+  },
+  "G2-30": {
+    "shot": "high", "dir": "R", "place": "R", "pal": "mossdeep",
+    "scene": "The road below the gate-top of a tree-city, seen from above: a ball of bramble thorns as big as a boar sits on the right side of the track, exactly where it has sat for generations — the wheel ruts swing around it in a deep, polished curve. Its spines have put out leaves and blackberries, a wren nests among them, and from a gap near the ground a damp brown snout and one sleepy eye point toward the right.",
+    "light": "Heavy green shade at the gateway; soft daylight from the left picks out the wet snout and the nearest thorns."
+  },
+  "G2-31": {
+    "shot": "high", "dir": "R", "place": "T", "pal": "rainmist",
+    "scene": "A grey, long-dead slope of bare earth and dry bracken under low drifting fog, viewed from a height: in the upper part of the picture a tall figure woven entirely of oak leaves, ivy and blossom walks toward the right, his calm leaf-mask face lowered. Behind him, winding up from the bottom-left corner, his path is marked by a ribbon of small flowers — white, violet, pale yellow — opening out of the dead ground, the newest still unfolding at his heels.",
+    "light": "Flat silver fog-light over the slope; only the ribbon of blossoms and the wet shine of his leaves hold colour."
+  },
+  "G2-32": {
+    "shot": "high", "dir": "N", "place": "T", "pal": "sunshaft",
+    "scene": "A high branch gives the view, looking down: at the top of the frame the vast trunk of an ancient tree, wide as a tower, shows a heavy-lidded bark face among its buttress roots, eyes nearly shut. Its shadow lies over the ground below like a pool. Outside the shadow, falling leaves streak past as blurs; inside it, the same leaves hang almost still in the air, and a leaping hare is held at the top of its bound, ears back.",
+    "light": "Golden-green sunshafts fall around the tree and stop at the edge of its shade, which stays cool, dim and perfectly calm."
+  },
+  "G2-33": {
+    "shot": "front", "dir": "F", "place": "C", "pal": "rainmist",
+    "scene": "Dead centre and facing us, a dryad as tall as a house steps out of the arched hollow of a colossal tree, pale bark limbs symmetrical, twig fingers spread, leaf-hair falling to her knees. Through the hollow behind her shines another age — giant ferns under a clear young morning — and its light spills out in a halo where spring flowers open at her feet. Outside that halo the forest is bare, wet and wintry, and two deer at the roots reach only to her ankle.",
+    "light": "Warm young daylight pours from the hollow behind her into a cold fog-grey present, rimming her whole outline."
+  },
+  "G2-34": {
+    "shot": "ground", "dir": "R", "place": "C", "pal": "autumnrot",
+    "scene": "Down in the fallen leaves, past the blurred tips of ferns, a stag the size of a hall stands square above us in the middle of the picture, head turned to the right. Its forelegs rise like tree trunks, a fox trots under its belly with room to spare, and far above, its antlers branch like the crown of an oak — every tine ending in a tuft of new green leaves, with a pair of herons nesting in the fork. A garland of ivy hangs across its chest like a sash.",
+    "light": "Russet evening light comes low through the trunks from the left, warm on its spotted flank, the antler crown dark against an amber sky."
+  },
+  "G2-35": {
+    "shot": "far", "dir": "N", "place": "X", "pal": "sunshaft",
+    "scene": "Across a wide glade, far away, a ring of seven ancient moss trolls sits cross-legged, each grown as tall as an old oak and half turned to tree — bark over their long limbs, saplings rooted in their shoulders, bracket fungus stepping up their backs. The seasons have passed over them mid-debate: snow still caps the elders at the left of the ring, blossom covers those in the middle, and russet leaves drift from those on the right. A herd of deer grazes inside the circle, small as mice.",
+    "light": "Golden-green sunshafts fall through morning mist into the glade, with a cool rim of light along the snow-capped shoulders."
+  },
+  "G2-36": {
+    "shot": "close", "dir": "N", "place": "L", "pal": "sporeglow",
+    "scene": "Underground, in a cavern roofed with giant roots, we stand close under a heart as big as a house hanging on the left of the view — a great lobed mass of pale fungus wound in white threads, caught at the swell of a beat. From it thousands of fine filaments fan out to the right and up into the roots, and a pulse of blue-green light is travelling along them all at once. On a ledge beneath it a row of tiny cap-headed mushroom folk stands watching, small as thimbles.",
+    "light": "Total darkness except the heart's own pale-lime glow and the blue-green pulse running out through the threads."
+  },
+  "G2-41": {
+    "shot": "macro", "dir": "L", "place": "L", "pal": "thorndark",
+    "scene": "A long, moss-furred troll hand in extreme close-up, at the left of the frame, knuckles like knots of bark, at the instant its fingers open: a rough javelin snapped from a living branch is leaving the palm toward the left, twigs trimmed, one stubborn leaf still on the shaft. Out of focus behind the hand, a row of earlier javelins stands stuck in the ground at odd angles, each one already sprouting leaves.",
+    "light": "Deep shade in a thorn thicket; a low green skylight from behind rims the fingers and the flying shaft, and red berries dot the dark."
+  },
+  "G2-42": {
+    "shot": "swarm", "dir": "B", "place": "X", "pal": "thorndark",
+    "scene": "The whole frame is wasps: finger-long bodies striped amber and black, glassy wings blurred, each tail ending in a hooked thorn, all diving away from us in one slanting direction. Through the gaps in the swarm we glimpse, below, the grey papery dome of their nest wedged in a thorn tree, and the forest path beneath it, which swings out in a wide, careful half-circle around the tree before continuing.",
+    "light": "Near-dark thorn forest with a narrow blade of green daylight from above striking wings and thorn-tips; red rosehips glint in the briars."
+  },
+  "G2-43": {
+    "shot": "back", "dir": "L", "place": "R", "pal": "sunshaft",
+    "scene": "Behind and below the shoulder of a huge treant on the right of the frame — one half of its trunk living bark, the other half split and burnt to charcoal, with a pale lightning scar down the seam — we see what it is striding toward on the left: a small abandoned campfire with a kettle still on it. One great branch-arm is already raised over the flames. Behind it lie a flattened lantern and a crushed iron brazier.",
+    "light": "Golden-green morning shafts cut through the mist behind the giant; the little fire is a single warm spark in its shadow."
+  },
+  "I3-3": {
+    "shot": "motion", "dir": "N", "place": "L", "pal": "mossdeep",
+    "scene": "A longbow hangs in mid-air between two giant boughs, tossed across the gap: taller than a man, cut from one dark stave with moss along its back and a grip bound in bark cord, turning slowly end over end on the left of the frame. Its string is still a humming blur from the shot just loosed, and on the right a vine swings wildly where its owner has already leapt away. Far below, mist fills the gap.",
+    "light": "Deep green canopy shade; a cool glow from the mist below rims the stave and the blurred string."
+  },
+  "IG2-1": {
+    "shot": "macro", "dir": "N", "place": "X", "pal": "thorndark",
+    "scene": "A patch of grey-green, bark-grained skin in extreme close-up, filling the frame: a vine of thorns is tattooed across it in dark sap-ink, winding from lower left to upper right. Along the middle of the vine the inked thorns have risen out of the skin as real ones, hard and curved, and on the tip of the longest hangs one bright red drop. A few torn threads of wool are snagged on the thorn beside it.",
+    "light": "Dim green forest light from the left; the wet red drop and the raised thorns hold sharp little highlights against near-black shadow."
+  },
+  "IG2-2": {
+    "shot": "pair", "dir": "N", "place": "B", "pal": "autumnrot",
+    "scene": "Leaning against the foot of an ancient tree, in the lower part of the frame, stands a hand-sized carving block of pale wood, its face cut with a pattern of deep furrows — the exact pattern of the trunk's bark rising behind it, ridge for ridge. The block's oldest furrows have begun to grow real bark of their own, thick and lichen-spotted, so that half of it is carving and half is tree. A small mallet and a bowl of dark sap-ink sit beside it in the fallen leaves.",
+    "light": "Amber autumn light slants in from the left across block and trunk alike, deepening every furrow."
+  },
+  "IG2-3": {
+    "shot": "top", "dir": "N", "place": "B", "pal": "rainmist",
+    "scene": "The wet top of an old boulder, seen from directly above: in the lower part of the frame lies a charm barely bigger than a palm — a tight ring braided from living moss, bound with bark cord, with three snail-shell beads on its tassel. Above it on the stone is the pale bare patch the moss was lifted from, the same size and shape, and around them the maker's things are laid out in a row: a bone needle, a coil of cord, a wooden comb.",
+    "light": "Soft silver rain-light from directly above; beads of water on the moss and the bone needle catch fine bright glints."
+  },
+  "IG2-5": {
+    "shot": "stored", "dir": "N", "place": "X", "pal": "sporeglow",
+    "scene": "In an earth pocket beneath a great tree, a cage of pale roots curves around an empty space the size of a chest — bars arched like ribs — and in it, just left of where a heart would sit, rests a single seed as big as a walnut, its husk split by one green vein of light. Fine rootlets from the cage have already reached the seed and wrapped it. Moss cushions the pocket, and beyond its mouth the night forest is black.",
+    "light": "The seed's own pale-lime glow lights the root-ribs from inside, throwing their curved shadows over the moss."
+  },
+  "IG2-6": {
+    "shot": "making", "dir": "R", "place": "L", "pal": "sporeglow",
+    "scene": "On a slab of wood in a root-walled workshop, a living root is being trained into shape: wooden pegs stand in the branching pattern of the veins of an arm, and a pale, scale-barked root has been led through half of them, gripping each peg as it goes, its growing tip still nosing toward the next. The far half of the pattern is bare pegs. On the right, a steel arm-guard used for testing lies split along its seam, a root-tip still wedged in the gap.",
+    "light": "Night in the workshop; blue-green fungus lamps on the wall give a cold glow, with a fine bright edge along the root's scales."
+  },
+  "M4-1": {
+    "shot": "hung", "dir": "N", "place": "C", "pal": "thorndark",
+    "scene": "A slice of ancient trunk cut so thin that light passes through it hangs by three red cords from a low branch, as wide as a doorway, in the middle of the frame. Lit from behind, its thousand rings show as fine dark lines in glowing wood, tight as the grooves of a shell, with the outermost ring thicker and paler than the rest. Below it, on a flat stone, wait a bowl of ink and a bundle of thorn needles for copying the pattern onto skin.",
+    "light": "Near-dark forest; a low green skylight behind the slice makes it glow like stained glass, edged with a thin bright rim."
+  },
+  "MC-11": {
+    "shot": "top", "dir": "N", "place": "C", "pal": "rainmist",
+    "scene": "Straight down onto a flooded stretch of forest floor in rain: across the whole frame the water is dimpled with overlapping raindrop rings — except for one perfect circle in the middle where the surface lies flat as glass and the raindrops hang as round beads just above it. Inside that circle two swords rest where they were let fall, crossed, half under water, and a war horn lies beside them, its mouth full of still water.",
+    "light": "Soft silver rain-light from above; the still circle reflects the pale sky like a mirror while the rest of the water glitters."
+  },
+  "MC-14": {
+    "shot": "pov", "dir": "F", "place": "C", "pal": "thorndark",
+    "scene": "Through the narrow eye-slit of a helmet — its dark rim framing the view — a mass of green vines comes straight at us, the nearest tendrils already curling over the slit's edge. Our own steel gauntlets, raised in front, are wound round and round with vines that have found every joint; one plate is buckling outward with a twist. Past them, other suits of armour stand bound the same way, and an empty breastplate, peeled off whole, is sinking into the moss.",
+    "light": "Near-dark under the trees; a dull green light catches wet vine and bent steel, and a few red berries ride the tendrils."
+  },
+  "MG-08": {
+    "shot": "far", "dir": "N", "place": "L", "pal": "autumnrot",
+    "scene": "Seen from far across a valley: a line of small armoured figures crosses a bare ridge against the evening sky, and it is the back of the line, on the left, that has stopped. Around the last five marchers the ground has burst open, and dark roots arch out of it like the legs of great spiders, looped round ankles and shins; the figures lean and flail in place, while the front of the column walks on, unaware, toward the right.",
+    "light": "A band of dull russet dusk behind the ridge silhouettes roots and figures alike; the valley below is already dark green shadow."
+  },
+  "MG-10": {
+    "shot": "swarm", "dir": "D", "place": "X", "pal": "sunshaft",
+    "scene": "A curtain of hanging branches fills the frame from edge to edge: hundreds of thin, drooping withes let down from above, each strung with small leaves and long thorns like beads on cords. Sunlight comes through the gaps in green-gold slivers, and behind the curtain a sheltered figure is only a soft dark shape. On the left, at hand height, a torn leather glove hangs snagged on the thorns, still swinging.",
+    "light": "Back-lit by golden-green shafts from beyond the curtain, so every leaf glows and every thorn is a dark needle."
+  },
+  "MG-14": {
+    "shot": "inside", "dir": "R", "place": "R", "pal": "thorndark",
+    "scene": "We are inside a forest that is tipping over: every trunk around us leans at the same steep slant toward the right, roots tearing half out of the ground, canopy sliding like a single green roof. Leaves, birds' nests and loose stones pour sideways through the air. At the far right end of the lean, small and already bowed, the first of a row of shields is buckling under the nearest trunk while the next shield braces for its turn.",
+    "light": "Thorn-dark gloom under the sliding canopy, with a hard wedge of green daylight opening on the left where the roots have lifted."
+  },
+  "NG2-1": {
+    "shot": "under", "dir": "U", "place": "C", "pal": "sporeglow",
+    "scene": "A suit of plate armour towers over us, seen from the ground looking straight up against the night canopy: pale, questing roots have come up through the soil beneath it and out through every gap in the steel — the visor slit, the armpits, the elbow joints, between the fingers of both gauntlets — prising each plate a little wider. Beside its armoured feet a pair of bare feet stands untouched, a single root curving politely around the heel.",
+    "light": "Night; the roots carry a faint blue-green glow of their own that lights the armour from inside its seams."
+  },
+  "NG2-3": {
+    "shot": "macro", "dir": "L", "place": "C", "pal": "sunshaft",
+    "scene": "The cut end of a moss-furred limb in extreme close-up, entering from the right: it shows wood-grain rings like a pruned branch, and from those rings five pale-green shoots are unfurling toward the left, already bending into the shape of fingers, the first one tipped with a tiny nail of bark. Beads of amber sap stand along the old bark edge, fine moss is creeping up the new shoots, and a few wood shavings are still drifting down past them.",
+    "light": "A single shaft of golden-green sun lights the shoots from behind so they glow translucent against deep shade."
+  },
+  "PI-G2": {
+    "shot": "found", "dir": "U", "place": "B", "pal": "mossdeep",
+    "scene": "Half-buried in the silt at the bottom of a clear forest pool lies a seed the size of a fist, its dark husk cracked open on a core of green light. It has already begun: a white root has gone down into the silt, and a pale stem climbs through the water toward the bright surface, unfolding leaves as it rises. Around it, in a widening ring, the drowned things of the pool have sprouted — a sunken boat-hook wrapped in new shoots, a rotten oar in leaf — and small fish circle in the glow.",
+    "light": "Shafts of green daylight fall through the wind-rippled surface above, crossing the seed's own steady glow in the dim water."
+  },
+  "PN-G2-C1": {
+    "shot": "close", "dir": "R", "place": "L", "pal": "rainmist",
+    "scene": "A moss-covered sapling the height of a child, close up and set to the left of the picture, leans defiantly rightward: a small scowling bark face, two twig arms folded. Its stem is ringed with a ladder of healed scars, all at the same height, and the newest cut is closing under fresh moss as we watch. Beside it on the right lies a neat heap of its own lopped-off tops, a dozen of them, and a billhook with a chipped edge.",
+    "light": "Soft grey overcast morning; the wet moss on its stem is the greenest thing in the haze."
+  },
+  "PN-G2-C2": {
+    "shot": "cut", "dir": "R", "place": "X", "pal": "thorndark",
+    "scene": "A cutaway through the bank of a rust-stained swamp: above the ground line, in the upper third, a low beast of knotted bramble and thistle crawls toward the right, spines raised. Below the line the frame is all earth in layers — peat, clay, gravel — and through every layer its roots plunge straight down like anchor cables, the deepest still pushing into bedrock. Beside the creature a snapped rope and an iron grapple lie where someone gave up pulling.",
+    "light": "Dim overcast above the bank; underground the cut earth is near-black, the roots pale, with a few blood-red thistle heads on the beast."
+  },
+  "PN-G2-C3": {
+    "shot": "reflect", "dir": "F", "place": "T", "pal": "mossdeep",
+    "scene": "The still, rust-stained water of a swamp fills the frame, and in it — upside down, rippling — hangs the reflection of a many-headed serpent leaning over the bank toward us: five thick moss-green necks draped in waterweed across the upper part of the picture. One neck ends in a healed scar from which two smaller heads, paler and rust-tinged, have sprouted side by side. At the bottom edge a snapped boar-spear stands out of the mud at the waterline.",
+    "light": "Dull green daylight under hanging moss; the water is a dark mirror with an orange film, and the two new heads catch the most light."
+  },
+  "PN-G2-E": {
+    "shot": "pov", "dir": "F", "place": "L", "pal": "sunshaft",
+    "scene": "First-person, and far too close: a stag as big as a barn has lowered its head to look at us, its muzzle and one dark eye filling the lower left of the frame. Above them its antlers spread across the whole upper picture carrying an entire small forest — mossy boughs, fern banks, slender birches rooted in the forks — with a wisp of its own cloud snagged in the tines and a flight of finches bursting out as the head moves. Thorned briars hang from the lowest tines like a fringe.",
+    "light": "Golden-green shafts through moving mist behind the antlers back-light each tiny tree; its breath steams toward us in the cool air."
+  },
+  "PN-G2-U1": {
+    "shot": "far", "dir": "F", "place": "C", "pal": "autumnrot",
+    "scene": "A wide stretch of autumn forest floor seen from snail height — acorn cups like basins, a red toadstool rising like a tower, a fallen leaf as big as a tent. Small in the very centre, a pixie with leaf wings hovers facing us, its whole body wound in curling green tendrils like bandages; only the right arm is bare, drawing a twig bow with a thorn for an arrow, aimed straight at the viewer. One loose tendril is knotting itself around a scratch on its knee.",
+    "light": "Amber late light floods the leaf litter from behind the toadstool, with a bright rim on the leaf wings and the thorn's tip."
+  },
+  "PN-G2-U2": {
+    "shot": "high", "dir": "L", "place": "L", "pal": "sporeglow",
+    "scene": "High above the floor between the giant roots of a tree-city, the view drops onto a stout mushroom-keeper with a broad spotted cap standing on the left, turned leftward, both stubby hands paying out white threads. The threads spread from its feet across the whole ground like a spider's web laid flat, running from root to root to root, and along them small beads of light are sliding in both directions — messages passing between the trees. Thorn-like spurs stud the rim of its cap.",
+    "light": "Night under the canopy; the web of threads and the travelling beads glow pale lime, lighting the keeper's cap from below."
+  },
+  "PS-G2-1": {
+    "shot": "after", "dir": "N", "place": "X", "pal": "mossdeep",
+    "scene": "After the blows have stopped: the flank of a living trunk fills the frame, bearing a dozen shallow cuts, and in each cut the same thing shows — tight growth rings, and around them one new ring, pale and wet, already grown across the wound like a seal. On the roots below lie three blunted spearheads and one snapped haft. A last curl of bark settles to the ground.",
+    "light": "Heavy green shade; the fresh rings shine pale and wet as if lit from inside the wood."
+  },
+  "PS-G2-2": {
+    "shot": "cut", "dir": "D", "place": "L", "pal": "thorndark",
+    "scene": "The ground is cut open to show both worlds. Above the line, left of centre, two long moss-furred legs stand planted from the knee down, bark climbing the shins like rising water, and a heavy club lies let go in the leaves beside them. Below the line, roots are bursting from both soles and driving down through the dark earth, forking, wrapping buried stones, already reaching twice as deep as the legs are tall.",
+    "light": "Overcast evening above; the cut earth is near-black, the new roots pale against it, and a few red berries lie in the leaf litter by the club."
+  },
+  "RG2-1": {
+    "shot": "through", "dir": "N", "place": "C", "pal": "rainmist",
+    "scene": "Framed by a dark arch of briars in the foreground, a battlefield glade where everything has stopped: a flight of sparrows hangs fixed in the air, falling leaves are pinned mid-drop, and a thrown spear rests in empty air halfway across. Small figures below stand locked with blades half raised. Only the thorns are moving — slow green tendrils have climbed the hanging spear like a trellis and are reaching, unhurried, for the nearest raised sword.",
+    "light": "Windless grey-green haze fills the glade with flat silver light; the briar arch in front is a black frame."
+  },
+  "SG2-01": {
+    "shot": "column", "dir": "U", "place": "L", "pal": "autumnrot",
+    "scene": "One tall vertical on the left of the picture: a twisting pillar of vines as thick as ship's rope rises from the forest floor, and gripped in the middle of its coils is a single suit of the heaviest plate — breastplate squeezed to an hourglass, pauldrons folded like paper, rivets popping outward. Thin tendrils have threaded every seam and are pulling tight. One steel gauntlet has dropped among the autumn leaves at the pillar's foot.",
+    "light": "Amber late light from the right rakes across the pillar, catching the bent steel edges and the rust-coloured leaves below."
+  },
+  "SG2-02": {
+    "shot": "before", "dir": "L", "place": "C", "pal": "thorndark",
+    "scene": "The instant before a blow lands: a notched steel blade enters from the upper right and hangs a finger's width above a flank of cracked bark, and in every crack beneath it tight red-tipped buds are swelling to meet the edge, overlapping like the scales of a coat of mail. To the left an older cut is already filled with a ridge of fresh shoots, and the shavings from it are still falling.",
+    "light": "Near-dark, with one hard green-white glint along the blade's edge and a soft sheen on the wet buds."
+  },
+  "SG2-03": {
+    "shot": "reflect", "dir": "N", "place": "C", "pal": "sunshaft",
+    "scene": "Dawn light on the inside of a canvas tent wall, which fills the frame like a screen: thrown across it from outside is the sharp shadow of a thorn hedge that was absent at nightfall — a dense lattice of briar stems and long spines, taller than the tent. Caught among the shadow-thorns hangs the shadow of a torn cloak. At the bottom edge, a bedroll and a tin cup sit in the warm half-dark.",
+    "light": "Low morning sun behind the hedge glows golden-green through the canvas, printing every thorn as a crisp dark line."
+  },
+  "SG2-04": {
+    "shot": "transform", "dir": "F", "place": "L", "pal": "sporeglow",
+    "scene": "A tall beech caught halfway between tree and walker, left of centre: one side of it still stands rooted in the ground, bark smooth, branches still; the other side has torn free — a root-leg lifted high and dripping soil, stepping toward us, a branch-arm swinging forward, a rough face half formed in the bark between the two halves. Behind it other trunks in the grove show the same first shudder.",
+    "light": "Night; blue-green fungus-light along the grove floor outlines the lifted root and the falling clods of earth."
+  },
+  "SG2-05": {
+    "shot": "origin", "dir": "R", "place": "R", "pal": "autumnrot",
+    "scene": "Looking along the ground from where it starts: in the near foreground three long, mossy hands lie pressed flat on a tangle of surface roots, and from under each palm a line of amber light runs away from us along the roots, converging on one old tree in the right middle distance. That tree is swollen like a full barrel, its bark split in long seams that brim with glowing sap; the trees beside it stand thin and dim.",
+    "light": "Dusk under russet leaves; the amber sap glowing in roots and bark seams is the only warm light."
+  },
+  "SG2-07": {
+    "shot": "impact", "dir": "R", "place": "L", "pal": "mossdeep",
+    "scene": "At arm's length, a charging lance-point drives into a rampart of giant thistles on the left — stalks thick as fence posts, leaves edged with spines as long as daggers, crimson thistle-heads the size of cabbages — and stops dead at the instant of impact. The shaft bows and splits along its grain, and a burst of white thistledown explodes outward from the blow like a thrown snowball, filling the air toward the right.",
+    "light": "Deep green shade behind the wall, with soft daylight from the left on the pale down and the splintering shaft."
+  },
+  "SG2-08": {
+    "shot": "object", "dir": "D", "place": "B", "pal": "sunshaft",
+    "scene": "At the bottom of a fresh crater lies one object: a great iron tower shield, pressed flat into the earth like a coin into clay, its face stamped with the grain of bark. Around it the ground is cracked in rings, and slabs of shed bark as big as doors lie where they fell, with more still tumbling down the crater wall. Thick drops of amber sap are raining in, and above the rim the shadow of an enormous root is lifting away through swirling dust and torn leaves.",
+    "light": "Shafts of golden-green sun break through the dust cloud over the crater, striking the flattened shield and each falling drop of sap."
+  },
+  "TK-G2-1": {
+    "shot": "through", "dir": "N", "place": "R", "pal": "rainmist",
+    "scene": "A wall of freshly grown vines fills the frame, stems as thick as wrists braided tight, and near the right side one last gap is knitting shut: tendrils reach across it from both edges like fingers, and through the narrowing hole we glimpse a strip of fog-pale meadow beyond. The leaves around the gap are new and glossy; at the wall's left end they are already yellowing and curling.",
+    "light": "Soft silver light from the fog beyond the wall shines through the gap and through the thin new leaves."
+  },
+  "TK-U-ROOT": {
+    "shot": "eye", "dir": "F", "place": "R", "pal": "mossdeep",
+    "scene": "Beside a broad fresh stump, at eye level, on the right of the frame: one thick root has risen from its base overnight and curled up and over the cut face like an arm, holding against the wood a fallen slab of bark that still bears a sleeping face, turned toward us. Thorn shoots are budding along the root. Chips and sawdust lie undisturbed around it.",
+    "light": "Deep green shade, damp with dew; a soft glow of daylight from the left rests on the pale cut wood."
+  },
+  "TK-U-SAPLING": {
+    "shot": "ground", "dir": "L", "place": "R", "pal": "sunshaft",
+    "scene": "Ground-level, in trampled mud after a fight: on the right of the frame a sapling a hand high stands in a small patted mound of fresh earth, two bright leaves open and leaning to the left toward the light. Its mound still shows the press of enormous twig fingers. Beside it an upturned dented helmet has filled with rainwater like a bowl, and mist hangs over the churned field behind.",
+    "light": "Low golden-green sun through thinning mist lights the two leaves from behind so they glow."
+  },
+  "TK-U-TREE": {
+    "shot": "tilt", "dir": "B", "place": "C", "pal": "autumnrot",
+    "scene": "A young tree-creature, twice a man's height, wrenches its root-feet out of a small earth mound, and the frame tilts with its first lurching step away from us, in the middle of the picture. Clods of soil fly from its roots, its few branches whip with the motion and shed russet leaves, and a dented helmet, lifted off the ground by one root as it rose, swings from it by the chin-strap.",
+    "light": "Low amber evening light from ahead of it throws its long unsteady shadow back toward us across the torn ground."
+  },
+  "UN-G2": {
+    "shot": "cut", "dir": "F", "place": "B", "pal": "sporeglow",
+    "scene": "The forest floor at night, cut open like a section. Along the top of the frame, above the ground line, stands a broad fresh stump with a two-handed saw abandoned across it, ringed by a hedge of thorns. Everything below the line is the keeper himself: a root-mass as big as a hill, shaped like a hunched giant, his old bark face set in the earth just under the stump with both eyes open and alight, root-arms spread wide and gripping buried boulders. From his brow a single pale shoot has already pushed up through the heart of the stump.",
+    "light": "Darkness above and below; the only light is the green glow of his eyes and the faint blue-green fungus threads tracing every root."
+  },
+  "UN-G2-7": {
+    "shot": "silhouette", "dir": "L", "place": "L", "pal": "rainmist",
+    "scene": "All silhouette against silver morning fog: on the left an old tree-giant walks out of the frame to the left, bent like a gardener, and from every one of his branches hang seed pouches — gourds, woven bags, pods on cords — swinging with his stride. Behind him, across the rest of the picture, his wake rises in steps: a broken siege tower, then a staked sapling, then a young tree, then a tall one, then the dark wall of a whole grove. One pouch has just let fall a single seed.",
+    "light": "Luminous silver mist behind everything turns keeper, pouches and trees into flat black shapes; the one falling seed catches a bright glint."
+  },
+  "UP-G2-17": {
+    "shot": "far", "dir": "R", "place": "B", "pal": "rainmist",
+    "scene": "Far off and small at the bottom of a wide snowfield ringed by winter trees, the same lanky troll shaman stands awake among three snow-covered humps of sleeping kin, his rattle-hung staff levelled toward the right. From his feet a tide of living moss is pouring out across the snow in the direction he points — a broad green fan that has already climbed the nearest trunks and is rolling on toward the far trees, greening the white ground as it goes.",
+    "light": "Pale silver winter light through falling snow and mist; the moss is the one vivid green in a grey-white world, and his breath steams."
+  },
+  "UP-G2-22": {
+    "shot": "profile", "dir": "L", "place": "L", "pal": "sunshaft",
+    "scene": "In strict side view, like a carved frieze: the same mandrake, now standing its full height on forked root-legs with soil still clinging to them, plants itself on the left of the frame facing left, leafy crown flared, mouth stretched wide in a scream that ripples the air ahead of it. Behind it, filling the centre and right, a gateway of woven briar taller than a house is slamming shut at the sound — two walls of thorn swinging together, the gap between them already too narrow for a hand.",
+    "light": "Shafts of golden-green morning light fall between the closing thorn walls, cut thinner every instant, and edge the mandrake's crown."
+  },
+  "UP-G2-23": {
+    "shot": "top", "dir": "N", "place": "X", "pal": "mossdeep",
+    "scene": "Seen from straight overhead, the same dryad singer — grown now into three slender pale-bark figures joined at one root — stands back to back on a round mossy knoll, three upturned faces singing as one, their mingled blossom-hair a single crown. From each mouth a ribbon of leaves, green with ember-edged black among them, curls outward; the three ribbons sweep around the trio in a great spiral and twist together into one rope of leaves that streams away to the right edge.",
+    "light": "Even green shade from the canopy above; the pale bark of the three faces and the spiral of leaves stand out against dark moss."
+  },
+  "US-G2-1": {
+    "shot": "path", "dir": "R", "place": "X", "pal": "sporeglow",
+    "scene": "Side-on through a hacked grove at night, something unseen is passing from left to right, marked only by a drifting line of pollen at head height. To the left, where it has been, every lopped bough is whole again, each join wearing a tight collar of new thorns. To the right, branches still hang broken. And exactly at the front of the pollen line a fallen bough is rising off the ground toward the place it was cut from, splinters turning to fit.",
+    "light": "The drifting pollen glows pale lime and lights each mended bough as it passes; ahead of it the grove is still black."
+  },
+  "US-G2-2": {
+    "shot": "symbol", "dir": "D", "place": "C", "pal": "autumnrot",
+    "scene": "An emblem set up on a storm-lashed hilltop: a rough balance made from one forked bough. On its left pan lies a single cross-cut slab of ancient trunk, ring upon ring too fine to count, and it has slammed down so hard that the ground beneath is cracked and sunk. The right pan, heaped with iron maces, chains and ingots, has been flung high into the air, spilling its load. Gale-driven russet leaves streak across the frame, and far behind, whole rows of old trees are leaning out of the earth.",
+    "light": "Dark storm light with a low amber break in the cloud behind the balance, edging the slab and the flying iron."
+  },
+  "IR-G2": {
+    "shot": "hand", "dir": "D", "place": "L", "pal": "mossdeep",
+    "scene": "On the left of the frame one long, moss-knuckled hand, cropped at the wrist, comes down from above and holds a slab of ancient bark by its upper edge so that it hangs toward the forest floor — thick as a plank, deeply furrowed, silver-grey with green moss in the grooves. Its face is crossed by a dozen old sword cuts, and out of every cut a hooked thorn has grown, the newest still pale and beaded with sap. Below it on the moss lies the snapped tip of a blade, itself sprouting a first green thorn.",
+    "light": "Deep green shade under giant trees, with a little soft daylight from the right sliding along the wet bark ridges and the beads of sap."
+  },
+  "PN-G2-R": {
+    "shot": "profile", "dir": "R", "place": "R", "pal": "autumnrot",
+    "scene": "Strict side view, flat as a frieze, among falling russet leaves: at the right third a tall, lanky moss troll stands facing right, arms hanging past his knees, bark skin fleeced with moss. An axe-stroke has parted the moss along his ribs; a hedge of black thorns bristles in the gap, and behind the thorns glows a core of amber holding old leaves and a dragonfly. From his feet moss creeps along the ground both ways and climbs the shields of two small spearmen, one ahead and one behind, budding thorns on their rims.",
+    "light": "Low amber afternoon light from the left rakes through the falling leaves, and the amber core adds its own warm glow against dark green shade."
+  },
+  "RS-G2-1": {
+    "shot": "path", "dir": "B", "place": "R", "pal": "sporeglow",
+    "scene": "Night on the forest floor. From the lower left a raised seam of earth runs away from us across the leaf litter, glowing blue-green through its cracks, straight under the feet of a distant rank of armoured figures that stands facing us on the right. Behind their backs the seam has burst: a fan of pale roots, tall as saplings, rears out of the ground and curls over their helmets, tips already hooked round two ankles. Along the seam beads of pale-lime light slide back toward us, one after another, like sap rising in a stem.",
+    "light": "Black night under the canopy, lit only by the blue-green seam and the pale roots, which rim the rank of figures from behind."
+  },
+  "RS-G2-2": {
+    "shot": "object", "dir": "L", "place": "R", "pal": "sporeglow",
+    "scene": "Told through one roadside lamp: on the right, where a forest road lay open at dusk, a thicket of bramble now stands thick as a wall, and deep inside it hangs the road's lamp — a glass globe of glowing fungus on a post that the stems have lifted and tipped toward the left. Its pale-lime light shines out through layer on layer of hooked thorns and throws their shadows huge across the last bare paving stones, which are already tilting as new shoots push up between them.",
+    "light": "Deep night; the caged lamp is the only source, pale-lime at its heart and blue-green where it filters through the leaves."
+  },
+  "RS-G2-3": {
+    "shot": "impact", "dir": "F", "place": "B", "pal": "sporeglow",
+    "scene": "The instant a fall is stopped, at arm's length on the forest floor: low in the frame a huge moss-furred knee has buckled toward the ground and halted a hand's width above it, because the moss has thrown down a hundred green threads that struck the earth first and pulled taut like guy ropes. The jolt bursts a ring of glowing spores out of the fleece, rolling straight toward us, and beside the knee a dropped axe hangs caught in the same threads, a finger's breadth clear of the ground.",
+    "light": "Darkness under the trees; the spore ring is the light, pale-lime and blue-green, shining up onto the taut threads and the underside of the knee."
+  },
+  "SG2-09": {
+    "shot": "after", "dir": "B", "place": "C", "pal": "rainmist",
+    "scene": "Morning after, in drifting rain: in the centre of a trampled clearing stands a tree that was a fallen branch last night — a trunk broader than a gatehouse, forking like an antler into tines hung with thorns as long as spears. Its crown bristles with hundreds of spent arrows caught among the thorns, their fletchings dripping. Beneath it, small and seen from behind, a line of figures with upright spears stands at ease, looking out into the mist, and last night's campfire still smokes between two roots that have lifted its ring of stones.",
+    "light": "Soft silver rain-light from all sides, with grey-green mist swallowing the clearing's edge and small bright glints on wet thorns and arrowheads."
+  },
+  "SP-G2": {
+    "shot": "top", "dir": "U", "place": "R", "pal": "sporeglow",
+    "scene": "From the height of the moon, a burnt land lies straight below like a map: grey ash dotted with black stumps. Across it runs one line of footprints, each a lake-sized oval packed with full-grown trees and lit pale-lime from within, the oldest spilling forest over their edges. At its head, in the upper right, their maker walks on up the frame, an island of moving canopy veined with silver, and its long shadow on the ash shows what the leaves hide: a tall, slender shape with branching hair. A charred watchtower beside one print is seed-small.",
+    "light": "A waxing moon low on the left throws long shadows across the ash, silver on the walking canopy, while the footprints glow pale-lime and blue-green."
+  },
+  "SR-G2": {
+    "shot": "used", "dir": "L", "place": "R", "pal": "autumnrot",
+    "scene": "Inside a hollow-tree shrine deep in russet leaves, the relic lies along a root altar on the right: one shed antler of living wood, each tine thick as a tree trunk, amber leaves still clinging to its points. From its base pale roots have just crawled across the floor to the left and closed around a dropped felling axe and a dented lantern; a thread of mist is drawn back along each root, and where they rejoin the altar a deep split in the wood is knitting shut with fresh bark. Offering bowls small as acorns line the step.",
+    "light": "Amber light slants in from the upper left through a split in the hollow's wall, catching the mist threads and russet leaves while the recesses stay dark green."
+  }
+}

@@ -1,1790 +1,706 @@
-# 에픽 (Epic) — 카드 일러스트 프롬프트 (63장, 버전 g3)
+# 에픽 (Epic) — 카드 일러스트 프롬프트 (63장, n1)
 
-> 영웅 · 괴물 · 초월자의 유물. 영화의 한 장면처럼 크고 강하다. 낮은 광각, 빛줄기, 날씨와 전장의 이야기, 보랏빛 비술 알갱이.
+> 세계가 반응한다. 날씨 · 대기 · 깊이가 움직이고 빛이 공기를 가른다. 공기 속에 옅은 보랏빛 비술 입자. 시점은 카드마다 다르다(늘 올려다보지 않는다).
 
-## 이 등급의 연출 틀 (설명용 — 그림 AI에 넣지 않는다)
+등급 한 줄(모든 에픽 프롬프트에 들어 있다): `Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.`
 
-```
-Grade: EPIC — heroic and larger than life, cinematic. a heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom.
-Background: rich environmental storytelling: {landmark}; weather (storm, ash, spray, wind) and deep atmosphere.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-```
+카드 하나의 ``` 안 글만 그림 AI에 붙여 넣는다(카드마다 새 대화). 나온 그림(가로 5:4)은 `tools/art/inbox/<카드ID>.jpg` → `python3 tools/art/artmap.py import`.
 
-아래 카드 프롬프트는 이 틀 + 깃발 + 레벨 + 카드 이름 · 설명을 합친 완성본이다(스페셜은 v3.95부터 이 틀을 짧게 묶어 넣음). **그림 AI에는 카드 프롬프트(``` 안) 하나만 붙여 넣는다** — 위 틀을 함께 넣으면 같은 말이 두 번 들어가 그림끼리 닮는다. 카드마다 새 대화에서 그린다.
-
-**그리는 차례**: 1 그림 없는 카드 먼저(**유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물** 순) → 2 다시 그리기 → 3 그림 있는 카드는 그리지 않는다. (`node tools/art/build_prompts.js`가 장부 `art_map.csv`의 상태 "다시"를 읽어 이 차례로 놓는다.)
+**그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저.
 
 ## 1. 그림 없는 카드 — 먼저 그린다 · 58장
 
 ### US-A3-1 · 그믐의 계약서
-모르카스의 그믐 · 핸드 마법 · 레벨 1 · 에픽 — 받은 그림은 `tools/art/inbox/US-A3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-A3-1.jpg` 750×600)
+모르카스의 그믐 · 핸드 마법 · 레벨 1 · 에픽 · 틀 `far` N T `eclipse` · 프롬프트 n1 → `tools/art/inbox/US-A3-1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A cataclysmic, cinematic spell whose power bends the whole battlefield around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "그믐의 계약서". Depict exactly what this name describes.
-Subject: hand trick spell of the Morkas's New Moon (see art direction). Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Spell, not unit: this is a spell card, so the magic itself is the hero of the image — the visible force, phenomenon or symbol of the spell (a blast, a ward of light, a curse mark, a vortex, a rune circle, a rain of arrows, a reversed current) fills the centre and reads in one glance. People and creatures are absent or minimal: at most small dark silhouettes in the distance, a hand or arm at the edge of the frame, or empty armour, weapons and banners standing in for the targets. Show the effect on its targets through objects and light rather than through characters' faces and bodies. If the art direction or lore names a caster or warriors, keep them small, off-centre, half in shadow and seen from behind.
-Art direction: Contract of the New Moon: under a black new-moon sky above the canyon spires of Noctar, a long black-parchment contract unrolls in mid-air, sealed with blood-red wax and violet sigils, glowing blood ink on it (illegible, no real letters). Beneath it a fanned hand of enemy cards (blank backs) withers and greys like dying leaves, while one fresh card slides from the shadows toward a clawed hand at the edge. Epic: violet light shafts, drifting ash, a faint faceless shadow with balanced scales behind the moon.
-Scale (level 1 of 8): a small, local effect.
-Banner — Morkas's New Moon: magic of morkas's new moon, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, meaning and mood only): 그믐밤 녹타르에서 맺는 계약서에는 상대의 이름도 함께 적힌다. 서명한 자는 한 장을 더 쥐고, 적힌 자의 패는 손안에서 시들어 간다. — the people this lore names stay off-stage; show their spell, not them.
-Game effect (Korean, mood only — never draw text or numbers): 상대 핸드의 유닛 전체 공격 −1, 체력 −1 (이 판 내내). 체력이 0이 되면 소각된다. 저주 면역인 스탯은 깎이지 않는다. 카드 1장을 뽑는다(생명 소모 없음).
-Camera: cinematic low wide angle at the peak of the spell's impact, scale cues (tiny distant silhouettes, broken walls, huge debris), the effect about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, intense radiant core, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
-Colour fidelity: the whole image reads at a glance as the banner colour #8b5cf6 (violet #8b5cf6, black, blood-red accents); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
-Detail: rich layered spell energies, flying debris, weather and atmospheric textures.
-Spectacle: cinematic: volumetric god rays, the spell's energy swirling in layered currents, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the spell's energy — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
-Composition: landscape 5:4; the spell effect is the one main subject, centred with breathing room around it and readable as a single clear magical shape; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of a spell — the magic itself is the subject. A vast night sky like a sheet of dark parchment, creased with faint fold lines and ruled with thin rows of stars. Where the moon should hang, in the upper part of the frame, sits a great round seal of black wax with a thin bright rim, and two long clouds trail from it like ribbons. Far below on the plain lies an army's camp, small as scattered grain: every campfire in it has shrunk to an ember, every banner hangs wilted on its pole, and the grass around the tents has turned grey in a slowly widening circle. The seal's thin cold rim is the brightest light, as in an eclipse; the camp is silhouette under violet haze, its fires dying red points.
+Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-A1-3 · 장막의 처형자
-모르카스의 그믐 · 유닛 · 레벨 7 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A1-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A1-3.jpg` 750×600)
+모르카스의 그믐 · 유닛 · 레벨 7 · 에픽 · 틀 `tilt` R X `violetshade` · 프롬프트 n1 → `tools/art/inbox/EP-A1-3.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "장막의 처형자". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring Wraith of the Morkas's New Moon.
-Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Wraith: a hooded ghost of someone still bound to an unpaid price, a translucent legless body wrapped in rusted chains. Silhouette: floating and hooded, legless, trailing chains. Materials: translucent grey-violet mist, rusted chains, a torn shroud.
-Banner — Morkas's New Moon: show the banner through element, palette and a few accents (blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes); palette: violet #8b5cf6, black, blood-red accents.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 심연의 장막에서 걸어 나온 것. 무엇을 두고 나왔는지 묻는 자는 다음 차례가 된다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
-Colour fidelity: the whole image reads at a glance as the banner colour #8b5cf6 (violet #8b5cf6, black, blood-red accents); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. The frame tips steeply as it comes: a hooded, legless ghost as tall as a gate tower sweeps out of a hanging wall of darkness on the left, torn shroud and rusted chains streaming behind it. Below, a file of pilgrims with torches crosses a narrow causeway, each smaller than one link of its chain, and every torch flame is blown flat to the right. The foremost pilgrim has raised an open hand toward the hollow hood, and the ghost's long misty arm is already coming down over him, fingers spread wider than a cartwheel. Purple-black night with a luminous violet glow inside the hood and along the chains; the torches are a thin line of blown orange sparks.
+Colour: violet shade — purple-black gloom with luminous violet (#8b5cf6) edges.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### US-A2-1 · 성광의 검
-솔란테의 새벽 · 공격 마법 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/US-A2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-A2-1.jpg` 750×600)
+솔란테의 새벽 · 공격 마법 · 레벨 2 · 에픽 · 틀 `ring` N C `rosedawn` · 프롬프트 n1 → `tools/art/inbox/US-A2-1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A cataclysmic, cinematic spell whose power bends the whole battlefield around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "성광의 검". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the spell's force (bolt, blast, blade of light, storm) travels across the frame and strikes the enemy side, shown as small dark silhouettes or their weapons and armour; any caster is out of frame or only a hand at the edge. The moment it takes effect: an empowering holy light surge rising from the ground in spiralling light, lifting allied banners; a shared surge of power rising like a banner of light over the allied side. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Spell, not unit: this is a spell card, so the magic itself is the hero of the image — the visible force, phenomenon or symbol of the spell (a blast, a ward of light, a curse mark, a vortex, a rune circle, a rain of arrows, a reversed current) fills the centre and reads in one glance. People and creatures are absent or minimal: at most small dark silhouettes in the distance, a hand or arm at the edge of the frame, or empty armour, weapons and banners standing in for the targets. Show the effect on its targets through objects and light rather than through characters' faces and bodies. If the art direction or lore names a caster or warriors, keep them small, off-centre, half in shadow and seen from behind.
-Scale (level 2 of 8): a small, local effect.
-Banner — Solante's Dawn: magic of solante's dawn, signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths; palette: holy light #ffe9a8, white, pale gold, soft sky blue.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, meaning and mood only): 새벽의 어머니 솔란테가 방패를 든 손에도 검을 쥐여 준 날. 빛으로 벼린 칼날은 갑옷을 보지 않는다. — the people this lore names stay off-stage; show their spell, not them.
-Game effect (Korean, mood only — never draw text or numbers): 아군 전체 공격 +2, [방어무시].
-Camera: cinematic low wide angle at the peak of the spell's impact, scale cues (tiny distant silhouettes, broken walls, huge debris), the effect about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, intense radiant core, soft bloom; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
-Colour fidelity: the whole image reads at a glance as the banner colour #ffe9a8 (holy light #ffe9a8, white, pale gold, soft sky blue); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; weather (storm, ash, spray, wind) and deep atmosphere; pale gold radiance, halo, feathers of light.
-Detail: rich layered spell energies, flying debris, weather and atmospheric textures.
-Spectacle: cinematic: volumetric god rays, the spell's energy swirling in layered currents, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the spell's energy — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
-Composition: landscape 5:4; the spell effect is the one main subject, centred with breathing room around it and readable as a single clear magical shape; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of a spell — the magic itself is the subject. From high above a dark heath at dawn: a company has locked its round shields into one tight ring on the ground. From the boss of every shield a long blade of pure light is thrusting outward, so the ring has become a sun with thirty straight rays. Where the rays cross the armour of the surrounding enemy, they pass clean through plate and helm as if through mist. Wind flattens the grass outward in rings, and the low fog is blown back in a widening circle. The blades are white-gold and cast long lilac shadows outward from every enemy shape; the retreating fog catches pink-gold.
+Colour: rose dawn — pink-gold (#ffe9a8) cloud light and lilac shadows.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-A2-1 · 새벽성 문지기 라마수
-솔란테의 새벽 · 유닛 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A2-1.jpg` 750×600)
+솔란테의 새벽 · 유닛 · 레벨 3 · 에픽 · 틀 `front` F B `glare` · 프롬프트 n1 → `tools/art/inbox/EP-A2-1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "새벽성 문지기 라마수". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Lamassu of the Solante's Dawn.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Lamassu: a winged bull with a crowned, bearded calm face, carved in white stone at the Dawn Citadel gate and now awake. Silhouette: a massive winged bull standing square at a gate. Materials: white limestone, gold inlay, carved feathers.
-Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 엘라드 성문 기둥에 새겨져 있던 날개 달린 황소. 성문이 처음 열린 날 깨어나, 그 뒤로 한 번도 문 앞을 비운 적이 없다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
-Colour fidelity: the whole image reads at a glance as the banner colour #ffe9a8 (holy light #ffe9a8, white, pale gold, soft sky blue); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; weather (storm, ash, spray, wind) and deep atmosphere; pale gold radiance, halo, feathers of light.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Dead-on and symmetrical: a white gate arch fills the frame, and square in its opening, low in the picture, stands a winged bull of pale limestone with a crowned, bearded, calm human face, gold inlay glinting in its carved feathers, looking straight at us. A storm of sleet drives in from behind the viewer and stops along the line of its front hooves; behind it the paving is dry and the street blazes with morning. On the left gate-pillar a bull-shaped recess stands empty; on the right its stone twin still sleeps in the wall. White-gold light pours out of the gate behind the bull, turning it into a dark shape with burning edges, while the sleet in front is grey and wind-driven.
+Colour: holy glare — blinding white-gold (#ffe9a8) light with dark shapes in front of it.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### PI-A2 · 솔란테의 날개 깃
-솔란테의 새벽 · 아이템 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/PI-A2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-A2.jpg` 750×600)
+솔란테의 새벽 · 아이템 · 레벨 3 · 에픽 · 틀 `used` D R `glare` · 프롬프트 n1 → `tools/art/inbox/PI-A2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. An ancient relic of a transcendent being whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "솔란테의 날개 깃". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Solante's Dawn (weapon/armour + holy relic). a relic of a transcendent being floating in its own aura above a ruined altar, radiating its element.
-Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Solante's Dawn (holy light): palette: holy light #ffe9a8, white, pale gold, soft sky blue. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 새벽의 어머니가 여섯 날개에서 뽑아 준 깃 하나. 두른 자의 방어는 그 깃의 두께가 되고, 깃 끝은 칼날처럼 베어 아물지 않는 상처를 남긴다.
-Camera: cinematic low angle looking up at the floating relic above its ruined altar, scale cues in the environment, subject about 65% of the frame.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing focal core, soft bloom; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
-Colour fidelity: the whole image reads at a glance as the banner colour #ffe9a8 (holy light #ffe9a8, white, pale gold, soft sky blue); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; weather (storm, ash, spray, wind) and deep atmosphere; pale gold radiance, halo, feathers of light.
-Detail: ornate craftsmanship, weathered ancient surfaces, magical energy wrapping the relic.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of one object — the object itself is the subject. On a storm-swept pilgrim road, a single white feather as long as a lance stands quill-up at the right of the frame, its tip driven down through a waist-high boundary stone that it has sliced cleanly in two, the cut faces smooth as mirrors. Rain drives sideways across the whole road, yet around the feather the drops slow, hang and slide away, leaving a calm dry sheath of air. Far above it the storm cloud has opened in one long feather-shaped rift. The feather blazes white-gold from within and the rift above pours the same light down; road, rain and split stone are dark shapes against it.
+Colour: holy glare — blinding white-gold (#ffe9a8) light with dark shapes in front of it.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### US-A2-2 · 태양 심판
-솔란테의 새벽 · 공용 마법 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/US-A2-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-A2-2.jpg` 750×600)
+솔란테의 새벽 · 공용 마법 · 레벨 3 · 에픽 · 틀 `column` D L `glare` · 프롬프트 n1 → `tools/art/inbox/US-A2-2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A cataclysmic, cinematic spell whose power bends the whole battlefield around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "태양 심판". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with the spell's power visibly flowing in two directions. The moment it takes effect: a destructive holy light bolt or blast tearing across the field into the distant enemy line; a glowing protective barrier or ward of runes forming in the air, deflecting incoming blows. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Spell, not unit: this is a spell card, so the magic itself is the hero of the image — the visible force, phenomenon or symbol of the spell (a blast, a ward of light, a curse mark, a vortex, a rune circle, a rain of arrows, a reversed current) fills the centre and reads in one glance. People and creatures are absent or minimal: at most small dark silhouettes in the distance, a hand or arm at the edge of the frame, or empty armour, weapons and banners standing in for the targets. Show the effect on its targets through objects and light rather than through characters' faces and bodies. If the art direction or lore names a caster or warriors, keep them small, off-centre, half in shadow and seen from behind.
-Scale (level 3 of 8): an effect over a few targets.
-Banner — Solante's Dawn: magic of solante's dawn, signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths; palette: holy light #ffe9a8, white, pale gold, soft sky blue.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, meaning and mood only): 해가 가장 높이 뜬 순간에만 내려지는 판결. 칼을 가장 높이 든 자부터 빛에 탄다. — the people this lore names stay off-stage; show their spell, not them.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 중 공격이 가장 높은 유닛 2개에게 체력 −4. 아군 맨 앞 유닛에게 [보호막].
-Camera: cinematic low wide angle at the peak of the spell's impact, scale cues (tiny distant silhouettes, broken walls, huge debris), the effect about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, intense radiant core, soft bloom; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
-Colour fidelity: the whole image reads at a glance as the banner colour #ffe9a8 (holy light #ffe9a8, white, pale gold, soft sky blue); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; weather (storm, ash, spray, wind) and deep atmosphere; pale gold radiance, halo, feathers of light.
-Detail: rich layered spell energies, flying debris, weather and atmospheric textures.
-Spectacle: cinematic: volumetric god rays, the spell's energy swirling in layered currents, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the spell's energy — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
-Composition: landscape 5:4; the spell effect is the one main subject, centred with breathing room around it and readable as a single clear magical shape; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of a spell — the magic itself is the subject. High noon over a packed battle line, every shadow shrunk to a small pool underfoot. From a small white sun at the very top of the frame, two needle-straight columns of concentrated light stand down into a thicket of raised weapons — one on the tallest greatsword at the left, one on the second-tallest halberd. Both blades are white-hot from the tip downward, beads of molten steel running to the hilt, heat shimmer bending the air. Every lower blade around them is untouched, and the dust between hangs in slow bright curtains. Vertical midday glare from straight overhead, white-gold and merciless, with the crowd below reduced to dark shapes and short black shadows.
+Colour: holy glare — blinding white-gold (#ffe9a8) light with dark shapes in front of it.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-A2-2 · 황혼 장벽 파수장
-솔란테의 새벽 · 유닛 · 레벨 5 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A2-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A2-2.jpg` 750×600)
+솔란테의 새벽 · 유닛 · 레벨 5 · 에픽 · 틀 `eye` L R `rosedawn` · 프롬프트 n1 → `tools/art/inbox/EP-A2-2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "황혼 장벽 파수장". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Solante's Dawn — an armed fighter wielding a weapon typical of the banner.
-Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Solante's Dawn: seraphs with white feathered wings and halos, and human knights of the Radiant Order. Silhouette: upright and protective; wings spread wide behind great shields. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 빈 땅을 마주한 황혼의 장벽을 지키는 천족. 장벽 너머에서 무엇이 오든 먼저 맞는 것이 그의 일이다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
-Colour fidelity: the whole image reads at a glance as the banner colour #ffe9a8 (holy light #ffe9a8, white, pale gold, soft sky blue); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; weather (storm, ash, spray, wind) and deep atmosphere; pale gold radiance, halo, feathers of light.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. On the walk of an immense white wall, standing beside its captain: a tall seraph in scarred pale armour holds the outermost bastion at the right, a step ahead of his sentries, facing left with wings half spread and one gauntlet raised. Left of the wall the land is empty — flat, colourless, featureless — and from it a towering bank of grey dust is rolling in. Its first gust breaks on his breastplate and comes apart into clean bright air; his cloak streams back toward the lit city side. Late pink-gold light comes from the city side behind him, warm on his back and the wall, while the grey front ahead swallows all colour.
+Colour: rose dawn — pink-gold (#ffe9a8) cloud light and lilac shadows.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### PN-A2-E · 황혼 장벽의 맹세자
-솔란테의 새벽 · 유닛 · 레벨 6 · 에픽 — 받은 그림은 `tools/art/inbox/PN-A2-E.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A2-E.jpg` 750×600)
+솔란테의 새벽 · 유닛 · 레벨 6 · 에픽 · 틀 `echo` R B `glare` · 프롬프트 n1 → `tools/art/inbox/PN-A2-E.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "황혼 장벽의 맹세자". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Solante's Dawn — a devoted priest, ritualist or pact-bound servant, praying or offering.
-Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Solante's Dawn: seraphs with white feathered wings and halos, and human knights of the Radiant Order. Silhouette: upright and protective; wings spread wide behind great shields. Materials: white and gold plate armour, white feathers, tabards, great tower shields, lances, sun emblems. Signature motifs: halos, wings, great shields, a rising sun with a sword, feathers of light, oaths.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 회색 감옥을 봉인한 고대의 성광 기사단 마지막 맹세자. 그날의 맹세를 아직 풀지 않았다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
-Colour fidelity: the whole image reads at a glance as the banner colour #ffe9a8 (holy light #ffe9a8, white, pale gold, soft sky blue); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; weather (storm, ash, spray, wind) and deep atmosphere; pale gold radiance, halo, feathers of light.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Low in the frame an ancient seraph kneels before a sealed door of grey stone, both palms pressed flat on its seam, wings mantled, head bowed to the right — one figure, perfectly sharp. Everything around him is painted as many moments at once: the sun as a string of overlapping discs arcing over the wall, drifts of snow, leaves and dust lying in layers against his greaves, ivy that has climbed his grounded lance. A sheet of light as thin as glass still covers the door under his hands. The streak of overlapping suns blazes white-gold across the top of the frame; he and the grey door are dark, clear shapes beneath it.
+Colour: holy glare — blinding white-gold (#ffe9a8) light with dark shapes in front of it.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-A2-3 · 황혼의 대천사
-솔란테의 새벽 · 유닛 · 레벨 7 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A2-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A2-3.jpg` 750×600)
+솔란테의 새벽 · 유닛 · 레벨 7 · 에픽 · 틀 `pov` R R `stainedglass` · 프롬프트 n1 → `tools/art/inbox/EP-A2-3.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "황혼의 대천사". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring Archangel of the Solante's Dawn.
-Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Archangel: a towering archangel of the dawn with many great white wings and gold armour, a lance of light in hand. Silhouette: a tall figure framed by vast spread wings. Materials: white and gold feathers, gold plate, radiant light.
-Banner — Solante's Dawn: show the banner through element, palette and a few accents (halos, wings, great shields, a rising sun with a sword, feathers of light, oaths); palette: holy light #ffe9a8, white, pale gold, soft sky blue.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 솔란테의 여섯 날개 가운데 하나를 받았다는 대천사. 그 날개 아래에 선 자는 해가 질 때까지 쓰러지지 않는다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
-Colour fidelity: the whole image reads at a glance as the banner colour #ffe9a8 (holy light #ffe9a8, white, pale gold, soft sky blue); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the white walls and towers of the Dawn Citadel Elad at sunrise, banners in the wind; the Twilight Wall facing the void lands; weather (storm, ash, spray, wind) and deep atmosphere; pale gold radiance, halo, feathers of light.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. First person, from the ranks sheltering beneath it: our own gauntleted hand rises at the bottom edge to shade our eyes, and overhead one colossal wing roofs the whole sky, each feather as long as a ship's sail, sunlight glowing through them in bands of colour. The wing reaches in from the right, where its owner towers over the field in gold armour, as tall as a citadel keep. A storm of dark missiles bursts into sparks along the wing's upper side. Under its far edge the sun is low and red, still above the horizon. Low sun shines through the feathers from above, laying jewel-coloured patches on helmets and spear-points in the deep shade beneath.
+Colour: stained glass — jewel-coloured patches of light on pale stone in deep shade, pale-gold (#ffe9a8) beams.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### PI-A3 · 벨루미르의 별 시위
-벨루미르의 별 · 아이템 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/PI-A3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-A3.jpg` 750×600)
+벨루미르의 별 · 아이템 · 레벨 2 · 에픽 · 틀 `hand` R C `duskrose` · 프롬프트 n1 → `tools/art/inbox/PI-A3.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. An ancient relic of a transcendent being whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "벨루미르의 별 시위". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Belumir's Star (archery gear). a relic of a transcendent being floating in its own aura above a ruined altar, radiating its element.
-Scale (level 2 of 8): a simple object.
-Banner — Belumir's Star (wind): palette: wind teal #9fe3d6, silver, white, starry indigo. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 별을 읽는 신이 별빛을 꼬아 만든 시위. 당긴 자의 힘은 그 순간 그대로 굳고, 팽팽한 시위가 첫 화살을 튕겨 낸다.
-Camera: cinematic low angle looking up at the floating relic above its ruined altar, scale cues in the environment, subject about 65% of the frame.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing focal core, soft bloom; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Colour fidelity: the whole image reads at a glance as the banner colour #9fe3d6 (wind teal #9fe3d6, silver, white, starry indigo); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Belumir's Needle piercing the clouds under a night sky full of stars; weather (storm, ash, spray, wind) and deep atmosphere; swirling teal wind, drifting feathers and starlight streaks.
-Detail: ornate craftsmanship, weathered ancient surfaces, magical energy wrapping the relic.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of one object — the object itself is the subject. One hand in a worn three-finger shooting glove, cropped at the wrist, holds a bowstring at full draw in the centre of the frame, pulling toward the right. The string is the subject: three strands of twisted starlight, thin as fishing line, with pin-sized stars strung along it like dew on a spider's thread, bending sharply round the fingertips. Where the string touches the leather, a hard silver frost has spread over the glove and set it rigid in the pose of the pull. A spent enemy arrow spins away, flicked aside by the taut string. Rose and peach dusk behind the hand, deep teal in the glove's shadows; the string's own white starlight outshines the sky.
+Colour: dusk above the clouds — rose and peach light with deep teal (#9fe3d6) shadows.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-A3-1 · 바늘탑의 실프 사수
-벨루미르의 별 · 유닛 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A3-1.jpg` 750×600)
+벨루미르의 별 · 유닛 · 레벨 3 · 에픽 · 틀 `pov` F C `duskrose` · 프롬프트 n1 → `tools/art/inbox/EP-A3-1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "바늘탑의 실프 사수". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Sylph of the Belumir's Star.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Sylph: a slender wind spirit shaped like a half-transparent girl of moving air, her hair and limbs streaming off into gusts. Silhouette: an airy figure dissolving into wind streaks at the edges. Materials: translucent air, teal swirls, caught leaves and feathers.
-Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 바늘탑 궁사회에서 활을 배운 바람 정령. 제 몸이 바람이라 화살 대신 별의 문자만 실어 보내도 과녁까지 간다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Colour fidelity: the whole image reads at a glance as the banner colour #9fe3d6 (wind teal #9fe3d6, silver, white, starry indigo); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Belumir's Needle piercing the clouds under a night sky full of stars; weather (storm, ash, spray, wind) and deep atmosphere; swirling teal wind, drifting feathers and starlight streaks.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. First person, as her target: we look down a long tunnel that the wind has bored through the cloud for her, its spiralling walls narrowing to a bright ring far away. In that ring at the centre stands a slender half-transparent girl of moving air, hair and limbs streaming into gusts, holding a bow whose empty string still quivers. Halfway along the tunnel, already large and coming straight at us, flies what she loosed in place of an arrow: a single hard point of starlight with a few thin silver strokes around it. Rose and peach dusk glows through the tunnel's far mouth behind her; the cloud walls are deep teal, and the star point is white.
+Colour: dusk above the clouds — rose and peach light with deep teal (#9fe3d6) shadows.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### US-A3-2 · 벨루미르의 눈
-벨루미르의 별 · 공용 마법 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/US-A3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-A3-2.jpg` 750×600)
+벨루미르의 별 · 공용 마법 · 레벨 3 · 에픽 · 틀 `through` D T `aurora` · 프롬프트 n1 → `tools/art/inbox/US-A3-2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A cataclysmic, cinematic spell whose power bends the whole battlefield around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "벨루미르의 눈". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with the spell's power visibly flowing in two directions. The moment it takes effect: a destructive wind bolt or blast tearing across the field into the distant enemy line; a weakening curse sinking over the enemy side like heavy dark fog; a calm restoring light falling like warm rain, motes of vitality gathering. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Spell, not unit: this is a spell card, so the magic itself is the hero of the image — the visible force, phenomenon or symbol of the spell (a blast, a ward of light, a curse mark, a vortex, a rune circle, a rain of arrows, a reversed current) fills the centre and reads in one glance. People and creatures are absent or minimal: at most small dark silhouettes in the distance, a hand or arm at the edge of the frame, or empty armour, weapons and banners standing in for the targets. Show the effect on its targets through objects and light rather than through characters' faces and bodies. If the art direction or lore names a caster or warriors, keep them small, off-centre, half in shadow and seen from behind.
-Scale (level 3 of 8): an effect over a few targets.
-Banner — Belumir's Star: magic of belumir's star, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, meaning and mood only): 천 개의 눈이 박힌 로브의 신 벨루미르가 전장을 한 번 내려다본다. 칼을 든 손이 그 눈길에 멈춘다. — the people this lore names stay off-stage; show their spell, not them.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체 공격 −2, 체력 −2. 상대 맨 앞 유닛 2개는 이번 턴 공격도 반격도 하지 않는다.
-Camera: cinematic low wide angle at the peak of the spell's impact, scale cues (tiny distant silhouettes, broken walls, huge debris), the effect about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, intense radiant core, soft bloom; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Colour fidelity: the whole image reads at a glance as the banner colour #9fe3d6 (wind teal #9fe3d6, silver, white, starry indigo); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Belumir's Needle piercing the clouds under a night sky full of stars; weather (storm, ash, spray, wind) and deep atmosphere; swirling teal wind, drifting feathers and starlight streaks.
-Detail: rich layered spell energies, flying debris, weather and atmospheric textures.
-Spectacle: cinematic: volumetric god rays, the spell's energy swirling in layered currents, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the spell's energy — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
-Composition: landscape 5:4; the spell effect is the one main subject, centred with breathing room around it and readable as a single clear magical shape; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of a spell — the magic itself is the subject. Framed between two upraised blades that have stopped dead in the dark foreground, the fists that hold them cropped at the bottom corners: beyond them a whole battlefield stands halted, small and still. In the upper part of the frame the night cloud has drawn apart into one long lens-shaped opening like a lid lifting. Inside it the stars are gathered into a round iris with a dark pupil of empty sky at its centre, turned downward, and a single cone of cold light falls from it across every lifted blade. Teal-green and violet aurora fringes the edges of the opening; the cone of light is cold white and throws long shadows toward us.
+Colour: aurora — teal-green (#9fe3d6) and violet ribbons of light over darkness.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### NA3-4 · 바람의 사냥
-벨루미르의 별 · 공용 마법 · 레벨 4 · 에픽 — 받은 그림은 `tools/art/inbox/NA3-4.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/NA3-4.jpg` 750×600)
+벨루미르의 별 · 공용 마법 · 레벨 4 · 에픽 · 틀 `path` R X `moonsilver` · 프롬프트 n1 → `tools/art/inbox/NA3-4.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A cataclysmic, cinematic spell whose power bends the whole battlefield around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "바람의 사냥". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with the spell's power visibly flowing in two directions. The moment it takes effect: a destructive wind bolt or blast tearing across the field into the distant enemy line; a shared surge of power rising like a banner of light over the allied side. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Spell, not unit: this is a spell card, so the magic itself is the hero of the image — the visible force, phenomenon or symbol of the spell (a blast, a ward of light, a curse mark, a vortex, a rune circle, a rain of arrows, a reversed current) fills the centre and reads in one glance. People and creatures are absent or minimal: at most small dark silhouettes in the distance, a hand or arm at the edge of the frame, or empty armour, weapons and banners standing in for the targets. Show the effect on its targets through objects and light rather than through characters' faces and bodies. If the art direction or lore names a caster or warriors, keep them small, off-centre, half in shadow and seen from behind.
-Scale (level 4 of 8): an effect over a few targets.
-Banner — Belumir's Star: magic of belumir's star, signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms; palette: wind teal #9fe3d6, silver, white, starry indigo.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, meaning and mood only): 벨루미르의 바늘 꼭대기에서 사냥의 뿔피리가 울린다. 그날 하이엘프의 화살은 바람을 타고, 칼은 단 한 번도 그들에게 닿지 않는다. — the people this lore names stay off-stage; show their spell, not them.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체 체력 −3. 아군 유닛 전체 [원거리].
-Camera: cinematic low wide angle at the peak of the spell's impact, scale cues (tiny distant silhouettes, broken walls, huge debris), the effect about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, intense radiant core, soft bloom; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Colour fidelity: the whole image reads at a glance as the banner colour #9fe3d6 (wind teal #9fe3d6, silver, white, starry indigo); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Belumir's Needle piercing the clouds under a night sky full of stars; weather (storm, ash, spray, wind) and deep atmosphere; swirling teal wind, drifting feathers and starlight streaks.
-Detail: rich layered spell energies, flying debris, weather and atmospheric textures.
-Spectacle: cinematic: volumetric god rays, the spell's energy swirling in layered currents, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the spell's energy — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
-Composition: landscape 5:4; the spell effect is the one main subject, centred with breathing room around it and readable as a single clear magical shape; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of a spell — the magic itself is the subject. At the left edge a huge ivory hunting horn banded in silver is chained to a rock ledge above the clouds, its bell pointing right, frost shaken from it in a ring. Out of the bell rolls a gale made visible: a long widening funnel of torn cloud running the whole width of the frame, with a hundred arrows riding inside it point-first like a shoal of fish. The front of the funnel has taken the shape of running hounds, mist-bodied and stretched flat out, baying toward the right. Full moon above the cloud sea: blue-silver light on the horn and the funnel's upper edge, sharp shadow beneath, teal in the hounds' wake.
+Colour: moon silver — blue-silver monochrome under a full moon, sharp shadows, a breath of teal (#9fe3d6).
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-A3-2 · 번개구름 고래
-벨루미르의 별 · 유닛 · 레벨 5 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A3-2.jpg` 750×600)
+벨루미르의 별 · 유닛 · 레벨 5 · 에픽 · 틀 `far` R T `stormcloud` · 프롬프트 n1 → `tools/art/inbox/EP-A3-2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "번개구름 고래". Depict exactly what this name describes.
-Subject: an elite, commanding Cloud Whale of the Belumir's Star.
-Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Cloud Whale: a whale made of cloud swimming slowly through the sky, its soft body billowing, sometimes dark with thunder. Silhouette: a huge whale shape of billowing cloud. Materials: white or storm-grey cloud, wisps of mist, flickers of lightning.
-Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 몸에 두른 번개구름이 첫 칼날을 흩는다. 그것이 머리 위를 지나는 동안에는 아군이 부른 번개도 더 굵게 떨어진다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Colour fidelity: the whole image reads at a glance as the banner colour #9fe3d6 (wind teal #9fe3d6, silver, white, starry indigo); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Belumir's Needle piercing the clouds under a night sky full of stars; weather (storm, ash, spray, wind) and deep atmosphere; swirling teal wind, drifting feathers and starlight streaks.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Far across a rain-dark plain, a thundercloud in the unmistakable shape of a whale swims slowly to the right along the top of the frame, storm-grey flanks billowing, tail flukes trailing mist, lightning flickering inside its body like veins. Out at the edges of the storm the lightning falls in thin threads. Directly beneath the whale's belly every bolt comes down as thick as a tree trunk, a row of white pillars standing on the plain, and a line of tiny bowmen below raises its bows in salute. Grey-violet storm dusk; the thick bolts under the whale light its belly white from below and silver the rain around them.
+Colour: storm cloud — grey-violet cloud and silver rain with wind-teal (#9fe3d6) gusts.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### PN-A3-E · 이사크의 첫 제자
-벨루미르의 별 · 유닛 · 레벨 6 · 에픽 — 받은 그림은 `tools/art/inbox/PN-A3-E.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A3-E.jpg` 750×600)
+벨루미르의 별 · 유닛 · 레벨 6 · 에픽 · 틀 `close` L R `starindigo` · 프롬프트 n1 → `tools/art/inbox/PN-A3-E.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "이사크의 첫 제자". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Belumir's Star — a high-elf archer whose arrows ride wind power — bow drawn or just loosed, aiming from afar.
-Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Belumir's Star: high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud. Silhouette: slender, agile figures drawing long elegant bows or springing back mid-retreat, cloaks and hair swept by strong wind, arrows riding visible streaks of wind. Materials: light silver-white and teal leathers and short cloaks with star embroidery, long recurved bows of pale wood and silver, feather-fletched arrows, slim quivers; little or no armour. Signature motifs: arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 별의 문자를 해독한 이사크에게 처음 활을 배운 하이엘프. 스승이 별 사이로 떠난 뒤에도 같은 별을 겨눈다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Colour fidelity: the whole image reads at a glance as the banner colour #9fe3d6 (wind teal #9fe3d6, silver, white, starry indigo); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Belumir's Needle piercing the clouds under a night sky full of stars; weather (storm, ash, spray, wind) and deep atmosphere; swirling teal wind, drifting feathers and starlight streaks.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Close on the head and shoulders of a high elf archer in the right of the frame, face lifted to the upper left an instant after the shot: bow arm still stretched skyward, string hand open beside a long pointed ear, silver hair blown back. A second, older bow is slung across the back, its grip bound in faded cord. Beyond the bow a dotted line of tiny lights climbs to one bright star, every arrow ever loosed from this spot, still on its way, and the high cloud has drawn aside in a lane to let them pass. Indigo night full of stars; the one aimed-at star is brightest and puts a thin silver edge on the cheek, ear and bow limb.
+Colour: star indigo — deep indigo night full of stars, wind-teal (#9fe3d6) streaks and silver.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-A3-3 · 하늘 요람의 감시자
-벨루미르의 별 · 유닛 · 레벨 7 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A3-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A3-3.jpg` 750×600)
+벨루미르의 별 · 유닛 · 레벨 7 · 에픽 · 틀 `front` F C `starindigo` · 프롬프트 n1 → `tools/art/inbox/EP-A3-3.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "하늘 요람의 감시자". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring Star Owl of the Belumir's Star.
-Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Star Owl: an owl whose indigo plumage is dotted with silver star points like a night sky, with round eyes that glow like stars. Silhouette: a round owl with huge eyes, wings folded or spread silently. Materials: indigo feathers with silver star dots, gold glowing eyes, soft down.
-Banner — Belumir's Star: show the banner through element, palette and a few accents (arrows on streaks of wind, taut bowstrings, feathers and fletching, abstract star glyphs carved on bows and arrows, constellations, spire towers and lookout platforms); palette: wind teal #9fe3d6, silver, white, starry indigo.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 바늘탑 꼭대기 관문 너머, 하늘 요람을 지키는 커다란 별부엉이. 바람의 용 시렐도 그 눈과 마주치면 장난을 멈춘다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
-Colour fidelity: the whole image reads at a glance as the banner colour #9fe3d6 (wind teal #9fe3d6, silver, white, starry indigo); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Belumir's Needle piercing the clouds under a night sky full of stars; weather (storm, ash, spray, wind) and deep atmosphere; swirling teal wind, drifting feathers and starlight streaks.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Face to face with it, dead centre: an owl the size of a hill fills the frame, perched on a round stone gate that serves it as a branch, its indigo plumage dotted with so many silver points that its outline melts into the night sky behind it. Only the two round gold eyes are certain, staring straight at us. Low in front of its breast a long pale dragon of wind has stopped in the middle of a loop, thin as a thread beside the owl, and the weathercock it stole is slipping from its claws. Moonless indigo night thick with stars; the gold eyes are the light, gilding the gate stones and the dragon's pale coils.
+Colour: star indigo — deep indigo night full of stars, wind-teal (#9fe3d6) streaks and silver.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### US-B1-1 · 유폭
-도르마크의 심장불 · 공격 마법 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/US-B1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-B1-1.jpg` 750×600)
+도르마크의 심장불 · 공격 마법 · 레벨 2 · 에픽 · 틀 `column` U C `coldnight` · 프롬프트 n1 → `tools/art/inbox/US-B1-1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A cataclysmic, cinematic spell whose power bends the whole battlefield around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "유폭". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the spell's force (bolt, blast, blade of light, storm) travels across the frame and strikes the enemy side, shown as small dark silhouettes or their weapons and armour; any caster is out of frame or only a hand at the edge. The moment it takes effect: a destructive fire bolt or blast tearing across the field into the distant enemy line. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Spell, not unit: this is a spell card, so the magic itself is the hero of the image — the visible force, phenomenon or symbol of the spell (a blast, a ward of light, a curse mark, a vortex, a rune circle, a rain of arrows, a reversed current) fills the centre and reads in one glance. People and creatures are absent or minimal: at most small dark silhouettes in the distance, a hand or arm at the edge of the frame, or empty armour, weapons and banners standing in for the targets. Show the effect on its targets through objects and light rather than through characters' faces and bodies. If the art direction or lore names a caster or warriors, keep them small, off-centre, half in shadow and seen from behind.
-Scale (level 2 of 8): a small, local effect.
-Banner — Dormak's Heartfire: magic of dormak's heartfire, signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks; palette: fire orange #ff6b3d with brass #d4893a and soot black.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, meaning and mood only): 화약 짐꾼이 쓰러지면 짐도 함께 터진다. 포르탄 포병단은 그것을 전술이라 부른다. — the people this lore names stay off-stage; show their spell, not them.
-Game effect (Korean, mood only — never draw text or numbers): 상대 맨 앞 유닛에게 체력 −4. 그 유닛이 쓰러지면 상대 유닛 전체에게 체력 −2.
-Camera: cinematic low wide angle at the peak of the spell's impact, scale cues (tiny distant silhouettes, broken walls, huge debris), the effect about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, intense radiant core, soft bloom; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Colour fidelity: the whole image reads at a glance as the banner colour #ff6b3d (fire orange #ff6b3d with brass #d4893a and soot black); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: Fortan's chimneys and gun bastions on volcanic slopes, the Crown range volcanoes glowing beyond; weather (storm, ash, spray, wind) and deep atmosphere; embers, flame light, gunpowder smoke.
-Detail: rich layered spell energies, flying debris, weather and atmospheric textures.
-Spectacle: cinematic: volumetric god rays, the spell's energy swirling in layered currents, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the spell's energy — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
-Composition: landscape 5:4; the spell effect is the one main subject, centred with breathing room around it and readable as a single clear magical shape; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of a spell — the magic itself is the subject. A single pillar of fire and smoke stands in the centre of the frame, rising from a dropped powder sack on a night road straight up through the cloud layer, where it has punched a ring-shaped hole and the clouds are rolling back from it. At its foot the blast spreads sideways in a low expanding ring that is lifting a whole line of shields, carts and tent-poles off the ground. The pillar's upper half mushrooms above the clouds. Deep indigo night; the pillar lights the undersides of the retreating clouds orange and throws long shadows outward along the road.
+Colour: cold night against fire — deep blue-indigo dark cut by warm fire-orange (#ff6b3d) light.
+Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-B1-1 · 포르탄 척탄수장
-도르마크의 심장불 · 유닛 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/EP-B1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-B1-1.jpg` 750×600)
+도르마크의 심장불 · 유닛 · 레벨 3 · 에픽 · 틀 `echo` R L `coldnight` · 프롬프트 n1 → `tools/art/inbox/EP-B1-1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "포르탄 척탄수장". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Dormak's Heartfire — an armed fighter wielding a weapon typical of the banner.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Dormak's Heartfire: goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up. Silhouette: a small figure dwarfed by an oversized cannon, musket or powder keg. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 척탄병 백 명이 던질 것을 혼자 던진다. 화약 냄새가 나지 않는 날이 없다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Colour fidelity: the whole image reads at a glance as the banner colour #ff6b3d (fire orange #ff6b3d with brass #d4893a and soot black); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: Fortan's chimneys and gun bastions on volcanic slopes, the Crown range volcanoes glowing beyond; weather (storm, ash, spray, wind) and deep atmosphere; embers, flame light, gunpowder smoke.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. On a storm-lashed parapet a wiry goblin grenadier stands braced in the left third, bandoliers heavy with round grenades. His throwing arm repeats in eight overlapping ghost positions like an opening fan, and from each a fizzing grenade has just left: dozens of them hang in a wide rising arc that sweeps across the whole sky to the right, every lit fuse drawing its own bright thread through the slanting rain. Indigo storm night with wind-torn cloud; the swarm of fuse-sparks lights the rain and his grin from the right.
+Colour: cold night against fire — deep blue-indigo dark cut by warm fire-orange (#ff6b3d) light.
+Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### PI-B1 · 도르마크의 심장불
-도르마크의 심장불 · 아이템 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/PI-B1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-B1.jpg` 750×600)
+도르마크의 심장불 · 아이템 · 레벨 3 · 에픽 · 틀 `found` N B `whitehot` · 프롬프트 n1 → `tools/art/inbox/PI-B1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. An ancient relic of a transcendent being whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "도르마크의 심장불". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Dormak's Heartfire (catalyst). a relic of a transcendent being floating in its own aura above a ruined altar, radiating its element.
-Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Dormak's Heartfire (fire): palette: fire orange #ff6b3d with brass #d4893a and soot black. Materials: scorched leather aprons, brass and blackened iron, bandoliers of cartridges, fuse cords, riveted gun carriages. Signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 화관 산맥 아래 거인의 식지 않은 심장불을 한 줌 떠 왔다. 쥔 자의 힘은 그날부터 그 불의 세기로 정해지고, 막아 낸 칼끝에도 불길이 되받아친다.
-Camera: cinematic low angle looking up at the floating relic above its ruined altar, scale cues in the environment, subject about 65% of the frame.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing focal core, soft bloom; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Colour fidelity: the whole image reads at a glance as the banner colour #ff6b3d (fire orange #ff6b3d with brass #d4893a and soot black); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: Fortan's chimneys and gun bastions on volcanic slopes, the Crown range volcanoes glowing beyond; weather (storm, ash, spray, wind) and deep atmosphere; embers, flame light, gunpowder smoke.
-Detail: ornate craftsmanship, weathered ancient surfaces, magical energy wrapping the relic.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of one object — the object itself is the subject. A fist-sized clot of living fire lies where it was set down on a slab of black basalt in the lower part of the frame, and it has melted itself a shallow glassy bowl in the rock. Rain is falling hard, and every drop turns to steam before it lands, so a white column climbs from the fire into the storm. A pair of long iron tongs lies beside it, the tips drooping and half melted. Storm dark; the clot is the light, blinding yellow-white at its heart, turning the steam column orange and the wet rock crimson.
+Colour: white-hot — a blinding yellow-white core falling through fire-orange (#ff6b3d) into deep crimson shadow.
+Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### US-B1-2 · 도르마크 포격
-도르마크의 심장불 · 공격 마법 · 레벨 4 · 에픽 — 받은 그림은 `tools/art/inbox/US-B1-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-B1-2.jpg` 750×600)
+도르마크의 심장불 · 공격 마법 · 레벨 4 · 에픽 · 틀 `path` L X `magmadusk` · 프롬프트 n1 → `tools/art/inbox/US-B1-2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A cataclysmic, cinematic spell whose power bends the whole battlefield around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "도르마크 포격". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the spell's force (bolt, blast, blade of light, storm) travels across the frame and strikes the enemy side, shown as small dark silhouettes or their weapons and armour; any caster is out of frame or only a hand at the edge. The moment it takes effect: a destructive fire bolt or blast tearing across the field into the distant enemy line. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Spell, not unit: this is a spell card, so the magic itself is the hero of the image — the visible force, phenomenon or symbol of the spell (a blast, a ward of light, a curse mark, a vortex, a rune circle, a rain of arrows, a reversed current) fills the centre and reads in one glance. People and creatures are absent or minimal: at most small dark silhouettes in the distance, a hand or arm at the edge of the frame, or empty armour, weapons and banners standing in for the targets. Show the effect on its targets through objects and light rather than through characters' faces and bodies. If the art direction or lore names a caster or warriors, keep them small, off-centre, half in shadow and seen from behind.
-Scale (level 4 of 8): an effect over a few targets.
-Banner — Dormak's Heartfire: magic of dormak's heartfire, signature motifs: cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks; palette: fire orange #ff6b3d with brass #d4893a and soot black.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, meaning and mood only): 화관 산맥 아래 거인 도르마크의 심장불로 달군 포탄. 한 번 쏘면 두 번 터진다. — the people this lore names stay off-stage; show their spell, not them.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체에게 체력 −2를 두 번. [장전 1]
-Camera: cinematic low wide angle at the peak of the spell's impact, scale cues (tiny distant silhouettes, broken walls, huge debris), the effect about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, intense radiant core, soft bloom; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Colour fidelity: the whole image reads at a glance as the banner colour #ff6b3d (fire orange #ff6b3d with brass #d4893a and soot black); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: Fortan's chimneys and gun bastions on volcanic slopes, the Crown range volcanoes glowing beyond; weather (storm, ash, spray, wind) and deep atmosphere; embers, flame light, gunpowder smoke.
-Detail: rich layered spell energies, flying debris, weather and atmospheric textures.
-Spectacle: cinematic: volumetric god rays, the spell's energy swirling in layered currents, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the spell's energy — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
-Composition: landscape 5:4; the spell effect is the one main subject, centred with breathing room around it and readable as a single clear magical shape; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of a spell — the magic itself is the subject. A side view of one shell's whole flight across a stormy dusk sky, from right to left: its glowing trail climbs out of the lower right, and high in the middle of the frame the shell has burst once — a wide ring of fire and sparks pushing the storm clouds apart. Out of that ring a white-hot core has kept going, and at the lower left it strikes the ridge and bursts a second time, larger, the two blasts joined by one curving thread of light. Violet-brown storm dusk with rain curtains on the horizon; both bursts light the cloud bellies from inside, the land below in wine-dark shadow.
+Colour: magma dusk — wine-red and violet-brown gloom glowing fire-orange (#ff6b3d) from below.
+Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-B1-2 · 화관의 불사조
-도르마크의 심장불 · 유닛 · 레벨 5 · 에픽 — 받은 그림은 `tools/art/inbox/EP-B1-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-B1-2.jpg` 750×600)
+도르마크의 심장불 · 유닛 · 레벨 5 · 에픽 · 틀 `over` D L `magmadusk` · 프롬프트 n1 → `tools/art/inbox/EP-B1-2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "화관의 불사조". Depict exactly what this name describes.
-Subject: an elite, commanding Phoenix of the Dormak's Heartfire.
-Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Phoenix: a great bird of fire with long trailing plumes of flame, its feathers burning to ash and rekindling as it flies. Silhouette: a fiery bird with outspread wings and a long tail. Materials: flame feathers, glowing ash, golden embers.
-Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 화관 산맥 꼭대기에서 타 죽고 다시 깨어나기를 되풀이하는 새. 산 아래 포대의 심지를 노려 내리꽂히고, 연기가 걷힐 즈음엔 이미 재가 되어 다른 둥지에 있다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Colour fidelity: the whole image reads at a glance as the banner colour #ff6b3d (fire orange #ff6b3d with brass #d4893a and soot black); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: Fortan's chimneys and gun bastions on volcanic slopes, the Crown range volcanoes glowing beyond; weather (storm, ash, spray, wind) and deep atmosphere; embers, flame light, gunpowder smoke.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Over the shoulder of a great bird of fire in a vertical dive: its blazing head and one swept-back wing fill the upper left, feathers burning to ash and rekindling in the slipstream, long flame plumes streaming up out of frame. We look straight down past its beak through a hole punched in the cloud deck to a tiny gun battery on a mountain spur far below, where one lit fuse shows as a single pinpoint. Wine-red dusk above the clouds, the volcanic slopes glowing from below through the gap; the bird's own fire lights the torn cloud edges.
+Colour: magma dusk — wine-red and violet-brown gloom glowing fire-orange (#ff6b3d) from below.
+Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### PN-B1-E · 뛰는 심장불 조각
-도르마크의 심장불 · 유닛 · 레벨 6 · 에픽 — 받은 그림은 `tools/art/inbox/PN-B1-E.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B1-E.jpg` 750×600)
+도르마크의 심장불 · 유닛 · 레벨 6 · 에픽 · 틀 `reflect` N C `coldnight` · 프롬프트 n1 → `tools/art/inbox/PN-B1-E.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "뛰는 심장불 조각". Depict exactly what this name describes.
-Subject: an elite, commanding Heart-fire Shard of the Dormak's Heartfire.
-Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Heart-fire Shard: a floating fragment of the giant Dormak's heart-fire — a jagged ember like a boulder of glowing crystal that still beats with pulses of light. Silhouette: a jagged glowing shard pulsing like a heart. Materials: molten-core crystal, cracked rock rind, pulsing orange-white light.
-Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 도르마크의 심장불에서 떨어져 나와 아직도 뛰는 조각. 탈라쿠스의 맥박이 빨라질수록 같이 빨라지는데, 포르탄은 그것이 좋은 일인지 묻지 않는다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Colour fidelity: the whole image reads at a glance as the banner colour #ff6b3d (fire orange #ff6b3d with brass #d4893a and soot black); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: Fortan's chimneys and gun bastions on volcanic slopes, the Crown range volcanoes glowing beyond; weather (storm, ash, spray, wind) and deep atmosphere; embers, flame light, gunpowder smoke.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. A still black crater lake fills the frame, and in it hangs the reflection of a jagged ember the size of a boulder — a glowing crystal with a cracked rock rind, floating just above the water, the real thing cropped by the top edge. Each beat of its light sends a perfect ring racing outward across the lake, so the reflection trembles inside five concentric circles. Shore pebbles hover a finger's width above the ground, mist recoiling from every pulse. Deep indigo night; the shard's orange-white pulse is the only light, caught on each ring crest and on the underside of the mist.
+Colour: cold night against fire — deep blue-indigo dark cut by warm fire-orange (#ff6b3d) light.
+Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-B1-3 · 용을 노린 거포
-도르마크의 심장불 · 유닛 · 레벨 7 · 에픽 — 받은 그림은 `tools/art/inbox/EP-B1-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-B1-3.jpg` 750×600)
+도르마크의 심장불 · 유닛 · 레벨 7 · 에픽 · 틀 `profile` L R `ashfall` · 프롬프트 n1 → `tools/art/inbox/EP-B1-3.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "용을 노린 거포". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring Awakened Cannon of the Dormak's Heartfire.
-Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Awakened Cannon: a monstrous cast-iron cannon that has woken and moves by itself, its carriage wheels working like limbs and its muzzle glowing like a breathing mouth. Silhouette: a giant cannon rearing its barrel like a head. Materials: cast iron, riveted carriage, chains, glowing muzzle, soot.
-Banner — Dormak's Heartfire: show the banner through element, palette and a few accents (cannons, matchlock muskets, powder kegs, lit fuses, mortar shells, smoke plumes, sparks); palette: fire orange #ff6b3d with brass #d4893a and soot black.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 포르탄이 이그날을 쏘겠다며 부어 만든 거포가 어느 날 스스로 포구를 들었다. 아직 한 번도 용에게 쏜 적은 없지만, 화관 산맥 쪽만 보면 포신이 달아오른다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
-Colour fidelity: the whole image reads at a glance as the banner colour #ff6b3d (fire orange #ff6b3d with brass #d4893a and soot black); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: Fortan's chimneys and gun bastions on volcanic slopes, the Crown range volcanoes glowing beyond; weather (storm, ash, spray, wind) and deep atmosphere; embers, flame light, gunpowder smoke.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. In strict side view a monstrous cast-iron cannon, long as a street and filling the right two-thirds of the frame, rears its barrel like a raised head toward the left, carriage wheels splayed like forelegs, snapped chains swinging, scaffolding and ladders clinging to its flank like twigs. Its muzzle glows dull red. Far away at the left edge, beyond a driving ash-storm, a volcano smokes, and a tiny winged shape circles its summit. Pale storm light sifted through blowing ash, with lightning flickering in the volcano's plume; the heating muzzle is the one warm note.
+Colour: ashfall — pale ash-grey and bone-white, muted, with one fierce accent of fire-orange (#ff6b3d).
+Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### US-B2-2 · 강철 행군
-소르그림의 방패 · 공격 마법 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/US-B2-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-B2-2.jpg` 750×600)
+소르그림의 방패 · 공격 마법 · 레벨 2 · 에픽 · 틀 `far` L X `snowlight` · 프롬프트 n1 → `tools/art/inbox/US-B2-2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A cataclysmic, cinematic spell whose power bends the whole battlefield around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "강철 행군". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the spell's force (bolt, blast, blade of light, storm) travels across the frame and strikes the enemy side, shown as small dark silhouettes or their weapons and armour; any caster is out of frame or only a hand at the edge. The moment it takes effect: a shared surge of power rising like a banner of light over the allied side. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Spell, not unit: this is a spell card, so the magic itself is the hero of the image — the visible force, phenomenon or symbol of the spell (a blast, a ward of light, a curse mark, a vortex, a rune circle, a rain of arrows, a reversed current) fills the centre and reads in one glance. People and creatures are absent or minimal: at most small dark silhouettes in the distance, a hand or arm at the edge of the frame, or empty armour, weapons and banners standing in for the targets. Show the effect on its targets through objects and light rather than through characters' faces and bodies. If the art direction or lore names a caster or warriors, keep them small, off-centre, half in shadow and seen from behind.
-Scale (level 2 of 8): a small, local effect.
-Banner — Sorgrim's Shield: magic of sorgrim's shield, signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls; palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, meaning and mood only): 두르크하임의 골렘들이 발을 맞추면 철골 산맥이 울린다. 한 기가 늘 때마다 모든 망치가 그만큼 무거워진다. — the people this lore names stay off-stage; show their spell, not them.
-Game effect (Korean, mood only — never draw text or numbers): 아군 전체 공격 + (아군 유닛 수).
-Camera: cinematic low wide angle at the peak of the spell's impact, scale cues (tiny distant silhouettes, broken walls, huge debris), the effect about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, intense radiant core, soft bloom; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
-Colour fidelity: the whole image reads at a glance as the banner colour #a9b4c2 (steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal underground halls of Durkheim with lava channels, mine shafts and iron gates, glowing ore veins like sinews in the rock; weather (storm, ash, spray, wind) and deep atmosphere; cold steel sheen, sparks from an anvil, rivets.
-Detail: rich layered spell energies, flying debris, weather and atmospheric textures.
-Spectacle: cinematic: volumetric god rays, the spell's energy swirling in layered currents, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the spell's energy — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
-Composition: landscape 5:4; the spell effect is the one main subject, centred with breathing room around it and readable as a single clear magical shape; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of a spell — the magic itself is the subject. High across a valley, the whole mountain range in view: along the valley floor a column of square steel ranks advances toward the left, small as a line of stitches, every right foot down at the same instant. The mountains answer the step. From each peak along the skyline an identical plume of snow has let go together, a row of avalanches starting in unison; the ice of a frozen lake has cracked in straight parallel lines; and a flock of rooks has gone up from the pines in a single sheet. Foreground pebbles hover above their ledge. Bright overcast mountain daylight, snow white and granite grey; the column is a thread of dull steel, the avalanche plumes softly lit from above.
+Colour: mountain daylight — overcast snow-white and granite grey with steel-grey (#a9b4c2) metal.
+Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-B2-1 · 가시철 고슴도치
-소르그림의 방패 · 유닛 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/EP-B2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-B2-1.jpg` 750×600)
+소르그림의 방패 · 유닛 · 레벨 3 · 에픽 · 틀 `high` N R `snowlight` · 프롬프트 n1 → `tools/art/inbox/EP-B2-1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "가시철 고슴도치". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Iron Hedgehog of the Sorgrim's Shield.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Iron Hedgehog: a boar-sized hedgehog whose spines are iron rivets and nails it swallowed and grew back out. Silhouette: a round ball of iron spikes. Materials: iron spikes, rivets, rusty fur.
-Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 공방에 버려진 리벳을 주워 먹다가 가시가 쇠로 돋은 고슴도치. 앞을 막고 웅크리는 것밖에 할 줄 모르는데, 그게 문제다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
-Colour fidelity: the whole image reads at a glance as the banner colour #a9b4c2 (steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal underground halls of Durkheim with lava channels, mine shafts and iron gates, glowing ore veins like sinews in the rock; weather (storm, ash, spray, wind) and deep atmosphere; cold steel sheen, sparks from an anvil, rivets.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Looking steeply down into a mountain pass during a blizzard: at the right the pass narrows to a slot between two rock walls, one cart wide, and the slot is plugged by a single curled ball of iron spikes the size of a boar — rivets and nails for spines, a wet black nose just showing. Snapped spear shafts and a bent sword stand stuck in it. Back from the plug, down every switchback to the left edge, an entire invading column has stalled: carts, banners, a grounded battering ram, hundreds of small figures stamping their feet. Snow-white storm light with driving flakes; granite walls grey, the spiked ball a dark steel knot dusted white on its windward side.
+Colour: mountain daylight — overcast snow-white and granite grey with steel-grey (#a9b4c2) metal.
+Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### PI-B2 · 소르그림의 힘줄
-소르그림의 방패 · 아이템 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/PI-B2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-B2.jpg` 750×600)
+소르그림의 방패 · 아이템 · 레벨 3 · 에픽 · 틀 `pair` L L `forgeheart` · 프롬프트 n1 → `tools/art/inbox/PI-B2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. An ancient relic of a transcendent being whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "소르그림의 힘줄". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Sorgrim's Shield (engraving). a relic of a transcendent being floating in its own aura above a ruined altar, radiating its element.
-Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Sorgrim's Shield (metal): palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams. Materials: thick steel plate, rivets, grey adamant (petrified giant bone), chains, forge hammers, glowing forge seams. Signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 철골 산맥에 드러난 광맥, 잠든 거인의 힘줄 한 가닥을 꼬아 몸에 감았다. 끊어진 적이 없고, 달아오르면 닿는 것마다 불이 붙는다.
-Camera: cinematic low angle looking up at the floating relic above its ruined altar, scale cues in the environment, subject about 65% of the frame.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing focal core, soft bloom; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
-Colour fidelity: the whole image reads at a glance as the banner colour #a9b4c2 (steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal underground halls of Durkheim with lava channels, mine shafts and iron gates, glowing ore veins like sinews in the rock; weather (storm, ash, spray, wind) and deep atmosphere; cold steel sheen, sparks from an anvil, rivets.
-Detail: ornate craftsmanship, weathered ancient surfaces, magical energy wrapping the relic.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of one object — the object itself is the subject. At the left of the frame, on a ledge of an exposed ore face at nightfall, lies a coil of cable as thick as a wrist — dark-red iron fibres twisted like the strands of a tendon, wound in three loops with its free end pointing left. Beside it the cliff shows its source: a vein of the same dark-red ore, bared like a sinew, ending in a clean cut stub with the identical twisted grain. The coil glows dull orange from within. It has burned through its sledge, and the heather around has caught fire. Blue-black nightfall on the mountain; the coil's orange heat lights the cut vein, the charred sledge and the small flames in the heather.
+Colour: forge heart — dark gunmetal and steel grey (#a9b4c2) with molten orange glowing in the seams.
+Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### US-B2-1 · 철골 해머
-소르그림의 방패 · 공격 마법 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/US-B2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-B2-1.jpg` 750×600)
+소르그림의 방패 · 공격 마법 · 레벨 3 · 에픽 · 틀 `origin` B T `forgeheart` · 프롬프트 n1 → `tools/art/inbox/US-B2-1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A cataclysmic, cinematic spell whose power bends the whole battlefield around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "철골 해머". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the spell's force (bolt, blast, blade of light, storm) travels across the frame and strikes the enemy side, shown as small dark silhouettes or their weapons and armour; any caster is out of frame or only a hand at the edge. The moment it takes effect: an empowering metal surge rising from the ground in spiralling light, lifting allied banners; a glowing protective barrier or ward of runes forming in the air, deflecting incoming blows. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Spell, not unit: this is a spell card, so the magic itself is the hero of the image — the visible force, phenomenon or symbol of the spell (a blast, a ward of light, a curse mark, a vortex, a rune circle, a rain of arrows, a reversed current) fills the centre and reads in one glance. People and creatures are absent or minimal: at most small dark silhouettes in the distance, a hand or arm at the edge of the frame, or empty armour, weapons and banners standing in for the targets. Show the effect on its targets through objects and light rather than through characters' faces and bodies. If the art direction or lore names a caster or warriors, keep them small, off-centre, half in shadow and seen from behind.
-Scale (level 3 of 8): an effect over a few targets.
-Banner — Sorgrim's Shield: magic of sorgrim's shield, signature motifs: forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls; palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, meaning and mood only): 골렘들이 한 줄로 서서 하나의 망치가 된다. 소르그림의 팔을 캐낸 쇠로 만들었다. — the people this lore names stay off-stage; show their spell, not them.
-Game effect (Korean, mood only — never draw text or numbers): 아군 전체 방어 +1. 그 뒤 아군 유닛 방어의 합만큼 상대 맨 앞 유닛의 체력을 깎는다. 쓰러뜨리고 남은 몫은 다음 유닛에게 넘어간다.
-Camera: cinematic low wide angle at the peak of the spell's impact, scale cues (tiny distant silhouettes, broken walls, huge debris), the effect about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, intense radiant core, soft bloom; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
-Colour fidelity: the whole image reads at a glance as the banner colour #a9b4c2 (steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal underground halls of Durkheim with lava channels, mine shafts and iron gates, glowing ore veins like sinews in the rock; weather (storm, ash, spray, wind) and deep atmosphere; cold steel sheen, sparks from an anvil, rivets.
-Detail: rich layered spell energies, flying debris, weather and atmospheric textures.
-Spectacle: cinematic: volumetric god rays, the spell's energy swirling in layered currents, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the spell's energy — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
-Composition: landscape 5:4; the spell effect is the one main subject, centred with breathing room around it and readable as a single clear magical shape; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of a spell — the magic itself is the subject. Looking along the hammer from its butt end: we stand behind the last of a single file of square steel machines, each gripping the shoulders of the one ahead, plates locking edge to edge so the file becomes one straight beam running away from us up the frame. At the far end, high in the upper frame, the foremost machines have clenched together into a massive block — the head — hanging over a fortress's gate towers at the top of its swing. Dark-red seams light up in sequence along the beam, back to front, like a pulse. Storm dusk, gunmetal and dim; the orange-red pulse in the seams travels up the beam and gathers as a molten glow inside the raised head.
+Colour: forge heart — dark gunmetal and steel grey (#a9b4c2) with molten orange glowing in the seams.
+Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-B2-2 · 강철 분쇄 골렘
-소르그림의 방패 · 유닛 · 레벨 5 · 에픽 — 받은 그림은 `tools/art/inbox/EP-B2-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-B2-2.jpg` 750×600)
+소르그림의 방패 · 유닛 · 레벨 5 · 에픽 · 틀 `back` B L `patina` · 프롬프트 n1 → `tools/art/inbox/EP-B2-2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "강철 분쇄 골렘". Depict exactly what this name describes.
-Subject: an elite, commanding Golem of the Sorgrim's Shield.
-Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Golem: a massive forged golem of riveted steel plate and stone with piston joints, glowing forge seams and a boiler or furnace heart. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: riveted steel plate, stone, pistons, chains, glowing seams, steam.
-Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 두르크하임 광산에서 바위를 깨던 골렘을 싸움에 내보냈다. 갑옷도 바위처럼 깬다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
-Colour fidelity: the whole image reads at a glance as the banner colour #a9b4c2 (steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal underground halls of Durkheim with lava channels, mine shafts and iron gates, glowing ore veins like sinews in the rock; weather (storm, ash, spray, wind) and deep atmosphere; cold steel sheen, sparks from an anvil, rivets.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. From behind the rust-brown, hunched back of a mining golem at the left of the frame — boiler stack between its shoulders, forearms ending in blunt steel breaker-heads still grey with quarry dust — we see what its blow has done. The line of tower shields before it has split along one clean fracture, exactly as a rock face splits: plates shearing in flat slabs, rivets spraying like gravel. The crack runs on past the steel, across the ground and up the cliff beyond, where a whole slab of mountain is starting to slide. Dim dust-brown daylight; rust and green-blue stains on the golem's back, steel-grey shards catching light as they fly, the fresh crack pale in dark rock.
+Colour: rust and verdigris — red-brown and green-blue patina over steel grey (#a9b4c2) in dim light.
+Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### PN-B2-E · 페로스를 본 골렘
-소르그림의 방패 · 유닛 · 레벨 6 · 에픽 — 받은 그림은 `tools/art/inbox/PN-B2-E.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B2-E.jpg` 750×600)
+소르그림의 방패 · 유닛 · 레벨 6 · 에픽 · 틀 `close` F C `mirror` · 프롬프트 n1 → `tools/art/inbox/PN-B2-E.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "페로스를 본 골렘". Depict exactly what this name describes.
-Subject: an elite, commanding Golem of the Sorgrim's Shield.
-Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Golem: a massive forged golem of riveted steel plate and stone with piston joints, glowing forge seams and a boiler or furnace heart. Silhouette: broad, square and heavy — a walking wall of riveted steel. Materials: riveted steel plate, stone, pistons, chains, glowing seams, steam.
-Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 광맥 깊은 곳에서 금속의 용 페로스와 마주쳤다가 돌아온 골렘. 그 뒤로 몸이 거울처럼 되비친다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
-Colour fidelity: the whole image reads at a glance as the banner colour #a9b4c2 (steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal underground halls of Durkheim with lava channels, mine shafts and iron gates, glowing ore veins like sinews in the rock; weather (storm, ash, spray, wind) and deep atmosphere; cold steel sheen, sparks from an anvil, rivets.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. The head and chest of a golem fill the frame, facing us, and every plate of it is polished to a perfect mirror. In the curved breastplate we see ourselves as its foes do — a small, warped line of spearmen on a narrow rock bridge, lamps raised, hesitating. But the smooth dome of its face reflects something else entirely, something absent from the cavern: one vast slit-pupilled eye with an iris of molten metal, scaled lids of steel around it, staring out as if it were still in front of the golem. The spearmen's lamps are the only true light, returned as hard silver glare; the reflected eye glows by itself, pale gold in a monochrome mirror.
+Colour: mirror polish — bright silver-grey (#a9b4c2) reflections of a dark world, almost monochrome.
+Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-B2-3 · 두르크하임 성문 거상
-소르그림의 방패 · 유닛 · 레벨 7 · 에픽 — 받은 그림은 `tools/art/inbox/EP-B2-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-B2-3.jpg` 750×600)
+소르그림의 방패 · 유닛 · 레벨 7 · 에픽 · 틀 `through` B C `coldsteel` · 프롬프트 n1 → `tools/art/inbox/EP-B2-3.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "두르크하임 성문 거상". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring Colossus of the Sorgrim's Shield.
-Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Colossus: a towering forged colossus of steel many times the height of a golem, with a furnace heart glowing through its chest plates. Silhouette: a giant humanoid machine filling the frame. Materials: riveted steel plate, furnace glow, steam vents, chains.
-Banner — Sorgrim's Shield: show the banner through element, palette and a few accents (forge hammers, anvils, riveted golems, piston joints, gears, stamped steel crests, shield walls); palette: steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 지하 도시의 성문 그 자체. 문이 걸어 나가면 도시가 비지 않느냐는 물음에 공방장은 "문이 돌아온다"고만 답했다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
-Colour fidelity: the whole image reads at a glance as the banner colour #a9b4c2 (steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal underground halls of Durkheim with lava channels, mine shafts and iron gates, glowing ore veins like sinews in the rock; weather (storm, ash, spray, wind) and deep atmosphere; cold steel sheen, sparks from an anvil, rivets.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Framed by a vast empty gateway in a mountain wall, seen from inside the city: the bare hinge pins on either jamb are thick as tree trunks, and the night wind now pours in through the hole. Out on the causeway beyond, dead centre, the gate itself is walking away from us — a steel colossus whose broad flat back is two riveted door-leaves with a drop-bar across them, a lit guardroom window in one shoulder. Far ahead a line of enemy torches wavers. On the threshold, small as nails, the gate watch stand in a row, cloaks streaming. Blue-grey dusk outside under a hard clear sky; the gateway's inner edge is slate shadow, and one warm window glows in the colossus's shoulder.
+Colour: cold steel — blue-grey (#a9b4c2) and slate shadow with crisp white highlights.
+Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### PI-B3 · 즈라크의 번개 병
-케라운의 벼락 · 아이템 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/PI-B3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-B3.jpg` 750×600)
+케라운의 벼락 · 아이템 · 레벨 2 · 에픽 · 틀 `reflect` R R `greensky` · 프롬프트 n1 → `tools/art/inbox/PI-B3.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. An ancient relic of a transcendent being whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "즈라크의 번개 병". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Keraun's Thunder (catalyst). a relic of a transcendent being floating in its own aura above a ruined altar, radiating its element.
-Scale (level 2 of 8): a simple object.
-Banner — Keraun's Thunder (lightning): palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass. Materials: copper coils, glass jars of captured lightning, brass gauges, insulated cables, lab glass, leather straps. Signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 번개의 대정령이 갇혔다 달아난 병. 남은 번개가 들쭉날쭉 손끝에서 튀고, 병을 깨뜨리려 덤빈 자는 그 불꽃에 덴다.
-Camera: cinematic low angle looking up at the floating relic above its ruined altar, scale cues in the environment, subject about 65% of the frame.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing focal core, soft bloom; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
-Colour fidelity: the whole image reads at a glance as the banner colour #ffd84a (electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spiked lightning-rod towers of Voltarium crowned by a lightning storm; weather (storm, ash, spray, wind) and deep atmosphere; crackling electric arcs, glowing coils.
-Detail: ornate craftsmanship, weathered ancient surfaces, magical energy wrapping the relic.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of one object — the object itself is the subject. Alone on a storm-swept stone table in the right of the frame stands a tall, heavy-shouldered glass jar, its copper lid torn open from inside and curled back like a peel. A few leftover threads of lightning twitch within. Its curved side mirrors the world behind us: racing cloud, bending grass — and, filling that reflected sky, the vast bright outline of a many-armed figure of lightning leaning down toward its old prison. Eerie flat yellow-green storm light and a gale tearing at the grass; the reflection burns sharper and yellower than anything real in the scene.
+Colour: storm green — eerie flat yellow-green light before the strike, with a few electric-yellow (#ffd84a) sparks.
+Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### US-B3-1 · 번개 폭주
-케라운의 벼락 · 공격 마법 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/US-B3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-B3-1.jpg` 750×600)
+케라운의 벼락 · 공격 마법 · 레벨 2 · 에픽 · 틀 `inside` N X `greensky` · 프롬프트 n1 → `tools/art/inbox/US-B3-1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A cataclysmic, cinematic spell whose power bends the whole battlefield around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "번개 폭주". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the spell's force (bolt, blast, blade of light, storm) travels across the frame and strikes the enemy side, shown as small dark silhouettes or their weapons and armour; any caster is out of frame or only a hand at the edge. The moment it takes effect: chained lightning strikes leaping from target to target. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Spell, not unit: this is a spell card, so the magic itself is the hero of the image — the visible force, phenomenon or symbol of the spell (a blast, a ward of light, a curse mark, a vortex, a rune circle, a rain of arrows, a reversed current) fills the centre and reads in one glance. People and creatures are absent or minimal: at most small dark silhouettes in the distance, a hand or arm at the edge of the frame, or empty armour, weapons and banners standing in for the targets. Show the effect on its targets through objects and light rather than through characters' faces and bodies. If the art direction or lore names a caster or warriors, keep them small, off-centre, half in shadow and seen from behind.
-Scale (level 2 of 8): a small, local effect.
-Banner — Keraun's Thunder: magic of keraun's thunder, signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints; palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, meaning and mood only): 볼타리움의 병이 한꺼번에 깨진 날. 번개가 어디로 갈지는 번개도 모른다. — the people this lore names stay off-stage; show their spell, not them.
-Game effect (Korean, mood only — never draw text or numbers): 상대 무작위 유닛에게 체력 −1을 6번.
-Camera: cinematic low wide angle at the peak of the spell's impact, scale cues (tiny distant silhouettes, broken walls, huge debris), the effect about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, intense radiant core, soft bloom; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
-Colour fidelity: the whole image reads at a glance as the banner colour #ffd84a (electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spiked lightning-rod towers of Voltarium crowned by a lightning storm; weather (storm, ash, spray, wind) and deep atmosphere; crackling electric arcs, glowing coils.
-Detail: rich layered spell energies, flying debris, weather and atmospheric textures.
-Spectacle: cinematic: volumetric god rays, the spell's energy swirling in layered currents, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the spell's energy — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
-Composition: landscape 5:4; the spell effect is the one main subject, centred with breathing room around it and readable as a single clear magical shape; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of a spell — the magic itself is the subject. In the middle aisle of a storehouse, in the instant every jar on its tall shelves bursts at once: thousands of glass shards hang in the air like frozen hail, and six freed bolts go wild among them, each a different way — one corkscrewing up through the roof, one skipping along a rafter, two caroming off the iron pillars, one diving to the floor, one swerving straight toward us. Slates lift off overhead and storm rain pours in through the holes. Sick yellow-green storm light through the broken roof; the bolts are hard yellow and every shard carries a spark.
+Colour: storm green — eerie flat yellow-green light before the strike, with a few electric-yellow (#ffd84a) sparks.
+Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-B3-1 · 볼타리움 방전 실험체
-케라운의 벼락 · 유닛 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/EP-B3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-B3-1.jpg` 750×600)
+케라운의 벼락 · 유닛 · 레벨 3 · 에픽 · 틀 `over` B T `thunderhead` · 프롬프트 n1 → `tools/art/inbox/EP-B3-1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "볼타리움 방전 실험체". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Test Subject of the Keraun's Thunder.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Test Subject: a creature woken by lightning in a Voltarium laboratory, stitched together with copper wire, bolts and electrodes that glow at the seams. Silhouette: a hunched figure with sparking electrodes. Materials: patched hide, copper wires, bolts, glass gauges, sparks.
-Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 볼타리움이 번개로 깨운 실험체. 몸에 남는 전기를 조금씩 흘려 날아오는 것을 떨어뜨리고, 그래도 남으면 아군 마법에 얹는다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
-Colour fidelity: the whole image reads at a glance as the banner colour #ffd84a (electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spiked lightning-rod towers of Voltarium crowned by a lightning storm; weather (storm, ash, spray, wind) and deep atmosphere; crackling electric arcs, glowing coils.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Over the hunched shoulder of a stitched-together creature — patched hide laced with copper wire, a bolt at the neck, glass gauges sunk into its back — standing on a rain-swept rampart with its back to us. The upper frame is a sky full of incoming arrows and slung stones, and from the electrodes along its spine thin crooked arcs leap up to them one by one; each missile touched goes dark and drops, smoking, like a shot bird. Storm dusk with driving rain; the arcs light the downpour in yellow sheets and rim the creature's wet shoulders against black cloud.
+Colour: thunderhead — black and rain-grey split by searing electric yellow (#ffd84a).
+Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### US-B3-2 · 케라운의 신경
-케라운의 벼락 · 공격 마법 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/US-B3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-B3-2.jpg` 750×600)
+케라운의 벼락 · 공격 마법 · 레벨 3 · 에픽 · 틀 `column` U L `thunderhead` · 프롬프트 n1 → `tools/art/inbox/US-B3-2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A cataclysmic, cinematic spell whose power bends the whole battlefield around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "케라운의 신경". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the spell's force (bolt, blast, blade of light, storm) travels across the frame and strikes the enemy side, shown as small dark silhouettes or their weapons and armour; any caster is out of frame or only a hand at the edge. The moment it takes effect: chained lightning strikes leaping from target to target. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Spell, not unit: this is a spell card, so the magic itself is the hero of the image — the visible force, phenomenon or symbol of the spell (a blast, a ward of light, a curse mark, a vortex, a rune circle, a rain of arrows, a reversed current) fills the centre and reads in one glance. People and creatures are absent or minimal: at most small dark silhouettes in the distance, a hand or arm at the edge of the frame, or empty armour, weapons and banners standing in for the targets. Show the effect on its targets through objects and light rather than through characters' faces and bodies. If the art direction or lore names a caster or warriors, keep them small, off-centre, half in shadow and seen from behind.
-Scale (level 3 of 8): an effect over a few targets.
-Banner — Keraun's Thunder: magic of keraun's thunder, signature motifs: lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints; palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, meaning and mood only): 뇌명 고원 아래 잠든 거인 케라운의 신경을 건드렸다. 번개가 땅 위로 줄지어 튀어 오른다. — the people this lore names stay off-stage; show their spell, not them.
-Game effect (Korean, mood only — never draw text or numbers): 상대 대기열 맨 앞부터 차례로 체력 −4 → −3 → −3 → −2.
-Camera: cinematic low wide angle at the peak of the spell's impact, scale cues (tiny distant silhouettes, broken walls, huge debris), the effect about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, intense radiant core, soft bloom; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
-Colour fidelity: the whole image reads at a glance as the banner colour #ffd84a (electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spiked lightning-rod towers of Voltarium crowned by a lightning storm; weather (storm, ash, spray, wind) and deep atmosphere; crackling electric arcs, glowing coils.
-Detail: rich layered spell energies, flying debris, weather and atmospheric textures.
-Spectacle: cinematic: volumetric god rays, the spell's energy swirling in layered currents, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the spell's energy — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
-Composition: landscape 5:4; the spell effect is the one main subject, centred with breathing room around it and readable as a single clear magical shape; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of a spell — the magic itself is the subject. Out of a long seam that has opened in the earth from our feet to the horizon, four pillars of lightning stand straight up into the cloud in a receding row: the nearest, in the left of the frame, as thick as an old oak and blinding, the next two a little slimmer, the last far off and thin. Each has punched a glowing hole in the overcast, rings of flung gravel and dust hang around their bases, and at the foot of the nearest a timber palisade is flying apart in splinters. The pillars light the underside of the black storm in yellow-white rings and throw four sets of long shadows across the scorched ground.
+Colour: thunderhead — black and rain-grey split by searing electric yellow (#ffd84a).
+Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-B3-2 · 연쇄 번개뱀
-케라운의 벼락 · 유닛 · 레벨 5 · 에픽 — 받은 그림은 `tools/art/inbox/EP-B3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-B3-2.jpg` 750×600)
+케라운의 벼락 · 유닛 · 레벨 5 · 에픽 · 틀 `front` F C `cobalt` · 프롬프트 n1 → `tools/art/inbox/EP-B3-2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "연쇄 번개뱀". Depict exactly what this name describes.
-Subject: an elite, commanding Lightning Serpent of the Keraun's Thunder.
-Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Lightning Serpent: a serpent whose body is a living chain of lightning that leaps from one target to the next. Silhouette: a snake made of zigzag lightning. Materials: white-blue lightning scales, arcs, sparks.
-Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 한 몸을 물면 그다음 몸으로 튀어 가는 번개뱀. 학자들이 평생 그 까닭을 쫓았지만, 뱀은 아직 한 번도 멈춘 적이 없다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
-Colour fidelity: the whole image reads at a glance as the banner colour #ffd84a (electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spiked lightning-rod towers of Voltarium crowned by a lightning storm; weather (storm, ash, spray, wind) and deep atmosphere; crackling electric arcs, glowing coils.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Head-on and symmetrical: the open jaws of a serpent made of living lightning rush straight at us in the centre of the frame, fangs of white fire, eyes like arc lamps. Behind the head its zigzag body runs back down the middle of a drowned parade ground, threaded through a receding row of empty iron armours on posts like a needle through beads — each breastplate it has passed glows and steams in the rain. A night downpour; the serpent's white-blue body lights the falling rain from within, and its glare shivers across the flooded ground.
+Colour: cobalt night — deep blue dark with electric-yellow (#ffd84a) arcs and violet-white coronas.
+Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### PN-B3-E · 케라운 신경 증폭기
-케라운의 벼락 · 유닛 · 레벨 6 · 에픽 — 받은 그림은 `tools/art/inbox/PN-B3-E.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-B3-E.jpg` 750×600)
+케라운의 벼락 · 유닛 · 레벨 6 · 에픽 · 틀 `far` R C `cobalt` · 프롬프트 n1 → `tools/art/inbox/PN-B3-E.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "케라운 신경 증폭기". Depict exactly what this name describes.
-Subject: an elite, commanding Capacitor of the Keraun's Thunder.
-Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Capacitor: a big copper-banded glass storage jar of captured lightning, often fitted with mechanical legs, crackling at its terminals. Silhouette: a tall jar or drum with terminal knobs on top. Materials: glass, copper bands, brass terminals, crackling charge.
-Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 잠든 거인의 신경 한 가닥에 걸어 다니는 장치를 매달았다. 번개가 한 번 지나가면 줄지어 선 것이 모두 떤다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
-Colour fidelity: the whole image reads at a glance as the banner colour #ffd84a (electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spiked lightning-rod towers of Voltarium crowned by a lightning storm; weather (storm, ash, spray, wind) and deep atmosphere; crackling electric arcs, glowing coils.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Far across a flat night heath, a single seam of light runs dead straight along the ground from the left edge to the horizon — an exposed nerve of the land. Small in the centre, a walking machine as tall as a windmill straddles it on long legs, a copper-banded glass drum slung beneath like a spider's body, drinking the glow. A pulse has just passed through it and races on to the right, and every pylon standing in line down the seam shudders in a ring of sparks while the clouds above brighten in the same row. Cobalt darkness; the seam and the travelling pulse are the light, laying long shadows outward to both sides.
+Colour: cobalt night — deep blue dark with electric-yellow (#ffd84a) arcs and violet-white coronas.
+Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-B3-3 · 케라운의 피뢰탑
-케라운의 벼락 · 유닛 · 레벨 7 · 에픽 — 받은 그림은 `tools/art/inbox/EP-B3-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-B3-3.jpg` 750×600)
+케라운의 벼락 · 유닛 · 레벨 7 · 에픽 · 틀 `cut` R L `wetglass` · 프롬프트 n1 → `tools/art/inbox/EP-B3-3.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "케라운의 피뢰탑". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring Lightning Tower of the Keraun's Thunder.
-Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Lightning Tower: a tall lattice tower of steel and copper bristling with lightning rods, often walking on its own legs, crackling with arcs. Silhouette: a tall spiked tower. Materials: steel lattice, copper rods, porcelain insulators, arcs.
-Banner — Keraun's Thunder: show the banner through element, palette and a few accents (lightning jars, copper coils, lightning-rod towers, dials and gauges, arcs leaping between electrodes, blueprints); palette: electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass.
-Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mine black adamant from the bodies of sleeping giants. No gods — technology instead.
-Lore (Korean, use for the scene): 뇌명 고원 아래 잠든 거인의 신경 위에 세운 탑. 걸어 다니게 만든 것은 노움들의 고집이다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
-Colour fidelity: the whole image reads at a glance as the banner colour #ffd84a (electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spiked lightning-rod towers of Voltarium crowned by a lightning storm; weather (storm, ash, spray, wind) and deep atmosphere; crackling electric arcs, glowing coils.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. A cross-section through the storm plateau. In the lower half, cut open like a diagram, a root of pale branching light as thick as a river lies in the black rock — a sleeping nerve. Above, in the left of the frame, a colossal lattice tower bristling with rods walks to the right across the surface on four iron legs, and from each foot a copper taproot plunges down through the stone to drink from the nerve; the lifted foot trails its root, dripping sparks, as rain sweeps past in sheets. Rain-grey daylight above ground; below, the nerve glows yellow-white and lights the cut rock from inside.
+Colour: rain grey — pale grey wet reflections with small electric-yellow (#ffd84a) sparks doubled in them.
+Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### US-G1-1 · 결투 신청
-고르바스의 발톱 · 공격 마법 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/US-G1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-G1-1.jpg` 750×600)
+고르바스의 발톱 · 공격 마법 · 레벨 2 · 에픽 · 틀 `path` R R `redearth` · 프롬프트 n1 → `tools/art/inbox/US-G1-1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A cataclysmic, cinematic spell whose power bends the whole battlefield around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "결투 신청". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the spell's force (bolt, blast, blade of light, storm) travels across the frame and strikes the enemy side, shown as small dark silhouettes or their weapons and armour; any caster is out of frame or only a hand at the edge. The moment it takes effect: an annihilating strike of pure force that leaves only an empty, scorched outline where a foe stood. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Spell, not unit: this is a spell card, so the magic itself is the hero of the image — the visible force, phenomenon or symbol of the spell (a blast, a ward of light, a curse mark, a vortex, a rune circle, a rain of arrows, a reversed current) fills the centre and reads in one glance. People and creatures are absent or minimal: at most small dark silhouettes in the distance, a hand or arm at the edge of the frame, or empty armour, weapons and banners standing in for the targets. Show the effect on its targets through objects and light rather than through characters' faces and bodies. If the art direction or lore names a caster or warriors, keep them small, off-centre, half in shadow and seen from behind.
-Scale (level 2 of 8): a small, local effect.
-Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, meaning and mood only): 가르운의 오크는 가장 센 자에게 먼저 칼을 던진다. 잿갈기 카르노가 백 번의 결투로 남긴 법이다. — the people this lore names stay off-stage; show their spell, not them.
-Game effect (Korean, mood only — never draw text or numbers): 아군 맨 앞 유닛 공격 +4. 그 유닛이 상대 유닛 중 공격이 가장 높은 유닛 1개를 먼저 친다(물리 피해). 그 유닛이 살아남으면 되친다.
-Camera: cinematic low wide angle at the peak of the spell's impact, scale cues (tiny distant silhouettes, broken walls, huge debris), the effect about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, intense radiant core, soft bloom; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
-Colour fidelity: the whole image reads at a glance as the banner colour #b88a5a (earth ochre #b88a5a, rust-red war paint, bone white) — dusty, matte ochre and sandstone brown like sunlit clay and weathered bone, a dry earthy glow clearly distinct from flame orange or bright gold; every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; weather (storm, ash, spray, wind) and deep atmosphere; flying rock dust, cracked ground, ochre light.
-Detail: rich layered spell energies, flying debris, weather and atmospheric textures.
-Spectacle: cinematic: volumetric god rays, the spell's energy swirling in layered currents, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the spell's energy — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
-Composition: landscape 5:4; the spell effect is the one main subject, centred with breathing room around it and readable as a single clear magical shape; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of a spell — the magic itself is the subject. Seen from the side across a storm-dark plain: a heavy throwing blade spins from left to right high over two facing battle lines, its flight drawn as a long arc of scattered dust, and the grass beneath that arc is parting into a straight open lane as both lines pull back from it. The blade is a heartbeat from landing point-down at the feet of the tallest figure on the right — a towering armoured champion who has already lowered his visor toward it. Slate storm clouds split along the same arc, and one hard shaft of light follows the blade down onto red clay.
+Colour: red earth — rust-red clay under slate-grey storm light, ochre (#b88a5a) dust in the air.
+Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-G1-1 · 흑요 사이클롭스 투사
-고르바스의 발톱 · 유닛 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/EP-G1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-G1-1.jpg` 750×600)
+고르바스의 발톱 · 유닛 · 레벨 3 · 에픽 · 틀 `far` B R `ochredust` · 프롬프트 n1 → `tools/art/inbox/EP-G1-1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "흑요 사이클롭스 투사". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Cyclops of the Gorvath's Claw.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Cyclops: one-eyed cyclopes of the duel ring: towering grey-ochre pit fighters with a single great eye, heavy scars and black obsidian studded into their gauntlets. Silhouette: towering broad-chested humanoid with one huge eye and oversized fists. Materials: grey-ochre skin, scars, obsidian studs, rough leather wraps.
-Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 외눈에 흑요석 건틀릿 하나로 가르운 결투장에서 서른 번을 이겼다. 고르바스가 한쪽 눈을 뜨고 본 싸움이 그중 하나다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
-Colour fidelity: the whole image reads at a glance as the banner colour #b88a5a (earth ochre #b88a5a, rust-red war paint, bone white) — dusty, matte ochre and sandstone brown like sunlit clay and weathered bone, a dry earthy glow clearly distinct from flame orange or bright gold; every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; weather (storm, ash, spray, wind) and deep atmosphere; flying rock dust, cracked ground, ochre light.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Far below a towering mountain wall, small in the lower right of the frame, a one-eyed giant pit fighter stands with his back to us in a ring of trampled clay, one fist — sheathed in a gauntlet studded with black obsidian — raised over a fallen opponent's club. A wind-driven curtain of dust sweeps the crowd around the ring. High in the mountainside above, a slab of rock and pine forest has lifted like an eyelid, and one vast reptile eye looks down at him. Sun through blowing dust; a broad pale shaft falls from the upper left across the open eye and down onto the ring.
+Colour: ochre dust — matte sandstone and clay browns (#b88a5a) in a sunlit dust haze.
+Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### PI-G1 · 카르노의 결투 장갑
-고르바스의 발톱 · 아이템 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/PI-G1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-G1.jpg` 750×600)
+고르바스의 발톱 · 아이템 · 레벨 3 · 에픽 · 틀 `motion` L C `stormslate` · 프롬프트 n1 → `tools/art/inbox/PI-G1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. An ancient relic of a transcendent being whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "카르노의 결투 장갑". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Gorvath's Claw (weapon/armour). a relic of a transcendent being floating in its own aura above a ruined altar, radiating its element.
-Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Gorvath's Claw (earth): palette: earth ochre #b88a5a, rust-red war paint, bone white. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 잿갈기 카르노가 백 번째 결투에서 벗어 던진 장갑. 낀 손은 무슨 저주를 받아도 주먹이 작아지지 않고, 맞은 자리는 싸우는 사이 아문다.
-Camera: cinematic low angle looking up at the floating relic above its ruined altar, scale cues in the environment, subject about 65% of the frame.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing focal core, soft bloom; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
-Colour fidelity: the whole image reads at a glance as the banner colour #b88a5a (earth ochre #b88a5a, rust-red war paint, bone white) — dusty, matte ochre and sandstone brown like sunlit clay and weathered bone, a dry earthy glow clearly distinct from flame orange or bright gold; every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; weather (storm, ash, spray, wind) and deep atmosphere; flying rock dust, cracked ground, ochre light.
-Detail: ornate craftsmanship, weathered ancient surfaces, magical energy wrapping the relic.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of one object — the object itself is the subject. Caught in mid-air above a trampled hilltop: a single huge gauntlet tumbles through the centre of the frame toward the left, flung away — layered ash-grey hide, knuckle plates of slate-dark scale, a cuff cut with row upon row of small notches, its wrist straps whipping behind it. The wind of its flight has pulled a spiral of dust up after it, and far below, small in the lower right, a crowd of onlookers has turned to follow it, every head tipped back. A slate storm sky churns overhead; one break of pale light catches the knuckle plates and the trailing spiral of dust.
+Colour: steppe storm — slate grey and muted earth brown (#b88a5a), flying grit.
+Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### US-G1-2 · 대지의 격노
-고르바스의 발톱 · 공격 마법 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/US-G1-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-G1-2.jpg` 750×600)
+고르바스의 발톱 · 공격 마법 · 레벨 3 · 에픽 · 틀 `origin` B C `strawgold` · 프롬프트 n1 → `tools/art/inbox/US-G1-2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A cataclysmic, cinematic spell whose power bends the whole battlefield around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "대지의 격노". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the spell's force (bolt, blast, blade of light, storm) travels across the frame and strikes the enemy side, shown as small dark silhouettes or their weapons and armour; any caster is out of frame or only a hand at the edge. The moment it takes effect: an empowering earth surge rising from the ground in spiralling light, lifting allied banners; a shared surge of power rising like a banner of light over the allied side. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Spell, not unit: this is a spell card, so the magic itself is the hero of the image — the visible force, phenomenon or symbol of the spell (a blast, a ward of light, a curse mark, a vortex, a rune circle, a rain of arrows, a reversed current) fills the centre and reads in one glance. People and creatures are absent or minimal: at most small dark silhouettes in the distance, a hand or arm at the edge of the frame, or empty armour, weapons and banners standing in for the targets. Show the effect on its targets through objects and light rather than through characters' faces and bodies. If the art direction or lore names a caster or warriors, keep them small, off-centre, half in shadow and seen from behind.
-Scale (level 3 of 8): an effect over a few targets.
-Banner — Gorvath's Claw: magic of gorvath's claw, signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds; palette: earth ochre #b88a5a, rust-red war paint, bone white.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, meaning and mood only): 무리가 한꺼번에 발을 구르면 대지의 용 고르바스가 잠결에 뒤척인다. — the people this lore names stay off-stage; show their spell, not them.
-Game effect (Korean, mood only — never draw text or numbers): 아군 전체 공격 +2. 상대 유닛 전체에게 체력 −(아군 유닛 수).
-Camera: cinematic low wide angle at the peak of the spell's impact, scale cues (tiny distant silhouettes, broken walls, huge debris), the effect about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, intense radiant core, soft bloom; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
-Colour fidelity: the whole image reads at a glance as the banner colour #b88a5a (earth ochre #b88a5a, rust-red war paint, bone white) — dusty, matte ochre and sandstone brown like sunlit clay and weathered bone, a dry earthy glow clearly distinct from flame orange or bright gold; every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; weather (storm, ash, spray, wind) and deep atmosphere; flying rock dust, cracked ground, ochre light.
-Detail: rich layered spell energies, flying debris, weather and atmospheric textures.
-Spectacle: cinematic: volumetric god rays, the spell's energy swirling in layered currents, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the spell's energy — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
-Composition: landscape 5:4; the spell effect is the one main subject, centred with breathing room around it and readable as a single clear magical shape; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of a spell — the magic itself is the subject. From just behind a line of stamping heels at the bottom edge, looking out along the blow: the plain ahead has stopped being flat — a long hump is travelling away from us under the grass like a shrug under a blanket, lifting boulders and whole stands of pine, and at the horizon it breaks the surface as a ridge of slate-grey scales the size of hills. An enemy line caught on its slope is sliding off both sides. Low sun from the left throws the travelling hump's long umber shadow across pale straw grass; dust lifts off the scales in bright veils.
+Colour: dry-grass afternoon — pale straw and ochre (#b88a5a) with long umber shadows.
+Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-G1-2 · 털코뿔소 기수
-고르바스의 발톱 · 유닛 · 레벨 5 · 에픽 — 받은 그림은 `tools/art/inbox/EP-G1-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-G1-2.jpg` 750×600)
+고르바스의 발톱 · 유닛 · 레벨 5 · 에픽 · 틀 `profile` L X `stormslate` · 프롬프트 n1 → `tools/art/inbox/EP-G1-2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "털코뿔소 기수". Depict exactly what this name describes.
-Subject: an elite, commanding Woolly Rhino of the Gorvath's Claw.
-Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Woolly Rhino: a woolly rhinoceros of the high steppe with a long shaggy ochre-brown coat, a low heavy head and a great forward horn, ridden by a war-painted tribal rider. Silhouette: massive low barrel body with a long forward horn and a rider on top. Materials: shaggy wool, cracked grey hide, horn, leather harness, dust.
-Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 울부짖는 초원의 털코뿔소가 등을 허락한 유일한 오크. 하나를 들이받으면 멈추지 않고 다음 대열로 내달린다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
-Colour fidelity: the whole image reads at a glance as the banner colour #b88a5a (earth ochre #b88a5a, rust-red war paint, bone white) — dusty, matte ochre and sandstone brown like sunlit clay and weathered bone, a dry earthy glow clearly distinct from flame orange or bright gold; every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; weather (storm, ash, spray, wind) and deep atmosphere; flying rock dust, cracked ground, ochre light.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Side-on like a long frieze across the whole frame: three ranks of spearmen stand one behind another from right to left, and a woolly rhinoceros charging toward the left has already gone straight through the first two — each shows the same ragged gap, with spears and splintered shafts still spinning in the air above it. Its long forward horn is a hand's width from the third rank. A single war-painted rider lies flat along the shaggy ochre-brown hump, and rain and grit slant across everything. A slate storm front fills the sky; one break of pale light travels with the rhino while the ranks stand in grey rain.
+Colour: steppe storm — slate grey and muted earth brown (#b88a5a), flying grit.
+Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### PN-G1-E · 왕좌봉 맘모스
-고르바스의 발톱 · 유닛 · 레벨 6 · 에픽 — 받은 그림은 `tools/art/inbox/PN-G1-E.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G1-E.jpg` 750×600)
+고르바스의 발톱 · 유닛 · 레벨 6 · 에픽 · 틀 `top` D B `redearth` · 프롬프트 n1 → `tools/art/inbox/PN-G1-E.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "왕좌봉 맘모스". Depict exactly what this name describes.
-Subject: an elite, commanding Mammoth of the Gorvath's Claw.
-Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Mammoth: a mammoth of the snowy passes of Throne Peak with long reddish wool, great spiralling tusks and a rock-crusted brow, carrying a war-painted tribal rider. Silhouette: towering domed head and humped back with spiralling tusks. Materials: long shaggy wool, ivory tusks, rock crust, snow and dust.
-Banner — Gorvath's Claw: show the banner through element, palette and a few accents (giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds); palette: earth ochre #b88a5a, rust-red war paint, bone white.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 고르바스의 등 위, 눈 덮인 고개에서 사는 맘모스. 오크 하나를 태우고 왕좌봉을 내려오면 산사태가 뒤따른다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
-Colour fidelity: the whole image reads at a glance as the banner colour #b88a5a (earth ochre #b88a5a, rust-red war paint, bone white) — dusty, matte ochre and sandstone brown like sunlit clay and weathered bone, a dry earthy glow clearly distinct from flame orange or bright gold; every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; weather (storm, ash, spray, wind) and deep atmosphere; flying rock dust, cracked ground, ochre light.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Straight down from the sky onto a steep mountainside: at the bottom of the frame a mammoth ploughs downhill through scree and old snow — domed, rock-crusted head, long spiralling tusks, a back of red-brown wool with one small war-painted rider clinging between the shoulders. Above it the whole upper frame is a spreading fan of landslide: tumbling boulders, red clay, uprooted pines and bursts of snow, its leading edge already at the mammoth's heels. Slate storm light, shadowless; red clay dust and powdered snow boil up from the slide in pale clouds.
+Colour: red earth — rust-red clay under slate-grey storm light, ochre (#b88a5a) dust in the air.
+Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-G1-3 · 왕좌봉 결투왕
-고르바스의 발톱 · 유닛 · 레벨 7 · 에픽 — 받은 그림은 `tools/art/inbox/EP-G1-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-G1-3.jpg` 750×600)
+고르바스의 발톱 · 유닛 · 레벨 7 · 에픽 · 틀 `ground` L L `bonemoon` · 프롬프트 n1 → `tools/art/inbox/EP-G1-3.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "왕좌봉 결투왕". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring member of the Gorvath's Claw — a close-combat brawler, beast or living war machine — bare fists, claws, horns or sheer armoured bulk.
-Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Banner — Gorvath's Claw: powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair. Silhouette: massive shoulders and oversized fists; riders on giant wolves or bears. Materials: rough leather, furs, bone ornaments, stone- and obsidian-studded gauntlets, rope, wooden totems. Signature motifs: giant fists, wolves and bears, bone trinkets, totems, war drums, cracked ground, dust clouds.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 고르바스가 잠든 왕좌봉까지 올라가 결투를 청한 오크. 용은 깨지 않았지만, 그 길에서 만난 자는 모두 쓰러졌다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
-Colour fidelity: the whole image reads at a glance as the banner colour #b88a5a (earth ochre #b88a5a, rust-red war paint, bone white) — dusty, matte ochre and sandstone brown like sunlit clay and weathered bone, a dry earthy glow clearly distinct from flame orange or bright gold; every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the endless howling steppe of Garun with standing stones, nomad camps and a stone duel ring; weather (storm, ash, spray, wind) and deep atmosphere; flying rock dust, cracked ground, ochre light.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Ground level on a windswept summit at night: in the snow of the foreground lies a trail of snapped spears, a cloven axe haft and a split war club, leading away up the slope. At the end of it, toward the left, a huge scarred orc in hide fist-wraps stands hammering one fist against a curved grey claw as tall as a watchtower — the nearest of a row of claws rising out of the snow, each one a hill. A long sleeping breath from somewhere above flattens his braids and hurls ice dust past us. Moonlight on snow, bone-white and grey-blue; the gale of breath carries glittering ice dust across the dark claws.
+Colour: bone and moon — bone-white and grey-blue night with dry ochre (#b88a5a) earth.
+Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### US-G2-2 · 고목의 분노
-베르단의 뿔 · 공격 마법 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/US-G2-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-G2-2.jpg` 750×600)
+베르단의 뿔 · 공격 마법 · 레벨 2 · 에픽 · 틀 `symbol` D C `autumnrot` · 프롬프트 n1 → `tools/art/inbox/US-G2-2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A cataclysmic, cinematic spell whose power bends the whole battlefield around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "고목의 분노". Depict exactly what this name describes.
-Subject: attack spell — the instant of impact: aggressive diagonal composition, the spell's force (bolt, blast, blade of light, storm) travels across the frame and strikes the enemy side, shown as small dark silhouettes or their weapons and armour; any caster is out of frame or only a hand at the edge. The moment it takes effect: a shared surge of power rising like a banner of light over the allied side. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Spell, not unit: this is a spell card, so the magic itself is the hero of the image — the visible force, phenomenon or symbol of the spell (a blast, a ward of light, a curse mark, a vortex, a rune circle, a rain of arrows, a reversed current) fills the centre and reads in one glance. People and creatures are absent or minimal: at most small dark silhouettes in the distance, a hand or arm at the edge of the frame, or empty armour, weapons and banners standing in for the targets. Show the effect on its targets through objects and light rather than through characters' faces and bodies. If the art direction or lore names a caster or warriors, keep them small, off-centre, half in shadow and seen from behind.
-Scale (level 2 of 8): a small, local effect.
-Banner — Verdan's Antler: magic of verdan's antler, signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots; palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, meaning and mood only): 숲의 용 베르단이 노하면 천 년을 버틴 고목이 뿌리째 걸어 나온다. 버텨 온 세월이 그대로 무게가 된다. — the people this lore names stay off-stage; show their spell, not them.
-Game effect (Korean, mood only — never draw text or numbers): 아군 유닛마다 공격 + (자기 남은 체력의 절반, 올림).
-Camera: cinematic low wide angle at the peak of the spell's impact, scale cues (tiny distant silhouettes, broken walls, huge debris), the effect about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, intense radiant core, soft bloom; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
-Colour fidelity: the whole image reads at a glance as the banner colour #58b85f (forest green #58b85f, deep moss, bark brown, bioluminescent spores); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; weather (storm, ash, spray, wind) and deep atmosphere; glowing moss, thorny vines, drifting leaves.
-Detail: rich layered spell energies, flying debris, weather and atmospheric textures.
-Spectacle: cinematic: volumetric god rays, the spell's energy swirling in layered currents, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the spell's energy — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no fire magic.
-Composition: landscape 5:4; the spell effect is the one main subject, centred with breathing room around it and readable as a single clear magical shape; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of a spell — the magic itself is the subject. An emblem set up on a storm-lashed hilltop: a rough balance made from one forked bough. On its left pan lies a single cross-cut slab of ancient trunk, ring upon ring too fine to count, and it has slammed down so hard that the ground beneath is cracked and sunk. The right pan, heaped with iron maces, chains and ingots, has been flung high into the air, spilling its load. Gale-driven russet leaves streak across the frame, and far behind, whole rows of old trees are leaning out of the earth. Dark storm light with a low amber break in the cloud behind the balance, edging the slab and the flying iron.
+Colour: autumn rot — russet, amber and mushroom-pale against dark leaf-green (#58b85f).
+Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-G2-1 · 엉겅퀴 덩굴귀
-베르단의 뿔 · 유닛 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/EP-G2-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-G2-1.jpg` 750×600)
+베르단의 뿔 · 유닛 · 레벨 3 · 에픽 · 틀 `under` L L `mossdeep` · 프롬프트 n1 → `tools/art/inbox/EP-G2-1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "엉겅퀴 덩굴귀". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Vine Horror of the Verdan's Antler.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Vine Horror: vine horrors of the Rusty Swamp's edge: shambling tangles of thorny vines and briars that knot themselves into a beast-like shape. Silhouette: hulking shambling mass of coiled vines with thorny lashing tendrils. Materials: thorny briars, rust-stained vines, thistle heads, sap, dead leaves.
-Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 녹슨 늪 가장자리에서 엉겅퀴와 덩굴이 엉켜 일어선 것. 녹물을 마시고 가시가 쇠처럼 굳었다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
-Colour fidelity: the whole image reads at a glance as the banner colour #58b85f (forest green #58b85f, deep moss, bark brown, bioluminescent spores); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; weather (storm, ash, spray, wind) and deep atmosphere; glowing moss, thorny vines, drifting leaves.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no fire magic.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Under the surface of a rust-brown swamp pool, we look up: the water above ripples with rain, and through it looms the warped dark shape of a beast knotted from thistle and briar, wading leftward along the left of the frame. Its trailing tendrils hang down into the water like drinking straws, each drawing up a twisting thread of rust from the sunken iron around us — a boiler plate, a cartwheel rim, links of chain. Where the tendrils break the surface, their thorns have the grey gleam of forged spikes. Storm daylight filters down green-brown through the pool, and a flash of lightning above the surface outlines the creature for an instant.
+Colour: deep moss — saturated leaf-green (#58b85f) in heavy shade with wet bark browns.
+Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### PI-G2 · 드리엔의 씨앗
-베르단의 뿔 · 아이템 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/PI-G2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-G2.jpg` 750×600)
+베르단의 뿔 · 아이템 · 레벨 3 · 에픽 · 틀 `found` U B `mossdeep` · 프롬프트 n1 → `tools/art/inbox/PI-G2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. An ancient relic of a transcendent being whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "드리엔의 씨앗". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Verdan's Antler (holy relic). a relic of a transcendent being floating in its own aura above a ruined altar, radiating its element.
-Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Verdan's Antler (forest): palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores. Materials: bark armour, moss, thorns, vines, roots, mushrooms, amber sap. Signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 숲의 대정령이 품은 첫 씨앗. 심은 몸에 고목의 수명이 깃든다. 베어도 같은 키로 다시 자라고, 뻗은 가지는 숨통을 노린다.
-Camera: cinematic low angle looking up at the floating relic above its ruined altar, scale cues in the environment, subject about 65% of the frame.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing focal core, soft bloom; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
-Colour fidelity: the whole image reads at a glance as the banner colour #58b85f (forest green #58b85f, deep moss, bark brown, bioluminescent spores); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; weather (storm, ash, spray, wind) and deep atmosphere; glowing moss, thorny vines, drifting leaves.
-Detail: ornate craftsmanship, weathered ancient surfaces, magical energy wrapping the relic.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no fire magic.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of one object — the object itself is the subject. Half-buried in the silt at the bottom of a clear forest pool lies a seed the size of a fist, its dark husk cracked open on a core of green light. It has already begun: a white root has gone down into the silt, and a pale stem climbs through the water toward the bright surface, unfolding leaves as it rises. Around it, in a widening ring, the drowned things of the pool have sprouted — a sunken boat-hook wrapped in new shoots, a rotten oar in leaf — and small fish circle in the glow. Shafts of green daylight fall through the wind-rippled surface above, crossing the seed's own steady glow in the dim water.
+Colour: deep moss — saturated leaf-green (#58b85f) in heavy shade with wet bark browns.
+Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### SG2-08 · 고목 내려찍기
-베르단의 뿔 · 공용 마법 · 레벨 4 · 에픽 — 받은 그림은 `tools/art/inbox/SG2-08.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SG2-08.jpg` 750×600)
+베르단의 뿔 · 공용 마법 · 레벨 4 · 에픽 · 틀 `object` D B `sunshaft` · 프롬프트 n1 → `tools/art/inbox/SG2-08.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A cataclysmic, cinematic spell whose power bends the whole battlefield around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "고목 내려찍기". Depict exactly what this name describes.
-Subject: versatile spell of the Verdan's Antler (see art direction). Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Spell, not unit: this is a spell card, so the magic itself is the hero of the image — the visible force, phenomenon or symbol of the spell (a blast, a ward of light, a curse mark, a vortex, a rune circle, a rain of arrows, a reversed current) fills the centre and reads in one glance. People and creatures are absent or minimal: at most small dark silhouettes in the distance, a hand or arm at the edge of the frame, or empty armour, weapons and banners standing in for the targets. Show the effect on its targets through objects and light rather than through characters' faces and bodies. If the art direction or lore names a caster or warriors, keep them small, off-centre, half in shadow and seen from behind.
-Art direction: Ancient trunk slam: a colossal gnarled trunk crashing down onto a line of small enemy silhouettes; a shockwave of soil, splinters and moss bursting outward, the ground caving in, the bark cracking and drained grey after the blow. The impact is the subject. Low angle, dramatic, dim green forest light.
-Scale (level 4 of 8): an effect over a few targets.
-Banner — Verdan's Antler: magic of verdan's antler, signature motifs: thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots; palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, meaning and mood only): 고목이 뿌리째 몸을 일으켜, 품은 수액의 무게를 실어 내리찍는다. 땅이 꺼지고, 고목은 껍질 절반을 잃는다. — the people this lore names stay off-stage; show their spell, not them.
-Game effect (Korean, mood only — never draw text or numbers): 체력이 가장 높은 아군 유닛의 체력은 절반이 되고(내림), 감소한 만큼 방어력이 1 이상인 상대 유닛에게 피해.
-Camera: cinematic low wide angle at the peak of the spell's impact, scale cues (tiny distant silhouettes, broken walls, huge debris), the effect about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, intense radiant core, soft bloom; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
-Colour fidelity: the whole image reads at a glance as the banner colour #58b85f (forest green #58b85f, deep moss, bark brown, bioluminescent spores); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; weather (storm, ash, spray, wind) and deep atmosphere; glowing moss, thorny vines, drifting leaves.
-Detail: rich layered spell energies, flying debris, weather and atmospheric textures.
-Spectacle: cinematic: volumetric god rays, the spell's energy swirling in layered currents, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the spell's energy — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no fire magic.
-Composition: landscape 5:4; the spell effect is the one main subject, centred with breathing room around it and readable as a single clear magical shape; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of a spell — the magic itself is the subject. At the bottom of a fresh crater lies one object: a great iron tower shield, pressed flat into the earth like a coin into clay, its face stamped with the grain of bark. Around it the ground is cracked in rings, and slabs of shed bark as big as doors lie where they fell, with more still tumbling down the crater wall. Thick drops of amber sap are raining in, and above the rim the shadow of an enormous root is lifting away through swirling dust and torn leaves. Shafts of golden-green sun break through the dust cloud over the crater, striking the flattened shield and each falling drop of sap.
+Colour: canopy light — golden-green (#58b85f) shafts through drifting mist.
+Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-G2-2 · 실바니엘의 활 드라이어드
-베르단의 뿔 · 유닛 · 레벨 5 · 에픽 — 받은 그림은 `tools/art/inbox/EP-G2-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-G2-2.jpg` 750×600)
+베르단의 뿔 · 유닛 · 레벨 5 · 에픽 · 틀 `eye` F L `thorndark` · 프롬프트 n1 → `tools/art/inbox/EP-G2-2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "실바니엘의 활 드라이어드". Depict exactly what this name describes.
-Subject: an elite, commanding Dryad of the Verdan's Antler.
-Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Dryad: dryads of the Eilen forest: slender women of living wood with smooth bark skin, leaf-and-blossom hair and twig fingers, each bound to her own tree (no pointed ears). Silhouette: slender willowy figure with long leaf-hair flowing like branches. Materials: smooth pale bark, leaves, blossoms, vines, sap droplets.
-Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 거목 도시의 가장 높은 가지에 깃든 드라이어드. 화살이 떨어질 때쯤이면 쏜 자리는 잎에 덮여 있다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
-Colour fidelity: the whole image reads at a glance as the banner colour #58b85f (forest green #58b85f, deep moss, bark brown, bioluminescent spores); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; weather (storm, ash, spray, wind) and deep atmosphere; glowing moss, thorny vines, drifting leaves.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no fire magic.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. On the topmost bough of a giant tree, at arm's length to our left, a slender woman of pale living bark has just loosed her bow straight past us — the string still a blur, her twig fingers open. Already the foliage is closing over her: leaves slide across her shoulder and bow arm like a curtain, leaving one calm eye and a few red blossoms in her leaf-hair uncovered. Wind strips leaves from the crown and whirls them into the dark gulf on the right, where the lamps of a tree-city glimmer far below. Night wind under a thin green moon; her pale bark and the red blossoms catch what little light comes through the leaves.
+Colour: thorn dark — near-black with deep green (#58b85f) and a few points of blood red.
+Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### PN-G2-E · 태고림 이끼뿔 사슴
-베르단의 뿔 · 유닛 · 레벨 6 · 에픽 — 받은 그림은 `tools/art/inbox/PN-G2-E.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G2-E.jpg` 750×600)
+베르단의 뿔 · 유닛 · 레벨 6 · 에픽 · 틀 `pov` F L `sunshaft` · 프롬프트 n1 → `tools/art/inbox/PN-G2-E.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "태고림 이끼뿔 사슴". Depict exactly what this name describes.
-Subject: an elite, commanding Antlered Stag of the Verdan's Antler.
-Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Antlered Stag: great forest stags whose antlers grow like living branches with leaves and moss, after the dragon Verdan's own. Silhouette: proud stag with an enormous branching antler crown. Materials: russet hide with pale spots, mossy wooden antlers, new leaves.
-Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 세계 최초의 숲에서 내려온 사슴. 베르단의 뿔 그늘에서 천 년을 잤고, 잠든 동안 뿔에 숲이 자랐다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
-Colour fidelity: the whole image reads at a glance as the banner colour #58b85f (forest green #58b85f, deep moss, bark brown, bioluminescent spores); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; weather (storm, ash, spray, wind) and deep atmosphere; glowing moss, thorny vines, drifting leaves.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no fire magic.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. First-person, and far too close: a stag as big as a barn has lowered its head to look at us, its muzzle and one dark eye filling the lower left of the frame. Above them its antlers spread across the whole upper picture carrying an entire small forest — mossy boughs, fern banks, slender birches rooted in the forks — with a wisp of its own cloud snagged in the tines and a flight of finches bursting out as the head moves. Thorned briars hang from the lowest tines like a fringe. Golden-green shafts through moving mist behind the antlers back-light each tiny tree; its breath steams toward us in the cool air.
+Colour: canopy light — golden-green (#58b85f) shafts through drifting mist.
+Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-G2-3 · 베르단의 고목 거인
-베르단의 뿔 · 유닛 · 레벨 7 · 에픽 — 받은 그림은 `tools/art/inbox/EP-G2-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-G2-3.jpg` 750×600)
+베르단의 뿔 · 유닛 · 레벨 7 · 에픽 · 틀 `echo` B L `mossdeep` · 프롬프트 n1 → `tools/art/inbox/EP-G2-3.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "베르단의 고목 거인". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring Treant of the Verdan's Antler.
-Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Creature kind — Treant: treants of the Eilen forest: living trees that walk on knotted roots, with bark faces, branch arms and moss in the cracks. Silhouette: towering trunk body with spreading branch arms and root feet. Materials: rough bark, moss, leaves, knotted roots, amber sap.
-Banner — Verdan's Antler: show the banner through element, palette and a few accents (thorns and briars, vines, regrowing limbs, glowing moss, seeds, giant roots); palette: forest green #58b85f, deep moss, bark brown, bioluminescent spores.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 태고림 산맥에서 내려온 고목. 베르단의 뿔에서 떨어진 가지가 자랐다는 말이 있다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
-Colour fidelity: the whole image reads at a glance as the banner colour #58b85f (forest green #58b85f, deep moss, bark brown, bioluminescent spores); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the colossal trunks and hanging bridges of Sylvaniel around the First Elder Tree, in mist; weather (storm, ash, spray, wind) and deep atmosphere; glowing moss, thorny vines, drifting leaves.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no fire magic.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Walking away from us down a mountainside of ancient pines, a colossal tree-giant is caught as three overlapping moments of one stride, each ghost of it farther downhill on the left of the frame. Its trunk-body carries a forked crown shaped like a stag's antlers, and tall pines reach only to its root-ankles. In each footprint behind it a thicket of thorns is already sprouting. Low cloud tears open around its shoulders, and a flock of birds scatters at the height of its knees. Storm light breaks through the torn cloud ahead of the giant, rimming its bark in green while the slope behind stays in deep wet shade.
+Colour: deep moss — saturated leaf-green (#58b85f) in heavy shade with wet bark browns.
+Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### PI-G3 · 마렌시아의 비늘
-마렌시아의 노래 · 아이템 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/PI-G3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-G3.jpg` 750×600)
+마렌시아의 노래 · 아이템 · 레벨 2 · 에픽 · 틀 `nature` N L `moontide` · 프롬프트 n1 → `tools/art/inbox/PI-G3.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. An ancient relic of a transcendent being whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "마렌시아의 비늘". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Marencia's Song (holy relic). a relic of a transcendent being floating in its own aura above a ruined altar, radiating its element.
-Scale (level 2 of 8): a simple object.
-Banner — Marencia's Song (water): palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 물의 용이 맹약의 날 떨군 비늘 한 장. 지닌 자의 모습을 그날 그대로 지키고, 비늘에 비친 빛을 본 상대는 넋을 잃는다.
-Camera: cinematic low angle looking up at the floating relic above its ruined altar, scale cues in the environment, subject about 65% of the frame.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing focal core, soft bloom; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
-Colour fidelity: the whole image reads at a glance as the banner colour #4fb3ff (water blue #4fb3ff, aquamarine, pearl white, deep-sea navy); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; weather (storm, ash, spray, wind) and deep atmosphere; clear water light, spray, ripples, bubbles.
-Detail: ornate craftsmanship, weathered ancient surfaces, magical energy wrapping the relic.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no fire, no heavy plate armour.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of one object — the object itself is the subject. A single scale as broad as a cartwheel, clear and faintly blue like thick ice, stands on edge in knee-deep sea at the left of the frame. The water has arranged itself around it: the tide parts and flows past on both sides, leaving a pool of perfect calm around it. Moonlight striking the scale leaps off as one long beam across the frame, and in that beam a whole shoal of silver fish hangs stopped in mid-turn, every eye fixed on the light. A high moon behind drifting cloud; the reflected beam is brighter than its source, with faint mist lifting where it touches the water.
+Colour: moon tide — silver-blue (#4fb3ff) moonlight and pale mist.
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### US-G3-1 · 넬리아의 노래
-마렌시아의 노래 · 공용 마법 · 레벨 2 · 에픽 — 받은 그림은 `tools/art/inbox/US-G3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-G3-1.jpg` 750×600)
+마렌시아의 노래 · 공용 마법 · 레벨 2 · 에픽 · 틀 `under` D X `trench` · 프롬프트 n1 → `tools/art/inbox/US-G3-1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A cataclysmic, cinematic spell whose power bends the whole battlefield around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "넬리아의 노래". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with the spell's power visibly flowing in two directions. The moment it takes effect: a destructive water bolt or blast tearing across the field into the distant enemy line; a cleansing wave of clear light washing away flames, curses and enchantments. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Spell, not unit: this is a spell card, so the magic itself is the hero of the image — the visible force, phenomenon or symbol of the spell (a blast, a ward of light, a curse mark, a vortex, a rune circle, a rain of arrows, a reversed current) fills the centre and reads in one glance. People and creatures are absent or minimal: at most small dark silhouettes in the distance, a hand or arm at the edge of the frame, or empty armour, weapons and banners standing in for the targets. Show the effect on its targets through objects and light rather than through characters' faces and bodies. If the art direction or lore names a caster or warriors, keep them small, off-centre, half in shadow and seen from behind.
-Scale (level 2 of 8): a small, local effect.
-Banner — Marencia's Song: magic of marencia's song, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, meaning and mood only): 물의 대정령 넬리아의 노래. 담긴 그릇에 따라 모습이 바뀌는 물처럼, 듣는 자의 모든 꾸밈을 씻어 낸다. — the people this lore names stay off-stage; show their spell, not them.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체의 [보호막]·[가시]·[저주 면역]·[수호]가 꺼지고, 코인이 뒷면이 되고 [홀림]에 걸린다(이미 정해진 코인은 그대로). 상대 유닛 전체에게 체력 −1. 아군 맨 앞 유닛에게 이번 턴 [정화].
-Camera: cinematic low wide angle at the peak of the spell's impact, scale cues (tiny distant silhouettes, broken walls, huge debris), the effect about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, intense radiant core, soft bloom; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
-Colour fidelity: the whole image reads at a glance as the banner colour #4fb3ff (water blue #4fb3ff, aquamarine, pearl white, deep-sea navy); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; weather (storm, ash, spray, wind) and deep atmosphere; clear water light, spray, ripples, bubbles.
-Detail: rich layered spell energies, flying debris, weather and atmospheric textures.
-Spectacle: cinematic: volumetric god rays, the spell's energy swirling in layered currents, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the spell's energy — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no fire, no heavy plate armour.
-Composition: landscape 5:4; the spell effect is the one main subject, centred with breathing room around it and readable as a single clear magical shape; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of a spell — the magic itself is the subject. Lying on the seabed, we look straight up through a column of deep blue water toward a pale wavering disc of daylight. Sinking slowly toward us, scattered across the whole frame, comes everything the song has rinsed off the listeners above: gilded crests, plumes, enamelled badges, medals on ribbons, a jewelled scabbard, flakes of gold leaf turning as they fall. High overhead the surface flexes with the slow rhythm of a song, each pulse shaking loose another glittering fall. Shafts of cold light slant down from the surface through drifting particles, flashing on each sinking ornament before the dark takes it.
+Colour: deep water — navy and black with small cold lights and a water-blue (#4fb3ff) glow.
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-G3-1 · 진주빛 해파리
-마렌시아의 노래 · 유닛 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/EP-G3-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-G3-1.jpg` 750×600)
+마렌시아의 노래 · 유닛 · 레벨 3 · 에픽 · 틀 `far` R C `stormsea` · 프롬프트 n1 → `tools/art/inbox/EP-G3-1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "진주빛 해파리". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened Jellyfish of the Marencia's Song.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Creature kind — Jellyfish: a pearl-luminous jellyfish with a softly glowing bell and long trailing tentacles strung with pearls. Silhouette: domed glowing bell over streaming tentacles. Materials: translucent bell, pearlescent glow, tentacles, bubbles.
-Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 무녀단의 진주를 삼키고 빛을 얻은 해파리. 몸을 한 번 오므리면 물결이 일어서서 칼끝을 흘려보낸다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
-Colour fidelity: the whole image reads at a glance as the banner colour #4fb3ff (water blue #4fb3ff, aquamarine, pearl white, deep-sea navy); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; weather (storm, ash, spray, wind) and deep atmosphere; clear water light, spray, ripples, bubbles.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no fire, no heavy plate armour.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Far out on a storm-dark sea the water has done something strange: around one small glowing shape the swell has stood up into a smooth, steep hill of water, rain sliding off it. Inside, drifting toward the right, hangs a pearl-luminous jellyfish as big as a temple bell, its dome clenched tight and its long tentacles trailing strings of light. A volley of arrows meets the raised water and skids away along its flank as thin silver streaks. Slate squall light and slanting rain; the jellyfish's own glow lights the lifted water from within, a soft green lantern in the gloom.
+Colour: storm sea — heavy green-blue (#4fb3ff), white spray and slate grey.
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### US-G3-2 · 조수의 귀환
-마렌시아의 노래 · 공용 마법 · 레벨 4 · 에픽 — 받은 그림은 `tools/art/inbox/US-G3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-G3-2.jpg` 750×600)
+마렌시아의 노래 · 공용 마법 · 레벨 4 · 에픽 · 틀 `path` R L `coraldawn` · 프롬프트 n1 → `tools/art/inbox/US-G3-2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A cataclysmic, cinematic spell whose power bends the whole battlefield around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "조수의 귀환". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with the spell's power visibly flowing in two directions. The moment it takes effect: a destructive water bolt or blast tearing across the field into the distant enemy line; an empowering water surge rising from the ground in spiralling light, lifting allied banners; a shared surge of power rising like a banner of light over the allied side. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Spell, not unit: this is a spell card, so the magic itself is the hero of the image — the visible force, phenomenon or symbol of the spell (a blast, a ward of light, a curse mark, a vortex, a rune circle, a rain of arrows, a reversed current) fills the centre and reads in one glance. People and creatures are absent or minimal: at most small dark silhouettes in the distance, a hand or arm at the edge of the frame, or empty armour, weapons and banners standing in for the targets. Show the effect on its targets through objects and light rather than through characters' faces and bodies. If the art direction or lore names a caster or warriors, keep them small, off-centre, half in shadow and seen from behind.
-Scale (level 4 of 8): an effect over a few targets.
-Banner — Marencia's Song: magic of marencia's song, signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles; palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, meaning and mood only): 탈라쿠스의 맥박에 맞춰 물러갔던 바다가 돌아온다. 적은 쓸려 가고 아군은 씻긴다. — the people this lore names stay off-stage; show their spell, not them.
-Game effect (Korean, mood only — never draw text or numbers): 상대 유닛 전체에게 체력 −2. 아군 전체 체력 +1. 아군 맨 앞 유닛에게 이번 턴 [치유 1].
-Camera: cinematic low wide angle at the peak of the spell's impact, scale cues (tiny distant silhouettes, broken walls, huge debris), the effect about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, intense radiant core, soft bloom; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
-Colour fidelity: the whole image reads at a glance as the banner colour #4fb3ff (water blue #4fb3ff, aquamarine, pearl white, deep-sea navy); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; weather (storm, ash, spray, wind) and deep atmosphere; clear water light, spray, ripples, bubbles.
-Detail: rich layered spell energies, flying debris, weather and atmospheric textures.
-Spectacle: cinematic: volumetric god rays, the spell's energy swirling in layered currents, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the spell's energy — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no fire, no heavy plate armour.
-Composition: landscape 5:4; the spell effect is the one main subject, centred with breathing room around it and readable as a single clear magical shape; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of a spell — the magic itself is the subject. Side-on across a mile of drained tidal flat at dawn: the sea is coming back as one long low wall of foam, racing from left to right, its front set in the left third of the frame. Ahead of it, on the dry right, a palisaded camp with tents and tethered pack beasts is seconds from being swept. Behind it, where it has already passed, beached fishing boats float upright again on calm rose-coloured water, and gulls wheel over the returning tide. The sun rises behind the bore, shooting pink rays through its spray and long shadows across the bare flats.
+Colour: coral dawn — coral pink and warm first light over water-blue (#4fb3ff).
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-G3-2 · 심해 나가 작살 기사
-마렌시아의 노래 · 유닛 · 레벨 5 · 에픽 — 받은 그림은 `tools/art/inbox/EP-G3-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-G3-2.jpg` 750×600)
+마렌시아의 노래 · 유닛 · 레벨 5 · 에픽 · 틀 `top` R R `glasscalm` · 프롬프트 n1 → `tools/art/inbox/EP-G3-2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "심해 나가 작살 기사". Depict exactly what this name describes.
-Subject: an elite, commanding Naga of the Marencia's Song.
-Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Naga: naga of Marencia's waters: a scaled human upper body joined to a long serpent tail, with fin crests along the head and armour of shell and coral. Silhouette: upright torso rising from a long coiled serpent tail. Materials: teal serpent scales, fin crests, shell and coral armour, harpoons and spears.
-Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 탈라쿠스 해구에서 우르보아의 비늘을 꿰뚫었다는 작살을 든 나가. 작살은 던지면 물살을 타고 돌아온다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
-Colour fidelity: the whole image reads at a glance as the banner colour #4fb3ff (water blue #4fb3ff, aquamarine, pearl white, deep-sea navy); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; weather (storm, ash, spray, wind) and deep atmosphere; clear water light, spray, ripples, bubbles.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no fire, no heavy plate armour.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Straight down from high above onto a windless, fog-pale sea. In the right third a naga floats upright at the centre of its own coiled serpent tail, a spiral of teal scales and fin crests, one arm stretched out to the right, open-handed. Across the rest of the frame a single white wake draws a huge loop over the mirror water — the track of a long barbed harpoon now riding its private current home, shaft-first, toward the waiting palm. The fog itself has peeled away along the loop. Shadowless white fog-light from all around; the loop of wake and the harpoon's wet barbs carry the only bright glints.
+Colour: glass calm — mirror-still pale blue-grey (#4fb3ff) and fog, almost monochrome.
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### PN-G3-E · 우르보아 비늘 기사
-마렌시아의 노래 · 유닛 · 레벨 6 · 에픽 — 받은 그림은 `tools/art/inbox/PN-G3-E.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-G3-E.jpg` 750×600)
+마렌시아의 노래 · 유닛 · 레벨 6 · 에픽 · 틀 `through` L R `stormsea` · 프롬프트 n1 → `tools/art/inbox/PN-G3-E.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "우르보아 비늘 기사". Depict exactly what this name describes.
-Subject: an elite, commanding Naga of the Marencia's Song.
-Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Creature kind — Naga: naga of Marencia's waters: a scaled human upper body joined to a long serpent tail, with fin crests along the head and armour of shell and coral. Silhouette: upright torso rising from a long coiled serpent tail. Materials: teal serpent scales, fin crests, shell and coral armour, harpoons and spears.
-Banner — Marencia's Song: show the banner through element, palette and a few accents (water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles); palette: water blue #4fb3ff, aquamarine, pearl white, deep-sea navy.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 심해의 거대 뱀 우르보아가 벗은 비늘로 갑옷을 지었다. 어떤 창도 그 비늘을 얇게 만들지 못했다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
-Colour fidelity: the whole image reads at a glance as the banner colour #4fb3ff (water blue #4fb3ff, aquamarine, pearl white, deep-sea navy); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; weather (storm, ash, spray, wind) and deep atmosphere; clear water light, spray, ripples, bubbles.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no fire, no heavy plate armour.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Through a fence of levelled spear shafts and driving rain in the foreground, we glimpse it coming: a naga knight rearing on its serpent tail in the right of the frame, advancing left, armoured in the shed scales of some far greater serpent — dark overlapping plates each as broad as a door. Spear points skid off them in spurts of spray and splinter. Behind it the sea heaves under a turning waterspout, and the rain bends toward the armour. Bruised storm light; a pale shaft through the cloud catches the wet scale-plates, and white spray rims the knight from behind.
+Colour: storm sea — heavy green-blue (#4fb3ff), white spray and slate grey.
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-G3-3 · 마렌시아의 대무녀
-마렌시아의 노래 · 유닛 · 레벨 7 · 에픽 — 받은 그림은 `tools/art/inbox/EP-G3-3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-G3-3.jpg` 750×600)
+마렌시아의 노래 · 유닛 · 레벨 7 · 에픽 · 틀 `front` F B `coraldawn` · 프롬프트 n1 → `tools/art/inbox/EP-G3-3.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "마렌시아의 대무녀". Depict exactly what this name describes.
-Subject: a legendary, awe-inspiring member of the Marencia's Song — a devoted priest, ritualist or pact-bound servant, praying or offering.
-Scale (level 7 of 8): towering and awe-inspiring: huge scale (giant creature, siege engine, archmage); the environment visibly bends to its power.
-Banner — Marencia's Song: merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir. Silhouette: graceful flowing curves; long hair and fins drifting like silk. Materials: blue scales, pearls, coral, shells, translucent fins, flowing silk shrine robes, harpoons. Signature motifs: water spirals, song shown as rippling rings, pearls, coral shields, harpoons, waves, bubbles.
-Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; power borrowed through pacts with dragons.
-Lore (Korean, use for the scene): 물의 용 마렌시아와 맹약을 다시 맺는 의식을 이끄는 무녀. 그녀를 친 칼은 물을 벤 듯 손이 젖는다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
-Colour fidelity: the whole image reads at a glance as the banner colour #4fb3ff (water blue #4fb3ff, aquamarine, pearl white, deep-sea navy); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the pillars of the Selenea temple rising from a moonlit lagoon, waves and spray; weather (storm, ash, spray, wind) and deep atmosphere; clear water light, spray, ripples, bubbles.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no fire, no heavy plate armour.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. Dead-centre and facing us, a towering merfolk high priestess rises waist-deep from the sea in the lower part of the frame, blue scales climbing her arms, long fins hanging from her wrists like vestments, both hands lifted. Around her, in perfect symmetry, the dawn sea has stood up in a ring of water walls tall as cliffs; inside the translucent wall behind her a vast finned coil slides past — a sea dragon answering. Pilgrims' lanterns line a far causeway like sparks, and a thrown sword passing through her shoulder leaves only a splash of clear water. First rose-pink sunlight comes from directly behind her through the standing water, turning the walls luminous and rimming her fins.
+Colour: coral dawn — coral pink and warm first light over water-blue (#4fb3ff).
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ## 3. 그림 있음 — 그리지 않는다 (참고용) · 5장
 
 ### EP-A1-1 · 심연 칼날 무희 — 그림 있음
-모르카스의 그믐 · 유닛 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A1-1.jpg` 750×600)
+모르카스의 그믐 · 유닛 · 레벨 3 · 에픽 · 틀 `echo` R X `violetshade` · 프롬프트 n1 → `tools/art/inbox/EP-A1-1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "심연 칼날 무희". Depict exactly what this name describes.
-Subject: a seasoned, battle-hardened member of the Morkas's New Moon — a devoted priest, ritualist or pact-bound servant, praying or offering.
-Scale (level 3 of 8): seasoned: a sturdier body, a bigger weapon, mount or machine.
-Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 녹타르의 그림자 극장에서 춤을 추는 마족. 춤이 끝나면 관객 하나가 줄어 있다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
-Colour fidelity: the whole image reads at a glance as the banner colour #8b5cf6 (violet #8b5cf6, black, blood-red accents); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. One turn of a dance shown as five overlapping moments across a small stage: the same horned demon dancer, ashen-skinned in dark silk sashes, repeats from left to right in fading afterimages, her two crescent blades drawing one unbroken silver ribbon through all five. The last and sharpest figure, at the right, sinks into a bow with both blades folded behind her back. Along the bottom edge runs a dark row of spectators' heads, and in the middle of the row one seat stands empty, a feathered hat still settling onto its cushion. Violet footlights glow up from the stage edge and rim every afterimage; the house beyond the front row is purple-black.
+Colour: violet shade — purple-black gloom with luminous violet (#8b5cf6) edges.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### PI-A1 · 모르카스의 저울추 — 그림 있음
-모르카스의 그믐 · 아이템 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/PI-A1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PI-A1.jpg` 750×600)
+모르카스의 그믐 · 아이템 · 레벨 3 · 에픽 · 틀 `stored` N L `eclipse` · 프롬프트 n1 → `tools/art/inbox/PI-A1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. An ancient relic of a transcendent being whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered materials, surfaces, wear and lighting, the object caught in a clear story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "모르카스의 저울추". Depict exactly what this name describes.
-Subject: the item the card name and lore describe — a single object made or kept by the Morkas's New Moon (holy relic). a relic of a transcendent being floating in its own aura above a ruined altar, radiating its element.
-Scale (level 3 of 8): a fine object with a faint aura.
-Banner — Morkas's New Moon (darkness): palette: violet #8b5cf6, black, blood-red accents. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 침묵의 군주의 저울에서 떼어 낸 추. 쥔 자의 칼은 무거워지고, 저울이 첫 칼날의 무게를 덜어 준다. 그러나 쥔 동안 제 상처는 아물지 않는다. 대가의 법칙이다.
-Camera: cinematic low angle looking up at the floating relic above its ruined altar, scale cues in the environment, subject about 65% of the frame.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing focal core, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
-Colour fidelity: the whole image reads at a glance as the banner colour #8b5cf6 (violet #8b5cf6, black, blood-red accents); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
-Detail: ornate craftsmanship, weathered ancient surfaces, magical energy wrapping the relic.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of one object — the object itself is the subject. In a bare stone niche at the left of the frame sits a single scale weight of black bronze, the size of a fist: a squat cone with a ring handle on top and a closed eye cast in its side, its foot worn bright where it once sat in a pan. The shelf beneath it has dented like soft wax, a crack running to the wall, and everything near leans toward it: a hanging plumb line pulled off true, a spider's thread, the falling dust. Above, the hook it was taken from hangs empty. A thin cold slit of light from behind rims the cone, its ring and the bent plumb line; the niche is black with violet haze.
+Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### US-A1-1 · 침묵의 저울 — 그림 있음
-모르카스의 그믐 · 공용 마법 · 레벨 3 · 에픽 — 받은 그림은 `tools/art/inbox/US-A1-1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/US-A1-1.jpg` 750×600)
+모르카스의 그믐 · 공용 마법 · 레벨 3 · 에픽 · 틀 `column` D B `eclipse` · 프롬프트 n1 → `tools/art/inbox/US-A1-1.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A cataclysmic, cinematic spell whose power bends the whole battlefield around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered magical energy, materials, atmosphere and lighting, the spell caught at its decisive story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "침묵의 저울". Depict exactly what this name describes.
-Subject: versatile spell — a dual effect: a balanced composition with the spell's power visibly flowing in two directions. The moment it takes effect: an annihilating strike of pure force that leaves only an empty, scorched outline where a foe stood; paid for with the caster's own blood. Scale and finish: a cataclysmic spell at full force — vortex, shockwave or impact crater — with the battlefield reacting.
-Spell, not unit: this is a spell card, so the magic itself is the hero of the image — the visible force, phenomenon or symbol of the spell (a blast, a ward of light, a curse mark, a vortex, a rune circle, a rain of arrows, a reversed current) fills the centre and reads in one glance. People and creatures are absent or minimal: at most small dark silhouettes in the distance, a hand or arm at the edge of the frame, or empty armour, weapons and banners standing in for the targets. Show the effect on its targets through objects and light rather than through characters' faces and bodies. If the art direction or lore names a caster or warriors, keep them small, off-centre, half in shadow and seen from behind.
-Scale (level 3 of 8): an effect over a few targets.
-Banner — Morkas's New Moon: magic of morkas's new moon, signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes; palette: violet #8b5cf6, black, blood-red accents.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, meaning and mood only): 침묵의 군주 모르카스의 저울. 한쪽에 피를 올리면 다른 쪽에서 목숨 둘이 내려간다. — the people this lore names stay off-stage; show their spell, not them.
-Game effect (Korean, mood only — never draw text or numbers): [제물 4] 상대 유닛 중 공격이 가장 높은 유닛 2개를 파괴한다.
-Camera: cinematic low wide angle at the peak of the spell's impact, scale cues (tiny distant silhouettes, broken walls, huge debris), the effect about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, intense radiant core, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
-Colour fidelity: the whole image reads at a glance as the banner colour #8b5cf6 (violet #8b5cf6, black, blood-red accents); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
-Detail: rich layered spell energies, flying debris, weather and atmospheric textures.
-Spectacle: cinematic: volumetric god rays, the spell's energy swirling in layered currents, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the spell's energy — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
-Composition: landscape 5:4; the spell effect is the one main subject, centred with breathing room around it and readable as a single clear magical shape; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting of a spell — the magic itself is the subject. One taut cable of braided black wire drops the whole height of the frame down a sheer shaft. At its end, low in the picture, a round bronze pan as wide as a courtyard is sinking into rising darkness, carrying two tiny armoured figures who stand back to back, their torch flames stretched straight upward by the descent. At the top edge shows the end of a great beam carved with a closed eye, and beside it a second cable runs up out of sight, tight, while four dark red drops fall from above and pass the sinking pan. A thin cold line of light at the shaft's mouth rims the beam and the cables; below, the two torches are sparks sinking into violet-black.
+Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### EP-A1-2 · 녹타르 처형대장 — 그림 있음
-모르카스의 그믐 · 유닛 · 레벨 5 · 에픽 — 받은 그림은 `tools/art/inbox/EP-A1-2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/EP-A1-2.jpg` 750×600)
+모르카스의 그믐 · 유닛 · 레벨 5 · 에픽 · 틀 `profile` R X `bonepale` · 프롬프트 n1 → `tools/art/inbox/EP-A1-2.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "녹타르 처형대장". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Morkas's New Moon — a devoted priest, ritualist or pact-bound servant, praying or offering.
-Scale (level 5 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 계약을 어긴 자를 거두러 가는 처형인들의 우두머리. 한 번 휘두르면 줄 선 자들이 차례로 쓰러진다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
-Colour fidelity: the whole image reads at a glance as the banner colour #8b5cf6 (violet #8b5cf6, black, blood-red accents); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. In strict profile along a stone gallows bridge, flat as a frieze. At the left end a huge horned demon in an executioner's hood has just finished one level swing toward the right, his long-hafted axe at full stretch. A pale arc from the blade runs on down the bridge through a queue of oath-breakers in grey armour, and they go over one after another like dominoes: the first already flat, the middle ones leaning, the last still upright with his helmet lifting off. Beyond them every hanging rope on the bridge swings out to the right. Bone-white fog fills the canyon behind the bridge and turns figures and ropes to ash-grey shapes; one violet gleam runs along the axe edge.
+Colour: bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 ### PN-A1-E · 심연 장막의 거래인 — 그림 있음
-모르카스의 그믐 · 유닛 · 레벨 6 · 에픽 — 받은 그림은 `tools/art/inbox/PN-A1-E.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/PN-A1-E.jpg` 750×600)
+모르카스의 그믐 · 유닛 · 레벨 6 · 에픽 · 틀 `silhouette` F C `eclipse` · 프롬프트 n1 → `tools/art/inbox/PN-A1-E.jpg`
 
 ```
-Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
-Grade: EPIC — heroic and larger than life, cinematic. A heroic, larger-than-life figure, monster or relic whose power bends the whole scene around it.
-Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
-Card name (Korean — read its meaning, never write it in the image): "심연 장막의 거래인". Depict exactly what this name describes.
-Subject: an elite, commanding member of the Morkas's New Moon — a devoted priest, ritualist or pact-bound servant, praying or offering.
-Scale (level 6 of 8): elite and imposing: a large silhouette, heavy gear or a big creature or machine; the scene starts to react to it.
-Banner — Morkas's New Moon: demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire. Silhouette: tall, sharp and elegant: curved horns, tattered capes, long blades or scythes. Materials: black silk, dark lacquered armour, chains, contract scrolls sealed with blood wax, bone, obsidian. Signature motifs: blood-signed contracts, scales of judgment, closed eyes, sigils, shadow smoke, chains, scythes.
-Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons of shadow; power received from gods, always for a price.
-Lore (Korean, use for the scene): 심연의 장막에서 무언가를 두고 나온 마족. 무엇을 두고 왔는지는 그도 기억하지 못한다. 상처가 아물지 않는 것은 그 때문이다.
-Camera: cinematic low wide angle, heroic pose at the peak of action, scale cues (tiny figures, broken walls, huge debris), subject about 70% of the frame with environment.
-Lighting: high-contrast cinematic lighting, volumetric god rays in the element colour, glowing eyes or weapon, soft bloom; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
-Colour fidelity: the whole image reads at a glance as the banner colour #8b5cf6 (violet #8b5cf6, black, blood-red accents); every glow, spark and highlight stays in that hue family.
-Background: very dark night-blue (#07080d) base; rich environmental storytelling: the spires of Noctar carved into the walls of a sunless canyon, lit only by violet lanterns; weather (storm, ash, spray, wind) and deep atmosphere; violet shadow smoke, blood-red accents, contract sigils.
-Detail: ornate, layered armour or garments, battle wear, magical energy wrapping the body.
-Spectacle: cinematic: volumetric god rays, an energy aura wrapping the body, weather, flying debris and soft bloom — a step above rare. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
-Grade accent: violet (#b46cff) arcane particles and a faint violet edge to the aura — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
-Mood: awe, momentum, overwhelming force.
-Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
-Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
-No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
-Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
+Landscape 5:4 painting. A tall horned demon stands black against a slit of cold light, where a curtain of darkness as high as the sky has parted behind him. He faces us in the centre, mid-stride, a pedlar's case hanging half-empty from one hand. Straight through his chest runs a clean-edged gap the shape of a missing puzzle piece, and the cold light shines through it onto the ground before him. Dust, dead leaves and the tails of his long coat all stream backward toward the curtain, and a thin line of them is being drawn through the gap in his chest. The slit of pale light behind him rims horns, shoulders and coat; all else is silhouette in violet haze.
+Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```

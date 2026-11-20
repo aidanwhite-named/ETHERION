@@ -63,6 +63,7 @@ def select(jobs, a):
         if a.type and j.get("type") not in a.type.split(","): continue
         if a.set and j.get("set") not in a.set.split(","): continue
         if a.grade and j.get("grade") not in a.grade.split(","): continue
+        if j["kind"] == "card" and not j.get("prompt"): continue   # 장면이 아직 없는 카드(n판) — tools/art/scene_tool.js todo
         out.append(j)
     return out
 

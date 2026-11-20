@@ -1,0 +1,403 @@
+{
+  "_about": "B3 케라운의 벼락 — 카드별 장면 지시. 쓰는 법은 tools/art/PROMPT_GUIDE.md, 검사는 node tools/art/scene_tool.js lint B3.",
+  "B3-02": {
+    "shot": "far", "dir": "B", "place": "R", "pal": "thunderhead",
+    "scene": "Far off on a storm-dark moor, a tiny gnome apprentice trudges away from us along a plank causeway in the right third of the frame. A carrying-yoke lies across its shoulders with a copper-banded flask of bottled lightning swinging at each end, and its wild hair stands straight up like a brush — the one lively detail in all that empty land. Ahead, the planks dwindle toward a single far lamp.",
+    "light": "Black cloud presses low over the moor; the two flasks cast the only glow, a small swaying pool of yellow on the wet planks."
+  },
+  "B3-03": {
+    "shot": "close", "dir": "L", "place": "R", "pal": "greensky",
+    "scene": "Tight close-up of a bent stalk of dry grass in the right of the frame, weighed down by five thumb-sized fireflies climbing leftward along it. Each swollen abdomen holds a crackling yellow spark that jumps to the next insect in a needle-fine arc, and their glassy wings stand half open. Behind them the rest of the swarm hangs out of focus, soft drifting dots above a cracked and faintly glowing seam in the ground.",
+    "light": "Flat yellow-green stormlight before the strike; the insects' own sparks are the sharpest points in the picture."
+  },
+  "B3-04": {
+    "shot": "eye", "dir": "L", "place": "R", "pal": "cobalt",
+    "scene": "Beside a heavy oak door at night, at eye level: on its brass doorknob, in the right of the frame, crouches a hand-sized sprite made of one crackling spark — spiky upright hair, flickering arc-wings, a wide mischievous grin turned to the left. From the left edge a bare fingertip reaches for the knob, and a thin jagged thread of light already bridges the last finger-width of air between them.",
+    "light": "A dark corridor; the sprite is the only lamp, throwing cobalt-blue shadows of knob and finger across the wood."
+  },
+  "B3-05": {
+    "shot": "front", "dir": "F", "place": "X", "pal": "copperlab",
+    "scene": "Dead-on and symmetrical: a tiny gnome student stands in the exact middle of a round examination floor, facing us, while a blackened starburst of scorch marks radiates from its boots to every edge of the frame. Its wild hair smokes, brass goggles hang crooked on a big nose, the lab coat is singed at every pocket — and both arms hug a thick closed notebook tight against its chest, perfectly unharmed.",
+    "light": "Warm amber lamps ring the hall overhead, and a last yellow spark crawling along the copper rail behind picks out the student's edges."
+  },
+  "B3-06": {
+    "shot": "back", "dir": "R", "place": "L", "pal": "cobalt",
+    "scene": "A newly hatched storm-bird chick, seen from just behind, perches at the left on the rim of a nest woven from glassy fulgurite twigs, its slate-grey down still damp and broken eggshell at its feet. It leans out to the right over a gulf of rolling black cloud and tries its stubby wings, and every feather tip spits a tiny spark into the wind. Far below, the cloud floor flickers from within.",
+    "light": "Night inside the storm; pulses of lightning deep in the cloud rim the chick's down in cobalt and pale yellow."
+  },
+  "B3-09": {
+    "shot": "silhouette", "dir": "R", "place": "R", "pal": "wetglass",
+    "scene": "A flat black silhouette against a pale rain-grey sky: a flying squirrel in full glide, limbs flung wide, membranes stretched into a kite shape and tail streaming, crossing the right of the frame toward the right. Sagging wires hang across the sky in parallel rows, and the one it has just left has snapped — its two ends curl apart behind the animal, each spitting a small bright spark.",
+    "light": "Overcast daylight behind everything; the only colour is the yellow of the two sparks, doubled in the raindrops strung along the wires."
+  },
+  "B3-10": {
+    "shot": "close", "dir": "F", "place": "R", "pal": "wetglass",
+    "scene": "Tight on a black crow hunched in the rain, its head and breast filling the right half of the frame and its beak pointed straight at us. Blue-sheened feathers are beaded with water, and one unblinking eye holds a tiny reflected fork of lightning. Under its chest, twists of scavenged copper wire form the rim of a nest lashed around the base of a single upright metal spike that rises out of the top of the picture.",
+    "light": "Grey storm daylight, soft and wet; small yellow sparks creep along the spike and glint in every drop on the feathers."
+  },
+  "B3-12": {
+    "shot": "eye", "dir": "B", "place": "L", "pal": "flash",
+    "scene": "A hand-sized sprite of pure spark hovers with its back to us in the left of the frame, arms thrown wide and spiky hair on end, at the very centre of a bursting star of arcs. The burst is burning a fresh black star into a laboratory wall that has been whitewashed many times — ghosts of older scorch-stars still show through the paint — while a ladder, a bucket and a wet brush stand abandoned beside it, all seen from a few steps away at eye level.",
+    "light": "The burst itself bleaches the wall white-yellow and throws hard black shadows of ladder and bucket off to the right."
+  },
+  "B3-13": {
+    "shot": "silhouette", "dir": "R", "place": "C", "pal": "wetglass",
+    "scene": "Backlit against a tall rain-streaked window, a small artificial person sits in black silhouette on the rim of its own open glass vat, in the middle of a cluttered desk, facing right. The outline tells everything: an oversized bald head studded with electrode knobs, trailing wires, a thin arm holding a pen to a long ribbon of paper that spools off the desk in loops, carrying one endless jagged ink line.",
+    "light": "Pale grey night-rain light through the glass; each far-off flash prints a small yellow glint on the vat's rim and the wet pane."
+  },
+  "B3-14": {
+    "shot": "under", "dir": "L", "place": "R", "pal": "greensky",
+    "scene": "Looking up from the silty bed of a rust-stained river: a long dark eel slides leftward through the murk in the right of the frame, a row of glowing yellow organs running from gill to tail like a string of lamps. Flakes of rust drift around it. High above, the rippling surface shows the warped shape of a plank bridge and one bare foot held hesitating just over the water, toes curled back.",
+    "light": "Weak yellow-green daylight filters down through the rusty water; the eel's own stripes light the silt beneath its belly."
+  },
+  "B3-15": {
+    "shot": "echo", "dir": "F", "place": "B", "pal": "cobalt",
+    "scene": "A heavy iron chain sags across the lower part of the frame in a dark hall, and a jagged little figure made of branching lightning is caught three times along it in a single exposure: a fading blue ghost on the first link, a brighter one on the second, and the blinding white-yellow body itself springing off the third toward us. Beneath that third link a pair of long insulated tongs is falling, just let go.",
+    "light": "Pitch dark; the figure's three bodies are the only light, and each link it has touched still wears a violet-white corona."
+  },
+  "B3-16": {
+    "shot": "swarm", "dir": "B", "place": "T", "pal": "thunderhead",
+    "scene": "A web of copper-bright strands fills the whole frame from edge to edge, strung between riveted girders that cross the corners. Dozens of trapped beetles and moths hang in it like beads, and each one that struggles sends a pulse of yellow light running up its thread. All the pulses converge on the upper middle, where a large spider with copper-sheened legs sits with its back to us, drinking in the charge.",
+    "light": "Black storm sky behind the lattice; the web is its own light, brightest at the knots nearest the spider."
+  },
+  "B3-18": {
+    "shot": "macro", "dir": "F", "place": "R", "pal": "wetglass",
+    "scene": "A gnome engineer's eye, hugely magnified behind one brass goggle lens, fills the right half of the frame in extreme close-up and peers straight at us, wild eyebrow hair curling over the rim. In front of the lens, sharp and enormous, two stubby soot-stained fingers hold tweezers and thread a hair-thin copper wire between the teeth of a steel cogwheel. Out of focus behind: a cold mug and the head of a heavy smith's hammer.",
+    "light": "Grey dawn through a wet workshop window; one bead of solder glows yellow at the wire's end and twinkles in the lens."
+  },
+  "B3-20": {
+    "shot": "eye", "dir": "F", "place": "B", "pal": "thunderhead",
+    "scene": "Across a slab of rain-wet rock, at its own eye level, a dog-sized scorpion with a dark segmented shell faces us squarely from the lower part of the frame, claws spread and tail arched high over its back. At the tip a crackling ball of lightning is swelling, pulling loose threads of light up out of the puddles around its legs. Pinned under one claw lies a scorched sheet of drafting paper bearing a single inked curve in the shape of that tail.",
+    "light": "Black storm sky; the stinger's yellow glare lights the shell from above and lies doubled on the wet stone."
+  },
+  "B3-22": {
+    "shot": "back", "dir": "L", "place": "C", "pal": "cobalt",
+    "scene": "From behind a boxy guardian machine of riveted steel and copper coils, squatting on the parapet above a city gate: its coil-crowned back fills the middle of the frame, porcelain insulators gleaming. Past its left flank we look down a night road where a short file of travellers approaches, tiny and dim — except that every buckle, blade and wheel rim among them is picked out by a small trembling spark.",
+    "light": "Deep blue night; the machine's coils hum with a yellow glow that reaches down the road only where it finds metal."
+  },
+  "B3-23": {
+    "shot": "over", "dir": "B", "place": "R", "pal": "copperlab",
+    "scene": "Over the shoulder of a glass jar on spindly brass legs, standing at a lectern in the right foreground: inside, a wrinkled brain floats in glowing fluid, copper wires trailing from it like a wig. Beyond the jar, tiers of wooden benches climb into shadow, filled with small slumped students. A single thin arc leaps from the jar's lid across the hall to the back row, where one sleeper has just shot upright, hair on end.",
+    "light": "Amber lecture-hall lamps and the jar's own yellow fluid; the arc draws one sharp bright line through the brown gloom."
+  },
+  "B3-24": {
+    "shot": "pov", "dir": "F", "place": "L", "pal": "flash",
+    "scene": "Through a brass-rimmed magnifying glass that our own gloved hand holds up in the left of the frame, a large moth clings to a soot-dark wall with its wings just snapping open. The two eye-spots on those dusty wings are bursting into blinding white-yellow, bleaching the lens, the glove and the wall, and the first hard black shadows are already flying outward. Dust shaken from the wings hangs sparkling in the glare.",
+    "light": "The moth's flash is the whole light of the scene, overexposing its centre and leaving only the edges of things dark."
+  },
+  "B3-25": {
+    "shot": "top", "dir": "R", "place": "C", "pal": "wetglass",
+    "scene": "Straight down from above, like a map: wet flagstones laid out with a neat grid of a hundred brass compasses, each a plain glass-faced disc with a single needle. Through the middle strides a jagged man-shaped figure of branching lightning with a blinding core, moving toward the right and trailing forked afterglow. Every needle near it has swung to point at it; those it has already passed are spinning in blurred circles.",
+    "light": "Rainy night; the figure throws hard yellow light outward across the stones, and each compass glass doubles it as a tiny spark."
+  },
+  "B3-26": {
+    "shot": "close", "dir": "R", "place": "X", "pal": "copperlab",
+    "scene": "An elderly gnome scholar, big-nosed, with singed tufts of white hair, holds a bare forearm up across the whole width of the frame like a certificate, in a tight close-up. Branching fern-like lightning scars run from the fingertips over the arm, up the neck and across the bald crown, each faintly lit from inside. The face, turned three-quarters to the right, wears the calm pride of someone showing a diploma; cracked brass goggles are pushed up on the forehead.",
+    "light": "A warm amber study lamp from the left; the scars carry their own thin yellow light along the skin."
+  },
+  "B3-27": {
+    "shot": "far", "dir": "B", "place": "R", "pal": "greensky",
+    "scene": "Deep under a city a vaulted brick cavern opens out, and far away at its right end stands a single glass drum the height of a grain silo, banded with copper hoops and brimming with slow-coiling light. A narrow catwalk leads away from us across the dark toward it, and on it two tiny figures creep forward on tiptoe with a shuttered lantern, its little flame leaning toward the glass. Fine threads of spark stray from the terminals to the nearest hoops.",
+    "light": "The drum's sour yellow-green glow is the only light in the vault, laying faint highlights on wet brick and the catwalk rail."
+  },
+  "B3-29": {
+    "shot": "reflect", "dir": "L", "place": "B", "pal": "wetglass",
+    "scene": "We look down into a broad rain pool on black rock, and the pool holds the whole sky: a brooding thundercloud hangs upside-down in it, filling the lower two-thirds of the frame, a vague heavy-browed face formed by its billows and turned to the left, lightning flickering behind the eyes. A few last raindrops ring the face with ripples. Along the top edge runs a thin strip of the real far shore, where one fine bolt comes down to touch the water.",
+    "light": "Pale grey rain light on the water; the cloud's inner flashes and the single bolt lay small yellow sparks on every ripple."
+  },
+  "B3-31": {
+    "shot": "through", "dir": "N", "place": "B", "pal": "wetglass",
+    "scene": "Between two leaning iron pylons in the foreground a fence of live lightning is strung in five sagging, spitting strands, and we look through it. Beyond, low in the frame, squats a windowless fort of riveted plate and lattice turrets, its only wall this ring of arcs marching away around it. On our side of the fence every thistle head and grass blade stands stiffly on end, leaning toward the wire.",
+    "light": "Wet grey dusk; the fence strands burn yellow and lay trembling reflections on the puddled track that leads to the fort."
+  },
+  "B3-32": {
+    "shot": "profile", "dir": "R", "place": "R", "pal": "flash",
+    "scene": "In strict side view, flat as a carved frieze, a giant of blue stone and storm cloud strides to the right across a treeless moor, filling the right two-thirds of the frame from ground to sky. Lightning runs in its limbs like veins and cloud boils off its shoulders. Under its leading heel a bolt has just struck, and behind it a row of earlier bolts still stands in each footprint. An old stone watchtower reaches only to its shin.",
+    "light": "The newest strike bleaches the ground white-yellow and cuts the giant's legs into hard dark shapes against it."
+  },
+  "B3-33": {
+    "shot": "tilt", "dir": "U", "place": "C", "pal": "cobalt",
+    "scene": "The frame pitches steeply: on the swaying needle-tip of the highest tower, in the centre, a tiny old gnome in a long many-pocketed coat leans out over the abyss, one hand hooked around the rod, the other thrusting an open glass bottle up at the sky. Coat-tails and white hair whip sideways. Above, the whole storm bends toward that little bottle, its lightning coiling into one long serpentine shape with the hint of a dragon's horned head.",
+    "light": "Deep blue storm night; the coiling lightning overhead is the light, rimming the gnome and the bottle in yellow-white."
+  },
+  "B3-34": {
+    "shot": "eye", "dir": "L", "place": "L", "pal": "thunderhead",
+    "scene": "At eye level in a walled work yard, a house-sized walking engine of riveted steel squats in the left of the frame, facing left, the row of fat glass domes along its back just beginning to glow. The yard around it emptied a breath ago: a ladder still rocks against its flank, a wrench lies where it fell, a dropped cap is still rolling, and the gate at the right swings on its hinges.",
+    "light": "Black cloud presses low over the yard; the domes' rising yellow glow is the main light, with a thin cold rim of daylight along every rivet."
+  },
+  "B3-36": {
+    "shot": "far", "dir": "L", "place": "T", "pal": "flash",
+    "scene": "Far across the rooftops of a city of chimneys and wire, a beast the size of a cathedral crouches on the highest roof ridge like a cat on a wall, in the upper part of the frame: wolf-headed and long-bodied, facing left, its blue-white fur bristling with arcs and its tail a jagged zigzag still joined to the sky by the bolt it rode down. On every roof around it, weathervanes and little wind-wheels are spinning themselves into bright blurs.",
+    "light": "The bolt's white-yellow flash floods the scene from above and turns the roofs into hard black steps, while the beast's own fur gives a cooler rim."
+  },
+  "B3-41": {
+    "shot": "back", "dir": "R", "place": "L", "pal": "greensky",
+    "scene": "A squat walking machine wrapped in black rubber sheeting and studded with white porcelain knobs stands like a wall in the left of the frame, seen from its sheltered side with its back to us. Beyond it to the right, bolt after bolt forks down out of a sick green sky and bends away around its outline. In its lee the ground is dry and perfectly calm, and a stray dog lies there asleep.",
+    "light": "Flat yellow-green storm light; the strikes flare yellow on the far side and leave the machine's back in dull matt shadow."
+  },
+  "B3-42": {
+    "shot": "high", "dir": "D", "place": "L", "pal": "cobalt",
+    "scene": "Looking down from above the storm: a translucent jellyfish the size of a barn floats in the left of the frame, its bell a small glowing cloud, and its long tentacles hang straight down through a ragged hole in the cloud deck to a land tiny and dark far beneath. Light runs down every tentacle in beads. One of them has snagged a paper kite, and the kite's string glows all the way to the ground.",
+    "light": "Moonless cobalt night above the clouds; the bell's violet-white corona lights the cloud rim, and the tentacles carry yellow down into the dark."
+  },
+  "EP-B3-1": {
+    "shot": "over", "dir": "B", "place": "T", "pal": "thunderhead",
+    "scene": "Over the hunched shoulder of a stitched-together creature — patched hide laced with copper wire, a bolt at the neck, glass gauges sunk into its back — standing on a rain-swept rampart with its back to us. The upper frame is a sky full of incoming arrows and slung stones, and from the electrodes along its spine thin crooked arcs leap up to them one by one; each missile touched goes dark and drops, smoking, like a shot bird.",
+    "light": "Storm dusk with driving rain; the arcs light the downpour in yellow sheets and rim the creature's wet shoulders against black cloud."
+  },
+  "EP-B3-2": {
+    "shot": "front", "dir": "F", "place": "C", "pal": "cobalt",
+    "scene": "Head-on and symmetrical: the open jaws of a serpent made of living lightning rush straight at us in the centre of the frame, fangs of white fire, eyes like arc lamps. Behind the head its zigzag body runs back down the middle of a drowned parade ground, threaded through a receding row of empty iron armours on posts like a needle through beads — each breastplate it has passed glows and steams in the rain.",
+    "light": "A night downpour; the serpent's white-blue body lights the falling rain from within, and its glare shivers across the flooded ground."
+  },
+  "EP-B3-3": {
+    "shot": "cut", "dir": "R", "place": "L", "pal": "wetglass",
+    "scene": "A cross-section through the storm plateau. In the lower half, cut open like a diagram, a root of pale branching light as thick as a river lies in the black rock — a sleeping nerve. Above, in the left of the frame, a colossal lattice tower bristling with rods walks to the right across the surface on four iron legs, and from each foot a copper taproot plunges down through the stone to drink from the nerve; the lifted foot trails its root, dripping sparks, as rain sweeps past in sheets.",
+    "light": "Rain-grey daylight above ground; below, the nerve glows yellow-white and lights the cut rock from inside."
+  },
+  "PN-B3-C1": {
+    "shot": "through", "dir": "R", "place": "X", "pal": "greensky",
+    "scene": "Seen through a ring of reaching arms: thick rubber gloves and coat sleeves push in from every edge of the frame toward a wicker basket padded with scorched rags. In it sits a wolf-and-weasel cub the size of a kitten, blue-white fur fizzing with harmless sparks, stubby zigzag tail upright, looking off to the right with complete calm. The loose threads on every sleeve stand straight out toward it.",
+    "light": "Yellow-green daylight under a brewing sky; the cub's fur is a soft lamp lighting the gloves from the middle."
+  },
+  "PN-B3-C2": {
+    "shot": "ground", "dir": "L", "place": "L", "pal": "flash",
+    "scene": "A glass drum on six spindly brass legs, crammed so full of lightning that it bulges white, scrabbles toward the left across the left of the frame, seen by a camera lying on the cobbles of a lane. Popped rivets and a snapped copper hoop litter the foreground stones. Hairline cracks craze the glass, its last hoops strain, and stray arcs whip from the terminal knobs down to the ground at every stride.",
+    "light": "The drum's glare bleaches the lane white-yellow and throws the legs' black shadows long across the cobbles toward us."
+  },
+  "PN-B3-C3": {
+    "shot": "profile", "dir": "R", "place": "L", "pal": "wetglass",
+    "scene": "Seen exactly side-on, like a figure on a wall relief, a massive walking engine plods to the right in the left half of the frame, its body wrapped in overlapping skirts of black rubber and thick green glass plates. Along its flank a whole row of snapped sword blades and spearheads stands embedded, every one sunk to the same shallow depth, and a fork of lightning splashing against the same flank spreads out flat and runs off in harmless rivulets.",
+    "light": "Pale grey rain light; the glass plates hold cool reflections, and the spent bolt leaves small yellow sparks hopping in the puddles."
+  },
+  "PN-B3-E": {
+    "shot": "far", "dir": "R", "place": "C", "pal": "cobalt",
+    "scene": "Far across a flat night heath, a single seam of light runs dead straight along the ground from the left edge to the horizon — an exposed nerve of the land. Small in the centre, a walking machine as tall as a windmill straddles it on long legs, a copper-banded glass drum slung beneath like a spider's body, drinking the glow. A pulse has just passed through it and races on to the right, and every pylon standing in line down the seam shudders in a ring of sparks while the clouds above brighten in the same row.",
+    "light": "Cobalt darkness; the seam and the travelling pulse are the light, laying long shadows outward to both sides."
+  },
+  "PN-B3-U1": {
+    "shot": "swarm", "dir": "L", "place": "R", "pal": "flash",
+    "scene": "The whole frame is a storm of small iron things in flight — nails, keys, needles, horseshoes, a pair of scissors — all streaming along great curving lines, like filings around a magnet, toward the right. There, where the curves gather, floats a small rough figure of dark, lightning-pitted iron, facing left with arms open, bearded with clinging filings, a bent copper rod for a spine. Blue sparks jump wherever two pieces touch.",
+    "light": "A white-yellow flash behind the figure turns the flying iron into hard black shapes with bright edges, each spark a blue pinpoint."
+  },
+  "PN-B3-U2": {
+    "shot": "tilt", "dir": "L", "place": "X", "pal": "thunderhead",
+    "scene": "The horizon tips steeply as a great slate-grey storm bird launches itself from a boulder, wings flung across the whole width of the frame, lightning-tipped plumes streaking, beak and arc-lamp eyes aimed to the left. The boulder it has just left is already taking a bolt. Down the tilted slope behind, every earlier perch is a scorched rock with a surveyor's wooden stake and a strip of rag hammered in beside it.",
+    "light": "Black thunderhead; the fresh strike lights the bird's underwings yellow from below and behind."
+  },
+  "UN-B3": {
+    "shot": "inside", "dir": "F", "place": "X", "pal": "copperlab",
+    "scene": "From inside a great empty glass jar, looking out: the curved wall bends the world like a lens, and pressed close to it from outside is the watchful face of an old gnome — big nose flattened a little against the glass, brass goggles, wild grey hair, both small palms spread on the surface. Between us and that face, in the middle of the jar's air, loose threads of lightning drift together and knot into a small bright tangle, as if remembering a shape.",
+    "light": "The gathering tangle is the single light, painting the keeper's face from below in yellow while the amber-brown laboratory behind falls away into darkness."
+  },
+  "UN-B3-7": {
+    "shot": "ground", "dir": "L", "place": "X", "pal": "thunderhead",
+    "scene": "The camera lies in trampled mud among the litter of a rout: a dozen dropped coins, every one fallen with the same death's-head face upward, a snapped horseshoe, a pair of dice both showing a single pip. All of it is creeping leftward in little furrows, drawn toward a colossal lattice tower that strides across the left of the frame, wound from foot to crown in a slow spiral of live lightning like thread on a spindle. Arcs of iron filings hang in the air between.",
+    "light": "The spiral of lightning is the stage light, raking across the mud from the left, gilding the coin rims and leaving the far field black."
+  },
+  "UP-B3-12": {
+    "shot": "through", "dir": "F", "place": "L", "pal": "wetglass",
+    "scene": "Glimpsed between the rungs of a paint-spattered ladder: the same hand-sized spark sprite, grown brighter and steadier, sits enthroned on the rim of a whitewash bucket in the left of the frame, facing us. Her spiky hair has drawn itself up into a crown of standing arcs, and between her cupped palms she holds a tight, patient ball of lightning. On the wall behind her head three old black scorch-stars make a ragged halo, and two lesser sprites circle like moths.",
+    "light": "Pale grey window light from the right; the held spark lays a small yellow glow on the wet paint and doubles in the bucket's water."
+  },
+  "UP-B3-18": {
+    "shot": "profile", "dir": "R", "place": "L", "pal": "flash",
+    "scene": "Along a long workbench at first light, in strict side view: at the left end the same big-nosed gnome engineer — brass goggles pushed up into wild hair, a smith's hammer hung from the belt — stands on a stool and throws a knife switch with both hands, facing right. Down the bench runs one finished machine built in three plainly different styles, toothed gears, copper windings and glass valves, now joined by a single wire and waking section by section. Three empty chairs stand pushed back.",
+    "light": "The first surge flares white-yellow in the windings and prints the gnome's profile in hard black against it."
+  },
+  "UP-B3-22": {
+    "shot": "inside", "dir": "F", "place": "R", "pal": "flash",
+    "scene": "An iron helmet seen from inside: we look out through its narrow eye-slit, whose dark edges frame the view above and below. Out there in the right of the slit, astride a city gate, stands the same boxy guardian machine of riveted steel and porcelain insulators grown colossal, crowned now with three stacked rings of copper coil and turned to face us. A bolt has already left it — a white-yellow branch crossing the whole distance toward the slit, whose inner rim is beginning to glow.",
+    "light": "The oncoming bolt bleaches road and gate white-yellow and turns the helmet's interior into hard black."
+  },
+  "UP-B3-23": {
+    "shot": "far", "dir": "N", "place": "C", "pal": "greensky",
+    "scene": "Down the long slope of benches of an empty lecture hall at night, seen from the very back row: far away at the lectern, in the centre, stands the same brass-legged jar with its wire-wigged brain, now flanked by two more jars, all three bound together by loops of copper cable. Furious little arcs snap back and forth between the three lids as they go on arguing to the vacant seats. A mop and bucket wait in the aisle.",
+    "light": "Their fluid glows a sour yellow-green, the only light in the hall, flickering on the varnished bench-backs with every retort."
+  },
+  "UP-PN-B3-C2": {
+    "shot": "high", "dir": "L", "place": "C", "pal": "wetglass",
+    "scene": "Seen from a rooftop, looking down into a cobbled lane: the same six-legged glass drum walks calmly to the left through the middle of the frame, its old cracks mended with bright seams of solder, a leather harness buckled over its copper hoops and a long rein leading out of the picture. From a little brass tap on its lid it lets go one small, exact spark at a time — and each street lamp it passes blinks alight behind it.",
+    "light": "Rainy dusk; the newly lit lamps and the drum's steady yellow glow lie doubled on the wet cobbles."
+  },
+  "CS-B3": {
+    "shot": "transform", "dir": "N", "place": "C", "pal": "greensky",
+    "scene": "A great wheel of pale witch-fire — some enemy's spell — hangs in the air over a battlefield, caught half-changed: its left half still turns and blazes, its right half has gone dark and brittle like burnt wire, shedding ash. Exactly on the seam, one humble strand of copper wire lies hooked across two of the wheel's spokes, glowing white-hot and pouring the stolen light down into the mud as a thin waterfall of sparks.",
+    "light": "Flat green-yellow storm light; the wheel's dying glow and the falling sparks are the bright things, with a hard glint along the wire."
+  },
+  "GN-B3-1": {
+    "shot": "macro", "dir": "R", "place": "C", "pal": "copperlab",
+    "scene": "Extreme close-up of chain mail, each iron ring as big as a fist in the frame. One ring is rusted thin, and exactly through it passes a long copper needle travelling to the right, drawing behind it a thread of live lightning that has already stitched through a second weak ring further left. Around both punctures the links glow and begin to part.",
+    "light": "Warm amber gloom; the thread's yellow filament glare runs along the needle and beads on the oiled iron."
+  },
+  "GN-B3-2": {
+    "shot": "impact", "dir": "D", "place": "L", "pal": "flash",
+    "scene": "The instant of impact, close up: a bolt as thick as a tree trunk slams down in the left of the frame onto an iron-plated war cart at the head of a column, which is already bursting into white splinters. From the strike point crawling arcs fan out along the soaked ground, racing away under a receding line of boots and spear-butts and climbing each one in turn. Mud and steam jump up in a ring.",
+    "light": "Everything is bleached white-yellow by the strike, with the boots and spear shafts cut out as hard black shapes."
+  },
+  "HB3-1": {
+    "shot": "before", "dir": "N", "place": "R", "pal": "wetglass",
+    "scene": "The held breath before a strike: on a rain-wet windowsill in the right of the frame stands a small glass bell holding two leaves of gold foil, which have just sprung wide apart. Beyond the pane the sky is still whole, yet a faint ghost of the coming bolt already hangs there — a pale, spidery branching line from cloud to far hilltop. Every raindrop on the glass has stopped mid-slide.",
+    "light": "Even grey rain light; the gold leaves hold the one warm glint, repeated tiny in each stilled drop."
+  },
+  "MB-03": {
+    "shot": "pov", "dir": "F", "place": "L", "pal": "cobalt",
+    "scene": "Straight at us: the open neck of a big glass jar, tipped on its side on a sandbag in the left of the frame, has become the muzzle of a gun. Its cork spins away past the edge of the picture, and out of the neck explodes a furious tangle of pent-up lightning, forking wider as it comes, three bright prongs already almost touching the viewer. Inside the glass the rest still boils and crowds toward the opening.",
+    "light": "Deep blue night; the burst is yellow-white with violet-edged coronas and lights the jar's glass from the inside."
+  },
+  "MB-07": {
+    "shot": "path", "dir": "R", "place": "X", "pal": "copperlab",
+    "scene": "Seen from the side, a thick copper cable runs the whole width of the frame along a workshop wall, from a humming generator at the left to three sword blades clamped in a rack at the right. Every safety fuse along it has been pulled and hangs by its cord. A fat bulge of white current is travelling down the line: behind it the cloth insulation smokes and chars, ahead of it the three blades are starting to shine.",
+    "light": "Warm amber workshop gloom; the travelling surge glares yellow-white and drags a trail of lamp-lit smoke behind it."
+  },
+  "MB-11": {
+    "shot": "top", "dir": "N", "place": "C", "pal": "greensky",
+    "scene": "Directly overhead, looking down on a patch of dark ground ruled with chalk lines into a careful aiming grid. Exactly on the central cross lies a great star of fresh scorch, at its heart the melted stump of a huge two-handed axe. Just outside the grid's lower edge sits a second, much smaller scorch — right under a brass sighting tripod, one of whose three legs is quietly on fire.",
+    "light": "Flat yellow-green storm light; the big scorch still glows yellow in its cracks and the small flame on the tripod leg adds one warm point."
+  },
+  "MC-08": {
+    "shot": "ring", "dir": "N", "place": "C", "pal": "thunderhead",
+    "scene": "Concentric rings of lightning spread outward across a sheet of standing water from one strike point in the centre of the frame, like ripples from a dropped stone, each ring a thin crackling circle. A crested iron helm stands on a post in the shallows, caught as a ring passes through it: on the side still ahead of the ring it wears a glowing shell of protective light and a wreath of thorns; on the side already crossed, shell and thorns are lifting away in curled flakes.",
+    "light": "Black storm sky over grey water; the rings are searing yellow, each carrying its own reflection, with a cold rim along the helm's crest."
+  },
+  "NB3-1": {
+    "shot": "origin", "dir": "B", "place": "C", "pal": "copperlab",
+    "scene": "We look straight down the bolt's own path. Close in front, a round iron shield has a fist-wide hole burnt clean through its centre, the rim dripping molten yellow; through that hole we see a second shield further on with a smaller hole, and through that a third, where the last thin thread of lightning is just now arriving. The holes line up like the rings of a telescope, each dimmer than the one before.",
+    "light": "Coppery dusk-brown gloom; the molten rims are the light, brightest nearest us and fading down the tunnel of holes."
+  },
+  "NB3-2": {
+    "shot": "symbol", "dir": "L", "place": "C", "pal": "copperlab",
+    "scene": "An emblem laid out on a dark slate tabletop: a brass spring-flipper with its arm just released, and above it a single coin hanging in mid-air, already turned face-up — a stamped sun — and held there by two thread-fine arcs from a pair of copper prongs. Beneath it a neat row of five more coins lies in a line pointing left, every one showing the same sun, linked rim to rim by tiny sparks.",
+    "light": "Warm lamplight from the left on brass and copper; the two arcs give the hanging coin a sharp yellow rim."
+  },
+  "PS-B3-2": {
+    "shot": "under", "dir": "R", "place": "C", "pal": "wetglass",
+    "scene": "Lying beneath it all and looking straight up at a rain-grey sky: two heavy cables cross overhead in a great X. One ends in a brass clamp biting the head of a huge war hammer in the upper left, whose glow is draining away to dull iron; the other ends in a clamp on a little dagger in the lower right, which blazes brighter by the moment. Along the cables the light can be seen flowing from the one to the other, and raindrops fall toward us past it all.",
+    "light": "Soft grey daylight from above; the travelling current is a string of small yellow sparks, mirrored in the falling drops."
+  },
+  "RB3-1": {
+    "shot": "far", "dir": "U", "place": "X", "pal": "flash",
+    "scene": "The whole plateau is seen at once from a far ridge at night, and all of it is alight: a vast branching tree of lightning lies flat across the land from edge to edge of the frame, every branch a glowing seam in the ground, and from each seam short bolts leap upward into the cloud ceiling like grass in wind. The chimneys and spires of a small city are thin black hairs against the glare, and the ground itself seems to flinch.",
+    "light": "The land's own white-yellow glare lights the cloud base from below and blacks out everything standing on it."
+  },
+  "SB3-01": {
+    "shot": "object", "dir": "L", "place": "L", "pal": "cobalt",
+    "scene": "A small grey fur pelt hangs over a wooden rail in the left of the frame, every hair standing straight out like a startled cat, a rod of honey-coloured amber still resting where it was rubbed. From the bristling hair tips three tiny crooked sparks are jumping to the left, each to one of three iron buckles on a belt that hangs from a nail at the frame's edge.",
+    "light": "A dark room; the three sparks are the only light, pale yellow with blue fringes, just enough to show the fur's halo."
+  },
+  "SB3-02": {
+    "shot": "cut", "dir": "D", "place": "R", "pal": "thunderhead",
+    "scene": "A cross-section of the ground under a storm. Above the surface, in the right of the frame, a single iron rod stands on a low rise, and a great bolt that was falling elsewhere has bent sideways in mid-sky to pour itself down it. Below the surface the earth is cut open: the rod's buried copper root carries the fire down and lets it fan out into the dark soil in fading branches, harmless among stones, roots and one sleeping mole.",
+    "light": "Black cloud above; the bent bolt is searing yellow, dimming to a faint glow as it spreads underground."
+  },
+  "SB3-03": {
+    "shot": "swarm", "dir": "N", "place": "X", "pal": "copperlab",
+    "scene": "The whole frame is filled, edge to edge, with turn upon turn of bright copper wire wound tight around a great spool — hundreds of parallel lines like a ploughed field. A soft glow is rising inside the windings from the bottom of the picture upward, tiny sparks hop from one turn to the next, and a dusting of iron filings stands on end along the wire like fur. Two axe heads laid across the windings have begun to shine.",
+    "light": "Amber lamplight on the copper from the left; the charge adds a yellow shimmer that climbs turn by turn."
+  },
+  "SB3-04": {
+    "shot": "through", "dir": "N", "place": "C", "pal": "flash",
+    "scene": "The view is framed like a doorway by a ragged breach in a thick city wall, and the gap is hung from top to bottom with a curtain of fine vertical lightning threads, swaying a little like strings of beads. Through its shimmer, on the far side, three dim shapes have stopped short, each with one arm half raised. On the rubble at the curtain's foot lie three dropped spears, their iron heads still fizzing.",
+    "light": "The curtain's white-yellow glare fills the breach and turns the wall's broken edges into hard black teeth."
+  },
+  "SB3-05": {
+    "shot": "after", "dir": "D", "place": "B", "pal": "cobalt",
+    "scene": "Aftermath at the foot of a barricade: a row of squat glass storage drums stands shoulder to shoulder across the top of the frame, a low steady fence of arcs humming from terminal to terminal. On the churned ground before them, in the lower part of the picture, lies a single dropped sword, still smoking — its tip blued by heat, its leather grip scorched with the dark print of four fingers — and beside it one empty gauntlet, fingers curled.",
+    "light": "Blue night; the arc fence gives a low yellow light with violet-white haloes, catching the sword's edge and the wisps of smoke."
+  },
+  "SB3-06": {
+    "shot": "top", "dir": "R", "place": "L", "pal": "thunderhead",
+    "scene": "High above the ground, looking straight down: a black, lightning-veined cloud slides across the left of the frame, towed by a cable drawn taut as a fishing line. The cable runs down to the right, to a great brass winch bolted to bare rock, its reel turning. All around the winch a cluster of small round umbrellas has just popped open, seen from above as a scatter of neat dark discs.",
+    "light": "Rain-grey daylight; the cloud's inner bolts flare searing yellow through its top, and the first drops streak the umbrellas."
+  },
+  "SB3-09": {
+    "shot": "swarm", "dir": "D", "place": "X", "pal": "cobalt",
+    "scene": "It is raining lightning. The whole frame is filled with hundreds of short thin bolts falling on a slant like a downpour, over a street of steep roofs and the tents of a siege camp beyond the wall. Where real rain would splash, each bolt bursts into a little crown of sparks — on the cobbles, on the roof slates, on the tent poles — and the gutters run with liquid light toward us.",
+    "light": "Night; countless yellow-white strokes with violet edges light the street from every side at once."
+  },
+  "US-B3-1": {
+    "shot": "inside", "dir": "N", "place": "X", "pal": "greensky",
+    "scene": "In the middle aisle of a storehouse, in the instant every jar on its tall shelves bursts at once: thousands of glass shards hang in the air like frozen hail, and six freed bolts go wild among them, each a different way — one corkscrewing up through the roof, one skipping along a rafter, two caroming off the iron pillars, one diving to the floor, one swerving straight toward us. Slates lift off overhead and storm rain pours in through the holes.",
+    "light": "Sick yellow-green storm light through the broken roof; the bolts are hard yellow and every shard carries a spark."
+  },
+  "US-B3-2": {
+    "shot": "column", "dir": "U", "place": "L", "pal": "thunderhead",
+    "scene": "Out of a long seam that has opened in the earth from our feet to the horizon, four pillars of lightning stand straight up into the cloud in a receding row: the nearest, in the left of the frame, as thick as an old oak and blinding, the next two a little slimmer, the last far off and thin. Each has punched a glowing hole in the overcast, rings of flung gravel and dust hang around their bases, and at the foot of the nearest a timber palisade is flying apart in splinters.",
+    "light": "The pillars light the underside of the black storm in yellow-white rings and throw four sets of long shadows across the scorched ground."
+  },
+  "C4-1": {
+    "shot": "macro", "dir": "D", "place": "C", "pal": "cobalt",
+    "scene": "So close that the orb's curve fills the frame from side to side: within the clear crystal hang hundreds of tiny bright motes, a whole night sky sealed in glass. A hair-thin thread of lightning is travelling among them of its own accord, hopping from mote to mote downward through the middle of the sphere and leaving each one joined to the last, so that a crooked constellation grows as we watch. One brass claw of its cradle intrudes at the lower edge.",
+    "light": "Deep blue dark inside the glass; the thread is yellow-white, each touched mote flaring with a small violet-white corona and a fine glint on the brass."
+  },
+  "IB3-1": {
+    "shot": "top", "dir": "N", "place": "T", "pal": "copperlab",
+    "scene": "Laid out neatly and seen from straight above on a scorched leather work mat: in the upper part, a wrist coil — a snug spiral of bright copper wire, seven turns, riveted to a worn buckled strap with two brass contact studs. Below it lie the things that go with it: wire snips, a wooden winding peg, a few curled offcuts, a stub of beeswax. Across the mat run two old burn lines side by side, one hair-thin, one twice as fat.",
+    "light": "Warm lamplight from one side; copper and brass glow amber, and a last tiny yellow spark sits on one stud."
+  },
+  "IB3-2": {
+    "shot": "hung", "dir": "N", "place": "L", "pal": "wetglass",
+    "scene": "A pair of heavy quilted gauntlets hangs by wooden pegs from a wire strung across a rainy yard, in the left of the frame, like washing put out to catch the storm. Copper threads are stitched across the knuckles and small brass studs dot the fingertips. The left glove has taken a charge and glows from inside, its fist a soft lantern; its twin beside it hangs dark, dripping and perfectly ordinary.",
+    "light": "Pale grey sky behind them; the lit glove's yellow shines through the wet leather seams and in the drops falling from the other."
+  },
+  "IB3-3": {
+    "shot": "used", "dir": "N", "place": "T", "pal": "greensky",
+    "scene": "Planted upright and alone on a bare hilltop stands a tall ash-wood staff, its upper end rising into the top of the frame, where a forked copper spike is bound on with wire and still glows from the strike it has just taken. Thin arcs keep hopping off the prongs of their own accord to the nearest grass heads. At its foot the sandy soil has fused into a collar of rough glass, faintly smoking.",
+    "light": "Flat yellow-green sky behind; the spike's fading glow and the stray arcs are the sharp yellow notes, with a pale rim down the wood."
+  },
+  "IB3-4": {
+    "shot": "motion", "dir": "D", "place": "R", "pal": "flash",
+    "scene": "Caught in the instant it meets the floor: a stoppered glass jar, dropped, strikes the flagstones in the right of the frame and opens like a flower — curved shards flying outward, the wax-sealed cork spinning up, a copper carrying-ring bouncing away. From the heart of the break the freed bolt bursts in every direction at once, brighter than it ever was behind glass.",
+    "light": "The burst bleaches the floor white-yellow and turns each flying shard into a hard black blade with a burning edge."
+  },
+  "IB3-5": {
+    "shot": "through", "dir": "U", "place": "L", "pal": "cobalt",
+    "scene": "Glimpsed through the brass lattice of a locked book-cage in a dim library: a single massive volume lies closed on a slanted desk in the left of the frame, bound in scorched grey leather with copper corners and a heavy clasp, a grounding chain running from its spine to the floor. From between its pages a dozen slender forks of lightning stand up like bookmarks of light, licking the inside of the cage.",
+    "light": "Blue darkness; the little forks give a cold yellow-white light that picks out the lattice in silhouette."
+  },
+  "PI-B3": {
+    "shot": "reflect", "dir": "R", "place": "R", "pal": "greensky",
+    "scene": "Alone on a storm-swept stone table in the right of the frame stands a tall, heavy-shouldered glass jar, its copper lid torn open from inside and curled back like a peel. A few leftover threads of lightning twitch within. Its curved side mirrors the world behind us: racing cloud, bending grass — and, filling that reflected sky, the vast bright outline of a many-armed figure of lightning leaning down toward its old prison.",
+    "light": "Eerie flat yellow-green storm light and a gale tearing at the grass; the reflection burns sharper and yellower than anything real in the scene."
+  },
+  "IR-B3": {
+    "shot": "stored", "dir": "R", "place": "L", "pal": "flash",
+    "scene": "On the left, across a deep stone window ledge, a staff lies in two brass cradles: an ash-wood shaft bound with copper wire, ending in a sawn-off tower finial — a tapering copper spike with a ball and four prongs, green in the creases, the saw-cut end still bright. It points right, out through the open window, and at this instant a bolt is coming down exactly where it points, onto a lone iron post far out on the moor. On the skyline beyond stands the tower it came from, flat-topped where its tip was taken.",
+    "light": "The strike bleaches the window to white-yellow and turns staff, cradles and ledge into hard black shapes with burning copper edges."
+  },
+  "PN-B3-R": {
+    "shot": "ground", "dir": "L", "place": "T", "pal": "copperlab",
+    "scene": "From puddle level on a cobbled lane: two copper stilt-feet stand in the foreground, and high in the upper frame a tiny big-nosed gnome in a many-pocketed coat strides leftward on them, goggles down, reaching a glass-handled rod to drop a spark into the next empty jar on an overhead wire. The jars behind him glow amber like street lamps; those ahead hang dark. Beside the lens one jar lies freshly shattered, and from its shards a thread of lightning runs over the wet stones to the butt of a sentry's staff, whose tip blazes double.",
+    "light": "Amber dusk between copper-roofed walls; the lit jars cast a warm filament-yellow down the lane and gild the wet cobbles."
+  },
+  "PS-B3-1": {
+    "shot": "impact", "dir": "B", "place": "R", "pal": "greensky",
+    "scene": "At arm's length behind two front-rank fighters, seen only as plated backs in the right of the frame: bolted between each pair of shoulder blades is a copper frame of coils and glass tubes with a short rod on top, and a sagging cable joins the two. A hair-thin thread of lightning has just come down from the sky onto the nearer rod; it crosses the cable as thick as a rope and bursts from the farther frame away from us, thick as a tree trunk, toward a far siege tower. Every helmet plume stands on end.",
+    "light": "Flat yellow-green storm light over a rain-flattened plateau; the bolt is electric yellow, thin above and blinding where it leaves, rimming both backs."
+  },
+  "RS-B3-1": {
+    "shot": "after", "dir": "N", "place": "B", "pal": "thunderhead",
+    "scene": "Three tall glass lightning jars stand in a row along the lower part of the frame, on a rain-wet parapet, joined neck to neck by one thick copper bar — and all three are spent: each belly dark and fogged from inside, each lid lifting an identical curl of smoke, the bar still glowing dull yellow from end to end. Beyond them the plain shows where the charge went: three scorched discs in a file along a trampled road, one behind another, each glazed to black glass, each the same width, each still steaming.",
+    "light": "Black storm cloud and grey rain; the cooling copper bar and the three smouldering discs are the only yellow in the scene."
+  },
+  "RS-B3-2": {
+    "shot": "object", "dir": "D", "place": "R", "pal": "copperlab",
+    "scene": "A heavy sword hangs in mid-air above a workshop doorsill at the right of the frame, point down, an instant after leaving the hand that carried it: the steel gauntlet above is still sprung wide open, cropped at the wrist by the door frame. Along the oak sill runs a bright line of bare copper wire, and from it thin yellow arcs climb the blade to the hilt and on to the gauntlet's fingertips. Two more dropped blades already lie across the threshold. Inside, to the left, the workshop waits warm and orderly: coils, amber lamps, a steaming kettle.",
+    "light": "Amber lamplight from inside spills over the sill; the copper wire and the climbing arcs add sharp filament-yellow along the falling blade."
+  },
+  "RS-B3-3": {
+    "shot": "path", "dir": "U", "place": "T", "pal": "flash",
+    "scene": "One bolt crosses the upper part of the frame in side view, and it is ruler-straight: one white line rising from lower left to upper right, every fork and kink pressed out. It leaves the brass muzzle of a squat coil engine whose tall glass charge-column stands brim-full of light, the needle of its blank dial hard against the stop. On its way it threads a hanging chain's ring, an iron gate's keyhole and the gap between two crossed spears, then ends dead-centre on one shield boss and on the shield behind.",
+    "light": "The bolt overexposes everything to white-yellow; engine, chain, gate and shields stand as flat black cut-outs with thin glowing rims."
+  },
+  "SP-B3": {
+    "shot": "top", "dir": "U", "place": "C", "pal": "thunderhead",
+    "scene": "Straight down into a generator pit as wide as a town square. At the centre stands a machine of glass vessels and copper hoops, lightning standing inside them in the shape of shoulders and arms, its clear dome head tipped back so the bright knot within and two lamp eyes look straight up at us. Around it six burnt-out sister frames lie slumped and black in a ring, each still cabled to the middle. Under the floor grating a pale root of light branches away. Between the cables, small as rivets, coated makers stand with upturned faces.",
+    "light": "Night rain falling into the pit; the machine's own yellow lightning and the pale glow under the grating light the black wrecks and the wet upturned faces."
+  },
+  "SR-B3": {
+    "shot": "stand", "dir": "L", "place": "T", "pal": "greensky",
+    "scene": "On an open hilltop shrine a life-size forearm of green-stained copper rises from a basalt block, palm up, and high in the frame its open hand holds the relic: a helmet-sized shard of a colossal heart turned to dark glass — one curved chamber wall and the stump of a vessel — with a knot of lightning swelling inside. A thick arc winds down the copper forearm in a slow spiral and earths in the stone. Far off at the left a spell flares on the plain, and every spark on the shard leans left toward it, mid-beat.",
+    "light": "Flat yellow-green storm light before the rain; the shard's swelling glow is electric yellow and lights the copper palm and fingers from within."
+  }
+}
