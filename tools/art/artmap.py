@@ -11,7 +11,7 @@
   python tools/art/artmap.py import --dry         넣지 않고 무엇이 어디로 갈지만 보기
 
 inbox 파일 이름에 카드 ID(EP-A1-3_v2.png) 또는 카드 이름(장막의 처형자.jpg)이 들어 있으면 된다.
-v3.41 가운데를 4:5로 잘라 600×750 JPG(품질 82, 장당 약 60~100KB)로 넣는다 — 폰에서도 가볍게. Pillow가 있으면 Pillow,
+2026-11-20 가로 그림은 가운데 5:4로 잘라 750×600, 세로 그림(옛 4:5)은 600×750 JPG(품질 82, 장당 약 60~100KB)로 넣는다 — 폰에서도 가볍게. Pillow가 있으면 Pillow,
 없으면 맥의 sips로 한다(둘 다 없으면 PNG만 그대로 복사). 넣을 때마다 목록 img/cards/art_index.js를 새로 쓴다(게임은 이 목록으로 그림을 찾는다).
 img/cards/에 파일을 손으로 넣었으면:  python tools/art/artmap.py index   (목록만 새로)
 있던 그림은 _backup_art/<시각>/img/cards/ 에 남는다. 넣은 원본은 inbox/_done/ 으로 옮긴다(지우지 않는다).
@@ -29,7 +29,12 @@ INBOX = HERE / "inbox"
 CARDS_DIR = ROOT / "img" / "cards"
 STAMP = time.strftime("%Y%m%d-%H%M%S")
 EXTS = {".png", ".jpg", ".jpeg", ".webp"}
-SIZE = (600, 750)        # v3.41 800×1000 PNG → 600×750 JPG (카드는 화면에서 가로 100~400px)
+SIZE = (750, 600)        # 2026-11-20 새 일러스트 = 가로 5:4 750×600 JPG (깃발 프레임 그림 창 ≈ 1.16:1, 카드는 화면에서 가로 100~400px)
+SIZE_PORTRAIT = (600, 750)   # v3.41 옛 세로 4:5 그림 — 세로로 받은 그림은 이 크기로
+
+
+def target_size(w, h):
+    return SIZE if w >= h else SIZE_PORTRAIT
 JPG_Q = 82
 COLS = ["card_id", "name", "grade", "grade_ko", "group", "type", "lv", "base", "status", "image",
         "art_ver", "prompt_ver", "source_file", "model", "added", "note"]
@@ -159,26 +164,26 @@ def place(src, cid, dry=False):
         im = Image.open(src)
         im = im.convert("RGBA") if im.mode in ("RGBA", "LA", "P") else im.convert("RGB")
         w, h = im.size
-        tw, th = SIZE
+        tw, th = size = target_size(w, h)
         if w / h > tw / th:            # 너무 넓다 → 양옆을 자름
             nw = round(h * tw / th)
             box = ((w - nw) // 2, 0, (w - nw) // 2 + nw, h)
         else:                          # 너무 길다 → 위아래를 자름(가운데 기준)
             nh = round(w * th / tw)
             box = (0, (h - nh) // 2, w, (h - nh) // 2 + nh)
-        im = im.crop(box).resize(SIZE, Image.LANCZOS)
+        im = im.crop(box).resize(size, Image.LANCZOS)
         if im.mode == "RGBA":
-            bg = Image.new("RGB", SIZE, (7, 8, 13))   # 투명 자리는 밤하늘 남색
+            bg = Image.new("RGB", size, (7, 8, 13))   # 투명 자리는 밤하늘 남색
             bg.paste(im, mask=im.split()[3])
             im = bg
         im.convert("RGB").save(dest, "JPEG", quality=JPG_Q, optimize=True, progressive=True)
-    elif shutil.which("sips"):   # v3.41 맥: Pillow 없이 sips로 가운데 4:5 자르기 · 줄이기 · JPG
+    elif shutil.which("sips"):   # v3.41 맥: Pillow 없이 sips로 가운데 5:4(세로 그림은 4:5) 자르기 · 줄이기 · JPG
         import subprocess
         out = subprocess.run(["sips", "-g", "pixelWidth", "-g", "pixelHeight", str(src)], capture_output=True, text=True).stdout
         w = int(re.search(r"pixelWidth: (\d+)", out).group(1)); h = int(re.search(r"pixelHeight: (\d+)", out).group(1))
-        tw, th = SIZE
+        tw, th = target_size(w, h)
         ch, cw = (h, round(h * tw / th)) if w / h > tw / th else (round(w * th / tw), w)
-        r = subprocess.run(["sips", "-c", str(ch), str(cw), "-s", "format", "jpeg", "-s", "formatOptions", "100", str(src), "--out", str(dest)], capture_output=True, text=True)   # 가운데 4:5로 자르고
+        r = subprocess.run(["sips", "-c", str(ch), str(cw), "-s", "format", "jpeg", "-s", "formatOptions", "100", str(src), "--out", str(dest)], capture_output=True, text=True)   # 가운데를 맞는 비율로 자르고
         if r.returncode == 0:   # 그다음 줄인다(sips는 한 번에 주면 줄이기를 먼저 해서 비율이 어긋난다)
             r = subprocess.run(["sips", "-z", str(th), str(tw), "-s", "formatOptions", str(JPG_Q), str(dest)], capture_output=True, text=True)
         if r.returncode != 0 or not dest.exists():

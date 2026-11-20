@@ -23,10 +23,10 @@ Mood: sacred, transcendent, world-shaking.
 ## 3. 그림 있음 — 그리지 않는다 (참고용) · 18장
 
 ### SR-A1 · 하르간의 양손검 — 그림 있음
-모르카스의 그믐 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-A1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-A1.jpg` 600×750)
+모르카스의 그믐 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-A1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-A1.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "하르간의 양손검". Depict exactly what this name describes.
 Subject: a sacred relic of the Morkas's New Moon (see art direction).
@@ -39,16 +39,16 @@ Setting (unless the art direction already sets it): very dark night-blue (#07080
 Light and colour: darkness (#8b5cf6) light glowing from within the relic is the main light; palette violet #8b5cf6, black, blood-red accents; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
 No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
 Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### SP-A1 · 그림자 없는 아즈라 — 그림 있음
-모르카스의 그믐 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-A1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-A1.jpg` 600×750)
+모르카스의 그믐 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-A1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-A1.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "그림자 없는 아즈라". Depict exactly what this name describes.
 Subject: a one-of-a-kind mythic being of the Morkas's New Moon.
@@ -60,16 +60,16 @@ Camera: monumental low angle, the being fills about 75–85% of the frame; its f
 Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; the faceless shadow king Morkas towering across the sky with his balanced scales, eyes closed.
 Light and colour: darkness (#8b5cf6) light bursting from the being itself is the main light; palette violet #8b5cf6, black, blood-red accents; several golden rune rings orbit at different angles and divine crimson-rose (#ff4d73) and gold light with ether sky-blue (#8fdcff) sparks takes about 30% of the light; the rune rings and divine light are this grade's mark, not banner spellcasting.
 Mood: sacred, transcendent, world-shaking.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### SR-A2 · 세렌의 활 — 그림 있음
-솔란테의 새벽 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-A2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-A2.jpg` 600×750)
+솔란테의 새벽 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-A2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-A2.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "세렌의 활". Depict exactly what this name describes.
 Subject: a sacred relic of the Solante's Dawn (see art direction).
@@ -82,16 +82,16 @@ Setting (unless the art direction already sets it): very dark night-blue (#07080
 Light and colour: holy light (#ffe9a8) light glowing from within the relic is the main light; palette holy light #ffe9a8, white, pale gold, soft sky blue; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
 No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
 Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### SP-A2 · 솔란테의 첫 기사 — 그림 있음
-솔란테의 새벽 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-A2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-A2.jpg` 600×750)
+솔란테의 새벽 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-A2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-A2.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "솔란테의 첫 기사". Depict exactly what this name describes.
 Subject: a one-of-a-kind mythic being of the Solante's Dawn.
@@ -103,16 +103,16 @@ Camera: monumental low angle, the being fills about 75–85% of the frame; its f
 Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; the goddess Solante's six vast wings of light spread across the whole sky above a rising sun.
 Light and colour: holy light (#ffe9a8) light bursting from the being itself is the main light; palette holy light #ffe9a8, white, pale gold, soft sky blue; several golden rune rings orbit at different angles and divine crimson-rose (#ff4d73) and gold light with ether sky-blue (#8fdcff) sparks takes about 30% of the light; the rune rings and divine light are this grade's mark, not banner spellcasting.
 Mood: sacred, transcendent, world-shaking.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### SR-A3 · 이벨의 깃펜 — 그림 있음
-벨루미르의 별 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-A3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-A3.jpg` 600×750)
+벨루미르의 별 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-A3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-A3.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "이벨의 깃펜". Depict exactly what this name describes.
 Subject: a sacred relic of the Belumir's Star (see art direction).
@@ -125,16 +125,16 @@ Setting (unless the art direction already sets it): very dark night-blue (#07080
 Light and colour: wind (#9fe3d6) light glowing from within the relic is the main light; palette wind teal #9fe3d6, silver, white, starry indigo; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
 No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
 Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### SP-A3 · 별을 푼 이사크 — 그림 있음
-벨루미르의 별 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-A3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-A3.jpg` 600×750)
+벨루미르의 별 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-A3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-A3.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "별을 푼 이사크". Depict exactly what this name describes.
 Subject: a one-of-a-kind mythic being of the Belumir's Star.
@@ -146,16 +146,16 @@ Camera: monumental low angle, the being fills about 75–85% of the frame; its f
 Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; the god Belumir's robe of a thousand eyes unfolding across the night sky as constellations.
 Light and colour: wind (#9fe3d6) light bursting from the being itself is the main light; palette wind teal #9fe3d6, silver, white, starry indigo; several golden rune rings orbit at different angles and divine crimson-rose (#ff4d73) and gold light with ether sky-blue (#8fdcff) sparks takes about 30% of the light; the rune rings and divine light are this grade's mark, not banner spellcasting.
 Mood: sacred, transcendent, world-shaking.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### SR-B1 · 도르마크의 갈비뼈 화로 — 그림 있음
-도르마크의 심장불 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-B1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-B1.jpg` 600×750)
+도르마크의 심장불 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-B1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-B1.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "도르마크의 갈비뼈 화로". Depict exactly what this name describes.
 Subject: a sacred relic of the Dormak's Heartfire (see art direction).
@@ -168,16 +168,16 @@ Setting (unless the art direction already sets it): very dark night-blue (#07080
 Light and colour: fire (#ff6b3d) light glowing from within the relic is the main light; palette fire orange #ff6b3d with brass #d4893a and soot black; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
 No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
 Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### SP-B1 · 불을 삼킨 자 — 그림 있음
-도르마크의 심장불 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-B1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-B1.jpg` 600×750)
+도르마크의 심장불 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-B1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-B1.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "불을 삼킨 자". Depict exactly what this name describes.
 Subject: a one-of-a-kind mythic being of the Dormak's Heartfire.
@@ -189,16 +189,16 @@ Camera: monumental low angle, the being fills about 75–85% of the frame; its f
 Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; the giant Dormak's mountain-sized chest with its heart-fire blazing through cracks of rock across the whole sky.
 Light and colour: fire (#ff6b3d) light bursting from the being itself is the main light; palette fire orange #ff6b3d with brass #d4893a and soot black; several golden rune rings orbit at different angles and divine crimson-rose (#ff4d73) and gold light with ether sky-blue (#8fdcff) sparks takes about 30% of the light; the rune rings and divine light are this grade's mark, not banner spellcasting.
 Mood: sacred, transcendent, world-shaking.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### SR-B2 · 소르그림의 첫 갑주 — 그림 있음
-소르그림의 방패 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-B2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-B2.jpg` 600×750)
+소르그림의 방패 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-B2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-B2.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "소르그림의 첫 갑주". Depict exactly what this name describes.
 Subject: a sacred relic of the Sorgrim's Shield (see art direction).
@@ -211,37 +211,37 @@ Setting (unless the art direction already sets it): very dark night-blue (#07080
 Light and colour: metal (#a9b4c2) light glowing from within the relic is the main light; palette steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
 No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
 Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### SP-B2 · 철의 심장을 삼킨 자 — 그림 있음
-소르그림의 방패 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-B2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-B2.jpg` 600×750)
+소르그림의 방패 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-B2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-B2.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "철의 심장을 삼킨 자". Depict exactly what this name describes.
 Subject: a one-of-a-kind mythic being of the Sorgrim's Shield.
-Art direction: The heart is the focus: an enormous iron heart forged from the giant Sorgrim's sinew-ore — dark adamant plates, brass valves and pistons like arteries, molten forge-light pulsing through its seams — beating at the centre of the image, larger than a forge furnace. The one who swallowed it is a colossal armoured presence that is only partly seen: his vast shape is veiled in steam, shadow and forge smoke and revealed only in glimpses — the edge of a riveted iron shoulder like a cliff, a giant gauntleted hand resting on an anvil the size of a house, two eyes glowing high above in the darkness. Hundreds of chains and pipes run from the heart up into the hidden body; let the viewer imagine the full titan from these clues. Around it stretches the underground forge-cathedral of Durkheim; rows of golems, tiny by comparison, kneel facing the heart, their own chest-lights waking in rhythm with its beat, the oldest and most patched golem kneeling closest. He ascended without any god: instead of a halo, slowly turning rings of gears and golden runes circle the heart.
+Art direction: The heart is the focus: an enormous iron heart forged from the giant Sorgrim's sinew-ore — polished silver and white-steel plates, bright silver valves and pistons like arteries, cold silver-white light pulsing through its seams with only a faint ember glow deep inside a few cracks — beating at the centre of the image, larger than a forge furnace. The one who swallowed it is a colossal armoured presence that is only partly seen: his vast shape is veiled in pale steam, shadow and silver-grey forge smoke and revealed only in glimpses — the edge of a riveted white-steel shoulder like a cliff, a giant gauntleted hand resting on an anvil the size of a house, two eyes glowing high above in the darkness. Hundreds of steel chains and pipes run from the heart up into the hidden body; let the viewer imagine the full titan from these clues. Around it stretches the underground forge-cathedral of Durkheim; rows of golems in silver-grey armour, tiny by comparison, kneel facing the heart, their own chest-lights waking in rhythm with its beat, the oldest and most patched golem kneeling closest. He ascended without any god: instead of a halo, slowly turning rings of silver gears and silver-white runes circle the heart. Composition (keep exactly as in the existing artwork): the giant heart floats at the upper centre wrapped in orbiting rune rings; the cliff-like shoulder and pipes on the left edge; the giant gauntlet resting on a house-sized anvil at the right; two eyes glowing at the top centre; the oldest golem kneeling seen from behind in the bottom centre foreground; rows of kneeling golems along the bottom; arched forge halls receding on the left; monumental low angle.
 Lore (Korean, use for the scene): 거인 소르그림의 힘줄을 녹여 벼린 철의 심장을 제 가슴에 삼킨 존재. 그 심장이 처음 뛴 날, 두르크하임의 모든 골렘이 함께 눈을 떴다. 그의 이름이 브론이었다는 것을 기억하는 것은 이제 그가 처음 빚은 골렘뿐이다.
 This card's own art direction and story come first — make it unlike any other card; the lines below only frame it.
 Scale: colossal, far beyond mortal scale — fortresses, armies or dragons look small beside it; it may be partly veiled in smoke, light or darkness and revealed in glimpses, so the viewer imagines its full shape.
 Camera: monumental low angle, the being fills about 75–85% of the frame; its face or heart stays in the safe area.
 Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; the giant Sorgrim's mountain-sized arm of iron sinew rising from the earth, and the metal dragon Feros's mirror scales reflecting a thousand forges.
-Light and colour: metal (#a9b4c2) light bursting from the being itself is the main light; palette steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams; several golden rune rings orbit at different angles and divine crimson-rose (#ff4d73) and gold light with ether sky-blue (#8fdcff) sparks takes about 30% of the light; the rune rings and divine light are this grade's mark, not banner spellcasting.
+Light and colour: a whole-image silver glow — cold silver-white light radiating from the heart is the main light and washes every surface; base metals are polished silver and white steel with mirror-bright cold silver-white highlights; palette silver, white steel, pale platinum, cool steel grey #a9b4c2 and deep gunmetal shadows against the very dark night-blue; the rune rings shine silver-white with only a thin gold edge; small accents only (under 10% of the light): a few ember-orange sparks in the deepest heart seams, a thin trace of crimson-rose (#ff4d73) and ether sky-blue (#8fdcff) sparks in the swirling smoke; no brass, copper or orange-dominant areas; the silver radiance is this grade's mark, not banner spellcasting.
 Mood: sacred, transcendent, world-shaking.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### SR-B3 · 케라운의 벼락 심장 — 그림 있음
-케라운의 벼락 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-B3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-B3.jpg` 600×750)
+케라운의 벼락 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-B3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-B3.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "케라운의 벼락 심장". Depict exactly what this name describes.
 Subject: a sacred relic of the Keraun's Thunder (see art direction).
@@ -254,16 +254,16 @@ Setting (unless the art direction already sets it): very dark night-blue (#07080
 Light and colour: lightning (#ffd84a) light glowing from within the relic is the main light; palette electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
 No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
 Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### SP-B3 · 일곱 번째 — 그림 있음
-케라운의 벼락 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-B3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-B3.jpg` 600×750)
+케라운의 벼락 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-B3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-B3.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "일곱 번째". Depict exactly what this name describes.
 Subject: a one-of-a-kind mythic being of the Keraun's Thunder.
@@ -275,16 +275,16 @@ Camera: monumental low angle, the being fills about 75–85% of the frame; its f
 Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; the giant Keraun's lightning nerves blazing across the whole plateau and sky like a living circuit board of storms.
 Light and colour: lightning (#ffd84a) light bursting from the being itself is the main light; palette electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass; several golden rune rings orbit at different angles and divine crimson-rose (#ff4d73) and gold light with ether sky-blue (#8fdcff) sparks takes about 30% of the light; the rune rings and divine light are this grade's mark, not banner spellcasting.
 Mood: sacred, transcendent, world-shaking.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### SR-G1 · 고르바스의 부러진 송곳니 — 그림 있음
-고르바스의 발톱 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-G1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-G1.jpg` 600×750)
+고르바스의 발톱 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-G1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-G1.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "고르바스의 부러진 송곳니". Depict exactly what this name describes.
 Subject: a sacred relic of the Gorvath's Claw (see art direction).
@@ -297,16 +297,16 @@ Setting (unless the art direction already sets it): very dark night-blue (#07080
 Light and colour: earth (#b88a5a) light glowing from within the relic is the main light; palette earth ochre #b88a5a, rust-red war paint, bone white; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
 No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
 Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### SP-G1 · 잿갈기 카르노 — 그림 있음
-고르바스의 발톱 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-G1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-G1.jpg` 600×750)
+고르바스의 발톱 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-G1.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-G1.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "잿갈기 카르노". Depict exactly what this name describes.
 Subject: a one-of-a-kind mythic being of the Gorvath's Claw.
@@ -318,16 +318,16 @@ Camera: monumental low angle, the being fills about 75–85% of the frame; its f
 Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; the earth dragon Gorvath, mountain-sized with forests on its back, rising behind Throne Peak with one great eye opening.
 Light and colour: earth (#b88a5a) light bursting from the being itself is the main light; palette earth ochre #b88a5a, rust-red war paint, bone white; several golden rune rings orbit at different angles and divine crimson-rose (#ff4d73) and gold light with ether sky-blue (#8fdcff) sparks takes about 30% of the light; the rune rings and divine light are this grade's mark, not banner spellcasting.
 Mood: sacred, transcendent, world-shaking.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### SR-G2 · 베르단의 첫 뿔 — 그림 있음
-베르단의 뿔 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-G2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-G2.jpg` 600×750)
+베르단의 뿔 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-G2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-G2.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "베르단의 첫 뿔". Depict exactly what this name describes.
 Subject: a sacred relic of the Verdan's Antler (see art direction).
@@ -340,16 +340,16 @@ Setting (unless the art direction already sets it): very dark night-blue (#07080
 Light and colour: forest (#58b85f) light glowing from within the relic is the main light; palette forest green #58b85f, deep moss, bark brown, bioluminescent spores; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
 No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
 Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### SP-G2 · 은월 리시엘 — 그림 있음
-베르단의 뿔 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-G2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-G2.jpg` 600×750)
+베르단의 뿔 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-G2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-G2.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "은월 리시엘". Depict exactly what this name describes.
 Subject: a one-of-a-kind mythic being of the Verdan's Antler.
@@ -361,16 +361,16 @@ Camera: monumental low angle, the being fills about 75–85% of the frame; its f
 Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; the forest dragon Verdan's antlers spreading as a canopy of ancient branches over the whole forest, the First Elder Tree glowing beneath.
 Light and colour: forest (#58b85f) light bursting from the being itself is the main light; palette forest green #58b85f, deep moss, bark brown, bioluminescent spores; several golden rune rings orbit at different angles and divine crimson-rose (#ff4d73) and gold light with ether sky-blue (#8fdcff) sparks takes about 30% of the light; the rune rings and divine light are this grade's mark, not banner spellcasting.
 Mood: sacred, transcendent, world-shaking.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### SR-G3 · 마렌시아의 눈물 성배 — 그림 있음
-마렌시아의 노래 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-G3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-G3.jpg` 600×750)
+마렌시아의 노래 · 아이템 · 레벨 4 · 스페셜 — 받은 그림은 `tools/art/inbox/SR-G3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SR-G3.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "마렌시아의 눈물 성배". Depict exactly what this name describes.
 Subject: a sacred relic of the Marencia's Song (see art direction).
@@ -383,16 +383,16 @@ Setting (unless the art direction already sets it): very dark night-blue (#07080
 Light and colour: water (#4fb3ff) light glowing from within the relic is the main light; palette water blue #4fb3ff, aquamarine, pearl white, deep-sea navy; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune rings and divine light are this grade's mark, not banner spellcasting.
 No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.
 Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### SP-G3 · 바다를 잠재우는 자 — 그림 있음
-마렌시아의 노래 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-G3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-G3.jpg` 600×750)
+마렌시아의 노래 · 유닛 · 레벨 8 · 스페셜 — 받은 그림은 `tools/art/inbox/SP-G3.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/SP-G3.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: SPECIAL — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card.
 Card name (Korean — read its meaning, never write it in the image): "바다를 잠재우는 자". Depict exactly what this name describes.
 Subject: a one-of-a-kind mythic being of the Marencia's Song.
@@ -404,7 +404,7 @@ Camera: monumental low angle, the being fills about 75–85% of the frame; its f
 Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; the water dragon Marencia's translucent serpentine body coiling through the sky like a river of light.
 Light and colour: water (#4fb3ff) light bursting from the being itself is the main light; palette water blue #4fb3ff, aquamarine, pearl white, deep-sea navy; several golden rune rings orbit at different angles and divine crimson-rose (#ff4d73) and gold light with ether sky-blue (#8fdcff) sparks takes about 30% of the light; the rune rings and divine light are this grade's mark, not banner spellcasting.
 Mood: sacred, transcendent, world-shaking.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```

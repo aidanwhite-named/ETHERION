@@ -575,3 +575,9 @@ html.mobile .card.aura-hit .c-frame, html.mobile .card.aura-src .c-frame { anima
 }
 html.mobile .dv-cards .card.fm.grade-common > .c-frame, html.mobile .screen-editor .card.fm.grade-common > .c-frame, html.mobile .shop-card .card.fm.grade-common > .c-frame, html.mobile .detail .card.fm.grade-common > .c-frame { box-shadow: 0 0 0 .04em rgba(6, 7, 12, .9); }
 html.mobile .card.has-brief .c-brief .sb-t { text-shadow: 0 .06em .1em #000; }
+
+/* frames.css */
+html.mobile .card.fm.has-frame .c-pips .pip { filter: drop-shadow(0 .03em .05em #000); }
+html.mobile .card.fm.has-frame .c-rcol .c-clsico i { filter: drop-shadow(0 .03em .06em #000); }
+html.mobile .card.fm.has-frame .c-emb img { filter: drop-shadow(0 .05em .12em rgba(0, 0, 0, .85)); }
+html.mobile .card.fm.has-frame .c-emb .c-enum b { text-shadow: 0 .05em .1em #000, 0 0 .25em rgba(0, 0, 0, .9); }

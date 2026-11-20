@@ -86,6 +86,22 @@ function pipSVG(key, hollow) {
     ? `<path d="${d}" fill="#07101e" fill-opacity=".9" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>`
     : `<path d="${d}" fill="currentColor"/>`}</svg>`;
 }
+/* 2026-11-20 그림 프레임 유닛 카드(css/frames.css)용: 깃발 프레임 그림이 있는 단체 · 레벨 아이콘 그림 · 왼쪽 위 에테르 레벨 문장 */
+const FRAME_GROUPS = new Set(["B1", "B2", "B3", "G1", "G2", "G3", "A1", "A2", "A3"]);   // img/ui/frames/frame_<ID>_unit.jpg
+function framePips(c) {
+  const up = c.type === "unit" ? c.up || 0 : 0, full = c.lv - up, img = `<img src="img/ui/pips/pip_${c.group}.png" alt="" draggable="false">`;
+  let h = "";
+  for (let i = 0; i < c.lv; i++) h += `<i class="pip${i >= full ? " pip-up" : ""}">${img}</i>`;
+  return `<div class="c-pips" style="--lvn:${Math.max(1, c.lv)}" data-tip="${esc(lvTip(c))}" data-tip-kw>${h}</div>`;
+}
+/* 프레임 카드의 종류 띠: 종류 줄(raceLineHTML) 끝에 클래스 · 마법 종류 아이콘 */
+function frameBandHTML(c, gr) {
+  return raceLineHTML(c, gr).replace('class="c-race"', 'class="c-race c-band"').replace(/<\/div>$/, classIconHTML(c) + "</div>");
+}
+function frameBgAttr(c) { return ` style="background-image:url(img/ui/frames/frame_${c.group}_unit.jpg?v=2)"`; }
+function frameEmblemHTML(c) {
+  return `<div class="c-emb"><img src="img/ui/ether/ether_emb.png?v=1" alt="" draggable="false"><i class="c-orb"></i><i class="c-enum" data-tip="${esc(`레벨 ${c.lv || 0} · ${unitKindTip(c)}`)}"><b>${c.lv || 0}</b></i></div>`;
+}
 function levelPips(c) {
   const up = c.type === "unit" ? c.up || 0 : 0, full = c.lv - up;
   const key = PIP[c.group] ? c.group : "item";   // v3.19.8: 아이템도 유닛 · 마법처럼 자기 단체 모양(예전엔 아이템만 마름모)
@@ -207,7 +223,7 @@ const RITE_ICON = {
   hand: `<path d="M4 32c8-12 18-18 28-18s20 6 28 18c-8 12-18 18-28 18S12 44 4 32z"/><circle cx="32" cy="32" r="10" fill="#0c0b12"/><circle cx="32" cy="32" r="5"/>`,
   atk: RITE_SWORD,
   def: RITE_SHIELD,
-  any: `<g opacity=".5" transform="translate(-4 2) scale(.92)">${RITE_SHIELD}</g><g stroke="#0c0b12" stroke-width="4" stroke-linejoin="round" paint-order="stroke" transform="translate(2 0)">${RITE_SWORD}</g>`
+  any: `<g opacity=".5" transform="translate(2.56 2.6) scale(.92)">${RITE_SHIELD}</g><g stroke="#0c0b12" stroke-width="4" stroke-linejoin="round" paint-order="stroke" transform="translate(-1 0)">${RITE_SWORD}</g>`   // 2026-11-20 방패 · 칼 모두 가운데(32, 32.5)에 — 예전엔 방패가 왼쪽 위로 9.6 비켜 비뚤어 보였다
 };
 const RITE_TIP = {
   atk: "공격 마법",
@@ -332,21 +348,25 @@ function cardHTML(c, opts) {
   const sBrief = isS && size !== "lg" ? spellBriefHTML(c) : "";   // 큰 카드(lg)는 마법 글 전문
   const sText = isS && !sBrief ? `<p class="c-stext">${kwHTML(c.text || "")}</p>` : "";
   const flv = c.flavor || "";   // 카드 고유의 분위기 글만 (단체 소개 글은 원본 카드에)
-  const box = (isU ? coinLineHTML(c.co) : isI && c.item ? coinLineHTML(c.item.co) : "") + (chips ? `<div class="c-chips">${chips}</div>` : "") + sBrief + sText + desc + (opts.extra || "") + (flv ? `<p class="c-flv">${esc(flv)}</p>` : "");
+  const framed = FRAME_GROUPS.has(c.group);   // 2026-11-20 그림 프레임(css/frames.css) — 아래 return 참고
+  // 프레임 카드: 글 상자 맨 위에 종류 띠(끝에 아이콘), 분위기 글은 빼고 특수능력 · 코인 · 마법 효과만(크게 보기 · lg 패널은 그대로)
+  const box = (framed ? frameBandHTML(c, gr) : "") + (isU ? coinLineHTML(c.co) : isI && c.item ? coinLineHTML(c.item.co) : "") + (chips ? `<div class="c-chips">${chips}</div>` : "") + sBrief + sText + desc + (opts.extra || "") + (flv && !(framed && size !== "lg") ? `<p class="c-flv">${esc(flv)}</p>` : "");
   // v3.63.1 마법도 유닛의 클래스 동그라미 자리(오른쪽 열 위)에 종류 아이콘: 공격 칼 · 방어 방패 · 공용 칼+방패 · 계략 눈 (네모)
-  const rcol = isU ? `<div class="c-rcol">${classIconHTML(c)}${vstats}</div>` : isI && vstats ? `<div class="c-rcol">${vstats}</div>` : isS && RITE_ICON[c.type] ? `<div class="c-rcol r-sp">${classIconHTML(c)}</div>` : "";
-  return `<div class="card fm size-${size} ${c.faction ? "fac-" + c.faction : "fac-item"} type-${c.type}${c.legend ? " legend" : ""}${dk ? " has-desc" : ""}${slim ? " slim" : ""}${sBrief ? " has-brief" : ""}${rcol ? " has-rcol" : ""} grade-${gr.id}${opts.cls ? " " + opts.cls : ""}" style="--el:${el.color};--gr:${gr.color}" ${opts.attrs || ""} data-card="${c.id}">${opts.under || ""}
-    <div class="c-frame">
+  // 2026-11-20 그림 프레임(css/frames.css): 깃발 프레임 + 왼쪽 위 에테르 레벨 문장 + 그림 레벨 아이콘 — 유닛 · 마법 · 아이템, 전장 · 핸드(slim)도.
+  // 아이콘은 종류 띠 끝(frameBandHTML)으로 옮겨 오른쪽 열에는 공 · 방 · 체만. 그 열이 없는 카드(마법 · 숫자 없는 아이템)는 글 상자가 오른쪽 끝까지(fr-wide)
+  const rcol = framed ? (vstats ? `<div class="c-rcol">${vstats}</div>` : "") : isU ? `<div class="c-rcol">${classIconHTML(c)}${vstats}</div>` : isI && vstats ? `<div class="c-rcol">${vstats}</div>` : isS && RITE_ICON[c.type] ? `<div class="c-rcol r-sp">${classIconHTML(c)}</div>` : "";
+  return `<div class="card fm size-${size} ${c.faction ? "fac-" + c.faction : "fac-item"} type-${c.type}${c.legend ? " legend" : ""}${dk ? " has-desc" : ""}${slim ? " slim" : ""}${sBrief ? " has-brief" : ""}${rcol ? " has-rcol" : ""}${framed ? " has-frame fr-" + c.group + (vstats ? "" : " fr-wide") : ""} grade-${gr.id}${opts.cls ? " " + opts.cls : ""}" style="--el:${el.color};--gr:${gr.color}" ${opts.attrs || ""} data-card="${c.id}">${opts.under || ""}
+    <div class="c-frame"${framed ? frameBgAttr(c) : ""}>
       <div class="c-head">${typeIconHTML(c)}${nameHTML(c)}</div>
       <div class="c-mid">
-        <div class="c-side">${levelPips(c)}</div>
+        <div class="c-side">${framed ? framePips(c) : levelPips(c)}</div>
         <div class="c-art">${artHTML(c)}${specialFxHTML(gr)}${c.base ? upgradeMarkHTML(c, "c-upart") : ""}${opts.badges ? `<div class="c-badges">${opts.badges}</div>` : ""}${opts.artx || ""}</div>
       </div>
       <div class="c-low">
         <div class="c-lowl">${raceLineHTML(c, gr)}<div class="c-box"><div class="c-boxin">${box}</div></div></div>
         ${rcol}
       </div>
-      ${foot}
+      ${foot}${framed ? frameEmblemHTML(c) : ""}
     </div>${opts.count != null ? `<span class="c-count">×${opts.count}</span>` : ""}
   </div>`;
 }
@@ -406,6 +426,38 @@ function fitBriefs(root) {
   for (const s of [0.95, 0.9, 0.85]) {
     if (!bad.length) break;
     for (const b of bad) b.style.setProperty("--bfs", s);
+    bad = bad.filter(over);
+  }
+  fitCardNames(root);
+}
+/* 작은 카드 이름 1줄 맞춤: 넘치는 카드만 ① 글자 살짝 축소 → ② 그래도 넘치면 "○○의 " 앞 수식어를 "…"로 생략 */
+function fitCardNames(root) {
+  const list = [...(root || document).querySelectorAll(".card.fm:not(.size-full) .c-head .c-name")];
+  if (!list.length) return;
+  for (const el of list) {
+    if (el.dataset.fullName == null) el.dataset.fullName = el.textContent;
+    if (el.textContent !== el.dataset.fullName) el.textContent = el.dataset.fullName;
+    if (el.style.getPropertyValue("--ns")) el.style.removeProperty("--ns");
+  }
+  const over = el => el.clientWidth > 0 && el.scrollWidth > el.clientWidth + 1;
+  let bad = list.filter(over);
+  for (const s of [0.92, 0.85]) {
+    if (!bad.length) break;
+    for (const el of bad) el.style.setProperty("--ns", s);
+    bad = bad.filter(over);
+  }
+  for (const el of bad) {
+    const full = el.dataset.fullName || "";
+    const idx = full.indexOf("의 ");
+    if (idx > 0 && idx < full.length - 3) {
+      el.textContent = "…" + full.slice(idx + 2).trim();
+      el.style.removeProperty("--ns");
+    }
+  }
+  bad = bad.filter(over);
+  for (const s of [0.92, 0.85, 0.78]) {
+    if (!bad.length) break;
+    for (const el of bad) el.style.setProperty("--ns", s);
     bad = bad.filter(over);
   }
 }
@@ -494,16 +546,36 @@ function cardFullHTML(c, opts) {
   const clName = isU ? (c.anyItem ? `<b class="c-clname cln-up">강화</b>` : c.cl ? `<b class="c-clname clc-${c.cl}">${esc(c.cl)}</b>` : "") : "";
   const rcol = isU ? `<div class="c-rcol">${classIconHTML(c)}${clName}${vstats}</div>` : isI && vstats ? `<div class="c-rcol">${vstats}</div>` : !isI && RITE_ICON[c.type] ? `<div class="c-rcol r-sp">${classIconHTML(c)}</div>` : "";   // v3.63.1 마법 종류 아이콘
   const idTip = `${G.name} · ${G.en} · ${FACTIONS[c.faction].name}\n카드 ID ${c.id}`;   // v3.19.1: 맨 아래 단체 줄을 빼고 이름 말풍선으로
+  // 2026-11-20 그림 프레임 크게 보기(css/frames.css): 5:7 고정 · 작은 카드와 같은 깃발 프레임. 종류 줄은 글 상자 맨 위 띠(c-band)로, 긴 글은 글 상자 안에서 스크롤
+  if (FRAME_GROUPS.has(c.group)) {
+    const fv = isU ? `<div class="c-vstats">${statCellHTML(c, "a", live)}${statCellHTML(c, "d", live)}${statCellHTML(c, "h", live)}</div>` : isI ? itemVstatsHTML(c, false) : "";   // 작은 카드와 같은 숫자 열
+    const frcol = fv ? `<div class="c-rcol">${fv}</div>` : "";
+    const band = frameBandHTML(c, gr);
+    return `<div class="card fm size-full has-frame fr-${c.group}${fv ? "" : " fr-wide"} ${c.faction ? "fac-" + c.faction : "fac-item"} type-${c.type}${c.legend ? " legend" : ""}${frcol ? " has-rcol" : ""} grade-${gr.id}${opts.cls ? " " + opts.cls : ""}" style="--el:${el.color};--gr:${gr.color}" ${opts.attrs || ""} data-card="${c.id}">${opts.under || ""}
+    <div class="c-frame"${frameBgAttr(c)}>
+      <div class="c-head">${typeIconHTML(c)}<span class="c-hname" data-tip="${esc(idTip)}">${nameHTML(c, c.legend ? ' <small class="f-star">★</small>' : "")}</span></div>
+      <div class="c-mid">
+        <div class="c-side">${framePips(c)}</div>
+        <div class="c-art">${artHTML(c)}${specialFxHTML(gr)}${c.base ? upgradeMarkHTML(c, "c-upart") : ""}</div>
+      </div>
+      <div class="c-low">
+        <div class="c-lowl"><div class="c-box">${band}${coinLine}<div class="f-text">${L.join("")}</div></div></div>
+        ${frcol}
+      </div>
+      ${frameEmblemHTML(c)}
+    </div>
+  </div>`;
+  }
   return `<div class="card fm size-full ${c.faction ? "fac-" + c.faction : "fac-item"} type-${c.type}${c.legend ? " legend" : ""}${rcol ? " has-rcol" : ""} grade-${gr.id}${opts.cls ? " " + opts.cls : ""}" style="--el:${el.color};--gr:${gr.color}" ${opts.attrs || ""} data-card="${c.id}">${opts.under || ""}
     <div class="c-frame">
-      <div class="c-head">${typeIconHTML(c)}<span class="c-hname" data-tip="${esc(idTip)}">${nameHTML(c, c.legend ? ' <small class="f-star">★</small>' : "")}</span>${grTag}</div>
+      <div class="c-head">${typeIconHTML(c)}<span class="c-hname" data-tip="${esc(idTip)}">${nameHTML(c, c.legend ? ' <small class="f-star">★</small>' : "")}</span></div>
       <div class="c-mid">
         <div class="c-side">${levelPips(c)}</div>
         <div class="c-art">${artHTML(c)}${specialFxHTML(gr)}${c.base ? upgradeMarkHTML(c, "c-upart") : ""}</div>
       </div>
       <div class="c-low">
         <div class="c-lowl">
-          ${typeLine.length ? `<div class="f-type">${typeLine.map(t => `<span>${t}</span>`).join("")}</div>` : ""}
+          ${raceLineHTML(c, gr)}
           <div class="c-box">${coinLine}<div class="f-text">${L.join("")}</div></div>
         </div>
         ${rcol}

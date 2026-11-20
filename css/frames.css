@@ -1,0 +1,127 @@
+/* 2026-11-20 그림 프레임 유닛 카드 (사용자 확정 시안: tools/art/frames_wip/card_mock_SP-B2.png)
+   대상: 깃발(FRAME_GROUPS)이 있는 모든 카드 — 유닛 · 마법 · 아이템, 작은 카드 · 전장 · 핸드(slim) · 크게 보기(size-full, js/view.js cardFullHTML). 맨 아래 절 참고. JS가 .has-frame 과 .c-frame 의 background-image(깃발 그림)를 붙인다.
+   - 깃발 프레임 그림 img/ui/frames/frame_<깃발>_unit.jpg(600×840) — 그림 창을 아래 .c-art 자리에 맞춰 늘린 것(tools/art/frames_wip/fit_frame.py)
+   - 자리는 모두 "카드 전체 대비 %"로 적고, .c-frame(테두리 --fbw 안쪽 기준)으로 바꿔 놓는다: P(p) = (100% + 2·테두리) × p − 테두리
+   - 종류 줄(유닛 · 스페셜) · 클래스 동그라미 없음, 레벨은 왼쪽 위 에테르 문장(ether_back) + 원소색 구슬 + 숫자, 레벨 아이콘은 img/ui/pips/pip_<깃발>.png
+   - 글꼴: 고운바탕 보통 굵기 */
+.card.fm.has-frame { --fbw: .14em; --fl: .066; --fr: .964; --fb: .966; --sb: .966; }
+/* 깃발마다 아래쪽 장식(불꽃 기둥 · 뼈 · 깃털 · 이끼 귀퉁이)을 피해 글 상자 왼쪽(--fl) · 스탯 열 오른쪽 끝(--fr) · 글 상자 아래(--fb) · 스탯 열 아래(--sb)를 옮긴다
+   (카드 대비 비율, 프레임 그림에서 장식 없는 구간을 재서 정함) */
+.card.fm.fr-B1 { --fl: .10; --fr: .895; }
+.card.fm.fr-B3 { --fl: .105; --fr: .92; }
+.card.fm.fr-G1 { --ss: .9em; --fl: .085; --fr: .925; --fb: .905; --sb: .935; }
+.card.fm.fr-G2 { --ss: .9em; --fl: .08; --fr: .925; --fb: .905; --sb: .935; }
+.card.fm.fr-G3 { --fl: .092; --fr: .94; --fb: .905; }
+.card.fm.fr-A1 { --fl: .13; --fr: .915; }
+.card.fm.fr-A2 { --fl: .085; --fr: .94; }   /* 2026-11-20 v2 그림: 왼쪽 띠 비움 · 날개는 오른쪽 끝(x 96%~) */
+.card.fm.fr-A3 { --ss: .9em; --fl: .075; --fr: .965; --fb: .905; --sb: .935; }
+.card.fm.has-frame > .c-frame {
+  /* 그림은 js가 .c-frame 의 style 로 붙인다(CSS 변수 속 url은 이 CSS 파일 기준으로 풀려서) */
+  background-color: #0b0c10 !important; background-position: center !important; background-size: 100% 100% !important;
+  background-repeat: no-repeat !important; background-origin: border-box !important; background-clip: border-box !important;
+}
+.card.fm.has-frame > .c-frame::before, .card.fm.has-frame > .c-frame::after { display: none !important; }
+
+/* 머리: 이름만 (레벨 숫자는 문장으로) — 위 띠(카드 높이 1.3~7.7%) 안 */
+.card.fm.has-frame .c-head { position: absolute; margin: 0; gap: .22em; align-items: center;
+  left: calc((100% + 2 * var(--fbw)) * .195 - var(--fbw)); right: calc((100% + 2 * var(--fbw)) * var(--nr, .142) - var(--fbw));   /* 오른쪽 끝: 깃발마다 귀퉁이 장식 앞(--nr) */
+  top: calc((100% + 2 * var(--fbw)) * .016 - var(--fbw)); height: calc((100% + 2 * var(--fbw)) * .061); }
+.card.fm.has-frame .c-type { display: none !important; }
+.card.fm.has-frame .c-name, .card.fm.has-frame:not(.size-full) .c-name, .screen-lobby .dv-cards .card.fm.has-frame .c-name {
+  font-size: calc(.6em * var(--ns, 1)) !important; line-height: 1 !important; letter-spacing: -.01em !important; padding-top: .08em;
+  font-family: "Gowun Batang", var(--kfont, var(--body)), serif !important; font-weight: 400 !important; }
+.card.fm.has-frame .c-name * { font-family: inherit !important; font-weight: inherit !important; }
+
+/* 레벨 아이콘 열: 테두리 안쪽 ~ 그림 창 액자 사이 가운데, 문장 아래(13.6%)부터 */
+.card.fm.has-frame .c-mid, .card.fm.has-frame .c-low, .card.fm.has-frame .c-lowl { position: static !important; }
+.card.fm.has-frame .c-side { position: absolute; width: calc((100% + 2 * var(--fbw)) * .052);
+  left: calc((100% + 2 * var(--fbw)) * .024 - var(--fbw));
+  top: calc((100% + 2 * var(--fbw)) * .136 - var(--fbw)); bottom: calc((100% + 2 * var(--fbw)) * .30 - var(--fbw)); }
+.card.fm.has-frame .c-pips { gap: .08em !important; padding: 0 !important; align-items: center; }
+.card.fm.has-frame .c-pips .pip { width: .5em !important; height: .5em !important; background: none !important; box-shadow: none !important;
+  filter: drop-shadow(0 .03em .05em #000); }
+.card.fm.has-frame .c-pips .pip img { width: 100%; height: 100%; display: block; }
+.card.fm.has-frame .c-pips .pip.pip-up img { opacity: .38; filter: grayscale(.6); }
+
+/* 그림: 프레임 창 자리 (x 10.52~97.08% · y 10.38~63.6%) */
+.card.fm.has-frame .c-art { position: absolute !important; flex: none; border: 0 !important; box-shadow: none !important; outline: 0 !important;
+  left: calc((100% + 2 * var(--fbw)) * .1052 - var(--fbw)); right: calc((100% + 2 * var(--fbw)) * .0292 - var(--fbw));
+  top: calc((100% + 2 * var(--fbw)) * .1038 - var(--fbw)); bottom: calc((100% + 2 * var(--fbw)) * .364 - var(--fbw)); }
+
+/* 아래: 종류 줄 없음 · 글 상자 · 오른쪽 클래스 아이콘(동그라미 없이) + 공 · 방 · 체 */
+.card.fm.has-frame .c-race { display: none !important; }
+.card.fm.has-frame .c-box { position: absolute;
+  left: calc((100% + 2 * var(--fbw)) * var(--fl) - var(--fbw)); right: calc((100% + 2 * var(--fbw)) * (1.154 - var(--fr)) - var(--fbw));
+  top: calc((100% + 2 * var(--fbw)) * .684 - var(--fbw)); bottom: calc((100% + 2 * var(--fbw)) * (1 - var(--fb)) - var(--fbw)); }
+.card.fm.has-frame .c-box, .card.fm.has-frame .c-box * { font-family: "Gowun Batang", var(--kfont, var(--body)), serif !important; font-weight: 400 !important; }
+.card.fm.has-frame .c-rcol { position: static !important; }
+/* 공 · 방 · 체: 오른쪽 아래 열을 숫자만 쓴다(클래스 아이콘은 오른쪽 위로) */
+.card.fm.has-frame .c-vstats { position: absolute !important; font-size: var(--ss, 1em); justify-content: space-evenly; padding: 0;
+  right: calc((100% + 2 * var(--fbw)) * (1 - var(--fr)) - var(--fbw)); width: calc((100% + 2 * var(--fbw)) * .15);
+  top: calc((100% + 2 * var(--fbw)) * .68 - var(--fbw)); bottom: calc((100% + 2 * var(--fbw)) * (1 - var(--sb)) - var(--fbw)); }
+/* 클래스 아이콘: 머리 띠 오른쪽 끝, 동그라미 없이 */
+.card.fm.has-frame .c-clsico i { background: none !important; border: 0 !important; box-shadow: none !important; width: 1em !important; height: 1em !important;
+  filter: drop-shadow(0 .03em .06em #000); }
+.card.fm.has-frame .c-clsico i::before, .card.fm.has-frame .c-clsico i::after { display: none !important; }
+
+/* 레벨 문장: 에테르 제단(2.8em) — 고리 구멍 중심 = 그림 정중앙, 카드 (.6em, .6em)에. 위 · 왼쪽은 카드 밖으로 잘린다 */
+.card.fm.has-frame .c-emb { position: absolute; left: calc(.6em - var(--fbw)); top: calc(.6em - var(--fbw)); width: 0; height: 0; z-index: 4; pointer-events: none; }
+.card.fm.has-frame .c-emb img { position: absolute; width: 2.8em; height: 2.8em; left: -1.4em; top: -1.4em; max-width: none;
+  filter: drop-shadow(0 .05em .12em rgba(0, 0, 0, .85)); }
+.card.fm.has-frame .c-emb .c-orb { position: absolute; width: .86em; height: .86em; left: -.43em; top: -.43em; border-radius: 50%;
+  background: radial-gradient(circle at 36% 30%, #fff 0, color-mix(in srgb, var(--el) 70%, #fff) 18%, var(--el) 48%, color-mix(in srgb, var(--el) 45%, #000) 100%);
+  box-shadow: inset 0 -.06em .12em rgba(0, 0, 0, .6), 0 0 .25em color-mix(in srgb, var(--el) 60%, transparent); }
+.card.fm.has-frame .c-emb .c-enum { position: absolute; left: -.43em; top: -.43em; width: .86em; height: .86em; display: flex; align-items: center; justify-content: center;
+  font-size: 1em; line-height: 1; font-style: normal; pointer-events: auto; cursor: help; }
+/* Cinzel 숫자는 글자 상자 위쪽이 비어 아래로 .14em 내려야 고리 정가운데 (화면에서 잼) */
+.card.fm.has-frame .c-emb .c-enum b { display: block; font: 900 .6em / 1 "Cinzel", serif; color: #fff6dd; transform: translateY(.14em);
+  text-shadow: 0 .05em .1em #000, 0 0 .25em rgba(0, 0, 0, .9); }
+html.mobile .card.fm.has-frame .c-emb img { filter: none; }
+
+/* 공 · 방 · 체 열이 없는 카드(마법 · 숫자 없는 아이템): 글 상자를 오른쪽 끝(스탯 열 끝 --fr)까지 */
+.card.fm.has-frame.fr-wide .c-box { right: calc((100% + 2 * var(--fbw)) * (1 - var(--fr)) - var(--fbw)); }
+
+/* ---- 크게 보기(size-full, 2026-11-20): 5:7 고정 · 작은 카드와 같은 em 눈금(카드 폭 × .1). 글 상자 맨 위에 종류 띠(.c-band), 글은 원래 크기, 넘치면 상자 안에서 스크롤 ---- */
+.card.fm.size-full.has-frame { font-size: calc(var(--cw) * .1); aspect-ratio: 5 / 7; min-height: 0; }
+.card.fm.size-full.has-frame > .c-frame { position: absolute !important; inset: 0 !important; height: auto !important; min-height: 0; padding: 0; gap: 0; }
+.card-modal .card.fm.size-full.has-frame { --card-full: min(calc(100vw - 72px), clamp(300px, calc((100vh - 150px) / 1.4), 600px)); }
+.card-preview:has(.card.has-frame) { --card-full: clamp(300px, calc((100vh - 48px) / 1.4), 600px); }
+.card.fm.size-full.has-frame .c-head { min-height: 0; padding: 0; }
+.card.fm.size-full.has-frame .c-hname { flex: 1; min-width: 0; display: flex; align-items: center; height: 100%; }
+.card.fm.size-full.has-frame .c-box { display: block; padding: .1em .16em .1em .2em; overflow-x: hidden !important; overflow-y: auto !important; overscroll-behavior: contain;
+  scrollbar-width: thin; scrollbar-color: rgba(217, 180, 106, .45) transparent; }
+.card.fm.size-full.has-frame .c-box::-webkit-scrollbar { width: .12em; }
+.card.fm.size-full.has-frame .c-box::-webkit-scrollbar-thumb { background: rgba(217, 180, 106, .45); border-radius: .1em; }
+.card.fm.size-full.has-frame .c-box > .c-coinline { font-size: .62em; gap: .1em .5em; margin: 0 0 .25em; }
+.card.fm.size-full.has-frame .c-box .f-text { font-size: .41em; line-height: 1.45; }
+.card.fm.size-full.has-frame .c-rcol { width: auto; padding: 0; gap: 0; }
+.card.fm.size-full.has-frame .c-vstats { gap: 0; justify-content: space-evenly; }
+.card.fm.size-full.has-frame .c-vstats .st { flex-direction: row; gap: .05em; }
+.card.fm.size-full.has-frame .c-vstats .st b { font-size: 1.12em; min-width: 0; }
+.card.fm.size-full.has-frame .c-type .c-tlv { font-size: 1em; }
+.card.fm.size-full.has-frame .c-art { aspect-ratio: auto !important; height: auto !important; }
+/* 스페셜 광휘: 크게 보기 값(fmcard.css)이 큰 em 눈금에서 두 배 넘게 커지므로 원래 크기(× .41)로 */
+.card.size-full.has-frame .c-art .c-spfx { background-size: 1.19em 1.19em; background-position: left .1em top .1em, right .1em top .1em, left .1em bottom .1em, right .1em bottom .1em;
+  box-shadow: inset 0 0 0 .04em rgba(246, 217, 142, .9), inset 0 0 0 .11em rgba(255, 77, 115, .5), inset 0 0 .9em rgba(255, 77, 115, .3); }
+html.mobile .card.size-full.has-frame .c-art .c-spfx { box-shadow: inset 0 0 0 .04em rgba(246, 217, 142, .9), inset 0 0 0 .11em rgba(255, 77, 115, .5), inset 0 0 6px rgba(255, 77, 115, .3); }
+
+/* ---- 전장 · 핸드 카드(slim, 2026-11-20): 같은 프레임. 카드가 작아(폭 100~130px) 이름만 조금 크게 ---- */
+.card.fm.slim.has-frame .c-name { font-size: calc(.7em * var(--ns, 1)) !important; }
+
+/* ---- 종류 띠 + 아이콘 (2026-11-20 사용자): 모든 프레임 카드의 글 상자 맨 위에 "유닛 · 마족 …… 유니크" 줄과 아래 금빛 선,
+   그 줄 맨 끝(공 · 방 · 체 열의 공격 숫자 바로 왼쪽)에 클래스 · 마법 종류 아이콘. 머리 띠에는 이름만(오른쪽 끝 --nr = 귀퉁이 장식 앞) ---- */
+.card.fm.fr-B1 { --nr: .09; } .card.fm.fr-B2 { --nr: .045; } .card.fm.fr-B3 { --nr: .14; }
+.card.fm.fr-G1 { --nr: .14; } .card.fm.fr-G2 { --nr: .11; } .card.fm.fr-G3 { --nr: .14; }
+.card.fm.fr-A1 { --nr: .14; } .card.fm.fr-A2 { --nr: .14; } .card.fm.fr-A3 { --nr: .095; }
+.card.fm.has-frame .c-race.c-band { display: flex !important; position: static; flex: none; align-items: center; gap: .35em; height: auto; min-height: 0;
+  font-size: .5em; line-height: 1.15; padding: 0 0 .22em .05em; margin: 0 0 .28em; border: 0; border-bottom: .07em solid rgba(217, 180, 106, .45); background: none; box-shadow: none; }
+.card.fm.has-frame .c-band .r-l { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card.fm.has-frame .c-band .r-g { flex: none; }
+.card.fm.has-frame .c-band .c-clsico { position: static !important; inset: auto !important; flex: none; display: flex; flex-direction: row; gap: .1em; align-items: center;
+  margin: -.3em 0 -.3em .1em; padding: 0; font-size: 1em; transform: none; }
+.card.fm.has-frame .c-band .c-clsico i { width: 2em !important; height: 2em !important; }
+.card.fm.size-full.has-frame .c-race.c-band { font-size: .42em; padding: 0 .1em .28em; margin: 0 0 .32em; }
+.card.fm.size-full.has-frame .c-band .c-clsico i { width: 2.3em !important; height: 2.3em !important; }
+/* 공 · 방 · 체 숫자 왼쪽에 표시(▲ ▼ 🔒)가 붙은 카드는 띠 끝 아이콘이 표시에 닿지 않게 띠를 그만큼(카드 .5em) 일찍 끝낸다 */
+.card.fm.has-frame:has(.c-vstats .st-pinU, .c-vstats .st-pinD, .c-vstats .st-pinL) .c-race.c-band { margin-right: 1em; }
+.card.fm.size-full.has-frame:has(.c-vstats .st-pinU, .c-vstats .st-pinD, .c-vstats .st-pinL) .c-race.c-band { margin-right: 1.2em; }

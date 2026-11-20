@@ -126,3 +126,46 @@ html.mobile .hand-me .card.fm .c-box .c-brief { font-size: calc(.94em * var(--bf
 /* 2026-11-15 덱 조정실: 넣은 카드가 덱 목록으로 날아가는 그림(.ed-fly)은 마우스를 받지 않는다 — 날아가는 카드 위를 지나면
    카드 속 능력 글(.kw, pointer-events: auto)이 말풍선 · 마우스오버를 띄우던 것 */
 .ed-fly, .ed-fly * { pointer-events: none !important; }
+
+/* ---- 2026-11-20 카드 레이아웃 다듬기 (v3 규격: 일러스트 테두리만 유지 · 타이트한 헤더/레벨 · 등급은 종류 줄 오른쪽 통일) ----
+   1) 내부 네모칸 전부 제거: 레벨 숫자(.c-type) · 글 상자(.c-box) · 우측 스탯 열(.c-rcol)의 바탕/테두리/그림자를 빼고 일러스트(.c-art) 테두리만 남긴다.
+   2) 타이트한 상단 헤더(.c-head) + 왼쪽 레벨 핍(.c-side, 약간 여유) → 일러스트(.c-mid) 가로 · 세로 면적 확대.
+   3) 작은 카드 이름 1줄 고정(넘치는 카드만 js/view.js fitCardNames가 축소 · "○○의 " 생략).
+   4) 등급 표시: 큰 카드(.size-full)도 상단 칩을 빼고 일러스트 아래 종류 줄(.c-race) 오른쪽으로 통일(스페셜은 ✦). */
+.card.fm > .c-frame { padding: .2em .22em .22em; gap: .12em; }
+.card.fm .c-head { height: 1.06em; gap: .16em; }
+.card.fm .c-type { width: .92em; height: 1.02em; background: none; border: 0; box-shadow: none; border-radius: 0; }
+.card.fm .c-type .c-tlv { font-size: 1.04em; line-height: 1; text-shadow: 0 0 .28em color-mix(in srgb, var(--tc, var(--gold)) 70%, transparent), 0 .06em .12em #000; }
+.card.fm:not(.size-full) .c-name { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: unset;
+  font-size: calc(.84em * var(--ns, 1)); line-height: 1.08; letter-spacing: -.03em; }
+.card.fm.slim .c-name { font-size: calc(.84em * var(--ns, 1)); }
+.screen-lobby .dv-cards .card.fm .c-name { font-size: calc(.92em * var(--ns, 1)); }
+html.mobile .hand-me .card.fm.slim .c-name { font-size: calc(.9em * var(--ns, 1)); letter-spacing: -.04em; }
+html.mobile .frow .card.fm.slim .c-name { font-size: calc(.88em * var(--ns, 1)); letter-spacing: -.04em; }
+
+.card.fm .c-mid { height: 7.45em; gap: .14em; }
+.card.fm .c-side { width: .62em; }
+.card.fm .c-pips { gap: .08em; padding-top: .08em; }
+.card.fm .c-pips .pip { width: .5em; height: .5em; }
+
+.card.fm .c-low { gap: .14em; }
+.card.fm .c-race { height: 1.42em; padding: 0 .06em; border-bottom: 1px solid color-mix(in srgb, var(--fc) 32%, rgba(217, 180, 106, .22)); }
+.card.fm .c-box { background: none; box-shadow: none; border: 0; border-radius: 0; padding: .1em .06em; }
+.card.fm .c-rcol { width: 1.65em; padding: .04em 0; background: none; box-shadow: none; border: 0; border-radius: 0; }
+/* 작은 카드 아이템: 우측 클래스 동그라미 자리만큼 위를 비워 유닛과 같은 공 · 방 · 체 세로 배열로 통일 */
+.card.fm.type-item:not(.size-full) .c-rcol { padding-top: 1.48em; }
+
+/* 큰 카드(원본 · 크게 보기)도 같은 규칙 */
+.card.fm.size-full > .c-frame { padding: .44em .52em .48em; gap: .28em; }
+.card.fm.size-full .c-head { min-height: 1.65em; height: auto; gap: .32em; }
+.card.fm.size-full .c-type { width: 1.45em; height: 1.55em; }
+.card.fm.size-full .c-type .c-tlv { font-size: 1.52em; }
+.card.fm.size-full .c-name { font-size: 1.38em; line-height: 1.12; }
+.card.fm.size-full .c-mid { gap: .3em; }
+.card.fm.size-full .c-side { width: 1.08em; }
+.card.fm.size-full .c-pips { gap: .14em; padding-top: .12em; }
+.card.fm.size-full .c-pips .pip { width: .88em; height: .88em; }
+.card.fm.size-full .c-race { height: auto; font-size: 1.02em; padding: 0 .08em .24em; }
+.card.fm.size-full .c-box { padding: .24em .08em .16em; }
+.card.fm.size-full .c-rcol { width: 3.3em; padding: .16em 0 .2em; }
+.card.fm.size-full .c-vstats { gap: .62em; padding-bottom: .12em; }

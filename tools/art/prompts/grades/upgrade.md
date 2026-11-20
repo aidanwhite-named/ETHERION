@@ -22,10 +22,10 @@ Mood: ascending, refined, powered-up.
 ## 1. 그림 없는 카드 — 먼저 그린다 · 40장
 
 ### UP-A1-09 · 모르크 거미 여왕
-모르카스의 그믐 · 유닛 · 레벨 3 · 강화 · 원래 카드 `A1-09` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A1-09.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A1-09.jpg` 600×750)
+모르카스의 그믐 · 유닛 · 레벨 3 · 강화 · 원래 카드 `A1-09` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A1-09.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A1-09.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "모르크 거미 여왕". Depict exactly what this name describes.
@@ -39,22 +39,23 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 협곡 벽 하나를 다 덮도록 줄을 쳤더니 새끼들이 생겼다. 이제 모르크 협곡으로 떨어지는 것은 무엇이든 그녀의 몫부터 뗀다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
+Colour fidelity: the whole image reads at a glance as the banner colour #8b5cf6 (violet #8b5cf6, black, blood-red accents); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the shadow city of Noctar in a sunless canyon); violet shadow smoke, blood-red accents, contract sigils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-A1-11 · 마족 선봉장
-모르카스의 그믐 · 유닛 · 레벨 3 · 강화 · 원래 카드 `A1-11` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A1-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A1-11.jpg` 600×750)
+모르카스의 그믐 · 유닛 · 레벨 3 · 강화 · 원래 카드 `A1-11` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A1-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A1-11.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "마족 선봉장". Depict exactly what this name describes.
@@ -67,22 +68,23 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 전사 셋 가운데 살아 돌아온 하나가 나머지 둘의 계약까지 짊어졌다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
+Colour fidelity: the whole image reads at a glance as the banner colour #8b5cf6 (violet #8b5cf6, black, blood-red accents); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the shadow city of Noctar in a sunless canyon); violet shadow smoke, blood-red accents, contract sigils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-A1-15 · 피를 마시는 마검
-모르카스의 그믐 · 유닛 · 레벨 4 · 강화 · 원래 카드 `A1-15` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A1-15.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A1-15.jpg` 600×750)
+모르카스의 그믐 · 유닛 · 레벨 4 · 강화 · 원래 카드 `A1-15` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A1-15.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A1-15.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "피를 마시는 마검". Depict exactly what this name describes.
@@ -96,22 +98,23 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 피를 마시던 칼이 세 주인의 피를 다 마시고 마검이 되었다. 이제는 휘두를 손을 기다리지 않는다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
+Colour fidelity: the whole image reads at a glance as the banner colour #8b5cf6 (violet #8b5cf6, black, blood-red accents); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the shadow city of Noctar in a sunless canyon); violet shadow smoke, blood-red accents, contract sigils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-A1-18 · 그림자 학살자
-모르카스의 그믐 · 유닛 · 레벨 4 · 강화 · 원래 카드 `A1-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A1-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A1-18.jpg` 600×750)
+모르카스의 그믐 · 유닛 · 레벨 4 · 강화 · 원래 카드 `A1-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A1-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A1-18.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "그림자 학살자". Depict exactly what this name describes.
@@ -125,22 +128,23 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 그림자 속에서 기다리지 않는다. 그림자를 끌고 다닌다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
+Colour fidelity: the whole image reads at a glance as the banner colour #8b5cf6 (violet #8b5cf6, black, blood-red accents); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the shadow city of Noctar in a sunless canyon); violet shadow smoke, blood-red accents, contract sigils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-A1-23 · 대낫 사신
-모르카스의 그믐 · 유닛 · 레벨 5 · 강화 · 원래 카드 `A1-23` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A1-23.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A1-23.jpg` 600×750)
+모르카스의 그믐 · 유닛 · 레벨 5 · 강화 · 원래 카드 `A1-23` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A1-23.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A1-23.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "대낫 사신". Depict exactly what this name describes.
@@ -154,22 +158,23 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 거둔 계약서가 무릎까지 쌓였을 때 낫을 바꿨다. 이제는 이름을 하나씩 부르지 않고 한 줄씩 부른다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is darkness (#8b5cf6) from behind the subject, cold violet underlight, blood-red glints, deep shadows.
+Colour fidelity: the whole image reads at a glance as the banner colour #8b5cf6 (violet #8b5cf6, black, blood-red accents); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the shadow city of Noctar in a sunless canyon); violet shadow smoke, blood-red accents, contract sigils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no holy light, no cartoonish devils — ominous and dread-filled.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-A2-11 · 창뿔 유니콘
-솔란테의 새벽 · 유닛 · 레벨 3 · 강화 · 원래 카드 `A2-11` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A2-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A2-11.jpg` 600×750)
+솔란테의 새벽 · 유닛 · 레벨 3 · 강화 · 원래 카드 `A2-11` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A2-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A2-11.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "창뿔 유니콘". Depict exactly what this name describes.
@@ -183,22 +188,23 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 뿔이 창만큼 자랐다. 어둠은 그 뿔끝의 새벽빛이 닿기 전에 갈라진다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
+Colour fidelity: the whole image reads at a glance as the banner colour #ffe9a8 (holy light #ffe9a8, white, pale gold, soft sky blue); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the white walls of the Dawn Citadel Elad); pale gold radiance, halo, feathers of light.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-A2-15 · 솔란테의 서약 기사
-솔란테의 새벽 · 유닛 · 레벨 4 · 강화 · 원래 카드 `A2-15` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A2-15.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A2-15.jpg` 600×750)
+솔란테의 새벽 · 유닛 · 레벨 4 · 강화 · 원래 카드 `A2-15` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A2-15.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A2-15.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "솔란테의 서약 기사". Depict exactly what this name describes.
@@ -211,22 +217,23 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 맹세를 세 번 지킨 자만이 서약의 갑주를 입는다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
+Colour fidelity: the whole image reads at a glance as the banner colour #ffe9a8 (holy light #ffe9a8, white, pale gold, soft sky blue); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the white walls of the Dawn Citadel Elad); pale gold radiance, halo, feathers of light.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-A2-17 · 황금 스핑크스
-솔란테의 새벽 · 유닛 · 레벨 4 · 강화 · 원래 카드 `A2-17` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A2-17.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A2-17.jpg` 600×750)
+솔란테의 새벽 · 유닛 · 레벨 4 · 강화 · 원래 카드 `A2-17` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A2-17.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A2-17.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "황금 스핑크스". Depict exactly what this name describes.
@@ -240,22 +247,23 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 물음을 던지던 스핑크스가 솔란테의 빛을 오래 쬐어 금빛이 되었다. 이제는 묻지 않아도 거짓이 그 앞에서 그림자를 잃는다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
+Colour fidelity: the whole image reads at a glance as the banner colour #ffe9a8 (holy light #ffe9a8, white, pale gold, soft sky blue); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the white walls of the Dawn Citadel Elad); pale gold radiance, halo, feathers of light.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-A2-22 · 솔란테의 대성종
-솔란테의 새벽 · 유닛 · 레벨 5 · 강화 · 원래 카드 `A2-22` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A2-22.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A2-22.jpg` 600×750)
+솔란테의 새벽 · 유닛 · 레벨 5 · 강화 · 원래 카드 `A2-22` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A2-22.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A2-22.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "솔란테의 대성종". Depict exactly what this name describes.
@@ -269,22 +277,23 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 아침마다 울리던 종이 대성당 꼭대기로 옮겨 걸렸다. 이제 그 소리는 황혼의 장벽까지 닿는다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
+Colour fidelity: the whole image reads at a glance as the banner colour #ffe9a8 (holy light #ffe9a8, white, pale gold, soft sky blue); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the white walls of the Dawn Citadel Elad); pale gold radiance, halo, feathers of light.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-A2-24 · 빛의 대거울
-솔란테의 새벽 · 유닛 · 레벨 5 · 강화 · 원래 카드 `A2-24` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A2-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A2-24.jpg` 600×750)
+솔란테의 새벽 · 유닛 · 레벨 5 · 강화 · 원래 카드 `A2-24` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A2-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A2-24.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "빛의 대거울". Depict exactly what this name describes.
@@ -298,22 +307,23 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 회랑의 거울이 셋으로 겹쳐 자랐다. 뒷면의 은에는 황혼의 장벽에서 옮겨 온 돌가루가 섞여 있다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is holy light (#ffe9a8) from behind the subject, warm radiant backlight and sunrise glow.
+Colour fidelity: the whole image reads at a glance as the banner colour #ffe9a8 (holy light #ffe9a8, white, pale gold, soft sky blue); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the white walls of the Dawn Citadel Elad); pale gold radiance, halo, feathers of light.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no demonic elements, no gore; they are defenders, so attacks look restrained and righteous.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-A3-10 · 속사 하피
-벨루미르의 별 · 유닛 · 레벨 3 · 강화 · 원래 카드 `A3-10` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A3-10.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A3-10.jpg` 600×750)
+벨루미르의 별 · 유닛 · 레벨 3 · 강화 · 원래 카드 `A3-10` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A3-10.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A3-10.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "속사 하피". Depict exactly what this name describes.
@@ -327,22 +337,23 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 깃을 아끼는 법은 끝내 배우지 않았다. 대신 빠지는 만큼 빨리 다시 나게 되었다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
+Colour fidelity: the whole image reads at a glance as the banner colour #9fe3d6 (wind teal #9fe3d6, silver, white, starry indigo); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms); swirling teal wind, drifting feathers and starlight streaks.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-A3-11 · 질풍 그리핀
-벨루미르의 별 · 유닛 · 레벨 3 · 강화 · 원래 카드 `A3-11` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A3-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A3-11.jpg` 600×750)
+벨루미르의 별 · 유닛 · 레벨 3 · 강화 · 원래 카드 `A3-11` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A3-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A3-11.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "질풍 그리핀". Depict exactly what this name describes.
@@ -356,22 +367,23 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 새끼 때 소식보다 먼저 닿던 버릇이 그대로 자랐다. 이제는 바람보다 먼저 닿아 그 자체가 소식이 된다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
+Colour fidelity: the whole image reads at a glance as the banner colour #9fe3d6 (wind teal #9fe3d6, silver, white, starry indigo); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms); swirling teal wind, drifting feathers and starlight streaks.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-A3-18 · 쌍둥이자리 궁수장
-벨루미르의 별 · 유닛 · 레벨 4 · 강화 · 원래 카드 `A3-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A3-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A3-18.jpg` 600×750)
+벨루미르의 별 · 유닛 · 레벨 4 · 강화 · 원래 카드 `A3-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A3-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A3-18.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "쌍둥이자리 궁수장". Depict exactly what this name describes.
@@ -385,22 +397,23 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 두 별이 시위 소리를 하나로 맞추는 법을 익혔다. 이제 쌍둥이자리의 화살은 하나처럼 날아가 둘로 꽂힌다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
+Colour fidelity: the whole image reads at a glance as the banner colour #9fe3d6 (wind teal #9fe3d6, silver, white, starry indigo); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms); swirling teal wind, drifting feathers and starlight streaks.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-A3-23 · 별여우 순찰대장
-벨루미르의 별 · 유닛 · 레벨 5 · 강화 · 원래 카드 `A3-23` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A3-23.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A3-23.jpg` 600×750)
+벨루미르의 별 · 유닛 · 레벨 5 · 강화 · 원래 카드 `A3-23` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A3-23.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A3-23.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "별여우 순찰대장". Depict exactly what this name describes.
@@ -414,22 +427,23 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 고원의 길을 다 걸은 별여우가 이제 적이 어느 길로 올지 먼저 냄새 맡는다. 꼬리의 별빛도 그만큼 길어졌다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
+Colour fidelity: the whole image reads at a glance as the banner colour #9fe3d6 (wind teal #9fe3d6, silver, white, starry indigo); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms); swirling teal wind, drifting feathers and starlight streaks.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-A3-24 · 번개 텐구 대장
-벨루미르의 별 · 유닛 · 레벨 5 · 강화 · 원래 카드 `A3-24` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A3-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A3-24.jpg` 600×750)
+벨루미르의 별 · 유닛 · 레벨 5 · 강화 · 원래 카드 `A3-24` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-A3-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-A3-24.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "번개 텐구 대장". Depict exactly what this name describes.
@@ -443,22 +457,23 @@ Faction: Oracle Conclave: white citadels, stars, spires, magic circles, canyons 
 Lore (Korean, use for the scene): 번개를 화살에 싣는 것은 오래전에 익혔다. 이제 그것을 원하는 곳에만 떨어뜨리는 텐구는 바늘탑에 그 하나뿐이다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is wind (#9fe3d6) from behind the subject, cool teal-white starlight and streaks of wind.
+Colour fidelity: the whole image reads at a glance as the banner colour #9fe3d6 (wind teal #9fe3d6, silver, white, starry indigo); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the cloud-piercing spire towers of Belumir's Needle, with archers' galleries and lookout platforms); swirling teal wind, drifting feathers and starlight streaks.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no heavy plate armour; star glyphs are abstract shapes, never readable letters.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-B1-12 · 폭약 공병장
-도르마크의 심장불 · 유닛 · 레벨 3 · 강화 · 원래 카드 `B1-12` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B1-12.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B1-12.jpg` 600×750)
+도르마크의 심장불 · 유닛 · 레벨 3 · 강화 · 원래 카드 `B1-12` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B1-12.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B1-12.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "폭약 공병장". Depict exactly what this name describes.
@@ -472,22 +487,23 @@ Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mi
 Lore (Korean, use for the scene): 화서 무리 가운데 화약고 밑을 가장 깊이 판 우두머리. 포르탄 공병들은 그 굴을 따라 폭약을 묻다가, 끝내 그에게 공병장이라는 이름을 붙여 주었다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
+Colour fidelity: the whole image reads at a glance as the banner colour #ff6b3d (fire orange #ff6b3d with brass #d4893a and soot black); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the fortress-foundry of Fortan, chimneys and gun bastions); embers, flame light, gunpowder smoke.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-B1-17 · 거포 거북
-도르마크의 심장불 · 유닛 · 레벨 4 · 강화 · 원래 카드 `B1-17` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B1-17.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B1-17.jpg` 600×750)
+도르마크의 심장불 · 유닛 · 레벨 4 · 강화 · 원래 카드 `B1-17` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B1-17.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B1-17.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "거포 거북". Depict exactly what this name describes.
@@ -501,22 +517,23 @@ Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mi
 Lore (Korean, use for the scene): 포대 거북이 백 년을 더 묵자 등딱지의 분화구가 셋으로 갈라졌다. 한 번 숨을 뱉으면 소리는 셋인데 땅은 한 번만 꺼진다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
+Colour fidelity: the whole image reads at a glance as the banner colour #ff6b3d (fire orange #ff6b3d with brass #d4893a and soot black); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the fortress-foundry of Fortan, chimneys and gun bastions); embers, flame light, gunpowder smoke.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-B1-18 · 불개미 철벽대
-도르마크의 심장불 · 유닛 · 레벨 4 · 강화 · 원래 카드 `B1-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B1-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B1-18.jpg` 600×750)
+도르마크의 심장불 · 유닛 · 레벨 4 · 강화 · 원래 카드 `B1-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B1-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B1-18.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "불개미 철벽대". Depict exactly what this name describes.
@@ -530,22 +547,23 @@ Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mi
 Lore (Korean, use for the scene): 화약고를 지키던 불개미 떼가 등껍질을 맞대어 하나의 벽이 되었다. 맞을수록 껍질이 달아올라 더 단단해진다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
+Colour fidelity: the whole image reads at a glance as the banner colour #ff6b3d (fire orange #ff6b3d with brass #d4893a and soot black); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the fortress-foundry of Fortan, chimneys and gun bastions); embers, flame light, gunpowder smoke.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-B1-24 · 박격포 명사수
-도르마크의 심장불 · 유닛 · 레벨 5 · 강화 · 원래 카드 `B1-24` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B1-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B1-24.jpg` 600×750)
+도르마크의 심장불 · 유닛 · 레벨 5 · 강화 · 원래 카드 `B1-24` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B1-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B1-24.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "박격포 명사수". Depict exactly what this name describes.
@@ -558,22 +576,23 @@ Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mi
 Lore (Korean, use for the scene): 포르탄의 박격포수들이 그의 포탄 궤적을 보고 각도를 고친다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is fire (#ff6b3d) from behind the subject, flashes of cannon fire and glowing embers inside thick gunpowder smoke.
+Colour fidelity: the whole image reads at a glance as the banner colour #ff6b3d (fire orange #ff6b3d with brass #d4893a and soot black); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the fortress-foundry of Fortan, chimneys and gun bastions); embers, flame light, gunpowder smoke.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no wizard robes, wands or glowing magic circles — their fire comes from gunpowder, furnaces and living flame; no elegant armour.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-B2-12 · 단조 명장
-소르그림의 방패 · 유닛 · 레벨 3 · 강화 · 원래 카드 `B2-12` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B2-12.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B2-12.jpg` 600×750)
+소르그림의 방패 · 유닛 · 레벨 3 · 강화 · 원래 카드 `B2-12` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B2-12.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B2-12.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "단조 명장". Depict exactly what this name describes.
@@ -586,22 +605,23 @@ Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mi
 Lore (Korean, use for the scene): 견습의 망치 셋을 녹여 장인의 망치 하나를 벼렸다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
+Colour fidelity: the whole image reads at a glance as the banner colour #a9b4c2 (steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the underground forge-city of Durkheim); cold steel sheen, sparks from an anvil, rivets.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-B2-17 · 무쇠뿔 산양왕
-소르그림의 방패 · 유닛 · 레벨 4 · 강화 · 원래 카드 `B2-17` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B2-17.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B2-17.jpg` 600×750)
+소르그림의 방패 · 유닛 · 레벨 4 · 강화 · 원래 카드 `B2-17` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B2-17.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B2-17.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "무쇠뿔 산양왕". Depict exactly what this name describes.
@@ -615,22 +635,23 @@ Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mi
 Lore (Korean, use for the scene): 무쇠뿔 산양이 뿔을 몇 번 갈아 치우고 무리의 왕이 되었다. 무리는 그의 등 뒤로만 줄을 서고, 그 등이 성벽이다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
+Colour fidelity: the whole image reads at a glance as the banner colour #a9b4c2 (steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the underground forge-city of Durkheim); cold steel sheen, sparks from an anvil, rivets.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-B2-18 · 증기 황소 우두머리
-소르그림의 방패 · 유닛 · 레벨 4 · 강화 · 원래 카드 `B2-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B2-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B2-18.jpg` 600×750)
+소르그림의 방패 · 유닛 · 레벨 4 · 강화 · 원래 카드 `B2-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B2-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B2-18.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "증기 황소 우두머리". Depict exactly what this name describes.
@@ -644,22 +665,23 @@ Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mi
 Lore (Korean, use for the scene): 증기 콧김 황소가 배 속 보일러를 셋으로 늘리고 무리의 머리가 되었다. 한 번 땅을 구르면 갱도 끝까지 울린다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
+Colour fidelity: the whole image reads at a glance as the banner colour #a9b4c2 (steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the underground forge-city of Durkheim); cold steel sheen, sparks from an anvil, rivets.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-B2-22 · 쇠 먹는 불가사리 왕
-소르그림의 방패 · 유닛 · 레벨 5 · 강화 · 원래 카드 `B2-22` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B2-22.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B2-22.jpg` 600×750)
+소르그림의 방패 · 유닛 · 레벨 5 · 강화 · 원래 카드 `B2-22` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B2-22.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B2-22.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "쇠 먹는 불가사리 왕". Depict exactly what this name describes.
@@ -673,22 +695,23 @@ Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mi
 Lore (Korean, use for the scene): 쇠 먹는 불가사리가 공방 고철 더미 하나를 통째로 삼키고 또 자랐다. 이제는 무리가 그의 뒤를 따라다니며 남은 부스러기를 줍는다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
+Colour fidelity: the whole image reads at a glance as the banner colour #a9b4c2 (steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the underground forge-city of Durkheim); cold steel sheen, sparks from an anvil, rivets.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-B2-24 · 철골 가고일 수문장
-소르그림의 방패 · 유닛 · 레벨 5 · 강화 · 원래 카드 `B2-24` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B2-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B2-24.jpg` 600×750)
+소르그림의 방패 · 유닛 · 레벨 5 · 강화 · 원래 카드 `B2-24` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B2-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B2-24.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "철골 가고일 수문장". Depict exactly what this name describes.
@@ -702,22 +725,23 @@ Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mi
 Lore (Korean, use for the scene): 철골 가고일이 두르크하임 맨 아래 갱도의 문 위에 자리를 잡았다. 그 너머에 무엇이 있는지는 말하지 않는다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is metal (#a9b4c2) from behind the subject, cold steel sheen against molten forge glow, sparks from the anvil.
+Colour fidelity: the whole image reads at a glance as the banner colour #a9b4c2 (steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the underground forge-city of Durkheim); cold steel sheen, sparks from an anvil, rivets.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no wizardry or wands; golems and constructs are machines, not undead.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-B3-12 · 방전 요정 여왕
-케라운의 벼락 · 유닛 · 레벨 3 · 강화 · 원래 카드 `B3-12` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B3-12.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B3-12.jpg` 600×750)
+케라운의 벼락 · 유닛 · 레벨 3 · 강화 · 원래 카드 `B3-12` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B3-12.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B3-12.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "방전 요정 여왕". Depict exactly what this name describes.
@@ -731,22 +755,23 @@ Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mi
 Lore (Korean, use for the scene): 방전 요정이 세 번 터지고도 사라지지 않아 요정들의 여왕이 되었다. 네 번째는 터지지 않았고, 이제는 터질 때를 스스로 고른다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
+Colour fidelity: the whole image reads at a glance as the banner colour #ffd84a (electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lightning-rod city of Voltarium on the thundering plateau); crackling electric arcs, glowing coils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-B3-18 · 노움 수석공학자
-케라운의 벼락 · 유닛 · 레벨 4 · 강화 · 원래 카드 `B3-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B3-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B3-18.jpg` 600×750)
+케라운의 벼락 · 유닛 · 레벨 4 · 강화 · 원래 카드 `B3-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B3-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B3-18.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "노움 수석공학자". Depict exactly what this name describes.
@@ -759,22 +784,23 @@ Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mi
 Lore (Korean, use for the scene): 공학자 셋이 다투던 설계를 하룻밤에 합쳐 버렸다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
+Colour fidelity: the whole image reads at a glance as the banner colour #ffd84a (electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lightning-rod city of Voltarium on the thundering plateau); crackling electric arcs, glowing coils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-B3-22 · 전격 수호거상
-케라운의 벼락 · 유닛 · 레벨 5 · 강화 · 원래 카드 `B3-22` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B3-22.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B3-22.jpg` 600×750)
+케라운의 벼락 · 유닛 · 레벨 5 · 강화 · 원래 카드 `B3-22` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B3-22.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B3-22.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "전격 수호거상". Depict exactly what this name describes.
@@ -788,22 +814,23 @@ Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mi
 Lore (Korean, use for the scene): 수호기 셋의 코일을 한 몸에 감았다. 다가오면 번개가 먼저 맞는다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
+Colour fidelity: the whole image reads at a glance as the banner colour #ffd84a (electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lightning-rod city of Voltarium on the thundering plateau); crackling electric arcs, glowing coils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-B3-23 · 병 속의 원로교수 두뇌
-케라운의 벼락 · 유닛 · 레벨 5 · 강화 · 원래 카드 `B3-23` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B3-23.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B3-23.jpg` 600×750)
+케라운의 벼락 · 유닛 · 레벨 5 · 강화 · 원래 카드 `B3-23` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-B3-23.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-B3-23.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "병 속의 원로교수 두뇌". Depict exactly what this name describes.
@@ -817,22 +844,23 @@ Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mi
 Lore (Korean, use for the scene): 병 속의 교수 두뇌가 다른 교수 둘의 병과 구리선으로 이어졌다. 셋이 다투던 학설은 이제 한 병 안에서 끝없이 다툰다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
+Colour fidelity: the whole image reads at a glance as the banner colour #ffd84a (electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lightning-rod city of Voltarium on the thundering plateau); crackling electric arcs, glowing coils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-PN-B3-C2 · 길들인 축전기
-케라운의 벼락 · 유닛 · 레벨 5 · 강화 · 원래 카드 `PN-B3-C2` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-PN-B3-C2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-PN-B3-C2.jpg` 600×750)
+케라운의 벼락 · 유닛 · 레벨 5 · 강화 · 원래 카드 `PN-B3-C2` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-PN-B3-C2.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-PN-B3-C2.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "길들인 축전기". Depict exactly what this name describes.
@@ -846,22 +874,23 @@ Faction: Titanbone Concord: copper, brass, steam, soot, gears, furnaces; they mi
 Lore (Korean, use for the scene): 폭주하던 축전기에 고삐를 달았다. 이제는 필요한 만큼만 터진다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is lightning (#ffd84a) from behind the subject, harsh flickering arc light and crackling electricity.
+Colour fidelity: the whole image reads at a glance as the banner colour #ffd84a (electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lightning-rod city of Voltarium on the thundering plateau); crackling electric arcs, glowing coils.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no wands or wizard robes — their lightning comes from coils, machines and storm creatures.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-G1-11 · 흑요 창술사
-고르바스의 발톱 · 유닛 · 레벨 3 · 강화 · 원래 카드 `G1-11` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G1-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G1-11.jpg` 600×750)
+고르바스의 발톱 · 유닛 · 레벨 3 · 강화 · 원래 카드 `G1-11` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G1-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G1-11.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "흑요 창술사". Depict exactly what this name describes.
@@ -874,22 +903,23 @@ Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; 
 Lore (Korean, use for the scene): 흑요석 창끝을 세 번 갈아 끼우고서야 창이 손에 붙었다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
+Colour fidelity: the whole image reads at a glance as the banner colour #b88a5a (earth ochre #b88a5a, rust-red war paint, bone white) — dusty, matte ochre and sandstone brown like sunlit clay and weathered bone, a dry earthy glow clearly distinct from flame orange or bright gold; every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the howling steppe of Garun with its nomad camps); flying rock dust, cracked ground, ochre light.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-G1-18 · 오우거 대주술사
-고르바스의 발톱 · 유닛 · 레벨 4 · 강화 · 원래 카드 `G1-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G1-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G1-18.jpg` 600×750)
+고르바스의 발톱 · 유닛 · 레벨 4 · 강화 · 원래 카드 `G1-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G1-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G1-18.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "오우거 대주술사". Depict exactly what this name describes.
@@ -903,22 +933,23 @@ Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; 
 Lore (Korean, use for the scene): 마침내 그롬의 첫 음절을 다 들은 오우거. 그 뒤로 그가 북을 치면 땅이 나머지를 대신 대답한다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
+Colour fidelity: the whole image reads at a glance as the banner colour #b88a5a (earth ochre #b88a5a, rust-red war paint, bone white) — dusty, matte ochre and sandstone brown like sunlit clay and weathered bone, a dry earthy glow clearly distinct from flame orange or bright gold; every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the howling steppe of Garun with its nomad camps); flying rock dust, cracked ground, ochre light.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-G1-24 · 하이에나 대무리장
-고르바스의 발톱 · 유닛 · 레벨 5 · 강화 · 원래 카드 `G1-24` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G1-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G1-24.jpg` 600×750)
+고르바스의 발톱 · 유닛 · 레벨 5 · 강화 · 원래 카드 `G1-24` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G1-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G1-24.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "하이에나 대무리장". Depict exactly what this name describes.
@@ -932,22 +963,23 @@ Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; 
 Lore (Korean, use for the scene): 무리장 셋을 꺾고 초원의 하이에나를 하나로 묶었다. 그가 웃으면 초원이 멎는다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is earth (#b88a5a) from behind the subject, dusty ochre light and rock dust hanging in the air.
+Colour fidelity: the whole image reads at a glance as the banner colour #b88a5a (earth ochre #b88a5a, rust-red war paint, bone white) — dusty, matte ochre and sandstone brown like sunlit clay and weathered bone, a dry earthy glow clearly distinct from flame orange or bright gold; every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the howling steppe of Garun with its nomad camps); flying rock dust, cracked ground, ochre light.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no high-tech machinery, no elegant plate armour, no glowing magic circles (their magic is drums, bones and earth).
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-G2-17 · 트롤 대주술사
-베르단의 뿔 · 유닛 · 레벨 4 · 강화 · 원래 카드 `G2-17` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G2-17.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G2-17.jpg` 600×750)
+베르단의 뿔 · 유닛 · 레벨 4 · 강화 · 원래 카드 `G2-17` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G2-17.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G2-17.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "트롤 대주술사". Depict exactly what this name describes.
@@ -960,22 +992,23 @@ Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; 
 Lore (Korean, use for the scene): 겨울잠을 세 번 건너뛰고 주술을 익혔다. 이끼가 그의 말을 듣는다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
+Colour fidelity: the whole image reads at a glance as the banner colour #58b85f (forest green #58b85f, deep moss, bark brown, bioluminescent spores); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the giant-tree city of Sylvaniel in the great forest of Eilen); glowing moss, thorny vines, drifting leaves.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no fire magic.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-G2-22 · 맨드레이크 수문장
-베르단의 뿔 · 유닛 · 레벨 5 · 강화 · 원래 카드 `G2-22` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G2-22.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G2-22.jpg` 600×750)
+베르단의 뿔 · 유닛 · 레벨 5 · 강화 · 원래 카드 `G2-22` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G2-22.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G2-22.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "맨드레이크 수문장". Depict exactly what this name describes.
@@ -989,22 +1022,23 @@ Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; 
 Lore (Korean, use for the scene): 흙에서 스스로 걸어 나와 가시숲의 문 앞에 섰다. 이제 비명 한 번이면 문이 닫힌다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
+Colour fidelity: the whole image reads at a glance as the banner colour #58b85f (forest green #58b85f, deep moss, bark brown, bioluminescent spores); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the giant-tree city of Sylvaniel in the great forest of Eilen); glowing moss, thorny vines, drifting leaves.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no fire magic.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-G2-23 · 드리엔의 대사도
-베르단의 뿔 · 유닛 · 레벨 5 · 강화 · 원래 카드 `G2-23` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G2-23.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G2-23.jpg` 600×750)
+베르단의 뿔 · 유닛 · 레벨 5 · 강화 · 원래 카드 `G2-23` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G2-23.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G2-23.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "드리엔의 대사도". Depict exactly what this name describes.
@@ -1018,22 +1052,23 @@ Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; 
 Lore (Korean, use for the scene): 드리엔의 말씀을 세 갈래로 나르던 사도들이 하나의 목소리가 되었다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is forest (#58b85f) from behind the subject, dappled green light through the canopy and glowing spores.
+Colour fidelity: the whole image reads at a glance as the banner colour #58b85f (forest green #58b85f, deep moss, bark brown, bioluminescent spores); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the giant-tree city of Sylvaniel in the great forest of Eilen); glowing moss, thorny vines, drifting leaves.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no fire magic.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-G3-11 · 조수 예언 문어
-마렌시아의 노래 · 유닛 · 레벨 3 · 강화 · 원래 카드 `G3-11` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G3-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G3-11.jpg` 600×750)
+마렌시아의 노래 · 유닛 · 레벨 3 · 강화 · 원래 카드 `G3-11` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G3-11.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G3-11.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "조수 예언 문어". Depict exactly what this name describes.
@@ -1047,22 +1082,23 @@ Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; 
 Lore (Korean, use for the scene): 조수를 읽던 문어가 이제는 조수가 언제 돌아설지를 정한다. 여덟 팔 가운데 일곱을 그 일에 쓴다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
+Colour fidelity: the whole image reads at a glance as the banner colour #4fb3ff (water blue #4fb3ff, aquamarine, pearl white, deep-sea navy); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lagoon temple of Selenea); clear water light, spray, ripples, bubbles.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no fire, no heavy plate armour.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-G3-12 · 산호등 대거북
-마렌시아의 노래 · 유닛 · 레벨 3 · 강화 · 원래 카드 `G3-12` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G3-12.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G3-12.jpg` 600×750)
+마렌시아의 노래 · 유닛 · 레벨 3 · 강화 · 원래 카드 `G3-12` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G3-12.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G3-12.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "산호등 대거북". Depict exactly what this name describes.
@@ -1076,22 +1112,23 @@ Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; 
 Lore (Korean, use for the scene): 등의 산호가 세 겹으로 자라 작은 바위섬처럼 되었다. 산호가 자라는 만큼 그도 느려지고 단단해진다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
+Colour fidelity: the whole image reads at a glance as the banner colour #4fb3ff (water blue #4fb3ff, aquamarine, pearl white, deep-sea navy); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lagoon temple of Selenea); clear water light, spray, ripples, bubbles.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no fire, no heavy plate armour.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-G3-17 · 석호 대치유 듀공
-마렌시아의 노래 · 유닛 · 레벨 4 · 강화 · 원래 카드 `G3-17` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G3-17.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G3-17.jpg` 600×750)
+마렌시아의 노래 · 유닛 · 레벨 4 · 강화 · 원래 카드 `G3-17` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G3-17.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G3-17.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "석호 대치유 듀공". Depict exactly what this name describes.
@@ -1105,22 +1142,23 @@ Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; 
 Lore (Korean, use for the scene): 이제 한 번 숨을 내쉬면 석호의 물이 데워진다. 다친 자 셋을 한꺼번에 등에 태운다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
+Colour fidelity: the whole image reads at a glance as the banner colour #4fb3ff (water blue #4fb3ff, aquamarine, pearl white, deep-sea navy); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lagoon temple of Selenea); clear water light, spray, ripples, bubbles.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no fire, no heavy plate armour.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-G3-18 · 물기둥 산호 조율사
-마렌시아의 노래 · 유닛 · 레벨 4 · 강화 · 원래 카드 `G3-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G3-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G3-18.jpg` 600×750)
+마렌시아의 노래 · 유닛 · 레벨 4 · 강화 · 원래 카드 `G3-18` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G3-18.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G3-18.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "물기둥 산호 조율사". Depict exactly what this name describes.
@@ -1134,22 +1172,23 @@ Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; 
 Lore (Korean, use for the scene): 산호 가지가 세 갈래로 자랐다. 이제 물기둥 셋의 높이를 맞춰 하나의 성벽처럼 세운다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
+Colour fidelity: the whole image reads at a glance as the banner colour #4fb3ff (water blue #4fb3ff, aquamarine, pearl white, deep-sea navy); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lagoon temple of Selenea); clear water light, spray, ripples, bubbles.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no fire, no heavy plate armour.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```
 
 ### UP-G3-24 · 검은 갈기 켈피
-마렌시아의 노래 · 유닛 · 레벨 5 · 강화 · 원래 카드 `G3-24` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G3-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G3-24.jpg` 600×750)
+마렌시아의 노래 · 유닛 · 레벨 5 · 강화 · 원래 카드 `G3-24` — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습) — 받은 그림은 `tools/art/inbox/UP-G3-24.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/UP-G3-24.jpg` 750×600)
 
 ```
-Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
+Landscape 5:4 image. Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes.
 Grade: EMPOWERED — the same warrior fused from three into one stronger self. The base card's unit evolved: three of the same warrior fused into one stronger self — same identity, visibly reinforced.
 Quality floor for every grade: a finished, professional card illustration — carefully rendered face, hands, materials and lighting, a character with personality caught in a clear action or story moment, a real sense of place. Higher grades add scale, spectacle and ornament, never more care.
 Card name (Korean — read its meaning, never write it in the image): "검은 갈기 켈피". Depict exactly what this name describes.
@@ -1163,13 +1202,14 @@ Faction: Dragonvein Covenant: ancient forests, moss, grassland, lagoons, songs; 
 Lore (Korean, use for the scene): 소용돌이를 수없이 돌린 끝에 갈기가 심해처럼 검어졌다. 이제 물살이 그 발굽을 따라 돈다.
 Camera: the same framing as the base card but one step closer and lower, a rising, upward pose.
 Lighting: element backlight plus teal energy pouring up from below and glowing through seams of the gear; main light is water (#4fb3ff) from behind the subject, caustic underwater light and shimmering reflections.
+Colour fidelity: the whole image reads at a glance as the banner colour #4fb3ff (water blue #4fb3ff, aquamarine, pearl white, deep-sea navy); every glow, spark and highlight stays in that hue family.
 Background: very dark night-blue (#07080d) base; the same setting as the base card, intensified: more particles and a faint shockwave ring (the lagoon temple of Selenea); clear water light, spray, ripples, bubbles.
 Detail: reinforced, upgraded gear (an extra plate, a heavier weapon, a bigger device) with a triple motif: three bands, three gems, three barrels or three braids fused into one.
 Spectacle: teal energy rising from below, glowing seams and a faint shockwave ring — between rare and epic. Each grade is one clear step more spectacular than the grade below (common → superior → rare → epic → unique → special); never more spectacular than the grade above.
 Grade accent: teal (#3fe0c0) energy seams and upward-streaming light streaks, a flowing sheen — the element colour stays the main light; the grade accent is a secondary touch (about 15% of the light).
 Mood: ascending, refined, powered-up.
 Stay true to the banner: no fire, no heavy plate armour.
-Composition: one main subject centred within the middle 70%; keep the top 15% (card name) and bottom 20% (numbers) calm and dark; edges may be cropped; portrait 4:5.
+Composition: landscape 5:4; one main subject centred with breathing room around it, the whole figure or object readable inside the frame; the full image is shown on the card, with only a thin sliver trimmed at the left and right edges.
 No text, no letters, no readable runes, no numbers, no signature, no watermark, no card frame, no border, no UI.
 Avoid: bright or white background, thick cartoon outlines, photorealism, 3D render look, cute chibi style, anime fan-service, gore, likeness of real people or of characters from other games or films.
 ```

@@ -1,0 +1,52 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0;background:#000">
+<img src="/__slow" style="position:absolute;width:1px">
+<iframe id="f" src="/index.html" style="width:1000px;height:760px;border:0"></iframe>
+<script>
+const f=document.getElementById('f');
+f.onload=()=>setTimeout(()=>{
+ const w=f.contentWindow,d=f.contentDocument;
+ const c=w.eval('CARDS["SP-B2"]'), H=w.eval('cardHTML');
+ const st=d.createElement('style'); st.textContent=`
+ .mock .card.fm{--cw:440px !important;width:440px !important;height:616px !important;flex:none}
+ .mock .lab{color:#ddd;font:18px sans-serif;margin:0 0 10px}
+ .fx .card.fm{position:relative}
+ .fx .card.fm > .c-frame{box-sizing:border-box;height:100% !important;overflow:hidden;position:static !important;
+   background:url(/img/ui/frames/frame_B2_unit.jpg) center/100% 100% no-repeat border-box !important;background-origin:border-box !important}
+ .fx .card.fm .c-frame::before,.fx .card.fm .c-frame::after{display:none !important}
+ .fx .card.fm .c-mid,.fx .card.fm .c-low,.fx .card.fm .c-lowl{position:static !important}
+ .fx .card.fm .c-head{position:absolute;left:19.5%;right:3.4%;top:1.6%;height:6.1%;align-items:center;gap:.22em;margin:0}
+ .fx .card.fm .c-type{display:none !important}
+ .emb{position:absolute;inset:.14em;overflow:hidden;border-radius:calc(var(--rad,.36em) - .14em);pointer-events:none;z-index:5}
+ .emb img{position:absolute;width:2.8em;left:-.94em;top:-.94em;filter:drop-shadow(0 .05em .12em rgba(0,0,0,.85))}
+ .emb .orb{position:absolute;width:.86em;height:.86em;left:calc(.46em - .43em);top:calc(.46em - .43em);border-radius:50%;
+  background:radial-gradient(circle at 36% 30%,#fff 0,color-mix(in srgb,var(--el) 70%,#fff) 18%,var(--el) 48%,color-mix(in srgb,var(--el) 45%,#000) 100%);box-shadow:inset 0 -.06em .12em rgba(0,0,0,.6),0 0 .25em color-mix(in srgb,var(--el) 60%,transparent)}
+ .emb .enum{font-size:1em !important;line-height:1;position:absolute;left:calc(.46em - .43em);top:calc(.46em - .43em);width:.86em;height:.86em;display:flex;align-items:center;justify-content:center;font-style:normal}
+ .emb .enum span{font-size:.6em !important;line-height:1 !important;display:block;font:900 .6em/1 Cinzel,serif;color:#fff6dd;text-shadow:0 .05em .1em #000,0 0 .25em rgba(0,0,0,.9);transform:translate(0,.14em)}
+ .fx .card.fm .c-type .c-tlv{font-size:.82em;font-weight:600}
+ .fx .card.fm .c-name{font-size:.6em !important;line-height:1 !important;letter-spacing:-.01em !important;font-weight:var(--fw) !important;font-family:var(--ff) !important;padding-top:.08em}
+ .fx .card.fm .c-name *{font-family:inherit !important;font-weight:inherit !important}
+ .fx .card.fm .c-side{position:absolute;left:2.4%;width:5.2%;top:13.6%;bottom:30%}
+ .fx .card.fm .c-pips{gap:.08em !important;padding:0 !important;align-items:center}
+ .fx .card.fm .c-pips .pip{width:.5em !important;height:.5em !important;background:none !important;box-shadow:none !important;filter:drop-shadow(0 .03em .05em #000)}
+ .fx .card.fm .c-pips .pip img{width:100%;height:100%;display:block}
+ .fx .card.fm .c-pips .pip.pip-up img{opacity:.38;filter:grayscale(.6)}
+ .fx .card.fm .c-art{position:absolute !important;left:10.52%;right:2.92%;top:10.38%;bottom:36.4%;flex:none;border:0 !important;box-shadow:none !important;outline:0 !important}
+ .fx .card.fm .c-race{display:none !important}
+ .fx .card.fm .c-box{position:absolute;left:6.6%;right:19%;top:68.4%;bottom:3.4%}
+ .fx .card.fm .c-box, .fx .card.fm .c-box *{font-family:var(--ff) !important;font-weight:var(--fwb) !important}
+ .fx .card.fm .c-rcol{position:absolute;right:3.6%;width:15%;top:68%;bottom:3.4%;justify-content:space-between}
+ .fx .card.fm .c-rcol .c-clsico i{background:none !important;border:0 !important;box-shadow:none !important;width:1.15em !important;height:1.15em !important}
+ .fx .card.fm .c-rcol .c-clsico i::before,.fx .card.fm .c-rcol .c-clsico i::after{display:none !important}
+ `; d.head.appendChild(st);
+ const host=d.createElement('div'); host.className='screen-editor mock';
+ host.style.cssText='position:fixed;inset:0;z-index:999999;background:#14161c;display:flex;gap:50px;padding:40px 50px;align-items:flex-start';
+ const col=(lab,cls,sty)=>`<div class="${cls}" style="${sty}"><p class="lab">${lab}</p>${H(c,{size:'md'})}</div>`;
+ host.innerHTML=col('지금 게임','','')+col('시안 2: 고운바탕 + 레벨 문장','fx',"--ff:'Gowun Batang';--fw:400;--fwb:400");
+ d.body.appendChild(host);
+ Promise.all(['500 20px Hahmlet','400 20px Hahmlet','400 20px "Gowun Batang"'].map(x=>d.fonts.load(x,'철의 심장을 삼킨 자 거인 방패')));
+ setTimeout(()=>{const o=[...host.querySelectorAll('.fx')].map(x=>{const n=x.querySelector('.c-nm'),b=x.querySelector('.c-box p,.c-box .c-flv')||x.querySelector('.c-box');return [w.getComputedStyle(n).fontFamily,w.getComputedStyle(n).fontWeight,w.getComputedStyle(b).fontFamily,d.fonts.check('16px Hahmlet'),d.fonts.check('16px "Gowun Batang"')]});fetch('/__log',{method:'POST',body:JSON.stringify(o)})},4000);
+ host.querySelectorAll('.fx .card').forEach(k=>{const r=w.getComputedStyle(k.querySelector('.c-frame')).borderTopLeftRadius;const e=d.createElement('div');e.className='emb';e.style.setProperty('--rad',r);e.innerHTML='<img src="img/ui/ether/ether_back.png"><i class="orb"></i><div class="enum"><span>'+c.lv+'</span></div>';k.appendChild(e)});
+ setTimeout(()=>{const k=host.querySelector('.fx .card'),o=k.querySelector('.orb').getBoundingClientRect(),sp=k.querySelector('.emb .enum span'),r=d.createRange();r.selectNodeContents(sp);const t=r.getBoundingClientRect();fetch('/__log',{method:'POST',body:JSON.stringify({orb:[o.left,o.top,o.width],span:[t.left,t.top,t.width,t.height]})})},3000);
+ host.querySelectorAll('.fx .pip').forEach(p=>p.innerHTML='<img src="img/ui/pips/pip_B2.png">');
+},3500);
+</script></body></html>

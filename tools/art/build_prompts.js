@@ -99,38 +99,38 @@ function spellScene(c, el) {
   const up = ops.some(p => p.op === "mod" && ["a", "d", "h"].some(k => (p[k] || 0) > 0));
   const down = ops.some(p => p.op === "mod" && ["a", "d", "h"].some(k => (p[k] || 0) < 0));
   const parts = [];
-  if (has("dmg") || has("blast") || has("a2Dawn") || has("a2Judge") || has("a2Retrib")) parts.push(both ? `a cataclysmic ${el.en} blast engulfing the whole battlefield` : `a destructive ${el.en} attack striking the enemy ranks`);
-  if (has("destroy") || has("duel")) parts.push("an annihilating blow that erases a foe");
-  if (has("negate") || has("negBuff") || has("a1Possess")) parts.push("a counter-force shattering and snuffing out an incoming enemy spell mid-air");
-  if (has("scorch") || has("scorchMod") || has("detonate") || has("a1Hellfire")) parts.push("clinging embers and hungry flames catching onto enemy gear and armour");
+  if (has("dmg") || has("blast") || has("a2Dawn") || has("a2Judge") || has("a2Retrib")) parts.push(both ? `a cataclysmic ${el.en} blast engulfing the whole battlefield` : `a destructive ${el.en} bolt or blast tearing across the field into the distant enemy line`);
+  if (has("destroy") || has("duel")) parts.push("an annihilating strike of pure force that leaves only an empty, scorched outline where a foe stood");
+  if (has("negate") || has("negBuff") || has("a1Possess")) parts.push("a counter-force shattering an incoming enemy spell mid-air into fading shards of light");
+  if (has("scorch") || has("scorchMod") || has("detonate") || has("a1Hellfire")) parts.push("clinging embers and hungry flames catching onto abandoned enemy shields, banners and armour");
   if (has("gbKegs") || has("gbBlast")) parts.push("lit powder kegs planted along the line and erupting in roaring fireballs");
-  if (has("armorCrush") || has("def0")) parts.push("heavy enemy armour splitting, buckling and torn open");
-  if (has("g2Weight") || has("hpSlam")) parts.push("crushing sheer weight slamming through the enemy front line");
-  if (has("curse") || has("handCurse")) parts.push("a creeping shadow curse of dread and rot clinging to enemies");
-  if (has("a2Scale") || has("levelA") || has("a2Hush") || has("a2Redeem")) parts.push("solemn golden light calming, silencing and humbling enemy warriors");
-  if (has("g1Crouch")) parts.push("hunters crouching low in tense ambush, unnerving the enemy line");
-  if (has("paidHit") || has("tithe") || has("selfHit")) parts.push("crimson blood-power bursting outward at the enemy ranks");
-  if (has("paidSteal") || has("steal") || has("mindCapture") || has("a1Dominate")) parts.push("shadowy tendrils seizing a foe or their power and pulling it to the caster's side");
-  if (has("confuse")) parts.push("hallucinatory mist making enemy warriors turn their blades on one another");
-  if (has("phantom")) parts.push("a translucent mirror-image phantom stepping out of shadow");
-  if (has("rebirth")) parts.push("a fallen warrior rising back out of ash and shadow");
-  if (has("drain")) parts.push("life-force siphoned from an enemy into an allied warrior");
-  if (up && (ally || !foe)) parts.push(`an empowering ${el.en} aura rising around allied warriors`);
-  if (down && foe) parts.push("a weakening curse sinking over the enemies");
-  if (has("shield") || has("guard") || has("lock") || has("sumDef") || has("mrVeil") || has("a2Vigil") || has("a2Martyr") || has("a2Sub") || has("pin") || has("endure")) parts.push("a protective barrier or ward shielding allies");
-  if (has("thorns")) parts.push("a shell of thorns that punishes attackers");
-  if (has("clean") || has("strip") || has("mrPurge")) parts.push("a cleansing wave washing away flames, curses and enchantments");
-  if (has("summon") || has("conjure") || has("copy") || has("echo") || has("mirrorTwin") || has("mimic")) parts.push("a creature or double emerging from a rune circle");
-  if (has("rest") || has("heal") || has("hpGather")) parts.push("a calm restoring light closing wounds and gathering vitality");
-  if (has("swap") || has("swapPos") || has("swapLowHigh") || has("swapLeft") || has("taunt") || has("sortFoe") || has("move")) parts.push("warriors dragged or forced to trade places by a trick of magic");
-  if (has("xchg") || has("swapSt") || has("randSwap") || has("d0Swap") || has("a3Confuse")) parts.push("twisting magic inverting strength and resilience between fighters");
+  if (has("armorCrush") || has("def0")) parts.push("heavy enemy armour plates splitting, buckling and flying apart under the spell");
+  if (has("g2Weight") || has("hpSlam")) parts.push("a crushing invisible weight slamming down and cratering the ground where the enemy line stands");
+  if (has("curse") || has("handCurse")) parts.push("a creeping shadow curse mark of dread and rot spreading over the ground and enemy banners");
+  if (has("a2Scale") || has("levelA") || has("a2Hush") || has("a2Redeem")) parts.push("a solemn column of golden light that dims and silences the glow of enemy weapons");
+  if (has("g1Crouch")) parts.push("tall grass and shadows hiding glinting eyes in tense ambush, a hush falling over the field");
+  if (has("paidHit") || has("tithe") || has("selfHit")) parts.push("crimson blood-power bursting outward in a ring of red light");
+  if (has("paidSteal") || has("steal") || has("mindCapture") || has("a1Dominate")) parts.push("shadowy tendrils seizing a glowing orb of stolen power and pulling it across the field");
+  if (has("confuse")) parts.push("hallucinatory mist swirling with distorted mirror images and crossed blades");
+  if (has("phantom")) parts.push("a translucent mirror-image phantom shape peeling out of a shadow");
+  if (has("rebirth")) parts.push("a pillar of light rising from a pile of ash and an empty helm, a faint shape reforming");
+  if (has("drain")) parts.push("a glowing stream of life-force siphoned across the field from one distant silhouette to another");
+  if (up && (ally || !foe)) parts.push(`an empowering ${el.en} surge rising from the ground in spiralling light, lifting allied banners`);
+  if (down && foe) parts.push("a weakening curse sinking over the enemy side like heavy dark fog");
+  if (has("shield") || has("guard") || has("lock") || has("sumDef") || has("mrVeil") || has("a2Vigil") || has("a2Martyr") || has("a2Sub") || has("pin") || has("endure")) parts.push("a glowing protective barrier or ward of runes forming in the air, deflecting incoming blows");
+  if (has("thorns")) parts.push("a shell of thorns bristling outward, breaking the blades that strike it");
+  if (has("clean") || has("strip") || has("mrPurge")) parts.push("a cleansing wave of clear light washing away flames, curses and enchantments");
+  if (has("summon") || has("conjure") || has("copy") || has("echo") || has("mirrorTwin") || has("mimic")) parts.push("a rune circle blazing on the ground with a glowing shape just forming inside it");
+  if (has("rest") || has("heal") || has("hpGather")) parts.push("a calm restoring light falling like warm rain, motes of vitality gathering");
+  if (has("swap") || has("swapPos") || has("swapLowHigh") || has("swapLeft") || has("taunt") || has("sortFoe") || has("move")) parts.push("two glowing places on the field swapped along crossing arcs of light by a trick of magic");
+  if (has("xchg") || has("swapSt") || has("randSwap") || has("d0Swap") || has("a3Confuse")) parts.push("twisting magic inverting a sword and a shield of light around each other in a spiral");
   if (has("draw") || has("leftToBottom") || has("fate") || has("rot")) parts.push("threads of fate and glowing cards cycling in motion");
-  if (has("handMod") || has("handBurn")) parts.push("a sly hand reaching into the enemy's hidden plans");
-  if (has("atk0")) parts.push("enemy weapons frozen and stopped mid-swing");
+  if (has("handMod") || has("handBurn")) parts.push("a sly shadow reaching into a fan of blank-backed enemy cards");
+  if (has("atk0")) parts.push("enemy weapons frozen and stopped in mid-air, caught in glowing shackles");
   if (has("chain") || has("multi")) parts.push(`chained ${el.en} strikes leaping from target to target`);
-  if (has("rally") || has("grant") || has("perAlly") || has("matchA") || has("g1Victory") || has("g1Ram") || has("rage") || has("d2a") || has("hp2a") || has("dsumA") || has("g1Grudge") || has("g1Oath")) parts.push("allies rallying as one under a shared surge of power");
+  if (has("rally") || has("grant") || has("perAlly") || has("matchA") || has("g1Victory") || has("g1Ram") || has("rage") || has("d2a") || has("hp2a") || has("dsumA") || has("g1Grudge") || has("g1Oath")) parts.push("a shared surge of power rising like a banner of light over the allied side");
   if (has("volley") || has("a3Arm") || has("a3Volley")) parts.push("a rain of arrows arcing high over the enemy front line and falling on the ranks behind it");   // v3.70 엘프 빗발치는 화살
-  if (has("retreat")) parts.push("a nimble fighter springing back out of reach on a gust of wind while the next ally steps forward");   // v3.70 엘프 후퇴
+  if (has("retreat")) parts.push("a gust of wind sweeping a cloak and feathers back out of reach, leaving an empty space");   // v3.70 엘프 후퇴
   if (c.cost && c.cost.life) parts.push("paid for with the caster's own blood");
   if (!parts.length) parts.push(`a burst of ${el.en} power`);
   return parts.slice(0, 3).join("; ");
@@ -203,6 +203,8 @@ function promptOf(c, D) {
       `Scale: ${unit ? G.compactUnitScale : G.itemScale}.`,
       `Camera: ${unit ? G.compactUnitCamera : G.itemCamera}.`,
       `Setting (unless the art direction already sets it): very dark night-blue (#07080d) base; ${unit ? F.mythic : fill(G.itemBackground, F, c)}.`,
+      /* art_notes.json _light: 카드별 색감 덮어쓰기(예: SP-B2 은빛) */
+      (NOTES._light && NOTES._light[c.id]) ||
       `Light and colour: ${el.en} (${el.hex}) light ${unit ? "bursting from the being itself" : "glowing from within the relic"} is the main light; palette ${F.palette}; ${unit ? G.compactUnitFinish : G.compactItemFinish}; ${G.compactMark}.`,
       !unit && "No full figures — at most a hand or arm holding it, or tiny distant silhouettes for scale.",
       `Mood: ${unit ? G.mood : G.itemMood}.`,
@@ -219,6 +221,7 @@ function promptOf(c, D) {
     `Card name (Korean — read its meaning, never write it in the image): "${c.name}". Depict exactly what this name describes.`,
     `Subject: ${subjectOf(c, F, G, D)}.`
   ];
+  if (isSpell && S.spellFocus) L.push(S.spellFocus);   // v3.96 마법은 유닛이 아니라 마법 자체가 주인공
   if (NOTES[c.id]) L.push(`Art direction: ${NOTES[c.id]}`);
   if (gk === "upgrade" && G.reference) {
     const B = c.base && D.CARDS[c.base];
@@ -245,21 +248,26 @@ function promptOf(c, D) {
   else
     L.push(`Banner — ${F.en}: magic of ${F.en.toLowerCase()}, signature motifs: ${F.motifs}; palette: ${F.palette}.`);
   L.push(`Faction: ${fac}.`);
-  if (lore) L.push(`Lore (Korean, use for the scene): ${lore}`);
+  /* v3.96 마법의 배경 글은 뜻만 빌린다: 글에 나오는 오크 · 기사 같은 인물을 그림 AI가 주인공으로 그려서(SG1-08) */
+  if (lore) L.push(isSpell ? `Lore (Korean, meaning and mood only): ${lore} — the people this lore names stay off-stage; show their spell, not them.` : `Lore (Korean, use for the scene): ${lore}`);
   if (text) L.push(`Game effect (Korean, mood only — never draw text or numbers): ${text}`);
+  /* v3.96 유니크는 카드마다 다른 구도: art_notes.json _shot.<ID> = { camera, light } (레어 · 에픽 · 스페셜의 '올려다보는 가운데 영웅'과 구별) */
+  const shot = (NOTES._shot && NOTES._shot[c.id]) || null;
   L.push(
-    `Camera: ${pick("camera")}.`,
-    `Lighting: ${pick("lighting")}; main light is ${el.en} (${el.hex}) from behind the subject, ${F.light}.`,
+    `Camera: ${shot && shot.camera ? shot.camera : pick("camera")}.`,
+    `Lighting: ${pick("lighting")}; main light is ${el.en} (${el.hex}) ${shot && shot.light ? shot.light : "from behind the subject"}, ${F.light}.`,
+    /* v3.96 깃발 색 지키기: 땅(황토) 마법이 불빛 주황 · 금빛으로 나와서(SG1-08) 색 이름과 질감을 한 번 더 못박는다 */
+    `Colour fidelity: the whole image reads at a glance as the banner colour ${el.hex} (${F.palette})${el.look ? ` — ${el.look}` : ""}; every glow, spark and highlight stays in that hue family.`,
     `Background: very dark night-blue (#07080d) base; ${fill(G.background, F, c)}; ${el.cue}.`,
     `Detail: ${pick("detail")}.`
   );
   /* v3.59 화려함 사다리: 등급마다 한 단계씩 더 화려하게(spectacle), 스페셜은 존재를 반쯤 가려 상상하게 하는 기법도(technique) */
-  if (G.spectacle) L.push(`Spectacle: ${G.spectacle}. ${S.spectacleRule || ""}`.trim());
+  if (G.spectacle) L.push(`Spectacle: ${pick("spectacle")}. ${S.spectacleRule || ""}`.trim());
   if (G.technique && c.type === "unit") L.push(`Presence technique (allowed): ${G.technique}.`);
-  if (G.accent) L.push(`Grade accent: ${G.accent} — ${S.accentRule.replace("{share}", G.accentShare || "15%")}.`);
+  if (G.accent) L.push(`Grade accent: ${pick("accent")} — ${S.accentRule.replace("{share}", G.accentShare || "15%")}.`);
   L.push(`Mood: ${pick("mood")}.`);
   L.push(`Stay true to the banner: ${F.never}.`);
-  L.push(S.composition, S.notext, S.avoid);
+  L.push((isSpell && S.spellComposition) || G.composition || S.composition, S.notext, S.avoid);
   return L.join("\n");
 }
 
@@ -332,7 +340,7 @@ function cardMd(j) {
   const redo = j.art === "redo" ? ` — **다시 그리기**${redoNote ? `: ${redoNote}` : ""}` : j.art === "have" ? " — 그림 있음" : "";
   return [`### ${j.id} · ${j.name}${redo}`,
     `${S.flags[j.group] ? S.flags[j.group].ko : j.group} · ${TYPE_KO[j.type] || j.type} · 레벨 ${j.lv} · ${S.grades[j.grade].ko}` +
-    `${j.base ? ` · 원래 카드 \`${j.base}\`` + (j.refs ? " (참고 그림 함께 넣기)" : " — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습)") : ""} — 받은 그림은 \`tools/art/inbox/${j.id}.jpg\` → \`python3 tools/art/artmap.py import\` (게임 사본 \`${j.out}\` 600×750)`, "", "```", j.prompt, "```", ""].join("\n");
+    `${j.base ? ` · 원래 카드 \`${j.base}\`` + (j.refs ? " (참고 그림 함께 넣기)" : " — **원래 카드 그림을 먼저 받아 함께 넣고 그릴 것**(같은 인물이 한 단계 오른 모습)") : ""} — 받은 그림은 \`tools/art/inbox/${j.id}.jpg\` → \`python3 tools/art/artmap.py import\` (게임 사본 \`${j.out}\` 750×600)`, "", "```", j.prompt, "```", ""].join("\n");
 }
 function main() {
   const D = loadGame();
@@ -343,7 +351,7 @@ function main() {
   for (const id of ids) {
     const c = D.CARDS[id];
     const job = {
-      id, kind: "card", out: `img/cards/${id}.jpg`, size: [600, 750], format: "jpg",   /* v3.41 카드 일러스트 = 600×750 JPG (artmap.py와 같음) */ background: "opaque",
+      id, kind: "card", out: `img/cards/${id}.jpg`, size: [750, 600], format: "jpg",   /* 2026-11-20 카드 일러스트 = 가로 5:4, 750×600 JPG (artmap.py와 같음, 깃발 프레임 그림 창 ≈ 1.16:1). 옛 그림은 600×750 */ background: "opaque",
       name: c.name, group: c.group, faction: c.faction, type: c.type, lv: c.lv, grade: gradeKey(c), prompt_ver: S.version
     };
     if (c.base) {
@@ -374,7 +382,7 @@ function main() {
   for (const g of Object.keys(byGroup).sort()) {
     const F = S.flags[g] || {};
     const md = [`# ${g} ${F.ko || ""} — 카드 일러스트 프롬프트 (${byGroup[g].length}장, 버전 ${S.version})`, "",
-      "각 카드: 아래 프롬프트를 그림 AI에 붙여 넣고, 나온 그림(4:5, 600×750 이상)을 `tools/art/inbox/<카드ID>.jpg`로 넣고 `python3 tools/art/artmap.py import` — 600×750 JPG로 `img/cards/`에 들어가고 게임 목록이 새로 쓰인다(v3.41). `img/cards/`에 바로 쓰지 않는다.",
+      "각 카드: 아래 프롬프트를 그림 AI에 붙여 넣고, 나온 그림(가로 5:4, 750×600 이상)을 `tools/art/inbox/<카드ID>.jpg`로 넣고 `python3 tools/art/artmap.py import` — 750×600 JPG로 `img/cards/`에 들어가고 게임 목록이 새로 쓰인다(v3.41). `img/cards/`에 바로 쓰지 않는다.",
       "등급별 연출 규칙은 `tools/art/PROMPT_GUIDE.md`. 이 파일은 `node tools/art/build_prompts.js`가 만든다 — 손으로 고치지 않는다.", "", ORDER_NOTE, ""];
     md.push(...sections(byGroup[g], (a, b) => drawRank(a.grade) - drawRank(b.grade) || a.id.localeCompare(b.id)));
     fs.writeFileSync(path.join(OUT, "cards", g + ".md"), md.join("\n"));
