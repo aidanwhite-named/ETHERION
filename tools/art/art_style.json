@@ -1,7 +1,7 @@
 {
-  "_about": "ETHERION 카드 일러스트 프롬프트 문구 원본 — n판(2026-11-20, 처음부터 새로 씀). 프롬프트 = 카드 장면(art_scenes/<깃발>.json) + 배색 한 줄 + 깃발 한 줄 + 등급 한 줄 + 화풍 한 줄. 카드끼리 다른 것은 모두 장면에 있고, 여기에는 같은 등급 · 같은 깃발이 함께 쓰는 짧은 말만 둔다. 고치면 version을 올리고 node tools/art/build_prompts.js. 모든 등급이 n판이다(옛 g4 프롬프트는 legacy_g4/에 보관만).",
-  "version": "n1",
-  "updated": "2026-11-20",
+  "_about": "ETHERION 카드 일러스트 프롬프트 문구 원본 — n판(2026-11-20, 처음부터 새로 씀 · n2 2026-11-21 등급 사다리). 프롬프트 = 카드 장면(art_scenes/<깃발>.json) + 배색 한 줄 + 깃발 한 줄 + 등급 줄(grades.<등급>.finish) + 사다리 한 줄(gradeLadder) + 화풍 한 줄. 카드끼리 다른 것은 모두 장면에 있고, 여기에는 같은 등급 · 같은 깃발이 함께 쓰는 말만 둔다. 등급 줄은 모든 등급이 같은 다섯 칸(Mood · Light · Saturation · Air · Surfaces)을 같은 차례로 쓰고, 일반 → 스페셜로 갈수록 한 단계씩 더 신비롭고 강렬하고 화려해진다(시점 · 구도는 정하지 않는다). 고치면 version을 올리고 node tools/art/build_prompts.js. 모든 등급이 n판이다(옛 g4 프롬프트는 legacy_g4/에 보관만).",
+  "version": "n2",
+  "updated": "2026-11-21",
   "legacyGrades": [],
   "legacyVersion": "g4",
   "lead": {
@@ -11,6 +11,7 @@
   },
   "house": "ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.",
   "upgradeRef": "Continuity: the same individual as in the attached reference picture, now promoted — same body, face, markings and colours, grown stronger.",
+  "gradeLadder": "Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.",
   "gradeOrder": [
     "token",
     "common",
@@ -36,57 +37,66 @@
       "ko": "소환물",
       "en": "Summoned",
       "color": "#8fdcff",
-      "idea_ko": "마법이 방금 불러낸 것. 단순하고 또렷하게, 아직 흩어지지 않은 에테르 푸른빛이 가장자리에 남아 있다.",
-      "finish": "Summoned: simple and luminous — a thing called up a heartbeat ago, its edges still trailing ether-blue (#8fdcff) light."
+      "idea_ko": "사다리 밖 — 마법이 방금 불러낸 것. 일반처럼 조용하되 불려 나온 빛만 남는다. 단순하고 또렷하게, 아직 흩어지지 않은 에테르 푸른빛이 가장자리에 남아 있다.",
+      "finish": "Summoned — off the rarity ladder, as quiet as a common card but for its conjuring light. Simple and luminous: a thing called up a heartbeat ago, one clear shape in plain surroundings, its edges still trailing ether-blue (#8fdcff) light.",
+      "tier": 0,
+      "ladder": false
     },
     "common": {
       "ko": "일반",
       "en": "Common",
       "color": "#f4f1ea",
-      "idea_ko": "있는 그대로의 세계. 지켜본 듯한 평범한 한순간, 장면 안의 광원 하나, 꾸밈없는 재질, 절제한 색. 화려한 장식 없이도 카드마다 다른 그림.",
-      "finish": "Common: the world as it is — plainly observed, one natural light source, weathered plain materials, restrained colour."
+      "idea_ko": "1단 — 있는 그대로의 세계. 조용하고 담백하지만 정성껏 그린 그림. 빛은 장면에 쓴 광원뿐(덧붙인 빛 없음), 절제한 흙빛 색, 공기에는 먼지 · 연기 · 안개까지만, 닳고 손때 묻은 꾸밈없는 재질. 화려함이 아니라 관찰 · 질감 · 개성으로 좋은 그림.",
+      "finish": "Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.",
+      "tier": 1
     },
     "uncommon": {
       "ko": "고급",
       "en": "Superior",
       "color": "#f2cf3d",
-      "idea_ko": "솜씨와 숙련. 더 또렷하고 정교한 묘사, 윤곽을 따는 두 번째 빛, 모서리에 따뜻한 금빛이 몇 점.",
-      "finish": "Superior: assured craft — crisper, finer detail, a clean second light picking out the edges, a few warm-gold (#f2cf3d) glints."
+      "idea_ko": "2단 — 솜씨와 숙련. 자신 있고 말끔하다. 장면의 빛에 윤곽을 따는 깨끗한 두 번째 빛, 조금 더 맑고 진한 색, 공기는 아직 평범하지만(마법 없음) 모서리 · 금속에 따뜻한 금빛이 몇 점, 잘 만들고 잘 손질한 재질과 더 또렷한 묘사.",
+      "finish": "Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.",
+      "tier": 2
     },
     "rare": {
       "ko": "레어",
       "en": "Rare",
       "color": "#4ea8ff",
-      "idea_ko": "되풀이해 이야기할 만한 순간. 더 대담한 연출과 깊은 공간, 또렷한 명암, 윤곽에 차가운 사파이어 빛과 떠도는 에테르 알갱이 몇 점.",
-      "finish": "Rare: a moment worth retelling — bolder staging and deeper space, crisp contrast, a cool sapphire (#4ea8ff) rim light and a few drifting ether motes."
+      "idea_ko": "3단 — 처음으로 신비가 눈에 보인다. 되풀이해 이야기할 만한 인상적인 순간. 더 대담한 명암과 깊은 공간, 윤곽을 따라 차가운 사파이어 빛, 빛 받은 곳의 선명한 색, 주인공 둘레에 옅게 빛나는 안개와 떠도는 에테르 알갱이, 섬세한 장식과 반짝이는 묘사.",
+      "finish": "Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.",
+      "tier": 3
     },
     "upgrade": {
       "ko": "강화",
       "en": "Empowered",
       "color": "#3fe0c0",
-      "idea_ko": "원래 카드의 그 개체가 한 단계 오른 모습. 원래 카드 그림을 함께 넣고 그린다. 보강한 몸 · 장비, 발밑에서 오르는 청록빛.",
-      "finish": "Empowered: the same individual risen a rank — sturdier body and reinforced gear, steadier bearing, teal (#3fe0c0) energy rising from the ground beneath it."
+      "idea_ko": "레어와 에픽 사이(3.5단) — 원래 카드의 그 개체가 한 단계 오른 모습. 원래 카드 그림을 함께 넣고 그린다. 보강한 몸 · 장비, 발밑에서 오르는 청록빛, 빛나는 이음매, 선명한 색과 옅게 빛나는 안개.",
+      "finish": "Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher — sturdier body, reinforced gear, steadier bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing in the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.",
+      "tier": 3.5
     },
     "epic": {
       "ko": "에픽",
       "en": "Epic",
       "color": "#b46cff",
-      "idea_ko": "세계가 반응한다. 날씨 · 대기 · 깊이가 움직이고 빛이 공기를 가른다. 공기 속에 옅은 보랏빛 비술 입자. 시점은 카드마다 다르다(늘 올려다보지 않는다).",
-      "finish": "Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes."
+      "idea_ko": "4단 — 웅장하고 힘이 가득하다. 세계가 주인공에 반응한다. 깊은 대기를 가르는 빛줄기, 주인공을 감싸고 주변까지 물들이는 은은한 기운, 깊고 진하게 빛나는 색, 움직이는 날씨와 그 바람에 실려 흐르는 보랏빛 비술 입자, 화려하고 귀한 재질과 정교한 세공.",
+      "finish": "Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.",
+      "tier": 4
     },
     "unique": {
       "ko": "유니크",
       "en": "Unique",
       "color": "#ff8a2a",
-      "idea_ko": "깃발의 이름난 전설 한 장면. 그 깃발에서 가장 대담한 그림 — 연극 같은 명암, 장인의 세공, 녹은 주황 금빛 불티.",
-      "finish": "Unique: one legend's defining image, the most daring picture of its banner — theatrical chiaroscuro, masterwork detail, molten orange-gold (#ff8a2a) embers and filigree light."
+      "idea_ko": "5단 — 전설적이고 맹렬하다. 그 깃발에서 가장 대담한 그림. 연극 같은 명암과 깊은 어둠을 가르는 눈부신 주광, 주인공이 제 힘으로 타오르듯 빛난다. 보석처럼 선명하고 녹은 금속 같은 색, 소용돌이치는 주황 금빛 불티 · 아지랑이 · 주인공을 휘감는 가는 금세공 빛줄, 이음매마다 빛이 새는 장인의 세공.",
+      "finish": "Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a blazing key light against deep black, and the subject burning with a power of its own. Saturation: jewel-bright and molten. Air: thick with swirling orange-gold (#ff8a2a) embers, heat-shimmer and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing at the seams.",
+      "tier": 5
     },
     "special": {
       "ko": "스페셜",
       "en": "Special",
       "color": "#ff4d73",
-      "idea_ko": "눈에 보이는 신화. 깃발마다 하나뿐인 존재(유닛)와 성소의 유물(아이템) — 필멸의 크기를 넘고, 땅과 하늘이 그 둘레에서 휜다. 겹겹의 광휘, 진홍과 금.",
-      "finish": "Special: myth made visible — one of a kind and beyond mortal scale, land and sky bending around it, layered radiance in crimson (#ff4d73) and gold."
+      "idea_ko": "6단(최고) — 눈에 보이는 신화. 가장 신비롭고 강렬하고 화려하다. 깃발마다 하나뿐인 존재(유닛)와 성소의 유물(아이템) — 주인공 자체가 광원이고 광휘가 겹겹이다(흰 불빛 심 · 넓은 후광 · 화면을 가로지르는 진홍과 금의 큰 고리와 긴 빛살). 모든 카드 가운데 가장 빛나는 무지갯빛 색, 불티의 폭풍과 에테르 빛의 장막이 공기를 채우고 땅 · 하늘 · 날씨가 주인공 쪽으로 휜다. 필멸의 솜씨를 넘어 안에서부터 빛나는 재질.",
+      "finish": "Special — the highest of the six rarity tiers, unmistakably beyond every other. Mood: mythic, mysterious and overwhelming — sacred awe. Light: the subject is itself a source of light, radiance in layers — a white-hot core, a wide halo, great rings and long rays of crimson (#ff4d73) and gold crossing the whole picture, blooming and refracting through the haze. Saturation: the most luminous, iridescent colour of any card, from velvet black to blinding white-gold. Air: filled with storms of sparks and veils of ether light, while land, sky and weather bend toward the subject. Surfaces: matter beyond mortal craft, glowing from within.",
+      "tier": 6
     }
   },
   "elements": {
