@@ -14,7 +14,7 @@
    "def": "the flock scatters: a startled flutter of many wings, a few sharp chirps, feathers whirring as they regroup"
   },
   "A2-04": {
-   "en": "Seraph Child",
+   "en": "Downy Dove Fledgling",
    "ko": "깃털 파닥 · 쓰러져도 따뜻한 빛이 받침",
    "atk": "a small hop and a flurry of tiny feather flaps, a soft pat of a little fist on the foe, a faint high sparkle trailing off",
    "def": "the child tumbles with a soft cloth plop, then a warm airy glow gently cushions it: a low breathy hum and a few feathers drifting"
@@ -38,7 +38,7 @@
    "def": "a round shield meets the strike: a solid wood-and-gold clang, wings flaring with a rustle, scale armour jingling"
   },
   "A2-09": {
-   "en": "Seraph Guard",
+   "en": "Dawn Rooster Guard",
    "ko": "방패 앞세워 돌진 · 작은 방패에 챙 하고 튕김",
    "atk": "a short stabbing sword jabs from behind a raised guard: a rapid scrape, a punchy thrust, and a clipped chain-mail jingle",
    "def": "a small round shield catches the blow with a sharp clank and a quick ring, the arm wobbling with a creak of leather straps"
@@ -122,9 +122,9 @@
    "def": "a battered round shield takes the blow with a seasoned clang, old armour creaking, wings settling with a calm rustle"
   },
   "A2-30": {
-   "en": "Dawn Seraph",
+   "en": "Dawn Sun Crow",
    "ko": "불꽃 날개 휘몰이 · 날개 불꽃이 막아 낮게 웅웅",
-   "atk": "six burning wings sweep forward: a rush of flapping air, crackling golden flame, then a blazing swelling roar that bursts into sparkling embers",
+   "atk": "two burning wings sweep forward: a rush of flapping air, crackling golden flame, then a blazing swelling roar that bursts into sparkling embers",
    "def": "blazing wings snap shut across the body: a thick whoosh of feathers, a fiery crackle absorbing the blow, and a low warm halo hum"
   },
   "A2-31": {

@@ -10,11 +10,11 @@
 
 ## 1. 그림 없는 카드 — 먼저 그린다 · 17장
 
-### TK-A1-1 · 계약 악마
+### TK-A1-1 · 봉랍 사역마
 모르카스의 그믐 · 유닛 · 레벨 4 · 소환물 · 틀 `front` F C `bloodink` · 프롬프트 n2 → `tools/art/inbox/TK-A1-1.jpg`
 
 ```
-Landscape 5:4 painting. Face-on and centred: a lean devil with short curved horns and ashen skin is rising out of a round seal of red wax on a bare stone floor. He is finished only down to the ribs: horns, narrow shoulders and thin arms are solid, while everything below is still a twisting rope of red-black smoke rooted in the wax. His glowing eyes are just opening and both hands are tugging his dark collar straight. Beside the seal stands a small empty cup, one last dark drop still hanging from its lip. The soft seal glows crimson from below, lighting his chin and the smoke; the room beyond is black, with a faint violet edge on the horns.
+Landscape 5:4 painting. Face-on and centred: a lean figure of dark red sealing wax is rising out of a round seal of red wax on a bare stone floor. It is finished only down to the ribs: narrow head, shoulders and thin arms are set and glossy, while everything below is still a twisting rope of molten wax and red-black smoke rooted in the seal. Its ember eyes are just opening and both hands are tugging a collar of wax ribbon straight. Beside the seal stands a small empty cup, one last dark drop still hanging from its lip. The soft seal glows crimson from below, lighting its chin and the smoke; the room beyond is black, with a faint violet edge on the shoulders.
 Colour: blood and ink — black and deep crimson with a thread of violet (#8b5cf6).
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
 Summoned — off the rarity ladder, as quiet as a common card but for its conjuring light. Simple and luminous: a thing called up a heartbeat ago, one clear shape in plain surroundings, its edges still trailing ether-blue (#8fdcff) light.

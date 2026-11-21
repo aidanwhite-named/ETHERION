@@ -2,7 +2,7 @@
   "_about": "A3 벨루미르의 별 — 카드별 장면 지시. 쓰는 법은 tools/art/PROMPT_GUIDE.md, 검사는 node tools/art/scene_tool.js lint A3.",
   "A3-01": {
     "shot": "profile", "dir": "R", "place": "L", "pal": "thinair",
-    "scene": "Strict side view, flat as a frieze, on a rope-railed practice terrace. In the left third stands a young elf apprentice, small in grey-green leathers a size too large, ash hair tied back from short pointed ears, facing right. A pale-wood bow hangs unused on one shoulder; at arm's length the apprentice holds a goose feather on a thread and studies its swing. Along the rail hang a pinwheel, a streamer and a chime, each stirring differently. At the far right a straw target stands untouched, and one stray arrow juts from a rail post wide of it.",
+    "scene": "Strict side view, flat as a frieze, on a rope-railed practice terrace. In the left third stands a young hare apprentice, small in grey-green leathers a size too large, long ears laid back along its neck, facing right. A pale-wood bow hangs unused on one shoulder; at arm's length the apprentice holds a goose feather on a thread and studies its swing. Along the rail hang a pinwheel, a streamer and a chime, each stirring differently. At the far right a straw target stands untouched, and one stray arrow juts from a rail post wide of it.",
     "light": "Pale high-altitude morning sun from the right, thin white cloud drifting below the terrace, cool shadows, the streamer on the rail a wind-teal stroke."
   },
   "A3-02": {
@@ -47,7 +47,7 @@
   },
   "A3-15": {
     "shot": "high", "dir": "L", "place": "C", "pal": "stormcloud",
-    "scene": "Looking down from above onto a narrow cliff ledge: a high elf sniper kneels at the centre, slender and proud, silver hair and short cloak blowing, long pointed ears, a long elegant bow resting across his knee. A single arrow stands in his quiver. Two fingers are at his lips, whistling. Far below him the canyon runs off to the left, planted with a line of ribbon poles, and the ribbons are swinging round one after another to point the same way, toward a small red gourd hung on a rope at the canyon's end.",
+    "scene": "Looking down from above onto a narrow cliff ledge: a pine marten sniper kneels at the centre, lean and still, dark fur and short cloak blowing, a pale bib at its throat, a long elegant bow resting across its knee. A single arrow stands in its quiver. Its muzzle is lifted in a thin whistle. Far below it the canyon runs off to the left, planted with a line of ribbon poles, and the ribbons are swinging round one after another to point the same way, toward a small red gourd hung on a rope at the canyon's end.",
     "light": "Flat grey-violet storm light with a silver drizzle hanging in the canyon; the ribbons are wind-teal and the gourd a single red point."
   },
   "A3-16": {
@@ -107,7 +107,7 @@
   },
   "A3-31": {
     "shot": "ground", "dir": "F", "place": "R", "pal": "duskrose",
-    "scene": "Camera on the turf of a small floating rock island, looking through a thicket of old arrows stuck in the ground at every angle, a hundred years of misses, shafts weathered silver, fletching rotted to threads. Beyond them, in the right of the frame, a tall weather-beaten elf archer faces us, grey-streaked hair tied back from short pointed ears, worn grey-green leathers, wool cloak, unstringing a plain pale-wood longbow. Behind his shoulder, on a neighbouring shard of rock adrift in the wind, a single dead pine holds one arrow in the exact middle of a knot.",
+    "scene": "Camera on the turf of a small floating rock island, looking through a thicket of old arrows stuck in the ground at every angle, a hundred years of misses, shafts weathered silver, fletching rotted to threads. Beyond them, in the right of the frame, a tall weather-beaten mountain goat archer faces us, grey-streaked beard, swept-back horns worn smooth, a wool cloak over worn grey-green leathers, unstringing a plain pale-wood longbow. Behind his shoulder, on a neighbouring shard of rock adrift in the wind, a single dead pine holds one arrow in the exact middle of a knot.",
     "light": "Dusk above the clouds: peach light from the left on his face and the old shafts, deep teal shadow pooling between the arrows."
   },
   "A3-32": {
@@ -132,7 +132,7 @@
   },
   "A3-36": {
     "shot": "back", "dir": "B", "place": "L", "pal": "starindigo",
-    "scene": "Seen from behind, in the left of the frame: a very tall high elf in a short wind-blown cloak, silver hair loose over long pointed ears, stands before the immense bronze door of a tower and turns a silver key as long as his forearm in its lock. Across his back hangs the oldest bow in the place, unstrung, its dark wood worn pale at the grip by many hands. Two small apprentices wait at his elbow, reaching only to his belt, sharing one lantern and one yawn.",
+    "scene": "Seen from behind, in the left of the frame: a very tall giant whose body is grey storm cloud, shoulders trailing mist under a short wind-blown cloak, stands before the immense bronze door of a tower and turns a silver key as long as a forearm in its lock. Across his back hangs the oldest bow in the place, unstrung, its dark wood worn pale at the grip by many hands. Two small hooded apprentices wait at his knee, sharing one lantern and one yawn.",
     "light": "Starry indigo night above the door; the apprentices' lantern throws warm light up the bronze and silvers the edge of the old bow."
   },
   "A3-41": {
@@ -262,8 +262,8 @@
   },
   "PN-A3-E": {
     "shot": "close", "dir": "L", "place": "R", "pal": "starindigo",
-    "scene": "Close on the head and shoulders of a high elf archer in the right of the frame, face lifted to the upper left an instant after the shot: bow arm still stretched skyward, string hand open beside a long pointed ear, silver hair blown back. A second, older bow is slung across the back, its grip bound in faded cord. Beyond the bow a dotted line of tiny lights climbs to one bright star, every arrow ever loosed from this spot, still on its way, and the high cloud has drawn aside in a lane to let them pass.",
-    "light": "Indigo night full of stars; the one aimed-at star is brightest and puts a thin silver edge on the cheek, ear and bow limb."
+    "scene": "Close on the head and shoulders of a snow leopard archer in the right of the frame, face lifted to the upper left an instant after the shot: bow arm still stretched skyward, string paw open beside a small round ear, silver rosetted fur blown back. A second, older bow is slung across the back, its grip bound in faded cord. Beyond the bow a dotted line of tiny lights climbs to one bright star, every arrow ever loosed from this spot, still on its way, and the high cloud has drawn aside in a lane to let them pass.",
+    "light": "Indigo night full of stars; the one aimed-at star is brightest and puts a thin silver edge on the cheek, whiskers and bow limb."
   },
   "PN-A3-U1": {
     "shot": "macro", "dir": "R", "place": "C", "pal": "moonsilver",
@@ -337,12 +337,12 @@
   },
   "UN-A3": {
     "shot": "reflect", "dir": "R", "place": "C", "pal": "starindigo",
-    "scene": "A shallow bronze basin of still water, set in the floor of a high lookout, fills the frame from above at a slant, and the scene lives in its mirror. Among the reflected stars, upside down, leans a tall high elf archer, silver hair hanging past long pointed ears, his long elegant bow already raised. One grey feather floats on the water. It has just swung to point at the basin's right rim, where the first ripple is arriving and a dull violet glow has crept in among the mirrored stars. His arrow points the same way.",
+    "scene": "A shallow bronze basin of still water, set in the floor of a high lookout, fills the frame from above at a slant, and the scene lives in its mirror. Among the reflected stars, upside down, leans a slim fox archer with indigo fur speckled silver, brush tail trailing a thread of starlight, a long elegant bow raised. One grey feather floats on the water. It has just swung to point at the basin's right rim, where the first ripple is arriving and a dull violet glow has crept in among the mirrored stars. The arrow points the same way.",
     "light": "Clear indigo night; the basin holds the stars in silver on black water, with one teal wind streak crossing its surface from the right."
   },
   "UN-A3-7": {
     "shot": "inside", "dir": "F", "place": "R", "pal": "aurora",
-    "scene": "We are inside the spell: a hurled sphere of green and violet fire whose curved wall of flame rings the picture. An arrow has punched in through the upper right; its moon-silver head hangs an arm's length away, and the fire is swirling down the shaft like water down a drain. Through the torn hole, small in the clear night, stands the one who shot it, a tall night elf with dusky violet-blue skin, silver-white hair, long swept-back ears and faintly glowing eyes, his silver bow still raised, a thread of the stolen fire running back into it.",
+    "scene": "We are inside the spell: a hurled sphere of green and violet fire whose curved wall of flame rings the picture. An arrow has punched in through the upper right; its moon-silver head hangs an arm's length away, and the fire is swirling down the shaft like water down a drain. Through the torn hole, small in the clear night, stands the one who shot it, a tall black panther archer with a sleek dark coat, small round ears and faintly glowing eyes, his silver bow still raised, a thread of the stolen fire running back into it.",
     "light": "The fire around us is the light, teal-green and violet like an aurora; beyond the hole the night is dark and his eyes are two small stars."
   },
   "UP-A3-10": {
@@ -382,7 +382,7 @@
   },
   "PN-A3-R": {
     "shot": "swarm", "dir": "B", "place": "B", "pal": "moonsilver",
-    "scene": "Arrows fill the moonlit air above a chasm from edge to edge, and every one is bending, like a flock on the turn. Low in the frame, back to us among his line of bowmen, stands a night elf captain: dusky violet-blue skin, silver-white hair, long swept-back ears, moon-silver bow lowered. From his shoulder hangs a strip of dark cloth set with open eyes, each casting a pale beam across the gap. Where a beam lands on the far ranks a bright dot marks an armour joint, and the arrows bend toward the dots.",
+    "scene": "Arrows fill the moonlit air above a chasm from edge to edge, and every one is bending, like a flock on the turn. Low in the frame, back to us among his line of bowmen, stands a peacock captain: night-blue neck, a fanned crest, his long folded train sweeping the stone behind him, moon-silver bow lowered. From his shoulder hangs a strip of dark cloth set with open eyes, each casting a pale beam across the gap. Where a beam lands on the far ranks a bright dot marks an armour joint, and the arrows bend toward the dots.",
     "light": "Full moon behind the bowmen: blue-silver arrows and sharp black shadows, with a breath of teal in the eye-beams."
   },
   "RS-A3-1": {

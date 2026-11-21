@@ -81,7 +81,7 @@ T('뒤바뀐 물길 홀림', `const a = setT(mk("B1-01"), 1, 3, 8), b = setT(mk(
 // 치유를 걸어 주는 마법
 T('샘물 한 모금', `const d = setT(mk("G3-03"), 0, 0, 30), a1 = setT(mk("B1-01"), 3, 0, 9), a2 = setT(mk("B1-02"), 3, 0, 9);
   const X = fight([side(0, [a1, a2]), side(1, ["MG-03", d])], 0);
-  ok(abilOf(d).heal === 2 && /\\[치유\\] 인어 소년/.test(logs(X)), "맨 앞 유닛 이번 턴 [치유 2]");`);
+  ok(abilOf(d).heal === 2 && /\\[치유\\] 석호의 새끼 돌고래/.test(logs(X)), "맨 앞 유닛 이번 턴 [치유 2]");`);
 T('치유의 조수', `const u1 = setT(mk("G3-03"), 0, 0, 30), u2 = setT(mk("G3-04"), 0, 0, 30);
   const X = fight([side(0, [mk("B1-01")]), side(1, ["MG-15", u1, u2])], 0);
   ok(abilOf(u1).heal === 1 && abilOf(u2).heal === 1, "아군 전체 [치유 1]");`);

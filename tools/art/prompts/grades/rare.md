@@ -358,7 +358,83 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 29장
+## 2. 다시 그리기 · 6장
+
+> 이미 그림이 있어 게임은 그대로 돌아간다. 1번을 다 그린 뒤 그린다.
+
+### PN-A1-R · 그림자 계약 집행자 — **다시 그리기**: 종류가 바뀜(2026-11-21) — 옛 그림은 처음 세운 무리의 모습
+모르카스의 그믐 · 유닛 · 레벨 4 · 레어 · 틀 `far` N R `frostindigo` · 프롬프트 n2 → `tools/art/inbox/PN-A1-R.jpg`
+
+```
+Landscape 5:4 painting. Far across a frost-white square in a canyon city, three small figures stand motionless in a row at the right. The middle one is a man-tall raven standing upright in a long dark coat, a folded contract with a dangling seal held flat to its breast under one wing. Shadow pours from the paper down its coat and along the ground to the guards on either side, climbing their halberds and edging the blades in violet. Before them one figure kneels, and above its bowed head hangs a single puff of white breath, the only one in the square. Moonless blue-violet night; frost on the paving and tarnished silver lamps along the canyon wall give a cold, even glimmer.
+Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### PN-A3-R · 별빛 궁수장 — **다시 그리기**: 종류가 바뀜(2026-11-21) — 옛 그림은 처음 세운 무리의 모습
+벨루미르의 별 · 유닛 · 레벨 4 · 레어 · 틀 `swarm` B B `moonsilver` · 프롬프트 n2 → `tools/art/inbox/PN-A3-R.jpg`
+
+```
+Landscape 5:4 painting. Arrows fill the moonlit air above a chasm from edge to edge, and every one is bending, like a flock on the turn. Low in the frame, back to us among his line of bowmen, stands a peacock captain: night-blue neck, a fanned crest, his long folded train sweeping the stone behind him, moon-silver bow lowered. From his shoulder hangs a strip of dark cloth set with open eyes, each casting a pale beam across the gap. Where a beam lands on the far ranks a bright dot marks an armour joint, and the arrows bend toward the dots. Full moon behind the bowmen: blue-silver arrows and sharp black shadows, with a breath of teal in the eye-beams.
+Colour: moon silver — blue-silver monochrome under a full moon, sharp shadows, a breath of teal (#9fe3d6).
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### PN-B3-R · 병 속의 번개 술사 — **다시 그리기**: 종류가 바뀜(2026-11-21) — 옛 그림은 처음 세운 무리의 모습
+케라운의 벼락 · 유닛 · 레벨 4 · 레어 · 틀 `ground` L T `copperlab` · 프롬프트 n2 → `tools/art/inbox/PN-B3-R.jpg`
+
+```
+Landscape 5:4 painting. From puddle level on a cobbled lane: an open copper-banded bottle stands on the wet stones, and from its mouth a ribbon of yellow light climbs to the upper frame and swells into a small genie of crackling lightning drifting leftward. With a glass-handled rod it drops a spark into the next empty jar on an overhead wire. The jars behind it glow amber like street lamps; those ahead hang dark. Beside the lens one jar lies freshly shattered, and from its shards a thread of lightning runs to the butt of a sentry's staff, whose tip blazes double. Amber dusk between copper-roofed walls; the lit jars cast a warm filament-yellow down the lane and gild the wet cobbles.
+Colour: copper warmth — copper, amber glass and electric-yellow (#ffd84a) filament glow.
+Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### PN-G1-R · 카르노를 쫓는 자 — **다시 그리기**: 종류가 바뀜(2026-11-21) — 옛 그림은 처음 세운 무리의 모습
+고르바스의 발톱 · 유닛 · 레벨 4 · 레어 · 틀 `close` R C `bonemoon` · 프롬프트 n2 → `tools/art/inbox/PN-G1-R.jpg`
+
+```
+Landscape 5:4 painting. Tight on the head and shoulders of a rangy ram at the centre of the frame, turned to the right: heavy curled horns chipped along their ridges, a scarred muzzle, rust-red paint across the brow, fleece rubbed grey with ash. He lowers his horns in challenge, eyes fixed on someone beyond the right edge, and a thong strung with dozens of stone chips hangs at his throat. At both edges the cropped shoulders of two companions lean in, lowering their own horned heads the same way. Behind them a long streak of grey smoke lies along the night horizon. A high moon from the left edges horns, brow and ash-grey fleece in bone white, with grey-blue night behind and dry ochre earth under the smoke.
+Colour: bone and moon — bone-white and grey-blue night with dry ochre (#b88a5a) earth.
+Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### PN-G2-R · 드리엔의 이끼 거인 — **다시 그리기**: 종류가 바뀜(2026-11-21) — 옛 그림은 처음 세운 무리의 모습
+베르단의 뿔 · 유닛 · 레벨 4 · 레어 · 틀 `profile` R R `autumnrot` · 프롬프트 n2 → `tools/art/inbox/PN-G2-R.jpg`
+
+```
+Landscape 5:4 painting. Strict side view, flat as a frieze, among falling russet leaves: at the right third a tall giant heaped wholly of living moss stands facing right, round-shouldered, arms hanging past its knees. An axe-stroke has parted the moss along its ribs; a hedge of black thorns bristles in the gap, and behind the thorns glows a core of amber holding old leaves and a dragonfly. From its feet moss creeps along the ground both ways and climbs the shields of two small spearmen, one ahead and one behind, budding thorns on their rims. Low amber afternoon light from the left rakes through the falling leaves, and the amber core adds its own warm glow against dark green shade.
+Colour: autumn rot — russet, amber and mushroom-pale against dark leaf-green (#58b85f).
+Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### PN-G3-R · 넬리아의 물그릇 무녀 — **다시 그리기**: 종류가 바뀜(2026-11-21) — 옛 그림은 처음 세운 무리의 모습
+마렌시아의 노래 · 유닛 · 레벨 4 · 레어 · 틀 `tilt` F C `lagoon` · 프롬프트 n2 → `tools/art/inbox/PN-G3-R.jpg`
+
+```
+Landscape 5:4 painting. The horizon tips steeply as a sea-nymph comes straight toward us at the centre, waist-deep in sunlit turquoise shallows — skin like mother-of-pearl, hair of drifting green kelp, pearls at her brow — bearing a wide pearl-white bowl level in both hands. The water in it is deep-sea dark, and from it pale rings spread through the air like ripples. A volley of arrows slants down across the tilted sky; each one that crosses a ring turns to a string of bright drops and spatters as rain on the shoulders of the two spearmen flanking her. High midday sun from the upper right; the turquoise shallows throw rippling light up under the bowl and every falling drop flashes pearl white.
+Colour: sunlit shallows — turquoise and water-blue (#4fb3ff) with pearl white, clear and bright over deep blue shadow.
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 23장
 
 ### US-A1-2 · 그림자 계약 — 그림 있음
 모르카스의 그믐 · 공격 마법 · 레벨 2 · 레어 · 틀 `inside` D R `candle` · 프롬프트 n2 → `tools/art/inbox/US-A1-2.jpg`
@@ -378,18 +454,6 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 ```
 Landscape 5:4 painting of one object — the object itself is the subject. On a mask-maker's workbench, at the right of the frame, an executioner's half-mask of black lacquered leather is clamped upright in a small wooden vice, turned in profile toward the left. Where a mouth would be it has a grille of fine silver slats, like gills. Just left of it a squat bottle of red ink stands open, and a faint red mist is lifting off the ink and drifting sideways into the slats, as if the empty mask were breathing in. Awls, waxed thread and a row of rivets lie around the vice. A single candle stub at the bench's edge makes one small amber pool; the workshop beyond is black, with violet in its deepest shadows.
 Colour: candle islands — small pools of amber light in vast dark, violet (#8b5cf6) in the shadows.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-### PN-A1-R · 그림자 계약 집행자 — 그림 있음
-모르카스의 그믐 · 유닛 · 레벨 4 · 레어 · 틀 `far` N R `frostindigo` · 프롬프트 n2 → `tools/art/inbox/PN-A1-R.jpg`
-
-```
-Landscape 5:4 painting. Far across a frost-white square in a canyon city, three small figures stand motionless in a row at the right. The middle one is a pale horned demon in a long dark coat, a folded contract with a dangling seal held flat to his chest. Shadow pours from the paper down his sleeves and along the ground to the guards on either side, climbing their halberds and edging the blades in violet. Before them one figure kneels, and above its bowed head hangs a single puff of white breath, the only one in the square. Moonless blue-violet night; frost on the paving and tarnished silver lamps along the canyon wall give a cold, even glimmer.
-Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
 Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
@@ -449,18 +513,6 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 
 ```
 Landscape 5:4 painting of one object — the object itself is the subject. An arrow stands buried head-down in the planks of a lookout platform, at the left of the frame, its shaft still quivering. It has pinned the tail of a small diamond-shaped kite of grey silk to the boards. The shaft is pale wood pricked along its length with tiny silver dots linked by scratched lines. Behind it, hanging in the still air, the flight path remains as a thin line of mist: straight at first, then doubling back around a flagpole, then one tight corner before the plunge down to where the arrow stands. A high full moon behind the viewer turns the boards blue-silver with razor-sharp shadows; the mist trail is faintly teal where it turns.
-Colour: moon silver — blue-silver monochrome under a full moon, sharp shadows, a breath of teal (#9fe3d6).
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-### PN-A3-R · 별빛 궁수장 — 그림 있음
-벨루미르의 별 · 유닛 · 레벨 4 · 레어 · 틀 `swarm` B B `moonsilver` · 프롬프트 n2 → `tools/art/inbox/PN-A3-R.jpg`
-
-```
-Landscape 5:4 painting. Arrows fill the moonlit air above a chasm from edge to edge, and every one is bending, like a flock on the turn. Low in the frame, back to us among his line of bowmen, stands a night elf captain: dusky violet-blue skin, silver-white hair, long swept-back ears, moon-silver bow lowered. From his shoulder hangs a strip of dark cloth set with open eyes, each casting a pale beam across the gap. Where a beam lands on the far ranks a bright dot marks an armour joint, and the arrows bend toward the dots. Full moon behind the bowmen: blue-silver arrows and sharp black shadows, with a breath of teal in the eye-beams.
 Colour: moon silver — blue-silver monochrome under a full moon, sharp shadows, a breath of teal (#9fe3d6).
 Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
 Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
@@ -564,18 +616,6 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### PN-B3-R · 병 속의 번개 술사 — 그림 있음
-케라운의 벼락 · 유닛 · 레벨 4 · 레어 · 틀 `ground` L T `copperlab` · 프롬프트 n2 → `tools/art/inbox/PN-B3-R.jpg`
-
-```
-Landscape 5:4 painting. From puddle level on a cobbled lane: two copper stilt-feet stand in the foreground, and high in the upper frame a tiny big-nosed gnome in a many-pocketed coat strides leftward on them, goggles down, reaching a glass-handled rod to drop a spark into the next empty jar on an overhead wire. The jars behind him glow amber like street lamps; those ahead hang dark. Beside the lens one jar lies freshly shattered, and from its shards a thread of lightning runs over the wet stones to the butt of a sentry's staff, whose tip blazes double. Amber dusk between copper-roofed walls; the lit jars cast a warm filament-yellow down the lane and gild the wet cobbles.
-Colour: copper warmth — copper, amber glass and electric-yellow (#ffd84a) filament glow.
-Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
 ### IR-G1 · 잿갈기 문신 — 그림 있음
 고르바스의 발톱 · 아이템 · 레벨 3 · 레어 · 틀 `top` N L `firelit` · 프롬프트 n2 → `tools/art/inbox/IR-G1.jpg`
 
@@ -594,18 +634,6 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 ```
 Landscape 5:4 painting of a spell — the magic itself is the subject. The ground has grown teeth. Across the whole frame rust-red clay is splitting open, and up through every crack push bone-white fangs — hundreds, from thumb-sized to tall as fence posts, thickest at the left — each pair snapping shut on whatever struck there: a sword blade bent double, a spear shaft bitten through, an empty iron-shod boot, an axe head. Chips of steel and clods of clay hang in the air above the bristling field, and at the far right the last heels of a charge are turning to run. Slate-grey storm light from above flattens the red clay, and each fang shows chalk-pale against it while ochre dust blows through the gaps.
 Colour: red earth — rust-red clay under slate-grey storm light, ochre (#b88a5a) dust in the air.
-Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-### PN-G1-R · 카르노를 쫓는 자 — 그림 있음
-고르바스의 발톱 · 유닛 · 레벨 4 · 레어 · 틀 `close` R C `bonemoon` · 프롬프트 n2 → `tools/art/inbox/PN-G1-R.jpg`
-
-```
-Landscape 5:4 painting. Tight on the head and shoulders of a rangy orc at the centre of the frame, turned to the right: tusks, scarred grey-green skin, rust-red paint across the brow, braids rubbed grey with ash. He holds one hide-wrapped fist up beside his jaw in challenge, eyes fixed on someone beyond the right edge, and a thong strung with dozens of stone chips hangs at his throat. At both edges the cropped shoulders of two companions lean in, raising their own wrapped fists the same way. Behind them a long streak of grey smoke lies along the night horizon. A high moon from the left edges tusks, knuckles and ash-grey braids in bone white, with grey-blue night behind and dry ochre earth under the smoke.
-Colour: bone and moon — bone-white and grey-blue night with dry ochre (#b88a5a) earth.
 Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
 Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
@@ -648,18 +676,6 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### PN-G2-R · 드리엔의 이끼 거인 — 그림 있음
-베르단의 뿔 · 유닛 · 레벨 4 · 레어 · 틀 `profile` R R `autumnrot` · 프롬프트 n2 → `tools/art/inbox/PN-G2-R.jpg`
-
-```
-Landscape 5:4 painting. Strict side view, flat as a frieze, among falling russet leaves: at the right third a tall, lanky moss troll stands facing right, arms hanging past his knees, bark skin fleeced with moss. An axe-stroke has parted the moss along his ribs; a hedge of black thorns bristles in the gap, and behind the thorns glows a core of amber holding old leaves and a dragonfly. From his feet moss creeps along the ground both ways and climbs the shields of two small spearmen, one ahead and one behind, budding thorns on their rims. Low amber afternoon light from the left rakes through the falling leaves, and the amber core adds its own warm glow against dark green shade.
-Colour: autumn rot — russet, amber and mushroom-pale against dark leaf-green (#58b85f).
-Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
 ### IR-G3 · 넬리아의 물방울 — 그림 있음
 마렌시아의 노래 · 아이템 · 레벨 2 · 레어 · 틀 `cut` L L `trench` · 프롬프트 n2 → `tools/art/inbox/IR-G3.jpg`
 
@@ -690,18 +706,6 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 ```
 Landscape 5:4 painting of a spell — the magic itself is the subject. On a storm-beaten shore, heavy green-blue swells break white everywhere except along one narrow lane of water that lies flat as glass, running straight out from the beach. A lone bare-headed figure, small and seen from behind, wades down that lane, already waist-deep, spear trailing slack from one hand. Ahead of him, dead centre, the lane ends at a single tall column of pale mist and light standing on the sea from wave to cloud, its foot ringed with slow ripples. His helmet rolls in the foam at our feet. Slate storm cloud and flying spray overhead; the column is the one pale source, silvering the flat lane and the wet back of the walking figure.
 Colour: storm sea — heavy green-blue (#4fb3ff), white spray and slate grey.
-Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-### PN-G3-R · 넬리아의 물그릇 무녀 — 그림 있음
-마렌시아의 노래 · 유닛 · 레벨 4 · 레어 · 틀 `tilt` F C `lagoon` · 프롬프트 n2 → `tools/art/inbox/PN-G3-R.jpg`
-
-```
-Landscape 5:4 painting. The horizon tips steeply as a merfolk shrine maiden comes straight toward us at the centre, waist-deep in sunlit turquoise shallows — blue-scaled, long fins trailing from her forearms, pearls at her brow — bearing a wide pearl-white bowl level in both hands. The water in it is deep-sea dark, and from it pale rings spread through the air like ripples. A volley of arrows slants down across the tilted sky; each one that crosses a ring turns to a string of bright drops and spatters as rain on the shoulders of the two spearmen flanking her. High midday sun from the upper right; the turquoise shallows throw rippling light up under the bowl and every falling drop flashes pearl white.
-Colour: sunlit shallows — turquoise and water-blue (#4fb3ff) with pearl white, clear and bright over deep blue shadow.
 Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
 Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.

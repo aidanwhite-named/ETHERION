@@ -12,7 +12,7 @@
   },
   "A2-04": {
     "shot": "eye", "dir": "L", "place": "C", "pal": "rosedawn",
-    "scene": "At eye level on a garden stair, a small seraph child has tripped on the worn top step and hangs in mid-fall, arms flung forward to the left, one sandal flying — its wings only three or four downy feathers on each shoulder blade. Under the child a soft pane of warm light has slid out across the stones like a cushion and holds it a hand's breadth above the steps.",
+    "scene": "At eye level on a garden stair, a white dove fledgling has tripped on the worn top step and hangs in mid-tumble, stubby wings flung forward to the left, pink feet in the air — only three or four true feathers showing among the down on each wing. Under the chick a soft pane of warm light has slid out across the stones like a cushion and holds it a hand's breadth above the steps.",
     "light": "Low pink-gold morning light slants across the garden from the left, with lilac shadow under the stair and the hedges."
   },
   "A2-05": {
@@ -32,7 +32,7 @@
   },
   "A2-09": {
     "shot": "over", "dir": "F", "place": "C", "pal": "glare",
-    "scene": "Over the dark, spiked shoulder of an advancing attacker in the near foreground: a line of the citadel's spearmen stands in blinding morning light. Dead centre in the front rank is the plainest of them — a young seraph guard with small wings, an undecorated helmet a little too big for him and a spear with a mended shaft — feet planted, looking straight at us. Behind him rise the taller plumes and gilded crests of every higher rank.",
+    "scene": "Over the dark, spiked shoulder of an advancing attacker in the near foreground: a line of the citadel's spearmen stands in blinding morning light. Dead centre in the front rank is the plainest of them — a young white rooster guard with a small red comb, an undecorated helmet a little too big for him and a spear with a mended shaft held under one wing — feet planted, looking straight at us. Behind him rise the taller plumes and gilded crests of every higher rank.",
     "light": "The sun stands directly behind the line, burning its edges white and turning the attacker's shoulder into a black shape."
   },
   "A2-11": {
@@ -47,7 +47,7 @@
   },
   "A2-15": {
     "shot": "reflect", "dir": "F", "place": "C", "pal": "rosedawn",
-    "scene": "A still puddle on a rain-washed terrace fills most of the frame, and in it, upside down, stands the reflection of a robed seraph with folded wings, both hands on the pommel of a plain sword set point-down, chin level, perfectly upright. Only his bare feet and the sword's tip enter the top edge of the picture. In the reflection a thin sword-shaped ray of light hangs point-down exactly over his head.",
+    "scene": "A still puddle on a rain-washed terrace fills most of the frame, and in it, upside down, stands the reflection of a robed figure of white marble flecked with gold leaf, both stone hands on the pommel of a plain sword set point-down, chin level, perfectly upright. Only its bare marble feet and the sword's tip enter the top edge of the picture. In the reflection a thin sword-shaped ray of light hangs point-down exactly over its head.",
     "light": "Pink-gold dawn clouds fill the water around the reflected figure; the wet stone at the frame's edges is dull lilac."
   },
   "A2-16": {
@@ -62,7 +62,7 @@
   },
   "A2-20": {
     "shot": "high", "dir": "L", "place": "R", "pal": "firstlight",
-    "scene": "Seen from high on the keep above: a seraph knight stands at the right of a wide stair landing with both wings spread to their full span and curved forward like a roof. From this height the wings are two great white fans, and under their trailing feathers the helmets of a dozen smaller comrades are still ducking in, the last one running. His right hand rests on a sword hilt that has yet to leave its scabbard, and his head is turned left, counting them.",
+    "scene": "Seen from high on the keep above: a great white albatross in a knight's breastplate stands at the right of a wide stair landing with both wings spread to their full span and curved forward like a roof. From this height the wings are two long white blades, black at the tips, and under their trailing feathers the helmets of a dozen smaller comrades are still ducking in, the last one running. A sword rides at its side, still deep in its scabbard, and its head is turned left, counting them.",
     "light": "Grey-blue half-light before sunrise; a low gold band at the horizon catches only the upper edges of the feathers."
   },
   "A2-21": {
@@ -102,7 +102,7 @@
   },
   "A2-30": {
     "shot": "profile", "dir": "L", "place": "C", "pal": "vigil",
-    "scene": "Painted like a figure on a wall, in pure profile: a six-winged seraph of gold fire stands facing left in a snow-covered orchard, two burning wings folded across its face, two across its body, two spread behind. Tucked against the lowest wing, a small night sentry has fallen asleep on his feet, cheek resting in the flames, cloak and hair untouched; a sparrow roosts on one blazing feather above him, and the snow around them lies unmelted.",
+    "scene": "Painted like a figure on a wall, in pure profile: a great three-legged crow of gold fire stands facing left in a snow-covered orchard, one burning wing folded across its breast, the other spread wide behind. Tucked against the folded wing, a small night sentry has fallen asleep on his feet, cheek resting in the flames, cloak and hair untouched; a sparrow roosts on one blazing feather above him, and the snow around the three clawed feet lies unmelted.",
     "light": "Winter night; the wings are the only light, a steady gold glow that warms the sleeper's face and fades a few paces out across the snow."
   },
   "A2-31": {
@@ -132,12 +132,12 @@
   },
   "A2-42": {
     "shot": "ground", "dir": "F", "place": "L", "pal": "rosedawn",
-    "scene": "On the white flagstones of a judgment court, seen from floor level: in the near foreground lies a small gold oath-ring broken in two halves. Just beyond it stands a hooded seraph, set to the left of the frame and facing us, wings mantled close like a cloak. From his lowered right hand a sword of black volcanic glass hangs point-down — the one dark thing in the picture — a single red drop running to its tip. A dotted line of the same red leads away between the columns.",
-    "light": "Soft pink-gold dawn fills the open court behind him and lays lilac shadows along the floor toward the camera."
+    "scene": "On the white flagstones of a judgment court, seen from floor level: in the near foreground lies a small gold oath-ring broken in two halves. Just beyond it, at the left of the frame and facing us, stands a hooded, cloaked shape of solid pale light, its hood holding only brightness. From its lowered right hand a sword of black volcanic glass hangs point-down — the one dark thing in the picture — a single red drop running to its tip. A dotted line of the same red leads away between the columns.",
+    "light": "Soft pink-gold dawn fills the open court behind it and lays lilac shadows along the floor toward the camera."
   },
   "A2-43": {
     "shot": "swarm", "dir": "B", "place": "L", "pal": "firstlight",
-    "scene": "The whole frame is full of burning feathers — hundreds of small tongues of white-gold fire streaming back toward us on the wind. They pour from a seraph running away from us at the left, already far ahead of his line, his two wings now only blazing ribs that shed flame with every stride. In the foreground the feathers settle on the bandaged arms and shoulders of the comrades he has left behind, and each dark stain they touch turns white.",
+    "scene": "The whole frame is full of burning feathers — hundreds of small tongues of white-gold fire streaming back toward us on the wind. They pour from a great white pelican running away from us at the left, already far ahead of its line, its two wings now only blazing ribs that shed flame with every stride. In the foreground the feathers settle on the bandaged arms and shoulders of the comrades it has left behind, and each dark stain they touch turns white.",
     "light": "Blue-grey sky before sunrise; the falling fire lights everything from above and behind the runner."
   },
   "CS-A2": {
@@ -152,7 +152,7 @@
   },
   "EP-A2-2": {
     "shot": "eye", "dir": "L", "place": "R", "pal": "rosedawn",
-    "scene": "On the walk of an immense white wall, standing beside its captain: a tall seraph in scarred pale armour holds the outermost bastion at the right, a step ahead of his sentries, facing left with wings half spread and one gauntlet raised. Left of the wall the land is empty — flat, colourless, featureless — and from it a towering bank of grey dust is rolling in. Its first gust breaks on his breastplate and comes apart into clean bright air; his cloak streams back toward the lit city side.",
+    "scene": "On the walk of an immense white wall, standing beside its captain: a tall white wolf in scarred pale armour holds the outermost bastion at the right, upright on his hind legs a step ahead of his sentries, facing left with ears forward and one gauntleted forepaw raised. Left of the wall the land is empty — flat, colourless, featureless — and from it a towering bank of grey dust is rolling in. Its first gust breaks on his breastplate and comes apart into clean bright air; his cloak streams back toward the lit city side.",
     "light": "Late pink-gold light comes from the city side behind him, warm on his back and the wall, while the grey front ahead swallows all colour."
   },
   "EP-A2-3": {
@@ -232,8 +232,8 @@
   },
   "PN-A2-E": {
     "shot": "echo", "dir": "R", "place": "B", "pal": "glare",
-    "scene": "Low in the frame an ancient seraph kneels before a sealed door of grey stone, both palms pressed flat on its seam, wings mantled, head bowed to the right — one figure, perfectly sharp. Everything around him is painted as many moments at once: the sun as a string of overlapping discs arcing over the wall, drifts of snow, leaves and dust lying in layers against his greaves, ivy that has climbed his grounded lance. A sheet of light as thin as glass still covers the door under his hands.",
-    "light": "The streak of overlapping suns blazes white-gold across the top of the frame; he and the grey door are dark, clear shapes beneath it."
+    "scene": "Low in the frame an ancient suit of hollow white-gold armour kneels before a sealed door of grey stone, both gauntlets pressed flat on its seam, a steady light glowing inside the empty visor, helm bowed to the right — one figure, perfectly sharp. Everything around it is painted as many moments at once: the sun as a string of overlapping discs arcing over the wall, drifts of snow, leaves and dust lying in layers against its greaves, ivy that has climbed its grounded lance. A sheet of light as thin as glass still covers the door under its hands.",
+    "light": "The streak of overlapping suns blazes white-gold across the top of the frame; the kneeling armour and the grey door are dark, clear shapes beneath it."
   },
   "PN-A2-U1": {
     "shot": "eye", "dir": "F", "place": "L", "pal": "vigil",
@@ -297,13 +297,13 @@
   },
   "UN-A2": {
     "shot": "reflect", "dir": "R", "place": "X", "pal": "vigil",
-    "scene": "The pale stone flank of a great hall at night fills the frame, and across it falls one enormous shadow: a figure with both wings flung wide. Inside the shadow's outline the stone is clean, and a huddle of weary soldiers sits untouched at the wall's foot. Outside the outline, wall and ground bristle with burning arrows. The shadow's owner stands at the far right edge, cropped by the frame — a seraph knight braced toward the firelight, a dozen arrow shafts standing in her spread wing.",
+    "scene": "The pale stone flank of a great hall at night fills the frame, and across it falls one enormous shadow: a rearing horse with both wings flung wide. Inside the shadow's outline the stone is clean, and a huddle of weary soldiers sits untouched at the wall's foot. Outside the outline, wall and ground bristle with burning arrows. The shadow's owner stands at the far right edge, cropped by the frame — a white winged mare in a knight's barding, braced toward the firelight, a dozen arrow shafts standing in her spread wing.",
     "light": "A great blaze beyond the right edge throws her shadow leftward; the burning arrows are small gold flames scattered through the dark."
   },
   "UN-A2-7": {
     "shot": "ground", "dir": "L", "place": "R", "pal": "rosedawn",
-    "scene": "Daybreak on a battlefield, seen from the ground at the eye level of the fallen. Across the near foreground stretches an armoured arm and an open gauntlet, palm up, in cold blue shadow. Walking toward us from the right comes a seraph priestess in pale robes, barefoot, wings half open, the rising sun exactly behind her, so that the edge of daylight on the ground advances with her feet. Its first gold line has just reached the gauntlet's fingertips, and two fingers have begun to curl. Behind her, in full light, fallen knights are already rising to their knees.",
-    "light": "Sunrise from directly behind her: warm pink-gold on everything she has passed, cold blue-lilac shadow on everything still ahead of her."
+    "scene": "Daybreak on a battlefield, seen from the ground at the eye level of the fallen. Across the near foreground stretches an armoured arm and an open gauntlet, palm up, in cold blue shadow. Walking toward us from the right comes a white hart, the rising sun held exactly between his antlers, so that the edge of daylight on the ground advances with his hooves. Its first gold line has just reached the gauntlet's fingertips, and two fingers have begun to curl. Behind him, in full light, fallen knights are already rising to their knees.",
+    "light": "Sunrise from directly behind him: warm pink-gold on everything he has passed, cold blue-lilac shadow on everything still ahead of him."
   },
   "UP-A2-11": {
     "shot": "inside", "dir": "R", "place": "L", "pal": "firstlight",
@@ -312,7 +312,7 @@
   },
   "UP-A2-15": {
     "shot": "through", "dir": "L", "place": "R", "pal": "vigil",
-    "scene": "Through the gap of a heavy chapel door left ajar — dark wood filling both sides of the frame — we see a narrow slice of the vigil inside, right of centre. A seraph stands there in new white-gold plate, wings folded, both hands on the pommel of the same plain sword set point-down, facing left toward an unseen altar. Three narrow white ribbons are tied above his left elbow, each a little more faded than the last. A thin sword-shaped ray of light rests across his shoulder like an accolade.",
+    "scene": "Through the gap of a heavy chapel door left ajar — dark wood filling both sides of the frame — we see a narrow slice of the vigil inside, right of centre. The same marble figure stands there in new white-gold plate, both stone hands on the pommel of the same plain sword set point-down, facing left toward an unseen altar. Three narrow white ribbons are tied above its left elbow, each a little more faded than the last. A thin sword-shaped ray of light rests across its shoulder like an accolade.",
     "light": "One small oil lamp burns low inside; the single ray falls from a high slit window, and the door in the foreground stays black."
   },
   "UP-A2-17": {

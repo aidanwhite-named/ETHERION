@@ -263,7 +263,7 @@ Fantasy card game, interface and battle sounds.
 [00:56] #15 [arcane]: a pulse of deep water magic presses through armour: a resonant liquid hum and a dense pressurised thrum that sinks inward. About 0.5 seconds.
 [01:00] #16 [sea_guard]: a thin wall of water catches a blow: a muffled watery slap and a soft splash that softens the impact into ripples. About 0.5 seconds.
 [01:04] #17 [ward]: a blessed halo of light absorbs a hit: a warm muffled thud and a soft bright bell-like chime fading out. About 0.5 seconds.
-[01:08] #18 [regen]: tough troll flesh knitting closed: a wet fleshy squelch, a creak of bark-like skin pulling tight and a low satisfied grumble. About 0.7 seconds.
+[01:08] #18 [regen]: tough mossy flesh knitting closed: a wet fleshy squelch, a creak of bark-like skin pulling tight and a low satisfied grumble. About 0.7 seconds.
 [01:12] #19 [shield_bash]: a heavy iron shield is slammed forward into an attacker: a short grunt-free shove, a big metallic bash and a deep ringing clang. About 0.5 seconds.
 [01:16] #20 [firm]: an immovable stance holds: heavy iron boots grinding into stone, a deep solid anchoring thud and a short steady metallic hum. About 0.5 seconds.
 [01:20] #21 [purify]: holy light washes a curse away: a clear rising choir-like chime and a soft hiss of dark smoke dissolving into brightness. About 0.7 seconds.

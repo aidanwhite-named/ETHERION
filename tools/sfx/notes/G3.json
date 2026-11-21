@@ -19,7 +19,7 @@
    "def": "it has no armour: the soft bubbly body pops with a wet pop, a few droplets scatter and pitter, then re-gather with a faint gurgle"
   },
   "G3-03": {
-   "en": "Merboy",
+   "en": "Lagoon Dolphin Calf",
    "ko": "꼬리 물장구 찰박 · 몸 굴려 피함",
    "atk": "a quick flick of a small tail fin, a light slapping splash of kicked water, then a bright little smack as the shiny pebble in his mouth clicks against the foe",
    "def": "he darts sideways instead of blocking: a squeaky wet flip, a fast ripple, scales brushing a rock with a glancing scrape and a soft flinch of bubbles"
@@ -133,7 +133,7 @@
    "def": "its body ripples and reshapes: the hit sinks in with a gloopy thick plunge, the surface flows back with a rich glassy lap, a swelling gurgle of deep water"
   },
   "G3-32": {
-   "en": "Abyssal Merking",
+   "en": "Oarfish King of the Deep",
    "ko": "깊은 해저 울림 그르릉 · 압력 같은 묵직한 막",
    "atk": "a deep sub-bass pressure groan stirs in the dark, a thick current heaves, then a crushing hydraulic blast of dark water slams down with a booming shockwave and rolling foam",
    "def": "his massive scaled tail swings round as a wall: a heavy wet whump against thick plates, a creaking of strained pressure, then a low rumbling ring-out in the deep"
@@ -395,8 +395,8 @@
    "equip": "a glass orb holding one drop is lifted with a delicate glass tick, the drop inside swirls with a tiny sloshing wobble, and a thin watery whine hums when it is squeezed"
   },
   "IG3-6": {
-   "en": "Mermaid Scale",
-   "ko": "인어 비늘 갑옷에 붙임",
+   "en": "Lagoon Scale",
+   "ko": "석호의 비늘을 갑옷에 붙임",
    "equip": "a single iridescent scale is pressed onto armour with a wet sticky squeak, then a thin glassy chime shimmers as it settles, and a blade tapped on it skids with a slick slither"
   },
   "IG3-8": {

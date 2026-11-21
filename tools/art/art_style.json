@@ -165,9 +165,7 @@
         "caldera lake",
         "underground magma river",
         "foundry floor"
-      ],
-      "founderKo": "고블린",
-      "founder": "goblin — small wiry body, huge pointed ears, sharp grin, soot-smeared grey-green skin, scorched leather apron, goggles pushed up; gunner of cannons, muskets and powder kegs"
+      ]
     },
     "B2": {
       "ko": "소르그림의 방패",
@@ -196,9 +194,7 @@
         "quenching pools",
         "slag heaps in snow",
         "gear-works"
-      ],
-      "founderKo": "드워프",
-      "founder": "dwarf — stocky and broad, braided iron-grey beard, thick riveted plate, hammer or shield; smith of golems and automatons"
+      ]
     },
     "B3": {
       "ko": "케라운의 벼락",
@@ -226,9 +222,7 @@
         "observatory dome",
         "generator pit",
         "scorched moor"
-      ],
-      "founderKo": "노움",
-      "founder": "gnome — tiny, big nose, wild hair, brass goggles, lab coat with many pockets; scholar-engineer of coils and lightning jars"
+      ]
     },
     "G1": {
       "ko": "고르바스의 발톱",
@@ -257,9 +251,7 @@
         "wolf den",
         "cliff ledges",
         "dry riverbed"
-      ],
-      "founderKo": "오크",
-      "founder": "orc — powerful and heavy-fisted, tusks, scarred grey-green skin, rust-red war paint, braided hair, bone and hide gear"
+      ]
     },
     "G2": {
       "ko": "베르단의 뿔",
@@ -287,9 +279,7 @@
         "seedling nursery",
         "hollow of the first tree",
         "burnt clearing growing back"
-      ],
-      "founderKo": "트롤",
-      "founder": "moss troll — very tall and lanky, long moss-covered limbs, bark-like skin, slow and patient"
+      ]
     },
     "G3": {
       "ko": "마렌시아의 노래",
@@ -318,9 +308,7 @@
         "drowned ruins",
         "spring pool",
         "rain on still water"
-      ],
-      "founderKo": "인어",
-      "founder": "merfolk — blue-scaled, long flowing fins, pearl and shell ornaments; shrine singer of the lagoon"
+      ]
     },
     "A1": {
       "ko": "모르카스의 그믐",
@@ -348,9 +336,7 @@
         "night market",
         "hall of mirrors",
         "bog of the dead"
-      ],
-      "founderKo": "마족",
-      "founder": "demon contractor — curved horns, ashen or pale skin, glowing eyes, elegant dark attire; signs and collects contracts in blood"
+      ]
     },
     "A2": {
       "ko": "솔란테의 새벽",
@@ -378,9 +364,7 @@
         "pilgrim road",
         "terrace above the clouds",
         "candle chapel"
-      ],
-      "founderKo": "천족",
-      "founder": "seraph — human-like, white feathered wings, a thin halo, pale armour or robes; shield-bearer of the dawn"
+      ]
     },
     "A3": {
       "ko": "벨루미르의 별",
@@ -408,9 +392,7 @@
         "eyrie",
         "edge of a storm front",
         "frozen high pass"
-      ],
-      "founderKo": "하이엘프",
-      "founder": "high elf — slender and proud, long pointed ears, silver hair, short wind-blown cloak and light leather; archer with a long elegant bow"
+      ]
     }
   },
   "shots": {

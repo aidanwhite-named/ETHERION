@@ -2,7 +2,7 @@
   "_about": "B1 도르마크의 심장불 — 카드별 장면 지시. 쓰는 법은 tools/art/PROMPT_GUIDE.md, 검사는 node tools/art/scene_tool.js lint B1.",
   "B1-02": {
     "shot": "high", "dir": "L", "place": "T", "pal": "ashfall",
-    "scene": "Looking steeply down a stair hacked into a grey cliff: near the top of the frame a small wiry goblin climbs leftward, bent double under a bulging powder sack twice his size, huge ears flattened, one bare foot testing the next worn step. The rock face drops away beneath him through drifting ash to the bottom of the frame, where a hair-thin thread of lava glows in the gorge. A dislodged pebble hangs in the air below his heel.",
+    "scene": "Looking steeply down a stair hacked into a grey cliff: near the top of the frame a small soot-grey mule climbs leftward under two bulging powder sacks roped across its back, a load twice its own bulk, long ears flattened, one ember-rimmed hoof testing the next worn step. The rock face drops away beneath it through drifting ash to the bottom of the frame, where a hair-thin thread of lava glows in the gorge. A dislodged pebble hangs in the air below its hind hoof.",
     "light": "Flat overcast noon, shadowless and pale; the distant lava thread is the only colour in the whole drop."
   },
   "B1-03": {
@@ -42,7 +42,7 @@
   },
   "B1-16": {
     "shot": "macro", "dir": "N", "place": "C", "pal": "brassglow",
-    "scene": "Extreme close-up of a goblin's two soot-black hands at work on a workbench: long nimble fingers with bitten nails stretch a fuse cord along a stick cut with plain notches, a small knife already resting on the exact notch. A big pointed ear and the edge of a grin intrude at the top corner. Pushed aside behind the hands lies an abacus with its beads in a hopeless tangle, beside a bundle of charge sticks.",
+    "scene": "Extreme close-up of two soot-black raccoon paws at work on a workbench: long nimble fingers with small dark claws stretch a fuse cord along a stick cut with plain notches, a small knife already resting on the exact notch. A masked grey muzzle with singed whiskers and the tip of a ringed tail intrude at the top corner. Pushed aside behind the paws lies an abacus with its beads in a hopeless tangle, beside a bundle of charge sticks.",
     "light": "A single oil lamp just out of frame throws warm amber light across the knuckles and the brass ferrule of the knife."
   },
   "B1-17": {
@@ -67,7 +67,7 @@
   },
   "B1-24": {
     "shot": "low", "dir": "R", "place": "B", "pal": "ashfall",
-    "scene": "Down beside the baseplate of a stubby mortar, looking up: a goblin gunner in a scorched apron leans back at the lower left with a finger jammed in each huge ear, squinting skyward, the tube beside him still breathing smoke. High above, a curved line of smoke climbs over the top of a tall battlement wall toward the right, and at its very tip the shell is a small dark dot against the pale sky.",
+    "scene": "Down beside the baseplate of a stubby mortar, looking up: a stocky wolverine gunner in a scorched leather apron leans back at the lower left with a forepaw clamped over each small round ear, squinting skyward, the tube beside it still breathing smoke. High above, a curved line of smoke climbs over the top of a tall battlement wall toward the right, and at its very tip the shell is a small dark dot against the pale sky.",
     "light": "Pale overcast afternoon; the last orange of the muzzle flash still glows inside the mortar's mouth."
   },
   "B1-25": {
@@ -112,8 +112,8 @@
   },
   "B1-36": {
     "shot": "front", "dir": "F", "place": "C", "pal": "whitehot",
-    "scene": "Dead-on and symmetrical: a goblin king sits enthroned at the centre on a stepped pyramid of stacked iron bombs and brass shell casings, arms spread wide, grinning straight at us. His iron crown bristles with short fuses, every one of them lit and spitting sparks like candles on a cake. At the foot of the pyramid, tiny courtiers on both sides crouch with their fingers in their ears.",
-    "light": "The ring of crown-sparks is the light, white-hot above his face and falling to deep crimson down the steps of the pyramid."
+    "scene": "Dead-on and symmetrical: a huge soot-black lion sits enthroned at the centre on a stepped pyramid of stacked iron bombs and brass shell casings, forepaws planted wide, jaws open in a roar straight at us. His mane is a great ruff of fuse cords, every strand lit and spitting sparks like candles on a cake, and a small iron crown rides the top of it. At the foot of the pyramid, tiny soot-furred attendants on both sides crouch with their paws over their ears.",
+    "light": "The ring of mane-sparks is the light, white-hot around his face and falling to deep crimson down the steps of the pyramid."
   },
   "B1-41": {
     "shot": "far", "dir": "L", "place": "B", "pal": "coldnight",
@@ -132,8 +132,8 @@
   },
   "EP-B1-1": {
     "shot": "echo", "dir": "R", "place": "L", "pal": "coldnight",
-    "scene": "On a storm-lashed parapet a wiry goblin grenadier stands braced in the left third, bandoliers heavy with round grenades. His throwing arm repeats in eight overlapping ghost positions like an opening fan, and from each a fizzing grenade has just left: dozens of them hang in a wide rising arc that sweeps across the whole sky to the right, every lit fuse drawing its own bright thread through the slanting rain.",
-    "light": "Indigo storm night with wind-torn cloud; the swarm of fuse-sparks lights the rain and his grin from the right."
+    "scene": "On a storm-lashed parapet a wiry long-armed monkey with soot-dark fur and a crest of flame stands braced in the left third, bandoliers heavy with round grenades. Its throwing arm repeats in eight overlapping ghost positions like an opening fan, and from each a fizzing grenade has just left: dozens of them hang in a wide rising arc that sweeps across the whole sky to the right, every lit fuse drawing its own bright thread through the slanting rain.",
+    "light": "Indigo storm night with wind-torn cloud; the swarm of fuse-sparks lights the rain and its bared teeth from the right."
   },
   "EP-B1-2": {
     "shot": "over", "dir": "D", "place": "L", "pal": "magmadusk",
@@ -177,13 +177,13 @@
   },
   "UN-B1": {
     "shot": "top", "dir": "N", "place": "C", "pal": "ember",
-    "scene": "Seen from directly above: an old goblin artillery captain lies on his back on the flagstones of a gun platform, arms flung wide, long grey ear-tufts singed, a cracked brass spyglass beside him — and he is grinning. From his outstretched right hand a lit fuse runs across the stones in a hissing spiral toward a ring of twelve powder kegs that surrounds him. Long shadows of advancing spearmen reach into the frame from the top edge.",
+    "scene": "Seen from directly above: an old red fox in an artillery captain's scorched coat lies on his back on the flagstones of a gun platform, legs flung wide, muzzle gone grey, ear tips singed, a cracked brass spyglass beside him — and his jaws hang open in a grin. From his outstretched right forepaw a lit fuse runs across the stones in a hissing spiral toward a ring of twelve powder kegs that surrounds him. Long shadows of advancing spearmen reach into the frame from the top edge.",
     "light": "The spiralling spark and a toppled lantern light him from one side; everything beyond the kegs is deep night."
   },
   "UN-B1-7": {
     "shot": "inside", "dir": "F", "place": "C", "pal": "whitehot",
-    "scene": "From deep inside a cannon barrel, looking out through the round mouth of the bore: the dark rifled iron makes a ring around the whole picture, and framed in the bright circle at its centre a goblin gunner with notched ears leans in toward us, one eye screwed shut, lowering a shell held in long tongs. Sunk into the shell's nose is an ember that beats like a heart, black-red and dripping fire. Over his shoulder, down on the plain, yesterday's hits still burn in a dotted line.",
-    "light": "The pulsing ember lights his face from below, white-hot at its core; a thin gold dawn outlines his ears and the tongs."
+    "scene": "From deep inside a cannon barrel, looking out through the round mouth of the bore: the dark rifled iron makes a ring around the whole picture, and framed in the bright circle at its centre a tall ash-grey stork leans in toward us, one eye turned to the bore, lowering a shell gripped in its long black beak like tongs. Sunk into the shell's nose is an ember that beats like a heart, black-red and dripping fire. Over its shoulder, down on the plain, yesterday's hits still burn in a dotted line.",
+    "light": "The pulsing ember lights its beak and throat from below, white-hot at its core; a thin gold dawn outlines its neck and folded wings."
   },
   "UP-B1-12": {
     "shot": "through", "dir": "R", "place": "L", "pal": "brassglow",
@@ -202,8 +202,8 @@
   },
   "UP-B1-24": {
     "shot": "back", "dir": "B", "place": "L", "pal": "coldnight",
-    "scene": "His back is to us: a goblin gunner in a scorched apron stands on an ammunition crate in the left of the frame, one arm stretched out with the thumb raised to sight along it, huge ears black against the sky. Beyond him the night is ruled with glowing shell trails — his own a single clean high arc, and beneath it a spray of lower, wobblier arcs from the mortar pits down the line, where small crews are cranking their tubes to match.",
-    "light": "Deep blue night; the arcs glow orange like long-exposure trails and rim his shoulders and ears with warm light."
+    "scene": "Its back is to us: the same stocky wolverine gunner in a scorched apron stands upright on an ammunition crate in the left of the frame, one foreleg stretched out with a single claw raised to sight along it, small round ears and thick ruff black against the sky. Beyond it the night is ruled with glowing shell trails — its own a single clean high arc, and beneath it a spray of lower, wobblier arcs from the mortar pits down the line, where small crews are cranking their tubes to match.",
+    "light": "Deep blue night; the arcs glow orange like long-exposure trails and rim its shoulders and ruff with warm light."
   },
   "CS-B1": {
     "shot": "after", "dir": "N", "place": "C", "pal": "ashfall",

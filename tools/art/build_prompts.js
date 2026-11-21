@@ -134,8 +134,7 @@ function autoBlocks(jobs) {
     const F = S.flags[id], el = S.elements[F.element];
     return [`### ${id} ${F.ko} — ${el.en} \`${el.hex}\``, "", `- 깃발 한 줄: ${F.world}`,
       `- 배색: ${Object.keys(F.palettes).map(k => `\`${k}\` ${F.palettes[k]}`).join(" / ")}`,
-      `- 장소 낱말(장면을 쓸 때): ${F.locales.join(", ")}`,
-      `- 처음 세운 무리 — 종류가 「${F.founderKo}」인 유닛에만: ${F.founder}`, ""].join("\n");
+      `- 장소 낱말(장면을 쓸 때): ${F.locales.join(", ")}`, ""].join("\n");
   }).join("\n");
   const tbl = t => ["| shot | 뜻 |", "|---|---|", ...Object.keys(S.shots[t]).map(k => `| \`${k}\` | ${S.shots[t][k].en} |`)].join("\n");
   B.SHOTS = ["**유닛**", "", tbl("unit"), "", "**마법**", "", tbl("spell"), "", "**아이템**", "", tbl("item"), "",

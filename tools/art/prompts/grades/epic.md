@@ -86,7 +86,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 솔란테의 새벽 · 유닛 · 레벨 5 · 에픽 · 틀 `eye` L R `rosedawn` · 프롬프트 n2 → `tools/art/inbox/EP-A2-2.jpg`
 
 ```
-Landscape 5:4 painting. On the walk of an immense white wall, standing beside its captain: a tall seraph in scarred pale armour holds the outermost bastion at the right, a step ahead of his sentries, facing left with wings half spread and one gauntlet raised. Left of the wall the land is empty — flat, colourless, featureless — and from it a towering bank of grey dust is rolling in. Its first gust breaks on his breastplate and comes apart into clean bright air; his cloak streams back toward the lit city side. Late pink-gold light comes from the city side behind him, warm on his back and the wall, while the grey front ahead swallows all colour.
+Landscape 5:4 painting. On the walk of an immense white wall, standing beside its captain: a tall white wolf in scarred pale armour holds the outermost bastion at the right, upright on his hind legs a step ahead of his sentries, facing left with ears forward and one gauntleted forepaw raised. Left of the wall the land is empty — flat, colourless, featureless — and from it a towering bank of grey dust is rolling in. Its first gust breaks on his breastplate and comes apart into clean bright air; his cloak streams back toward the lit city side. Late pink-gold light comes from the city side behind him, warm on his back and the wall, while the grey front ahead swallows all colour.
 Colour: rose dawn — pink-gold (#ffe9a8) cloud light and lilac shadows.
 Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
 Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
@@ -98,7 +98,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 솔란테의 새벽 · 유닛 · 레벨 6 · 에픽 · 틀 `echo` R B `glare` · 프롬프트 n2 → `tools/art/inbox/PN-A2-E.jpg`
 
 ```
-Landscape 5:4 painting. Low in the frame an ancient seraph kneels before a sealed door of grey stone, both palms pressed flat on its seam, wings mantled, head bowed to the right — one figure, perfectly sharp. Everything around him is painted as many moments at once: the sun as a string of overlapping discs arcing over the wall, drifts of snow, leaves and dust lying in layers against his greaves, ivy that has climbed his grounded lance. A sheet of light as thin as glass still covers the door under his hands. The streak of overlapping suns blazes white-gold across the top of the frame; he and the grey door are dark, clear shapes beneath it.
+Landscape 5:4 painting. Low in the frame an ancient suit of hollow white-gold armour kneels before a sealed door of grey stone, both gauntlets pressed flat on its seam, a steady light glowing inside the empty visor, helm bowed to the right — one figure, perfectly sharp. Everything around it is painted as many moments at once: the sun as a string of overlapping discs arcing over the wall, drifts of snow, leaves and dust lying in layers against its greaves, ivy that has climbed its grounded lance. A sheet of light as thin as glass still covers the door under its hands. The streak of overlapping suns blazes white-gold across the top of the frame; the kneeling armour and the grey door are dark, clear shapes beneath it.
 Colour: holy glare — blinding white-gold (#ffe9a8) light with dark shapes in front of it.
 Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
 Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
@@ -182,7 +182,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 벨루미르의 별 · 유닛 · 레벨 6 · 에픽 · 틀 `close` L R `starindigo` · 프롬프트 n2 → `tools/art/inbox/PN-A3-E.jpg`
 
 ```
-Landscape 5:4 painting. Close on the head and shoulders of a high elf archer in the right of the frame, face lifted to the upper left an instant after the shot: bow arm still stretched skyward, string hand open beside a long pointed ear, silver hair blown back. A second, older bow is slung across the back, its grip bound in faded cord. Beyond the bow a dotted line of tiny lights climbs to one bright star, every arrow ever loosed from this spot, still on its way, and the high cloud has drawn aside in a lane to let them pass. Indigo night full of stars; the one aimed-at star is brightest and puts a thin silver edge on the cheek, ear and bow limb.
+Landscape 5:4 painting. Close on the head and shoulders of a snow leopard archer in the right of the frame, face lifted to the upper left an instant after the shot: bow arm still stretched skyward, string paw open beside a small round ear, silver rosetted fur blown back. A second, older bow is slung across the back, its grip bound in faded cord. Beyond the bow a dotted line of tiny lights climbs to one bright star, every arrow ever loosed from this spot, still on its way, and the high cloud has drawn aside in a lane to let them pass. Indigo night full of stars; the one aimed-at star is brightest and puts a thin silver edge on the cheek, whiskers and bow limb.
 Colour: star indigo — deep indigo night full of stars, wind-teal (#9fe3d6) streaks and silver.
 Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
 Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
@@ -218,7 +218,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 도르마크의 심장불 · 유닛 · 레벨 3 · 에픽 · 틀 `echo` R L `coldnight` · 프롬프트 n2 → `tools/art/inbox/EP-B1-1.jpg`
 
 ```
-Landscape 5:4 painting. On a storm-lashed parapet a wiry goblin grenadier stands braced in the left third, bandoliers heavy with round grenades. His throwing arm repeats in eight overlapping ghost positions like an opening fan, and from each a fizzing grenade has just left: dozens of them hang in a wide rising arc that sweeps across the whole sky to the right, every lit fuse drawing its own bright thread through the slanting rain. Indigo storm night with wind-torn cloud; the swarm of fuse-sparks lights the rain and his grin from the right.
+Landscape 5:4 painting. On a storm-lashed parapet a wiry long-armed monkey with soot-dark fur and a crest of flame stands braced in the left third, bandoliers heavy with round grenades. Its throwing arm repeats in eight overlapping ghost positions like an opening fan, and from each a fizzing grenade has just left: dozens of them hang in a wide rising arc that sweeps across the whole sky to the right, every lit fuse drawing its own bright thread through the slanting rain. Indigo storm night with wind-torn cloud; the swarm of fuse-sparks lights the rain and its bared teeth from the right.
 Colour: cold night against fire — deep blue-indigo dark cut by warm fire-orange (#ff6b3d) light.
 Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
 Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
@@ -530,7 +530,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 고르바스의 발톱 · 유닛 · 레벨 7 · 에픽 · 틀 `ground` L L `bonemoon` · 프롬프트 n2 → `tools/art/inbox/EP-G1-3.jpg`
 
 ```
-Landscape 5:4 painting. Ground level on a windswept summit at night: in the snow of the foreground lies a trail of snapped spears, a cloven axe haft and a split war club, leading away up the slope. At the end of it, toward the left, a huge scarred orc in hide fist-wraps stands hammering one fist against a curved grey claw as tall as a watchtower — the nearest of a row of claws rising out of the snow, each one a hill. A long sleeping breath from somewhere above flattens his braids and hurls ice dust past us. Moonlight on snow, bone-white and grey-blue; the gale of breath carries glittering ice dust across the dark claws.
+Landscape 5:4 painting. Ground level on a windswept summit at night: in the snow of the foreground lies a trail of snapped spears, a cloven axe haft and a split war club, leading away up the slope. At the end of it, toward the left, a huge scarred silverback gorilla in hide fist-wraps stands hammering one fist against a curved grey claw as tall as a watchtower — the nearest of a row of claws rising out of the snow, each one a hill. A long sleeping breath from somewhere above flattens his fur and hurls ice dust past us. Moonlight on snow, bone-white and grey-blue; the gale of breath carries glittering ice dust across the dark claws.
 Colour: bone and moon — bone-white and grey-blue night with dry ochre (#b88a5a) earth.
 Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
 Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
@@ -698,7 +698,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 마렌시아의 노래 · 유닛 · 레벨 7 · 에픽 · 틀 `front` F B `coraldawn` · 프롬프트 n2 → `tools/art/inbox/EP-G3-3.jpg`
 
 ```
-Landscape 5:4 painting. Dead-centre and facing us, a towering merfolk high priestess rises waist-deep from the sea in the lower part of the frame, blue scales climbing her arms, long fins hanging from her wrists like vestments, both hands lifted. Around her, in perfect symmetry, the dawn sea has stood up in a ring of water walls tall as cliffs; inside the translucent wall behind her a vast finned coil slides past — a sea dragon answering. Pilgrims' lanterns line a far causeway like sparks, and a thrown sword passing through her shoulder leaves only a splash of clear water. First rose-pink sunlight comes from directly behind her through the standing water, turning the walls luminous and rimming her fins.
+Landscape 5:4 painting. Dead-centre and facing us, a towering priestess shaped of living sea water rises from the waves in the lower part of the frame, foam for hair, sheets of clear water hanging from her wrists like vestments, both hands lifted. Around her, in perfect symmetry, the dawn sea has stood up in a ring of water walls tall as cliffs; inside the translucent wall behind her a vast finned coil slides past — a sea dragon answering. Pilgrims' lanterns line a far causeway like sparks, and a thrown sword passing through her shoulder leaves only a splash. First rose-pink sunlight comes from directly behind her through the standing water, turning the walls and her whole body luminous.
 Colour: coral dawn — coral pink and warm first light over water-blue (#4fb3ff).
 Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
 Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
@@ -706,19 +706,47 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 5장
+## 2. 다시 그리기 · 3장
 
-### EP-A1-1 · 심연 칼날 무희 — 그림 있음
+> 이미 그림이 있어 게임은 그대로 돌아간다. 1번을 다 그린 뒤 그린다.
+
+### EP-A1-1 · 심연 칼날 무희 — **다시 그리기**: 종류가 바뀜(2026-11-21) — 옛 그림은 처음 세운 무리의 모습
 모르카스의 그믐 · 유닛 · 레벨 3 · 에픽 · 틀 `echo` R X `violetshade` · 프롬프트 n2 → `tools/art/inbox/EP-A1-1.jpg`
 
 ```
-Landscape 5:4 painting. One turn of a dance shown as five overlapping moments across a small stage: the same horned demon dancer, ashen-skinned in dark silk sashes, repeats from left to right in fading afterimages, her two crescent blades drawing one unbroken silver ribbon through all five. The last and sharpest figure, at the right, sinks into a bow with both blades folded behind her back. Along the bottom edge runs a dark row of spectators' heads, and in the middle of the row one seat stands empty, a feathered hat still settling onto its cushion. Violet footlights glow up from the stage edge and rim every afterimage; the house beyond the front row is purple-black.
+Landscape 5:4 painting. One turn of a dance shown as five overlapping moments across a small stage: the same tall black mantis in dark silk sashes repeats from left to right in fading afterimages, her two crescent blade-arms drawing one unbroken silver ribbon through all five. The last and sharpest figure, at the right, sinks into a bow with both blades folded behind her back. Along the bottom edge runs a dark row of spectators' heads, and in the middle of the row one seat stands empty, a feathered hat still settling onto its cushion. Violet footlights glow up from the stage edge and rim every afterimage; the house beyond the front row is purple-black.
 Colour: violet shade — purple-black gloom with luminous violet (#8b5cf6) edges.
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
 Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
+
+### EP-A1-2 · 녹타르 처형대장 — **다시 그리기**: 종류가 바뀜(2026-11-21) — 옛 그림은 처음 세운 무리의 모습
+모르카스의 그믐 · 유닛 · 레벨 5 · 에픽 · 틀 `profile` R X `bonepale` · 프롬프트 n2 → `tools/art/inbox/EP-A1-2.jpg`
+
+```
+Landscape 5:4 painting. In strict profile along a stone gallows bridge. At the left end a huge gaunt figure with a stag's skull for a head, antlers pushing through an executioner's hood, has just finished one level swing toward the right, his long-hafted axe at full stretch. A pale arc from the blade runs on down the bridge through a queue of oath-breakers, and they go over one after another like dominoes: the first already flat, the middle ones leaning, the last still upright with his helmet lifting off. Beyond them every hanging rope on the bridge swings out to the right. Bone-white fog fills the canyon behind the bridge and turns figures and ropes to ash-grey shapes; one violet gleam runs along the axe edge.
+Colour: bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### PN-A1-E · 심연 장막의 거래인 — **다시 그리기**: 종류가 바뀜(2026-11-21) — 옛 그림은 처음 세운 무리의 모습
+모르카스의 그믐 · 유닛 · 레벨 6 · 에픽 · 틀 `silhouette` F C `eclipse` · 프롬프트 n2 → `tools/art/inbox/PN-A1-E.jpg`
+
+```
+Landscape 5:4 painting. A tall scarecrow in a long coat and a wide-brimmed hat stands black against a slit of cold light, where a sky-high curtain of darkness has parted behind him. He faces us in the centre, mid-stride, a pedlar's case hanging half-empty from one hand. Straight through his chest runs a clean-edged gap the shape of a missing puzzle piece, and the cold light shines through it onto the ground. Dust, dead leaves and the tails of his coat all stream backward toward the curtain, and a thin line of them is being drawn through the gap in his chest. The slit of pale light behind him rims hat, shoulders and coat; all else is silhouette in violet haze.
+Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 2장
 
 ### PI-A1 · 모르카스의 저울추 — 그림 있음
 모르카스의 그믐 · 아이템 · 레벨 3 · 에픽 · 틀 `stored` N L `eclipse` · 프롬프트 n2 → `tools/art/inbox/PI-A1.jpg`
@@ -737,30 +765,6 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 
 ```
 Landscape 5:4 painting of a spell — the magic itself is the subject. One taut cable of braided black wire drops the whole height of the frame down a sheer shaft. At its end, low in the picture, a round bronze pan as wide as a courtyard is sinking into rising darkness, carrying two tiny armoured figures who stand back to back, their torch flames stretched straight upward by the descent. At the top edge shows the end of a great beam carved with a closed eye, and beside it a second cable runs up out of sight, tight, while four dark red drops fall from above and pass the sinking pan. A thin cold line of light at the shaft's mouth rims the beam and the cables; below, the two torches are sparks sinking into violet-black.
-Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-### EP-A1-2 · 녹타르 처형대장 — 그림 있음
-모르카스의 그믐 · 유닛 · 레벨 5 · 에픽 · 틀 `profile` R X `bonepale` · 프롬프트 n2 → `tools/art/inbox/EP-A1-2.jpg`
-
-```
-Landscape 5:4 painting. In strict profile along a stone gallows bridge, flat as a frieze. At the left end a huge horned demon in an executioner's hood has just finished one level swing toward the right, his long-hafted axe at full stretch. A pale arc from the blade runs on down the bridge through a queue of oath-breakers in grey armour, and they go over one after another like dominoes: the first already flat, the middle ones leaning, the last still upright with his helmet lifting off. Beyond them every hanging rope on the bridge swings out to the right. Bone-white fog fills the canyon behind the bridge and turns figures and ropes to ash-grey shapes; one violet gleam runs along the axe edge.
-Colour: bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-### PN-A1-E · 심연 장막의 거래인 — 그림 있음
-모르카스의 그믐 · 유닛 · 레벨 6 · 에픽 · 틀 `silhouette` F C `eclipse` · 프롬프트 n2 → `tools/art/inbox/PN-A1-E.jpg`
-
-```
-Landscape 5:4 painting. A tall horned demon stands black against a slit of cold light, where a curtain of darkness as high as the sky has parted behind him. He faces us in the centre, mid-stride, a pedlar's case hanging half-empty from one hand. Straight through his chest runs a clean-edged gap the shape of a missing puzzle piece, and the cold light shines through it onto the ground before him. Dust, dead leaves and the tails of his long coat all stream backward toward the curtain, and a thin line of them is being drawn through the gap in his chest. The slit of pale light behind him rims horns, shoulders and coat; all else is silhouette in violet haze.
 Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
 Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.

@@ -2,6 +2,7 @@
 
 > 처음부터 새로 쓴 판이다. 모든 등급(706장)이 이 방식이다. 옛 등급별 사다리(g1~g4)는 `legacy_g4/`에 보관만 한다.
 > v2.1 (프롬프트 n2, 2026-11-21): **등급 사다리** — 등급 줄을 다섯 칸(분위기 · 빛 · 채도 · 공기 · 재질)으로 늘리고 사다리 한 줄을 붙였다. 일반 → 고급 → 레어 → 에픽 → 유니크 → 스페셜로 한 단계씩 더 신비롭고 강렬하고 화려해진다(2장). 시점 · 구도는 여전히 카드마다 정한다.
+> 2026-11-21 (프롬프트 판 n2 그대로): **깃발 기본 종류를 들어냄** — 깃발마다 있던 "처음 세운 무리" 줄(`art_style.json` `founder`)이 없어지고, 거기에 기대던 유닛 72장(강화 · 소환물 포함)이 제 종류를 얻어 장면을 다시 썼다(3.2). 목록은 `docs/UNIT_RENAME.md` 맨 아래.
 > **For any AI writing or revising these prompts:** read sections 1–4. The scene (section 3) is the prompt; everything else is one short line.
 
 ## 0. 왜 새로 썼나
@@ -95,63 +96,54 @@ Colour: [② 배색 — 깃발의 배색 여섯 가운데 그 카드가 고른 �
 - 깃발 한 줄: Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
 - 배색: `ember` embers in the dark — near-black and soot-brown, with small fierce glows of fire-orange (#ff6b3d) / `whitehot` white-hot — a blinding yellow-white core falling through fire-orange (#ff6b3d) into deep crimson shadow / `ashfall` ashfall — pale ash-grey and bone-white, muted, with one fierce accent of fire-orange (#ff6b3d) / `magmadusk` magma dusk — wine-red and violet-brown gloom glowing fire-orange (#ff6b3d) from below / `coldnight` cold night against fire — deep blue-indigo dark cut by warm fire-orange (#ff6b3d) light / `brassglow` furnace warmth — brass, copper and amber tones in sooty brown gloom, fire-orange (#ff6b3d) at the heart
 - 장소 낱말(장면을 쓸 때): crater rim, lava tube, obsidian field, ash plain, sulphur vents and hot springs, gun bastion of a fortress-foundry, powder magazine, forest of chimneys, cooled lava terraces, caldera lake, underground magma river, foundry floor
-- 처음 세운 무리 — 종류가 「고블린」인 유닛에만: goblin — small wiry body, huge pointed ears, sharp grin, soot-smeared grey-green skin, scorched leather apron, goggles pushed up; gunner of cannons, muskets and powder kegs
 
 ### B2 소르그림의 방패 — metal `#a9b4c2`
 
 - 깃발 한 줄: Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
 - 배색: `coldsteel` cold steel — blue-grey (#a9b4c2) and slate shadow with crisp white highlights / `forgeheart` forge heart — dark gunmetal and steel grey (#a9b4c2) with molten orange glowing in the seams / `patina` rust and verdigris — red-brown and green-blue patina over steel grey (#a9b4c2) in dim light / `snowlight` mountain daylight — overcast snow-white and granite grey with steel-grey (#a9b4c2) metal / `lamplit` lamplight underground — small warm pools of light in black, steel grey (#a9b4c2) glinting at the edges / `mirror` mirror polish — bright silver-grey (#a9b4c2) reflections of a dark world, almost monochrome
 - 장소 낱말(장면을 쓸 때): mine gallery, underground forge city, exposed ore face, shield wall on a mountain pass, casting floor, armoury vault, scrapyard of broken golems, gate of riveted steel, cable lift over a chasm, quenching pools, slag heaps in snow, gear-works
-- 처음 세운 무리 — 종류가 「드워프」인 유닛에만: dwarf — stocky and broad, braided iron-grey beard, thick riveted plate, hammer or shield; smith of golems and automatons
 
 ### B3 케라운의 벼락 — lightning `#ffd84a`
 
 - 깃발 한 줄: Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
 - 배색: `thunderhead` thunderhead — black and rain-grey split by searing electric yellow (#ffd84a) / `cobalt` cobalt night — deep blue dark with electric-yellow (#ffd84a) arcs and violet-white coronas / `copperlab` copper warmth — copper, amber glass and electric-yellow (#ffd84a) filament glow / `flash` the flash — bleached white-yellow (#ffd84a) overexposure with hard black shapes / `greensky` storm green — eerie flat yellow-green light before the strike, with a few electric-yellow (#ffd84a) sparks / `wetglass` rain grey — pale grey wet reflections with small electric-yellow (#ffd84a) sparks doubled in them
 - 장소 낱말(장면을 쓸 때): top of a lightning-rod tower, rain-lashed plateau, field of fulgurite glass, academy laboratory, storehouse of lightning jars, coil hall, inside a storm cloud, wet cobbled street under hanging wires, observatory dome, generator pit, scorched moor
-- 처음 세운 무리 — 종류가 「노움」인 유닛에만: gnome — tiny, big nose, wild hair, brass goggles, lab coat with many pockets; scholar-engineer of coils and lightning jars
 
 ### G1 고르바스의 발톱 — earth `#b88a5a`
 
 - 깃발 한 줄: Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
 - 배색: `ochredust` ochre dust — matte sandstone and clay browns (#b88a5a) in a sunlit dust haze / `bonemoon` bone and moon — bone-white and grey-blue night with dry ochre (#b88a5a) earth / `redearth` red earth — rust-red clay under slate-grey storm light, ochre (#b88a5a) dust in the air / `strawgold` dry-grass afternoon — pale straw and ochre (#b88a5a) with long umber shadows / `stormslate` steppe storm — slate grey and muted earth brown (#b88a5a), flying grit / `firelit` firelit dark — deep darkness with warm ochre (#b88a5a) surfaces lit by one small flame
 - 장소 낱말(장면을 쓸 때): howling steppe, camp of hide tents, circle of standing stones, canyon, rockslide, the dragon's back — boulders and pines, mud wallow, salt flat, burial mounds, wolf den, cliff ledges, dry riverbed
-- 처음 세운 무리 — 종류가 「오크」인 유닛에만: orc — powerful and heavy-fisted, tusks, scarred grey-green skin, rust-red war paint, braided hair, bone and hide gear
 
 ### G2 베르단의 뿔 — forest `#58b85f`
 
 - 깃발 한 줄: Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
 - 배색: `mossdeep` deep moss — saturated leaf-green (#58b85f) in heavy shade with wet bark browns / `sporeglow` spore night — black dark lit by blue-green and pale-lime (#58b85f) bioluminescence / `sunshaft` canopy light — golden-green (#58b85f) shafts through drifting mist / `autumnrot` autumn rot — russet, amber and mushroom-pale against dark leaf-green (#58b85f) / `rainmist` rain mist — grey-green (#58b85f) haze and soft silver light / `thorndark` thorn dark — near-black with deep green (#58b85f) and a few points of blood red
 - 장소 낱말(장면을 쓸 때): city in the giant trees, cathedral of roots, bog, mushroom grove, thorn thicket, canopy walkways, fallen giant log, forest pool, seedling nursery, hollow of the first tree, burnt clearing growing back
-- 처음 세운 무리 — 종류가 「트롤」인 유닛에만: moss troll — very tall and lanky, long moss-covered limbs, bark-like skin, slow and patient
 
 ### G3 마렌시아의 노래 — water `#4fb3ff`
 
 - 깃발 한 줄: Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
 - 배색: `lagoon` sunlit shallows — turquoise and water-blue (#4fb3ff) with pearl white, clear and bright over deep blue shadow / `trench` deep water — navy and black with small cold lights and a water-blue (#4fb3ff) glow / `moontide` moon tide — silver-blue (#4fb3ff) moonlight and pale mist / `coraldawn` coral dawn — coral pink and warm first light over water-blue (#4fb3ff) / `stormsea` storm sea — heavy green-blue (#4fb3ff), white spray and slate grey / `glasscalm` glass calm — mirror-still pale blue-grey (#4fb3ff) and fog, almost monochrome
 - 장소 낱말(장면을 쓸 때): temple on a lagoon, tidal pools, kelp forest, coral reef, deep trench, sea cave, waterfall shrine, mangrove roots, open ocean swell, drowned ruins, spring pool, rain on still water
-- 처음 세운 무리 — 종류가 「인어」인 유닛에만: merfolk — blue-scaled, long flowing fins, pearl and shell ornaments; shrine singer of the lagoon
 
 ### A1 모르카스의 그믐 — darkness `#8b5cf6`
 
 - 깃발 한 줄: Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
 - 배색: `violetshade` violet shade — purple-black gloom with luminous violet (#8b5cf6) edges / `bloodink` blood and ink — black and deep crimson with a thread of violet (#8b5cf6) / `candle` candle islands — small pools of amber light in vast dark, violet (#8b5cf6) in the shadows / `bonepale` bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow / `eclipse` eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze / `frostindigo` indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver
 - 장소 낱말(장면을 쓸 때): shadow city in a canyon, contract archive, scriptorium, vault of pawned things, gallows bridge, crypt, blood fountain, masked court, night market, hall of mirrors, bog of the dead
-- 처음 세운 무리 — 종류가 「마족」인 유닛에만: demon contractor — curved horns, ashen or pale skin, glowing eyes, elegant dark attire; signs and collects contracts in blood
 
 ### A2 솔란테의 새벽 — light `#ffe9a8`
 
 - 깃발 한 줄: Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
 - 배색: `firstlight` first light — cool blue-grey before dawn with a low band of pale gold (#ffe9a8) / `whitegold` white and gold — sunlit ivory and soft pale gold (#ffe9a8), airy, with cool blue shadow / `stainedglass` stained glass — jewel-coloured patches of light on pale stone in deep shade, pale-gold (#ffe9a8) beams / `vigil` night vigil — darkness holding small warm flames with pale-gold (#ffe9a8) halos / `rosedawn` rose dawn — pink-gold (#ffe9a8) cloud light and lilac shadows / `glare` holy glare — blinding white-gold (#ffe9a8) light with dark shapes in front of it
 - 장소 낱말(장면을 쓸 때): white citadel walls, cathedral nave, bell tower, cloister garden, battlements at dawn, hall of oaths, reliquary crypt, the long wall facing the empty land, pilgrim road, terrace above the clouds, candle chapel
-- 처음 세운 무리 — 종류가 「천족」인 유닛에만: seraph — human-like, white feathered wings, a thin halo, pale armour or robes; shield-bearer of the dawn
 
 ### A3 벨루미르의 별 — wind `#9fe3d6`
 
 - 깃발 한 줄: Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
 - 배색: `starindigo` star indigo — deep indigo night full of stars, wind-teal (#9fe3d6) streaks and silver / `thinair` thin air — pale high-altitude daylight, white cloud and cool shadow, wind-teal (#9fe3d6) accents / `aurora` aurora — teal-green (#9fe3d6) and violet ribbons of light over darkness / `stormcloud` storm cloud — grey-violet cloud and silver rain with wind-teal (#9fe3d6) gusts / `duskrose` dusk above the clouds — rose and peach light with deep teal (#9fe3d6) shadows / `moonsilver` moon silver — blue-silver monochrome under a full moon, sharp shadows, a breath of teal (#9fe3d6)
 - 장소 낱말(장면을 쓸 때): top of a needle spire, archers' lookout platform, drifting sky-islands, sea of clouds, star observatory, library of star charts, wind-tunnel canyon, rope bridges between spires, eyrie, edge of a storm front, frozen high pass
-- 처음 세운 무리 — 종류가 「하이엘프」인 유닛에만: high elf — slender and proud, long pointed ears, silver hair, short wind-blown cloak and light leather; archer with a long elegant bow
 
 <!-- /AUTO:FLAGS -->
 
@@ -177,7 +169,7 @@ Colour: [② 배색 — 깃발의 배색 여섯 가운데 그 카드가 고른 �
 9. **글자를 부르는 것을 피한다.** 간판 · 깃발의 문구 · 펼친 책의 글 · 숫자판 대신 봉랍 · 매듭 · 문양 · 눈금 없는 다이얼.
 
 ### 3.2 유닛
-- **몸은 종류(kin)의 것이다.** 생김새는 `art_kinds.json`. 깃발을 처음 세운 무리(고블린 · 드워프 · 노움 · 오크 · 트롤 · 인어 · 마족 · 천족 · 엘프)는 **종류가 그 무리인 유닛에만** 쓴다. 불개는 불개, 깨어난 대포는 대포다.
+- **몸은 종류(kin)의 것이다.** 생김새는 `art_kinds.json`. 유닛마다 제 종류가 있다(`js/kinds.js` `KIND` — 깃발 기본 종류는 2026-11-21에 들어냈다). 불개는 불개, 깨어난 대포는 대포, 잿너구리는 잿너구리다 — 그 몸을 보이는 대로 직접 묘사한다.
 - **레벨이 크기다.** 1~2 작고 소박 · 3~4 다부짐 · 5~6 크고 위압적 · 7 거대(작은 것을 곁에 두어 크기를 보인다).
 - **하는 일을 보인다.** 능력 · 성향(벽 · 돌격 · 원거리 · 가시 · 재생 …)은 자세와 주변의 흔적으로.
 - 화려함(빛 · 입자 · 광휘)은 등급 줄이 맡는다(2장) — 장면에 등급 강조색이나 "빛나는 오라"를 따로 쓰지 않는다. 장면은 아래 결대로 **무슨 순간인가**만 다르게 쓴다.
@@ -301,7 +293,7 @@ Colour: [② 배색 — 깃발의 배색 여섯 가운데 그 카드가 고른 �
 #### 일반 · 유닛 — A1-02 그림자 도둑
 
 ```
-Landscape 5:4 painting. From inside a street lantern, past its sooty glass panes and the flame at the bottom edge: on the wet cobbles below, a thin horned demon thief in a patched dark coat crouches at the right, just outside the circle of light, and peels the long shadow of a passing merchant off the stones like a strip of black cloth, rolling it over his forearm as he creeps left. The merchant walks on out of frame, purse still on his belt, the lit cobbles at his heels bare. Warm amber from the lantern flame pools on the cobbles; beyond its edge the alley is violet-black.
+Landscape 5:4 painting. From inside a street lantern, past its sooty glass panes and the flame at the bottom edge: on the wet cobbles below, a thin black cat with a nicked ear crouches at the right, just outside the circle of light, and peels the long shadow of a passing merchant off the stones like a strip of black cloth, gathering it in its teeth as it creeps left. The merchant walks on out of frame, purse still on his belt, the lit cobbles at his heels bare. Warm amber from the lantern flame pools on the cobbles; beyond its edge the alley is violet-black.
 Colour: candle islands — small pools of amber light in vast dark, violet (#8b5cf6) in the shadows.
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -345,7 +337,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 #### 레어 · 유닛 — PN-A1-R 그림자 계약 집행자
 
 ```
-Landscape 5:4 painting. Far across a frost-white square in a canyon city, three small figures stand motionless in a row at the right. The middle one is a pale horned demon in a long dark coat, a folded contract with a dangling seal held flat to his chest. Shadow pours from the paper down his sleeves and along the ground to the guards on either side, climbing their halberds and edging the blades in violet. Before them one figure kneels, and above its bowed head hangs a single puff of white breath, the only one in the square. Moonless blue-violet night; frost on the paving and tarnished silver lamps along the canyon wall give a cold, even glimmer.
+Landscape 5:4 painting. Far across a frost-white square in a canyon city, three small figures stand motionless in a row at the right. The middle one is a man-tall raven standing upright in a long dark coat, a folded contract with a dangling seal held flat to its breast under one wing. Shadow pours from the paper down its coat and along the ground to the guards on either side, climbing their halberds and edging the blades in violet. Before them one figure kneels, and above its bowed head hangs a single puff of white breath, the only one in the square. Moonless blue-violet night; frost on the paving and tarnished silver lamps along the canyon wall give a cold, even glimmer.
 Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
 Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
@@ -356,7 +348,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 #### 에픽 · 유닛 — EP-A1-1 심연 칼날 무희
 
 ```
-Landscape 5:4 painting. One turn of a dance shown as five overlapping moments across a small stage: the same horned demon dancer, ashen-skinned in dark silk sashes, repeats from left to right in fading afterimages, her two crescent blades drawing one unbroken silver ribbon through all five. The last and sharpest figure, at the right, sinks into a bow with both blades folded behind her back. Along the bottom edge runs a dark row of spectators' heads, and in the middle of the row one seat stands empty, a feathered hat still settling onto its cushion. Violet footlights glow up from the stage edge and rim every afterimage; the house beyond the front row is purple-black.
+Landscape 5:4 painting. One turn of a dance shown as five overlapping moments across a small stage: the same tall black mantis in dark silk sashes repeats from left to right in fading afterimages, her two crescent blade-arms drawing one unbroken silver ribbon through all five. The last and sharpest figure, at the right, sinks into a bow with both blades folded behind her back. Along the bottom edge runs a dark row of spectators' heads, and in the middle of the row one seat stands empty, a feathered hat still settling onto its cushion. Violet footlights glow up from the stage edge and rim every afterimage; the house beyond the front row is purple-black.
 Colour: violet shade — purple-black gloom with luminous violet (#8b5cf6) edges.
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
 Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
@@ -389,7 +381,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 #### 유니크 · 유닛 — UN-A1 피의 서약자
 
 ```
-Landscape 5:4 painting. Through the eyes of the one he has just struck: our own gauntleted arm and dented shield rise along the bottom edge, and on the shield a round seal of red wax has been stamped where his blade landed, still smoking, ribbon and all. A thread of red ink runs from that seal through the air to the tip of his long sword. He stands over us at the right, a tall horned demon with pale skin and calm glowing eyes; in his other hand a scroll hangs open, and on it a fresh red line is drawing itself. A dark hall with a thread of violet in its high windows; the smoking seal and the wet red line give the only glow, crimson on steel and jaw.
+Landscape 5:4 painting. Through the eyes of the one he has just struck: our gauntleted arm and dented shield rise along the bottom edge, and on the shield a round seal of red wax has been stamped where his blade landed. A thread of red ink runs from that seal to the tip of his long sword. He stands over us at the right, a tall gaunt revenant in dark mail, grey skin drawn tight, calm eyes each holding a point of red light; in his other hand a scroll hangs open, and on it a fresh red line is drawing itself. A dark hall with a thread of violet in its high windows; the smoking seal and the wet red line give the only glow, crimson on steel and jaw.
 Colour: blood and ink — black and deep crimson with a thread of violet (#8b5cf6).
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
 Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a blazing key light against deep black, and the subject burning with a power of its own. Saturation: jewel-bright and molten. Air: thick with swirling orange-gold (#ff8a2a) embers, heat-shimmer and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing at the seams.

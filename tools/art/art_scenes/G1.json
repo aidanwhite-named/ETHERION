@@ -17,13 +17,13 @@
   },
   "EP-G1-3": {
     "shot": "ground", "dir": "L", "place": "L", "pal": "bonemoon",
-    "scene": "Ground level on a windswept summit at night: in the snow of the foreground lies a trail of snapped spears, a cloven axe haft and a split war club, leading away up the slope. At the end of it, toward the left, a huge scarred orc in hide fist-wraps stands hammering one fist against a curved grey claw as tall as a watchtower — the nearest of a row of claws rising out of the snow, each one a hill. A long sleeping breath from somewhere above flattens his braids and hurls ice dust past us.",
+    "scene": "Ground level on a windswept summit at night: in the snow of the foreground lies a trail of snapped spears, a cloven axe haft and a split war club, leading away up the slope. At the end of it, toward the left, a huge scarred silverback gorilla in hide fist-wraps stands hammering one fist against a curved grey claw as tall as a watchtower — the nearest of a row of claws rising out of the snow, each one a hill. A long sleeping breath from somewhere above flattens his fur and hurls ice dust past us.",
     "light": "Moonlight on snow, bone-white and grey-blue; the gale of breath carries glittering ice dust across the dark claws."
   },
   "G1-01": {
     "shot": "top", "dir": "R", "place": "L", "pal": "firelit",
-    "scene": "Straight overhead: a round duel ring of trampled clay fenced with crooked stakes, a single fire-bowl burning at its centre so that every stake throws a long shadow outward like a spoke. At the left edge a small young orc — thin shoulders, short tusks, a braid down his back, a club too big for him — has one bare foot inside the gate gap and one still outside. Behind him runs a line of small footprints; ahead, clay churned by much larger feet.",
-    "light": "Night; the fire-bowl is the only light, warming the clay ochre and stretching the boy's shadow back out through the gate."
+    "scene": "Straight overhead: a round duel ring of trampled clay fenced with crooked stakes, a single fire-bowl burning at its centre so that every stake throws a long shadow outward like a spoke. At the left edge a young bison calf — thin legs, a hump only beginning, horns still two short buds — has its forehooves inside the gate gap and its hind hooves still outside. Behind it runs a line of small hoofprints; ahead, clay churned by much larger hooves.",
+    "light": "Night; the fire-bowl is the only light, warming the clay ochre and stretching the calf's shadow back out through the gate."
   },
   "G1-03": {
     "shot": "pov", "dir": "F", "place": "R", "pal": "bonemoon",
@@ -57,8 +57,8 @@
   },
   "G1-11": {
     "shot": "through", "dir": "F", "place": "C", "pal": "firelit",
-    "scene": "An orc spearman sits cross-legged just inside the triangular door of a hide tent, glimpsed from outside in the dark, lashing a jagged shard of black obsidian to his spear shaft. One end of the wet sinew is clamped in his tusked teeth, the other wound tight by scarred fingers. The shard's broken edge catches the light like black glass, and chips of obsidian and two rejected points lie on a scrap of hide at his knees.",
-    "light": "One small tallow flame inside the tent lights his hands and jaw from below; the tent flaps are dark frames on both sides."
+    "scene": "A mongoose spearman sits cross-legged just inside the triangular door of a hide tent, glimpsed from outside in the dark, lashing a jagged shard of black obsidian to its spear shaft. One end of the wet sinew is clamped in its small sharp teeth, the other wound tight by quick clawed fingers, and its long tail lies curled around its feet. The shard's broken edge catches the light like black glass, and chips of obsidian and two rejected points lie on a scrap of hide at its knees.",
+    "light": "One small tallow flame inside the tent lights its paws and jaw from below; the tent flaps are dark frames on both sides."
   },
   "G1-12": {
     "shot": "echo", "dir": "L", "place": "R", "pal": "stormslate",
@@ -112,8 +112,8 @@
   },
   "G1-26": {
     "shot": "macro", "dir": "R", "place": "C", "pal": "ochredust",
-    "scene": "Extreme close-up of one eye of an old orc warlord, looking toward the right: heavy scarred brow smeared with rust-red war paint, grey-green skin creased like dry clay, the tip of a notched tusk rising into the lower corner. In the dark of the eye sits a small, sharp reflection — a saw-toothed mountain pass with a long column of followers pouring down through it, raising dust, the column wider at the near end than at the far.",
-    "light": "Hard sunlit haze from the right lights every crease and dust grain on the skin; the eye holds the brightest point."
+    "scene": "Extreme close-up of one eye of an old sabre-toothed cat, looking toward the right: heavy scarred brow smeared with rust-red war paint, tawny fur gone grey and stiff with dust, the curve of one long chipped fang rising into the lower corner. In the dark of the amber eye sits a small, sharp reflection — a saw-toothed mountain pass with a long column of followers pouring down through it, raising dust, the column wider at the near end than at the far.",
+    "light": "Hard sunlit haze from the right lights every scar and dust grain in the fur; the eye holds the brightest point."
   },
   "G1-27": {
     "shot": "far", "dir": "R", "place": "R", "pal": "bonemoon",
@@ -197,8 +197,8 @@
   },
   "M2-1": {
     "shot": "hand", "dir": "R", "place": "R", "pal": "bonemoon",
-    "scene": "One broad grey-green fist, cropped at the wrist, rests knuckles-forward at the right of the frame on a crumpled steel breastplate. Across the four knuckles runs a fresh tattoo of interlocking fangs in soot-black line, the skin around it still raised and smeared with ash. The fist points toward the right; under it the breastplate is torn open in four parallel rips that match the knuckles exactly. A bone tattooing needle lies beside it on the metal.",
-    "light": "Cold moonlight from above gives the steel and the knuckles a bone-white edge; the tattoo lines stay deep black."
+    "scene": "One broad tawny forepaw, cropped at the wrist, rests claws-forward at the right of the frame on a crumpled steel breastplate. Across the shaved skin above its four toes runs a fresh tattoo of interlocking fangs in soot-black line, the skin around it still raised and smeared with ash. The paw points toward the right; under it the breastplate is torn open in four parallel rips that match the claws exactly. A bone tattooing needle lies beside it on the metal.",
+    "light": "Cold moonlight from above gives the steel and the claws a bone-white edge; the tattoo lines stay deep black."
   },
   "MC-01": {
     "shot": "top", "dir": "R", "place": "L", "pal": "bonemoon",
@@ -242,8 +242,8 @@
   },
   "PN-G1-C1": {
     "shot": "high", "dir": "F", "place": "C", "pal": "stormslate",
-    "scene": "Looking down from the eye height of a grown fighter: a small young orc stands in the middle of the frame glaring up at us, chin out, short tusks bared, braid tied off with a knucklebone — and the two fists he holds up are as broad and scarred as any adult's, too big for his thin wrists. Thick legs and belted hips of older brothers wall him in on both sides. Behind his heels a training post lies snapped clean in two.",
-    "light": "Grey storm daylight from above, even and cool, with pale grit settling on his shoulders and knuckles."
+    "scene": "Looking down from the eye height of a grown fighter: a small sabre-toothed cub stands in the middle of the frame glaring up at us, chin out, a knucklebone tied in the tuft of its neck fur — and the two fangs it bares are as long and scarred as any adult's, far too big for its small jaw. Thick tawny legs and heavy paws of older brothers wall it in on both sides. Behind its heels a training post lies bitten clean in two.",
+    "light": "Grey storm daylight from above, even and cool, with pale grit settling on its shoulders and fangs."
   },
   "PN-G1-C3": {
     "shot": "over", "dir": "L", "place": "C", "pal": "firelit",
@@ -317,17 +317,17 @@
   },
   "UN-G1": {
     "shot": "back", "dir": "B", "place": "R", "pal": "strawgold",
-    "scene": "Seen from behind, at the height of his shoulders: the great chieftain stands in the right third of the frame on a rise of bare rock, a massive orc with a mane of bone-tied braids, one fist thrust at the sky, head thrown back in a howl, a beaten enemy's war horn crushed under his heel. Across the wide plain before him five long plumes of dust race in from the horizon and converge on him like the strokes of a claw — hyenas at full run, the nearest already close enough to count their spots.",
-    "light": "A low sun straight ahead of him backlights the five dust plumes pale straw and cuts his figure almost to silhouette, rim-lit along braids, fist and tusks."
+    "scene": "Seen from behind, at the height of his shoulders: the great chieftain stands in the right third of the frame on a rise of bare rock, a massive sabre-toothed cat with a ruff of bone-tied braids, one forepaw planted on a beaten enemy's crushed war horn, head thrown back in a roar, long fangs black against the light. Across the wide plain before him five long plumes of dust race in from the horizon and converge on him like the strokes of a claw — hyenas at full run, the nearest already close enough to count their spots.",
+    "light": "A low sun straight ahead of him backlights the five dust plumes pale straw and cuts his figure almost to silhouette, rim-lit along braids, shoulders and fangs."
   },
   "UN-G1-7": {
     "shot": "echo", "dir": "L", "place": "X", "pal": "bonemoon",
-    "scene": "One charge shown as five overlapping moments across the whole frame, right to left: the same broad, grinning orc appears five times, each figure more solid than the last. At the far right he swings a plain bone club; next he holds a foe's short sword; then a long brass-bound halberd; then a gilded mace; and at the far left, fully solid, he straightens up with an elegant curved blade just lifted from an open hand on the ground. Behind each figure the weapon he dropped is still falling.",
+    "scene": "One charge shown as five overlapping moments across the whole frame, right to left: the same broad mandrill, scarlet-and-blue ridged muzzle and golden beard, appears five times, each figure more solid than the last. At the far right he swings a plain bone club; next he holds a foe's short sword; then a long brass-bound halberd; then a gilded mace; and at the far left, fully solid, he straightens up with an elegant curved blade just lifted from an open hand on the ground. Behind each figure the weapon he dropped is still falling.",
     "light": "A full moon behind the last figure throws the row into hard light and deep shadow, each stolen weapon catching one bright edge."
   },
   "UP-G1-11": {
     "shot": "tilt", "dir": "L", "place": "R", "pal": "redearth",
-    "scene": "The frame tilts with his lunge: an orc spearman drives forward and down toward the left, back leg stretched, braid flying, both scarred hands sliding along a sinew-bound shaft. The spearhead leading the picture is a long, clean leaf of knapped black obsidian. On a cord around his neck three older points — chipped, snapped, worn short — swing out with the motion, and red dust sprays from his planted front foot.",
+    "scene": "The frame tilts with its lunge: the same mongoose spearman drives forward and down toward the left, hind leg stretched, long tail streaming, both clawed paws sliding along a sinew-bound shaft. The spearhead leading the picture is a long, clean leaf of knapped black obsidian. On a cord around its neck three older points — chipped, snapped, worn short — swing out with the motion, and red dust sprays from its planted front foot.",
     "light": "Storm light from the right skims the obsidian edge and the three old points; the sky behind is slate, the ground rust red."
   },
   "UP-G1-18": {
@@ -362,8 +362,8 @@
   },
   "PN-G1-R": {
     "shot": "close", "dir": "R", "place": "C", "pal": "bonemoon",
-    "scene": "Tight on the head and shoulders of a rangy orc at the centre of the frame, turned to the right: tusks, scarred grey-green skin, rust-red paint across the brow, braids rubbed grey with ash. He holds one hide-wrapped fist up beside his jaw in challenge, eyes fixed on someone beyond the right edge, and a thong strung with dozens of stone chips hangs at his throat. At both edges the cropped shoulders of two companions lean in, raising their own wrapped fists the same way. Behind them a long streak of grey smoke lies along the night horizon.",
-    "light": "A high moon from the left edges tusks, knuckles and ash-grey braids in bone white, with grey-blue night behind and dry ochre earth under the smoke."
+    "scene": "Tight on the head and shoulders of a rangy ram at the centre of the frame, turned to the right: heavy curled horns chipped along their ridges, a scarred muzzle, rust-red paint across the brow, fleece rubbed grey with ash. He lowers his horns in challenge, eyes fixed on someone beyond the right edge, and a thong strung with dozens of stone chips hangs at his throat. At both edges the cropped shoulders of two companions lean in, lowering their own horned heads the same way. Behind them a long streak of grey smoke lies along the night horizon.",
+    "light": "A high moon from the left edges horns, brow and ash-grey fleece in bone white, with grey-blue night behind and dry ochre earth under the smoke."
   },
   "PS-G1-2": {
     "shot": "reflect", "dir": "U", "place": "C", "pal": "firelit",

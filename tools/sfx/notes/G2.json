@@ -13,10 +13,10 @@
    "def": "no real block, the spongy body bursts: a muffled wet pop, moss crumbs pattering down, then faint hollow clicks as tiny shoots sprout back"
   },
   "G2-03": {
-   "en": "Apprentice Troll Archer",
+   "en": "Apprentice Sloth Archer",
    "ko": "서툰 활시위 튕김 · 놀라 휘청이며 잔가지 밟음",
    "atk": "a thin green bow creaks and a clumsy string twangs, a short arrow whistles through low leaves, then lands with a small light thock",
-   "def": "no armour, it flinches: a startled troll huff, a quiver rattling on its back, a stumble that snaps a dry twig underfoot"
+   "def": "no armour, it flinches: a startled sloth huff, a quiver rattling on its back, a stumble that snaps a dry twig underfoot"
   },
   "G2-04": {
    "en": "Young Dryad",
@@ -31,10 +31,10 @@
    "def": "partial block with a slender trunk: a hollow wooden tock, roots shuffling nervously in loose soil, young leaves quivering"
   },
   "G2-08": {
-   "en": "Troll Forest Warden",
+   "en": "Badger Forest Warden",
    "ko": "삽 지팡이로 흙 내리침 · 이끼 어깨로 받고 꽃잎",
    "atk": "a gravedigger's gnarled digging staff swings low with a heavy whoosh, bites into earth with a dull thump, and scatters a soft patter of petals",
-   "def": "takes the blow on a thick mossy shoulder: a damp muffled thud, a deep gentle troll grumble, then flower petals drifting down"
+   "def": "takes the blow on a thick mossy shoulder: a damp muffled thud, a deep gentle badger grumble, then flower petals drifting down"
   },
   "G2-09": {
    "en": "Forest Satyr",
@@ -61,7 +61,7 @@
    "def": "it lowers its antlers to catch the blow: a sharp antler-on-steel clack, a snort, hooves sliding through wet leaves"
   },
   "G2-17": {
-   "en": "Troll Shaman",
+   "en": "Toad Shaman",
    "ko": "씹던 이끼를 뱉어 포자탄 · 포자 구름으로 푹신하게 막음",
    "atk": "a wet chewing of moss, a gloopy spit, then a green spore bolt flies with a hissing whoosh and bursts in a damp muffled puff",
    "def": "a thick cloud of spores billows up as a cushion: a spongy muffled thud, a low gurgling grumble, fine dust settling softly"
@@ -157,7 +157,7 @@
    "def": "the blow sinks into a pulsing fungal mass: a dense wet thud, the heartbeat stumbles then steadies, spores sighing out"
   },
   "G2-41": {
-   "en": "Troll Javelineer",
+   "en": "Stick Insect Javelineer",
    "ko": "가지를 꺾어 창 던짐 · 땅에 박혀 뿌리 내림",
    "atk": "a branch snaps over a knee with a dry crack, the spear is hurled with a hard whoosh, and it pierces through with a sharp thunk",
    "def": "thin and unarmoured, it dodges: a sudden leap, a leafy scramble, the blow brushing past with a whiff and a small startled grunt"
@@ -253,7 +253,7 @@
    "def": "the blow lands on moss-draped antlers and hide: a dense muffled thump, thorns in the moss snapping back with a prickly crackle, then a soft creeping rustle as new moss closes over"
   },
   "UP-G2-17": {
-   "en": "Troll Grand Shaman",
+   "en": "Toad Grand Shaman",
    "ko": "이끼 바닥이 일어서 덮침 · 두꺼운 이끼 층이 겹겹이 막음",
    "atk": "a carpet of moss swells up and rolls forward with a thick sucking squelch, then breaks over the target in a heavy smothering rustle",
    "def": "layers of moss pile up around him one after another with soft wet slaps, the blow dying in a very deep muffled thump and a pleased low grumble"
@@ -346,7 +346,7 @@
    "cast": "a deep earthy rumble of roots tunnelling underground, then several roots burst up with crumbling soil and drive into armor joints with sharp wooden cracks and metal scrapes"
   },
   "NG2-3": {
-   "en": "Troll Regeneration",
+   "en": "Forest Regrowth",
    "ko": "잘린 자리에서 새순이 돋아 메움",
    "cast": "a severed limb creaks as green shoots push out with wet tender cracks, wood knits together with a warm rustling squeak, and a deep resolute grumble answers"
   },

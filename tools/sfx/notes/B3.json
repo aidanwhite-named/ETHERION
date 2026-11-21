@@ -10,7 +10,7 @@
    "en": "Capacitor Apprentice",
    "ko": "병 들고 튀긴 스파크 · 휘청 넘어짐",
    "atk": "a small glass jar is shaken and a thin static zap snaps out with a quick high crackle, then a faint frizzy fizz like hair standing on end",
-   "def": "no shield, the jar clinks against a belt as the gnome stumbles back: a soft cloth thump, rattling glass, a tiny startled spark fizzing out"
+   "def": "no shield, the jar clinks against a belt as the lamb stumbles back: a soft cloth thump, rattling glass, a tiny startled spark fizzing out"
   },
   "B3-03": {
    "en": "Lightning Firefly Swarm",
@@ -79,7 +79,7 @@
    "def": "the blow bounces off its web: a taut twang, a buzzing hum, a spark skittering off its copper legs"
   },
   "B3-18": {
-   "en": "Gnome Engineer",
+   "en": "Tarsier Engineer",
    "ko": "렌치와 회로 지직 · 톱니판으로 튕김",
    "atk": "a wrench strikes a circuit box with a clank and a tick, then a sharp arc spits out with a rising whine and bright crackle",
    "def": "a hinged brass plate flips up with a clack of gears: a tinny clang, whirring cogs, a short spark fizz, a boot skid"
@@ -259,7 +259,7 @@
    "def": "the hit scatters her light: a fizzy crackle, a flickering stutter, sparks spinning back into a steady bright glow"
   },
   "UP-B3-18": {
-   "en": "Chief Gnome Engineer",
+   "en": "Chief Tarsier Engineer",
    "ko": "합친 설계 · 거대 기계",
    "atk": "tools click and gears spin, a heavy hammer-like press slams and a combined arc and steam-hiss fires with a booming crack",
    "def": "interlocked brass plates and a rotating gear shield: a heavy grinding clank, a ringing ping, sparks spraying as gears mesh, a stable thud"

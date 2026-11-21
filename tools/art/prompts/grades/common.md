@@ -166,11 +166,11 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### A1-11 · 마족 전사
+### A1-11 · 계약단 쥐 병사
 모르카스의 그믐 · 유닛 · 레벨 2 · 일반 · 틀 `eye` R L `violetshade` · 프롬프트 n2 → `tools/art/inbox/A1-11.jpg`
 
 ```
-Landscape 5:4 painting. At eye level, as if standing next in line: a rank-and-file demon soldier with short curved horns and ashen skin stands at the left of the frame, facing right toward a stone offering-ledge. He wears plain dark leather with one dented pauldron, a spear leaning in the crook of his arm, and with his teeth he tightens a cloth strip around his own palm. On the ledge the small brass cup he has just filled sits beside an identical cup that pours out an equal measure of violet flame. The measured violet flame lights his face and knuckles from the right; the barracks vault behind him is purple-black.
+Landscape 5:4 painting. At eye level, as if standing next in line: a rank-and-file rat soldier, lean and grey-furred with one torn ear, stands upright at the left of the frame, facing right toward a stone offering-ledge. It wears plain dark leather with one dented pauldron, a spear leaning in the crook of its arm, and with its teeth it tightens a cloth strip around its own paw. On the ledge the small brass cup it has just filled sits beside an identical cup that pours out an equal measure of violet flame. The measured violet flame lights its muzzle and knuckles from the right; the barracks vault behind it is purple-black.
 Colour: violet shade — purple-black gloom with luminous violet (#8b5cf6) edges.
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -454,11 +454,11 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### A1-29 · 심연 대마족
+### A1-29 · 심연의 어둑시니
 모르카스의 그믐 · 유닛 · 레벨 6 · 일반 · 틀 `eye` B L `candle` · 프롬프트 n2 → `tools/art/inbox/A1-29.jpg`
 
 ```
-Landscape 5:4 painting. At eye level on a street cut into the canyon wall, a few paces behind him: a towering demon lord in a long ash-grey mantle strides away from us down the left side of the frame, his great curved horns rising higher than the iron lamp posts that line the road. The three lamps nearest us are dark, each trailing a thread of smoke, and the one beside his shoulder is shrinking to a red wick as he passes. Far ahead the lamps still burn in a warm row, and small townsfolk hurry indoors and pull their shutters closed. Amber lamp pools ahead of him and black street behind; a faint violet glow leaks from the hem of his mantle.
+Landscape 5:4 painting. At eye level on a street cut into the canyon wall: a towering shape of gathered darkness in a long ash-grey mantle strides away from us down the left side of the frame, its shoulders higher than the iron lamp posts, its head lost in the dark above them. The three lamps nearest us are dark, each trailing a thread of smoke, and the one beside its shoulder is shrinking to a red wick as it passes. Far ahead the lamps still burn in a warm row, and small townsfolk hurry indoors and pull their shutters closed. Amber lamp pools ahead of it and black street behind; a faint violet glow leaks from the hem of its mantle.
 Colour: candle islands — small pools of amber light in vast dark, violet (#8b5cf6) in the shadows.
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -538,11 +538,11 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### A2-04 · 천족 아이
+### A2-04 · 솜털 새끼 비둘기
 솔란테의 새벽 · 유닛 · 레벨 1 · 일반 · 틀 `eye` L C `rosedawn` · 프롬프트 n2 → `tools/art/inbox/A2-04.jpg`
 
 ```
-Landscape 5:4 painting. At eye level on a garden stair, a small seraph child has tripped on the worn top step and hangs in mid-fall, arms flung forward to the left, one sandal flying — its wings only three or four downy feathers on each shoulder blade. Under the child a soft pane of warm light has slid out across the stones like a cushion and holds it a hand's breadth above the steps. Low pink-gold morning light slants across the garden from the left, with lilac shadow under the stair and the hedges.
+Landscape 5:4 painting. At eye level on a garden stair, a white dove fledgling has tripped on the worn top step and hangs in mid-tumble, stubby wings flung forward to the left, pink feet in the air — only three or four true feathers showing among the down on each wing. Under the chick a soft pane of warm light has slid out across the stones like a cushion and holds it a hand's breadth above the steps. Low pink-gold morning light slants across the garden from the left, with lilac shadow under the stair and the hedges.
 Colour: rose dawn — pink-gold (#ffe9a8) cloud light and lilac shadows.
 Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -646,11 +646,11 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### A2-09 · 천족 수호병
+### A2-09 · 새벽 수탉 수호병
 솔란테의 새벽 · 유닛 · 레벨 2 · 일반 · 틀 `over` F C `glare` · 프롬프트 n2 → `tools/art/inbox/A2-09.jpg`
 
 ```
-Landscape 5:4 painting. Over the dark, spiked shoulder of an advancing attacker in the near foreground: a line of the citadel's spearmen stands in blinding morning light. Dead centre in the front rank is the plainest of them — a young seraph guard with small wings, an undecorated helmet a little too big for him and a spear with a mended shaft — feet planted, looking straight at us. Behind him rise the taller plumes and gilded crests of every higher rank. The sun stands directly behind the line, burning its edges white and turning the attacker's shoulder into a black shape.
+Landscape 5:4 painting. Over the dark, spiked shoulder of an advancing attacker in the near foreground: a line of the citadel's spearmen stands in blinding morning light. Dead centre in the front rank is the plainest of them — a young white rooster guard with a small red comb, an undecorated helmet a little too big for him and a spear with a mended shaft held under one wing — feet planted, looking straight at us. Behind him rise the taller plumes and gilded crests of every higher rank. The sun stands directly behind the line, burning its edges white and turning the attacker's shoulder into a black shape.
 Colour: holy glare — blinding white-gold (#ffe9a8) light with dark shapes in front of it.
 Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -758,7 +758,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 솔란테의 새벽 · 유닛 · 레벨 3 · 일반 · 틀 `reflect` F C `rosedawn` · 프롬프트 n2 → `tools/art/inbox/A2-15.jpg`
 
 ```
-Landscape 5:4 painting. A still puddle on a rain-washed terrace fills most of the frame, and in it, upside down, stands the reflection of a robed seraph with folded wings, both hands on the pommel of a plain sword set point-down, chin level, perfectly upright. Only his bare feet and the sword's tip enter the top edge of the picture. In the reflection a thin sword-shaped ray of light hangs point-down exactly over his head. Pink-gold dawn clouds fill the water around the reflected figure; the wet stone at the frame's edges is dull lilac.
+Landscape 5:4 painting. A still puddle on a rain-washed terrace fills most of the frame, and in it, upside down, stands the reflection of a robed figure of white marble flecked with gold leaf, both stone hands on the pommel of a plain sword set point-down, chin level, perfectly upright. Only its bare marble feet and the sword's tip enter the top edge of the picture. In the reflection a thin sword-shaped ray of light hangs point-down exactly over its head. Pink-gold dawn clouds fill the water around the reflected figure; the wet stone at the frame's edges is dull lilac.
 Colour: rose dawn — pink-gold (#ffe9a8) cloud light and lilac shadows.
 Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -850,11 +850,11 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### A2-20 · 천족 날개기사
+### A2-20 · 알바트로스 날개기사
 솔란테의 새벽 · 유닛 · 레벨 4 · 일반 · 틀 `high` L R `firstlight` · 프롬프트 n2 → `tools/art/inbox/A2-20.jpg`
 
 ```
-Landscape 5:4 painting. Seen from high on the keep above: a seraph knight stands at the right of a wide stair landing with both wings spread to their full span and curved forward like a roof. From this height the wings are two great white fans, and under their trailing feathers the helmets of a dozen smaller comrades are still ducking in, the last one running. His right hand rests on a sword hilt that has yet to leave its scabbard, and his head is turned left, counting them. Grey-blue half-light before sunrise; a low gold band at the horizon catches only the upper edges of the feathers.
+Landscape 5:4 painting. Seen from high on the keep above: a great white albatross in a knight's breastplate stands at the right of a wide stair landing with both wings spread to their full span and curved forward like a roof. From this height the wings are two long white blades, black at the tips, and under their trailing feathers the helmets of a dozen smaller comrades are still ducking in, the last one running. A sword rides at its side, still deep in its scabbard, and its head is turned left, counting them. Grey-blue half-light before sunrise; a low gold band at the horizon catches only the upper edges of the feathers.
 Colour: first light — cool blue-grey before dawn with a low band of pale gold (#ffe9a8).
 Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -958,11 +958,11 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### A2-30 · 새벽 세라프
+### A2-30 · 새벽 삼족오
 솔란테의 새벽 · 유닛 · 레벨 6 · 일반 · 틀 `profile` L C `vigil` · 프롬프트 n2 → `tools/art/inbox/A2-30.jpg`
 
 ```
-Landscape 5:4 painting. Painted like a figure on a wall, in pure profile: a six-winged seraph of gold fire stands facing left in a snow-covered orchard, two burning wings folded across its face, two across its body, two spread behind. Tucked against the lowest wing, a small night sentry has fallen asleep on his feet, cheek resting in the flames, cloak and hair untouched; a sparrow roosts on one blazing feather above him, and the snow around them lies unmelted. Winter night; the wings are the only light, a steady gold glow that warms the sleeper's face and fades a few paces out across the snow.
+Landscape 5:4 painting. Painted like a figure on a wall, in pure profile: a great three-legged crow of gold fire stands facing left in a snow-covered orchard, one burning wing folded across its breast, the other spread wide behind. Tucked against the folded wing, a small night sentry has fallen asleep on his feet, cheek resting in the flames, cloak and hair untouched; a sparrow roosts on one blazing feather above him, and the snow around the three clawed feet lies unmelted. Winter night; the wings are the only light, a steady gold glow that warms the sleeper's face and fades a few paces out across the snow.
 Colour: night vigil — darkness holding small warm flames with pale-gold (#ffe9a8) halos.
 Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -1210,11 +1210,11 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### A3-15 · 하이엘프 저격수
+### A3-15 · 담비 저격수
 벨루미르의 별 · 유닛 · 레벨 3 · 일반 · 틀 `high` L C `stormcloud` · 프롬프트 n2 → `tools/art/inbox/A3-15.jpg`
 
 ```
-Landscape 5:4 painting. Looking down from above onto a narrow cliff ledge: a high elf sniper kneels at the centre, slender and proud, silver hair and short cloak blowing, long pointed ears, a long elegant bow resting across his knee. A single arrow stands in his quiver. Two fingers are at his lips, whistling. Far below him the canyon runs off to the left, planted with a line of ribbon poles, and the ribbons are swinging round one after another to point the same way, toward a small red gourd hung on a rope at the canyon's end. Flat grey-violet storm light with a silver drizzle hanging in the canyon; the ribbons are wind-teal and the gourd a single red point.
+Landscape 5:4 painting. Looking down from above onto a narrow cliff ledge: a pine marten sniper kneels at the centre, lean and still, dark fur and short cloak blowing, a pale bib at its throat, a long elegant bow resting across its knee. A single arrow stands in its quiver. Its muzzle is lifted in a thin whistle. Far below it the canyon runs off to the left, planted with a line of ribbon poles, and the ribbons are swinging round one after another to point the same way, toward a small red gourd hung on a rope at the canyon's end. Flat grey-violet storm light with a silver drizzle hanging in the canyon; the ribbons are wind-teal and the gourd a single red point.
 Colour: storm cloud — grey-violet cloud and silver rain with wind-teal (#9fe3d6) gusts.
 Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -1442,7 +1442,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 벨루미르의 별 · 유닛 · 레벨 6 · 일반 · 틀 `ground` F R `duskrose` · 프롬프트 n2 → `tools/art/inbox/A3-31.jpg`
 
 ```
-Landscape 5:4 painting. Camera on the turf of a small floating rock island, looking through a thicket of old arrows stuck in the ground at every angle, a hundred years of misses, shafts weathered silver, fletching rotted to threads. Beyond them, in the right of the frame, a tall weather-beaten elf archer faces us, grey-streaked hair tied back from short pointed ears, worn grey-green leathers, wool cloak, unstringing a plain pale-wood longbow. Behind his shoulder, on a neighbouring shard of rock adrift in the wind, a single dead pine holds one arrow in the exact middle of a knot. Dusk above the clouds: peach light from the left on his face and the old shafts, deep teal shadow pooling between the arrows.
+Landscape 5:4 painting. Camera on the turf of a small floating rock island, looking through a thicket of old arrows stuck in the ground at every angle, a hundred years of misses, shafts weathered silver, fletching rotted to threads. Beyond them, in the right of the frame, a tall weather-beaten mountain goat archer faces us, grey-streaked beard, swept-back horns worn smooth, a wool cloak over worn grey-green leathers, unstringing a plain pale-wood longbow. Behind his shoulder, on a neighbouring shard of rock adrift in the wind, a single dead pine holds one arrow in the exact middle of a knot. Dusk above the clouds: peach light from the left on his face and the old shafts, deep teal shadow pooling between the arrows.
 Colour: dusk above the clouds — rose and peach light with deep teal (#9fe3d6) shadows.
 Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -1490,7 +1490,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 벨루미르의 별 · 유닛 · 레벨 7 · 일반 · 틀 `back` B L `starindigo` · 프롬프트 n2 → `tools/art/inbox/A3-36.jpg`
 
 ```
-Landscape 5:4 painting. Seen from behind, in the left of the frame: a very tall high elf in a short wind-blown cloak, silver hair loose over long pointed ears, stands before the immense bronze door of a tower and turns a silver key as long as his forearm in its lock. Across his back hangs the oldest bow in the place, unstrung, its dark wood worn pale at the grip by many hands. Two small apprentices wait at his elbow, reaching only to his belt, sharing one lantern and one yawn. Starry indigo night above the door; the apprentices' lantern throws warm light up the bronze and silvers the edge of the old bow.
+Landscape 5:4 painting. Seen from behind, in the left of the frame: a very tall giant whose body is grey storm cloud, shoulders trailing mist under a short wind-blown cloak, stands before the immense bronze door of a tower and turns a silver key as long as a forearm in its lock. Across his back hangs the oldest bow in the place, unstrung, its dark wood worn pale at the grip by many hands. Two small hooded apprentices wait at his knee, sharing one lantern and one yawn. Starry indigo night above the door; the apprentices' lantern throws warm light up the bronze and silvers the edge of the old bow.
 Colour: star indigo — deep indigo night full of stars, wind-teal (#9fe3d6) streaks and silver.
 Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -1502,7 +1502,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 도르마크의 심장불 · 유닛 · 레벨 1 · 일반 · 틀 `high` L T `ashfall` · 프롬프트 n2 → `tools/art/inbox/B1-02.jpg`
 
 ```
-Landscape 5:4 painting. Looking steeply down a stair hacked into a grey cliff: near the top of the frame a small wiry goblin climbs leftward, bent double under a bulging powder sack twice his size, huge ears flattened, one bare foot testing the next worn step. The rock face drops away beneath him through drifting ash to the bottom of the frame, where a hair-thin thread of lava glows in the gorge. A dislodged pebble hangs in the air below his heel. Flat overcast noon, shadowless and pale; the distant lava thread is the only colour in the whole drop.
+Landscape 5:4 painting. Looking steeply down a stair hacked into a grey cliff: near the top of the frame a small soot-grey mule climbs leftward under two bulging powder sacks roped across its back, a load twice its own bulk, long ears flattened, one ember-rimmed hoof testing the next worn step. The rock face drops away beneath it through drifting ash to the bottom of the frame, where a hair-thin thread of lava glows in the gorge. A dislodged pebble hangs in the air below its hind hoof. Flat overcast noon, shadowless and pale; the distant lava thread is the only colour in the whole drop.
 Colour: ashfall — pale ash-grey and bone-white, muted, with one fierce accent of fire-orange (#ff6b3d).
 Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -1702,11 +1702,11 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### B1-16 · 고블린 폭파공
+### B1-16 · 잿너구리 폭파공
 도르마크의 심장불 · 유닛 · 레벨 3 · 일반 · 틀 `macro` N C `brassglow` · 프롬프트 n2 → `tools/art/inbox/B1-16.jpg`
 
 ```
-Landscape 5:4 painting. Extreme close-up of a goblin's two soot-black hands at work on a workbench: long nimble fingers with bitten nails stretch a fuse cord along a stick cut with plain notches, a small knife already resting on the exact notch. A big pointed ear and the edge of a grin intrude at the top corner. Pushed aside behind the hands lies an abacus with its beads in a hopeless tangle, beside a bundle of charge sticks. A single oil lamp just out of frame throws warm amber light across the knuckles and the brass ferrule of the knife.
+Landscape 5:4 painting. Extreme close-up of two soot-black raccoon paws at work on a workbench: long nimble fingers with small dark claws stretch a fuse cord along a stick cut with plain notches, a small knife already resting on the exact notch. A masked grey muzzle with singed whiskers and the tip of a ringed tail intrude at the top corner. Pushed aside behind the paws lies an abacus with its beads in a hopeless tangle, beside a bundle of charge sticks. A single oil lamp just out of frame throws warm amber light across the knuckles and the brass ferrule of the knife.
 Colour: furnace warmth — brass, copper and amber tones in sooty brown gloom, fire-orange (#ff6b3d) at the heart.
 Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -1738,7 +1738,7 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### IB1-3 · 고블린 산탄총
+### IB1-3 · 나팔 산탄총
 도르마크의 심장불 · 아이템 · 레벨 3 · 일반 · 틀 `top` R X `ashfall` · 프롬프트 n2 → `tools/art/inbox/IB1-3.jpg`
 
 ```
@@ -1810,11 +1810,11 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### B1-24 · 고블린 박격포수
+### B1-24 · 울버린 박격포수
 도르마크의 심장불 · 유닛 · 레벨 4 · 일반 · 틀 `low` R B `ashfall` · 프롬프트 n2 → `tools/art/inbox/B1-24.jpg`
 
 ```
-Landscape 5:4 painting. Down beside the baseplate of a stubby mortar, looking up: a goblin gunner in a scorched apron leans back at the lower left with a finger jammed in each huge ear, squinting skyward, the tube beside him still breathing smoke. High above, a curved line of smoke climbs over the top of a tall battlement wall toward the right, and at its very tip the shell is a small dark dot against the pale sky. Pale overcast afternoon; the last orange of the muzzle flash still glows inside the mortar's mouth.
+Landscape 5:4 painting. Down beside the baseplate of a stubby mortar, looking up: a stocky wolverine gunner in a scorched leather apron leans back at the lower left with a forepaw clamped over each small round ear, squinting skyward, the tube beside it still breathing smoke. High above, a curved line of smoke climbs over the top of a tall battlement wall toward the right, and at its very tip the shell is a small dark dot against the pale sky. Pale overcast afternoon; the last orange of the muzzle flash still glows inside the mortar's mouth.
 Colour: ashfall — pale ash-grey and bone-white, muted, with one fierce accent of fire-orange (#ff6b3d).
 Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -1918,11 +1918,11 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### B1-36 · 작렬의 고블린 왕
+### B1-36 · 작렬의 사자왕
 도르마크의 심장불 · 유닛 · 레벨 7 · 일반 · 틀 `front` F C `whitehot` · 프롬프트 n2 → `tools/art/inbox/B1-36.jpg`
 
 ```
-Landscape 5:4 painting. Dead-on and symmetrical: a goblin king sits enthroned at the centre on a stepped pyramid of stacked iron bombs and brass shell casings, arms spread wide, grinning straight at us. His iron crown bristles with short fuses, every one of them lit and spitting sparks like candles on a cake. At the foot of the pyramid, tiny courtiers on both sides crouch with their fingers in their ears. The ring of crown-sparks is the light, white-hot above his face and falling to deep crimson down the steps of the pyramid.
+Landscape 5:4 painting. Dead-on and symmetrical: a huge soot-black lion sits enthroned at the centre on a stepped pyramid of stacked iron bombs and brass shell casings, forepaws planted wide, jaws open in a roar straight at us. His mane is a great ruff of fuse cords, every strand lit and spitting sparks like candles on a cake, and a small iron crown rides the top of it. At the foot of the pyramid, tiny soot-furred attendants on both sides crouch with their paws over their ears. The ring of mane-sparks is the light, white-hot around his face and falling to deep crimson down the steps of the pyramid.
 Colour: white-hot — a blinding yellow-white core falling through fire-orange (#ff6b3d) into deep crimson shadow.
 Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -1934,7 +1934,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 소르그림의 방패 · 유닛 · 레벨 1 · 일반 · 틀 `high` B L `lamplit` · 프롬프트 n2 → `tools/art/inbox/B2-01.jpg`
 
 ```
-Landscape 5:4 painting. Looking down from a gantry onto the curved back-plate of an unfinished golem laid flat on trestles: at the left a small stocky dwarf rivet-hand kneels with his back to us, a short-handled hammer raised over the next rivet in a long gleaming row. He has drawn his braided iron-grey beard out along the seam like a measuring cord; its tip reaches the seventh rivet, and a chalk tick marks where it reached yesterday. A bucket of cherry-red rivets steams at his knee. A single hanging oil lamp pools warm light on the plate around him; the workshop beyond falls away into black, the hot rivets glowing small and red.
+Landscape 5:4 painting. Looking down from a gantry onto the curved back-plate of an unfinished golem laid flat on trestles: at the left a small woodpecker with a beak of blued steel clings to the plate with its back to us, head drawn far back over the next rivet in a long gleaming row. A chalk line runs beside the row, and a chalk tick marks where yesterday's work ended, well short of today's. A bucket of cherry-red rivets steams beside its claws, and a pair of tiny tongs lies ready. A single hanging oil lamp pools warm light on the plate around it; the workshop beyond falls away into black, the hot rivets glowing small and red.
 Colour: lamplight underground — small warm pools of light in black, steel grey (#a9b4c2) glinting at the edges.
 Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -2054,7 +2054,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 소르그림의 방패 · 유닛 · 레벨 2 · 일반 · 틀 `macro` N C `forgeheart` · 프롬프트 n2 → `tools/art/inbox/B2-12.jpg`
 
 ```
-Landscape 5:4 painting. Extreme close-up of two open palms held side by side in front of a bed of glowing coals: on the left the broad young hand of a dwarf apprentice, on the right the larger, soot-grained hand of his old master. Each carries the same ridge of yellow callus under the fingers and the same polished groove where a hammer haft sits; the young one's are still pink at the edges. A small plain hammer rests in the crook of the apprentice's thumb, and a fringe of his short copper-red beard, braided with one iron ring, edges the frame. Coals behind push molten orange between the fingers and along the edges of both hands; a dim steel-grey light from the front shows the palms.
+Landscape 5:4 painting. Extreme close-up of two open ape palms held side by side in front of a bed of glowing coals: on the left the broad young hand of an apprentice, fringed with gunmetal-grey fur, on the right the larger, soot-grained hand of its old master. Each leathery palm carries the same ridge of yellow callus under the fingers and the same polished groove where a hammer haft sits; the young one's are still pink at the edges. A small plain hammer rests in the crook of the apprentice's thumb, and an iron ring gleams on its wrist. Coals behind push molten orange between the fingers and along the edges of both hands; a dim steel-grey light from the front shows the palms.
 Colour: forge heart — dark gunmetal and steel grey (#a9b4c2) with molten orange glowing in the seams.
 Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -2306,7 +2306,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 소르그림의 방패 · 유닛 · 레벨 5 · 일반 · 틀 `close` L R `patina` · 프롬프트 n2 → `tools/art/inbox/B2-27.jpg`
 
 ```
-Landscape 5:4 painting. Head and chest fill the right of the frame: a grizzled dwarf gate captain in rust-streaked plate looks off to the left, eyes narrowed under a dented helm. The picture is really his beard — an iron-grey fall of a dozen thick braids, and into every braid is plaited a keepsake of a blow he stopped: a snapped sword tip, a notched sliver of axe blade, a bent arrowhead, each gone brown or green with age. The newest shard, near his collar, is still bright. Behind his shoulder a slab of riveted gate stands shut. Dim grey light from an arrow slit on the left grazes the helm and the old blade shards, showing rust red and verdigris against steel grey.
+Landscape 5:4 painting. Head and chest fill the right of the frame: a grizzled guardian lion-dog with one blunt horn on its brow looks off to the left, eyes narrowed under a dented helm, in rust-streaked plate. The picture is really its mane — an iron-grey fall of a dozen thick braids, and into every braid is plaited a keepsake of a blow it stopped: a snapped sword tip, a notched sliver of axe blade, a bent arrowhead, each brown or green with age. The newest shard, near its collar, is still bright. Behind its shoulder a slab of riveted gate stands shut. Dim grey light from an arrow slit on the left grazes the helm and the old blade shards, showing rust red and verdigris against steel grey.
 Colour: rust and verdigris — red-brown and green-blue patina over steel grey (#a9b4c2) in dim light.
 Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -2378,7 +2378,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 소르그림의 방패 · 유닛 · 레벨 7 · 일반 · 틀 `eye` R R `lamplit` · 프롬프트 n2 → `tools/art/inbox/B2-35.jpg`
 
 ```
-Landscape 5:4 painting. At his own eye level in a hall of finished golems: on the right an old dwarf master with a white beard braided down to his belt stands facing right and presses one sooty palm against the knee-plate of a steel giant whose body rises out of frame. Down the long rank behind him every golem carries the same small black handprint on the same knee, at exactly the height he can reach — dozens of them, shrinking into the dark. A lantern and a pot of soot sit at his feet. His lantern on the floor makes a small warm pool around his boots and the nearest knee; the rank of golems fades to steel-grey glints in the black hall.
+Landscape 5:4 painting. At a visitor's eye level in a hall of finished golems: on the right an old grey elephant in a scarred leather apron, tusks capped in steel, stands facing right and presses the soot-black tip of his trunk against the breastplate of a steel giant whose head rises out of frame. Down the long rank behind him every golem carries the same small round soot mark on the same spot of its chest, at exactly the height his trunk can reach — dozens of them, shrinking into the dark. A lantern and a pot of soot sit at his feet. His lantern on the floor makes a small warm pool around his feet and the nearest golem's shins; the rank of golems fades to steel-grey glints in the black hall.
 Colour: lamplight underground — small warm pools of light in black, steel grey (#a9b4c2) glinting at the edges.
 Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -2402,7 +2402,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 케라운의 벼락 · 유닛 · 레벨 1 · 일반 · 틀 `far` B R `thunderhead` · 프롬프트 n2 → `tools/art/inbox/B3-02.jpg`
 
 ```
-Landscape 5:4 painting. Far off on a storm-dark moor, a tiny gnome apprentice trudges away from us along a plank causeway in the right third of the frame. A carrying-yoke lies across its shoulders with a copper-banded flask of bottled lightning swinging at each end, and its wild hair stands straight up like a brush — the one lively detail in all that empty land. Ahead, the planks dwindle toward a single far lamp. Black cloud presses low over the moor; the two flasks cast the only glow, a small swaying pool of yellow on the wet planks.
+Landscape 5:4 painting. Far off on a storm-dark moor, a small lamb trudges away from us along a plank causeway in the right third of the frame. A carrying-yoke lies across its shoulders with a copper-banded flask of bottled lightning swinging at each end, and every lock of its charged wool stands straight out like a brush — the one lively detail in all that empty land. Ahead, the planks dwindle toward a single far lamp. Black cloud presses low over the moor; the two flasks cast the only glow, a small swaying pool of yellow on the wet planks.
 Colour: thunderhead — black and rain-grey split by searing electric yellow (#ffd84a).
 Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -2722,11 +2722,11 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### B3-18 · 노움 공학자
+### B3-18 · 안경원숭이 공학자
 케라운의 벼락 · 유닛 · 레벨 3 · 일반 · 틀 `macro` F R `wetglass` · 프롬프트 n2 → `tools/art/inbox/B3-18.jpg`
 
 ```
-Landscape 5:4 painting. A gnome engineer's eye, hugely magnified behind one brass goggle lens, fills the right half of the frame in extreme close-up and peers straight at us, wild eyebrow hair curling over the rim. In front of the lens, sharp and enormous, two stubby soot-stained fingers hold tweezers and thread a hair-thin copper wire between the teeth of a steel cogwheel. Out of focus behind: a cold mug and the head of a heavy smith's hammer. Grey dawn through a wet workshop window; one bead of solder glows yellow at the wire's end and twinkles in the lens.
+Landscape 5:4 painting. A tarsier engineer's enormous amber eye, magnified again behind one brass goggle lens, fills the right half of the frame in extreme close-up and peers straight at us, fine fur curling over the rim. In front of the lens, sharp and enormous, two long slender fingers with round padded tips hold tweezers and thread a hair-thin copper wire between the teeth of a steel cogwheel. Out of focus behind: a cold mug and the head of a heavy smith's hammer. Grey dawn through a wet workshop window; one bead of solder glows yellow at the wire's end and twinkles in the lens.
 Colour: rain grey — pale grey wet reflections with small electric-yellow (#ffd84a) sparks doubled in them.
 Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -2882,7 +2882,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 케라운의 벼락 · 유닛 · 레벨 5 · 일반 · 틀 `close` R X `copperlab` · 프롬프트 n2 → `tools/art/inbox/B3-26.jpg`
 
 ```
-Landscape 5:4 painting. An elderly gnome scholar, big-nosed, with singed tufts of white hair, holds a bare forearm up across the whole width of the frame like a certificate, in a tight close-up. Branching fern-like lightning scars run from the fingertips over the arm, up the neck and across the bald crown, each faintly lit from inside. The face, turned three-quarters to the right, wears the calm pride of someone showing a diploma; cracked brass goggles are pushed up on the forehead. A warm amber study lamp from the left; the scars carry their own thin yellow light along the skin.
+Landscape 5:4 painting. An elderly giant salamander scholar, broad flat head and tiny bright eyes, holds one bare foreleg up across the whole width of the frame like a certificate, in a tight close-up. Branching fern-like lightning scars run from the stubby fingertips over the leg, up the thick neck and across the smooth wet crown, each faintly lit from inside. The wide face, turned three-quarters to the right, wears the calm pride of someone showing a diploma; cracked brass goggles are pushed up on the forehead. A warm amber study lamp from the left; the scars carry their own thin yellow light along the damp skin.
 Colour: copper warmth — copper, amber glass and electric-yellow (#ffd84a) filament glow.
 Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -2954,7 +2954,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 케라운의 벼락 · 유닛 · 레벨 7 · 일반 · 틀 `tilt` U C `cobalt` · 프롬프트 n2 → `tools/art/inbox/B3-33.jpg`
 
 ```
-Landscape 5:4 painting. The frame pitches steeply: on the swaying needle-tip of the highest tower, in the centre, a tiny old gnome in a long many-pocketed coat leans out over the abyss, one hand hooked around the rod, the other thrusting an open glass bottle up at the sky. Coat-tails and white hair whip sideways. Above, the whole storm bends toward that little bottle, its lightning coiling into one long serpentine shape with the hint of a dragon's horned head. Deep blue storm night; the coiling lightning overhead is the light, rimming the gnome and the bottle in yellow-white.
+Landscape 5:4 painting. The frame pitches steeply: on the swaying needle-tip of the highest tower, in the centre, an old white crane with a few singed plumes balances on one leg, the other foot hooked around the rod, wings half open against the gale, and thrusts an open glass bottle up at the sky in its long beak. Feathers and a scholar's ribbon whip sideways. Above, the whole storm bends toward that little bottle, its lightning coiling into one long serpentine shape with the hint of a dragon's horned head. Deep blue storm night; the coiling lightning overhead is the light, rimming the crane and the bottle in yellow-white.
 Colour: cobalt night — deep blue dark with electric-yellow (#ffd84a) arcs and violet-white coronas.
 Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -2962,11 +2962,11 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### G1-01 · 오크 견습 전사
+### G1-01 · 결투장의 어린 들소
 고르바스의 발톱 · 유닛 · 레벨 1 · 일반 · 틀 `top` R L `firelit` · 프롬프트 n2 → `tools/art/inbox/G1-01.jpg`
 
 ```
-Landscape 5:4 painting. Straight overhead: a round duel ring of trampled clay fenced with crooked stakes, a single fire-bowl burning at its centre so that every stake throws a long shadow outward like a spoke. At the left edge a small young orc — thin shoulders, short tusks, a braid down his back, a club too big for him — has one bare foot inside the gate gap and one still outside. Behind him runs a line of small footprints; ahead, clay churned by much larger feet. Night; the fire-bowl is the only light, warming the clay ochre and stretching the boy's shadow back out through the gate.
+Landscape 5:4 painting. Straight overhead: a round duel ring of trampled clay fenced with crooked stakes, a single fire-bowl burning at its centre so that every stake throws a long shadow outward like a spoke. At the left edge a young bison calf — thin legs, a hump only beginning, horns still two short buds — has its forehooves inside the gate gap and its hind hooves still outside. Behind it runs a line of small hoofprints; ahead, clay churned by much larger hooves. Night; the fire-bowl is the only light, warming the clay ochre and stretching the calf's shadow back out through the gate.
 Colour: firelit dark — deep darkness with warm ochre (#b88a5a) surfaces lit by one small flame.
 Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -3074,7 +3074,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 고르바스의 발톱 · 유닛 · 레벨 2 · 일반 · 틀 `through` F C `firelit` · 프롬프트 n2 → `tools/art/inbox/G1-11.jpg`
 
 ```
-Landscape 5:4 painting. An orc spearman sits cross-legged just inside the triangular door of a hide tent, glimpsed from outside in the dark, lashing a jagged shard of black obsidian to his spear shaft. One end of the wet sinew is clamped in his tusked teeth, the other wound tight by scarred fingers. The shard's broken edge catches the light like black glass, and chips of obsidian and two rejected points lie on a scrap of hide at his knees. One small tallow flame inside the tent lights his hands and jaw from below; the tent flaps are dark frames on both sides.
+Landscape 5:4 painting. A mongoose spearman sits cross-legged just inside the triangular door of a hide tent, glimpsed from outside in the dark, lashing a jagged shard of black obsidian to its spear shaft. One end of the wet sinew is clamped in its small sharp teeth, the other wound tight by quick clawed fingers, and its long tail lies curled around its feet. The shard's broken edge catches the light like black glass, and chips of obsidian and two rejected points lie on a scrap of hide at its knees. One small tallow flame inside the tent lights its paws and jaw from below; the tent flaps are dark frames on both sides.
 Colour: firelit dark — deep darkness with warm ochre (#b88a5a) surfaces lit by one small flame.
 Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -3130,11 +3130,11 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### M2-1 · 오크의 문신
+### M2-1 · 송곳니 문신
 고르바스의 발톱 · 아이템 · 레벨 2 · 일반 · 틀 `hand` R R `bonemoon` · 프롬프트 n2 → `tools/art/inbox/M2-1.jpg`
 
 ```
-Landscape 5:4 painting of one object — the object itself is the subject. One broad grey-green fist, cropped at the wrist, rests knuckles-forward at the right of the frame on a crumpled steel breastplate. Across the four knuckles runs a fresh tattoo of interlocking fangs in soot-black line, the skin around it still raised and smeared with ash. The fist points toward the right; under it the breastplate is torn open in four parallel rips that match the knuckles exactly. A bone tattooing needle lies beside it on the metal. Cold moonlight from above gives the steel and the knuckles a bone-white edge; the tattoo lines stay deep black.
+Landscape 5:4 painting of one object — the object itself is the subject. One broad tawny forepaw, cropped at the wrist, rests claws-forward at the right of the frame on a crumpled steel breastplate. Across the shaved skin above its four toes runs a fresh tattoo of interlocking fangs in soot-black line, the skin around it still raised and smeared with ash. The paw points toward the right; under it the breastplate is torn open in four parallel rips that match the claws exactly. A bone tattooing needle lies beside it on the metal. Cold moonlight from above gives the steel and the claws a bone-white edge; the tattoo lines stay deep black.
 Colour: bone and moon — bone-white and grey-blue night with dry ochre (#b88a5a) earth.
 Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -3430,11 +3430,11 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### G2-03 · 트롤 견습 궁수
+### G2-03 · 나무늘보 견습 궁수
 베르단의 뿔 · 유닛 · 레벨 1 · 일반 · 틀 `ground` L L `sunshaft` · 프롬프트 n2 → `tools/art/inbox/G2-03.jpg`
 
 ```
-Landscape 5:4 painting. Between fern stems on the forest floor, among arrows stuck crookedly in the leaf mould, we look across to the lowest bough of an immense tree on the left, where a young, lanky moss troll sits astride the branch with long legs dangling, drawing a bow much too big for him toward the left. A straw target hangs untouched beyond him; far above, out of focus, rope bridges and platforms crowd the higher branches. Golden-green sun slants down through the canopy in dusty shafts, lighting the apprentice and leaving the missed arrows in soft shade.
+Landscape 5:4 painting. Between fern stems on the forest floor, among arrows stuck crookedly in the leaf mould, we look across to the lowest bough of an immense tree on the left, where a young sloth with moss greening its shaggy fur hangs by its hind claws and one arm, slowly drawing a bow much too big for it toward the left. A straw target hangs untouched beyond it; far above, out of focus, rope bridges and platforms crowd the higher branches. Golden-green sun slants down through the canopy in dusty shafts, lighting the apprentice and leaving the missed arrows in soft shade.
 Colour: canopy light — golden-green (#58b85f) shafts through drifting mist.
 Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -3454,7 +3454,7 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### NG2-3 · 트롤의 재생
+### NG2-3 · 숲의 재생
 베르단의 뿔 · 공용 마법 · 레벨 1 · 일반 · 틀 `macro` L C `sunshaft` · 프롬프트 n2 → `tools/art/inbox/NG2-3.jpg`
 
 ```
@@ -3514,11 +3514,11 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### G2-08 · 트롤 숲지기
+### G2-08 · 오소리 숲지기
 베르단의 뿔 · 유닛 · 레벨 2 · 일반 · 틀 `eye` R C `thorndark` · 프롬프트 n2 → `tools/art/inbox/G2-08.jpg`
 
 ```
-Landscape 5:4 painting. At eye level in a dark grove, a tall, lanky moss troll kneels in the middle of the frame, turned to the right, pressing fresh soil flat with both long hands at the foot of a great tree; a wooden spade leans against his shoulder. Behind him, older mounds recede between the trunks, each one overgrown with a small crowd of red flowers — the nearest thick, the farthest only a few bright specks. Last grey-green daylight falls from one gap in the canopy onto his mossy back and the newest mound; the red flowers glow faintly in the gloom.
+Landscape 5:4 painting. At eye level in a dark grove, an old grey badger crouches in the middle of the frame, turned to the right, pressing fresh soil flat with both broad foreclaws at the foot of a great tree; a wooden spade leans against its shoulder. Behind it, older mounds recede between the trunks, each one overgrown with a small crowd of red flowers — the nearest thick, the farthest only a few bright specks. Last grey-green daylight falls from one gap in the canopy onto its striped head and the newest mound; the red flowers glow faintly in the gloom.
 Colour: thorn dark — near-black with deep green (#58b85f) and a few points of blood red.
 Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -3682,11 +3682,11 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### G2-17 · 트롤 주술사
+### G2-17 · 두꺼비 주술사
 베르단의 뿔 · 유닛 · 레벨 3 · 일반 · 틀 `back` B C `sporeglow` · 프롬프트 n2 → `tools/art/inbox/G2-17.jpg`
 
 ```
-Landscape 5:4 painting. A lanky troll shaman squats on a root with his back to us, a wad of moss bulging one cheek, his staff hung with seed-rattles and snail shells laid across his knees. What he is talking to stands before him: a half-circle of old trees whose trunks all bend inward, crowns lowered like listening heads. A string of pale green breath-puffs drifts from his mouth up into the leaning branches. Night; the breath-puffs glow pale lime and light the undersides of the leaning branches and the edge of his mossy shoulders.
+Landscape 5:4 painting. A broad warty toad shaman squats on a root with its back to us, moss growing along its spine, a wad of moss bulging one cheek, its staff hung with seed-rattles and snail shells laid across its knees. What it is talking to stands before it: a half-circle of old trees whose trunks all bend inward, crowns lowered like listening heads. A string of pale green breath-puffs drifts from its wide mouth up into the leaning branches. Night; the breath-puffs glow pale lime and light the undersides of the leaning branches and the edge of its mossy shoulders.
 Colour: spore night — black dark lit by blue-green and pale-lime (#58b85f) bioluminescence.
 Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -3922,11 +3922,11 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### G3-03 · 인어 소년
+### G3-03 · 석호의 새끼 돌고래
 마렌시아의 노래 · 유닛 · 레벨 1 · 일반 · 틀 `macro` R X `coraldawn` · 프롬프트 n2 → `tools/art/inbox/G3-03.jpg`
 
 ```
-Landscape 5:4 painting. Extreme close-up filling the frame: the lower half of a merfolk boy's face breaking the surface, turned three-quarters to the right, grinning around the prize clamped in his teeth — a bent silver spoon, tarnished and dripping, bright as a fish. Water streams from his chin; a sprinkle of blue scales crosses his cheek and one small ear-fin is nicked. Far behind him, soft and out of focus, lie the reef gap he slipped through and the open sea beyond. Low first sunlight from the right flashes on the wet spoon and beads of water; the sea behind is still dawn-pink and dim.
+Landscape 5:4 painting. Extreme close-up filling the frame: the beak of a young dolphin breaking the surface, turned three-quarters to the right, smiling around the prize clamped in its small teeth — a bent silver spoon, tarnished and dripping, bright as a fish. Water streams from its chin; one dark eye shines above, and the tip of a small dorsal fin behind is nicked. Far beyond it, soft and out of focus, lie the reef gap it slipped through and the open sea. Low first sunlight from the right flashes on the wet spoon and beads of water; the sea behind is still dawn-pink and dim.
 Colour: coral dawn — coral pink and warm first light over water-blue (#4fb3ff).
 Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -4342,13 +4342,15 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 1장
+## 2. 다시 그리기 · 1장
 
-### A1-02 · 그림자 도둑 — 그림 있음
+> 이미 그림이 있어 게임은 그대로 돌아간다. 1번을 다 그린 뒤 그린다.
+
+### A1-02 · 그림자 도둑 — **다시 그리기**: 종류가 바뀜(2026-11-21) — 옛 그림은 처음 세운 무리의 모습
 모르카스의 그믐 · 유닛 · 레벨 1 · 일반 · 틀 `inside` L R `candle` · 프롬프트 n2 → `tools/art/inbox/A1-02.jpg`
 
 ```
-Landscape 5:4 painting. From inside a street lantern, past its sooty glass panes and the flame at the bottom edge: on the wet cobbles below, a thin horned demon thief in a patched dark coat crouches at the right, just outside the circle of light, and peels the long shadow of a passing merchant off the stones like a strip of black cloth, rolling it over his forearm as he creeps left. The merchant walks on out of frame, purse still on his belt, the lit cobbles at his heels bare. Warm amber from the lantern flame pools on the cobbles; beyond its edge the alley is violet-black.
+Landscape 5:4 painting. From inside a street lantern, past its sooty glass panes and the flame at the bottom edge: on the wet cobbles below, a thin black cat with a nicked ear crouches at the right, just outside the circle of light, and peels the long shadow of a passing merchant off the stones like a strip of black cloth, gathering it in its teeth as it creeps left. The merchant walks on out of frame, purse still on his belt, the lit cobbles at his heels bare. Warm amber from the lantern flame pools on the cobbles; beyond its edge the alley is violet-black.
 Colour: candle islands — small pools of amber light in vast dark, violet (#8b5cf6) in the shadows.
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
