@@ -1,8 +1,9 @@
-# ETHERION 배경음 다시 만들기 — 서정 · 비장 · 단조 (Gemini용 프롬프트 15곡)
+# ETHERION 배경음 다시 만들기 — 서정 · 비장 · 단조 (Gemini용 프롬프트 15곡 + 새 2곡)
 
 > 2026-11-15에 썼다. 지금 배경음 15곡(`PROMPT_BGM.md`)은 너무 클래식 음악 같고 경쾌하다는 의견에 따라, **같은 15곡 이름 · 같은 쓸 곳**을 그대로 두고 분위기만 바꿔 다시 만드는 프롬프트다.
 > 만드는 법(Gemini 음악 만들기 · Lyria 3 Pro, 한 곡 3~4번 만들어 고르기, `audio/inbox/bgm/`에 넣고 "배경음 넣어줘")은 `PROMPT_BGM.md` 3장과 같다.
 > 맨 끝(5장)에 카드 보기 거르개(종류 · 등급 · 레벨)를 누를 때 나는 **클릭음 프롬프트**도 있다.
+> 2026-11-21에 **새 곡 둘(16 · 17번, 서정 · 비장 랩소디)** 을 더했다. 이 둘은 다시 만드는 곡이 아니라 새 파일이다(`bgm_eve` · `bgm_banner`) — 받으면 `js/bgm.js`의 `tracks`에 이름을 더해야 한다.
 
 ---
 
@@ -21,7 +22,7 @@
 - 짜임은 지금처럼 **한 줄 → 여러 겹 → 정점 → 다시 한 줄**로 숨 쉰다. 시간표(`[00:00]` …)로 적었다.
 - 효과음(바람 · 물 · 불) · 노래 가사는 넣지 않는다. 합창은 가사 없는 허밍(‘mm’ · ‘oo’ · ‘ah’)만.
 
-## 1. 열다섯 곡 한눈에
+## 1. 열일곱 곡 한눈에
 
 | # | 파일 | 새 제목 | 쓸 곳 | 조 · 박자 · 빠르기 | 주인공 소리 |
 |---|---|---|---|---|---|
@@ -40,8 +41,11 @@
 | 13 | `bgm_halo` | **무너진 새벽성의 종** | 대기실 (보관소) | B단조 4/4 · 약 58 | 가사 없는 합창 · 오르간 · 먼 종 |
 | 14 | `bgm_gale` | **폭풍 앞의 질주** | 대전 | E단조 6/8 · 약 112 | 휘슬 · 피들 · 보드란 · 낮은 현 |
 | 15 | `bgm_lastcard` | **마지막 한 장** | 대전 (결전) | C단조 4/4 · 약 100 | 피아노 · 호른 · 스피카토 현 · 합창 |
+| 16 | `bgm_eve` | **출정 전야의 랩소디** (새 곡) | 대기실 | C#단조 4/4 · 약 58, 루바토 | 피아노 · 낮은 클라리넷 · 독주 비올라 |
+| 17 | `bgm_banner` | **쓰러진 깃발의 랩소디** (새 곡) | 대전 | B♭단조 4/4 · 약 66 → 108 → 66 | 독주 호른 · 침발롬 · 낮은 현 |
 
 - 6~14번은 지금처럼 깃발 곡이다: 6 잿불 고블린 · 7 무쇠수염 드워프 · 8 번개 노움 · 9 바위주먹 오크 · 10 이끼 트롤 · 11 푸른비늘 인어 · 12 심연 마족 · 13 성광 천족 · 14 폭풍 하이엘프. 깃발 악기는 남기고 분위기만 단조로 바꿨다.
+- 16 · 17번은 깃발 곡이 아닌 **랩소디(광시곡)** 다. 루바토로 자유롭게 흐르고 구간 사이에 짧은 카덴차가 있다. 16번은 서정 쪽이 큰 느린 곡, 17번은 느린 비가 → 빨라짐 → 넓고 느린 정점으로 가는 곡이다. 주인공 악기는 5번(바이올린) · 1번(첼로)과 겹치지 않게 골랐다. 쓸 곳(대기실 하나 · 대전 하나 → 장면마다 8곡)은 제안이다.
 - 길이는 모두 약 2:40~3:00. 끝은 긴 화음으로 맺는다(게임이 4초 전부터 다음 곡과 겹쳐 틀어서 페이드아웃 불필요).
 
 ## 2. 마음에 거의 들 때 고쳐 달라는 말
@@ -53,6 +57,13 @@
 - 주제가 안 들리면: `Make the main theme simpler and repeat it more clearly at each section.`
 - 합창에 가사가 들리면: `Keep the choir wordless: only low humming and soft 'oo' vowels, no lyrics.`
 - 효과음이 섞이면: `Music only, no sound effects.`
+
+**16 · 17번(랩소디)에만**
+- 랩소디 느낌이 약하면: `More rhapsodic: freer rubato, and a short solo cadenza between sections.`
+- 16번이 피아노 독주회처럼 들리면: `Less like a classical piano recital, more like a cinematic dark-fantasy game score, with low sustained strings and wide reverb.`
+- 17번의 빠르기가 안 바뀌면: `Make the contrast between the slow opening and the faster middle section clearer, with a gradual accelerando.`
+- 17번의 빠른 구간이 너무 세면: `Make the fast section lighter and more controlled, the drums distant and muffled.`
+- 17번의 침발롬이 집시 춤곡처럼 튀면: `Keep the cimbalom dark, solemn and in the background; no folk dance feel.` 그래도 튀면 `Replace the cimbalom with harp and low piano.`
 
 ## 3. 곡별 프롬프트 — 타이틀 · 대기실
 
@@ -178,6 +189,23 @@ Lyrical, sacred and mournful chant for a dark-fantasy card game. Mood: solemn, h
 No drums, no percussion except bells, no lyrics or words, no sound effects. Wide cathedral reverb.
 ```
 
+### 16. 출정 전야의 랩소디 — `bgm_eve` (대기실) · 새 곡
+
+싸움터로 떠나기 전날 밤. 피아노가 즉흥하듯 자유롭게 흐르고, 낮은 클라리넷과 비올라가 주제를 주고받는다. 구간 사이에 짧은 피아노 카덴차. 서정 쪽이 큰 느린 랩소디.
+
+```text
+Lyrical, solemn cinematic rhapsody for the lobby of a dark-fantasy card game, the night before a march to war. Mood: tender and grave at once, a quiet farewell with unbroken resolve; deeply emotional, never cheerful. Rhapsodic in form: free, improvisatory and episodic, with flexible rubato, phrases that surge forward and then hold back, and short free cadenzas between sections. Not a classical concert piece: a modern video-game film score. Instruments: grand piano with long reverb, low clarinet in its dark chalumeau register, solo viola, low strings, a distant solo French horn, low wordless male choir humming, a very faint dark ambient pad. Key of C-sharp minor, 4/4, about 58 BPM, very flexible. One simple, singable four-bar minor theme built on a falling sigh and a rising answer; it returns at least three times, each time with a thicker texture. Harmony: i - VI - III - VII, a sorrowful iv, suspended chords resolving downward, a Neapolitan colour before the climax.
+[00:00] Solo piano alone: low octaves like a distant bell, then the theme as a single unaccompanied line, slow and free.
+[00:22] The low clarinet takes the theme; the piano answers each phrase with a short rippling flourish, like someone improvising by candlelight.
+[00:48] A solo viola joins in counterpoint with the clarinet; low strings hold a soft drone.
+[01:12] A free piano cadenza: a sweeping arpeggio rising from the lowest register and falling back, ending on a held, unresolved chord.
+[01:26] The strings enter in rich minor harmony and take the theme; the piano rolls broad arpeggios beneath; a distant horn calls; the choir hums the root and fifth.
+[01:56] The climax: strings, horn and choir sing the theme in octaves over cascading piano, grand, mournful and resolute, never harsh.
+[02:24] Everything falls away to piano and viola; the theme breaks into fragments, slower and slower.
+[02:42] Solo piano alone with the theme once more, ending on a long C-sharp minor chord that briefly opens to C-sharp major.
+No drums, no percussion, no cymbals, no electric guitar, no sudden loud hits, no sound effects, no lyrics. Instrumental, wide cinematic reverb.
+```
+
 ## 4. 곡별 프롬프트 — 대전
 
 ### 4. 바람이 우는 들판 — `bgm_field` (대전)
@@ -290,6 +318,23 @@ Lyrical, epic and tragic final-battle theme for a fantasy card game. Mood: every
 [02:20] Sudden drop to piano and soft strings, the theme fragile.
 [02:35] One last swell, ending on a long C major chord: a brief light after the darkness.
 No cymbals, no drum kit, no electric guitar, no sound effects, no lyrics. Instrumental.
+```
+
+### 17. 쓰러진 깃발의 랩소디 — `bgm_banner` (대전) · 새 곡
+
+쓰러진 깃발을 다시 드는 싸움. 먼 호른 한 줄의 느린 비가로 시작해 점점 빨라져 몰아치고, 정점에서 다시 넓고 느리게 주제가 돌아온다(광시곡의 느림 → 빠름 꼴). 비장 쪽이 큰 랩소디.
+
+```text
+Lyrical, tragic and heroic cinematic rhapsody, a battle theme for a dark-fantasy card game: a fallen banner raised again. Mood: grief and defiance together, solemn, proud and unbroken; stirring but noble, never frantic or chaotic. Rhapsodic in form: a slow, free lament that gradually quickens into a fierce, driving middle section, then broadens into a grand return of the theme. Not a classical concert piece: a modern video-game film score. Instruments: solo French horn, cimbalom (hammered dulcimer) played dark and solemn, low strings, violins, deep soft war drums, timpani rolls, low wordless choir. Key of B-flat minor, 4/4, starting at about 66 BPM with rubato, accelerating to about 108 BPM, then returning to the slow tempo. One strong, singable four-bar minor theme built on a rising fifth and a slow stepwise fall; it returns at least three times, each time transformed. Harmony: i - VI - III - VII, a sorrowful iv, harmonic-minor tension at cadences, a dark Neapolitan before the climax.
+[00:00] A lone French horn from afar plays the theme, slow and free, over a single low drone.
+[00:20] The cimbalom answers with a trembling tremolo and a free falling flourish; low strings hold a dark chord.
+[00:44] Cellos and violas sing the theme as a slow march; a deep drum beats like a heartbeat; the cimbalom ripples underneath.
+[01:10] The tempo gradually quickens: low strings start a galloping ostinato, and fragments of the theme pass between horn and violins.
+[01:36] The fast section, about 108 BPM: the theme transformed into a fierce, driving minor dance, violins and cimbalom in unison, drums pushing forward, horns answering; urgent but controlled.
+[02:06] Suddenly broad and slow again: full strings, horns and choir sing the theme in octaves in its original form, tragic and defiant, the grandest moment.
+[02:32] It falls away to a cimbalom tremolo over the low drone.
+[02:46] The lone horn plays the theme once more, with one last soft deep drum, ending on a long B-flat minor chord.
+No cymbals, no drum kit, no electric guitar, no trailer hits or booms, no sound effects, no lyrics. Instrumental, wide cinematic reverb.
 ```
 
 ## 5. 덤 — 카드 보기 거르개 클릭음 (`ui_filter`)
