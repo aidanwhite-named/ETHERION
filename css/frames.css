@@ -5,6 +5,10 @@
    - 종류 줄(유닛 · 스페셜) · 클래스 동그라미 없음, 레벨은 왼쪽 위 에테르 문장(ether_back) + 원소색 구슬 + 숫자, 레벨 아이콘은 img/ui/pips/pip_<깃발>.png
    - 글꼴: 고운바탕 보통 굵기 */
 .card.fm.has-frame { --fbw: .14em; --fl: .066; --fr: .964; --fb: .966; --sb: .966; }
+/* --fbw = .c-frame 실제 테두리 두께여야 자리가 카드 기준으로 맞는다(2026-11-21): 크게 보기는 .09em(style.css), 전장 · 내 핸드 카드는 .2em(slim.css · hand.css).
+   전에는 모두 .14em이라 크게 보기는 왼쪽으로, 전장 · 핸드는 오른쪽으로 카드 폭의 약 0.5%씩 밀렸다 */
+.card.fm.size-full.has-frame { --fbw: .09em; }
+.frow .slot .card.fm.slim.has-frame, .hand-me .hand-card .card.fm.slim.has-frame { --fbw: .2em; }
 /* 깃발마다 아래쪽 장식(불꽃 기둥 · 뼈 · 깃털 · 이끼 귀퉁이)을 피해 글 상자 왼쪽(--fl) · 스탯 열 오른쪽 끝(--fr) · 글 상자 아래(--fb) · 스탯 열 아래(--sb)를 옮긴다
    (카드 대비 비율, 프레임 그림에서 장식 없는 구간을 재서 정함) */
 .card.fm.fr-B1 { --fl: .10; --fr: .895; }
@@ -32,10 +36,13 @@
   font-family: "Gowun Batang", var(--kfont, var(--body)), serif !important; font-weight: 400 !important; }
 .card.fm.has-frame .c-name * { font-family: inherit !important; font-weight: inherit !important; }
 
-/* 레벨 아이콘 열: 테두리 안쪽 ~ 그림 창 액자 사이 가운데, 문장 아래(13.6%)부터 */
+/* 레벨 아이콘 열: 테두리 안쪽 ~ 그림 창 액자 사이 가운데, 문장 아래(13.6%)부터.
+   2026-11-21 깃발마다 빈 열을 픽셀로 잼(600px 그림, 테두리 안쪽 끝 ~ 창 액자 바깥 끝): 대부분 x 8~49px → 가운데 4.8%(기본값).
+   A2 솔란테는 금줄(x 11~12) 안쪽 13~52px → 5.4%, A3 벨루미르는 바깥 테두리가 없어 0~47px → 4.0%, B2는 강철판 5~50px → 4.6% */
+.card.fm.fr-A2 { --pip-x: .054; } .card.fm.fr-A3 { --pip-x: .040; } .card.fm.fr-B2 { --pip-x: .046; }
 .card.fm.has-frame .c-mid, .card.fm.has-frame .c-low, .card.fm.has-frame .c-lowl { position: static !important; }
 .card.fm.has-frame .c-side { position: absolute; width: calc((100% + 2 * var(--fbw)) * .052);
-  left: calc((100% + 2 * var(--fbw)) * .024 - var(--fbw));
+  left: calc((100% + 2 * var(--fbw)) * (var(--pip-x, .048) - .026) - var(--fbw));   /* 열 가운데 = --pip-x (아래 깃발별 값) */
   top: calc((100% + 2 * var(--fbw)) * .136 - var(--fbw)); bottom: calc((100% + 2 * var(--fbw)) * .30 - var(--fbw)); }
 .card.fm.has-frame .c-pips { gap: .08em !important; padding: 0 !important; align-items: center; }
 .card.fm.has-frame .c-pips .pip { width: .5em !important; height: .5em !important; background: none !important; box-shadow: none !important;
@@ -64,8 +71,8 @@
   filter: drop-shadow(0 .03em .06em #000); }
 .card.fm.has-frame .c-clsico i::before, .card.fm.has-frame .c-clsico i::after { display: none !important; }
 
-/* 레벨 문장: 에테르 제단(2.8em) — 고리 구멍 중심 = 그림 정중앙, 카드 (.6em, .6em)에. 위 · 왼쪽은 카드 밖으로 잘린다 */
-.card.fm.has-frame .c-emb { position: absolute; left: calc(.6em - var(--fbw)); top: calc(.6em - var(--fbw)); width: 0; height: 0; z-index: 4; pointer-events: none; }
+/* 레벨 문장: 에테르 제단(2.8em) — 고리 구멍 중심 = 그림 정중앙. 세로는 카드 .6em, 가로는 레벨 아이콘 열 가운데(깃발별 --pip-x, 2026-11-21 — 전에는 .6em이라 열보다 약 1.2% 오른쪽). 위 · 왼쪽은 카드 밖으로 잘린다 */
+.card.fm.has-frame .c-emb { position: absolute; left: calc((100% + 2 * var(--fbw)) * var(--pip-x, .048) - var(--fbw)); top: calc(.6em - var(--fbw)); width: 0; height: 0; z-index: 4; pointer-events: none; }
 .card.fm.has-frame .c-emb img { position: absolute; width: 2.8em; height: 2.8em; left: -1.4em; top: -1.4em; max-width: none;
   filter: drop-shadow(0 .05em .12em rgba(0, 0, 0, .85)); }
 .card.fm.has-frame .c-emb .c-orb { position: absolute; width: .86em; height: .86em; left: -.43em; top: -.43em; border-radius: 50%;
@@ -77,6 +84,10 @@
 .card.fm.has-frame .c-emb .c-enum b { display: block; font: 900 .6em / 1 "Cinzel", serif; color: #fff6dd; transform: translateY(.14em);
   text-shadow: 0 .05em .1em #000, 0 0 .25em rgba(0, 0, 0, .9); }
 html.mobile .card.fm.has-frame .c-emb img { filter: none; }
+/* 진영별 문장(2026-11-21 사용자): 문장은 위 · 왼쪽이 잘려 오른쪽 아래만 보인다 — 그림 그대로면 용(용맥 맹약 G).
+   신탁 성회(A)는 시계 방향 120° 돌려 신을, 거골 연합(B)은 좌우로 뒤집어 거인을 그 자리에. 구멍이 그림 정중앙이라 구슬 · 숫자는 그대로 */
+.card.fm.has-frame:is(.fr-A1, .fr-A2, .fr-A3) .c-emb img { transform: rotate(120deg); }
+.card.fm.has-frame:is(.fr-B1, .fr-B2, .fr-B3) .c-emb img { transform: scaleX(-1); }
 
 /* 공 · 방 · 체 열이 없는 카드(마법 · 숫자 없는 아이템): 글 상자를 오른쪽 끝(스탯 열 끝 --fr)까지 */
 .card.fm.has-frame.fr-wide .c-box { right: calc((100% + 2 * var(--fbw)) * (1 - var(--fr)) - var(--fbw)); }

@@ -81,7 +81,8 @@
 ## 받은 파일 넣는 곳
 
 - 그림: `tools/art/inbox/<카드 ID>.jpg` → `python3 tools/art/artmap.py import` (게임 사본 `img/cards/<카드 ID>.jpg` 600×750)
-- 소리: 코드로 직접 합성한다(`tools/sfx/synth/`, AGENTS.md "소리 프롬프트"). `tools/sfx/notes/<깃발>.json` 지시를 고치고 `node tools/sfx/build_sfx_prompts.js` → `~/develop/sfx-synth/.venv/bin/python tools/sfx/synth/render.py <폴더> <키들>` → `audio/sfx/<키>.ogg · .mp3` 로 바꿔 넣는다(새 키면 `audio/sfx/index.json · index.js`, `index.html` 의 `index.js?v=`).
+- 소리(카드 · 전장, 2026-11-21~): `~/develop/sfx-synth/.venv/bin/python tools/sfx/synth2/render2.py <폴더> <키들>` → `audio/sfx/<키>.ogg · .mp3` 로 바꿔 넣고 `js/feel.js` `SND_VER`에 그 키를 올린다(게임 자료에서 바로 합성 — 프롬프트를 다시 뽑지 않아도 된다. AGENTS.md "소리 프롬프트").
+- 소리(메뉴 · 상점 · 보상 — v1): 코드로 직접 합성한다(`tools/sfx/synth/`). `tools/sfx/notes/<깃발>.json` 지시를 고치고 `node tools/sfx/build_sfx_prompts.js` → `~/develop/sfx-synth/.venv/bin/python tools/sfx/synth/render.py <폴더> <키들>` → `audio/sfx/<키>.ogg · .mp3` 로 바꿔 넣는다(새 키면 `audio/sfx/index.json · index.js`, `index.html` 의 `index.js?v=`).
 
 ---
 

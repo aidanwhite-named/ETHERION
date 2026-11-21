@@ -42,14 +42,15 @@ const FEEL = {
     if (this.ac.state === "suspended") this.ac.resume();
     return this.ac;
   },
-  /* ---------- 효과음 파일 (2026-11-16~ 코드로 직접 합성한 audio/sfx/<키>.ogg · .mp3 — tools/sfx/synth/, 그 전은 Stable Audio) ----------
+  /* ---------- 효과음 파일 (코드로 직접 합성한 audio/sfx/<키>.ogg · .mp3 — 카드 · 전장 소리는 2026-11-21~ tools/sfx/synth2/, 메뉴 · 상점 · 보상 소리는 tools/sfx/synth/) ----------
      목록은 audio/sfx/index.json. 키 이름은 tools/sfx/prompts/sfx.jsonl 의 sounds[].key 그대로.
      예전 합성음 이름으로 부르는 곳이 많아서 SND_ALIAS 로 새 키에 잇는다(null = 소리 없음: 같은 순간 다른 소리가 이미 남).
      카드마다 다른 소리: FEEL.card(카드ID, "atk" | "def" | "cast" | "equip", 세기, 없을 때 쓸 공용 키) */
   SND_ALIAS: {
     confirm: "confirm_ready", hitBig: "life_hit", suck: null,
     // 2026-11-16 사용자: 날카로운 금속성 소리 빼기 — 전장 카드 옮김 · 소각장으로 갈 때(move, 거의 4kHz 위만 울림), 코인 도는 소리(coin_flip · coin_reflip · shield_coin), 파친코 SPIN이 멈출 때 차르르(pach_stop)
-    move: null, coin_flip: null, coin_reflip: null, shield_coin: null, pach_stop: null,
+    // 2026-11-21 코인 도는 소리는 새로 만들어 다시 켰다(v2: 길게 울리는 쇳소리 대신 바람을 가르는 '파라라락' + 0.015초짜리 '팅' — tools/sfx/synth2/common.py coin_spin)
+    move: null, pach_stop: null,
     crystal: null,   // 2026-11-16 결정화: 1.9초 내내 같은 크기로 울리는 쇳소리가 카드가 소각장으로 가는 동안 이어졌다 — 빼고 소각장에 닿을 때 불 소리(burn)만
     banner_foe: null, banner_combat: null,   // 2026-11-16 상대 차례 · 전투 시작 명판 소리 — 잔향이 길어 뺌(공격 · 방어 차례 명판은 꼬리만 잘라 남김)
     sortie: null,   // 2026-11-16 대전 시작(출정) 칼 뽑는 쇳소리 — 핸드가 들어오는 동안 "지이잉" 하고 길게 울렸다
@@ -66,7 +67,7 @@ const FEEL = {
     ...Object.fromEntries("MA-01.cast PS-A1-2.cast MA-09.cast CS-A1.cast RS-A1-3.cast HA1-2.cast HA1-3.cast US-A3-1.cast RS-A2-1.cast PS-A2-1.cast SA3-02.cast SA3-05.cast MB-05.cast NB1-3.cast PS-B3-1.cast SG2-02.cast SG3-03.cast RS-G1-1.cast RS-G1-3.cast RS-B2-1.cast MG-13.cast fear plague".split(" ").map(k => [k, "1118v395"])),   // 2026-11-18 v3.95 바뀐 마법 21장 · 새 저주 소리(공포 · 역병)
     ...Object.fromEntries("MA-10.cast MA-14.cast SA2-02.cast RB1-1.cast SB1-08.cast MG-11.cast RS-G2-3.cast RG2-1.cast US-G2-1.cast UP-A1-09.atk UP-A1-09.def UP-A1-18.atk UP-A1-18.def UP-A2-11.atk UP-A2-11.def UP-A2-17.atk UP-A2-17.def UP-A2-22.atk UP-A2-22.def UP-A2-24.atk UP-A2-24.def UP-A3-10.atk UP-A3-10.def UP-A3-11.atk UP-A3-11.def UP-A3-18.atk UP-A3-18.def UP-A3-23.atk UP-A3-23.def UP-A3-24.atk UP-A3-24.def UP-B1-12.atk UP-B1-12.def UP-B1-17.atk UP-B1-17.def UP-B1-18.atk UP-B1-18.def UP-B2-17.atk UP-B2-17.def UP-B2-18.atk UP-B2-18.def UP-B2-22.atk UP-B2-22.def UP-B2-24.atk UP-B2-24.def UP-B3-12.atk UP-B3-12.def UP-B3-23.atk UP-B3-23.def UP-G1-24.atk UP-G1-24.def UP-G2-22.atk UP-G2-22.def UP-G3-11.atk UP-G3-11.def UP-G3-12.atk UP-G3-12.def UP-G3-17.atk UP-G3-17.def UP-G3-24.atk UP-G3-24.def".split(" ").map(k => [k, "1117r"])),   // 2026-11-17 카드 변경 맞춤: 화약통 깔기 · 화약고 폭파 · 뒤집힌 물거울 · 트롤 3장 · 강화 유닛 26장(v3.79 종류) 새 소리 + 새벽빛 3장   // 2026-11-17 v3.87 원한의 일격 · 피의 맹세 새 소리   // 2026-11-16 상대 · 공격 · 방어 차례 명판 소리의 잔향 꼬리를 잘라 냄
     ...Object.fromEntries("SA3-06.cast NA3-3.cast A3-13.def A3-41.atk UP-B1-12.def B2-41.atk B2-12.atk SB2-01.cast UP-B2-18.def US-B3-2.cast G1-18.atk UP-G1-18.atk UP-G1-18.def PN-G1-U2.atk PS-G1-1.cast G2-31.atk UP-G2-22.def UP-G3-18.atk UP-G3-18.def UP-G3-11.def G3-08.atk G3-08.def G3-28.atk G3-28.def PN-G3-C3.atk PI-G3.equip A1-32.atk A1-32.def UP-A1-11.def UP-A1-15.atk UP-A1-15.def UP-A1-23.atk UP-A1-23.def A2-17.atk UP-A2-17.atk A2-29.atk A2-31.atk PN-A2-U1.def PN-A2-U2.atk PN-A2-U2.def SA2-03.cast MA-14.cast G2-26.atk PN-G2-C3.def RS-G1-2.cast".split(" ").map(k => [k, "1119sfx"])) },   // 2026-11-19 프롬프트 점검 수정: SA3-06 · NA3-3 · 강화 유닛 · 금지어 정리 45키
-  SND_ALL: "syn1116",   // 모든 파일을 한꺼번에 바꿨을 때 올린다(2026-11-16 Stable Audio → 직접 합성)
+  SND_ALL: "v2s1121",   // 모든 파일을 한꺼번에 바꿨을 때 올린다(2026-11-16 Stable Audio → 직접 합성 · 2026-11-21 카드 · 전장 소리 1,210키를 v2 합성기 tools/sfx/synth2/ 로 새로)
   sndUrl(key) { const v = this.SND_VER[key] ? this.SND_VER[key] + "." + this.SND_ALL : this.SND_ALL; return this.snd.base + encodeURIComponent(key) + "." + this.snd.ext + "?v=" + v; },
   /* media: 파일로 열었을 때(file:// — ETHERION 실행.bat · PC 앱)는 fetch 가 막혀서 <audio> 로 낸다. 목록도 audio/sfx/index.js (window.SFX_KEYS) */
   snd: { keys: null, buf: {}, wait: {}, ext: "ogg", base: "audio/sfx/", media: false, el: {} },
