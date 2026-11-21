@@ -2,8 +2,8 @@
   "_about": "B2 소르그림의 방패 — 카드별 장면 지시. 쓰는 법은 tools/art/PROMPT_GUIDE.md, 검사는 node tools/art/scene_tool.js lint B2.",
   "B2-01": {
     "shot": "high", "dir": "B", "place": "L", "pal": "lamplit",
-    "scene": "Looking down from a gantry onto the curved back-plate of an unfinished golem laid flat on trestles: at the left a small stocky dwarf rivet-hand kneels with his back to us, a short-handled hammer raised over the next rivet in a long gleaming row. He has drawn his braided iron-grey beard out along the seam like a measuring cord; its tip reaches the seventh rivet, and a chalk tick marks where it reached yesterday. A bucket of cherry-red rivets steams at his knee.",
-    "light": "A single hanging oil lamp pools warm light on the plate around him; the workshop beyond falls away into black, the hot rivets glowing small and red."
+    "scene": "Looking down from a gantry onto the curved back-plate of an unfinished golem laid flat on trestles: at the left a small woodpecker with a beak of blued steel clings to the plate with its back to us, head drawn far back over the next rivet in a long gleaming row. A chalk line runs beside the row, and a chalk tick marks where yesterday's work ended, well short of today's. A bucket of cherry-red rivets steams beside its claws, and a pair of tiny tongs lies ready.",
+    "light": "A single hanging oil lamp pools warm light on the plate around it; the workshop beyond falls away into black, the hot rivets glowing small and red."
   },
   "B2-02": {
     "shot": "over", "dir": "L", "place": "X", "pal": "snowlight",
@@ -12,7 +12,7 @@
   },
   "B2-05": {
     "shot": "top", "dir": "F", "place": "X", "pal": "mirror",
-    "scene": "Straight down from the roof of an underground hall: a young dwarf apprentice with only a short fuzz of beard stands in the middle of a tight ring of five old dwarf smiths who all lean inward, noses first, sniffing at him, their braided grey beards pointing at him like spokes that fill the frame. He tilts his freckled face straight up toward us, into one thin shaft of daylight from a vent far above, and hugs a brand-new round shield polished so bright that it mirrors all five wrinkled noses.",
+    "scene": "Straight down from the roof of an underground hall: a young pangolin apprentice whose scales still shine copper-bright stands in the middle of a tight ring of five old iron-grey pangolin smiths who all lean inward, sniffing at him, their long tapered snouts pointing at him like spokes that fill the frame. He tilts his narrow face straight up toward us, into one thin shaft of daylight from a vent far above, and hugs a brand-new round shield polished so bright that it mirrors all five wrinkled snouts.",
     "light": "One narrow shaft of pale daylight drops from the vent onto his face and the shield; the hall around is dark silver-grey, the shield returning cold bright reflections."
   },
   "B2-06": {
@@ -32,12 +32,12 @@
   },
   "B2-12": {
     "shot": "macro", "dir": "N", "place": "C", "pal": "forgeheart",
-    "scene": "Extreme close-up of two open palms held side by side in front of a bed of glowing coals: on the left the broad young hand of a dwarf apprentice, on the right the larger, soot-grained hand of his old master. Each carries the same ridge of yellow callus under the fingers and the same polished groove where a hammer haft sits; the young one's are still pink at the edges. A small plain hammer rests in the crook of the apprentice's thumb, and a fringe of his short copper-red beard, braided with one iron ring, edges the frame.",
+    "scene": "Extreme close-up of two open ape palms held side by side in front of a bed of glowing coals: on the left the broad young hand of an apprentice, fringed with gunmetal-grey fur, on the right the larger, soot-grained hand of its old master. Each leathery palm carries the same ridge of yellow callus under the fingers and the same polished groove where a hammer haft sits; the young one's are still pink at the edges. A small plain hammer rests in the crook of the apprentice's thumb, and an iron ring gleams on its wrist.",
     "light": "Coals behind push molten orange between the fingers and along the edges of both hands; a dim steel-grey light from the front shows the palms."
   },
   "B2-15": {
     "shot": "pov", "dir": "F", "place": "R", "pal": "lamplit",
-    "scene": "First person across a shop counter of scarred oak: on the right a broad dwarf smith with a soot-black braided beard and bare, burn-freckled forearms holds a finished sword blade out toward us, flat on two open palms. The steel is long cold, yet its edges blur with a fine tremor. Everything near it answers: water in a tin cup on the counter stands in tight rings, loose filings crawl in a line toward the blade, the hairs of his beard quiver, and our own reaching fingertips, entering at the bottom edge, hover an inch away.",
+    "scene": "First person across a shop counter: on the right a broad one-eyed smith with slate-grey skin, a single round eye under a heavy brow and bare, burn-freckled forearms holds a finished sword blade out toward us, flat on two open palms. The steel is long cold, yet its edges blur with a fine tremor. Everything near it answers: water in a tin cup on the counter stands in tight rings, loose filings crawl in a line toward the blade, the thongs of his leather apron quiver, and our own reaching fingertips, entering at the bottom edge, hover an inch away.",
     "light": "One oil lamp behind his shoulder makes a small warm pool on the counter; the humming blade carries a thin cold streak of steel-grey light along its length."
   },
   "B2-16": {
@@ -82,7 +82,7 @@
   },
   "B2-27": {
     "shot": "close", "dir": "L", "place": "R", "pal": "patina",
-    "scene": "Head and chest fill the right of the frame: a grizzled dwarf gate captain in rust-streaked plate looks off to the left, eyes narrowed under a dented helm. The picture is really his beard — an iron-grey fall of a dozen thick braids, and into every braid is plaited a keepsake of a blow he stopped: a snapped sword tip, a notched sliver of axe blade, a bent arrowhead, each gone brown or green with age. The newest shard, near his collar, is still bright. Behind his shoulder a slab of riveted gate stands shut.",
+    "scene": "Head and chest fill the right of the frame: a grizzled guardian lion-dog with one blunt horn on its brow looks off to the left, eyes narrowed under a dented helm, in rust-streaked plate. The picture is really its mane — an iron-grey fall of a dozen thick braids, and into every braid is plaited a keepsake of a blow it stopped: a snapped sword tip, a notched sliver of axe blade, a bent arrowhead, each brown or green with age. The newest shard, near its collar, is still bright. Behind its shoulder a slab of riveted gate stands shut.",
     "light": "Dim grey light from an arrow slit on the left grazes the helm and the old blade shards, showing rust red and verdigris against steel grey."
   },
   "B2-28": {
@@ -112,8 +112,8 @@
   },
   "B2-35": {
     "shot": "eye", "dir": "R", "place": "R", "pal": "lamplit",
-    "scene": "At his own eye level in a hall of finished golems: on the right an old dwarf master with a white beard braided down to his belt stands facing right and presses one sooty palm against the knee-plate of a steel giant whose body rises out of frame. Down the long rank behind him every golem carries the same small black handprint on the same knee, at exactly the height he can reach — dozens of them, shrinking into the dark. A lantern and a pot of soot sit at his feet.",
-    "light": "His lantern on the floor makes a small warm pool around his boots and the nearest knee; the rank of golems fades to steel-grey glints in the black hall."
+    "scene": "At a visitor's eye level in a hall of finished golems: on the right an old grey elephant in a scarred leather apron, tusks capped in steel, stands facing right and presses the soot-black tip of his trunk against the breastplate of a steel giant whose head rises out of frame. Down the long rank behind him every golem carries the same small round soot mark on the same spot of its chest, at exactly the height his trunk can reach — dozens of them, shrinking into the dark. A lantern and a pot of soot sit at his feet.",
+    "light": "His lantern on the floor makes a small warm pool around his feet and the nearest golem's shins; the rank of golems fades to steel-grey glints in the black hall."
   },
   "B2-36": {
     "shot": "ground", "dir": "R", "place": "L", "pal": "patina",
@@ -172,8 +172,8 @@
   },
   "PN-B2-U1": {
     "shot": "over", "dir": "R", "place": "L", "pal": "forgeheart",
-    "scene": "Over the broad left shoulder of a dwarf shield-smith — red-brown braided beard, scorched leather apron — who fills the left of the frame: he holds his own heavy round shield up before him toward the right, facing the glow of a furnace door. Its face is covered in dents, each hammered flat again, in tidy rows like a tally. His thick thumb rests on the newest, where a broken arrowhead is still lodged, and beside the furnace the next shield he has hammered, plain and unmarked, cools on a hook.",
-    "light": "The furnace mouth on the right paints each dent with a molten orange rim; his shoulder and beard are dark gunmetal shapes against it."
+    "scene": "Over the broad left shoulder of a beaver shield-smith — wet red-brown fur, scorched leather apron — who fills the left of the frame: he holds his own round shield up before him toward the right, facing the glow of a furnace door. Its face is covered in dents, each hammered flat, in tidy rows like a tally. One blunt claw rests on the newest, where a broken arrowhead is still lodged. His wide flat tail, shod in a plate of dark iron, lies on the anvil beside him, and the next shield he has hammered cools on a hook.",
+    "light": "The furnace mouth on the right paints each dent with a molten orange rim; his shoulder and round ear are dark gunmetal shapes against it."
   },
   "PN-B2-U2": {
     "shot": "low", "dir": "B", "place": "R", "pal": "coldsteel",
@@ -202,7 +202,7 @@
   },
   "UP-B2-12": {
     "shot": "far", "dir": "R", "place": "L", "pal": "lamplit",
-    "scene": "Far across a huge dark smithing hall, most of the frame empty stone: at the left, small in his one pool of light, the same dwarf — copper-red beard grown to his chest and still braided with its iron ring, burn-scarred leather apron — stands at an anvil facing right, bringing down a single great hammer with a head three times the size of an apprentice's. On the wall behind him hang three short ash hafts, each empty of its head. The stroke has landed: one ring of sparks spreads, and grit sifts from the whole vault.",
+    "scene": "Far across a huge dark smithing hall, most of the frame empty stone: at the left, small in its one pool of light, the same ape — gunmetal fur gone silver across the shoulders, the iron ring still on its wrist, burn-scarred leather apron — stands at an anvil facing right, bringing down a single great hammer with a head three times the size of an apprentice's. On the wall behind it hang three short ash hafts, each empty of its head. The stroke has landed: one ring of sparks spreads, and grit sifts from the whole vault.",
     "light": "A single lamp over the anvil and the spark ring make one warm island at the left; the rest of the hall is black with faint steel-grey edges."
   },
   "UP-B2-17": {

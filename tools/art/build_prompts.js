@@ -1,9 +1,10 @@
-/* ETHERION — 그림 AI용 카드 일러스트 프롬프트 만들기 (n판 · 2026-11-20 처음부터 새로 씀 · 스타일 가이드 6장)
+/* ETHERION — 그림 AI용 카드 일러스트 프롬프트 만들기 (n판 · 2026-11-20 처음부터 새로 씀 · n2 2026-11-21 등급 사다리 · 스타일 가이드 6장)
 
    프롬프트 = ① 카드 장면(카드마다 손으로 쓴 것 — tools/art/art_scenes/<깃발>.json)
             + ② 배색 한 줄(깃발의 배색 묶음 가운데 그 카드가 고른 것)
             + ③ 깃발 한 줄(원소의 재료 · 대기 — 종족이 아니다)
-            + ④ 등급 한 줄(마감의 결과 등급 강조색 — 시점은 정하지 않는다)
+            + ④ 등급 줄(분위기 · 빛 · 채도 · 공기 · 재질 다섯 칸 — 일반 → 스페셜로 한 단계씩 더 신비롭고 화려하게. 시점은 정하지 않는다)
+              + 사다리 한 줄(여섯 등급의 차례 — 모든 등급 같음, 소환물은 뺌)
             + ⑤ 화풍 한 줄(모든 카드 같음)
    카드끼리 달라야 하는 것(무엇을 · 어디서 보나 · 어디에 놓나 · 어느 쪽을 보나 · 빛)은 모두 ①에 있고,
    ②~⑤는 art_style.json의 짧은 말이다. 등급 · 깃발의 통일감은 ②~⑤가, 카드의 개성은 ①이 맡는다.
@@ -105,6 +106,7 @@ function promptOf(c, D) {
     F.world,
     G.finish
   ];
+  if (S.gradeLadder && G.ladder !== false) L.push(S.gradeLadder);   // 여섯 등급의 차례 — 그림 AI가 이 등급의 화려함을 위아래 등급에 견주어 맞춘다
   if (gk === "upgrade" && S.upgradeRef) L.push(S.upgradeRef);   // 원래 카드 그림을 함께 넣는다(카드 머리말이 알려 준다)
   L.push(S.house);
   return { prompt: L.join("\n"), ver: S.version };
@@ -125,21 +127,21 @@ function autoBlocks(jobs) {
   B.COUNTS = [`프롬프트 버전 **${S.version}** (${S.updated}) · 카드 ${jobs.length}장 (뺀 카드 제외, 소환물 포함)`, "",
     "| 등급 | 색 | 장수 | 유닛 · 마법 · 아이템 | 프롬프트 | 파일 |", "|---|---|---|---|---|---|",
     ...S.gradeOrder.filter(g => cnt[g]).map(g => { const G = S.grades[g], k = cnt[g]; return `| ${G.ko} (${G.en}) | \`${G.color}\` | ${k.n} | ${k.unit} · ${k.spell} · ${k.item} | ${G.legacy ? `옛 ${S.legacyVersion} 그대로` : `${S.version}${k.todo ? ` (장면 없음 ${k.todo})` : ""}`} | \`prompts/grades/${g}.md\` |`; })].join("\n");
-  B.GRADES = ["| 등급 | 뜻 | 프롬프트에 들어가는 한 줄 |", "|---|---|---|",
-    ...S.gradeOrder.filter(g => !S.grades[g].legacy).map(g => { const G = S.grades[g]; return `| ${G.ko} \`${g}\` | ${G.idea_ko} | ${G.finish} |`; })].join("\n");
+  B.GRADES = ["| 등급 | 뜻 | 프롬프트에 들어가는 등급 줄 |", "|---|---|---|",
+    ...S.gradeOrder.filter(g => !S.grades[g].legacy).map(g => { const G = S.grades[g]; return `| ${G.ko} \`${g}\` | ${G.idea_ko} | ${G.finish} |`; }),
+    "", `사다리 한 줄(소환물을 뺀 모든 카드, 등급 줄 바로 다음): \`${S.gradeLadder || ""}\``].join("\n");
   B.FLAGS = Object.keys(S.flags).map(id => {
     const F = S.flags[id], el = S.elements[F.element];
     return [`### ${id} ${F.ko} — ${el.en} \`${el.hex}\``, "", `- 깃발 한 줄: ${F.world}`,
       `- 배색: ${Object.keys(F.palettes).map(k => `\`${k}\` ${F.palettes[k]}`).join(" / ")}`,
-      `- 장소 낱말(장면을 쓸 때): ${F.locales.join(", ")}`,
-      `- 처음 세운 무리 — 종류가 「${F.founderKo}」인 유닛에만: ${F.founder}`, ""].join("\n");
+      `- 장소 낱말(장면을 쓸 때): ${F.locales.join(", ")}`, ""].join("\n");
   }).join("\n");
   const tbl = t => ["| shot | 뜻 |", "|---|---|", ...Object.keys(S.shots[t]).map(k => `| \`${k}\` | ${S.shots[t][k].en} |`)].join("\n");
   B.SHOTS = ["**유닛**", "", tbl("unit"), "", "**마법**", "", tbl("spell"), "", "**아이템**", "", tbl("item"), "",
     `**dir** — ${Object.keys(S.dirs).filter(k => k[0] !== "_").map(k => `\`${k}\` ${S.dirs[k]}`).join(" · ")}`, "",
     `**place** — ${Object.keys(S.places).filter(k => k[0] !== "_").map(k => `\`${k}\` ${S.places[k]}`).join(" · ")}`].join("\n");
   const ex = [];
-  for (const g of ["common", "uncommon", "epic", "unique"]) for (const t of ["unit", "spell", "item"]) {
+  for (const g of ["common", "uncommon", "rare", "epic", "unique", "special"]) for (const t of (g === "common" || g === "epic" ? ["unit", "spell", "item"] : ["unit"])) {   // 여섯 등급을 나란히 — 등급 줄만 달라지는 것이 보이게
     const j = jobs.find(x => x.grade === g && (x.type === "unit" ? "unit" : x.type === "item" ? "item" : "spell") === t && x.prompt);
     if (j) ex.push(`#### ${S.grades[g].ko} · ${TYPE_KO[j.type]} — ${j.id} ${j.name}`, "", "```", j.prompt, "```", "");
   }
@@ -210,7 +212,7 @@ function main() {
     const list = byGrade[g]; if (!list) continue;
     const G = S.grades[g];
     fs.writeFileSync(path.join(OUT, "grades", g + ".md"), [`# ${G.ko} (${G.en}) — 카드 일러스트 프롬프트 (${list.length}장, ${G.legacy ? "옛 " + S.legacyVersion : S.version})`, "",
-      `> ${G.idea_ko}`, "", ...(G.finish ? [`등급 한 줄(모든 ${G.ko} 프롬프트에 들어 있다): \`${G.finish}\``, ""] : []),
+      `> ${G.idea_ko}`, "", ...(G.finish ? [`등급 줄(모든 ${G.ko} 프롬프트에 들어 있다): \`${G.finish}\``, ""] : []),
       HOW, "", ORDER_NOTE, "",
       ...sections(list, (a, b) => a.group.localeCompare(b.group) || a.lv - b.lv || a.id.localeCompare(b.id))].join("\n"));
   }

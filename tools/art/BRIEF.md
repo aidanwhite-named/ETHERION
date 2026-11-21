@@ -2,7 +2,7 @@
 
 > Read this first if you are an AI asked to paint art for ETHERION. (Korean users: 사용법은 `README.md`.)
 > Source of truth for style: `docs/STYLE_GUIDE.md` (sections 0, 1, 2.11, 3, 6). If this brief and the guide disagree, the guide wins.
-> **Card illustrations use ready-made prompts** (`tools/art/prompts/`). Each prompt is a hand-written scene for that one card plus four short shared lines. How they are written: `tools/art/PROMPT_GUIDE.md`.
+> **Card illustrations use ready-made prompts** (`tools/art/prompts/`). Each prompt is a hand-written scene for that one card plus a few short shared lines (colour mood, banner, rarity tier, house style). How they are written: `tools/art/PROMPT_GUIDE.md`.
 
 ## 1. The game in one paragraph
 ETHERION is a browser card-battle game set on the continent of Kailan. Long ago the source-god **Arche** split the world's ether three ways: the **seven sleeping giants** became the land (body), the **seven dragons** hold the elements (power), the **five gods** give will (meaning). Three mortal factions draw on one source each: the **Titanbone Concord** mines the giants, the **Dragonvein Covenant** borrows from dragons through pacts, the **Oracle Conclave** receives from gods and always pays a price. Each faction has three banners — nine in total. **A banner is an element, not a race**: its cards are everything that element's giant, dragon or god has woken — beasts, spirits, awakened objects, and the one folk who first raised the banner.
@@ -11,6 +11,7 @@ ETHERION is a browser card-battle game set on the continent of Kailan. Long ago 
 - **Painterly dark-fantasy illustration**: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size.
 - **Every card is its own picture.** Viewpoint, placement, facing, time of day and weather change from card to card; follow the scene written in the prompt exactly.
 - **A banner is recognised by its element** — its matter, its air and its colour — in whichever of the banner's six colour moods the prompt names.
+- **Rarity must show.** Six tiers — common → superior → rare → epic → unique → special — each one clear step more radiant, mysterious and splendid than the one below; cards of the same tier share one mood. The prompt's tier line says how (mood, light, saturation, air, surfaces). Every tier is finished, beautiful work: a common card is quiet, never shabby; a special card is the most luminous picture in the game.
 - **Paint the picture only, edge to edge, with no lettering.** The game draws names, numbers, frames and grade colours itself.
 - Battle-screen art (section 3.2) keeps the interface theme: *night sky and golden runes*, very dark night-blue (`#07080d`), gold (`#d9b46a`, `#f6e2a8`), ether sky-blue (`#8fdcff`).
 
@@ -63,6 +64,7 @@ Layers of one set are stacked exactly on top of each other — paint them in ord
 ## 5. Checklist
 - [ ] The picture matches the scene in the prompt — subject, viewpoint, placement, light
 - [ ] The banner's element colour is the clearest colour in the picture
+- [ ] The picture sits at its rarity tier — clearly more splendid than the tier below, never outshining the tier above
 - [ ] Picture only: no lettering, numbers, frame or interface
 - [ ] Battle-screen layers match their reference exactly in position and outline
 - [ ] File name = card ID / asset path

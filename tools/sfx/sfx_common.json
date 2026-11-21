@@ -210,7 +210,7 @@
       { "id": "ward",         "when": "[가호] — 처음 받는 피해를 빛이 줄임 · 출혈을 줄임 (천족)", "now": "", "len": 0.5,
         "desc": "a blessed halo of light absorbs a hit: a warm muffled thud and a soft bright bell-like chime fading out" },
       { "id": "regen",        "when": "[재생] — 트롤 살과 껍질이 다시 붙음 (v3.74)", "now": "", "len": 0.7,
-        "desc": "tough troll flesh knitting closed: a wet fleshy squelch, a creak of bark-like skin pulling tight and a low satisfied grumble" },
+        "desc": "tough mossy flesh knitting closed: a wet fleshy squelch, a creak of bark-like skin pulling tight and a low satisfied grumble" },
       { "id": "shield_bash",  "when": "[방패 반격] — 드워프가 방패로 되받아침 (v3.74)", "now": "", "len": 0.5,
         "desc": "a heavy iron shield is slammed forward into an attacker: a short grunt-free shove, a big metallic bash and a deep ringing clang" },
       { "id": "firm",         "when": "[굳건] — 자리 바꾸기 · 빼앗기를 버팀 (v3.74)", "now": "", "len": 0.5,

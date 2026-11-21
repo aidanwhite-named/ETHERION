@@ -426,17 +426,23 @@ const SpellFX = (() => {
     const r = el.getBoundingClientRect(), c = ctr(r), S = Math.max(r.width, r.height) * 1.55 * 1.12;
     const rg = mk("sfx-runes", c.x, c.y, { "--c": th.col, "--s": px(S) });
     rg.innerHTML = RUNE_SVG;
+    /* 2026-11-21 카드가 한 바퀴 돌아 멈추는 순간(js/game.js revealFx T360 = ms × 0.3)에 박자를 맞췄다:
+       빛이 카드로 모여들고 룬 고리가 돌며 조여들다가 → 그 순간 고리가 "철컥" 제자리에 서고 불티가 놓여난다 → 천천히 돌며 옅어진다.
+       (예전: 고리는 뒤집힘과 따로 놀았고, 모여드는 빛은 뒤집힌 한참 뒤까지 이어져 흐릿했다) */
+    const LOCK = 0.3, RUNE = 1.45;
     anim(rg, [
-      { opacity: 0, scale: "0.55", rotate: "-50deg" },
-      { offset: 0.24, opacity: 0.95, scale: "1", rotate: "0deg" },
-      { offset: 0.78, opacity: 0.75, scale: "1.04", rotate: "55deg" },
-      { opacity: 0, scale: "1.3", rotate: "85deg" }
-    ], ms * 1.45, { easing: "ease-out" });
-    for (let i = 0; i < 14; i++) {
-      const a = rnd(0, Math.PI * 2), d = S * rnd(0.5, 0.75);
-      const p = mk("sfx-p " + (P_OF_EL[th.el] || ""), c.x + Math.cos(a) * d, c.y + Math.sin(a) * d, { "--c": th.col, "--z": px(rnd(4, 8)) });
-      anim(p, [{ translate: "0px 0px", opacity: 0, scale: "1" }, { offset: 0.3, opacity: 1 }, { translate: `${px(-Math.cos(a) * d)} ${px(-Math.sin(a) * d)}`, opacity: 0, scale: "0.3" }], ms * 0.5, { easing: "cubic-bezier(.5,0,.8,.5)", delay: rnd(0, ms * 0.3) });
+      { opacity: 0, scale: "0.62", rotate: "-80deg", easing: "cubic-bezier(.2,.7,.2,1)" },
+      { offset: LOCK / RUNE, opacity: 1, scale: "1", rotate: "0deg", easing: "linear" },
+      { offset: 0.62, opacity: 0.8, scale: "1.03", rotate: "34deg", easing: "ease-in" },
+      { opacity: 0, scale: "1.2", rotate: "58deg" }
+    ], ms * RUNE, { easing: "linear" });
+    for (let i = 0; i < 12; i++) {
+      const a = rnd(0, Math.PI * 2), d = S * rnd(0.5, 0.78);
+      const p = mk("sfx-p " + (P_OF_EL[th.el] || ""), c.x + Math.cos(a) * d, c.y + Math.sin(a) * d, { "--c": th.col, "--z": px(rnd(4, 7)) });
+      anim(p, [{ translate: "0px 0px", opacity: 0, scale: "1" }, { offset: 0.25, opacity: 1 }, { translate: `${px(-Math.cos(a) * d * 0.9)} ${px(-Math.sin(a) * d * 0.9)}`, opacity: 0, scale: "0.3" }], ms * 0.2, { easing: "cubic-bezier(.5,0,.85,.55)", delay: rnd(0, ms * 0.09) });
     }
+    // 그 순간 퍼지는 가는 빛 고리는 js/game.js revealFx 의 burst("spell", 원소색) 하나 — 여기서는 놓여나는 불티만
+    sparks(c.x, c.y, { n: 9, col: th.col, size: 5, dist: S * 0.55, dur: (ms * 0.26) / (k || 1), cls: P_OF_EL[th.el] || "", delay: ms * (LOCK - 0.02), end: 0.2 });
     // 2026-11-15 마법마다 다른 발동 소리 (audio/sfx/<마법ID>.cast, 없으면 공용 sp_reveal)
     if (it && typeof cardSfx === "function") cardSfx(uid, "cast", 1, "sp_reveal"); else snd("sp_reveal");
     if (it && CARDS[it.id] && CARDS[it.id].cost && CARDS[it.id].cost.ether) later(() => snd("reload", 0.8), 500);   // [장전]

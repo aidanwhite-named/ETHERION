@@ -106,8 +106,7 @@ function cmdTodo(flags, all) {
     out.push(`# ${g} ${F.ko} (${F.en}) — 장면을 쓸 카드 ${todo.length}장`, "",
       `깃발 한 줄: ${F.world}`,
       `배색(pal): ${Object.keys(F.palettes).map(k => `\`${k}\` ${F.palettes[k]}`).join(" / ")}`,
-      `장소 낱말: ${F.locales.join(", ")}`,
-      `처음 세운 무리(종류가 「${F.founderKo}」인 유닛에만): ${F.founder}`, "");
+      `장소 낱말: ${F.locales.join(", ")}`, "");
     /* 섞어서 나눠 주되(낮은 레벨에 같은 틀이 몰리지 않게) 적는 차례는 카드 ID */
     const r = rng("n1:" + g), order = todo.map(c => ({ c, k: r() })).sort((a, b) => a.k - b.k).map(x => x.c), sug = {};
     for (const c of order) {
@@ -123,8 +122,8 @@ function cmdTodo(flags, all) {
       const head = [`### ${c.id} · ${c.name} — ${TYPE_KO[c.type] || c.type} · ${G.ko} · 레벨 ${c.lv}`];
       const L = [];
       if (t === "unit") {
-        const isFounder = c.kin && c.kin === F.founderKo, kk = c.kin && K.kinds[c.kin];
-        L.push(`종류: ${c.kin || "(없음)"}${isFounder ? " = 처음 세운 무리(위 생김새)" : kk ? ` = ${kk.en}: ${kk.who} / 실루엣: ${kk.silhouette} / 재질: ${kk.materials}` : ""} · 클래스 ${c.cl || "-"} · 공/방/체 ${c.a}/${c.d}/${c.h} · ${giftText(c)}`);
+        const kk = c.kin && K.kinds[c.kin];
+        L.push(`종류: ${c.kin || "(없음)"}${kk ? ` =${kk.en}: ${kk.who} / 실루엣: ${kk.silhouette} / 재질: ${kk.materials}` : ""} · 클래스 ${c.cl || "-"} · 공/방/체 ${c.a}/${c.d}/${c.h} · ${giftText(c)}`);
         if (c.gift && c.gift.u && D.UNIQUE_ABIL[c.gift.u]) { const u = D.UNIQUE_ABIL[c.gift.u]; L.push(`유니크 능력: ${[u.n || u.name, u.text || u.desc].filter(Boolean).join(" — ")}`); }
         if (c.base && D.CARDS[c.base]) { const B = D.CARDS[c.base]; L.push(`원래 카드: ${B.id} ${B.name} — ${(B.flavor || "").trim()}`); }
       } else if (t === "item") {
@@ -183,7 +182,7 @@ function cmdLint(flags) {
     if (!s.light || words(s.light) < 5) err.push(`${tag}: light(빛 한 문장)가 없음`);
     else if (words(s.light) > 40) warn.push(`${tag}: light가 김(${words(s.light)}단어)`);
     if (/[가-힣]/.test(text)) err.push(`${tag}: 한글이 들어 있음(영어로만)`);
-    /* 처음 세운 무리 이름: 그 종류인 유닛에만 */
+    /* 종족 낱말(goblin · orc · gnome …): 몸은 카드의 종류(kin)대로 쓴다 — 종류에 그 낱말이 든 유닛(세라프 · 엘프 …)만 통과 */
     for (const R of RACE_WORDS) {
       if (!R.re.test(text)) continue;
       const ok = t === "unit" && c.kin && R.ko.some(k => c.kin.includes(k));

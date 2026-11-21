@@ -2,7 +2,7 @@
   "_about": "B3 케라운의 벼락 — 카드별 장면 지시. 쓰는 법은 tools/art/PROMPT_GUIDE.md, 검사는 node tools/art/scene_tool.js lint B3.",
   "B3-02": {
     "shot": "far", "dir": "B", "place": "R", "pal": "thunderhead",
-    "scene": "Far off on a storm-dark moor, a tiny gnome apprentice trudges away from us along a plank causeway in the right third of the frame. A carrying-yoke lies across its shoulders with a copper-banded flask of bottled lightning swinging at each end, and its wild hair stands straight up like a brush — the one lively detail in all that empty land. Ahead, the planks dwindle toward a single far lamp.",
+    "scene": "Far off on a storm-dark moor, a small lamb trudges away from us along a plank causeway in the right third of the frame. A carrying-yoke lies across its shoulders with a copper-banded flask of bottled lightning swinging at each end, and every lock of its charged wool stands straight out like a brush — the one lively detail in all that empty land. Ahead, the planks dwindle toward a single far lamp.",
     "light": "Black cloud presses low over the moor; the two flasks cast the only glow, a small swaying pool of yellow on the wet planks."
   },
   "B3-03": {
@@ -17,7 +17,7 @@
   },
   "B3-05": {
     "shot": "front", "dir": "F", "place": "X", "pal": "copperlab",
-    "scene": "Dead-on and symmetrical: a tiny gnome student stands in the exact middle of a round examination floor, facing us, while a blackened starburst of scorch marks radiates from its boots to every edge of the frame. Its wild hair smokes, brass goggles hang crooked on a big nose, the lab coat is singed at every pocket — and both arms hug a thick closed notebook tight against its chest, perfectly unharmed.",
+    "scene": "Dead-on and symmetrical: a small meerkat student stands bolt upright in the exact middle of a round examination floor, facing us, while a blackened starburst of scorch marks radiates from its hind feet to every edge of the frame. Its fur smokes and stands on end, brass goggles hang crooked on its pointed snout, the tip of its tail is singed — and both forepaws hug a thick closed notebook tight against its chest, perfectly unharmed.",
     "light": "Warm amber lamps ring the hall overhead, and a last yellow spark crawling along the copper rail behind picks out the student's edges."
   },
   "B3-06": {
@@ -62,7 +62,7 @@
   },
   "B3-18": {
     "shot": "macro", "dir": "F", "place": "R", "pal": "wetglass",
-    "scene": "A gnome engineer's eye, hugely magnified behind one brass goggle lens, fills the right half of the frame in extreme close-up and peers straight at us, wild eyebrow hair curling over the rim. In front of the lens, sharp and enormous, two stubby soot-stained fingers hold tweezers and thread a hair-thin copper wire between the teeth of a steel cogwheel. Out of focus behind: a cold mug and the head of a heavy smith's hammer.",
+    "scene": "A tarsier engineer's enormous amber eye, magnified again behind one brass goggle lens, fills the right half of the frame in extreme close-up and peers straight at us, fine fur curling over the rim. In front of the lens, sharp and enormous, two long slender fingers with round padded tips hold tweezers and thread a hair-thin copper wire between the teeth of a steel cogwheel. Out of focus behind: a cold mug and the head of a heavy smith's hammer.",
     "light": "Grey dawn through a wet workshop window; one bead of solder glows yellow at the wire's end and twinkles in the lens."
   },
   "B3-20": {
@@ -92,8 +92,8 @@
   },
   "B3-26": {
     "shot": "close", "dir": "R", "place": "X", "pal": "copperlab",
-    "scene": "An elderly gnome scholar, big-nosed, with singed tufts of white hair, holds a bare forearm up across the whole width of the frame like a certificate, in a tight close-up. Branching fern-like lightning scars run from the fingertips over the arm, up the neck and across the bald crown, each faintly lit from inside. The face, turned three-quarters to the right, wears the calm pride of someone showing a diploma; cracked brass goggles are pushed up on the forehead.",
-    "light": "A warm amber study lamp from the left; the scars carry their own thin yellow light along the skin."
+    "scene": "An elderly giant salamander scholar, broad flat head and tiny bright eyes, holds one bare foreleg up across the whole width of the frame like a certificate, in a tight close-up. Branching fern-like lightning scars run from the stubby fingertips over the leg, up the thick neck and across the smooth wet crown, each faintly lit from inside. The wide face, turned three-quarters to the right, wears the calm pride of someone showing a diploma; cracked brass goggles are pushed up on the forehead.",
+    "light": "A warm amber study lamp from the left; the scars carry their own thin yellow light along the damp skin."
   },
   "B3-27": {
     "shot": "far", "dir": "B", "place": "R", "pal": "greensky",
@@ -117,8 +117,8 @@
   },
   "B3-33": {
     "shot": "tilt", "dir": "U", "place": "C", "pal": "cobalt",
-    "scene": "The frame pitches steeply: on the swaying needle-tip of the highest tower, in the centre, a tiny old gnome in a long many-pocketed coat leans out over the abyss, one hand hooked around the rod, the other thrusting an open glass bottle up at the sky. Coat-tails and white hair whip sideways. Above, the whole storm bends toward that little bottle, its lightning coiling into one long serpentine shape with the hint of a dragon's horned head.",
-    "light": "Deep blue storm night; the coiling lightning overhead is the light, rimming the gnome and the bottle in yellow-white."
+    "scene": "The frame pitches steeply: on the swaying needle-tip of the highest tower, in the centre, an old white crane with a few singed plumes balances on one leg, the other foot hooked around the rod, wings half open against the gale, and thrusts an open glass bottle up at the sky in its long beak. Feathers and a scholar's ribbon whip sideways. Above, the whole storm bends toward that little bottle, its lightning coiling into one long serpentine shape with the hint of a dragon's horned head.",
+    "light": "Deep blue storm night; the coiling lightning overhead is the light, rimming the crane and the bottle in yellow-white."
   },
   "B3-34": {
     "shot": "eye", "dir": "L", "place": "L", "pal": "thunderhead",
@@ -187,7 +187,7 @@
   },
   "UN-B3": {
     "shot": "inside", "dir": "F", "place": "X", "pal": "copperlab",
-    "scene": "From inside a great empty glass jar, looking out: the curved wall bends the world like a lens, and pressed close to it from outside is the watchful face of an old gnome — big nose flattened a little against the glass, brass goggles, wild grey hair, both small palms spread on the surface. Between us and that face, in the middle of the jar's air, loose threads of lightning drift together and knot into a small bright tangle, as if remembering a shape.",
+    "scene": "From inside a great empty glass jar, looking out: the curved wall bends the world like a lens, and pressed close to it from outside is the watchful face of an old gecko — blunt snout flattened a little against the glass, huge lidless golden eyes behind brass goggles, both splayed hands spread on the surface so that every round toe pad shows pale. Between us and that face, in the middle of the jar's air, loose threads of lightning drift together and knot into a small bright tangle, as if remembering a shape.",
     "light": "The gathering tangle is the single light, painting the keeper's face from below in yellow while the amber-brown laboratory behind falls away into darkness."
   },
   "UN-B3-7": {
@@ -202,8 +202,8 @@
   },
   "UP-B3-18": {
     "shot": "profile", "dir": "R", "place": "L", "pal": "flash",
-    "scene": "Along a long workbench at first light, in strict side view: at the left end the same big-nosed gnome engineer — brass goggles pushed up into wild hair, a smith's hammer hung from the belt — stands on a stool and throws a knife switch with both hands, facing right. Down the bench runs one finished machine built in three plainly different styles, toothed gears, copper windings and glass valves, now joined by a single wire and waking section by section. Three empty chairs stand pushed back.",
-    "light": "The first surge flares white-yellow in the windings and prints the gnome's profile in hard black against it."
+    "scene": "Along a long workbench at first light, in strict side view: at the left end the same tarsier engineer — brass goggles pushed up over enormous eyes, a smith's hammer hung from the belt, long tail curled round a stool leg — stands on the stool and throws a knife switch with both long-fingered hands, facing right. Down the bench runs one finished machine built in three plainly different styles, toothed gears, copper windings and glass valves, now joined by a single wire and waking section by section. Three empty chairs stand pushed back.",
+    "light": "The first surge flares white-yellow in the windings and prints the engineer's profile in hard black against it."
   },
   "UP-B3-22": {
     "shot": "inside", "dir": "F", "place": "R", "pal": "flash",
@@ -367,7 +367,7 @@
   },
   "PN-B3-R": {
     "shot": "ground", "dir": "L", "place": "T", "pal": "copperlab",
-    "scene": "From puddle level on a cobbled lane: two copper stilt-feet stand in the foreground, and high in the upper frame a tiny big-nosed gnome in a many-pocketed coat strides leftward on them, goggles down, reaching a glass-handled rod to drop a spark into the next empty jar on an overhead wire. The jars behind him glow amber like street lamps; those ahead hang dark. Beside the lens one jar lies freshly shattered, and from its shards a thread of lightning runs over the wet stones to the butt of a sentry's staff, whose tip blazes double.",
+    "scene": "From puddle level on a cobbled lane: an open copper-banded bottle stands on the wet stones, and from its mouth a ribbon of yellow light climbs to the upper frame and swells into a small genie of crackling lightning drifting leftward. With a glass-handled rod it drops a spark into the next empty jar on an overhead wire. The jars behind it glow amber like street lamps; those ahead hang dark. Beside the lens one jar lies freshly shattered, and from its shards a thread of lightning runs to the butt of a sentry's staff, whose tip blazes double.",
     "light": "Amber dusk between copper-roofed walls; the lit jars cast a warm filament-yellow down the lane and gild the wet cobbles."
   },
   "PS-B3-1": {

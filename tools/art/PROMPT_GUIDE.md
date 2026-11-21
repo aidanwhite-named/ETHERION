@@ -1,6 +1,8 @@
-# ETHERION 카드 일러스트 프롬프트 가이드 — n판 (v2.0, 2026-11-20)
+# ETHERION 카드 일러스트 프롬프트 가이드 — n판 (v2.1, 2026-11-21)
 
 > 처음부터 새로 쓴 판이다. 모든 등급(706장)이 이 방식이다. 옛 등급별 사다리(g1~g4)는 `legacy_g4/`에 보관만 한다.
+> v2.1 (프롬프트 n2, 2026-11-21): **등급 사다리** — 등급 줄을 다섯 칸(분위기 · 빛 · 채도 · 공기 · 재질)으로 늘리고 사다리 한 줄을 붙였다. 일반 → 고급 → 레어 → 에픽 → 유니크 → 스페셜로 한 단계씩 더 신비롭고 강렬하고 화려해진다(2장). 시점 · 구도는 여전히 카드마다 정한다.
+> 2026-11-21 (프롬프트 판 n2 그대로): **깃발 기본 종류를 들어냄** — 깃발마다 있던 "처음 세운 무리" 줄(`art_style.json` `founder`)이 없어지고, 거기에 기대던 유닛 72장(강화 · 소환물 포함)이 제 종류를 얻어 장면을 다시 썼다(3.2). 목록은 `docs/UNIT_RENAME.md` 맨 아래.
 > **For any AI writing or revising these prompts:** read sections 1–4. The scene (section 3) is the prompt; everything else is one short line.
 
 ## 0. 왜 새로 썼나
@@ -10,7 +12,7 @@
 n판은 반대로 짠다.
 
 - **카드마다 다른 것은 모두 "장면"에 쓴다.** 무엇을, 어느 순간에, 어디서 보고, 화면 어디에 놓고, 어느 쪽을 향하고, 빛이 어떤지 — 카드마다 손으로 쓴다. 프롬프트의 맨 앞이고, 절반이 넘는다.
-- **같은 것은 한 줄씩만.** 깃발 한 줄(원소의 재료와 대기 — 종족이 아니다) · 등급 한 줄(마감의 결과 강조색 — 시점을 정하지 않는다) · 화풍 한 줄.
+- **같은 것은 짧게.** 깃발 한 줄(원소의 재료와 대기 — 종족이 아니다) · 등급 줄 + 사다리 한 줄(얼마나 신비롭고 화려한가 — 시점을 정하지 않는다) · 화풍 한 줄.
 - **있는 것만 긍정문으로.** 금지 줄은 실제로 문제가 된 것 하나(글자)만 화풍 줄에 있다.
 - **겹침은 도구가 센다.** 한 깃발 안에서 같은 시점 · 같은 방향 · 같은 자리 · 같은 배색이 몰리면 `scene_tool.js lint`가 오류를 낸다.
 
@@ -20,13 +22,14 @@ n판은 반대로 짠다.
 Landscape 5:4 painting. [① 장면 — 카드마다 손으로 쓴 글] [빛 한 문장]
 Colour: [② 배색 — 깃발의 배색 여섯 가운데 그 카드가 고른 것]
 [③ 깃발 한 줄]
-[④ 등급 한 줄]
+[④ 등급 줄 — Mood · Light · Saturation · Air · Surfaces 다섯 칸]
+[④′ 사다리 한 줄 — 여섯 등급의 차례, 모든 등급 같음]
 [⑤ 화풍 한 줄]
 ```
 
 - 마법은 첫머리가 `Landscape 5:4 painting of a spell — the magic itself is the subject.`, 아이템은 `… of one object — the object itself is the subject.`
-- 강화 카드는 ④ 다음에 "원래 카드와 같은 개체" 줄이 하나 더 붙는다(원래 카드 그림을 함께 넣는다).
-- 한 장 약 200단어. 카드 이름 · 서사(한국어)는 프롬프트에 넣지 않는다 — 쓰는 사람이 읽고 장면으로 옮긴다.
+- 강화 카드는 ④′ 다음에 "원래 카드와 같은 개체" 줄이 하나 더 붙는다(원래 카드 그림을 함께 넣는다). 소환물에는 사다리 줄이 없다.
+- 한 장 약 300단어(일반 약 300 · 스페셜 약 365 — 등급 줄 자체가 등급이 오를수록 길다). 장면이 여전히 가장 긴 덩어리다. 카드 이름 · 서사(한국어)는 프롬프트에 넣지 않는다 — 쓰는 사람이 읽고 장면으로 옮긴다.
 
 | 파일 | 무엇 |
 |---|---|
@@ -38,35 +41,51 @@ Colour: [② 배색 — 깃발의 배색 여섯 가운데 그 카드가 고른 �
 | `legacy_g4/` | 옛 체계 보관(생성기 · 문구 · 카드별 지시 · 옛 스페셜 · 레어 프롬프트) — 지금은 쓰지 않는다 |
 
 <!-- AUTO:COUNTS -->
-프롬프트 버전 **n1** (2026-11-20) · 카드 706장 (뺀 카드 제외, 소환물 포함)
+프롬프트 버전 **n2** (2026-11-21) · 카드 706장 (뺀 카드 제외, 소환물 포함)
 
 | 등급 | 색 | 장수 | 유닛 · 마법 · 아이템 | 프롬프트 | 파일 |
 |---|---|---|---|---|---|
-| 소환물 (Summoned) | `#8fdcff` | 17 | 13 · 4 · 0 | n1 | `prompts/grades/token.md` |
-| 일반 (Common) | `#f4f1ea` | 362 | 212 · 110 · 40 | n1 | `prompts/grades/common.md` |
-| 고급 (Superior) | `#f2cf3d` | 130 | 78 · 36 · 16 | n1 | `prompts/grades/uncommon.md` |
-| 레어 (Rare) | `#4ea8ff` | 58 | 9 · 40 · 9 | n1 | `prompts/grades/rare.md` |
-| 강화 (Empowered) | `#3fe0c0` | 40 | 40 · 0 · 0 | n1 | `prompts/grades/upgrade.md` |
-| 에픽 (Epic) | `#b46cff` | 63 | 36 · 18 · 9 | n1 | `prompts/grades/epic.md` |
-| 유니크 (Unique) | `#ff8a2a` | 18 | 18 · 0 · 0 | n1 | `prompts/grades/unique.md` |
-| 스페셜 (Special) | `#ff4d73` | 18 | 9 · 0 · 9 | n1 | `prompts/grades/special.md` |
+| 소환물 (Summoned) | `#8fdcff` | 17 | 13 · 4 · 0 | n2 | `prompts/grades/token.md` |
+| 일반 (Common) | `#f4f1ea` | 362 | 212 · 110 · 40 | n2 | `prompts/grades/common.md` |
+| 고급 (Superior) | `#f2cf3d` | 130 | 78 · 36 · 16 | n2 | `prompts/grades/uncommon.md` |
+| 레어 (Rare) | `#4ea8ff` | 58 | 9 · 40 · 9 | n2 | `prompts/grades/rare.md` |
+| 강화 (Empowered) | `#3fe0c0` | 40 | 40 · 0 · 0 | n2 | `prompts/grades/upgrade.md` |
+| 에픽 (Epic) | `#b46cff` | 63 | 36 · 18 · 9 | n2 | `prompts/grades/epic.md` |
+| 유니크 (Unique) | `#ff8a2a` | 18 | 18 · 0 · 0 | n2 | `prompts/grades/unique.md` |
+| 스페셜 (Special) | `#ff4d73` | 18 | 9 · 0 · 9 | n2 | `prompts/grades/special.md` |
 <!-- /AUTO:COUNTS -->
 
 ## 2. 통일감은 어디서 오나
 
-**등급** — 마감의 결과 강조색. 시점 · 구도 · 방향은 정하지 않는다.
+**등급** — 얼마나 신비롭고 강렬하고 화려한가. 시점 · 구도 · 방향은 정하지 않는다.
+
+같은 등급끼리는 분위기가 같고, 등급 사이는 한눈에 차이가 나야 한다. 그래서 모든 등급 줄이 **같은 다섯 칸을 같은 차례로** 쓰고, 칸마다 한 단계씩 오른다(스페셜이 가장 좋은 카드다). 낮은 등급도 허술한 그림이 아니다 — 정성은 모든 등급이 같고 화려함만 다르다(사다리 줄의 `Every tier is finished, beautiful work`).
+
+| | 일반 1단 | 고급 2단 | 레어 3단 | 에픽 4단 | 유니크 5단 | 스페셜 6단 |
+|---|---|---|---|---|---|---|
+| 분위기 Mood | 담백 · 조용히 아름다움 | 자신 있고 말끔함 | 인상적 · 신비의 첫 기척 | 웅장 · 힘이 가득, 세계가 반응 | 전설적 · 맹렬 · 강렬 | 신화적 · 신비 · 압도, 경외 |
+| 빛 Light | 장면에 쓴 광원뿐 | + 윤곽을 따는 두 번째 빛 | + 대담한 명암 · 사파이어 윤곽빛 | + 대기를 가르는 빛줄기 · 주변을 물들이는 기운 | + 연극 같은 명암 · 주인공이 제 힘으로 타오름 | 주인공이 광원 — 겹겹의 광휘(심 · 후광 · 화면을 가로지르는 고리와 빛살) |
+| 채도 Saturation | 절제한 흙빛, 원소색은 강조 한 곳 | 조금 더 맑고 진하게 | 빛 받은 곳이 선명 | 깊고 진하게 빛남 | 보석처럼 선명 · 녹은 금속 | 모든 카드 가운데 가장 빛나는 무지갯빛 |
+| 공기 Air | 먼지 · 연기 · 안개까지 | 평범 + 금빛 몇 점 | 옅게 빛나는 안개 + 에테르 알갱이 몇 점 | 움직이는 날씨 + 흐르는 보랏빛 입자 | 소용돌이치는 불티 · 아지랑이 · 금세공 빛줄 | 불티의 폭풍 · 에테르 빛의 장막, 땅과 하늘이 휨 |
+| 재질 Surfaces | 닳고 꾸밈없는 것 | 잘 만들고 손질한 것 | 섬세한 장식 | 화려하고 귀한 세공 | 이음매마다 빛이 새는 장인의 세공 | 필멸의 솜씨를 넘어 안에서 빛남 |
+| 강조색 | (없음) | 금 `#f2cf3d` 몇 점 | 사파이어 `#4ea8ff` 윤곽 | 보라 `#b46cff` 입자 | 주황 금 `#ff8a2a` 불티 | 진홍 `#ff4d73` + 금 광휘 |
+
+- 소환물은 사다리 밖(일반만큼 조용하고 에테르 푸른빛만), 강화는 레어와 에픽 사이(청록 `#3fe0c0`).
+- **무엇을 그리나는 장면이, 얼마나 화려한가는 등급이 정한다.** 장면의 `light`가 "광원 하나"여도 높은 등급은 그 위에 등급의 빛(윤곽빛 · 기운 · 광휘)이 덧붙는다. 등급을 한 단계 더 벌리고 싶으면 장면이 아니라 `art_style.json` `grades.<등급>.finish`의 해당 칸을 고친다 — 한 등급만 고치지 말고 위아래 등급과 차례가 맞는지 본다.
 
 <!-- AUTO:GRADES -->
-| 등급 | 뜻 | 프롬프트에 들어가는 한 줄 |
+| 등급 | 뜻 | 프롬프트에 들어가는 등급 줄 |
 |---|---|---|
-| 소환물 `token` | 마법이 방금 불러낸 것. 단순하고 또렷하게, 아직 흩어지지 않은 에테르 푸른빛이 가장자리에 남아 있다. | Summoned: simple and luminous — a thing called up a heartbeat ago, its edges still trailing ether-blue (#8fdcff) light. |
-| 일반 `common` | 있는 그대로의 세계. 지켜본 듯한 평범한 한순간, 장면 안의 광원 하나, 꾸밈없는 재질, 절제한 색. 화려한 장식 없이도 카드마다 다른 그림. | Common: the world as it is — plainly observed, one natural light source, weathered plain materials, restrained colour. |
-| 고급 `uncommon` | 솜씨와 숙련. 더 또렷하고 정교한 묘사, 윤곽을 따는 두 번째 빛, 모서리에 따뜻한 금빛이 몇 점. | Superior: assured craft — crisper, finer detail, a clean second light picking out the edges, a few warm-gold (#f2cf3d) glints. |
-| 레어 `rare` | 되풀이해 이야기할 만한 순간. 더 대담한 연출과 깊은 공간, 또렷한 명암, 윤곽에 차가운 사파이어 빛과 떠도는 에테르 알갱이 몇 점. | Rare: a moment worth retelling — bolder staging and deeper space, crisp contrast, a cool sapphire (#4ea8ff) rim light and a few drifting ether motes. |
-| 강화 `upgrade` | 원래 카드의 그 개체가 한 단계 오른 모습. 원래 카드 그림을 함께 넣고 그린다. 보강한 몸 · 장비, 발밑에서 오르는 청록빛. | Empowered: the same individual risen a rank — sturdier body and reinforced gear, steadier bearing, teal (#3fe0c0) energy rising from the ground beneath it. |
-| 에픽 `epic` | 세계가 반응한다. 날씨 · 대기 · 깊이가 움직이고 빛이 공기를 가른다. 공기 속에 옅은 보랏빛 비술 입자. 시점은 카드마다 다르다(늘 올려다보지 않는다). | Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes. |
-| 유니크 `unique` | 깃발의 이름난 전설 한 장면. 그 깃발에서 가장 대담한 그림 — 연극 같은 명암, 장인의 세공, 녹은 주황 금빛 불티. | Unique: one legend's defining image, the most daring picture of its banner — theatrical chiaroscuro, masterwork detail, molten orange-gold (#ff8a2a) embers and filigree light. |
-| 스페셜 `special` | 눈에 보이는 신화. 깃발마다 하나뿐인 존재(유닛)와 성소의 유물(아이템) — 필멸의 크기를 넘고, 땅과 하늘이 그 둘레에서 휜다. 겹겹의 광휘, 진홍과 금. | Special: myth made visible — one of a kind and beyond mortal scale, land and sky bending around it, layered radiance in crimson (#ff4d73) and gold. |
+| 소환물 `token` | 사다리 밖 — 마법이 방금 불러낸 것. 일반처럼 조용하되 불려 나온 빛만 남는다. 단순하고 또렷하게, 아직 흩어지지 않은 에테르 푸른빛이 가장자리에 남아 있다. | Summoned — off the rarity ladder, as quiet as a common card but for its conjuring light. Simple and luminous: a thing called up a heartbeat ago, one clear shape in plain surroundings, its edges still trailing ether-blue (#8fdcff) light. |
+| 일반 `common` | 1단 — 있는 그대로의 세계. 조용하고 담백하지만 정성껏 그린 그림. 빛은 장면에 쓴 광원뿐(덧붙인 빛 없음), 절제한 흙빛 색, 공기에는 먼지 · 연기 · 안개까지만, 닳고 손때 묻은 꾸밈없는 재질. 화려함이 아니라 관찰 · 질감 · 개성으로 좋은 그림. | Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed. |
+| 고급 `uncommon` | 2단 — 솜씨와 숙련. 자신 있고 말끔하다. 장면의 빛에 윤곽을 따는 깨끗한 두 번째 빛, 조금 더 맑고 진한 색, 공기는 아직 평범하지만(마법 없음) 모서리 · 금속에 따뜻한 금빛이 몇 점, 잘 만들고 잘 손질한 재질과 더 또렷한 묘사. | Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail. |
+| 레어 `rare` | 3단 — 처음으로 신비가 눈에 보인다. 되풀이해 이야기할 만한 인상적인 순간. 더 대담한 명암과 깊은 공간, 윤곽을 따라 차가운 사파이어 빛, 빛 받은 곳의 선명한 색, 주인공 둘레에 옅게 빛나는 안개와 떠도는 에테르 알갱이, 섬세한 장식과 반짝이는 묘사. | Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail. |
+| 강화 `upgrade` | 레어와 에픽 사이(3.5단) — 원래 카드의 그 개체가 한 단계 오른 모습. 원래 카드 그림을 함께 넣고 그린다. 보강한 몸 · 장비, 발밑에서 오르는 청록빛, 빛나는 이음매, 선명한 색과 옅게 빛나는 안개. | Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher — sturdier body, reinforced gear, steadier bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing in the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks. |
+| 에픽 `epic` | 4단 — 웅장하고 힘이 가득하다. 세계가 주인공에 반응한다. 깊은 대기를 가르는 빛줄기, 주인공을 감싸고 주변까지 물들이는 은은한 기운, 깊고 진하게 빛나는 색, 움직이는 날씨와 그 바람에 실려 흐르는 보랏빛 비술 입자, 화려하고 귀한 재질과 정교한 세공. | Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked. |
+| 유니크 `unique` | 5단 — 전설적이고 맹렬하다. 그 깃발에서 가장 대담한 그림. 연극 같은 명암과 깊은 어둠을 가르는 눈부신 주광, 주인공이 제 힘으로 타오르듯 빛난다. 보석처럼 선명하고 녹은 금속 같은 색, 소용돌이치는 주황 금빛 불티 · 아지랑이 · 주인공을 휘감는 가는 금세공 빛줄, 이음매마다 빛이 새는 장인의 세공. | Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a blazing key light against deep black, and the subject burning with a power of its own. Saturation: jewel-bright and molten. Air: thick with swirling orange-gold (#ff8a2a) embers, heat-shimmer and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing at the seams. |
+| 스페셜 `special` | 6단(최고) — 눈에 보이는 신화. 가장 신비롭고 강렬하고 화려하다. 깃발마다 하나뿐인 존재(유닛)와 성소의 유물(아이템) — 주인공 자체가 광원이고 광휘가 겹겹이다(흰 불빛 심 · 넓은 후광 · 화면을 가로지르는 진홍과 금의 큰 고리와 긴 빛살). 모든 카드 가운데 가장 빛나는 무지갯빛 색, 불티의 폭풍과 에테르 빛의 장막이 공기를 채우고 땅 · 하늘 · 날씨가 주인공 쪽으로 휜다. 필멸의 솜씨를 넘어 안에서부터 빛나는 재질. | Special — the highest of the six rarity tiers, unmistakably beyond every other. Mood: mythic, mysterious and overwhelming — sacred awe. Light: the subject is itself a source of light, radiance in layers — a white-hot core, a wide halo, great rings and long rays of crimson (#ff4d73) and gold crossing the whole picture, blooming and refracting through the haze. Saturation: the most luminous, iridescent colour of any card, from velvet black to blinding white-gold. Air: filled with storms of sparks and veils of ether light, while land, sky and weather bend toward the subject. Surfaces: matter beyond mortal craft, glowing from within. |
+
+사다리 한 줄(소환물을 뺀 모든 카드, 등급 줄 바로 다음): `Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.`
 <!-- /AUTO:GRADES -->
 
 **깃발** — 원소의 재료 · 대기 · 색. 깃발은 종족이 아니라 절대자(거인 · 용 · 신)의 힘이 깨운 모든 것이다(`docs/WORLD.md` 6장). 배색은 깃발마다 여섯 가지이고 카드가 하나를 고른다 — 어느 배색이든 그 깃발의 원소색이 가장 또렷한 색으로 들어 있다.
@@ -77,63 +96,54 @@ Colour: [② 배색 — 깃발의 배색 여섯 가운데 그 카드가 고른 �
 - 깃발 한 줄: Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
 - 배색: `ember` embers in the dark — near-black and soot-brown, with small fierce glows of fire-orange (#ff6b3d) / `whitehot` white-hot — a blinding yellow-white core falling through fire-orange (#ff6b3d) into deep crimson shadow / `ashfall` ashfall — pale ash-grey and bone-white, muted, with one fierce accent of fire-orange (#ff6b3d) / `magmadusk` magma dusk — wine-red and violet-brown gloom glowing fire-orange (#ff6b3d) from below / `coldnight` cold night against fire — deep blue-indigo dark cut by warm fire-orange (#ff6b3d) light / `brassglow` furnace warmth — brass, copper and amber tones in sooty brown gloom, fire-orange (#ff6b3d) at the heart
 - 장소 낱말(장면을 쓸 때): crater rim, lava tube, obsidian field, ash plain, sulphur vents and hot springs, gun bastion of a fortress-foundry, powder magazine, forest of chimneys, cooled lava terraces, caldera lake, underground magma river, foundry floor
-- 처음 세운 무리 — 종류가 「고블린」인 유닛에만: goblin — small wiry body, huge pointed ears, sharp grin, soot-smeared grey-green skin, scorched leather apron, goggles pushed up; gunner of cannons, muskets and powder kegs
 
 ### B2 소르그림의 방패 — metal `#a9b4c2`
 
 - 깃발 한 줄: Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
 - 배색: `coldsteel` cold steel — blue-grey (#a9b4c2) and slate shadow with crisp white highlights / `forgeheart` forge heart — dark gunmetal and steel grey (#a9b4c2) with molten orange glowing in the seams / `patina` rust and verdigris — red-brown and green-blue patina over steel grey (#a9b4c2) in dim light / `snowlight` mountain daylight — overcast snow-white and granite grey with steel-grey (#a9b4c2) metal / `lamplit` lamplight underground — small warm pools of light in black, steel grey (#a9b4c2) glinting at the edges / `mirror` mirror polish — bright silver-grey (#a9b4c2) reflections of a dark world, almost monochrome
 - 장소 낱말(장면을 쓸 때): mine gallery, underground forge city, exposed ore face, shield wall on a mountain pass, casting floor, armoury vault, scrapyard of broken golems, gate of riveted steel, cable lift over a chasm, quenching pools, slag heaps in snow, gear-works
-- 처음 세운 무리 — 종류가 「드워프」인 유닛에만: dwarf — stocky and broad, braided iron-grey beard, thick riveted plate, hammer or shield; smith of golems and automatons
 
 ### B3 케라운의 벼락 — lightning `#ffd84a`
 
 - 깃발 한 줄: Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
 - 배색: `thunderhead` thunderhead — black and rain-grey split by searing electric yellow (#ffd84a) / `cobalt` cobalt night — deep blue dark with electric-yellow (#ffd84a) arcs and violet-white coronas / `copperlab` copper warmth — copper, amber glass and electric-yellow (#ffd84a) filament glow / `flash` the flash — bleached white-yellow (#ffd84a) overexposure with hard black shapes / `greensky` storm green — eerie flat yellow-green light before the strike, with a few electric-yellow (#ffd84a) sparks / `wetglass` rain grey — pale grey wet reflections with small electric-yellow (#ffd84a) sparks doubled in them
 - 장소 낱말(장면을 쓸 때): top of a lightning-rod tower, rain-lashed plateau, field of fulgurite glass, academy laboratory, storehouse of lightning jars, coil hall, inside a storm cloud, wet cobbled street under hanging wires, observatory dome, generator pit, scorched moor
-- 처음 세운 무리 — 종류가 「노움」인 유닛에만: gnome — tiny, big nose, wild hair, brass goggles, lab coat with many pockets; scholar-engineer of coils and lightning jars
 
 ### G1 고르바스의 발톱 — earth `#b88a5a`
 
 - 깃발 한 줄: Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
 - 배색: `ochredust` ochre dust — matte sandstone and clay browns (#b88a5a) in a sunlit dust haze / `bonemoon` bone and moon — bone-white and grey-blue night with dry ochre (#b88a5a) earth / `redearth` red earth — rust-red clay under slate-grey storm light, ochre (#b88a5a) dust in the air / `strawgold` dry-grass afternoon — pale straw and ochre (#b88a5a) with long umber shadows / `stormslate` steppe storm — slate grey and muted earth brown (#b88a5a), flying grit / `firelit` firelit dark — deep darkness with warm ochre (#b88a5a) surfaces lit by one small flame
 - 장소 낱말(장면을 쓸 때): howling steppe, camp of hide tents, circle of standing stones, canyon, rockslide, the dragon's back — boulders and pines, mud wallow, salt flat, burial mounds, wolf den, cliff ledges, dry riverbed
-- 처음 세운 무리 — 종류가 「오크」인 유닛에만: orc — powerful and heavy-fisted, tusks, scarred grey-green skin, rust-red war paint, braided hair, bone and hide gear
 
 ### G2 베르단의 뿔 — forest `#58b85f`
 
 - 깃발 한 줄: Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
 - 배색: `mossdeep` deep moss — saturated leaf-green (#58b85f) in heavy shade with wet bark browns / `sporeglow` spore night — black dark lit by blue-green and pale-lime (#58b85f) bioluminescence / `sunshaft` canopy light — golden-green (#58b85f) shafts through drifting mist / `autumnrot` autumn rot — russet, amber and mushroom-pale against dark leaf-green (#58b85f) / `rainmist` rain mist — grey-green (#58b85f) haze and soft silver light / `thorndark` thorn dark — near-black with deep green (#58b85f) and a few points of blood red
 - 장소 낱말(장면을 쓸 때): city in the giant trees, cathedral of roots, bog, mushroom grove, thorn thicket, canopy walkways, fallen giant log, forest pool, seedling nursery, hollow of the first tree, burnt clearing growing back
-- 처음 세운 무리 — 종류가 「트롤」인 유닛에만: moss troll — very tall and lanky, long moss-covered limbs, bark-like skin, slow and patient
 
 ### G3 마렌시아의 노래 — water `#4fb3ff`
 
 - 깃발 한 줄: Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
 - 배색: `lagoon` sunlit shallows — turquoise and water-blue (#4fb3ff) with pearl white, clear and bright over deep blue shadow / `trench` deep water — navy and black with small cold lights and a water-blue (#4fb3ff) glow / `moontide` moon tide — silver-blue (#4fb3ff) moonlight and pale mist / `coraldawn` coral dawn — coral pink and warm first light over water-blue (#4fb3ff) / `stormsea` storm sea — heavy green-blue (#4fb3ff), white spray and slate grey / `glasscalm` glass calm — mirror-still pale blue-grey (#4fb3ff) and fog, almost monochrome
 - 장소 낱말(장면을 쓸 때): temple on a lagoon, tidal pools, kelp forest, coral reef, deep trench, sea cave, waterfall shrine, mangrove roots, open ocean swell, drowned ruins, spring pool, rain on still water
-- 처음 세운 무리 — 종류가 「인어」인 유닛에만: merfolk — blue-scaled, long flowing fins, pearl and shell ornaments; shrine singer of the lagoon
 
 ### A1 모르카스의 그믐 — darkness `#8b5cf6`
 
 - 깃발 한 줄: Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
 - 배색: `violetshade` violet shade — purple-black gloom with luminous violet (#8b5cf6) edges / `bloodink` blood and ink — black and deep crimson with a thread of violet (#8b5cf6) / `candle` candle islands — small pools of amber light in vast dark, violet (#8b5cf6) in the shadows / `bonepale` bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow / `eclipse` eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze / `frostindigo` indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver
 - 장소 낱말(장면을 쓸 때): shadow city in a canyon, contract archive, scriptorium, vault of pawned things, gallows bridge, crypt, blood fountain, masked court, night market, hall of mirrors, bog of the dead
-- 처음 세운 무리 — 종류가 「마족」인 유닛에만: demon contractor — curved horns, ashen or pale skin, glowing eyes, elegant dark attire; signs and collects contracts in blood
 
 ### A2 솔란테의 새벽 — light `#ffe9a8`
 
 - 깃발 한 줄: Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
 - 배색: `firstlight` first light — cool blue-grey before dawn with a low band of pale gold (#ffe9a8) / `whitegold` white and gold — sunlit ivory and soft pale gold (#ffe9a8), airy, with cool blue shadow / `stainedglass` stained glass — jewel-coloured patches of light on pale stone in deep shade, pale-gold (#ffe9a8) beams / `vigil` night vigil — darkness holding small warm flames with pale-gold (#ffe9a8) halos / `rosedawn` rose dawn — pink-gold (#ffe9a8) cloud light and lilac shadows / `glare` holy glare — blinding white-gold (#ffe9a8) light with dark shapes in front of it
 - 장소 낱말(장면을 쓸 때): white citadel walls, cathedral nave, bell tower, cloister garden, battlements at dawn, hall of oaths, reliquary crypt, the long wall facing the empty land, pilgrim road, terrace above the clouds, candle chapel
-- 처음 세운 무리 — 종류가 「천족」인 유닛에만: seraph — human-like, white feathered wings, a thin halo, pale armour or robes; shield-bearer of the dawn
 
 ### A3 벨루미르의 별 — wind `#9fe3d6`
 
 - 깃발 한 줄: Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
 - 배색: `starindigo` star indigo — deep indigo night full of stars, wind-teal (#9fe3d6) streaks and silver / `thinair` thin air — pale high-altitude daylight, white cloud and cool shadow, wind-teal (#9fe3d6) accents / `aurora` aurora — teal-green (#9fe3d6) and violet ribbons of light over darkness / `stormcloud` storm cloud — grey-violet cloud and silver rain with wind-teal (#9fe3d6) gusts / `duskrose` dusk above the clouds — rose and peach light with deep teal (#9fe3d6) shadows / `moonsilver` moon silver — blue-silver monochrome under a full moon, sharp shadows, a breath of teal (#9fe3d6)
 - 장소 낱말(장면을 쓸 때): top of a needle spire, archers' lookout platform, drifting sky-islands, sea of clouds, star observatory, library of star charts, wind-tunnel canyon, rope bridges between spires, eyrie, edge of a storm front, frozen high pass
-- 처음 세운 무리 — 종류가 「하이엘프」인 유닛에만: high elf — slender and proud, long pointed ears, silver hair, short wind-blown cloak and light leather; archer with a long elegant bow
 
 <!-- /AUTO:FLAGS -->
 
@@ -159,9 +169,10 @@ Colour: [② 배색 — 깃발의 배색 여섯 가운데 그 카드가 고른 �
 9. **글자를 부르는 것을 피한다.** 간판 · 깃발의 문구 · 펼친 책의 글 · 숫자판 대신 봉랍 · 매듭 · 문양 · 눈금 없는 다이얼.
 
 ### 3.2 유닛
-- **몸은 종류(kin)의 것이다.** 생김새는 `art_kinds.json`. 깃발을 처음 세운 무리(고블린 · 드워프 · 노움 · 오크 · 트롤 · 인어 · 마족 · 천족 · 엘프)는 **종류가 그 무리인 유닛에만** 쓴다. 불개는 불개, 깨어난 대포는 대포다.
+- **몸은 종류(kin)의 것이다.** 생김새는 `art_kinds.json`. 유닛마다 제 종류가 있다(`js/kinds.js` `KIND` — 깃발 기본 종류는 2026-11-21에 들어냈다). 불개는 불개, 깨어난 대포는 대포, 잿너구리는 잿너구리다 — 그 몸을 보이는 대로 직접 묘사한다.
 - **레벨이 크기다.** 1~2 작고 소박 · 3~4 다부짐 · 5~6 크고 위압적 · 7 거대(작은 것을 곁에 두어 크기를 보인다).
 - **하는 일을 보인다.** 능력 · 성향(벽 · 돌격 · 원거리 · 가시 · 재생 …)은 자세와 주변의 흔적으로.
+- 화려함(빛 · 입자 · 광휘)은 등급 줄이 맡는다(2장) — 장면에 등급 강조색이나 "빛나는 오라"를 따로 쓰지 않는다. 장면은 아래 결대로 **무슨 순간인가**만 다르게 쓴다.
 - 등급의 결: 일반 = 지켜본 듯한 평범한 한순간 / 고급 = 솜씨가 드러나는 순간과 말해 주는 소품 하나 / 에픽 = 세계가 반응하는 사건(날씨 · 규모) / 레어 = 되풀이해 이야기할 만한 순간(더 대담한 연출 · 깊은 공간. 레어 유닛은 오라의 영향이 주변에 보이게) / 유니크 = 그 전설을 정의하는 한 장면, 그 깃발에서 가장 대담한 그림 / 스페셜 = 깃발마다 하나뿐인 신화적 존재(제 원소로 이루어진 몸, 요새 · 군대 · 용과 견줄 크기 — 종족 낱말을 쓰지 않고, 늘 올려다보는 정면으로 쓰지 않는다) / 강화 = 원래 카드와 같은 개체의 더 강해진 새 순간(틀은 원래 카드와 다르게) / 소환물 = 단순하게, 막 불려 나온 순간.
 
 ### 3.3 마법
@@ -282,10 +293,11 @@ Colour: [② 배색 — 깃발의 배색 여섯 가운데 그 카드가 고른 �
 #### 일반 · 유닛 — A1-02 그림자 도둑
 
 ```
-Landscape 5:4 painting. From inside a street lantern, past its sooty glass panes and the flame at the bottom edge: on the wet cobbles below, a thin horned demon thief in a patched dark coat crouches at the right, just outside the circle of light, and peels the long shadow of a passing merchant off the stones like a strip of black cloth, rolling it over his forearm as he creeps left. The merchant walks on out of frame, purse still on his belt, the lit cobbles at his heels bare. Warm amber from the lantern flame pools on the cobbles; beyond its edge the alley is violet-black.
+Landscape 5:4 painting. From inside a street lantern, past its sooty glass panes and the flame at the bottom edge: on the wet cobbles below, a thin black cat with a nicked ear crouches at the right, just outside the circle of light, and peels the long shadow of a passing merchant off the stones like a strip of black cloth, gathering it in its teeth as it creeps left. The merchant walks on out of frame, purse still on his belt, the lit cobbles at his heels bare. Warm amber from the lantern flame pools on the cobbles; beyond its edge the alley is violet-black.
 Colour: candle islands — small pools of amber light in vast dark, violet (#8b5cf6) in the shadows.
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Common: the world as it is — plainly observed, one natural light source, weathered plain materials, restrained colour.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
@@ -295,7 +307,8 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Landscape 5:4 painting of a spell — the magic itself is the subject. Extreme close-up of chain mail, each iron ring as big as a fist in the frame. One ring is rusted thin, and exactly through it passes a long copper needle travelling to the right, drawing behind it a thread of live lightning that has already stitched through a second weak ring further left. Around both punctures the links glow and begin to part. Warm amber gloom; the thread's yellow filament glare runs along the needle and beads on the oiled iron.
 Colour: copper warmth — copper, amber glass and electric-yellow (#ffd84a) filament glow.
 Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
-Common: the world as it is — plainly observed, one natural light source, weathered plain materials, restrained colour.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
@@ -305,7 +318,8 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Landscape 5:4 painting of one object — the object itself is the subject. A short, stubby bow of plain ash hangs by its hemp string from a wooden peg beside a narrow window, in the left of the frame, lit from behind. It is a learner's bow: barely an arm long, the grip wrapped in new cord over old, one limb tip chipped and mended with glue and thread, a row of small dents along the belly. The peg is one of a long row at child height, worn to a groove, and the draught through the window keeps the bow turning slowly on its string. Grey-violet storm daylight from the window behind it outlines the bow and string in silver; the wall beside it is in soft shade.
 Colour: storm cloud — grey-violet cloud and silver rain with wind-teal (#9fe3d6) gusts.
 Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Common: the world as it is — plainly observed, one natural light source, weathered plain materials, restrained colour.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
@@ -315,37 +329,30 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Landscape 5:4 painting. Looking down onto a scribe's cluttered desk: a small burlap rag doll with mismatched button eyes sits slumped at the left edge, its back to us, a corner of folded parchment poking from a split seam like stuffing. One rusty pin already stands in its shoulder, and its own stubby hand is pushing a second pin into its other arm. Across the desk to the right lies a row of five sealed, ribboned scrolls, one of them twitching on the wood. A single guttering tallow stub at the top edge throws long black shadows from the pins across the desk; the wax seals glow deep crimson.
 Colour: blood and ink — black and deep crimson with a thread of violet (#8b5cf6).
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Superior: assured craft — crisper, finer detail, a clean second light picking out the edges, a few warm-gold (#f2cf3d) glints.
+Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-#### 고급 · 공격 마법 — CS-A1 침묵의 빙의
+#### 레어 · 유닛 — PN-A1-R 그림자 계약 집행자
 
 ```
-Landscape 5:4 painting of a spell — the magic itself is the subject. Looking along its path from where it starts: at the bottom edge, seen from behind, a thin camp boy sits slumped on a drum, and a pale thread of mist leaves the back of his hood and stretches away up the frame. Halfway along, it has taken one turn round the clapper of a camp alarm bell and holds it stopped in mid-swing. At the top the thread enters the visor of a towering armoured champion, whose raised greatsword is already sinking and whose knees have bent into the boy's own slump. Colourless ash-grey dusk over trampled ground; the thread is the one violet glow, brightest where it enters the helm.
-Colour: bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow.
+Landscape 5:4 painting. Far across a frost-white square in a canyon city, three small figures stand motionless in a row at the right. The middle one is a man-tall raven standing upright in a long dark coat, a folded contract with a dangling seal held flat to its breast under one wing. Shadow pours from the paper down its coat and along the ground to the guards on either side, climbing their halberds and edging the blades in violet. Before them one figure kneels, and above its bowed head hangs a single puff of white breath, the only one in the square. Moonless blue-violet night; frost on the paving and tarnished silver lamps along the canyon wall give a cold, even glimmer.
+Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Superior: assured craft — crisper, finer detail, a clean second light picking out the edges, a few warm-gold (#f2cf3d) glints.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-#### 고급 · 아이템 — C4-1 별을 읽는 보주
-
-```
-Landscape 5:4 painting of one object — the object itself is the subject. So close that the orb's curve fills the frame from side to side: within the clear crystal hang hundreds of tiny bright motes, a whole night sky sealed in glass. A hair-thin thread of lightning is travelling among them of its own accord, hopping from mote to mote downward through the middle of the sphere and leaving each one joined to the last, so that a crooked constellation grows as we watch. One brass claw of its cradle intrudes at the lower edge. Deep blue dark inside the glass; the thread is yellow-white, each touched mote flaring with a small violet-white corona and a fine glint on the brass.
-Colour: cobalt night — deep blue dark with electric-yellow (#ffd84a) arcs and violet-white coronas.
-Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
-Superior: assured craft — crisper, finer detail, a clean second light picking out the edges, a few warm-gold (#f2cf3d) glints.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 #### 에픽 · 유닛 — EP-A1-1 심연 칼날 무희
 
 ```
-Landscape 5:4 painting. One turn of a dance shown as five overlapping moments across a small stage: the same horned demon dancer, ashen-skinned in dark silk sashes, repeats from left to right in fading afterimages, her two crescent blades drawing one unbroken silver ribbon through all five. The last and sharpest figure, at the right, sinks into a bow with both blades folded behind her back. Along the bottom edge runs a dark row of spectators' heads, and in the middle of the row one seat stands empty, a feathered hat still settling onto its cushion. Violet footlights glow up from the stage edge and rim every afterimage; the house beyond the front row is purple-black.
+Landscape 5:4 painting. One turn of a dance shown as five overlapping moments across a small stage: the same tall black mantis in dark silk sashes repeats from left to right in fading afterimages, her two crescent blade-arms drawing one unbroken silver ribbon through all five. The last and sharpest figure, at the right, sinks into a bow with both blades folded behind her back. Along the bottom edge runs a dark row of spectators' heads, and in the middle of the row one seat stands empty, a feathered hat still settling onto its cushion. Violet footlights glow up from the stage edge and rim every afterimage; the house beyond the front row is purple-black.
 Colour: violet shade — purple-black gloom with luminous violet (#8b5cf6) edges.
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
@@ -355,7 +362,8 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Landscape 5:4 painting of a spell — the magic itself is the subject. At the left edge a huge ivory hunting horn banded in silver is chained to a rock ledge above the clouds, its bell pointing right, frost shaken from it in a ring. Out of the bell rolls a gale made visible: a long widening funnel of torn cloud running the whole width of the frame, with a hundred arrows riding inside it point-first like a shoal of fish. The front of the funnel has taken the shape of running hounds, mist-bodied and stretched flat out, baying toward the right. Full moon above the cloud sea: blue-silver light on the horn and the funnel's upper edge, sharp shadow beneath, teal in the hounds' wake.
 Colour: moon silver — blue-silver monochrome under a full moon, sharp shadows, a breath of teal (#9fe3d6).
 Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
@@ -365,17 +373,30 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Landscape 5:4 painting of one object — the object itself is the subject. In a bare stone niche at the left of the frame sits a single scale weight of black bronze, the size of a fist: a squat cone with a ring handle on top and a closed eye cast in its side, its foot worn bright where it once sat in a pan. The shelf beneath it has dented like soft wax, a crack running to the wall, and everything near leans toward it: a hanging plumb line pulled off true, a spider's thread, the falling dust. Above, the hook it was taken from hangs empty. A thin cold slit of light from behind rims the cone, its ring and the bent plumb line; the niche is black with violet haze.
 Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Epic: the world itself reacts — moving weather, deep atmosphere and distance, shafts of light through the air, faint violet (#b46cff) arcane motes.
+Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
 #### 유니크 · 유닛 — UN-A1 피의 서약자
 
 ```
-Landscape 5:4 painting. Through the eyes of the one he has just struck: our own gauntleted arm and dented shield rise along the bottom edge, and on the shield a round seal of red wax has been stamped where his blade landed, still smoking, ribbon and all. A thread of red ink runs from that seal through the air to the tip of his long sword. He stands over us at the right, a tall horned demon with pale skin and calm glowing eyes; in his other hand a scroll hangs open, and on it a fresh red line is drawing itself. A dark hall with a thread of violet in its high windows; the smoking seal and the wet red line give the only glow, crimson on steel and jaw.
+Landscape 5:4 painting. Through the eyes of the one he has just struck: our gauntleted arm and dented shield rise along the bottom edge, and on the shield a round seal of red wax has been stamped where his blade landed. A thread of red ink runs from that seal to the tip of his long sword. He stands over us at the right, a tall gaunt revenant in dark mail, grey skin drawn tight, calm eyes each holding a point of red light; in his other hand a scroll hangs open, and on it a fresh red line is drawing itself. A dark hall with a thread of violet in its high windows; the smoking seal and the wet red line give the only glow, crimson on steel and jaw.
 Colour: blood and ink — black and deep crimson with a thread of violet (#8b5cf6).
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Unique: one legend's defining image, the most daring picture of its banner — theatrical chiaroscuro, masterwork detail, molten orange-gold (#ff8a2a) embers and filigree light.
+Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a blazing key light against deep black, and the subject burning with a power of its own. Saturation: jewel-bright and molten. Air: thick with swirling orange-gold (#ff8a2a) embers, heat-shimmer and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing at the seams.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+#### 스페셜 · 유닛 — SP-A1 그림자 없는 아즈라
+
+```
+Landscape 5:4 painting. Straight down from high above a canyon city: black roofs, bridges and stairs picked out by violet lamps. Every shadow in it, of towers, bridges and people small as grains, lies stretched toward one point in the left third, like compass needles toward a lodestone. There stands a figure taller than any spire: a body of gathered darkness under a thin crescent crown, face turned down and away, a train of night spilling from her shoulders through the streets like ink. Around her feet lies a ring of bare, bright paving, shadowless. Sunless violet lamplight glows along roof edges and bridge rails in purple-black gloom; the bare ring at her feet shines pale, as if lit from within.
+Colour: violet shade — purple-black gloom with luminous violet (#8b5cf6) edges.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Special — the highest of the six rarity tiers, unmistakably beyond every other. Mood: mythic, mysterious and overwhelming — sacred awe. Light: the subject is itself a source of light, radiance in layers — a white-hot core, a wide halo, great rings and long rays of crimson (#ff4d73) and gold crossing the whole picture, blooming and refracting through the haze. Saturation: the most luminous, iridescent colour of any card, from velvet black to blinding white-gold. Air: filled with storms of sparks and veils of ether light, while land, sky and weather bend toward the subject. Surfaces: matter beyond mortal craft, glowing from within.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 

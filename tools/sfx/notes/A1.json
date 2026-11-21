@@ -50,9 +50,9 @@
    "def": "the spider pulls its legs in tight: a glossy chitin knock, a creak of jointed legs, sticky strands stretching and twanging around it"
   },
   "A1-11": {
-   "en": "Fiend Warrior",
+   "en": "Rat Soldier of the Pact",
    "ko": "마족 장검 내리침 · 투박한 갑옷이 둔탁히 받음",
-   "atk": "a rasping demon grunt as a crude iron blade is hauled up, a heavy downward whoosh, then a solid metallic chop with a short sting of sparks",
+   "atk": "a rasping rat hiss as a crude iron blade is hauled up, a heavy downward whoosh, then a solid metallic chop with a short sting of sparks",
    "def": "a plain iron breastplate takes it: a dull metallic bong, leather straps creaking, a low guttural huff as it digs its boots into dirt"
   },
   "A1-13": {
@@ -116,7 +116,7 @@
    "def": "a blade bites into thick parchment and will not cut: a stiff paper thwack, a creak of the roll, the edge springing back with a dry rustle"
   },
   "A1-29": {
-   "en": "Abyssal Archfiend",
+   "en": "Darkness of the Abyss",
    "ko": "등불 꺼뜨리며 걷는 거구 · 두터운 그림자 살갗",
    "atk": "a heavy stomp, a row of lanterns blowing out with soft clicks, then a deep darkness slams in with a bone-shaking boom and a long sinking rumble",
    "def": "a rippling shadow hide absorbs the blow: a deep booming thud, wings flapping heavily, a low resonant groan rolling out"
@@ -254,7 +254,7 @@
    "def": "a broad glossy carapace takes the blow with a heavy chitin knock, long legs creak as they fold in, and a web of thick strands stretches and twangs around her"
   },
   "UP-A1-11": {
-   "en": "Fiend Vanguard",
+   "en": "Rat Vanguard of the Pact",
    "ko": "선봉 군기 돌격 · 방패 없이 몸으로 맞고 비틀",
    "atk": "a short war horn-like grunt, thudding boots charge, then a heavy double-handed sword hews with a wide whistle and a punishing iron slam",
    "def": "no shield and worn leather only: the blow lands with a heavy flesh-and-hide thud, tattered vanguard cloth snapping, a harsh grunt as boots skid backward in gravel"
@@ -443,7 +443,7 @@
    "equip": "a heavy iron weight is lifted off a scale with a chain clank, the beam springs with a sudden twang, and the weight is gripped with a deep dull thud and a lingering low drone"
   },
   "TK-A1-1": {
-   "en": "Contract Demon",
+   "en": "Sealing-Wax Familiar",
    "ko": "생명 받고 튀어나온 악마 · 그을린 몸이 퍽",
    "atk": "a small spark pops, a hot brimstone hiss, a short growl, then wiry claws rake the air with a quick scratchy whoosh and a bite-sized hit",
    "def": "a scorched little body takes it: a soft leathery thump, a puff of ember smoke, a quick yelp-free hiss as it hops back"

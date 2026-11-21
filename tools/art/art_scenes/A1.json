@@ -7,7 +7,7 @@
   },
   "A1-02": {
     "shot": "inside", "dir": "L", "place": "R", "pal": "candle",
-    "scene": "From inside a street lantern, past its sooty glass panes and the flame at the bottom edge: on the wet cobbles below, a thin horned demon thief in a patched dark coat crouches at the right, just outside the circle of light, and peels the long shadow of a passing merchant off the stones like a strip of black cloth, rolling it over his forearm as he creeps left. The merchant walks on out of frame, purse still on his belt, the lit cobbles at his heels bare.",
+    "scene": "From inside a street lantern, past its sooty glass panes and the flame at the bottom edge: on the wet cobbles below, a thin black cat with a nicked ear crouches at the right, just outside the circle of light, and peels the long shadow of a passing merchant off the stones like a strip of black cloth, gathering it in its teeth as it creeps left. The merchant walks on out of frame, purse still on his belt, the lit cobbles at his heels bare.",
     "light": "Warm amber from the lantern flame pools on the cobbles; beyond its edge the alley is violet-black."
   },
   "A1-04": {
@@ -42,8 +42,8 @@
   },
   "A1-11": {
     "shot": "eye", "dir": "R", "place": "L", "pal": "violetshade",
-    "scene": "At eye level, as if standing next in line: a rank-and-file demon soldier with short curved horns and ashen skin stands at the left of the frame, facing right toward a stone offering-ledge. He wears plain dark leather with one dented pauldron, a spear leaning in the crook of his arm, and with his teeth he tightens a cloth strip around his own palm. On the ledge the small brass cup he has just filled sits beside an identical cup that pours out an equal measure of violet flame.",
-    "light": "The measured violet flame lights his face and knuckles from the right; the barracks vault behind him is purple-black."
+    "scene": "At eye level, as if standing next in line: a rank-and-file rat soldier, lean and grey-furred with one torn ear, stands upright at the left of the frame, facing right toward a stone offering-ledge. It wears plain dark leather with one dented pauldron, a spear leaning in the crook of its arm, and with its teeth it tightens a cloth strip around its own paw. On the ledge the small brass cup it has just filled sits beside an identical cup that pours out an equal measure of violet flame.",
+    "light": "The measured violet flame lights its muzzle and knuckles from the right; the barracks vault behind it is purple-black."
   },
   "A1-13": {
     "shot": "profile", "dir": "L", "place": "R", "pal": "candle",
@@ -97,8 +97,8 @@
   },
   "A1-29": {
     "shot": "eye", "dir": "B", "place": "L", "pal": "candle",
-    "scene": "At eye level on a street cut into the canyon wall, a few paces behind him: a towering demon lord in a long ash-grey mantle strides away from us down the left side of the frame, his great curved horns rising higher than the iron lamp posts that line the road. The three lamps nearest us are dark, each trailing a thread of smoke, and the one beside his shoulder is shrinking to a red wick as he passes. Far ahead the lamps still burn in a warm row, and small townsfolk hurry indoors and pull their shutters closed.",
-    "light": "Amber lamp pools ahead of him and black street behind; a faint violet glow leaks from the hem of his mantle."
+    "scene": "At eye level on a street cut into the canyon wall: a towering shape of gathered darkness in a long ash-grey mantle strides away from us down the left side of the frame, its shoulders higher than the iron lamp posts, its head lost in the dark above them. The three lamps nearest us are dark, each trailing a thread of smoke, and the one beside its shoulder is shrinking to a red wick as it passes. Far ahead the lamps still burn in a warm row, and small townsfolk hurry indoors and pull their shutters closed.",
+    "light": "Amber lamp pools ahead of it and black street behind; a faint violet glow leaks from the hem of its mantle."
   },
   "A1-30": {
     "shot": "profile", "dir": "L", "place": "L", "pal": "frostindigo",
@@ -147,12 +147,12 @@
   },
   "EP-A1-1": {
     "shot": "echo", "dir": "R", "place": "X", "pal": "violetshade",
-    "scene": "One turn of a dance shown as five overlapping moments across a small stage: the same horned demon dancer, ashen-skinned in dark silk sashes, repeats from left to right in fading afterimages, her two crescent blades drawing one unbroken silver ribbon through all five. The last and sharpest figure, at the right, sinks into a bow with both blades folded behind her back. Along the bottom edge runs a dark row of spectators' heads, and in the middle of the row one seat stands empty, a feathered hat still settling onto its cushion.",
+    "scene": "One turn of a dance shown as five overlapping moments across a small stage: the same tall black mantis in dark silk sashes repeats from left to right in fading afterimages, her two crescent blade-arms drawing one unbroken silver ribbon through all five. The last and sharpest figure, at the right, sinks into a bow with both blades folded behind her back. Along the bottom edge runs a dark row of spectators' heads, and in the middle of the row one seat stands empty, a feathered hat still settling onto its cushion.",
     "light": "Violet footlights glow up from the stage edge and rim every afterimage; the house beyond the front row is purple-black."
   },
   "EP-A1-2": {
     "shot": "profile", "dir": "R", "place": "X", "pal": "bonepale",
-    "scene": "In strict profile along a stone gallows bridge, flat as a frieze. At the left end a huge horned demon in an executioner's hood has just finished one level swing toward the right, his long-hafted axe at full stretch. A pale arc from the blade runs on down the bridge through a queue of oath-breakers in grey armour, and they go over one after another like dominoes: the first already flat, the middle ones leaning, the last still upright with his helmet lifting off. Beyond them every hanging rope on the bridge swings out to the right.",
+    "scene": "In strict profile along a stone gallows bridge. At the left end a huge gaunt figure with a stag's skull for a head, antlers pushing through an executioner's hood, has just finished one level swing toward the right, his long-hafted axe at full stretch. A pale arc from the blade runs on down the bridge through a queue of oath-breakers, and they go over one after another like dominoes: the first already flat, the middle ones leaning, the last still upright with his helmet lifting off. Beyond them every hanging rope on the bridge swings out to the right.",
     "light": "Bone-white fog fills the canyon behind the bridge and turns figures and ropes to ash-grey shapes; one violet gleam runs along the axe edge."
   },
   "EP-A1-3": {
@@ -257,8 +257,8 @@
   },
   "PN-A1-E": {
     "shot": "silhouette", "dir": "F", "place": "C", "pal": "eclipse",
-    "scene": "A tall horned demon stands black against a slit of cold light, where a curtain of darkness as high as the sky has parted behind him. He faces us in the centre, mid-stride, a pedlar's case hanging half-empty from one hand. Straight through his chest runs a clean-edged gap the shape of a missing puzzle piece, and the cold light shines through it onto the ground before him. Dust, dead leaves and the tails of his long coat all stream backward toward the curtain, and a thin line of them is being drawn through the gap in his chest.",
-    "light": "The slit of pale light behind him rims horns, shoulders and coat; all else is silhouette in violet haze."
+    "scene": "A tall scarecrow in a long coat and a wide-brimmed hat stands black against a slit of cold light, where a sky-high curtain of darkness has parted behind him. He faces us in the centre, mid-stride, a pedlar's case hanging half-empty from one hand. Straight through his chest runs a clean-edged gap the shape of a missing puzzle piece, and the cold light shines through it onto the ground. Dust, dead leaves and the tails of his coat all stream backward toward the curtain, and a thin line of them is being drawn through the gap in his chest.",
+    "light": "The slit of pale light behind him rims hat, shoulders and coat; all else is silhouette in violet haze."
   },
   "PN-A1-U1": {
     "shot": "cut", "dir": "L", "place": "B", "pal": "bloodink",
@@ -312,12 +312,12 @@
   },
   "TK-A1-1": {
     "shot": "front", "dir": "F", "place": "C", "pal": "bloodink",
-    "scene": "Face-on and centred: a lean devil with short curved horns and ashen skin is rising out of a round seal of red wax on a bare stone floor. He is finished only down to the ribs: horns, narrow shoulders and thin arms are solid, while everything below is still a twisting rope of red-black smoke rooted in the wax. His glowing eyes are just opening and both hands are tugging his dark collar straight. Beside the seal stands a small empty cup, one last dark drop still hanging from its lip.",
-    "light": "The soft seal glows crimson from below, lighting his chin and the smoke; the room beyond is black, with a faint violet edge on the horns."
+    "scene": "Face-on and centred: a lean figure of dark red sealing wax is rising out of a round seal of red wax on a bare stone floor. It is finished only down to the ribs: narrow head, shoulders and thin arms are set and glossy, while everything below is still a twisting rope of molten wax and red-black smoke rooted in the seal. Its ember eyes are just opening and both hands are tugging a collar of wax ribbon straight. Beside the seal stands a small empty cup, one last dark drop still hanging from its lip.",
+    "light": "The soft seal glows crimson from below, lighting its chin and the smoke; the room beyond is black, with a faint violet edge on the shoulders."
   },
   "UN-A1": {
     "shot": "pov", "dir": "F", "place": "R", "pal": "bloodink",
-    "scene": "Through the eyes of the one he has just struck: our own gauntleted arm and dented shield rise along the bottom edge, and on the shield a round seal of red wax has been stamped where his blade landed, still smoking, ribbon and all. A thread of red ink runs from that seal through the air to the tip of his long sword. He stands over us at the right, a tall horned demon with pale skin and calm glowing eyes; in his other hand a scroll hangs open, and on it a fresh red line is drawing itself.",
+    "scene": "Through the eyes of the one he has just struck: our gauntleted arm and dented shield rise along the bottom edge, and on the shield a round seal of red wax has been stamped where his blade landed. A thread of red ink runs from that seal to the tip of his long sword. He stands over us at the right, a tall gaunt revenant in dark mail, grey skin drawn tight, calm eyes each holding a point of red light; in his other hand a scroll hangs open, and on it a fresh red line is drawing itself.",
     "light": "A dark hall with a thread of violet in its high windows; the smoking seal and the wet red line give the only glow, crimson on steel and jaw."
   },
   "UN-A1-7": {
@@ -332,8 +332,8 @@
   },
   "UP-A1-11": {
     "shot": "close", "dir": "R", "place": "C", "pal": "violetshade",
-    "scene": "Tight on the head and shoulders of a demon soldier turned three-quarters to the right: short curved horns, ashen skin, eyes glowing violet under a scarred brow. On his near shoulder sits the same dented pauldron he has always worn, and roped on top of it are two more of different make, both scratched. Three ribboned wax seals hang at his throat on cords, one bright, two cracked. Three strips of cloth are knotted round the spear shaft against his cheek, and behind him, out of focus, two spears stand planted in the ground with a helmet on each.",
-    "light": "Three small violet flames burning along his spearhead light his cheek and the stacked pauldrons from the right; purple-black dusk behind."
+    "scene": "Tight on the head and shoulders of the same rat soldier turned three-quarters to the right: grey fur, one torn ear, eyes glowing violet under a scarred brow. On its near shoulder sits the same dented pauldron it has always worn, and roped on top of it are two more of different make, both scratched. Three ribboned wax seals hang at its throat on cords, one bright, two cracked. Three strips of cloth are knotted round the spear shaft against its cheek, and behind it, out of focus, two spears stand planted in the ground with a helmet on each.",
+    "light": "Three small violet flames burning along its spearhead light its cheek and the stacked pauldrons from the right; purple-black dusk behind."
   },
   "UP-A1-15": {
     "shot": "pov", "dir": "B", "place": "T", "pal": "eclipse",
@@ -372,7 +372,7 @@
   },
   "PN-A1-R": {
     "shot": "far", "dir": "N", "place": "R", "pal": "frostindigo",
-    "scene": "Far across a frost-white square in a canyon city, three small figures stand motionless in a row at the right. The middle one is a pale horned demon in a long dark coat, a folded contract with a dangling seal held flat to his chest. Shadow pours from the paper down his sleeves and along the ground to the guards on either side, climbing their halberds and edging the blades in violet. Before them one figure kneels, and above its bowed head hangs a single puff of white breath, the only one in the square.",
+    "scene": "Far across a frost-white square in a canyon city, three small figures stand motionless in a row at the right. The middle one is a man-tall raven standing upright in a long dark coat, a folded contract with a dangling seal held flat to its breast under one wing. Shadow pours from the paper down its coat and along the ground to the guards on either side, climbing their halberds and edging the blades in violet. Before them one figure kneels, and above its bowed head hangs a single puff of white breath, the only one in the square.",
     "light": "Moonless blue-violet night; frost on the paving and tarnished silver lamps along the canyon wall give a cold, even glimmer."
   },
   "RS-A1-1": {

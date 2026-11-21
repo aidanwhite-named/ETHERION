@@ -55,7 +55,7 @@
    "def": "it ducks into a crevice: a quick chattering shriek, claws scrabbling on rusty rock, a glancing thud and a trickle of gravel"
   },
   "B1-16": {
-   "en": "Goblin Demolitionist",
+   "en": "Ash Raccoon Demolitionist",
    "ko": "도화선 불붙여 던지자 터짐 · 몸으로 버티며 펑",
    "atk": "a match scratch and quick spitting fizz, a bundled stick of powder tossed with a whoosh, then a sharp booming blast that punches straight through",
    "def": "no armour, a hasty crouch: a soft thud into charred cloth, a rattle of spare fuse spools, sparks sputtering out against the ground"
@@ -85,7 +85,7 @@
    "def": "it rears and takes the blow on its hide: a heavy thump, a triple angry roar, the serpent tail hissing and lashing with a crackle of heat"
   },
   "B1-24": {
-   "en": "Goblin Mortarman",
+   "en": "Wolverine Mortarman",
    "ko": "포탄 포신에 풍덩, 하늘로 휙 · 쾅 소리 받아 낮게 웅크림",
    "atk": "a shell dropped down a tube with a metallic clunk, a hollow thoomp lobbing it skyward, a long falling whistle, ending in a distant crumping burst",
    "def": "it ducks into its helmet-like iron pot: a dented tinny clang, a hollow ring, sand and loose pebbles trickling down the sides"
@@ -139,7 +139,7 @@
    "def": "its craggy hide shrugs off the blow: a deep rocky thud, a long rumbling groan, scree pattering off its ridged back"
   },
   "B1-36": {
-   "en": "Blasting Goblin King",
+   "en": "Blasting Lion King",
    "ko": "왕관 도화선 불붙여 박치기 폭발 · 쇠 왕관이 울림",
    "atk": "a fuse fizzing atop an iron crown, a heavy lunge, a head-butt crack and a huge booming detonation with a scatter of coins",
    "def": "a stout iron crown and fat belly: a deep metallic bong ringing from the crown, jingling coins, and a big fleshy thump with a rolling reverb"
@@ -384,7 +384,7 @@
    "equip": "a leather bandolier is slung and buckled: little powder tubes click together, a flint sparks, a short fuse fizzes briefly and is pinched out"
   },
   "IB1-3": {
-   "en": "Goblin Blunderbuss",
+   "en": "Bell-Mouth Blunderbuss",
    "ko": "나팔총을 어깨에 걸고 장전",
    "equip": "a flared-muzzle blunderbuss is hefted: a hand-cranked lock clicks, a scoop of shot rattles down the bell mouth, a wad is tamped with a thud"
   },

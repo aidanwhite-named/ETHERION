@@ -7,7 +7,7 @@
    "equip": "a huge cracked fang is pressed onto a fist, hide cords are pulled tight with creaks, and a low hungry growl-like rumble swells from the stone"
   },
   "G1-01": {
-   "en": "Orc Apprentice",
+   "en": "Young Bison of the Duel Ring",
    "ko": "작은 주먹을 서툴게 휘두름 · 맨몸으로 맞고 휘청",
    "atk": "a young fighter swings a bare fist: a quick leathery wrist-wrap creak, a light whoosh, then a modest knuckle thump on hide armour with a small puff of breath",
    "def": "no guard at all, the youngster stumbles: a soft fleshy thud, a scuff of boots on packed dirt, a rattle of loose bone charms against a leather strap"
@@ -298,7 +298,7 @@
   "SG1-02": {
    "en": "Finishing Blow",
    "ko": "비틀대는 적들의 숨통을 차례로 끊음",
-   "cast": "a low orcish grunt, then a quick string of short heavy chops and blunt thuds landing one after another down a line, each ending a ragged wheeze, and a final hush"
+   "cast": "a low guttural grunt, then a quick string of short heavy chops and blunt thuds landing one after another down a line, each ending a ragged wheeze, and a final hush"
   },
   "SG1-03": {
    "en": "Cornered Fang",
@@ -373,7 +373,7 @@
   "RS-G1-2": {
    "en": "Blood Oath",
    "ko": "손바닥을 갈라 피를 섞으며 무리가 맹세함",
-   "cast": "a short blade slices across a palm with a wet hiss, several fists clasp together with a meaty slap, a low rumble of orcish grunts swears as one, and a deep heartbeat thumps twice under a warm swelling hum"
+   "cast": "a short blade slices across a palm with a wet hiss, several fists clasp together with a meaty slap, a low rumble of guttural grunts swears as one, and a deep heartbeat thumps twice under a warm swelling hum"
   },
   "RS-G1-3": {
    "en": "Earth Cleave",
@@ -396,9 +396,9 @@
    "equip": "a curved claw is pressed against the back of a hand, a coarse thread tugs through leather with a quick stitching pull, and a flex of fingers makes it click sharply"
   },
   "M2-1": {
-   "en": "Orc Tattoo",
-   "ko": "뼈 바늘로 주먹에 송곳니 문신을 새김",
-   "equip": "a bone needle taps rapidly into the skin of a knuckle like tiny pecks, a dry scratch of pigment, then the fist clenches with a leathery creak and a faint tearing rasp like fang through hide"
+   "en": "Fang Tattoo",
+   "ko": "뼈 바늘로 앞발에 송곳니 문신을 새김",
+   "equip": "a bone needle taps rapidly into the skin of a forepaw like tiny pecks, a dry scratch of pigment, then the paw flexes with a leathery creak and a faint tearing rasp like fang through hide"
   },
   "IG1-3": {
    "en": "Rage Tattoo",

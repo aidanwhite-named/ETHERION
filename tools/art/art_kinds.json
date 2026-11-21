@@ -1,10 +1,6 @@
 {
- "_about": "깃발 아래 유닛 종류(js/kinds.js kin)의 생김새 참고표 — 장면 지시(art_scenes/<깃발>.json)를 쓸 때 본다. 생성기는 읽지 않는다. founder = 깃발을 처음 세운 무리(그 종류인 유닛에만 쓴다).",
+ "_about": "깃발 아래 유닛 종류(js/kinds.js kin)의 생김새 참고표 — 장면 지시(art_scenes/<깃발>.json)를 쓸 때 본다. 생성기는 읽지 않는다. 유닛마다 제 종류가 있다.",
  "B1": {
-  "founder": {
-   "ko": "고블린",
-   "look": "goblins (and a few humans) of the gunpowder artillery corps: small wiry bodies, huge pointed ears, sharp grins, soot-smeared faces, goggles pushed up"
-  },
   "kinds": {
    "도화선 정령": {
     "en": "Fuse Spirit",
@@ -185,14 +181,46 @@
     "who": "a floating fragment of the giant Dormak's heart-fire — a jagged ember like a boulder of glowing crystal that still beats with pulses of light",
     "silhouette": "a jagged glowing shard pulsing like a heart",
     "materials": "molten-core crystal, cracked rock rind, pulsing orange-white light"
+   },
+   "잿노새": {
+    "en": "Ash Mule",
+    "who": "a small sure-footed pack mule with soot-grey hide and ember-rimmed hooves, bred on the cliff stairs of the fire country to carry powder",
+    "silhouette": "a small mule bent under sacks far bigger than itself",
+    "materials": "soot-grey hide, long ears, rope harness, bulging powder sacks, ember-rimmed hooves"
+   },
+   "잿너구리": {
+    "en": "Ash Raccoon",
+    "who": "a raccoon of the powder works with soot-black paws, a masked grey muzzle, singed whiskers and a ringed tail; its long fingers are the quickest in the foundry",
+    "silhouette": "a crouched raccoon bent over small work, ringed tail curled",
+    "materials": "grey fur, black mask, nimble soot-black fingers, fuse cord, brass tools"
+   },
+   "울버린": {
+    "en": "Wolverine",
+    "who": "a stocky wolverine gunner with dark shaggy fur, a pale stripe along its flanks, small round ears and heavy forepaws, wearing a scorched leather apron",
+    "silhouette": "a low broad-shouldered beast standing upright beside a stubby mortar",
+    "materials": "dark shaggy fur, pale flank stripe, scorched leather, powder smoke"
+   },
+   "화약 사자": {
+    "en": "Powder Lion",
+    "who": "a huge soot-black lion whose mane is a ruff of fuse cords, every strand able to burn like a lit fuse; the ruler of the bomb halls",
+    "silhouette": "a seated lion with a mane of sparks",
+    "materials": "soot-black coat, mane of fuse cord, sparks, iron crown, brass shell casings"
+   },
+   "불여우": {
+    "en": "Fire Fox",
+    "who": "a lean red fox with ember-bright fur darkened by soot, a grey muzzle in old age and singed ear tips; sly, patient, fond of long fuses",
+    "silhouette": "a slim fox with a thick brush tail",
+    "materials": "ember-red fur, soot, grey muzzle, singed ears, brass spyglass"
+   },
+   "잿불 황새": {
+    "en": "Ember Stork",
+    "who": "a tall ash-grey stork with a long black beak it uses like tongs to carry live embers, neck feathers scorched, legs like fire-irons",
+    "silhouette": "a tall thin bird stooping with something held in its long beak",
+    "materials": "ash-grey feathers, long black beak, scorched neck, glowing ember"
    }
   }
  },
  "B2": {
-  "founder": {
-   "ko": "드워프",
-   "look": "stocky dwarves with braided iron-grey beards, and the riveted golems and automatons they forge"
-  },
   "kinds": {
    "태엽쥐": {
     "en": "Clockwork Mouse",
@@ -325,14 +353,52 @@
     "who": "a spirit born from the memory of Sorgrim's raised arm: a ghostly figure of shimmering steel plates overlapping like a shield wall around a faint forge-glow core",
     "silhouette": "a floating wall of overlapping shields around a glowing core",
     "materials": "translucent steel plates, adamant grey, forge-orange glow"
+   },
+   "쇠부리 딱따구리": {
+    "en": "Steelbeak Woodpecker",
+    "who": "a small woodpecker with dark iron-grey plumage, a red cap and a beak of blued steel that drives rivets home with a rattle of blows",
+    "silhouette": "a small bird clinging upright to a metal plate, head drawn back to strike",
+    "materials": "iron-grey feathers, red cap, blued steel beak, rivets, sparks"
+   },
+   "철갑 천산갑": {
+    "en": "Ironscale Pangolin",
+    "who": "a pangolin armoured in overlapping metal scales, copper-bright when young and iron-grey with age, with a long tapered snout and strong digging claws; it curls behind its shield and rams with it",
+    "silhouette": "a long-snouted, long-tailed creature covered in overlapping plates",
+    "materials": "overlapping metal scales, copper and iron-grey, long snout, round shield"
+   },
+   "무쇠 원숭이": {
+    "en": "Iron Ape",
+    "who": "a forge ape with gunmetal-grey fur that silvers with age, long strong arms and broad leathery palms hardened by the hammer",
+    "silhouette": "a heavy-armed ape at an anvil, hammer raised",
+    "materials": "gunmetal fur, leathery palms with yellow callus, iron ring, leather apron, hammer"
+   },
+   "외눈박이": {
+    "en": "One-Eyed Smith",
+    "who": "a broad, stocky one-eyed smith with slate-grey skin, a single round eye under a heavy brow and burn-freckled forearms, who hammers ore drawn from the mountain's sinews",
+    "silhouette": "a wide-shouldered figure with one large eye, holding a blade",
+    "materials": "slate-grey skin, one round eye, leather apron, humming steel"
+   },
+   "해태": {
+    "en": "Guardian Lion-Dog",
+    "who": "a gate-guardian beast like a lion with a single blunt horn on its brow, a hide of scale-like curls and a heavy braided mane, armoured for the watch",
+    "silhouette": "a seated or standing horned lion-dog with a great mane",
+    "materials": "iron-grey mane braided with blade shards, blunt horn, rust-streaked plate, dented helm"
+   },
+   "무쇠 코끼리": {
+    "en": "Iron Elephant",
+    "who": "an old grey elephant of the deep workshops, tusks capped in steel, hide creased like hammered plate, whose trunk does the finest work on every golem",
+    "silhouette": "an elephant in a leather apron, trunk raised to a machine",
+    "materials": "grey creased hide, steel-capped tusks, soot-black trunk tip, scarred leather apron"
+   },
+   "쇠꼬리 비버": {
+    "en": "Irontail Beaver",
+    "who": "a stout beaver smith with wet red-brown fur and a wide flat tail shod in a plate of dark iron, which it uses as its hammer",
+    "silhouette": "a round-backed beaver with a broad flat tail, holding a shield",
+    "materials": "red-brown fur, iron-shod flat tail, blunt claws, dented round shield, leather apron"
    }
   }
  },
  "B3": {
-  "founder": {
-   "ko": "노움",
-   "look": "tiny clever gnome scholars and engineers: big noses, wild hair, brass goggles, lab coats with many pockets"
-  },
   "kinds": {
    "반딧불이": {
     "en": "Lightning Firefly",
@@ -465,14 +531,52 @@
     "who": "a spirit of iron struck by lightning countless times atop a lightning tower, with nails, keys and iron filings clinging to its body in magnetic swirls",
     "silhouette": "a figure surrounded by orbiting iron bits",
     "materials": "magnetised iron, iron filings, nails, copper rod, blue sparks"
+   },
+   "전기양": {
+    "en": "Static Lamb",
+    "who": "a small lamb whose wool is so charged that every lock stands straight out, crackling when it walks; a carrier of lightning flasks",
+    "silhouette": "a small round puff of wool on thin legs, every lock on end",
+    "materials": "charged white wool, tiny sparks, carrying-yoke, copper-banded glass flasks"
+   },
+   "미어캣": {
+    "en": "Meerkat",
+    "who": "a small meerkat that stands bolt upright, sandy fur fluffed by static, dark eye patches behind crooked brass goggles; an earnest student",
+    "silhouette": "a slim upright animal hugging a book to its chest",
+    "materials": "sandy fur on end, dark eye patches, brass goggles, notebook, scorch marks"
+   },
+   "안경원숭이": {
+    "en": "Tarsier",
+    "who": "a small tarsier engineer with enormous amber eyes, long slender fingers ending in round pads, a long thin tail and brass goggles",
+    "silhouette": "a tiny big-eyed primate bent over fine work",
+    "materials": "soft grey-brown fur, huge amber eyes, long padded fingers, brass goggles, copper wire"
+   },
+   "장수도롱뇽": {
+    "en": "Giant Salamander",
+    "who": "an elderly giant salamander with a broad flat head, tiny bright eyes and smooth damp skin marked all over with branching lightning scars",
+    "silhouette": "a wide flat-headed amphibian holding up one stubby foreleg",
+    "materials": "damp mottled brown skin, glowing fern-like scars, cracked brass goggles"
+   },
+   "백학": {
+    "en": "White Crane",
+    "who": "an old white crane with a few singed plumes, black wing tips and a red crown, who perches on the highest lightning rod to read the storm",
+    "silhouette": "a tall thin bird balanced on one leg on a spire",
+    "materials": "white feathers, black wing tips, red crown, long beak, glass bottle"
+   },
+   "지니": {
+    "en": "Lightning Genie",
+    "who": "a small genie made of crackling yellow lightning that lives in a copper-banded glass bottle, its body tapering to a ribbon of light that leads back to the bottle's mouth",
+    "silhouette": "a small bright figure trailing a ribbon of light out of a bottle",
+    "materials": "yellow-white lightning, copper-banded glass, amber jars, sparks"
+   },
+   "도마뱀붙이": {
+    "en": "Gecko",
+    "who": "an old gecko keeper with a blunt snout, huge lidless golden eyes and splayed hands whose round toe pads cling to glass",
+    "silhouette": "a flat-bodied lizard pressed against glass, toes spread",
+    "materials": "pale mottled skin, golden eyes, round toe pads, brass goggles, glass jar"
    }
   }
  },
  "G1": {
-  "founder": {
-   "ko": "오크",
-   "look": "powerful orc warriors: huge fists, tusks, scarred grey-green skin, war paint, braided hair"
-  },
   "kinds": {
    "개코원숭이": {
     "en": "Baboon",
@@ -599,14 +703,40 @@
     "who": "a mammoth of the snowy passes of Throne Peak with long reddish wool, great spiralling tusks and a rock-crusted brow, carrying a war-painted tribal rider",
     "silhouette": "towering domed head and humped back with spiralling tusks",
     "materials": "long shaggy wool, ivory tusks, rock crust, snow and dust"
+   },
+   "몽구스": {
+    "en": "Mongoose",
+    "who": "a lean, quick mongoose fighter with grizzled brown fur, small sharp teeth, clawed fingers and a long tail, armed with an obsidian-tipped spear",
+    "silhouette": "a slim long-tailed animal crouched or lunging with a spear",
+    "materials": "grizzled brown fur, long tail, sinew lashings, black obsidian spearhead"
+   },
+   "검치호": {
+    "en": "Sabre-Toothed Cat",
+    "who": "a heavy sabre-toothed cat of the steppe with tawny fur, a thick neck ruff worn in bone-tied braids and two long curved fangs",
+    "silhouette": "a massive short-tailed cat with two long downward fangs",
+    "materials": "tawny fur, long ivory fangs, bone-tied braids, rust-red war paint, dust"
+   },
+   "큰뿔양": {
+    "en": "Bighorn Ram",
+    "who": "a rangy wild ram with heavy curled horns chipped from many duels and a fleece rubbed grey with ash",
+    "silhouette": "a ram with great curled horns, head lowered to charge",
+    "materials": "ash-grey fleece, chipped curled horns, rust-red paint, stone-chip necklace"
+   },
+   "은등 고릴라": {
+    "en": "Silverback Gorilla",
+    "who": "a huge scarred silverback gorilla with a saddle of silver fur across its back and fists wrapped in hide",
+    "silhouette": "a towering broad-backed ape pounding with one fist",
+    "materials": "black fur, silver back, scarred skin, hide fist-wraps, snow and ice dust"
+   },
+   "맨드릴": {
+    "en": "Mandrill",
+    "who": "a broad, powerful mandrill with a scarlet-and-blue ridged muzzle, a golden beard and long canine teeth, who fights with whatever weapon its last foe dropped",
+    "silhouette": "a heavy-shouldered baboon-like figure swinging a weapon",
+    "materials": "olive-brown fur, scarlet and blue muzzle, golden beard, mismatched stolen weapons"
    }
   }
  },
  "G2": {
-  "founder": {
-   "ko": "트롤",
-   "look": "tall moss trolls with long, lanky, moss-covered limbs, and treants (living trees)"
-  },
   "kinds": {
    "코다마": {
     "en": "Kodama",
@@ -715,14 +845,40 @@
     "who": "tiny vine pixies with leaf wings and bodies wrapped in curling tendrils, shooting thorn darts from twig bows",
     "silhouette": "tiny winged figure trailing curling tendrils",
     "materials": "leaf wings, tendrils, petals, glowing pollen, twig bow"
+   },
+   "나무늘보": {
+    "en": "Sloth",
+    "who": "a young sloth with long hooked claws and shaggy fur greened by moss, hanging from the lowest boughs of the great trees",
+    "silhouette": "a long-armed animal hanging beneath a branch",
+    "materials": "shaggy grey-brown fur greened with moss, long hooked claws, oversized bow"
+   },
+   "오소리": {
+    "en": "Badger",
+    "who": "an old grey badger with a striped head and broad digging foreclaws, keeper of the graves under the trees",
+    "silhouette": "a low, broad animal crouched over turned earth",
+    "materials": "grey fur, black-and-white striped head, broad claws, wooden spade, fresh soil, red flowers"
+   },
+   "이끼 두꺼비": {
+    "en": "Moss Toad",
+    "who": "a broad warty toad with moss growing along its spine, who chews moss and speaks with trees; it carries a staff hung with seed-rattles and snail shells",
+    "silhouette": "a squat wide toad sitting on a root with a staff",
+    "materials": "warty olive skin, moss along the back, seed-rattles, snail shells, pale green breath"
+   },
+   "대벌레": {
+    "en": "Giant Stick Insect",
+    "who": "a giant stick insect as tall as a sapling, its body and long jointed legs like bark-covered twigs, which throws javelins snapped from living branches",
+    "silhouette": "a thin twig-like insect with very long jointed limbs",
+    "materials": "bark-brown twig limbs with knot-like joints, leafy javelins, thorns"
+   },
+   "이끼 거인": {
+    "en": "Moss Giant",
+    "who": "a tall round-shouldered giant heaped wholly of living moss, with a hedge of black thorns under the moss and a core of amber under the thorns",
+    "silhouette": "a tall shaggy mound-shouldered figure with arms hanging past its knees",
+    "materials": "deep green moss, black thorns, glowing amber core, creeping moss on the ground"
    }
   }
  },
  "G3": {
-  "founder": {
-   "ko": "인어",
-   "look": "merfolk with blue scales and flowing fins, water spirits, and the shrine maidens of the Spring Choir"
-  },
   "kinds": {
    "운디네": {
     "en": "Undine",
@@ -873,14 +1029,52 @@
     "who": "an anglerfish of the Talakus trench with a gaping fanged mouth and a glowing lure that pulses in time with the sleeping giant's heartbeat",
     "silhouette": "huge-mouthed round fish with a dangling glowing lure",
     "materials": "dark warty skin, needle teeth, glowing lure, black water"
+   },
+   "청개구리": {
+    "en": "Tree Frog",
+    "who": "a small leaf-green tree frog novice of the lagoon choir, with wide anxious eyes and a pale throat that swells into a bubble when she sings",
+    "silhouette": "a small frog chin-deep in water, throat swelled",
+    "materials": "wet leaf-green skin, pale throat sac, red seaweed sprig, fine ripples"
+   },
+   "돌고래": {
+    "en": "Dolphin",
+    "who": "a young lagoon dolphin with a smiling beak, bright dark eyes and a nicked dorsal fin, forever bringing shiny things home in its mouth",
+    "silhouette": "a small dolphin head breaking the surface",
+    "materials": "smooth blue-grey skin, small teeth, water drops, a tarnished silver trinket"
+   },
+   "흰고래": {
+    "en": "Beluga",
+    "who": "a white beluga choir-mistress with a rounded brow and smooth pale skin, who rises upright from the water and conducts with one flipper",
+    "silhouette": "a pale rounded whale risen upright from the water, one flipper lifted",
+    "materials": "white smooth skin, mantle of knotted cord and sea-glass, combed waves"
+   },
+   "산갈치": {
+    "en": "Oarfish",
+    "who": "a huge silver oarfish from the lightless deep, ribbon-long, with a tall crest of scarlet fin-rays like a crown and long red barbels",
+    "silhouette": "a long ribbon-bodied fish with a tall crown of fin-rays rising from the sea",
+    "materials": "mirror-silver flank, scarlet crest, red barbels, sheets of falling water"
+   },
+   "네레이드": {
+    "en": "Sea-Nymph",
+    "who": "a sea-nymph of the shallows with skin like mother-of-pearl and hair of drifting green kelp, bearer of a sacred bowl",
+    "silhouette": "a slender figure waist-deep in water holding a wide bowl level",
+    "materials": "mother-of-pearl skin, kelp hair, pearls, pearl-white bowl of dark water"
+   },
+   "오케아니드": {
+    "en": "Ocean Nymph",
+    "who": "a towering priestess shaped of living sea water, foam for hair and sheets of clear water hanging from her wrists; blades pass through her and come away wet",
+    "silhouette": "a tall translucent woman-shape of water rising from the waves, arms lifted",
+    "materials": "clear green-blue sea water, white foam, dawn light shining through"
+   },
+   "흑조": {
+    "en": "Black Swan",
+    "who": "a black swan with a red bill and a long curved neck, singer of the spring choir, whose song calls the lost back on the tide",
+    "silhouette": "a swan with its neck thrown back and one wing spread",
+    "materials": "black feathers, red bill, white wing tips, moonlit water"
    }
   }
  },
  "A1": {
-  "founder": {
-   "ko": "마족",
-   "look": "demon contractors: curved horns, ashen or pale skin, glowing eyes, elegant dark attire"
-  },
   "kinds": {
    "저주 인형": {
     "en": "Curse Doll",
@@ -1037,14 +1231,64 @@
     "who": "an undead knight in blackened rusted plate holding a blood-fed sword, cold violet eyes glowing in the visor",
     "silhouette": "an armoured knight with a long sword held upright",
     "materials": "black rusted plate, blood-red runes on the blade, a torn cape"
+   },
+   "검은 고양이": {
+    "en": "Black Cat",
+    "who": "a thin black cat with a nicked ear and pale eyes that keeps out of the lamplight and steals shadows",
+    "silhouette": "a low crouched cat at the edge of a pool of light",
+    "materials": "black fur, nicked ear, pale eyes, a strip of shadow held like cloth"
+   },
+   "쥐": {
+    "en": "Canyon Rat",
+    "who": "a lean grey-furred rat soldier that stands upright, one ear torn, in plain dark leather with a dented pauldron; the rank and file of the contract host",
+    "silhouette": "an upright rat with a spear leaning in its arm",
+    "materials": "grey fur, torn ear, long bare tail, dark leather, dented pauldron, wax seals on cords"
+   },
+   "어둑시니": {
+    "en": "Darkness Spirit",
+    "who": "a towering shape of gathered darkness that grows the longer it is watched, wrapped in a long ash-grey mantle; lamps gutter as it passes",
+    "silhouette": "a very tall mantled figure whose head is lost in the dark",
+    "materials": "black shadow, ash-grey mantle, violet glow at the hem, smoking lamp wicks"
+   },
+   "사마귀": {
+    "en": "Mantis",
+    "who": "a tall black mantis dancer with a narrow triangular head, a slender body wrapped in dark silk sashes and two crescent blade-arms",
+    "silhouette": "a slim figure with two long curved blade-arms mid-turn",
+    "materials": "glossy black carapace, crescent blade-arms, dark silk sashes, silver arcs"
+   },
+   "웬디고": {
+    "en": "Wendigo",
+    "who": "a huge gaunt figure with a stag's skull for a head, antlers pushing through an executioner's hood, long arms and a long-hafted axe",
+    "silhouette": "a tall antlered hooded figure swinging an axe",
+    "materials": "bone-white skull and antlers, dark hood, grey sinew, long axe"
+   },
+   "허수아비": {
+    "en": "Scarecrow",
+    "who": "a tall scarecrow pedlar in a long coat and wide-brimmed hat, straw at its cuffs, with a clean-edged hole through its chest where something was left behind",
+    "silhouette": "a lanky hatted figure with a gap straight through its chest",
+    "materials": "sackcloth, straw, long dark coat, wide hat, half-empty pedlar's case"
+   },
+   "큰까마귀": {
+    "en": "Raven",
+    "who": "a man-tall raven that stands upright in a long dark coat, glossy black with a heavy beak, carrying a sealed contract under one wing",
+    "silhouette": "an upright raven in a long coat",
+    "materials": "glossy black feathers, heavy beak, long dark coat, folded paper with a dangling wax seal"
+   },
+   "봉랍 정령": {
+    "en": "Sealing-Wax Spirit",
+    "who": "a lean servant shaped from dark red sealing wax, risen out of a contract seal; glossy where it has set, still molten and smoking where it is forming",
+    "silhouette": "a thin figure growing out of a round wax seal on the floor",
+    "materials": "dark red wax, red-black smoke, ember eyes, wax ribbon"
+   },
+   "레버넌트": {
+    "en": "Revenant",
+    "who": "a tall gaunt swordsman returned from death by the oath he signed in his own blood: grey skin drawn tight, dark mail, calm eyes each holding a point of red light",
+    "silhouette": "a tall thin armoured figure with a long sword and an open scroll",
+    "materials": "grey skin, dark mail, long sword, red ink, wax seals, hanging scroll"
    }
   }
  },
  "A2": {
-  "founder": {
-   "ko": "천족",
-   "look": "seraphs with white feathered wings and halos, and human knights of the Radiant Order"
-  },
   "kinds": {
    "촛불 정령": {
     "en": "Prayer Candle",
@@ -1130,12 +1374,6 @@
     "silhouette": "a still, upright statue on or beside a plinth",
     "materials": "white marble, gold leaf, polished stone"
    },
-   "세라프": {
-    "en": "Seraph",
-    "who": "a six-winged fiery being of light, its face half hidden behind burning golden wings",
-    "silhouette": "six wings in layers around a small bright core",
-    "materials": "flame feathers, gold light, sparks"
-   },
    "케루빔": {
     "en": "Cherub",
     "who": "a four-faced guardian with the faces of a lion, an eagle, an ox and a solemn calm face, four wings and gold-bronze plumage",
@@ -1177,27 +1415,59 @@
     "who": "a sworn oath that outlived its speaker, taking the shape of a knight: hollow white-gold armour filled with light, abstract glowing oath-sigils etched on its plates",
     "silhouette": "a knight shape with an empty glowing visor",
     "materials": "white-gold light, glowing abstract sigils, hollow plate"
+   },
+   "비둘기": {
+    "en": "Dove",
+    "who": "a white dove fledgling still mostly down, with stubby wings, pink feet and only a few true feathers",
+    "silhouette": "a small round chick mid-tumble, tiny wings out",
+    "materials": "white down, a few white feathers, pink feet, warm light"
+   },
+   "수탉": {
+    "en": "Rooster",
+    "who": "a white rooster of the dawn watch with a red comb and wattles, standing in the front rank with helmet and spear",
+    "silhouette": "an upright rooster holding a spear under one wing",
+    "materials": "white feathers, red comb, plain helmet, mended spear shaft"
+   },
+   "알바트로스": {
+    "en": "Albatross",
+    "who": "a great white albatross knight with the widest wings of the citadel, long and narrow and black at the tips, wearing a knight's breastplate",
+    "silhouette": "a large seabird with very long wings spread like a roof",
+    "materials": "white feathers, black wing tips, pale breastplate, sheathed sword"
+   },
+   "심판령": {
+    "en": "Judgment Light",
+    "who": "a shaft of pale light that comes down on oath-breakers and gathers into a hooded, cloaked shape whose hood holds only brightness",
+    "silhouette": "a hooded cloaked figure made of light holding one dark sword",
+    "materials": "solid pale light, a blank bright hood, black volcanic-glass sword, a red drop"
+   },
+   "펠리컨": {
+    "en": "Pelican",
+    "who": "a great white pelican that sets its own wings alight to turn them into cleansing light",
+    "silhouette": "a large long-billed bird running with wings of flame",
+    "materials": "white feathers, long bill, wings burned to blazing ribs, white-gold fire"
+   },
+   "흰 늑대": {
+    "en": "White Wolf",
+    "who": "a tall white wolf captain who stands upright in scarred pale armour on the outermost wall, first to meet whatever comes",
+    "silhouette": "an upright wolf in armour with one forepaw raised",
+    "materials": "white fur, scarred pale plate, gauntlets, streaming cloak"
+   },
+   "흰 사슴": {
+    "en": "White Hart",
+    "who": "a white hart whose antlers hold the rising sun between them, so that daylight advances with its steps",
+    "silhouette": "a stag facing the viewer with the sun between its antlers",
+    "materials": "white coat, pale gold antlers, sunrise glare, long shadows"
+   },
+   "삼족오": {
+    "en": "Three-Legged Sun Crow",
+    "who": "a great crow of gold fire with three legs, born closest to the dawn light; its wings burn like flame yet leave what they touch unharmed",
+    "silhouette": "a large crow in profile with three clawed feet and flaming wings",
+    "materials": "gold fire feathers, three clawed feet, steady warm glow, unmelted snow"
    }
   }
  },
  "A3": {
-  "founder": {
-   "ko": "하이엘프",
-   "look": "high-elf archers and wind-scouts: long pointed ears, silver hair, slender, light-footed and proud"
-  },
   "kinds": {
-   "엘프": {
-    "en": "Elf",
-    "who": "elf archers of the Storm Tower guild: pointed ears shorter than a high elf's, lean and wind-weathered, brown or ash hair tied back, plain practical gear",
-    "silhouette": "a lean archer with a plain longbow, hood pushed back, braced against the wind",
-    "materials": "worn grey-green leathers, a wool cloak, a plain pale-wood bow, grey goose fletching"
-   },
-   "나이트엘프": {
-    "en": "Night Elf",
-    "who": "night elves of the Storm Tower: dusky violet-blue skin, silver-white hair, very long swept-back ears and eyes glowing faintly like stars",
-    "silhouette": "a tall slender archer with long swept ears and a dark trailing cloak",
-    "materials": "dark indigo leather, silver star embroidery, a moon-silver bow, a night-blue cloak"
-   },
    "하피": {
     "en": "Harpy",
     "who": "storm harpies: bird-women with wide feathered wings for arms, hooked talons for feet and wild wind-tossed hair, nesting under the Needle's eaves",
@@ -1293,6 +1563,48 @@
     "who": "a single great eye fallen from Belumir's robe of a thousand eyes, floating in the calm centre of a storm, ringed by swirling winds and a torn scrap of starry robe",
     "silhouette": "one big floating eye inside a ring of wind",
     "materials": "a glassy star-flecked iris, silver lashes, starry indigo cloth, storm swirls"
+   },
+   "담비": {
+    "en": "Pine Marten",
+    "who": "a lean pine marten sniper with dark brown fur, a pale bib at the throat and a bushy tail, patient and still on high ledges with a long bow",
+    "silhouette": "a slim long-bodied animal kneeling with a long bow across its knee",
+    "materials": "dark brown fur, pale throat bib, short wind-blown cloak, long elegant bow, single arrow"
+   },
+   "구름 거인": {
+    "en": "Cloud Giant",
+    "who": "a very tall giant whose body is grey storm cloud, shoulders trailing mist, keeper of the archers' tower and its oldest bow",
+    "silhouette": "a towering figure of cloud in a short cloak, a bow across its back",
+    "materials": "grey storm cloud, trailing mist, short cloak, silver key, old dark-wood bow"
+   },
+   "설표": {
+    "en": "Snow Leopard",
+    "who": "a snow leopard archer of the high spires with silver rosetted fur, small round ears and a long thick tail",
+    "silhouette": "a big cat's head and shoulders with a bow arm stretched skyward",
+    "materials": "silver-grey rosetted fur, whiskers, bow of pale wood, faded cord grip, starlight"
+   },
+   "산토끼": {
+    "en": "Mountain Hare",
+    "who": "a young mountain hare archer with grey-brown fur and long ears that feel every shift of the wind, small in leathers a size too large",
+    "silhouette": "a small upright hare with long ears and a bow on its shoulder",
+    "materials": "grey-brown fur, long ears, grey-green leathers, pale-wood bow, a feather on a thread"
+   },
+   "바위산양": {
+    "en": "Mountain Goat",
+    "who": "a tall weather-beaten mountain goat archer with a grey-streaked beard and swept-back horns worn smooth, at home on shards of floating rock",
+    "silhouette": "a tall bearded goat figure with backswept horns and a longbow",
+    "materials": "shaggy grey-white coat, worn horns, wool cloak, grey-green leathers, plain pale-wood longbow"
+   },
+   "공작": {
+    "en": "Peacock",
+    "who": "a peacock captain of archers with a night-blue neck, a fanned crest and a long folded train, carrying a moon-silver bow",
+    "silhouette": "a long-necked bird with a crest and a long sweeping train",
+    "materials": "night-blue and green feathers, crest, long train, moon-silver bow, a strip of dark cloth set with open eyes"
+   },
+   "흑표범": {
+    "en": "Black Panther",
+    "who": "a tall black panther archer with a sleek dark coat, small round ears and night eyes that glow faintly, who shoots spells out of the air",
+    "silhouette": "a lean big cat standing with a raised bow, two glowing eyes",
+    "materials": "sleek black coat, faintly glowing eyes, silver bow, a thread of stolen spell-fire"
    }
   }
  }

@@ -640,6 +640,13 @@ body.is-dragging .hand-me .hand-slot .hand-card { transform: translateY(var(--y)
 .card.countering .c-frame { box-shadow: 0 0 0 .2em var(--rite-def), 0 0 2em rgba(90, 162, 230, .85); }
 .card.revealing { z-index: 35; animation: none; }
 .card.revealing .c-frame { box-shadow: 0 0 0 .2em #c9b5ff, 0 0 3em rgba(185, 162, 255, .9); }
+/* 2026-11-21 마법 발동(js/game.js revealFx): 테 빛은 보라 한 가지가 아니라 그 마법의 원소색(--el). 도는 동안 등(90° ~ 270°)에는 진짜 카드 뒷면, 멈추는 순간 빛이 한 번 스친다 */
+@supports (color: color-mix(in srgb, red 50%, blue)) {
+  .card.revealing .c-frame { box-shadow: 0 0 0 .16em color-mix(in srgb, var(--el, #c9b5ff) 62%, #fff), 0 0 2.4em color-mix(in srgb, var(--el, #b9a2ff) 78%, transparent); }
+}
+.card > .rv-back { position: absolute; inset: 0; width: auto; height: auto; z-index: 30; scale: -1 1; opacity: 0; pointer-events: none; }
+.card > .rv-sheen { position: absolute; inset: 0; z-index: 31; opacity: 0; pointer-events: none; border-radius: calc(var(--cw) * .07);
+  background: linear-gradient(105deg, transparent 36%, rgba(255, 250, 232, .55) 48%, rgba(255, 255, 255, .2) 53%, transparent 64%) no-repeat; background-size: 260% 100%; }
 .card.fresh .c-frame { box-shadow: 0 0 0 .1em rgba(143, 220, 255, .6), 0 .3em .9em rgba(0, 0, 0, .55); }
 .card.char-out .c-art > svg { opacity: .1; filter: blur(2px); }
 .card.struck .c-frame { animation: struck .5s ease-out; }
@@ -668,13 +675,23 @@ body.is-dragging .hand-me .hand-slot .hand-card { transform: translateY(var(--y)
 .slash path:nth-child(3) { stroke-width: 4; animation-delay: .1s; }
 @keyframes slashDraw { 0% { stroke-dashoffset: 120; opacity: 1; } 45% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: -120; opacity: 0; } }
 .burst { position: fixed; z-index: 78; width: var(--s); height: var(--s); margin: calc(var(--s) / -2) 0 0 calc(var(--s) / -2); pointer-events: none; --bc: #ffd27a; }
-.burst::before { content: ""; position: absolute; inset: 0; border-radius: 50%; border: calc(var(--s) * .045) solid var(--bc); box-shadow: 0 0 30px var(--bc), inset 0 0 30px var(--bc); animation: ring .7s cubic-bezier(.1, .7, .3, 1) forwards; }
-.burst::after { content: ""; position: absolute; inset: 22%; border-radius: 50%; background: radial-gradient(circle, #fff 0%, var(--bc) 35%, transparent 70%); animation: flash .5s ease-out forwards; }
-.burst i { position: absolute; left: 50%; top: 50%; width: 8px; height: 8px; margin: -4px; border-radius: 50%; background: #fff; box-shadow: 0 0 10px var(--bc), 0 0 4px var(--bc); transform: rotate(var(--a)) translateX(0); animation: spark .65s cubic-bezier(.1, .7, .3, 1) forwards; }
+/* 2026-11-21 다듬기: 고리는 가늘고 또렷하게(굵기 4.5% → 3%, 번짐 30px → 16px), 조금 짧게(.7s → .56s). 불티는 작게(8px → 6px) */
+.burst::before { content: ""; position: absolute; inset: 0; border-radius: 50%; border: calc(var(--s) * .03) solid var(--bc); box-shadow: 0 0 16px var(--bc), inset 0 0 14px var(--bc); animation: ring .56s cubic-bezier(.12, .72, .25, 1) forwards; }
+.burst::after { content: ""; position: absolute; inset: 22%; border-radius: 50%; background: radial-gradient(circle, #fff 0%, var(--bc) 35%, transparent 70%); animation: flash .42s ease-out forwards; }
+.burst i { position: absolute; left: 50%; top: 50%; width: 6px; height: 6px; margin: -3px; border-radius: 50%; background: #fff; box-shadow: 0 0 8px var(--bc), 0 0 3px var(--bc); transform: rotate(var(--a)) translateX(0); animation: spark .56s cubic-bezier(.12, .72, .25, 1) forwards; }
 @keyframes ring { from { transform: scale(.12); opacity: 1; } to { transform: scale(1); opacity: 0; } }
 @keyframes flash { from { transform: scale(.3); opacity: 1; } to { transform: scale(1.7); opacity: 0; } }
 @keyframes spark { to { transform: rotate(var(--a)) translateX(var(--d)) scale(.3); opacity: 0; } }
 .b-hit { --bc: #ff6a4d; } .b-burn { --bc: #ff8a3a; } .b-crys { --bc: #8fdcff; } .b-slam { --bc: #f3d48a; } .b-spell { --bc: #b99bff; } .b-equip { --bc: #f1dfb0; }
+/* 카드가 칸에 내려앉음(js/game.js landFx): 발밑에서 옆으로 퍼지는 납작한 빛 고리 하나 + 옆으로 튀는 불티 몇 개. 가운데 번쩍임은 없다(카드가 스스로 한 번 환해진다) */
+.b-slam::before { border-width: 2px; box-shadow: 0 0 10px var(--bc); animation: ringFlat .4s cubic-bezier(.15, .75, .25, 1) forwards; }
+.b-slam::after { display: none; }
+.b-slam i { width: 4px; height: 4px; margin: -2px; animation-duration: .38s; }
+@keyframes ringFlat { from { transform: scale(.34, .08); opacity: .95; } to { transform: scale(1, .22); opacity: 0; } }
+/* 마법이 뒤집힘(js/game.js revealFx): 그 마법의 원소색(--bc)으로 가는 고리가 빠르게 퍼지고, 가운데 빛은 작고 짧게 */
+.b-spell::before { border-width: max(2px, calc(var(--s) * .012)); box-shadow: 0 0 14px var(--bc), inset 0 0 10px var(--bc); animation: ring .6s cubic-bezier(.12, .78, .2, 1) forwards; }
+.b-spell::after { inset: 31%; animation-duration: .36s; }
+.b-spell i { width: 5px; height: 5px; margin: -2.5px; }
 .float { position: fixed; transform: translate(-50%, -50%); font-family: var(--caps); font-weight: 900; font-size: max(28px, calc(var(--cw) * .22)); text-shadow: 0 3px 8px #000, 0 0 16px currentColor; animation: floatUp 1.6s cubic-bezier(.2, .8, .3, 1) forwards; white-space: nowrap; z-index: 85; -webkit-text-stroke: 1px rgba(0, 0, 0, .6); }
 .float.dmg { color: #ff5e4d; } .float.big { font-size: max(46px, calc(var(--cw) * .38)); }
 .float.heal { color: #7fe39c; } .float.buff { color: var(--gold-hi); font-size: max(20px, calc(var(--cw) * .14)); }
@@ -1819,9 +1836,9 @@ body.is-dragging .hand-me .hand-slot .hand-card { transition: transform .2s ease
 .card.equipped > .c-frame { box-shadow: 0 .06em 0 #8a7342, 0 .13em 0 #3a2f1c, 0 .35em .9em rgba(0, 0, 0, .6), inset 0 .07em 0 rgba(255, 255, 255, .14), inset 0 0 0 .1em rgba(255, 255, 255, .06); }
 .card.legend.equipped > .c-frame { box-shadow: 0 .06em 0 #8a7342, 0 .13em 0 #3a2f1c, 0 0 1em rgba(233, 198, 111, .35), 0 .35em .9em rgba(0, 0, 0, .6), inset 0 .07em 0 rgba(255, 255, 255, .14); }
 /* 칸이 빨아들이는 고리: 카드 크기로 조여들고 닿는 순간 안쪽이 환해진다 */
-.suck-ring { position: fixed; pointer-events: none; border-radius: 9px; border: 2px solid rgba(246, 226, 168, .85);
-  box-shadow: 0 0 18px rgba(246, 226, 168, .55), inset 0 0 22px rgba(246, 226, 168, .3); }
-.suck-ring.hit { border-color: #fff3c9; background: radial-gradient(closest-side, rgba(255, 243, 205, .42), rgba(246, 226, 168, .1) 70%, transparent); }
+.suck-ring { position: fixed; pointer-events: none; border-radius: 9px; border: 1.5px solid rgba(246, 226, 168, .9);
+  box-shadow: 0 0 10px rgba(246, 226, 168, .5), inset 0 0 12px rgba(246, 226, 168, .22); }   /* 2026-11-21 가늘고 또렷하게 (2px · 번짐 18px → 1.5px · 10px) */
+.suck-ring.hit { border-color: #fff3c9; background: radial-gradient(closest-side, rgba(255, 243, 205, .3), rgba(246, 226, 168, .08) 70%, transparent); }
 .slot.drop-hover.swap-hover { transform: none; }
 
 /* ---------- v2.3: 클래스 동그라미 · 이름 옆 클래스 꼬리표 · 고정 자물쇠 · 레벨 말풍선 ---------- */

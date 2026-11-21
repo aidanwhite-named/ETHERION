@@ -1280,7 +1280,7 @@ Clean, close, dry studio recording with a short natural tail. Each take is follo
 ```text
 Sound effects only - no music, no melody, no chords, no rhythm loop, no voice or words.
 Fantasy card game, interface and battle sounds.
-[00:00] Take 1: tough troll flesh knitting closed: a wet fleshy squelch, a creak of bark-like skin pulling tight and a low satisfied grumble. About 0.7 seconds.
+[00:00] Take 1: tough mossy flesh knitting closed: a wet fleshy squelch, a creak of bark-like skin pulling tight and a low satisfied grumble. About 0.7 seconds.
 [00:03] Take 2: the same sound, slightly varied.
 [00:06] Take 3: the same sound, slightly varied.
 [00:09] Silence until the end.

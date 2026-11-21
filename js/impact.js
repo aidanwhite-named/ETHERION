@@ -360,8 +360,9 @@ const IMPACT = (() => {
     if (!on()) return;
     const cw = Math.max(60, w);
     if (!heavy) {   // 쓴 마법 · 아이템이 부서짐: 가볍게
-      ringAt(c.x, c.y, { r0: cw * 0.2, r1: cw * 1.2, w: 4, col: col || "#d9c2ff", a: 0.6, life: 0.32 });
-      sparks(c.x, c.y, { n: 10, speed: 420, size: 2.2, len: 26, col: col || "#d9c2ff", g: 500, life: 0.4 });
+      // 2026-11-21 가는 고리 하나 + 느리게 퍼지는 빛줄기 (col = 그 카드의 원소색, js/game.js shatterCard). 떨어지지 않고 흩어진다
+      ringAt(c.x, c.y, { r0: cw * 0.25, r1: cw * 1.15, w: 2.5, col: col || "#d9c2ff", a: 0.65, life: 0.34 });
+      sparks(c.x, c.y, { n: 8, speed: 300, size: 2, len: 22, col: col || "#d9c2ff", g: 90, life: 0.42 });
       shake(0.14, { x: 0, y: 1 });
       return;
     }
@@ -380,8 +381,8 @@ const IMPACT = (() => {
   function land(el) {
     if (!on() || !el || !el.isConnected) return;
     const r = el.getBoundingClientRect(), cw = Math.max(60, r.width), x = r.left + r.width / 2, y = r.bottom - r.height * 0.06;
-    ringAt(x, y, { r0: cw * 0.25, r1: cw * 1.1, w: 4, col: "#f3dca0", a: 0.55, life: 0.4, flat: true });
-    sparks(x, y, { n: 10, ang: -90, spread: 170, speed: 260, size: 2.4, col: "#c9b48a", kind: "ember", g: 500, drag: 0.86, life: 0.5 });
+    // 2026-11-21 고리는 js/game.js landFx 의 납작한 빛 고리(burst slam) 하나만 — 여기서는 발밑에서 낮게 깔리는 먼지만 (예전: 고리가 둘 겹침)
+    sparks(x, y, { n: 8, ang: -90, spread: 176, speed: 210, size: 2, col: "#cdb98e", kind: "ember", g: 420, drag: 0.84, life: 0.4, a: 0.8 });
     snd("imp_land", 0.9);
   }
 
