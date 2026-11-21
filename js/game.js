@@ -24,7 +24,7 @@ const Prefs = {
 const opp = p => G.players[1 - p.idx];
 const T = ms => (G && G.speed === 0) ? Promise.resolve() : wait(ms / (G ? G.speed : 1));
 /* 손맛 (js/feel.js). 균형 도구처럼 feel.js 없이 돌 때는 기본값과 무음 */
-const FT = typeof FEEL !== "undefined" ? FEEL.t : { press: 70, pick: 140, place: 360, move: 300, handMove: 420, draw: 480, drawGap: 95, away: 520, back: 260, select: 380, hitStop: 65 };
+const FT = typeof FEEL !== "undefined" ? FEEL.t : { press: 70, pick: 140, place: 350, riseK: 1.8, move: 260, handMove: 300, swap: 300, draw: 480, drawGap: 95, away: 460, back: 300, select: 220, hitStop: 65 };
 const sfx = (name, v) => { if (typeof FEEL !== "undefined" && G && !G.cfg.headless && G.speed !== 0) FEEL.play(name, v); };
 /* v3.7.1 공격 소리: 친 유닛의 클래스·단체·이름·무기 아이템으로 종류를 정한다(찢기·베기·때리기 … — js/feel.js ATK_SND).
    snipe = [사격]: 몸으로 치는 종류면 날아가는 찌르기 소리로 바꾼다 */
@@ -1969,14 +1969,20 @@ function shatterCard(b) {
   Object.assign(g.style, { left: r.left + "px", top: r.top + "px", width: W + "px", height: H + "px" });
   const c = ctrOf(r);
   const strip = el => el.querySelectorAll(".card, .card-back").forEach(cd => { cd.removeAttribute("data-uid"); ["acting", "targeted", "countering", "revealing", "selected", "flying", "drag-src", "fresh", "char-out", "struck", "dying"].forEach(x => cd.classList.remove(x)); cd.style.setProperty("--cw", W + "px"); });
-  if (typeof IMPACT !== "undefined") IMPACT.shatter(c, W, null, !crowd && /\btype-unit\b/.test(b.html || "")); else shakeScreen(4);   // v3.13 · 폰에서 한꺼번에 여럿이면 둘째 장부터 가벼운 불꽃
+  /* 2026-11-21 유닛과 마법 · 아이템을 다르게 부순다.
+     유닛(unit) = 무게가 있다: 금이 가고(0.11초) → 조각이 튀어 떨어진다(예전 그대로, 끝에서 조금 작아짐).
+     마법 · 아이템 = 힘을 다 쓴 카드: 금이 그 카드의 원소색으로 짧게 번지고(0.08초) → 조각이 떨어지지 않고 느리게 떠오르며 흩어져 사라진다(덜 돌고, 일찍 옅어짐).
+     한 화면에서 "유닛이 쓰러졌다"와 "마법이 다 쓰였다"가 모양만으로 갈린다 */
+  const unit = /\btype-unit\b/.test(b.html || "");
+  const elc = unit ? null : (/--el:\s*([^;"]+)/.exec(b.html || "") || [])[1] || null;
+  if (typeof IMPACT !== "undefined") IMPACT.shatter(c, W, elc, !crowd && unit); else shakeScreen(4);   // v3.13 · 폰에서 한꺼번에 여럿이면 둘째 장부터 가벼운 불꽃
   sfx("shatter"); // v3.5.5 부서지는 소리 (여러 장이 한꺼번에 부서지면 한 번만 난다)
   if (RM()) {   // 움직임 줄이기: 조각 없이 흐려지기만
     g.innerHTML = `<div class="sh-shard">${b.html}</div>`; strip(g); layer.appendChild(g);
     g.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 400, fill: "forwards" }).onfinish = () => g.remove();
     return;
   }
-  if (!(phone && typeof IMPACT !== "undefined")) burst(c.x, c.y, "burn", W * 1.2);   // 폰은 캔버스 불꽃(IMPACT)만 — 그림자 달린 DOM 불티 10개를 더 띄우지 않는다
+  if (!(phone && typeof IMPACT !== "undefined")) burst(c.x, c.y, "burn", W * 1.2, elc);   // 폰은 캔버스 불꽃(IMPACT)만 — 그림자 달린 DOM 불티 10개를 더 띄우지 않는다. 마법 · 아이템은 원소색
   const lite = fxLite();   // v3.17 가볍게(PC 포함)도 조각 수를 줄임
   const art = phone && /<img class="c-img" src="([^"]+)"/.exec(b.html || "");
   const inner = art ? `<div class="sh-lite" style="background-image:url('${art[1]}')"></div>` : b.html;   // 폰: 조각마다 카드 HTML 대신 그림 한 장
@@ -2015,9 +2021,11 @@ function shatterCard(b) {
   h += `<svg class="sh-crack" viewBox="0 0 ${W.toFixed(1)} ${H.toFixed(1)}" aria-hidden="true"><path class="sh-cg" d="${rays}${ring}"/><path class="sh-cl" d="${rays}${ring}"/></svg><div class="sh-flash"></div>`;
   g.innerHTML = h;
   strip(g);
+  if (!unit) { g.classList.add("sh-soft"); if (elc) g.style.setProperty("--shc", elc); }
   layer.appendChild(g);
-  // 1) 금이 번짐 (0 → crackMs): 선이 중심에서 바깥으로 자란다, 카드가 한 번 하얗게
-  const crackMs = 90 * k;
+  // 1) 금이 번짐 (0 → crackMs): 선이 중심에서 바깥으로 자란다, 카드가 한 번 하얗게. 그동안 카드가 아주 조금 부풀어 터지기 직전의 긴장을 만든다
+  const crackMs = (unit ? 110 : 80) * k;
+  g.animate([{ scale: "1" }, { scale: unit ? "1.03" : "1.02" }], { duration: crackMs, easing: "cubic-bezier(.2,.8,.3,1)", fill: "forwards" });
   g.querySelectorAll(".sh-crack path").forEach(pa => {
     const L = pa.getTotalLength ? pa.getTotalLength() : 600;
     pa.style.strokeDasharray = L; pa.style.strokeDashoffset = L;
@@ -2025,19 +2033,22 @@ function shatterCard(b) {
   });
   g.querySelector(".sh-flash").animate([{ opacity: 0 }, { opacity: 0.55, offset: 0.25 }, { opacity: 0 }], { duration: crackMs * 1.6, easing: "ease-out", fill: "forwards" });
   // 2) 조각이 갈라져 튄다: 중심에서 바깥으로 + 위로 살짝 → 무게로 떨어지며 돈다
-  const gpx = 1700, steps = lite ? 6 : 10;
+  // 유닛: 무게로 떨어진다(중력 1700). 마법 · 아이템: 거의 떨어지지 않고(중력 −160 = 조금 떠오름) 느리게 퍼지며 일찍 옅어진다
+  const gpx = unit ? 1700 : -160, steps = lite ? 6 : 10, spin = unit ? 1 : 0.4, fadeAt = unit ? 0.58 : 0.22, shrink = unit ? 0.12 : 0.4;
   let end = 0;
   g.querySelectorAll(".sh-shard").forEach((el, n) => {
     const pl = polys[n], dx = pl.c.x - P.x, dy = pl.c.y - P.y, d = Math.hypot(dx, dy) || 1, ux = dx / d, uy = dy / d;
-    const sp = (pl.inner ? rnd(70, 150) : rnd(130, 260)) * (0.8 + d / W * 0.9);
-    const vx = ux * sp + rnd(-30, 30), vy = uy * sp * 0.75 - rnd(120, 230);
-    const T = rnd(0.62, 0.9), rz = rnd(-260, 260), rx = rnd(-320, 320), ry = rnd(-320, 320);
+    const sp = (pl.inner ? rnd(70, 150) : rnd(130, 260)) * (0.8 + d / W * 0.9) * (unit ? 1.08 : 0.5);
+    const vx = ux * sp + rnd(-30, 30) * (unit ? 1 : 0.5), vy = unit ? uy * sp * 0.75 - rnd(120, 230) : uy * sp * 0.7 - rnd(30, 80);
+    const T = unit ? rnd(0.62, 0.88) : rnd(0.55, 0.75), rz = rnd(-260, 260) * spin, rx = rnd(-320, 320) * spin, ry = rnd(-320, 320) * spin;
     const gap = pl.inner ? 1.2 : 2.4;   // 금이 갈라질 때 벌어지는 틈
     const fr = [];
     for (let s = 0; s <= steps; s++) {
       const u = s / steps, t = T * u;
-      const x = ux * gap + vx * t, y = uy * gap + vy * t + 0.5 * gpx * t * t;
-      fr.push({ transform: `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) rotateX(${(rx * t).toFixed(0)}deg) rotateY(${(ry * t).toFixed(0)}deg) rotate(${(rz * t).toFixed(0)}deg)`, opacity: u < 0.6 ? 1 : Math.max(0, 1 - (u - 0.6) / 0.4) });
+      // 마법 · 아이템 조각은 처음에 빠르게 벌어지고 곧 느려진다(공기 속에 뜬 듯) — 유닛 조각은 포물선
+      const tt = unit ? t : T * (1 - Math.pow(1 - u, 2.2)) * 0.62;
+      const x = ux * gap + vx * tt, y = uy * gap + vy * tt + 0.5 * gpx * t * t;
+      fr.push({ transform: `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) rotateX(${(rx * t).toFixed(0)}deg) rotateY(${(ry * t).toFixed(0)}deg) rotate(${(rz * t).toFixed(0)}deg) scale(${(1 - shrink * u * u).toFixed(3)})`, opacity: u < fadeAt ? 1 : Math.max(0, 1 - (u - fadeAt) / (1 - fadeAt)) });
     }
     const delay = crackMs + (pl.inner ? 0 : rnd(0, 40) * k);
     el.style.transform = fr[0].transform;
@@ -2047,7 +2058,9 @@ function shatterCard(b) {
   // 3) 금 사이로 날리는 가루 (IMPACT 캔버스)
   if (typeof IMPACT !== "undefined") {
     const px = r.left + P.x, py = r.top + P.y;
-    if (!crowd) setTimeout(() => IMPACT.sparks(px, py, { n: phone ? 6 : lite ? 10 : 18, speed: 260, size: 1.6, col: "#d9c9a8", kind: "chunk", g: 1300, drag: 0.93, life: 0.7 }), crackMs);
+    if (!crowd) setTimeout(() => unit
+      ? IMPACT.sparks(px, py, { n: phone ? 6 : lite ? 10 : 18, speed: 260, size: 1.6, col: "#d9c9a8", kind: "chunk", g: 1300, drag: 0.93, life: 0.7 })
+      : IMPACT.sparks(px, py, { n: phone ? 5 : lite ? 9 : 14, speed: 150, size: 2.2, col: elc || "#d9c2ff", kind: "ember", g: -90, drag: 0.9, life: 0.75, a: 0.85 }), crackMs);   // 마법 · 아이템: 원소색 빛 알갱이가 천천히 떠오른다
   }
   setTimeout(() => g.remove(), end + 120);
 }
@@ -2909,6 +2922,16 @@ function holdHover(ms) {
 }
 /* 2026-11-15 칸에 내려앉는 카드가 유닛이 아니면(뒷면 마법) spell_set */
 const placeKey = el => { const it = G && G.reg && el && el.dataset && G.reg[+el.dataset.uid]; return it && !isUnit(it) ? "spell_set" : "place"; };
+const RISE_K = FT.riseK || 1.8;   // 더블클릭 · 단추로 올릴 때의 길이 = FT.place × RISE_K (js/feel.js)
+/* 카드가 칸에 닿는 순간 (2026-11-21 한곳으로 모음): 소리 + 발밑 먼지(IMPACT.land) + 납작한 빛 고리 하나(burst slam).
+   예전에는 둥근 고리 · 가운데 번쩍임 · 납작한 고리 · 조여드는 고리가 한꺼번에 겹쳐 뿌옇게 보였다 — 고리는 하나만, 가늘고 짧게 */
+function landFx(el, size) {
+  if (!el || !el.isConnected) return;
+  sfx(placeKey(el));
+  if (typeof IMPACT !== "undefined") IMPACT.land(el);
+  const r = el.getBoundingClientRect(), c = ctrOf(r);
+  burst(c.x, r.bottom - r.height * 0.05, "slam", r.width * (size || 1.5));
+}
 function animFrom(el, from, to, rotDeg, kind, delay) {
   const k = kAct();
   const a = ctrOf(from), b = ctrOf(to);
@@ -2918,44 +2941,33 @@ function animFrom(el, from, to, rotDeg, kind, delay) {
   let kf, dur, ease = "linear";
   if (kind === "rise") {
     // v1.8 올라가기: 손에서 들어 올려(빛나며 커짐) 칸 위로 떠올랐다가, v1.7 착지처럼 칸에 빨려 들어가 눌렸다 튀어 붙는다
-    const lift = Math.max(70, to.height * 0.55), hit = 0.74;
-    kf = [Object.assign({ filter: "brightness(1)", easing: "cubic-bezier(.25,.7,.35,1)" }, start),
-      { offset: 0.16, translate: `${dx * 0.9}px ${dy * 0.9 - lift * 0.35}px`, scale: `${sx * 1.08} ${sy * 1.08}`, rotate: `${rotDeg * 0.4}deg`, filter: "brightness(1.25)", easing: "cubic-bezier(.3,.6,.35,1)" },
-      { offset: 0.5, translate: `${dx * 0.15}px ${-lift}px`, scale: "1.3 1.3", rotate: `${rotDeg > 0 ? -4 : 4}deg`, filter: "brightness(1.45) drop-shadow(0 0 18px rgba(246,226,168,.9))", easing: "cubic-bezier(.55,.02,.85,.45)" },
-      { offset: hit, translate: `0px ${to.height * 0.02}px`, scale: "1.07 0.9", rotate: "0deg", filter: "brightness(1.2)", easing: "cubic-bezier(.2,.75,.3,1)" },
-      { offset: 0.87, translate: `0px ${-to.height * 0.012}px`, scale: "0.97 1.035", rotate: "0deg", filter: "brightness(1)", easing: "ease-out" },
+    /* 2026-11-21 다듬기: 길이 0.88초 → 0.63초(FT.riseK), 떠오르는 높이 · 크기를 줄이고(1.3배 → 1.2배),
+       닿을 때의 찌그러짐을 고무처럼 크게(7% · 10%) 하지 않고 단단한 판처럼 아주 조금만(3% · 4%) — 대신 닿는 순간 카드가 한 번 환해진다 */
+    const lift = Math.max(56, to.height * 0.42), hit = 0.72, apex = 0.48;
+    kf = [Object.assign({ filter: "brightness(1)", easing: "cubic-bezier(.3,.7,.3,1)" }, start),
+      { offset: 0.16, translate: `${dx * 0.9}px ${dy * 0.9 - lift * 0.3}px`, scale: `${sx * 1.06} ${sy * 1.06}`, rotate: `${rotDeg * 0.4}deg`, filter: "brightness(1.18)", easing: "cubic-bezier(.3,.6,.35,1)" },
+      { offset: apex, translate: `${dx * 0.12}px ${-lift}px`, scale: "1.2 1.2", rotate: `${rotDeg > 0 ? -2.5 : 2.5}deg`, filter: "brightness(1.32) drop-shadow(0 0 14px rgba(246,226,168,.8))", easing: "cubic-bezier(.6,.02,.9,.5)" },
+      { offset: hit, translate: `0px ${to.height * 0.012}px`, scale: "1.03 0.96", rotate: "0deg", filter: "brightness(1.32)", easing: "cubic-bezier(.2,.8,.3,1)" },
+      { offset: 0.86, translate: `0px ${-to.height * 0.006}px`, scale: "0.992 1.012", rotate: "0deg", filter: "brightness(1)", easing: "ease-out" },
       Object.assign({ filter: "brightness(1)" }, end)];
-    dur = Math.round(FT.place * 2.1);
+    dur = Math.round(FT.place * RISE_K);
     sfx("pick", 0.5);   // 2026-11-15 휙(swing) 대신 카드를 드는 작은 소리 — 상대가 유닛을 올릴 때 휙 소리가 거슬렸다
-    setTimeout(() => sfx("suck"), (delay || 0) * k + dur * 0.5 * k);
-    if (typeof suckRing === "function") suckRing(el, ((delay || 0) + dur * 0.5) * k, dur * (hit - 0.5) * k);
-    setTimeout(() => {
-      if (!el.isConnected) return;
-      sfx(placeKey(el));
-      if (typeof IMPACT !== "undefined") IMPACT.land(el);   // v3.14 묵직한 쿵 + 먼지 고리
-      const r = el.getBoundingClientRect(), c = ctrOf(r);
-      burst(c.x, c.y + r.height * 0.3, "slam", r.width * 1.6);
-      shakeScreen(3);
-    }, ((delay || 0) + dur * hit) * k);
+    setTimeout(() => sfx("suck"), (delay || 0) * k + dur * apex * k);
+    if (typeof suckRing === "function") suckRing(el, ((delay || 0) + dur * apex) * k, dur * (hit - apex) * k);
+    setTimeout(() => landFx(el, 1.6), ((delay || 0) + dur * hit) * k);
   } else if (kind === "slam") {
     // v1.7 착지: 칸이 카드를 빨아들인다. 처음엔 머뭇거리다 점점 빨라져 들어오고(가속),
-    // 닿는 순간 판에 눌려 납작해졌다가(찌그러짐) 쫀쫀하게 튀어 올라 붙는다. 칸 둘레 빛 고리가 안으로 조여든다
+    // 닿는 순간 판에 눌렸다가 튀어 올라 붙는다. 칸 둘레 빛 고리가 안으로 조여든다
+    // 2026-11-21 찌그러짐은 아주 조금만(3% · 4%), 되튐은 한 번만 — 닿는 순간 카드가 한 번 환해진다
     const hit = 0.56;
-    kf = [Object.assign({ easing: "cubic-bezier(.55,.02,.85,.45)" }, start),
-      { offset: hit, translate: `0px ${to.height * 0.02}px`, scale: "1.07 0.9", rotate: "0deg", easing: "cubic-bezier(.2,.75,.3,1)" },
-      { offset: 0.74, translate: `0px ${-to.height * 0.012}px`, scale: "0.97 1.035", rotate: "0deg", easing: "ease-in-out" },
-      { offset: 0.88, translate: "0px 0px", scale: "1.012 0.992", rotate: "0deg", easing: "ease-out" }, end];
+    kf = [Object.assign({ filter: "brightness(1)", easing: "cubic-bezier(.55,.02,.85,.45)" }, start),
+      { offset: hit, translate: `0px ${to.height * 0.012}px`, scale: "1.03 0.96", rotate: "0deg", filter: "brightness(1.32)", easing: "cubic-bezier(.2,.8,.3,1)" },
+      { offset: 0.8, translate: `0px ${-to.height * 0.006}px`, scale: "0.992 1.012", rotate: "0deg", filter: "brightness(1)", easing: "ease-out" },
+      Object.assign({ filter: "brightness(1)" }, end)];
     dur = FT.place;
     sfx("suck");
     suckRing(el, (delay || 0) * k, dur * hit * k);
-    setTimeout(() => {
-      if (!el.isConnected) return;
-      sfx(placeKey(el));
-      if (typeof IMPACT !== "undefined") IMPACT.land(el);   // v3.14 묵직한 쿵 + 먼지 고리
-      const r = el.getBoundingClientRect(), c = ctrOf(r);
-      burst(c.x, c.y + r.height * 0.3, "slam", r.width * 1.5);
-      shakeScreen(2.5);
-    }, ((delay || 0) + dur * hit) * k);
+    setTimeout(() => landFx(el, 1.5), ((delay || 0) + dur * hit) * k);
   } else if (kind === "draw") {
     kf = [Object.assign({ opacity: 0.4, easing: "cubic-bezier(.3,.6,.4,1)" }, start), { offset: 0.55, translate: `${dx * 0.35}px ${dy * 0.35 - 48}px`, scale: "1.12 1.12", rotate: "0deg", opacity: 1, easing: "cubic-bezier(.3,0,.25,1)" }, Object.assign({ opacity: 1 }, end)];
     dur = FT.draw;
@@ -2995,13 +3007,14 @@ function suckRing(el, delay, dur) {
   ring.className = "suck-ring";
   Object.assign(ring.style, { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" });
   layer.appendChild(ring);
+  // 2026-11-21 고리는 가까이에서(1.45배 → 1.26배) 조여들고, 닿으면 안쪽 빛이 짧게(300 → 240ms) 번졌다 사라진다
   ring.animate([
-    { opacity: 0, scale: "1.45" },
-    { offset: 0.35, opacity: 0.85, scale: "1.22" },
+    { opacity: 0, scale: "1.26" },
+    { offset: 0.4, opacity: 0.7, scale: "1.14" },
     { offset: 1, opacity: 1, scale: "1" }
   ], { duration: dur, delay, easing: "cubic-bezier(.5,0,.8,.5)", fill: "both" }).onfinish = () => {
     ring.classList.add("hit");
-    ring.animate([{ opacity: 1, scale: "1" }, { opacity: 0, scale: "1.06" }], { duration: 300, easing: "ease-out", fill: "forwards" }).onfinish = () => ring.remove();
+    ring.animate([{ opacity: 1, scale: "1" }, { opacity: 0, scale: "1.045" }], { duration: 240, easing: "cubic-bezier(.2,.8,.2,1)", fill: "forwards" }).onfinish = () => ring.remove();
   };
 }
 function flipAll(before) {
@@ -3053,7 +3066,7 @@ function flipAll(before) {
    셔플이면 먼저 옛 핸드가 덱으로 날아가 섞이고(덱이 흔들리며 촤라락), 그다음 한 장씩 덱에서 튀어 올라
    뒷면으로 날아오다 반쯤 와서 앞면으로 뒤집히며 제자리에 착 앉는다.
    다 뽑힐 때까지 핸드는 마우스에 반응하지 않고(뽑기가 끝나고 0.5초 뒤부터), 턴 시간은 1초 뒤부터 다시 흐른다 */
-const DRAW_T = { fly: 640, gap: 150, shuffleWait: 620, handAfter: 500, clockAfter: 1000 };
+const DRAW_T = { fly: 640, gap: 150, shuffleWait: 620, handAfter: 280, clockAfter: 1000 };   // 2026-11-21 handAfter 500 → 280: 다 뽑은 뒤 핸드가 반응하기까지 기다리는 틈을 줄임
 function drawHand(els) {
   const k = kAct();
   const p = +els[0].dataset.p, deck = $("#deck" + p);
@@ -3195,10 +3208,17 @@ setInterval(clockTick, 100);
    v2.6: 예전 자세는 그때의 변환 행렬(capture 의 hm — 움직이는 중이었으면 그 순간 값)이라 기울기까지 그대로 이어진다.
    끝에서 넘치지 않고(예전 1.12), css/hand.css 의 들어 올리기 곡선과 같다. 칸 자체가 옮겨 간 경우는 flipAll 의 "hand" 가 맡는다 */
 function settleHand(el, oldM) {
-  const hc = el.querySelector(".hand-card"); if (!hc || !oldM || oldM === "none") return;
-  const nm = getComputedStyle(hc).transform;
-  if (nm === "none" || nm === oldM) return;
-  hc.animate([{ transform: oldM }, { transform: nm }], { duration: FT.select * kSpeedUI(), easing: "cubic-bezier(.22,.55,.12,1)" });
+  const hc = el.querySelector(".hand-card"); if (!hc || !oldM) return;
+  /* 2026-11-21 바닥 자세는 한 줄 핸드(css/hand-row.css)부터 transform: none 이다. 예전에는 "none"이면 그만둬서,
+     마우스를 올리지 않고 고르거나(손가락 · 숫자 키) 마우스가 떠난 뒤 풀면 카드가 중간 없이 "딱" 튀었다 — none 을 제자리 행렬로 읽어 잇는다 */
+  const ID = "matrix(1, 0, 0, 1, 0, 0)";
+  if (oldM === "none") oldM = ID;
+  let nm = getComputedStyle(hc).transform;
+  if (nm === "none") nm = ID;
+  if (nm === oldM) return;
+  // 2026-11-21 고를 때는 끝에서 살짝 넘쳤다가 "착"(css/hand.css 고르기 곡선), 풀 때는 조용히 가라앉는다
+  const sel = el.classList.contains("selected");
+  hc.animate([{ transform: oldM }, { transform: nm }], { duration: (sel ? FT.select : FT.select * 1.18) * kSpeedUI(), easing: sel ? "cubic-bezier(.2,.9,.25,1.18)" : "cubic-bezier(.3,0,.2,1)" });
 }
 /* 내 손이 한 일(고르기·집기·놓기)은 배속에 크게 끌려가지 않는다. 느린 배속에서도 손맛은 그대로, 빠른 배속에서만 조금 짧게 */
 const kSpeedUI = () => Math.min(1, kSpeed());
@@ -3267,14 +3287,17 @@ function crysToBurn(g, from, dx, dy, p, k) {
 }
 
 /* ---------- 효과 조각 ---------- */
-function burst(x, y, kind, size) {
+/* col(2026-11-21): 빛깔을 따로 줄 때 — 마법 발동은 보라 한 가지가 아니라 그 마법의 원소색으로 */
+function burst(x, y, kind, size, col) {
   const layer = fxLayer(); if (!layer || RM()) return;
   const b = document.createElement("div");
   b.className = "burst b-" + kind;
   b.style.left = x + "px"; b.style.top = y + "px"; b.style.setProperty("--s", Math.max(60, size) + "px");
-  const n = kind === "hit" ? 14 : kind === "spell" ? 18 : 10;
+  if (col) b.style.setProperty("--bc", col);
+  const n = kind === "hit" ? 14 : kind === "spell" ? 16 : kind === "slam" ? 6 : 10;
   let sp = "";
-  for (let i = 0; i < n; i++) sp += `<i style="--a:${(360 / n) * i + Math.random() * 18}deg;--d:${(0.35 + Math.random() * 0.3) * Math.max(60, size)}px"></i>`;
+  // 착지(slam)의 불티는 사방이 아니라 발밑에서 양옆으로만 낮게 튄다
+  for (let i = 0; i < n; i++) sp += `<i style="--a:${kind === "slam" ? (i % 2 ? 180 : 0) + (Math.random() * 44 - 30) * (i % 2 ? -1 : 1) : (360 / n) * i + Math.random() * 18}deg;--d:${(0.35 + Math.random() * 0.3) * Math.max(60, size)}px"></i>`;
   b.innerHTML = sp;
   layer.appendChild(b);
   setTimeout(() => b.remove(), 1000);
@@ -3457,14 +3480,32 @@ function counterStrike(defUid, atkUid, dur) {
 function revealFx(uid, dur) {
   const el = uidEl(uid); if (!el) return;
   el.classList.add("flying");
-  el.animate([
-    { rotate: "y 180deg", scale: "1" },
-    { offset: 0.3, rotate: "y 0deg", scale: "1.55" },
-    { offset: 0.82, rotate: "y 0deg", scale: "1.5" },
-    { rotate: "y 0deg", scale: "1" }
-  ], { duration: dur, easing: "cubic-bezier(.3,.7,.3,1)" }).onfinish = () => el.classList.remove("flying");
+  /* 2026-11-21 다시 짬. 예전: 앞면인 카드를 갑자기 180° 돌려 놓고 되돌렸다 — 처음 한동안 앞면이 거울처럼 뒤집혀 보였다.
+     이제: ① 숨을 고르듯 살짝 움츠렸다가(6%) ② 한 바퀴 돌며 떠오른다 — 등을 보이는 동안(90° ~ 270°)은 진짜 카드 뒷면(.rv-back)이 보인다
+     ③ 살짝 넘쳤다가(1.53배) 1.5배로 멈추고, 그 순간 원소색 고리가 퍼지며 카드 위로 빛이 한 번 스친다(.rv-sheen) ④ 읽을 틈 ⑤ 제자리로.
+     등을 보이는 구간은 키프레임 경계(T90 · T270)에 딱 맞춰 뒷면을 켜고 끈다 */
+  const T0 = 0.06, T90 = 0.12, T270 = 0.215, T360 = 0.3, TSET = 0.37, THOLD = 0.8;
+  const host = el.closest(".slot");
+  if (host) host.style.perspective = Math.round(el.getBoundingClientRect().width * 7) + "px";   // 도는 동안만 원근 — 납작한 종이가 아니라 두께 있는 카드처럼
+  const back = document.createElement("div"); back.className = "card-back field-back rv-back";
+  const sheen = document.createElement("i"); sheen.className = "rv-sheen";
+  el.append(back, sheen);
+  back.animate([{ opacity: 0 }, { opacity: 0, offset: T90 - 0.0001 }, { opacity: 1, offset: T90 }, { opacity: 1, offset: T270 }, { opacity: 0, offset: T270 + 0.0001 }, { opacity: 0 }], { duration: dur, fill: "both" });
+  sheen.animate([{ backgroundPosition: "130% 0", opacity: 0 }, { backgroundPosition: "130% 0", opacity: 0, offset: T360 - 0.02 }, { backgroundPosition: "115% 0", opacity: 1, offset: T360 }, { backgroundPosition: "-45% 0", opacity: 1, offset: T360 + 0.2 }, { backgroundPosition: "-45% 0", opacity: 0, offset: T360 + 0.24 }, { backgroundPosition: "-45% 0", opacity: 0 }], { duration: dur, fill: "both" });
+  const done = () => { el.classList.remove("flying"); back.remove(); sheen.remove(); if (host) host.style.removeProperty("perspective"); };
+  const an = el.animate([
+    { rotate: "y 0deg", scale: "1", easing: "cubic-bezier(.4,0,.6,1)" },
+    { offset: T0, rotate: "y 0deg", scale: "0.955", easing: "cubic-bezier(.5,0,.9,.6)" },
+    { offset: T90, rotate: "y 90deg", scale: "1.12", easing: "linear" },
+    { offset: T270, rotate: "y 270deg", scale: "1.4", easing: "cubic-bezier(.1,.6,.3,1)" },
+    { offset: T360, rotate: "y 360deg", scale: "1.53", easing: "ease-out" },
+    { offset: TSET, rotate: "y 360deg", scale: "1.5", easing: "linear" },
+    { offset: THOLD, rotate: "y 360deg", scale: "1.5", easing: "cubic-bezier(.5,0,.25,1)" },
+    { rotate: "y 360deg", scale: "1" }
+  ], { duration: dur });
+  an.onfinish = done; an.oncancel = done;
   const r = el.getBoundingClientRect(), c = ctrOf(r);
-  setTimeout(() => burst(c.x, c.y, "spell", r.width * 3.2), dur * 0.26);
+  setTimeout(() => burst(c.x, c.y, "spell", r.width * 3, elColor(el)), dur * (T360 - 0.02));
 }
 /* 마법 이름 띠: 마법이 뒤집히는 순간 화면 가운데 위에 이름이 떠서, 효과(숫자)가 뜨는 동안 머문다.
    길이 = 뒤집기 + 효과 한 수. 배속을 따른다 */
@@ -3529,7 +3570,7 @@ function queueCurse(it) {
   if (!Object.keys(rem).length) return;
   FX.curse = FX.curse || new Map();
   FX.curse.set(it.uid, { rem, started: false });
-  setTimeout(() => curseFx(it.uid), (FT.place * 2.1 + 900) * kSpeed());   // 내려앉는 연출(animFrom rise · slam)이 없거나 끊겼을 때를 위한 대비
+  setTimeout(() => curseFx(it.uid), (FT.place * RISE_K + 900) * kSpeed());   // 내려앉는 연출(animFrom rise · slam)이 없거나 끊겼을 때를 위한 대비
 }
 function curseFx(uid) {
   const q = FX.curse, e = q && q.get(uid); if (!e || e.started) return;
@@ -3957,10 +3998,11 @@ function dragTick() {
     const home = uidEl(d.uid);
     if (home) { const hc = ctrOf(home.getBoundingClientRect()); tx += (hc.x - tx) * 0.5; ty += (hc.y - ty) * 0.3; ts = 1.0; }
   }
-  const follow = 1 - Math.pow(1 - 0.42, dt / 16.7), grow = 1 - Math.pow(1 - 0.25, dt / 16.7);
+  // 2026-11-21 손끝에 더 바짝 붙고(따라붙기 .42 → .5), 기울기는 얌전하게(16° → 11°) — 덜 출렁이고 단단하게 들린 느낌
+  const follow = 1 - Math.pow(1 - 0.5, dt / 16.7), grow = 1 - Math.pow(1 - 0.3, dt / 16.7);
   d.cx += (tx - d.cx) * follow; d.cy += (ty - d.cy) * follow; d.s += (ts - d.s) * grow;
   const lagX = tx - d.cx, lagY = ty - d.cy;
-  const ry = Math.max(-16, Math.min(16, lagX * 0.45)), rx = Math.max(-16, Math.min(16, -lagY * 0.45));
+  const ry = Math.max(-11, Math.min(11, lagX * 0.42)), rx = Math.max(-11, Math.min(11, -lagY * 0.42));
   d.ghost.style.left = (d.cx - d.w / 2) + "px";
   d.ghost.style.top = (d.cy - d.h / 2) + "px";
   d.ghost.style.transform = `perspective(900px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) scale(${d.s.toFixed(3)})`;
@@ -4017,7 +4059,7 @@ function onPointerUp() {
   const a = ctrOf(gr), b = ctrOf(hr);
   d.ghost.style.transform = "";
   const s0 = d.s, s1 = hr.width / (gr.width / s0);
-  const an = d.ghost.animate([{ translate: "0px 0px", scale: String(s0) }, { translate: `${b.x - a.x}px ${b.y - a.y}px`, scale: String(s1) }], { duration: FT.back, easing: "cubic-bezier(.2,.75,.25,1.04)", fill: "forwards" });
+  const an = d.ghost.animate([{ translate: "0px 0px", scale: String(s0) }, { translate: `${b.x - a.x}px ${b.y - a.y}px`, scale: String(s1) }], { duration: FT.back, easing: "cubic-bezier(.25,.8,.25,1)", fill: "forwards" });
   an.onfinish = () => { d.ghost.remove(); if (FX.returning === d.uid) FX.returning = null; const h = uidEl(d.uid); if (h) h.classList.remove("drag-src"); };
 }
 

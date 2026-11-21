@@ -33,7 +33,7 @@ const TRADE_ICON = {
   hourglass: '<path d="M7 3.5h10M7 20.5h10M8 3.5c0 4.5 8 4.5 8 8.5s-8 4-8 8.5M16 3.5c0 4.5-8 4.5-8 8.5s8 4 8 8.5"/>'
 };
 const tIcon = k => `<svg class="t-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${TRADE_ICON[k]}</svg>`;
-const KIND = { offer: { name: "교환 제안", en: "Exchange" }, auction: { name: "경매", en: "Auction" } };
+const TRADE_KIND = { offer: { name: "교환 제안", en: "Exchange" }, auction: { name: "경매", en: "Auction" } };   // 2026-11-21 KIND → TRADE_KIND: v3.79 js/kinds.js 의 KIND(카드 ID → 유닛 종류)와 이름이 겹쳐 이 파일이 통째로 읽히지 않았다
 
 /* 남은 시간: 3일 4시간 · 5시간 12분 · 12:09 */
 function tLeft(ms) {
@@ -50,7 +50,7 @@ function tAgo(at) {
 }
 const tShards = n => `<span class="t-shards"><i class="shard" aria-hidden="true"></i><b>${Math.round(n).toLocaleString("ko-KR")}</b><small>조각</small></span>`;
 const tTimer = (ends, cls) => `<span class="t-timer${cls ? " " + cls : ""}" data-ends="${ends}">${tIcon("hourglass")}<b>${tLeft(ends - Date.now())}</b></span>`;
-const tKind = k => `<span class="t-kind k-${k}">${KIND[k].name}</span>`;
+const tKind = k => `<span class="t-kind k-${k}">${TRADE_KIND[k].name}</span>`;
 
 /* 거래 카드 한 장: 등급 칩 + 등급 색 테두리 빛. o.size "full"(원본) | "md"(노멀), o.w 카드 폭(px), o.n 장수, o.x 빼기 단추 */
 function tCardHTML(id, o) {

@@ -8,8 +8,8 @@
    - 카드마다 --sk (펴기 보정)·--pk (밀림 계수)를 JS가 준다. 둘 다 카드 폭(--hw)의 배수.
      --sk: 기울어진 카드를 0°로 펼 때 회전축이 아래 가운데라 윗부분이 옆으로 쓸리던 것을, 가운데가 제자리에 있도록 되돌린다 (sin(r)·0.7).
      --pk: 올린 카드의 이웃이 바깥으로 밀려나는 양. 바로 옆 1, 둘째 .45, 셋째 .2, 그 밖 .1 (× .11 × hw). 고른 카드만 있을 때는 절반.
-   - 곡선: 들어 올리기는 바로 반응하되 길게 멈추고(.44s), 내려놓기·이웃 복귀는 천천히 출발해 길게 멈춘다(.44s). 끝에서 넘치지 않는다.
-     이웃은 30ms 늦게 따라와 무게가 전해지는 느낌. 그림자는 들릴수록 멀고 흐려진다 */
+   - 곡선(2026-11-21 다시 잡음): 들어 올리기는 바로 반응하고(.15s), 고르기는 끝에서 살짝 넘쳤다 멈추고(.22s), 내려놓기는 조용히 가라앉는다(.26s).
+     그림자는 들릴수록 멀고 흐려진다. (v2.6 ~ : 모두 .44s 로 묵직하게 — 한 줄 핸드(css/hand-row.css)에서는 몇 % 만 움직여서 굼떠 보였다) */
 
 /* ---------- 자세 ---------- */
 .hand-me .hand-slot .hand-card { transform-origin: 50% 100%;
@@ -47,8 +47,13 @@ body.is-dragging .hand-me .hand-slot .hand-card,
 .hand-me .hand-slot.selected .hand-card .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .08), 0 .9em 2em rgba(0, 0, 0, .6), 0 0 0 .2em var(--gold-hi), 0 0 2em rgba(246, 226, 168, .7), var(--ok-ring); }
 .hand-me .hand-slot.selected.hov .hand-card .c-frame { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .1), 0 1.15em 2.4em rgba(0, 0, 0, .7), 0 0 0 .2em var(--gold-hi), 0 0 2em rgba(246, 226, 168, .7), var(--ok-ring); }
 /* 막 고른 카드(.fresh-sel, 다시 그린 새 요소라 transition 이 없다): 금 테와 무리가 올린 카드의 그림자에서 떠오른다 */
-.hand-me .hand-slot.selected.fresh-sel .hand-card .c-frame { animation: handSelIn .38s cubic-bezier(.22, .55, .12, 1); }
+.hand-me .hand-slot.selected.fresh-sel .hand-card .c-frame { animation: handSelIn .24s cubic-bezier(.2, .8, .2, 1); }
 @keyframes handSelIn { from { box-shadow: inset 0 0 0 .1em rgba(255, 255, 255, .1), 0 1.15em 2.4em rgba(0, 0, 0, .74), 0 0 0 0 rgba(246, 226, 168, 0), 0 0 0 0 rgba(246, 226, 168, 0), var(--ok-ring-off); } }
+/* 2026-11-21 막 고른 카드 위로 빛이 한 번 비스듬히 스친다 — "골랐다"가 한눈에 보이게. 한 번만(.fresh-sel), transform · opacity 만 움직인다 */
+.hand-me .hand-slot.selected.fresh-sel .hand-card::before { content: ""; position: absolute; inset: 0; z-index: 9; pointer-events: none; border-radius: .55em;
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 248, 224, .5) 49%, rgba(255, 255, 255, .16) 53%, transparent 62%) no-repeat;
+  background-size: 260% 100%; animation: handSelSheen .42s cubic-bezier(.3, .1, .3, 1) .04s both; }
+@keyframes handSelSheen { from { background-position: 120% 0; opacity: 1; } 85% { opacity: 1; } to { background-position: -40% 0; opacity: 0; } }
 
 /* ---------- v3.13.1 등급 테두리 · 낼 수 있는 카드 ----------
    테두리(border .2em) = 등급 색(js/grades.js GRADES, --gr) — 전장 카드(css/slim.css v3.9.9)와 같다. 일반은 흰빛을 조금 눌러 다른 등급이 도드라지게.
@@ -62,17 +67,21 @@ body.is-dragging .hand-me .hand-slot .hand-card,
 .hand-me .hand-card .card.slim.grade-common > .c-frame { border-color: color-mix(in srgb, var(--gr) 78%, #000); }
 
 /* ---------- 곡선 ---------- */
+/* 2026-11-21 손맛 다듬기: 올리기 .44s → .15s, 고르기 .44s → .22s, 내려놓기 .44s → .26s.
+   올리기는 손끝에 바로 붙고(끝에서 넘치지 않음), 고르기는 끝에서 아주 살짝 넘쳤다가 "착" 멈추고, 내려놓기는 조용히 가라앉는다.
+   금 테 · 그림자도 같은 박자로 켜진다. 고르기 길이는 js/feel.js FEEL.t.select (js/game.js settleHand)와 같다 */
 @media (prefers-reduced-motion: no-preference) {
-  /* 내려놓기 · 이웃이 제자리로: 천천히 출발해 길게 멈춤 */
-  .hand-me .hand-slot .hand-card { transition: transform .44s cubic-bezier(.3, .05, .15, 1), filter .3s; }
-  .hand-me .hand-card .c-frame { transition: box-shadow .44s cubic-bezier(.3, .05, .15, 1), border-color .2s; }
-  /* 들어 올리기 · 고르기: 바로 반응하되 길게 멈춤 */
-  .hand-me .hand-slot.hov .hand-card, .hand-me .hand-slot.selected .hand-card { transition: transform .44s cubic-bezier(.22, .55, .12, 1), filter .25s; }
-  .hand-me .hand-slot.hov .hand-card .c-frame, .hand-me .hand-slot.selected .hand-card .c-frame { transition: box-shadow .44s cubic-bezier(.22, .55, .12, 1), border-color .2s; }
-  /* 밀려나는 이웃: 조금 늦게, 더 천천히 */
-  .hand-me.has-hov .hand-slot:not(.hov) .hand-card { transition: transform .5s cubic-bezier(.25, .1, .1, 1) 30ms, filter .3s; }
+  /* 내려놓기 · 제자리로: 조용히 가라앉음 */
+  .hand-me .hand-slot .hand-card { transition: transform .26s cubic-bezier(.3, 0, .2, 1), filter .2s; }
+  .hand-me .hand-card .c-frame { transition: box-shadow .26s cubic-bezier(.3, 0, .2, 1), border-color .16s; }
+  /* 들어 올리기: 바로 반응 */
+  .hand-me .hand-slot.hov .hand-card { transition: transform .15s cubic-bezier(.2, .8, .2, 1), filter .12s; }
+  .hand-me .hand-slot.hov .hand-card .c-frame { transition: box-shadow .15s cubic-bezier(.2, .8, .2, 1), border-color .12s; }
+  /* 고르기: 끝에서 살짝 넘쳤다가 멈춤 */
+  .hand-me .hand-slot.selected .hand-card { transition: transform .22s cubic-bezier(.2, .9, .25, 1.18), filter .14s; }
+  .hand-me .hand-slot.selected .hand-card .c-frame { transition: box-shadow .2s cubic-bezier(.2, .8, .2, 1), border-color .12s; }
   /* 끄는 동안 바닥으로 돌아갈 때 */
-  body.is-dragging .hand-me .hand-slot .hand-card { transition: transform .3s cubic-bezier(.3, .05, .15, 1); }
+  body.is-dragging .hand-me .hand-slot .hand-card { transition: transform .2s cubic-bezier(.3, 0, .2, 1); }
 }
 @media (prefers-reduced-motion: reduce) {
   .hand-me .hand-slot .hand-card, .hand-me .hand-card .c-frame { transition: none !important; animation: none !important; }

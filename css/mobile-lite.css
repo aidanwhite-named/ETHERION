@@ -130,7 +130,7 @@ html.mobile .throw-shot { box-shadow: 0 0 6px 3px rgba(255, 170, 70, .75); }
 html.mobile .card.equipped::before { box-shadow: 0 2.6px 6px rgba(0, 0, 0, .6), inset 0 0 0 .08em rgba(246, 226, 168, .12); }
 html.mobile .card.equipped > .c-frame { box-shadow: 0 .06em 0 #8a7342, 0 .13em 0 #3a2f1c, 0 2.3px 6px rgba(0, 0, 0, .6), inset 0 .07em 0 rgba(255, 255, 255, .14), inset 0 0 0 .1em rgba(255, 255, 255, .06); }
 html.mobile .card.legend.equipped > .c-frame { box-shadow: 0 .06em 0 #8a7342, 0 .13em 0 #3a2f1c, 0 0 6px rgba(233, 198, 111, .35), 0 2.3px 6px rgba(0, 0, 0, .6), inset 0 .07em 0 rgba(255, 255, 255, .14); }
-html.mobile .suck-ring { box-shadow: 0 0 6px rgba(246, 226, 168, .55), inset 0 0 6px rgba(246, 226, 168, .3); }
+html.mobile .suck-ring { box-shadow: 0 0 6px rgba(246, 226, 168, .5), inset 0 0 6px rgba(246, 226, 168, .22); }
 html.mobile .st-lock { filter: drop-shadow(0 0 .18em rgba(255, 196, 80, .85)); }
 html.mobile .st.st-locked b { text-shadow: 0 0 4px rgba(255, 196, 80, .55); }
 html.mobile .st-lock.pin-U { filter: drop-shadow(0 0 .16em rgba(110, 220, 140, .8)); }
@@ -578,6 +578,8 @@ html.mobile .card.has-brief .c-brief .sb-t { text-shadow: 0 .06em .1em #000; }
 
 /* frames.css */
 html.mobile .card.fm.has-frame .c-pips .pip { filter: drop-shadow(0 .03em .05em #000); }
-html.mobile .card.fm.has-frame .c-rcol .c-clsico i { filter: drop-shadow(0 .03em .06em #000); }
+html.mobile .card.fm.has-frame .c-clsico i { filter: drop-shadow(0 .03em .06em #000); }
 html.mobile .card.fm.has-frame .c-emb img { filter: drop-shadow(0 .05em .12em rgba(0, 0, 0, .85)); }
 html.mobile .card.fm.has-frame .c-emb .c-enum b { text-shadow: 0 .05em .1em #000, 0 0 .25em rgba(0, 0, 0, .9); }
+html.mobile .card.size-full.has-frame .c-art .c-spfx { box-shadow: inset 0 0 0 .04em rgba(246, 217, 142, .9), inset 0 0 0 .11em rgba(255, 77, 115, .5), inset 0 0 6px rgba(255, 77, 115, .3); }
+html.mobile.mobile .card.size-full.has-frame .c-art .c-spfx { box-shadow: inset 0 0 0 .04em rgba(246, 217, 142, .9), inset 0 0 0 .11em rgba(255, 77, 115, .5), inset 0 0 6px rgba(255, 77, 115, .3); }

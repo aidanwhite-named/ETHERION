@@ -29,8 +29,9 @@
 /* 자세: 바닥 = 똑바로 · 올림 = 4% 떠오름 · 고름 = 7% 떠오르고 아주 조금 커짐 (틈 안에서) */
 .screen-game .hand-me .hand-slot .hand-card { transform-origin: 50% 100%; transform: none; }
 .screen-game .hand-me .hand-slot.hov .hand-card { transform: translateY(calc(var(--hcw) * -.06)); }
-.screen-game .hand-me .hand-slot.selected .hand-card { transform: translateY(calc(var(--hcw) * -.09)) scale(1.03); }
-.screen-game .hand-me .hand-slot.selected.hov .hand-card { transform: translateY(calc(var(--hcw) * -.1)) scale(1.03); }
+/* 2026-11-21 고른 카드는 올린 카드와 뚜렷이 다르게: 10% 떠오르고 4% 커진다(틈 --hgap 7% 안) */
+.screen-game .hand-me .hand-slot.selected .hand-card { transform: translateY(calc(var(--hcw) * -.1)) scale(1.04); }
+.screen-game .hand-me .hand-slot.selected.hov .hand-card { transform: translateY(calc(var(--hcw) * -.11)) scale(1.04); }
 .screen-game .hand-me .hand-slot:hover:not(.hov):not(.selected) .hand-card { transform: none; }
 body.is-dragging .screen-game .hand-me .hand-slot .hand-card,
 #board.hand-locked .hand-me .hand-slot .hand-card { transform: none !important; }
