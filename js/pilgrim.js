@@ -159,7 +159,7 @@ const Pilgrim = {
 /* ---------- 지도: 카일란 대륙 위의 오늘의 길 (v3.26) ----------
    바탕은 숨겨진 기록의 지도(js/kailan.js mapSVG, 지점 · 이름 없이)를 그대로 쓰고, 그 위에 린데어 환석 → 여덟 관문 → 망각의 숲을 잇는다.
    도시 좌표는 지도(Kailan.places)에서 읽는다. 지도 파일이 없으면 아래 PIL_AT. 숲의 자리는 PILGRIM_TEXT.forest.at */
-const PIL_AT = { B1: [455, 372], B2: [215, 365], B3: [362, 236], G1: [505, 700], G2: [360, 575], G3: [338, 781], A1: [784, 566], A2: [765, 405], A3: [812, 262], hub: [652, 746] };
+const PIL_AT = { B1: [456, 308], B2: [170, 338], B3: [465, 176], G1: [565, 596], G2: [350, 508], G3: [330, 688], A1: [862, 425], A2: [862, 287], A3: [882, 218], hub: [712, 700] };
 let pilBase = null;
 function pilAt(k) {
   if (k === "forest") return PILGRIM_TEXT.forest.at;
@@ -196,7 +196,7 @@ function pilMapHTML(p, f) {
   o.push(`<g class="pgm-me" transform="translate(${mx} ${my - 30})"><path d="M0,-9L7,0L0,9L-7,0Z"/></g>`);
   const passed = Math.min(p.stage, PILGRIM.gates - 1);
   return `<figure class="pg-map">
-    <svg class="pg-map-svg" viewBox="150 170 900 660" role="img" aria-label="오늘의 순례길 지도"><g class="pgm-base">${pilBase}</g>${o.join("")}</svg>
+    <svg class="pg-map-svg" viewBox="100 27 1100 807" role="img" aria-label="오늘의 순례길 지도"><g class="pgm-base">${pilBase}</g>${o.join("")}</svg>
     <figcaption>${route.length ? `${esc(TX.hub)}에서 성로를 따라 · 관문 <b>${passed}</b> / ${PILGRIM.gates - 1}${p.stage >= PILGRIM.gates ? " · 숲을 지났습니다" : ""}` : "첫 판을 시작하면 오늘의 길이 지도에 그려집니다."}</figcaption></figure>`;
 }
 

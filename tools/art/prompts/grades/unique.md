@@ -86,7 +86,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 소르그림의 방패 · 유닛 · 레벨 6 · 유니크 · 틀 `inside` F C `snowlight` · 프롬프트 n2 → `tools/art/inbox/UN-B2.jpg`
 
 ```
-Landscape 5:4 painting. From inside the hollow chest of a half-built golem, looking out through its open breast-hatch: the hatch rim of mismatched salvaged plates rings the whole picture. Leaning in toward us, filling the opening, is a very old golem — hand-hammered plates of uneven size, crooked rows of rivets, a boiler patched many times, a small worn smith's hammer hung on a chain around its neck. In both huge, careful hands it lowers a salvaged furnace-heart, still faintly glowing, into the cavity where we sit. Behind it snow falls on a field of fallen machines, each already missing a part. Overcast snow daylight behind the old golem rims its dented shoulders in white; the small heart in its hands warms its face plates and the hatch rim from below.
+Landscape 5:4 painting. From inside the hollow chest of a half-built golem, looking out through its open breast-hatch: the hatch rim of mismatched salvaged plates rings the whole picture. Leaning in toward us, filling the opening, is a very old golem — hand-hammered plates of uneven size, crooked rows of rivets, a boiler patched many times, a small worn smith's hammer hung on a chain around its neck. In both huge, careful hands it lowers a salvaged furnace-heart, still glowing, into the cavity where we sit. Behind it snow falls on a field of fallen machines, each already missing a part. Snow daylight blazes white behind the old golem, rimming its dented shoulders against the dark hatch; the heart in its hands lights its face plates warm from below.
 Colour: mountain daylight — overcast snow-white and granite grey with steel-grey (#a9b4c2) metal.
 Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
 Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a blazing key light against deep black, and the subject burning with a power of its own. Saturation: jewel-bright and molten. Air: thick with swirling orange-gold (#ff8a2a) embers, heat-shimmer and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing at the seams.
@@ -158,7 +158,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 베르단의 뿔 · 유닛 · 레벨 6 · 유니크 · 틀 `cut` F B `sporeglow` · 프롬프트 n2 → `tools/art/inbox/UN-G2.jpg`
 
 ```
-Landscape 5:4 painting. The forest floor at night, cut open like a section. Along the top of the frame, above the ground line, stands a broad fresh stump with a two-handed saw abandoned across it, ringed by a hedge of thorns. Everything below the line is the keeper himself: a root-mass as big as a hill, shaped like a hunched giant, his old bark face set in the earth just under the stump with both eyes open and alight, root-arms spread wide and gripping buried boulders. From his brow a single pale shoot has already pushed up through the heart of the stump. Darkness above and below; the only light is the green glow of his eyes and the faint blue-green fungus threads tracing every root.
+Landscape 5:4 painting. The forest floor at night, cut open like a section. Along the top of the frame, above the ground line, stands a broad fresh stump with a two-handed saw abandoned across it, ringed by a hedge of thorns. Everything below the line is the keeper himself: a root-mass as big as a hill, shaped like a hunched giant, his old bark face set in the earth just under the stump with both eyes open and alight, root-arms spread wide and gripping buried boulders. From his brow a single pale shoot has already pushed up through the heart of the stump. His eyes burn pale-lime in the black earth and blue-green fungus threads blaze along every root, lighting the soil, the boulders and the underside of the stump.
 Colour: spore night — black dark lit by blue-green and pale-lime (#58b85f) bioluminescence.
 Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
 Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a blazing key light against deep black, and the subject burning with a power of its own. Saturation: jewel-bright and molten. Air: thick with swirling orange-gold (#ff8a2a) embers, heat-shimmer and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing at the seams.
@@ -202,11 +202,9 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-## 2. 다시 그리기 · 2장
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 2장
 
-> 이미 그림이 있어 게임은 그대로 돌아간다. 1번을 다 그린 뒤 그린다.
-
-### UN-A1 · 피의 서약자 — **다시 그리기**: 종류가 바뀜(2026-11-21) — 옛 그림은 처음 세운 무리의 모습
+### UN-A1 · 피의 서약자 — 그림 있음
 모르카스의 그믐 · 유닛 · 레벨 6 · 유니크 · 틀 `pov` F R `bloodink` · 프롬프트 n2 → `tools/art/inbox/UN-A1.jpg`
 
 ```
@@ -218,7 +216,7 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### UN-A2 · 엘라드의 날개 방패 — **다시 그리기**: 종류가 바뀜(2026-11-21) — 옛 그림은 처음 세운 무리의 모습
+### UN-A2 · 엘라드의 날개 방패 — 그림 있음
 솔란테의 새벽 · 유닛 · 레벨 6 · 유니크 · 틀 `reflect` R X `vigil` · 프롬프트 n2 → `tools/art/inbox/UN-A2.jpg`
 
 ```

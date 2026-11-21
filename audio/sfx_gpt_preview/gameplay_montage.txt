@@ -1,0 +1,1 @@
+ui_click · portal_open · sortie · banner_combat · first_turn · coin_flip · life_hit · life_heal · swing · hit · crit · block · miss · summon · negate · shield · heal · cleanse · aura · pach_spin · pach_win3 · victory

@@ -706,11 +706,9 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-## 2. 다시 그리기 · 3장
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 5장
 
-> 이미 그림이 있어 게임은 그대로 돌아간다. 1번을 다 그린 뒤 그린다.
-
-### EP-A1-1 · 심연 칼날 무희 — **다시 그리기**: 종류가 바뀜(2026-11-21) — 옛 그림은 처음 세운 무리의 모습
+### EP-A1-1 · 심연 칼날 무희 — 그림 있음
 모르카스의 그믐 · 유닛 · 레벨 3 · 에픽 · 틀 `echo` R X `violetshade` · 프롬프트 n2 → `tools/art/inbox/EP-A1-1.jpg`
 
 ```
@@ -721,32 +719,6 @@ Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and cha
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
-
-### EP-A1-2 · 녹타르 처형대장 — **다시 그리기**: 종류가 바뀜(2026-11-21) — 옛 그림은 처음 세운 무리의 모습
-모르카스의 그믐 · 유닛 · 레벨 5 · 에픽 · 틀 `profile` R X `bonepale` · 프롬프트 n2 → `tools/art/inbox/EP-A1-2.jpg`
-
-```
-Landscape 5:4 painting. In strict profile along a stone gallows bridge. At the left end a huge gaunt figure with a stag's skull for a head, antlers pushing through an executioner's hood, has just finished one level swing toward the right, his long-hafted axe at full stretch. A pale arc from the blade runs on down the bridge through a queue of oath-breakers, and they go over one after another like dominoes: the first already flat, the middle ones leaning, the last still upright with his helmet lifting off. Beyond them every hanging rope on the bridge swings out to the right. Bone-white fog fills the canyon behind the bridge and turns figures and ropes to ash-grey shapes; one violet gleam runs along the axe edge.
-Colour: bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-### PN-A1-E · 심연 장막의 거래인 — **다시 그리기**: 종류가 바뀜(2026-11-21) — 옛 그림은 처음 세운 무리의 모습
-모르카스의 그믐 · 유닛 · 레벨 6 · 에픽 · 틀 `silhouette` F C `eclipse` · 프롬프트 n2 → `tools/art/inbox/PN-A1-E.jpg`
-
-```
-Landscape 5:4 painting. A tall scarecrow in a long coat and a wide-brimmed hat stands black against a slit of cold light, where a sky-high curtain of darkness has parted behind him. He faces us in the centre, mid-stride, a pedlar's case hanging half-empty from one hand. Straight through his chest runs a clean-edged gap the shape of a missing puzzle piece, and the cold light shines through it onto the ground. Dust, dead leaves and the tails of his coat all stream backward toward the curtain, and a thin line of them is being drawn through the gap in his chest. The slit of pale light behind him rims hat, shoulders and coat; all else is silhouette in violet haze.
-Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 2장
 
 ### PI-A1 · 모르카스의 저울추 — 그림 있음
 모르카스의 그믐 · 아이템 · 레벨 3 · 에픽 · 틀 `stored` N L `eclipse` · 프롬프트 n2 → `tools/art/inbox/PI-A1.jpg`
@@ -765,6 +737,30 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 
 ```
 Landscape 5:4 painting of a spell — the magic itself is the subject. One taut cable of braided black wire drops the whole height of the frame down a sheer shaft. At its end, low in the picture, a round bronze pan as wide as a courtyard is sinking into rising darkness, carrying two tiny armoured figures who stand back to back, their torch flames stretched straight upward by the descent. At the top edge shows the end of a great beam carved with a closed eye, and beside it a second cable runs up out of sight, tight, while four dark red drops fall from above and pass the sinking pan. A thin cold line of light at the shaft's mouth rims the beam and the cables; below, the two torches are sparks sinking into violet-black.
+Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### EP-A1-2 · 녹타르 처형대장 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 5 · 에픽 · 틀 `profile` R X `bonepale` · 프롬프트 n2 → `tools/art/inbox/EP-A1-2.jpg`
+
+```
+Landscape 5:4 painting. In strict profile along a stone gallows bridge. At the left end a huge gaunt figure with a stag's skull for a head, antlers pushing through an executioner's hood, has just finished one level swing toward the right, his long-hafted axe at full stretch. A pale arc from the blade runs on down the bridge through a queue of oath-breakers, and they go over one after another like dominoes: the first already flat, the middle ones leaning, the last still upright with his helmet lifting off. Beyond them every hanging rope on the bridge swings out to the right. Bone-white fog fills the canyon behind the bridge and turns figures and ropes to ash-grey shapes; one violet gleam runs along the axe edge.
+Colour: bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### PN-A1-E · 심연 장막의 거래인 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 6 · 에픽 · 틀 `silhouette` F C `eclipse` · 프롬프트 n2 → `tools/art/inbox/PN-A1-E.jpg`
+
+```
+Landscape 5:4 painting. A tall scarecrow in a long coat and a wide-brimmed hat stands black against a slit of cold light, where a sky-high curtain of darkness has parted behind him. He faces us in the centre, mid-stride, a pedlar's case hanging half-empty from one hand. Straight through his chest runs a clean-edged gap the shape of a missing puzzle piece, and the cold light shines through it onto the ground. Dust, dead leaves and the tails of his coat all stream backward toward the curtain, and a thin line of them is being drawn through the gap in his chest. The slit of pale light behind him rims hat, shoulders and coat; all else is silhouette in violet haze.
 Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
 Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.

@@ -192,8 +192,8 @@
   },
   "UN-B2": {
     "shot": "inside", "dir": "F", "place": "C", "pal": "snowlight",
-    "scene": "From inside the hollow chest of a half-built golem, looking out through its open breast-hatch: the hatch rim of mismatched salvaged plates rings the whole picture. Leaning in toward us, filling the opening, is a very old golem — hand-hammered plates of uneven size, crooked rows of rivets, a boiler patched many times, a small worn smith's hammer hung on a chain around its neck. In both huge, careful hands it lowers a salvaged furnace-heart, still faintly glowing, into the cavity where we sit. Behind it snow falls on a field of fallen machines, each already missing a part.",
-    "light": "Overcast snow daylight behind the old golem rims its dented shoulders in white; the small heart in its hands warms its face plates and the hatch rim from below."
+    "scene": "From inside the hollow chest of a half-built golem, looking out through its open breast-hatch: the hatch rim of mismatched salvaged plates rings the whole picture. Leaning in toward us, filling the opening, is a very old golem — hand-hammered plates of uneven size, crooked rows of rivets, a boiler patched many times, a small worn smith's hammer hung on a chain around its neck. In both huge, careful hands it lowers a salvaged furnace-heart, still glowing, into the cavity where we sit. Behind it snow falls on a field of fallen machines, each already missing a part.",
+    "light": "Snow daylight blazes white behind the old golem, rimming its dented shoulders against the dark hatch; the heart in its hands lights its face plates warm from below."
   },
   "UN-B2-7": {
     "shot": "silhouette", "dir": "N", "place": "X", "pal": "forgeheart",
@@ -373,11 +373,11 @@
   "SP-B2": {
     "shot": "reflect", "dir": "L", "place": "R", "pal": "mirror",
     "scene": "Across a quenching pool as wide as a parade ground: the far rim crosses mid-frame, lined with small kneeling golems whose eye-lamps are just opening. Above it forge steam hides almost everything: a shadow as tall as the hall, the pale glow of something beating. Below, the black water shows what the steam conceals: upside-down in the right of the frame, a seated colossus of white steel turned toward the left, one hand on an anvil the size of a house, chest plates parted on a heart of silver valves and pistons.",
-    "light": "The heart's cold silver-white pulse is the only light, soft and blurred in the steam above, sharp and bright in the black water below."
+    "light": "The heart's silver-white blaze lights the hall from inside the steam; each beat sends a bright ring across the black water and flashes on the white steel."
   },
   "SR-B2": {
     "shot": "through", "dir": "R", "place": "B", "pal": "mirror",
     "scene": "Glimpsed through a reliquary grille whose bars are swords — every one bent back double on itself at the same place — set upright across the foreground. Between them, low in the frame on a block of raw iron ore, rests a cuirass that was grown rather than forged: one hollow knuckle of a colossal rib, grey bone-metal with natural flanges curving round like shoulder guards, two plain leather straps its only made parts, its breast turned toward the right. Its surface is smooth and bright enough to mirror the bent blades.",
-    "light": "A cold shaft of daylight from a slot in the rock falls on the grey breast; all else is darkness mirrored in silver on the bent blades."
+    "light": "A cold shaft of daylight from a slot in the rock strikes the breast, which answers with a brightness of its own, casting silver reflections across the bent blades and the raw ore."
   }
 }

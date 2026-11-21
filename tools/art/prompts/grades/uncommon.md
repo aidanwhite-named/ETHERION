@@ -8,19 +8,7 @@
 
 **그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저.
 
-## 1. 그림 없는 카드 — 먼저 그린다 · 130장
-
-### A1-01 · 계약의 저주 인형
-모르카스의 그믐 · 유닛 · 레벨 1 · 고급 · 틀 `high` B L `bloodink` · 프롬프트 n2 → `tools/art/inbox/A1-01.jpg`
-
-```
-Landscape 5:4 painting. Looking down onto a scribe's cluttered desk: a small burlap rag doll with mismatched button eyes sits slumped at the left edge, its back to us, a corner of folded parchment poking from a split seam like stuffing. One rusty pin already stands in its shoulder, and its own stubby hand is pushing a second pin into its other arm. Across the desk to the right lies a row of five sealed, ribboned scrolls, one of them twitching on the wood. A single guttering tallow stub at the top edge throws long black shadows from the pins across the desk; the wax seals glow deep crimson.
-Colour: blood and ink — black and deep crimson with a thread of violet (#8b5cf6).
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
+## 1. 그림 없는 카드 — 먼저 그린다 · 118장
 
 ### MC-05 · 환각
 모르카스의 그믐 · 공용 마법 · 레벨 1 · 고급 · 틀 `transform` L R `violetshade` · 프롬프트 n2 → `tools/art/inbox/MC-05.jpg`
@@ -34,90 +22,6 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### A1-41 · 사슬에 묶인 망령
-모르카스의 그믐 · 유닛 · 레벨 2 · 고급 · 틀 `top` L C `bonepale` · 프롬프트 n2 → `tools/art/inbox/A1-41.jpg`
-
-```
-Landscape 5:4 painting. Straight down onto a bare paved square, like a map. In the centre floats a small hooded ghost, child-sized, seen from above as a pale round hood pointing left and a torn shroud trailing away to the right. Rusted chains run from its body to four iron rings set in the paving, drawn tight like the spokes of a wheel. Three arrows stand in the stones around it, and from each arrow a fresh length of chain runs straight out of the frame, taut, back toward whoever loosed it. Shadowless ash-grey light flattens the square; the ghost gives a faint violet glow on the nearest links.
-Colour: bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-### CS-A1 · 침묵의 빙의
-모르카스의 그믐 · 공격 마법 · 레벨 2 · 고급 · 틀 `origin` B T `bonepale` · 프롬프트 n2 → `tools/art/inbox/CS-A1.jpg`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. Looking along its path from where it starts: at the bottom edge, seen from behind, a thin camp boy sits slumped on a drum, and a pale thread of mist leaves the back of his hood and stretches away up the frame. Halfway along, it has taken one turn round the clapper of a camp alarm bell and holds it stopped in mid-swing. At the top the thread enters the visor of a towering armoured champion, whose raised greatsword is already sinking and whose knees have bent into the boy's own slump. Colourless ash-grey dusk over trampled ground; the thread is the one violet glow, brightest where it enters the helm.
-Colour: bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-### A1-13 · 녹타르 듀라한
-모르카스의 그믐 · 유닛 · 레벨 3 · 고급 · 틀 `profile` L R `candle` · 프롬프트 n2 → `tools/art/inbox/A1-13.jpg`
-
-```
-Landscape 5:4 painting. Strict side view, flat as a carved frieze: a headless figure in black plate armour strides toward the left along a colonnade, standing at the right of the frame, violet ghost-flame rising from the empty collar. Tucked under the near arm, its own helmeted head looks down at a small chained ledger held in the same hand, lips parted as if reading aloud; the far arm reaches forward and lifts a sword out of a rack by the blade. A row of identical empty racks recedes behind it. Evenly spaced candles in wall niches make amber pools along the colonnade; between them the armour drops into violet dark.
-Colour: candle islands — small pools of amber light in vast dark, violet (#8b5cf6) in the shadows.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-### IA1-5 · 계약서 원본
-모르카스의 그믐 · 아이템 · 레벨 3 · 고급 · 틀 `pair` N X `frostindigo` · 프롬프트 n2 → `tools/art/inbox/IA1-5.jpg`
-
-```
-Landscape 5:4 painting of one object — the object itself is the subject. Two things share a bare wall in a cold archive vault. In a shallow niche on the left rests a thick folded document of yellowed vellum, bound with black ribbon and closed by five red wax seals along its fold, its edges darkened by handling. On the right hung the plain sword of whoever signed it: both iron wall hooks have bent open under its weight, and the sword has dropped point-first into the flagstones, sunk to a third of its blade, cracks spreading round it. Blue-violet vault light and a skin of frost on the wall; the steel is tarnished silver and the seals are small dark-red embers.
-Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-### PN-A1-U1 · 피의 맹세 검사
-모르카스의 그믐 · 유닛 · 레벨 3 · 고급 · 틀 `cut` L B `bloodink` · 프롬프트 n2 → `tools/art/inbox/PN-A1-U1.jpg`
-
-```
-Landscape 5:4 painting. A cross-section of a grave, cut down through turf, roots and soil. In the pit at the bottom of the frame lies a knight in blackened, rusted plate, stretched out with his helm toward the left and wide awake: cold violet eyes open in the visor, both gauntlets folded over a long sword laid on his chest. The runes down its blade are lit blood-red only a third of the way from the hilt; the rest are dark. Above him the mound has split open again, and a shovel stands in the grass by a leaning headstone. Night above ground with a thread of violet on the headstone; below, the red runes light rust, soil and roots inside the pit.
-Colour: blood and ink — black and deep crimson with a thread of violet (#8b5cf6).
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-### S3-1 · 계약의 인장
-모르카스의 그믐 · 아이템 · 레벨 3 · 고급 · 틀 `top` N R `candle` · 프롬프트 n2 → `tools/art/inbox/S3-1.jpg`
-
-```
-Landscape 5:4 painting of one object — the object itself is the subject. Directly overhead, a scribe's oak table. In the right of the frame stands a signet stamp, its turned black-horn handle worn glossy, seen from above as a dark disc, with its accessories laid round it: a stick of red sealing wax, a coil of ribbon, a candle stub in a dish and one fresh round wax impression. A deep sword-cut runs across the whole tabletop from left to right, straight as a ruled line, except where it meets the stamp: there it swerves in a neat half-circle around it and then runs on straight. The candle stub in its dish makes a small amber pool around the stamp; the far ends of the cut fade into violet shadow.
-Colour: candle islands — small pools of amber light in vast dark, violet (#8b5cf6) in the shadows.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-### PN-A1-C2 · 모르크 협곡 셰이드
-모르카스의 그믐 · 유닛 · 레벨 4 · 고급 · 틀 `eye` L C `candle` · 프롬프트 n2 → `tools/art/inbox/PN-A1-C2.jpg`
-
-```
-Landscape 5:4 painting. On the canyon floor at night, at eye level. A watch lantern on an iron pole stands planted in the gravel, throwing a round pool of light, and in the centre a figure of dusky smoke, twice a man's height and thin as a pillar, is stepping leftward straight through that pool. Wherever the light falls its body thins to a faint shimmer, like breath on glass; above the lantern's reach its narrow head, two dim violet eyes and its long-fingered hands stay dense and dark. The fingers stretch ahead toward a small tent where a sentry's boots stick out. The lantern's amber pool is the only light, one small island in a vast dark canyon; violet lingers in the shade's eyes.
-Colour: candle islands — small pools of amber light in vast dark, violet (#8b5cf6) in the shadows.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
 ### A1-27 · 녹타르 피의 군주
 모르카스의 그믐 · 유닛 · 레벨 5 · 고급 · 틀 `reflect` F C `candle` · 프롬프트 n2 → `tools/art/inbox/A1-27.jpg`
 
@@ -125,54 +29,6 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Landscape 5:4 painting. A long desk of mirror-polished black stone fills the frame, seen from just above its surface. Standing on it, real and upright, are a crystal goblet, a heavy iron archive key on its ring, and a rack of thumb-sized sealed vials, each tagged with a ribbon. The master of the desk appears only as an upside-down reflection in the stone, in the centre and facing us: a pale vampire in a high black-and-crimson collar, red eyes lowered, silver-ringed fingers tipping one tiny vial to his lips while his other hand rests a quill on a closed ledger. Two candles at the desk's far corners lay amber pools on the polished stone; the reflection lives in the violet dark between them.
 Colour: candle islands — small pools of amber light in vast dark, violet (#8b5cf6) in the shadows.
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-### PN-A1-U2 · 모르카스의 세리
-모르카스의 그믐 · 유닛 · 레벨 5 · 고급 · 틀 `macro` D L `frostindigo` · 프롬프트 n2 → `tools/art/inbox/PN-A1-U2.jpg`
-
-```
-Landscape 5:4 painting. Extreme close-up at floor level: one small silver coin has rolled into the crack between two floorboards. A hand of translucent grey-violet mist, each finger as long as a table knife, has reached down from the left and sunk straight through the solid wood to pinch the coin by its edge and draw it out. A rusted chain is looped round the wrist. Above, soft and out of focus, hang the hem of a torn shroud and the corner of a thick ledger gripped under the other arm, its clasp shut. Cold blue-violet light from a frosted window slants across the boards; the coin is a single point of tarnished silver.
-Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-### A1-31 · 피의 공작
-모르카스의 그믐 · 유닛 · 레벨 6 · 고급 · 틀 `high` L R `bloodink` · 프롬프트 n2 → `tools/art/inbox/A1-31.jpg`
-
-```
-Landscape 5:4 painting. Looking down from the rafters onto a long banquet table draped in black cloth. At every place, where the wineglass should stand, lies a folded oath sealed with red wax, a quill laid across it, and the gloved hands of the guests rest beside them, very still. Only the head of the table, at the right, has a goblet: there the oldest of the house, a pale vampire in a high crimson-lined collar, stands turned to the left, facing down the whole length of the table, and raises his full crystal glass in a toast. Low crimson candle-glow along the table picks out seals, silver rings and the dark wine; beyond the cloth all is black, with a thread of violet in the windows.
-Colour: blood and ink — black and deep crimson with a thread of violet (#8b5cf6).
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-### A1-35 · 모르크의 나이트메어
-모르카스의 그믐 · 유닛 · 레벨 7 · 고급 · 틀 `eye` L R `candle` · 프롬프트 n2 → `tools/art/inbox/A1-35.jpg`
-
-```
-Landscape 5:4 painting. Inside a child's small bedroom, at eye level. In the lower left a child sleeps under a quilt, and a storybook lies shut on the blanket with its ribbon marker only halfway through. From the right a horse of black smoke, far too large for the room, has pushed in through the wall as if through fog: its head alone is as long as the bed and hangs leftward over the sleeper, eyes like two coals, a mane of violet fire licking the ceiling beams. A line of smouldering hoofprints crosses the floorboards out of the dark. One bedside candle makes a small amber island around the pillow; the violet mane tints the ceiling and the rest of the room is black.
-Colour: candle islands — small pools of amber light in vast dark, violet (#8b5cf6) in the shadows.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-### A2-01 · 견습생의 기도 촛불
-솔란테의 새벽 · 유닛 · 레벨 1 · 고급 · 틀 `far` R L `vigil` · 프롬프트 n2 → `tools/art/inbox/A2-01.jpg`
-
-```
-Landscape 5:4 painting. A long infirmary hall at night, seen from far down its aisle: two rows of empty cots recede into darkness. Small in the left of the frame, a living prayer candle of white beeswax, barely a hand tall, pads across the flagstones on stubby feet of melted wax, a calm tiny face glowing inside its finger-sized flame. It is heading right, toward the single occupied cot, where a bandaged arm hangs down to the floor. Its own small flame is the only light, a warm ring on the stone that barely reaches the nearest cot legs.
-Colour: night vigil — darkness holding small warm flames with pale-gold (#ffe9a8) halos.
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
 Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
@@ -1565,6 +1421,152 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Landscape 5:4 painting. Side-on like a stone frieze: on a storm-beaten reef a king crab the size of a gatehouse stands in the right of the frame facing left, one enormous claw raised straight up in the salute of an oath. It has held that salute for ages — barnacles sheathe its legs, weed has grown over its feet, and in the crook of the lifted claw a pair of seabirds has built a nest. Breakers burst against its spined red carapace; a snapped ship's mast leans on the rocks below. Storm light under a torn sky; white spray flares behind the claw, and a shaft of pale sun finds the nest.
 Colour: storm sea — heavy green-blue (#4fb3ff), white spray and slate grey.
 Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 12장
+
+### A1-01 · 계약의 저주 인형 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 1 · 고급 · 틀 `high` B L `bloodink` · 프롬프트 n2 → `tools/art/inbox/A1-01.jpg`
+
+```
+Landscape 5:4 painting. Looking down onto a scribe's cluttered desk: a small burlap rag doll with mismatched button eyes sits slumped at the left edge, its back to us, a corner of folded parchment poking from a split seam like stuffing. One rusty pin already stands in its shoulder, and its own stubby hand is pushing a second pin into its other arm. Across the desk to the right lies a row of five sealed, ribboned scrolls, one of them twitching on the wood. A single guttering tallow stub at the top edge throws long black shadows from the pins across the desk; the wax seals glow deep crimson.
+Colour: blood and ink — black and deep crimson with a thread of violet (#8b5cf6).
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### A1-41 · 사슬에 묶인 망령 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 2 · 고급 · 틀 `top` L C `bonepale` · 프롬프트 n2 → `tools/art/inbox/A1-41.jpg`
+
+```
+Landscape 5:4 painting. Straight down onto a bare paved square, like a map. In the centre floats a small hooded ghost, child-sized, seen from above as a pale round hood pointing left and a torn shroud trailing away to the right. Rusted chains run from its body to four iron rings set in the paving, drawn tight like the spokes of a wheel. Three arrows stand in the stones around it, and from each arrow a fresh length of chain runs straight out of the frame, taut, back toward whoever loosed it. Shadowless ash-grey light flattens the square; the ghost gives a faint violet glow on the nearest links.
+Colour: bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### CS-A1 · 침묵의 빙의 — 그림 있음
+모르카스의 그믐 · 공격 마법 · 레벨 2 · 고급 · 틀 `origin` B T `bonepale` · 프롬프트 n2 → `tools/art/inbox/CS-A1.jpg`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. Looking along its path from where it starts: at the bottom edge, seen from behind, a thin camp boy sits slumped on a drum, and a pale thread of mist leaves the back of his hood and stretches away up the frame. Halfway along, it has taken one turn round the clapper of a camp alarm bell and holds it stopped in mid-swing. At the top the thread enters the visor of a towering armoured champion, whose raised greatsword is already sinking and whose knees have bent into the boy's own slump. Colourless ash-grey dusk over trampled ground; the thread is the one violet glow, brightest where it enters the helm.
+Colour: bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### A1-13 · 녹타르 듀라한 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 3 · 고급 · 틀 `profile` L R `candle` · 프롬프트 n2 → `tools/art/inbox/A1-13.jpg`
+
+```
+Landscape 5:4 painting. Strict side view, flat as a carved frieze: a headless figure in black plate armour strides toward the left along a colonnade, standing at the right of the frame, violet ghost-flame rising from the empty collar. Tucked under the near arm, its own helmeted head looks down at a small chained ledger held in the same hand, lips parted as if reading aloud; the far arm reaches forward and lifts a sword out of a rack by the blade. A row of identical empty racks recedes behind it. Evenly spaced candles in wall niches make amber pools along the colonnade; between them the armour drops into violet dark.
+Colour: candle islands — small pools of amber light in vast dark, violet (#8b5cf6) in the shadows.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### IA1-5 · 계약서 원본 — 그림 있음
+모르카스의 그믐 · 아이템 · 레벨 3 · 고급 · 틀 `pair` N X `frostindigo` · 프롬프트 n2 → `tools/art/inbox/IA1-5.jpg`
+
+```
+Landscape 5:4 painting of one object — the object itself is the subject. Two things share a bare wall in a cold archive vault. In a shallow niche on the left rests a thick folded document of yellowed vellum, bound with black ribbon and closed by five red wax seals along its fold, its edges darkened by handling. On the right hung the plain sword of whoever signed it: both iron wall hooks have bent open under its weight, and the sword has dropped point-first into the flagstones, sunk to a third of its blade, cracks spreading round it. Blue-violet vault light and a skin of frost on the wall; the steel is tarnished silver and the seals are small dark-red embers.
+Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### PN-A1-U1 · 피의 맹세 검사 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 3 · 고급 · 틀 `cut` L B `bloodink` · 프롬프트 n2 → `tools/art/inbox/PN-A1-U1.jpg`
+
+```
+Landscape 5:4 painting. A cross-section of a grave, cut down through turf, roots and soil. In the pit at the bottom of the frame lies a knight in blackened, rusted plate, stretched out with his helm toward the left and wide awake: cold violet eyes open in the visor, both gauntlets folded over a long sword laid on his chest. The runes down its blade are lit blood-red only a third of the way from the hilt; the rest are dark. Above him the mound has split open again, and a shovel stands in the grass by a leaning headstone. Night above ground with a thread of violet on the headstone; below, the red runes light rust, soil and roots inside the pit.
+Colour: blood and ink — black and deep crimson with a thread of violet (#8b5cf6).
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### S3-1 · 계약의 인장 — 그림 있음
+모르카스의 그믐 · 아이템 · 레벨 3 · 고급 · 틀 `top` N R `candle` · 프롬프트 n2 → `tools/art/inbox/S3-1.jpg`
+
+```
+Landscape 5:4 painting of one object — the object itself is the subject. Directly overhead, a scribe's oak table. In the right of the frame stands a signet stamp, its turned black-horn handle worn glossy, seen from above as a dark disc, with its accessories laid round it: a stick of red sealing wax, a coil of ribbon, a candle stub in a dish and one fresh round wax impression. A deep sword-cut runs across the whole tabletop from left to right, straight as a ruled line, except where it meets the stamp: there it swerves in a neat half-circle around it and then runs on straight. The candle stub in its dish makes a small amber pool around the stamp; the far ends of the cut fade into violet shadow.
+Colour: candle islands — small pools of amber light in vast dark, violet (#8b5cf6) in the shadows.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### PN-A1-C2 · 모르크 협곡 셰이드 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 4 · 고급 · 틀 `eye` L C `candle` · 프롬프트 n2 → `tools/art/inbox/PN-A1-C2.jpg`
+
+```
+Landscape 5:4 painting. On the canyon floor at night, at eye level. A watch lantern on an iron pole stands planted in the gravel, throwing a round pool of light, and in the centre a figure of dusky smoke, twice a man's height and thin as a pillar, is stepping leftward straight through that pool. Wherever the light falls its body thins to a faint shimmer, like breath on glass; above the lantern's reach its narrow head, two dim violet eyes and its long-fingered hands stay dense and dark. The fingers stretch ahead toward a small tent where a sentry's boots stick out. The lantern's amber pool is the only light, one small island in a vast dark canyon; violet lingers in the shade's eyes.
+Colour: candle islands — small pools of amber light in vast dark, violet (#8b5cf6) in the shadows.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### PN-A1-U2 · 모르카스의 세리 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 5 · 고급 · 틀 `macro` D L `frostindigo` · 프롬프트 n2 → `tools/art/inbox/PN-A1-U2.jpg`
+
+```
+Landscape 5:4 painting. Extreme close-up at floor level: one small silver coin has rolled into the crack between two floorboards. A hand of translucent grey-violet mist, each finger as long as a table knife, has reached down from the left and sunk straight through the solid wood to pinch the coin by its edge and draw it out. A rusted chain is looped round the wrist. Above, soft and out of focus, hang the hem of a torn shroud and the corner of a thick ledger gripped under the other arm, its clasp shut. Cold blue-violet light from a frosted window slants across the boards; the coin is a single point of tarnished silver.
+Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### A1-31 · 피의 공작 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 6 · 고급 · 틀 `high` L R `bloodink` · 프롬프트 n2 → `tools/art/inbox/A1-31.jpg`
+
+```
+Landscape 5:4 painting. Looking down from the rafters onto a long banquet table draped in black cloth. At every place, where the wineglass should stand, lies a folded oath sealed with red wax, a quill laid across it, and the gloved hands of the guests rest beside them, very still. Only the head of the table, at the right, has a goblet: there the oldest of the house, a pale vampire in a high crimson-lined collar, stands turned to the left, facing down the whole length of the table, and raises his full crystal glass in a toast. Low crimson candle-glow along the table picks out seals, silver rings and the dark wine; beyond the cloth all is black, with a thread of violet in the windows.
+Colour: blood and ink — black and deep crimson with a thread of violet (#8b5cf6).
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### A1-35 · 모르크의 나이트메어 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 7 · 고급 · 틀 `eye` L R `candle` · 프롬프트 n2 → `tools/art/inbox/A1-35.jpg`
+
+```
+Landscape 5:4 painting. Inside a child's small bedroom, at eye level. In the lower left a child sleeps under a quilt, and a storybook lies shut on the blanket with its ribbon marker only halfway through. From the right a horse of black smoke, far too large for the room, has pushed in through the wall as if through fog: its head alone is as long as the bed and hangs leftward over the sleeper, eyes like two coals, a mane of violet fire licking the ceiling beams. A line of smouldering hoofprints crosses the floorboards out of the dark. One bedside candle makes a small amber island around the pillow; the violet mane tints the ceiling and the rest of the room is black.
+Colour: candle islands — small pools of amber light in vast dark, violet (#8b5cf6) in the shadows.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### A2-01 · 견습생의 기도 촛불 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 1 · 고급 · 틀 `far` R L `vigil` · 프롬프트 n2 → `tools/art/inbox/A2-01.jpg`
+
+```
+Landscape 5:4 painting. A long infirmary hall at night, seen from far down its aisle: two rows of empty cots recede into darkness. Small in the left of the frame, a living prayer candle of white beeswax, barely a hand tall, pads across the flagstones on stubby feet of melted wax, a calm tiny face glowing inside its finger-sized flame. It is heading right, toward the single occupied cot, where a bandaged arm hangs down to the floor. Its own small flame is the only light, a warm ring on the stone that barely reaches the nearest cot legs.
+Colour: night vigil — darkness holding small warm flames with pale-gold (#ffe9a8) halos.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
 Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.

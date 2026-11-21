@@ -1721,7 +1721,7 @@ body.is-dragging .hand-me .hand-slot .hand-card { transition: transform .2s ease
 .card.size-full .c-istats .st b { font-size: 1.35em; }
 
 /* 대기실 덱 보관함: 글자 크게, 열 넓게 (가운데 덱 보기는 그만큼 좁아진다) */
-.lobby { grid-template-columns: 380px minmax(0, 1fr) 300px; }
+.lobby { grid-template-columns: 400px minmax(0, 1fr) 300px; }   /* 380 → 400: "도르마크의 심장불 기본 덱"(21px, 237px)이 한 줄에 들어가게 */
 .decks .panel-title { font-size: 20px; }
 .decks .panel-title small { font-size: 14px; }
 .df-head { font-size: 17px; }
