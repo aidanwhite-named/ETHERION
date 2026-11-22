@@ -1594,7 +1594,7 @@ const uUpkeepOf = it => (C(it).up || 0) + (it.t && it.t.keep && it.t.keep.brand 
    수치는 ABYSS(js/abyss.js). 능력은 abilOf의 rob · leech · veil · pact — 유닛 gift · 아이템 · 마법 grant(이번 턴) 어느 쪽이든 */
 /* ABYSS.off = { rob: true … }: 그 능력을 끈 채 재 본다(tools/abyss/sim.js 전용, 게임에서는 비어 있음) */
 function abOn(k) { return !(typeof ABYSS !== "undefined" && ABYSS.off && ABYSS.off[k]); }
-const abCfg = () => (typeof ABYSS !== "undefined" ? ABYSS : { robCond: "any", robGain: "lv", leech: 0.5, leechOver: true, veilPlus: 1 });
+const abCfg = () => (typeof ABYSS !== "undefined" ? ABYSS : { robCond: "any", robGain: "lv", leech: 0.5, leechOver: true });
 /* 마법이 생명을 냈다: 이번 턴 낸 대가(X.paid)에 더하고, [피의 계약 N] 유닛마다 공격 +N (이번 턴) */
 function abPaid(X, caster, n) {
   X.paid = X.paid || [0, 0]; X.paid[caster] += n;
@@ -1651,17 +1651,15 @@ function abBleedTick(X) {
   if (any) step(X, {}, 420);
   return died;
 }
-/* [그림자 걸음]: 자기보다 레벨이 높은 유닛과 맞붙어 받는 피해는 턴에 한 번 받지 않는다. 레벨이 같거나 낮은 유닛에게 받는 피해는 +veilPlus */
+/* [그림자 걸음]: 맞붙어 받는 피해가 상대와의 레벨 차이만큼 바뀐다 — 나보다 레벨이 높은 유닛에게는 차이만큼 덜(0까지), 낮은 유닛에게는 차이만큼 더. 같은 레벨이면 그대로 (2026-11-22 사용자 결정) */
 function abVeil(X, src, tgt, x) {
   if (!(x > 0) || !tgt.t.alive || !abilOf(tgt).veil) return x;
-  if (C(src).lv > C(tgt).lv) {
-    if (tgt.t.veilUsed) return x;
-    tgt.t.veilUsed = true;
-    const cut = abCfg().veilCut == null ? 1 : abCfg().veilCut, left = x - Math.ceil(x * cut);   // veilCut: 흘리는 몫(1 = 모두)
-    fl(X, tgt.uid, left ? "그림자 걸음 −" + (x - left) : "그림자 걸음", "miss"); lg(X, `[그림자 걸음] ${C(tgt).name}이(가) ${C(src).name}의 공격을 흘렸다${left ? ` (피해 ${x} → ${left})` : ""}`, "good");
-    return left;
-  }
-  return x + (abCfg().veilPlus || 0);
+  const gap = C(src).lv - C(tgt).lv;
+  if (!gap) return x;
+  const y = Math.max(0, x - gap);
+  fl(X, tgt.uid, gap > 0 ? "그림자 걸음 −" + (x - y) : "그림자 걸음 +" + (y - x), gap > 0 ? "miss" : "debuff");
+  lg(X, `[그림자 걸음] ${C(tgt).name}이(가) ${C(src).name}에게 받는 피해 ${x} → ${y} (레벨 차이 ${Math.abs(gap)})`, gap > 0 ? "good" : "bad");
+  return y;
 }
 /* [강탈]: 이 유닛이 상대 유닛을 쓰러뜨리면 내 다음 턴 에테르 + (쓰러뜨린 유닛 레벨의 절반(올림) — ABYSS.robCond · robGain).
    v3.65 사용자 결정: 생명을 채우던 것을 다음 턴 에테르로(직접 공격 보너스와 같은 p.bonus에 쌓임) */

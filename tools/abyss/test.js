@@ -33,14 +33,14 @@ ok(c.ev('itemKwDesc("[흡혈]")').length > 10, '[흡혈] 뜻 글');
 { const P = [c.side(0, ['A1-27'], 30), c.side(1, ['A1-17'], 30)]; c.prep(P); const u = P[0].field[0], f = P[1].field[0];
   const X = c.ev('ctx')(P, 0, 1, []); const h0 = u.t.h; c.ev('attackOne')(X, u);
   const dealt = Math.max(0, CARDS['A1-27'].a - f.t.d); ok(u.t.h - h0 === Math.ceil(Math.min(dealt, CARDS['A1-17'].h) / 2) || u.t.h > h0, '[흡혈] 체력 + (' + h0 + '→' + u.t.h + ', 받은 피해 ' + u.t.dmg + ')'); }
-// [그림자 걸음]: 높은 레벨의 공격은 한 번 흘림
-{ const P = [c.side(0, ['A1-34'], 30), c.side(1, ['PN-A1-C2'], 30)]; c.prep(P); const X = c.ev('ctx')(P, 0, 1, []); const d = P[1].field[0];
-  c.ev('attackOne')(X, P[0].field[0]); ok(d.t.alive && d.t.dmg === 0, '[그림자 걸음] 7레벨 공격을 흘림'); }
-{ const P = [c.side(0, ['A1-29'], 30), c.side(1, ['PN-A1-C2'], 30)]; c.prep(P); const X = c.ev('ctx')(P, 0, 1, []); const d = P[1].field[0];   // 6레벨 > 4레벨
-  d.t.veilUsed = true; c.ev('attackOne')(X, P[0].field[0]); ok(d.t.dmg > 0, '[그림자 걸음] 한 번 쓴 뒤에는 맞음'); }
-{ const P = [c.side(0, ['A1-02'], 30), c.side(1, ['PN-A1-C2'], 30)]; c.prep(P); const X = c.ev('ctx')(P, 0, 1, []); const d = P[1].field[0];
-  P[0].field[0].t.noCoin = true;   // A1-02의 − 코인(체 −1) 앞면이면 쓰러져 공격하지 못한다 — 난수 순서에 따라 흔들리지 않게 코인을 끈다
-  const want = Math.max(0, P[0].field[0].t.a - d.t.d) + 2; c.ev('attackOne')(X, P[0].field[0]); ok(d.t.dmg === want, '[그림자 걸음] 낮은 레벨에게는 피해 +2 (' + d.t.dmg + '/' + want + ')'); }
+// [그림자 걸음]: 받는 피해 = 원래 피해 − (공격자 레벨 − 내 레벨), 0 아래로는 내려가지 않음
+{ const veilCase = (atk, msg) => { const P = [c.side(0, [atk], 30), c.side(1, ['PN-A1-C2'], 30)]; c.prep(P); const X = c.ev('ctx')(P, 0, 1, []); const a = P[0].field[0], d = P[1].field[0];
+    a.t.noCoin = true; d.t.h = 99;   // 코인 · 쓰러짐에 흔들리지 않게
+    const gap = CARDS[atk].lv - CARDS['PN-A1-C2'].lv, raw = Math.max(0, a.t.a - d.t.d), want = raw > 0 ? Math.max(0, raw - gap) : 0;
+    c.ev('attackOne')(X, a); ok(d.t.dmg === want, msg + ' (차이 ' + gap + ', ' + raw + ' → ' + d.t.dmg + '/' + want + ')'); };
+  veilCase('A1-29', '[그림자 걸음] 높은 레벨에게는 레벨 차이만큼 덜');
+  veilCase('A1-02', '[그림자 걸음] 낮은 레벨에게는 레벨 차이만큼 더');
+  veilCase('PN-A1-C2', '[그림자 걸음] 같은 레벨이면 그대로'); }
 // [피의 계약]: 생명을 낼 때마다 공격 +1
 { const P = [c.side(0, ['T-PAY2', 'A1-01'], 30), c.side(1, ['A1-43'], 30)]; c.prep(P); const u = P[0].field[1], a0 = u.t.a;
   const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1); ok(u.t.a === a0 + 1, '[피의 계약 1] 공격 +1'); }
