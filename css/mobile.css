@@ -216,7 +216,7 @@ html.appui .screen-lobby .deck-fac { flex: 1; }
    폰에서는 1.15배로, 위 띠는 한 줄(덱 이름 · 장수 계기판 · 단추), 아래는 왼쪽 운명의 서 · 오른쪽 카드.
    거르기는 [카드 보관함] [내 덱] 두 탭 — 고른 탭의 줄만 펼치고 줄마다 한 줄로(넘치면 옆으로 밀어 봄).
    대기실에서 들어오면 '내 덱'(덱에 든 카드)이 먼저 보인다(js/screens.js showEditor). */
-html.mobile .screen-editor > .ed-bar, html.mobile .screen-editor > .editor { zoom: 1.15; }
+html.mobile .screen-editor > .ed-bar, html.mobile .screen-editor > .editor { zoom: 1.15; --cz: 1.15; }
 html.appui .screen-editor .ed-bar { flex-wrap: nowrap; gap: 10px; padding-block: 6px; }
 html.appui .screen-editor .ed-name { flex: 0 1 290px; min-width: 0; padding-block: 4px !important; }
 html.appui .screen-editor .ed-name .emblem { width: 40px !important; height: 40px !important; flex: none; }
@@ -270,7 +270,7 @@ html.appui .screen-editor .pool-card .card { --cw: 118px; }
 /* ================= v3.32.3 PC 앱식 배치 (html.appui, html.mobile 없음) =================
    위 v3.32.1 · v3.32.2 절의 배치를 PC에서도 쓴다. 폰은 화면을 0.6배 안팎으로 줄여 보이지만 PC는 그대로라 몇 군데만 맞춘다. */
 /* 덱 조정실: PC 1.5배(style.css)는 탭 배치에 너무 커서 1.25배로 */
-html.appui:not(.mobile) .screen-editor > .ed-bar, html.appui:not(.mobile) .screen-editor > .editor { zoom: 1.25; }
+html.appui:not(.mobile) .screen-editor > .ed-bar, html.appui:not(.mobile) .screen-editor > .editor { zoom: 1.25; --cz: 1.25; }
 /* 대기실: 폰은 화면 높이에 깃발 3줄이 꼭 맞지만 PC는 아래가 비었다 → 대기실이 화면 아래(안내 단추 자리 위)까지 차고, 깃발이 그 높이를 나눠 쓴다 */
 html.appui:not(.mobile) .screen-lobby .lobby { min-height: calc(100dvh - 76px); padding-bottom: 96px; gap: 14px 18px; grid-template-columns: minmax(0, 1fr) 300px; }
 html.appui:not(.mobile) .screen-lobby .decks { padding-bottom: 16px; }

@@ -4,11 +4,19 @@
    - 자리는 모두 "카드 전체 대비 %"로 적고, .c-frame(테두리 --fbw 안쪽 기준)으로 바꿔 놓는다: P(p) = (100% + 2·테두리) × p − 테두리
    - 종류 줄(유닛 · 스페셜) · 클래스 동그라미 없음, 레벨은 왼쪽 위 에테르 문장(ether_back) + 원소색 구슬 + 숫자, 레벨 아이콘은 img/ui/pips/pip_<깃발>.png
    - 글꼴: 고운바탕 보통 굵기 */
-.card.fm.has-frame { --fbw: .14em; --fl: .066; --fr: .964; --fb: .966; --sb: .966; }
-/* --fbw = .c-frame 실제 테두리 두께여야 자리가 카드 기준으로 맞는다(2026-11-21): 크게 보기는 .09em(style.css), 전장 · 내 핸드 카드는 .2em(slim.css · hand.css).
+.card.fm.has-frame { --fbw0: .14em; --fbw: var(--fbw0); --fl: .066; --fr: .964; --fb: .966; --sb: .966; }
+/* --fbw = .c-frame 실제 테두리 두께여야 자리가 카드 기준으로 맞는다(2026-11-21). 깎기 전 두께 --fbw0: 크게 보기는 .09em(style.css), 전장 · 내 핸드 카드는 .2em(slim.css · hand.css).
    전에는 모두 .14em이라 크게 보기는 왼쪽으로, 전장 · 핸드는 오른쪽으로 카드 폭의 약 0.5%씩 밀렸다 */
-.card.fm.size-full.has-frame { --fbw: .09em; }
-.frow .slot .card.fm.slim.has-frame, .hand-me .hand-card .card.fm.slim.has-frame { --fbw: .2em; }
+.card.fm.size-full.has-frame { --fbw0: .09em; }
+.frow .slot .card.fm.slim.has-frame, .hand-me .hand-card .card.fm.slim.has-frame { --fbw0: .2em; }
+/* 2026-11-22: 브라우저는 테두리 두께를 기기 픽셀 정수로 내려 그린다(.2em = 3.7px → 3px). 깎이지 않은 값으로 자리를 잡으면
+   그 차이(1px 미만)만큼 왼쪽 것(레벨 아이콘 열 · 문장)이 왼쪽으로 쏠린다 — 작은 카드에서 눈에 띈다. 그래서 테두리와 --fbw를 같은 값으로 깎는다.
+   --dpx = 기기 픽셀 한 칸(js/view.js가 넣음), --cz = 그 화면의 zoom(덱 조정실 — zoom을 주는 규칙 옆에 함께 적는다). + .01px는 소수 오차로 한 칸 더 깎이지 않게.
+   테두리 규칙의 뒤 두 선택자는 slim.css · hand.css의 .2em을 이기려고 적은 것 */
+@supports (width: round(down, 1px, 1px)) {
+  .card.fm.has-frame { --fpx: calc(var(--dpx, 1px) / var(--cz, 1)); --fbw: max(var(--fpx), round(down, var(--fbw0), var(--fpx))); }
+  .card.fm.has-frame > .c-frame, .frow .slot .card.fm.slim.has-frame > .c-frame, .hand-me .hand-card .card.fm.slim.has-frame > .c-frame { border-width: calc(var(--fbw) + .01px); }
+}
 /* 깃발마다 아래쪽 장식(불꽃 기둥 · 뼈 · 깃털 · 이끼 귀퉁이)을 피해 글 상자 왼쪽(--fl) · 스탯 열 오른쪽 끝(--fr) · 글 상자 아래(--fb) · 스탯 열 아래(--sb)를 옮긴다
    (카드 대비 비율, 프레임 그림에서 장식 없는 구간을 재서 정함) */
 .card.fm.fr-B1 { --fl: .10; --fr: .895; }
@@ -41,7 +49,7 @@
    A2 솔란테는 금줄(x 11~12) 안쪽 13~52px → 5.4%, A3 벨루미르는 바깥 테두리가 없어 0~47px → 4.0%, B2는 강철판 5~50px → 4.6% */
 .card.fm.fr-A2 { --pip-x: .054; } .card.fm.fr-A3 { --pip-x: .040; } .card.fm.fr-B2 { --pip-x: .046; }
 .card.fm.has-frame .c-mid, .card.fm.has-frame .c-low, .card.fm.has-frame .c-lowl { position: static !important; }
-.card.fm.has-frame .c-side { position: absolute; width: calc((100% + 2 * var(--fbw)) * .052);
+.card.fm.has-frame .c-side { position: absolute; width: calc((100% + 2 * var(--fbw)) * .052) !important;   /* !important: slim.css의 has-brief 카드 width: auto에 지면 열이 아이콘 폭(.5em)으로 줄어 가운데가 .01em 왼쪽으로 간다 */
   left: calc((100% + 2 * var(--fbw)) * (var(--pip-x, .048) - .026) - var(--fbw));   /* 열 가운데 = --pip-x (아래 깃발별 값) */
   top: calc((100% + 2 * var(--fbw)) * .136 - var(--fbw)); bottom: calc((100% + 2 * var(--fbw)) * .30 - var(--fbw)); }
 .card.fm.has-frame .c-pips { gap: .08em !important; padding: 0 !important; align-items: center; }

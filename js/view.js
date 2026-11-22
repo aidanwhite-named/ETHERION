@@ -88,6 +88,9 @@ function pipSVG(key, hollow) {
 }
 /* 2026-11-20 그림 프레임 유닛 카드(css/frames.css)용: 깃발 프레임 그림이 있는 단체 · 레벨 아이콘 그림 · 왼쪽 위 에테르 레벨 문장 */
 const FRAME_GROUPS = new Set(["B1", "B2", "B3", "G1", "G2", "G3", "A1", "A2", "A3"]);   // img/ui/frames/frame_<ID>_unit.jpg
+/* --dpx = 기기 픽셀 한 칸(CSS px). css/frames.css가 전장 · 핸드 카드의 테두리 두께를 브라우저가 그리는 값과 똑같이 깎는 데 쓴다(확대 · 축소를 바꾸면 resize가 온다) */
+function syncDpx() { document.documentElement.style.setProperty("--dpx", 1 / (window.devicePixelRatio || 1) + "px"); }
+syncDpx(); addEventListener("resize", syncDpx);
 function framePips(c) {
   const up = c.type === "unit" ? c.up || 0 : 0, full = c.lv - up, img = `<img src="img/ui/pips/pip_${c.group}.png" alt="" draggable="false">`;
   let h = "";

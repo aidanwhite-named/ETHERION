@@ -1169,7 +1169,7 @@ function mountBoard() {
   render();
 }
 /* 핸드 더블클릭(또는 번호 키 두 번): 유닛·마법은 왼쪽부터 첫 빈 칸에 올라간다.
-   아이템은 장착할 유닛을 골라야 하므로 안내만 (장착할 수 있는 유닛이 하나뿐이면 바로 장착) */
+   아이템은 장착할 유닛을 골라야 하므로 안내만 (2026-11-22 사용자: 장착할 수 있는 유닛이 하나뿐이어도 바로 장착하지 않는다 — 실수로 붙는다) */
 /* v1.8: 더블클릭은 onBoardClick에서 같은 카드를 두 번 누른 간격으로 알아낸다.
    첫 클릭에 화면을 다시 그려 카드 요소가 바뀌므로, 브라우저의 dblclick은 떨어지지 않거나 옆으로 밀려 온 카드에 떨어진다 */
 const DBL_MS = 420;
@@ -1179,9 +1179,7 @@ function placeSelected(me, it) {
   const c = C(it);
   if (c.type === "item") {
     const why = canPlay(me, c); if (why) { toast(why, "warn"); return; }
-    const hosts = equipHosts(me, c);
-    if (hosts.length === 1) { if (actEquip(me, it.uid, hosts[0].s)) G.sel = null; render(); return; }
-    toast("장착할 유닛이 여럿입니다. 빛나는 유닛 위로 끌어다 놓거나 칸 단축키(Q~T)로 고르세요.", "warn"); return;
+    toast("아이템은 장착할 유닛을 골라야 합니다. 빛나는 유닛 위로 끌어다 놓거나 칸 단축키(Q~T)로 고르세요.", "warn"); return;
   }
   if (c.type !== "hand" && !me.field.includes(null)) { toast("빈 전장이 없습니다.", "warn"); return; }
   if (actPlace(me, it.uid, null)) { G.sel = null; G.inspect = null; }
@@ -1486,14 +1484,12 @@ function floatAt(target, text, cls, row) {   // row: 해로운 효과 차례(har
    뒤집지 않으려면 "운명 수락". 컴퓨터도 같은 규칙으로 뒤집는다. 돌려주는 값: 뒤집은 코인 목록 [{p, uid, idx, heads}] */
 const COIN_LIMIT_MS = 6500;   // v1.9: 5초 → 8초, v1.9.1: 8초 → 6.5초
 const REFLIP_LIMIT_MS = 8000;   // 2026-11-17 다시 굴릴지 고르는 시간 — 지나면 "굴리지 않고 넘어가기"(에테르 안 씀). 전에는 고르는 단계에 시간제한이 없어 안 누르면 판이 멈췄다
-/* v3.12.5 − 동전: 같은 동전에 묶인 공·방·체 값의 합이 − 이면 앞면이 손해다 → 다시 굴릴 수 있는 면이 앞면 */
-function coinNeg(o) { return o.parts.reduce((s, k) => s + k.v, 0) < 0; }
-function coinBad(o) { return coinNeg(o) ? !!o.heads : !o.heads; }
-/* 2026-11-16 + · − 코인이 함께 붙은 카드(예: 공격 +3 · 체력 −2)는 어느 면이 이득인지 그때그때 다르다 — 면과 상관없이 다시 굴릴 수 있게 한다 */
-function coinMixed(groups) { let pos = false, neg = false; for (const o of groups || []) for (const k of o.parts) { if (k.v > 0) pos = true; else if (k.v < 0) neg = true; } return pos && neg; }
-/* 컴퓨터가 보는 동전 값: 공격할 때는 공격, 막을 때는 방어 · 체력을 더 친다 (+ · − 가 섞인 동전도 이 값의 부호로 이득 · 손해를 가린다) */
-function coinVal(o, who) { const w = who === "a" ? { a: 1.5, d: 0.5, h: 1 } : { a: 0.4, d: 1.5, h: 1.2 }; return o.parts.reduce((s, k) => s + k.v * w[k.st], 0); }
-function coinBadFor(o, who) { const mix = o.parts.some(k => k.v > 0) && o.parts.some(k => k.v < 0); if (!mix) return coinBad(o); const v = coinVal(o, who); return o.heads ? v < 0 : v > 0; }
+/* v3.12.5 − 동전: 같은 동전에 묶인 공·방·체 값의 합이 − 이면 앞면이 손해다 → 다시 굴릴 수 있는 면이 앞면.
+   2026-11-22 맞바꿈 코인(한 동전에 + · − 가 함께, 예: 방어 +1 · 공격 −1)은 그 맞붙음에서 쓰는 값으로 가린다(who: "a" 공격하는 유닛 · "d" 방어하는 유닛) —
+   공격할 때는 공격 몫, 방어할 때는 방어 · 체력 몫의 부호. 그 몫이 없거나 0이면 합의 부호. 사람 · 컴퓨터 모두 이 셈으로 손해인 면에서만 다시 굴린다 */
+function coinSwap(o) { return o.parts.some(k => k.v > 0) && o.parts.some(k => k.v < 0); }
+function coinNeg(o, who) { const sum = f => o.parts.reduce((s, k) => s + (f(k) ? k.v : 0), 0); return ((coinSwap(o) && sum(k => (k.st === "a") === (who === "a"))) || sum(() => true)) < 0; }
+function coinBad(o, who) { return coinNeg(o, who) ? !!o.heads : !o.heads; }
 function canReflip(pIdx) { const p = G.players[pIdx]; return !!p && ether(p) >= 1; }
 /* v2.7 코인 앞면: 에테리온 문장(SIGIL과 같은 짜임). 바깥 구슬 테에 거인의 돌 일곱 · 고리에 용의 보석 일곱(동쪽은 빈 홈에 ?) · 가운데 신의 다섯 꼭짓점 별 · 한가운데 아르케(빈 원).
    금화(.cs-heads) 위에 판 무늬(어두운 홈 + 오른쪽 아래 밝은 턱), 색은 보석에만. viewBox -50..50 */
@@ -1790,8 +1786,8 @@ function coinClash(info) {
         if (sd.kept) continue;   // v3.5.6 고정된 방어 코인은 다시 던질 수 없다
         /* v3.12.5 손해 본 동전만 다시 굴린다: + 동전은 뒷면, − 동전(공·방·체 합이 −)은 앞면이 손해 (심연 마족의 − 코인 등).
            v2.4.4 확률 0% · 100%인 동전은 다시 던져도 같은 면이라 빼다 */
-        const mixed = coinMixed(sd.groups);   // 2026-11-16 + · − 가 함께 붙은 카드는 이득인 면이 나와도 다시 굴릴 수 있다
-        const tails = sd.groups.map((o, i) => ((mixed || coinBad(o)) && o.p > 0 && o.p < 1 ? i : -1)).filter(i => i >= 0);
+        const tails = sd.groups.map((o, i) => (coinBad(o, sd.who) && o.p > 0 && o.p < 1 ? i : -1)).filter(i => i >= 0);
+        const mixed = tails.some(i => coinSwap(sd.groups[i]));   // 2026-11-22 맞바꿈 코인은 공격 · 방어 차례에 따라 손해인 면이 다르다 (coinNeg)
         if (G.cfg.replayView || !tails.length || !canReflip(sd.p) || (noFlip && sd.human)) {   // v3.46 다시보기: 다시 던지기는 기록대로 이미 들어가 있다
           if (sd.human && ctl) ctl.innerHTML = "";
           if (G.online && sd.human && tails.length && canReflip(sd.p)) Online.send({ t: "coin", k: ckey(sd), flip: null });   // 건너뛰기도 알린다
@@ -1801,17 +1797,15 @@ function coinClash(info) {
         pending.push(sd);
         // 값이 가장 큰 뒷면 코인 (공격 때는 공격 코인, 방어 때는 방어·체력 코인을 먼저)
         const pref = sd.who === "a" ? { a: 2, h: 1, d: 0 } : { d: 2, h: 2, a: 0 };
-        const worth = i => { const o = sd.groups[i], g = coinNeg(o) ? -1 : 1; return o.parts.reduce((s, k) => s + g * k.v + (g * k.v > 0 ? pref[k.st] : 0), 0); };
-        // 사람 창은 손해 본 코인을 먼저 골라 둔다. 컴퓨터는 + · − 섞인 동전을 공격 · 방어 처지로 따져 손해일 때만 다시 던진다
-        const best = tails.slice().sort((x, y) => (coinBad(sd.groups[x]) ? 0 : 1) - (coinBad(sd.groups[y]) ? 0 : 1) || worth(y) - worth(x))[0];
-        const aiPick = tails.filter(i => coinBadFor(sd.groups[i], sd.who)).sort((x, y) => mixed ? Math.abs(coinVal(sd.groups[y], sd.who)) - Math.abs(coinVal(sd.groups[x], sd.who)) : worth(y) - worth(x))[0];
+        const worth = i => { const o = sd.groups[i], g = coinNeg(o, sd.who) ? -1 : 1; return o.parts.reduce((s, k) => s + g * k.v + (g * k.v > 0 ? pref[k.st] : 0), 0); };
+        const best = tails.slice().sort((x, y) => worth(y) - worth(x))[0], aiPick = best;
         if (sd.human) {
           /* v3.9.3 "다시 굴리기"와 "굴리지 않고 넘어가기" 두 단추. 다시 굴릴 코인은 값이 가장 큰 뒷면 코인을 먼저 골라 두고,
              뒷면 코인이 여럿이면 코인을 눌러 바꾼다. 고른 코인을 한 번 더 누르면 바로 다시 굴린다(예전처럼) */
           tails.forEach(i => el.querySelector(`.cs-coin[data-i="${i}"]`).classList.add("can-flip"));
           pickCoin(sd, best);
-          const negs = tails.filter(i => coinNeg(sd.groups[i])).length;
-          const what = mixed ? "<b>+ · − 코인</b>이 함께 붙은 카드라 코인을" : !negs ? "뒷면 코인을" : negs === tails.length ? "앞면이 나온 <b class=\"neg\">− 코인</b>을" : "뒷면 + 코인 · 앞면 − 코인을";
+          const negs = tails.filter(i => coinNeg(sd.groups[i], sd.who)).length;
+          const what = mixed ? (sd.who === "a" ? "공격하는 차례라 <b>공격</b> 값으로 따져 손해인 코인을" : "방어하는 차례라 <b>방어 · 체력</b> 값으로 따져 손해인 코인을") : !negs ? "뒷면 코인을" : negs === tails.length ? "앞면이 나온 <b class=\"neg\">− 코인</b>을" : "뒷면 + 코인 · 앞면 − 코인을";
           /* v3.17.4 안내 · 두 단추 · 체크는 .cs-flip 한 칸에 (창 폭 전체를 쓰는 줄). 예전처럼 .cs-ctl에 넣으면 v3.17.2의 좁은 글 칸에서 단추가 잘렸다 */
           ctl.innerHTML = "";
           box.innerHTML = (tails.length > 1
@@ -1830,7 +1824,7 @@ function coinClash(info) {
             else { panel(sd).querySelector(".cs-flip").innerHTML = ""; done(sd.who, 900); }
           });
         } else {
-          if (aiPick == null || (!mixed && worth(aiPick) <= 0)) { pending.pop(); box.innerHTML = ""; continue; }   // 손해 본 동전이 없으면 다시 던지지 않는다
+          if (aiPick == null || worth(aiPick) <= 0) { pending.pop(); box.innerHTML = ""; continue; }   // 손해 본 동전이 없으면 다시 던지지 않는다
           if (!sd.hide) box.innerHTML = `<span class="cf-hint ai">${esc(p.name)}이(가) 코인을 다시 던집니다…</span>`;
           later(() => { if (!finished && st.isConnected) doFlip(sd, aiPick); }, 650 * k);
         }
@@ -1892,7 +1886,7 @@ function coinClash(info) {
         later(() => {
           if (!st.isConnected) return;
           landAnim(c, heads, 620 * k);
-          const good = coinNeg(o) ? !heads : heads;   // v3.12.5 − 동전은 뒷면이 좋은 결과
+          const good = coinNeg(o, sd.who) ? !heads : heads;   // v3.12.5 − 동전은 뒷면이 좋은 결과
           later(() => { c.classList.add(heads ? "is-heads" : "is-tails"); c.classList.remove("reflip"); resText(sd); coinRing(null, [heads], [c]);
             el.querySelector(".cs-flip").innerHTML = `<span class="cf-hint ${good ? "ok" : ""}">${o.parts.some(x => x.v > 0) && o.parts.some(x => x.v < 0) ? (heads ? "앞면 — " + o.parts.map(x => STAT_KO[x.st] + " " + sgnNum(x.v)).join(" · ") : "뒷면 — 코인 값이 붙지 않습니다") : coinNeg(o) ? (heads ? "또 앞면… 그대로 깎입니다" : "뒷면! 깎이지 않습니다") : (heads ? "앞면! 값이 붙습니다" : "또 뒷면…")}</span>`;
             burstOn(sd, good ? "slam" : "hit", 200); done(sd.who); }, 640 * k);

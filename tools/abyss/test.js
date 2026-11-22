@@ -73,5 +73,13 @@ ok(c.ev('itemKwDesc("[흡혈]")').length > 10, '[흡혈] 뜻 글');
   ok(X.logs ? true : true, ''); ok(!P[0].burn.includes('A1-29') && !P[1].burn.filter(x => x === 'A1-29').length || P[1].field.some(u => u && u.id === 'A1-29'), '거울 환영: 환영은 소각장에 가지 않음 (' + P[0].burn + ' / ' + P[1].burn + ')'); }
 { const P = [c.side(0, ['SA1-04'], 30), c.side(1, ['A1-29'], 30)]; c.prep(P); const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1);
   const u = P[0].field[0]; ok(u && u.id === 'A1-29' && u.phantom && u.tokTemp && X.paid[0] === 2, '거울 환영: 6레벨 환영이 내 칸에'); }
+// 그림자 강탈 (2026-11-22): 같은 칸 상대 유닛을 이번 턴 빼앗고, 살아남으면 전투가 끝날 때 상대 전장 맨 뒤로 돌려준다
+{ const P = [c.side(0, ['NA1-1'], 30), c.side(1, ['A1-29', 'A1-02'], 30)]; c.prep(P); const X = c.ev('ctx')(P, 0, 1, []); c.ev('castSpell')(X, 0, P[0].field[0], 1);
+  const u = P[0].field.find(v => v && v.id === 'A1-29');
+  ok(u && u.t.stolen && u.t.mind === '그림자 강탈' && !P[1].field.includes(u), '그림자 강탈: 1번 칸 상대 유닛을 빼앗음');
+  c.ev('a1MindEnd')(X); const back = P[1].field.filter(Boolean);
+  ok(back[back.length - 1] === u && !P[0].field.includes(u) && u.from == null && !u.tokTemp && !u.t.mind, '그림자 강탈: 살아남으면 상대 전장 맨 뒤로 돌아감'); }
+{ const P = [c.side(0, ['NA1-1'], 30), c.side(1, ['A1-29'], 30)]; c.fight(P, 0, 3);
+  ok(P[1].field.some(v => v && v.id === 'A1-29') && !P[1].burn.includes('A1-29') && !P[0].field.some(v => v && v.id === 'A1-29'), '그림자 강탈: 전투 한 판 뒤 빼앗긴 유닛이 주인 전장에 (소각장 ' + P[1].burn + ')'); }
 console.log(fails ? `실패 ${fails} / ${n}` : `모두 통과 ${n}개`);
 process.exit(fails ? 1 : 0);

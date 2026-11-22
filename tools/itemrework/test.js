@@ -43,13 +43,13 @@ function X0(P, ai, turn) { return ev('ctx')(P, ai, turn || 1, [], { seed: 5 }); 
 { const run = s => { const P = [c.side(0, [{ id: U, item: 'SR-B1' }]), c.side(1, [TANK])]; c.prep(P); const d = unit(P, 1);
     if (s) { d.t.keep.scorch = s; d.t.keep.scorchT = 1; } const X = X0(P, 0); ev('attackOne')(X, unit(P, 0)); return d.t.dmg; };
   ok(run(2) - run(0) === 2, '[불꽃 사냥] 화상 2 → 피해 +2 (' + run(0) + ' → ' + run(2) + ')'); }
-/* [되받기]: 방어가 막은 만큼(3까지) 공격자 체력 − */
+/* [되받기]: 방어가 막은 만큼 공격자 체력 − (2026-11-22 상한 없음) */
 { const P = [c.side(0, [U]), c.side(1, [{ id: TANK, item: 'SR-B2' }])]; c.prep(P); const a = unit(P, 0), d = unit(P, 1);
   d.t.d = 2; a.t.a = 5; const X = X0(P, 0); const h0 = a.t.dmg; ev('attackOne')(X, a);
   const back = Math.max(0, d.t.a + d.t.d - a.t.d);   // [방패 반격] 반격 = 공 + 방
   ok(a.t.dmg - h0 >= 2 + Math.min(back, 99) - 0 && a.t.dmg - h0 <= 2 + back, '[되받기] 방어 2가 막은 2를 되돌림 (받은 피해 ' + (a.t.dmg - h0) + ')'); }
 { const P = [c.side(0, [U]), c.side(1, [{ id: TANK, item: 'SR-B2' }])]; c.prep(P); const a = unit(P, 0), d = unit(P, 1);
-  d.t.d = 9; a.t.a = 6; a.t.h = 99; const X = X0(P, 0); ev('spRiposte')(X, a, d, 6); ok(a.t.dmg === 3, '[되받기] 3까지 (' + a.t.dmg + ')'); }
+  d.t.d = 9; a.t.a = 6; a.t.h = 99; const X = X0(P, 0); ev('spRiposte')(X, a, d, 6); ok(a.t.dmg === 6, '[되받기] 상한 없음 — 막은 6을 모두 (' + a.t.dmg + ')'); }
 /* [과부하]: 내 마법마다 공격 +1, +3까지 */
 { const P = [c.side(0, [{ id: U, item: 'SR-B3' }]), c.side(1, [TANK])]; c.prep(P); const u = unit(P, 0), a0 = u.t.a; const X = X0(P, 0);
   for (let i = 0; i < 5; i++) ev('uOnCast')(X, 0, { uid: 1, id: 'MB-04' });

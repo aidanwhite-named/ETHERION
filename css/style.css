@@ -1071,7 +1071,7 @@ html[data-font="system"] { --kfont: "Batang", "바탕", "AppleMyungjo"; }
 #tip[hidden] { display: none; }
 
 /* 덱 조정실: 1.5배 크게, 보유 카드에 − / + */
-.screen-editor > .ed-bar, .screen-editor > .editor { zoom: 1.5; }
+.screen-editor > .ed-bar, .screen-editor > .editor { zoom: 1.5; --cz: 1.5; }
 .editor { grid-template-columns: 280px minmax(0, 1fr); }
 .admin { grid-template-columns: minmax(0, 1fr); }
 .pool-card, .pool-card:hover { transform: none; }
@@ -1099,8 +1099,8 @@ html:not(.appui) .editor .ed-deck, html:not(.appui) .editor .ed-pool { overflow-
 html:not(.appui) .editor .deck-list { flex-shrink: 0; min-height: min(220px, 100%); }
 html:not(.appui) .ed-pool .pool-grid { flex-shrink: 0; min-height: min(340px, 100%); }
 /* 1.5배는 키가 큰 화면(1200px 이상)에서만. 1080p 등에서는 1.25배, 1000px 아래는 1.1배 — js/screens.js fit()이 zoom을 읽어 --avail을 잰다 */
-@media (max-height: 1199px) { .screen-editor > .ed-bar, .screen-editor > .editor { zoom: 1.25; } }
-@media (max-height: 999px) { .screen-editor > .ed-bar, .screen-editor > .editor { zoom: 1.1; } }
+@media (max-height: 1199px) { .screen-editor > .ed-bar, .screen-editor > .editor { zoom: 1.25; --cz: 1.25; } }
+@media (max-height: 999px) { .screen-editor > .ed-bar, .screen-editor > .editor { zoom: 1.1; --cz: 1.1; } }
 /* 2026-11-15 작은 PC 화면(js/screens.js fit()이 붙이는 .ed-flow): 패널을 화면 높이에 가두지 않고 페이지째 스크롤한다.
    보유 카드 칸 = 카드 수만큼 길게(안쪽 스크롤 없음), 운명의 서 = 화면 높이(--avail)로 위에 붙어(sticky) 스크롤을 따라온다 */
 html:not(.appui) .screen-editor.ed-flow .editor .ed-pool { height: auto; overflow: visible; }

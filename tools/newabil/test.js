@@ -33,6 +33,28 @@ ok(c.ev('itemAbilities(CARDS["IR-B2"].item)').includes('[굳건]'), '아다만�
 // 전투에서: 방어 턴 트롤 맨 앞이 여러 번 맞으며 재생
 { const P = [c.side(0, ['B2-07', 'B2-07', 'B2-07']), c.side(1, ['EP-G2-1'])]; c.prep(P);
   const X = c.ev('ctx')(P, 0, 1, []); c.ev('runCombatCore')(X); ok(/\[재생 1\]/.test(JSON.stringify(X.rec)), '전투 기록에 [재생]'); }
+// 2026-11-22 [재생]: 마법으로 체력이 깎인 유닛은 그 마법 바로 다음 맞붙음의 재생을 한 번 쉰다
+{ const P = [c.side(0, ['MC-11', 'G2-01']), c.side(1, ['EP-G2-1', 'G2-01'])]; const X = c.X(P, 0); const t = P[1].field[0], v = P[1].field[1];   // 상대 마법 침묵: 맨 앞 2기 피해 3
+  for (const u of [t, v]) { u.t.h = 20; u.t.ward = 0; u.t.shield = false; }
+  c.ev('castSpell')(X, 0, P[0].field[0], 1);
+  ok(t.t.dmg === 3 && t.t.regenHold === true, '상대 마법에 체력이 깎이면 재생 쉼 표시 (' + t.t.dmg + ')');
+  c.ev('nwRegenTick')(X); ok(t.t.dmg === 3 && !('regenHold' in t.t) && !('regenHold' in v.t), '마법 바로 다음 맞붙음: 재생하지 않고 표시는 꺼짐 (' + t.t.dmg + ')');
+  c.ev('nwRegenTick')(X); ok(t.t.dmg === 2, '그다음 맞붙음부터는 재생 (' + t.t.dmg + ')'); }
+{ const P = [c.side(0, ['SG2-08', 'EP-G2-1']), c.side(1, ['G2-01'])]; const X = c.X(P, 0); const t = P[0].field[1], f = P[1].field[0];   // 내 마법 고목 내려찍기: 체력 절반
+  t.t.h = 10; f.t.h = 30; f.t.d = 1; f.t.ward = 0; f.t.shield = false;
+  c.ev('castSpell')(X, 0, P[0].field[0], 1);
+  ok(t.t.dmg === 5 && t.t.regenHold === true, '고목 내려찍기로 낸 체력도 재생 쉼 (' + t.t.dmg + ')');
+  c.ev('nwRegenTick')(X); ok(t.t.dmg === 5, '내려찍기 바로 다음 맞붙음: 재생 없음 (' + t.t.dmg + ')');
+  c.ev('nwRegenTick')(X); ok(t.t.dmg === 4, '그다음 맞붙음: 재생 (' + t.t.dmg + ')'); }
+{ const P = [c.side(0, ['SG2-02', 'EP-G2-1']), c.side(1, ['G2-01'])]; const X = c.X(P, 0); const t = P[0].field[1];   // 체력을 깎지 않는 마법(새순 갑옷)
+  t.t.h = 20; t.t.dmg = 3; c.ev('castSpell')(X, 0, P[0].field[0], 1);
+  ok(!t.t.regenHold, '체력을 깎지 않는 마법은 재생을 막지 않는다');
+  c.ev('nwRegenTick')(X); ok(t.t.dmg < 3, '마법 전에 받은 피해는 바로 재생 (' + t.t.dmg + ')'); }
+{ const P = [c.side(0, ['MC-11', 'B2-07', 'B2-07', 'B2-07']), c.side(1, ['EP-G2-1'])]; c.prep(P);   // 전투: 침묵 → 첫 맞붙음은 쉼 → 둘째부터 재생
+  P[1].field[0].t.h = 40; for (const u of P[0].field.slice(1)) if (u) u.t.h = 40;
+  const X = c.ev('ctx')(P, 0, 1, []); c.ev('runCombatCore')(X);
+  const logs = [].concat(...X.rec.map(r => r.logs.map(l => l[0]))), i = logs.findIndex(l => /직후라 이번 맞붙음은 쉰다/.test(l)), j = logs.findIndex(l => /^\[재생 1\]/.test(l));
+  ok(i >= 0 && j > i && logs.filter(l => /직후라 이번 맞붙음은 쉰다/.test(l)).length === 1, '전투: 마법 직후 첫 맞붙음만 쉬고 그 뒤 재생 (' + i + ' · ' + j + ')'); }
 // [방패 반격]: 반격 피해 + 방어
 { const P = [c.side(0, ['G2-01']), c.side(1, ['B2-05'])]; const X = c.X(P, 0); const a = P[0].field[0], d = P[1].field[0];
   a.t.h = 30; a.t.d = 0; a.t.noCoin = true; d.t.noCoin = true; d.t.h = 30; d.t.a = 1; d.t.d = 3; c.ev('attackOne')(X, a);
@@ -65,5 +87,12 @@ ok(c.ev('itemAbilities(CARDS["IR-B2"].item)').includes('[굳건]'), '아다만�
 { const r = c.ev(`(()=>{ const P=[side(0,['G2-01']), side(1,['B2-15'])]; prep(P); const X=ctx(P,0,1,[]); const u=P[1].field[0];
   const sp={uid:++TU,id:'SA3-05'}; const op={op:'rest',side:'foe',area:{t:'all'}}; if(nwFirmVs(X,0,u)) return 'firm'; return 'no'; })()`);
   ok(r === 'firm', '[굳건] 상대 행동 불가를 막음'); }
+// 2026-11-22 [수호]는 상대의 공격 · 상대 마법에만: 내 "아군 맨 앞 N기"는 칸 순서, 상대 "맨 앞"은 [수호] 먼저
+{ const P = [c.side(0, ['G2-01', 'G2-01', 'EP-B2-1']), c.side(1, ['G2-01', 'EP-B2-1'])]; const X = c.X(P, 0);
+  const pick = (cs, side) => c.ev('pickTargets')(X, cs, side, { t: 'front', n: 1 }, 0)[0];
+  ok(pick(0, 'ally') === P[0].field[0], '내 마법 아군 맨 앞 1기 = 1칸 ([수호] 무시)');
+  ok(pick(0, 'foe') === P[1].field[1], '내 마법 상대 맨 앞 1기 = 상대 [수호]');
+  ok(c.ev('pickTargets')(X, 0, 'ally', { t: 'front', n: 2 }, 0).every((u, i) => u === P[0].field[i]), '아군 맨 앞 2기 = 1 · 2칸');
+  const me = P[0].field[0], a0 = me.t.a; c.ev('SPELL_OPS').drain(X, 0, { uid: 1 }, 0, { x: 1 }); ok(me.t.a > a0 || P[1].field[1].t.a <= 0, '착취: 아군 맨 앞(1칸)이 공격을 받음'); }
 console.log(fails ? `✗ ${fails}/${n} 실패` : `✓ ${n}개 모두 통과`);
 process.exit(fails ? 1 : 0);

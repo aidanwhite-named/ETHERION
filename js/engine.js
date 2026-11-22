@@ -345,7 +345,8 @@ function hurt(X, u, x, tag) {
   return x;
 }
 
-/* 대기열: [수호] 먼저, 그다음 칸 번호 순 */
+/* 대기열: [수호] 먼저, 그다음 칸 번호 순.
+   2026-11-22(사용자): [수호]는 상대의 공격 · 상대 마법에만 듣는다 — 내 마법이 "아군 맨 앞 N기"를 고를 때는 [수호]를 무시하고 칸 순서(liveUnits)로 고른다 */
 const colOf = (p, it) => p.field.indexOf(it) + 1;
 function liveUnits(p) { return p.field.filter(it => isUnit(it) && it.t && it.t.alive); }
 function queueOf(p) {
@@ -364,7 +365,7 @@ function pickTargets(X, caster, side, area, k) {
     if (area.t === "back") L = P === theirs
       ? queueOf(P).slice(0, area.n)
       : L.filter(u => colOf(P, u) > k).sort((x, y) => colOf(P, x) - colOf(P, y)).slice(0, area.n);
-    else if (area.t === "front") L = queueOf(P).slice(0, area.n);
+    else if (area.t === "front") L = (P === theirs ? queueOf(P) : L).slice(0, area.n);   // 아군 쪽은 칸 순서([수호] 무시)
     else if (area.t === "maxA") L = L.slice().sort((x, y) => y.t.a - x.t.a || C(y).lv - C(x).lv || colOf(P, x) - colOf(P, y)).slice(0, area.n);
     else if (area.t === "minA") L = L.slice().sort((x, y) => x.t.a - y.t.a || C(x).lv - C(y).lv || colOf(P, x) - colOf(P, y)).slice(0, area.n);   // v3.20 공격이 가장 낮은 n기
     else if (area.t === "minH") L = L.slice().sort((x, y) => hpLeft(x) - hpLeft(y) || C(x).lv - C(y).lv || colOf(P, x) - colOf(P, y)).slice(0, area.n);   // v3.11 남은 체력이 가장 낮은 n기
@@ -405,7 +406,8 @@ function amplify(p) { return liveUnits(p).reduce((s, u) => s + abilOf(u).amp, 0)
 function castSpell(X, caster, it, k) {
   X.casting = (X.casting || 0) + 1;   // 2026-11-16 마법이 발동하는 동안 새 오라 연출은 미룬다(step)
   const prevOffer = X.offerNow; X.offerNow = null;   // 2026-11-17 [제물] 증표: 이 마법이 겨눈 상대 유닛 (abOfferOpen · pickTargets · abOfferClose)
-  try { return castSpellCore(X, caster, it, k); } finally { X.casting--; abOfferClose(X, caster); X.offerNow = prevOffer; }
+  const hp0 = nwHpMark(X);   // 2026-11-22 [재생]: 이 마법으로 체력이 깎인 유닛은 바로 다음 맞붙음의 재생을 쉰다(nwRegenHold)
+  try { return castSpellCore(X, caster, it, k); } finally { X.casting--; abOfferClose(X, caster); X.offerNow = prevOffer; nwRegenHold(hp0); }
 }
 function castSpellCore(X, caster, it, k) {
   const c = C(it), p = X.P[caster], o = X.P[1 - caster];
@@ -506,7 +508,14 @@ function castSpellCore(X, caster, it, k) {
     }
   };
   const neg0 = X.negated || 0;   // v3.68 ifNeg: 이 마법의 [무효]가 상대 마법을 부쉈을 때만 내는 효과 (씻김의 노래)
-  for (const op of ops) { if (op.ifNeg && !((X.negated || 0) > neg0)) continue; castOp(op); pinPass(X); }
+  ops.forEach((op, i) => { if (op.ifNeg && !((X.negated || 0) > neg0)) return; castOp(op); pinPass(X); if (i < ops.length - 1) opBeat(X, it); });
+}
+/* 2026-11-22 (사용자) 효과가 여럿인 마법은 효과 하나가 끝날 때마다 화면 기록을 한 수 끊는다 — 철골 해머처럼 아군 방어 +1이 보인 다음에 상대 체력이 깎이게.
+   기록(recPush)만 남기고 step처럼 오라를 다시 세지 않으므로 판 셈은 예전과 같다. 띄울 글자가 없으면 끊지 않는다 */
+const OP_BEAT_MS = 650;
+function opBeat(X, it) {
+  if (!X.rec || !X.floats.length) return;
+  recPush(X, { spell: it.id, shown: it.uid }, OP_BEAT_MS, X.auraFx && X.auraFx.length ? X.auraFx : null);
 }
 
 /* v3.57.0 [사격]의 대상: 남은 체력이 가장 낮은 유닛, 같으면 대기열 앞의 유닛 (레벨은 보지 않는다).
@@ -968,7 +977,7 @@ const SPELL_OPS = {
   },
   /* v3.11 빼앗기 (v3.19.7: 칸은 이 마법이 놓인 칸, 가져온 카드는 내 전장 맨 뒤)
      이 마법과 같은 칸 번호에 놓인 상대 카드를 빼앗아 내 전장의 맨 뒤(마지막 카드 다음)에 놓는다. 이 마법은 쓰이고 부서지므로 그 칸은 비우고 당긴다.
-     유닛이면 이번 턴 내 유닛이 되고(공격 턴이면 내 다른 유닛들 다음에 공격, 방어 턴이면 내 방어 줄 맨 뒤), 전투가 끝나면 흩어져 원래 주인의 소각장으로 간다.
+     유닛이면 이번 턴 내 유닛이 되고(공격 턴이면 내 다른 유닛들 다음에 공격, 방어 턴이면 내 방어 줄 맨 뒤), 2026-11-22(사용자) 살아남으면 전투가 끝날 때 원래 주인의 전장 맨 뒤로 돌아간다(정신 지배와 같은 a1MindEnd).
      뒷면 마법이면 내 마법으로 발동한다(맨 뒤 칸 차례에, 쓴 뒤 원래 주인의 소각장으로) */
   steal(X, caster, it, k, op) {
     const p = X.P[caster], o = X.P[1 - caster];
@@ -976,6 +985,7 @@ const SPELL_OPS = {
     const col = mine >= 0 ? mine : k - 1, tg = o.field[col];
     if (!tg || (isUnit(tg) && !(tg.t && tg.t.alive))) { lg(X, `상대 ${col + 1}번 칸이 비어 빼앗을 카드가 없다`, "sys"); return; }
     stealCard(X, caster, it, tg);
+    if (isUnit(tg) && !o.field.includes(tg)) tg.t.mind = "그림자 강탈";   // a1MindEnd가 돌려보낸다(문자열 = 기록에 쓸 이름)
   },
   /* v3.65 그림자 손아귀(SA1-02): 상대 유닛 가운데 레벨이 (이번 턴 낸 생명 + plus) 이하인 것 중 레벨이 가장 높은 1기(같으면 공격이 높은 · 앞의 유닛)를 빼앗는다 */
   paidSteal(X, caster, it, k, op) {
@@ -1091,7 +1101,7 @@ const SPELL_OPS_2 = {
   },
   /* v3.18 결투: 아군 맨 앞 유닛 공격 +a. 그 뒤 그 유닛이 상대 유닛 중 공격이 가장 높은 1기를 먼저 치고(물리), 살아남으면 그 유닛이 되친다 { a } */
   duel(X, caster, it, k, op) {
-    const me = queueOf(X.P[caster])[0], foe = pickTargets(X, caster, "foe", { t: "maxA", n: 1 }, k)[0];
+    const me = liveUnits(X.P[caster])[0], foe = pickTargets(X, caster, "foe", { t: "maxA", n: 1 }, k)[0];
     if (!me) { lg(X, "아군 유닛이 없어 결투가 열리지 않았다", "sys"); return; }
     if (op.a) addStat(X, me, "a", op.a);
     if (!foe) return;
@@ -1107,10 +1117,10 @@ const SPELL_OPS_2 = {
   /* ---------- v3.20 스탯을 옮기고 맞바꾸는 마법 · 표시를 거는 마법 (js/pincards.js, docs/PINS_v3.20.md) ----------
      대상은 { side, area }(pickTargets). 체력은 "남은 체력"으로 읽고, 체력이 새 값이 되면 받은 피해는 지워진다(setStats).
      체력이 0이 되는 유닛은 쓰러진다. 고정된 스탯은 제자리에 남고(그 스탯이 내보내는 값은 그대로 옮겨 간다), 버팀 · 눌림은 기준값까지 */
-  /* v3.62.1 방어 합을 공격으로 (철벽 진격 RS-B2-4): 아군 유닛 전체의 방어를 더한 값 S를, 아군 맨 앞(대기열 순서)부터 S, S−1, S−2 … 공격에 더한다.
+  /* v3.62.1 방어 합을 공격으로 (철벽 진격 RS-B2-4): 아군 유닛 전체의 방어를 더한 값 S를, 아군 맨 앞(칸 순서, [수호] 무시)부터 S, S−1, S−2 … 공격에 더한다.
      { step: 줄어드는 몫(기본 1) }. 0 이하가 되면 거기서 멈춘다. 방어가 음수인 유닛은 0으로 센다 */
   dsumA(X, caster, it, k, op) {
-    const Q = queueOf(X.P[caster]), S = Q.reduce((s, u) => s + Math.max(0, u.t.d), 0), st = op.step || 1;
+    const Q = liveUnits(X.P[caster]), S = Q.reduce((s, u) => s + Math.max(0, u.t.d), 0), st = op.step || 1;
     Q.forEach((u, i) => { const v = S - i * st; if (v > 0) addStat(X, u, "a", v); });
   },
   /* 순환 { dir: 1 } 공격 → 방어 → 체력 → 공격 / { dir: -1 } 공격 → 체력 → 방어 → 공격 */
@@ -1164,7 +1174,7 @@ const SPELL_OPS_2 = {
   },
   /* 아군 맨 앞 유닛과 상대 유닛 하나(area, 기본 맨 앞)의 스탯 맞바꾸기 { st: "a", area } */
   xchg(X, caster, it, k, op) {
-    const me = op.mine ? pickTargets(X, caster, "ally", op.mine, k)[0] : queueOf(X.P[caster])[0], foe = pickTargets(X, caster, "foe", op.area || { t: "front", n: 1 }, k)[0], s = op.st || "a";
+    const me = op.mine ? pickTargets(X, caster, "ally", op.mine, k)[0] : liveUnits(X.P[caster])[0], foe = pickTargets(X, caster, "foe", op.area || { t: "front", n: 1 }, k)[0], s = op.st || "a";
     if (!me || !foe) { lg(X, "맞바꿀 유닛이 없다", "sys"); return; }
     const vm = statNow(me, s), vf = statNow(foe, s);
     lg(X, `${C(me).name}의 ${STAT_KO[s]} ${vm} ↔ ${C(foe).name}의 ${STAT_KO[s]} ${vf}`, "spell");
@@ -1187,7 +1197,7 @@ const SPELL_OPS_2 = {
   },
   /* 착취: 상대 대상의 공격을 x 깎고, 실제로 깎인 만큼 아군 맨 앞 유닛 공격 + { x, area } */
   drain(X, caster, it, k, op) {
-    const me = queueOf(X.P[caster])[0];
+    const me = liveUnits(X.P[caster])[0];
     let got = 0;
     // v3.65 0까지만 깎는다: 공격이 3이면 −3만, 0 이하면 깎지 않는다. 실제로 깎인 양만 합친다 (흡혈 장막 · 영혼 착취)
     for (const u of pickTargets(X, caster, "foe", op.area || { t: "front", n: 1 }, k)) { const cut = Math.min(op.x, Math.max(0, u.t.a)); if (cut > 0) got += -addStat(X, u, "a", -cut); }
@@ -1210,7 +1220,7 @@ const SPELL_OPS_2 = {
   /* 본뜨기: 아군 맨 앞 n기의 공 · 방 · 체 가운데 상대 대상보다 낮은 것은 그 값이 된다 { n, area } */
   mimic(X, caster, it, k, op) {
     const src = pickTargets(X, caster, "foe", op.area || { t: "maxA", n: 1 }, k)[0];
-    const mine = queueOf(X.P[caster]).slice(0, op.n || 1);
+    const mine = liveUnits(X.P[caster]).slice(0, op.n || 1);
     if (!mine.length || !src) { lg(X, "본뜰 유닛이 없다", "sys"); return; }
     for (const me of mine) {
       const nv = {};
@@ -1899,14 +1909,14 @@ function auraFloatText(d) {
 }
 
 /* ---------- v3.70 바람 궁수 엘프 (카드 데이터는 js/elf.js) ----------
-   retreat { ab }: 내 대기열 맨 앞 유닛이 내 전장 맨 뒤로 물러선다(후퇴) — 그 뒤 유닛이 맨 앞에 선다.
+   retreat { ab }: 내 맨 앞 유닛(칸 순, [수호] 무시)이 내 전장 맨 뒤로 물러선다(후퇴) — 그 뒤 유닛이 맨 앞에 선다.
      공격 턴이면 물러선 유닛은 맨 뒤 차례에 공격하고, 방어 턴이면 앞의 아군이 모두 쓰러질 때까지 맞지 않는다.
      ab가 있으면 물러선 유닛에게 이번 턴 그 능력(grant와 같음). 내 유닛이 하나뿐이면 물러서지 않고 능력만 받는다.
    volley { x, skip }: 상대 대기열 맨 앞 skip기(기본 1)를 뺀 나머지 상대 유닛 모두에게 피해 x — 뒷줄을 노리는 화살.
      [증폭]은 맞는 유닛마다 더한다. 무작위 없음. */
 Object.assign(SPELL_OPS, {
   retreat(X, caster, it, k, op) {
-    const p = X.P[caster], u = queueOf(p)[0];
+    const p = X.P[caster], u = liveUnits(p)[0];
     if (!u) { lg(X, "아군 유닛이 없어 물러설 자가 없다", "sys"); return; }
     if (op.ab) { u.t.gx = mergeAbil(u.t.gx || {}, op.ab); fl(X, u.uid, grantLabel(op), "buff"); }
     if (liveUnits(p).length < 2) { lg(X, `${C(u).name} 뒤에 설 아군이 없어 물러서지 않았다`, "sys"); return; }
@@ -2081,6 +2091,8 @@ Object.assign(SPELL_OPS, {
    [재생 N](regen, 트롤): 전장에서 맞붙음이 하나 시작될 때마다(출혈 틱 다음) 살아 있는 이 유닛은 받은 피해를 N 채우고(원래 체력까지),
      이번 턴 깎인 방어를 N 되돌린다(카드 기준 방어 t.rb.d까지). 화상(keep.scorch) · 불씨(keep.ember)가 붙어 있으면 재생하지 않는다(트롤은 불에 약하다).
      체력 ▼눌림이면 체력은 차지 않는다(흡혈과 같음). 받은 피해는 어차피 턴이 끝나면 낫기 때문에 전투 도중에만 뜻이 있다.
+     2026-11-22(사용자): 마법으로 체력이 깎인 유닛은 그 마법 바로 다음 맞붙음의 재생을 한 번 쉰다 — 누구의 마법이든(고목 내려찍기 · 수액 몰아주기로 낸 체력도,
+     상대 마법 피해도). castSpell이 발동 앞뒤의 남은 체력을 견줘 t.regenHold를 켜고(nwHpMark · nwRegenHold), 다음 nwRegenTick이 끄면서 그 유닛만 건너뛴다. 그다음 맞붙음부터는 예전대로.
    [방패 반격](bash, 드워프): 반격할 때 피해에 지금 방어를 더한다(attackOne 반격 줄). 공격할 때는 보통.
    [수호](taunt, 드워프): 마법 [수호]와 같은 규칙을 늘 가진다 — resetTurn이 t.taunt를 켠다. 능력 끄기 "수호"로 꺼진다.
    [정화](purify, 천족): 전투가 시작될 때(불씨 · 화상이 타기 전) 이 유닛 자신의 화상 · 불씨 · 계약의 낙인을 지운다(v3.90 자기만 · 출혈은 막지 않음 — 대신 천족 유닛 전체가 빛의 몸으로 출혈 −1, abBleedOn).
@@ -2096,12 +2108,16 @@ function nwFirmArrange(old, want) {
   for (let i = 0; i < res.length && rest.length; i++) if (!res[i]) res[i] = rest.shift();
   return res;
 }
+function nwHpMark(X) { const m = new Map(); for (const p of X.P) for (const u of liveUnits(p)) m.set(u, hpLeft(u)); return m; }
+function nwRegenHold(m) { for (const [u, h] of m) if (u.t && u.t.alive && hpLeft(u) < h) u.t.regenHold = true; }
 function nwRegenTick(X) {
   let any = false;
   for (const p of X.P) for (const u of liveUnits(p)) {
+    const hold = u.t.regenHold; if (hold) delete u.t.regenHold;   // 마법 바로 다음 맞붙음 한 번만 쉰다
     const n0 = abilOf(u).regen; if (!(n0 > 0)) continue;
     const k = u.t.keep || {};
     if (k.scorch > 0 || k.ember != null) { if (u.t.dmg > 0 || u.t.d < u.t.rb.d) fl(X, u.uid, "불길 · 재생 멈춤", "miss"); continue; }
+    if (hold) { if (u.t.dmg > 0 || u.t.d < u.t.rb.d) lg(X, `[재생] ${C(u).name} — 마법에 체력이 깎인 직후라 이번 맞붙음은 쉰다`, "sys"); continue; }
     const capH = !(u.t.floor && u.t.floor.h && u.t.floor.h.hi != null);
     let done = 0;
     for (const n of abilPieces(u, "regen", n0)) {   // v3.84 [재생]이 여러 칸이면 칸마다 따로
@@ -2390,7 +2406,7 @@ Object.assign(SPELL_OPS, {
 /* ---------- v3.81 스페셜 아이템 능력 (카드 데이터 js/itemrework.js, 설계 docs/ITEM_BALANCE.md 5절) ----------
    스페셜 아이템은 능력 2개 — 첫째가 아래 새 능력, 둘째가 그 깃발의 기존 능력(능력 차례 it.abOrder). 첫째는 둘째 없이도 일한다.
    [불꽃 사냥] huntfire   화상이 붙은 상대와 맞붙으면(공격 · 반격) 피해 + 그 화상 수치.
-   [되받기] riposte       맞붙어 공격받을 때 내 방어가 막아 낸 피해만큼(3까지) 공격자 체력 −(방어 무시). 이 유닛이 쓰러져도.
+   [되받기] riposte       맞붙어 공격받을 때 내 방어가 막아 낸 피해만큼 공격자 체력 −(방어 무시, 2026-11-22 상한 3을 없앰 — 사용자). 이 유닛이 쓰러져도.
    [과부하] overload      내 마법이 발동할 때마다 이 유닛 공격 +1(이번 턴, +3까지).
    [포식] devour          상대 유닛을 쓰러뜨릴 때마다(연쇄 · 꿰뚫기 빼고) 공격 +1 · 체력 +1(판 끝까지, 각 +3까지 — keep.grow).
    [뿌리 흡수] drain      이 유닛을 맞붙어 공격한 상대 체력 −1, 이 유닛 체력 +1(받은 피해가 있을 때, 살아 있으면).
@@ -2398,7 +2414,7 @@ Object.assign(SPELL_OPS, {
    [심판] judge           상대 유닛을 쓰러뜨리면(연쇄 · 꿰뚫기 빼고) 내 생명 +1(턴에 한 번).
    [경계의 화살] sentry   전투가 시작될 때 이번 턴 상대 전장에 새로 놓인(낸 · 소환된) 유닛마다 체력 −3(방어 무시).
    [표식] mark            이 유닛이 피해를 준 상대(맞붙음 · 사격)는 이번 턴 방어 −2(유닛마다 턴에 한 번, 표시 ▲ · 🔒이면 깎이지 않음). */
-const SP_RIPOSTE_CAP = 3, SP_GROW_CAP = 3, SP_OVERLOAD_CAP = 3, SP_SENTRY = 3, SP_JUDGE = 1;   // [경계의 화살] 1이면 새벽 −4.5%p, 2면 −3.4%p
+const SP_GROW_CAP = 3, SP_OVERLOAD_CAP = 3, SP_SENTRY = 3, SP_JUDGE = 1;   // [경계의 화살] 1이면 새벽 −4.5%p, 2면 −3.4%p
 function spHunt(X, src, tgt) {
   if (!abilOf(src).huntfire || !tgt || !tgt.t) return 0;
   const s = (tgt.t.keep && tgt.t.keep.scorch) || 0; if (!(s > 0)) return 0;
@@ -2407,7 +2423,7 @@ function spHunt(X, src, tgt) {
 }
 function spRiposte(X, atk, def, blocked) {
   if (!abilOf(def).riposte || !atk.t.alive) return;
-  const n = Math.min(SP_RIPOSTE_CAP, Math.max(0, blocked)); if (!n) return;
+  const n = Math.max(0, blocked); if (!n) return;
   const t = hurt(X, atk, n, "되받기");
   if (t) lg(X, `[되받기] ${C(def).name}의 방어가 막은 ${n}을(를) ${C(atk).name}에게 되돌렸다`);
   if (!atk.t.alive) atk.t.killer = def.uid;
@@ -2649,9 +2665,9 @@ Object.assign(SPELL_OPS, {
 });
 
 /* ---------- v3.95 천족: 빛의 심판 · 대신 속죄 (카드 데이터는 js/spelltune.js "v3.95 천족") ----------
-   a2Judge { n }: 아군 맨 앞 n기(대기열 순)의 방어가 이번 턴 0이 된다. 실제로 깎인 방어의 합만큼 상대 대기열 맨 앞부터 체력을 깎는다.
+   a2Judge { n }: 아군 맨 앞 n기(칸 순, [수호] 무시)의 방어가 이번 턴 0이 된다. 실제로 깎인 방어의 합만큼 상대 대기열 맨 앞부터 체력을 깎는다.
      쓰러뜨리고 남은 몫은 다음 유닛에게(보호막 · 가호에 막힌 몫은 사라진다 — [연쇄]와 같은 셈). [저주 면역] · 버팀/고정 방어는 깎이지 않아 셈에서 빠진다.
-   a2Sub: 이번 턴 아군 맨 앞 유닛(대기열 순)이 받는 피해를 바로 뒤 아군(대기열 다음)이 대신 받는다(t.sub = 그 유닛 uid, hurt가 a2SubOf로 돌린다).
+   a2Sub: 이번 턴 아군 맨 앞 유닛(칸 순, [수호] 무시)이 받는 피해를 바로 뒤 아군(칸 순 다음)이 대신 받는다(t.sub = 그 유닛 uid, hurt가 a2SubOf로 돌린다).
      대신 받는 유닛은 [가호 1]. 대신 받는 유닛이 쓰러지면 그 뒤로는 맨 앞 유닛이 직접 맞는다. 돌려받은 피해는 다시 돌리지 않는다(X.a2SubOn).
      드워프 [수호](상대 공격을 그 유닛으로 끌어옴)와 달리, 상대는 그대로 맨 앞 유닛을 치고(방어 · 반격도 맨 앞 유닛 것) 피해만 옮겨 간다. */
 function a2SubOf(X, u) {
@@ -2665,7 +2681,7 @@ function a2SubOf(X, u) {
 Object.assign(SPELL_OPS, {
   a2Judge(X, caster, it, k, op) {
     const me = X.P[caster], o = X.P[1 - caster];
-    const A = queueOf(me).slice(0, op.n || 2);
+    const A = liveUnits(me).slice(0, op.n || 2);
     if (!A.length) { fl(X, it.uid, "아군 없음", "miss"); lg(X, "[빛의 심판] 방어를 바칠 아군이 없다", "sys"); return; }
     let pool = 0;
     for (const u of A) {
@@ -2690,7 +2706,7 @@ Object.assign(SPELL_OPS, {
     step(X, {}, 300);
   },
   a2Sub(X, caster, it, k, op) {
-    const Q = queueOf(X.P[caster]), f = Q[0], w = Q[1];
+    const Q = liveUnits(X.P[caster]), f = Q[0], w = Q[1];
     if (!f || !w) { fl(X, it.uid, "대신 맞을 아군 없음", "miss"); lg(X, "[대신 속죄] 맨 앞 유닛 바로 뒤에 아군이 없다", "sys"); return; }
     f.t.sub = w.uid;
     w.t.ward = (w.t.ward || 0) + (op.ward == null ? 1 : op.ward);
@@ -2824,21 +2840,23 @@ function a1CurseSum(p) {
     return s + a1CurseList(u).reduce((t, e) => t + (e.kind === "fear" ? e.n * 0.5 : 1 + (e.n - 1) * 0.5), 0);
   }, 0);
 }
-/* 정신 지배로 데려온 유닛: 살아남았으면 전투가 끝날 때 원래 주인의 전장 맨 뒤로(칸이 없으면 흩어져 소각장으로 — 빼앗기와 같음) */
+/* 정신 지배로 데려온 유닛: 살아남았으면 전투가 끝날 때 원래 주인의 전장 맨 뒤로(칸이 없으면 흩어져 소각장으로 — 빼앗기와 같음)
+   2026-11-22 그림자 강탈로 빼앗은 유닛도(t.mind = "그림자 강탈") */
 function a1MindEnd(X) {
   let any = false;
   for (const p of X.P) for (const u of p.field.slice()) {
     if (!isUnit(u) || !u.t || !u.t.alive || !u.t.mind) continue;
     const o = X.P.find(q => q.idx === u.from);
     if (!o || o === p) continue;
+    const nm = typeof u.t.mind === "string" ? u.t.mind : "정신 지배";
     const xs = o.field.filter(Boolean);
-    if (xs.length >= RULES.slots) { lg(X, `[정신 지배] ${C(u).name}이(가) 돌아갈 칸이 없어 흩어졌다`, "sys"); continue; }
+    if (xs.length >= RULES.slots) { lg(X, `[${nm}] ${C(u).name}이(가) 돌아갈 칸이 없어 흩어졌다`, "sys"); continue; }
     p.field[p.field.indexOf(u)] = null;
     const mine = p.field.filter(Boolean); p.field = mine.concat(Array(RULES.slots - mine.length).fill(null));
     xs.push(u); o.field = xs.concat(Array(RULES.slots - xs.length).fill(null));
     u.from = null; u.tokTemp = false; u.t.stolen = false; u.t.mind = false;
-    fl(X, u.uid, "정신 돌아옴", "heal");
-    lg(X, `[정신 지배] ${C(u).name}이(가) 정신을 차리고 ${o.name}의 전장 맨 뒤로 돌아갔다`, "sys");
+    fl(X, u.uid, nm === "정신 지배" ? "정신 돌아옴" : "돌아감", "heal");
+    lg(X, nm === "정신 지배" ? `[정신 지배] ${C(u).name}이(가) 정신을 차리고 ${o.name}의 전장 맨 뒤로 돌아갔다` : `[${nm}] ${C(u).name}이(가) ${o.name}의 전장 맨 뒤로 돌아갔다`, "sys");
     any = true;
   }
   if (any) step(X, {}, 420);
