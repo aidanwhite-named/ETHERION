@@ -191,6 +191,18 @@ function cmdLint(flags) {
     const pm = text.match(PROPER); if (pm) err.push(`${tag}: 고유명사 "${pm[0]}" — 그림 AI가 모르는 이름이다. 눈에 보이는 모습으로 풀어 쓴다`);
     const ng = text.match(NEG); if (ng) warn.push(`${tag}: 부정 낱말 ${[...new Set(ng.map(x => x.toLowerCase()))].join(", ")} — 있는 것만 긍정문으로`);
     if (t !== "unit" && /\b(caster|mage|wizard|sorcerer|sorceress|warrior|soldier|knight|archer|priest|priestess)s?\b/i.test(text)) warn.push(`${tag}: ${t === "item" ? "아이템" : "마법"} 장면에 인물 낱말 "${text.match(/\b(caster|mage|wizard|sorcerer|sorceress|warrior|soldier|knight|archer|priest|priestess)s?\b/i)[0]}" — 주인공이 인물이 되지 않는지 확인`);
+    /* 강화 카드(2026-11-22): 원래 카드와 같은 자리 · 방향 · 배색을 쓰는 것이 규칙이라 깃발의 쏠림 셈에서 빼고, 대신 원래 카드와 짝이 맞는지 본다 */
+    if (gradeKey(c) === "upgrade") {
+      B.up = (B.up || 0) + 1;
+      const bs = c.base && SC[c.base];
+      if (bs) {
+        const diff = ["dir", "place", "pal"].filter(k => bs[k] !== s[k]);
+        if (diff.length) err.push(`${tag}: 원래 카드 ${c.base}와 ${diff.map(k => `${k} ${bs[k]} → ${s[k]}`).join(" · ")} — 강화는 원래 카드의 방향 · 자리 · 배색을 그대로 쓴다`);
+        if (bs.shot !== s.shot) warn.push(`${tag}: 원래 카드 ${c.base}와 shot이 다름(${bs.shot} → ${s.shot}) — 한 걸음 가까이 간 것인지 확인`);
+        if (!/\bsame\b/i.test(s.scene || "")) warn.push(`${tag}: 장면에 "the same …"이 없음 — 원래 카드의 그 개체 · 그 장소임을 장면에 적는다`);
+      }
+      continue;
+    }
     B.n[t]++; B.total++;
     B.shot[t][s.shot] = (B.shot[t][s.shot] || 0) + 1;
     if (t === "unit") B.dir.unit[s.dir] = (B.dir.unit[s.dir] || 0) + 1;
@@ -224,7 +236,7 @@ function cmdLint(flags) {
     }
     for (const op of Object.keys(B.open)) if (op && B.open[op].length > 3) warn.push(`${g}: 같은 말로 시작하는 장면 ${B.open[op].length}장 ("${op} …") — ${B.open[op].join(", ")}`);
     const f = o => Object.keys(o).sort((a, b) => o[b] - o[a]).map(k => `${k} ${o[k]}`).join(" · ");
-    rep.push(`${g} ${F.ko}: ${B.total}장 (유닛 ${B.n.unit} · 마법 ${B.n.spell} · 아이템 ${B.n.item})${B.miss.length ? ` · 없음 ${B.miss.length}` : ""}`,
+    rep.push(`${g} ${F.ko}: ${B.total}장 (유닛 ${B.n.unit} · 마법 ${B.n.spell} · 아이템 ${B.n.item})${B.up ? ` + 강화 ${B.up}(원래 카드와 짝 — 쏠림 셈에서 뺌)` : ""}${B.miss.length ? ` · 없음 ${B.miss.length}` : ""}`,
       `   유닛 shot: ${f(B.shot.unit)}`, `   마법 shot: ${f(B.shot.spell)}`, `   아이템 shot: ${f(B.shot.item)}`,
       `   유닛 방향: ${f(B.dir.unit)} · 자리: ${f(B.place)}`, `   배색: ${f(B.pal)}`);
   }

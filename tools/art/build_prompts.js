@@ -95,6 +95,13 @@ const gradeKey = c => isToken(c) ? "token" : (c.grade || "common");
 const typeOf = c => c.type === "unit" ? "unit" : c.type === "item" ? "item" : "spell";
 const sentence = s => { s = String(s || "").trim(); return s && !/[.!?]$/.test(s) ? s + "." : s; };
 
+/* 등급 줄의 {banner} · {bannerName} → 그 카드 깃발의 색("violet (#8b5cf6)" · "violet"). 유니크 등급 줄이 쓴다(2026-11-22) —
+   등급 줄이 색 하나(주황 금)를 못박으면 모든 깃발의 유니크가 불의 깃발처럼 붉어져서, 빛 · 입자의 색은 깃발을 따르게 했다. */
+function bannerFill(text, F) {
+  const el = S.elements[F.element] || {}, name = el.colour || el.en || "banner";
+  return String(text || "").replace(/\{banner\}/g, `${name} (${el.hex})`).replace(/\{bannerName\}/g, name);
+}
+
 function promptOf(c, D) {
   const gk = gradeKey(c);
   if (LEGACY.has(gk)) return OLD[c.id] ? { prompt: OLD[c.id].prompt, ver: OLD[c.id].prompt_ver || S.legacyVersion } : { prompt: "", ver: S.legacyVersion, todo: "옛 프롬프트 없음" };
@@ -104,10 +111,10 @@ function promptOf(c, D) {
     `${S.lead[typeOf(c)]} ${sentence(sc.scene)} ${sentence(sc.light)}`.trim(),
     `Colour: ${sentence(F.palettes[sc.pal] || "")}`,
     F.world,
-    G.finish
+    bannerFill(G.finish, F)
   ];
   if (S.gradeLadder && G.ladder !== false) L.push(S.gradeLadder);   // 여섯 등급의 차례 — 그림 AI가 이 등급의 화려함을 위아래 등급에 견주어 맞춘다
-  if (gk === "upgrade" && S.upgradeRef) L.push(S.upgradeRef);   // 원래 카드 그림을 함께 넣는다(카드 머리말이 알려 준다)
+  if (gk === "upgrade") { const ref = c.base && hasArt(c.base) ? S.upgradeRef : (S.upgradeNoRef || S.upgradeRef); if (ref) L.push(ref); }   // 원래 카드 그림이 있으면 함께 넣는 줄, 없으면 장면 글만으로 잇는 줄(2026-11-22, 카드 머리말이 알려 준다)
   L.push(S.house);
   return { prompt: L.join("\n"), ver: S.version };
 }
@@ -162,7 +169,7 @@ function cardMd(j) {
   const note = ((ART_MAP[j.id] || {}).note || "").trim();
   const st = j.art === "redo" ? ` — **다시 그리기**${note ? `: ${note}` : ""}` : j.art === "have" ? " — 그림 있음" : "";
   const frame = j.shot ? ` · 틀 \`${j.shot}\` ${j.dir || ""} ${j.place || ""} \`${j.pal || ""}\`` : "";
-  const base = j.base ? ` · 원래 카드 \`${j.base}\`${j.refs ? " (그 그림을 함께 넣기)" : " — **원래 카드 그림을 먼저 그려 함께 넣을 것**"}` : "";
+  const base = j.base ? ` · 원래 카드 \`${j.base}\`${j.refs ? " (그 그림을 함께 넣기)" : " — 원래 카드 그림이 아직 없다: 원래 카드를 먼저 그리고 같은 대화에서 이어 그리면 가장 닮는다(그 뒤 다시 만들면 참조 줄로 바뀐다)"}` : "";
   return [`### ${j.id} · ${j.name}${st}`,
     `${S.flags[j.group] ? S.flags[j.group].ko : j.group} · ${TYPE_KO[j.type] || j.type} · 레벨 ${j.lv} · ${S.grades[j.grade].ko}${frame}${base} · 프롬프트 ${j.prompt_ver} → \`tools/art/inbox/${j.id}.jpg\``, "",
     ...(j.prompt ? ["```", j.prompt, "```"] : [`> **${j.todo}** — \`node tools/art/scene_tool.js todo ${j.group}\` 로 자료를 보고 \`tools/art/art_scenes/${j.group}.json\`에 장면을 쓴다.`]), ""].join("\n");
@@ -198,7 +205,7 @@ function main() {
     }
     return out;
   };
-  const ORDER_NOTE = `**그리는 차례**: 1 그림 없는 카드(${DRAW.map(g => S.grades[g].ko).join(" → ")}) → 2 다시 그리기(장부 \`art_map.csv\` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저.`;
+  const ORDER_NOTE = `**그리는 차례**: 1 그림 없는 카드(${DRAW.map(g => S.grades[g].ko).join(" → ")}) → 2 다시 그리기(장부 \`art_map.csv\` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(원래 카드와 같은 틀 · 다음 순간 — 섬네일로 나란히 놓아 짝으로 읽히는지 본다).`;
   const HOW = "카드 하나의 ``` 안 글만 그림 AI에 붙여 넣는다(카드마다 새 대화). 나온 그림(가로 5:4)은 `tools/art/inbox/<카드ID>.jpg` → `python3 tools/art/artmap.py import`.";
   fs.writeFileSync(path.join(OUT, "cards.jsonl"), jobs.slice().sort((a, b) => artOrder(a, b) || drawRank(a.grade) - drawRank(b.grade) || a.id.localeCompare(b.id)).map(j => JSON.stringify(j)).join("\n") + "\n");
 

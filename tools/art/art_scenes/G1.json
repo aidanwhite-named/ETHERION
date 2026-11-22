@@ -322,23 +322,23 @@
   },
   "UN-G1-7": {
     "shot": "echo", "dir": "L", "place": "X", "pal": "bonemoon",
-    "scene": "One charge shown as five overlapping moments across the frame, right to left: the same six-armed giant king, tall as a siege tower, red-clay skin, tusked jaw, a crown hammered from broken shields, appears five times, each figure more solid than the last and with one more hand filled. At the far right he swings a single bone club; next a second hand holds a foe's sword; then a brass-bound halberd; then a gilded mace; and at the far left, fully solid, his last hand lifts an elegant curved blade from the ground. Knee-high soldiers scatter between his feet.",
+    "scene": "One charge shown as five overlapping moments across the frame, right to left: the same six-armed giant king, tall as a siege tower, ochre-clay skin, tusked jaw, a crown hammered from broken shields, appears five times, each figure more solid than the last and with one more hand filled. At the far right he swings a single bone club; next a second hand holds a foe's sword; then a brass-bound halberd; then a gilded mace; and at the far left, fully solid, his last hand lifts an elegant curved blade from the ground. Knee-high soldiers scatter between his feet.",
     "light": "A full moon behind the last figure throws the row into hard light and deep shadow, each stolen weapon catching one bright edge."
   },
   "UP-G1-11": {
-    "shot": "tilt", "dir": "L", "place": "R", "pal": "redearth",
-    "scene": "The frame tilts with its lunge: the same mongoose spearman drives forward and down toward the left, hind leg stretched, long tail streaming, both clawed paws sliding along a sinew-bound shaft. The spearhead leading the picture is a long, clean leaf of knapped black obsidian. On a cord around its neck three older points — chipped, snapped, worn short — swing out with the motion, and red dust sprays from its planted front foot.",
-    "light": "Storm light from the right skims the obsidian edge and the three old points; the sky behind is slate, the ground rust red."
+    "shot": "through", "dir": "F", "place": "C", "pal": "firelit",
+    "scene": "Through the triangular door of the same hide tent, glimpsed from outside in the dark: the mongoose spearman now stands just inside facing us, lean and scarred across the muzzle, long tail curled round its feet, holding its spear upright in both clawed paws. The spearhead is a long clean leaf of knapped black obsidian, bound with fresh sinew and catching the light like black glass. Behind it three more finished spears lean in a row against the tent pole, and on the scrap of hide at its feet lie the chips and the two rejected points it began with.",
+    "light": "One small tallow flame inside the tent lights its paws, jaw and the obsidian leaf from below; the tent flaps are dark frames on both sides."
   },
   "UP-G1-18": {
-    "shot": "back", "dir": "B", "place": "L", "pal": "stormslate",
-    "scene": "From behind his broad, hide-draped back at the left of the frame: the enormous pot-bellied ogre sits cross-legged before a drum made of hide pegged over a pit in the ground, one huge ear still tilted downward, one palm just fallen on the skin. Ahead of him the plain itself replies — the earth has risen into slow concentric ridges like rings on a pond, grass riding their crests, pebbles hanging a hand's width in the air, the farthest ring reaching the hills.",
-    "light": "Slate storm sky over the plain; flat grey light with brown grit lifting off each ridge of earth."
+    "shot": "silhouette", "dir": "L", "place": "L", "pal": "strawgold",
+    "scene": "The same enormous pot-bellied ogre, a black silhouette against the pale straw-coloured evening sky at the left of the frame, has risen to its knees with one huge ear still tilted to the ground, and brings one open palm down flat on the earth. Bone charms hang from its neck in three long strings, and a horned headdress crowns the shape. To the right the plain answers: the ground lifts into three slow concentric ridges like rings on a pond, grass riding their crests, pebbles hanging a hand's width in the air, the farthest ring reaching the horizon.",
+    "light": "The sun has just set behind it; a low band of pale light outlines the whole shape and every ridge of earth, and throws its long shadow toward us."
   },
   "UP-G1-24": {
-    "shot": "close", "dir": "R", "place": "X", "pal": "strawgold",
-    "scene": "Tight on the head and humped shoulders of a huge old hyena, filling the frame and turned toward the right: one ear torn to a stump, three sets of healed claw scars across the broad muzzle, bristling mane, heavy jaws just parting for a laugh. Behind it, soft with distance, the whole plain is holding still — a hundred hyenas sitting upright in the grass, a herd of antelope with every head raised, a flight of birds hanging as if pinned to the air.",
-    "light": "Windless late afternoon; low sun from the left rakes the scars and mane and leaves the still grass pale straw."
+    "shot": "low", "dir": "L", "place": "L", "pal": "firelit",
+    "scene": "The same big scarred hyena stands laughing on the bare mound at the left of the frame, seen from low in the grass against the night sky — huge and grizzled now, one ear torn to a stump, three healed claw scars across its broad muzzle, bristling mane, head thrown back and to the left with heavy jaws wide open. The pack has arrived: all along the bottom edge and up the sides of the mound stand hyenas in three ranks, heads raised, laughing with it. A necklace of knuckle-bones hangs on its chest.",
+    "light": "The cooking fire at the mound's foot has been fed to a blaze and lights its chest, throat and the nearest faces from below; stars behind."
   },
   "US-G1-1": {
     "shot": "path", "dir": "R", "place": "R", "pal": "redearth",

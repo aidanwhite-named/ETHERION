@@ -186,9 +186,9 @@
     "light": "Black thunderhead; the fresh strike lights the bird's underwings yellow from below and behind."
   },
   "UN-B3": {
-    "shot": "inside", "dir": "F", "place": "X", "pal": "copperlab",
+    "shot": "inside", "dir": "F", "place": "X", "pal": "cobalt",
     "scene": "From inside a great empty glass jar tall as a bell tower, looking out: the curved wall bends the world like a lens, and bending close over it from outside is the keeper, a colossus of thundercloud bound in copper bands — a mask of beaten copper for a face, two eyes of ball lightning, a crown of lightning rods — kneeling over the roofless coil hall with both vast hands cupped around the glass. Between us and that face, in the middle of the jar's air, loose threads of lightning drift together and knot into a small bright tangle.",
-    "light": "The gathering tangle is the single light, painting the keeper's copper mask from below in yellow while the amber-brown laboratory city behind falls away into darkness."
+    "light": "The gathering tangle is the single light, electric yellow with a violet-white corona, painting the keeper's mask from below while the laboratory city behind sinks into deep blue night."
   },
   "UN-B3-7": {
     "shot": "ground", "dir": "L", "place": "X", "pal": "thunderhead",
@@ -196,29 +196,29 @@
     "light": "The spiral of lightning is the stage light, raking across the mud from the left, gilding the coin rims and leaving the far field black."
   },
   "UP-B3-12": {
-    "shot": "through", "dir": "F", "place": "L", "pal": "wetglass",
-    "scene": "Glimpsed between the rungs of a paint-spattered ladder: the same hand-sized spark sprite, grown brighter and steadier, sits enthroned on the rim of a whitewash bucket in the left of the frame, facing us. Her spiky hair has drawn itself up into a crown of standing arcs, and between her cupped palms she holds a tight, patient ball of lightning. On the wall behind her head three old black scorch-stars make a ragged halo, and two lesser sprites circle like moths.",
-    "light": "Pale grey window light from the right; the held spark lays a small yellow glow on the wet paint and doubles in the bucket's water."
+    "shot": "eye", "dir": "B", "place": "L", "pal": "flash",
+    "scene": "The same hand-sized sprite of pure spark hovers with her back to us in the left of the frame, brighter and steadier now, arms held wide, her spiky hair drawn up into a crown of small arcs. Around her bursts a great star of lightning with three rings, and it is burning a huge fresh black star into the whitewashed laboratory wall, covering all the ghosts of the older scorch-stars. Three smaller spark sprites hover in a row behind her like attendants. The ladder, bucket and brush stand beside the wall, seen from a few steps away at eye level.",
+    "light": "The burst bleaches the wall white-yellow and throws hard black shadows of ladder and bucket off to the right."
   },
   "UP-B3-18": {
-    "shot": "profile", "dir": "R", "place": "L", "pal": "flash",
-    "scene": "Along a long workbench at first light, in strict side view: at the left end the same tarsier engineer — brass goggles pushed up over enormous eyes, a smith's hammer hung from the belt, long tail curled round a stool leg — stands on the stool and throws a knife switch with both long-fingered hands, facing right. Down the bench runs one finished machine built in three plainly different styles, toothed gears, copper windings and glass valves, now joined by a single wire and waking section by section. Three empty chairs stand pushed back.",
-    "light": "The first surge flares white-yellow in the windings and prints the engineer's profile in hard black against it."
+    "shot": "macro", "dir": "F", "place": "R", "pal": "wetglass",
+    "scene": "The same tarsier engineer's enormous amber eye fills the right half of the frame in extreme close-up, peering straight at us through a brass goggle now fitted with three stacked lenses on swing-arms, fine fur silvered where it curls over the rim. In front of the lenses, sharp and enormous, the long slender fingers with round padded tips hold three tweezers at once, fanned like chopsticks, threading three hair-thin copper wires through a tiny finished clockwork heart of steel cogs that has begun to turn. Out of focus behind: a cold mug and the head of a smith's hammer.",
+    "light": "Grey dawn through a wet workshop window; three beads of solder glow yellow at the wire ends and twinkle in the lenses."
   },
   "UP-B3-22": {
-    "shot": "inside", "dir": "F", "place": "R", "pal": "flash",
-    "scene": "An iron helmet seen from inside: we look out through its narrow eye-slit, whose dark edges frame the view above and below. Out there in the right of the slit, astride a city gate, stands the same boxy guardian machine of riveted steel and porcelain insulators grown colossal, crowned now with three stacked rings of copper coil and turned to face us. A bolt has already left it — a white-yellow branch crossing the whole distance toward the slit, whose inner rim is beginning to glow.",
-    "light": "The oncoming bolt bleaches road and gate white-yellow and turns the helmet's interior into hard black."
+    "shot": "back", "dir": "L", "place": "C", "pal": "cobalt",
+    "scene": "From behind the same boxy guardian machine of riveted steel and copper coils, grown into a colossus that stands astride the city gate: its back fills the middle of the frame from edge to edge, crowned with three tall coils, porcelain insulators gleaming like a collar. Past its left flank we look down the night road where a long column approaches, tiny and dim — and every buckle, blade and wheel rim among them is picked out by a trembling spark, the sparks drawn upward in thin threads toward the three coils.",
+    "light": "Deep blue night; the coils blaze yellow, and their light reaches all the way down the road wherever it finds metal."
   },
   "UP-B3-23": {
-    "shot": "far", "dir": "N", "place": "C", "pal": "greensky",
-    "scene": "Down the long slope of benches of an empty lecture hall at night, seen from the very back row: far away at the lectern, in the centre, stands the same brass-legged jar with its wire-wigged brain, now flanked by two more jars, all three bound together by loops of copper cable. Furious little arcs snap back and forth between the three lids as they go on arguing to the vacant seats. A mop and bucket wait in the aisle.",
-    "light": "Their fluid glows a sour yellow-green, the only light in the hall, flickering on the varnished bench-backs with every retort."
+    "shot": "over", "dir": "B", "place": "R", "pal": "copperlab",
+    "scene": "Over the shoulder of the same glass jar on spindly brass legs, standing at the lectern in the right foreground: the jar is taller now, capped with a brass dome, and the wrinkled brain floating in its glowing fluid wears its copper wires swept back like a long white-gold wig. Two smaller jars stand wired to it at either side. Beyond, the tiers of wooden benches climb into shadow, and three arcs leap from the lid across the hall at once — every student on every bench sits bolt upright, hair on end, quills moving together.",
+    "light": "Amber lecture-hall lamps and the jar's yellow fluid; the three arcs draw sharp bright lines through the brown gloom."
   },
   "UP-PN-B3-C2": {
-    "shot": "high", "dir": "L", "place": "C", "pal": "wetglass",
-    "scene": "Seen from a rooftop, looking down into a cobbled lane: the same six-legged glass drum walks calmly to the left through the middle of the frame, its old cracks mended with bright seams of solder, a leather harness buckled over its copper hoops and a long rein leading out of the picture. From a little brass tap on its lid it lets go one small, exact spark at a time — and each street lamp it passes blinks alight behind it.",
-    "light": "Rainy dusk; the newly lit lamps and the drum's steady yellow glow lie doubled on the wet cobbles."
+    "shot": "ground", "dir": "L", "place": "L", "pal": "flash",
+    "scene": "The same glass drum on six spindly brass legs walks calmly toward the left across the left of the frame, seen by a camera lying on the cobbles of the lane. It is crammed full of lightning and glows a steady white: its old cracks are mended with bright seams of solder, three new copper hoops gird it, and a leather harness is buckled over them with a brass bell at the front. From its terminal knobs three tidy arcs reach down in turn and light the three street lamps it passes. A mended rivet shines on every leg.",
+    "light": "The drum's steady glare bleaches the lane white-yellow and throws the legs' black shadows long across the cobbles toward us."
   },
   "CS-B3": {
     "shot": "transform", "dir": "N", "place": "C", "pal": "greensky",

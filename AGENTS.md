@@ -208,7 +208,7 @@
 - 덱 코드는 `js/deckcode.js`(카드 ID를 그대로 써서 카드가 더해져도 예전 코드가 읽힘).
 - 친구 초대 체험 덱(v3.48): 규칙은 `js/quests.js` 끝 절(`TRIAL.days` · `Store.inviteApply`는 서버 등록만 부름), 화면은 `js/deckcode.js`(초대 링크 · 대기실 띠). 내 덱을 쓰는 새 대전 방식을 만들면 체험 덱을 받을지 정하고, 받으면 `matchStart`에 `trial`을 넘기고 서버 덱 검사(`rewards.js` `_checkDecks` · `_pairEnd`)를 함께 본다.
 - **폰 가볍게**: CSS를 고친 뒤 `node tools/mobile_lite.js`로 `css/mobile-lite.css`를 다시 만든다(손으로 고치지 않음). 폰에서 끝없이 도는 효과는 transform · opacity만, 큰 그림자 · 흐림 · 캔버스 효과는 `html.mobile`에서 끈다.
-- 강화 카드 그림은 원래 카드 그림을 먼저 받고 그 그림을 붙여 그린다(프롬프트의 "Continuity" 줄). 강화 카드의 장면은 원래 카드와 같은 개체를 같은 생김새 낱말로, 틀(시점 · 방향)은 다르게 쓴다.
+- 강화 카드 그림은 원래 카드 그림을 먼저 받고 그 그림을 붙여 그린다(프롬프트의 "Continuity" 줄 — 원래 그림이 있으면 `upgradeRef`, 없으면 `upgradeNoRef`를 생성기가 고른다). **강화 장면 = 원래 카드와 닮은 틀, 다음 순간**(2026-11-22, 사용자 결정): 원래 카드의 `dir · place · pal`(되도록 `shot`도) · 장소 · 대표 소품 · 생김새 낱말을 그대로 쓰고("the same …"), 그 이야기의 결실 · 더 큰 몸 · 세 장을 합친 흔적 하나("three …")를 그린다. `lint`가 원래 카드와 짝을 검사하고 강화 카드는 깃발의 쏠림 셈에서 뺀다. 규칙은 `tools/art/PROMPT_GUIDE.md` 3.2 "강화 장면 쓰는 법".
 
 ## 서버 (v3.22)
 - **v3.45 가볍게**: 3D 세 존재(`js/titans.js`)는 PC · 폰 모두 끄고(index.html에서 뺌), 메뉴 화면은 그림 한 장(`#menu-art`, `js/screens.js` `MENU_ART` — 지금은 타이틀 그림, 프롬프트 `tools/art/prompts/scenes.md`). 폰 · 앱(`html.mobile`)은 별 배경 절반 · 1초 30장(`Bg.lite`), 흐림 유리 빼기(`css/mobile.css` 끝). 새로 1초에 여러 번 그리는 효과를 넣으면 `html.mobile`에서 줄이거나 멈추는 길을 함께 둔다. 날씨(`js/weather.js`)는 들어냈다.

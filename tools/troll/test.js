@@ -79,7 +79,7 @@ ok(/1만 남기고/.test(CARDS['SG2-05'].text) && /절반이 되고\(내림\), �
 
 // ---------- v3.82 숲의 무게(MG-14): 아군 체력 합을 몫으로 맨 앞부터 공격 → 방어 → 체력 (v3.83), 남은 몫은 다음으로 ----------
 card('MG-14', '숲의 무게', 'any', 3);
-ok(c.ev('gradeOf("MG-14")') === 'uncommon', '숲의 무게 등급 그대로(고급)');
+ok(c.ev('gradeOf("MG-14")') === 'rare', '숲의 무게 등급 레어(2026-11-22)');
 /* foes = [[공, 방, 체, 보호막?, 저주 면역?] ...] → 상대마다 'x'(쓰러짐) 또는 'a/d/h'(남은 공 · 방 · 체) */
 c.ev(`this.weight=function(allyH, foes){ const P=[side(0, ['MG-14'].concat(allyH.map(()=> 'G2-30'))), side(1, foes.map(()=> 'G2-30'))];
   for (const p of P) for (const it of p.field) if (it && isUnit(it)) { resetTurn(it); it.t.dmg=0; it.t.ward=0; it.t.shield=false; it.t.taunt=false; }

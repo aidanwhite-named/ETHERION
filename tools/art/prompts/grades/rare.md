@@ -1,4 +1,4 @@
-# 레어 (Rare) — 카드 일러스트 프롬프트 (58장, n2)
+# 레어 (Rare) — 카드 일러스트 프롬프트 (59장, n2)
 
 > 3단 — 처음으로 신비가 눈에 보인다. 되풀이해 이야기할 만한 인상적인 순간. 더 대담한 명암과 깊은 공간, 윤곽을 따라 차가운 사파이어 빛, 빛 받은 곳의 선명한 색, 주인공 둘레에 옅게 빛나는 안개와 떠도는 에테르 알갱이, 섬세한 장식과 반짝이는 묘사.
 
@@ -6,9 +6,9 @@
 
 카드 하나의 ``` 안 글만 그림 AI에 붙여 넣는다(카드마다 새 대화). 나온 그림(가로 5:4)은 `tools/art/inbox/<카드ID>.jpg` → `python3 tools/art/artmap.py import`.
 
-**그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저.
+**그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(원래 카드와 같은 틀 · 다음 순간 — 섬네일로 나란히 놓아 짝으로 읽히는지 본다).
 
-## 1. 그림 없는 카드 — 먼저 그린다 · 29장
+## 1. 그림 없는 카드 — 먼저 그린다 · 30장
 
 ### RS-A1-1 · 피의 창
 모르카스의 그믐 · 공격 마법 · 레벨 2 · 레어 · 틀 `path` R L `bloodink` · 프롬프트 n2 → `tools/art/inbox/RS-A1-1.jpg`
@@ -316,6 +316,18 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 ```
 Landscape 5:4 painting of a spell — the magic itself is the subject. Told through one roadside lamp: on the right, where a forest road lay open at dusk, a thicket of bramble now stands thick as a wall, and deep inside it hangs the road's lamp — a glass globe of glowing fungus on a post that the stems have lifted and tipped toward the left. Its pale-lime light shines out through layer on layer of hooked thorns and throws their shadows huge across the last bare paving stones, which are already tilting as new shoots push up between them. Deep night; the caged lamp is the only source, pale-lime at its heart and blue-green where it filters through the leaves.
 Colour: spore night — black dark lit by blue-green and pale-lime (#58b85f) bioluminescence.
+Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+```
+
+### MG-14 · 숲의 무게
+베르단의 뿔 · 공용 마법 · 레벨 3 · 레어 · 틀 `inside` R R `thorndark` · 프롬프트 n2 → `tools/art/inbox/MG-14.jpg`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. We are inside a forest that is tipping over: every trunk around us leans at the same steep slant toward the right, roots tearing half out of the ground, canopy sliding like a single green roof. Leaves, birds' nests and loose stones pour sideways through the air. At the far right end of the lean, small and already bowed, the first of a row of shields is buckling under the nearest trunk while the next shield braces for its turn. Thorn-dark gloom under the sliding canopy, with a hard wedge of green daylight opening on the left where the roots have lifted.
+Colour: thorn dark — near-black with deep green (#58b85f) and a few points of blood red.
 Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
 Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.

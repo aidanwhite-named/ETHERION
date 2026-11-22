@@ -338,7 +338,7 @@
   "UN-G2": {
     "shot": "cut", "dir": "F", "place": "B", "pal": "sporeglow",
     "scene": "The forest floor at night, cut open like a section. Along the top, above the ground line, stands a fresh stump wide as a village square, a two-handed saw and small ladders abandoned across it, ringed by a hedge of thorns. Everything below the line is the keeper himself: a root-mass as big as a hill, shaped like a hunched titan, his old bark face set in the earth just under the stump with both eyes alight, root-arms gripping buried boulders the size of houses. From his brow a single pale shoot has already pushed up through the stump's heart.",
-    "light": "His eyes burn pale-lime in the black earth and blue-green fungus threads blaze along every root, lighting the soil, the boulders and the underside of the stump."
+    "light": "His eyes shine pale-lime in the black earth and blue-green fungus threads glow along every root, lighting the soil, the boulders and the underside of the stump."
   },
   "UN-G2-7": {
     "shot": "silhouette", "dir": "L", "place": "L", "pal": "rainmist",
@@ -346,19 +346,19 @@
     "light": "Luminous silver mist behind everything turns keeper, pouches and trees into flat black shapes; the one falling seed catches a bright glint."
   },
   "UP-G2-17": {
-    "shot": "far", "dir": "R", "place": "B", "pal": "rainmist",
-    "scene": "Far off and small at the bottom of a wide snowfield ringed by winter trees, the same warty toad shaman stands awake among three snow-covered humps of sleeping kin, its rattle-hung staff levelled toward the right. From its feet a tide of living moss is pouring out across the snow in the direction it points — a broad green fan that has already climbed the nearest trunks and is rolling on toward the far trees, greening the white ground as it goes.",
-    "light": "Pale silver winter light through falling snow and mist; the moss is the one vivid green in a grey-white world, and its breath steams."
+    "shot": "back", "dir": "B", "place": "C", "pal": "sporeglow",
+    "scene": "The same broad warty toad shaman squats on its root with its back to us, grown as big as a boulder, moss thick along its spine and small mushrooms sprouting from its shoulders, a wad of moss bulging one cheek, the staff hung with seed-rattles and snail shells planted upright beside it. The half-circle of old trees before it has answered: their trunks bow low, roots lifted out of the soil like feet, and three of them have stepped forward. A great wreath of pale green breath-puffs drifts from its wide mouth and coils through all their branches.",
+    "light": "Night; the breath-puffs glow pale lime and light the bowing branches and the edge of its mossy shoulders."
   },
   "UP-G2-22": {
-    "shot": "profile", "dir": "L", "place": "L", "pal": "sunshaft",
-    "scene": "In strict side view, like a carved frieze: the same mandrake, now standing its full height on forked root-legs with soil still clinging to them, plants itself on the left of the frame facing left, leafy crown flared, mouth stretched wide in a scream that ripples the air ahead of it. Behind it, filling the centre and right, a gateway of woven briar taller than a house is slamming shut at the sound — two walls of thorn swinging together, the gap between them already too narrow for a hand.",
-    "light": "Shafts of golden-green morning light fall between the closing thorn walls, cut thinner every instant, and edge the mandrake's crown."
+    "shot": "back", "dir": "R", "place": "R", "pal": "sporeglow",
+    "scene": "The same mandrake, seen from just behind, now stands its full height on forked root-legs with soil still clinging to them: its gnarled root-skinned shoulders and flared crown of broad leaves fill the right foreground, turned toward the right, root-arms spread wide as it screams. The scream shows as three great rings of shuddering air that flatten the thorn thicket ahead into a cleared lane, and the five-way fork of paths beyond is shut — briars woven across four of them, a gate of living thorn standing open on the fifth. Spades and lanterns lie dropped along the path.",
+    "light": "Night; cold blue-green fungus-light among the briars edges its leaves and catches the trembling rings of air."
   },
   "UP-G2-23": {
-    "shot": "top", "dir": "N", "place": "X", "pal": "mossdeep",
-    "scene": "Seen from straight overhead, the same dryad singer — grown now into three slender pale-bark figures joined at one root — stands back to back on a round mossy knoll, three upturned faces singing as one, their mingled blossom-hair a single crown. From each mouth a ribbon of leaves, green with ember-edged black among them, curls outward; the three ribbons sweep around the trio in a great spiral and twist together into one rope of leaves that streams away to the right edge.",
-    "light": "Even green shade from the canopy above; the pale bark of the three faces and the spiral of leaves stand out against dark moss."
+    "shot": "close", "dir": "L", "place": "R", "pal": "thorndark",
+    "scene": "Close on the face of the same dryad singing, on the right of the frame: smooth pale bark with a fine gold grain now showing, eyes closed, lips parted, her blossom-and-leaf hair risen into a crown in full flower. From her mouth three ribbons of leaves stream out to the left across the picture and braid into one — and the leaves that were burnt black are turning green again as they fly, their ember-red rims cooling to new shoots. Where the braid passes, charred branches behind it break into bud. A single bead of sap shines on her cheek.",
+    "light": "Dark forest dusk behind her; a cool green skylight from above shapes her face, and the last ember-edged leaves are the warm sparks."
   },
   "US-G2-1": {
     "shot": "path", "dir": "R", "place": "X", "pal": "sporeglow",

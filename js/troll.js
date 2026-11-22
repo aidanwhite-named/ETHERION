@@ -57,7 +57,7 @@
 /* v3.85 트롤 마법 손질(사용자): 레벨이 낮은데 센 마법을 올리거나 줄이고, 높은데 약한 마법을 내렸다. 측정은 docs/CHANGELOG.md v3.85.0.
    다른 파일(highcards · pincards · rarespells · counterspells · data)에 있는 카드라 여기서 고친다(이 파일은 그 뒤, cards.js 앞에 읽는다).
    등급은 TROLL_GRADES — grades.js가 맨 뒤에 덮는다. */
-const TROLL_GRADES = { "US-G2-1": "uncommon", "SG2-08": "epic" };
+const TROLL_GRADES = { "US-G2-1": "uncommon", "SG2-08": "epic", "MG-14": "rare" };   // 2026-11-22 숲의 무게 고급 → 레어(사용자)
 (function () {
   const S = id => SIM_SPELLS.find(s => s.id === id);
   const B1 = { t: "back", n: 1 };

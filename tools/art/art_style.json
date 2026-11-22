@@ -10,7 +10,8 @@
     "item": "Landscape 5:4 painting of one object — the object itself is the subject."
   },
   "house": "ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.",
-  "upgradeRef": "Continuity: the same individual as in the attached reference picture, now promoted — same body, face, markings and colours, grown stronger.",
+  "upgradeRef": "Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a new picture of it grown stronger.",
+  "upgradeNoRef": "Continuity: this is the promoted form of a creature that has its own earlier card — its body, markings and belongings are exactly as described above.",
   "gradeLadder": "Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.",
   "gradeOrder": [
     "token",
@@ -70,8 +71,8 @@
       "ko": "강화",
       "en": "Empowered",
       "color": "#3fe0c0",
-      "idea_ko": "레어와 에픽 사이(3.5단) — 원래 카드의 그 개체가 한 단계 오른 모습. 원래 카드 그림을 함께 넣고 그린다. 보강한 몸 · 장비, 발밑에서 오르는 청록빛, 빛나는 이음매, 선명한 색과 옅게 빛나는 안개.",
-      "finish": "Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher — sturdier body, reinforced gear, steadier bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing in the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.",
+      "idea_ko": "레어와 에픽 사이(3.5단) — 원래 카드의 그 개체가 한 단계 오른 모습. 장면은 원래 카드와 같은 자리 · 방향 · 배색 · 장소에서 그 이야기의 다음 순간을 그린다(2026-11-22). 원래 카드 그림이 있으면 함께 넣는다(없어도 장면 글만으로 이어진다). 더 큰 몸 · 보강한 장비, 발밑에서 오르는 청록빛, 무늬 · 뿔 · 갈기 · 이음매를 따라 도는 빛, 선명한 색과 옅게 빛나는 안개.",
+      "finish": "Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher — sturdier body, reinforced gear, steadier bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.",
       "tier": 3.5
     },
     "epic": {
@@ -86,8 +87,8 @@
       "ko": "유니크",
       "en": "Unique",
       "color": "#ff8a2a",
-      "idea_ko": "5단 — 전설적이고 맹렬하다. 그 깃발에서 가장 대담한 그림. 연극 같은 명암과 깊은 어둠을 가르는 눈부신 주광, 주인공이 제 힘으로 타오르듯 빛난다. 보석처럼 선명하고 녹은 금속 같은 색, 소용돌이치는 주황 금빛 불티 · 아지랑이 · 주인공을 휘감는 가는 금세공 빛줄, 이음매마다 빛이 새는 장인의 세공.",
-      "finish": "Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a blazing key light against deep black, and the subject burning with a power of its own. Saturation: jewel-bright and molten. Air: thick with swirling orange-gold (#ff8a2a) embers, heat-shimmer and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing at the seams.",
+      "idea_ko": "5단 — 전설적이고 맹렬하다. 그 깃발에서 가장 대담한 그림. 연극 같은 명암과 깊은 어둠을 가르는 눈부신 주광, 주인공이 제 힘으로 그 깃발의 색으로 빛난다. 보석처럼 선명하고 깊은 색(깃발 색이 가장 진하게), 소용돌이치는 깃발 색 빛 알갱이 · 불꽃 · 일렁이는 안개 · 주인공을 휘감는 가는 금세공 빛줄, 이음매마다 깃발 색 빛이 새는 장인의 세공. 등급 줄의 `{banner}` · `{bannerName}`은 생성기가 그 카드 깃발의 색(이름 + 색값 · 이름)으로 바꿔 넣는다(2026-11-22 — 주황 금 불티가 모든 유니크를 불의 깃발처럼 붉게 만들어 고침).",
+      "finish": "Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a brilliant key light against deep black, and the subject radiant with a power of its own in its banner colour, {banner}. Saturation: jewel-bright and deep, with {bannerName} at its fullest strength. Air: thick with swirling motes and sparks of {bannerName} light, a shimmering haze and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing {bannerName} at the seams.",
       "tier": 5
     },
     "special": {
@@ -102,39 +103,48 @@
   "elements": {
     "fire": {
       "en": "fire",
-      "hex": "#ff6b3d"
+      "hex": "#ff6b3d",
+      "colour": "fire-orange"
     },
     "metal": {
       "en": "metal",
-      "hex": "#a9b4c2"
+      "hex": "#a9b4c2",
+      "colour": "steel-silver"
     },
     "lightning": {
       "en": "lightning",
-      "hex": "#ffd84a"
+      "hex": "#ffd84a",
+      "colour": "electric yellow"
     },
     "earth": {
       "en": "earth",
-      "hex": "#b88a5a"
+      "hex": "#b88a5a",
+      "colour": "ochre"
     },
     "forest": {
       "en": "forest",
-      "hex": "#58b85f"
+      "hex": "#58b85f",
+      "colour": "leaf-green"
     },
     "water": {
       "en": "water",
-      "hex": "#4fb3ff"
+      "hex": "#4fb3ff",
+      "colour": "water-blue"
     },
     "dark": {
       "en": "darkness",
-      "hex": "#8b5cf6"
+      "hex": "#8b5cf6",
+      "colour": "violet"
     },
     "light": {
       "en": "light",
-      "hex": "#ffe9a8"
+      "hex": "#ffe9a8",
+      "colour": "pale gold"
     },
     "wind": {
       "en": "wind",
-      "hex": "#9fe3d6"
+      "hex": "#9fe3d6",
+      "colour": "wind-teal"
     }
   },
   "flags": {

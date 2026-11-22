@@ -196,34 +196,34 @@
     "light": "Snow daylight blazes white behind the old titan, rimming its dented shoulders against the dark hatch; the heart in its fingers lights its face plates warm from below."
   },
   "UN-B2-7": {
-    "shot": "silhouette", "dir": "N", "place": "X", "pal": "forgeheart",
-    "scene": "Two black shapes against the blazing mouth of a gate into the mountain: a pair of square colossi stand at the far left and right of the frame, each as tall as the gate tower behind it, joined collar to collar by one chain with links the size of wagons across the whole picture. A hurled boulder big as a house bursts on the left golem's shoulder. The chain has snapped taut and level, links glowing, and the right golem digs its heels in and leans away, taking half the blow. A besieging army's torches flicker around their ankles.",
-    "light": "The molten orange glow of the foundry city behind the gate backlights everything; golems and chain are pure black, with orange fire along each link's edge."
+    "shot": "silhouette", "dir": "N", "place": "X", "pal": "coldsteel",
+    "scene": "Two dark shapes against the snow-white daylight in the mouth of a mountain gate, seen from inside: two square colossi stand at the far left and right of the frame, each tall as the gate tower beside it, joined collar to collar by one chain with links the size of wagons. A hurled boulder big as a house bursts on the left golem's shoulder. The chain has snapped taut and level, frost flying from its links, and the right golem digs its heels in and leans away, taking half the blow. A besieging army's spear points glitter around their ankles.",
+    "light": "Hard white snow-light pours in through the gate behind them; golems and chain are blue-black steel, with a crisp silver edge along every link and rivet."
   },
   "UP-B2-12": {
-    "shot": "far", "dir": "R", "place": "L", "pal": "lamplit",
-    "scene": "Far across a huge dark smithing hall, most of the frame empty stone: at the left, small in its one pool of light, the same ape — gunmetal fur gone silver across the shoulders, the iron ring still on its wrist, burn-scarred leather apron — stands at an anvil facing right, bringing down a single great hammer with a head three times the size of an apprentice's. On the wall behind it hang three short ash hafts, each empty of its head. The stroke has landed: one ring of sparks spreads, and grit sifts from the whole vault.",
-    "light": "A single lamp over the anvil and the spark ring make one warm island at the left; the rest of the hall is black with faint steel-grey edges."
+    "shot": "macro", "dir": "N", "place": "C", "pal": "forgeheart",
+    "scene": "Extreme close-up of the same two ape palms held side by side before a bed of glowing coals, with their places changed. On the right is the hand that was the apprentice's, grown broad and soot-grained, its fur gone silver at the wrist where the same iron ring gleams, the callus ridge thick and yellow, the hammer groove polished deep. On the left a small new hand, pink at the edges, copies its pose. Across the master's palm lie three hammers of rising size, the smallest the plain one it began with, and a glowing blade-blank rests on its fingertips.",
+    "light": "Coals behind push molten orange between the fingers and along the edges of both hands; a dim steel-grey light from the front shows the palms."
   },
   "UP-B2-17": {
-    "shot": "profile", "dir": "L", "place": "L", "pal": "snowlight",
-    "scene": "In strict side view on a knife-edge ridge during a blizzard: at the left a big shaggy grey goat, its curled horns of dark raw iron grown to a double turn and wider than its shoulders, stands facing left into snow that flies level across the frame. The storm breaks on the horns and chest and parts around him. Behind his back, to the right, a file of nine smaller goats waits nose to tail in a long clear wedge of still air where the snow stays out, the last a kid.",
-    "light": "White storm daylight, shadowless; the king's windward side is caked with snow, the herd in the calm wedge shows clean grey wool and dark iron horn."
+    "shot": "far", "dir": "L", "place": "R", "pal": "coldsteel",
+    "scene": "From across the same gorge at dusk, nearer than before: the long rampart of grey stone climbs the mountain's spine from the left, tower after tower, to the bare crag on the right of the frame. On it stands the same shaggy grey mountain goat facing left along the wall, now as tall as the battlements, its curled horns of dark raw iron grown to a full double turn, wider than its shoulders. Three new courses of iron-banded masonry run from the wall's broken end to the rock beneath its hooves, closing the gap. In its lee stand three younger goats with short iron horns.",
+    "light": "Blue-grey dusk under a clearing sky; the last cold light catches the great iron horns and the new iron bands in hard pale highlights against slate rock."
   },
   "UP-B2-18": {
-    "shot": "through", "dir": "L", "place": "C", "pal": "forgeheart",
-    "scene": "Through the rattling bars of a lift-cage gate, blurred with vibration in the foreground: far down a long cart tunnel a great polished bronze bull — three round firebox doors now glowing in a row along its riveted boiler belly, the brass valve between its horns blowing — stands side-on, facing left, with one forehoof just driven into the floor. The shock is travelling toward us: rails jumping from their sleepers in sequence, each hanging lamp kicked outward in turn, curtains of dust dropping from every roof prop. Smaller bronze bulls crowd the tunnel behind it.",
-    "light": "Three orange fireboxes light the far tunnel like a row of small suns; nearer, the lamps swing through dust, and the cage bars are dark gunmetal."
+    "shot": "profile", "dir": "R", "place": "L", "pal": "lamplit",
+    "scene": "Flat as a frieze, the same street of the underground city in side view: at the left the polished bronze bull stands facing right, head low, grown to fill the height of the street, three glowing firebox doors now in a row along its riveted boiler belly and the brass valve between its horns singing. Twin jets of steam roar from its nostrils the whole length of the frame, and every hanging lantern ahead is flung level on its chain, shop shutters bowing inward. Behind its tail three smaller bronze bulls stand in file, heads low in the same pose.",
+    "light": "The flung street lanterns throw warm streaks over black stone; bronze flanks and steam catch amber, the vault overhead stays dark."
   },
   "UP-B2-22": {
-    "shot": "far", "dir": "B", "place": "L", "pal": "mirror",
-    "scene": "From far off across a scrapyard under a pale moon: in the middle distance a bare circle of swept, scratched ground marks where a whole hill of scrap stood yesterday, ringed by the heaps that remain. At the left, walking away from us, goes the beast that ate it — bull-headed, trunk-snouted, grown taller than the wrecked golems it passes, needle fur bristling silver, its hide plated with swallowed locks and gear wheels. Strung out behind it, a dozen smaller needle-furred young shuffle across the bare circle, noses down, picking up the last nuts and washers.",
-    "light": "Hard white moonlight turns every needle and scrap edge to bright silver on black; the bare circle shines like a dull mirror."
+    "shot": "high", "dir": "R", "place": "B", "pal": "lamplit",
+    "scene": "Down from a balcony into the same narrow lane of the underground city: the plank doors along both sides are gone entirely, only empty stone doorways left, and the nearest lamp brackets have been bitten off short. At the bottom of the frame the culprit ambles toward the right, now the size of an ox-cart and filling the lane wall to wall — bull's head, short trunk-like snout, fur of bristling needles grown long as swords, its hide plated with half-sunk shields and gate hinges. It chews steadily, three links of anchor chain trailing from the corner of its mouth.",
+    "light": "The lamps still standing leave small warm circles down the dark lane; the needle fur glints steel-grey wherever a circle touches it."
   },
   "UP-B2-24": {
-    "shot": "eye", "dir": "L", "place": "T", "pal": "patina",
-    "scene": "At eye level before the last door at the bottom of the deepest shaft, a low iron door crossed by three chains: in the upper part of the frame, crouched along its lintel, sits a large gargoyle of iron girders with a long hooked jaw, head turned to the left, its riveted sheet-steel wings half opened and curved down around the doorway like a canopy. A cold draught from under the door bends the flame of a lamp left on the floor and blows a thin frost through the gargoyle's hollow ribs. The floor dust before the door lies smooth.",
-    "light": "One small lamp on the floor, its flame leaning; rust red and green-blue corrosion on girders and chains, and a faint cold glow along the door's bottom edge."
+    "shot": "silhouette", "dir": "R", "place": "R", "pal": "snowlight",
+    "scene": "Against the same white snow-sky, a black shape crouches on the timber lintel of the mine mouth at the right of the frame, facing right: the gargoyle of open iron girders, grown twice as broad, its bat wings of riveted sheet steel spread wide to roof the whole entrance, long hooked jaw lifted. The sky still shows through its hollow ribcage, and the wind drives three streams of snow through the gaps into long plumes on the far side. Three heavy chains hang from its claws across the mine mouth, and below, a file of lantern-carriers walks out beneath it, each touching a cap to it.",
+    "light": "Overcast mountain daylight behind it, bright and flat; the gargoyle and the mine mouth are solid black, the blown snow a soft grey veil."
   },
   "CS-B2": {
     "shot": "after", "dir": "N", "place": "B", "pal": "coldsteel",

@@ -1297,6 +1297,12 @@
     "who": "a vampire lord as tall as a hall's pillars who signed his oath in his own blood: bone-pale face under a crown of black iron thorns, vast membranous wings folded like a cloak, dark plate armour, a greatsword as long as a bridge",
     "silhouette": "a towering winged armoured figure with a huge sword and a long hanging scroll",
     "materials": "bone-pale skin, black iron thorns, membranous wings, dark plate, red ink, wax seals"
+   },
+   "심연 군주": {
+    "en": "Abyss Lord",
+    "who": "a horned lord of the abyss as tall as a canyon wall who paid his own soul and lost his body: a hollow suit of obsidian plate crowned with long swept-back horns, violet shadow where the body should be, two eyes with slit vertical pupils shining in the helm, and a scythe long enough to span a bridge",
+    "silhouette": "a towering horned armoured figure leaning over a bridge with a huge scythe",
+    "materials": "obsidian plate, violet shadow, slit-pupilled violet eyes, chains, wax seals, tarnished silver scales, pale parchment sheets"
    }
   }
  },

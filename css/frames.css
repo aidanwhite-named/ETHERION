@@ -48,9 +48,14 @@
    2026-11-21 깃발마다 빈 열을 픽셀로 잼(600px 그림, 테두리 안쪽 끝 ~ 창 액자 바깥 끝): 대부분 x 8~49px → 가운데 4.8%(기본값).
    A2 솔란테는 금줄(x 11~12) 안쪽 13~52px → 5.4%, A3 벨루미르는 바깥 테두리가 없어 0~47px → 4.0%, B2는 강철판 5~50px → 4.6% */
 .card.fm.fr-A2 { --pip-x: .054; } .card.fm.fr-A3 { --pip-x: .040; } .card.fm.fr-B2 { --pip-x: .046; }
+/* 레벨 열 가운데(--lvx, .c-frame 안쪽 기준) = 레벨 문장 구슬 · 숫자 · 레벨 아이콘이 함께 쓴다.
+   2026-11-22 사용자 "작은 카드 레벨이 왼쪽으로 치우쳐 보인다": 구슬(지름 .86em)이 빈 열보다 넓어 --pip-x 자리면 왼쪽 .05~.19em이 테두리 밑에 가렸고
+   (덱 카드 1.8px · A3 3.5px — 보이는 구슬 기준 숫자가 1~1.8px 왼쪽), 브라우저가 테두리 두께를 화면 픽셀로 내려(.14em 2.9px → 2px) --fbw 계산보다 더 왼쪽에 놓였다.
+   그래서 구슬 왼쪽 끝이 안쪽 끝에서 .03em 떨어지는 자리(.46em)보다 왼쪽으로는 가지 않게 한다 — 안쪽 기준이라 테두리 반올림과 상관없다 */
+.card.fm.has-frame { --lvx: max(calc((100% + 2 * var(--fbw)) * var(--pip-x, .048) - var(--fbw)), .46em); }
 .card.fm.has-frame .c-mid, .card.fm.has-frame .c-low, .card.fm.has-frame .c-lowl { position: static !important; }
 .card.fm.has-frame .c-side { position: absolute; width: calc((100% + 2 * var(--fbw)) * .052) !important;   /* !important: slim.css의 has-brief 카드 width: auto에 지면 열이 아이콘 폭(.5em)으로 줄어 가운데가 .01em 왼쪽으로 간다 */
-  left: calc((100% + 2 * var(--fbw)) * (var(--pip-x, .048) - .026) - var(--fbw));   /* 열 가운데 = --pip-x (아래 깃발별 값) */
+  left: calc(var(--lvx) - (100% + 2 * var(--fbw)) * .026);   /* 열 가운데 = --lvx */
   top: calc((100% + 2 * var(--fbw)) * .136 - var(--fbw)); bottom: calc((100% + 2 * var(--fbw)) * .30 - var(--fbw)); }
 .card.fm.has-frame .c-pips { gap: .08em !important; padding: 0 !important; align-items: center; }
 .card.fm.has-frame .c-pips .pip { width: .5em !important; height: .5em !important; background: none !important; box-shadow: none !important;
@@ -80,7 +85,7 @@
 .card.fm.has-frame .c-clsico i::before, .card.fm.has-frame .c-clsico i::after { display: none !important; }
 
 /* 레벨 문장: 에테르 제단(2.8em) — 고리 구멍 중심 = 그림 정중앙. 세로는 카드 .6em, 가로는 레벨 아이콘 열 가운데(깃발별 --pip-x, 2026-11-21 — 전에는 .6em이라 열보다 약 1.2% 오른쪽). 위 · 왼쪽은 카드 밖으로 잘린다 */
-.card.fm.has-frame .c-emb { position: absolute; left: calc((100% + 2 * var(--fbw)) * var(--pip-x, .048) - var(--fbw)); top: calc(.6em - var(--fbw)); width: 0; height: 0; z-index: 4; pointer-events: none; }
+.card.fm.has-frame .c-emb { position: absolute; left: var(--lvx); top: calc(.6em - var(--fbw)); width: 0; height: 0; z-index: 4; pointer-events: none; }
 .card.fm.has-frame .c-emb img { position: absolute; width: 2.8em; height: 2.8em; left: -1.4em; top: -1.4em; max-width: none;
   filter: drop-shadow(0 .05em .12em rgba(0, 0, 0, .85)); }
 .card.fm.has-frame .c-emb .c-orb { position: absolute; width: .86em; height: .86em; left: -.43em; top: -.43em; border-radius: 50%;

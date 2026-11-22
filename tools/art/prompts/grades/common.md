@@ -6,7 +6,7 @@
 
 카드 하나의 ``` 안 글만 그림 AI에 붙여 넣는다(카드마다 새 대화). 나온 그림(가로 5:4)은 `tools/art/inbox/<카드ID>.jpg` → `python3 tools/art/artmap.py import`.
 
-**그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저.
+**그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(원래 카드와 같은 틀 · 다음 순간 — 섬네일로 나란히 놓아 짝으로 읽히는지 본다).
 
 ## 1. 그림 없는 카드 — 먼저 그린다 · 361장
 
@@ -1343,10 +1343,10 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 ```
 
 ### A3-23 · 벨루미르의 별여우
-벨루미르의 별 · 유닛 · 레벨 4 · 일반 · 틀 `top` R R `moonsilver` · 프롬프트 n2 → `tools/art/inbox/A3-23.jpg`
+벨루미르의 별 · 유닛 · 레벨 4 · 일반 · 틀 `top` L L `moonsilver` · 프롬프트 n2 → `tools/art/inbox/A3-23.jpg`
 
 ```
-Landscape 5:4 painting. Straight overhead, like a map: a high plateau of pale grass, standing stones and dry stream beds at night, and across all of it a web of thin glowing lines, every footpath, ford and sheep track dusted with starlight, crossing and branching to the edges of the frame. At the end of the newest line, in the right of the picture, trots a slim indigo fox speckled with tiny stars, heading right, its long brush tail sweeping the ground and leaving the fresh bright stroke behind it. Full moon straight above: blue-silver grass, small sharp shadows beside each stone, the trails a paler silver with a breath of teal.
+Landscape 5:4 painting. Straight overhead, like a map: a high plateau of pale grass, standing stones and dry stream beds at night, and across all of it a web of thin glowing lines, every footpath, ford and sheep track dusted with starlight, crossing and branching to the edges of the frame. At the end of the newest line, in the left of the picture, trots a slim indigo fox speckled with tiny stars, heading left, its long brush tail sweeping the ground and leaving the fresh bright stroke behind it. Full moon straight above: blue-silver grass, small sharp shadows beside each stone, the trails a paler silver with a breath of teal.
 Colour: moon silver — blue-silver monochrome under a full moon, sharp shadows, a breath of teal (#9fe3d6).
 Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.

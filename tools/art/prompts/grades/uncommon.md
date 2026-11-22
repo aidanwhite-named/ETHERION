@@ -1,4 +1,4 @@
-# 고급 (Superior) — 카드 일러스트 프롬프트 (130장, n2)
+# 고급 (Superior) — 카드 일러스트 프롬프트 (129장, n2)
 
 > 2단 — 솜씨와 숙련. 자신 있고 말끔하다. 장면의 빛에 윤곽을 따는 깨끗한 두 번째 빛, 조금 더 맑고 진한 색, 공기는 아직 평범하지만(마법 없음) 모서리 · 금속에 따뜻한 금빛이 몇 점, 잘 만들고 잘 손질한 재질과 더 또렷한 묘사.
 
@@ -6,9 +6,9 @@
 
 카드 하나의 ``` 안 글만 그림 AI에 붙여 넣는다(카드마다 새 대화). 나온 그림(가로 5:4)은 `tools/art/inbox/<카드ID>.jpg` → `python3 tools/art/artmap.py import`.
 
-**그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저.
+**그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(원래 카드와 같은 틀 · 다음 순간 — 섬네일로 나란히 놓아 짝으로 읽히는지 본다).
 
-## 1. 그림 없는 카드 — 먼저 그린다 · 96장
+## 1. 그림 없는 카드 — 먼저 그린다 · 95장
 
 ### NA3-1 · 찢는 바람
 벨루미르의 별 · 공격 마법 · 레벨 2 · 고급 · 틀 `after` N B `stormcloud` · 프롬프트 n2 → `tools/art/inbox/NA3-1.jpg`
@@ -879,18 +879,6 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 
 ```
 Landscape 5:4 painting of one object — the object itself is the subject. A slice of ancient trunk cut so thin that light passes through it hangs by three red cords from a low branch, as wide as a doorway, in the middle of the frame. Lit from behind, its thousand rings show as fine dark lines in glowing wood, tight as the grooves of a shell, with the outermost ring thicker and paler than the rest. Below it, on a flat stone, wait a bowl of ink and a bundle of thorn needles for copying the pattern onto skin. Near-dark forest; a low green skylight behind the slice makes it glow like stained glass, edged with a thin bright rim.
-Colour: thorn dark — near-black with deep green (#58b85f) and a few points of blood red.
-Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
-Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-```
-
-### MG-14 · 숲의 무게
-베르단의 뿔 · 공용 마법 · 레벨 3 · 고급 · 틀 `inside` R R `thorndark` · 프롬프트 n2 → `tools/art/inbox/MG-14.jpg`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. We are inside a forest that is tipping over: every trunk around us leans at the same steep slant toward the right, roots tearing half out of the ground, canopy sliding like a single green roof. Leaves, birds' nests and loose stones pour sideways through the air. At the far right end of the lean, small and already bowed, the first of a row of shields is buckling under the nearest trunk while the next shield braces for its turn. Thorn-dark gloom under the sliding canopy, with a hard wedge of green daylight opening on the left where the roots have lifted.
 Colour: thorn dark — near-black with deep green (#58b85f) and a few points of blood red.
 Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
 Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
