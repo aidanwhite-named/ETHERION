@@ -201,29 +201,29 @@
     "light": "Hard white snow-light pours in through the gate behind them; golems and chain are blue-black steel, with a crisp silver edge along every link and rivet."
   },
   "UP-B2-12": {
-    "shot": "macro", "dir": "N", "place": "C", "pal": "forgeheart",
-    "scene": "Extreme close-up of the same two ape palms held side by side before a bed of glowing coals, with their places changed. On the right is the hand that was the apprentice's, grown broad and soot-grained, its fur gone silver at the wrist where the same iron ring gleams, the callus ridge thick and yellow, the hammer groove polished deep. On the left a small new hand, pink at the edges, copies its pose. Across the master's palm lie three hammers of rising size, the smallest the plain one it began with, and a glowing blade-blank rests on its fingertips.",
-    "light": "Coals behind push molten orange between the fingers and along the edges of both hands; a dim steel-grey light from the front shows the palms."
+    "shot": "low", "dir": "R", "place": "C", "pal": "forgeheart",
+    "scene": "At the anvil of the same forge, seen from below: a great ape with gunmetal-grey fur, the apprentice grown into a master, stands at the centre turned toward the right, fur gone silver at the brow and wrists, the same iron ring on one wrist, a scorched leather apron on its chest. One broad calloused hand holds a glowing blade on the anvil with tongs; the other brings a heavy hammer down, sparks bursting at the strike. On the rack behind hang three hammers of rising size, the small plain one first, and a young ape works the bellows.",
+    "light": "The bed of coals behind pushes molten orange along its fur and the anvil's edge; dark gunmetal gloom fills the hall."
   },
   "UP-B2-17": {
-    "shot": "far", "dir": "L", "place": "R", "pal": "coldsteel",
-    "scene": "From across the same gorge at dusk, nearer than before: the long rampart of grey stone climbs the mountain's spine from the left, tower after tower, to the bare crag on the right of the frame. On it stands the same shaggy grey mountain goat facing left along the wall, now as tall as the battlements, its curled horns of dark raw iron grown to a full double turn, wider than its shoulders. Three new courses of iron-banded masonry run from the wall's broken end to the rock beneath its hooves, closing the gap. In its lee stand three younger goats with short iron horns.",
-    "light": "Blue-grey dusk under a clearing sky; the last cold light catches the great iron horns and the new iron bands in hard pale highlights against slate rock."
+    "shot": "low", "dir": "F", "place": "C", "pal": "coldsteel",
+    "scene": "From below on the scree, looking up: the same shaggy grey mountain goat stands square on the bare crag at the centre, head lowered toward us, grown as tall as a watchtower, his curled horns of dark raw iron wound to a full double turn and wider than his shoulders, a jagged ridge of ore along his brow like a crown. The grey stone rampart ends against his flank on the left as if he were its last tower, and behind his back, sheltered, a whole herd of goats with short iron horns stands in line along the ridge.",
+    "light": "Blue-grey dusk under a clearing sky; the last cold light strikes hard pale highlights from the great iron horns against slate rock."
   },
   "UP-B2-18": {
-    "shot": "profile", "dir": "R", "place": "L", "pal": "lamplit",
-    "scene": "Flat as a frieze, the same street of the underground city in side view: at the left the polished bronze bull stands facing right, head low, grown to fill the height of the street, three glowing firebox doors now in a row along its riveted boiler belly and the brass valve between its horns singing. Twin jets of steam roar from its nostrils the whole length of the frame, and every hanging lantern ahead is flung level on its chain, shop shutters bowing inward. Behind its tail three smaller bronze bulls stand in file, heads low in the same pose.",
-    "light": "The flung street lanterns throw warm streaks over black stone; bronze flanks and steam catch amber, the vault overhead stays dark."
+    "shot": "ground", "dir": "F", "place": "C", "pal": "lamplit",
+    "scene": "Camera on the cobbles of the same underground street: the polished bronze bull comes straight toward us at the head of a herd, grown to fill the height of the street, head low, the brass valve shrieking between its horns, three firebox doors glowing in a row along its riveted boiler belly. One forehoof has just struck the ground in front of the lens — the cobbles jump, cracks run outward, and steam bursts from both nostrils along the walls. Behind its shoulders three smaller bronze bulls follow in file, and every hanging lantern swings wildly.",
+    "light": "Swinging street lanterns throw small warm pools over black stone; bronze and steam catch amber, and the vault overhead stays dark."
   },
   "UP-B2-22": {
-    "shot": "high", "dir": "R", "place": "B", "pal": "lamplit",
-    "scene": "Down from a balcony into the same narrow lane of the underground city: the plank doors along both sides are gone entirely, only empty stone doorways left, and the nearest lamp brackets have been bitten off short. At the bottom of the frame the culprit ambles toward the right, now the size of an ox-cart and filling the lane wall to wall — bull's head, short trunk-like snout, fur of bristling needles grown long as swords, its hide plated with half-sunk shields and gate hinges. It chews steadily, three links of anchor chain trailing from the corner of its mouth.",
-    "light": "The lamps still standing leave small warm circles down the dark lane; the needle fur glints steel-grey wherever a circle touches it."
+    "shot": "low", "dir": "L", "place": "C", "pal": "lamplit",
+    "scene": "From low in a scrapyard of the same underground city, looking up: the iron-eater sits at the centre atop a half-devoured heap of gears, shields and gate hinges, turned toward the left, now the size of a wagon — the same bull's head and short trunk-like snout, needle fur grown long as swords, its hide plated with half-sunk shields, and a ring of bent sword blades standing up between its horns like a crown. An anchor chain disappears link by link into its jaws. Around the foot of the heap three small needle-furred young gather the fallen nails.",
+    "light": "Lamps in wall brackets leave small warm circles in the dark; the needle fur and the crown of blades glint steel-grey where they touch."
   },
   "UP-B2-24": {
-    "shot": "silhouette", "dir": "R", "place": "R", "pal": "snowlight",
-    "scene": "Against the same white snow-sky, a black shape crouches on the timber lintel of the mine mouth at the right of the frame, facing right: the gargoyle of open iron girders, grown twice as broad, its bat wings of riveted sheet steel spread wide to roof the whole entrance, long hooked jaw lifted. The sky still shows through its hollow ribcage, and the wind drives three streams of snow through the gaps into long plumes on the far side. Three heavy chains hang from its claws across the mine mouth, and below, a file of lantern-carriers walks out beneath it, each touching a cap to it.",
-    "light": "Overcast mountain daylight behind it, bright and flat; the gargoyle and the mine mouth are solid black, the blown snow a soft grey veil."
+    "shot": "low", "dir": "F", "place": "T", "pal": "snowlight",
+    "scene": "Standing before the same mine mouth in the snow, looking up: on the timber lintel at the top of the frame crouches the gargoyle of open iron girders, facing us, grown twice as broad, its bat wings of riveted sheet steel spread to roof the whole entrance, long hooked jaw lowered toward us. A great ring of keys hangs from its neck, and its claws hold up three heavy chains that bar a riveted steel gate set in the mine mouth beneath it. Snow blows through its hollow ribcage. A small miner waits below, lantern raised, cap in hand.",
+    "light": "Overcast mountain daylight, snow-white and granite grey; the girders and chains are dark steel, with a dull gleam on the ring of keys."
   },
   "CS-B2": {
     "shot": "after", "dir": "N", "place": "B", "pal": "coldsteel",

@@ -186,24 +186,24 @@
     "light": "The pulsing ember lights its teeth and throat from below, white-hot at its core; a thin gold dawn outlines its horns and folded wings."
   },
   "UP-B1-12": {
-    "shot": "swarm", "dir": "L", "place": "X", "pal": "whitehot",
-    "scene": "Cat-sized rats with burning silvery-red fur fill the frame from edge to edge, the same living tide pouring leftward out of the white-hot crack in the rock at the upper right — and now it runs in three orderly columns. At the head of the middle column, larger than the rest and reared upright on its hind legs, goes their chief, a loop of measuring cord across its chest and a coil of fuse over one shoulder, flame-tipped tail held high like a banner, an iron comb at its belt. Each rat behind it carries a small clay charge in its teeth.",
-    "light": "All light pours from the crevice behind them, a blinding core that turns the nearest rats to bright outlines and the far ones to crimson shadow."
+    "shot": "close", "dir": "L", "place": "R", "pal": "whitehot",
+    "scene": "Close and low in a tunnel under a powder store: the chief of the fire-rats fills the right of the frame, reared upright and facing left — the same burning silvery-red fur, glowing whiskers and ember eyes, but dog-sized now, a loop of measuring cord across its chest, a coil of fuse over one shoulder. It bites off a length of fuse with its teeth while one paw points down the tunnel, where its pack runs in three orderly columns, each rat carrying a small clay charge. Its flame-tipped tail is held up like a torch.",
+    "light": "The white-hot crack in the rock behind it is the only light, a blinding core that turns it to a bright-edged shape and the far rats to crimson shadow."
   },
   "UP-B1-17": {
-    "shot": "profile", "dir": "R", "place": "L", "pal": "ashfall",
-    "scene": "Strict side view, flat as a diagram: on the same firing ledge at the left stands the huge tortoise facing right, grown half again as large, its shell of cooled black lava split by glowing seams and girded with scorched brass bands. Where one crater used to be, three smoking vents now rise along its back. Three glowing rocks have been lobbed together and hang in three high smoke arcs across the pale sky. Along the ground runs the row of white range-posts, and beyond the last of them a far ridge is already marked with three rising puffs of dust.",
-    "light": "Even grey daylight under a high ash haze; the lobbed rocks and the shell seams are the warm notes."
+    "shot": "low", "dir": "F", "place": "C", "pal": "ashfall",
+    "scene": "From the foot of the same firing ledge, looking up: the huge tortoise looms head-on at the centre, grown half again as large, its shell of cooled black lava split by glowing seams and girded with scorched brass bands, forelegs braced wide, beak open. Three smoking craters rise along its back like gun turrets, and all three have just fired: three glowing rocks climb over our heads on three smoke arcs. The recoil has cracked the ledge beneath its claws, and small gunners at its feet hold their ears beside their own silent cannon.",
+    "light": "Even grey daylight under a high ash haze; the glow inside the three craters and along the shell seams are the warm notes."
   },
   "UP-B1-18": {
-    "shot": "cut", "dir": "R", "place": "B", "pal": "ember",
-    "scene": "The same cross-section through the ground: a thin strip along the top shows the plank floor of the powder store with its sacks and crates; below is dark earth riddled with tunnels. In the main tunnel across the bottom of the frame the dog-sized ants with glossy red-black shells have locked themselves shoulder to shoulder, three rows deep, into a living wall facing right, mandibles meshed, every joint glowing. Their shells are thicker now, ridged like plate. Beyond the wall the tunnel is choked with fallen earth from a blast; behind it the egg chamber lies safe and whole.",
-    "light": "Underground dark; the ants' hot joints are the light, a solid bar of orange points where the wall stands."
+    "shot": "eye", "dir": "F", "place": "X", "pal": "ember",
+    "scene": "At eye level inside the main tunnel beneath the same powder store: dog-sized ants with glossy red-black shells stand locked shoulder to shoulder and three rows high, a living wall that fills the tunnel from side to side and faces us, mandibles meshed, shells thick and ridged like plate. A thrown boulder has just burst against the middle of the wall; where it struck, the shells glow orange-hot, and the glow is spreading from ant to ant like heat along an iron bar. Behind their legs the egg chamber shows, whole and safe.",
+    "light": "Underground dark; the ants' hot joints and the struck, glowing shells are the only light."
   },
   "UP-B1-24": {
-    "shot": "low", "dir": "R", "place": "B", "pal": "ashfall",
-    "scene": "Down beside the baseplate of the mortar, looking up: the same stocky wolverine gunner in a scorched leather apron stands square at the lower left, grizzled now, one forepaw raised with a single claw up to sight the sky, a brass spyglass tucked in its belt. Beside it three stubby tubes stand in a row on one plate, all breathing smoke. High above, three curved lines of smoke climb together over the top of the tall battlement wall toward the right, their shells three small dark dots in a tight cluster against the pale sky.",
-    "light": "Pale overcast afternoon; the last orange of the muzzle flashes still glows inside the three mouths."
+    "shot": "over", "dir": "R", "place": "L", "pal": "ashfall",
+    "scene": "Over the shoulder of the same stocky wolverine gunner in its scorched leather apron, close at the left of the frame — grizzled now, a brass spyglass pushed up on its brow, one forepaw resting on a row of three stubby mortar tubes that all breathe smoke, one claw of the other raised to sight along. It looks out to the right across a valley where three small watchtowers stand in a row: the first two are already burst open and smoking, and the third shell is a dark dot dropping straight into the top of the last.",
+    "light": "Pale overcast afternoon under ash haze; orange still glows inside the three mortar mouths and in the two struck towers."
   },
   "CS-B1": {
     "shot": "after", "dir": "N", "place": "C", "pal": "ashfall",

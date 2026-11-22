@@ -346,19 +346,19 @@
     "light": "Luminous silver mist behind everything turns keeper, pouches and trees into flat black shapes; the one falling seed catches a bright glint."
   },
   "UP-G2-17": {
-    "shot": "back", "dir": "B", "place": "C", "pal": "sporeglow",
-    "scene": "The same broad warty toad shaman squats on its root with its back to us, grown as big as a boulder, moss thick along its spine and small mushrooms sprouting from its shoulders, a wad of moss bulging one cheek, the staff hung with seed-rattles and snail shells planted upright beside it. The half-circle of old trees before it has answered: their trunks bow low, roots lifted out of the soil like feet, and three of them have stepped forward. A great wreath of pale green breath-puffs drifts from its wide mouth and coils through all their branches.",
-    "light": "Night; the breath-puffs glow pale lime and light the bowing branches and the edge of its mossy shoulders."
+    "shot": "low", "dir": "F", "place": "C", "pal": "sporeglow",
+    "scene": "Low in the leaf litter, looking up: the same broad warty toad shaman squats on its root facing us, grown as big as a boulder, moss thick down its spine, small mushrooms sprouting on its shoulders like epaulettes, a wad of moss bulging one cheek, its throat swollen huge in mid-chant. One webbed hand holds upright the staff hung with seed-rattles and snail shells. Behind it the old trees have pulled their roots from the soil and stand in a close ring, crowns bowed over it, and a great wreath of pale green breath-puffs coils up through all their branches.",
+    "light": "Night; the breath-puffs glow pale lime, lighting its swollen throat from within and the bowing branches above."
   },
   "UP-G2-22": {
-    "shot": "back", "dir": "R", "place": "R", "pal": "sporeglow",
-    "scene": "The same mandrake, seen from just behind, now stands its full height on forked root-legs with soil still clinging to them: its gnarled root-skinned shoulders and flared crown of broad leaves fill the right foreground, turned toward the right, root-arms spread wide as it screams. The scream shows as three great rings of shuddering air that flatten the thorn thicket ahead into a cleared lane, and the five-way fork of paths beyond is shut — briars woven across four of them, a gate of living thorn standing open on the fifth. Spades and lanterns lie dropped along the path.",
+    "shot": "front", "dir": "F", "place": "C", "pal": "sporeglow",
+    "scene": "Dead-on from the path: the same mandrake stands its full height on forked root-legs in the gateway of the thorn wood, facing us, soil still clinging to its feet — gnarled root-skinned body thickened like a trunk, crown of broad leaves flared wide, root-arms spread from post to post. Its mouth is open in a scream that shows as three rings of shuddering air rolling toward us, and at the sound the briars on both sides are swinging shut behind it like a gate of living thorn. A dropped spade and an overturned lantern lie on the path.",
     "light": "Night; cold blue-green fungus-light among the briars edges its leaves and catches the trembling rings of air."
   },
   "UP-G2-23": {
-    "shot": "close", "dir": "L", "place": "R", "pal": "thorndark",
-    "scene": "Close on the face of the same dryad singing, on the right of the frame: smooth pale bark with a fine gold grain now showing, eyes closed, lips parted, her blossom-and-leaf hair risen into a crown in full flower. From her mouth three ribbons of leaves stream out to the left across the picture and braid into one — and the leaves that were burnt black are turning green again as they fly, their ember-red rims cooling to new shoots. Where the braid passes, charred branches behind it break into bud. A single bead of sap shines on her cheek.",
-    "light": "Dark forest dusk behind her; a cool green skylight from above shapes her face, and the last ember-edged leaves are the warm sparks."
+    "shot": "eye", "dir": "L", "place": "C", "pal": "thorndark",
+    "scene": "From a few steps away in a burnt clearing at dusk: the same dryad stands at the centre, full figure, turned toward the left with both arms lifted, singing — smooth pale bark with a fine gold grain, eyes closed, her blossom-and-leaf hair risen into a crown in full flower, a mantle of living vines trailing from her shoulders. Three ribbons of leaves stream from her mouth and braid into one that circles the clearing, and wherever it passes the charred trunks break into bud and green shoots push up through the ash around her root-feet.",
+    "light": "Dark forest dusk; a cool green skylight from above shapes her, and a few ember-edged leaves are the only warm sparks."
   },
   "US-G2-1": {
     "shot": "path", "dir": "R", "place": "X", "pal": "sporeglow",

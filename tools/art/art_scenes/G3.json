@@ -296,29 +296,29 @@
     "light": "High clear daylight behind her head shines turquoise through her fins and scatters pearl-white glitter over the water-blue swell; our gauntlets and blade stay in deep blue shadow."
   },
   "UP-G3-11": {
-    "shot": "over", "dir": "L", "place": "B", "pal": "stormsea",
-    "scene": "The same octopus with wise golden eyes sits in the harbour rock pool at the bottom of the frame, grown to fill the pool from rim to rim, seen over the hunched shoulders and straw hats of the three fishermen, dark and close in the foreground. All eight arms are raised from the water together, pointing left out to sea, and the cloud of black ink it unrolled lies spread on the pool like a chart with three clear channels through it. Behind the men every boat is lashed down double, and out on the left the first great wave is breaking exactly where the arms point.",
-    "light": "Heavy slate morning as the blow arrives; dull light from the open sea glints on wet skin and the spreading ink."
+    "shot": "low", "dir": "F", "place": "C", "pal": "stormsea",
+    "scene": "At the waterline of the same harbour, the camera half in the swell: the octopus with wise golden eyes rises at the centre facing us, grown as large as a fishing boat, its mantle domed above the surface like a crowned head. Seven of its arms are lifted high and spread like a fan; the eighth lies curled round a mooring ring. Behind it the sea obeys — the tide stands up in one smooth wall across the harbour mouth and holds there, while three fishermen in straw hats watch from the shingle at the right beside their hauled-up boats.",
+    "light": "Heavy slate storm light from the open sea glints on wet skin and on the green-blue wall of water, white spray along its crest."
   },
   "UP-G3-12": {
-    "shot": "profile", "dir": "R", "place": "L", "pal": "lagoon",
-    "scene": "Strict side view underwater, flat as a painted frieze: the same sea turtle swims rightward from the left of the frame, flippers mid-stroke, grown vast — the reef on its domed shell now rises in three tiers of pink and ochre coral, anemones waving, whole shoals of striped fish keeping station above it, a small lantern-fish glowing among the branches. Near the crest the old break still shows, healed into the thickest, knobbiest crag of all. Three young turtles swim in its shadow, and the level floor of pale sand runs along the bottom edge far below.",
-    "light": "Clear midday sun from above plays over shell and sand in bright nets; the water behind fades to deep blue."
+    "shot": "high", "dir": "R", "place": "C", "pal": "lagoon",
+    "scene": "Looking down from a seabird's height over the sunlit lagoon: the same sea turtle swims toward the right at the centre, grown vast, its flippers showing pale through the clear water on either side. The reef on its domed shell has risen in three tiers of pink and ochre coral, the old break healed into the knobbiest crag at its crest, and the top tier stands out of the water as a small rocky island where sea-birds perch. A fishing canoe alongside is shorter than one flipper; shoals of striped fish and three young turtles follow in its shadow.",
+    "light": "Clear midday sun; turquoise shallows and pearl-white foam round the island, bright nets of light on the sand, deep blue beyond."
   },
   "UP-G3-17": {
-    "shot": "far", "dir": "R", "place": "C", "pal": "moontide",
-    "scene": "Far across the same night lagoon a great grey dugong, broad as a ferry and plain in the middle of the frame, swims to the right with three bandaged figures lying side by side along its back, whiskered snout just clear of the surface. The water is so still that its wake reads like a drawing: three slow, perfect circles traced one inside another around the lagoon, the innermost just closing. One of the figures has sat up and is unwinding a bandage. Mangrove shadows and the lamps of the stilt village rim the horizon.",
-    "light": "A low moon lays one silver path across the lagoon; the three circular wakes catch it as thin bright lines."
+    "shot": "close", "dir": "L", "place": "C", "pal": "moontide",
+    "scene": "Close at the waterline of the same night lagoon: the great grey dugong, broad as a ferry, fills the frame swimming toward the left, whiskered snout just clear of the surface, one small kind eye toward us. It breathes out, and a soft cloud of steam rolls across the water, mist rising wherever its breath has warmed the lagoon. Along its back three bandaged figures lie side by side; the nearest has sat up and is unwinding a bandage from a healed arm. Three rings of its wake widen behind.",
+    "light": "A low moon lays a silver path across the lagoon and shines through the pale mist of its breath."
   },
   "UP-G3-18": {
-    "shot": "ground", "dir": "L", "place": "R", "pal": "coraldawn",
-    "scene": "The same figure of branching pink and orange coral, grown taller than a mast with three great antlered branches and polyps glowing, stands in the right third of the reef flat, seen from a camera half-sunk at the waterline with foam and grit against the lens. It faces left with one antlered arm thrown upward. Behind it three pillars of seawater have risen in the very same pose — same lean, same crooked reach — each a little taller than the last, like a choir copying its conductor. A shoal of small fish hangs inside the nearest pillar.",
-    "light": "Warm early sun from the left lights the coral and shines through the standing water, which glows green-gold at its edges."
+    "shot": "back", "dir": "B", "place": "C", "pal": "coraldawn",
+    "scene": "From behind, on the same reef flat at dawn: the figure of branching pink and orange coral stands at the centre with its back to us, grown taller than a mast, three great antlered branches rising from its shoulders, polyps glowing, both arms lifted like a conductor's. Before it the sea has stood up at its bidding: three pillars of seawater risen to exactly the same height and joined shoulder to shoulder into one smooth wall, fish hanging inside it. Beyond the wall the masts of three approaching boats show small, halted.",
+    "light": "Coral-pink first light shines through the standing water from beyond, glowing green-gold at its edges and rimming the coral branches."
   },
   "UP-G3-24": {
-    "shot": "high", "dir": "R", "place": "C", "pal": "trench",
-    "scene": "Looking steeply down, as into the tarn, but the water is now a whole sea inlet: at the centre the same water horse stands chest-deep, larger than a fishing boat, dark hide shining wet, and tosses its long seaweed mane to the right — a mane grown black as the abyss, trailing three coils on the current. The slow turning it once started has become a whirlpool that fills the frame, pale foam winding outward from its shoulders in tight spirals; three small boats ride the outer coil, tipped on their sides, with a lost riding boot. Its wet back is still bare and broad, one ear turned up toward us.",
-    "light": "Night; a cold glow from deep under the water lights the spirals from below, leaving the horse a dark shape with a wet sheen."
+    "shot": "low", "dir": "F", "place": "C", "pal": "trench",
+    "scene": "From the surface of the same black water, low among the foam: the water horse rears at the centre facing us, larger than a fishing boat, dark hide shining wet, forehooves lifted, and its long seaweed mane, grown black as the abyss, streams up and outward in three heavy coils. The water follows its hooves: a ring of current stands up around it like a wall, a whirlpool turned inside out, carrying three small boats tipped on their sides along its crest. Its eyes are two cold pale lights.",
+    "light": "Night; a cold blue glow from deep under the water lights the wall of current from below, leaving the horse a dark shape with a wet sheen."
   },
   "US-G3-1": {
     "shot": "under", "dir": "D", "place": "X", "pal": "trench",
@@ -353,7 +353,7 @@
   "RS-G3-2": {
     "shot": "ring", "dir": "F", "place": "L", "pal": "coraldawn",
     "scene": "A single tall curtain of white water rises from the dawn shallows and curves over the shelter behind it, one smooth silken sheet, glassy and thin, with a soft white mane rolling along its crest like the lip of a breaking wave. Through the sheet, left of centre, we see the blurred warm shapes of the figures crouched safely behind. A sword blade has just struck from the right and is sliding off along the curve, its edge trailing one long ribbon of pale water, while the sheet bends round the blow and closes again behind it, unbroken. Low mist drifts across the wet sand in wide, soft bands.",
-      "light": "First coral-pink sun from low behind us glows through the thin water so the whole curtain turns rose and gold at its edges over water-blue shallows, and the blade carries one cold glint."
+    "light": "First coral-pink sun from low behind us glows through the thin water so the whole curtain turns rose and gold at its edges over water-blue shallows, and the blade carries one cold glint."
   },
   "RS-G3-3": {
     "shot": "impact", "dir": "F", "place": "L", "pal": "lagoon",

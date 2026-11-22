@@ -418,24 +418,66 @@ function fitDescs(root) {
   fitBriefs(root);
 }
 /* 2026-11-15 마법 짧은 문구(.c-brief)는 글자를 키웠다(css/cardtext.css). 긴 문구가 글 상자 밑으로 넘치는 카드만 --bfs로 조금씩 줄인다.
-   모두 먼저 재고(읽기) 넘친 것만 한꺼번에 고친다(쓰기) — 덱 조정실처럼 카드가 많아도 화면 다시 그리기를 몇 번만 */
-function fitBriefs(root) {
-  const list = [...(root || document).querySelectorAll(".card.fm .c-box .c-brief")];
-  if (!list.length) return;
-  for (const b of list) if (b.style.getPropertyValue("--bfs")) b.style.removeProperty("--bfs");
-  const over = b => { const box = b.closest(".c-boxin") || b.closest(".c-box"), p = b.lastElementChild;
-    return box && p && p.getBoundingClientRect().bottom > box.getBoundingClientRect().bottom + 0.5; };
-  let bad = list.filter(over);
-  for (const s of [0.95, 0.9, 0.85]) {
-    if (!bad.length) break;
-    for (const b of bad) b.style.setProperty("--bfs", s);
-    bad = bad.filter(over);
+   모두 먼저 재고(읽기) 넘친 것만 한꺼번에 고친다(쓰기) — 덱 조정실처럼 카드가 많아도 화면 다시 그리기를 몇 번만
+   names: 맞출 카드 묶음(배열)을 받을 때 이름도 맞출지 (root를 받으면 예전처럼 마법 문구가 있을 때만) */
+function fitBriefs(root, names) {
+  const scope = fitScope(root);
+  if (scope !== root) names = fitScope.names;
+  const list = fitQ(scope, ".card.fm .c-box .c-brief");
+  if (list.length) {
+    for (const b of list) if (b.style.getPropertyValue("--bfs")) b.style.removeProperty("--bfs");
+    const over = b => { const box = b.closest(".c-boxin") || b.closest(".c-box"), p = b.lastElementChild;
+      return box && p && p.getBoundingClientRect().bottom > box.getBoundingClientRect().bottom + 0.5; };
+    let bad = list.filter(over);
+    for (const s of [0.95, 0.9, 0.85]) {
+      if (!bad.length) break;
+      for (const b of bad) b.style.setProperty("--bfs", s);
+      bad = bad.filter(over);
+    }
   }
-  fitCardNames(root);
+  if (list.length || names) fitCardNames(scope);
+}
+/* 2026-11-22 메뉴 전환 빠르게: 메뉴의 카드 목록(덱 조정실 보관함 · 대기실 덱 보기 · 퀘스트 도감 …, css/perf.css)은 content-visibility:auto라
+   화면 밖 카드는 브라우저가 배치 · 그리기를 건너뛴다. 글 맞춤이 그 카드들 속을 재면 건너뛴 일을 억지로 다 하게 되므로(덱 조정실 열기 0.5초),
+   지금 화면 근처 카드만 바로 맞추고 나머지는 화면에 다가올 때(contentvisibilityautostatechange) 맞춘다. 이 기능이 없는 브라우저는 예전처럼 한꺼번에 잰다 */
+const FIT_LAZY = typeof ContentVisibilityAutoStateChangeEvent !== "undefined";
+const fitLater = new WeakMap();   // 화면 밖이라 미룬 카드 → 이름도 맞출지
+function fitScope(root) {
+  if (!FIT_LAZY || Array.isArray(root)) return root;
+  const r = root || document, cards = r.querySelectorAll(".card.fm");
+  if (!cards.length) return r;
+  const vw = innerWidth, vh = innerHeight, near = [];
+  let later = null;
+  for (const c of cards) {
+    if (getComputedStyle(c).contentVisibility !== "auto") { near.push(c); continue; }
+    const b = c.getBoundingClientRect();   // 카드 자신의 자리만 읽는다(속은 재지 않음)
+    if (b.width && b.bottom > -vh / 4 && b.top < vh * 1.25 && b.right > -vw / 4 && b.left < vw * 1.25) { near.push(c); fitLater.delete(c); }   // 보이는 곳 + 조금. 그 밖은 브라우저가 첫 그림 때 알려 준다
+    else (later || (later = [])).push(c);
+  }
+  if (!later) return r;   // 모두 화면 근처 = 예전과 같다
+  fitScope.names = !!r.querySelector(".card.fm .c-box .c-brief");
+  for (const c of later) fitLater.set(c, fitScope.names);
+  return near;
+}
+const fitQ = (scope, sel) => Array.isArray(scope) ? scope.flatMap(c => [...c.querySelectorAll(sel)]) : [...(scope || document).querySelectorAll(sel)];
+if (FIT_LAZY) {
+  const due = new Set(); let raf = 0;
+  document.addEventListener("contentvisibilityautostatechange", e => {
+    if (e.skipped || !fitLater.has(e.target)) return;
+    due.add(e.target);
+    if (!raf) raf = requestAnimationFrame(() => {   // 한 번에 들어온 카드들을 묶어 재기 · 고치기를 몇 번만
+      raf = 0;
+      const go = [[], []];
+      for (const c of due) if (c.isConnected && fitLater.has(c)) { go[fitLater.get(c) ? 1 : 0].push(c); fitLater.delete(c); }
+      due.clear();
+      if (go[0].length) fitBriefs(go[0], false);
+      if (go[1].length) fitBriefs(go[1], true);
+    });
+  }, true);
 }
 /* 작은 카드 이름 1줄 맞춤: 넘치는 카드만 ① 글자 살짝 축소 → ② 그래도 넘치면 "○○의 " 앞 수식어를 "…"로 생략 */
 function fitCardNames(root) {
-  const list = [...(root || document).querySelectorAll(".card.fm:not(.size-full) .c-head .c-name")];
+  const list = fitQ(root, ".card.fm:not(.size-full) .c-head .c-name");
   if (!list.length) return;
   for (const el of list) {
     if (el.dataset.fullName == null) el.dataset.fullName = el.textContent;

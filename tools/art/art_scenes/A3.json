@@ -346,29 +346,29 @@
     "light": "The spell around us is the light, teal-green and violet like an aurora; beyond the hole the night is dark and the hunter's eyes are two cold stars."
   },
   "UP-A3-10": {
-    "shot": "eye", "dir": "B", "place": "R", "pal": "moonsilver",
-    "scene": "On the same swaying rope bridge between two rock pinnacles, at eye level: the harpy stands tall in the right of the frame with her back to us, a bird-woman with storm-grey and teal wings for arms, wild wind-tossed hair and hooked black talons. Her wings are full and glossy now, every gap regrown, and both are flung wide in the instant after a volley. Ahead of her three fans of feather-darts fly out into the night toward the far pinnacle, and a new feather is already sliding into each empty place. Shed feathers lie ankle-deep on the planks behind her.",
-    "light": "A full moon high on the left bleaches the feather drifts blue-white and silvers the flying darts."
+    "shot": "low", "dir": "F", "place": "C", "pal": "moonsilver",
+    "scene": "From the planks of the same swaying rope bridge, looking up: the same harpy hangs in the air above it facing us, a bird-woman with storm-grey and teal wings for arms, wild wind-tossed hair and hooked black talons, grown lean and sure. Her wings, full and glossy with every gap regrown, are snapped wide, and from both at once a storm of feather-darts fans out toward us in three overlapping volleys, new quills already sliding into the empty places. Shed feathers whirl around her like snow, and darts bristle from the handropes.",
+    "light": "A full moon high behind her left wing silvers every dart and bleaches the whirling feathers blue-white."
   },
   "UP-A3-11": {
-    "shot": "eye", "dir": "F", "place": "L", "pal": "thinair",
-    "scene": "The same stone landing ledge in the left of the frame, at eye level: a young griffin, now the size of a horse, has just touched down facing us, chest out, teal-grey eagle head sleek, broad wings still half open, golden beak, tawny lion haunches, tail lashing. The leather message tube on its chest harness is buckled shut, and three more sealed scrolls are gripped in its foreclaws. Behind it the wind of its arrival is still coming in: cloud torn into a long straight furrow across the right of the sky, pennants on the ledge standing straight out.",
-    "light": "Clear, pale noon light at high altitude, white cloud banks below the ledge and a cool shadow under its spread wings."
+    "shot": "profile", "dir": "R", "place": "C", "pal": "thinair",
+    "scene": "Strict side view high above the white cloud banks: the same griffin, grown from a cub to the size of a horse, streaks toward the right across the middle of the frame — sleek teal-grey eagle head, golden beak, broad wings swept back, tawny lion haunches stretched out behind, the leather message tube buckled shut on its chest harness. Behind it the cloud is torn into a long straight furrow and a flock of startled cranes tumbles in its wake; ahead, the stone landing ledge of a needle spire is already close, its pennants only beginning to stir.",
+    "light": "Clear, pale noon light at high altitude; a cool shadow under the swept wings, white cloud glare below."
   },
   "UP-A3-18": {
-    "shot": "front", "dir": "F", "place": "X", "pal": "starindigo",
-    "scene": "Dead-on and mirror-symmetrical on the same bare hilltop: the two archers drawn by stars stand side by side across the frame, taller now and densely set with bright points, thin silver lines joining them, night sky inside their outlines, and between their shoulders a third, fainter star-figure has begun to trace itself. Their great bows are lowered after the shot in matching poses. On the exact centre line three arrows of light fly toward us nose to tail, each riding the glowing groove of the one before, and the groove has widened into a bright road.",
-    "light": "Deep indigo night; the figures' star points and the arrows' silver road are the light, with one faint teal wind streak."
+    "shot": "profile", "dir": "R", "place": "L", "pal": "starindigo",
+    "scene": "Strict side view on the same bare hilltop: the two archers drawn by stars stand one behind the other at the left of the frame, facing right, taller now and densely set with bright points joined by thin silver lines, night sky inside their outlines, so exactly in step that they read as one figure with two great bows. Both bows are at full draw on a single line. Ahead of them one arrow of light has already flown — a single bright streak that forks at its far end and strikes two distant standing stones at once.",
+    "light": "Deep indigo night full of stars; the figures' own star points and the forked silver streak are the light, with one faint teal wind streak."
   },
   "UP-A3-23": {
-    "shot": "top", "dir": "L", "place": "L", "pal": "moonsilver",
-    "scene": "Straight overhead, like a map: the same high plateau of pale grass, standing stones and dry stream beds at night, its web of starlit paths now complete to every edge of the frame. In the left of the picture a large indigo fox speckled with stars trots toward the left, a small silver badge at its throat, its long brush tail parted into three plumes that lay three bright strokes side by side — the newest trail a broad road. Behind it three smaller star-foxes follow nose to tail along the fresh light.",
-    "light": "Full moon straight above: blue-silver grass, small sharp shadows beside each stone, the trails paler silver with a breath of teal."
+    "shot": "eye", "dir": "L", "place": "R", "pal": "moonsilver",
+    "scene": "At eye level beside a standing stone on the same high plateau: a large indigo fox speckled with stars stands on it in the right of the frame, facing left, nose lifted into the wind, a small silver badge at its throat. Its long brush tail has parted into three plumes that pour starlight down the stone. Beyond it the web of glowing footpaths spreads across the pale grass to the horizon; three smaller star-foxes wait at their posts along the paths, each looking to it, and far off on one path a line of torches has just appeared.",
+    "light": "Full moon straight above: blue-silver grass and small sharp shadows, the trails a paler silver with a breath of teal."
   },
   "UP-A3-24": {
-    "shot": "close", "dir": "R", "place": "L", "pal": "stormcloud",
-    "scene": "Head and shoulders of the same tengu fill the left of the frame, turned toward the right: the crow-beaked face, glossy black feathers beaded with rain, a streak of white now through his crest, one broad wing hunched behind. A lacquered war-bow is raised with three arrows on the string at once; the other hand holds his fan of long storm feathers high. Three threads of lightning have come down from the cloud at the fan's bidding and sit on the three steel points as bright beads, crackling into one another.",
-    "light": "Dark grey-violet thundercloud presses low overhead; the three beads of lightning light the beak, the fan and the wet feathers from below with cold white-teal."
+    "shot": "back", "dir": "B", "place": "C", "pal": "stormcloud",
+    "scene": "From behind, on the roof ridge of a needle spire: the same tengu stands at the centre with his back to us, glossy black wings half spread and beaded with rain, a streak of white through his crest, the lacquered bow slung at his shoulder and his fan of long storm feathers pointing down into the valley. Along the line of the fan three bolts of lightning fall from the cloud and strike three small watch-fires far below, each exactly on its mark, while the roofs between them stay dark. Three younger tengu archers crouch behind him.",
+    "light": "Dark grey-violet thundercloud presses low overhead; the three bolts light wet feathers and roof tiles in cold white-teal."
   },
   "US-A3-2": {
     "shot": "through", "dir": "D", "place": "T", "pal": "aurora",

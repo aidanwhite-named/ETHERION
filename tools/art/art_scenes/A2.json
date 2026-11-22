@@ -306,29 +306,29 @@
     "light": "The sun in the ring is a blinding white-gold disc directly behind the colossus: pale gold on everything it has passed, cool blue-grey shadow on everything still ahead of it."
   },
   "UP-A2-11": {
-    "shot": "tilt", "dir": "F", "place": "C", "pal": "vigil",
-    "scene": "A tilted frame in the same night stable, grown too small for him: a young white stallion with a flying gold mane stands planted in the straw where the foal once skidded, legs square, head lowered toward us. The horn on his brow is a pearly spiral as long as a spear, and the clean wedge it cuts through the darkness now runs the whole length of the stable and out through the open door, across the yard to the far gate. Every straw, bucket and cobweb inside the wedge stands clear; the stalls on either side stay black, three foals watching from them.",
-    "light": "One hanging stable lantern glows small and amber behind him; the long wedge of clear air before the horn is cool and shadowless."
+    "shot": "profile", "dir": "R", "place": "L", "pal": "vigil",
+    "scene": "Strict side view on the night road outside the same stable: the foal has grown into a young white stallion with a flying gold mane, charging toward the right at full gallop from the left of the frame, neck stretched level. The horn on his brow is a pearly spiral as long as a spear, carried like a lance, and the darkness ahead of its point splits open in a long clean wedge that runs to the right edge — every stone, fence post and fleeing bat inside it standing clear, black night above and below.",
+    "light": "The small amber lantern over the stable door glows behind him; the long wedge of clear air before the horn is cool and shadowless."
   },
   "UP-A2-15": {
-    "shot": "reflect", "dir": "F", "place": "C", "pal": "rosedawn",
-    "scene": "The same still puddle on the rain-washed terrace fills most of the frame, and in it, upside down, stands the reflection of the same figure of white marble flecked with gold leaf — now in white-gold plate over its robe, both stone hands on the pommel of the same plain sword set point-down, chin level, perfectly upright. Its feet in gilded sabatons and the sword's tip enter the top edge of the picture. In the reflection three thin sword-shaped rays of light hang point-down over its head like a crown, and three white ribbons tied at its elbow stir in the wind.",
-    "light": "Pink-gold dawn clouds fill the water around the reflected figure; the wet stone at the frame's edges is dull lilac."
+    "shot": "low", "dir": "L", "place": "R", "pal": "rosedawn",
+    "scene": "Looking up from the wet paving of the same rain-washed terrace: the same figure of white marble flecked with gold leaf stands in the right of the frame, turned toward the left, now clad in white-gold plate over its robe with a long white cloak. It has stepped down from its empty plinth and holds the same plain sword upright before its face in both stone hands, a knight's salute. Above the blade three thin sword-shaped rays of light hang point-down like a crown, and three oath-ribbons tied at its elbow stream in the wind.",
+    "light": "Pink-gold dawn clouds fill the sky behind it and gild the plate; lilac shadow lies under the cloak and across the wet stone."
   },
   "UP-A2-17": {
-    "shot": "high", "dir": "L", "place": "C", "pal": "whitegold",
-    "scene": "Looking down from the top of the same gatehouse: the lion-bodied sphinx lies across the threshold, grown so that her flanks touch both gateposts, her fur turned bright gold, folded wings gilded at their edges, the sun-disk crown blazing from above. Her calm face is turned left toward a traveller who stands straight before her, hat held still against his chest. Behind her the white gate stands open at last, and the earlier arrivals are filing through it with their bundles, their cooking pot left warm and steaming by the road.",
-    "light": "Clear mid-morning sun from the right throws the gate tower's cool blue shadow across half the road; the sphinx lies in full light, her crown the brightest thing in the frame."
+    "shot": "front", "dir": "F", "place": "C", "pal": "whitegold",
+    "scene": "Dead-on from the road, at a traveller's eye level: the same lion-bodied sphinx sits upright before the white gate, facing us, grown as tall as the gate arch, her fur and folded wings turned bright gold, the sun-disk crown blazing above her calm face. Between her forepaws stands a line of small travellers with their bundles; each casts a long shadow down the road toward us, all but one hooded man, whose shadow has peeled away from his feet and lies alone at the roadside. Behind her the gate stands wide open.",
+    "light": "Clear mid-morning sun blazes on the gold fur and crown above sunlit ivory stone; cool blue shadows run down the road."
   },
   "UP-A2-22": {
-    "shot": "over", "dir": "B", "place": "L", "pal": "firstlight",
-    "scene": "Over the bronze shoulder of the same bell in its open belfry, close at the left of the frame — a far greater bell now, its shoulder filling the whole left side, three bands of rising-sun engravings running round its rim. It hangs at the top of its stroke toward the arch, light pouring from its mouth. Beyond the arch the sun stands a full hand above the horizon, exactly in line with the bell's lip; across the citadel below shutters are opening street by street, and three rings of bright air spread outward over the dark country.",
-    "light": "Cold blue-grey lingers in the far country; the bell's inner glow and the risen sun warm the belfry and the nearest roofs."
+    "shot": "far", "dir": "F", "place": "T", "pal": "firstlight",
+    "scene": "From far out on the plain before dawn: the white citadel stands small on its hill, and at the top of its tallest cathedral spire, in an open lantern-tower high in the frame, hangs the same bronze bell with rising-sun engravings round its rim, now so great that it fills the whole tower, swung toward us with light pouring from its mouth. Three rings of bright air spread from it across the whole sky, and where the widest ring passes, the fields below and the long dark wall on the horizon are touched with gold.",
+    "light": "Cool blue-grey before dawn; the bell's inner glow and a low band of pale gold along the horizon are the warm notes."
   },
   "UP-A2-24": {
-    "shot": "echo", "dir": "L", "place": "X", "pal": "rosedawn",
-    "scene": "A great oval mirror in a gilt frame, tall as a gate, stands upright on its own in the same cloister walk at the right, its silvered face turned left, two smaller mirrors set behind it like half-folded wings. Three thrown javelins are painted as overlapping moments along three lines across the frame: ghost-images flying in from the left edge, three tips just touching the glass, and all three already speeding back out the way they came, joined into one bright shaft of light. The glass itself holds only dawn sky, perfectly calm.",
-    "light": "Pink-gold dawn fills the mirror and spills from it across the paving in a wide bright fan; the arches behind are lilac shadow."
+    "shot": "low", "dir": "F", "place": "C", "pal": "rosedawn",
+    "scene": "From the paving of the same cloister walk, looking up: the same oval mirror in its gilt frame, now tall as a gate, floats upright at the centre facing us, with two more mirrors fanned behind it like wings. A volley of javelins and arrows flying in from behind us has struck the glass, and the triple mirror is hurling it all back as one broad shaft of light that passes just over our heads, the weapons turning point-about inside it. The glass itself holds only dawn sky, perfectly calm.",
+    "light": "Pink-gold dawn pours from the three mirrors in a wide bright fan; the arches around are lilac shadow."
   },
   "US-A2-1": {
     "shot": "ring", "dir": "N", "place": "C", "pal": "rosedawn",

@@ -6,22 +6,9 @@
 
 카드 하나의 ``` 안 글만 그림 AI에 붙여 넣는다(카드마다 새 대화). 프롬프트 맨 끝 줄이 파일 이름(`<카드ID> <카드 이름>.png`)을 알려 준다 — 나온 그림(가로 5:4)을 그 이름으로 `tools/art/inbox/`에 두고(이름이 달라도 카드 ID만 앞에 있으면 된다) → `python3 tools/art/artmap.py import`.
 
-**그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(원래 카드와 같은 틀 · 다음 순간 — 섬네일로 나란히 놓아 짝으로 읽히는지 본다).
+**그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(같은 개체 · 장소 · 배색, 다른 시점 · 새 구도 — 섬네일로 나란히 놓아 같은 개체이면서 한눈에 더 강한 다른 그림으로 읽히는지 본다).
 
-## 1. 그림 없는 카드 — 먼저 그린다 · 58장
-
-### US-A3-1 · 그믐의 계약서
-모르카스의 그믐 · 핸드 마법 · 레벨 1 · 에픽 · 틀 `far` N T `eclipse` · 프롬프트 n2 → `tools/art/inbox/US-A3-1 그믐의 계약서.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. A vast night sky like a sheet of dark parchment, creased with faint fold lines and ruled with thin rows of stars. Where the moon should hang, in the upper part of the frame, sits a great round seal of black wax with a thin bright rim, and two long clouds trail from it like ribbons. Far below on the plain lies an army's camp, small as scattered grain: every campfire in it has shrunk to an ember, every banner hangs wilted on its pole, and the grass around the tents has turned grey in a slowly widening circle. The seal's thin cold rim is the brightest light, as in an eclipse; the camp is silhouette under violet haze, its fires dying red points.
-Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: US-A3-1 그믐의 계약서.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
+## 1. 그림 없는 카드 — 먼저 그린다 · 57장
 
 ### EP-A1-3 · 장막의 처형자
 모르카스의 그믐 · 유닛 · 레벨 7 · 에픽 · 틀 `tilt` R X `violetshade` · 프롬프트 n2 → `tools/art/inbox/EP-A1-3 장막의 처형자.png`
@@ -764,7 +751,20 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: EP-G3-3 마렌시아의 대무녀.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 5장
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 6장
+
+### US-A3-1 · 그믐의 계약서 — 그림 있음
+모르카스의 그믐 · 핸드 마법 · 레벨 1 · 에픽 · 틀 `far` N T `eclipse` · 프롬프트 n2 → `tools/art/inbox/US-A3-1 그믐의 계약서.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. A vast night sky like a sheet of dark parchment, creased with faint fold lines and ruled with thin rows of stars. Where the moon should hang, in the upper part of the frame, sits a great round seal of black wax with a thin bright rim, and two long clouds trail from it like ribbons. Far below on the plain lies an army's camp, small as scattered grain: every campfire in it has shrunk to an ember, every banner hangs wilted on its pole, and the grass around the tents has turned grey in a slowly widening circle. The seal's thin cold rim is the brightest light, as in an eclipse; the camp is silhouette under violet haze, its fires dying red points.
+Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: US-A3-1 그믐의 계약서.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
 
 ### EP-A1-1 · 심연 칼날 무희 — 그림 있음
 모르카스의 그믐 · 유닛 · 레벨 3 · 에픽 · 틀 `echo` R X `violetshade` · 프롬프트 n2 → `tools/art/inbox/EP-A1-1 심연 칼날 무희.png`

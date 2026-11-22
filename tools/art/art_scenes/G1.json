@@ -326,19 +326,19 @@
     "light": "A full moon behind the last figure throws the row into hard light and deep shadow, each stolen weapon catching one bright edge."
   },
   "UP-G1-11": {
-    "shot": "through", "dir": "F", "place": "C", "pal": "firelit",
-    "scene": "Through the triangular door of the same hide tent, glimpsed from outside in the dark: the mongoose spearman now stands just inside facing us, lean and scarred across the muzzle, long tail curled round its feet, holding its spear upright in both clawed paws. The spearhead is a long clean leaf of knapped black obsidian, bound with fresh sinew and catching the light like black glass. Behind it three more finished spears lean in a row against the tent pole, and on the scrap of hide at its feet lie the chips and the two rejected points it began with.",
-    "light": "One small tallow flame inside the tent lights its paws, jaw and the obsidian leaf from below; the tent flaps are dark frames on both sides."
+    "shot": "low", "dir": "R", "place": "L", "pal": "firelit",
+    "scene": "Low by the embers outside the same hide tent at night: the mongoose spearman, lean and scarred across the muzzle, is caught at the left of the frame in a full lunge toward the right, long tail whipping out behind for balance, both clawed paws driving its spear forward. The spearhead is a long leaf of knapped black obsidian that flashes like black glass, and its thrust has just split a thrown clay jar in mid-air, shards and water flying. Three more finished spears stand planted in the earth behind it.",
+    "light": "One small fire at the tent door lights its paws, jaw and the obsidian leaf from below; deep darkness all around."
   },
   "UP-G1-18": {
-    "shot": "silhouette", "dir": "L", "place": "L", "pal": "strawgold",
-    "scene": "The same enormous pot-bellied ogre, a black silhouette against the pale straw-coloured evening sky at the left of the frame, has risen to its knees with one huge ear still tilted to the ground, and brings one open palm down flat on the earth. Bone charms hang from its neck in three long strings, and a horned headdress crowns the shape. To the right the plain answers: the ground lifts into three slow concentric ridges like rings on a pond, grass riding their crests, pebbles hanging a hand's width in the air, the farthest ring reaching the horizon.",
-    "light": "The sun has just set behind it; a low band of pale light outlines the whole shape and every ridge of earth, and throws its long shadow toward us."
+    "shot": "low", "dir": "F", "place": "C", "pal": "strawgold",
+    "scene": "From down in the dry grass, looking up: the same enormous pot-bellied ogre sits cross-legged at the centre facing us, a horned headdress on its brow, three long strings of bone charms across its chest, one huge ear still tilted toward the ground. A great hide drum stands between its knees, and both open palms have just come down on it. The plain answers around it: the earth lifts in three slow rings like ripples on a pond, grass riding their crests, pebbles and dust hanging a hand's width in the air.",
+    "light": "Late straw-gold afternoon sun from behind its shoulder; long umber shadows fall toward us across the lifted rings of earth."
   },
   "UP-G1-24": {
-    "shot": "low", "dir": "L", "place": "L", "pal": "firelit",
-    "scene": "The same big scarred hyena stands laughing on the bare mound at the left of the frame, seen from low in the grass against the night sky — huge and grizzled now, one ear torn to a stump, three healed claw scars across its broad muzzle, bristling mane, head thrown back and to the left with heavy jaws wide open. The pack has arrived: all along the bottom edge and up the sides of the mound stand hyenas in three ranks, heads raised, laughing with it. A necklace of knuckle-bones hangs on its chest.",
-    "light": "The cooking fire at the mound's foot has been fed to a blaze and lights its chest, throat and the nearest faces from below; stars behind."
+    "shot": "high", "dir": "F", "place": "C", "pal": "firelit",
+    "scene": "From above the bare mound, looking down: the same big scarred hyena stands at the centre with its head thrown back toward us, laughing, heavy jaws wide — huge and grizzled now, one ear torn to a stump, three healed claw scars across its muzzle, a necklace of knuckle-bones on its chest. Around the mound the whole pack stands in three closed rings, every head lowered toward it, and beyond them the night plain has gone still: a herd of antelope frozen in mid-step, the grass standing straight.",
+    "light": "The cooking fire at the mound's foot, fed to a blaze, lights its throat and the inner ring of faces; deep darkness beyond."
   },
   "US-G1-1": {
     "shot": "path", "dir": "R", "place": "R", "pal": "redearth",

@@ -650,8 +650,10 @@ html.appui .screen-editor .pool-grid { --pc-gx: 6px; --pc-gy: 10px; --pg-pad: 7p
 @media (max-width: 1100px) { .ed-filts { grid-template-columns: minmax(0, 1fr); } }
 
 /* v3.61.1 로그인 탭의 린데어 환석(관문)은 폭만 절반: 1040 → 520px, 높은 화면 1120 → 560px. 높이 · 글자는 그대로.
-   새 모험가 탭(깃발 3칸)은 예전 폭 그대로. 좁은 폰은 원래대로 화면 폭(100%)을 넘지 않는다 */
-.gate:has(#f-login:not([hidden])) { width: min(520px, 100%); }
+   새 모험가 탭(깃발 3칸)은 예전 폭 그대로. 좁은 폰은 원래대로 화면 폭(100%)을 넘지 않는다
+   2026-11-22 로그인 탭 표시는 .gate.gate-login(js/screens.js showLogin이 붙임). :has(… :not(…))는 화면 어디에 무엇을 넣든
+   문서 전체 스타일을 다시 계산하게 해서(메뉴 전환 · 창 열기마다 30~70ms) 클래스로 바꿨다 */
+.gate.gate-login { width: min(520px, 100%); }
 @media (min-height: 940px) and (min-width: 900px) {
-  .gate:has(#f-login:not([hidden])) { width: min(560px, 100%); }
+  .gate.gate-login { width: min(560px, 100%); }
 }

@@ -326,29 +326,29 @@
     "light": "Cold violet light from its eyes and the rising wisps edges horns, chains and stone in the blue-black night; three tiny candle flames on the bridge rail are the only warm points."
   },
   "UP-A1-09": {
-    "shot": "under", "dir": "R", "place": "X", "pal": "eclipse",
-    "scene": "From the bottom of the same deep canyon, looking straight up: the two rock walls rise like the sides of a well to a thin crooked strip of night sky, and the web of black threads now fills the whole shaft in three great tiers, one above another. On the lowest tier, close above us and as broad as a cart, the same spider with clustered violet eyes spreads her legs wide and creeps toward the right-hand wall, where three lanterns hang wrapped in silk, the nearest still alight. Her young, small as cats, work along the upper tiers.",
-    "light": "The strip of sky gives a thin cold light that outlines every tier and leg; the one burning lantern is a warm speck in violet haze."
+    "shot": "low", "dir": "F", "place": "C", "pal": "eclipse",
+    "scene": "Low on the floor of the same deep canyon, looking up at one whole rock wall sheeted in black web up to the thin strip of night sky. At its hub, in the centre of the frame, the same spider holds court facing us, grown as large as a wagon: a crown of tall curved spines rises above her clustered violet eyes, a pale crescent marks her swollen abdomen, and her long legs are planted wide on the threads like the arms of a throne. Along the threads her young file toward her bearing three silk-wrapped lanterns, the nearest still alight.",
+    "light": "The strip of sky far above gives a thin cold light that rims her crown, her legs and every thread; the one burning lantern is a warm speck in violet haze."
   },
   "UP-A1-11": {
-    "shot": "eye", "dir": "R", "place": "L", "pal": "violetshade",
-    "scene": "At eye level before the same stone offering-ledge, and now it stands at the head of the line: the same rat soldier, grey-furred with one torn ear, upright at the left of the frame and facing right, a head taller, broad-shouldered, a pale scar across its brow. Over plain dark leather it wears the same dented pauldron with two more strapped above it, and its spear rests in the crook of its arm. On the ledge three identical brass cups pour equal measures of violet flame into one wide bowl. Behind it, soft in the gloom, a file of rat soldiers waits, each holding a cup.",
-    "light": "The joined violet flame lights its muzzle, knuckles and the stacked pauldrons from the right; the barracks vault behind is purple-black."
+    "shot": "low", "dir": "F", "place": "C", "pal": "violetshade",
+    "scene": "From low on the barracks steps, looking up: the same grey-furred rat soldier with one torn ear strides straight toward us at the point of a wedge of rat soldiers, a head taller than any of them, a pale scar across its brow. Three dented pauldrons are stacked on its shoulder, a captain's crest of stiff black bristles tops its helm, and its levelled spear leads the charge. On a chain at its belt swings the small brass cup, trailing violet flame, and every spearhead behind it burns with the same flame.",
+    "light": "The violet flame of cup and spearheads edges helm, whiskers and pauldrons; the barracks vault behind is purple-black."
   },
   "UP-A1-15": {
-    "shot": "ground", "dir": "F", "place": "B", "pal": "frostindigo",
-    "scene": "Camera on frosted flagstones, looking along the ground: the same black sword stands upright by itself in the lower middle of the frame, point resting on the stone, edge turned toward us — longer and broader now, and the eye carved on its guard has opened, a slit of red. Thick red smoke climbs from the blade in three twisting strands. The empty gauntlets around it have grown to a wide circle of many pairs, old and new, and the three nearest pairs lie with their fingers touching the blade. The hoarfrost has melted in a dark ring about its point.",
-    "light": "Cold blue-violet night air; a tarnished-silver gleam runs down the edge, and the open eye throws a thin red light on the nearest gauntlets."
+    "shot": "tilt", "dir": "R", "place": "C", "pal": "frostindigo",
+    "scene": "A tilted frame in the same frosted courtyard: the same black sword has risen from the flagstones and hangs in the air at the centre, its grip empty, slashing toward the right by its own will — longer and broader now, red veins running through the steel, and the eye carved on its guard wide open, a slit of red. Three ribbons of red smoke trail from its edge and trace the three cuts it has just made. Below it empty gauntlets lie scattered, and at the right a suit of plate is falling apart in two halves.",
+    "light": "Cold blue-violet night air and hoarfrost; tarnished silver gleams along the edge, and the open eye throws a thin red light on the falling armour."
   },
   "UP-A1-18": {
-    "shot": "reflect", "dir": "L", "place": "R", "pal": "bonepale",
-    "scene": "The same shadow-play screen of stretched pale cloth fills the frame, lit from behind, and the wolf-like shadow thrown on it from the right has grown until its back presses the top edge: a head with too many fangs facing left, smoke fraying from its outline. Along the lower edge most of the paper-puppet heroes are gone — bare sticks stand where they were, three puppets hang from its closed jaws, and the last few lean away to the left. Where its forepaw falls, real black claws have torn through the cloth, and two violet eyes burn through it above.",
-    "light": "The lamp behind the screen bleaches the cloth bone-white; every shape on it is flat black, the claws and eyes edged with violet."
+    "shot": "front", "dir": "F", "place": "C", "pal": "bonepale",
+    "scene": "Dead-on in the same shadow theatre: the pale cloth screen hangs torn open down the middle, and through the tear steps the beast that cast the shadow — the same wolf-like head with too many fangs, now solid, black as soot and tall as the stage arch, smoke fraying from its shoulders, two violet eyes fixed on us. Its long black claws rest on the stage boards among snapped puppet sticks, and three paper-puppet heroes hang crushed in its jaws. Behind it, on what is left of the cloth, its flat shadow still looms.",
+    "light": "The lamp behind the torn screen bleaches the cloth bone-white and turns the beast to a black mass edged with violet."
   },
   "UP-A1-23": {
-    "shot": "back", "dir": "B", "place": "B", "pal": "bloodink",
-    "scene": "Seen from behind, low in the frame: the same tall hooded reaper in a tattered black robe wades away from us through the night field where rolled parchments grow upright on thin stalks like wheat, each tied with a red ribbon. The scythe in his bone hands is a great one now, its blade as long as he is tall, caught at the end of a full swing. The narrow swath behind him has become a broad road of stubble three strokes wide, and above every stump hangs a looping flourish of red ink. Three thick ledgers swing from his belt.",
-    "light": "Moonless black sky; the hanging red flourishes glow crimson along the whole mown road, and a thread of violet edges the long blade."
+    "shot": "low", "dir": "L", "place": "C", "pal": "bloodink",
+    "scene": "From low among the stalks of the same night field, where rolled parchments grow upright like wheat: the same tall hooded reaper in a tattered black robe towers at the centre, turned toward the left, bone hands sweeping a great scythe whose blade is longer than he is tall. One stroke is passing through a whole row at once, and a dozen cut scrolls hang in the air along the blade's arc. Reaped parchments lie heaped to his knees, three thick ledgers swing from his belt, and a red flourish of ink hangs over every stump.",
+    "light": "Moonless black sky; the red ink flourishes glow crimson around him, and a thread of violet runs the length of the great blade."
   },
   "US-A1-1": {
     "shot": "column", "dir": "D", "place": "B", "pal": "eclipse",

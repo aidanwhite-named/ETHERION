@@ -1,0 +1,14 @@
+/* ETHERION — 메뉴 전환 빠르게 (2026-11-22)
+   메뉴의 카드 목록에서 화면 밖 카드는 브라우저가 스타일 · 배치 · 그리기를 건너뛴다(content-visibility:auto).
+   카드 한 장은 노드 80개쯤이라 덱 조정실 보관함(70장 남짓)만 6천 개 — 열 때 첫 배치가 0.25초 걸리던 것이 0.05초쯤으로 준다.
+   카드 크기는 폭 var(--cw) · 비율 5:7(css/style.css .card)로 정해져 있어 건너뛰어도 자리가 바뀌지 않는다.
+   카드 밖으로 살짝 나가는 빛 · 구슬이 잘리지 않게 overflow-clip-margin을 둔다(css/shop.css .shop-card와 같은 값).
+   글 맞춤(js/view.js fitBriefs)은 화면 근처 카드만 바로 하고 나머지는 화면에 다가올 때 한다. 전투 화면 카드에는 쓰지 않는다. */
+#ed-pool .pc-face > .card,
+#dv-cards > .card,
+.jr-cell > .card,
+.fg-tile > .card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto var(--cw) auto calc(var(--cw) * 1.4);
+  overflow-clip-margin: 28px;
+}

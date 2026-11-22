@@ -297,7 +297,7 @@ function showLogin(tab) {
   tab = tab || (invP ? "new" : "login");
   let chosen = null;
   $("#app").innerHTML = `<section class="screen screen-login">
-    <div class="gate">
+    <div class="gate${tab === "login" ? " gate-login" : ""}">
       <p class="gate-eyebrow">The Lindear Ringstone</p>
       <h2 class="gate-title">린데어 환석</h2>
       <p class="gate-lead">성로의 중심 관문에 이름을 새기고 들어가세요.</p>
@@ -509,8 +509,9 @@ function showLobby() {
     if (b.classList.contains("locked")) { toast("보유하지 않은 덱입니다.", "warn"); return; }
     App.lobbyGroup = b.dataset.g;
     if (typeof FEEL !== "undefined") FEEL.play("flag_pick", .7);
-    if (lobbyCompact()) { $$(".deck-tile", root).forEach(x => x.classList.toggle("on", x === b)); openDeckSheet(b.dataset.g); return; }
-    showLobby();
+    $$(".deck-tile", root).forEach(x => x.classList.toggle("on", x === b));
+    if (lobbyCompact()) { openDeckSheet(b.dataset.g); return; }
+    renderDeckView();   // 2026-11-22 깃발을 바꿀 때는 덱 보기 · 출정의 단만 다시 그린다(상단 띠 · 채팅 · 수레바퀴는 그대로 — 예전엔 대기실 전체를 다시 그려 0.3초)
   }));
   renderDeckView();
   renderChat();

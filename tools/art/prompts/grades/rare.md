@@ -6,347 +6,9 @@
 
 카드 하나의 ``` 안 글만 그림 AI에 붙여 넣는다(카드마다 새 대화). 프롬프트 맨 끝 줄이 파일 이름(`<카드ID> <카드 이름>.png`)을 알려 준다 — 나온 그림(가로 5:4)을 그 이름으로 `tools/art/inbox/`에 두고(이름이 달라도 카드 ID만 앞에 있으면 된다) → `python3 tools/art/artmap.py import`.
 
-**그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(원래 카드와 같은 틀 · 다음 순간 — 섬네일로 나란히 놓아 짝으로 읽히는지 본다).
+**그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(같은 개체 · 장소 · 배색, 다른 시점 · 새 구도 — 섬네일로 나란히 놓아 같은 개체이면서 한눈에 더 강한 다른 그림으로 읽히는지 본다).
 
-## 1. 그림 없는 카드 — 먼저 그린다 · 30장
-
-### RS-A1-1 · 피의 창
-모르카스의 그믐 · 공격 마법 · 레벨 2 · 레어 · 틀 `path` R L `bloodink` · 프롬프트 n2 → `tools/art/inbox/RS-A1-1 피의 창.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. Side view across a dark hall, the whole flight in one frame. At the left a spear long as a wagon pole flies toward the right, head and shaft one piece of dark red glass: faceted at the point, still liquid at the tail, where it stretches into a string of round drops trailing back out of the left edge. Its line passes level above a row of low helmets and shield rims, aimed past them all at the one crested helm a head taller than the rest, far right. Black hall with a thread of violet in one high window; the spear glows deep crimson from within and reddens the helmet crowns beneath it.
-Colour: blood and ink — black and deep crimson with a thread of violet (#8b5cf6).
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-A1-1 피의 창.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### RS-A1-2 · 흡혈 장막
-모르카스의 그믐 · 방어 마법 · 레벨 2 · 레어 · 틀 `pov` R R `frostindigo` · 프롬프트 n2 → `tools/art/inbox/RS-A1-2 흡혈 장막.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. We are the ones advancing on the canyon gate: two spear shafts thrust in from the left edge, ours and our neighbour's, and both spearheads are steaming away from the tip, their steel boiling off in two plumes of silver vapour that stream to the right. There a tall curtain of shadow hangs across the gateway and billows out toward us, drinking the plumes through its folds like a wick. Behind the dark cloth stands a broad gatekeeper's outline, and the edge of its long axe brightens with every wisp that arrives. Cold blue-violet night with frost in the air; the only brightness is the stolen silver, fading on the spearheads and gathering on the axe.
-Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-A1-2 흡혈 장막.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### RS-A1-3 · 정신 지배
-모르카스의 그믐 · 공용 마법 · 레벨 2 · 레어 · 틀 `under` B B `eclipse` · 프롬프트 n2 → `tools/art/inbox/RS-A1-3 정신 지배.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. From the trampled ground, looking steeply up. In the lower part of the frame one spearman in silhouette, seen from behind, has stepped out of his rank; his dropped shield lies nearest the lens. He hangs a hand's breadth above the earth, held up by a dozen taut violet threads hooked to his helmet, his wrists and the butt of his spear. The threads rise straight overhead and meet at a black disc with a hair-thin cold rim where the moon should be. His spear point is swinging round toward the rank he left. Total eclipse: a thin cold ring of light rims helmet, shoulders and spear while everything else stays black in violet haze.
-Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-A1-3 정신 지배.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### MA-16 · 피의 맹약
-모르카스의 그믐 · 공격 마법 · 레벨 3 · 레어 · 틀 `symbol` F L `bonepale` · 프롬프트 n2 → `tools/art/inbox/MA-16 피의 맹약.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. A still life on a floor of pale ash. At the left, close and facing us squarely, stands one wide two-handled cup of bone-white horn, a dark red tide-line drying just below its rim. Behind it and away to the right, weapons stand planted upright in the ash in receding rows: sabres, axes, pikes. Each blade wears a single bead of the same dark red at its tip. Beside every weapon a shield lies face down where it was dropped, and a faint violet glow rises from the dregs in the cup. Flat, sourceless ash-grey light drains horn, steel and ash to bone tones; the dregs in the cup give the single violet glow.
-Colour: bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: MA-16 피의 맹약.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### PS-A2-1 · 대신 속죄
-솔란테의 새벽 · 방어 마법 · 레벨 2 · 레어 · 틀 `through` F R `vigil` · 프롬프트 n2 → `tools/art/inbox/PS-A2-1 대신 속죄.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. Framed by the dark arch of a wall gate, a torch-lit bridge at night. At the right of the opening two shield-bearers stand in file, facing us, the second a step behind the first. A war hammer swung in from the left edge has landed square on the front shield, and that shield stays smooth and whole. The crack has opened in the shield behind it, in the same place, its edges glowing gold, and a thread of light runs between the two, taut as a plucked string. The rear bearer only bows its head. Deep night on the wall; two small torches with pale-gold halos light the bridge, and the glowing crack is the brightest thing in view.
-Colour: night vigil — darkness holding small warm flames with pale-gold (#ffe9a8) halos.
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: PS-A2-1 대신 속죄.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### RS-A2-1 · 빛의 심판
-솔란테의 새벽 · 공격 마법 · 레벨 2 · 레어 · 틀 `cut` R X `stainedglass` · 프롬프트 n2 → `tools/art/inbox/RS-A2-1 빛의 심판.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. A cutaway side view in the deep shade of a white wall. At the left two enamelled shields, one ruby, one blue, lie face up on pale paving. From each a ribbon of coloured light lifts, and the two braid into one level shaft of pale gold, thick as a mast, that runs across the whole frame to the right. It has bored through a first dark tower shield planted upright, shown sliced in half around the glowing tunnel, comes out thinner, and enters a second as fine as a needle. Deep morning shade below the wall; the shaft throws ruby, blue and pale-gold patches along the paving and rims each sliced edge.
-Colour: stained glass — jewel-coloured patches of light on pale stone in deep shade, pale-gold (#ffe9a8) beams.
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-A2-1 빛의 심판.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### RS-A2-2 · 응보의 빛
-솔란테의 새벽 · 방어 마법 · 레벨 3 · 레어 · 틀 `impact` U B `glare` · 프롬프트 n2 → `tools/art/inbox/RS-A2-2 응보의 빛.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. At arm's length, the instant a blow lands. Low in the frame a dark pike thrust in from the right has stopped dead against one great feather of solid white-gold light, broad as a door. Where point meets feather, a bright copy of the pike head is peeling off the steel like a cast from a mould. Above, a dozen such copies hang in the air, axe heads, sword blades, arrow points, climbing in a neat stack toward the top, and every one has turned to point back the way it came. Blinding white-gold glare from the feather of light itself fills the frame behind the impact and cuts the pike into a hard black shape.
-Colour: holy glare — blinding white-gold (#ffe9a8) light with dark shapes in front of it.
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-A2-2 응보의 빛.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### RS-A3-1 · 칼바람
-벨루미르의 별 · 공격 마법 · 레벨 1 · 레어 · 틀 `object` F R `starindigo` · 프롬프트 n2 → `tools/art/inbox/RS-A3-1 칼바람.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. On a high practice ledge at night, an empty suit of practice armour, dented breastplate and helmet, hangs on a wooden post at the right, facing us. Two thin crescents of teal wind have just crossed it, one after the other, and the two leather straps at its shoulder hang cut clean through, their ends still flying; the breastplate swings open on its one remaining buckle. An arm's length short of the post an arrow is still in the air, arriving late. Deep indigo night crowded with stars; the two wind crescents glow teal and lay a silver edge along the breastplate's rim.
-Colour: star indigo — deep indigo night full of stars, wind-teal (#9fe3d6) streaks and silver.
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-A3-1 칼바람.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### RS-A3-2 · 역풍 장벽
-벨루미르의 별 · 방어 마법 · 레벨 2 · 레어 · 틀 `cut` R L `aurora` · 프롬프트 n2 → `tools/art/inbox/RS-A3-2 역풍 장벽.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. A side-on slice through the night air beside a needle spire, the wind made visible like grain in cut wood. In the left third a standing wall of it rises from the stair to the top of the frame: ribbons of teal-green and violet streaming upward, then hairpinning back toward the right. Three sword blades thrust in from the right edge at different heights have entered the wall, and each has been turned with the flow: the steel bends round in a smooth hook until its point aims back along its own blade. Dark night; the wind ribbons themselves glow teal-green and violet like an aurora, sheening the bent steel and the spire's edge.
-Colour: aurora — teal-green (#9fe3d6) and violet ribbons of light over darkness.
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-A3-2 역풍 장벽.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### RS-A3-3 · 회오리 칼날
-벨루미르의 별 · 공용 마법 · 레벨 3 · 레어 · 틀 `reflect` F B `moonsilver` · 프롬프트 n2 → `tools/art/inbox/RS-A3-3 회오리 칼날.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. A long white terrace wall under a full moon, and on it, sharp as cut paper, the shadow of something coming up behind us: a leaning funnel as wide as a gatehouse, its outline flickering with hundreds of small crescent shapes that circle inside it like a shoal. Along the foot of the wall, in the lower part of the frame, the shadows of spearmen caught in it are down on hands and knees, spears tumbling from their grip, one helmet lifting away. The funnel's shadow swells as it comes. The moon hangs low and full behind us: blue-silver wall, ink-sharp shadows, one breath of teal along the funnel's edge.
-Colour: moon silver — blue-silver monochrome under a full moon, sharp shadows, a breath of teal (#9fe3d6).
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-A3-3 회오리 칼날.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### RS-B1-2 · 매설 지뢰
-도르마크의 심장불 · 방어 마법 · 레벨 1 · 레어 · 틀 `pov` D L `brassglow` · 프롬프트 n2 → `tools/art/inbox/RS-B1-2 매설 지뢰.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. First person, looking straight down at our own two boots on a steep mountain path paved with flat lava stones. Under the left boot, in the left of the frame, one stone like all the others has sunk a finger's depth, and a hair-thin seam of orange light has sprung up around it and is racing along the cracks toward a second stone one stride ahead. Smoke curls up between the bootlaces and the first grit is already lifting toward the lens. Beside the sunken stone, easy to miss, three pebbles sit in a deliberate row. Late amber light on soot-brown rock; the seam of fire under the boot is the brightest thing, glinting on brass eyelets and hobnails.
-Colour: furnace warmth — brass, copper and amber tones in sooty brown gloom, fire-orange (#ff6b3d) at the heart.
-Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-B1-2 매설 지뢰.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### RS-B1-3 · 불씨 탄막
-도르마크의 심장불 · 공용 마법 · 레벨 2 · 레어 · 틀 `object` R R `whitehot` · 프롬프트 n2 → `tools/art/inbox/RS-B1-3 불씨 탄막.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. One enormous two-handed sword stands raised, high at the right of the frame, above a dark rank of helmets and ordinary spears. From three shell-bursts fading in the sky behind, thousands of freed embers stream across the whole picture in long bending lines that all curve toward that single blade and crowd onto it. Its upper half is already sheathed in them and glowing yellow-white, sparks dripping from the cross-guard onto the gauntlets that hold it. The spears and short blades around it carry only an ember or two apiece. Black smoke-filled sky; the ember-crusted blade is the light source, blinding yellow-white along its edge and sinking to crimson on the helmets beneath.
-Colour: white-hot — a blinding yellow-white core falling through fire-orange (#ff6b3d) into deep crimson shadow.
-Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-B1-3 불씨 탄막.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### NB1-3 · 불바람
-도르마크의 심장불 · 공격 마법 · 레벨 3 · 레어 · 틀 `under` L T `ember` · 프롬프트 n2 → `tools/art/inbox/NB1-3 불바람.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. Lying on the floor of a narrow mountain pass at night and looking straight up: the strip of sky between two black rock walls has become a river of wind made visible, long streamers of sparks and thin flame all racing leftward across the upper frame. Tall pennons on spear shafts lean in from below, snapping the same way; the foremost is ablaze along its whole length, those behind it only fringed with fire. Loose embers sift down toward the lens like slow snow and settle as tiny flames on helmet crests and spear tips. Deep night in the pass; the wind's own orange streamers overhead and the pinpoint embers settling on black iron are the only light.
-Colour: embers in the dark — near-black and soot-brown, with small fierce glows of fire-orange (#ff6b3d).
-Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: NB1-3 불바람.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### NB2-1 · 과부하 가동
-소르그림의 방패 · 공용 마법 · 레벨 2 · 레어 · 틀 `path` R B `patina` · 프롬프트 n2 → `tools/art/inbox/NB2-1 과부하 가동.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. In side view along the bottom of the frame, three boiler-driven golems charge to the right across an iron bridge, each dragging a long level streak of steam ripped from every seam. Their whistle valves are lashed shut with chain, rivet heads glow cherry-red, and the shaking has thrown the rust off them in clouds of red-brown flakes that hang along the whole run. The lightest frame comes last, the middling one ahead of it, and far out in front, buckling the deck plates at each stride, pounds the heaviest: a slab-sided hulk of doubled plate. Dim storm daylight over a chasm; rust-red flakes and green-stained copper pipes against steel grey, the steam streaks pale and the rivets small hot points.
-Colour: rust and verdigris — red-brown and green-blue patina over steel grey (#a9b4c2) in dim light.
-Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: NB2-1 과부하 가동.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### RS-B2-3 · 리벳 폭풍
-소르그림의 방패 · 공용 마법 · 레벨 3 · 레어 · 틀 `swarm` L X `forgeheart` · 프롬프트 n2 → `tools/art/inbox/RS-B2-3 리벳 폭풍.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. Red-hot rivets fill the frame from edge to edge, thousands of them, flying leftward in slanting streaks like driven sleet. At the right edge the spilled hoppers of overturned riveting engines still pour them out. Midway the storm crosses a rack of plain square breastplates, and there the rivets seat themselves with small flashes, heads lining up in neat new rows along every seam. At the far left it meets a line of black spiked shields and goes straight through, leaving each one stitched with round holes that let the furnace glow shine out behind. Gunmetal gloom of a forge yard at night; the rivets are the light, orange-white streaks that stay glowing in the new seams and in every punched hole.
-Colour: forge heart — dark gunmetal and steel grey (#a9b4c2) with molten orange glowing in the seams.
-Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-B2-3 리벳 폭풍.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### RS-B2-4 · 철벽 진격
-소르그림의 방패 · 공격 마법 · 레벨 4 · 레어 · 틀 `column` F L `patina` · 프롬프트 n2 → `tools/art/inbox/RS-B2-4 철벽 진격.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. A steep stair cut into a mountain pass runs down the left of the frame, and a column of locked tower shields comes down it straight at us, rank stacked above rank like a pillar of steel. Every rank leans forward at the same slant, each shield pressed flat on the backs below, so the weight of the whole stair bears down on the one great shield at the bottom, huge in the foreground. Its boss has just struck a timber barricade: logs burst apart, and grit and rainwater leap off every step at once. Dim storm light in the pass; rust-streaked shields with verdigris-green bosses, the splintered timber pale against wet dark rock.
-Colour: rust and verdigris — red-brown and green-blue patina over steel grey (#a9b4c2) in dim light.
-Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-B2-4 철벽 진격.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### SB2-09 · 대공방
-소르그림의 방패 · 공용 마법 · 레벨 4 · 레어 · 틀 `through` B L `lamplit` · 프롬프트 n2 → `tools/art/inbox/SB2-09 대공방.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. Framed by the timber props of a mine gallery's mouth, high in a vast cavern's wall: the whole underground city lies below, level under level, and every furnace in it is lit — hundreds of small orange doors glowing in the black, a hammer rising and falling in each pool of light. In the left of the frame the great shaft climbs toward the surface, and up it, away from us, moves an endless chain of lift cradles, each carrying a freshly riveted shield or breastplate, dull red at the edges, toward a far bright gate. Black cavern dark holding hundreds of small warm furnace mouths; steel glints at the edge of each pool and all along the moving lift chain.
-Colour: lamplight underground — small warm pools of light in black, steel grey (#a9b4c2) glinting at the edges.
-Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: SB2-09 대공방.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### PS-B3-1 · 증폭 회로
-케라운의 벼락 · 공용 마법 · 레벨 2 · 레어 · 틀 `impact` B R `greensky` · 프롬프트 n2 → `tools/art/inbox/PS-B3-1 증폭 회로.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. At arm's length behind two front-rank fighters, seen only as plated backs in the right of the frame: bolted between each pair of shoulder blades is a copper frame of coils and glass tubes with a short rod on top, and a sagging cable joins the two. A hair-thin thread of lightning has just come down from the sky onto the nearer rod; it crosses the cable as thick as a rope and bursts from the farther frame away from us, thick as a tree trunk, toward a far siege tower. Every helmet plume stands on end. Flat yellow-green storm light over a rain-flattened plateau; the bolt is electric yellow, thin above and blinding where it leaves, rimming both backs.
-Colour: storm green — eerie flat yellow-green light before the strike, with a few electric-yellow (#ffd84a) sparks.
-Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: PS-B3-1 증폭 회로.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### RS-B3-1 · 축전 해방
-케라운의 벼락 · 공격 마법 · 레벨 2 · 레어 · 틀 `after` N B `thunderhead` · 프롬프트 n2 → `tools/art/inbox/RS-B3-1 축전 해방.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. Three tall glass lightning jars stand in a row along the lower part of the frame, on a rain-wet parapet, joined neck to neck by one thick copper bar — and all three are spent: each belly dark and fogged from inside, each lid lifting an identical curl of smoke, the bar still glowing dull yellow from end to end. Beyond them the plain shows where the charge went: three scorched discs in a file along a trampled road, one behind another, each glazed to black glass, each the same width, each still steaming. Black storm cloud and grey rain; the cooling copper bar and the three smouldering discs are the only yellow in the scene.
-Colour: thunderhead — black and rain-grey split by searing electric yellow (#ffd84a).
-Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-B3-1 축전 해방.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### RS-B3-2 · 감전 덫
-케라운의 벼락 · 방어 마법 · 레벨 3 · 레어 · 틀 `object` D R `copperlab` · 프롬프트 n2 → `tools/art/inbox/RS-B3-2 감전 덫.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. A heavy sword hangs in mid-air above a workshop doorsill at the right of the frame, point down, an instant after leaving the hand that carried it: the steel gauntlet above is still sprung wide open, cropped at the wrist by the door frame. Along the oak sill runs a bright line of bare copper wire, and from it thin yellow arcs climb the blade to the hilt and on to the gauntlet's fingertips. Two more dropped blades already lie across the threshold. Inside, to the left, the workshop waits warm and orderly: coils, amber lamps, a steaming kettle. Amber lamplight from inside spills over the sill; the copper wire and the climbing arcs add sharp filament-yellow along the falling blade.
-Colour: copper warmth — copper, amber glass and electric-yellow (#ffd84a) filament glow.
-Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-B3-2 감전 덫.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### NG1-1 · 격노
-고르바스의 발톱 · 공격 마법 · 레벨 2 · 레어 · 틀 `after` D R `ochredust` · 프롬프트 n2 → `tools/art/inbox/NG1-1 격노.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. The aftermath on a hillside camp: at the right, under a hide lean-to, three stretchers lie empty with their lashings burst outward, and unwound bandages, a snapped crutch and a splint trail out of the shade in a line. From there a swathe of gouged footprints plunges straight down the slope, each print deeper and wider than the last, to a rolling wall of rust-red dust far below — and inside the dust run small dark figures, every one with two points of red where the eyes would be. High dry sun in a tan dust haze; the lean-to throws one hard shadow, and the red cloud below stands matte against the pale clay slope.
-Colour: ochre dust — matte sandstone and clay browns (#b88a5a) in a sunlit dust haze.
-Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: NG1-1 격노.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### PS-G1-2 · 무리의 분노
-고르바스의 발톱 · 공격 마법 · 레벨 2 · 레어 · 틀 `reflect` U C `firelit` · 프롬프트 n2 → `tools/art/inbox/PS-G1-2 무리의 분노.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. Shadows on a canyon wall tell it. At the bottom a single small fire burns on the canyon floor, and around it sit the dark backs of a wolf pack of every size — a heavy leader with its head thrown back in a howl, lean yearlings, a cub half their height. On the sandstone wall that fills the centre of the picture every one of their shadows has risen to the same towering size as the leader's: a row of identical huge wolf-shapes with lifted muzzles, climbing toward the rim of the rock. One small fire at the foot of the wall is the only light, warming the sandstone in dry ochre and leaving the canyon above in deep darkness.
-Colour: firelit dark — deep darkness with warm ochre (#b88a5a) surfaces lit by one small flame.
-Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: PS-G1-2 무리의 분노.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### RS-G1-2 · 피의 맹세
-고르바스의 발톱 · 방어 마법 · 레벨 2 · 레어 · 틀 `impact` B B `ochredust` · 프롬프트 n2 → `tools/art/inbox/RS-G1-2 피의 맹세.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. A round hide shield has just hit the dust, face up, at the bottom of the frame, a ring of grit still jumping from under its rim. The rust-red clay handprint stamped on it is lifting off the hide as one bright thread and streaming away from us along the ground to the next shield in the file, upright a pace behind, where a second handprint is appearing over the first. Beyond that, shield after shield recedes into the sunlit haze, each stamped with a single red hand, with only dusty boots showing beneath. Hard midday sun through tan dust lights the file from the left; the red thread and the handprints are the only saturated colour in the clay-brown haze.
-Colour: ochre dust — matte sandstone and clay browns (#b88a5a) in a sunlit dust haze.
-Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-G1-2 피의 맹세.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### SG1-03 · 궁지의 송곳니
-고르바스의 발톱 · 공격 마법 · 레벨 3 · 레어 · 틀 `under` F C `bonemoon` · 프롬프트 n2 → `tools/art/inbox/SG1-03 궁지의 송곳니.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. Flat on our back on cold ground, looking straight up: from every edge of the frame bone-white stone fangs as long as spears close in toward the centre, the inside of one vast bite coming down on us, with the full moon caught in the shrinking gap between their points. Torn loose and tumbling up into that gap are a sword, highest and smallest, then a wrenched-off shoulder plate, then a helmet only just lifted away, its straps still flying, while grit sifts down from the fangs onto us. A full moon directly overhead backlights the ring of fangs, bone-white on their inner edges and grey-blue in shadow, with dry ochre grit drifting through the beam.
-Colour: bone and moon — bone-white and grey-blue night with dry ochre (#b88a5a) earth.
-Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: SG1-03 궁지의 송곳니.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### RS-G2-1 · 뿌리 습격
-베르단의 뿔 · 공격 마법 · 레벨 2 · 레어 · 틀 `path` B R `sporeglow` · 프롬프트 n2 → `tools/art/inbox/RS-G2-1 뿌리 습격.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. Night on the forest floor. From the lower left a raised seam of earth runs away from us across the leaf litter, glowing blue-green through its cracks, straight under the feet of a distant rank of armoured figures that stands facing us on the right. Behind their backs the seam has burst: a fan of pale roots, tall as saplings, rears out of the ground and curls over their helmets, tips already hooked round two ankles. Along the seam beads of pale-lime light slide back toward us, one after another, like sap rising in a stem. Black night under the canopy, lit only by the blue-green seam and the pale roots, which rim the rank of figures from behind.
-Colour: spore night — black dark lit by blue-green and pale-lime (#58b85f) bioluminescence.
-Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-G2-1 뿌리 습격.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### RS-G2-2 · 가시 덤불
-베르단의 뿔 · 방어 마법 · 레벨 2 · 레어 · 틀 `object` L R `sporeglow` · 프롬프트 n2 → `tools/art/inbox/RS-G2-2 가시 덤불.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. Told through one roadside lamp: on the right, where a forest road lay open at dusk, a thicket of bramble now stands thick as a wall, and deep inside it hangs the road's lamp — a glass globe of glowing fungus on a post that the stems have lifted and tipped toward the left. Its pale-lime light shines out through layer on layer of hooked thorns and throws their shadows huge across the last bare paving stones, which are already tilting as new shoots push up between them. Deep night; the caged lamp is the only source, pale-lime at its heart and blue-green where it filters through the leaves.
-Colour: spore night — black dark lit by blue-green and pale-lime (#58b85f) bioluminescence.
-Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-G2-2 가시 덤불.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
+## 1. 그림 없는 카드 — 먼저 그린다 · 1장
 
 ### MG-14 · 숲의 무게
 베르단의 뿔 · 공용 마법 · 레벨 3 · 레어 · 틀 `inside` R R `thorndark` · 프롬프트 n2 → `tools/art/inbox/MG-14 숲의 무게.png`
@@ -361,46 +23,46 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MG-14 숲의 무게.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### RS-G3-1 · 작살 물살
-마렌시아의 노래 · 공격 마법 · 레벨 2 · 레어 · 틀 `inside` D L `stormsea` · 프롬프트 n2 → `tools/art/inbox/RS-G3-1 작살 물살.png`
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 58장
+
+### RS-A1-1 · 피의 창 — 그림 있음
+모르카스의 그믐 · 공격 마법 · 레벨 2 · 레어 · 틀 `path` R L `bloodink` · 프롬프트 n2 → `tools/art/inbox/RS-A1-1 피의 창.png`
 
 ```
-Landscape 5:4 painting of a spell — the magic itself is the subject. From inside the spell itself: we ride within a hollow, spiralling tube of green-blue water, its walls streaked white with speed, plunging steeply down toward the lower left. Ahead of us a long bone harpoon rides the tube, barbs first, its line trailing back past us, and at the tube's mouth its point is just meeting a raised round shield — whose painted rings and pale glow are peeling off in the flow like wet pigment, streaming back along the walls in ribbons, while the bare wood splits around the barb. Slate storm daylight filters through the rushing green-blue walls, and white spray and the harpoon's wet barbs take the brightest highlights.
-Colour: storm sea — heavy green-blue (#4fb3ff), white spray and slate grey.
-Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Landscape 5:4 painting of a spell — the magic itself is the subject. Side view across a dark hall, the whole flight in one frame. At the left a spear long as a wagon pole flies toward the right, head and shaft one piece of dark red glass: faceted at the point, still liquid at the tail, where it stretches into a string of round drops trailing back out of the left edge. Its line passes level above a row of low helmets and shield rims, aimed past them all at the one crested helm a head taller than the rest, far right. Black hall with a thread of violet in one high window; the spear glows deep crimson from within and reddens the helmet crowns beneath it.
+Colour: blood and ink — black and deep crimson with a thread of violet (#8b5cf6).
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
 Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-G3-1 작살 물살.png — this is the name of the downloaded file only; the painting itself stays wordless.
+Save the image file as: RS-A1-1 피의 창.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### RS-G3-2 · 포말 장막
-마렌시아의 노래 · 방어 마법 · 레벨 2 · 레어 · 틀 `ring` F L `coraldawn` · 프롬프트 n2 → `tools/art/inbox/RS-G3-2 포말 장막.png`
+### RS-A1-2 · 흡혈 장막 — 그림 있음
+모르카스의 그믐 · 방어 마법 · 레벨 2 · 레어 · 틀 `pov` R R `frostindigo` · 프롬프트 n2 → `tools/art/inbox/RS-A1-2 흡혈 장막.png`
 
 ```
-Landscape 5:4 painting of a spell — the magic itself is the subject. A single tall curtain of white water rises from the dawn shallows and curves over the shelter behind it, one smooth silken sheet, glassy and thin, with a soft white mane rolling along its crest like the lip of a breaking wave. Through the sheet, left of centre, we see the blurred warm shapes of the figures crouched safely behind. A sword blade has just struck from the right and is sliding off along the curve, its edge trailing one long ribbon of pale water, while the sheet bends round the blow and closes again behind it, unbroken. Low mist drifts across the wet sand in wide, soft bands. First coral-pink sun from low behind us glows through the thin water so the whole curtain turns rose and gold at its edges over water-blue shallows, and the blade carries one cold glint.
-Colour: coral dawn — coral pink and warm first light over water-blue (#4fb3ff).
-Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Landscape 5:4 painting of a spell — the magic itself is the subject. We are the ones advancing on the canyon gate: two spear shafts thrust in from the left edge, ours and our neighbour's, and both spearheads are steaming away from the tip, their steel boiling off in two plumes of silver vapour that stream to the right. There a tall curtain of shadow hangs across the gateway and billows out toward us, drinking the plumes through its folds like a wick. Behind the dark cloth stands a broad gatekeeper's outline, and the edge of its long axe brightens with every wisp that arrives. Cold blue-violet night with frost in the air; the only brightness is the stolen silver, fading on the spearheads and gathering on the axe.
+Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
 Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-G3-2 포말 장막.png — this is the name of the downloaded file only; the painting itself stays wordless.
+Save the image file as: RS-A1-2 흡혈 장막.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### RS-G3-3 · 밀물의 노래
-마렌시아의 노래 · 공용 마법 · 레벨 3 · 레어 · 틀 `impact` F L `lagoon` · 프롬프트 n2 → `tools/art/inbox/RS-G3-3 밀물의 노래.png`
+### RS-A1-3 · 정신 지배 — 그림 있음
+모르카스의 그믐 · 공용 마법 · 레벨 2 · 레어 · 틀 `under` B B `eclipse` · 프롬프트 n2 → `tools/art/inbox/RS-A1-3 정신 지배.png`
 
 ```
-Landscape 5:4 painting of a spell — the magic itself is the subject. A clear, sunlit wave has just burst over a gaming blanket spread on white sand at the left of the frame and surges straight toward us, its face combed into fine even ripples as if a sound were passing through it. It is carrying the whole game away — a spill of coins, a rabbit-foot charm, a braided lucky knot, a handful of knucklebones, the wooden stake-bowl — all tumbling in turquoise foam right before us. Every coin in the water has turned the same smooth, unmarked side up. High sun through shallow turquoise water throws dancing bright nets over the white sand, and the foam and coin faces flash pearl white.
-Colour: sunlit shallows — turquoise and water-blue (#4fb3ff) with pearl white, clear and bright over deep blue shadow.
-Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Landscape 5:4 painting of a spell — the magic itself is the subject. From the trampled ground, looking steeply up. In the lower part of the frame one spearman in silhouette, seen from behind, has stepped out of his rank; his dropped shield lies nearest the lens. He hangs a hand's breadth above the earth, held up by a dozen taut violet threads hooked to his helmet, his wrists and the butt of his spear. The threads rise straight overhead and meet at a black disc with a hair-thin cold rim where the moon should be. His spear point is swinging round toward the rank he left. Total eclipse: a thin cold ring of light rims helmet, shoulders and spear while everything else stays black in violet haze.
+Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
 Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: RS-G3-3 밀물의 노래.png — this is the name of the downloaded file only; the painting itself stays wordless.
+Save the image file as: RS-A1-3 정신 지배.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
-
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 29장
 
 ### US-A1-2 · 그림자 계약 — 그림 있음
 모르카스의 그믐 · 공격 마법 · 레벨 2 · 레어 · 틀 `inside` D R `candle` · 프롬프트 n2 → `tools/art/inbox/US-A1-2 그림자 계약.png`
@@ -426,6 +88,19 @@ Rare — third of the six rarity tiers, clearly above superior. Mood: striking a
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: IR-A1 녹타르 피의 가면.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### MA-16 · 피의 맹약 — 그림 있음
+모르카스의 그믐 · 공격 마법 · 레벨 3 · 레어 · 틀 `symbol` F L `bonepale` · 프롬프트 n2 → `tools/art/inbox/MA-16 피의 맹약.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. A still life on a floor of pale ash. At the left, close and facing us squarely, stands one wide two-handled cup of bone-white horn, a dark red tide-line drying just below its rim. Behind it and away to the right, weapons stand planted upright in the ash in receding rows: sabres, axes, pikes. Each blade wears a single bead of the same dark red at its tip. Beside every weapon a shield lies face down where it was dropped, and a faint violet glow rises from the dregs in the cup. Flat, sourceless ash-grey light drains horn, steel and ash to bone tones; the dregs in the cup give the single violet glow.
+Colour: bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: MA-16 피의 맹약.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### PN-A1-R · 그림자 계약 집행자 — 그림 있음
@@ -454,6 +129,32 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: RS-A2-3 빛의 결계.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### PS-A2-1 · 대신 속죄 — 그림 있음
+솔란테의 새벽 · 방어 마법 · 레벨 2 · 레어 · 틀 `through` F R `vigil` · 프롬프트 n2 → `tools/art/inbox/PS-A2-1 대신 속죄.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. Framed by the dark arch of a wall gate, a torch-lit bridge at night. At the right of the opening two shield-bearers stand in file, facing us, the second a step behind the first. A war hammer swung in from the left edge has landed square on the front shield, and that shield stays smooth and whole. The crack has opened in the shield behind it, in the same place, its edges glowing gold, and a thread of light runs between the two, taut as a plucked string. The rear bearer only bows its head. Deep night on the wall; two small torches with pale-gold halos light the bridge, and the glowing crack is the brightest thing in view.
+Colour: night vigil — darkness holding small warm flames with pale-gold (#ffe9a8) halos.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: PS-A2-1 대신 속죄.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### RS-A2-1 · 빛의 심판 — 그림 있음
+솔란테의 새벽 · 공격 마법 · 레벨 2 · 레어 · 틀 `cut` R X `stainedglass` · 프롬프트 n2 → `tools/art/inbox/RS-A2-1 빛의 심판.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. A cutaway side view in the deep shade of a white wall. At the left two enamelled shields, one ruby, one blue, lie face up on pale paving. From each a ribbon of coloured light lifts, and the two braid into one level shaft of pale gold, thick as a mast, that runs across the whole frame to the right. It has bored through a first dark tower shield planted upright, shown sliced in half around the glowing tunnel, comes out thinner, and enters a second as fine as a needle. Deep morning shade below the wall; the shaft throws ruby, blue and pale-gold patches along the paving and rims each sliced edge.
+Colour: stained glass — jewel-coloured patches of light on pale stone in deep shade, pale-gold (#ffe9a8) beams.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: RS-A2-1 빛의 심판.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### IR-A2 · 솔란테의 맹세 방패 — 그림 있음
 솔란테의 새벽 · 아이템 · 레벨 3 · 레어 · 틀 `top` U T `stainedglass` · 프롬프트 n2 → `tools/art/inbox/IR-A2 솔란테의 맹세 방패.png`
 
@@ -467,6 +168,19 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IR-A2 솔란테의 맹세 방패.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### RS-A2-2 · 응보의 빛 — 그림 있음
+솔란테의 새벽 · 방어 마법 · 레벨 3 · 레어 · 틀 `impact` U B `glare` · 프롬프트 n2 → `tools/art/inbox/RS-A2-2 응보의 빛.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. At arm's length, the instant a blow lands. Low in the frame a dark pike thrust in from the right has stopped dead against one great feather of solid white-gold light, broad as a door. Where point meets feather, a bright copy of the pike head is peeling off the steel like a cast from a mould. Above, a dozen such copies hang in the air, axe heads, sword blades, arrow points, climbing in a neat stack toward the top, and every one has turned to point back the way it came. Blinding white-gold glare from the feather of light itself fills the frame behind the impact and cuts the pike into a hard black shape.
+Colour: holy glare — blinding white-gold (#ffe9a8) light with dark shapes in front of it.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: RS-A2-2 응보의 빛.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### PN-A2-R · 새벽빛 방패 사자 — 그림 있음
 솔란테의 새벽 · 유닛 · 레벨 4 · 레어 · 틀 `tilt` B T `stainedglass` · 프롬프트 n2 → `tools/art/inbox/PN-A2-R 새벽빛 방패 사자.png`
 
@@ -478,6 +192,32 @@ Rare — third of the six rarity tiers, clearly above superior. Mood: striking a
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: PN-A2-R 새벽빛 방패 사자.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### RS-A3-1 · 칼바람 — 그림 있음
+벨루미르의 별 · 공격 마법 · 레벨 1 · 레어 · 틀 `object` F R `starindigo` · 프롬프트 n2 → `tools/art/inbox/RS-A3-1 칼바람.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. On a high practice ledge at night, an empty suit of practice armour, dented breastplate and helmet, hangs on a wooden post at the right, facing us. Two thin crescents of teal wind have just crossed it, one after the other, and the two leather straps at its shoulder hang cut clean through, their ends still flying; the breastplate swings open on its one remaining buckle. An arm's length short of the post an arrow is still in the air, arriving late. Deep indigo night crowded with stars; the two wind crescents glow teal and lay a silver edge along the breastplate's rim.
+Colour: star indigo — deep indigo night full of stars, wind-teal (#9fe3d6) streaks and silver.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: RS-A3-1 칼바람.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### RS-A3-2 · 역풍 장벽 — 그림 있음
+벨루미르의 별 · 방어 마법 · 레벨 2 · 레어 · 틀 `cut` R L `aurora` · 프롬프트 n2 → `tools/art/inbox/RS-A3-2 역풍 장벽.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. A side-on slice through the night air beside a needle spire, the wind made visible like grain in cut wood. In the left third a standing wall of it rises from the stair to the top of the frame: ribbons of teal-green and violet streaming upward, then hairpinning back toward the right. Three sword blades thrust in from the right edge at different heights have entered the wall, and each has been turned with the flow: the steel bends round in a smooth hook until its point aims back along its own blade. Dark night; the wind ribbons themselves glow teal-green and violet like an aurora, sheening the bent steel and the spire's edge.
+Colour: aurora — teal-green (#9fe3d6) and violet ribbons of light over darkness.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: RS-A3-2 역풍 장벽.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### SA3-06 · 궁사회 무기고 — 그림 있음
@@ -506,6 +246,19 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IR-A3 별 문자 화살.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### RS-A3-3 · 회오리 칼날 — 그림 있음
+벨루미르의 별 · 공용 마법 · 레벨 3 · 레어 · 틀 `reflect` F B `moonsilver` · 프롬프트 n2 → `tools/art/inbox/RS-A3-3 회오리 칼날.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. A long white terrace wall under a full moon, and on it, sharp as cut paper, the shadow of something coming up behind us: a leaning funnel as wide as a gatehouse, its outline flickering with hundreds of small crescent shapes that circle inside it like a shoal. Along the foot of the wall, in the lower part of the frame, the shadows of spearmen caught in it are down on hands and knees, spears tumbling from their grip, one helmet lifting away. The funnel's shadow swells as it comes. The moon hangs low and full behind us: blue-silver wall, ink-sharp shadows, one breath of teal along the funnel's edge.
+Colour: moon silver — blue-silver monochrome under a full moon, sharp shadows, a breath of teal (#9fe3d6).
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: RS-A3-3 회오리 칼날.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### PN-A3-R · 별빛 궁수장 — 그림 있음
 벨루미르의 별 · 유닛 · 레벨 4 · 레어 · 틀 `swarm` B B `moonsilver` · 프롬프트 n2 → `tools/art/inbox/PN-A3-R 별빛 궁수장.png`
 
@@ -519,6 +272,32 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-A3-R 별빛 궁수장.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### RS-B1-2 · 매설 지뢰 — 그림 있음
+도르마크의 심장불 · 방어 마법 · 레벨 1 · 레어 · 틀 `pov` D L `brassglow` · 프롬프트 n2 → `tools/art/inbox/RS-B1-2 매설 지뢰.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. First person, looking straight down at our own two boots on a steep mountain path paved with flat lava stones. Under the left boot, in the left of the frame, one stone like all the others has sunk a finger's depth, and a hair-thin seam of orange light has sprung up around it and is racing along the cracks toward a second stone one stride ahead. Smoke curls up between the bootlaces and the first grit is already lifting toward the lens. Beside the sunken stone, easy to miss, three pebbles sit in a deliberate row. Late amber light on soot-brown rock; the seam of fire under the boot is the brightest thing, glinting on brass eyelets and hobnails.
+Colour: furnace warmth — brass, copper and amber tones in sooty brown gloom, fire-orange (#ff6b3d) at the heart.
+Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: RS-B1-2 매설 지뢰.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### RS-B1-3 · 불씨 탄막 — 그림 있음
+도르마크의 심장불 · 공용 마법 · 레벨 2 · 레어 · 틀 `object` R R `whitehot` · 프롬프트 n2 → `tools/art/inbox/RS-B1-3 불씨 탄막.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. One enormous two-handed sword stands raised, high at the right of the frame, above a dark rank of helmets and ordinary spears. From three shell-bursts fading in the sky behind, thousands of freed embers stream across the whole picture in long bending lines that all curve toward that single blade and crowd onto it. Its upper half is already sheathed in them and glowing yellow-white, sparks dripping from the cross-guard onto the gauntlets that hold it. The spears and short blades around it carry only an ember or two apiece. Black smoke-filled sky; the ember-crusted blade is the light source, blinding yellow-white along its edge and sinking to crimson on the helmets beneath.
+Colour: white-hot — a blinding yellow-white core falling through fire-orange (#ff6b3d) into deep crimson shadow.
+Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: RS-B1-3 불씨 탄막.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### IR-B1 · 명사수의 화승총 — 그림 있음
 도르마크의 심장불 · 아이템 · 레벨 3 · 레어 · 틀 `hand` U R `brassglow` · 프롬프트 n2 → `tools/art/inbox/IR-B1 명사수의 화승총.png`
 
@@ -530,6 +309,19 @@ Rare — third of the six rarity tiers, clearly above superior. Mood: striking a
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: IR-B1 명사수의 화승총.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### NB1-3 · 불바람 — 그림 있음
+도르마크의 심장불 · 공격 마법 · 레벨 3 · 레어 · 틀 `under` L T `ember` · 프롬프트 n2 → `tools/art/inbox/NB1-3 불바람.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. Lying on the floor of a narrow mountain pass at night and looking straight up: the strip of sky between two black rock walls has become a river of wind made visible, long streamers of sparks and thin flame all racing leftward across the upper frame. Tall pennons on spear shafts lean in from below, snapping the same way; the foremost is ablaze along its whole length, those behind it only fringed with fire. Loose embers sift down toward the lens like slow snow and settle as tiny flames on helmet crests and spear tips. Deep night in the pass; the wind's own orange streamers overhead and the pinpoint embers settling on black iron are the only light.
+Colour: embers in the dark — near-black and soot-brown, with small fierce glows of fire-orange (#ff6b3d).
+Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: NB1-3 불바람.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### RS-B1-1 · 불바다 — 그림 있음
@@ -558,6 +350,19 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-B1-R 포연 속의 불매.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### NB2-1 · 과부하 가동 — 그림 있음
+소르그림의 방패 · 공용 마법 · 레벨 2 · 레어 · 틀 `path` R B `patina` · 프롬프트 n2 → `tools/art/inbox/NB2-1 과부하 가동.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. In side view along the bottom of the frame, three boiler-driven golems charge to the right across an iron bridge, each dragging a long level streak of steam ripped from every seam. Their whistle valves are lashed shut with chain, rivet heads glow cherry-red, and the shaking has thrown the rust off them in clouds of red-brown flakes that hang along the whole run. The lightest frame comes last, the middling one ahead of it, and far out in front, buckling the deck plates at each stride, pounds the heaviest: a slab-sided hulk of doubled plate. Dim storm daylight over a chasm; rust-red flakes and green-stained copper pipes against steel grey, the steam streaks pale and the rivets small hot points.
+Colour: rust and verdigris — red-brown and green-blue patina over steel grey (#a9b4c2) in dim light.
+Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: NB2-1 과부하 가동.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### RS-B2-2 · 골렘 방진 — 그림 있음
 소르그림의 방패 · 방어 마법 · 레벨 2 · 레어 · 틀 `reflect` L L `coldsteel` · 프롬프트 n2 → `tools/art/inbox/RS-B2-2 골렘 방진.png`
 
@@ -584,6 +389,19 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IR-B2 아다만트 장갑판.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### RS-B2-3 · 리벳 폭풍 — 그림 있음
+소르그림의 방패 · 공용 마법 · 레벨 3 · 레어 · 틀 `swarm` L X `forgeheart` · 프롬프트 n2 → `tools/art/inbox/RS-B2-3 리벳 폭풍.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. Red-hot rivets fill the frame from edge to edge, thousands of them, flying leftward in slanting streaks like driven sleet. At the right edge the spilled hoppers of overturned riveting engines still pour them out. Midway the storm crosses a rack of plain square breastplates, and there the rivets seat themselves with small flashes, heads lining up in neat new rows along every seam. At the far left it meets a line of black spiked shields and goes straight through, leaving each one stitched with round holes that let the furnace glow shine out behind. Gunmetal gloom of a forge yard at night; the rivets are the light, orange-white streaks that stay glowing in the new seams and in every punched hole.
+Colour: forge heart — dark gunmetal and steel grey (#a9b4c2) with molten orange glowing in the seams.
+Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: RS-B2-3 리벳 폭풍.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### PN-B2-R · 소르그림의 방패령 — 그림 있음
 소르그림의 방패 · 유닛 · 레벨 4 · 레어 · 틀 `swarm` L L `mirror` · 프롬프트 n2 → `tools/art/inbox/PN-B2-R 소르그림의 방패령.png`
 
@@ -595,6 +413,32 @@ Rare — third of the six rarity tiers, clearly above superior. Mood: striking a
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: PN-B2-R 소르그림의 방패령.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### RS-B2-4 · 철벽 진격 — 그림 있음
+소르그림의 방패 · 공격 마법 · 레벨 4 · 레어 · 틀 `column` F L `patina` · 프롬프트 n2 → `tools/art/inbox/RS-B2-4 철벽 진격.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. A steep stair cut into a mountain pass runs down the left of the frame, and a column of locked tower shields comes down it straight at us, rank stacked above rank like a pillar of steel. Every rank leans forward at the same slant, each shield pressed flat on the backs below, so the weight of the whole stair bears down on the one great shield at the bottom, huge in the foreground. Its boss has just struck a timber barricade: logs burst apart, and grit and rainwater leap off every step at once. Dim storm light in the pass; rust-streaked shields with verdigris-green bosses, the splintered timber pale against wet dark rock.
+Colour: rust and verdigris — red-brown and green-blue patina over steel grey (#a9b4c2) in dim light.
+Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: RS-B2-4 철벽 진격.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### SB2-09 · 대공방 — 그림 있음
+소르그림의 방패 · 공용 마법 · 레벨 4 · 레어 · 틀 `through` B L `lamplit` · 프롬프트 n2 → `tools/art/inbox/SB2-09 대공방.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. Framed by the timber props of a mine gallery's mouth, high in a vast cavern's wall: the whole underground city lies below, level under level, and every furnace in it is lit — hundreds of small orange doors glowing in the black, a hammer rising and falling in each pool of light. In the left of the frame the great shaft climbs toward the surface, and up it, away from us, moves an endless chain of lift cradles, each carrying a freshly riveted shield or breastplate, dull red at the edges, toward a far bright gate. Black cavern dark holding hundreds of small warm furnace mouths; steel glints at the edge of each pool and all along the moving lift chain.
+Colour: lamplight underground — small warm pools of light in black, steel grey (#a9b4c2) glinting at the edges.
+Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: SB2-09 대공방.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### IR-B3 · 구리 피뢰봉 — 그림 있음
@@ -610,6 +454,32 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IR-B3 구리 피뢰봉.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### PS-B3-1 · 증폭 회로 — 그림 있음
+케라운의 벼락 · 공용 마법 · 레벨 2 · 레어 · 틀 `impact` B R `greensky` · 프롬프트 n2 → `tools/art/inbox/PS-B3-1 증폭 회로.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. At arm's length behind two front-rank fighters, seen only as plated backs in the right of the frame: bolted between each pair of shoulder blades is a copper frame of coils and glass tubes with a short rod on top, and a sagging cable joins the two. A hair-thin thread of lightning has just come down from the sky onto the nearer rod; it crosses the cable as thick as a rope and bursts from the farther frame away from us, thick as a tree trunk, toward a far siege tower. Every helmet plume stands on end. Flat yellow-green storm light over a rain-flattened plateau; the bolt is electric yellow, thin above and blinding where it leaves, rimming both backs.
+Colour: storm green — eerie flat yellow-green light before the strike, with a few electric-yellow (#ffd84a) sparks.
+Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: PS-B3-1 증폭 회로.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### RS-B3-1 · 축전 해방 — 그림 있음
+케라운의 벼락 · 공격 마법 · 레벨 2 · 레어 · 틀 `after` N B `thunderhead` · 프롬프트 n2 → `tools/art/inbox/RS-B3-1 축전 해방.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. Three tall glass lightning jars stand in a row along the lower part of the frame, on a rain-wet parapet, joined neck to neck by one thick copper bar — and all three are spent: each belly dark and fogged from inside, each lid lifting an identical curl of smoke, the bar still glowing dull yellow from end to end. Beyond them the plain shows where the charge went: three scorched discs in a file along a trampled road, one behind another, each glazed to black glass, each the same width, each still steaming. Black storm cloud and grey rain; the cooling copper bar and the three smouldering discs are the only yellow in the scene.
+Colour: thunderhead — black and rain-grey split by searing electric yellow (#ffd84a).
+Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: RS-B3-1 축전 해방.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### RS-B3-3 · 충전 완료 — 그림 있음
 케라운의 벼락 · 공용 마법 · 레벨 2 · 레어 · 틀 `path` U T `flash` · 프롬프트 n2 → `tools/art/inbox/RS-B3-3 충전 완료.png`
 
@@ -621,6 +491,19 @@ Rare — third of the six rarity tiers, clearly above superior. Mood: striking a
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: RS-B3-3 충전 완료.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### RS-B3-2 · 감전 덫 — 그림 있음
+케라운의 벼락 · 방어 마법 · 레벨 3 · 레어 · 틀 `object` D R `copperlab` · 프롬프트 n2 → `tools/art/inbox/RS-B3-2 감전 덫.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. A heavy sword hangs in mid-air above a workshop doorsill at the right of the frame, point down, an instant after leaving the hand that carried it: the steel gauntlet above is still sprung wide open, cropped at the wrist by the door frame. Along the oak sill runs a bright line of bare copper wire, and from it thin yellow arcs climb the blade to the hilt and on to the gauntlet's fingertips. Two more dropped blades already lie across the threshold. Inside, to the left, the workshop waits warm and orderly: coils, amber lamps, a steaming kettle. Amber lamplight from inside spills over the sill; the copper wire and the climbing arcs add sharp filament-yellow along the falling blade.
+Colour: copper warmth — copper, amber glass and electric-yellow (#ffd84a) filament glow.
+Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: RS-B3-2 감전 덫.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### PN-B3-R · 병 속의 번개 술사 — 그림 있음
@@ -636,6 +519,45 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-B3-R 병 속의 번개 술사.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### NG1-1 · 격노 — 그림 있음
+고르바스의 발톱 · 공격 마법 · 레벨 2 · 레어 · 틀 `after` D R `ochredust` · 프롬프트 n2 → `tools/art/inbox/NG1-1 격노.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. The aftermath on a hillside camp: at the right, under a hide lean-to, three stretchers lie empty with their lashings burst outward, and unwound bandages, a snapped crutch and a splint trail out of the shade in a line. From there a swathe of gouged footprints plunges straight down the slope, each print deeper and wider than the last, to a rolling wall of rust-red dust far below — and inside the dust run small dark figures, every one with two points of red where the eyes would be. High dry sun in a tan dust haze; the lean-to throws one hard shadow, and the red cloud below stands matte against the pale clay slope.
+Colour: ochre dust — matte sandstone and clay browns (#b88a5a) in a sunlit dust haze.
+Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: NG1-1 격노.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### PS-G1-2 · 무리의 분노 — 그림 있음
+고르바스의 발톱 · 공격 마법 · 레벨 2 · 레어 · 틀 `reflect` U C `firelit` · 프롬프트 n2 → `tools/art/inbox/PS-G1-2 무리의 분노.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. Shadows on a canyon wall tell it. At the bottom a single small fire burns on the canyon floor, and around it sit the dark backs of a wolf pack of every size — a heavy leader with its head thrown back in a howl, lean yearlings, a cub half their height. On the sandstone wall that fills the centre of the picture every one of their shadows has risen to the same towering size as the leader's: a row of identical huge wolf-shapes with lifted muzzles, climbing toward the rim of the rock. One small fire at the foot of the wall is the only light, warming the sandstone in dry ochre and leaving the canyon above in deep darkness.
+Colour: firelit dark — deep darkness with warm ochre (#b88a5a) surfaces lit by one small flame.
+Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: PS-G1-2 무리의 분노.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### RS-G1-2 · 피의 맹세 — 그림 있음
+고르바스의 발톱 · 방어 마법 · 레벨 2 · 레어 · 틀 `impact` B B `ochredust` · 프롬프트 n2 → `tools/art/inbox/RS-G1-2 피의 맹세.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. A round hide shield has just hit the dust, face up, at the bottom of the frame, a ring of grit still jumping from under its rim. The rust-red clay handprint stamped on it is lifting off the hide as one bright thread and streaming away from us along the ground to the next shield in the file, upright a pace behind, where a second handprint is appearing over the first. Beyond that, shield after shield recedes into the sunlit haze, each stamped with a single red hand, with only dusty boots showing beneath. Hard midday sun through tan dust lights the file from the left; the red thread and the handprints are the only saturated colour in the clay-brown haze.
+Colour: ochre dust — matte sandstone and clay browns (#b88a5a) in a sunlit dust haze.
+Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: RS-G1-2 피의 맹세.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### IR-G1 · 잿갈기 문신 — 그림 있음
 고르바스의 발톱 · 아이템 · 레벨 3 · 레어 · 틀 `top` N L `firelit` · 프롬프트 n2 → `tools/art/inbox/IR-G1 잿갈기 문신.png`
 
@@ -647,6 +569,19 @@ Rare — third of the six rarity tiers, clearly above superior. Mood: striking a
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: IR-G1 잿갈기 문신.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### SG1-03 · 궁지의 송곳니 — 그림 있음
+고르바스의 발톱 · 공격 마법 · 레벨 3 · 레어 · 틀 `under` F C `bonemoon` · 프롬프트 n2 → `tools/art/inbox/SG1-03 궁지의 송곳니.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. Flat on our back on cold ground, looking straight up: from every edge of the frame bone-white stone fangs as long as spears close in toward the centre, the inside of one vast bite coming down on us, with the full moon caught in the shrinking gap between their points. Torn loose and tumbling up into that gap are a sword, highest and smallest, then a wrenched-off shoulder plate, then a helmet only just lifted away, its straps still flying, while grit sifts down from the fangs onto us. A full moon directly overhead backlights the ring of fangs, bone-white on their inner edges and grey-blue in shadow, with dry ochre grit drifting through the beam.
+Colour: bone and moon — bone-white and grey-blue night with dry ochre (#b88a5a) earth.
+Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: SG1-03 궁지의 송곳니.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### SG1-08 · 송곳니 반격 — 그림 있음
@@ -673,6 +608,32 @@ Rare — third of the six rarity tiers, clearly above superior. Mood: striking a
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: PN-G1-R 카르노를 쫓는 자.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### RS-G2-1 · 뿌리 습격 — 그림 있음
+베르단의 뿔 · 공격 마법 · 레벨 2 · 레어 · 틀 `path` B R `sporeglow` · 프롬프트 n2 → `tools/art/inbox/RS-G2-1 뿌리 습격.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. Night on the forest floor. From the lower left a raised seam of earth runs away from us across the leaf litter, glowing blue-green through its cracks, straight under the feet of a distant rank of armoured figures that stands facing us on the right. Behind their backs the seam has burst: a fan of pale roots, tall as saplings, rears out of the ground and curls over their helmets, tips already hooked round two ankles. Along the seam beads of pale-lime light slide back toward us, one after another, like sap rising in a stem. Black night under the canopy, lit only by the blue-green seam and the pale roots, which rim the rank of figures from behind.
+Colour: spore night — black dark lit by blue-green and pale-lime (#58b85f) bioluminescence.
+Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: RS-G2-1 뿌리 습격.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### RS-G2-2 · 가시 덤불 — 그림 있음
+베르단의 뿔 · 방어 마법 · 레벨 2 · 레어 · 틀 `object` L R `sporeglow` · 프롬프트 n2 → `tools/art/inbox/RS-G2-2 가시 덤불.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. Told through one roadside lamp: on the right, where a forest road lay open at dusk, a thicket of bramble now stands thick as a wall, and deep inside it hangs the road's lamp — a glass globe of glowing fungus on a post that the stems have lifted and tipped toward the left. Its pale-lime light shines out through layer on layer of hooked thorns and throws their shadows huge across the last bare paving stones, which are already tilting as new shoots push up between them. Deep night; the caged lamp is the only source, pale-lime at its heart and blue-green where it filters through the leaves.
+Colour: spore night — black dark lit by blue-green and pale-lime (#58b85f) bioluminescence.
+Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: RS-G2-2 가시 덤불.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### IR-G2 · 첫 고목의 껍질 — 그림 있음
@@ -740,6 +701,32 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IR-G3 넬리아의 물방울.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### RS-G3-1 · 작살 물살 — 그림 있음
+마렌시아의 노래 · 공격 마법 · 레벨 2 · 레어 · 틀 `inside` D L `stormsea` · 프롬프트 n2 → `tools/art/inbox/RS-G3-1 작살 물살.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. From inside the spell itself: we ride within a hollow, spiralling tube of green-blue water, its walls streaked white with speed, plunging steeply down toward the lower left. Ahead of us a long bone harpoon rides the tube, barbs first, its line trailing back past us, and at the tube's mouth its point is just meeting a raised round shield — whose painted rings and pale glow are peeling off in the flow like wet pigment, streaming back along the walls in ribbons, while the bare wood splits around the barb. Slate storm daylight filters through the rushing green-blue walls, and white spray and the harpoon's wet barbs take the brightest highlights.
+Colour: storm sea — heavy green-blue (#4fb3ff), white spray and slate grey.
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: RS-G3-1 작살 물살.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### RS-G3-2 · 포말 장막 — 그림 있음
+마렌시아의 노래 · 방어 마법 · 레벨 2 · 레어 · 틀 `ring` F L `coraldawn` · 프롬프트 n2 → `tools/art/inbox/RS-G3-2 포말 장막.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. A single tall curtain of white water rises from the dawn shallows and curves over the shelter behind it, one smooth silken sheet, glassy and thin, with a soft white mane rolling along its crest like the lip of a breaking wave. Through the sheet, left of centre, we see the blurred warm shapes of the figures crouched safely behind. A sword blade has just struck from the right and is sliding off along the curve, its edge trailing one long ribbon of pale water, while the sheet bends round the blow and closes again behind it, unbroken. Low mist drifts across the wet sand in wide, soft bands. First coral-pink sun from low behind us glows through the thin water so the whole curtain turns rose and gold at its edges over water-blue shallows, and the blade carries one cold glint.
+Colour: coral dawn — coral pink and warm first light over water-blue (#4fb3ff).
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: RS-G3-2 포말 장막.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### MG-15 · 치유의 조수 — 그림 있음
 마렌시아의 노래 · 공용 마법 · 레벨 3 · 레어 · 틀 `through` U T `trench` · 프롬프트 n2 → `tools/art/inbox/MG-15 치유의 조수.png`
 
@@ -751,6 +738,19 @@ Rare — third of the six rarity tiers, clearly above superior. Mood: striking a
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: MG-15 치유의 조수.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### RS-G3-3 · 밀물의 노래 — 그림 있음
+마렌시아의 노래 · 공용 마법 · 레벨 3 · 레어 · 틀 `impact` F L `lagoon` · 프롬프트 n2 → `tools/art/inbox/RS-G3-3 밀물의 노래.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. A clear, sunlit wave has just burst over a gaming blanket spread on white sand at the left of the frame and surges straight toward us, its face combed into fine even ripples as if a sound were passing through it. It is carrying the whole game away — a spill of coins, a rabbit-foot charm, a braided lucky knot, a handful of knucklebones, the wooden stake-bowl — all tumbling in turquoise foam right before us. Every coin in the water has turned the same smooth, unmarked side up. High sun through shallow turquoise water throws dancing bright nets over the white sand, and the foam and coin faces flash pearl white.
+Colour: sunlit shallows — turquoise and water-blue (#4fb3ff) with pearl white, clear and bright over deep blue shadow.
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: RS-G3-3 밀물의 노래.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### SG3-01 · 환각의 통제 — 그림 있음

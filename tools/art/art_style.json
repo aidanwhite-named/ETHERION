@@ -11,7 +11,7 @@
   },
   "house": "ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.",
   "saveAs": "Save the image file as: {file} — this is the name of the downloaded file only; the painting itself stays wordless.",
-  "upgradeRef": "Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a new picture of it grown stronger.",
+  "upgradeRef": "Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.",
   "upgradeNoRef": "Continuity: this is the promoted form of a creature that has its own earlier card — its body, markings and belongings are exactly as described above.",
   "gradeLadder": "Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.",
   "gradeOrder": [
@@ -72,8 +72,8 @@
       "ko": "강화",
       "en": "Empowered",
       "color": "#3fe0c0",
-      "idea_ko": "레어와 에픽 사이(3.5단) — 원래 카드의 그 개체가 한 단계 오른 모습. 장면은 원래 카드와 같은 자리 · 방향 · 배색 · 장소에서 그 이야기의 다음 순간을 그린다(2026-11-22). 원래 카드 그림이 있으면 함께 넣는다(없어도 장면 글만으로 이어진다). 더 큰 몸 · 보강한 장비, 발밑에서 오르는 청록빛, 무늬 · 뿔 · 갈기 · 이음매를 따라 도는 빛, 선명한 색과 옅게 빛나는 안개.",
-      "finish": "Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher — sturdier body, reinforced gear, steadier bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.",
+      "idea_ko": "레어와 에픽 사이(3.5단) — 원래 카드의 그 개체가 한 단계 오른 모습. 장면은 원래 카드와 같은 개체 · 장소 · 배색을 쓰되 다른 시점 · 새 구도로, 강화 카드의 이름이 말하는 모습(여왕 · 왕 · 대장 · 거상 …)을 그린다(2026-11-22 고침). 원래 카드 그림이 있으면 함께 넣는다(없어도 장면 글만으로 이어진다). 더 큰 몸 · 보강한 장비, 발밑에서 오르는 청록빛, 무늬 · 뿔 · 갈기 · 이음매를 따라 도는 빛, 선명한 색과 옅게 빛나는 안개.",
+      "finish": "Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.",
       "tier": 3.5
     },
     "epic": {
