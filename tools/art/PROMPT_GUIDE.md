@@ -28,11 +28,13 @@ Colour: [② 배색 — 깃발의 배색 여섯 가운데 그 카드가 고른 �
 [④ 등급 줄 — Mood · Light · Saturation · Air · Surfaces 다섯 칸]
 [④′ 사다리 한 줄 — 여섯 등급의 차례, 모든 등급 같음]
 [⑤ 화풍 한 줄]
+[⑥ 파일 이름 줄 — 그림 내용이 아니라 내려받을 파일 이름]
 ```
 
 - 마법은 첫머리가 `Landscape 5:4 painting of a spell — the magic itself is the subject.`, 아이템은 `… of one object — the object itself is the subject.`
 - 강화 카드는 ④′ 다음에 "원래 카드와 같은 개체" 줄이 하나 더 붙는다(원래 카드 그림이 있으면 함께 넣으라는 줄, 없으면 장면 글대로 이으라는 줄). 소환물에는 사다리 줄이 없다.
-- 한 장 약 300단어(일반 약 300 · 스페셜 약 365 — 등급 줄 자체가 등급이 오를수록 길다). 장면이 여전히 가장 긴 덩어리다. 카드 이름 · 서사(한국어)는 프롬프트에 넣지 않는다 — 쓰는 사람이 읽고 장면으로 옮긴다.
+- **⑥ 파일 이름 줄**(2026-11-22, `art_style.json` `saveAs`): `Save the image file as: <카드ID> <카드 이름>.png — this is the name of the downloaded file only; the painting itself stays wordless.` — 예: `Save the image file as: RS-G3-2 포말 장막.png — …`. 그림이 카드 이름으로 저장되게 해서 들일 때 그림을 장면 글과 대조하지 않아도 되게 한다. 그림 내용이 아니므로 `version`은 올리지 않는다. 파일 이름에 못 쓰는 글자(`/ \ : * ? " < > |`)는 빈칸이 된다. `gen.py`(API로 그릴 때)는 이 줄을 빼고 보낸다 — 스크립트가 직접 저장하니까. `cards.jsonl`에는 같은 이름이 `save_as` 칸에도 있다.
+- 한 장 약 300단어(일반 약 300 · 스페셜 약 365 — 등급 줄 자체가 등급이 오를수록 길다). 장면이 여전히 가장 긴 덩어리다. 카드 이름 · 서사(한국어)는 그림 내용에 넣지 않는다(카드 이름은 ⑥ 파일 이름에만) — 쓰는 사람이 읽고 장면으로 옮긴다.
 
 | 파일 | 무엇 |
 |---|---|
@@ -286,7 +288,7 @@ Colour: [② 배색 — 깃발의 배색 여섯 가운데 그 카드가 고른 �
 ## 6. 그린 뒤
 
 - 카드 하나의 프롬프트만 붙여 넣는다. **카드마다 새 대화**(같은 대화의 앞 그림을 따라간다).
-- 받은 그림(가로 5:4)은 `tools/art/inbox/<카드ID>.jpg` → `python3 tools/art/artmap.py import`. 장부 `art_map.csv`, 보드 `art_board.html`.
+- 받은 그림(가로 5:4)은 프롬프트 맨 끝 줄의 이름(`<카드ID> <카드 이름>.png`)으로 `tools/art/inbox/`에 두고 → `python3 tools/art/artmap.py import`. `artmap.py`는 파일 이름 속 카드 ID로 짝을 찾는다(빈칸 대신 밑줄, 뒤에 붙은 ` (1)`, 맥의 한글 분해형 이름도 된다 — 2026-11-22 706장 모두 확인). 그림 모델이 이름 지시를 따르지 않아 이름이 제각각이면, 전처럼 그림을 장면 글과 대조해 `artmap.py assign <파일> <카드ID>`로 직접 잇는다. 장부 `art_map.csv`, 보드 `art_board.html`.
 - 그림이 장면과 다르게 나오면 프롬프트에 금지 줄을 덧붙이지 말고 **장면 글을 고쳐 쓴다**(더 구체적으로, 앞쪽에). 같은 문제가 여러 카드에서 되풀이될 때만 `art_style.json`의 한 줄을 고친다.
 - 강화 카드는 원래 카드 그림을 먼저 그려 함께 넣는다(편집이 아니라 "같은 개체 참고"로 넣고 새 그림을 그린다). 원래 그림이 아직 없으면 같은 대화에서 원래 카드 → 강화 카드 차례로 그린다. 두 그림을 100px 섬네일로 나란히 놓아 바로 짝으로 읽히면 된 것이다.
 - **강화 장면 쓰는 법**(2026-11-22): ① `dir · place · pal`은 원래 카드와 같게(lint 오류), `shot`도 같게 — 바꾼다면 한 걸음 가까이만(lint 주의). ② 원래 장면의 몸 낱말(종류 · 털빛 · 흉터)과 대표 소품 · 장소를 그대로 다시 적고 "the same …"으로 잇는다 — 참조 그림 없이도 같은 개체로 그려지게. ③ 바꾸는 것은 순간이다: 원래 장면이 시작한 일의 결실(돌기 시작한 못 → 배를 삼키는 소용돌이), 더 큰 몸 · 늘어난 소품 · 따르는 무리 · 오른 계급. ④ 세 장을 합친 흔적을 한 가지("three …" — 잔 셋, 새 석축 세 단, 화살 셋). ⑤ 빛 문장은 원래 카드와 같은 광원으로 쓴다 — 청록빛 · 채도 · 안개는 등급 줄이 맡는다.
@@ -303,6 +305,7 @@ Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of pri
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A1-02 그림자 도둑.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 #### 일반 · 공격 마법 — GN-B3-1 번개 바늘
@@ -314,6 +317,7 @@ Banner of lightning: a storm plateau where a sleeping giant's nerves spark up th
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: GN-B3-1 번개 바늘.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 #### 일반 · 아이템 — C2-1 견습 단궁
@@ -325,6 +329,7 @@ Banner of wind: needle spires and drifting sky-islands above the clouds, where t
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: C2-1 견습 단궁.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 #### 고급 · 유닛 — A1-01 계약의 저주 인형
@@ -336,6 +341,7 @@ Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of pri
 Superior — second of the six rarity tiers, one clear step above common. Mood: assured, polished, capable. Light: the scene's light plus a clean second light tracing the subject's edges. Saturation: a little richer and clearer than everyday. Air: still ordinary, but a few warm-gold (#f2cf3d) glints catch on edges and metal. Surfaces: well-made and well-kept, crisper and finer in detail.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A1-01 계약의 저주 인형.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 #### 레어 · 유닛 — PN-A1-R 그림자 계약 집행자
@@ -347,6 +353,7 @@ Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of pri
 Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: PN-A1-R 그림자 계약 집행자.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 #### 에픽 · 유닛 — EP-A1-1 심연 칼날 무희
@@ -358,6 +365,7 @@ Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of pri
 Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: EP-A1-1 심연 칼날 무희.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 #### 에픽 · 공용 마법 — NA3-4 바람의 사냥
@@ -369,6 +377,7 @@ Banner of wind: needle spires and drifting sky-islands above the clouds, where t
 Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: NA3-4 바람의 사냥.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 #### 에픽 · 아이템 — PI-A1 모르카스의 저울추
@@ -380,6 +389,7 @@ Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of pri
 Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: PI-A1 모르카스의 저울추.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 #### 유니크 · 유닛 — UN-A1 피의 서약자
@@ -391,6 +401,7 @@ Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of pri
 Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a brilliant key light against deep black, and the subject radiant with a power of its own in its banner colour, violet (#8b5cf6). Saturation: jewel-bright and deep, with violet at its fullest strength. Air: thick with swirling motes and sparks of violet light, a shimmering haze and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing violet at the seams.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: UN-A1 피의 서약자.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 #### 스페셜 · 유닛 — SP-A1 그림자 없는 아즈라
@@ -402,6 +413,7 @@ Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of pri
 Special — the highest of the six rarity tiers, unmistakably beyond every other. Mood: mythic, mysterious and overwhelming — sacred awe. Light: the subject is itself a source of light, radiance in layers — a white-hot core, a wide halo, great rings and long rays of crimson (#ff4d73) and gold crossing the whole picture, blooming and refracting through the haze. Saturation: the most luminous, iridescent colour of any card, from velvet black to blinding white-gold. Air: filled with storms of sparks and veils of ether light, while land, sky and weather bend toward the subject. Surfaces: matter beyond mortal craft, glowing from within.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: SP-A1 그림자 없는 아즈라.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 <!-- /AUTO:EXAMPLES -->

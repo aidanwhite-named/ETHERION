@@ -292,7 +292,7 @@
   },
   "UN-G3-7": {
     "shot": "pov", "dir": "F", "place": "C", "pal": "lagoon",
-    "scene": "Through the eyes of a soldier wading knee-deep in the surf: our two gauntleted hands grip our sword the wrong way round, blade clasped in the fists, hilt held out like an offering. Straight ahead, risen from the sea like an island, a colossal siren faces us and sings — her pale face taller than a ship's mast, fin-webbed arms spread wide as a harbour, dark hair streaming like kelp forests, a scaled tail coiling through the swell behind, a conch big as a boat at her throat. At the edges of our sight a landing army does the same.",
+    "scene": "Through the eyes of a soldier wading knee-deep in the surf: our two gauntleted hands grip our sword the wrong way round, blade clasped in the fists, hilt held out like an offering. Straight ahead, risen from the sea like an island, a colossal siren faces us and sings — her pale face taller than a ship's mast, fin-webbed arms spread wide as a harbour, dark hair streaming like kelp forests, a scaled tail coiling behind, her throat glowing mid-note as the song rolls toward us in great rings of turquoise light and standing water. At the edges of our sight a landing army does the same.",
     "light": "High clear daylight behind her head shines turquoise through her fins and scatters pearl-white glitter over the water-blue swell; our gauntlets and blade stay in deep blue shadow."
   },
   "UP-G3-11": {
@@ -352,8 +352,8 @@
   },
   "RS-G3-2": {
     "shot": "ring", "dir": "F", "place": "L", "pal": "coraldawn",
-    "scene": "A wall of sea foam faces us in the dawn shallows, built ring within ring: fine white froth at the rim, then circles of ever larger bubbles, and at its heart, left of centre, one clear bubble as wide as a cartwheel, holding the tiny upside-down image of the figures sheltering behind it. A sword blade has just struck from the right and is skidding away along the curve, its edge trailing a comet of suds, while the groove it left is already filling with fresh bubbles, ring by ring.",
-    "light": "First coral-pink sun from low behind us puts a rose highlight in every bubble over water-blue shallows, and the blade carries one cold glint."
+    "scene": "A single tall curtain of white water rises from the dawn shallows and curves over the shelter behind it, one smooth silken sheet, glassy and thin, with a soft white mane rolling along its crest like the lip of a breaking wave. Through the sheet, left of centre, we see the blurred warm shapes of the figures crouched safely behind. A sword blade has just struck from the right and is sliding off along the curve, its edge trailing one long ribbon of pale water, while the sheet bends round the blow and closes again behind it, unbroken. Low mist drifts across the wet sand in wide, soft bands.",
+      "light": "First coral-pink sun from low behind us glows through the thin water so the whole curtain turns rose and gold at its edges over water-blue shallows, and the blade carries one cold glint."
   },
   "RS-G3-3": {
     "shot": "impact", "dir": "F", "place": "L", "pal": "lagoon",

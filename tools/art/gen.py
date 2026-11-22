@@ -268,6 +268,8 @@ def generate(j, a, key, made):
         else:
             refs.append(pad_ref(Image.open(ROOT / r), canvas, j["size"], transparent))
     prompt = j["prompt"]
+    # 맨 끝 파일 이름 줄(build_prompts.js ⑥ · 사람이 붙여 넣을 때 쓰는 것) — API로 보낼 때는 이 스크립트가 직접 저장하니 뺀다
+    prompt = "\n".join(l for l in prompt.split("\n") if not l.startswith("Save the image file as:"))
     if a.extra: prompt += "\n" + a.extra
     tries = 0
     while True:

@@ -3,6 +3,11 @@
 버전마다 바뀐 것과 바뀐 파일을 적는다. 새 버전은 맨 위에 쓴다.
 맨 아래 `실행`·`v0.3`·`계정`·`덱`·`규칙`·`파일` 절은 v0.3 무렵의 설명을 그대로 남긴 것이라 지금과 다른 곳이 있다(예: 클래스는 v1.0에서 규칙에서 빠짐). 지금 상태는 `README.md`를 본다.
 
+## 카드 그림 프롬프트 끝에 파일 이름 줄 (2026-11-22, 버전 미정)
+- **왜**: 그림 모델에서 내려받은 파일 이름이 제각각이라, 들일 때마다 그림을 장면 글과 대조해 짝을 맞춰야 했다.
+- **무엇**: 모든 카드 프롬프트 맨 끝에 `Save the image file as: <카드ID> <카드 이름>.png — this is the name of the downloaded file only; the painting itself stays wordless.` 한 줄(`tools/art/art_style.json` `saveAs`, `build_prompts.js` ⑥). `artmap.py import`는 원래 파일 이름 속 카드 ID로 짝을 찾아서 고치지 않았다(706장 · 빈칸 · 밑줄 · ` (1)` · 한글 분해형 이름 모두 확인). `gen.py`는 API로 보낼 때 이 줄을 뺀다. 그림 내용이 아니라 프롬프트 판(n2)은 그대로.
+- **바뀐 파일**: `tools/art/art_style.json` · `tools/art/build_prompts.js` · `tools/art/gen.py` · `tools/art/prompts/*`(다시 만듦) · `tools/art/out/*_prompts*.md` · `upgrade_art_plan.md`(새 줄로 다시 씀) · `tools/art/PROMPT_GUIDE.md` · `docs/STYLE_GUIDE.md`.
+
 ## 가볍게: 쉬는 화면에서 새던 비용 줄임 · 유니크 · 스페셜 카드 빛 (2026-11-22, 버전 미정)
 - **왜**: 사용자 — 효과에 비해 자원을 많이 먹는 것을 줄이고, 유니크 · 스페셜 카드가 카드 자체로 조금 더 특별해 보이게.
 - **잰 방법**: 헤드리스 Chrome(주 스레드 일 · 스타일 · 배치 횟수, 10초) · 헤드리스 Firefox(프로세스 CPU 초, 10초 — 소프트웨어 렌더링이라 숫자가 실제보다 크다). 1440×900, 효과를 하나씩 꺼 보며 가려냄.

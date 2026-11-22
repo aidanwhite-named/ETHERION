@@ -6,6 +6,8 @@
             + ④ 등급 줄(분위기 · 빛 · 채도 · 공기 · 재질 다섯 칸 — 일반 → 스페셜로 한 단계씩 더 신비롭고 화려하게. 시점은 정하지 않는다)
               + 사다리 한 줄(여섯 등급의 차례 — 모든 등급 같음, 소환물은 뺌)
             + ⑤ 화풍 한 줄(모든 카드 같음)
+            + ⑥ 파일 이름 줄(맨 끝 · art_style.json saveAs — "Save the image file as: <카드ID> <카드 이름>.png". 그림 내용이 아니라
+              내려받을 파일 이름이다. artmap.py import가 파일 이름 앞의 카드 ID로 짝을 찾는다 · 2026-11-22)
    카드끼리 달라야 하는 것(무엇을 · 어디서 보나 · 어디에 놓나 · 어느 쪽을 보나 · 빛)은 모두 ①에 있고,
    ②~⑤는 art_style.json의 짧은 말이다. 등급 · 깃발의 통일감은 ②~⑤가, 카드의 개성은 ①이 맡는다.
 
@@ -102,7 +104,17 @@ function bannerFill(text, F) {
   return String(text || "").replace(/\{banner\}/g, `${name} (${el.hex})`).replace(/\{bannerName\}/g, name);
 }
 
+/* ⑥ 파일 이름 줄 — "<카드ID> <카드 이름>.png". 파일 이름에 못 쓰는 글자(/ \\ : * ? " < > |)는 빈칸으로. */
+const fileNameOf = c => `${c.id} ${String(c.name || "").replace(/[\/\\:*?"<>|]+/g, " ").replace(/\s+/g, " ").trim()}`.trim() + ".png";
+const saveLine = c => S.saveAs ? S.saveAs.replace("{file}", fileNameOf(c)) : "";
+const withSave = (prompt, c) => prompt && saveLine(c) ? `${prompt}\n${saveLine(c)}` : prompt;
+
 function promptOf(c, D) {
+  const P = promptBody(c, D);
+  P.prompt = withSave(P.prompt, c);
+  return P;
+}
+function promptBody(c, D) {
   const gk = gradeKey(c);
   if (LEGACY.has(gk)) return OLD[c.id] ? { prompt: OLD[c.id].prompt, ver: OLD[c.id].prompt_ver || S.legacyVersion } : { prompt: "", ver: S.legacyVersion, todo: "옛 프롬프트 없음" };
   const sc = SCENES[c.id], F = S.flags[c.group], G = S.grades[gk];
@@ -171,7 +183,7 @@ function cardMd(j) {
   const frame = j.shot ? ` · 틀 \`${j.shot}\` ${j.dir || ""} ${j.place || ""} \`${j.pal || ""}\`` : "";
   const base = j.base ? ` · 원래 카드 \`${j.base}\`${j.refs ? " (그 그림을 함께 넣기)" : " — 원래 카드 그림이 아직 없다: 원래 카드를 먼저 그리고 같은 대화에서 이어 그리면 가장 닮는다(그 뒤 다시 만들면 참조 줄로 바뀐다)"}` : "";
   return [`### ${j.id} · ${j.name}${st}`,
-    `${S.flags[j.group] ? S.flags[j.group].ko : j.group} · ${TYPE_KO[j.type] || j.type} · 레벨 ${j.lv} · ${S.grades[j.grade].ko}${frame}${base} · 프롬프트 ${j.prompt_ver} → \`tools/art/inbox/${j.id}.jpg\``, "",
+    `${S.flags[j.group] ? S.flags[j.group].ko : j.group} · ${TYPE_KO[j.type] || j.type} · 레벨 ${j.lv} · ${S.grades[j.grade].ko}${frame}${base} · 프롬프트 ${j.prompt_ver} → \`tools/art/inbox/${fileNameOf(j)}\``, "",
     ...(j.prompt ? ["```", j.prompt, "```"] : [`> **${j.todo}** — \`node tools/art/scene_tool.js todo ${j.group}\` 로 자료를 보고 \`tools/art/art_scenes/${j.group}.json\`에 장면을 쓴다.`]), ""].join("\n");
 }
 function main() {
@@ -191,6 +203,7 @@ function main() {
     if (P.todo) job.todo = P.todo;
     job.art = artState(id);
     job.prompt = P.prompt;
+    if (P.prompt) job.save_as = fileNameOf(c);   // 프롬프트 맨 끝 줄이 알려 주는 파일 이름(gen.py는 이 줄을 빼고 보낸다)
     jobs.push(job);
     (byGroup[c.group] = byGroup[c.group] || []).push(job);
     (byGrade[job.grade] = byGrade[job.grade] || []).push(job);
@@ -206,7 +219,7 @@ function main() {
     return out;
   };
   const ORDER_NOTE = `**그리는 차례**: 1 그림 없는 카드(${DRAW.map(g => S.grades[g].ko).join(" → ")}) → 2 다시 그리기(장부 \`art_map.csv\` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(원래 카드와 같은 틀 · 다음 순간 — 섬네일로 나란히 놓아 짝으로 읽히는지 본다).`;
-  const HOW = "카드 하나의 ``` 안 글만 그림 AI에 붙여 넣는다(카드마다 새 대화). 나온 그림(가로 5:4)은 `tools/art/inbox/<카드ID>.jpg` → `python3 tools/art/artmap.py import`.";
+  const HOW = "카드 하나의 ``` 안 글만 그림 AI에 붙여 넣는다(카드마다 새 대화). 프롬프트 맨 끝 줄이 파일 이름(`<카드ID> <카드 이름>.png`)을 알려 준다 — 나온 그림(가로 5:4)을 그 이름으로 `tools/art/inbox/`에 두고(이름이 달라도 카드 ID만 앞에 있으면 된다) → `python3 tools/art/artmap.py import`.";
   fs.writeFileSync(path.join(OUT, "cards.jsonl"), jobs.slice().sort((a, b) => artOrder(a, b) || drawRank(a.grade) - drawRank(b.grade) || a.id.localeCompare(b.id)).map(j => JSON.stringify(j)).join("\n") + "\n");
 
   for (const g of Object.keys(byGroup).sort()) {
@@ -234,7 +247,7 @@ function main() {
 
   const guided = fillGuide(autoBlocks(jobs));
   const cnt = {}; for (const j of jobs) cnt[j.grade] = (cnt[j.grade] || 0) + 1;
-  const wc = jobs.filter(j => j.prompt && !LEGACY.has(j.grade)).map(j => j.prompt.split(/\s+/).length);
+  const wc = jobs.filter(j => j.prompt && !LEGACY.has(j.grade)).map(j => j.prompt.split(/\s+/).length - (saveLine(j) ? saveLine(j).split(/\s+/).length : 0));   // 파일 이름 줄은 세지 않는다
   console.log(`카드 ${jobs.length}장 (${S.version})`, cnt, `· 전장 그림 ${ui.length}장 → ${path.relative(ROOT, OUT)}${guided ? " · PROMPT_GUIDE.md 자동 칸 채움" : ""}`);
   if (wc.length) console.log(`새 프롬프트 ${wc.length}장 · 평균 ${Math.round(wc.reduce((a, b) => a + b, 0) / wc.length)}단어 (가장 긴 것 ${Math.max(...wc)})`);
   const miss = jobs.filter(j => j.todo);
