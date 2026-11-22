@@ -355,7 +355,7 @@ function showLogin(tab) {
 /* ---------- 대기실 ---------- */
 function sortDeckCards(ids) {
   const order = { unit: 0, atk: 1, def: 2, any: 3, hand: 4, item: 5 };   /* v3.10.8 계략(hand)이 빠져 순서가 섞이던 것 */
-  return ids.sort((a, b) => { const x = CARDS[a], y = CARDS[b]; return order[x.type] - order[y.type] || x.lv - y.lv || a.localeCompare(b); });
+  return ids.sort((a, b) => { const x = CARDS[a], y = CARDS[b]; return order[x.type] - order[y.type] || x.lv - y.lv || GRADES[gradeOf(x)].rank - GRADES[gradeOf(y)].rank || a.localeCompare(b); });
 }
 function expandDeck(cards) { const out = []; for (const id in cards) for (let i = 0; i < cards[id]; i++) out.push(id); return sortDeckCards(out); }
 
@@ -944,7 +944,7 @@ function showEditor(f, focusId) {
     $$(".edf-tab", root).forEach(b => b.setAttribute("aria-pressed", b.dataset.scope === E.scope));
     $("#ed-pool-panel").classList.toggle("scope-deck", E.scope === "deck");
     const pool = (E.scope === "deck" ? deckSel : poolSel)
-      .sort((a, b) => order[a.type] - order[b.type] || a.lv - b.lv || a.id.localeCompare(b.id));
+      .sort((a, b) => order[a.type] - order[b.type] || a.lv - b.lv || GRADES[gradeOf(a)].rank - GRADES[gradeOf(b)].rank || a.id.localeCompare(b.id));   /* 같은 레벨은 등급 순 — ID는 등급이 바뀐 카드(성광의 검 등)에서 어긋난다 */
     /* v3.10.8 여러 종류가 함께 보이면 종류마다 제목 줄을 넣는다 (유닛 → 공격 → 방어 → 공용 → 계략 → 아이템). 내 덱에서는 장수 */
     const secN = {}; for (const c of pool) secN[c.type] = (secN[c.type] || 0) + (E.scope === "deck" ? E.cards[c.id] || 0 : 1);
     const showSec = Object.keys(secN).length > 1;

@@ -768,7 +768,7 @@ body.is-dragging .hand-me .hand-slot .hand-card { transform: translateY(var(--y)
 .pinfo[style*="--gc"] { --fc: var(--gc); }
 .prow-top .pi-emblem { width: calc(var(--top-h) * .62); }
 .hk { position: absolute; z-index: 5; font-family: var(--caps); font-weight: 700; line-height: 1; color: #1b1406; background: linear-gradient(180deg, #f6e2a8, #c99a48); border-radius: 4px; box-shadow: 0 1px 4px rgba(0, 0, 0, .6); pointer-events: none; }
-.hk-hand { top: -.55em; left: 50%; transform: translateX(-50%); font-size: calc(var(--hw, 120px) * .11); padding: .18em .42em; }
+.hk-hand { top: -.55em; right: -.3em; /* 오른쪽 위 — 가운데면 카드 이름을 가림 */ font-size: calc(var(--hw, 120px) * .11); padding: .18em .42em; }
 .hk-slot { left: 6px; bottom: 6px; font-size: calc(var(--cw) * .085); padding: .2em .4em; opacity: .55; background: rgba(217, 180, 106, .18); color: var(--gold-hi); box-shadow: none; border: 1px solid rgba(217, 180, 106, .35); }
 .slot.valid .hk-slot, .slot.valid-equip .hk-slot, .slot.valid-move .hk-slot { opacity: 1; }
 .slot > .card ~ .hk-slot, .slot .hk-slot:has(+ .card) { z-index: 6; }

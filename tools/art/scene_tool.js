@@ -75,7 +75,7 @@ function deal(counts, weights, rnd, avoid) {
   return [scored[0].k, scored[1] ? scored[1].k : scored[0].k];
 }
 
-const GIFT_KO = { ignite: "점화", ranged: "원거리", farmor: "화염 갑주", thorns: "가시", regen: "재생", ward: "가호", purify: "정화", taunt: "수호", bash: "방패 반격", firm: "굳건", crit: "치명", shred: "관통", chain: "연쇄", shield: "보호막", throw: "투척", magic: "방어무시", arcane: "마력 공격", heal: "치유", intercept: "요격", bleed: "출혈", leech: "흡혈", rob: "강탈", veil: "그림자 걸음", pact: "피의 계약", aura: "오라(양옆 아군 강화)", calm: "바다의 보호", every: "매 턴", u: "유니크 능력" };
+const GIFT_KO = { ignite: "점화", ranged: "원거리", farmor: "화염 갑주", thorns: "가시", regen: "재생", ward: "가호", purify: "정화", taunt: "수호", bash: "방패 반격", firm: "굳건", crit: "치명", shred: "관통", chain: "연쇄", shield: "보호막", throw: "투척", magic: "방어무시", arcane: "마력 공격", heal: "치유", conduct: "전도", shock: "감전", bleed: "출혈", leech: "흡혈", rob: "강탈", veil: "그림자 걸음", pact: "피의 계약", aura: "오라(양옆 아군 강화)", calm: "바다의 보호", every: "매 턴", u: "유니크 능력" };
 const TYPE_KO = { unit: "유닛", atk: "공격 마법", def: "방어 마법", any: "공용 마법", hand: "핸드 마법", item: "아이템" };
 const DIR_W = { unit: { L: 3, R: 3, F: 2, B: 1.5, N: 0.5 }, spell: { L: 2, R: 2, F: 1.5, B: 1, U: 1.5, D: 1.5, N: 2 }, item: { N: 3, L: 1, R: 1, U: 0.5, D: 0.5 } };
 const PLACE_W = { C: 3, L: 3, R: 3, X: 1.5, T: 1, B: 1 };

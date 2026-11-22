@@ -60,5 +60,24 @@ T('증폭 회로', `
   const u = mk("B3-29"); u.t.gx = { amp: 1 }; ok(abilOf(u).amp === 2, "타고난 증폭 1과 더해진다");
   u.t.off = ["증폭"]; ok(abilOf(u).amp === 0, "능력 끄기에 함께 꺼진다");
 `);
+// 2026-11-22(사용자) 증폭 몫은 물리: 방어를 이번 턴 먼저 깎고, 넘긴 만큼만 체력에. 기본 피해는 그대로 방어 무시
+T('증폭은 물리', `
+  const foe = () => ["A1-43", "A1-43", "A1-43"];   // 0/2/13 셋
+  const d1 = lost("SB3-06", ["B3-29"], foe()) - lost("SB3-06", ["B3-02"], foe());
+  ok(d1 === 0, "증폭 1은 방어 2에 다 들어감(체력 그대로): " + d1);
+  const d3 = lost("SB3-06", ["B3-29", "B3-34"], foe()) - lost("SB3-06", ["B3-02", "B3-02"], foe());
+  ok(d3 === 3, "증폭 3 − 방어 2 = 맞는 유닛마다 +1: " + d3);
+  const base = lost("SB3-06", ["B3-02"], foe()) - lost("SB3-06", ["B3-02"], [mk("B3-23"), mk("B3-23"), mk("B3-23")]);
+  ok(base === 0, "기본 피해는 여전히 방어 무시: " + base);
+  const cast = (ally, F) => { const sp = mk("SB3-06"), P = [side(0, ally.concat([sp])), side(1, F)]; const X = ctx(P, 0, 2, [], { seed: 7 }); castSpell(X, 0, sp, ally.length + 1); resetRng(); return F; };
+  const F = cast(["B3-29"], foe().map(x => mk(x)));
+  ok(F.every(u => u.t.d === 1), "증폭 1만큼 방어 2 → 1: " + F.map(u => u.t.d));
+  resetTurn(F[0]); ok(F[0].t.d === 2, "턴이 바뀌면 방어가 돌아온다: " + F[0].t.d);
+  const L = foe().map(x => { const u = mk(x); u.t.lock = true; return u; }), hp0 = L.reduce((s, u) => s + hpLeft(u), 0);
+  cast(["B3-29", "B3-34"], L);
+  ok(L.every(u => u.t.d === 2), "[저주 면역]은 방어가 안 깎인다: " + L.map(u => u.t.d));
+  ok(hp0 - L.reduce((s, u) => s + hpLeft(u), 0) === lost("SB3-06", ["B3-02", "B3-02"], foe()) + 3, "그래도 넘긴 몫(3 − 2)은 들어간다");
+  const ph = mk("A1-43"); ph.t.d = 2; ok(spellDmg({}, ph, 3, 3, true) === 4 && ph.t.d === 0, "물리 마법: (3 + 3) − 2 = 4, 방어는 0으로");
+`);
 console.log(fail ? `노움 시험 ${n - fail}/${n} 통과 — ${fail} 실패` : `노움 시험 ${n}개 모두 통과`);
 process.exit(fail ? 1 : 0);

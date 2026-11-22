@@ -62,7 +62,7 @@ const GNOME_V372 = {
     "PI-B3": {}                       // 즈라크의 번개 병 (사격 · 원거리 · 가호 그대로)
   }
 };
-const GNOME_AMP_TEXT = n => "이 유닛이 전장에 있으면 내 마법이 상대 유닛에게 주는 피해 +" + n + ".";
+const GNOME_AMP_TEXT = n => "이 유닛이 전장에 있으면 내 마법이 상대 유닛에게 주는 피해 +" + n + "(물리 — 상대 방어를 이번 턴 먼저 깎고 넘긴 만큼만 들어감).";
 (function () {
   const V = GNOME_V372;
   for (const id in V.amp) {

@@ -15,7 +15,7 @@
 "use strict";
 
 const ITEM_ABIL_KEYS = ["throw", "every", "ward", "thorns", "magic", "crit", "shred", "ranged", "shield", "chain", "ignite", "farmor", "regen",
-  "bash", "taunt", "purify", "firm", "intercept", "arcane", "heal", "calm", "rob", "leech", "veil", "pact", "bleed", "mesmer", "evName", "evText", "ev",
+  "bash", "taunt", "purify", "firm", "conduct", "shock", "arcane", "heal", "calm", "rob", "leech", "veil", "pact", "bleed", "mesmer", "evName", "evText", "ev",
   "huntfire", "riposte", "overload", "devour", "drain", "flow", "judge", "sentry", "mark", "abOrder"];
 const LIFE = n => ({ evName: "생명 +" + n, evText: "장착할 때 내 생명 +" + n + ".", ev: 0.25 });
 const ITEMREWORK_GRADES = {};
@@ -32,10 +32,10 @@ const ITEMREWORK_GRADES = {};
     "IR-B2": { lv: 3, a: 1, d: 2, h: 3, ab: { firm: true } },    // 레어 4레벨 1/2/4 [굳건] (🔒 방어 1 그대로) — 방어 2를 남김(방패는 약한 덱)
     "PI-B2": { lv: 3, a: 0, d: 4, h: 3, ab: { ignite: 1 }, desc: "철골 산맥에 드러난 광맥, 잠든 거인의 힘줄 한 가닥을 꼬아 몸에 감았다. 끊어진 적이 없고, 달아오르면 닿는 것마다 불이 붙는다." },   // 에픽 4레벨 2/3/5 [방패 반격]
     /* B3 벼락 — 전략 깃발 · 고르지만 코인이 크게 흔들림 → 방 · 체 */
-    "IB3-3": { a: 0, d: 1, h: 2 },                                // 고급 2레벨 0/0/3 [요격]
+    "IB3-3": { a: 0, d: 1, h: 2 },                                // 고급 2레벨 0/0/3 [요격] → 2026-11-22 [전도]
     "C4-1":  { lv: 3, a: 0, d: 1, h: 3, ab: { chain: 1 }, desc: "이사크가 별의 문자를 읽을 때 쓴 보주. 한 번 튄 번개가 다음 과녁을 스스로 찾아간다." },   // 고급 4레벨 0/0/6 [증폭 2] [요격]
-    "IR-B3": { a: 2, d: 0, h: 2 },                                // 레어 2레벨 2/0/3 [요격]
-    "PI-B3": { lv: 2, a: 1, d: 1, h: 2, co: [["a", 2, 2]], ab: { farmor: 1 }, del: ["to", "pin"], desc: "번개의 대정령이 갇혔다 달아난 병. 남은 번개가 들쭉날쭉 손끝에서 튀고, 병을 깨뜨리려 덤빈 자는 그 불꽃에 덴다." },   // 에픽 3레벨 8/0/0 체→2 ▼체 [사격 2] [원거리] [가호 1]
+    "IR-B3": { a: 2, d: 0, h: 2 },                                // 레어 2레벨 2/0/3 [요격] → 2026-11-22 [전도]
+    "PI-B3": { lv: 2, a: 1, d: 1, h: 2, co: [["a", 2, 2]], ab: { shock: 1 }, del: ["to", "pin"], desc: "번개의 대정령이 갇혔다 달아난 병. 남은 번개가 들쭉날쭉 손끝에서 튀고, 병을 깨뜨리려 덤빈 자는 그 불꽃에 덴다." },   // 2026-11-22 [화염 갑주 1] → [감전 1](사용자, 같은 진영 다른 깃발 능력 규칙의 예외)   // 에픽 3레벨 8/0/0 체→2 ▼체 [사격 2] [원거리] [가호 1]
     /* G1 발톱 — 공격 깃발 · 방 · 체 모자람 */
     "IG1-1": { a: 2, d: 0, h: 0 },                                // 일반 2레벨 2/0/1 [치명] (2레벨 일반에서 가장 셈)
     "IG1-4": { a: 0, d: 1, h: 3, ab: { ranged: 1 }, desc: "주술사가 지고 다니는 작은 바위 토템. 저주는 멀리서 걸고, 되받는 주먹은 닿지 않는다." },   // 고급 3레벨 0/0/5 [가호 1]

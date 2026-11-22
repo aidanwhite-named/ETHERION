@@ -222,6 +222,7 @@ function itemAbilities(it) {
   if (it.throw) out.push(it.every ? `[사격 ${it.throw}]` : `[투척 ${it.throw}]`);
   if (it.ignite) out.push(`[점화 ${it.ignite}]`);   // v3.73 잿불 고블린 (js/goblin.js, engine gbIgnite)
   if (it.farmor) out.push(`[화염 갑주 ${it.farmor}]`);   // v3.73 engine gbArmor
+  if (it.shock) out.push(`[감전 ${it.shock}]`);   // 2026-11-22 케라운 (engine kzShock)
   if (it.ranged) out.push("[원거리]");
   if (it.ward) out.push(`[가호 ${it.ward}]`);
   if (it.heal) out.push(`[치유 ${it.heal}]`);   // v3.68 engine mrHeal
@@ -234,7 +235,7 @@ function itemAbilities(it) {
   if (it.taunt) out.push("[수호]");
   if (it.purify) out.push("[정화]");
   if (it.firm) out.push("[굳건]");
-  if (it.intercept) out.push("[요격]");
+  if (it.conduct) out.push("[전도]");   // 2026-11-22 케라운, 옛 [요격] (engine kzConduct)
   if (it.mesmer) out.push("[매혹]");   // v3.80 노래 에픽 (js/itemrework.js, engine attackOne mrCharm)
   /* v3.81 스페셜 아이템 능력 (engine 끝 "v3.81 스페셜 아이템 능력" 절) */
   for (const [k, n] of SP_ABIL_NAMES) if (it[k]) out.push(`[${n}]`);
@@ -255,8 +256,8 @@ const SP_ABIL_NAMES = [["huntfire", "불꽃 사냥"], ["riposte", "되받기"], 
    - 칸으로 세지 않는 것: 표시(고정 · 버팀 · 눌림 · 아이템 [고정 a/d/h]), 장착하는 순간 한 번인 [생명 +N], 마법이 이번 턴 건 능력(✦), 레어 오라(◎).
    abilSlotsOf(src) = 그 데이터의 능력 칸 [{ k: 데이터 키, v: 값, raw: "[가시 1]" }] (카드에 보이는 차례) */
 const ABIL_CAP = 3;
-const ABIL_SLOT_KEYS = ["u", "rob", "leech", "veil", "pact", "bleed", "shred", "magic", "arcane", "crit", "chain", "throw", "ignite", "farmor", "ranged", "ward", "heal", "calm", "aura",
-  "shield", "thorns", "regen", "bash", "taunt", "purify", "firm", "intercept", "mesmer", ...SP_ABIL_NAMES.map(x => x[0]), "evName"];
+const ABIL_SLOT_KEYS = ["u", "rob", "leech", "veil", "pact", "bleed", "shred", "magic", "arcane", "crit", "chain", "throw", "ignite", "farmor", "shock", "ranged", "ward", "heal", "calm", "aura",
+  "shield", "thorns", "regen", "bash", "taunt", "purify", "firm", "conduct", "mesmer", ...SP_ABIL_NAMES.map(x => x[0]), "evName"];
 const ABIL_SLOT_CACHE = new WeakMap();
 function abilSlotsOf(src) {
   if (!src) return [];
@@ -349,7 +350,7 @@ const ITEM_KW = {
   "버팀": "▲ {S} 감소 효과를 받지 않는다(피해 제외).",
   "눌림": "▼ {S} 증가 효과를 받지 않는다.",
   "가시": "이 유닛을 맞붙어 공격하거나 이 유닛에게 반격한 상대 유닛은 체력이 {n} 깎인다.",
-  "증폭": "이 유닛이 전장에 있으면 내 마법(공격 · 공용 · 방어)이 상대 유닛에게서 깎는 체력이 맞는 유닛마다 {n} 늘어난다.",
+  "증폭": "이 유닛이 전장에 있으면 내 마법(공격 · 공용 · 방어)이 상대 유닛에게 주는 피해가 맞는 유닛마다 {n} 늘어난다. 늘어난 몫은 물리 피해 — 먼저 그 유닛의 방어를 이번 턴 그만큼 깎고, 방어를 넘긴 만큼만 체력에 들어간다.",
   "치유": "맞붙음(공격 · 반격)에서 살아남으면 받은 피해를 {n}만큼 채운다(원래 체력까지). 맞붙을 때마다.",
   "생명": "장착하는 순간 내 생명이 {n} 늘어난다.",
   /* v3.65 심연 마족 — 규칙은 engine.js 끝 "v3.65 심연 마족" 절 */
@@ -366,7 +367,8 @@ const ITEM_KW = {
   "수호": "상대의 공격이 맨 앞 유닛보다 먼저 이 유닛에게 향한다(상대 마법이 '맨 앞'을 겨눌 때도). 수호가 여럿이면 앞 칸부터.",
   "정화": "전투가 시작될 때(화상 · 불씨가 타기 전) 이 유닛의 화상 · 불씨 · 계약의 낙인과 [저주](공포 · 역병)를 지운다.",   // v3.90 자기만 · 출혈은 막지 않음(천족 전체가 빛의 몸으로 출혈 −1)
   "굳건": "상대가 이 유닛의 자리를 바꾸거나(자리 바꾸기 · 다시 세우기) 빼앗거나(빼앗기 · 정신 지배 · 환각의 통제 · 세이렌의 노래) 행동 불가로 묶지 못한다.",
-  "요격": "[원거리]로 공격해 온 유닛에게도 반격한다.",
+  "전도": "이번 턴 내 마법에 맞은 상대 유닛과 맞붙으면(공격 · 반격) 피해가 2 늘어난다. 마법이 피해를 겨눈 유닛이면 보호막 · 가호에 막혔어도 맞은 것으로 친다.",   // 2026-11-22 케라운, 옛 [요격]
+  "감전": "이 유닛을 맞붙어 공격한 상대 유닛은 다음 턴 공격이 {n} 줄어든다(이 유닛이 쓰러져도). 여러 번 걸려도 더해지지 않는다.",
   "매혹": "맞붙는 상대 유닛(공격 · 반격)을 이번 턴 [홀림]으로 만든다. [마력 공격]은 홀린 상대의 방어 전부를 피해에 더한다.",
   /* v3.81 스페셜 아이템 능력 — 규칙은 engine.js 끝 "v3.81 스페셜 아이템 능력" 절 */
   "불꽃 사냥": "화상이 붙은 상대 유닛과 맞붙으면(공격 · 반격) 피해가 그 화상 수치만큼 늘어난다.",
@@ -458,7 +460,7 @@ const ITEM_KW_SHORT = {   // v3.60 한 줄에 들도록 더 짧게 (크게 보�
   "버팀": "{S} 줄지 않는다(피해 제외).",
   "눌림": "{S} 늘지 않는다.",
   "가시": "맞붙어 공격하거나 반격한 상대에게 체력 −{n}.",
-  "증폭": "전장에 있으면 내 마법 피해 +{n}.",
+  "증폭": "전장에 있으면 내 마법 피해 +{n}(물리 — 방어부터 깎음).",
   "생명": "장착할 때 내 생명 +{n}.",
   "강탈": "상대를 쓰러뜨리면 다음 턴 에테르 +(상대 레벨의 절반, 올림).",
   "흡혈": "맞붙어 준 피해의 절반(올림)만큼 체력 +(남으면 이번 턴 체력 +).",
@@ -472,7 +474,8 @@ const ITEM_KW_SHORT = {   // v3.60 한 줄에 들도록 더 짧게 (크게 보�
   "수호": "상대 공격이 이 유닛에게 먼저 온다.",
   "정화": "전투 시작 때 이 유닛의 화상 · 불씨 · 낙인 · 저주를 지움.",
   "굳건": "상대가 자리를 바꾸거나 빼앗거나 묶지 못함.",
-  "요격": "원거리 공격자에게도 반격.",
+  "전도": "내 마법에 맞은 상대와 맞붙으면 피해 +2(이번 턴).",
+  "감전": "맞붙어 공격한 상대는 다음 턴 공격 −{n}.",
   "매혹": "맞붙는 상대를 이번 턴 [홀림]으로.",
   "불꽃 사냥": "화상 붙은 상대와 맞붙으면 피해 + 화상.",
   "되받기": "공격받을 때 방어가 막은 만큼 공격자 체력 −.",

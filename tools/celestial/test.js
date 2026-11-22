@@ -69,9 +69,9 @@ ok(CARDS['A2-43'].a === 10 && CARDS['A2-33'].h === 9 && !G('A2-21').ward, '스�
 { const cnt = k => Object.values(CARDS).filter(x => x.group === 'A2' && x.type === 'unit' && !x.retired && x.gift && x.gift[k]).length;
   ok(cnt('shred') === 1 && cnt('magic') === 1 && cnt('bleed') === 1, `천족 유닛 공격 능력: 관통 ${cnt('shred')} · 방어무시 ${cnt('magic')} · 출혈 ${cnt('bleed')}`); }
 
-// ---------- v3.95 빛의 심판 (RS-A2-1) · 대신 속죄 (PS-A2-1) ----------
+// ---------- v3.95 빛의 심판 (RS-A2-1) · 성흔 (PS-A2-1, 전 대신 속죄) ----------
 card('RS-A2-1', '빛의 심판', 'atk', 2, 'rare');
-card('PS-A2-1', '대신 속죄', 'def', 2, 'rare');
+card('PS-A2-1', '성흔', 'def', 2, 'rare');
 c.ev(`this.judge=function(mine, foe, setA, setF){ const P=[side(0,['RS-A2-1'].concat(mine)), side(1,foe)]; prep(P);
     P[0].field.filter(u=>u&&isUnit(u)).forEach((u,i)=>setA&&setA[i]&&Object.assign(u.t,setA[i]));
     P[1].field.filter(Boolean).forEach((u,i)=>setF&&setF[i]&&Object.assign(u.t,setF[i]));
@@ -84,16 +84,17 @@ c.ev(`this.judge=function(mine, foe, setA, setF){ const P=[side(0,['RS-A2-1'].co
   ok(JSON.stringify(r.hp) === '[1,2]', '심판: 맨 앞이 [보호막]으로 막으면 남은 몫 없음 (' + r.hp + ')'); }
 { const r = c.judge(['A2-33', 'A2-01'], ['G2-30'], [{ lock: true }]);
   ok(JSON.stringify(r.ad) === '[2,0]' && r.hp[0] === 8, '심판: [저주 면역] 아군은 방어가 안 깎이고 셈에서 빠진다 (' + r.ad + ' / ' + r.hp + ')'); }
-{ const r = c.ev(`(function(){ const P=[side(0,['PS-A2-1','A2-29','A2-33']), side(1,['G2-30'])]; prep(P); const X=ctx(P,1,1,[]);
-    castSpell(X,0,P[0].field[0],1); const f=P[0].field[1], w=P[0].field[2];
-    const ward=w.t.ward; hurt(X,f,5); const a=[f.t.dmg, w.t.dmg]; hurt(X,w,20); hurt(X,f,3);
-    return [ward].concat(a, [w.t.alive, f.t.dmg]); })()`);
-  ok(JSON.stringify(r) === '[2,0,3,false,3]', '대신 속죄: 뒤 아군 [가호 1](1 → 2) · 맨 앞이 받을 피해 5 → 뒤 아군 3(가호 2) · 뒤 아군이 쓰러지면 맨 앞이 직접 (' + r + ')'); }
-{ const r = c.fight(['G2-30'], ['PS-A2-1', 'A2-29', 'A2-33']);   // 고슴도치 3/0/10이 발키리 대장(방 1)을 친다 → 피해 2가 색유리 수호자에게(가호 2로 0)
-  ok(r.def[0].dmg === 0 && r.def[1].dmg === 0 && r.atk[0].dmg === 4, '대신 속죄 전투: 맨 앞은 맞지 않고 반격은 맨 앞 유닛이 한다 (' + r.def.map(x => x.dmg) + ' / 공격 쪽 ' + r.atk[0].dmg + ')');
-  ok(/\[대신 속죄\]/.test(r.logs), '대신 속죄 기록'); }
-{ const r = c.ev(`(function(){ const P=[side(0,['PS-A2-1','A2-29']), side(1,['G2-30'])]; prep(P); const X=ctx(P,1,1,[]); castSpell(X,0,P[0].field[0],1); hurt(X,P[0].field[1],3); return P[0].field[1].t.dmg; })()`);
-  ok(r === 3, '대신 속죄: 뒤 아군이 없으면 효과 없음 (' + r + ')'); }
+// 2026-11-22 대신 속죄 → 성흔: 맨 앞 2기 [가호 1] + 이번 턴 아군이 잃은 체력만큼 새벽빛
+{ const r = c.ev(`(function(){ const P=[side(0,['PS-A2-1','A2-29','A2-33','A2-13']), side(1,['G2-30'])]; prep(P); P[0].light=0; const X=ctx(P,1,1,[]);
+    const w0=P[0].field.slice(1,4).map(u=>u.t.ward||0); castSpell(X,0,P[0].field[0],1); const w1=P[0].field.slice(1,4).map(u=>u.t.ward||0);
+    const u=P[0].field[3], hp=hpLeft(u); u.t.wardUsed=true; hurt(X,u,3); const a=P[0].light; hurt(X,u,99); const b=P[0].light;
+    return [w1[0]-w0[0], w1[1]-w0[1], w1[2]-w0[2], a, b-a, hp]; })()`);
+  ok(r[0] === 1 && r[1] === 1 && r[2] === 0, '성흔: 맨 앞 2기에게만 [가호 1] (' + r.slice(0, 3) + ')');
+  ok(r[3] === 3 && r[4] === r[5] - 3, '성흔: 잃은 체력 3 → 새벽빛 3 · 넘친 피해는 남은 체력까지만 (' + r + ')'); }
+{ const r = c.ev(`(function(){ const P=[side(0,['A2-29']), side(1,['PS-A2-1','A2-29'])]; prep(P); P[0].light=0; P[1].light=0; const X=ctx(P,0,1,[]);
+    castSpell(X,1,P[1].field[0],1); P[0].field[0].t.wardUsed=true; hurt(X,P[0].field[0],4); const mine=P[0].light;
+    const Y=ctx(P,0,1,[]); P[1].field[1].t.ward=0; hurt(Y,P[1].field[1],2); return [mine, P[1].light]; })()`);
+  ok(r[0] === 0 && r[1] === 0, '성흔: 상대가 쓴 성흔은 내 빛이 아니고, 이번 전투에만 (' + r + ')'); }
 
 console.log(fails ? `✗ ${fails}/${n} 실패` : `✓ ${n}개 모두 통과`);
 process.exit(fails ? 1 : 0);

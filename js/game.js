@@ -40,14 +40,14 @@ const atkSfx = (uid, phase, v, kind) => {
   const it = G.reg && G.reg[uid];
   FEEL.atk(kind || atkKindOf(uid), phase, v, it ? C(it).lv : 3, it ? it.id : null);
 };
-/* 2026-11-15 맞붙는 순간 능력 소리 (떠오르는 글자가 없는 능력): [마력 공격](방어가 있는 상대를 칠 때) · 반격 때 [방패 반격] · [원거리]에게 [요격].
+/* 2026-11-15 맞붙는 순간 능력 소리 (떠오르는 글자가 없는 능력): [마력 공격](방어가 있는 상대를 칠 때) · 반격 때 [방패 반격]. (2026-11-22 [요격]을 걷어내 그 소리 "intercept"는 쓰지 않음)
    abilOf는 엔진 것 — 재생 중인 판의 카드 상태로 본다. 카드 소리 뒤에 살짝 늦게 겹친다 */
 const abilSfx = (actUid, tgtUid, counter) => {
   if (typeof abilOf !== "function" || !G || G.cfg.headless || G.speed === 0) return;
   const a = G.reg && G.reg[actUid], t = G.reg && G.reg[tgtUid];
   if (!a || !a.t) return;
-  let ab, tb; try { ab = abilOf(a); tb = t && t.t ? abilOf(t) : {}; } catch (e) { return; }
-  const k = counter && ab.bash ? "shield_bash" : counter && ab.intercept && tb.ranged ? "intercept" : !counter && ab.arcane > 0 && t && t.t && t.t.d > 0 ? "arcane" : null;
+  let ab; try { ab = abilOf(a); } catch (e) { return; }
+  const k = counter && ab.bash ? "shield_bash" : !counter && ab.arcane > 0 && t && t.t && t.t.d > 0 ? "arcane" : null;
   if (k) setTimeout(() => sfx(k, 0.75), 110);
 };
 /* 2026-11-15 카드마다 다른 효과음 (audio/sfx/<카드ID>.atk · def · cast · equip, js/feel.js FEEL.card). 그 카드 소리가 없으면 fb */
@@ -1652,9 +1652,12 @@ function coinClash(info) {
     const autoBox = order.find(sd => sd.human && sd.coins.length);
     const partsHTML = o => o.parts.map(k => `<span class="cs-part st-${k.st}"><i>${statIco(k.st)}</i><b>${sgnNum(k.v)}</b></span>`).join("");
     const coinHTML = (sd, o, i) => `<div class="cs-coin ${sd.kept ? (o.heads ? "is-heads" : "is-tails") : "spinning"}${o.parts.length > 1 ? " multi" : ""}" data-side="${sd.who}" data-i="${i}"${sd.kept && !o.heads ? ' style="transform:rotateY(180deg)"' : ""}><div class="cs-face cs-heads">${COIN_CREST()}</div><div class="cs-face cs-tails">${COIN_BACK()}</div></div>`;
-    const ctlHTML = sd => !sd.coins.length ? "" : sd.kept ? `<div class="cs-cpu-state">운명이 봉인되어 있다</div>` : sd.human
-      ? `<button type="button" class="btn primary cs-stop" data-side="${sd.who}">운명 봉인<small>Space · Enter</small></button>${sd === autoBox ? `<label class="cs-auto"><input type="checkbox" ${auto ? "checked" : ""}> 자동으로 봉인 <kbd>A</kbd></label><label class="cs-auto cs-noflip"><input type="checkbox" ${noFlip ? "checked" : ""}> 다시 던지기 건너뛰기</label>` : ""}`
+    /* 2026-11-22 사람 창은 돌 때도 멈춘 뒤(다시 굴리기)와 같은 틀: 안내 한 줄 + 단추 줄은 .cs-flip, 체크는 .cs-opts (두 단계 내내 그대로) */
+    const ctlHTML = sd => !sd.coins.length ? "" : sd.kept ? `<div class="cs-cpu-state">운명이 봉인되어 있다</div>` : sd.human ? ""
       : `<div class="cs-cpu-state">${G.online ? "상대가 운명을 가늠하는 중…" : "운명을 가늠하는 중…"}</div>`;
+    const rolls = sd => sd.human && sd.coins.length && !sd.kept;
+    const flipHTML = sd => rolls(sd) ? `<span class="cf-hint">운명 봉인을 누르면 코인이 멈춥니다</span><div class="cs-choice"><button type="button" class="btn primary cs-stop" data-side="${sd.who}">운명 봉인<small>Space · Enter</small></button></div>` : "";
+    const optsHTML = sd => rolls(sd) && sd === autoBox ? `<div class="cs-opts"><label class="cs-auto"><input type="checkbox" ${auto ? "checked" : ""}> 자동으로 봉인 <kbd>A</kbd></label><label class="cs-auto cs-noflip"><input type="checkbox" ${noFlip ? "checked" : ""}> 다시 던지기 건너뛰기</label></div>` : "";
     /* v2.4.4 코인 창에 앞면 확률을 적는다. 코인 뒷면 마법(정화의 물결·대해류 등)은 −50%라 0% */
     const pct = p => Math.round(p * 100) + "%";
     const probHTML = sd => {
@@ -1673,7 +1676,7 @@ function coinClash(info) {
       ${probHTML(sd)}
       <div class="cs-ctl">${ctlHTML(sd)}</div></div>
       <div class="cs-roll"><div class="cs-coins">${sd.kept ? "" : sd.groups.length ? sd.groups.map((o, i) => coinHTML(sd, o, i)).join("") : `<div class="cs-none">코인 없음</div>`}</div>
-      <div class="cs-res"></div></div><div class="cs-flip"></div>
+      <div class="cs-res"></div></div><div class="cs-flip${rolls(sd) ? " cs-rolls" : ""}">${flipHTML(sd)}</div>${optsHTML(sd)}
       ${sd.coins.length && !sd.kept ? `<div class="cs-sand"><i></i></div>` : ""}</div>`;
     const st = document.createElement("div");
     st.className = "coinstage";
@@ -1749,6 +1752,7 @@ function coinClash(info) {
         coinRing(el, sd.groups.map(o => o.heads));
         resText(sd); el.classList.add("done"); fitStage();
         const cs = el.querySelector(".cs-cpu-state"); if (cs) cs.textContent = "운명이 봉인되었다";
+        if (sd.human) { const h = el.querySelector(".cs-flip .cf-hint"), b = el.querySelector(".cs-flip .cs-stop"); if (h) h.textContent = "운명이 봉인되었다"; if (b) b.disabled = true; }
         burstOn(sd, "slam", 220);
         sd.landed = true;
         if (sides.every(s => s.landed)) { st.classList.add("done"); decide(); }
@@ -1797,7 +1801,7 @@ function coinClash(info) {
         const tails = sd.groups.map((o, i) => (coinBad(o, sd.who) && o.p > 0 && o.p < 1 ? i : -1)).filter(i => i >= 0);
         const mixed = tails.some(i => coinSwap(sd.groups[i]));   // 2026-11-22 맞바꿈 코인은 공격 · 방어 차례에 따라 손해인 면이 다르다 (coinNeg)
         if (G.cfg.replayView || !tails.length || !canReflip(sd.p) || (noFlip && sd.human)) {   // v3.46 다시보기: 다시 던지기는 기록대로 이미 들어가 있다
-          if (sd.human && ctl) ctl.innerHTML = "";
+          if (sd.human) el.querySelector(".cs-flip").innerHTML = "";
           if (G.online && sd.human && tails.length && canReflip(sd.p)) Online.send({ t: "coin", k: ckey(sd), flip: null });   // 건너뛰기도 알린다
           continue;
         }
@@ -1820,8 +1824,7 @@ function coinClash(info) {
             ? `<span class="cf-hint"><i class="cf-eth"></i>${what} <b>에테르 1</b>로 다시 굴릴 수 있습니다. 굴릴 코인은 눌러서 바꿉니다 <small>(남은 에테르 ${ether(p)} · 한 번)</small></span>`
             : `<span class="cf-hint"><i class="cf-eth"></i>${what} <b>에테르 1</b>로 다시 굴릴 수 있습니다 <small>(남은 에테르 ${ether(p)} · 한 번)</small></span>`)
             + `<div class="cs-choice"><button type="button" class="btn primary cs-stop cs-reflip" data-side="${sd.who}"><span><i class="cf-eth"></i>다시 굴리기</span><small>에테르 1 · R</small></button>`
-            + `<button type="button" class="btn ghost cs-stop cs-pass" data-side="${sd.who}">굴리지 않고 넘어가기<small>에테르 안 씀 · Space · Enter</small></button></div>`
-            + `<label class="cs-auto cs-noflip"><input type="checkbox"> 이제 묻지 않기</label>`;
+            + `<button type="button" class="btn ghost cs-stop cs-pass" data-side="${sd.who}">굴리지 않고 넘어가기<small>에테르 안 씀 · Space · Enter</small></button></div>`;
         } else if (G.online) {
           // v3.10 상대 기기의 결정을 기다린다 (다시 굴린 결과도 그쪽에서 정해 보낸다)
           if (!sd.hide) box.innerHTML = `<span class="cf-hint ai">${esc(p.name)}이(가) 다시 굴릴지 정하는 중…</span>`;   // v3.12.6 가린 창은 아무 말 없이
@@ -3495,7 +3498,7 @@ function counterStrike(defUid, atkUid, dur) {
     shakeEl(a2, 8);
     atkSfx(defUid, "hit", 0.85);   // v3.7.1 반격도 반격하는 유닛의 공격 종류로
     setTimeout(() => cardSfx(atkUid, "def", 0.65), 70);   // 2026-11-15 반격 맞은 카드의 방어 소리
-    abilSfx(defUid, atkUid, true);   // 2026-11-15 [방패 반격] · [요격] · [마력 공격] (반격)
+    abilSfx(defUid, atkUid, true);   // 2026-11-15 [방패 반격] · [마력 공격] (반격)
     if (typeof IMPACT !== "undefined") {   // v3.14 반격도 맞는 순간 멈칫(히트 스톱) · 번쩍 · 밀려남
       const hs = IMPACT.strike(uidEl(defUid), a2, Object.assign({ col: s.el.style.getPropertyValue("--el") }, info));
       if (hs > 30 && an.playState === "running") { an.pause(); setTimeout(() => { if (an.playState === "paused") an.play(); }, hs); }

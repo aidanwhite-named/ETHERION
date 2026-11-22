@@ -38,9 +38,9 @@
     ["A2-25", ["thorns"], { purify: true }],    // 엘라드 기사단장 [가시 1]
     ["PN-A2-U1", ["thorns"], { purify: true }], // 맹세를 새긴 기사 [가시 1]
     ["EP-A2-2", ["thorns"], { purify: true }],  // 황혼 장벽 파수장 [가호 1] [가시 1] → [가호 1] [정화]
-    /* 노움 B3: 사격 → 요격 */
-    ["EP-B3-1", ["throw", "every"], { intercept: true }],   // 볼타리움 방전수 [사격 1] [증폭 1]
-    ["EP-B3-3", ["throw", "every"], { intercept: true }]    // 케라운의 피뢰탑 [사격 1] [증폭 2]
+    /* 케라운 B3: 사격 → 요격 → 2026-11-22 [전도](사용자, engine kzConduct) */
+    ["EP-B3-1", ["throw", "every"], { conduct: true }],   // 볼타리움 방전수 [사격 1] [증폭 1]
+    ["EP-B3-3", ["throw", "every"], { conduct: true }]    // 케라운의 피뢰탑 [사격 1] [증폭 2]
   ];
   const ITEM = [
     ["IG2-3", ["ward"], { regen: 1 }],          // 이끼 부적 [가호 1]
@@ -49,9 +49,9 @@
     ["IB2-6", ["ward"], { taunt: true }, 1],    // 골렘 핵 0/2/5 [가호 1] → 0/3/5
     ["IR-B2", ["ward"], { firm: true }, 1],     // 아다만트 장갑판 1/1/4 [가호 1] → 1/2/4
     ["PI-B2", ["ward"], { bash: true }, 1],     // 소르그림의 힘줄 2/2/5 [가호 1] → 2/3/5
-    ["IB3-3", ["throw", "every"], { intercept: true }],   // 피뢰 지팡이 [사격 1]
-    ["C4-1", ["throw", "every"], { intercept: true }],    // 별을 읽는 보주 [사격 1] [증폭 2]
-    ["IR-B3", ["throw", "every"], { intercept: true }]    // 구리 피뢰봉 [사격 1]
+    ["IB3-3", ["throw", "every"], { conduct: true }],   // 피뢰 지팡이 [사격 1] — 2026-11-22 [요격] → [전도]
+    ["C4-1", ["throw", "every"], { conduct: true }],    // 별을 읽는 보주 [사격 1] [증폭 2] (itemrework가 [연쇄]로 덮음)
+    ["IR-B3", ["throw", "every"], { conduct: true }]    // 구리 피뢰봉 [사격 1] — 2026-11-22 [요격] → [전도]
   ];
   const NEWABIL_MISSING = [];
   for (const [id, del, add] of UNIT) {
