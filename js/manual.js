@@ -504,7 +504,7 @@ const Help = (() => {
       const w = open("help-tut", `<div class="tut" role="dialog" aria-modal="true" aria-label="튜토리얼">
         <header class="tut-head"><p class="hx-eyebrow">FIRST STEPS IN ETHERION</p><h2>튜토리얼</h2>${closeBtn}</header>
         <p class="tut-lead">처음이라면 1부터 차례로. 마친 장에는 ✓가 붙습니다. 규칙 전부는 <button type="button" class="tut-link" data-c="manual">매뉴얼</button>에 있습니다.</p>
-        <div class="tut-chs">${ch.map(([k, no, t, en, x, tm]) => `<button type="button" class="tut-ch${p[k] ? " done" : ""}" data-c="${k}"><span class="tc-no">${no}</span><span class="tc-body"><b>${t}</b><small class="en">${en}</small><span class="tc-x">${x}</span><span class="tc-tm">${p[k] ? "✓ 마침 · 다시 보기" : tm}</span></span></button>`).join("")}</div>
+        <div class="tut-chs">${ch.map(([k, no, t, en, x, tm]) => `<button type="button" class="tut-ch${p[k] ? " done" : ""}" data-c="${k}"><span class="tc-no">${no}</span><span class="tc-body"><b>${t}</b><small class="en">${en}</small><span class="tc-desc">${x}</span><span class="tc-tm">${p[k] ? "✓ 마침" : tm}</span></span><span class="tc-go">${p[k] ? "다시 보기" : "시작"} ›</span></button>`).join("")}</div>
       </div>`);
       w.addEventListener("click", e => {
         const b = e.target.closest("[data-c]"); if (!b) return;

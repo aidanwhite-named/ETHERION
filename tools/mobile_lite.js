@@ -99,13 +99,16 @@ const HEAVY_KF = k => { const i = kfInfo(k); return !!(i && i.heavy); };
 const ANIM_WORDS = /^(infinite|linear|ease|ease-in|ease-out|ease-in-out|alternate|alternate-reverse|reverse|normal|both|forwards|backwards|none|paused|running|step-start|step-end|initial|inherit)$/;
 function animNames(v) { return splitTop(v, ",").map(a => a.trim().split(/\s+/).find(t => /^-?[a-zA-Z_][\w-]*$/.test(t) && !ANIM_WORDS.test(t))).filter(Boolean); }
 
-/* ---------- html.mobile 붙이기 ---------- */
+/* ---------- html.fx-low 붙이기 ----------
+   2026-11-22 연출 3단계: 이 가벼운 규칙은 폰 · 앱만이 아니라 PC의 설정 '연출: 저사양'에서도 쓴다.
+   <html class="fx-low">는 폰 · 앱이면 js/mobile.js가 처음부터, PC는 js/impact.js applyFx가 붙인다(예전 머리말은 html.mobile) */
+const LOW = "html.fx-low";
 function mob(sel) {
   return splitTop(sel, ",").map(s => {
     s = s.trim();
-    if (/^html\b/.test(s)) return s.replace(/^html/, "html.mobile");
-    if (/^:root\b/.test(s)) return s.replace(/^:root/, "html.mobile");
-    return "html.mobile " + s;
+    if (/^html\b/.test(s)) return s.replace(/^html/, LOW);
+    if (/^:root\b/.test(s)) return s.replace(/^:root/, LOW);
+    return LOW + " " + s;
   }).join(", ");
 }
 
@@ -144,8 +147,8 @@ function emit(list) {
 }
 const chunks = [];
 for (const { f, tree } of all) { const r = emit(tree); if (r.length) chunks.push(`/* ${f} */\n` + r.join("\n")); }
-const head = `/* ETHERION — 폰 · 앱 가볍게 (v3.46). 손으로 고치지 말 것: node tools/mobile_lite.js 가 index.html의 CSS에서 만든다.
-   폰 · 앱(<html class="mobile">)에서만: 그림자 번짐 ${BLUR_MAX}px(글자 ${TEXT_MAX}px · drop-shadow ${DROP_MAX}px)까지 · 흐림 유리 없음 ·
+const head = `/* ETHERION — 폰 · 앱 가볍게 (v3.46) = 연출 저사양 (2026-11-22). 손으로 고치지 말 것: node tools/mobile_lite.js 가 index.html의 CSS에서 만든다.
+   폰 · 앱과 PC 설정 '연출: 저사양'(<html class="fx-low">)에서만: 그림자 번짐 ${BLUR_MAX}px(글자 ${TEXT_MAX}px · drop-shadow ${DROP_MAX}px)까지 · 흐림 유리 없음 ·
    그림자 · 필터를 끝없이 움직이던 애니메이션과 카드 반짝임 멈춤(${[...stopped].sort().join(" · ")}). PC는 그대로. */\n`;
 fs.writeFileSync(OUT, head + chunks.join("\n\n") + "\n");
 console.log(`css/mobile-lite.css: 규칙 ${nRules}개 (번짐 줄임 ${nCap} · 멈춘 애니메이션 ${nStop}곳), ${(fs.statSync(OUT).size / 1024).toFixed(1)} KB`);

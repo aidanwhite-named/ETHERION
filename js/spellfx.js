@@ -33,6 +33,8 @@ const SpellFX = (() => {
   const snd = (n, v) => { if (n && typeof sfx === "function") sfx(n, v); };
   const later = (fn, ms) => (ms > 4 ? setTimeout(() => { if (layer()) fn(); }, ms) : fn());
   const px = v => v.toFixed(1) + "px";
+  /* 2026-11-22 연출 3단계(js/impact.js applyFx): 흩어지는 · 떠오르는 입자 수 — 저사양(폰 · 앱 포함) 절반 · 중간 그대로 · 고사양 1.5배 */
+  const nQ = n => { const c = document.documentElement.classList; return Math.max(1, Math.round(n * (c.contains("fx-low") ? 0.5 : c.contains("fx-high") ? 1.5 : 1))); };
 
   function themeOf(id) {
     const c = id && typeof CARDS !== "undefined" ? CARDS[id] : null;
@@ -65,7 +67,7 @@ const SpellFX = (() => {
   /* 사방(또는 한쪽)으로 흩어지는 입자. o: col size dist dur grav cls ang spread face delay end n */
   function sparks(x, y, o) {
     const k = K();
-    for (let i = 0; i < o.n; i++) {
+    for (let i = 0, n = nQ(o.n); i < n; i++) {
       const a = (o.ang != null ? o.ang : 0) + (o.spread != null ? rnd(-o.spread, o.spread) : rnd(0, 360));
       const rad = a * Math.PI / 180, d = rnd(0.45, 1) * o.dist;
       const dx = Math.cos(rad) * d, dy = Math.sin(rad) * d, g = (o.grav || 0) * rnd(0.7, 1.2);
@@ -81,7 +83,7 @@ const SpellFX = (() => {
   /* 떠오르거나 가라앉는 입자 (강화·약화·회복) */
   function rise(r, o) {
     const k = K();
-    for (let i = 0; i < o.n; i++) {
+    for (let i = 0, n = nQ(o.n); i < n; i++) {
       const x = r.left + r.width * rnd(0.12, 0.88), y = o.down ? r.top + r.height * rnd(0, 0.25) : r.bottom - r.height * rnd(0.02, 0.3);
       const dy = (o.down ? 1 : -1) * r.height * rnd(0.45, 0.85), dx = rnd(-1, 1) * r.width * 0.12;
       const p = mk("sfx-p " + (o.cls || ""), x, y, { "--c": o.col, "--z": px(o.size * rnd(0.6, 1.3)) });

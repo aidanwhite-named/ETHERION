@@ -25,7 +25,7 @@ const Portal = {
     if (this.busy) return;
     this.busy = true;
     // 2026-11-15 입장 관문 소리(portal_open)는 날카로워 뺐다 — 새로 만들면 audio/sfx/에 넣고 여기서 FEEL.play("portal_open", .9)
-    const reduced = (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) || document.documentElement.classList.contains("mobile");   // v3.46 폰 · 앱은 캔버스 연출 없이 어둠 전환만
+    const reduced = (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) || document.documentElement.classList.contains("fx-low");   // v3.46 폰 · 앱(2026-11-22 연출 저사양)은 캔버스 연출 없이 어둠 전환만
     const el = document.createElement("div");
     el.id = "portal";
     el.innerHTML = `<canvas aria-hidden="true"></canvas><div class="pt-veil"></div>`;

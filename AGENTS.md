@@ -209,7 +209,8 @@
 - 다시보기(`js/replays.js`)는 `cfg.keepLog`(사람 쪽 수 기록) + `cfg.replay` · `cfg.replayView`. 사람이 둘 수 있는 새 행동은 `REPLAY_ACTS`에 넣어야 다시보기 · 검산 모두 맞는다.
 - 덱 코드는 `js/deckcode.js`(카드 ID를 그대로 써서 카드가 더해져도 예전 코드가 읽힘).
 - 친구 초대 체험 덱(v3.48): 규칙은 `js/quests.js` 끝 절(`TRIAL.days` · `Store.inviteApply`는 서버 등록만 부름), 화면은 `js/deckcode.js`(초대 링크 · 대기실 띠). 내 덱을 쓰는 새 대전 방식을 만들면 체험 덱을 받을지 정하고, 받으면 `matchStart`에 `trial`을 넘기고 서버 덱 검사(`rewards.js` `_checkDecks` · `_pairEnd`)를 함께 본다.
-- **폰 가볍게**: CSS를 고친 뒤 `node tools/mobile_lite.js`로 `css/mobile-lite.css`를 다시 만든다(손으로 고치지 않음). 폰에서 끝없이 도는 효과는 transform · opacity만, 큰 그림자 · 흐림 · 캔버스 효과는 `html.mobile`에서 끈다.
+- **폰 가볍게**: CSS를 고친 뒤 `node tools/mobile_lite.js`로 `css/mobile-lite.css`를 다시 만든다(손으로 고치지 않음). 폰에서 끝없이 도는 효과는 transform · opacity만, 큰 그림자 · 흐림 · 캔버스 효과는 `html.fx-low`에서 끈다.
+- **연출 3단계 (2026-11-22, 사용자)**: 설정 "연출" = 저사양 · 중간(기본) · 고사양(Prefs `fx`: `low` · `lite` · `rich`), `js/impact.js` `applyFx`가 `<html>`에 붙인다 — 저사양 `fx-lite fx-low` · 중간 `fx-lite` · 고사양 `fx-high`. **폰 · 앱(`html.mobile`)은 늘 저사양**(`js/mobile.js`가 처음부터 붙임, 설정 창에는 고르는 단추 없음). 저사양 = 예전에 폰만 타던 가벼운 길 전부(`css/mobile-lite.css`의 머리말이 `html.fx-low` · 충격파 · 별 하늘 · 관문 캔버스 없음 · 기울이기 없음 · 조각은 그림 한 장 · 마법 입자 절반). 고사양 = 큰 흐림 · 그림자 필터 + `css/nopulse.css` 끔(빛 맥박) + 목록 카드 등급 광택 + 마법 입자 1.5배. **연출을 가볍게 가르는 새 코드는 `html.mobile`이 아니라 `html.fx-low` · `fxLow()`(js/game.js)로 쓴다** — `html.mobile`은 화면 줄임 · 터치 · 폰용 작은 그림에만. 상단 띠는 `fitTopbar`(js/screens.js)가 넘칠 때만 `.fitN`을 붙여 접는다(css/hud.css 맨 아래).
 - 강화 카드 그림은 원래 카드 그림을 먼저 받고 그 그림을 붙여 그린다(프롬프트의 "Continuity" 줄 — 원래 그림이 있으면 `upgradeRef`, 없으면 `upgradeNoRef`를 생성기가 고른다). **강화 장면 = 원래 카드와 닮은 틀, 다음 순간**(2026-11-22, 사용자 결정): 원래 카드의 `dir · place · pal`(되도록 `shot`도) · 장소 · 대표 소품 · 생김새 낱말을 그대로 쓰고("the same …"), 그 이야기의 결실 · 더 큰 몸 · 세 장을 합친 흔적 하나("three …")를 그린다. `lint`가 원래 카드와 짝을 검사하고 강화 카드는 깃발의 쏠림 셈에서 뺀다. 규칙은 `tools/art/PROMPT_GUIDE.md` 3.2 "강화 장면 쓰는 법".
 
 ## 서버 (v3.22)

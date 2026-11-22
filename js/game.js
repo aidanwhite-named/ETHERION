@@ -1229,13 +1229,15 @@ async function showSettings() {
   const html = `<h3>설정</h3>${mt}${lay}
     <p class="pick-label">연출 속도 <small class="muted">— 전투 장면·카드 이동·띠 모두 같이 빨라지거나 느려집니다 (전투 중에도 바꿀 수 있음)</small></p>
     <div class="speed set-speed">${SPEEDS.map(s => `<button type="button" class="btn xs ${(G ? G.speed : Prefs.get("speed", 1)) === s ? "on" : ""}" data-sp="${s}">×${s}</button>`).join("")}</div>
-    <p class="pick-label">연출 <small class="muted">— 가볍게: 컴퓨터 부담을 줄인 연출(흐림 · 빛 그림자 줄임, 파편 적게, 타이틀 배경 덜 그림). 화려하게: 예전 연출 그대로</small></p>
-    <div class="speed set-fx">${[["lite", "가볍게"], ["rich", "화려하게"]].map(([v, n]) => `<button type="button" class="btn xs ${Prefs.get("fx", "lite") === v ? "on" : ""}" data-fx="${v}">${n}</button>`).join("")}</div>
+    ${document.documentElement.classList.contains("mobile")
+      ? `<p class="pick-label">연출 <small class="muted">— 폰 · 앱은 늘 저사양(가장 가벼운 연출)으로 돌아갑니다</small></p>`
+      : `<p class="pick-label">연출 <small class="muted">— 저사양: 가장 간소하게(그림자 · 흐림 최소, 되풀이 빛 멈춤, 불꽃 · 파편 캔버스 없음, 입자 절반). 중간: 부담을 줄인 기본 연출. 고사양: 좋은 그래픽카드 · CPU용(큰 빛 번짐 · 흐림, 빛 맥박, 목록 카드 광택, 입자 1.5배)</small></p>
+    <div class="speed set-fx">${[["low", "저사양"], ["lite", "중간 (기본)"], ["rich", "고사양"]].map(([v, n]) => `<button type="button" class="btn xs ${Prefs.get("fx", "lite") === v ? "on" : ""}" data-fx="${v}">${n}</button>`).join("")}</div>`}
     <p class="pick-label">전장 배경 <small class="muted">— 대전 화면의 배경 일러스트</small></p>
     <div class="speed set-battle-bg">${[["default", "칠룡환 (기본)"], ["war", "3파전 (거인·용·신)"], ["random", "무작위"]].map(([v, n]) => `<button type="button" class="btn xs ${curBg === v ? "on" : ""}" data-bbg="${v}">${n}</button>`).join("")}</div>
     <p class="pick-label">효과음 <small class="muted">— 누르기·놓기·맞기 소리 (파일 없이 합성, 터치 기기에서는 짧은 진동)</small></p>
     <div class="speed set-sfx">${[["off", "끄기"], ["low", "작게"], ["mid", "보통"]].map(([v, n]) => `<button type="button" class="btn xs ${typeof FEEL !== "undefined" && FEEL.level === v ? "on" : ""}" data-sfx="${v}">${n}</button>`).join("")}</div>
-    <p class="pick-label">배경음 <small class="muted">— 타이틀 곡과 대기실·상점의 아홉 단체 테마(무작위로 이어 틂). 대전 중에는 멈춥니다</small></p>
+    <p class="pick-label">배경음 <small class="muted">— 입장 화면은 타이틀 곡, 그 밖의 화면(대전 포함)은 열네 곡을 무작위로 이어 틂</small></p>
     <div class="speed set-bgm">${[["off", "끄기"], ["low", "작게"], ["mid", "보통"]].map(([v, n]) => `<button type="button" class="btn xs ${typeof BGM !== "undefined" && BGM.level === v ? "on" : ""}" data-bgm="${v}">${n}</button>`).join("")}</div>${Store.isAdmin() ? `
     <p class="pick-label">턴 시간 제한 <small class="muted">— 관리자만: 준비 단계마다 ${TURN_LIMIT_MS / 1000}초. 끄면 시간이 다 되어도 턴이 넘어가지 않습니다 (지금 판에도 바로 적용)</small></p>
     <div class="speed set-tlimit">${[["on", "켜기 (기본)"], ["off", "끄기"]].map(([v, n]) => `<button type="button" class="btn xs ${(Prefs.get("turnLimitOff", false) === true ? "off" : "on") === v ? "on" : ""}" data-tl="${v}">${n}</button>`).join("")}</div>` : ""}`;
@@ -1413,7 +1415,7 @@ function plasmaDrain(fromUid, el, layer) {
   if (src && src !== el) {
     const sr = src.getBoundingClientRect(), sx = sr.left + sr.width / 2, sy = sr.top + sr.height / 2;
     src.animate([{ filter: "none", transform: "none" }, { filter: "brightness(1.8) drop-shadow(0 0 10px #8fdcff)", transform: "scale(1.04) rotate(-1deg)", offset: 0.35 }, { filter: "none", transform: "none" }], { duration: 520, easing: "ease-out" });
-    const nS = document.documentElement.classList.contains("mobile") ? 7 : 14;   // 폰은 반만
+    const nS = fxLow() ? 7 : 14;   // 폰 · 저사양은 반만
     for (let i = 0; i < nS; i++) {
       const d = document.createElement("i"); d.className = "plasma-spark" + (i % 3 ? "" : " big");
       const ox = (Math.random() - 0.5) * sr.width * 0.8, oy = (Math.random() - 0.5) * sr.height * 0.7;
@@ -1955,7 +1957,7 @@ function coinClash(info) {
 const SH_STAGGER = 70;
 function shatterCard(b) {
   const layer = fxLayer(); if (!layer) return;
-  const phone = document.documentElement.classList.contains("mobile");
+  const phone = fxLow();   // 2026-11-22 폰 · 앱 + 연출 저사양(PC)
   let crowd = false;   // 폰: 바로 앞에 다른 카드가 부서졌다(한꺼번에 여럿)
   if (phone) {
     const now = performance.now(), next = FX.shNext || 0;
@@ -2782,12 +2784,13 @@ function render() {
         <div class="toolbar" role="toolbar" aria-label="메뉴">
           <button type="button" class="tb-btn tb-speed" data-act="speed-cycle" aria-label="연출 속도" data-tip="연출 속도 ×${G.speed}\n누를 때마다 ${SPEEDS.join(" → ")}">${uiIcon("hourglass")}<span>×${G.speed}</span></button>
           <i class="tb-sep"></i>
-          <button type="button" class="tb-btn" data-act="settings" aria-label="설정" data-tip="설정\n속도·연출·소리">${uiIcon("settings")}</button>
           <button type="button" class="tb-btn${G.showLog ? " on" : ""}" data-act="log" aria-label="기록" data-tip="전투 기록">${uiIcon("log")}</button>
           <button type="button" class="tb-btn" data-act="rules" aria-label="규칙" data-tip="규칙">${uiIcon("rules")}</button>
           ${typeof BGM !== "undefined" && BGM.tbHTML ? `<i class="tb-sep"></i>${BGM.tbHTML()}` : ""}
           <i class="tb-sep"></i>
           <button type="button" class="tb-btn tb-danger" data-act="surrender" aria-label="${G.phase === "over" ? "나가기" : "항복"}" data-tip="${G.phase === "over" ? "나가기" : "항복"}">${uiIcon(G.phase === "over" ? "exit" : "flag")}</button>
+          <i class="tb-sep"></i>
+          <button type="button" class="tb-btn" data-act="settings" aria-label="설정" data-tip="설정\n속도·연출·소리">${uiIcon("settings")}</button><!-- 2026-11-22 톱니는 맨 오른쪽(상단 띠와 같은 자리) -->
         </div>
       </div>
     </div>
@@ -3332,6 +3335,7 @@ function shakeEl(el, px) {
 }
 /* 잔상: 움직이는 캐릭터 뒤로 흐릿한 그림자를 남긴다 */
 const fxLite = () => document.documentElement.classList.contains("fx-lite") || document.documentElement.classList.contains("mobile");   // v3.17 설정 '연출: 가볍게'
+const fxLow = () => document.documentElement.classList.contains("fx-low");   // 2026-11-22 연출 저사양(설정) — 폰 · 앱은 늘 저사양 (js/impact.js applyFx)
 function trail(sp, ms) {
   const layer = fxLayer(); if (!layer) return;
   const t0 = performance.now();

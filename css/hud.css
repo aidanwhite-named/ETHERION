@@ -137,3 +137,41 @@ body:has(.tb-sound) .snd-ctl { display: none; }
   .tbw-right .seal-mark { width: 32px; height: 32px; font-size: 15px; }
   .tb-shard { padding: 4px 10px; } .tb-shard b { font-size: 14px; }
 }
+
+/* ---------- 4) 2026-11-22 상단 띠 맞춤 (js/screens.js fitTopbar) ----------
+   톱니(설정)는 오른쪽 날개 맨 끝. 날개가 넘치거나 이름이 잘릴 때만 fitTopbar가 .fit1 … 을 차례로 붙여 덜 중요한 것부터 접는다
+   (해상도 · 이름 길이 · 칭호 · 전적 자릿수와 상관없이 이름과 아이콘이 읽힌다). 위의 @media 기준은 바탕으로 그대로 남는다 */
+.tbw-right.fit1 .tb-nav.tb-exit span { display: none; }
+.tbw-right.fit1 .tb-nav.tb-exit { padding: 0 6px; }
+.tbw-right.fit2 .tb-shard small { display: none; }
+.tbw-right.fit3 .seal-rec .sl-rl { display: none; }
+.tbw-right.fit4 .seal-rec > span:first-child, .tbw-right.fit4 .seal-rec > i { display: none; }
+.tbw-right.fit5 .sl-title { display: none; }
+.tbw-right.fit6 .seal-rec { display: none; }
+.tbw-right.fit7 .seal-txt { display: none; }
+.tbw-right.fit8 .tb-sound { display: none; }   /* 소리는 설정 창(톱니)에서도 바꿀 수 있다 */
+.tbw-left.fit1 .tb-nav[data-nav="tutorial"] span, .tbw-left.fit2 .tb-nav[data-nav="admin"] span, .tbw-left.fit3 .tb-nav span { display: none; }
+/* 왼쪽 날개 아이콘: 글자 크기(1.1em)를 따라 14px까지 줄던 것에 바닥 18px. 글자가 접혀 아이콘만 남으면(1100px 이하 · fit3) 24px로 키운다 */
+html:not(.mobile) .topbar .tbw-left .tb-nav .m-ico { width: max(1.1em, 18px); height: max(1.1em, 18px); }
+@media (min-width: 1101px) {
+  html:not(.mobile) .topbar .tbw-left.fit3 .tb-nav { padding: 0 7px; }
+  html:not(.mobile) .topbar .tbw-left.fit3 .tb-nav .m-ico { width: 24px; height: 24px; }
+}
+@media (max-width: 1100px) {
+  html:not(.mobile) .topbar .tbw-left .tb-nav { padding: 0 7px; }
+  html:not(.mobile) .topbar .tbw-left .tb-nav .m-ico { width: 24px; height: 24px; }
+}
+/* 761~1000px(세로로 든 태블릿 · 좁은 창): 띠를 낮춰 가운데 문장을 줄이고(306 → 247px) 그만큼 양 날개에 준다. 900px 이하는 길 사이 마름모도 뺀다 */
+@media (max-width: 1000px) and (min-width: 761px) { :root { --bar-h: 56px; } }
+@media (max-width: 900px) {
+  html:not(.mobile) .topbar .tbw-left .tb-nav { padding: 0 4px; }
+  html:not(.mobile) .topbar .tbw-left .tb-nav .m-ico { width: 20px; height: 20px; }
+  html:not(.mobile) .topbar .tbw-left .tb-div { display: none; }
+}
+/* 톱니는 글자 크기(1.2em)를 따라 34 · 26 · 22px로 다른 아이콘과 어긋났다 → 길 아이콘(.m-ico)과 같은 크기 */
+.tb-nav.tb-set .ui-ico { width: 28px; height: 28px; }
+@media (max-width: 1600px) { .tb-nav.tb-set .ui-ico { width: 24px; height: 24px; } }
+@media (max-width: 760px) { .tb-nav.tb-set .ui-ico { width: 20px; height: 20px; } }
+/* 폰 · 앱: 왼쪽 길은 글자가 다 들어가지 않아(지도 · 연대기가 가운데 문장 밑에 가려졌다) 늘 아이콘만(fit3) — 아이콘과 누르는 자리를 키운다 */
+html.mobile .topbar .tbw-left.fit3 .tb-nav { padding: 0 11px; }
+html.mobile .topbar .tbw-left.fit3 .tb-nav .m-ico { width: 30px; height: 30px; }

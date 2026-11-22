@@ -2,8 +2,8 @@
    - 곡은 Gemini(Lyria)로 만든 15곡(프롬프트 tools/bgm/PROMPT_BGM.md). 장면마다 곡 묶음(tracks)에서 무작위로 이어 튼다.
      방금 나온 곡(묶음 크기 − 1, 최대 세 곡)은 다시 고르지 않는다. 곡이 끝나기 4초 전부터 다음 곡과 겹쳐 넘어간다
    - 타이틀 · 입장 화면(배경 "title"): bgm_main — 한 곡뿐이라 끝나기 4초 전부터 처음과 겹쳐 다시
-   - 대기실 · 상점 · 덱 조정실 · 원정 · 보관소(배경 "calm"): 잔잔한 일곱 곡
-   - 대전(배경 "off"): 힘 있는 일곱 곡. 대전이 끝나 대기실로 돌아오면 대기실 곡으로 다시 시작
+   - 그 밖의 모든 화면(배경 "calm" 대기실 · 상점 · 덱 조정실 · 원정 · 보관소, 배경 "off" 대전): 나머지 열네 곡을 한 묶음으로.
+     대기실 ↔ 대전을 오가도 듣던 곡이 이어진다
    - 화면 바뀜은 Bg.set(배경 모드)을 감싸서 안다(js/screens.js를 고치지 않음). 그래서 이 파일은 screens.js 뒤에 읽는다
    - 음량: 설정에서 끄기 / 작게 / 보통 (localStorage etherion.pref.bgm, 기본 보통). 효과음 설정과 따로
    - 화면 오른쪽 아래의 소리 단추 둘(모든 화면): ♪ = 배경음, 스피커 = 효과음. 따로 끄고 켠다.
@@ -23,14 +23,14 @@ const BGM = {
   ver: "g2",          // 음원을 바꾸면 올린다(브라우저가 옛 파일을 기억하지 않게) — Gemini 15곡 단조판(2026-11-15)
   tracks: {
     title: ["bgm_main"],
-    town: ["bgm_lantern", "bgm_library", "bgm_anvil", "bgm_clockwork", "bgm_moss", "bgm_tide", "bgm_halo"],
-    battle: ["bgm_field", "bgm_oath", "bgm_cinder", "bgm_stonedrum", "bgm_abyss", "bgm_gale", "bgm_lastcard"]
+    play: ["bgm_lantern", "bgm_library", "bgm_anvil", "bgm_clockwork", "bgm_moss", "bgm_tide", "bgm_halo",
+           "bgm_field", "bgm_oath", "bgm_cinder", "bgm_stonedrum", "bgm_abyss", "bgm_gale", "bgm_lastcard"]
   },
-  recent: { title: [], town: [], battle: [] },   // 장면마다 방금 나온 곡 — 다시 고르지 않는다
+  recent: { title: [], play: [] },   // 장면마다 방금 나온 곡 — 다시 고르지 않는다
   vol: { off: 0, low: 0.22, mid: 0.5, user: 0.5 },
   MAXV: 0.8,           // 슬라이더 100일 때의 실제 음량
   level: "mid",
-  want: null,          // 지금 화면이 원하는 것: "title" | "town" | "battle" | null
+  want: null,          // 지금 화면이 원하는 것: "title" | "play" | null
   cur: null,           // { el, name, scene }
   blocked: false,
   fadeMs: 1800,
@@ -71,7 +71,7 @@ const BGM = {
 
   /* 배경 모드 → 음악 */
   scene(mode) {
-    const want = mode === "title" ? "title" : mode === "calm" ? "town" : mode === "off" ? "battle" : null;
+    const want = mode === "title" ? "title" : mode === "calm" || mode === "off" ? "play" : null;
     this.closePanel();
     if (this.box) this.box.classList.toggle("in-battle", mode === "off");   // 대전 화면: 생명 판과 겹치지 않게 구석으로
     if (want === this.want) return;

@@ -9,7 +9,7 @@ const Bg = {
   init() {
     this.cv = $("#bg-canvas"); this.ctx = this.cv.getContext("2d");
     this.reduced = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-    this.lite = document.documentElement.classList.contains("mobile");   // v3.45 폰 · 앱: 별 · 빛방울 절반, 1초 30장
+    this.lite = document.documentElement.classList.contains("fx-low");   // v3.45 폰 · 앱(2026-11-22 연출 저사양): 별 · 빛방울 캔버스를 돌리지 않는다. 설정에서 바꾸면 setLite
     const rs = () => {
       const dpr = Math.min(2, window.devicePixelRatio || 1);
       this.w = innerWidth; this.h = innerHeight;
@@ -22,7 +22,7 @@ const Bg = {
     for (let i = 0; i < (this.lite ? 45 : 90); i++) this.motes.push(this.mote(true));
     /* 2026-11-22 가볍게: 하늘을 그리지 않는 화면(전장 "off" · 그림 한 장을 깐 메뉴)에서는 프레임 루프를 아예 세운다 — 예전에는 아무것도 안 그려도 1초 60번 깨어났다.
        Bg.set이 다시 그릴 화면(타이틀 · 입장 관문)으로 바꾸면 wake가 루프를 다시 돌린다 */
-    const loop = now => { if (this.mode === "off" || this.art) { this.raf = 0; return; } this.raf = requestAnimationFrame(loop); this.draw(now || performance.now()); };
+    const loop = now => { if (this.mode === "off" || this.art || this.lite) { this.raf = 0; return; } this.raf = requestAnimationFrame(loop); this.draw(now || performance.now()); };
     this.wake = () => { if (!this.lite && !this.raf) loop(); };
     if (this.lite) this.cv.style.display = "none";   // v3.46 폰 · 앱: 별 · 빛방울 캔버스를 아예 돌리지 않는다(메뉴는 그림 한 장, 타이틀은 타이틀 그림)
     else loop();
@@ -37,6 +37,7 @@ const Bg = {
     if (MENU_ART) art.classList.add("own");
     this.cv.parentNode.insertBefore(art, this.cv);
   },
+  setLite(on) { this.lite = on; this.cv.style.display = on ? "none" : ""; if (!on && this.wake) this.wake(); },   // 2026-11-22 설정 '연출'을 바꿀 때 (js/impact.js applyFx)
   mote(any) {
     const hues = ["255,214,140", "140,220,255", "200,170,255", "255,180,120"];
     return { x: Math.random() * this.w, y: any ? Math.random() * this.h : this.h + 10, r: Math.random() * 2.2 + 0.4, v: Math.random() * 0.45 + 0.12, sway: Math.random() * 6.28, c: pick(hues), a: Math.random() * 0.6 + 0.25 };
@@ -419,11 +420,11 @@ function headerHTML(title) {
       </nav>
       <button type="button" class="tb-crest${typeof CREST !== "undefined" ? " has-art" : ""}" data-nav="lobby" title="대기실로">${typeof CREST !== "undefined" ? CREST.svg() : ""}<span class="crest-word">ETHERION</span>${title ? `<span class="crest-sub">${title}</span>` : ""}</button>
       <div class="tb-wing tbw-right">
-        ${typeof showSettings === "function" ? `<button type="button" class="tb-nav tb-set" data-nav="settings" title="설정 — 화면 배치 · 연출 · 소리" aria-label="설정">${typeof uiIcon === "function" ? uiIcon("settings") : "⚙"}</button>` : ""}
         <button type="button" class="tb-nav tb-sound" data-nav="sound" title="소리 — 배경음 · 효과음 켜기/끄기와 음량" aria-label="소리">${typeof BGM !== "undefined" ? BGM.navIcon() : ""}</button>
         ${typeof LevelUI !== "undefined" ? shardChipHTML(u) : ""}
         ${sealHTML(u)}
         <button type="button" class="tb-nav tb-exit" data-nav="logout" title="${App.screen === "editor" ? "덱 조정실에서 나가 대기실로" : App.screen !== "lobby" ? "대기실로" : OPEN_PLAY ? "처음으로" : "나가기"}">${menuIcon("exit")}<span>${OPEN_PLAY ? "처음으로" : "나가기"}</span></button>
+        ${typeof showSettings === "function" ? `<button type="button" class="tb-nav tb-set" data-nav="settings" title="설정 — 화면 배치 · 연출 · 소리" aria-label="설정">${typeof uiIcon === "function" ? uiIcon("settings") : "⚙"}</button>` : ""}
       </div>
     </div>
   </header>${typeof LevelUI !== "undefined" ? "" : `
@@ -450,7 +451,28 @@ function bindHeader(root, guard) {
       Store.logout(); showTitle();
     }
   });
+  fitTopbar();
 }
+/* 2026-11-22 상단 띠 맞춤: 해상도 · 이름 길이 · 칭호 · 전적 자릿수가 달라도 양쪽 날개가 넘치거나 이름이 잘리지 않게,
+   넘칠 때만 덜 중요한 것부터 한 단계씩 접는다(css/hud.css 맨 아래 .fitN). 화면 폭 기준(@media)은 바탕으로 그대로 남는다.
+   오른쪽: 1 나가기 글자 → 2 "조각" → 3 "승률" → 4 승 · 패 → 5 칭호 → 6 전적 칸 → 7 이름(구슬만) → 8 소리 아이콘. 왼쪽: 1 튜토리얼 글자 → 2 보관소 글자 → 3 모든 글자(아이콘만) */
+function fitTopbar() {
+  const bar = document.querySelector(".topbar.realm"); if (!bar) return;
+  const L = bar.querySelector(".tbw-left"), R = bar.querySelector(".tbw-right");
+  const overL = () => L.scrollWidth > L.clientWidth + 1;
+  const overR = () => {   // 이름이 제 폭(최대 폭까지)보다 좁게 눌렸거나, 날개가 왼쪽(가운데 문장 쪽)으로 넘쳤다
+    const n = R.querySelector(".sl-name");
+    return (n && n.offsetParent && n.clientWidth + 1 < Math.min(n.scrollWidth, parseFloat(getComputedStyle(n).maxWidth) || 1e9))
+      || [...R.children].some(e => e.scrollWidth > e.clientWidth + 1)   // 인장이 구슬보다 좁게 눌림
+      || R.firstElementChild.getBoundingClientRect().left < R.getBoundingClientRect().left - 1;
+  };
+  for (const [w, over, max] of [[L, overL, 3], [R, overR, 8]]) {
+    for (let s = 1; s <= max; s++) w.classList.remove("fit" + s);
+    for (let s = 1; s <= max && over(); s++) w.classList.add("fit" + s);
+  }
+}
+addEventListener("resize", () => { cancelAnimationFrame(fitTopbar.raf); fitTopbar.raf = requestAnimationFrame(fitTopbar); });
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitTopbar);
 
 /* v3.1 덱 보관함의 덱 상자 (가이드 2.16): 단체 문장 뒤에 부채꼴로 펼친 카드 뒷면 셋 = "덱", 고른 덱은 문장 둘레에 점선 고리가 돈다 */
 function deckSealHTML(g) {

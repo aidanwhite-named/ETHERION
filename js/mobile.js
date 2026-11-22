@@ -40,7 +40,7 @@
   const pref = () => { try { const v = JSON.parse(localStorage.getItem("etherion.pref.mtext")); return LEVELS[v] ? v : "l"; } catch (e) { return "l"; } };
   let lv = pref();
   const root = document.documentElement;
-  root.classList.add("mobile");
+  root.classList.add("mobile", "fx-lite", "fx-low");   /* 폰 · 앱은 늘 연출 저사양(js/impact.js applyFx) — 첫 화면부터 가벼운 CSS(css/mobile-lite.css)가 걸리게 여기서 붙인다 */
   if (APP) root.classList.add("app");
   root.dataset.mtext = lv;
   let meta = document.querySelector('meta[name="viewport"]');

@@ -54,8 +54,11 @@
 }
 @keyframes gfxSheenOnce { from { transform: translateX(-150%) skewX(-16deg); } to { transform: translateX(270%) skewX(-16deg); } }
 
-/* 폰 · 앱: 띠는 크게 보기에서만 */
-html.mobile .frow .slot .card.fm.has-frame > .c-frame::after, html.mobile .hand-me .hand-card .card.fm.has-frame > .c-frame::after { display: none !important; animation: none !important; }
+/* 2026-11-22 연출 고사양(html.fx-high, js/impact.js applyFx): 덱 목록 · 상점 같은 목록의 카드도 띠가 돈다(화면 밖 카드는 css/perf.css가 건너뛴다) */
+html.fx-high .card.fm.has-frame.grade-unique:not(.ashen):not(.size-full) > .c-frame::after { display: block !important; animation: gfxSheen 10s linear infinite; }
+html.fx-high .card.fm.has-frame.grade-special:not(.ashen):not(.size-full) > .c-frame::after { display: block !important; animation: gfxSheen 7s linear infinite; }
+/* 폰 · 앱 · 연출 저사양(html.fx-low): 띠는 크게 보기에서만 */
+html.fx-low .frow .slot .card.fm.has-frame > .c-frame::after, html.fx-low .hand-me .hand-card .card.fm.has-frame > .c-frame::after { display: none !important; animation: none !important; }
 @media (prefers-reduced-motion: reduce) {
   .card.fm.has-frame.grade-unique > .c-frame::after, .card.fm.has-frame.grade-special > .c-frame::after { display: none !important; animation: none !important; }
 }

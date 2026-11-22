@@ -254,7 +254,7 @@ function fuseFX(baseId, outId, kind, info) {
   return new Promise(done => {
     const b = CARDS[baseId], c = CARDS[outId], rare = kind === "rare", N = typeof UPGRADE_COST !== "undefined" ? UPGRADE_COST : 3;
     const reduce = typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const lite = document.documentElement.classList.contains("mobile");
+    const lite = document.documentElement.classList.contains("fx-low");   // 폰 · 앱 + 연출 저사양
     const ov = document.createElement("div");
     const uq = rare && gradeOf(c) === "unique";
     ov.className = `upfx g-${kind}${uq ? " g-unique" : ""}${lite ? " lite" : ""}`;

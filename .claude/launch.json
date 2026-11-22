@@ -12,6 +12,16 @@
       "port": 8765
     },
     {
+      "name": "etherion-win",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8767"
+      ],
+      "port": 8767
+    },
+    {
       "name": "etherion-server",
       "url": "http://localhost:8787",
       "port": 8787

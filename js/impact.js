@@ -16,9 +16,18 @@
 
 /* v3.17 연출 가볍게/화려하게 (설정 창). 가볍게(기본)면 <html class="fx-lite"> — 폰과 같은 가벼운 방식 + 큰 흐림 · 그림자 필터를 뺀다.
    css/impact.css 'fx-lite' 절, js/game.js arenaArt · trail · shatterCard, js/titans.js 와 짝 */
+/* 2026-11-22 연출 3단계 (Prefs "fx"): 저사양 "low" · 중간 "lite"(기본 = v3.17의 '가볍게') · 고사양 "rich"(v3.17의 '화려하게'에 빛 맥박 · 목록 카드 광택 · 마법 입자 1.5배를 더함).
+   <html class>: 저사양 = fx-lite fx-low · 중간 = fx-lite · 고사양 = fx-high. 폰 · 앱(html.mobile)은 설정과 상관없이 늘 저사양(js/mobile.js가 처음부터 붙인다).
+   fx-low = 예전에 폰만 타던 가벼운 길: css/mobile-lite.css(그림자 번짐 줄임 · 흐림 유리 없음 · 무거운 되풀이 애니메이션 멈춤) ·
+     충격파 캔버스 · 별 하늘 · 입장 관문 캔버스 · 메뉴 기울이기 없음 · 부서지는 조각은 그림 한 장 · 마법 입자 절반.
+   fx-high = 큰 흐림 · 그림자 필터 그대로 + css/nopulse.css를 꺼서 빛 맥박이 돌아옴 + css/gradefx.css 목록 카드도 광택.
+   새 효과를 만들 때: 무거운 것은 fxLow()(js/game.js) 또는 html.fx-low에서 줄이거나 끄는 길을 함께 둔다 */
 function applyFx(v) {
-  v = v || (typeof Prefs !== "undefined" ? Prefs.get("fx", "lite") : "lite");
-  document.documentElement.classList.toggle("fx-lite", v !== "rich");
+  const c = document.documentElement.classList;
+  v = c.contains("mobile") ? "low" : v || (typeof Prefs !== "undefined" ? Prefs.get("fx", "lite") : "lite");
+  c.toggle("fx-lite", v !== "rich"); c.toggle("fx-low", v === "low"); c.toggle("fx-high", v === "rich");
+  const np = document.getElementById("css-nopulse"); if (np) np.disabled = v === "rich";
+  if (typeof Bg !== "undefined" && Bg.cv) Bg.setLite(v === "low");
 }
 applyFx();
 
@@ -63,7 +72,7 @@ const IMPACT = (() => {
   /* ---------- 캔버스 파티클 ---------- */
   let cv = null, cx = null, parts = [], rings = [], raf = 0, dpr = 1;
   function canvas() {
-    if (document.documentElement.classList.contains("mobile")) return null;   // v3.46 폰 · 앱: 충격파 캔버스(고리 · 불꽃 · 파편)를 그리지 않는다 — 번쩍임 · 밀려남만
+    if (document.documentElement.classList.contains("fx-low")) return null;   // v3.46 폰 · 앱(2026-11-22 연출 저사양): 충격파 캔버스(고리 · 불꽃 · 파편)를 그리지 않는다 — 번쩍임 · 밀려남만
     const L = layer(); if (!L) return null;
     if (cv && cv.isConnected && cv.parentNode === L) { fit(); return cx; }
     cv = document.createElement("canvas");
