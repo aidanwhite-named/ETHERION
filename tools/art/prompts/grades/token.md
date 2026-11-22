@@ -120,11 +120,11 @@ Summoned — off the rarity ladder, as quiet as a common card but for its conjur
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 ```
 
-### TK-U-WOLF · 잿빛 하이에나
+### TK-U-WOLF · 잿빛 먼지 짐승
 고르바스의 발톱 · 유닛 · 레벨 2 · 소환물 · 틀 `eye` R R `redearth` · 프롬프트 n2 → `tools/art/inbox/TK-U-WOLF.jpg`
 
 ```
-Landscape 5:4 painting. At eye level, as if standing a few steps away: a lean ash-grey hyena trots off toward the right edge of the frame with a single long bone carried crosswise in its jaws, glancing back at us over one high shoulder with a round ear cocked. Its paws leave a neat line of prints in the dust, the hindmost already thinning into drifting grit. Behind it on the left, a trampled patch of ground and one abandoned boot are all that remains of the fight. Slate-grey sky after a storm; soft even light, red clay dust settling low over the ground.
+Landscape 5:4 painting. At eye level, a few steps away: a lean long-legged beast shaped out of blown ash-grey dust lopes off toward the right edge of the frame, glancing back at us over one high shoulder — a narrow fanged head, two eyes like cooling embers, flanks and tail streaming away behind it as grit. Its feet leave a neat line of prints in the dust, the hindmost already thinning into drifting grains. Behind it on the left, a trampled patch of ground and one abandoned boot are all that remains of the fight. Slate-grey sky after a storm; soft even light, red clay dust settling low over the ground.
 Colour: red earth — rust-red clay under slate-grey storm light, ochre (#b88a5a) dust in the air.
 Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
 Summoned — off the rarity ladder, as quiet as a common card but for its conjuring light. Simple and luminous: a thing called up a heartbeat ago, one clear shape in plain surroundings, its edges still trailing ether-blue (#8fdcff) light.

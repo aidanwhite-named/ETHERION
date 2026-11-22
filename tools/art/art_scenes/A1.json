@@ -317,13 +317,13 @@
   },
   "UN-A1": {
     "shot": "pov", "dir": "F", "place": "R", "pal": "bloodink",
-    "scene": "Through the eyes of the one he has just struck: our gauntleted arm and dented shield rise along the bottom edge, and on the shield a round seal of red wax has been stamped where his blade landed. A thread of red ink runs from that seal to the tip of his long sword. He stands over us at the right, a tall gaunt revenant in dark mail, grey skin drawn tight, calm eyes each holding a point of red light; in his other hand a scroll hangs open, and on it a fresh red line is drawing itself.",
-    "light": "A dark hall with a thread of violet in its high windows; the smoking seal and the wet red line give the only glow, crimson on steel and jaw."
+    "scene": "Through the eyes of the one he has just struck: our dented shield rises along the bottom edge, a red wax seal smoking where his blade landed. A thread of red ink climbs from it to the tip of a greatsword long as a bridge. Filling the right of the hall stands a vampire lord tall as its pillars: bone-pale face under a crown of black iron thorns, vast membranous wings folded like a cloak. Blood runs from his opened palm up the blade, and on a scroll long as a war banner a fresh red line draws itself.",
+    "light": "A dark hall with a thread of violet in its high windows; the smoking seal and the wet red line give the only glow, crimson on steel, wing and jaw."
   },
   "UN-A1-7": {
     "shot": "through", "dir": "F", "place": "L", "pal": "candle",
-    "scene": "Seen through a sheet of parchment held up between us and its holder, filling the left two-thirds of the frame. Inside the sheet, held in its fibres like a leaf pressed in amber, glows the small figure of a spearman, both palms pressed to the paper from within. Behind it a hooded ghost of grey-violet mist leans close to study it, two pale hands pinching its corners. At the lower right more sheets are fanned in the crook of its arm, each lit by its own small captive figure, and in the ghost's misty chest one sheet-shaped hollow stays dark.",
-    "light": "The captive figures glow like candle flames inside their sheets, warm amber on the hood's edge; everything else is deep violet dark."
+    "scene": "Glimpsed through the broken arch of a canyon bridge: a hooded reaper tall as the canyon wall fills the left of the frame, leaning toward us, its body grey-violet mist wound in rusted anchor chains, its scythe blade hanging over the bridge like a second arch. On the span below, soldiers small as candle stubs have fallen, and from each a small amber figure rises, flattens into a glowing sheet of parchment and flutters up into the reaper's huge open hand, where a sheaf already burns softly. In its misty chest one sheet-shaped hollow stays dark.",
+    "light": "The captive figures glow like candle flames inside their sheets, warm amber on hood and chains; everything else is deep violet canyon dark."
   },
   "UP-A1-09": {
     "shot": "far", "dir": "L", "place": "R", "pal": "frostindigo",

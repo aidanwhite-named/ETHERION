@@ -287,12 +287,12 @@
   },
   "UN-G3": {
     "shot": "profile", "dir": "L", "place": "R", "pal": "moontide",
-    "scene": "A moonlit shore in strict profile, composed like a frieze. At the right a black swan rides the shallows facing left, long neck thrown back, red bill open in song, one wing spread toward the sea. Rolling in from the left to meet her comes a single long wave, and inside its translucent face stand her fallen comrades — upright, eyes closed, spears still in their hands, carried home like figures in green glass. On the wet sand between, their empty outlines wait.",
-    "light": "A hard white moon behind the wave lights it from within and throws the singer into deep theatrical shadow, neck and wing edged in silver."
+    "scene": "A moonlit shore in strict profile, like a frieze. At the right a songstress tall as a lighthouse rises from the shallows facing left: a body of dark living coral and black pearl, robed in a falling veil of spring water, crowned with white coral branches, head thrown back in song, one long arm swept toward the sea, fishing boats beached around her waist like shells. Rolling in from the left comes a single long wave, and inside its translucent face stand her fallen comrades — upright, eyes closed, spears still in hand, carried home like figures in green glass.",
+    "light": "A hard white moon behind the wave lights it from within and throws the singer into deep theatrical shadow, crown and arm edged in silver."
   },
   "UN-G3-7": {
     "shot": "pov", "dir": "F", "place": "C", "pal": "coraldawn",
-    "scene": "Through the eyes of a soldier wading knee-deep in the surf: our own two gauntleted hands grip our sword the wrong way round, blade clasped in the fists, hilt held out like an offering. Straight ahead, risen from the sea, a pale siren faces us and sings — fin-webbed arms spread wide, long dark hair streaming like kelp, fish tail coiled in the swell, a conch at her throat. At the edges of our sight the men on either side are doing the same.",
+    "scene": "Through the eyes of a soldier wading knee-deep in the surf: our two gauntleted hands grip our sword the wrong way round, blade clasped in the fists, hilt held out like an offering. Straight ahead, risen from the sea like an island, a colossal siren faces us and sings — her pale face taller than a ship's mast, fin-webbed arms spread wide as a harbour, dark hair streaming like kelp forests, a scaled tail coiling through the swell behind, a conch big as a boat at her throat. At the edges of our sight a landing army does the same.",
     "light": "Sunrise blazes directly behind her head, burning rose and gold through her fins; our gauntlets and blade stay in cold blue shadow."
   },
   "UP-G3-11": {

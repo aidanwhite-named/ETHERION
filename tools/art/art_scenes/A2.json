@@ -297,13 +297,13 @@
   },
   "UN-A2": {
     "shot": "reflect", "dir": "R", "place": "X", "pal": "vigil",
-    "scene": "The pale stone flank of a great hall at night fills the frame, and across it falls one enormous shadow: a rearing horse with both wings flung wide. Inside the shadow's outline the stone is clean, and a huddle of weary soldiers sits untouched at the wall's foot. Outside the outline, wall and ground bristle with burning arrows. The shadow's owner stands at the far right edge, cropped by the frame — a white winged mare in a knight's barding, braced toward the firelight, a dozen arrow shafts standing in her spread wing.",
-    "light": "A great blaze beyond the right edge throws her shadow leftward; the burning arrows are small gold flames scattered through the dark."
+    "scene": "The pale stone flank of a citadel at night fills the frame, and across it falls one enormous shadow: a kneeling armoured figure with six wings flung wide, taller than the battlements. Inside the shadow's outline the stone is clean, and a whole weary garrison sits untouched at the wall's foot, small as chess pieces. Outside it, wall and ground bristle with burning siege bolts. The shadow's owner kneels at the far right edge, cropped by the frame — a winged colossus in white-gold plate behind a tower shield, bolts long as masts standing in her spread wings.",
+    "light": "A great blaze beyond the right edge throws her shadow leftward; the burning bolts are small gold flames scattered through the dark."
   },
   "UN-A2-7": {
     "shot": "ground", "dir": "L", "place": "R", "pal": "rosedawn",
-    "scene": "Daybreak on a battlefield, seen from the ground at the eye level of the fallen. Across the near foreground stretches an armoured arm and an open gauntlet, palm up, in cold blue shadow. Walking toward us from the right comes a white hart, the rising sun held exactly between his antlers, so that the edge of daylight on the ground advances with his hooves. Its first gold line has just reached the gauntlet's fingertips, and two fingers have begun to curl. Behind him, in full light, fallen knights are already rising to their knees.",
-    "light": "Sunrise from directly behind him: warm pink-gold on everything he has passed, cold blue-lilac shadow on everything still ahead of him."
+    "scene": "Daybreak on a battlefield, from the eye level of the fallen. In the near foreground lies an open gauntlet, palm up, in blue shadow. Striding toward us from the right comes a robed colossus, broken siege towers around its knees: a hierophant of pale stone with a smooth golden mask, both arms raised to carry the rising sun inside a great golden ring, so that the edge of daylight advances with its steps. The first gold line has reached the gauntlet's fingertips, and two fingers begin to curl. Behind it, in full light, fallen knights rise to their knees.",
+    "light": "Sunrise from directly behind it: warm pink-gold on everything it has passed, cold blue-lilac shadow on everything still ahead of it."
   },
   "UP-A2-11": {
     "shot": "inside", "dir": "R", "place": "L", "pal": "firstlight",

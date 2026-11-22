@@ -206,17 +206,17 @@
     "silhouette": "a seated lion with a mane of sparks",
     "materials": "soot-black coat, mane of fuse cord, sparks, iron crown, brass shell casings"
    },
-   "불여우": {
-    "en": "Fire Fox",
-    "who": "a lean red fox with ember-bright fur darkened by soot, a grey muzzle in old age and singed ear tips; sly, patient, fond of long fuses",
-    "silhouette": "a slim fox with a thick brush tail",
-    "materials": "ember-red fur, soot, grey muzzle, singed ears, brass spyglass"
+   "염마": {
+    "en": "Flame Lord",
+    "who": "a horned lord of fire, a colossus of living flame inside cracked black iron plate, big enough to fill a gun bastion: great curled horns, wings of smoke, furnace jaws that grin",
+    "silhouette": "a huge horned figure with smoke wings and a burning core",
+    "materials": "living flame, cracked black iron plate, curled horns, smoke, fuse cord"
    },
-   "잿불 황새": {
-    "en": "Ember Stork",
-    "who": "a tall ash-grey stork with a long black beak it uses like tongs to carry live embers, neck feathers scorched, legs like fire-irons",
-    "silhouette": "a tall thin bird stooping with something held in its long beak",
-    "materials": "ash-grey feathers, long black beak, scorched neck, glowing ember"
+   "용암룡": {
+    "en": "Lava Dragon",
+    "who": "a colossal dragon plated in cooled black lava with fire in every crack, furnace-gold eyes, horns and folded wings, whose jaws load siege guns with ember-hearted shells",
+    "silhouette": "a great horned dragon head and neck bent over a cannon",
+    "materials": "cooled lava plates, glowing cracks, furnace-gold eyes, embers"
    }
   }
  },
@@ -568,11 +568,11 @@
     "silhouette": "a small bright figure trailing a ribbon of light out of a bottle",
     "materials": "yellow-white lightning, copper-banded glass, amber jars, sparks"
    },
-   "도마뱀붙이": {
-    "en": "Gecko",
-    "who": "an old gecko keeper with a blunt snout, huge lidless golden eyes and splayed hands whose round toe pads cling to glass",
-    "silhouette": "a flat-bodied lizard pressed against glass, toes spread",
-    "materials": "pale mottled skin, golden eyes, round toe pads, brass goggles, glass jar"
+   "뇌신": {
+    "en": "Thunder Colossus",
+    "who": "a colossus of thundercloud bound in copper bands, with a mask of beaten copper for a face, two eyes of ball lightning and a crown of lightning rods, who keeps lightning in glass jars as tall as bell towers",
+    "silhouette": "a kneeling cloud giant in a spiked crown cupping a tall jar",
+    "materials": "thundercloud, copper bands, beaten copper mask, ball lightning, glass"
    }
   }
  },
@@ -728,11 +728,23 @@
     "silhouette": "a towering broad-backed ape pounding with one fist",
     "materials": "black fur, silver back, scarred skin, hide fist-wraps, snow and ice dust"
    },
-   "맨드릴": {
-    "en": "Mandrill",
-    "who": "a broad, powerful mandrill with a scarlet-and-blue ridged muzzle, a golden beard and long canine teeth, who fights with whatever weapon its last foe dropped",
-    "silhouette": "a heavy-shouldered baboon-like figure swinging a weapon",
-    "materials": "olive-brown fur, scarlet and blue muzzle, golden beard, mismatched stolen weapons"
+   "송곳니 거인": {
+    "en": "Fang Giant",
+    "who": "a tusked giant warlord as tall as a watchtower: hide like cracked clay daubed with rust-red war paint, bone-tied braids down his back, two stone fangs as long as standing stones in his lower jaw",
+    "silhouette": "a towering broad giant with two long upward fangs and a braided mane",
+    "materials": "cracked clay-coloured hide, stone fangs, bone-tied braids, rust-red war paint, dust"
+   },
+   "여섯 팔 거인": {
+    "en": "Six-Armed Giant",
+    "who": "a six-armed giant king as tall as a siege tower, with red-clay skin, a tusked jaw and a crown hammered from broken shields, who fills each hand with a weapon taken from a fallen foe",
+    "silhouette": "a huge figure with six arms, each holding a different weapon",
+    "materials": "red-clay skin, tusks, crown of broken shields, mismatched stolen weapons"
+   },
+   "먼지 짐승": {
+    "en": "Dust Beast",
+    "who": "a lean long-legged beast shaped out of blown steppe dust, with a narrow fanged head and eyes like two cooling embers, its flanks always streaming away as grit; it rises at the chieftain's roar and scatters after one fight",
+    "silhouette": "a lean running beast whose back and tail trail off into dust",
+    "materials": "ash-grey dust, grit, ember eyes, stone-pale fangs"
    }
   }
  },
@@ -1066,11 +1078,11 @@
     "silhouette": "a tall translucent woman-shape of water rising from the waves, arms lifted",
     "materials": "clear green-blue sea water, white foam, dawn light shining through"
    },
-   "흑조": {
-    "en": "Black Swan",
-    "who": "a black swan with a red bill and a long curved neck, singer of the spring choir, whose song calls the lost back on the tide",
-    "silhouette": "a swan with its neck thrown back and one wing spread",
-    "materials": "black feathers, red bill, white wing tips, moonlit water"
+   "산호 여신": {
+    "en": "Coral Goddess",
+    "who": "a songstress as tall as a lighthouse rising from the shallows: a body of dark living coral and black pearl, robed in a falling veil of spring water, crowned with white coral branches, whose song calls the lost back on the tide",
+    "silhouette": "a towering figure with a branching crown, head thrown back and one arm swept out",
+    "materials": "dark coral, black pearl, falling spring water, white coral branches, moonlit sea"
    }
   }
  },
@@ -1280,11 +1292,11 @@
     "silhouette": "a thin figure growing out of a round wax seal on the floor",
     "materials": "dark red wax, red-black smoke, ember eyes, wax ribbon"
    },
-   "레버넌트": {
-    "en": "Revenant",
-    "who": "a tall gaunt swordsman returned from death by the oath he signed in his own blood: grey skin drawn tight, dark mail, calm eyes each holding a point of red light",
-    "silhouette": "a tall thin armoured figure with a long sword and an open scroll",
-    "materials": "grey skin, dark mail, long sword, red ink, wax seals, hanging scroll"
+   "흡혈 군주": {
+    "en": "Vampire Lord",
+    "who": "a vampire lord as tall as a hall's pillars who signed his oath in his own blood: bone-pale face under a crown of black iron thorns, vast membranous wings folded like a cloak, dark plate armour, a greatsword as long as a bridge",
+    "silhouette": "a towering winged armoured figure with a huge sword and a long hanging scroll",
+    "materials": "bone-pale skin, black iron thorns, membranous wings, dark plate, red ink, wax seals"
    }
   }
  },
@@ -1452,17 +1464,23 @@
     "silhouette": "an upright wolf in armour with one forepaw raised",
     "materials": "white fur, scarred pale plate, gauntlets, streaming cloak"
    },
-   "흰 사슴": {
-    "en": "White Hart",
-    "who": "a white hart whose antlers hold the rising sun between them, so that daylight advances with its steps",
-    "silhouette": "a stag facing the viewer with the sun between its antlers",
-    "materials": "white coat, pale gold antlers, sunrise glare, long shadows"
-   },
    "삼족오": {
     "en": "Three-Legged Sun Crow",
     "who": "a great crow of gold fire with three legs, born closest to the dawn light; its wings burn like flame yet leave what they touch unharmed",
     "silhouette": "a large crow in profile with three clawed feet and flaming wings",
     "materials": "gold fire feathers, three clawed feet, steady warm glow, unmelted snow"
+   },
+   "날개 거신": {
+    "en": "Winged Colossus",
+    "who": "a six-winged guardian colossus in white-gold plate, taller than the citadel's battlements, who kneels behind a tower shield and takes the blows meant for others on her spread wings",
+    "silhouette": "a kneeling armoured giant with six wings flung wide",
+    "materials": "white-gold plate, white feathers, tower shield, pale stone"
+   },
+   "태양 사도": {
+    "en": "Sun Hierophant",
+    "who": "a robed colossus of pale stone with a smooth golden mask, taller than siege towers, who carries the rising sun inside a great golden ring held up in both arms so that daylight advances with its steps",
+    "silhouette": "a tall robed giant holding a ring with the sun in it above its head",
+    "materials": "pale stone, golden mask, golden ring, sunrise glare, long shadows"
    }
   }
  },
@@ -1600,11 +1618,17 @@
     "silhouette": "a long-necked bird with a crest and a long sweeping train",
     "materials": "night-blue and green feathers, crest, long train, moon-silver bow, a strip of dark cloth set with open eyes"
    },
-   "흑표범": {
-    "en": "Black Panther",
-    "who": "a tall black panther archer with a sleek dark coat, small round ears and night eyes that glow faintly, who shoots spells out of the air",
-    "silhouette": "a lean big cat standing with a raised bow, two glowing eyes",
-    "materials": "sleek black coat, faintly glowing eyes, silver bow, a thread of stolen spell-fire"
+   "별비늘 용": {
+    "en": "Star Dragon",
+    "who": "a dragon of the upper air long enough to coil three times around a needle spire: indigo scales each set with a silver star, wings of thin cloud, whiskers streaming like comet tails, one great calm silver eye",
+    "silhouette": "a long serpentine dragon coiled around a thin spire",
+    "materials": "indigo scales, silver stars, thin cloud, comet-tail whiskers"
+   },
+   "별유리 거신": {
+    "en": "Star-Glass Titan",
+    "who": "a titan of black star-glass with slow stars drifting inside its limbs and a crown of silver spires, tall enough to stand with one foot on each of two sky-islands, who shoots spells out of the air with a crescent-moon bow",
+    "silhouette": "a giant archer astride two floating islands with a crescent bow",
+    "materials": "black glass, drifting stars, silver spires, crescent-moon bow, a thread of stolen spell-fire"
    }
   }
  }

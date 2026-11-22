@@ -192,13 +192,13 @@
   },
   "UN-B2": {
     "shot": "inside", "dir": "F", "place": "C", "pal": "snowlight",
-    "scene": "From inside the hollow chest of a half-built golem, looking out through its open breast-hatch: the hatch rim of mismatched salvaged plates rings the whole picture. Leaning in toward us, filling the opening, is a very old golem — hand-hammered plates of uneven size, crooked rows of rivets, a boiler patched many times, a small worn smith's hammer hung on a chain around its neck. In both huge, careful hands it lowers a salvaged furnace-heart, still glowing, into the cavity where we sit. Behind it snow falls on a field of fallen machines, each already missing a part.",
-    "light": "Snow daylight blazes white behind the old golem, rimming its dented shoulders against the dark hatch; the heart in its hands lights its face plates warm from below."
+    "scene": "From inside the hollow chest of a half-built golem tall as a watchtower, looking out through its open breast-hatch, whose rim of salvaged plates rings the picture. Leaning down toward us, its face alone filling the opening like a cliff, is a titan of an old golem — hand-hammered plates of uneven size, crooked rows of rivets big as shields, a boiler patched many times. Between two huge, careful fingertips it lowers a salvaged furnace-heart, still glowing, into the cavity where we sit. Behind it snow falls on a valley of fallen machines, each already missing a part.",
+    "light": "Snow daylight blazes white behind the old titan, rimming its dented shoulders against the dark hatch; the heart in its fingers lights its face plates warm from below."
   },
   "UN-B2-7": {
     "shot": "silhouette", "dir": "N", "place": "X", "pal": "forgeheart",
-    "scene": "Two black shapes against the blazing mouth of a gate into the mountain: a pair of square, heavy golems stand at the far left and far right of the frame, one before each gatepost, and a single thick chain runs from the collar of one to the collar of the other across the whole width of the picture. A boulder is bursting on the left golem's shoulder. The chain has snapped taut and level, links glowing, and the right golem — untouched — has dug its heels in and leans away, taking half the weight of the blow.",
-    "light": "The molten orange glow of the foundry city behind the gate backlights everything; golems and chain are pure black, with orange fire along each chain link's edge."
+    "scene": "Two black shapes against the blazing mouth of a gate into the mountain: a pair of square colossi stand at the far left and right of the frame, each as tall as the gate tower behind it, joined collar to collar by one chain with links the size of wagons across the whole picture. A hurled boulder big as a house bursts on the left golem's shoulder. The chain has snapped taut and level, links glowing, and the right golem digs its heels in and leans away, taking half the blow. A besieging army's torches flicker around their ankles.",
+    "light": "The molten orange glow of the foundry city behind the gate backlights everything; golems and chain are pure black, with orange fire along each link's edge."
   },
   "UP-B2-12": {
     "shot": "far", "dir": "R", "place": "L", "pal": "lamplit",

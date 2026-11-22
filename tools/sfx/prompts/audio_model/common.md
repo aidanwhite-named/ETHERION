@@ -1,10 +1,10 @@
 # ETHERION 게임 효과음 — GPT 오디오 모델 버전
 
-> 분류: **오디오 모델 버전** · 157개 게임 공용 사운드. 카드별 공격·방어·마법 발동·아이템 장착 사운드는 포함하지 않는다.
+> 분류: **오디오 모델 버전** · 158개 게임 공용 사운드. 카드별 공격·방어·마법 발동·아이템 장착 사운드는 포함하지 않는다.
 > 원본은 `tools/sfx/sfx_common.json`, 생성기는 `tools/sfx/build_audio_model_prompts.js`. 각 프롬프트를 GPT 오디오 모델에 하나씩 넣고 결과를 `audio/inbox/sfx/audio_model/<키>.wav`로 저장한다.
 > 프롬프트 언어는 생성 모델의 지시 이해를 위해 영어로 유지했다. 길이는 원본 목록의 항목별 값이다.
 
-## 메뉴 · 화면 (12)
+## 메뉴 · 화면 (13)
 
 ### `ui_click` — 메뉴 단추를 누를 때
 분류: 게임 효과음 · 약 0.15초 · 파일 `audio/inbox/sfx/audio_model/ui_click.wav`
@@ -53,6 +53,13 @@ Create one isolated fantasy game sound effect. No music, speech, or ambience. a 
 
 ```text
 Create one isolated fantasy game sound effect. No music, speech, or ambience. a quick, light flick of a stiff paper tab, crisp and tidy. Duration: about 0.2 seconds. Start immediately, make the sound clear and self-contained, then let its natural tail end cleanly. Avoid extra events.
+```
+
+### `ui_filter` — 덱 조정실 · 보관소 카드 보기 거르개(종류 · 등급 · 레벨)를 누를 때
+분류: 게임 효과음 · 약 0.15초 · 파일 `audio/inbox/sfx/audio_model/ui_filter.wav`
+
+```text
+Create one isolated fantasy game sound effect. No music, speech, or ambience. a soft, low wooden tick of a small carved token pressed into a slot of an old oak card box, with a faint muted low thud; warm, dark and quiet, short and clean, not bright, not metallic. Duration: about 0.15 seconds. Start immediately, make the sound clear and self-contained, then let its natural tail end cleanly. Avoid extra events.
 ```
 
 ### `ui_toggle` — 설정의 켜기 · 끄기, 체크 상자
@@ -690,7 +697,7 @@ Create one isolated fantasy game sound effect. No music, speech, or ambience. a 
 분류: 게임 효과음 · 약 0.7초 · 파일 `audio/inbox/sfx/audio_model/regen.wav`
 
 ```text
-Create one isolated fantasy game sound effect. No music, speech, or ambience. tough troll flesh knitting closed: a wet fleshy squelch, a creak of bark-like skin pulling tight and a low satisfied grumble. Duration: about 0.7 seconds. Start immediately, make the sound clear and self-contained, then let its natural tail end cleanly. Avoid extra events.
+Create one isolated fantasy game sound effect. No music, speech, or ambience. tough mossy flesh knitting closed: a wet fleshy squelch, a creak of bark-like skin pulling tight and a low satisfied grumble. Duration: about 0.7 seconds. Start immediately, make the sound clear and self-contained, then let its natural tail end cleanly. Avoid extra events.
 ```
 
 ### `shield_bash` — [방패 반격] — 드워프가 방패로 되받아침 (v3.74)

@@ -337,13 +337,13 @@
   },
   "UN-A3": {
     "shot": "reflect", "dir": "R", "place": "C", "pal": "starindigo",
-    "scene": "A shallow bronze basin of still water, set in the floor of a high lookout, fills the frame from above at a slant, and the scene lives in its mirror. Among the reflected stars, upside down, leans a slim fox archer with indigo fur speckled silver, brush tail trailing a thread of starlight, a long elegant bow raised. One grey feather floats on the water. It has just swung to point at the basin's right rim, where the first ripple is arriving and a dull violet glow has crept in among the mirrored stars. The arrow points the same way.",
-    "light": "Clear indigo night; the basin holds the stars in silver on black water, with one teal wind streak crossing its surface from the right."
+    "scene": "A shallow bronze basin of still water in the floor of a high lookout fills the frame, and the scene lives in its mirror. Among the reflected stars, upside down, a dragon of the upper air lies coiled three times around the needle spire itself: indigo scales each set with a silver star, wings of thin cloud, whiskers streaming like comet tails, the lookout's lantern a spark beside its claw. Its head has just swung toward the basin's right rim, one great calm silver eye wide open, where a dull violet glow creeps in among the mirrored stars.",
+    "light": "Clear indigo night; the basin holds dragon and stars in silver on black water, with one teal wind streak crossing its surface from the right."
   },
   "UN-A3-7": {
     "shot": "inside", "dir": "F", "place": "R", "pal": "aurora",
-    "scene": "We are inside the spell: a hurled sphere of green and violet fire whose curved wall of flame rings the picture. An arrow has punched in through the upper right; its moon-silver head hangs an arm's length away, and the fire is swirling down the shaft like water down a drain. Through the torn hole, small in the clear night, stands the one who shot it, a tall black panther archer with a sleek dark coat, small round ears and faintly glowing eyes, his silver bow still raised, a thread of the stolen fire running back into it.",
-    "light": "The fire around us is the light, teal-green and violet like an aurora; beyond the hole the night is dark and his eyes are two small stars."
+    "scene": "We are inside the spell: a hurled sphere of green and violet fire whose curved wall of flame rings the picture. An arrow long as a ship's mast has punched in through the upper right, and the fire swirls down its moon-silver shaft like water down a drain. Through the torn hole, far off yet huge in the clear night, stands the archer: a titan of black star-glass with slow stars drifting inside its limbs and a crown of silver spires, one foot on each of two sky-islands, crescent-moon bow raised, a thread of stolen fire running back into it.",
+    "light": "The fire around us is the light, teal-green and violet like an aurora; beyond the hole the night is dark and the hunter's eyes are two cold stars."
   },
   "UP-A3-10": {
     "shot": "front", "dir": "F", "place": "C", "pal": "duskrose",

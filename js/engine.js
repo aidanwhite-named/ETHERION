@@ -1437,7 +1437,7 @@ function uPreSweep(X) {
         fl(X, v.uid, "영혼 강탈", "debuff");
       }
       // [늑대 무리]: 쓰러뜨릴 때마다
-      if (uHas(killer, "wolves")) { X.uAfter.push({ p: o, id: "TK-U-WOLF", after: killer, keep: { expire: X.turn + 1 }, why: "하이에나 무리" }); }
+      if (uHas(killer, "wolves")) { X.uAfter.push({ p: o, id: "TK-U-WOLF", after: killer, keep: { expire: X.turn + 1 }, why: "먼지 짐승 무리" }); }
     }
     // [시한 화약] · [다시 자라는 뿌리]: 자기가 쓰러질 때
     const ab = abilOf(v).u;
@@ -1551,7 +1551,7 @@ function uCombatEnd(X, sweep) {
   let any = false;
   for (const p of X.P) {
     // 잿빛 늑대: 부른 다음 턴 전투가 끝나면 흩어짐
-    for (const u of p.field) if (isUnit(u) && u.t.alive && u.id === "TK-U-WOLF" && (uK(u).expire || 0) <= X.turn) { u.t.alive = false; lg(X, "잿빛 하이에나가 초원으로 돌아갔다", "sys"); any = true; }
+    for (const u of p.field) if (isUnit(u) && u.t.alive && u.id === "TK-U-WOLF" && (uK(u).expire || 0) <= X.turn) { u.t.alive = false; lg(X, "잿빛 먼지 짐승이 흙먼지로 흩어졌다", "sys"); any = true; }
     // [고철 골렘]
     for (const s of uLive(p, "scrap")) { const k = uK(s); while ((k.scrap || 0) >= 4) { k.scrap -= 4; if (!uSpawn(X, p, "TK-U-SCRAP", s, {}, "고철 골렘")) break; } }
     // [씨앗]: 자라기 → 심기

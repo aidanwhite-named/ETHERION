@@ -3,6 +3,7 @@
 > 처음부터 새로 쓴 판이다. 모든 등급(706장)이 이 방식이다. 옛 등급별 사다리(g1~g4)는 `legacy_g4/`에 보관만 한다.
 > v2.1 (프롬프트 n2, 2026-11-21): **등급 사다리** — 등급 줄을 다섯 칸(분위기 · 빛 · 채도 · 공기 · 재질)으로 늘리고 사다리 한 줄을 붙였다. 일반 → 고급 → 레어 → 에픽 → 유니크 → 스페셜로 한 단계씩 더 신비롭고 강렬하고 화려해진다(2장). 시점 · 구도는 여전히 카드마다 정한다.
 > 2026-11-21 (프롬프트 판 n2 그대로): **깃발 기본 종류를 들어냄** — 깃발마다 있던 "처음 세운 무리" 줄(`art_style.json` `founder`)이 없어지고, 거기에 기대던 유닛 72장(강화 · 소환물 포함)이 제 종류를 얻어 장면을 다시 썼다(3.2). 목록은 `docs/UNIT_RENAME.md` 맨 아래.
+> 2026-11-22 (프롬프트 판 n2 그대로): **유니크 18장 장면을 다시 씀** — 현실 동물의 몸(여우 · 사슴 · 황새 …)을 들어내고 신 · 용 · 마왕급의 거대한 판타지 존재로 바꿨다(3.2 등급의 결). 종류 이름과 서사도 같은 날 새 존재에 맞췄다(`js/kinds.js` — 11장과 소환물 1장, 목록은 `docs/UNIT_RENAME.md` 7.2).
 > **For any AI writing or revising these prompts:** read sections 1–4. The scene (section 3) is the prompt; everything else is one short line.
 
 ## 0. 왜 새로 썼나
@@ -173,7 +174,7 @@ Colour: [② 배색 — 깃발의 배색 여섯 가운데 그 카드가 고른 �
 - **레벨이 크기다.** 1~2 작고 소박 · 3~4 다부짐 · 5~6 크고 위압적 · 7 거대(작은 것을 곁에 두어 크기를 보인다).
 - **하는 일을 보인다.** 능력 · 성향(벽 · 돌격 · 원거리 · 가시 · 재생 …)은 자세와 주변의 흔적으로.
 - 화려함(빛 · 입자 · 광휘)은 등급 줄이 맡는다(2장) — 장면에 등급 강조색이나 "빛나는 오라"를 따로 쓰지 않는다. 장면은 아래 결대로 **무슨 순간인가**만 다르게 쓴다.
-- 등급의 결: 일반 = 지켜본 듯한 평범한 한순간 / 고급 = 솜씨가 드러나는 순간과 말해 주는 소품 하나 / 에픽 = 세계가 반응하는 사건(날씨 · 규모) / 레어 = 되풀이해 이야기할 만한 순간(더 대담한 연출 · 깊은 공간. 레어 유닛은 오라의 영향이 주변에 보이게) / 유니크 = 그 전설을 정의하는 한 장면, 그 깃발에서 가장 대담한 그림 / 스페셜 = 깃발마다 하나뿐인 신화적 존재(제 원소로 이루어진 몸, 요새 · 군대 · 용과 견줄 크기 — 종족 낱말을 쓰지 않고, 늘 올려다보는 정면으로 쓰지 않는다) / 강화 = 원래 카드와 같은 개체의 더 강해진 새 순간(틀은 원래 카드와 다르게) / 소환물 = 단순하게, 막 불려 나온 순간.
+- 등급의 결: 일반 = 지켜본 듯한 평범한 한순간 / 고급 = 솜씨가 드러나는 순간과 말해 주는 소품 하나 / 에픽 = 세계가 반응하는 사건(날씨 · 규모) / 레어 = 되풀이해 이야기할 만한 순간(더 대담한 연출 · 깊은 공간. 레어 유닛은 오라의 영향이 주변에 보이게) / 유니크 = 그 전설을 정의하는 한 장면, 그 깃발에서 가장 대담한 그림 — 주인공은 신 · 용 · 마왕급의 거대한 판타지 존재다(탑 · 성벽 · 공성탑과 견줄 크기, 작은 병사 · 건물을 곁에 두어 크기를 보인다. 레벨 6이어도 이 크기로 쓰고, 카드의 종류가 동물이어도 몸은 그 급의 판타지 존재로 쓴다) / 스페셜 = 깃발마다 하나뿐인 신화적 존재(제 원소로 이루어진 몸, 요새 · 군대 · 용과 견줄 크기 — 종족 낱말을 쓰지 않고, 늘 올려다보는 정면으로 쓰지 않는다) / 강화 = 원래 카드와 같은 개체의 더 강해진 새 순간(틀은 원래 카드와 다르게) / 소환물 = 단순하게, 막 불려 나온 순간.
 
 ### 3.3 마법
 - **주인공은 마법 현상이다.** 이름 + 효과 + 서사에서 "이 마법이 실제로 무엇을 하는가"를 물리적인 한 장면으로 만든다 — 그 마법으로만 읽히게. 흔한 빛 폭발로 뭉개지 않는다.
@@ -381,7 +382,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 #### 유니크 · 유닛 — UN-A1 피의 서약자
 
 ```
-Landscape 5:4 painting. Through the eyes of the one he has just struck: our gauntleted arm and dented shield rise along the bottom edge, and on the shield a round seal of red wax has been stamped where his blade landed. A thread of red ink runs from that seal to the tip of his long sword. He stands over us at the right, a tall gaunt revenant in dark mail, grey skin drawn tight, calm eyes each holding a point of red light; in his other hand a scroll hangs open, and on it a fresh red line is drawing itself. A dark hall with a thread of violet in its high windows; the smoking seal and the wet red line give the only glow, crimson on steel and jaw.
+Landscape 5:4 painting. Through the eyes of the one he has just struck: our dented shield rises along the bottom edge, a red wax seal smoking where his blade landed. A thread of red ink climbs from it to the tip of a greatsword long as a bridge. Filling the right of the hall stands a vampire lord tall as its pillars: bone-pale face under a crown of black iron thorns, vast membranous wings folded like a cloak. Blood runs from his opened palm up the blade, and on a scroll long as a war banner a fresh red line draws itself. A dark hall with a thread of violet in its high windows; the smoking seal and the wet red line give the only glow, crimson on steel, wing and jaw.
 Colour: blood and ink — black and deep crimson with a thread of violet (#8b5cf6).
 Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
 Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a blazing key light against deep black, and the subject burning with a power of its own. Saturation: jewel-bright and molten. Air: thick with swirling orange-gold (#ff8a2a) embers, heat-shimmer and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing at the seams.

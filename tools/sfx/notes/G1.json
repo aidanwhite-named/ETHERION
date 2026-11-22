@@ -194,9 +194,9 @@
   },
   "UN-G1": {
    "en": "Rockfang Great Chief",
-   "ko": "뼈 곤봉 내려치자 늑대 떼 달려옴 · 늑대털 갑옷으로 받음",
-   "atk": "a hefty bone-tipped warclub smashes down with a dull crack, then answering wolf howls ring out in the distance, pawsteps closing fast and snarls tearing in from every side",
-   "def": "a heavy wolf-pelt mantle over bone plates takes the blow: a thick muffled thump, coarse fur rasping, bone rattling together, and a menacing low growl from nearby wolves"
+   "ko": "뼈 곤봉 내려치자 먼지 짐승 떼 달려옴 · 뼈판 덧댄 가죽으로 받음",
+   "atk": "a hefty bone-tipped warclub smashes down with a dull crack, then a giant's roar rolls over the plain and hollow howls answer on the wind, grit rushing in fast from every side",
+   "def": "a heavy hide mantle over bone plates takes the blow: a thick muffled thump, bone rattling together, and a low menacing rumble from the giant's chest as dust hisses around him"
   },
   "UN-G1-7": {
    "en": "Garun Plunder King",
@@ -438,10 +438,10 @@
    "def": "a thick bristly mane takes the blow: a solid dull thump, a deep warning growl, claws digging into dirt and a heavy body barely moving back"
   },
   "TK-U-WOLF": {
-   "en": "Ash Hyena",
-   "ko": "달려와 재빨리 물고 지나감 · 몸을 틀어 비켜 맞음",
-   "atk": "light fast pawsteps rushing across dry grass, a breathy giggle, a swift snapping bite and then a quick scrabble away",
-   "def": "it twists to take a glancing hit on its flank: a soft muffled thump on grey-spotted fur, a short startled yip, claws skidding in dirt"
+   "en": "Ash Dust Beast",
+   "ko": "먼지에서 일어나 재빨리 물고 지나감 · 몸이 먼지로 흩어져 비켜 맞음",
+   "atk": "a dry rush of grit sweeping low across the ground, a hollow windy snarl, a swift snapping bite like two stones clacking and then a hiss of sand scattering away",
+   "def": "the blow passes half through a body of dust: a soft muffled whump, a spray of grit pattering on dry earth, a short hollow yelp of wind"
   }
  }
 }
