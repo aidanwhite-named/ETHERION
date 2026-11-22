@@ -435,6 +435,7 @@ html.mobile .lv-hud::after { box-shadow: inset 0 0 6px rgba(217, 180, 106, .08);
 html.mobile .lv-orb, html.mobile .rx-orb { box-shadow: 0 0 0 1px rgba(242, 215, 146, .7), 0 0 0 4px rgba(13, 16, 25, .9), 0 0 0 5px rgba(217, 180, 106, .45), 0 0 6px rgba(240, 200, 120, .35); text-shadow: 0 1px 0 rgba(255, 240, 200, .55); }
 html.mobile .lv-gold .shard { filter: drop-shadow(0 0 3px rgba(143, 220, 255, .6)); }
 html.mobile .lv-bar, html.mobile .rx-bar { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .28); }
+html.mobile .seal-xp i[style*="--p:0.0000"]::after, html.mobile .seal-xp i[style*="--p: 0.0000"]::after, html.mobile .lv-bar i[style*="--p:0.0000"]::after, html.mobile .lv-bar i[style*="--p: 0.0000"]::after, html.mobile .rx-bar i[style*="--p:0.0000"]::after, html.mobile .rx-bar i[style*="--p: 0.0000"]::after { animation-name: none; }
 html.mobile .lvb-inner::before { box-shadow: 0 0 6px 18px rgba(240, 200, 120, .12); }
 html.mobile .lvb-title { filter: drop-shadow(0 0 3px rgba(240, 200, 120, .5)); }
 html.mobile .lvb-lv b { text-shadow: 0 0 4px rgba(246, 226, 168, .6); }
@@ -538,6 +539,17 @@ html.mobile .ether.altar.tut-pulse .eth-ring { animation-name: none; }
 html.mobile .ether.altar.tut-pulse .eth-ring::before { animation-name: none; }
 html.mobile .ether.altar.tut-pulse .eth-ring::after { animation-name: none; }
 }
+html.mobile .ether.altar.nudge .eth-ring::before { box-shadow: 0 0 0 2px rgba(246, 226, 168, .55); }
+html.mobile .ether.altar.nudge.valid .eth-ring { animation-name: none; }
+html.mobile .ether.altar.nudge.valid .eth-ring::before { animation-name: none; }
+html.mobile .ether.altar.nudge.valid .eth-ring::after { animation-name: none; }
+html.mobile body.is-dragging .ether.altar.nudge .eth-ring, html.mobile body.is-dragging .ether.altar.nudge .eth-ring::after { animation-name: none; }
+html.mobile body.is-dragging .ether.altar.nudge .eth-ring::before { animation-name: none; }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .ether.altar.nudge .eth-ring { animation-name: none; }
+html.mobile .ether.altar.nudge .eth-ring::before { animation-name: none; }
+html.mobile .ether.altar.nudge .eth-ring::after { animation-name: none; }
+}
 
 /* trade.css */
 html.mobile .tb-badge { box-shadow: 0 0 0 1.5px rgba(8, 9, 15, .9), 0 0 6px rgba(240, 200, 120, .55); }
@@ -583,3 +595,10 @@ html.mobile .card.fm.has-frame .c-emb img { filter: drop-shadow(0 .05em .12em rg
 html.mobile .card.fm.has-frame .c-emb .c-enum b { text-shadow: 0 .05em .1em #000, 0 0 .25em rgba(0, 0, 0, .9); }
 html.mobile .card.size-full.has-frame .c-art .c-spfx { box-shadow: inset 0 0 0 .04em rgba(246, 217, 142, .9), inset 0 0 0 .11em rgba(255, 77, 115, .5), inset 0 0 6px rgba(255, 77, 115, .3); }
 html.mobile.mobile .card.size-full.has-frame .c-art .c-spfx { box-shadow: inset 0 0 0 .04em rgba(246, 217, 142, .9), inset 0 0 0 .11em rgba(255, 77, 115, .5), inset 0 0 6px rgba(255, 77, 115, .3); }
+
+/* gradefx.css */
+html.mobile .card.fm.has-frame.grade-special:not(.ashen) > .c-frame::before { box-shadow: inset 0 0 0 .05em #ffe6ad, inset 0 0 0 .11em rgba(255, 77, 115, .55), inset 0 0 6px rgba(255, 77, 115, .5); }
+html.mobile.mobile .frow .slot .card.fm.has-frame > .c-frame::after, html.mobile.mobile .hand-me .hand-card .card.fm.has-frame > .c-frame::after { animation-name: none !important; }
+@media (prefers-reduced-motion: reduce) {
+html.mobile .card.fm.has-frame.grade-unique > .c-frame::after, html.mobile .card.fm.has-frame.grade-special > .c-frame::after { animation-name: none !important; }
+}

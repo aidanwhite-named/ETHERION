@@ -1,7 +1,7 @@
 /* ETHERION — 대전 흐름, 전장 화면, 컴퓨터 인공지능
    - 생명·덱 50(v3.56, 예전 40), 시작 핸드 6장(생명 44). 매 턴 두 플레이어 모두 6장까지 보충(뽑은 장수만큼, 최소 1 생명 감소)
    - 공격 준비 → 방어 준비 → 전투 → 정리
-   - 에테르 = 위대한 정수 1 + 결정 수. 결정화한 카드는 소각장으로(v3.19.2). 결정화는 턴마다 1장씩 쌓이는 한도 안에서(안 쓰면 다음 턴으로 넘어감), 결정 최대 12(v3.64). Lv N 카드 비용은 에테르 N (규칙 문서 6)
+   - 에테르 = 결정 수(2026-11-22 시작 0 — 위대한 정수 1을 없앰, 첫 턴부터 결정화 1장 · 결정 최대 13). 결정화한 카드는 소각장으로(v3.19.2). 결정화는 턴마다 1장씩 쌓이는 한도 안에서(안 쓰면 다음 턴으로 넘어감), 결정 최대 12(v3.64). Lv N 카드 비용은 에테르 N (규칙 문서 6)
    - 유지비: 레벨 아이콘 중 빈 칸(하늘빛 테두리)의 수, 최대 레벨 − 1. 소환할 때는 레벨만큼 내고, 살아남으면 다음 턴부터 에테르가 유지비만큼 빠진다.
      준비를 마칠 때 에테르가 모자라면 유지비가 큰 유닛부터 소각된다
    - 아이템: 공격·방어 준비 때 전장의 내 유닛 하나에 장착 (유닛 하나에 하나)
@@ -79,7 +79,7 @@ function mkPlayer(idx, cfg) {
   shuffleG(deck);
   const group = cfg.group || null;
   return { idx, name: cfg.name, group, faction: group ? GROUPS[group].faction : cfg.faction, isAI: !!cfg.isAI, ai: cfg.isAI ? (cfg.ai || "normal") : null, deck, hand: [], field: Array(RULES.slots).fill(null),
-    burn: [], crystals: [], life: RULES.startLife, made: 0, crysBank: 0, spent: 0, reload: 0, reloadNow: 0, bonus: 0, bonusNow: 0, rec: recOf(cfg.rec) };
+    burn: [], crystals: [], life: RULES.startLife, made: 0, crysBank: RULES.crystalsPerTurn /* 2026-11-22 첫 턴부터 1장 결정화(예전 0 — 2턴부터). 시작 에테르가 0이라 첫 턴에 결정화해야 카드를 낸다 */, spent: 0, reload: 0, reloadNow: 0, bonus: 0, bonusNow: 0, rec: recOf(cfg.rec) };
 }
 /* v3.47 깃발 명판의 전적 {w, l}: 화면에만 쓰는 값(판 결과 · 무작위와 상관없음). 이상한 값이면 없음 */
 function recOf(r) {
@@ -111,7 +111,8 @@ function canPlay(p, c) {
   if (c.type === "def" && r !== "def") return "방어 마법은 내 방어 턴에만 쓸 수 있습니다.";
   if (G.rules && G.rules.noSpell && c.type !== "unit" && c.type !== "item") return "이 땅에서는 마법이 지워집니다. (판 규칙 · 오블리온)";
   const cost = costOf(c), e = ether(p);
-  if (cost > e) return `에테르가 부족합니다. (필요 ${cost}, 남은 에테르 ${Math.max(0, e)})`;
+  if (cost > e) return `에테르가 부족합니다. (필요 ${cost}, 남은 에테르 ${Math.max(0, e)})` + (crysOpen(p) && p.hand.length > 1 ? " 다른 카드 1장을 결정화하면 에테르 +1." : "");   // 2026-11-22 처음 하는 사람에게 길을 알려 준다
+
   if (c.type === "item") { if (!equipHosts(p, c).length) return `장착할 유닛이 없습니다. (${classTagText(c).replace(/[\[\]]/g, "")} · 아이템이 없는 내 유닛)`; return null; }
   if (c.cost && c.cost.life && p.life < c.cost.life) return "대가로 낼 생명이 부족합니다.";
   if (c.type === "hand") return null;   // 계략 마법: 칸 없이 바로 발동
@@ -183,6 +184,8 @@ function actEquip(p, uid, slot) {
 }
 /* v1.9.1: 결정화 한도는 턴마다 RULES.crystalsPerTurn(1)장씩 쌓인다. 3턴 동안 하지 않았으면 한 번에 3장까지 */
 function crysLeft(p) { return p.crysBank || 0; }
+/* 2026-11-22 지금 결정화할 수 있나(한도 · 최대 · 자기 준비 단계). 안내(구슬 반짝임 · 문구 · 준비 완료 확인)가 함께 쓴다 */
+function crysOpen(p) { return prepIdx() === p.idx && crysLeft(p) > 0 && p.crystals.length < RULES.maxCrystals && p.hand.length > 0; }
 function actCrystal(p, uid) {
   if (prepIdx() !== p.idx) return false;
   if (crysLeft(p) <= 0) { if (!p.isAI) toast(`지금은 결정화할 수 있는 장수가 없습니다. (한 턴에 ${RULES.crystalsPerTurn}장씩 쌓입니다)`, "warn"); return false; }
@@ -650,8 +653,9 @@ function aiCrystalPlan(p) {
   const cr = p.crystals.length;
   if (cr >= RULES.maxCrystals || p.hand.length <= 2) return [];
   const up = upkeepOf(p);
-  let want = cr < 5 ? 1 : cr < 7 ? (GRand() < 0.7 ? 1 : 0) : (GRand() < 0.3 ? 1 : 0);   // v3.40 판 시드로 (서버 검산)
-  if (ether(p) < 0 || up >= cr) want = 1;
+  const base = cr + RULES.essence - 1;   // 2026-11-22 거저 받는 에테르가 없어져(essence 0) 문턱을 턴 에테르 기준으로 — 에테르 6 · 8까지는 예전과 같은 속도로 모은다
+  let want = base < 5 ? 1 : base < 7 ? (GRand() < 0.7 ? 1 : 0) : (GRand() < 0.3 ? 1 : 0);   // v3.40 판 시드로 (서버 검산)
+  if (ether(p) < 0 || up >= base) want = 1;
   want = Math.min(want, crysLeft(p), RULES.maxCrystals - cr, p.hand.length - 2);
   if (want <= 0) return [];
   const after = ether(p) + want;
@@ -898,6 +902,7 @@ function humanPrep(p) {
 /* ---------- 첫 판 안내 ----------
    처음 하는 사람에게 단계마다 말풍선 하나씩. 다 보거나 "안내 끄기"를 누르면 다시 보이지 않는다 (Prefs guideDone).
    안내는 화면 요소에 붙어 따라다니고(place), 사람의 조작을 막지 않는다. */
+const CRYS_GUIDE_TEXT = "에테르는 <b>결정화</b>로 법니다. 핸드에서 <b>지금 안 쓸 카드 1장을 누른 뒤 빛나는 구슬을 누르세요</b>(끌어다 놓아도 됩니다). 결정이 되어 <b>바로, 그리고 매 턴</b> 에테르가 1 늘어납니다. 카드를 고른 뒤 <b>결정화</b> 단추나 <b>C</b> 키를 눌러도 됩니다.";
 const Guide = {
   el: null, queue: [], seen: {}, cur: null, tailG: null,
   on() { return !Prefs.get("guideDone", false); },
@@ -907,11 +912,11 @@ const Guide = {
     const me = p.idx;
     if (phase === "atkPrep" || phase === "defPrep") {
       const L = [];
-      if (!this.on()) { if (this.tail() && crysLeft(p) > 0 && p.crystals.length < RULES.maxCrystals && p.hand.length) L.push({ key: "crys", sel: "#crys" + me, side: "right", pulse: true, title: "결정화", text: "이제 <b>결정화</b>할 수 있습니다. 핸드 1장을 빛나는 구슬에 <b>끌어다 놓으면</b> 결정이 되어 다음 턴부터 에테르가 1 늘어납니다. 카드를 고른 뒤 <b>C</b> 키를 눌러도 됩니다." }); return L; }
-      // v3.61.1 결정화 한도(crysBank)는 beginTurn에서 쌓이므로 첫 턴은 0, 2턴째부터 1장씩. 빛나는 구슬(pulse → .tut-pulse)로 놓을 곳을 보여 준다
+      if (!this.on()) { if (this.tail() && crysLeft(p) > 0 && p.crystals.length < RULES.maxCrystals && p.hand.length) L.push({ key: "crys", sel: "#crys" + me, side: "right", pulse: true, title: "결정화", text: CRYS_GUIDE_TEXT }); return L; }
+      // 결정화 한도(crysBank)는 beginTurn에서 쌓여 첫 턴부터 1장(2026-11-22 시작 에테르 0 — 첫 턴에 결정화해야 카드를 낸다). 빛나는 구슬(pulse → .tut-pulse)로 놓을 곳을 보여 준다
       const canC = crysLeft(p) > 0 && p.crystals.length < RULES.maxCrystals;
-      if (!this.seen.ether) { L.push({ key: "ether", sel: "#crys" + me, side: "right", pulse: true, title: "에테르 · 결정화", text: "카드를 내는 힘입니다. <b>레벨 N 카드 = 에테르 N</b>. 핸드 1장을 지금 빛나는 이 구슬에 <b>끌어다 놓으면</b> <b>결정</b>이 되어 매 턴 에테르가 1 늘어납니다. 바친 카드는 소각장으로 갑니다. " + (canC ? "지금 해 볼 수 있습니다." : "첫 턴에는 아직 못 하고, <b>2턴째부터</b> 할 수 있습니다.") + " (턴마다 1장씩, 안 하면 쌓여서 나중에 한꺼번에 해도 됩니다). 쓰지 않은 에테르는 다음 턴으로 넘어가지 않으니, 전투 때 <b>코인 뒤집기</b>에 쓰세요." }); if (canC) this.seen.crys = true; }
-      else if (!this.seen.crys && canC && p.hand.length) L.push({ key: "crys", sel: "#crys" + me, side: "right", pulse: true, title: "결정화", text: "이제 <b>결정화</b>할 수 있습니다. 핸드 1장을 빛나는 구슬에 <b>끌어다 놓으면</b> 결정이 되어 다음 턴부터 에테르가 1 늘어납니다. 카드를 고른 뒤 <b>C</b> 키를 눌러도 됩니다." });
+      if (!this.seen.ether) { L.push({ key: "ether", sel: "#crys" + me, side: "right", pulse: true, title: "에테르 · 결정화", text: "카드를 내는 힘입니다. <b>레벨 N 카드 = 에테르 N</b>. 처음에는 <b>0</b>이라 아무것도 낼 수 없습니다 — 핸드에서 <b>지금 안 쓸 카드 1장을 누른 뒤 빛나는 이 구슬을 누르세요</b>(끌어다 놓아도 됩니다). <b>결정</b>이 되어 바로, 그리고 매 턴 에테르가 1 늘어납니다. 바친 카드는 소각장으로 갑니다. " + (canC ? "<b>지금 먼저 해 보세요.</b>" : "") + " 결정화는 턴마다 1장씩(안 하면 쌓여서 나중에 한꺼번에 해도 됩니다). 쓰지 않은 에테르는 다음 턴으로 넘어가지 않으니, 전투 때 <b>코인 뒤집기</b>에 쓰세요." }); if (canC) this.seen.crys = true; }
+      else if (!this.seen.crys && canC && p.hand.length) L.push({ key: "crys", sel: "#crys" + me, side: "right", pulse: true, title: "결정화", text: CRYS_GUIDE_TEXT });
       if (!this.seen.hand) L.push({ key: "hand", sel: ".hand-me", side: "top", title: "핸드", text: "카드를 <b>누르면</b> 상대 전장 오른쪽에 크게(설명까지) 보이고, <b>더블클릭</b>하면 전장에 올라갑니다. 카드 오른쪽 아래 세로 숫자는 위부터 공격 · 방어 · 체력. 그림 아래 글 상자 맨 위 줄의 <b>+</b>와 겹친 동전은 맞붙을 때마다 던지는 코인 — 동전 하나에 앞면이면 +1, <b>+2●</b>처럼 앞에 숫자가 있으면 앞면마다 그 값입니다(동전 수가 곧 코인 수). 공격·방어·체력에 동전이 하나씩 있으면 <b>동전 하나</b>를 던져 셋에 함께 붙습니다." });
       if (!this.seen.front) L.push({ key: "front", sel: `.frow-bot .slot[data-s="0"]`, side: "top", title: "맞붙는 순서", text: "내 유닛은 <b>1번 칸부터</b> 차례로 <b>상대의 맨 앞 유닛</b>과 맞붙습니다 (같은 번호끼리가 아닙니다). 피해 = 공격 − 방어. 체력이 0이 되면 쓰러지고, 남은 피해는 턴이 끝나면 낫습니다." });
       if (phase === "defPrep" && !this.seen.def) L.push({ key: "def", sel: ".frow-top .slots", side: "bottom", title: "방어", text: "상대의 배치가 보입니다. 상대 1번 칸 유닛이 내 맨 앞 유닛과 먼저 맞붙습니다. 막지 못한 공격은 생명으로 가지만, 대신 <b>다음 턴 에테르 +1</b>을 받습니다." });
@@ -1109,7 +1114,8 @@ function etherAltarSVG(idx, slots) {
   const id = "et" + idx, S = ETHER_SLOTS, art = ETHER_ART.has.back || ETHER_ART.has.front;
   const at = s => `transform="translate(${s[0]} ${s[1]}) rotate(${s[2]})"`;
   const st = k => { const o = slots[k] || {}; return (o.has ? " on" : "") + (o.used ? " used" : ""); };
-  const crystals = S.slice(1).map((s, i) => `<g class="et-cr${st(i + 1)}" ${at(s)}><path class="cr-body" d="M0 -9 4 -4 4 5 0 8.5 -4 5 -4 -4Z"/><path class="cr-edge" d="M0 -9V8.5M-4 -4 0 -1.5 4 -4"/></g>`).join("");
+  const E = RULES.essence;   // 2026-11-22 정수 0: 12시 자리부터 모두 결정
+  const crystals = S.slice(E).map((s, i) => `<g class="et-cr${st(i + E)}" ${at(s)}><path class="cr-body" d="M0 -9 4 -4 4 5 0 8.5 -4 5 -4 -4Z"/><path class="cr-edge" d="M0 -9V8.5M-4 -4 0 -1.5 4 -4"/></g>`).join("");
   const img = k => ETHER_ART.has[k] ? `<image class="et-art et-art-${k}" href="${ETHER_ART[k]}" x="${100 - ETHER_ART.size / 2}" y="${100 - ETHER_ART.size / 2}" width="${ETHER_ART.size}" height="${ETHER_ART.size}"/>` : "";
   return `<svg class="et-svg" viewBox="0 0 200 200" aria-hidden="true">
     <defs>
@@ -1123,7 +1129,7 @@ function etherAltarSVG(idx, slots) {
     <ellipse class="et-orb-hi" cx="84" cy="79" rx="10.5" ry="5.2" transform="rotate(-35 84 79)"/>
     ${img("front")}
     <g class="et-crystals">${crystals}</g>
-    <g class="et-ess${st(0)}" ${at(S[0])}><path class="ess-body" d="M0 -9 7 0 0 9 -7 0Z" fill="url(#${id}-gem)"/><path class="ess-edge" d="M0 -9V9M-7 0H7"/></g>
+    ${E ? `<g class="et-ess${st(0)}" ${at(S[0])}><path class="ess-body" d="M0 -9 7 0 0 9 -7 0Z" fill="url(#${id}-gem)"/><path class="ess-edge" d="M0 -9V9M-7 0H7"/></g>` : ""}
   </svg>`;
 }
 
@@ -1231,7 +1237,7 @@ async function showSettings() {
     <div class="speed set-sfx">${[["off", "끄기"], ["low", "작게"], ["mid", "보통"]].map(([v, n]) => `<button type="button" class="btn xs ${typeof FEEL !== "undefined" && FEEL.level === v ? "on" : ""}" data-sfx="${v}">${n}</button>`).join("")}</div>
     <p class="pick-label">배경음 <small class="muted">— 타이틀 곡과 대기실·상점의 아홉 단체 테마(무작위로 이어 틂). 대전 중에는 멈춥니다</small></p>
     <div class="speed set-bgm">${[["off", "끄기"], ["low", "작게"], ["mid", "보통"]].map(([v, n]) => `<button type="button" class="btn xs ${typeof BGM !== "undefined" && BGM.level === v ? "on" : ""}" data-bgm="${v}">${n}</button>`).join("")}</div>${Store.isAdmin() ? `
-    <p class="pick-label">턴 시간 제한 <small class="muted">— 관리자만: 준비 단계마다 30초. 끄면 시간이 다 되어도 턴이 넘어가지 않습니다 (지금 판에도 바로 적용)</small></p>
+    <p class="pick-label">턴 시간 제한 <small class="muted">— 관리자만: 준비 단계마다 ${TURN_LIMIT_MS / 1000}초. 끄면 시간이 다 되어도 턴이 넘어가지 않습니다 (지금 판에도 바로 적용)</small></p>
     <div class="speed set-tlimit">${[["on", "켜기 (기본)"], ["off", "끄기"]].map(([v, n]) => `<button type="button" class="btn xs ${(Prefs.get("turnLimitOff", false) === true ? "off" : "on") === v ? "on" : ""}" data-tl="${v}">${n}</button>`).join("")}</div>` : ""}`;
   await modal(html, [{ label: "닫기", value: true, cls: "primary" }], { cls: "wide set-modal", onOpen: w => {
     w.addEventListener("click", e => {
@@ -2288,13 +2294,17 @@ function etherHTML(p, isMe, ctrlAll) {
   const myTurn = prepIdx() === p.idx;
   // v3.19.8 결정화 손짓: 처음 하는 사람에게 핸드 → 이 구슬로 날아드는 유령 카드 + 두 줄 명판 (css/crys-hint.css, CrysHint)
   const teach = ctrl && myTurn && !maxed && !done && p.hand.length > 0 && !FX.drag && CrysHint.on();
+  // 2026-11-22 결정화 재촉: 판 초반(결정 CRYS_NUDGE개 미만)이나 에테르가 0일 때, 이번 턴에 아직 결정화하지 않았으면 구슬이 반짝이고(.nudge) 명판이 두 줄로 방법을 알려 준다.
+  // 카드를 골랐으면 "여기를 눌러 결정화"로 바뀐다(폰: 카드 누르기 → 구슬 누르기). 결정화하면 그 턴에는 꺼진다. 화면 연출만 — 판 상태와 상관없음
+  const nudge = ctrl && crysOpen(p) && !FX.drag && (p.crystals.length < CRYS_NUDGE || tot <= 0);
+  const plate = canCrys ? `<b>여기를 눌러 결정화</b><small>고른 카드를 바치고 바로 에테르 +1</small>` : `<b>결정화 · 카드 1장을 여기로</b><small>카드를 누른 뒤 이 구슬 누르기 · 에테르 +1</small>`;
   const crys = maxed ? `<span class="cry-state max" title="결정이 최대(${RULES.maxCrystals})입니다">결정 최대</span>`
     : done ? `<span class="cry-state done" title="결정화할 수 있는 장수를 다 썼습니다. 한 턴에 ${RULES.crystalsPerTurn}장씩 쌓입니다">결정화 완료</span>`
-    : myTurn && teach ? `<span class="cry-state ok cry-teach" title="핸드를 에테르로 끌어 놓거나 C 키로 결정화. 한 턴에 ${RULES.crystalsPerTurn}장씩 쌓이고, 안 쓰면 다음 턴으로 넘어갑니다"><b>결정화 가능 ${crysLeft(p)}</b><small>핸드 1장을 구슬로 끌어 놓기 · 에테르 +1</small></span>`
+    : myTurn && (teach || nudge) ? `<span class="cry-state ok cry-teach" title="카드를 누른 뒤 이 구슬을 누르거나, 구슬로 끌어 놓거나, C 키로 결정화. 바로 에테르 +1. 한 턴에 ${RULES.crystalsPerTurn}장씩 쌓이고, 안 쓰면 다음 턴으로 넘어갑니다">${plate}</span>`
     : myTurn ? `<span class="cry-state ok" title="핸드를 에테르로 끌어 놓거나 C 키로 결정화. 한 턴에 ${RULES.crystalsPerTurn}장씩 쌓이고, 안 쓰면 다음 턴으로 넘어갑니다">결정화 가능 ${crysLeft(p)}</span>`
     : `<span class="cry-state" title="자기 준비 단계에만 결정화할 수 있습니다. 한 턴에 ${RULES.crystalsPerTurn}장씩 쌓입니다">결정화 ${crysLeft(p)}</span>`;
   // 에테르 제단: 가운데 정수 구슬(남은/이번 턴 에테르), 둘레의 마법진에 정수 1 + 결정 12칸이 박힌다
-  return `<div class="ether altar${teach ? " teach" : ""}${canCrys ? " valid" : ""}${left < 0 ? " short" : ""}${p.bonusNow ? " boosted" : ""}" data-act="ether" data-p="${p.idx}" id="crys${p.idx}" data-tip="${esc(`에테르 ${left} / ${tot}\n가운데 = 이번 턴 남은 에테르 / 이번 턴 에테르\n맨 위 금 보석 = 위대한 정수 1(깨지지 않음) · 둘레 = 결정 ${p.crystals.length}/${RULES.maxCrystals}\n빛나는 결정 = 쓸 수 있음 · 어두운 결정 = 이번 턴에 씀\n결정화: 핸드 1장을 여기로 끌어 놓기 (한 턴 ${RULES.crystalsPerTurn}장, 카드는 소각장으로)`)}">
+  return `<div class="ether altar${teach ? " teach" : ""}${nudge ? " nudge" : ""}${canCrys ? " valid" : ""}${left < 0 ? " short" : ""}${p.bonusNow ? " boosted" : ""}" data-act="ether" data-p="${p.idx}" id="crys${p.idx}" data-tip="${esc(`에테르 ${left} / ${tot}\n가운데 = 이번 턴 남은 에테르 / 이번 턴 에테르\n둘레 = 결정 ${p.crystals.length}/${RULES.maxCrystals} (결정 하나 = 매 턴 에테르 1)\n빛나는 결정 = 쓸 수 있음 · 어두운 결정 = 이번 턴에 씀\n결정화: 핸드 1장을 누른 뒤 여기를 누르기 · 여기로 끌어 놓기 (한 턴 ${RULES.crystalsPerTurn}장, 카드는 소각장으로)`)}">
       <div class="eth-ring">
         ${etherAltarSVG(p.idx, slots)}
         <div class="eth-orb"><b>${left}</b><span>/${tot}</span></div>
@@ -2304,11 +2314,13 @@ function etherHTML(p, isMe, ctrlAll) {
 /* v3.19.8 결정화 손짓 (css/crys-hint.css): 결정화를 모르는 사람이 많아서, 내 준비 단계에 결정화할 수 있으면
    핸드 맨 왼쪽 카드 자리에서 카드 한 장(뒷면)이 에테르 구슬로 날아드는 모습을 되풀이해 보이고, 구슬 아래 명판을 두 줄로 키운다.
    결정화를 CRYS_TEACH번 해 보면 다시 나오지 않는다 (Prefs crysTeach, 연습 대전을 다시 켜면 0으로). 판 상태 · 온라인 동기화와는 상관없는 화면 연출
-   v3.24.3: 튜토리얼 ③ 연습 대전(cfg.practice)에서만. 컴퓨터 · 원정 · 대전 · 온라인에서는 나오지 않는다(작은 "결정화 가능 N" 명판은 그대로) */
+   v3.24.3: 튜토리얼 ③ 연습 대전(cfg.practice)에서만. 컴퓨터 · 원정 · 대전 · 온라인에서는 나오지 않는다(작은 "결정화 가능 N" 명판은 그대로)
+   2026-11-22: 시작 에테르가 0이 되어 결정화를 모르면 첫 턴부터 막힌다 — 어느 판에서든, 결정화를 CRYS_TEACH번 해 볼 때까지 나온다 */
 const CRYS_TEACH = 3;
+const CRYS_NUDGE = 4;   // 2026-11-22 결정이 이보다 적으면(판 초반) 결정화하지 않은 턴마다 구슬이 반짝인다 (etherHTML nudge)
 const CrysHint = {
   el: null,
-  on() { return !!(G && G.cfg && G.cfg.practice) && typeof Prefs !== "undefined" && (+Prefs.get("crysTeach", 0) || 0) < CRYS_TEACH; },
+  on() { return !!(G && G.cfg && !G.cfg.headless) && typeof Prefs !== "undefined" && (+Prefs.get("crysTeach", 0) || 0) < CRYS_TEACH; },
   learn() { if (this.on()) Prefs.set("crysTeach", (+Prefs.get("crysTeach", 0) || 0) + 1); },
   hide() { if (this.el) { this.el.remove(); this.el = null; } },
   // 날아가는 카드는 화면 맨 위 연출 층(#fx-layer)에 한 번만 만들어 두고(다시 그려도 움직임이 끊기지 않게) 자리만 고친다.
@@ -2587,7 +2599,7 @@ const uiIcon = (k, cls) => `<svg class="ui-ico${cls ? " " + cls : ""}" viewBox="
 /* 낼 수 없는 이유를 [제목, 자세히] 두 조각으로 */
 function shortWhy(why) {
   let m;
-  if ((m = why.match(/필요 (\d+), 남은 에테르 (\d+)/))) return ["에테르 부족", `필요 ${m[1]} · 남음 ${m[2]}`];
+  if ((m = why.match(/필요 (\d+), 남은 에테르 (\d+)/))) return ["에테르 부족", `필요 ${m[1]} · 남음 ${m[2]}` + (/결정화하면/.test(why) ? " · 다른 카드를 결정화하면 +1" : "")];
   if (why.startsWith("지금은")) return ["지금은 낼 수 없음", ""];
   if (why.startsWith("공격 마법")) return ["공격 턴 전용", "내 공격 턴에만 사용"];
   if (why.startsWith("방어 마법")) return ["방어 턴 전용", "내 방어 턴에만 사용"];
@@ -2627,7 +2639,7 @@ function focusHTML(me, ctrl) {
       const maxed = me.crystals.length >= RULES.maxCrystals, done = crysLeft(me) <= 0;
       if (c.type !== "item") main = `<button type="button" class="f-cta" data-act="do-place"${why ? " disabled" : ""}>${uiIcon("place")}<span>전장에 올리기</span><em class="f-cost" title="에테르 ${costOf(c)}"><i></i>${costOf(c)}</em></button>`;
       btns = [
-        fSub("do-crystal", "결정화", "C", "f-cry", maxed || done, "crystal", maxed ? "결정이 최대입니다." : done ? `결정화할 수 있는 장수를 다 썼습니다.\n한 턴에 ${RULES.crystalsPerTurn}장씩 쌓입니다.` : `이 카드를 결정으로 바칩니다.\n다음 턴부터 에테르 +1 · 카드는 소각장으로\n(지금 ${crysLeft(me)}장 더 할 수 있음)`),
+        fSub("do-crystal", "결정화", "C", "f-cry", maxed || done, "crystal", maxed ? "결정이 최대입니다." : done ? `결정화할 수 있는 장수를 다 썼습니다.\n한 턴에 ${RULES.crystalsPerTurn}장씩 쌓입니다.` : `이 카드를 결정으로 바칩니다.\n바로 에테르 +1(매 턴) · 카드는 소각장으로\n(지금 ${crysLeft(me)}장 더 할 수 있음)`),
         fSub("do-burn", "소각", "X", "f-burn", false, "burn", "이 카드를 소각장에 버립니다.")
       ];
       bad = !!why;
@@ -3140,7 +3152,7 @@ function drawFly(el, deck, delay, dur, snd) {
    내 준비 단계에서만 흐르고, 드로우가 끝나고 1초 뒤부터 흐른다.
    2026-11-17 v3.91: 준비 단계마다 30초(TURN_LIMIT_MS). 남은 시간을 거꾸로 세고, 0이 되면 준비 완료를 누른 것처럼 턴이 넘어간다
    (유지비가 모자라도 묻지 않고 그대로 마친다 — 유지비가 큰 유닛부터 소각) */
-const TURN_LIMIT_MS = 30000;
+const TURN_LIMIT_MS = 46000;   // 2026-11-22 30초 → 46초 (사용자 결정 — 처음 하는 사람이 읽고 고를 시간)
 const CLOCK_PERIOD = TURN_LIMIT_MS / 1000;   // 모래시계가 한 턴에 한 번 다 흐른다
 function clockRunning() {
   if (!G || G.cfg.headless || G.phase === "over") return false;
@@ -4205,6 +4217,12 @@ function readyGuarded() {
   return now - (FX.zoomGoneAt || -1e9) < READY_GUARD_MS.zoom || now - (FX.ctrlAt || -1e9) < READY_GUARD_MS.ctrl;
 }
 async function finishPrep(me) {
+  // 2026-11-22 에테르가 0인데(결정이 하나도 없음) 결정화하지 않고 마치려 하면 한 번 묻는다 — 처음 하는 사람이 빈손으로 턴을 넘기지 않게
+  if (etherTotal(me) <= 0 && me.crystals.length === 0 && crysOpen(me)) {
+    const ok = await modal(`<h3>아직 결정화하지 않았습니다</h3><p>에테르가 0이라 카드를 낼 수 없습니다. 핸드에서 <b>지금 안 쓸 카드 1장을 누른 뒤 왼쪽 아래 구슬(에테르)을 누르면</b> 결정이 되어 에테르가 1 생깁니다.</p><p class="muted">결정은 판 내내 남아 매 턴 에테르를 줍니다.</p>`,
+      [{ label: "돌아가서 결정화", value: false, cls: "primary" }, { label: "그대로 마치기", value: true }], { cls: "turn-modal" });
+    if (!ok || !G || !G.ready) return;
+  }
   if (ether(me) < 0) {
     const ok = await modal(`<h3>유지비가 모자랍니다</h3><p>이번 턴 에테르가 ${-ether(me)} 모자랍니다. 이대로 마치면 유지비가 큰 유닛부터 소각됩니다.</p><p class="muted">핸드를 결정으로 바꾸면 에테르가 늘어납니다.</p>`,
       [{ label: "돌아가기", value: false }, { label: "그대로 마치기", value: true, cls: "danger" }], { cls: "turn-modal" });
@@ -4233,7 +4251,7 @@ function showRules() {
   modal(`<h3>전투 규칙 요약</h3>
   <ol class="rules-list">
     <li><b>보충</b> — 턴이 시작되면 두 플레이어 모두 핸드를 6장까지 뽑고, 뽑은 장수만큼(최소 1) 생명이 줄어듭니다.</li>
-    <li><b>에테르</b> — 위대한 정수가 매 턴 에테르 1을 주고, 핸드를 결정으로 바치면(턴당 1장, 최대 12개) 결정마다 매 턴 에테르 1을 더 냅니다. Lv N 카드의 비용은 에테르 N. 남은 에테르는 넘어가지 않습니다.</li>
+    <li><b>에테르</b> — 처음에는 0입니다. 핸드 1장을 누른 뒤 왼쪽 아래 구슬을 눌러 결정으로 바치면(첫 턴부터 턴당 1장, 최대 ${RULES.maxCrystals}개) 결정마다 바로, 그리고 매 턴 에테르 1을 냅니다. Lv N 카드의 비용은 에테르 N. 남은 에테르는 넘어가지 않습니다.</li>
     <li><b>유지비</b> — 레벨 아이콘의 빈 칸 수가 유지비입니다. 소환할 때는 레벨만큼 에테르를 내고, 유닛이 살아남으면 다음 턴부터 에테르가 유지비만큼 빠집니다. 준비를 마칠 때 모자라면 유지비가 큰 유닛부터 소각됩니다.</li>
     <li><b>공격 준비</b> — 공격자가 유닛·공격 마법·공용 마법을 빈 칸에 올립니다 (핸드 더블클릭 = 왼쪽부터 빈 칸). 아이템은 공격·방어 준비 어느 때나 클래스가 맞는 내 유닛에 장착하며(아이템 이름 옆 [○○ 전용]이 유닛 오른쪽 아래 열의 클래스 아이콘과 같으면 장착, [공용]은 누구에게나), 유지비가 없습니다.</li>
     <li><b>방어 준비</b> — 방어자가 공격자의 유닛 배치를 보고 유닛·방어 마법·공용 마법을 올립니다. 마법은 뒷면이라 상대에게 보이지 않습니다.</li>

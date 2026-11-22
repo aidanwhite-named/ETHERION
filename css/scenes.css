@@ -159,7 +159,7 @@
   scale: calc(.45 + var(--f) * 1.7); border-radius: 50% 50% 45% 45% / 65% 65% 35% 35%;
   background: radial-gradient(60% 55% at 50% 72%, #fffbe8, #ffd27a 40%, #f0b44c 60%, rgba(255, 122, 44, 0) 75%);
   filter: drop-shadow(0 0 calc(4px + var(--f) * 16px) rgba(240, 180, 76, .85)); opacity: .25; transition: scale .5s cubic-bezier(.3, 1.4, .5, 1), opacity .4s;
-  animation: flick 1.6s calc(var(--i) * -.23s) ease-in-out infinite alternate; }
+  animation: flick 1.6s calc(var(--i) * -.23s) steps(9) infinite alternate; }   /* 2026-11-22 가볍게: 불꽃은 1초 6칸쯤으로 깜빡여도 같다 — 매 프레임 움직이면 빛 번짐(drop-shadow)을 1초 60번 다시 칠한다 */
 .cd.lit .cd-flame { opacity: 1; }
 .cd.lit small { color: var(--gold-hi); }
 @keyframes flick { 0% { transform: rotate(-3deg) scaleY(.94); } 50% { transform: rotate(2deg) scaleY(1.06); } 100% { transform: rotate(-1deg) scaleY(.98); } }
@@ -236,7 +236,7 @@
   background: linear-gradient(90deg, #4a4130, #d9c89a 45%, #7b6b48); transition: height .4s cubic-bezier(.3, 1.3, .5, 1); }
 .cv-flame { position: absolute; left: 50%; bottom: 100%; width: 7px; height: 12px; translate: -50% 1px; border-radius: 50% 50% 45% 45% / 65% 65% 35% 35%;
   background: radial-gradient(60% 55% at 50% 72%, #fffbe8, #ffd27a 45%, rgba(240, 180, 76, 0) 75%); filter: drop-shadow(0 0 4px #f0b44c);
-  animation: flick 1.4s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+  animation: flick 1.4s steps(8) infinite alternate; transform-origin: 50% 100%; }
 .cv-col:hover .cv-candle { filter: brightness(1.25); }
 /* 덱 줄: − ×n + */
 .dl-row { grid-template-columns: minmax(0, 1fr) auto; padding: 0; gap: 0; position: relative; }

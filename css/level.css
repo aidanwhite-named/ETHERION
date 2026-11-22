@@ -45,6 +45,9 @@
 .lv-bar i::after, .rx-bar i::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 0 70%, rgba(255, 248, 220, .55) 92%, transparent);
   animation: lvShine 3.2s ease-in-out infinite; }
 @keyframes lvShine { 0%, 55% { opacity: 0; } 75% { opacity: 1; } 100% { opacity: 0; } }
+/* 2026-11-22 가볍게: 띠가 비어 있으면(--p 0, 폭 0) 반짝임은 보이지 않는데도 Chrome이 매 프레임 스타일을 다시 계산했다 — 빈 띠에서는 멈춘다 */
+.seal-xp i[style*="--p:0.0000"]::after, .seal-xp i[style*="--p: 0.0000"]::after, .lv-bar i[style*="--p:0.0000"]::after, .lv-bar i[style*="--p: 0.0000"]::after,
+.rx-bar i[style*="--p:0.0000"]::after, .rx-bar i[style*="--p: 0.0000"]::after { animation: none; }
 .lv-hud.top .lv-bar i { background: linear-gradient(90deg, #b8893a, var(--gold-hi), #b8893a); }
 
 /* 레벨이 오른 순간: 판이 한 번 빛남 */

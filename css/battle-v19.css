@@ -26,7 +26,7 @@
 .shuffle-btn.v19 .sh-seal { position: absolute; left: -6px; top: 50%; width: calc(var(--sh-h) + 10px); height: calc(var(--sh-h) + 10px); transform: translateY(-50%); display: grid; place-items: center; border-radius: 50%;
   background: radial-gradient(circle at 35% 30%, #c9b4ff 0%, #8f6fd6 30%, #4a2f8a 68%, #1d1236 100%);
   border: 2px solid #e9cf8f; box-shadow: 0 0 0 2px rgba(20, 12, 34, .9), 0 0 18px rgba(143, 111, 214, .65), inset 0 -4px 8px rgba(0, 0, 0, .45), inset 0 2px 3px rgba(255, 255, 255, .35); }
-.shuffle-btn.v19 .sh-ring { position: absolute; inset: 4px; border-radius: 50%; border: 1.5px dashed rgba(246, 226, 168, .7); animation: shRing 14s linear infinite; }
+.shuffle-btn.v19 .sh-ring { position: absolute; inset: 4px; border-radius: 50%; border: 1.5px dashed rgba(246, 226, 168, .7); animation: shRing 14s steps(210) infinite; }   /* 2026-11-22 가볍게: 1초 15칸(한 칸 약 1px) — 60칸으로 돌릴 때마다 그 둘레 타일을 다시 칠하던 것(Firefox) */
 @keyframes shRing { to { transform: rotate(360deg); } }
 .shuffle-btn.v19 .sh-seal .ui-ico { position: relative; width: 24px; height: 24px; color: #fff6dc; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .7)); transition: transform .5s cubic-bezier(.3, .7, .3, 1.2); }
 .shuffle-btn.v19 .sh-txt { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.05; }
@@ -60,10 +60,12 @@
 .tc-glass .tc-stream { animation: tcStream var(--tc-period, 8s) linear infinite; animation-delay: var(--tc-delay, 0s); }
 .turn-clock.paused .tc-glass * { animation-play-state: paused !important; }
 .turn-clock.paused .tc-stream { opacity: 0 !important; }
-@keyframes tcFlip { 0%, 93% { transform: rotate(0deg); } 100% { transform: rotate(180deg); } }
-@keyframes tcTop { 0% { transform: scaleY(1); } 92%, 100% { transform: scaleY(0); } }
-@keyframes tcBot { 0% { transform: scaleY(0); } 92%, 100% { transform: scaleY(1); } }
-@keyframes tcStream { 0%, 90% { opacity: 1; } 92%, 100% { opacity: 0; } }
+/* 2026-11-22 가볍게: SVG 안쪽 조각의 transform은 브라우저가 매 프레임 스타일 · 배치를 다시 계산한다(Chrome에서 1초에 스타일 500번 · 배치 58번 — 준비 단계 내내).
+   모래 높이는 화면에서 8px 남짓이라 92칸(46초 턴이면 1초에 두 칸, 한 칸 0.1px)으로 끊어도 똑같이 보이고, 가만히 있는 구간(뒤집히기 전 · 줄기)은 step-end로 아예 쉰다. 뒤집히는 7%만 매 프레임 */
+@keyframes tcFlip { 0% { transform: rotate(0deg); animation-timing-function: step-end; } 93% { transform: rotate(0deg); animation-timing-function: linear; } 100% { transform: rotate(180deg); } }
+@keyframes tcTop { 0% { transform: scaleY(1); animation-timing-function: steps(92, end); } 92% { transform: scaleY(0); animation-timing-function: step-end; } 100% { transform: scaleY(0); } }
+@keyframes tcBot { 0% { transform: scaleY(0); animation-timing-function: steps(92, end); } 92% { transform: scaleY(1); animation-timing-function: step-end; } 100% { transform: scaleY(1); } }
+@keyframes tcStream { 0% { opacity: 1; animation-timing-function: step-end; } 90% { opacity: 1; animation-timing-function: linear; } 92% { opacity: 0; animation-timing-function: step-end; } 100% { opacity: 0; } }
 @media (max-width: 760px) { .turn-clock { position: relative; top: auto; right: auto; height: 38px; margin-right: 8px; } }
 
 /* ---------- 드로우하는 동안 핸드는 마우스에 반응하지 않는다 ---------- */

@@ -22,6 +22,7 @@
 - 에테르 다시 굴리기는 손해인 면에서만 묻는다. **맞바꿈 코인**(한 동전에 + · − 가 함께)은 차례에 따라 손해인 면이 다르다(2026-11-22, 사용자): 공격하는 유닛은 공격 몫, 방어하는 유닛은 방어 · 체력 몫의 부호로 가리고, 그 몫이 없거나 0이면 합의 부호(강철 대장장이 방 +1 · 공 −1 = 공격할 때 앞면 · 방어할 때 뒷면). 사람 · 컴퓨터 같은 셈(`js/game.js` `coinNeg(o, who)` · `coinBad`, 시험 `tools/coin/test.js`). 카드 이름으로 가르지 않는다 — 새 맞바꿈 코인도 저절로 따른다.
 
 ## 그 밖에
+- **시작 에테르 0 · 첫 턴부터 결정화 · 턴 46초(2026-11-22, 사용자 결정)**: `RULES.essence` 0(예전 위대한 정수 1) · `RULES.maxCrystals` 13(에테르 최대 13 그대로) · `mkPlayer`의 `crysBank` 1(첫 턴부터 1장). 에테르 곡선은 예전과 같고(1턴 1 · 2턴 2 …) 카드 1장을 더 바칠 뿐이다. 준비 단계 시간은 `TURN_LIMIT_MS` 46000(game.js 한 곳). 결정화 안내는 game.js `etherHTML`의 `nudge`(결정 `CRYS_NUDGE` 4개 미만이거나 에테르 0인데 그 턴에 결정화하지 않았으면 구슬 반짝임 `.nudge` + 두 줄 명판, css/crys-hint.css) · `CrysHint`(유령 카드, 어느 판에서든 결정화 3번까지) · `finishPrep`의 빈손 확인 창 · `canPlay`의 "결정화하면 에테르 +1" 꼬리 · `Guide`(`CRYS_GUIDE_TEXT`). 시험 `node tools/firstturn/test.js`.
 - 결정화한 카드는 소각장(`p.burn`)에 들어간다(v3.19.2, 결정은 `p.crystals`에 따로 남음). 소각장에서 되살리는 마법은 `p.burn`에서 꺼내면 되고, 결정 수는 건드리지 않는다.
 - 카드 뒷면의 ETHERION 글씨는 그림에 구워 넣은 것이다. 뒷면 그림을 바꾸면 `img/ui/deck/card_back_plain.png`에 넣고 `python tools/art/cardback_text.py`.
 - 수정 전 상태는 `_backup_v<버전>/` 에 남겨 왔다. 큰 변경 전에는 같은 방식으로 백업한다.

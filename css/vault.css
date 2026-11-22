@@ -70,7 +70,7 @@
 .deck-tile.rq:hover .dt-fan > i:nth-child(2), .deck-tile.rq.on .dt-fan > i:nth-child(2) { transform: rotate(0deg) translateY(-11px); }
 .deck-tile.rq:hover .dt-fan > i:nth-child(3), .deck-tile.rq.on .dt-fan > i:nth-child(3) { transform: rotate(40deg) translateY(-5px); }
 .dt-ring { position: absolute; inset: -4px; width: calc(100% + 8px); height: calc(100% + 8px); z-index: 2; color: #f2d792; opacity: 0; transition: opacity .3s; pointer-events: none; }
-.deck-tile.rq.on .dt-ring { opacity: .85; animation: dtRing 40s linear infinite; }
+.deck-tile.rq.on .dt-ring { opacity: .85; animation: dtRing 40s steps(320) infinite; }   /* 2026-11-22 가볍게: 1초 8칸(한 칸 약 1px). 매 프레임 돌리면 Firefox가 대기실 타일을 1초 60번 다시 칠했다 */
 @keyframes dtRing { to { transform: rotate(360deg); } }
 
 /* 글자 */

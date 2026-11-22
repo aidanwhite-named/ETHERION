@@ -275,6 +275,10 @@ html.mobile .hand-me .card.fm.slim .c-cls { font-size: .66em; }
     radial-gradient(circle at 90% 14%, #ff8fa6 0 .09em, rgba(255, 77, 115, .5) .14em, transparent .27em),
     radial-gradient(circle at 8% 40%, #c9f1ff 0 .07em, rgba(143, 220, 255, .45) .12em, transparent .22em); }
 @keyframes spRise { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+/* 2026-11-22 가볍게: 작은 카드(전장 · 핸드 · 목록)의 불티는 1초에 12칸으로 올린다 — 그림 높이가 100px 남짓이라 한 칸이 1px쯤이고 매 프레임 올릴 때와 같아 보인다.
+   매 프레임 올리면 Firefox가 카드 둘레를 1초 60번 다시 칠했다(스페셜 18장에서 CPU 절반 이상). 크게 보기(한 장)는 그대로 부드럽게 */
+.card:not(.size-full) .c-art .c-spfx::before { animation-timing-function: steps(108); }
+.card:not(.size-full) .c-art .c-spfx::after { animation-timing-function: steps(156); }
 /* 이름도 금빛 + 진홍 기운 (강화 카드의 청록 이름처럼) */
 .card.fm.grade-special .c-head .c-name { color: #ffe9bf; text-shadow: 0 .06em .1em #000, 0 0 .45em rgba(255, 77, 115, .6); }
 @media (prefers-reduced-motion: reduce) { .c-art .c-spfx::before, .c-art .c-spfx::after { animation: none; } }

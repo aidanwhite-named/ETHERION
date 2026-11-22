@@ -53,8 +53,8 @@ const Help = (() => {
   }
   function etherFig() {
     return `<div class="hx-ether">
-      <span class="hx-orb ess"><b>1</b><small>위대한 정수</small></span><i class="hx-op">+</i>
-      <span class="hx-orb crys"><b>3</b><small>결정 3개</small></span><i class="hx-op">=</i>
+      <span class="hx-orb ess"><b>0</b><small>처음에는 0</small></span><i class="hx-op">+</i>
+      <span class="hx-orb crys"><b>4</b><small>결정 4개</small></span><i class="hx-op">=</i>
       <span class="hx-orb eth"><b>4</b><small>이번 턴 에테르</small></span><i class="hx-op">→</i>
       <span class="hx-spend"><span><b>Lv 4</b> 한 장</span><span>또는 <b>Lv 2</b> 두 장</span><span>또는 <b>Lv 3</b> + 코인 뒤집기 1번</span></span>
     </div>`;
@@ -229,9 +229,9 @@ const Help = (() => {
 
     { id: "ether", t: "에테르 · 결정 · 유지비", en: "Ether", body: () => `
       ${etherFig()}
-      <table class="mn-table"><tr><th>에테르</th><td>카드를 내는 힘. <b>위대한 정수 ${RULES.essence} + 결정 수</b>가 매 턴 들어옵니다. 남은 에테르는 다음 턴으로 넘어가지 않습니다.</td></tr>
+      <table class="mn-table"><tr><th>에테르</th><td>카드를 내는 힘. <b>결정 수만큼</b> 매 턴 들어옵니다. <b>처음에는 0</b>이라, 첫 턴부터 핸드 1장을 결정화해야 카드를 낼 수 있습니다. 남은 에테르는 다음 턴으로 넘어가지 않습니다.</td></tr>
       <tr><th>비용</th><td><b>Lv N 카드 = 에테르 N</b> (유닛 · 마법 · 아이템 모두).</td></tr>
-      <tr><th>결정화</th><td>준비 단계에 핸드 1장을 내 에테르(왼쪽 아래 원)에 놓으면 <b>결정</b>이 되어 매 턴 에테르가 1 늘어납니다. 바친 카드는 <b>소각장</b>으로 갑니다(결정은 그대로 남습니다). 한 턴에 ${RULES.crystalsPerTurn}장씩 한도가 쌓이므로, 세 턴 쉬었다면 한 번에 세 장도 됩니다. 결정은 최대 ${RULES.maxCrystals}개(에테르 최대 ${RULES.essence + RULES.maxCrystals}).</td></tr>
+      <tr><th>결정화</th><td>준비 단계에 핸드 1장을 <b>누른 뒤 내 에테르(왼쪽 아래 구슬)를 누르면</b>(끌어다 놓거나, 고른 뒤 결정화 단추 · C 키도 됩니다) <b>결정</b>이 되어 바로, 그리고 매 턴 에테르가 1 늘어납니다. 결정화할 때가 되면 구슬이 반짝입니다. 바친 카드는 <b>소각장</b>으로 갑니다(결정은 그대로 남습니다). 한 턴에 ${RULES.crystalsPerTurn}장씩 한도가 쌓이므로, 세 턴 쉬었다면 한 번에 세 장도 됩니다. 결정은 최대 ${RULES.maxCrystals}개(에테르 최대 ${RULES.essence + RULES.maxCrystals}).</td></tr>
       <tr><th>유지비</th><td>레벨 아이콘 중 <b>하늘빛 테두리의 빈 칸 수</b>(최대 레벨 − 1). 소환할 때는 레벨만큼 내고, 살아남으면 <b>다음 턴부터 매 턴</b> 그만큼 에테르가 빠집니다. 준비를 마칠 때 모자라면 유지비가 큰 유닛부터 소각됩니다.</td></tr>
       <tr><th>직접 공격 보너스</th><td>막지 못해 생명을 맞은 쪽은 <b>다음 턴에만 에테르 +1</b> (한 턴에 한 번).</td></tr>
       <tr><th>장전</th><td>[장전 N]이 붙은 마법을 쓰면 다음 턴 에테르가 N 줄어듭니다.</td></tr></table>
@@ -451,7 +451,7 @@ const Help = (() => {
       <p>덱 ${RULES.deckSize}장으로 싸워 <b>상대의 생명 ${RULES.startLife}을 먼저 0으로</b> 만들면 이깁니다. 내 <b>덱이 다 떨어져도</b> 집니다.</p>
       <p>생명은 상대의 공격으로도 줄지만, 매 턴 <b>카드를 뽑을 때마다</b> 뽑은 장수만큼 줄어듭니다. 카드를 많이 쓸수록 생명이 빨리 닳는 것 — 이 게임의 저울입니다.</p>` },
     { t: "한 턴의 흐름", x: () => `${flowFig()}<p>한 턴에 한쪽만 공격합니다. 공격하는 쪽이 먼저 놓고, 방어하는 쪽은 그 배치를 <b>보고</b> 놓습니다. 다음 턴에는 공격과 방어가 바뀝니다.</p><p>준비를 다 했으면 <b>준비 완료</b>(Enter). 전투는 저절로 진행됩니다.</p>` },
-    { t: "에테르 — 카드를 내는 힘", x: () => `${etherFig()}<p><b>Lv N 카드는 에테르 N.</b> 에테르는 위대한 정수 1에 <b>결정</b> 수만큼 더해집니다. 핸드 1장을 왼쪽 아래 에테르 원에 놓으면 결정이 됩니다(한 턴에 1장씩).</p><p>쓰지 않은 에테르는 사라지니, 남겼다면 전투 때 <b>코인을 다시 던지는 데</b> 쓰세요.</p>` },
+    { t: "에테르 — 카드를 내는 힘", x: () => `${etherFig()}<p><b>Lv N 카드는 에테르 N.</b> 에테르는 <b>결정</b> 수만큼 들어오고, <b>처음에는 0</b>입니다. 핸드에서 지금 안 쓸 카드 1장을 <b>누른 뒤 왼쪽 아래 반짝이는 에테르 구슬을 누르면</b> 결정이 되어 바로 에테르가 1 생깁니다(한 턴에 1장씩, 첫 턴부터).</p><p>쓰지 않은 에테르는 사라지니, 남겼다면 전투 때 <b>코인을 다시 던지는 데</b> 쓰세요.</p>` },
     { t: "카드 읽기", x: () => cardReadHTML() },
     { t: "맞붙는 순서", x: () => `${combatFig()}` },
     { t: "막을 유닛이 없으면", x: () => `${directFig()}<p>그래서 맨 앞에 무엇을 세울지가 중요합니다. 단단한 유닛을 앞에, 약한 유닛은 뒤에. 칸을 비워 두면 생명을 내주는 대신 다음 턴 에테르를 얻습니다.</p>` },

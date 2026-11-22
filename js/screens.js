@@ -20,7 +20,10 @@ const Bg = {
     rs(); addEventListener("resize", rs);
     addEventListener("pointermove", e => { this.mx = e.clientX / this.w - 0.5; this.my = e.clientY / this.h - 0.5; });
     for (let i = 0; i < (this.lite ? 45 : 90); i++) this.motes.push(this.mote(true));
-    const loop = now => { this.raf = requestAnimationFrame(loop); this.draw(now || performance.now()); };
+    /* 2026-11-22 가볍게: 하늘을 그리지 않는 화면(전장 "off" · 그림 한 장을 깐 메뉴)에서는 프레임 루프를 아예 세운다 — 예전에는 아무것도 안 그려도 1초 60번 깨어났다.
+       Bg.set이 다시 그릴 화면(타이틀 · 입장 관문)으로 바꾸면 wake가 루프를 다시 돌린다 */
+    const loop = now => { if (this.mode === "off" || this.art) { this.raf = 0; return; } this.raf = requestAnimationFrame(loop); this.draw(now || performance.now()); };
+    this.wake = () => { if (!this.lite && !this.raf) loop(); };
     if (this.lite) this.cv.style.display = "none";   // v3.46 폰 · 앱: 별 · 빛방울 캔버스를 아예 돌리지 않는다(메뉴는 그림 한 장, 타이틀은 타이틀 그림)
     else loop();
     /* v3.45 배경의 세 존재(3D, js/titans.js)는 PC · 폰 모두 그리지 않는다 — 나중에 그림으로 바꾼다(프롬프트 tools/art/prompts/scenes.md). index.html에서도 뺐다.
@@ -54,6 +57,7 @@ const Bg = {
     this.art = mode === "calm" || (mode === "title" && App.screen !== "title");
     document.documentElement.classList.toggle("menu-art", this.art);
     this.cv.style.opacity = mode === "off" || this.art ? 0 : 1;
+    if (this.wake) this.wake();
   },
   /* v3.9 멈춘 하늘(상점): 별과 입자를 지금 자리에서 한 번만 그리고 더는 그리지 않는다. 다음 Bg.set에서 풀린다 */
   freeze() { this.still = true; this.stillDrawn = false; },

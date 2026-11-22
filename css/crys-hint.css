@@ -76,3 +76,27 @@ body.is-dragging .ether.altar.tut-pulse.drop-hover .eth-ring::before { opacity: 
   .ether.altar.tut-pulse .eth-ring::before { animation: none; opacity: .85; }
   .ether.altar.tut-pulse .eth-ring::after { animation: none; opacity: .35; }
 }
+
+/* 2026-11-22 결정화 재촉 (js/game.js etherHTML nudge): 판 초반이나 에테르가 0일 때, 이번 턴에 아직 결정화하지 않았으면
+   내 구슬이 첫 판 안내(.tut-pulse)와 같은 모습으로 천천히 반짝이고, 아래 명판이 두 줄(.cry-teach)로 방법을 알려 준다.
+   결정화하면 그 턴에는 꺼진다. 움직임은 transform · opacity만(폰에서도 그대로 돈다) */
+.ether.altar.nudge .eth-foot { overflow: visible; z-index: 8; }
+.ether.altar.nudge .eth-ring { animation: tutRing 1.8s ease-in-out infinite; will-change: transform; }
+.ether.altar.nudge .eth-ring::before { content: ""; display: block; position: absolute; inset: -16%; z-index: -1; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(143, 220, 255, .55) 0 38%, rgba(143, 220, 255, .22) 56%, rgba(143, 220, 255, 0) 70%);
+  box-shadow: 0 0 0 2px rgba(246, 226, 168, .55); opacity: 0; animation: tutGlow 1.8s ease-in-out infinite; will-change: opacity; }
+.ether.altar.nudge .eth-ring::after { content: ""; position: absolute; inset: 22%; z-index: 3; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(225, 248, 255, .5), rgba(143, 220, 255, .18) 60%, rgba(143, 220, 255, 0) 72%);
+  opacity: 0; animation: tutGlow 1.8s ease-in-out infinite; will-change: opacity; }
+/* 카드를 골랐으면(.valid) 깜빡임 대신 켜진 채로 — "여기를 누르세요" */
+.ether.altar.nudge.valid .eth-ring { animation: none; }
+.ether.altar.nudge.valid .eth-ring::before { animation: none; opacity: 1; }
+.ether.altar.nudge.valid .eth-ring::after { animation: none; opacity: .5; }
+body.is-dragging .ether.altar.nudge .eth-ring, body.is-dragging .ether.altar.nudge .eth-ring::after { animation: none; transform: none; opacity: 0; }
+body.is-dragging .ether.altar.nudge .eth-ring::before { animation: none; opacity: 0; }
+body.is-dragging .ether.altar.nudge.drop-hover .eth-ring::before { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .ether.altar.nudge .eth-ring { animation: none; }
+  .ether.altar.nudge .eth-ring::before { animation: none; opacity: .85; }
+  .ether.altar.nudge .eth-ring::after { animation: none; opacity: .35; }
+}
