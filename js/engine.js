@@ -638,7 +638,7 @@ function attackOne(X, Au) {
   let dealt = arc.dmg + spHunt(X, Au, Du) + kzConduct(X, Au, Du), crit = false, got = 0;   // v3.81 [불꽃 사냥]
   const blocked = ab.arcane > 0 && Au.t.a > 0 ? 0 : Math.min(Math.max(0, Au.t.a), Math.max(0, dd));   // v3.95 [마력 공격]은 방어에 막히지 않는다   // v3.81 [되받기]: 상대 방어가 막아 낸 몫
   X.clash = [Au, Du];   // v3.68 [치유]: 이 맞붙음에서 살아남은 쪽이 체력을 채운다(runCombatCore가 attackOne 뒤에)
-  if (dealt > 0 && Du.t.alive && uHas(Du, "eye") && uK(Du).dodgeT !== X.turn && (uK(Du).dodgeT = X.turn, flip())) { dealt = 0; fl(X, Du.uid, "빗나감", "miss"); lg(X, `[폭풍의 눈] ${ca.name}의 공격이 바람에 빗나갔다`, "good"); }   // v3.31
+  if (dealt > 0 && Du.t.alive && uEyeTry(X, Du)) { dealt = 0; fl(X, Du.uid, "빗나감", "miss"); lg(X, `[폭풍의 눈] ${ca.name}의 공격이 바람에 빗나갔다`, "good"); }   // v3.31
   dealt = abVeil(X, Au, Du, dealt);   // v3.65 [그림자 걸음]
   let thSplit = false;   // v3.84 가시가 여러 칸이면 맞붙은 피해를 먼저 보이고 가시를 칸마다 차례로
   if (!Du.t.alive) lg(X, `${cd.name}이(가) 투척에 쓰러져 공격은 빗나갔다`, "sys");
@@ -1380,23 +1380,31 @@ function uLinkSplit(X, u, x) {
   lg(X, `[강철 사슬] 피해 ${x}를 ${C(chain).name} ${cs} · ${C(mate).name} ${ms}로 나눔`, "sys");
   return x - give;
 }
-/* [폭풍의 눈]: 상대 마법(castSpell 안, X.eyeCast)이 겨눈 내 유닛마다 코인 한 번 — 앞면이면 빗나감 */
+/* [폭풍의 눈] (v3.31 · 2026-11-23 이 유닛만 · 턴에 한 번): 상대의 마법 · 사격 · 투척 · 공격이 이 유닛에 맞을 때 그 턴 처음 한 번만 코인 — 앞면이면 빗나감 */
+function uEyeTry(X, u) {
+  if (!uHas(u, "eye") || !u.t.alive) return false;
+  const k = uK(u);
+  if (k.dodgeT === X.turn) return false;
+  k.dodgeT = X.turn;
+  return flip();
+}
+/* 상대 마법(castSpell 안, X.eyeCast)이 겨눈 내 유닛 — [마력 흡수]는 맞지 않고, [폭풍의 눈] 유닛은 위 코인 */
 function uEyeFilter(X, P, L) {
   if (!X.eyeCast || !L.length) return L;
   // [마력 흡수] 유닛은 상대 마법에 맞지 않는다
   L = L.filter(u => { if (!uHas(u, "absorb")) return true; if (!X.eyeCast["a" + u.uid]) { X.eyeCast["a" + u.uid] = 1; fl(X, u.uid, "흡수", "miss"); } return false; });
-  if (!uLive(P, "eye").length) return L;
   return L.filter(u => {
+    if (!uHas(u, "eye")) return true;
     if (X.eyeCast[u.uid] == null) {
-      X.eyeCast[u.uid] = flip();
+      X.eyeCast[u.uid] = uEyeTry(X, u);
       if (X.eyeCast[u.uid]) { fl(X, u.uid, "빗나감", "miss"); lg(X, `[폭풍의 눈] 마법이 ${C(u).name}을(를) 빗나갔다`, "good"); }
     }
     return !X.eyeCast[u.uid];
   });
 }
-/* [폭풍의 눈]: 상대의 사격 · 투척이 내 유닛을 겨누면 코인 — 앞면이면 빗나감 */
+/* 상대의 사격 · 투척이 겨눈 유닛 — [폭풍의 눈] 유닛이면 위 코인 */
 function uEyeDodge(X, P, u) {
-  if (!uLive(P, "eye").length || !flip()) return false;
+  if (!uEyeTry(X, u)) return false;
   fl(X, u.uid, "빗나감", "miss"); lg(X, `[폭풍의 눈] ${C(u).name}을(를) 겨눈 화살이 바람에 빗나갔다`, "good");
   return true;
 }
