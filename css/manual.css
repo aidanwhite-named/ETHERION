@@ -234,6 +234,41 @@ html.help-open body { overflow: hidden; }   /* body의 넘침은 화면(viewport
 .ls-dot:hover { border-color: var(--gold-hi); }
 .ls-btns { display: flex; gap: 8px; }
 
+/* 3쪽 에테르 예시 (js/manual.js etherDemoHTML): 전장의 에테르 문양 + 지금 덱의 카드 */
+.hx-ed { margin: 12px 0 4px; }
+.hx-ed-steps { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.hx-ed-st { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px 4px 5px; border: 1px solid rgba(217, 180, 106, .3); border-radius: 999px; background: rgba(12, 10, 20, .5); color: var(--muted); font: inherit; font-size: 12.5px; line-height: 1.3; cursor: pointer; }
+.hx-ed-st span { width: 20px; height: 20px; display: inline-grid; place-items: center; border-radius: 50%; border: 1px solid rgba(217, 180, 106, .45); font-family: var(--caps); font-size: 11px; color: var(--gold); }
+.hx-ed-st:hover { color: var(--ink); border-color: rgba(217, 180, 106, .6); }
+.hx-ed-st.on { color: var(--ink); border-color: #f6e2a8; background: rgba(217, 180, 106, .12); }
+.hx-ed-st.on span { color: #1a1408; border-color: #f6e2a8; background: radial-gradient(circle at 34% 30%, #fff3c9, #d6aa52 55%, #7d5a1c); }
+.hx-ed-stage { display: flex; align-items: center; gap: 18px; padding: 14px; border: 1px solid rgba(217, 180, 106, .2); border-radius: 3px; background: radial-gradient(80% 120% at 12% 50%, rgba(108, 201, 242, .1), transparent 60%), rgba(6, 7, 14, .55); }
+.hx-ed-altar { position: relative; flex: none; width: 170px; display: grid; justify-items: center; gap: 2px; }
+.hx-ed-altar .et-svg { width: 170px; height: 170px; display: block; overflow: visible; }
+.hx-ed-num { position: absolute; left: 50%; top: 85px; translate: -50% -50%; font-family: var(--caps); font-size: 15px; color: rgba(242, 252, 255, .8); text-shadow: 0 1px 3px rgba(0, 20, 40, .95); pointer-events: none; }
+.hx-ed-num b { font-size: 34px; color: #f2fcff; }
+.hx-ed-altar small { font-size: 12px; color: var(--muted); }
+.hx-ed-hand { display: flex; flex-wrap: wrap; gap: 10px; min-width: 0; }
+.hx-ed-card { display: grid; justify-items: center; gap: 4px; transition: opacity .2s, filter .2s, transform .2s; }
+.hx-ed-tag { font-size: 11.5px; line-height: 1.3; padding: 1px 7px; border-radius: 2px; white-space: nowrap; color: var(--muted); }
+.hx-ed-card.ok .card { box-shadow: 0 0 0 2px #7fd3f7, 0 0 14px rgba(127, 211, 247, .7); }
+.hx-ed-card.ok .hx-ed-tag { color: #0b1a24; background: #7fd3f7; }
+.hx-ed-card.no { opacity: .5; filter: grayscale(.7); }
+.hx-ed-card.crys { transform: translateY(-6px); }
+.hx-ed-card.crys .card { box-shadow: 0 0 0 2px #f6e2a8, 0 0 14px rgba(246, 226, 168, .6); }
+.hx-ed-card.crys .hx-ed-tag { color: #1a1408; background: linear-gradient(180deg, #f6e2a8, #c99a48); }
+.hx-ed-card.played { opacity: .7; }
+.hx-ed-card.played .card { box-shadow: 0 0 0 2px rgba(127, 211, 247, .4); }
+.hx-ed-card.played .hx-ed-tag { color: #7fd3f7; border: 1px solid rgba(127, 211, 247, .45); }
+.hx-ed-x { display: flex; gap: 10px; align-items: flex-start; margin: 12px 0 6px !important; }
+.hx-ed-no { flex: none; width: 26px; height: 26px; margin-top: 2px; display: inline-grid; place-items: center; border-radius: 50%; font-family: var(--caps); font-size: 13px; color: #1a1408 !important; background: radial-gradient(circle at 34% 30%, #fff3c9, #d6aa52 55%, #7d5a1c); }
+.hx-ed-nav { display: flex; justify-content: flex-end; gap: 8px; }
+@media (max-width: 700px) {
+  .hx-ed-stage { flex-direction: column; }
+  .hx-ed-hand { justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) { .hx-ed-card { transition: none; } }
+
 /* ======================= 대기실 둘러보기 ======================= */
 .help-tour { display: block; padding: 0; background: none; animation: none; }
 .tour-hole { position: fixed; z-index: 0; border: 1px solid rgba(246, 226, 168, .85); border-radius: 4px; pointer-events: none;

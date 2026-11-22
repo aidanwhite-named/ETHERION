@@ -766,9 +766,13 @@ function runCombatCore(X) {
     acted.add(Au);
     if (!Au.t.rest && !C(Au).still) {
       if (abilOf(Au).snipe) { snipeOne(X, Au); sweep(); if (dead()) break; }   // v3.17.5 [사격]은 자기 차례에, 맞붙기 바로 전에
-      if (Au.t.alive && queueOf(D).length && abBleedTick(X)) { sweep(); if (dead()) break; }   // v3.65 [출혈]: 맞붙음이 시작될 때마다 전장의 출혈 유닛 체력 −N
-      if (Au.t.alive && queueOf(D).length) nwRegenTick(X);   // v3.74 [재생 N]: 출혈 다음, 맞붙음이 시작될 때마다
-      if (Au.t.alive) { X.clash = null; attackOne(X, Au); mrHeal(X); sweep(); }
+      if (Au.t.alive && queueOf(D).length) nwRegenTick(X);   // v3.74 [재생 N]: 맞붙음이 시작될 때마다
+      if (Au.t.alive) {
+        const clash = queueOf(D).length > 0;   // 직접 공격은 맞붙음이 아니다 — 출혈이 깎지 않는다
+        X.clash = null; attackOne(X, Au); mrHeal(X); sweep();
+        if (dead()) break;
+        if (clash && abBleedTick(X)) { sweep(); if (dead()) break; }   // 2026-11-22 [출혈]: 맞붙음이 끝날 때마다([치유] 다음) 전장의 출혈 유닛 체력 −N — 그 맞붙음에서 막 걸린 출혈도
+      }
     }
     fire(false);
   }
@@ -1612,7 +1616,7 @@ function abLeech(X, u, got, foeHp) {
   if (heal + over > 0) { fl(X, u.uid, "흡혈 ♥+" + (heal + over), "heal"); lg(X, `[흡혈] ${C(u).name} 체력 +${heal + over}`, "good"); }
 }
 /* [출혈 N]: 맞붙어(공격 · 반격) 피해를 준 상대가 살아남으면 그 유닛에 출혈 +N — 걸 때마다 쌓인다(t.bleed, 이번 턴만 · resetTurn이 지움).
-   그 뒤 전장에서 맞붙음이 하나 시작될 때마다(abBleedTick, runCombatCore) 출혈 유닛마다 체력 −출혈(방어 · 보호막 · 바다의 보호와 상관없이. v3.74 [가호 N]만 틱마다 N 줄인다).
+   그 뒤 전장에서 맞붙음이 하나 끝날 때마다([치유] 다음, 그 맞붙음에서 막 걸린 출혈도 — 2026-11-22 사용자. abBleedTick, runCombatCore) 출혈 유닛마다 체력 −출혈(방어 · 보호막 · 바다의 보호와 상관없이. v3.74 [가호 N]만 틱마다 N 줄인다).
    출혈로 쓰러지면 마지막으로 출혈을 건 유닛이 쓰러뜨린 것으로 친다 — [강탈] · [제물] 모두 센다(사용자 결정). 그 유닛이 먼저 쓰러져 치워졌어도 X.bleedSrc로 찾는다 */
 const A2_HOLY_CUT = 1;   // v3.90 빛의 몸: 천족 유닛이 받는 출혈 −1
 const a2Holy = u => !!(u && isUnit(u) && C(u) && (C(u).g === "A2" || /(^|-)A2(-|$)/.test(u.id)));
@@ -1626,15 +1630,15 @@ function abBleedOn(X, src, tgt) {
     tgt.t.bleed = (tgt.t.bleed || 0) + m; tgt.t.bleedBy = src.uid;
     X.bleedSrc = X.bleedSrc || {}; X.bleedSrc[src.uid] = src;
     fl(X, tgt.uid, "출혈 " + tgt.t.bleed, "debuff");
-    lg(X, `[출혈 ${n}] ${C(tgt).name}에 출혈 ${m}이 걸렸다(빛의 몸 −${A2_HOLY_CUT}) — 맞붙음이 시작될 때마다 체력 −${tgt.t.bleed}`, "sys");
+    lg(X, `[출혈 ${n}] ${C(tgt).name}에 출혈 ${m}이 걸렸다(빛의 몸 −${A2_HOLY_CUT}) — 맞붙음이 끝날 때마다 체력 −${tgt.t.bleed}`, "sys");
     return;
   }
   tgt.t.bleed = (tgt.t.bleed || 0) + n; tgt.t.bleedBy = src.uid;
   X.bleedSrc = X.bleedSrc || {}; X.bleedSrc[src.uid] = src;
   fl(X, tgt.uid, "출혈 " + tgt.t.bleed, "debuff");
-  lg(X, `[출혈 ${n}] ${C(tgt).name}에 출혈이 걸렸다 — 맞붙음이 시작될 때마다 체력 −${tgt.t.bleed}`, "sys");
+  lg(X, `[출혈 ${n}] ${C(tgt).name}에 출혈이 걸렸다 — 맞붙음이 끝날 때마다 체력 −${tgt.t.bleed}`, "sys");
 }
-/* 맞붙음이 시작되기 전: 출혈 유닛마다 체력 −출혈. 쓰러진 유닛이 있으면 true(부른 곳이 치운다) */
+/* 맞붙음이 끝난 뒤: 출혈 유닛마다 체력 −출혈. 쓰러진 유닛이 있으면 true(부른 곳이 치운다) */
 function abBleedTick(X) {
   let any = false, died = false;
   for (const p of X.P) for (const u of liveUnits(p)) {
@@ -2086,7 +2090,7 @@ Object.assign(SPELL_OPS, {
 });
 
 /* ---------- v3.74 새 능력 (카드 데이터는 js/newabil.js, 사전 docs/ABILITIES.md 7장) ----------
-   [재생 N](regen, 트롤): 전장에서 맞붙음이 하나 시작될 때마다(출혈 틱 다음) 살아 있는 이 유닛은 받은 피해를 N 채우고(원래 체력까지),
+   [재생 N](regen, 트롤): 전장에서 맞붙음이 하나 시작될 때마다 살아 있는 이 유닛은 받은 피해를 N 채우고(원래 체력까지),
      이번 턴 깎인 방어를 N 되돌린다(카드 기준 방어 t.rb.d까지). 화상(keep.scorch) · 불씨(keep.ember)가 붙어 있으면 재생하지 않는다(트롤은 불에 약하다).
      체력 ▼눌림이면 체력은 차지 않는다(흡혈과 같음). 받은 피해는 어차피 턴이 끝나면 낫기 때문에 전투 도중에만 뜻이 있다.
      2026-11-22(사용자): 마법으로 체력이 깎인 유닛은 그 마법 바로 다음 맞붙음의 재생을 한 번 쉰다 — 누구의 마법이든(고목 내려찍기 · 수액 몰아주기로 낸 체력도,
@@ -2135,7 +2139,7 @@ function nwPurify(X) {
     const us = liveUnits(p).sort((a, b) => colOf(p, a) - colOf(p, b));
     const hit = new Set();
     us.forEach(u => { if (abilOf(u).purify) hit.add(u); });   // v3.90 자기만 씻는다(전: 양옆 1칸까지 — 사용자 결정)
-    { let got = 0; for (const u of hit) got += a2LightAdd(X, X.P.indexOf(p), 1, "정화 유닛", u.uid);   // v3.90 새벽빛 잇기: 전투가 시작될 때 살아 있는 [정화] 유닛 하나마다 [새벽빛] +1(인내의 기도를 쓴 뒤부터 · 씻을 것이 없어도) — 유닛마다 빛 알갱이
+    { let got = 0; for (const u of hit) got += a2LightAdd(X, X.P.indexOf(p), 1, "정화 유닛", u.uid);   // v3.90 새벽빛 잇기: 전투가 시작될 때 살아 있는 [정화] 유닛 하나마다 [새벽빛] +1(천족 깃발 · 씻을 것이 없어도) — 유닛마다 빛 알갱이
       if (got) lg(X, `[새벽빛] [정화] 유닛 ${hit.size}기 — 새벽빛 +${got} (${p.light})`, "good"); }
     for (const v of hit) {
       const k = v.t.keep; if (!k) continue;
@@ -2320,8 +2324,8 @@ Object.assign(SPELL_OPS, {
    [새벽빛] p.light: 판 내내 남는 플레이어 몫(없음 = undefined, 켜지면 0 이상, 최대 A2_LIGHT_CAP). 전투 복제(cloneForCombat · cloneSide) · 기록(recPush snap) · applySnap이 실어 나른다.
      모이는 곳: 아군 유닛이 보호막 · 보호막 코인 · 가호로 막은 피해(a2Blk) · [정화]가 지운 화상 · 불씨 · 낙인 하나마다 1(nwPurify) ·
      전투가 끝날 때 이번 턴 깎인 생명(켜진 때부터, 회복을 뺀 순손실)의 절반(내림, a2LightEnd).
-   a2Vigil: 새벽빛을 켠다(이미 켜져 있으면 그대로). 같은 마법의 grant가 [가호 1]을 건다.
-   a2Dawn: 새벽빛을 모두 쓴다 — 새벽빛 + 내 생명이 상대보다 적은 만큼(새벽빛을 켠 판만)을, 공격이 가장 높은 상대 유닛부터(같으면 앞 칸) 그만큼 체력을 깎고(방어 · 보호막 무시), 쓰러뜨리면 남은 몫은 다음 유닛에게.
+   켜는 곳: 2026-11-22 천족(A2) 깃발 플레이어는 판 처음부터 0으로 켜져 있다(js/game.js mkPlayer). 전에는 인내의 기도(a2Vigil)로 켰다.
+   a2Dawn: 새벽빛을 모두 쓴다 — 새벽빛 + 내 생명이 상대보다 적은 만큼(새벽빛이 켜진 쪽만)을, 공격이 가장 높은 상대 유닛부터(같으면 앞 칸) 그만큼 체력을 깎고(방어 · 보호막 무시), 쓰러뜨리면 남은 몫은 다음 유닛에게.
      (v3.86 잰 값: 밀린 생명을 더하지 않으면 생명 10~19 밀린 판 승률이 그대로 8~9% — 막은 피해가 거의 다라서 앞설 때나 밀릴 때나 똑같이 모였다. 더하면 11%, 전체 승률 그대로)
      그래도 남은 몫은 내 생명으로(생명 상한까지). 새벽빛은 0이 되고 켜진 채 다시 모인다.
    a2Martyr: 이번 턴(이 전투) 이 마법 주인 쪽 유닛이 쓰러질 때마다 양옆(칸 순서로 가장 가까운 살아 있는 아군 유닛)에게 [보호막].
@@ -2367,18 +2371,10 @@ function a2MartyrSweep(X) {
   }
 }
 Object.assign(SPELL_OPS, {
-  a2Vigil(X, caster, it, k, op) {
-    const p = X.P[caster];
-    if (p.light == null) {
-      p.light = 0; X.a2LifeAt = X.a2LifeAt || [null, null]; X.a2LifeAt[caster] = p.life;
-      fl(X, it.uid, "새벽빛 모으기", "buff");
-      lg(X, `[인내의 기도] ${p.name}이(가) 이 판 동안 새벽빛을 모은다 — 막은 피해 · 정화 · 깎인 생명의 절반 (최대 ${A2_LIGHT_CAP})`, "spell");
-    } else { fl(X, it.uid, "새벽빛 " + p.light, "buff"); lg(X, `[인내의 기도] 새벽빛은 이미 모이고 있다 (지금 ${p.light})`, "sys"); }
-  },
   a2Dawn(X, caster, it, k, op) {
     const p = X.P[caster], F = X.P[1 - caster], L0 = p.light || 0;
     const behind = p.light == null ? 0 : Math.max(0, F.life - p.life);   // 가장 어두울 때 새벽이 가장 밝다: 내 생명이 상대보다 적은 만큼 더 푼다
-    if (!(L0 + behind)) { fl(X, it.uid, "새벽빛 없음", "miss"); lg(X, `[새벽의 해방] ${p.light == null ? "모으던 새벽빛이 없다(인내의 기도로 모은다)" : "모은 새벽빛이 0이고 생명도 밀리지 않았다"}`, "sys"); return; }
+    if (!(L0 + behind)) { fl(X, it.uid, "새벽빛 없음", "miss"); lg(X, `[새벽의 해방] ${p.light == null ? "모으던 새벽빛이 없다(천족 깃발만 모은다)" : "모은 새벽빛이 0이고 생명도 밀리지 않았다"}`, "sys"); return; }
     p.light = 0;
     let rem = L0 + behind;
     const T = uEyeFilter(X, F, liveUnits(F)).sort((a, b) => b.t.a - a.t.a || colOf(F, a) - colOf(F, b));

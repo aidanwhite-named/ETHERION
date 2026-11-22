@@ -170,6 +170,15 @@ SPELLTUNE_GRADES["PS-B3-1"] = "rare";
   }
 })();
 SPELLTUNE_GRADES["PS-A2-1"] = "rare";
+// 2026-11-22 천족 등급 맞바꿈(사용자): 질서의 빛(PS-A2-2) 일반 → 에픽(덱에 1장, 에픽 마법처럼) · 성광의 검(US-A2-1) 에픽 → 일반(1장 제한 풂). 효과 · 레벨은 그대로
+SPELLTUNE_GRADES["PS-A2-2"] = "epic";
+SPELLTUNE_GRADES["US-A2-1"] = "common";
+(function () {
+  const S = id => SIM_SPELLS.find(x => x.id === id);
+  const order = S("PS-A2-2"), sword = S("US-A2-1");
+  if (order) order.limit = 1;
+  if (sword) delete sword.limit;
+})();
 // v3.95 엘프 — 상대 공격을 깎는 바람이 8장이라 2장을 바꿈(사용자). 새 효과 engine 끝 "v3.95 엘프" 절, 규칙 [방어무시] 반격 · [마력 공격]은 engine attackOne · mrArc.
 //   바람 장벽(SA3-02) → 혼란의 바람(공격 L2 고급, a3Confuse): 상대 맨 앞 1기 방어 ↔ 체력(방어 0이면 쓰러짐). 오크 뼈 부수기(공격 L2 · 1기)와 맞춤.
 //   회오리 방벽(SA3-05) → 되쏘는 바람(방어 L2 고급): 아군 맨 앞 2기 방어 +2 · 체력 +2 · [방어무시](v3.95부터 반격에도 붙음).

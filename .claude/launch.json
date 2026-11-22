@@ -25,6 +25,17 @@
       "name": "etherion-server",
       "url": "http://localhost:8787",
       "port": 8787
+    },
+    {
+      "name": "etherion-alt",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8771"
+      ],
+      "port": 8771,
+      "autoPort": false
     }
   ]
 }

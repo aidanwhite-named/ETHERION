@@ -59,6 +59,48 @@ const Help = (() => {
       <span class="hx-spend"><span><b>Lv 4</b> 한 장</span><span>또는 <b>Lv 2</b> 두 장</span><span>또는 <b>Lv 3</b> + 코인 뒤집기 1번</span></span>
     </div>`;
   }
+  /* 튜토리얼 ② 3쪽: 전장의 에테르 문양(js/game.js etherAltarSVG)과 지금 덱의 카드로 결정화 → 에테르 → 낼 수 있는 카드를 한 단계씩 보인다 */
+  function etherDemoCards() {
+    const g = (typeof App !== "undefined" && App.lobbyGroup) || "B1";
+    const ok = c => (c.type === "unit" || c.type === "atk" || c.type === "def" || c.type === "any") && !c.special && !c.unique && !c.gift && !(typeof gradeOf === "function" && gradeOf(c) === "upgrade");
+    const own = CARD_LIST.filter(c => c.group === g && ok(c)), all = CARD_LIST.filter(ok);
+    const pick = (lv, skip) => { const f = L => L.find(c => c.lv === lv && c !== skip && c.type === "unit") || L.find(c => c.lv === lv && c !== skip); return f(own) || f(all); };
+    const big = (skip) => { const f = L => L.filter(c => c.lv >= 5 && c !== skip).sort((a, b) => a.lv - b.lv)[0]; return f(own) || f(all); };
+    const hi = big(), hi2 = big(hi) || hi;
+    return { l: [1, 2, 3, 4].map(v => pick(v)), hi, hi2 };
+  }
+  let edStep = 0;
+  function etherDemoHTML() {
+    const K = etherDemoCards(), [c1, c2, c3, c4] = K.l;
+    if (!c1 || !c2 || !c3 || !c4 || !K.hi || typeof etherAltarSVG !== "function") return etherFig();
+    const nm = c => `<b>Lv ${c.lv} ${esc(c.name)}</b>`;
+    /* tot = 결정 수(= 이번 턴 에테르), used = 이번 턴에 쓴 에테르, hand = [카드, 상태] — 상태: crys 결정화 · played 냄 · 그 밖은 레벨로 가림 */
+    const S = [
+      { t: "처음에는 에테르 0", tot: 0, used: 0, hand: [[c1], [c2], [c3], [c4], [K.hi]],
+        x: `왼쪽이 전장 왼쪽 아래의 <b>에테르 문양</b>입니다. 가운데 숫자는 <b>이번 턴 남은 에테르 / 이번 턴 에테르</b>, 둘레의 빈 자리 ${RULES.maxCrystals}개는 <b>결정</b>이 박힐 곳입니다. 지금은 결정이 하나도 없어 에테르 0 — 카드 왼쪽 위 숫자(레벨)가 곧 필요한 에테르라서, 핸드의 어떤 카드도 낼 수 없습니다.` },
+      { t: "결정화 — 카드 1장을 에테르로", tot: 1, used: 0, hand: [[c1], [c2], [c3], [c4], [K.hi, "crys"]],
+        x: `당장 쓰기 어려운 ${nm(K.hi)} 카드를 <b>누른 뒤 에테르 문양을 누르면</b>(끌어다 놓거나 C 키도 됩니다) 그 카드가 <b>결정</b>이 됩니다. 문양 12시 자리에 결정 하나가 빛나고 에테르 <b>1</b>. 이제 ${nm(c1)} 카드를 낼 수 있습니다. 바친 카드는 소각장으로 가지만 결정은 판 끝까지 남아 <b>매 턴 에테르 1</b>을 줍니다.` },
+      { t: "카드를 내면 결정이 어두워진다", tot: 1, used: 1, hand: [[c1, "played"], [c2], [c3], [c4]],
+        x: `${nm(c1)} 카드를 내면 에테르 1을 씁니다 — 빛나던 결정이 <b>어두워지고</b> 가운데는 <b>0 / 1</b>. 어두운 결정은 다음 턴이 되면 다시 밝아집니다. 쓰지 않고 남긴 에테르는 다음 턴으로 넘어가지 않습니다.` },
+      { t: "결정이 쌓이면 — 결정 4개 = 에테르 4", tot: 4, used: 0, hand: [[c1], [c2], [c3], [c4], [K.hi2]],
+        x: `결정화는 한 턴에 ${RULES.crystalsPerTurn}장씩. 매 턴 한 장씩 바치면 넷째 턴에는 결정 <b>4개</b>, 에테르 <b>4</b>입니다. 이제 <b>Lv 4까지의 카드는 모두</b> 낼 수 있습니다. ${nm(K.hi2)} 카드는 결정이 ${K.hi2.lv}개 쌓여야 낼 수 있습니다.` },
+      { t: "레벨의 합이 에테르 안이면 여러 장", tot: 4, used: 4, hand: [[c1, "played"], [c2], [c3, "played"], [c4], [K.hi2]],
+        x: `에테르 4로 ${nm(c4)} 카드 한 장을 내도 되고, ${nm(c1)} + ${nm(c3)}처럼 <b>레벨의 합이 4 안</b>이면 여러 장을 내도 됩니다(Lv 2 두 장도). 다 쓰면 결정 4개가 모두 어두워지고 <b>0 / 4</b> — 남은 카드는 다음 턴에. 쓸 카드가 적은 턴에는 남은 에테르로 전투 중 <b>코인을 다시 던집니다</b>.` }
+    ];
+    const i = Math.max(0, Math.min(S.length - 1, edStep)), s = S[i], left = s.tot - s.used;
+    const slots = []; for (let k = 0; k < RULES.essence + RULES.maxCrystals; k++) { const has = k < s.tot; slots.push({ has, used: has && k >= s.tot - s.used }); }
+    const tag = { crys: "→ 결정화", played: "냈음", ok: "낼 수 있음", no: "에테르 부족" };
+    const hand = s.hand.map(([c, st]) => { const k = st || (c.lv <= left ? "ok" : "no"); return `<div class="hx-ed-card ${k}">${cardHTML(c, { size: "sm" })}<span class="hx-ed-tag">${k === "no" ? `Lv ${c.lv} · ${tag.no}` : tag[k]}</span></div>`; }).join("");
+    return `<div class="hx-ed">
+      <div class="hx-ed-steps">${S.map((x, k) => `<button type="button" class="hx-ed-st${k === i ? " on" : ""}" data-ed="${k}"><span>${k + 1}</span>${x.t}</button>`).join("")}</div>
+      <div class="hx-ed-stage">
+        <div class="hx-ed-altar">${etherAltarSVG("tut", slots)}<span class="hx-ed-num"><b>${left}</b>/${s.tot}</span><small>결정 ${s.tot} · 에테르 ${s.tot}</small></div>
+        <div class="hx-ed-hand">${hand}</div>
+      </div>
+      <p class="hx-ed-x"><b class="hx-ed-no">${i + 1}</b>${s.x}</p>
+      <div class="hx-ed-nav">${i ? `<button type="button" class="btn xs" data-ed="${i - 1}">이전 단계</button>` : ""}${i < S.length - 1 ? `<button type="button" class="btn xs primary" data-ed="${i + 1}">다음 단계</button>` : ""}</div>
+    </div>`;
+  }
   function slotRow(who, cells) {
     return `<div class="hx-row ${who}"><span class="hx-who">${who === "me" ? "나" : "상대"}</span>${cells.map((c, i) => `<span class="hx-slot${c ? "" : " empty"}"><small>${i + 1}</small>${c || ""}</span>`).join("")}</div>`;
   }
@@ -451,7 +493,7 @@ const Help = (() => {
       <p>덱 ${RULES.deckSize}장으로 싸워 <b>상대의 생명 ${RULES.startLife}을 먼저 0으로</b> 만들면 이깁니다. 내 <b>덱이 다 떨어져도</b> 집니다.</p>
       <p>생명은 상대의 공격으로도 줄지만, 매 턴 <b>카드를 뽑을 때마다</b> 뽑은 장수만큼 줄어듭니다. 카드를 많이 쓸수록 생명이 빨리 닳는 것 — 이 게임의 저울입니다.</p>` },
     { t: "한 턴의 흐름", x: () => `${flowFig()}<p>한 턴에 한쪽만 공격합니다. 공격하는 쪽이 먼저 놓고, 방어하는 쪽은 그 배치를 <b>보고</b> 놓습니다. 다음 턴에는 공격과 방어가 바뀝니다.</p><p>준비를 다 했으면 <b>준비 완료</b>(Enter). 전투는 저절로 진행됩니다.</p>` },
-    { t: "에테르 — 카드를 내는 힘", x: () => `${etherFig()}<p><b>Lv N 카드는 에테르 N.</b> 에테르는 <b>결정</b> 수만큼 들어오고, <b>처음에는 0</b>입니다. 핸드에서 지금 안 쓸 카드 1장을 <b>누른 뒤 왼쪽 아래 반짝이는 에테르 구슬을 누르면</b> 결정이 되어 바로 에테르가 1 생깁니다(한 턴에 1장씩, 첫 턴부터).</p><p>쓰지 않은 에테르는 사라지니, 남겼다면 전투 때 <b>코인을 다시 던지는 데</b> 쓰세요.</p>` },
+    { t: "에테르 — 카드를 내는 힘", x: () => `<p><b>Lv N 카드는 에테르 N.</b> 에테르는 핸드 카드를 바쳐 만든 <b>결정</b> 수만큼 매 턴 들어옵니다. 단계를 눌러 따라가 보세요.</p>${etherDemoHTML()}` },
     { t: "카드 읽기", x: () => cardReadHTML() },
     { t: "맞붙는 순서", x: () => `${combatFig()}` },
     { t: "막을 유닛이 없으면", x: () => `${directFig()}<p>그래서 맨 앞에 무엇을 세울지가 중요합니다. 단단한 유닛을 앞에, 약한 유닛은 뒤에. 칸을 비워 두면 생명을 내주는 대신 다음 턴 에테르를 얻습니다.</p>` },
@@ -471,6 +513,8 @@ const Help = (() => {
         if (e.key === "ArrowRight") { e.preventDefault(); this.go(1); } else if (e.key === "ArrowLeft") { e.preventDefault(); this.go(-1); }
       });
       w.addEventListener("click", e => {
+        const d = e.target.closest("[data-ed]"), ed = cur && cur.querySelector(".hx-ed");
+        if (d && ed) { edStep = +d.dataset.ed; ed.outerHTML = etherDemoHTML(); return; }
         const b = e.target.closest("[data-l]"); if (!b) return;
         const v = b.dataset.l;
         if (v === "next") this.go(1); else if (v === "prev") this.go(-1); else if (v === "practice") Tutorial.practice(); else if (v === "menu") Tutorial.open(); else if (v === "manual") Manual.open();
@@ -483,6 +527,7 @@ const Help = (() => {
       if (!cur) return;
       const P = PAGES[this.i], last = this.i === PAGES.length - 1;
       if (last) mark("lesson");
+      edStep = 0;
       cur.querySelector(".ls-head h2").innerHTML = `<span class="no">${this.i + 1}</span>${P.t}`;
       const body = cur.querySelector(".ls-body");
       body.innerHTML = `<div class="ls-page">${P.x()}</div>`; body.scrollTop = 0;
@@ -516,7 +561,7 @@ const Help = (() => {
     /* ③ 연습 대전: 전장의 첫 판 안내(js/game.js Guide)를 다시 켜고 지금 덱으로 컴퓨터와 */
     practice() {
       close();
-      try { if (typeof Prefs !== "undefined") Prefs.set("guideDone", false); Prefs.set("crysTeach", 0); if (typeof Guide !== "undefined") { Guide.seen = {}; Guide.queue = []; } } catch (e) {}
+      try { if (typeof Prefs !== "undefined") Prefs.set("guideDone", false); Prefs.set("crysTeach", 0); Prefs.set("guideOff", false); if (typeof Guide !== "undefined") { Guide.seen = {}; Guide.queue = []; } } catch (e) {}
       mark("practice");
       const u = typeof Store !== "undefined" && Store.user();
       if (!u) return;

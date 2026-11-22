@@ -79,7 +79,7 @@ function mkPlayer(idx, cfg) {
   shuffleG(deck);
   const group = cfg.group || null;
   return { idx, name: cfg.name, group, faction: group ? GROUPS[group].faction : cfg.faction, isAI: !!cfg.isAI, ai: cfg.isAI ? (cfg.ai || "normal") : null, deck, hand: [], field: Array(RULES.slots).fill(null),
-    burn: [], crystals: [], life: RULES.startLife, made: 0, crysBank: RULES.crystalsPerTurn /* 2026-11-22 첫 턴부터 1장 결정화(예전 0 — 2턴부터). 시작 에테르가 0이라 첫 턴에 결정화해야 카드를 낸다 */, spent: 0, reload: 0, reloadNow: 0, bonus: 0, bonusNow: 0, rec: recOf(cfg.rec) };
+    burn: [], crystals: [], life: RULES.startLife, made: 0, crysBank: RULES.crystalsPerTurn /* 2026-11-22 첫 턴부터 1장 결정화(예전 0 — 2턴부터). 시작 에테르가 0이라 첫 턴에 결정화해야 카드를 낸다 */, spent: 0, reload: 0, reloadNow: 0, bonus: 0, bonusNow: 0, rec: recOf(cfg.rec), ...(group === "A2" ? { light: 0 } : {}) };   // 2026-11-22 천족(솔란테의 새벽) 깃발은 판 처음부터 [새벽빛]이 모인다(전: 인내의 기도로 켬)
 }
 /* v3.47 깃발 명판의 전적 {w, l}: 화면에만 쓰는 값(판 결과 · 무작위와 상관없음). 이상한 값이면 없음 */
 function recOf(r) {
@@ -194,7 +194,7 @@ function actCrystal(p, uid) {
   const it = p.hand.splice(i, 1)[0];
   // v3.19.2: 결정화한 카드 자체는 소각장으로 간다(결정은 남는다). 나중에 소각장에서 핸드로 되살리는 마법이 이 카드도 고를 수 있다
   p.crystals.push(it.id); p.burn.push(it.id); p.made++; p.crysBank = crysLeft(p) - 1;
-  if (!G.cfg.headless && p.idx === G.viewer && !p.isAI && typeof CrysHint !== "undefined") CrysHint.learn();   // v3.19.8 결정화 손짓은 몇 번 해 보면 그만
+  if (!G.cfg.headless && p.idx === G.viewer && !p.isAI && typeof CrysHint !== "undefined") { CrysHint.learn(); CrysHint.levelUp(p); }   // v3.19.8 결정화 손짓은 몇 번 해 보면 그만 · 2026-11-22 레벨 글자
   if (!G.cfg.headless && p.idx === G.viewer && !p.isAI && typeof Guide !== "undefined") Guide.crystallized();   // v3.61.1 첫 판 안내의 구슬 깜빡임 끄기 (화면 연출만)
   if (G.leave) G.leave[it.uid] = "crys" + p.idx;
   log(`${p.name}: 「${C(it).name}」 결정화 (결정 ${p.crystals.length}) — 카드는 소각장으로`);
@@ -939,7 +939,7 @@ const Guide = {
     const el = document.createElement("div");
     el.className = "guide gd-" + st.side;
     el.innerHTML = `<p class="gd-eyebrow">첫 판 안내 · ${esc(st.title)}</p><p class="gd-text">${st.text}</p><div class="gd-btns"><button type="button" class="btn xs ghost" data-g="off">안내 끄기</button><button type="button" class="btn xs primary" data-g="next">${this.queue.length ? "다음" : "알겠어요"}</button></div><i class="gd-arrow"></i>`;
-    el.addEventListener("click", e => { const b = e.target.closest("[data-g]"); if (!b) return; if (b.dataset.g === "off") { Prefs.set("guideDone", true); this.tailG = null; this.queue = []; this.hide(); } else this.next(); });
+    el.addEventListener("click", e => { const b = e.target.closest("[data-g]"); if (!b) return; if (b.dataset.g === "off") { Prefs.set("guideDone", true); Prefs.set("guideOff", true); this.tailG = null; CrysHint.hide(); render();   /* 2026-11-22 안내를 끄면 결정화 손짓 · 레벨 글자(CrysHint)도 끈다 — 연습 대전이 guideOff를 되돌린다 */ this.queue = []; this.hide(); } else this.next(); });
     document.body.appendChild(el); this.el = el;
     this.place();
   },
@@ -2135,11 +2135,11 @@ function fieldCardHTML(it, p, s) {
   }
   // v3.65 마법이 이번 턴 걸어 준 능력(t.gx: 치명 · 연쇄 · 흡혈 …)도 같은 띠에 보랏빛 ✦ 칩으로 (css/cardtext.css .c-gx)
   let gxc = isUnit(it) && it.t ? grantChipsHTML(it.t.gx, it.t.off) + auraChipsHTML(it.t.au) : "";   // 2026-11-15 받은 레어 오라 ◎ 칩
-  // v3.65 [출혈]: 걸린 출혈(t.bleed, 이번 전투만)을 붉은 칩으로 — 맞붙음이 시작될 때마다 그만큼 체력이 깎인다
+  // v3.65 [출혈]: 걸린 출혈(t.bleed, 이번 전투만)을 붉은 칩으로 — 맞붙음이 끝날 때마다 그만큼 체력이 깎인다
   if (isUnit(it) && it.t && it.t.keep && it.t.keep.scorch > 0) for (const b of gbBurns(it)) gxc += `<span class="c-eq-ab c-scorch" data-tip="${esc(`화상 ${b.n}\n붙은 그 자리에서는 피해가 없다.\n다음 턴 전투가 시작될 때 체력 −${b.n} (방어 무시), 그 뒤 꺼진다.${b.n >= 2 ? `\n꺼지면서 양옆 유닛에게 [화상 ${b.n - 1}]이 옮겨붙는다.` : ""}`)}">화상 ${b.n}</span>`;   // v3.88 [화상 N]은 가시처럼 따로따로 (engine gbScorch · gbBurns)
   if (isUnit(it) && it.t && it.t.sac && it.t.sac.length) gxc += `<span class="c-eq-ab c-sac" data-tip="${esc("제물 증표\n이번 전투에서 쓰러지면 제물을 바친 쪽의 생명이 돌아오고, 이 카드는 그쪽 소각장으로 간다")}">제물</span>`;   // 2026-11-17 [제물 증표] (engine abMark)
   if (isUnit(it) && it.t) for (const e of a1CurseList(it)) gxc += `<span class="c-eq-ab c-curse" data-tip="${esc(A1_CURSE[e.kind].tip(e.n))}">${e.ko} ${e.n}</span>`;   // v3.95 [저주]: 걸린 공포 · 역병 (engine "v3.95 마족" 절)
-  if (isUnit(it) && it.t && it.t.bleed > 0) gxc +=`<span class="c-eq-ab c-bleed" data-tip="${esc(`출혈 ${it.t.bleed}\n맞붙음이 시작될 때마다 체력 −${it.t.bleed} (이번 전투)`)}">출혈 ${it.t.bleed}</span>`;
+  if (isUnit(it) && it.t && it.t.bleed > 0) gxc +=`<span class="c-eq-ab c-bleed" data-tip="${esc(`출혈 ${it.t.bleed}\n맞붙음이 끝날 때마다 체력 −${it.t.bleed} (이번 전투)`)}">출혈 ${it.t.bleed}</span>`;
   if (gxc) item = item ? item.replace(/<\/div>$/, gxc + "</div>") : `<div class="c-equip">${gxc}</div>`;
   const artx = isUnit(it) && it.t && abilOf(it).u === "scrap" ? scrapPileHTML(it) : "";   // v3.31.1 [고철 골렘] 고철 더미
   return cardHTML(c, { size: "md", live, badges, extra: item, under, cls: cls.join(" "), attrs, slim: true, artx });
@@ -2322,7 +2322,23 @@ const CRYS_TEACH = 3;
 const CRYS_NUDGE = 4;   // 2026-11-22 결정이 이보다 적으면(판 초반) 결정화하지 않은 턴마다 구슬이 반짝인다 (etherHTML nudge)
 const CrysHint = {
   el: null,
-  on() { return !!(G && G.cfg && !G.cfg.headless) && typeof Prefs !== "undefined" && (+Prefs.get("crysTeach", 0) || 0) < CRYS_TEACH; },
+  off() { return typeof Prefs === "undefined" || !!Prefs.get("guideOff", false); },   // 2026-11-22 첫 판 안내에서 "안내 끄기"를 눌렀으면 손짓 · 레벨 글자 모두 끔
+  on() { return !!(G && G.cfg && !G.cfg.headless) && !this.off() && (+Prefs.get("crysTeach", 0) || 0) < CRYS_TEACH; },
+  // 2026-11-22 결정화로 에테르가 오르면 구슬 위에 "Lv N" 글자가 떠올라 사라진다 — 이제 몇 레벨 카드까지 낼 수 있는지. 화면 연출만
+  levelUp(p) {
+    if (this.off() || !G || G.cfg.headless) return;
+    const myG = G;
+    setTimeout(() => {
+      const n = G === myG ? ether(p) : 0, ring = n > 0 && boardEl && boardEl.querySelector("#crys" + p.idx + " .eth-ring");
+      if (!ring) return;
+      const r = ring.getBoundingClientRect(), el = document.createElement("div");
+      el.className = "crys-lv"; el.setAttribute("aria-hidden", "true");
+      el.innerHTML = `<b>Lv ${n}</b><small>에테르 ${n} · Lv ${n} 카드까지 낼 수 있어요</small>`;
+      el.style.left = (r.left + r.width / 2).toFixed(1) + "px"; el.style.top = r.top.toFixed(1) + "px";
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 2600);
+    }, 60);   // 결정화 뒤 render가 구슬을 다시 그린 다음에 자리를 잰다
+  },
   learn() { if (this.on()) Prefs.set("crysTeach", (+Prefs.get("crysTeach", 0) || 0) + 1); },
   hide() { if (this.el) { this.el.remove(); this.el = null; } },
   // 날아가는 카드는 화면 맨 위 연출 층(#fx-layer)에 한 번만 만들어 두고(다시 그려도 움직임이 끊기지 않게) 자리만 고친다.
@@ -2467,7 +2483,7 @@ function infoHTML(p) {
         <div class="pl-val"><b class="pl-num${bumpCls("life" + p.idx, shown)}" id="life${p.idx}">${shown}</b><small>/${RULES.lifeCap}</small></div>
         <div class="pl-ticks">${Array.from({ length: 8 }, (_, i) => `<i class="${life > i * 5 ? (life >= (i + 1) * 5 ? "on" : "half") : ""}"></i>`).join("")}</div>
       </div>
-      <div class="pstats">${stat("hand", "hand", "핸드", p.hand.length, `핸드 ${p.hand.length}장`)}${p.light != null ? stat("light", "dawn", "새벽빛", lightShown(p), `새벽빛 ${lightShown(p)} / ${typeof A2_LIGHT_CAP !== "undefined" ? A2_LIGHT_CAP : 37}\n[인내의 기도]로 모으기 시작했습니다. 아군이 보호막 · 가호로 막은 피해, 전투가 시작될 때 [정화] 유닛 하나마다 1, [정화]로 씻은 것 하나마다 1, 깎인 생명의 절반만큼 모입니다.\n[새벽의 해방]이 모두 풀어(내 생명이 상대보다 적으면 그만큼 더) 공격이 높은 상대부터 체력을 깎고, 남은 빛은 생명으로 돌아옵니다.`) : ""}</div>
+      <div class="pstats">${stat("hand", "hand", "핸드", p.hand.length, `핸드 ${p.hand.length}장`)}${p.light != null ? stat("light", "dawn", "새벽빛", lightShown(p), `새벽빛 ${lightShown(p)} / ${typeof A2_LIGHT_CAP !== "undefined" ? A2_LIGHT_CAP : 37}\n천족 깃발은 판 처음부터 모읍니다. 아군이 보호막 · 가호로 막은 피해, 전투가 시작될 때 [정화] 유닛 하나마다 1, [정화]로 씻은 것 하나마다 1, 깎인 생명의 절반만큼 모입니다.\n[새벽의 해방]이 모두 풀어(내 생명이 상대보다 적으면 그만큼 더) 공격이 높은 상대부터 체력을 깎고, 남은 빛은 생명으로 돌아옵니다.`) : ""}</div>
     </div>`;
 }
 /* v3.19.4 핸드 자리: 카드는 번호 자리에 붙박이로 앉는다(내 핸드 · 상대 핸드 모두).
