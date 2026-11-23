@@ -343,9 +343,10 @@ function cardHTML(c, opts) {
   if (isU && !chips) chips = normalAtkChip();   // 특수 능력이 없어도 같은 규격으로 "일반공격"
   // 2026-11-18 카드에 새겨진 표시(🔒 ▲ ▼)는 칩으로 적지 않는다 — 숫자 옆 아이콘과 그 말풍선이 뜻을 맡는다(사용자)
   if (isI) chips += itemAbilities(c.item).filter(raw => !isPinAb(raw)).map(raw => `<span class="c-cls c-ab" data-tip="${esc(raw + " " + (itemKwDesc(raw) || c.item.evText || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");
-  // v3.60 짧은 문구가 있는 작은 카드: 문구에 이미 적힌 키워드 · "해제"로 적힌 끄는 키워드는 칩으로 다시 쓰지 않는다(칩 글자를 키운 만큼 자리를 아낌)
+  // v3.60 짧은 문구가 있는 작은 카드: 문구에 이미 적힌 키워드 · "해제"로 적힌 끄는 키워드는 칩으로 다시 쓰지 않는다(칩 글자를 키운 만큼 자리를 아낌).
+  // 2026-11-24 숫자 없는 키워드는 괄호 없이 적혀 있어도("· 홀림" · "· 수호") 뺀다 — 폰 핸드에서 칩 한 줄이 마법 문구를 상자 밖으로 밀었다
   const bsrc = isS && size !== "lg" && typeof SPELL_BRIEF !== "undefined" && SPELL_BRIEF[c.id] || "";
-  if (isS) { const off = spellKwOff(c); chips += spellKwList(c).filter(raw => !bsrc || !(bsrc.includes(raw) || off.has(raw) && /해제/.test(bsrc))).map(raw => off.has(raw)   // v3.31.4 상대의 능력을 끄는 키워드는 빨간 칩
+  if (isS) { const off = spellKwOff(c); chips += spellKwList(c).filter(raw => !bsrc || !(bsrc.includes(raw) || !/\d/.test(raw) && bsrc.includes(raw.slice(1, -1)) || off.has(raw) && /해제/.test(bsrc))).map(raw => off.has(raw)   // v3.31.4 상대의 능력을 끄는 키워드는 빨간 칩
     ? `<span class="c-cls c-ab c-off" data-tip="${esc("상대 유닛의 " + raw + "을(를) 끈다.\n" + raw + " " + (spellKwDesc(raw.replace(/^\[|\]$/g, "")) || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`
     : `<span class="c-cls c-ab" data-tip="${esc(coinNotePlain(raw) + " " + (spellKwDesc(raw.replace(/^\[|\]$/g, "")) || ""))}">${coinNoteHTML(esc(raw.replace(/^\[|\]$/g, "")))}</span>`).join(""); }
   const sBrief = isS && size !== "lg" ? spellBriefHTML(c) : "";   // 큰 카드(lg)는 마법 글 전문
@@ -414,7 +415,7 @@ function fitDescs(root) {
     let f = d.classList.contains("d-short") ? 0.74 : 0.78; p.style.fontSize = "";
     for (let i = 0; i < 14 && d.scrollHeight > d.clientHeight + 1 && f > min; i++) { f -= 0.04; p.style.fontSize = f + "em"; }
   });
-  (root || document).querySelectorAll(".slot .card.fm > .c-frame .c-boxin").forEach(fitFieldBox);
+  (root || document).querySelectorAll(".slot .card.fm > .c-frame .c-boxin, .hand-me .card.fm > .c-frame .c-boxin").forEach(fitFieldBox);   // 2026-11-24 핸드도
   fitBriefs(root);
 }
 /* 2026-11-15 마법 짧은 문구(.c-brief)는 글자를 키웠다(css/cardtext.css). 긴 문구가 글 상자 밑으로 넘치는 카드만 --bfs로 조금씩 줄인다.
@@ -425,15 +426,19 @@ function fitBriefs(root, names) {
   if (scope !== root) names = fitScope.names;
   const list = fitQ(scope, ".card.fm .c-box .c-brief");
   if (list.length) {
-    for (const b of list) if (b.style.getPropertyValue("--bfs")) b.style.removeProperty("--bfs");
+    for (const b of list) { if (b.style.getPropertyValue("--bfs")) b.style.removeProperty("--bfs"); b.parentElement.classList.remove("fit-nochip", "fit-noband"); }
     const over = b => { const box = b.closest(".c-boxin") || b.closest(".c-box"), p = b.lastElementChild;
       return box && p && p.getBoundingClientRect().bottom > box.getBoundingClientRect().bottom + 0.5; };
-    let bad = list.filter(over);
-    for (const s of [0.95, 0.9, 0.85]) {
-      if (!bad.length) break;
-      for (const b of bad) b.style.setProperty("--bfs", s);
-      bad = bad.filter(over);
+    const shrink = (arr, steps) => { for (const s of steps) { if (!arr.length) break; for (const b of arr) b.style.setProperty("--bfs", s); arr = arr.filter(over); } return arr; };
+    let bad = shrink(list.filter(over), [0.95, 0.9, 0.85, 0.8]);
+    // 2026-11-24 폰 핸드(글 상자 37~48px): .8배로도 넘치면 ① 키워드 칩 줄 ② 종류 띠(유닛 · 마법 종류 · 등급 줄)를 차례로 숨기고(크게 보기에는 그대로)
+    // 그때마다 처음 크기부터 다시 맞춘다. 끝까지 넘치면 .7배까지
+    for (const [cls, sel] of [["fit-nochip", ":scope > .c-chips"], ["fit-noband", ":scope > .c-band"]]) {
+      const hand = bad.filter(b => b.closest(".hand-me") && b.parentElement.querySelector(sel));
+      for (const b of hand) { b.parentElement.classList.add(cls); b.style.removeProperty("--bfs"); }
+      bad = bad.filter(b => !hand.includes(b)).concat(shrink(hand.filter(over), [0.95, 0.9, 0.85, 0.8]));
     }
+    shrink(bad, [0.75, 0.7]);
   }
   if (list.length || names) fitCardNames(scope);
 }
