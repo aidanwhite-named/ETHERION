@@ -162,3 +162,37 @@ const MERMAID_GRADES = {};   // js/grades.js가 맨 끝에 덮는다
   }
 
 })();
+
+/* ---------- 2026-11-24 물결의 두 얼굴: [너울] · [물때 N] (사용자 — "홀림 능력 말고 다른 특성을 부여해 봐. 홀림 하나만 보고 가는 것 같다") ----------
+   인어의 환상(홀림 → 마력 공격)과 따로 굴러가는 바다의 힘 두 갈래. 규칙은 engine 끝 "인어 [너울] · [물때]" 절(mrSwell · mrTideStart · mrTideNow).
+   - [너울](swell): 공격해 맞붙은 상대가 살아남으면 그 유닛을 바로 뒤 상대 유닛과 자리를 바꿔 밀어낸다 — 버티는 앞 유닛을 치우고 뒤의 약한 유닛을 끌어낸다.
+     환상이 아니라 물의 힘이라 [홀림]을 걸지 않는다(그래서 홀림 콤보와 겹치지 않는다). 돌격형 유닛 · 작살잡이에.
+   - [물때 N](tidal): 전투가 시작될 때 내가 공격하는 턴(밀물)이면 공격 +N, 방어하는 턴(썰물)이면 방어 +N. 턴마다 바뀌는 바다의 숨. 기사 · 조수를 부르는 유닛에.
+   - 기본 덱(바닐라 유닛만, docs/STARTER_DECKS.md)의 유닛에는 붙이지 않았다 — 능력이 없던 고급 · 일반 유닛과 에픽 하나.
+   - 마법 2장(겹치던 · 안 쓰이던 마법을 바꿈, ID 그대로): 해일 공세 SG3-07 → 밀려드는 너울, 심해의 고요 SG3-08(썰물 PS-G3-2와 같은 "상대 전체 공격 −2") → 물때의 노래. */
+const MERMAID_SWELL = ["G3-07", "G3-14", "G3-22", "G3-37", "G3-41", "EP-G3-2"];
+const MERMAID_TIDAL = { "G3-04": 1, "G3-10": 1, "G3-20": 1, "G3-25": 1, "G3-30": 2, "G3-39": 2 };
+(function () {
+  for (const u of SIM_UNITS) {
+    if (MERMAID_SWELL.includes(u.id)) u.gift = Object.assign(u.gift || {}, { swell: true });
+    if (MERMAID_TIDAL[u.id]) u.gift = Object.assign(u.gift || {}, { tidal: MERMAID_TIDAL[u.id] });
+  }
+  const W = {
+    "SG3-07": { n: "밀려드는 너울", kind: "atk", lv: 2,   // 전: 해일 공세 L3 (상대 유닛 전체 피해 1)
+      text: "아군 유닛 전체에게 이번 턴 [너울]. 상대 맨 앞 유닛에게 피해 1.",
+      ops: [{ op: "grant", side: "ally", area: { t: "all" }, ab: { swell: true } }, { op: "dmg", side: "foe", area: { t: "front", n: 1 }, x: 1 }],
+      brief: "{아군 전체} [너울]|{적 앞1} 피해1",
+      desc: "먼바다에서 부풀어 오른 너울이 해안을 덮친다. 버티고 선 방패는 물살에 떠밀려 뒤로 물러나고, 그 뒤에 숨어 있던 자들이 물 앞에 드러난다." },
+    "SG3-08": { n: "물때의 노래", kind: "com", lv: 2,   // 전: 심해의 고요 L3 (상대 유닛 전체 공격 −2 — 썰물 PS-G3-2와 같았다)
+      text: "아군 유닛 전체가 지금 물때를 받는다: 내가 공격하는 턴이면 공격 +1, 방어하는 턴이면 방어 +1. [물때]가 있는 유닛은 +2.",
+      ops: [{ op: "mrTideNow", n: 1, more: 1 }],
+      brief: "{아군 전체} 공격 턴 ⚔+1 · 방어 턴 ⛨+1|[물때] 유닛은 +2",
+      desc: "셀레네아의 무녀들은 달의 시간을 노래로 센다. 밀물이 차오르면 창끝이 함께 차오르고, 썰물이 빠지면 모래 속 방패가 드러난다." }
+  };
+  for (const id in W) {
+    const s = SIM_SPELLS.find(x => x.id === id), w = W[id]; if (!s) continue;
+    s.n = w.n; s.kind = w.kind; s.lv = w.lv; s.text = w.text; s.ops = w.ops; s.cost = {}; s.gain = {}; s.desc = w.desc;
+    for (const k of ["coin", "anchor", "prevText", "grp", "ccl", "dir"]) delete s[k];
+    if (typeof SPELL_BRIEF !== "undefined") SPELL_BRIEF[id] = w.brief;
+  }
+})();

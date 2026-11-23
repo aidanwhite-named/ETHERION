@@ -113,5 +113,38 @@ T('물의 장막', `const u1 = setT(mk("G3-03"), 0, 0, 10), u2 = setT(mk("G3-04"
 T('대해일 치유',`const u = setT(mk("G3-33"), 0, 0, 30); const X = fight([side(0, [mk("B1-02")]), side(1, ["RG3-1", u])], 0);
   ok(abilOf(u).heal === 1, "대해일 뒤 아군 [치유 1]");`);
 
+// 2026-11-24 [너울] · [물때 N] — 홀림과 따로 굴러가는 두 축
+ok(ctx.ev('CARDS["G3-41"].gift.swell && CARDS["EP-G3-2"].gift.swell && CARDS["G3-30"].gift.tidal === 2 && CARDS["G3-04"].gift.tidal === 1'), '[너울] · [물때] 카드');
+ok(ctx.ev('Object.entries(STARTER_DECKS.G3).every(([id]) => !CARDS[id].gift || (!CARDS[id].gift.swell && !CARDS[id].gift.tidal))'), '기본 덱(바닐라) 유닛엔 안 붙음');
+ok(ctx.ev('itemAbilities(CARDS["G3-30"].gift).includes("[물때 2]") && itemAbilities(CARDS["G3-07"].gift).includes("[너울]") && !!itemKwDesc("[너울]") && !!itemKwDesc("[물때 2]")'), '능력 칩 · 뜻');
+T('너울', `const a = setT(mk("G3-07"), 3, 0, 20), a2 = setT(mk("B1-01"), 2, 0, 20);
+  const t1 = setT(mk("B2-01"), 0, 0, 10), t2 = setT(mk("B2-02"), 0, 0, 2);
+  const P = [side(0, [a, a2]), side(1, [t1, t2])]; const X = fight(P, 0); const L = logs(X).split("\\n"), n2 = C(t2).name, n1 = C(t1).name;
+  ok(P[1].field.indexOf(t2) < P[1].field.indexOf(t1) || !t2.t.alive, "살아남은 맨 앞이 뒤로 밀려남");
+  const k = L.findIndex(l => /^\\[너울\\]/.test(l)); ok(k > 0 && L.slice(k).some(l => l.startsWith(C(a2).name + "(") && l.includes("→ " + n2 + "(")), "둘째 공격은 뒤에 있던 유닛과 맞붙음");
+  ok(!t1.t.charm, "너울은 [홀림]을 걸지 않음");
+  const f = setT(mk("B2-01"), 0, 0, 10), g = setT(mk("B2-02"), 0, 0, 10); f.t.gx = { firm: true };
+  const P2 = [side(0, [setT(mk("G3-07"), 3, 0, 20)]), side(1, [f, g])]; fight(P2, 0);
+  ok(P2[1].field.indexOf(f) === 0, "[굳건]은 밀리지 않음");
+  const h = setT(mk("B2-01"), 1, 0, 10), i = setT(mk("B2-02"), 0, 0, 10);
+  const x1 = setT(mk("B1-01"), 1, 0, 20), x2 = setT(mk("B1-02"), 0, 0, 20);
+  const P3 = [side(0, [x1, x2]), side(1, [setT(mk("G3-07"), 3, 0, 20), h])]; const X3 = fight(P3, 0);
+  ok(P3[0].field.indexOf(x1) === 0 && !/\\[너울\\]/.test(logs(X3)), "반격엔 너울 없음");`);
+T('물때', `const u = mk("G3-30"), v = mk("G3-30"); const a0 = u.t.a, d0 = v.t.d;
+  const X = ctx([side(0, [u]), side(1, [v])], 0, 2, [], { seed: 3 }); mrTideStart(X);
+  ok(u.t.a === a0 + 2 && v.t.d === d0 + 2 && u.t.tide === "in" && v.t.tide === "out", "공격 쪽 ⚔+2 · 방어 쪽 ⛨+2 (" + [u.t.a - a0, v.t.d - d0] + ")");
+  resetTurn(u); ok(u.t.a === a0 && !u.t.tide, "다음 턴엔 사라짐");`);
+T('물때의 노래', `const u = mk("G3-30"), w = mk("G3-03"); const a0 = u.t.a, b0 = w.t.a, d0 = w.t.d;
+  const X = ctx([side(0, [u, w]), side(1, [mk("B1-02")])], 0, 2, [], { seed: 3 });
+  SPELL_OPS.mrTideNow(X, 0, mk("SG3-08"), null, CARDS["SG3-08"].ops[0]);
+  ok(u.t.a === a0 + 2 && w.t.a === b0 + 1, "공격 턴: 물때 유닛 ⚔+2 · 나머지 ⚔+1");
+  const X2 = ctx([side(0, [mk("B1-02")]), side(1, [w])], 0, 2, [], { seed: 3 }); resetTurn(w);
+  SPELL_OPS.mrTideNow(X2, 1, mk("SG3-08"), null, CARDS["SG3-08"].ops[0]);
+  ok(w.t.d === d0 + 1 && w.t.a === b0, "방어 턴: ⛨+1");`);
+T('밀려드는 너울', `const a = setT(mk("B1-01"), 3, 0, 20), a2 = setT(mk("B1-01"), 2, 0, 20);
+  const t1 = setT(mk("B2-01"), 0, 0, 10), t2 = setT(mk("B2-02"), 0, 0, 2);
+  const P = [side(0, ["SG3-07", a, a2]), side(1, [t1, t2])]; const X = fight(P, 0);
+  ok(/\\[너울\\] 심지 당번/.test(logs(X)) && abilOf(a2).swell, "마법이 건 [너울]로 맨 앞을 밀어냄");`);
+
 console.log(fail ? `✗ ${fail}/${n} 실패` : `✓ ${n}개 모두 통과`);
 process.exitCode = fail ? 1 : 0;

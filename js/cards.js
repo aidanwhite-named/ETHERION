@@ -227,6 +227,8 @@ function itemAbilities(it) {
   if (it.ward) out.push(`[가호 ${it.ward}]`);
   if (it.heal) out.push(`[치유 ${it.heal}]`);   // v3.68 engine mrHeal
   if (it.calm) out.push(`[바다의 보호 ${it.calm}]`);   // v3.68 오라, engine mrCalm
+  if (it.swell) out.push("[너울]");   // 2026-11-24 인어 (engine mrSwell)
+  if (it.tidal) out.push(`[물때 ${it.tidal}]`);   // 2026-11-24 인어 (engine mrTideStart)
   if (it.aura && it.auraG && typeof RARE_AURA !== "undefined" && RARE_AURA[it.auraG]) out.push(`[${RARE_AURA[it.auraG].n} ${it.aura}]`);   // v3.69 레어 오라 (js/rares.js, engine rareAuraSync)
   if (it.shield) out.push("[보호막 코인]");
   if (it.thorns) out.push(`[가시 ${it.thorns}]`);
@@ -256,7 +258,7 @@ const SP_ABIL_NAMES = [["huntfire", "불꽃 사냥"], ["riposte", "되받기"], 
    - 칸으로 세지 않는 것: 표시(고정 · 버팀 · 눌림 · 아이템 [고정 a/d/h]), 장착하는 순간 한 번인 [생명 +N], 마법이 이번 턴 건 능력(✦), 레어 오라(◎).
    abilSlotsOf(src) = 그 데이터의 능력 칸 [{ k: 데이터 키, v: 값, raw: "[가시 1]" }] (카드에 보이는 차례) */
 const ABIL_CAP = 3;
-const ABIL_SLOT_KEYS = ["u", "rob", "leech", "veil", "pact", "bleed", "shred", "magic", "arcane", "crit", "chain", "throw", "ignite", "farmor", "shock", "ranged", "ward", "heal", "calm", "aura",
+const ABIL_SLOT_KEYS = ["u", "rob", "leech", "veil", "pact", "bleed", "shred", "magic", "arcane", "crit", "chain", "throw", "ignite", "farmor", "shock", "ranged", "ward", "heal", "calm", "swell", "tidal", "aura",
   "shield", "thorns", "regen", "bash", "taunt", "purify", "firm", "conduct", "mesmer", ...SP_ABIL_NAMES.map(x => x[0]), "evName"];
 const ABIL_SLOT_CACHE = new WeakMap();
 function abilSlotsOf(src) {
@@ -339,6 +341,8 @@ const ITEM_KW = {
   "방어무시": "맞붙을 때(공격 · 반격) 상대 방어를 모두 무시한다(방어 0으로 친다).",
   "마력 공격": "공격할 때 상대 방어에 막히지 않고, 상대 방어({n}까지)를 공격에 더해 체력을 깎는다(공 5 · 방 2 → 7). [홀림]에 걸린 상대라면 방어 전부를 더한다. 반격할 때는 적용되지 않는다.",
   "바다의 보호": "오라 — 이 유닛이 전장에 있는 동안 양옆 {n}칸 안의 아군 유닛이 받는 피해가 1 줄어든다(맞붙음 · 마법 모두). 한 번 막고 사라지지 않는다.",
+  "너울": "공격해 맞붙은 상대 유닛이 살아남으면, 그 유닛을 바로 뒤 상대 유닛과 자리를 바꿔 밀어낸다(마법 칸은 건너뛴다). 다음 아군은 뒤에 있던 유닛과 맞붙는다. [굳건] 유닛은 밀리지 않는다. 반격할 때는 적용되지 않는다.",   // 2026-11-24 인어 engine mrSwell
+  "물때": "전투가 시작될 때 내가 공격하는 턴(밀물)이면 공격 +{n}, 방어하는 턴(썰물)이면 방어 +{n}(이번 턴).",   // 2026-11-24 인어 engine mrTideStart
   "치명": "맞붙어 피해를 주면(공격 · 반격 모두), 맞은 유닛이 쓰러지지 않았을 때 남은 체력이 1이 된다.",
   "연쇄": "맞붙어 공격해 상대 유닛을 쓰러뜨리고 피해가 남으면, 남은 피해로 그 뒤의 상대 유닛 하나를 친다(그 유닛의 방어만큼 줄어든다. 방어무시는 여기에도 적용, 반격은 없다).",
   "투척": "내 공격 턴마다, 이 유닛이 공격을 시작할 때 맞선 유닛에서 칸이 가장 먼 상대 유닛에게 함께 던져 {n} 피해를 준다(그 유닛의 방어만큼 줄어든다. 거리가 같으면 전장 번호가 큰 유닛). 상대 유닛이 맞선 유닛뿐이면 던지지 않는다.",
@@ -449,6 +453,8 @@ const ITEM_KW_SHORT = {   // v3.60 한 줄에 들도록 더 짧게 (크게 보�
   "마력 공격": "공격 + 상대 방어 {n}까지(홀리면 전부)로 깎는다. 반격엔 없음.",
   "치유": "맞붙어 살아남으면 체력 +{n}.",
   "바다의 보호": "양옆 {n}칸 아군이 받는 피해 −1.",
+  "너울": "공격해 살아남은 상대를 바로 뒤로 밀어낸다.",
+  "물때": "공격 턴엔 공격 +{n}, 방어 턴엔 방어 +{n}.",
   "치명": "맞붙어(공격 · 반격) 피해를 준 상대가 살아남으면 체력 1.",
   "연쇄": "쓰러뜨리고 남은 피해로 그 뒤 유닛을 친다.",
   "투척": "공격 턴마다 가장 먼 상대 유닛에게 피해 {n}.",
@@ -582,6 +588,8 @@ const SPELL_KW = {
   "홀림": "환상에 걸린 상대 유닛(이번 턴). 인어 마법으로 코인이 뒷면이 되거나 스탯 · 자리가 바뀌거나, 마족 [환각]에 빠지면 걸린다. [마력 공격]은 홀린 상대의 방어를 수치와 상관없이 전부 피해에 더한다.",   // v3.78 engine mrCharm
   "활": "활을 든 유닛: 활 아이템을 장착했거나, 활을 든 사수(바늘탑 견습 사수 · 담비 저격수 …)이거나, [궁사회 무기고]로 활을 받은 유닛(쓰러질 때까지). [별빛 연사]가 그 수만큼 쏜다.",   // v3.93 engine a3HasBow
   "치유": "맞붙음(공격 · 반격)에서 살아남으면 받은 피해를 {n}만큼 채운다(원래 체력까지). 맞붙을 때마다.",   // v3.78 마법이 걸어 주는 [치유]
+  "너울": "공격해 맞붙은 상대 유닛이 살아남으면, 그 유닛을 바로 뒤 상대 유닛과 자리를 바꿔 밀어낸다(마법 칸은 건너뛴다). [굳건] 유닛은 밀리지 않는다. 반격할 때는 적용되지 않는다.",   // 2026-11-24 인어 engine mrSwell
+  "물때": "전투가 시작될 때 내가 공격하는 턴(밀물)이면 공격 +{n}, 방어하는 턴(썰물)이면 방어 +{n}(이번 턴). 마법이 바로 거는 물때는 그 자리에서 붙는다.",   // 2026-11-24 인어 engine mrTideStart · mrTideNow
   "정화": "유닛의 [정화]: 전투가 시작될 때 이 유닛의 화상 · 불씨 · 계약의 낙인 · [저주]([공포] · [역병])를 지운다. 마법이 이번 턴 걸어 준 [정화]: 걸리는 순간 그 유닛의 화상 · 불씨 · 낙인 · [저주]를 지우고, 이번 턴 출혈이 붙지 않는다."   // v3.89 engine mrPurge · v3.95 저주
 };
 function spellKwDesc(inner) {

@@ -1395,7 +1395,7 @@ const FLOAT_SFX = [
   [/^재생/, "regen"], [/^치유 \+/, "mend"], [/^바다의 보호/, "sea_guard"], [/^가호/, "ward"], [/^정화/, "purify"], [/^굳건/, "firm"], [/^후퇴$/, "retreat"],
   [/^마력 \d/, "charge"], [/^오라/, "aura"],   // 2026-11-16 레어 오라가 켜지거나 커짐 (engine step · 준비 단계 auraPrepPulse)
   // v3.81 스페셜 아이템 능력 전용 소리
-  [/^불꽃 사냥/, "huntfire"], [/^되받기 −/, "riposte"], [/^과부하/, "overload"], [/^포식/, "devour"], [/^뿌리 흡수/, "drain"], [/^밀물/, "flow"], [/^심판/, "judge"], [/^경계의 화살 −/, "sentry"], [/^표식/, "mark"]
+  [/^불꽃 사냥/, "huntfire"], [/^되받기 −/, "riposte"], [/^과부하/, "overload"], [/^포식/, "devour"], [/^뿌리 흡수/, "drain"], [/^밀물/, "flow"], [/^썰물/, "flow"], [/^너울/, "retreat"], [/^심판/, "judge"], [/^경계의 화살 −/, "sentry"], [/^표식/, "mark"]
 ];
 function floatSfx(target, s, c) {
   if (/^심판/.test(s)) return "judge";
@@ -2114,6 +2114,7 @@ function fieldCardHTML(it, p, s) {
       if (nb) badges += `<span class="bd bd-blood" data-tip="${esc(`피 ${nb}개 (피의 맹세)\n결속한 아군이 쓰러지면 가진 피가 모두 바로 뒤 아군에게 옮겨 간다. 남의 피를 머금고 전투에서 살아남으면 다음 턴 준비 때 그 피 주인들이 쓰러질 때의 공격만큼 공격이 오른다(그 턴만).`)}">${nb > 3 ? "🩸×" + nb : "🩸".repeat(nb)}</span>`; }
     if (it.t.rest) badges += '<span class="bd bd-rest" data-tip="✖ 행동 불가\n이번 턴에는 공격하지 못한다">✖</span>';
     if (it.t.charm) badges += `<span class="bd bd-charm" data-tip="∿ 홀림\n${esc(SPELL_KW["홀림"])}">∿</span>`;   // v3.78 인어 [홀림] (engine mrCharm)
+    if (it.t.tide) badges += `<span class="bd bd-tide" data-tip="${esc(it.t.tide === "in" ? "≋ 밀물\n물때를 받아 이번 턴 공격이 올랐다." : "≋ 썰물\n물때를 받아 이번 턴 방어가 올랐다.")}">≋</span>`;   // 2026-11-24 인어 [물때] (engine mrTideOne)
     if (typeof a3HasBow === "function" && a3HasBow(it)) badges += `<span class="bd bd-bow" data-tip="🏹 활\n${esc(SPELL_KW["활"])}">🏹</span>`;   // v3.93 벨루미르의 별 [활] (engine a3HasBow)
     if (c.tok) badges += `<span class="bd bd-tok" data-tip="✧ 마법이 부른 유닛${it.tokTemp ? "\n이번 턴만 전장에 있다" : ""}">✧</span>`;
     if (it.t.endure) badges += `<span class="bd bd-shield" data-tip="✚ 불굴\n${esc(SPELL_KW["불굴"])}">✚</span>`;   // v3.11

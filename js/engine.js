@@ -27,7 +27,8 @@ const STRIP_DEF = ["보호막", "가시", "저주 면역", "수호"];
 const ABIL_KEY = { "보호막": "shield", "가시": "thorns", "가호": "ward", "관통": "shred", "치명": "crit", "연쇄": "chain", "원거리": "ranged",
   "방어무시": "magic", "마력 공격": "arcane", "치유": "heal", "바다의 보호": "calm", "사격": "snipe", "증폭": "amp", "강탈": "rob", "흡혈": "leech", "그림자 걸음": "veil", "피의 계약": "pact", "출혈": "bleed", "점화": "ignite", "화염 갑주": "farmor",
   "재생": "regen", "방패 반격": "bash", "수호": "taunt", "정화": "purify", "굳건": "firm", "매혹": "mesmer", "전도": "conduct", "감전": "shock",
-  "불꽃 사냥": "huntfire", "되받기": "riposte", "과부하": "overload", "포식": "devour", "뿌리 흡수": "drain", "밀물": "flow", "심판": "judge", "경계의 화살": "sentry", "표식": "mark" };   // v3.81 스페셜 아이템 능력 (이 파일 끝 "v3.81 스페셜 아이템 능력" 절)   // v3.74 새 능력 (js/newabil.js, 이 파일 끝 "v3.74 새 능력" 절)
+  "불꽃 사냥": "huntfire", "되받기": "riposte", "과부하": "overload", "포식": "devour", "뿌리 흡수": "drain", "밀물": "flow", "심판": "judge", "경계의 화살": "sentry", "표식": "mark",
+  "너울": "swell", "물때": "tidal" };   // 2026-11-24 인어 [너울] · [물때 N] (이 파일 끝 "인어 [너울] · [물때]" 절)   // v3.81 스페셜 아이템 능력 (이 파일 끝 "v3.81 스페셜 아이템 능력" 절)   // v3.74 새 능력 (js/newabil.js, 이 파일 끝 "v3.74 새 능력" 절)
 function abilOf(it) {
   const ab = abilRaw(it), off = it && it.t && it.t.off;
   if (off) for (const n of off) { const k = ABIL_KEY[n]; if (k) ab[k] = typeof ab[k] === "number" ? 0 : false; }
@@ -42,7 +43,7 @@ function abilRaw(it) {
   const au = (it && it.t && it.t.au) || {};   // v3.69 레어 오라가 준 몫(rareAuraSync가 t.au에 적음). 가호 · 가시 · 스탯은 t에 바로 더했으므로 여기서는 사격 · 증폭 · 방어무시 · 흡혈만
   return { shield: any("shield"), ward: num("ward"), thorns: num("thorns"), shred: any("shred"), crit: any("crit"), chain: any("chain"), ranged: any("ranged"),
     magic: any("magic") || !!au.magic, aura: num("aura"),   // 2026-11-16 [방어무시]는 수치 없이 방어를 전부 무시한다(데이터의 magic 수치는 있음/없음으로만 본다)
-    arcane: num("arcane"), heal: num("heal"), calm: num("calm"),
+    arcane: num("arcane"), heal: num("heal"), calm: num("calm"), swell: any("swell"), tidal: num("tidal"),   // 2026-11-24 인어 [너울] · [물때 N]
     ignite: num("ignite"), farmor: num("farmor"), shock: num("shock"), conduct: any("conduct"),   // 2026-11-22 케라운 [감전 N] · [전도] (이 파일 끝 "케라운 [전도] · [감전]" 절)
     regen: num("regen"), bash: any("bash"), taunt: any("taunt"), purify: any("purify"), firm: any("firm"), mesmer: any("mesmer"),
     huntfire: any("huntfire"), riposte: any("riposte"), overload: any("overload"), devour: any("devour"), drain: any("drain"), flow: any("flow"), judge: any("judge"), sentry: any("sentry"), mark: any("mark"),   // v3.81 스페셜 아이템 능력   // v3.74 [재생 N] · [방패 반격] · [수호] · [정화] · [굳건] · [요격] — js/newabil.js, 이 파일 끝 "v3.74 새 능력" 절   // v3.73 잿불 고블린: [점화 N] · [화염 갑주 N] — js/goblin.js, 이 파일 끝 "v3.73 잿불 고블린" 절
@@ -385,9 +386,9 @@ function coinX(op, faces) {
   return x;
 }
 /* v3.18 grant 효과가 카드 위에 띄우는 글 */
-const GRANT_KO = { crit: "치명", chain: "연쇄", shred: "관통", ranged: "원거리", magic: "방어무시", arcane: "마력 공격", heal: "치유", rob: "강탈", leech: "흡혈", veil: "그림자 걸음", pact: "피의 계약", bleed: "출혈", ignite: "점화", farmor: "화염 갑주", regen: "재생", bash: "방패 반격", taunt: "수호", purify: "정화", firm: "굳건", conduct: "전도", shock: "감전", amp: "증폭" };   // v3.95 amp: 증폭 회로
+const GRANT_KO = { crit: "치명", chain: "연쇄", shred: "관통", ranged: "원거리", magic: "방어무시", arcane: "마력 공격", heal: "치유", rob: "강탈", leech: "흡혈", veil: "그림자 걸음", pact: "피의 계약", bleed: "출혈", ignite: "점화", farmor: "화염 갑주", regen: "재생", bash: "방패 반격", taunt: "수호", purify: "정화", firm: "굳건", conduct: "전도", shock: "감전", amp: "증폭", swell: "너울", tidal: "물때" };   // v3.95 amp: 증폭 회로
 function grantLabel(op) {
-  const xs = Object.keys(op.ab || {}).map(k => (GRANT_KO[k] || k) + ((k === "heal" || k === "arcane" || k === "amp") && typeof op.ab[k] === "number" ? " " + op.ab[k] : ""));   // v3.78 [치유 N] · [마력 공격 N]은 수치까지
+  const xs = Object.keys(op.ab || {}).map(k => (GRANT_KO[k] || k) + ((k === "heal" || k === "arcane" || k === "amp" || k === "tidal") && typeof op.ab[k] === "number" ? " " + op.ab[k] : ""));   // v3.78 [치유 N] · [마력 공격 N]은 수치까지
   if (op.ward) xs.push("가호 " + op.ward);
   return xs.join(" · ");
 }
@@ -771,6 +772,7 @@ function runCombatCore(X) {
   nwPurify(X);   // v3.74 [정화]: 불씨 · 화상이 타기 전에 지운다
   a1CurseTick(X, sweep);   // v3.95 [저주]: 지난 턴까지 걸린 [공포] · [역병]이 발동하고 꺼진다([정화] 다음)
   spCombatStart(X);   // v3.81 [밀물] · [경계의 화살]
+  mrTideStart(X);   // 2026-11-24 인어 [물때 N]: 공격하는 쪽은 공격 +N, 방어하는 쪽은 방어 +N
   uCombatStart(X, sweep);   // v3.31 불씨 · 뿌리 · 축전 (전투가 시작될 때)
   gbBurnTick(X, sweep);   // v3.73 화상: 지난 턴까지 붙은 화상이 한 번 터지고 꺼진다
   fire(false);
@@ -786,7 +788,7 @@ function runCombatCore(X) {
       if (Au.t.alive && queueOf(D).length) nwRegenTick(X);   // v3.74 [재생 N]: 맞붙음이 시작될 때마다
       if (Au.t.alive) {
         const clash = queueOf(D).length > 0;   // 직접 공격은 맞붙음이 아니다 — 출혈이 깎지 않는다
-        X.clash = null; attackOne(X, Au); mrHeal(X); sweep();
+        X.clash = null; attackOne(X, Au); mrSwell(X); mrHeal(X); sweep();   // 2026-11-24 인어 [너울]: 살아남은 상대를 바로 뒤로 밀어낸다([치유]보다 먼저 — X.clash를 같이 읽는다)
         if (dead()) break;
         if (clash && abBleedTick(X)) { sweep(); if (dead()) break; }   // 2026-11-22 [출혈]: 맞붙음이 끝날 때마다([치유] 다음) 전장의 출혈 유닛 체력 −N — 그 맞붙음에서 막 걸린 출혈도
       }
@@ -2945,3 +2947,58 @@ function kzShock(X, Au, Du) {
 function kzShockEnd(X) {
   for (const p of X.P) for (const u of p.field) { const k = isUnit(u) && u.t && u.t.keep; if (k && k.shock && k.shock.turn <= X.turn) delete k.shock; }
 }
+
+/* ---------- 2026-11-24 인어 [너울] · [물때 N] (카드 데이터는 js/mermaid.js 끝 "물결의 두 얼굴" 절) ----------
+   인어가 [홀림] 콤보 하나만 보고 간다는 사용자 의견에 따라, 홀림과 상관없이 굴러가는 바다의 두 축을 더했다.
+   [너울] swell        이 유닛이 맞붙어 공격한 상대 유닛이 살아남으면, 그 유닛을 바로 뒤 상대 유닛과 자리를 바꿔 밀어낸다(마법 칸은 건너뜀).
+                       환상이 아니라 물의 힘이라 [홀림]을 걸지 않는다. [굳건] 유닛은 밀리지도, 자리를 내주지도 않는다(그 뒤 유닛과 바꾼다).
+                       공격할 때만(반격엔 없음). 뒤에 유닛이 없으면 아무 일도 없다. → 버티는 앞 유닛을 치우고 뒤의 약한 유닛을 다음 공격자 앞에 세운다.
+   [물때 N] tidal      전투가 시작될 때, 내가 공격하는 턴(밀물)이면 공격 +N, 방어하는 턴(썰물)이면 방어 +N(이번 턴). t.tide에 "in" · "out".
+   mrTideNow { n, more }: 마법(물때의 노래) — 아군 전체에게 지금 바로 물때 n을 한 번, [물때] 유닛은 more를 더. */
+function mrTideOne(X, u, n, atk) {
+  if (!(n > 0) || !u || !u.t || !u.t.alive) return 0;
+  const k = atk ? "a" : "d", b = u.t[k];
+  u.t[k] = b + n; applyFloor(u);
+  const r = u.t[k] - b;
+  u.t.tide = atk ? "in" : "out";
+  fl(X, u.uid, (atk ? "밀물 ⚔" : "썰물 ⛨") + sgnNum(r), r > 0 ? "buff" : "miss");
+  return r;
+}
+function mrTideStart(X) {
+  let any = false;
+  X.P.forEach((p, i) => {
+    for (const u of liveUnits(p)) {
+      const n = abilOf(u).tidal; if (!(n > 0)) continue;
+      const atk = i === X.ai, r = mrTideOne(X, u, n, atk);
+      lg(X, `[물때 ${n}] ${C(u).name} — ${atk ? "밀물: 공격" : "썰물: 방어"} +${r}`, "good");
+      any = true;
+    }
+  });
+  if (any) step(X, {}, 420);
+}
+function mrSwell(X) {
+  const xs = X.clash; if (!xs) return;
+  const Au = xs[0], Du = xs[1];
+  if (!Au || !Du || !Du.t || !Du.t.alive || !abilOf(Au).swell) return;
+  const D = X.P.find(p => p.field.includes(Du)); if (!D) return;
+  if (nwFirm(Du)) { fl(X, Du.uid, "굳건", "miss"); lg(X, `[너울] ${C(Du).name}은(는) [굳건]해 밀리지 않았다`, "sys"); return; }
+  const F = D.field, i = F.indexOf(Du);
+  let j = i + 1;
+  while (j < F.length && !(isUnit(F[j]) && F[j].t && F[j].t.alive && !nwFirm(F[j]))) j++;
+  if (j >= F.length) return;   // 뒤에 바꿀 유닛이 없다
+  const w = F[j];
+  F[i] = w; F[j] = Du;
+  fl(X, Du.uid, "너울 · 밀려남", "debuff");
+  lg(X, `[너울] ${C(Au).name}의 물살이 ${C(Du).name}을(를) ${C(w).name} 뒤로 밀어냈다`, "spell");
+  if (typeof rareAuraSync === "function") rareAuraSync(X);
+  step(X, {}, 420);
+}
+Object.assign(SPELL_OPS, {
+  mrTideNow(X, caster, it, k, op) {
+    const L = liveUnits(X.P[caster]);
+    if (!L.length) { fl(X, it.uid, "대상 없음", "miss"); return; }
+    const atk = caster === X.ai;
+    for (const u of L) mrTideOne(X, u, (op.n || 1) + (abilOf(u).tidal > 0 ? (op.more || 0) : 0), atk);
+    lg(X, `[물때의 노래] ${atk ? "밀물 — 아군 공격" : "썰물 — 아군 방어"} +${op.n || 1}${op.more ? ` ([물때] 유닛은 +${(op.n || 1) + op.more})` : ""}`, "spell");
+  }
+});
