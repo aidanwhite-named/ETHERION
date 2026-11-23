@@ -62,22 +62,35 @@ T('씻김의 노래', `const d1 = mk("A2-01"), d2 = mk("A2-01"); d1.t.shield = t
   const e = mk("A2-01"); e.t.shield = true; const e0 = e.t.a; const P2 = [side(0, ["CS-G3", "A1-30"]), side(1, ["B1-01", e])]; fight(P2, 0, 2);
   ok(e.t.a === e0, "무효로 할 마법이 없으면 디버프 없음");`);
 
-// v3.78 [홀림]: 코인 뒷면 마법에 걸린 상대에게 마력 공격은 방어 전부
-T('홀림 · 코인 뒷면', `const a = setT(mk("G3-19"), 4, 0, 20), d = setT(mk("B2-01"), 0, 5, 30);
+// 2026-11-24 [홀림]을 걷어냈다: 코인 뒷면 · 공방 교환 · 다시 세우기는 원래 효과만, [마력 공격]은 늘 N까지
+T('홀림 없음 · 코인 뒷면', `const a = setT(mk("G3-19"), 4, 0, 20), d = setT(mk("B2-01"), 0, 5, 30);
   const X = fight([side(0, ["MG-07", a]), side(1, [d])], 0);
-  ok(/\\[마력 공격 \\+5 · 홀림\\]/.test(logs(X)), "홀린 방 5 상대 → 마력 공격 +5");
-  const a2 = setT(mk("G3-19"), 4, 0, 20), d2 = setT(mk("B2-01"), 0, 5, 30);
-  const X2 = fight([side(0, [a2]), side(1, [d2])], 0); ok(/\\[마력 공격 \\+1\\]/.test(logs(X2)), "홀리지 않으면 +1(마력 공격 1)까지");
-  ok(/\\[홀림\\]/.test(CARDS["MG-07"].text) && /\\[홀림\\]/.test(CARDS["NG3-2"].text), "코인 뒷면 · 자리 바꿈 마법 글에 [홀림]");`);
-// 뒤집힌 물거울: 상대 앞 2기 공 ↔ 방, 홀림 → 마력 공격이 바뀐 방어를 피해로
+  ok(/\\[마력 공격 \\+1\\]/.test(logs(X)) && !/홀림/.test(logs(X)) && !d.t.charm, "코인 뒷면에 걸린 방 5 상대 → 마력 공격 +1(N)까지");
+  ok(!/홀림/.test(CARDS["MG-07"].text + CARDS["NG3-2"].text + CARDS["SG3-02"].text + CARDS["MC-03"].text + CARDS["MG-11"].text + CARDS["RS-G3-3"].text), "마법 글에 [홀림] 없음");
+  ok((typeof SPELL_BRIEF === "undefined" || Object.keys(SPELL_BRIEF).every(k => !/홀림/.test(SPELL_BRIEF[k]))) && !SPELL_KW["홀림"] && !/홀림/.test(ITEM_KW["마력 공격"]), "핸드 글 · 키워드 뜻에 홀림 없음");
+  ok(typeof mrCharm === "undefined", "엔진 mrCharm 없음");`);
+// 뒤집힌 물거울: 상대 앞 2기 공 ↔ 방
 T('뒤집힌 물거울', `const a = setT(mk("G3-19"), 4, 0, 30), e1 = setT(mk("B1-01"), 5, 1, 30), e2 = setT(mk("B1-02"), 3, 0, 30), e3 = setT(mk("B1-03"), 2, 0, 30);
   const X = fight([side(0, ["MG-11", a]), side(1, [e1, e2, e3])], 0);
-  ok(e1.t.charm && e2.t.charm && !e3.t.charm && e2.t.d === 3 && e2.t.a === 0, "앞 2기 공방 교환 · 홀림 (" + [e1.t.a, e1.t.d, e2.t.a, e2.t.d] + ")");
-  ok(/\\[마력 공격 \\+5 · 홀림\\]/.test(logs(X)), "바뀐 방어 5가 마력 공격 피해로");`);
-// 뒤바뀐 물길: 자리가 바뀐 유닛만 홀림
-T('뒤바뀐 물길 홀림', `const a = setT(mk("B1-01"), 1, 3, 8), b = setT(mk("B1-02"), 5, 0, 2), c = setT(mk("B1-03"), 2, 1, 4);
-  const P = [side(0, ["MC-03"]), side(1, [a, b, c])]; fight(P, 1);
-  ok(!a.t.charm && b.t.charm && c.t.charm, "제자리 유닛은 홀리지 않음");`);
+  ok(e2.t.d === 3 && e2.t.a === 0 && e3.t.a === 2, "앞 2기 공방 교환 (" + [e1.t.a, e1.t.d, e2.t.a, e2.t.d] + ")");
+  ok(/\\[마력 공격 \\+1\\]/.test(logs(X)), "바뀐 방어 5에도 마력 공격은 N(1)까지");`);
+// 2026-11-24 [매혹]: 맞붙은 상대 카드의 코인 개수만큼 공격 +(최대 3), 공격 · 반격 모두
+T('매혹', `const cc = u => Math.min(3, (C(u).co || []).reduce((s, x) => s + x[1], 0));
+  const id = Object.keys(CARDS).find(k => CARDS[k].type === "unit" && !CARDS[k].gift && (CARDS[k].co || []).reduce((s, x) => s + x[1], 0) === 2);
+  const a = setT(mk("G3-01"), 3, 0, 30); a.item = { id: "PI-G3" }; a.t.gx = null; a.t.noCoin = true;
+  const d = setT(mk(id), 0, 1, 30); d.t.noCoin = true;
+  const X = fight([side(0, [a]), side(1, [d])], 0);
+  ok(cc(d) === 2 && /\\[매혹 \\+2\\]/.test(logs(X)), "상대 코인 2개 → 이 맞붙음 공격 +2 (" + logs(X).split("\\n").filter(l => /매혹/.test(l)).join(" / ") + ")");
+  ok(a.t.a === 3, "스탯은 그대로(맞붙음 계산에만)");
+  const b = setT(mk(id), 2, 0, 30); b.t.noCoin = true; const e = setT(mk("G3-01"), 1, 0, 30); e.item = { id: "PI-G3" }; e.t.noCoin = true;
+  const X2 = fight([side(0, [b]), side(1, [e])], 0);
+  ok(b.t.dmg === 1 + 2, "반격도: 공 1 + 매혹 2 → 피해 3 (" + b.t.dmg + ")");
+  const big = Object.keys(CARDS).find(k => CARDS[k].type === "unit" && (CARDS[k].co || []).reduce((s, x) => s + x[1], 0) >= 5);
+  ok(mrMesmerN(mk(big)) === 3, "코인 5개 상대도 +3까지");
+  ok(/코인 개수/.test(ITEM_KW["매혹"]) && !/홀림/.test(ITEM_KW["매혹"]), "매혹 글");`);
+// 2026-11-24 말풍선 시점 라벨: 공격 · 방어 · 공방 (js/cards.js ABIL_WHEN)
+ok(ctx.ev('abilWhen("[마력 공격 2]") === "atk" && abilWhen("매혹") === "both" && abilWhen("가시 1 +1C") === "both" && abilWhen("방패 반격") === "def" && abilWhen("영혼 강탈") === "both" && abilWhen("강탈") === "both" && abilWhen("가호 2") === "" && abilWhen("수호") === ""'), '능력 시점 분류');
+ok(ctx.ev('Object.values(ABIL_WHEN).flat().every(k => ITEM_KW[k] || SPELL_KW[k])'), '시점 표의 능력 이름은 모두 뜻이 있는 능력');
 // 치유를 걸어 주는 마법
 T('샘물 한 모금', `const d = setT(mk("G3-03"), 0, 0, 30), a1 = setT(mk("B1-01"), 3, 0, 9), a2 = setT(mk("B1-02"), 3, 0, 9);
   const X = fight([side(0, [a1, a2]), side(1, ["MG-03", d])], 0);
@@ -113,7 +126,7 @@ T('물의 장막', `const u1 = setT(mk("G3-03"), 0, 0, 10), u2 = setT(mk("G3-04"
 T('대해일 치유',`const u = setT(mk("G3-33"), 0, 0, 30); const X = fight([side(0, [mk("B1-02")]), side(1, ["RG3-1", u])], 0);
   ok(abilOf(u).heal === 1, "대해일 뒤 아군 [치유 1]");`);
 
-// 2026-11-24 [너울] · [물때 N] — 홀림과 따로 굴러가는 두 축
+// 2026-11-24 [너울] · [물때 N]
 ok(ctx.ev('CARDS["G3-41"].gift.swell && CARDS["EP-G3-2"].gift.swell && CARDS["G3-30"].gift.tidal === 2 && CARDS["G3-04"].gift.tidal === 1'), '[너울] · [물때] 카드');
 ok(ctx.ev('Object.entries(STARTER_DECKS.G3).every(([id]) => !CARDS[id].gift || (!CARDS[id].gift.swell && !CARDS[id].gift.tidal))'), '기본 덱(바닐라) 유닛엔 안 붙음');
 ok(ctx.ev('itemAbilities(CARDS["G3-30"].gift).includes("[물때 2]") && itemAbilities(CARDS["G3-07"].gift).includes("[너울]") && !!itemKwDesc("[너울]") && !!itemKwDesc("[물때 2]")'), '능력 칩 · 뜻');
@@ -122,7 +135,6 @@ T('너울', `const a = setT(mk("G3-07"), 3, 0, 20), a2 = setT(mk("B1-01"), 2, 0,
   const P = [side(0, [a, a2]), side(1, [t1, t2])]; const X = fight(P, 0); const L = logs(X).split("\\n"), n2 = C(t2).name, n1 = C(t1).name;
   ok(P[1].field.indexOf(t2) < P[1].field.indexOf(t1) || !t2.t.alive, "살아남은 맨 앞이 뒤로 밀려남");
   const k = L.findIndex(l => /^\\[너울\\]/.test(l)); ok(k > 0 && L.slice(k).some(l => l.startsWith(C(a2).name + "(") && l.includes("→ " + n2 + "(")), "둘째 공격은 뒤에 있던 유닛과 맞붙음");
-  ok(!t1.t.charm, "너울은 [홀림]을 걸지 않음");
   const f = setT(mk("B2-01"), 0, 0, 10), g = setT(mk("B2-02"), 0, 0, 10); f.t.gx = { firm: true };
   const P2 = [side(0, [setT(mk("G3-07"), 3, 0, 20)]), side(1, [f, g])]; fight(P2, 0);
   ok(P2[1].field.indexOf(f) === 0, "[굳건]은 밀리지 않음");

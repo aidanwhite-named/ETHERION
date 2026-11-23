@@ -487,7 +487,7 @@ function castSpellCore(X, caster, it, k) {
           if (blk) fl(X, u.uid, PIN_KO[u.t.floor[blk[0]].m] + " " + STAT_KO[blk[0]], "miss");
           break; }
         case "atk0": if (!op.coin || x > 0) { u.t.a = 0; applyFloor(u); fl(X, u.uid, u.t.a ? PIN_KO[u.t.floor.a.m] : "공격 0", u.t.a ? "miss" : "debuff"); } break;
-        case "swap": if (!u.t.lock) { const t = u.t.a; u.t.a = Math.max(0, u.t.d); u.t.d = t; applyFloor(u); fl(X, u.uid, "공방 교환", "debuff"); if (op.side === "foe") mrCharm(X, u); } break;   // v3.78 환상에 걸린 상대는 [홀림]
+        case "swap": if (!u.t.lock) { const t = u.t.a; u.t.a = Math.max(0, u.t.d); u.t.d = t; applyFloor(u); fl(X, u.uid, "공방 교환", "debuff"); } break;
         case "shield": if (!op.coin || x > 0) { u.t.shield = true; fl(X, u.uid, "보호막", "shield"); } break;
         case "thorns": u.t.thorns += x; fl(X, u.uid, "가시 +" + x, "buff"); break;
         case "taunt": u.t.taunt = true; break;
@@ -498,7 +498,7 @@ function castSpellCore(X, caster, it, k) {
           // v3.5.7 이미 던져 정해진 코인은 마법으로 바뀌지 않는다 (예전에는 앞면 몫을 빼고 뒷면으로 돌렸다)
           if ((u.t.coins || []).some(c => c.heads != null)) { fl(X, u.uid, "코인 고정", "miss"); break; }
           u.t.noCoin = true;
-          fl(X, u.uid, "코인 뒷면", "debuff"); if (op.side === "foe") mrCharm(X, u); break; }   // v3.78 코인이 뒷면이 된 상대는 [홀림]
+          fl(X, u.uid, "코인 뒷면", "debuff"); break; }
         case "rest": if (nwFirmVs(X, caster, u)) break; u.t.rest = true; fl(X, u.uid, "행동 불가", "debuff"); break;   // v3.74 [굳건]은 상대의 행동 불가를 받지 않는다
         case "strip": {   // v3.65.2 끄는 능력은 op.abs(없으면 STRIP_DEF) — 위 abilOf 설명
           const abs = op.abs || STRIP_DEF; u.t.off = Array.from(new Set((u.t.off || []).concat(abs)));
@@ -632,12 +632,12 @@ function attackOne(X, Au) {
     else if (td > 0) { hurt(X, thr, td, "투척"); if (!thr.t.alive) thr.t.killer = Au.uid; }
     else fl(X, thr.uid, "투척 막음", "miss");
   }
-  if (ab.mesmer) mrCharm(X, Du);   // v3.80 [매혹](노래 에픽 마렌시아의 비늘): 맞붙는 상대를 이번 턴 [홀림]으로 — 이 맞붙음의 [마력 공격]부터 셈
+  const mesA = ab.mesmer ? mrMesmer(X, Au, Du) : 0, aA = Au.t.a + mesA;   // 2026-11-24 [매혹]: 맞붙은 상대 카드의 코인 개수만큼 이 맞붙음의 공격 +(최대 3)
   let dd = Du.t.d;
   if (ab.magic) dd = 0;   // 2026-11-16 [방어무시]: 공격할 때 상대 방어를 전부 무시한다
-  const arc = mrArc(Au.t.a, ab.arcane > 0 ? Du.t.d : dd, ab.arcane, Du.t.charm);   // v3.95 [마력 공격 N]: 공격 + 상대 방어(N까지) · v3.78 [홀림] 상대면 방어 전부
+  const arc = mrArc(aA, ab.arcane > 0 ? Du.t.d : dd, ab.arcane);   // v3.95 [마력 공격 N]: 공격 + 상대 방어(N까지)
   let dealt = arc.dmg + spHunt(X, Au, Du) + kzConduct(X, Au, Du), crit = false, got = 0;   // v3.81 [불꽃 사냥]
-  const blocked = ab.arcane > 0 && Au.t.a > 0 ? 0 : Math.min(Math.max(0, Au.t.a), Math.max(0, dd));   // v3.95 [마력 공격]은 방어에 막히지 않는다   // v3.81 [되받기]: 상대 방어가 막아 낸 몫
+  const blocked = ab.arcane > 0 && aA > 0 ? 0 : Math.min(Math.max(0, aA), Math.max(0, dd));   // v3.95 [마력 공격]은 방어에 막히지 않는다   // v3.81 [되받기]: 상대 방어가 막아 낸 몫
   X.clash = [Au, Du];   // v3.68 [치유]: 이 맞붙음에서 살아남은 쪽이 체력을 채운다(runCombatCore가 attackOne 뒤에)
   if (dealt > 0 && Du.t.alive && uEyeTry(X, Du)) { dealt = 0; fl(X, Du.uid, "빗나감", "miss"); lg(X, `[폭풍의 눈] ${ca.name}의 공격이 바람에 빗나갔다`, "good"); }   // v3.31
   dealt = abVeil(X, Au, Du, dealt);   // v3.65 [그림자 걸음]
@@ -650,8 +650,8 @@ function attackOne(X, Au) {
     // v3.9.6 [치명]: 코인 없이, 피해가 들어갔고(보호막 · 가호에 다 막히지 않음) 상대가 살아 있으면 남은 체력을 1로.
     // 원래 피해로 쓰러지면 그대로 쓰러진다. 예전에는 코인 앞면이면 피해 2배라 공격이 큰 유닛에게 너무 셌다
     if (ab.crit && got > 0 && Du.t.alive && hpLeft(Du) > 1) { const cut = hpLeft(Du) - 1; Du.t.dmg += cut; got += cut; crit = true; fl(X, Du.uid, "치명 ♥1", "dmg big"); }
-    if (ab.shred && Du.t.d > 0 && Au.t.a > 0) { const red = Math.min(Au.t.a, Du.t.d); Du.t.d -= red; applyFloor(Du); if (red) fl(X, Du.uid, "관통 ⛨−" + red, "debuff"); }
-    lg(X, `${ca.name}(공 ${Au.t.a}) → ${cd.name}(방 ${dd}): 피해 ${got}${crit ? " (치명)" : ""}${arc.bonus ? ` [마력 공격 +${arc.bonus}${Du.t.charm ? " · 홀림" : ""}]` : ""}`);
+    if (ab.shred && Du.t.d > 0 && aA > 0) { const red = Math.min(aA, Du.t.d); Du.t.d -= red; applyFloor(Du); if (red) fl(X, Du.uid, "관통 ⛨−" + red, "debuff"); }
+    lg(X, `${ca.name}(공 ${aA}) → ${cd.name}(방 ${dd}): 피해 ${got}${crit ? " (치명)" : ""}${mesA ? ` [매혹 +${mesA}]` : ""}${arc.bonus ? ` [마력 공격 +${arc.bonus}]` : ""}`);
     // v3.13.2 [연쇄]: 이 공격으로 맞선 유닛을 쓰러뜨리고 피해가 남으면, 남은 피해로 대기열의 다음 상대 유닛 하나를 친다.
     // 그 유닛의 방어만큼 줄고(마력 공격은 여기에도 적용), 반격 · 가시는 없다. 가호에 줄어든 몫은 남은 피해에서 빠진다
     if (ab.chain && !Du.t.alive && got > hpBefore) {
@@ -665,8 +665,8 @@ function attackOne(X, Au) {
       }
     }
     if (behind && behind.t.alive) {
-      const pr = hit(Au.t.a, behind.t.d);
-      lg(X, `[꿰뚫기] ${ca.name}의 공격이 ${C(behind).name}까지 꿰뚫었다 (공 ${Au.t.a} → 방 ${behind.t.d})`);
+      const pr = hit(aA, behind.t.d);
+      lg(X, `[꿰뚫기] ${ca.name}의 공격이 ${C(behind).name}까지 꿰뚫었다 (공 ${aA} → 방 ${behind.t.d})`);
       if (pr > 0) { hurt(X, behind, pr, "꿰뚫기"); if (!behind.t.alive) { behind.t.killer = Au.uid; behind.t.killVia = "pierce"; } } else fl(X, behind.uid, "막음", "miss");
     }
     uOnHit(X, Au, Du, got);   // v3.31 [불씨 전염] · [계약의 낙인] 표시, 쓰러뜨린 유닛 기록
@@ -685,11 +685,11 @@ function attackOne(X, Au) {
   else step(X, thr ? { act: Au.uid, tgt: Du.uid, hit: true, thr: thr.uid } : { act: Au.uid, tgt: Du.uid, hit: true }, 520);
   if (Du.t.alive && Au.t.alive && !Du.t.rest && !C(Du).still && !Du.t.noCounter) {   // noCounter: 반격하지 않는 유닛 (v3.65 환각이 쓰다가 뺐다 — 지금 거는 곳 없음)
     if (ab.ranged) { lg(X, `[원거리] ${ca.name}은(는) 반격을 받지 않는다`, "sys"); return; }   // 2026-11-22 [요격](원거리에게도 반격)은 걷어냄 → 케라운 [전도]
-    if (abilOf(Du).mesmer) mrCharm(X, Au);   // v3.80 [매혹]: 반격할 때도 맞붙은 상대를 [홀림]으로
+    const mesD = abilOf(Du).mesmer ? mrMesmer(X, Du, Au) : 0;   // 2026-11-24 [매혹]: 반격할 때도 맞붙은 상대 코인 개수만큼 공격 +
     const bash = abilOf(Du).bash ? Math.max(0, Du.t.d) : 0;   // v3.74 [방패 반격]: 반격 피해에 지금 방어를 더한다(관통에 깎인 뒤의 값)
     if (bash) lg(X, `[방패 반격] ${cd.name}의 반격에 방어 ${bash}를 더한다`, "sys");
     const cMagic = !!abilOf(Du).magic;   // v3.95 (사용자): [방어무시]는 반격에도 — 공격한 유닛의 방어를 0으로 친다
-    const back = abVeil(X, Du, Au, hit(Du.t.a + bash, cMagic ? 0 : Au.t.d) + spHunt(X, Du, Au) + kzConduct(X, Du, Au));   // 2026-11-22 [전도]도 반격에 · v3.81 [불꽃 사냥]은 반격에도 · v3.65 [그림자 걸음] · v3.95 [마력 공격]은 반격에 붙지 않는다(사용자)
+    const back = abVeil(X, Du, Au, hit(Du.t.a + mesD + bash, cMagic ? 0 : Au.t.d) + spHunt(X, Du, Au) + kzConduct(X, Du, Au));   // 2026-11-22 [전도]도 반격에 · v3.81 [불꽃 사냥]은 반격에도 · v3.65 [그림자 걸음] · v3.95 [마력 공격]은 반격에 붙지 않는다(사용자)
     const auHp = hpLeft(Au);   // 2026-11-17 [흡혈]: 반격 맞기 전 체력 (흡혈 상한)
     const g = back > 0 ? hurt(X, Au, back, "반격") : (fl(X, Au.uid, "반격 0", "miss"), 0);
     abLeech(X, Du, g, auHp);   // v3.65 [흡혈]: 반격도 맞붙은 피해
@@ -981,7 +981,6 @@ const SPELL_OPS = {
     if (L.length < 2) return;
     const a = L[0][1], b = L[L.length - 1][1];
     [o.field[a], o.field[b]] = [o.field[b], o.field[a]];
-    mrCharm(X, o.field[a]); mrCharm(X, o.field[b]);   // v3.78 [홀림]
     fl(X, o.field[a].uid, "앞으로", "debuff"); lg(X, `${C(o.field[a]).name} ↔ ${C(o.field[b]).name} 자리 바꿈`, "sys");
   },
   /* 아군 중 가장 단단한 유닛이 [수호]로 맨 앞에, 방어 +d: { d } */
@@ -1022,7 +1021,7 @@ const SPELL_OPS = {
   confuse(X, caster, it, k, op) {
     const Q = queueOf(X.P[1 - caster]), u = Q[0];
     if (!u) { lg(X, "환각에 빠뜨릴 상대 유닛이 없다", "sys"); return; }
-    fl(X, u.uid, "환각", "debuff"); mrCharm(X, u);   // v3.78 [홀림]
+    fl(X, u.uid, "환각", "debuff");
     const v = Q[1];
     if (!v) { lg(X, `${C(u).name}이(가) 환각에 빠졌지만 곁에 칠 아군이 없다`, "sys"); return; }
     step(X, { act: u.uid, tgt: v.uid }, 380);
@@ -1161,7 +1160,6 @@ const SPELL_OPS_2 = {
       const nv = {}; nv[op.x] = statNow(u, op.y); nv[op.y] = statNow(u, op.x);
       if (nv.d != null) nv.d = nv.d; if (nv.a != null) nv.a = Math.max(0, nv.a);
       setStats(X, u, nv, STAT_KO[op.x][0] + STAT_KO[op.y][0] + " 교환");
-      if ((op.side || "foe") === "foe") mrCharm(X, u);   // v3.78 [홀림]
     }
   },
   /* v3.67 뼈 부수기(js/orc.js): 방어가 0 이하인 상대 유닛 가운데 공격이 가장 높은 n기의 방어와 남은 체력을 맞바꾼다 —
@@ -1752,18 +1750,25 @@ function abOffer(X, o, v) {
    [바다의 보호 N] 오라: 이 유닛이 전장에 살아 있는 동안 양옆 N칸 안의 아군 유닛(마법 칸은 세지 않음)이 받는 피해 −1.
      맞붙음 · 마법 · 가시 모두. 한 번 쓰고 사라지지 않는다. 오라가 여럿이면 더한다. */
 const MR_CALM_CUT = 1;
-function mrArc(a, d, n, charm) {   // charm: 상대가 [홀림]이면 N과 상관없이 방어 전부(v3.78)
-  // v3.95 (사용자): [마력 공격 N]은 상대 방어에 막히지 않고, 상대 방어(N까지 · 홀리면 전부)를 공격에 더해 체력을 깎는다. 공 5 · 방 2(N ≥ 2) → 7. 반격에는 붙지 않는다(attackOne)
+function mrArc(a, d, n) {
+  // v3.95 (사용자): [마력 공격 N]은 상대 방어에 막히지 않고, 상대 방어(N까지)를 공격에 더해 체력을 깎는다. 공 5 · 방 2(N ≥ 2) → 7. 반격에는 붙지 않는다(attackOne)
+  // 2026-11-24 [홀림]을 걷어냈다(사용자 — "간단하게"): 홀린 상대면 방어 전부를 더하던 연계가 없어졌다
   if (!(n > 0 && a > 0)) return { dmg: hit(a, d), bonus: 0 };
-  const bonus = charm ? Math.max(0, d) : Math.min(n, Math.max(0, d));
+  const bonus = Math.min(n, Math.max(0, d));
   return { dmg: a + bonus, bonus };
 }
-/* v3.78 [홀림]: 인어의 환상에 걸린 상대 유닛(이번 턴). 코인을 뒷면으로 만드는 마법(clean) · 공방 교환(swap) · 공체 교환(swapSt · randSwap) ·
-   자리 바꿈(swapPos · sortFoe에서 자리가 바뀐 유닛) · 환각(confuse). [마력 공격 N]은 홀린 상대에게 N과 상관없이 방어 전부를 피해에 더한다.
-   t.charm은 resetTurn이 t를 새로 만들 때 사라진다. 무작위 없음 */
-function mrCharm(X, u) {
-  if (!u || !u.t || !u.t.alive || u.t.charm) return;
-  u.t.charm = true; fl(X, u.uid, "홀림", "debuff");
+/* 2026-11-24 [매혹](노래 에픽 마렌시아의 비늘, 사용자 결정 — 홀림 디버프를 없애고 그 자체로): 맞붙을 때(공격 · 반격)
+   맞붙은 상대 유닛 카드에 그려진 코인 개수(유닛 코인 + 장착 아이템 코인, 앞면 · 뒷면 상관없음)만큼 그 맞붙음의 공격 +, 최대 MR_MESMER_MAX.
+   유닛 카드 코인은 대부분 2~3개라 상한 3이면 거의 그대로 센다. 스탯을 바꾸지 않고 그 맞붙음 피해 계산에만 더한다 */
+const MR_MESMER_MAX = 3;
+function mrMesmerN(u) {
+  const n = k => (k || []).reduce((s, x) => s + x[1], 0);
+  return Math.min(MR_MESMER_MAX, n(C(u).co) + (u.item && CARDS[u.item.id] ? n(CARDS[u.item.id].co) : 0));
+}
+function mrMesmer(X, me, foe) {
+  const n = mrMesmerN(foe);
+  if (n > 0) fl(X, me.uid, "매혹 ⚔+" + n, "buff");
+  return n;
 }
 function mrCalm(X, u) {
   if (!X || !X.P) return 0;
@@ -1804,7 +1809,7 @@ Object.assign(SPELL_OPS, {
     const L = liveUnits(X.P[1 - caster]).slice(), pick = [];
     while (L.length && pick.length < (op.n || 1)) pick.push(L.splice(Math.floor(RNG() * L.length), 1)[0]);
     if (!pick.length) { lg(X, "공격과 체력을 바꿀 상대 유닛이 없다", "sys"); return; }
-    for (const u of pick) { setStats(X, u, { a: Math.max(0, hpLeft(u)), h: Math.max(0, u.t.a) }, "공체 교환"); mrCharm(X, u); }
+    for (const u of pick) { setStats(X, u, { a: Math.max(0, hpLeft(u)), h: Math.max(0, u.t.a) }, "공체 교환"); }
   },
   mindCapture(X, caster, it, k, op) {
     const p = X.P[caster], o = X.P[1 - caster];
@@ -1850,7 +1855,7 @@ Object.assign(SPELL_OPS, {
     o.field.forEach((c, i) => { if (isUnit(c) && c.t && c.t.alive && !nwFirm(c)) { slots.push(i); us.push(c); } });   // v3.74 [굳건] 유닛은 제자리(나머지만 다시 세운다)
     if (us.length < 2) { lg(X, "상대 유닛이 둘보다 적어 물길이 바뀌지 않았다", "sys"); return; }
     const byHp = op.by === "hp", w = u => byHp ? hpLeft(u) : u.t.d + hpLeft(u), sg = op.asc ? -1 : 1,   /* v3.95 오크 by:"hp": 남은 체력만 본다(사냥감 몰이) */ sorted = us.map((u, i) => [u, i]).sort((a, b) => sg * (w(b[0]) - w(a[0])) || (a[1] - b[1])).map(x => x[0]);   // v3.82 asc: 낮은 순(사냥감 몰이)
-    slots.forEach((s, i) => { o.field[s] = sorted[i]; if (sorted[i] !== us[i] && !op.asc) mrCharm(X, sorted[i]); });   // v3.78 자리가 바뀐 유닛은 [홀림](인어 뒤바뀐 물길만)
+    slots.forEach((s, i) => { o.field[s] = sorted[i]; });
     lg(X, `상대 유닛을 ${byHp ? "남은 체력이" : "방어 + 체력이"} ${op.asc ? "낮은" : "높은"} 순으로 다시 세웠다: ${sorted.map(u => `${C(u).name}(${w(u)})`).join(" → ")}`, "sys");
     fl(X, sorted[0].uid, "맨 앞으로", "debuff");
     step(X, {}, 520);
@@ -2949,9 +2954,9 @@ function kzShockEnd(X) {
 }
 
 /* ---------- 2026-11-24 인어 [너울] · [물때 N] (카드 데이터는 js/mermaid.js 끝 "물결의 두 얼굴" 절) ----------
-   인어가 [홀림] 콤보 하나만 보고 간다는 사용자 의견에 따라, 홀림과 상관없이 굴러가는 바다의 두 축을 더했다.
+   인어가 [홀림] 콤보 하나만 보고 간다는 사용자 의견에 따라 바다의 두 축을 더했다(같은 날 [홀림]은 아예 걷어냈다).
    [너울] swell        이 유닛이 맞붙어 공격한 상대 유닛이 살아남으면, 그 유닛을 바로 뒤 상대 유닛과 자리를 바꿔 밀어낸다(마법 칸은 건너뜀).
-                       환상이 아니라 물의 힘이라 [홀림]을 걸지 않는다. [굳건] 유닛은 밀리지도, 자리를 내주지도 않는다(그 뒤 유닛과 바꾼다).
+                       [굳건] 유닛은 밀리지도, 자리를 내주지도 않는다(그 뒤 유닛과 바꾼다).
                        공격할 때만(반격엔 없음). 뒤에 유닛이 없으면 아무 일도 없다. → 버티는 앞 유닛을 치우고 뒤의 약한 유닛을 다음 공격자 앞에 세운다.
    [물때 N] tidal      전투가 시작될 때, 내가 공격하는 턴(밀물)이면 공격 +N, 방어하는 턴(썰물)이면 방어 +N(이번 턴). t.tide에 "in" · "out".
    mrTideNow { n, more }: 마법(물때의 노래) — 아군 전체에게 지금 바로 물때 n을 한 번, [물때] 유닛은 more를 더. */

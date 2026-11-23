@@ -2113,7 +2113,6 @@ function fieldCardHTML(it, p, s) {
     { const fb = FX.blood[it.uid], nb = G.phase === "combat" || !fb ? (it.t.blood ? it.t.blood.length : 0) : fb.v.length;   // v3.87 [피의 맹세] 피(🩸): 전투 중엔 결속 · 옮겨 받은 피, 다음 턴 준비 때는 사라지며 공격이 오르는 동안(bloodRiseFx)
       if (nb) badges += `<span class="bd bd-blood" data-tip="${esc(`피 ${nb}개 (피의 맹세)\n결속한 아군이 쓰러지면 가진 피가 모두 바로 뒤 아군에게 옮겨 간다. 남의 피를 머금고 전투에서 살아남으면 다음 턴 준비 때 그 피 주인들이 쓰러질 때의 공격만큼 공격이 오른다(그 턴만).`)}">${nb > 3 ? "🩸×" + nb : "🩸".repeat(nb)}</span>`; }
     if (it.t.rest) badges += '<span class="bd bd-rest" data-tip="✖ 행동 불가\n이번 턴에는 공격하지 못한다">✖</span>';
-    if (it.t.charm) badges += `<span class="bd bd-charm" data-tip="∿ 홀림\n${esc(SPELL_KW["홀림"])}">∿</span>`;   // v3.78 인어 [홀림] (engine mrCharm)
     if (it.t.tide) badges += `<span class="bd bd-tide" data-tip="${esc(it.t.tide === "in" ? "≋ 밀물\n물때를 받아 이번 턴 공격이 올랐다." : "≋ 썰물\n물때를 받아 이번 턴 방어가 올랐다.")}">≋</span>`;   // 2026-11-24 인어 [물때] (engine mrTideOne)
     if (typeof a3HasBow === "function" && a3HasBow(it)) badges += `<span class="bd bd-bow" data-tip="🏹 활\n${esc(SPELL_KW["활"])}">🏹</span>`;   // v3.93 벨루미르의 별 [활] (engine a3HasBow)
     if (c.tok) badges += `<span class="bd bd-tok" data-tip="✧ 마법이 부른 유닛${it.tokTemp ? "\n이번 턴만 전장에 있다" : ""}">✧</span>`;
@@ -3439,6 +3438,55 @@ function throwHit(tgt, actUid) {
   shakeEl(t, 8);
   if (typeof IMPACT !== "undefined") IMPACT.strike(uidEl(actUid), t, Object.assign({ light: true }, impInfo(tgt)));   // v3.13
 }
+/* 2026-11-24 [사격] 총 쏘기 (연출 고사양 "rich"에서만 — html.fx-high): 유닛이 몸으로 뛰어드는 대신, 쏘는 카드 위에 흐릿한 총이 떠올라
+   대상 카드를 겨누고 쏜다(반동 · 총구 불꽃 · 탄 궤적). 맞는 수(hit)는 gunHit — 대상 카드에 불꽃 · 흔들림. 중간 · 저사양 · 폰은 예전 그대로 */
+const fxRich = () => document.documentElement.classList.contains("fx-high") && !document.documentElement.classList.contains("mobile");
+const GUN_SVG = '<svg viewBox="0 0 120 60" aria-hidden="true"><defs><linearGradient id="gunMetal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5b6575"/><stop offset=".45" stop-color="#2a313c"/><stop offset="1" stop-color="#11151b"/></linearGradient></defs><g fill="url(#gunMetal)" stroke="var(--el,#ffd27a)" stroke-width="1.6" stroke-linejoin="round"><path d="M14 9h94l5 4v10H14z"/><path d="M103 5h6v4h-6zM18 6h7v3h-7z"/><path d="M28 23h58v6H60c0 9-5 13-13 13l-6 16H20l8-27z"/><path d="M60 29c1 8 7 11 16 9v-9" fill="none"/></g><path d="M20 13h84" stroke="#cfd8e6" stroke-width="1.2" opacity=".55"/></svg>';
+function gunShot(actUid, tgt, dur, kind) {
+  const a = uidEl(actUid), t = targetEl(tgt), layer = fxLayer();
+  if (!a || !t || !layer) return;
+  const ar = a.getBoundingClientRect(), from = ctrOf(ar), to = ctrOf(t.getBoundingClientRect());
+  const L0 = Math.hypot(to.x - from.x, to.y - from.y) || 1;
+  from.x += (to.x - from.x) / L0 * ar.height * 0.34; from.y += (to.y - from.y) / L0 * ar.height * 0.34;   // 총은 카드 가장자리(대상 쪽)에 뜬다 — 그림 한가운데를 가리지 않게
+  const dx = to.x - from.x, dy = to.y - from.y, L = Math.hypot(dx, dy) || 1, ux = dx / L, uy = dy / L;
+  const ang = Math.atan2(dy, dx) * 180 / Math.PI, flip = Math.abs(ang) > 90 ? -1 : 1;
+  const w = Math.max(96, ar.width * 0.9);
+  const g = document.createElement("div");
+  g.className = "gun-ghost";
+  g.style.cssText = `left:${from.x - w / 2}px;top:${from.y - w * 0.25}px;width:${w}px;--el:${elColor(a)};rotate:${ang.toFixed(1)}deg`;   // 총 그림 120×60 → 높이 0.5w, 가운데가 쏘는 카드 위
+  g.innerHTML = `<div style="transform:scaleY(${flip})">${GUN_SVG}</div>`;
+  layer.appendChild(g);
+  const fireAt = 0.5;   // 겨누고(0~50%) 쏘고 반동, 남은 시간에 궤적이 대상에 닿는다
+  g.animate([
+    { opacity: 0, scale: "0.7", translate: "0px 0px" },
+    { offset: 0.3, opacity: 0.85, scale: "1", translate: "0px 0px" },
+    { offset: fireAt, opacity: 0.88, scale: "1", translate: "0px 0px" },
+    { offset: fireAt + 0.06, opacity: 0.95, scale: "1.04", translate: `${-ux * 16}px ${-uy * 16}px` },
+    { offset: 0.8, opacity: 0.75, scale: "1", translate: `${-ux * 4}px ${-uy * 4}px` },
+    { opacity: 0, scale: "0.96", translate: "0px 0px" }
+  ], { duration: dur * 1.5, easing: "ease-out", fill: "forwards" });
+  setTimeout(() => g.remove(), dur * 1.5 + 60);
+  setTimeout(() => {
+    const mx = from.x + ux * w * 0.45, my = from.y + uy * w * 0.45, rest = Math.max(1, L - w * 0.45);   // 총구(그림 오른쪽 끝)
+    const fl = document.createElement("div");
+    fl.className = "gun-flash"; fl.style.cssText = `left:${mx}px;top:${my}px;rotate:${ang.toFixed(1)}deg`;
+    layer.appendChild(fl); setTimeout(() => fl.remove(), 260);
+    const tr = document.createElement("div");
+    tr.className = "gun-tracer"; tr.style.cssText = `left:${mx}px;top:${my}px;width:${rest}px;rotate:${ang.toFixed(1)}deg`;
+    layer.appendChild(tr);
+    tr.animate([{ scale: "0 1", opacity: 1 }, { offset: 0.55, scale: "1 1", opacity: 1 }, { scale: "1 0.3", opacity: 0, translate: `${ux * rest * 0.2}px ${uy * rest * 0.2}px` }], { duration: Math.max(140, dur * 0.42), easing: "cubic-bezier(.2,.7,.3,1)", fill: "forwards" }).onfinish = () => tr.remove();
+    atkSfx(actUid, "out", 0.8, kind);
+  }, dur * fireAt);
+}
+function gunHit(actUid, tgt, dur, kind) {
+  const t = targetEl(tgt); if (!t) return;
+  const r = t.getBoundingClientRect(), c = ctrOf(r), col = elColor(uidEl(actUid));
+  burst(c.x, c.y, "hit", Math.max(110, r.width * 1.7), col);
+  shakeEl(t, 9);
+  atkSfx(actUid, "hit", 1, kind);
+  setTimeout(() => cardSfx(tgt, "def", 0.75), 70); abilSfx(actUid, tgt, false);
+  if (typeof IMPACT !== "undefined") IMPACT.strike(uidEl(actUid), t, Object.assign({ col, light: true }, impInfo(tgt)));
+}
 function strikeHit(actUid, tgt, dur, kind) {
   const t = targetEl(tgt);
   let s = FX.sprite;
@@ -3757,6 +3805,7 @@ function combatFx() {
   if (fx.reveal) { arenaArt(fx.reveal, "spell", dur * 1.8); revealFx(fx.reveal, dur); spellTitle(fx.reveal, dur * 1.75); if (typeof SpellFX !== "undefined") SpellFX.reveal(fx.reveal, dur); return; }
   if (fx.counter) { arenaArt(fx.counter, "counter", dur * 1.3); counterStrike(fx.counter, fx.act, dur); return; }
   const ak = fx.act != null ? atkKindOf(fx.act, fx.sn) : null;   // v3.7.1 공격 소리 종류 (fx.sn = [사격])
+  if (fx.sn && typeof fx.tgt === "number" && fxRich()) { if (!fx.hit) { arenaArt(fx.act, "attack", dur * 2.5); gunShot(fx.act, fx.tgt, dur, ak); } else gunHit(fx.act, fx.tgt, dur, ak); return; }   // 2026-11-24 고사양: [사격]은 총을 쏜다
   if (fx.act && fx.tgt != null && !fx.hit) { arenaArt(fx.act, "attack", dur * 2.5); strikeOut(fx.act, fx.tgt, dur, ak); if (fx.thr != null) throwShot(fx.act, fx.thr, dur); }
   else if (fx.act && fx.tgt != null && fx.hit) { strikeHit(fx.act, fx.tgt, dur, ak); if (fx.thr != null && fx.thr !== fx.tgt) throwHit(fx.thr, fx.act); }
 }

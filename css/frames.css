@@ -161,7 +161,7 @@ html.mobile .card.size-full.has-frame .c-art .c-spfx { box-shadow: inset 0 0 0 .
    1) 코인 아이콘(공 · 방 · 체 · 코인 점)을 글자 높이에 맞춤 — 코인 줄 .sti 1.05em → .86em · 점 .78em → .7em, 마법 문구 속 .sti 1.22em → .96em(세로 가운데)
    2) 핸드: 종류 띠 아래 여백 · 아이콘을 줄이고, 칸 사이 · 마법 문구 줄간격을 조인다
    3) 핸드도 전장처럼 넘치는 칩 · 코인 줄은 fitFieldBox(--chs), 긴 마법 문구는 fitBriefs가 .8배까지 줄이고, 그래도 넘치면 키워드 칩 줄(fit-nochip) · 종류 띠(fit-noband)를 차례로 숨기고 다시 맞춘다(마지막 .7배, js/view.js)
-   4) 문구에 괄호 없이 적힌 키워드("· 홀림")는 칩으로 다시 쓰지 않는다(view.js cardHTML) */
+   4) 문구에 괄호 없이 적힌 키워드("· 수호")는 칩으로 다시 쓰지 않는다(view.js cardHTML) */
 .card.fm .c-coinline, .slot .card.fm .c-coinline { line-height: 1; row-gap: .06em; }
 .card.fm .c-coinline .sti, .slot .card.fm .c-coinline .sti { width: .86em; height: .86em; }
 .card.fm .c-coinline .coin-dot { width: .7em; height: .7em; }

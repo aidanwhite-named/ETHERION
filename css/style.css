@@ -410,7 +410,7 @@ input:focus { border-color: var(--gold); outline: none; }
 .float.debuff { color: #c9a2ff; font-size: 16px; font-family: var(--body); }
 .ether.short { border-color: var(--bad); box-shadow: 0 0 14px rgba(239, 106, 92, .35) inset; }
 .ether.short .ether-n b { color: var(--bad); }
-.bd-lock { color: #9fd3ff; } .bd-thorn { color: #8fe08f; } .bd-rest { color: #ff9f93; } .bd-charm { color: #a9c8ff; }   /* v3.78 인어 [홀림] */ .bd-tide { color: #7fe3d4; }   /* 2026-11-24 인어 [물때] */ .bd-bow { color: #ffe6a8; }   /* v3.93 별 [활] */
+.bd-lock { color: #9fd3ff; } .bd-thorn { color: #8fe08f; } .bd-rest { color: #ff9f93; } .bd-tide { color: #7fe3d4; }   /* 2026-11-24 인어 [물때] */ .bd-bow { color: #ffe6a8; }   /* v3.93 별 [활] */
 .ed-mix { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; color: var(--ink-2); margin-bottom: 8px; }
 .ed-mix b { font-family: var(--caps); color: var(--ink); }
 .ed-q { width: 180px; padding: 6px 10px; font-size: 14px; }
@@ -1069,6 +1069,9 @@ html[data-font="system"] { --kfont: "Batang", "바탕", "AppleMyungjo"; }
 #tip { position: fixed; z-index: 300; pointer-events: none; max-width: 380px; padding: 9px 13px; display: grid; gap: 3px; background: rgba(14, 13, 22, .97); border: 1px solid var(--line-gold); border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, .6); font-size: 15px; line-height: 1.5; color: var(--ink-2); white-space: normal; word-break: keep-all; }
 #tip b { color: var(--gold-hi); font-size: 16px; }
 #tip[hidden] { display: none; }
+/* 2026-11-24 능력 쓰이는 때 라벨(js/view.js tipWhenTag): 공격 = 공 색 · 방어 = 방 색 · 공방 = 금. 이름 앞 작은 알약, 줄을 넓히지 않게 글자 12px */
+#tip .tip-when { display: inline-block; font-style: normal; font-weight: 700; font-size: 12px; line-height: 1.35; padding: 0 .45em; margin-right: .4em; border-radius: 999px; vertical-align: .12em; border: 1px solid currentColor; background: rgba(255, 255, 255, .06); white-space: nowrap; }
+#tip .tip-when.w-atk { color: #ff9a7a; } #tip .tip-when.w-def { color: #8fc0ff; } #tip .tip-when.w-both { color: #e9c87a; }
 
 /* 덱 조정실: 1.5배 크게, 보유 카드에 − / + */
 .screen-editor > .ed-bar, .screen-editor > .editor { zoom: 1.5; --cz: 1.5; }
@@ -1817,6 +1820,17 @@ body.is-dragging .hand-me .hand-slot .hand-card { transition: transform .2s ease
 /* v1.6.2 [투척]: 공격과 함께 날아가는 투척물 */
 .throw-shot { position: fixed; z-index: 79; width: 18px; height: 18px; margin: -9px 0 0 -9px; pointer-events: none; border-radius: 3px;
   background: radial-gradient(circle at 35% 35%, #fff6d8, #ffb347 55%, #b8561d); box-shadow: 0 0 10px 3px rgba(255, 170, 70, .75); transform: rotate(45deg); }
+
+/* 2026-11-24 [사격] 총 쏘기 (고사양 연출에서만, js/game.js gunShot): 흐릿한 총 · 총구 불꽃 · 탄 궤적 */
+.gun-ghost { position: fixed; z-index: 80; pointer-events: none; transform-origin: 50% 50%;
+  filter: blur(.7px) drop-shadow(0 0 6px var(--el, #ffd27a)) drop-shadow(0 2px 4px rgba(0, 0, 0, .7)); }
+.gun-ghost svg { display: block; width: 100%; height: auto; overflow: visible; }
+.gun-flash { position: fixed; z-index: 81; pointer-events: none; width: 76px; height: 44px; margin: -22px 0 0 -8px; transform-origin: 8px 50%; border-radius: 50%;
+  background: radial-gradient(closest-side at 30% 50%, #fff 0 25%, #ffe9a8 45%, rgba(255, 160, 60, .85) 70%, rgba(255, 120, 40, 0) 100%);
+  animation: gunFlash .24s ease-out forwards; }
+@keyframes gunFlash { from { opacity: 1; scale: .5 1; } 30% { opacity: 1; scale: 1.2 1.15; } to { opacity: 0; scale: 1.4 .6; } }
+.gun-tracer { position: fixed; z-index: 80; pointer-events: none; height: 4px; margin-top: -2px; transform-origin: 0 50%; border-radius: 2px;
+  background: linear-gradient(90deg, rgba(255, 220, 140, 0), rgba(255, 236, 180, .8) 60%, #fff); box-shadow: 0 0 10px 2px rgba(255, 200, 110, .7); }
 
 /* v1.7 움직임 (js/game.js swapPreview·handReorder·suckRing, js/feel.js FEEL.t)
    자리 바꾸기: 옮긴 카드(.lift)는 늘 위, 밀려난 카드(.under)는 그 뒤로 지나간다 */

@@ -344,7 +344,7 @@ function cardHTML(c, opts) {
   // 2026-11-18 카드에 새겨진 표시(🔒 ▲ ▼)는 칩으로 적지 않는다 — 숫자 옆 아이콘과 그 말풍선이 뜻을 맡는다(사용자)
   if (isI) chips += itemAbilities(c.item).filter(raw => !isPinAb(raw)).map(raw => `<span class="c-cls c-ab" data-tip="${esc(raw + " " + (itemKwDesc(raw) || c.item.evText || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`).join("");
   // v3.60 짧은 문구가 있는 작은 카드: 문구에 이미 적힌 키워드 · "해제"로 적힌 끄는 키워드는 칩으로 다시 쓰지 않는다(칩 글자를 키운 만큼 자리를 아낌).
-  // 2026-11-24 숫자 없는 키워드는 괄호 없이 적혀 있어도("· 홀림" · "· 수호") 뺀다 — 폰 핸드에서 칩 한 줄이 마법 문구를 상자 밖으로 밀었다
+  // 2026-11-24 숫자 없는 키워드는 괄호 없이 적혀 있어도("· 수호") 뺀다 — 폰 핸드에서 칩 한 줄이 마법 문구를 상자 밖으로 밀었다
   const bsrc = isS && size !== "lg" && typeof SPELL_BRIEF !== "undefined" && SPELL_BRIEF[c.id] || "";
   if (isS) { const off = spellKwOff(c); chips += spellKwList(c).filter(raw => !bsrc || !(bsrc.includes(raw) || !/\d/.test(raw) && bsrc.includes(raw.slice(1, -1)) || off.has(raw) && /해제/.test(bsrc))).map(raw => off.has(raw)   // v3.31.4 상대의 능력을 끄는 키워드는 빨간 칩
     ? `<span class="c-cls c-ab c-off" data-tip="${esc("상대 유닛의 " + raw + "을(를) 끈다.\n" + raw + " " + (spellKwDesc(raw.replace(/^\[|\]$/g, "")) || ""))}">${esc(raw.replace(/^\[|\]$/g, ""))}</span>`
@@ -868,6 +868,12 @@ function bindPreview(root, opts) {
   if (opts && opts.hover === false) CardPreview.noHover.add(root);   // 2026-11-15 마우스를 올려도 크게 보이지 않음(누를 때만) — 말풍선(data-tip)은 그대로
 }
 
+/* 2026-11-24 말풍선 줄이 [능력]으로 시작하면(앞에 ◎ · ✦ 같은 기호 몇 자는 괜찮음) 그 능력이 쓰이는 때를 작은 색 라벨로: 공격 · 방어 · 공방 (js/cards.js ABIL_WHEN) */
+function tipWhenTag(line) {
+  if (typeof abilWhen !== "function") return "";
+  const m = String(line || "").match(/^[^\[\]]{0,3}\[([^\]]+)\]/); if (!m) return "";
+  const w = abilWhen(m[1]); return w ? `<i class="tip-when w-${w}">${WHEN_KO[w]}</i>` : "";
+}
 /* 말풍선 설명: data-tip이 있는 요소에 마우스를 올리면 바로 보인다 (줄바꿈 \n) */
 const Tip = {
   el: null,
@@ -882,8 +888,8 @@ const Tip = {
       const kw = t.hasAttribute("data-tip-kw");
       this.el.classList.toggle("tip-kw", kw);
       this.el.innerHTML = kw
-        ? lines.map(l => `<span>${esc(l).replace(/^(\[[^\]]+\])/, "<b>$1</b>")}</span>`).join("")
-        : `<b>${esc(lines[0])}</b>${lines.slice(1).map(l => `<span>${esc(l)}</span>`).join("")}`;
+        ? lines.map(l => `<span>${tipWhenTag(l)}${esc(l).replace(/^(\[[^\]]+\])/, "<b>$1</b>")}</span>`).join("")
+        : `<b>${tipWhenTag(lines[0])}${esc(lines[0])}</b>${lines.slice(1).map(l => `<span>${esc(l)}</span>`).join("")}`;
       this.el.hidden = false;
       const r = t.getBoundingClientRect(), w = this.el.offsetWidth, h = this.el.offsetHeight;
       let x = r.left + r.width / 2 - w / 2, y = r.top - h - 8;

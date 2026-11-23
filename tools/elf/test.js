@@ -99,7 +99,7 @@ T('되쏘는 바람 (방어 턴 반격)', `const f1 = setT(mk("B2-26"), 3, 0, 5)
 T('[방어무시] 반격', `const d = setT(mk("A3-01"), 3, 0, 9), a = setT(mk("B2-26"), 1, 2, 9);
   const P = [side(0, [a]), side(1, [d])]; fight(P, 0);
   ok(abilOf(d).magic && a.t.dmg === 3, "반격이 방 2를 무시 (" + a.t.dmg + ")");`);
-T('[마력 공격] 공 + 방', `ok(mrArc(5, 2, 2, false).dmg === 7 && mrArc(5, 4, 2, false).dmg === 7 && mrArc(5, 4, 2, true).dmg === 9 && mrArc(5, 3, 0, false).dmg === 2, "공 5 · 방 2 → 7, 방 4(N 2) → 7, 홀림 → 9, 없으면 2");
+T('[마력 공격] 공 + 방', `ok(mrArc(5, 2, 2).dmg === 7 && mrArc(5, 4, 2).dmg === 7 && mrArc(5, 3, 0).dmg === 2, "공 5 · 방 2 → 7, 방 4(N 2) → 7, 없으면 2");
   const a = setT(mk("B2-26"), 5, 0, 9), d = setT(mk("B2-26"), 4, 2, 9); a.t.gx = { arcane: 2 };
   const P = [side(0, [a]), side(1, [d])]; fight(P, 0);
   ok(d.t.dmg === 7, "공격: 5 + 방 2 = 7 (" + d.t.dmg + ")");
