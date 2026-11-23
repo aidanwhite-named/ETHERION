@@ -41,7 +41,8 @@ const ev = s => ctx.ev(s);
   // 덱 만들기: 기본 덱에서 같은 종류(유닛) 카드를 빼고 id를 n장 (40장 유지)
   const mk = (g, put) => { const dk = ev(`Object.assign({}, STARTER_DECKS["${g}"])`);
     for (const [id, cnt] of Object.entries(put)) { let need = cnt - (dk[id] || 0); dk[id] = cnt;
-      while (need > 0) { const v = Object.keys(dk).filter(x => !(x in put) && ev(`CARDS["${x}"].type`) === 'unit').sort((a, b) => dk[b] - dk[a])[0]; dk[v]--; if (!dk[v]) delete dk[v]; need--; } }
+      while (need > 0) { const v = Object.keys(dk).filter(x => !(x in put) && ev(`CARDS["${x}"].type`) === 'unit').sort((a, b) => dk[b] - dk[a])[0]; dk[v]--; if (!dk[v]) delete dk[v]; need--; }
+      while (need < 0) { const v = ev(`Object.keys(Store.user().collection).filter(x => CARDS[x] && CARDS[x].group === "${g}" && CARDS[x].type === "unit" && !CARDS[x].retired)`).filter(x => !(x in put) && (dk[x] || 0) < Math.min(4, ev(`Store.user().collection["${x}"] || 0`))).sort((a, b) => (dk[a] || 0) - (dk[b] || 0))[0]; dk[v] = (dk[v] || 0) + 1; need++; } }   // 기본 덱에 이미 든 카드를 줄이면 가진 다른 유닛으로 채워 50장 유지
     return dk; };
   ctx.__d = mk('B1', { 'B1-17': 2 }); r = ev('Store.saveDeck(Store.user(), "B1", __d)'); ok(r.ok, '덱에 원래 카드 2장 저장: ' + (r.msg || ''));
   r = ev('Store.upgradeCard(null, "UP-B1-17")'); ok(!r.ok && col('B1-17') === 4, '덱에 든 2장은 재료로 못 씀 (4장 중 2장만 자유): ' + r.msg);

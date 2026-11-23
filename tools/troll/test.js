@@ -17,7 +17,7 @@ card('SG2-01', '덩굴 조이기', 'atk', 1);
 card('NG2-1', '뿌리 파고들기', 'atk', 2);
 card('MC-14', '갑옷째 휘감기', 'any', 3);
 ok(c.ev('gradeOf("SG2-01")') === 'common' && c.ev('gradeOf("NG2-1")') === 'common' && c.ev('gradeOf("MC-14")') === 'common', '등급 그대로(일반)');
-ok(c.ev('DECK_LISTS.G2.cards["SG2-01"]') === 1 && c.ev('DECK_LISTS.G2.cards["MC-14"]') === 2 && c.ev('DECK_LISTS.G2.cards["SG2-05"]') === 2 && c.ev('DECK_LISTS.G2.cards["SG2-08"]') === 1, '기본 덱: 덩굴 조이기 1 · 갑옷째 휘감기 2 · 수액 몰아주기 2 · 고목 내려찍기 1');   // v3.82 시뮬레이션 재구성: 덩굴 조이기 2 → 1 · v3.83 혼자 쓰는 고목 내려찍기가 세져 2 → 1
+ok(c.ev('DECK_LISTS.G2.cards["SG2-01"]') === 1 && c.ev('DECK_LISTS.G2.cards["MC-14"]') === 2 && c.ev('DECK_LISTS.G2.cards["SG2-05"]') === 2 && !c.ev('DECK_LISTS.G2.cards["SG2-08"]'), '기본 덱: 덩굴 조이기 1 · 갑옷째 휘감기 2 · 수액 몰아주기 2 (2026-11-23 기본 덱 규칙: 레어 마법은 숲의 무게 1장 — 고목 내려찍기 없음)');   // v3.82 시뮬레이션 재구성: 덩굴 조이기 2 → 1 · v3.83 혼자 쓰는 고목 내려찍기가 세져 2 → 1
 ok(Object.values(c.ev('DECK_LISTS.G2.cards')).reduce((a, b) => a + b) === 50, '기본 덱 50장');
 
 // 덩굴 조이기: 방어가 가장 높은 1기에게 방어 ×2 (v3.85 최소 2 없음)
