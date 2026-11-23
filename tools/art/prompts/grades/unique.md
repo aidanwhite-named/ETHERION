@@ -8,73 +8,6 @@
 
 **그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(같은 개체 · 장소 · 배색, 다른 시점 · 새 구도 — 섬네일로 나란히 놓아 같은 개체이면서 한눈에 더 강한 다른 그림으로 읽히는지 본다).
 
-## 1. 그림 없는 카드 — 먼저 그린다 · 5장
-
-### UN-A1-7 · 모르카스의 영혼 수확자
-모르카스의 그믐 · 유닛 · 레벨 6 · 유니크 · 틀 `through` F L `frostindigo` · 프롬프트 n2 → `tools/art/inbox/UN-A1-7 모르카스의 영혼 수확자.png`
-
-```
-Landscape 5:4 painting. Through the broken arch of a canyon bridge: a horned lord of the abyss, tall as the canyon wall, fills the left of the frame, leaning in — hollow obsidian plate crowned with long swept-back horns, violet shadow for a body, two eyes with slit vertical pupils shining in the helm, wax seals and silver scales on its chains. Its scythe blade hangs over the bridge like a second arch. Below, from each fallen soldier a violet-white wisp rises, flattens into a pale parchment sheet and drifts up into its clawed gauntlet. In its chest one sheet-shaped hollow stays dark. Cold violet light from its eyes and the rising wisps edges horns, chains and stone in the blue-black night; three tiny candle flames on the bridge rail are the only warm points.
-Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a brilliant key light against deep black, and the subject radiant with a power of its own in its banner colour, violet (#8b5cf6). Saturation: jewel-bright and deep, with violet at its fullest strength. Air: thick with swirling motes and sparks of violet light, a shimmering haze and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing violet at the seams.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: UN-A1-7 모르카스의 영혼 수확자.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### UN-A2-7 · 솔란테의 새벽 사제
-솔란테의 새벽 · 유닛 · 레벨 6 · 유니크 · 틀 `ground` L R `glare` · 프롬프트 n2 → `tools/art/inbox/UN-A2-7 솔란테의 새벽 사제.png`
-
-```
-Landscape 5:4 painting. Daybreak on a battlefield, from the eye level of the fallen. In the foreground lies an open gauntlet, palm up, in blue shadow. Striding toward us from the right comes a robed colossus, broken siege towers around its knees: a hierophant of pale stone with a smooth golden mask, both arms raised to carry the rising sun inside a great golden ring, so that the edge of daylight advances with its steps. The first line of pale-gold light has reached the gauntlet's fingertips, and two fingers begin to curl. Behind it, in full light, fallen knights rise to their knees. The sun in the ring is a blinding white-gold disc directly behind the colossus: pale gold on everything it has passed, cool blue-grey shadow on everything still ahead of it.
-Colour: holy glare — blinding white-gold (#ffe9a8) light with dark shapes in front of it.
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a brilliant key light against deep black, and the subject radiant with a power of its own in its banner colour, pale gold (#ffe9a8). Saturation: jewel-bright and deep, with pale gold at its fullest strength. Air: thick with swirling motes and sparks of pale gold light, a shimmering haze and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing pale gold at the seams.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: UN-A2-7 솔란테의 새벽 사제.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### UN-A3 · 바늘탑 별지기
-벨루미르의 별 · 유닛 · 레벨 6 · 유니크 · 틀 `reflect` R C `starindigo` · 프롬프트 n2 → `tools/art/inbox/UN-A3 바늘탑 별지기.png`
-
-```
-Landscape 5:4 painting. A shallow bronze basin of still water in the floor of a high lookout fills the frame, and the scene lives in its mirror. Among the reflected stars, upside down, a dragon of the upper air lies coiled three times around the needle spire itself: indigo scales each set with a silver star, wings of thin cloud, whiskers streaming like comet tails, the lookout's lantern a spark beside its claw. Its head has just swung toward the basin's right rim, one great calm silver eye wide open, where a dull violet glow creeps in among the mirrored stars. Clear indigo night; the basin holds dragon and stars in silver on black water, with one teal wind streak crossing its surface from the right.
-Colour: star indigo — deep indigo night full of stars, wind-teal (#9fe3d6) streaks and silver.
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a brilliant key light against deep black, and the subject radiant with a power of its own in its banner colour, wind-teal (#9fe3d6). Saturation: jewel-bright and deep, with wind-teal at its fullest strength. Air: thick with swirling motes and sparks of wind-teal light, a shimmering haze and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing wind-teal at the seams.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: UN-A3 바늘탑 별지기.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### UN-A3-7 · 벨루미르의 주문 사냥꾼
-벨루미르의 별 · 유닛 · 레벨 6 · 유니크 · 틀 `inside` F R `aurora` · 프롬프트 n2 → `tools/art/inbox/UN-A3-7 벨루미르의 주문 사냥꾼.png`
-
-```
-Landscape 5:4 painting. We are inside the spell: a hurled sphere of teal-green and violet spell-light whose curved, rippling wall rings the picture. An arrow long as a ship's mast has punched in through the upper right, and the light swirls down its moon-silver shaft like water down a drain. Through the torn hole, far off yet huge in the clear night, stands the archer: a titan of black star-glass with slow stars drifting inside its limbs and a crown of silver spires, one foot on each of two sky-islands, crescent-moon bow raised, a thread of stolen light running back into it. The spell around us is the light, teal-green and violet like an aurora; beyond the hole the night is dark and the hunter's eyes are two cold stars.
-Colour: aurora — teal-green (#9fe3d6) and violet ribbons of light over darkness.
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a brilliant key light against deep black, and the subject radiant with a power of its own in its banner colour, wind-teal (#9fe3d6). Saturation: jewel-bright and deep, with wind-teal at its fullest strength. Air: thick with swirling motes and sparks of wind-teal light, a shimmering haze and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing wind-teal at the seams.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: UN-A3-7 벨루미르의 주문 사냥꾼.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### UN-B1 · 포르탄 포병대장
-도르마크의 심장불 · 유닛 · 레벨 6 · 유니크 · 틀 `top` N C `ember` · 프롬프트 n2 → `tools/art/inbox/UN-B1 포르탄 포병대장.png`
-
-```
-Landscape 5:4 painting. Straight down onto a star-shaped gun bastion, and a horned lord of fire lies on his back across it: a colossus of living flame inside cracked black iron plate, great curled horns scraping the parapet, wings of smoke spread flat over the walls, furnace jaws open in a grin. The battery's cannons lie around his shoulders like dropped nails. From his outstretched right claw a fuse thick as a ship's cable burns in a hissing spiral toward a ring of twelve powder kegs. Shadows of an advancing army, each spearman small as a grain, reach in from the top edge. The spiralling spark and the embers sinking in his chest light the bastion from within; everything beyond the kegs is deep night.
-Colour: embers in the dark — near-black and soot-brown, with small fierce glows of fire-orange (#ff6b3d).
-Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
-Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a brilliant key light against deep black, and the subject radiant with a power of its own in its banner colour, fire-orange (#ff6b3d). Saturation: jewel-bright and deep, with fire-orange at its fullest strength. Air: thick with swirling motes and sparks of fire-orange light, a shimmering haze and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing fire-orange at the seams.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: UN-B1 포르탄 포병대장.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
 ## 2. 다시 그리기 · 2장
 
 > 이미 그림이 있어 게임은 그대로 돌아간다. 1번을 다 그린 뒤 그린다.
@@ -105,7 +38,72 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UN-A2 엘라드의 날개 방패.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 11장
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 16장
+
+### UN-A1-7 · 모르카스의 영혼 수확자 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 6 · 유니크 · 틀 `through` F L `frostindigo` · 프롬프트 n2 → `tools/art/inbox/UN-A1-7 모르카스의 영혼 수확자.png`
+
+```
+Landscape 5:4 painting. Through the broken arch of a canyon bridge: a horned lord of the abyss, tall as the canyon wall, fills the left of the frame, leaning in — hollow obsidian plate crowned with long swept-back horns, violet shadow for a body, two eyes with slit vertical pupils shining in the helm, wax seals and silver scales on its chains. Its scythe blade hangs over the bridge like a second arch. Below, from each fallen soldier a violet-white wisp rises, flattens into a pale parchment sheet and drifts up into its clawed gauntlet. In its chest one sheet-shaped hollow stays dark. Cold violet light from its eyes and the rising wisps edges horns, chains and stone in the blue-black night; three tiny candle flames on the bridge rail are the only warm points.
+Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a brilliant key light against deep black, and the subject radiant with a power of its own in its banner colour, violet (#8b5cf6). Saturation: jewel-bright and deep, with violet at its fullest strength. Air: thick with swirling motes and sparks of violet light, a shimmering haze and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing violet at the seams.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: UN-A1-7 모르카스의 영혼 수확자.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### UN-A2-7 · 솔란테의 새벽 사제 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 6 · 유니크 · 틀 `ground` L R `glare` · 프롬프트 n2 → `tools/art/inbox/UN-A2-7 솔란테의 새벽 사제.png`
+
+```
+Landscape 5:4 painting. Daybreak on a battlefield, from the eye level of the fallen. In the foreground lies an open gauntlet, palm up, in blue shadow. Striding toward us from the right comes a robed colossus, broken siege towers around its knees: a hierophant of pale stone with a smooth golden mask, both arms raised to carry the rising sun inside a great golden ring, so that the edge of daylight advances with its steps. The first line of pale-gold light has reached the gauntlet's fingertips, and two fingers begin to curl. Behind it, in full light, fallen knights rise to their knees. The sun in the ring is a blinding white-gold disc directly behind the colossus: pale gold on everything it has passed, cool blue-grey shadow on everything still ahead of it.
+Colour: holy glare — blinding white-gold (#ffe9a8) light with dark shapes in front of it.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a brilliant key light against deep black, and the subject radiant with a power of its own in its banner colour, pale gold (#ffe9a8). Saturation: jewel-bright and deep, with pale gold at its fullest strength. Air: thick with swirling motes and sparks of pale gold light, a shimmering haze and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing pale gold at the seams.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: UN-A2-7 솔란테의 새벽 사제.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### UN-A3 · 바늘탑 별지기 — 그림 있음
+벨루미르의 별 · 유닛 · 레벨 6 · 유니크 · 틀 `reflect` R C `starindigo` · 프롬프트 n2 → `tools/art/inbox/UN-A3 바늘탑 별지기.png`
+
+```
+Landscape 5:4 painting. A shallow bronze basin of still water in the floor of a high lookout fills the frame, and the scene lives in its mirror. Among the reflected stars, upside down, a dragon of the upper air lies coiled three times around the needle spire itself: indigo scales each set with a silver star, wings of thin cloud, whiskers streaming like comet tails, the lookout's lantern a spark beside its claw. Its head has just swung toward the basin's right rim, one great calm silver eye wide open, where a dull violet glow creeps in among the mirrored stars. Clear indigo night; the basin holds dragon and stars in silver on black water, with one teal wind streak crossing its surface from the right.
+Colour: star indigo — deep indigo night full of stars, wind-teal (#9fe3d6) streaks and silver.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a brilliant key light against deep black, and the subject radiant with a power of its own in its banner colour, wind-teal (#9fe3d6). Saturation: jewel-bright and deep, with wind-teal at its fullest strength. Air: thick with swirling motes and sparks of wind-teal light, a shimmering haze and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing wind-teal at the seams.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: UN-A3 바늘탑 별지기.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### UN-A3-7 · 벨루미르의 주문 사냥꾼 — 그림 있음
+벨루미르의 별 · 유닛 · 레벨 6 · 유니크 · 틀 `inside` F R `aurora` · 프롬프트 n2 → `tools/art/inbox/UN-A3-7 벨루미르의 주문 사냥꾼.png`
+
+```
+Landscape 5:4 painting. We are inside the spell: a hurled sphere of teal-green and violet spell-light whose curved, rippling wall rings the picture. An arrow long as a ship's mast has punched in through the upper right, and the light swirls down its moon-silver shaft like water down a drain. Through the torn hole, far off yet huge in the clear night, stands the archer: a titan of black star-glass with slow stars drifting inside its limbs and a crown of silver spires, one foot on each of two sky-islands, crescent-moon bow raised, a thread of stolen light running back into it. The spell around us is the light, teal-green and violet like an aurora; beyond the hole the night is dark and the hunter's eyes are two cold stars.
+Colour: aurora — teal-green (#9fe3d6) and violet ribbons of light over darkness.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a brilliant key light against deep black, and the subject radiant with a power of its own in its banner colour, wind-teal (#9fe3d6). Saturation: jewel-bright and deep, with wind-teal at its fullest strength. Air: thick with swirling motes and sparks of wind-teal light, a shimmering haze and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing wind-teal at the seams.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: UN-A3-7 벨루미르의 주문 사냥꾼.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### UN-B1 · 포르탄 포병대장 — 그림 있음
+도르마크의 심장불 · 유닛 · 레벨 6 · 유니크 · 틀 `top` N C `ember` · 프롬프트 n2 → `tools/art/inbox/UN-B1 포르탄 포병대장.png`
+
+```
+Landscape 5:4 painting. Straight down onto a star-shaped gun bastion, and a horned lord of fire lies on his back across it: a colossus of living flame inside cracked black iron plate, great curled horns scraping the parapet, wings of smoke spread flat over the walls, furnace jaws open in a grin. The battery's cannons lie around his shoulders like dropped nails. From his outstretched right claw a fuse thick as a ship's cable burns in a hissing spiral toward a ring of twelve powder kegs. Shadows of an advancing army, each spearman small as a grain, reach in from the top edge. The spiralling spark and the embers sinking in his chest light the bastion from within; everything beyond the kegs is deep night.
+Colour: embers in the dark — near-black and soot-brown, with small fierce glows of fire-orange (#ff6b3d).
+Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
+Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a brilliant key light against deep black, and the subject radiant with a power of its own in its banner colour, fire-orange (#ff6b3d). Saturation: jewel-bright and deep, with fire-orange at its fullest strength. Air: thick with swirling motes and sparks of fire-orange light, a shimmering haze and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing fire-orange at the seams.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: UN-B1 포르탄 포병대장.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
 
 ### UN-B1-7 · 탈라쿠스의 불씨 포수 — 그림 있음
 도르마크의 심장불 · 유닛 · 레벨 6 · 유니크 · 틀 `inside` F C `whitehot` · 프롬프트 n2 → `tools/art/inbox/UN-B1-7 탈라쿠스의 불씨 포수.png`

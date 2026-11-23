@@ -129,8 +129,8 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: RS-A2-3 빛의 결계.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PS-A2-1 · 대신 속죄 — 그림 있음
-솔란테의 새벽 · 방어 마법 · 레벨 2 · 레어 · 틀 `through` F R `vigil` · 프롬프트 n2 → `tools/art/inbox/PS-A2-1 대신 속죄.png`
+### PS-A2-1 · 성흔 — 그림 있음
+솔란테의 새벽 · 방어 마법 · 레벨 2 · 레어 · 틀 `through` F R `vigil` · 프롬프트 n2 → `tools/art/inbox/PS-A2-1 성흔.png`
 
 ```
 Landscape 5:4 painting of a spell — the magic itself is the subject. Framed by the dark arch of a wall gate, a torch-lit bridge at night. At the right of the opening two shield-bearers stand in file, facing us, the second a step behind the first. A war hammer swung in from the left edge has landed square on the front shield, and that shield stays smooth and whole. The crack has opened in the shield behind it, in the same place, its edges glowing gold, and a thread of light runs between the two, taut as a plucked string. The rear bearer only bows its head. Deep night on the wall; two small torches with pale-gold halos light the bridge, and the glowing crack is the brightest thing in view.
@@ -139,7 +139,7 @@ Banner of light: a white citadel facing the first light of day, held together by
 Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: PS-A2-1 대신 속죄.png — this is the name of the downloaded file only; the painting itself stays wordless.
+Save the image file as: PS-A2-1 성흔.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### RS-A2-1 · 빛의 심판 — 그림 있음
