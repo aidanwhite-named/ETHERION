@@ -3470,7 +3470,8 @@ function gunShot(actUid, tgt, dur, kind) {
     const mx = from.x + ux * w * 0.45, my = from.y + uy * w * 0.45, rest = Math.max(1, L - w * 0.45);   // 총구(그림 오른쪽 끝)
     const fl = document.createElement("div");
     fl.className = "gun-flash"; fl.style.cssText = `left:${mx}px;top:${my}px;rotate:${ang.toFixed(1)}deg`;
-    layer.appendChild(fl); setTimeout(() => fl.remove(), 260);
+    layer.appendChild(fl);
+    fl.animate([{ opacity: 1, scale: "0.5 0.8" }, { offset: 0.3, opacity: 1, scale: "1.5 1.2" }, { opacity: 0, scale: "1.9 0.5" }], { duration: 240, easing: "ease-out", fill: "forwards" }).onfinish = () => fl.remove();   // 총구 불꽃
     const tr = document.createElement("div");
     tr.className = "gun-tracer"; tr.style.cssText = `left:${mx}px;top:${my}px;width:${rest}px;rotate:${ang.toFixed(1)}deg`;
     layer.appendChild(tr);
