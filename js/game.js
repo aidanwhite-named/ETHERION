@@ -51,10 +51,10 @@ const abilSfx = (actUid, tgtUid, counter) => {
   if (k) setTimeout(() => sfx(k, 0.75), 110);
 };
 /* 2026-11-15 카드마다 다른 효과음 (audio/sfx/<카드ID>.atk · def · cast · equip, js/feel.js FEEL.card). 그 카드 소리가 없으면 fb */
-const cardSfx = (uid, part, v, fb) => {
+const cardSfx = (uid, part, v, fb, rate) => {
   if (typeof FEEL === "undefined" || !FEEL.card || !G || G.cfg.headless || G.speed === 0) return;
   const it = G.reg && G.reg[uid];
-  FEEL.card(it ? it.id : null, part, v, fb);
+  FEEL.card(it ? it.id : null, part, v, fb, rate);
 };
 
 /* v3.10 온라인 대전: 두 기기가 같은 시드로 같은 계산을 한다(js/online.js). 판의 결과를 바꾸는 난수는 모두 GRand · shuffleG를 쓴다.
@@ -366,6 +366,7 @@ function castHand(p, i) {
   p.burn.push(it.id);
   if (G.leave) G.leave[it.uid] = "burn" + p.idx;
   log(`✦ ${p.name}: 「${c.name}」 — ${res.join(" · ") || c.text}`, "spell");
+  if (G.cfg && !G.cfg.headless && G.speed !== 0 && typeof FEEL !== "undefined" && FEEL.card) FEEL.card(c.id, "cast", 1, "sp_reveal");   // 2026-11-24 계략 마법도 발동 소리(예전엔 소리 없이 지나갔다)
   if (!p.isAI) toast(`${c.name}: ${res.join(" · ")}`, "good");
   return true;
 }
@@ -457,6 +458,7 @@ async function runCombat() {
   if (!G.cfg.headless && G.speed !== 0) {
     // 기록을 처음 상태부터 다시 보여 준다 (한 수의 길이 = 엔진 ms × PACE ÷ 배속)
     let i = 0, casting = null;   // v1.9.5 casting: 지금 발동 중인 마법 (뒤집힐 때부터 부서질 때까지) — js/spellfx.js 연출에 쓴다
+    let spellRun = 0;   // 2026-11-24 공격 · 반격 · 코인 없이 잇달아 발동한 마법 수 (소리: 차례마다 오르고 끝에 마무리 — js/feel.js spellChain · spellFinale)
     while (i < rec.length) {
       if (G !== myG || G.phase === "over") return;   // 2026-11-17 전투 재생 중에 항복하면 바로 멈춘다
       const s = rec[i];
@@ -468,6 +470,7 @@ async function runCombat() {
       if (typeof BLog !== "undefined") BLog.step(s);   // v3.20.1 전투 로그: 이 수의 칸 위치 · 수치
       // v1.9.5 마법 연출: 원소에 맞는 효과가 날아가 맞는 순간에 숫자가 뜬다 (js/spellfx.js)
       if (s.fx.reveal) { const sp = G.reg[s.fx.reveal]; casting = sp ? { uid: sp.uid, id: sp.id } : null; }
+      if (s.fx.reveal) { spellRun++; G.fx.chain = spellRun - 1; } else if (spellBreak(s.fx)) spellRun = 0;
       const fxSpell = typeof SpellFX !== "undefined" && casting && !s.fx.reveal && !s.fx.coin && !s.fx.spellCoin && !s.fx.shatter && !s.fx.conjure && !s.fx.fizzle;
       /* v3.10.3 서순: 스탯은 연출이 맞는 순간에 바뀐다. 마법(날아가 맞는 때 · 대상마다)과 반격(되받아 치는 때)은
          바뀐 카드 · 생명을 바로 앞 수의 값으로 그려 두었다가, 맞는 순간에 그 카드만 새 값으로 바꾼다 (공격은 맞는 수에 이미 맞춰져 있다) */
@@ -496,6 +499,9 @@ async function runCombat() {
       for (const f of stg ? stg.list : s.floats) {
         const d = hitAt(String(f[0])) + (f[3] || 0) * GAP;
         if (d > 30) setTimeout(() => { if (G === myG) floatAt(f[0], f[1], f[2], f[3]); }, d); else floatAt(f[0], f[1], f[2], f[3]);
+      }
+      if (casting && s.fx.shatter && s.fx.shatter.includes(casting.uid) && spellRun >= 2 && !spellNext(rec, i + 1)) {   // 2026-11-24 잇단 마법의 마지막이 부서질 때 마무리 타격
+        const n = spellRun; setTimeout(() => { if (G === myG && typeof FEEL !== "undefined" && FEEL.spellFinale && G.speed !== 0) FEEL.spellFinale(n); }, s.dur * kSpeed() * 0.3);
       }
       if (casting && s.fx.shatter && s.fx.shatter.includes(casting.uid)) casting = null;
       if (s.fx.spellCoin) { await spellCoinFx(s.fx.spellCoin); if (G !== myG || G.phase === "over") return; i++; continue; }   // v3.9.2 마법 코인
@@ -542,6 +548,9 @@ async function runCombat() {
   G.turn++; G.attacker = 1 - G.attacker;
   beginTurn();
 }
+/* 2026-11-24 마법 연쇄 소리: 유닛이 공격 · 반격하거나 코인을 던지는 수가 끼면 연쇄가 끊긴다. spellNext = 끊기기 전에 다음 마법이 또 뒤집히는가 */
+const spellBreak = f => f.act != null || f.counter != null || !!f.coin;
+function spellNext(rec, j) { for (; j < rec.length; j++) { const f = rec[j].fx || {}; if (f.reveal) return true; if (spellBreak(f)) return false; } return false; }
 /* v3.10.3 서순: 연출이 맞기 전까지 바뀐 스탯을 앞 수의 값으로 붙잡아 둔다 (runCombat).
    holdStats: 바뀐 유닛 · 생명을 앞 수 값으로 되돌려 두고 그 열쇠(uid 글자 · "life0")를 돌려준다.
    revealStat: 그 하나만 새 값으로 — 판 전체를 다시 그리지 않고 그 카드(생명판)만 바꿔 끼운다. 날아가는 다른 연출이 끊기지 않게 */
@@ -3803,7 +3812,7 @@ function combatFx() {
   const dur = (fx.dur || 450) * kSpeed();
   if (fx.fizzle) { fizzleFx(fx.fizzle, dur); return; }
   if (fx.conjure) { conjureFx(fx.conjure, dur, fx.pyre); return; }
-  if (fx.reveal) { arenaArt(fx.reveal, "spell", dur * 1.8); revealFx(fx.reveal, dur); spellTitle(fx.reveal, dur * 1.75); if (typeof SpellFX !== "undefined") SpellFX.reveal(fx.reveal, dur); return; }
+  if (fx.reveal) { arenaArt(fx.reveal, "spell", dur * 1.8); revealFx(fx.reveal, dur); spellTitle(fx.reveal, dur * 1.75); if (typeof SpellFX !== "undefined") SpellFX.reveal(fx.reveal, dur, fx.chain); return; }
   if (fx.counter) { arenaArt(fx.counter, "counter", dur * 1.3); counterStrike(fx.counter, fx.act, dur); return; }
   const ak = fx.act != null ? atkKindOf(fx.act, fx.sn) : null;   // v3.7.1 공격 소리 종류 (fx.sn = [사격])
   if (fx.sn && typeof fx.tgt === "number" && fxRich()) { if (!fx.hit) { arenaArt(fx.act, "attack", dur * 2.5); gunShot(fx.act, fx.tgt, dur, ak); } else gunHit(fx.act, fx.tgt, dur, ak); return; }   // 2026-11-24 고사양: [사격]은 총을 쏜다

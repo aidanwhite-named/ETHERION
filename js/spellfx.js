@@ -31,6 +31,8 @@ const SpellFX = (() => {
   const ctr = r => ({ x: r.left + r.width / 2, y: r.top + r.height / 2 });
   const rnd = (a, b) => a + Math.random() * (b - a);
   const snd = (n, v) => { if (n && typeof sfx === "function") sfx(n, v); };
+  /* 2026-11-24 음높이(rate)를 주는 소리 · 같은 소리를 잇달아 내는 소리(force) — 마법이 여러 대상을 차례로 칠 때 */
+  const sndR = (n, v, rate, force) => { if (n && typeof FEEL !== "undefined" && FEEL.playAt && typeof sfx === "function" && G && !G.cfg.headless && G.speed !== 0) FEEL.playAt(n, v, rate, force); };
   const later = (fn, ms) => (ms > 4 ? setTimeout(() => { if (layer()) fn(); }, ms) : fn());
   const px = v => v.toFixed(1) + "px";
   /* 2026-11-22 연출 3단계(js/impact.js applyFx): 흩어지는 · 떠오르는 입자 수 — 저사양(폰 · 앱 포함) 절반 · 중간 그대로 · 고사양 1.5배 */
@@ -421,7 +423,7 @@ const SpellFX = (() => {
 
   /* ---------- 마법이 뒤집힐 때 ---------- */
   const RUNE_SVG = `<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-dasharray="3 2.2"/><circle cx="50" cy="50" r="43" fill="none" stroke="currentColor" stroke-width=".6"/><circle cx="50" cy="50" r="36" fill="none" stroke="currentColor" stroke-width=".5" stroke-dasharray="10 4"/>${Array.from({ length: 12 }, (_, i) => { const a = i * 30 * Math.PI / 180, x = 50 + Math.cos(a) * 45.5, y = 50 + Math.sin(a) * 45.5; return i % 3 ? `<circle cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r=".9" fill="currentColor"/>` : `<path d="M${x.toFixed(2)} ${(y - 2.6).toFixed(2)} L${(x + 1.8).toFixed(2)} ${y.toFixed(2)} L${x.toFixed(2)} ${(y + 2.6).toFixed(2)} L${(x - 1.8).toFixed(2)} ${y.toFixed(2)}Z" fill="currentColor"/>`; }).join("")}</svg>`;
-  function reveal(uid, ms) {
+  function reveal(uid, ms, chain) {
     if (off()) return;
     const el = typeof uidEl === "function" ? uidEl(uid) : null; if (!el) return;
     const it = G.reg && G.reg[uid], th = themeOf(it ? it.id : null), k = K();
@@ -446,7 +448,11 @@ const SpellFX = (() => {
     // 그 순간 퍼지는 가는 빛 고리는 js/game.js revealFx 의 burst("spell", 원소색) 하나 — 여기서는 놓여나는 불티만
     sparks(c.x, c.y, { n: 9, col: th.col, size: 5, dist: S * 0.55, dur: (ms * 0.26) / (k || 1), cls: P_OF_EL[th.el] || "", delay: ms * (LOCK - 0.02), end: 0.2 });
     // 2026-11-15 마법마다 다른 발동 소리 (audio/sfx/<마법ID>.cast, 없으면 공용 sp_reveal)
-    if (it && typeof cardSfx === "function") cardSfx(uid, "cast", 1, "sp_reveal"); else snd("sp_reveal");
+    // 2026-11-24 잇달아 나가는 마법(chain = 차례, js/game.js runCombat): 차례마다 조금씩 높게 + 둘째부터 낮은 고동(js/feel.js spellChain)
+    const rate = typeof FEEL !== "undefined" && FEEL.chainRate ? FEEL.chainRate(chain) : 1;
+    if (it && typeof cardSfx === "function") cardSfx(uid, "cast", 1, "sp_reveal", rate); else snd("sp_reveal");
+    if (chain > 0 && typeof FEEL !== "undefined" && FEEL.spellChain && typeof sfx === "function" && !G.cfg.headless) FEEL.spellChain(chain, ms * LOCK);
+    if (typeof FEEL !== "undefined" && FEEL.load && FEEL.snd && FEEL.snd.keys) FEEL.load("sp_land_" + th.el);   // 맞는 순간 소리를 미리 받아 둔다
     if (it && CARDS[it.id] && CARDS[it.id].cost && CARDS[it.id].cost.ether) later(() => snd("reload", 0.8), 500);   // [장전]
   }
 
@@ -473,7 +479,7 @@ const SpellFX = (() => {
     const once = (name, v, at) => { if (!name || heard[name]) return; heard[name] = 1; later(() => snd(name, v), at || 0); };
     const gap = (th.k === "quake" ? 35 : th.k === "bolt" ? 95 : 80) * k;
     const go = HIT[th.k] || HIT.wind;
-    let n = 0;
+    let n = 0, lastHit = 0;
     for (const [key, kinds] of by) {
       const life = /^(life|crys)/.test(key);
       const el = life ? document.getElementById(key) : (typeof uidEl === "function" ? uidEl(+key) : null);
@@ -489,6 +495,8 @@ const SpellFX = (() => {
         once(LAUNCH[th.k], 0.9);
         later(() => go.run(a, b, r, el, o), st);
         at = st + go.at(o);
+        /* 2026-11-24 맞는 순간의 몸통(원소마다 sp_land_<원소>): 여러 대상을 차례로 칠수록 조금씩 높아진다. 막혔으면 막는 소리(block)만 */
+        if (!o.blocked) { const i = n; later(() => sndR("sp_land_" + th.el, 0.5 + 0.02 * Math.min(i, 5), 1 + 0.035 * Math.min(i, 5), true), at); lastHit = Math.max(lastHit, at); }
         if (kinds.has("block") && kinds.has("dmg")) later(() => block(b, r.width, el), at);
         n++;
       } else if (hitIt && life && /^life/.test(key)) {
@@ -503,6 +511,7 @@ const SpellFX = (() => {
       if (kinds.has("heal")) { later(() => (life ? heal(el, r) : aura(el, r, { col: FXC.heal, el: "light" })), mt); once("sp_heal", 0.9, mt); at = Math.max(at, mt + 150 * k); }
       out.set(key, at);
     }
+    if (n >= 3 && lastHit) later(() => sndR("sp_area", 0.7, 1, true), lastHit + 70 * k);   // 셋 이상을 다 친 뒤 한꺼번에 내려앉는 넓은 '쿵'
     if (n && th.k === "bolt") screenFlash("#fff8d0", 0.22, 260);
     if (n && th.k === "quake") later(() => quakeScreen(11), 50 * k);
     return out;

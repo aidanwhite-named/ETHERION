@@ -959,3 +959,62 @@ def _():
     m.add(gust(0.3, 0.3, 0.4), at=0.05, gain=-8, width=1)
     m.add(E.voice("wind", hz(62), 0.3), at=0.2, gain=-5, width=1)
     return room(m, 0.3, 0.11)
+
+
+# ══ 마법 연쇄 (2026-11-24) ═══════════════════════════════
+# 마법이 대상에 닿는 순간 · 여럿을 차례로 칠 때 · 마법이 잇달아 나간 끝의 마무리 (js/spellfx.js · js/game.js).
+# 크기 · 고음이 아니라 저역 몸통(서브 + 배음)과 긴 꼬리로 무게를 낸다(weight.py).
+import weight as W  # noqa: E402
+
+
+def _land(el):
+    def f():
+        m = M(1.0)
+        m.add(E.strike(el, 0.35)[: n_(0.35)], gain=-4, width=1)   # 원소 색(발동 소리보다 짧고 옅게)
+        m.add(punch(150, 60, 0.08, 2.2), gain=-3)                  # 폰에서도 들리는 몸통 '퍽'
+        m.add(W.body_land(el, 0.55), gain=-2, width=1)
+        return room(m, 0.6, 0.14, damp=6000)
+    return f
+
+
+for _el in W.SUBF:
+    R["sp_land_" + _el] = (_land(_el), dict(peak_db=-3, crest=13.0, hpf=32, air_db=0, max_len=0.9, tail_db=-50))
+
+
+@recipe("sp_area", peak_db=-2, crest=13.0, hpf=30, air_db=0, max_len=1.8, tail_db=-52)
+def _():
+    m = M(2.0)   # 여럿을 다 친 뒤 한꺼번에 내려앉는 넓은 '쿵' + 굴러가는 꼬리
+    m.add(W.sub_boom(46, 1.2, 0.8, drop=2.2), gain=0)
+    m.add(np.pad(W.sub_boom(41, 1.0, 0.7, drop=1.5), (n_(0.12), 0)), gain=-5, width=1)
+    m.add(W.rumble(1.5, 0.7, 60, 340, 5), at=0.02, gain=-5, width=1)
+    m.add(punch(130, 50, 0.12, 2.4), gain=-1)
+    m.add(rock_hit(0.7), gain=-7)
+    m.add(horn(hz(38) * 2, 0.9, 0.01) * env_ad(0.9, 0.01, 0.3), at=0.02, gain=-9, width=1)   # 낮은 금관 한 번
+    return room(m, 1.2, 0.2, damp=5000)
+
+
+@recipe("sp_chain", peak_db=-4, crest=12.0, hpf=32, air_db=0, max_len=0.9, tail_db=-48)
+def _():
+    m = M(1.0)   # 마법이 잇달아 나갈 때 발동 소리 밑에 까는 고동(차례마다 음이 오른다 — FEEL.spellChain)
+    m.add(W.sub_boom(52, 0.7, 0.6, drop=1.4), gain=0)
+    m.add(W.low_swell(0.18, 60, 180), gain=-8, width=1)
+    m.add(W.gong_hum(hz(45), 0.8, 0.4), at=0.01, gain=-5, width=1)
+    m.add(punch(140, 60, 0.07, 2.0), gain=-3)
+    return room(m, 0.7, 0.14, damp=5000)
+
+
+@recipe("sp_finale", peak_db=-2, crest=13.0, hpf=30, air_db=0, max_len=2.4, tail_db=-54)
+def _():
+    m = M(2.6)   # 잇단 마법의 마무리: 깊게 내려찍고(서브 + 배음) 5도 화음이 길게 가라앉는다
+    m.add(W.low_swell(0.22, 50, 160), gain=-6, width=1)
+    t0 = 0.22
+    m.add(W.sub_boom(43, 1.4, 1.0, drop=2.4), at=t0, gain=0)
+    m.add(punch(120, 45, 0.14, 2.6), at=t0, gain=-5)
+    m.add(W.gong_hum(hz(31), 1.8, 0.9), at=t0, gain=-6, width=1)
+    f = hz(38)
+    ch = mixa(pad(f, 1.8, 0.03, 0.5), (pad(f * 1.5, 1.8, 0.04, 0.45), -2), (pad(f * 2, 1.8, 0.05, 0.4), -4))
+    m.add(lp(ch, 1500, 2) * env_ad(1.8, 0.03, 0.7), at=t0, gain=-5, width=1)
+    m.add(W.rumble(1.8, 0.8, 55, 300, 4), at=t0 + 0.03, gain=-7, width=1)
+    m.add(horn(f * 2, 1.3, 0.02) * env_ad(1.3, 0.02, 0.45), at=t0, gain=-1, width=1)            # 낮은 금관 5도
+    m.add(horn(f * 3, 1.3, 0.03) * env_ad(1.3, 0.03, 0.4), at=t0 + 0.01, gain=-4, width=1)
+    return room(m, 1.5, 0.22, damp=4500)

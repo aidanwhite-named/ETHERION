@@ -70,8 +70,9 @@ const FEEL = {
     ...Object.fromEntries("MA-10.cast MA-14.cast SA2-02.cast RB1-1.cast SB1-08.cast MG-11.cast RS-G2-3.cast RG2-1.cast US-G2-1.cast UP-A1-09.atk UP-A1-09.def UP-A1-18.atk UP-A1-18.def UP-A2-11.atk UP-A2-11.def UP-A2-17.atk UP-A2-17.def UP-A2-22.atk UP-A2-22.def UP-A2-24.atk UP-A2-24.def UP-A3-10.atk UP-A3-10.def UP-A3-11.atk UP-A3-11.def UP-A3-18.atk UP-A3-18.def UP-A3-23.atk UP-A3-23.def UP-A3-24.atk UP-A3-24.def UP-B1-12.atk UP-B1-12.def UP-B1-17.atk UP-B1-17.def UP-B1-18.atk UP-B1-18.def UP-B2-17.atk UP-B2-17.def UP-B2-18.atk UP-B2-18.def UP-B2-22.atk UP-B2-22.def UP-B2-24.atk UP-B2-24.def UP-B3-12.atk UP-B3-12.def UP-B3-23.atk UP-B3-23.def UP-G1-24.atk UP-G1-24.def UP-G2-22.atk UP-G2-22.def UP-G3-11.atk UP-G3-11.def UP-G3-12.atk UP-G3-12.def UP-G3-17.atk UP-G3-17.def UP-G3-24.atk UP-G3-24.def".split(" ").map(k => [k, "1117r"])),   // 2026-11-17 카드 변경 맞춤: 화약통 깔기 · 화약고 폭파 · 뒤집힌 물거울 · 트롤 3장 · 강화 유닛 26장(v3.79 종류) 새 소리 + 새벽빛 3장   // 2026-11-17 v3.87 원한의 일격 · 피의 맹세 새 소리   // 2026-11-16 상대 · 공격 · 방어 차례 명판 소리의 잔향 꼬리를 잘라 냄
     ...Object.fromEntries("SA3-06.cast NA3-3.cast A3-13.def A3-41.atk UP-B1-12.def B2-41.atk B2-12.atk SB2-01.cast UP-B2-18.def US-B3-2.cast G1-18.atk UP-G1-18.atk UP-G1-18.def PN-G1-U2.atk PS-G1-1.cast G2-31.atk UP-G2-22.def UP-G3-18.atk UP-G3-18.def UP-G3-11.def G3-08.atk G3-08.def G3-28.atk G3-28.def PN-G3-C3.atk PI-G3.equip A1-32.atk A1-32.def UP-A1-11.def UP-A1-15.atk UP-A1-15.def UP-A1-23.atk UP-A1-23.def A2-17.atk UP-A2-17.atk A2-29.atk A2-31.atk PN-A2-U1.def PN-A2-U2.atk PN-A2-U2.def SA2-03.cast MA-14.cast G2-26.atk PN-G2-C3.def RS-G1-2.cast".split(" ").map(k => [k, "1119sfx"])),
     "UN-G1.def": "1122ug", "TK-U-WOLF.def": "1122ug", "A1-29.atk": "1122ug" },   // 2026-11-22 유니크를 신 · 용급으로: 바위송곳니 대족장 방어 · 잿빛 먼지 짐승 방어 새 소리 + 심연의 어둑시니 공격(자료가 바뀐 뒤 다시 합성)   // 2026-11-19 프롬프트 점검 수정: SA3-06 · NA3-3 · 강화 유닛 · 금지어 정리 45키
-  SND_ALL: "v2s1121",   // 모든 파일을 한꺼번에 바꿨을 때 올린다(2026-11-16 Stable Audio → 직접 합성 · 2026-11-21 카드 · 전장 소리 1,210키를 v2 합성기 tools/sfx/synth2/ 로 새로)
-  sndUrl(key) { const v = this.SND_VER[key] ? this.SND_VER[key] + "." + this.SND_ALL : this.SND_ALL; return this.snd.base + encodeURIComponent(key) + "." + this.snd.ext + "?v=" + v; },
+  SND_ALL: "v2s1121",
+  SND_CAST: "1124w",   // 2026-11-24 마법 발동 소리 208장을 무게 층(저역 몸통 · 긴 잔향, tools/sfx/synth2/weight.py)으로 다시 합성 — .cast 는 SND_VER 보다 이것을 따른다   // 모든 파일을 한꺼번에 바꿨을 때 올린다(2026-11-16 Stable Audio → 직접 합성 · 2026-11-21 카드 · 전장 소리 1,210키를 v2 합성기 tools/sfx/synth2/ 로 새로)
+  sndUrl(key) { const tag = /\.cast$/.test(key) ? this.SND_CAST : this.SND_VER[key], v = tag ? tag + "." + this.SND_ALL : this.SND_ALL; return this.snd.base + encodeURIComponent(key) + "." + this.snd.ext + "?v=" + v; },
   /* media: 파일로 열었을 때(file:// — ETHERION 실행.bat · PC 앱)는 fetch 가 막혀서 <audio> 로 낸다. 목록도 audio/sfx/index.js (window.SFX_KEYS) */
   snd: { keys: null, buf: {}, wait: {}, ext: "ogg", base: "audio/sfx/", media: false, el: {} },
   sndKeys() {
@@ -110,7 +111,8 @@ const FEEL = {
   /* 자주 나는 공용 소리는 미리 받아 둔다 (카드 소리는 처음 날 때 받음) */
   preload() {
     const list = ["select", "unselect", "pick", "hover", "handHover", "place", "move", "draw", "shuffle", "swing", "hit", "crit", "block",
-      "shatter", "burn", "crystal", "equip", "sp_reveal", "life_hit", "confirm_ready", "deny", "coinHeads", "coinTails", "buff", "debuff", "shield", "heal"];
+      "shatter", "burn", "crystal", "equip", "sp_reveal", "life_hit", "confirm_ready", "deny", "coinHeads", "coinTails", "buff", "debuff", "shield", "heal",
+      "sp_chain", "sp_area", "sp_finale"];
     const al = n => n in this.SND_ALIAS ? this.SND_ALIAS[n] : n;
     let i = 0; const next = () => { if (i < list.length) { const k = al(list[i++]); const p = k && this.load(k); (p || Promise.resolve()).then(next); } };
     next();
@@ -124,12 +126,28 @@ const FEEL = {
     const rate = name === "pach_tick" ? 1 + (x || 0) * 0.12 : name === "pach_stop" && x ? x : 1;
     this.out(key, v == null ? 1 : v, rate);
   },
-  out(key, v, rate) {
+  /* 2026-11-24 마법 연쇄: 재생 빠르기(음높이)를 주고, force 면 같은 소리가 잇달아 나도 거르지 않는다(여러 대상을 차례로 칠 때) */
+  playAt(name, v, rate, force) {
+    if (!name || !this.vol[this.level]) return;
+    const key = name in this.SND_ALIAS ? this.SND_ALIAS[name] : name;
+    if (key) this.out(key, v == null ? 1 : v, rate || 1, force);
+  },
+  /* 마법이 잇달아 나갈 때(js/game.js runCombat · js/spellfx.js reveal): n = 이 마법의 차례(0 = 첫 마법).
+     발동 소리는 차례마다 반음의 절반쯤 오르고(최대 +2반음), 둘째부터는 밑에 낮은 고동(sp_chain)이 깔린다 — 크기는 그대로 */
+  chainRate(n) { return 1 + 0.03 * Math.max(0, Math.min(4, n || 0)); },
+  spellChain(n, at) {
+    if (!(n > 0)) return;
+    const k = Math.min(4, n);
+    setTimeout(() => this.playAt("sp_chain", 0.5 + 0.04 * k, 1 + 0.05 * k, true), at || 0);
+  },
+  /* 잇단 마법(2장 이상)의 마지막이 부서질 때 한 번: 깊게 내려찍는 마무리 */
+  spellFinale(n) { this.playAt("sp_finale", Math.min(0.85, 0.6 + 0.08 * (n - 2)), 1, true); },
+  out(key, v, rate, force) {
     if (!this.vol[this.level]) return;
     this.sndKeys();
-    if (!this.snd.keys) { const w = this.snd.wait._index; if (w) w.then(() => this.out(key, v, rate)); return; }
+    if (!this.snd.keys) { const w = this.snd.wait._index; if (w) w.then(() => this.out(key, v, rate, force)); return; }
     const now = performance.now();
-    if (now - (this.last[key] || 0) < 45) return;   // 같은 소리가 한꺼번에 겹치면 하나만
+    if (!force && now - (this.last[key] || 0) < 45) return;   // 같은 소리가 한꺼번에 겹치면 하나만
     if (this.snd.media) {
       if (!this.has(key)) return;
       this.last[key] = now;
@@ -154,12 +172,12 @@ const FEEL = {
     });
   },
   /* 카드마다 다른 소리. 그 카드의 소리가 없으면 공용 소리(fb) */
-  card(id, part, v, fb) {
+  card(id, part, v, fb, rate) {
     const key = id ? id + "." + part : null;
-    if (key && this.snd.keys && !this.has(key)) { if (fb) this.play(fb, v); return; }
-    if (!key) { if (fb) this.play(fb, v); return; }
+    if (key && this.snd.keys && !this.has(key)) { if (fb) this.playAt(fb, v, rate); return; }
+    if (!key) { if (fb) this.playAt(fb, v, rate); return; }
     if (part === "atk" || part === "def") { this.load(id + ".atk"); this.load(id + ".def"); }   // 공격 · 방어는 붙어 다니니 같이 받아 둔다
-    this.out(key, v == null ? 1 : v, 1);
+    this.out(key, v == null ? 1 : v, rate || 1);
   },
   buzz(ms) { if (this.touch && navigator.vibrate) try { navigator.vibrate(ms); } catch (e) {} },
   /* 공격 소리 (js/game.js atkSfx). phase "out" = 뛰쳐나감(소리 없음: 휙은 imp_whoosh 가 냄), "hit" = 맞는 순간 → 그 카드의 공격 소리 */

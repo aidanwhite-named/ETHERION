@@ -8,6 +8,7 @@ notes/<깃발>.json 의 글(hint)은 틀을 가르는 낱말로만 읽는다.
 import re
 
 import elements as E
+import weight as W
 from kit import *  # noqa: F401,F403
 
 GRADE_S = {"common": 0.0, "token": 0.0, "uncommon": 0.02, "upgrade": 0.05, "rare": 0.08, "epic": 0.14, "unique": 0.2, "special": 0.28}
@@ -319,7 +320,13 @@ def spell_cast(c):
             m.add(twinkle(0.3, 12, 1500, 6500, 0.03), at=th + 0.03, gain=-9, width=1)
             m.add(rubble(0.35, 14), at=th + 0.04, gain=-9)
         m.add(E.wash(el, max(0.3, D - th), s), at=th + 0.02, gain=-13, width=1)
-        end = th + 0.5 + 0.5 * heavy + 0.1 * (hits - 1)
+        # 2026-11-24 무게: 부풀어 오르는 앞 + 저역 몸통 · 긴 꼬리(전체 · 여럿 공격은 더 넓게)
+        area = hits >= 3
+        pre = W.body_pre(el, th, heavy)
+        if pre is not None:
+            m.add(pre, gain=-7 + 3 * heavy, width=1)
+        m.add(W.body_hit(el, heavy, area), at=th, gain=-5 + 2 * heavy, width=1)
+        end = th + 0.5 + 0.5 * heavy + 0.1 * (hits - 1) + 0.35 + 0.45 * heavy + (0.35 if area else 0)
     elif main == "negate":
         m.add(suck(0.26, 500, 6000), gain=-3, width=1)
         t0 = 0.27
@@ -328,7 +335,10 @@ def spell_cast(c):
         m.add(punch(160, 60, 0.07, 2.4), at=t0, gain=-3)
         m.add(retune(V(N(0, 1), 0.3), 0.75), at=t0, gain=-8, width=1)
         m.add(twinkle(0.22, 9, 1800, 7000, 0.025), at=t0 + 0.02, gain=-10, width=1)
-        end = t0 + 0.55
+        m.add(W.low_swell(t0, 50, 140), gain=-8, width=1)   # 빨려 들어가는 저역 → 꺼지는 '쿵'
+        m.add(W.sub_boom(48, 0.8, s, drop=2.2), at=t0, gain=-3)
+        m.add(W.rumble(0.8, s, 35, 200, 5), at=t0 + 0.02, gain=-11, width=1)
+        end = t0 + 0.85 + 0.2 * s
     elif main == "shield":
         th = float(np.clip(0.3 * D, 0.25, 0.5))
         m.add(E.charge(el, th, s), gain=-9, width=1)
@@ -342,7 +352,9 @@ def spell_cast(c):
         if "thorns" in names:
             m.add(thorn_ticks(5), at=th + 0.1, gain=-5, pan=U(-0.3, 0.3))
         m.add(sw(twinkle(0.4, 7, 2500, 6500, 0.05), 0.1, 1, 1.5), at=th + 0.08, gain=-13, width=1)
-        end = th + 0.75 + 0.3 * s
+        m.add(W.gong_hum(E.note(el, 0, -2), 1.0 + 0.6 * s, s), at=th, gain=-5 + 2 * s, width=1)   # 낮은 징처럼 둘러싸는 돔
+        m.add(W.sub_boom(W.SUBF[el] * 1.1, 0.6, s, drop=1.5), at=th, gain=-8)
+        end = th + 1.0 + 0.5 * s
     elif main == "heal":
         gap = 0.085
         m.add(sw(E.wash(el, D * 0.9, s * 0.6), 0.35, 1.2, 1.5), gain=-11, width=1)
@@ -353,7 +365,8 @@ def spell_cast(c):
         m.add(sw(twinkle(0.5, 12, 3000, 8500, 0.05, rise=0.5), 0.15, 1, 1.3), at=0.1, gain=-11, width=1)
         if el in ("water", "forest"):
             m.add(bubbles(0.4, 9, 600, 2600), at=0.08, gain=-10)
-        end = tb + 0.75
+        m.add(W.warm_chord(el, tb + 1.0 + 0.4 * s, True), at=0.04, gain=-5 + 2 * s, width=1)   # 따뜻한 낮은 화음이 감싼다
+        end = tb + 0.95 + 0.35 * s
     elif main == "debuff":
         gap = 0.1
         m.add(sw(E.wash(el, D * 0.85, s), 0.3, 1.2, 1.4), gain=-10, width=1)
@@ -367,7 +380,9 @@ def spell_cast(c):
             m.add(sizzle(0.4, 80), at=tb, gain=-7, width=1)
         if "drain" in names:
             m.add(suck(0.3, 400, 3500), at=0.05, gain=-7, width=1)
-        end = tb + 0.6
+        m.add(W.curse_drone(W.SUBF[el] * 1.2, tb + 0.9 + 0.4 * s, s), at=0.03, gain=-5 + 2 * s, width=1)   # 낮게 짓누르는 불협
+        m.add(W.sub_boom(W.SUBF[el] * 0.95, 0.7, s, drop=1.6), at=tb, gain=-6)
+        end = tb + 0.85 + 0.3 * s
     elif main == "trick":
         m.add(whoosh(0.2, 900, 4500, 1500, 1.6, 0.5, 0.5), at=0.03, gain=-5, pan=-0.6)
         m.add(whoosh(0.2, 1100, 5200, 1700, 1.6, 0.5, 0.5), at=0.16, gain=-5, pan=0.6)
@@ -379,7 +394,10 @@ def spell_cast(c):
         if names & {"draw", "swapLeft", "leftToBottom", "handBurn"} or hand:
             m.add(card_slide(0.13), at=0.42, gain=-7)
             m.add(card_flick(0.06), at=0.54, gain=-7)
-        end = 0.95
+        m.add(W.rumble(0.35, s, 55, 380, 4, a=0.12), at=0.0, gain=-9, pan=-0.5)   # 낮게 휘도는 기류가 좌 → 우로
+        m.add(W.rumble(0.35, s, 55, 380, 4, a=0.12), at=0.14, gain=-9, pan=0.5)
+        m.add(W.sub_boom(W.SUBF[el] * 1.2, 0.55, s * 0.7, drop=1.6), at=0.33, gain=-8)
+        end = 1.05 + 0.2 * s
     else:   # buff
         gap = 0.08
         m.add(sw(E.wash(el, D * 0.9, s), 0.4, 1.2, 1.5), gain=-10, width=1)
@@ -391,7 +409,10 @@ def spell_cast(c):
         m.add(punch(180, 85, 0.05, 1.7), at=tb, gain=-7)
         m.add(air(0.3, 5000, 0.08), at=tb, gain=-12, width=1)
         m.add(sw(twinkle(0.45, 10, 3000, 8500, 0.05, rise=0.4), 0.15, 1, 1.3), at=tb - 0.05, gain=-11, width=1)
-        end = tb + 0.75 + 0.2 * s
+        m.add(W.low_swell(tb, W.SUBF[el], 160), gain=-9 + 2 * s, width=1)   # 힘이 아래에서 차오르다
+        m.add(W.warm_chord(el, 0.9 + 0.4 * s, True, 0.03), at=tb, gain=-7 + 2 * s, width=1)   # 낮은 화음으로 올라서고
+        m.add(W.sub_boom(W.SUBF[el] * 1.1, 0.7, s, drop=1.5), at=tb, gain=-6)
+        end = tb + 0.95 + 0.3 * s
     # 곁들임: 주된 효과가 아닌 것은 짧게 덧붙인다
     te = min(end - 0.35, D * 0.75)
     if main != "shield" and "shield" in extra:
@@ -413,9 +434,17 @@ def spell_cast(c):
         ch = mixa(V(N(0, 0), 0.9), (V(N(2, 0), 0.9), -3), (V(N(4, 0), 0.9), -5))
         m.add(ch, at=max(0.2, end - 0.75), gain=-9, width=1)
         m.add(punch(120, 45, 0.14, 2.6), at=max(0.2, end - 0.75), gain=-9)
-        end += 0.25
-    room(m, rt=0.45 + 0.5 * s, mix=0.14 + 0.08 * s, damp=10000)
-    return finish(m.buf, crest=13.5, max_len=end + 0.25, tail_db=-52)
+        m.add(W.warm_chord(el, 1.1, el not in ("dark", "fire"), 0.04), at=max(0.2, end - 0.75), gain=-8, width=1)
+        m.add(W.sub_boom(W.SUBF[el] * 0.9, 0.9, 0.8, drop=1.6), at=max(0.2, end - 0.75), gain=-7)
+        end += 0.35
+    room(m, rt=0.7 + 0.8 * s, mix=0.16 + 0.08 * s, damp=7000)   # 2026-11-24 더 넓은 방(높은 쪽은 덜 울리게)
+    ln = min(end + 0.35, 2.8)
+    L, F = n_(ln), n_(0.45)   # 긴 꼬리가 끝에서 뚝 잘리지 않게 마지막 0.45초를 천천히 줄인다
+    if m.buf.shape[1] > L - F:
+        m.buf = m.buf[:, :L].copy()
+        k = m.buf.shape[1] - (L - F)
+        m.buf[:, L - F:] *= np.cos(np.linspace(0, np.pi / 2, F))[:k] ** 2
+    return finish(m.buf, crest=13.5, max_len=ln, tail_db=-54, hpf=32, air_db=0.5)
 
 
 # ══ 아이템 장착 ══════════════════════════════════════════
