@@ -524,5 +524,6 @@ const SpellFX = (() => {
     snd("sp_debuff", 0.9);
   }
 
-  return { themeOf, reveal, cast, hex };
+  /* 2026-11-24 kit: 깃발별 장면 연출(js/spellscene.js)이 같은 조각 · 시간 규칙을 쓰도록 내준다 */
+  return { themeOf, reveal, cast, hex, kit: { mk, anim, sparks, rise, flash, ring, screenFlash, shake, glow, fly, puff, svgLayer, jag, path, block, explode, splash, bubble, aura, curse, K, off, later, snd, nQ, px, rnd, ctr, EL_COL, FXC, P_OF_EL } };
 })();

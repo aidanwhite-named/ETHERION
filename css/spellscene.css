@@ -1,0 +1,107 @@
+/* ETHERION — 마법 장면 연출 조각 (js/spellscene.js, 2026-11-24). 색은 docs/STYLE_GUIDE.md 1.2 원소색 · 2.9 효과색.
+   .sfx(css/spellfx.css)의 규칙을 따른다: left/top 점이 조각의 가운데(또는 아래 적은 기준점), rotate · scale 도 그 점을 축으로.
+   움직이는 것은 transform · opacity 뿐(Web Animations) — 흐림 · 큰 그림자는 고사양(html.fx-high)에서만 켠다 */
+
+/* 쏘아 올리는 줄기 · 궤적 */
+.sc-streak { width: var(--w); height: var(--h); transform: translate(-50%, 0); border-radius: 50% 50% 3px 3px / 12% 12% 3px 3px; background: linear-gradient(180deg, #fff 0 8%, var(--c) 26%, color-mix(in srgb, var(--c) 35%, transparent) 60%, transparent); }
+.sc-bloom { width: var(--s); height: var(--s); border-radius: 50%; mix-blend-mode: screen; background: radial-gradient(circle, color-mix(in srgb, var(--c) 55%, transparent), color-mix(in srgb, var(--c) 22%, transparent) 42%, transparent 68%); }
+.sc-trace { width: var(--w); height: 2px; transform: translate(-100%, -50%); border-radius: 2px; background: linear-gradient(90deg, transparent, var(--c)); }
+.sc-ghost { filter: none !important; box-shadow: none !important; }
+
+/* 포탄 · 그림자 · 그을음 */
+.sc-bomb { width: calc(var(--z) * 1.7); height: var(--z); border-radius: 42% 58% 58% 42% / 50%; background: linear-gradient(180deg, #a9a9b2, #34343c 55%, #0e0e12); box-shadow: 0 0 8px #ff8a3a; }
+.sc-bomb::before { content: ""; position: absolute; right: 78%; top: 12%; height: 76%; width: calc(var(--z) * 3.4); border-radius: 50% 0 0 50%; background: linear-gradient(90deg, transparent, rgba(255, 90, 42, .5) 45%, #ffcf6e 88%, #fff); }
+.sc-bomb::after { content: ""; position: absolute; right: 4%; top: 22%; width: 26%; height: 30%; border-radius: 50%; background: rgba(255, 255, 255, .55); }
+.sc-shadow { width: var(--s); height: calc(var(--s) * .42); border-radius: 50%; background: radial-gradient(ellipse, rgba(0, 0, 0, .7), rgba(0, 0, 0, .35) 45%, transparent 70%); }
+.sfx.sc-cover { transform: none; transform-origin: 50% 50%; width: var(--w); height: var(--h); border-radius: 7%; overflow: hidden; }
+.sc-scorch { background: radial-gradient(ellipse at 50% 104%, rgba(255, 120, 40, .42), transparent 52%), radial-gradient(ellipse at 50% 58%, rgba(10, 6, 4, .8), rgba(26, 13, 7, .52) 40%, transparent 70%); }
+.sc-wet { background: linear-gradient(180deg, color-mix(in srgb, var(--c) 45%, transparent), color-mix(in srgb, var(--c) 12%, transparent) 60%, transparent), linear-gradient(115deg, transparent 38%, rgba(255, 255, 255, .5) 50%, transparent 62%); }
+.sc-dusk { background: radial-gradient(ellipse, rgba(10, 4, 20, .25), rgba(20, 6, 40, .75)); }
+.sc-sheen { background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, .7) 50%, transparent 65%); background-size: 260% 100%; animation: scSheen .7s ease-out both; }
+@keyframes scSheen { from { background-position: 120% 0; } to { background-position: -40% 0; } }
+
+/* 불길 */
+.sc-flame { width: var(--w); height: var(--h); transform: translate(-50%, -100%); mix-blend-mode: screen; border-radius: 50% 50% 50% 50% / 68% 68% 32% 32%;
+  background: radial-gradient(ellipse at 50% 88%, #fffbe0 0 12%, #ffd35a 30%, #ff7a2a 55%, rgba(224, 52, 20, .55) 74%, transparent 86%); }
+.sc-heat { width: var(--w); height: var(--h); transform: translate(-50%, -62%); mix-blend-mode: screen; border-radius: 50%; filter: blur(10px);
+  background: radial-gradient(ellipse, rgba(255, 130, 50, .5), rgba(255, 90, 30, .22) 50%, transparent 72%); }
+
+/* 물마루: 낮게 끌려오는 물자락 + 앞으로 말려 넘어가는 마루. 기준점 = 마루 밑(오른쪽 88%) — js가 scale 로 좌우를 뒤집는다 */
+.sc-wave { width: var(--w); height: var(--h); transform: translate(-88%, -100%);
+  clip-path: polygon(0 100%, 0 90%, 20% 84%, 38% 74%, 52% 58%, 62% 40%, 71% 22%, 80% 9%, 88% 2%, 94% 3%, 98% 9%, 100% 18%, 99% 27%, 96% 31%, 93% 26%, 89% 23%, 86% 27%, 85% 38%, 87% 55%, 91% 76%, 95% 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 38%); mask-image: linear-gradient(90deg, transparent, #000 38%);
+  background: radial-gradient(ellipse at 93% 10%, #fff 0 7%, rgba(240, 252, 255, .9) 13%, transparent 24%), radial-gradient(ellipse at 80% 14%, rgba(255, 255, 255, .85) 0 5%, transparent 13%), radial-gradient(ellipse at 66% 36%, rgba(255, 255, 255, .5) 0 4%, transparent 11%),
+    linear-gradient(180deg, #e8f9ff 0 8%, #a6e2ff 20%, var(--c) 50%, color-mix(in srgb, var(--c) 55%, #0a2a55) 82%, color-mix(in srgb, var(--c) 40%, #0a2a55)); }
+.sc-wave.back { filter: brightness(1.15); }
+.sc-pool { width: var(--w); height: var(--h); transform: translate(-50%, -100%); mix-blend-mode: screen; border-radius: 46% 46% 10% 10% / 16% 16% 4% 4%;
+  background: linear-gradient(0deg, color-mix(in srgb, var(--c) 80%, transparent), color-mix(in srgb, var(--c) 35%, transparent) 55%, rgba(240, 252, 255, .5) 92%, transparent); }
+
+/* 화살 · 창 */
+.sc-arrow { width: var(--w); height: 3px; border-radius: 2px; background: linear-gradient(90deg, #d9c9a0 0 6%, #8a6a3a 6% 100%); }
+.sc-arrow::after { content: ""; position: absolute; right: -8px; top: -4.5px; border-left: 11px solid #e9ecf2; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+.sc-arrow::before { content: ""; position: absolute; left: -1px; top: -4px; width: 22%; height: 11px; background: linear-gradient(180deg, #9fe3d6 0 38%, transparent 38% 62%, #9fe3d6 62%); clip-path: polygon(0 0, 100% 30%, 100% 70%, 0 100%, 16% 50%); }
+.sc-arrow.miss { opacity: .8; }
+.sc-lance { width: var(--w); height: 7px; border-radius: 3px; background: linear-gradient(90deg, transparent, #5a0612 22%, var(--c) 70%, #ff9aa6); box-shadow: 0 0 8px var(--c); }
+.sc-lance::after { content: ""; position: absolute; right: -14px; top: -5.5px; border-left: 18px solid #ffb3bd; border-top: 9px solid transparent; border-bottom: 9px solid transparent; }
+
+/* 바람 줄기 */
+.sc-gust { width: var(--w); height: var(--t); border-radius: 3px; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--c) 70%, transparent) 55%, #fff 92%, transparent); }
+
+/* 먹구름 · 해 · 빛줄기 */
+.sc-cloud { width: var(--w); height: var(--h); border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 96%, color-mix(in srgb, var(--c) 45%, transparent), transparent 46%), radial-gradient(ellipse at 42% 30%, rgba(170, 178, 204, .55), transparent 44%),
+    radial-gradient(ellipse at 50% 55%, rgba(104, 110, 138, .97), rgba(66, 70, 96, .95) 42%, rgba(40, 42, 62, .7) 60%, transparent 72%); }
+.sc-sun { width: var(--s); height: var(--s); border-radius: 50%; mix-blend-mode: screen;
+  background: radial-gradient(circle, #fff 0 16%, #fff3c0 24%, var(--c) 38%, color-mix(in srgb, var(--c) 35%, transparent) 54%, transparent 70%); }
+.sc-sun::before { content: ""; position: absolute; inset: -34%; border-radius: 50%;
+  background: repeating-conic-gradient(from 0deg, color-mix(in srgb, var(--c) 70%, transparent) 0 4deg, transparent 4deg 22.5deg);
+  mask: radial-gradient(circle, transparent 30%, #000 34%, transparent 70%); -webkit-mask: radial-gradient(circle, transparent 30%, #000 34%, transparent 70%); }
+.sc-rays { width: var(--s); height: var(--s); border-radius: 50%; mix-blend-mode: screen;
+  background: repeating-conic-gradient(from 8deg, color-mix(in srgb, var(--c) 30%, transparent) 0 7deg, transparent 7deg 30deg);
+  mask: radial-gradient(circle, #000 0, rgba(0, 0, 0, .5) 30%, transparent 68%); -webkit-mask: radial-gradient(circle, #000 0, rgba(0, 0, 0, .5) 30%, transparent 68%); }
+.sc-beam { width: var(--w); height: var(--t); transform: translate(0, -50%); mix-blend-mode: screen; border-radius: 0 50% 50% 0 / 0 50% 50% 0;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--c) 60%, transparent) 22%, #fff 50%, color-mix(in srgb, var(--c) 60%, transparent) 78%, transparent); }
+
+/* 바위 · 함성 */
+.sc-spike { width: var(--w); height: var(--h); transform: translate(-50%, -100%); clip-path: polygon(46% 0, 68% 42%, 100% 100%, 0 100%, 26% 52%);
+  background: linear-gradient(100deg, #e2c39a 0 30%, #8a6440 52%, #3e2a18); }
+.sc-roar { width: var(--s); height: calc(var(--s) * .5); border-radius: 50%; border: max(4px, calc(var(--s) * .06)) solid transparent; border-top-color: var(--c); box-shadow: 0 -2px 10px -2px var(--c); }
+
+/* 덩굴 · 가시 */
+.sfx-svg .vine, .sfx-svg .vine-dark, .sfx-svg .vine-hi { stroke: var(--c); }
+.sfx-svg .vine-hi { opacity: .7; stroke-dasharray: 4 9; }
+.sc-thornlet { width: calc(var(--z) * .45); height: var(--z); transform: translate(-50%, -100%); clip-path: polygon(50% 0, 100% 100%, 0 100%); background: linear-gradient(0deg, #3a2812, #6fa83e 60%, #d6f5a0); }
+
+/* 망치 · 쇠판 · 리벳 자국 */
+.sc-hammer { width: var(--l); height: var(--hh); transform: translate(0, -50%); }
+.sc-hammer::before { content: ""; position: absolute; left: 0; right: 18%; top: 42%; height: 16%; border-radius: 4px; background: linear-gradient(180deg, #b98c56, #6b4a26 60%, #3a2612); box-shadow: 0 2px 4px rgba(0, 0, 0, .5); }
+.sc-hammer::after { content: ""; position: absolute; right: 0; top: 0; width: 34%; height: 100%; border-radius: 12%;
+  background: linear-gradient(90deg, #5d6673, #e9eef5 22%, #9aa4b2 50%, #4a525d 80%, #2c323b); box-shadow: 0 0 0 1.5px #1c2027, 0 0 10px rgba(230, 237, 245, .45), inset 0 -4px 0 rgba(0, 0, 0, .25); }
+.sc-plate { width: var(--w); height: var(--h); border-radius: 5px;
+  background: radial-gradient(circle at 18% 10%, #f3f6fa 0 3.5%, transparent 4.5%), radial-gradient(circle at 82% 10%, #f3f6fa 0 3.5%, transparent 4.5%), radial-gradient(circle at 18% 90%, #f3f6fa 0 3.5%, transparent 4.5%), radial-gradient(circle at 82% 90%, #f3f6fa 0 3.5%, transparent 4.5%),
+    linear-gradient(135deg, #7c8794, #cfd6de 28%, #8d97a4 52%, #59616c 78%, #3c434c);
+  box-shadow: 0 0 0 1.5px #1c2027, inset 0 0 0 2px rgba(255, 255, 255, .18), 0 4px 10px rgba(0, 0, 0, .5); }
+.sc-rivetmark { width: var(--z); height: var(--z); border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, #c9d2de 40%, #59616c 75%); box-shadow: 0 0 6px #ffe7a0, 0 1px 2px #000; }
+
+/* 낫 · 혼 · 날개 */
+.sfx-crescent.sc-scythe { box-shadow: inset calc(var(--z) * .11) 0 0 0 var(--c), inset calc(var(--z) * .04) 0 0 0 #e7dcff; }
+.sfx-void.sc-soul { background: radial-gradient(circle, #fff 0 12%, var(--c) 40%, transparent 70%); filter: none; }
+.sc-wing { width: var(--w); height: var(--h); transform: translate(0, -78%); mix-blend-mode: screen;
+  clip-path: polygon(0 82%, 6% 44%, 26% 14%, 62% 0, 100% 4%, 78% 20%, 96% 30%, 72% 40%, 88% 52%, 62% 58%, 74% 70%, 48% 74%, 56% 86%, 30% 86%, 34% 98%, 10% 94%);
+  background: repeating-linear-gradient(64deg, transparent 0 7%, rgba(255, 255, 255, .55) 7% 8.2%), linear-gradient(110deg, rgba(255, 255, 255, .92) 0 14%, color-mix(in srgb, var(--c) 70%, transparent) 46%, color-mix(in srgb, var(--c) 22%, transparent) 86%, transparent); }
+.sfx-p.sc-feather { border-radius: 0 80% 0 80%; background: linear-gradient(135deg, #fff, #ffe9a8 70%); box-shadow: none; }
+
+/* 고사양: 빛이 번진다 */
+html.fx-high .sc-bomb { box-shadow: 0 0 10px #ff8a3a, 0 0 22px rgba(255, 138, 58, .6); }
+html.fx-high .sc-flame { filter: drop-shadow(0 0 10px rgba(255, 122, 42, .8)); }
+html.fx-high .sc-wave { filter: drop-shadow(0 0 12px var(--c)); }
+html.fx-high .sc-cloud { filter: blur(5px); }
+html.fx-high .sc-sun, html.fx-high .sc-beam { filter: drop-shadow(0 0 14px var(--c)); }
+html.fx-high .sc-wing { filter: drop-shadow(0 0 10px var(--c)); }
+html.fx-high .sc-lance { box-shadow: 0 0 10px var(--c), 0 0 24px var(--c); }
+html.fx-high .sc-roar { box-shadow: 0 -2px 16px 0 var(--c); }
+/* 저사양(폰 · 앱): 섞기(screen)를 끄고 그림자를 뺀다 */
+html.fx-low .sc-flame, html.fx-low .sc-sun, html.fx-low .sc-beam, html.fx-low .sc-wing, html.fx-low .sc-pool { mix-blend-mode: normal; }
+html.fx-low .sc-bomb, html.fx-low .sc-lance, html.fx-low .sc-roar, html.fx-low .sc-rivetmark, html.fx-low .sc-plate { box-shadow: none; }
+
+@media (prefers-reduced-motion: reduce) { .sc-cover { display: none; } }

@@ -1,0 +1,56 @@
+<!doctype html><meta charset="utf-8"><title>sheet</title>
+<style>html,body{margin:0;background:#000;overflow:hidden}#g{display:grid;gap:4px}iframe{border:0;display:block;transform-origin:0 0}
+.c{position:relative;overflow:hidden}.c b{position:absolute;left:6px;top:4px;z-index:9;font:700 15px monospace;color:#fff;background:rgba(0,0,0,.7);padding:2px 6px}</style>
+<div id="g"></div><img id="slow">
+<script>
+/* ?fw&fh&sc&cols&ts=0,200&fx=lite|rich|low&me=G:id,id..&foe=G:id,id&nth=1&crop=x,y,w,h&slow=9&perf=1 */
+const Q=new URLSearchParams(location.search), fw=+Q.get("fw")||1280, fh=+Q.get("fh")||720, sc=+Q.get("sc")||0.5, cols=+Q.get("cols")||3;
+const ts=(Q.get("ts")||"0").split(",").map(Number), fx=Q.get("fx")||"lite", nth=+Q.get("nth")||1, crop=(Q.get("crop")||"").split(",").map(Number);
+const hasC=crop.length===4, cw=hasC?crop[2]:fw, ch=hasC?crop[3]:fh, cx=hasC?crop[0]:0, cy=hasC?crop[1]:0;
+const me=(Q.get("me")||"B1:SB1-09,B1-10,B1-12").split(":"), foe=(Q.get("foe")||"G1:G1-10,G1-05,G1-08,G1-10").split(":"), perf=Q.get("perf"), tag=Q.get("tag")||"";
+localStorage.setItem("etherion.pref.bgm",'"off"');localStorage.setItem("etherion.pref.sfx",'"off"');localStorage.setItem("etherion.pref.fx",JSON.stringify(fx));
+g.style.gridTemplateColumns=`repeat(${cols},${cw*sc}px)`;
+document.getElementById("slow").src="/__slow?s="+(Q.get("slow")||9);
+const log=m=>{new Image().src="/__log?"+encodeURIComponent(m)};
+window.onerror=(m)=>log("TOPERR "+m);
+ts.forEach((t,i)=>{
+  const c=document.createElement("div");c.className="c";c.style.width=cw*sc+"px";c.style.height=ch*sc+"px";
+  c.innerHTML=`<b>${fx} ${t}ms</b>`;
+  const f=document.createElement("iframe");f.width=fw;f.height=fh;f.style.transform=`scale(${sc}) translate(${-cx}px,${-cy}px)`;
+  f.src="/index.html?offline";
+  f.onload=()=>setTimeout(()=>boot(f.contentWindow,t,i),300);
+  c.appendChild(f);g.appendChild(c);
+});
+function boot(w,t,i){
+  try{
+  w.onerror=(m,s,l)=>log("ERR"+i+" "+m+" "+s+":"+l);
+  w.__frozen=false;w.addEventListener('unhandledrejection',e=>log('REJ'+i+' '+(e.reason&&(e.reason.stack||e.reason.message||e.reason))));
+  const st=w.setTimeout.bind(w), raf=w.requestAnimationFrame.bind(w), si=w.setInterval.bind(w);
+  w.setTimeout=(fn,ms,...a)=>st(()=>{if(!w.__frozen&&typeof fn==="function")fn(...a)},ms);
+  w.setInterval=(fn,ms,...a)=>si(()=>{if(!w.__frozen)fn(...a)},ms);
+  w.requestAnimationFrame=fn=>raf(x=>{if(!w.__frozen)fn(x)});
+  w.__freeze=()=>{w.__frozen=true;for(const a of w.document.getAnimations())try{a.pause()}catch(e){}};
+  w.__T=t;w.__NTH=nth;w.__log=log;w.__I=i;w.__PERF=perf;w.__TAG=tag+" "+fx;
+  w.eval(`
+    document.documentElement.classList.remove("mobile");
+    Prefs.set("fx", ${JSON.stringify(fx)}); applyFx(${JSON.stringify(fx)});
+    UID=0;
+    G={mode:"ai",turn:1,attacker:0,rand:null,online:false,me:0,phase:"combat",log:[],sel:null,reg:{},fx:{dying:[]},viewer:0,control:null,speed:1,winner:null,reason:"",cfg:{mode:"ai"},players:null,ready:null,handoff:false,leave:{},inspect:null,showLog:false,econ:typeof newEcon==="function"?newEcon():null,rules:{},vlog:null,broken:[],kills:[0,0]};
+    setCombatRules({});
+    G.players=[mkPlayer(0,{name:"나",group:${JSON.stringify(me[0])},cards:{"B1-10":12}}),mkPlayer(1,{name:"상대",group:${JSON.stringify(foe[0])},cards:{"G1-10":12},isAI:true})];
+    ${JSON.stringify(me[1].split(","))}.forEach((id,k)=>{G.players[0].field[k]=mkInst(id)});
+    ${JSON.stringify(foe[1].split(","))}.forEach((id,k)=>{G.players[1].field[k]=mkInst(id)});
+    for(const p of G.players){draw(p,3,true);for(const it of p.field)if(isUnit(it))resetTurn(it,p.idx===G.attacker);p.ether=5;p.crystals=[mkInst('B1-10'),mkInst('B1-10'),mkInst('B1-10')];}
+    mountBoard();render();
+    if(${JSON.stringify(Q.get('noscene')||'')})SpellFX.cast=SpellScene.base;
+    {let n=0;const base=SpellFX.cast;SpellFX.cast=function(s,c){const hit=s&&s.floats&&s.floats.length;const out=base.apply(this,arguments);if(hit&&++n===__NTH){
+        if(__PERF){const t0=performance.now();let last=t0,worst=0,fr=0,maxN=0;const tick=x=>{const now=performance.now();worst=Math.max(worst,now-last);last=now;fr++;maxN=Math.max(maxN,document.querySelectorAll("#fx-layer .sfx, #fx-layer .sfx-svg").length);if(now-t0<2600)requestAnimationFrame(tick);else __log("PERF "+__TAG+" fps="+(fr/((now-t0)/1000)).toFixed(1)+" worst="+worst.toFixed(1)+"ms maxNodes="+maxN)};requestAnimationFrame(tick);}
+        else setTimeout(__freeze,__T);
+        if(__I===0)__log("CAST "+__TAG+" floats="+JSON.stringify(s.floats)+" delays="+JSON.stringify([...out]));
+      }return out};}
+    runCombat();
+    if(__I===0)setTimeout(()=>{__log('LOG '+G.log.slice(-14).map(x=>x.t||x[0]||JSON.stringify(x)).join(' / '))},7000);
+  `);
+  }catch(e){log("BOOTERR "+e.message)}
+}
+</script>

@@ -127,6 +127,8 @@ html.fx-low .fly-ghost .fz-tag { box-shadow: 0 0 6px rgba(239, 106, 92, .45); }
 html.fx-low .cs-side { box-shadow: 0 2.3px 6px rgba(0, 0, 0, .8), inset 0 0 0 1px rgba(255, 255, 255, .04); }
 html.fx-low .cs-side.stopping .cs-stop { animation-name: none; }
 html.fx-low .throw-shot { box-shadow: 0 0 6px 3px rgba(255, 170, 70, .75); }
+html.fx-low .gun-flash { box-shadow: 0 0 6px 4px #ffe08a, 0 0 6px 10px rgba(255, 150, 50, .8); }
+html.fx-low .gun-tracer { box-shadow: 0 0 6px 2px rgba(255, 200, 110, .7); }
 html.fx-low .card.equipped::before { box-shadow: 0 2.6px 6px rgba(0, 0, 0, .6), inset 0 0 0 .08em rgba(246, 226, 168, .12); }
 html.fx-low .card.equipped > .c-frame { box-shadow: 0 .06em 0 #8a7342, 0 .13em 0 #3a2f1c, 0 2.3px 6px rgba(0, 0, 0, .6), inset 0 .07em 0 rgba(255, 255, 255, .14), inset 0 0 0 .1em rgba(255, 255, 255, .06); }
 html.fx-low .card.legend.equipped > .c-frame { box-shadow: 0 .06em 0 #8a7342, 0 .13em 0 #3a2f1c, 0 0 6px rgba(233, 198, 111, .35), 0 2.3px 6px rgba(0, 0, 0, .6), inset 0 .07em 0 rgba(255, 255, 255, .14); }
@@ -286,6 +288,15 @@ html.fx-low .float.plate .fl-num { text-shadow: 0 1.5px 4px #000, 0 0 4px curren
 @media (prefers-reduced-motion: reduce) {
 html.fx-low .float.plate .fl-tag::before { animation-name: none; }
 }
+
+/* spellscene.css */
+html.fx-low .sc-bomb { box-shadow: 0 0 6px #ff8a3a; }
+html.fx-low .sc-hammer::before { box-shadow: 0 2px 4px rgba(0, 0, 0, .5); }
+html.fx-low .sc-hammer::after { box-shadow: 0 0 0 1.5px #1c2027, 0 0 6px rgba(230, 237, 245, .45), inset 0 -4px 0 rgba(0, 0, 0, .25); }
+html.fx-low .sc-plate { box-shadow: 0 0 0 1.5px #1c2027, inset 0 0 0 2px rgba(255, 255, 255, .18), 0 2.4px 6px rgba(0, 0, 0, .5); }
+html.fx-low .sc-rivetmark { box-shadow: 0 0 6px #ffe7a0, 0 1px 2px #000; }
+html.fx-low.fx-high .sc-bomb { box-shadow: 0 0 6px #ff8a3a, 0 0 6px rgba(255, 138, 58, .6); }
+html.fx-low.fx-high .sc-flame { filter: drop-shadow(0 0 3px rgba(255, 122, 42, .8)); }
 
 /* depth.css */
 html.fx-low .topbar.realm { box-shadow: 0 1px 0 #2e2616, 0 2px 0 #1e190f, 0 2.8px 6px rgba(0, 0, 0, .62); }
@@ -464,6 +475,10 @@ html.fx-low .hx-pin, html.fx-low .hx-num { box-shadow: 0 2px 6px rgba(0, 0, 0, .
 html.fx-low .hx-life b { box-shadow: 0 3px 6px rgba(0, 0, 0, .55); text-shadow: 0 2px 3px rgba(0, 0, 0, .6); }
 html.fx-low .tc-no { box-shadow: 0 2.6px 6px rgba(0, 0, 0, .5); }
 html.fx-low .tut-ch.done .tc-go { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .5); }
+html.fx-low .hx-ed-num { text-shadow: 0 1px 3px rgba(0, 20, 40, .95); }
+html.fx-low .hx-ed-card.ok .card { box-shadow: 0 0 0 2px #7fd3f7, 0 0 6px rgba(127, 211, 247, .7); }
+html.fx-low .hx-ed-card.crys .card { box-shadow: 0 0 0 2px #f6e2a8, 0 0 6px rgba(246, 226, 168, .6); }
+html.fx-low .hx-ed-card.played .card { box-shadow: 0 0 0 2px rgba(127, 211, 247, .4); }
 html.fx-low .help-tour { animation-name: none; }
 html.fx-low .tour-hole { box-shadow: 0 0 0 200vmax rgba(3, 4, 8, .72), 0 0 0 4px rgba(217, 180, 106, .18), inset 0 0 6px rgba(217, 180, 106, .14); }
 @media (prefers-reduced-motion: reduce) {
@@ -551,6 +566,8 @@ html.fx-low .ether.altar.nudge .eth-ring { animation-name: none; }
 html.fx-low .ether.altar.nudge .eth-ring::before { animation-name: none; }
 html.fx-low .ether.altar.nudge .eth-ring::after { animation-name: none; }
 }
+html.fx-low .crys-lv { box-shadow: 0 0 6px rgba(143, 220, 255, .45), 0 2.6px 6px rgba(0, 0, 0, .6); }
+html.fx-low .crys-lv b { text-shadow: 0 0 4px rgba(143, 220, 255, .8); }
 
 /* trade.css */
 html.fx-low .tb-badge { box-shadow: 0 0 0 1.5px rgba(8, 9, 15, .9), 0 0 6px rgba(240, 200, 120, .55); }
