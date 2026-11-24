@@ -25,7 +25,7 @@ function mergeAbil(a, b) {
    [가호]는 기본 목록에 없다 — 끄려면 마법의 op.abs에 적는다. 새 마법도 op.abs로 끄는 능력을 고르고, 글에 그 이름을 적는다 */
 const STRIP_DEF = ["보호막", "가시", "저주 면역", "수호"];
 const ABIL_KEY = { "보호막": "shield", "가시": "thorns", "가호": "ward", "관통": "shred", "치명": "crit", "연쇄": "chain", "원거리": "ranged",
-  "방어무시": "magic", "마력 공격": "arcane", "치유": "heal", "바다의 보호": "calm", "사격": "snipe", "증폭": "amp", "강탈": "rob", "흡혈": "leech", "그림자 걸음": "veil", "피의 계약": "pact", "출혈": "bleed", "점화": "ignite", "화염 갑주": "farmor",
+  "방어무시": "magic", "방어 이용": "arcane", "마력 공격": "arcane", "치유": "heal", "바다의 보호": "calm", "사격": "snipe", "증폭": "amp", "강탈": "rob", "흡혈": "leech", "그림자 걸음": "veil", "피의 계약": "pact", "출혈": "bleed", "점화": "ignite", "화염 갑주": "farmor",
   "재생": "regen", "방패 반격": "bash", "수호": "taunt", "정화": "purify", "굳건": "firm", "매혹": "mesmer", "전도": "conduct", "감전": "shock",
   "불꽃 사냥": "huntfire", "되받기": "riposte", "과부하": "overload", "포식": "devour", "뿌리 흡수": "drain", "밀물": "flow", "심판": "judge", "경계의 화살": "sentry", "표식": "mark",
   "너울": "swell", "물때": "tidal" };   // 2026-11-24 인어 [너울] · [물때 N] (이 파일 끝 "인어 [너울] · [물때]" 절)   // v3.81 스페셜 아이템 능력 (이 파일 끝 "v3.81 스페셜 아이템 능력" 절)   // v3.74 새 능력 (js/newabil.js, 이 파일 끝 "v3.74 새 능력" 절)
@@ -386,7 +386,7 @@ function coinX(op, faces) {
   return x;
 }
 /* v3.18 grant 효과가 카드 위에 띄우는 글 */
-const GRANT_KO = { crit: "치명", chain: "연쇄", shred: "관통", ranged: "원거리", magic: "방어무시", arcane: "마력 공격", heal: "치유", rob: "강탈", leech: "흡혈", veil: "그림자 걸음", pact: "피의 계약", bleed: "출혈", ignite: "점화", farmor: "화염 갑주", regen: "재생", bash: "방패 반격", taunt: "수호", purify: "정화", firm: "굳건", conduct: "전도", shock: "감전", amp: "증폭", swell: "너울", tidal: "물때" };   // v3.95 amp: 증폭 회로
+const GRANT_KO = { crit: "치명", chain: "연쇄", shred: "관통", ranged: "원거리", magic: "방어무시", arcane: "방어 이용", heal: "치유", rob: "강탈", leech: "흡혈", veil: "그림자 걸음", pact: "피의 계약", bleed: "출혈", ignite: "점화", farmor: "화염 갑주", regen: "재생", bash: "방패 반격", taunt: "수호", purify: "정화", firm: "굳건", conduct: "전도", shock: "감전", amp: "증폭", swell: "너울", tidal: "물때" };   // v3.95 amp: 증폭 회로
 function grantLabel(op) {
   const xs = Object.keys(op.ab || {}).map(k => (GRANT_KO[k] || k) + ((k === "heal" || k === "arcane" || k === "amp" || k === "tidal") && typeof op.ab[k] === "number" ? " " + op.ab[k] : ""));   // v3.78 [치유 N] · [마력 공격 N]은 수치까지
   if (op.ward) xs.push("가호 " + op.ward);
@@ -632,11 +632,11 @@ function attackOne(X, Au) {
     else if (td > 0) { hurt(X, thr, td, "투척"); if (!thr.t.alive) thr.t.killer = Au.uid; }
     else fl(X, thr.uid, "투척 막음", "miss");
   }
-  const mesA = ab.mesmer ? mrMesmer(X, Au, Du) : 0, aA = Au.t.a + mesA;   // 2026-11-24 [매혹]: 맞붙은 상대 카드의 코인 개수만큼 이 맞붙음의 공격 +(최대 3)
+  const mesA = ab.mesmer ? mrMesmer(X, Au, Du) : 0, aA = Au.t.a;   // 2026-11-24 [매혹]: 맞붙은 상대 카드의 코인 개수만큼 추가 피해(최대 3, 방어에 막히지 않음)
   let dd = Du.t.d;
   if (ab.magic) dd = 0;   // 2026-11-16 [방어무시]: 공격할 때 상대 방어를 전부 무시한다
   const arc = mrArc(aA, ab.arcane > 0 ? Du.t.d : dd, ab.arcane);   // v3.95 [마력 공격 N]: 공격 + 상대 방어(N까지)
-  let dealt = arc.dmg + spHunt(X, Au, Du) + kzConduct(X, Au, Du), crit = false, got = 0;   // v3.81 [불꽃 사냥]
+  let dealt = arc.dmg + mesA + spHunt(X, Au, Du) + kzConduct(X, Au, Du), crit = false, got = 0;   // v3.81 [불꽃 사냥]
   const blocked = ab.arcane > 0 && aA > 0 ? 0 : Math.min(Math.max(0, aA), Math.max(0, dd));   // v3.95 [마력 공격]은 방어에 막히지 않는다   // v3.81 [되받기]: 상대 방어가 막아 낸 몫
   X.clash = [Au, Du];   // v3.68 [치유]: 이 맞붙음에서 살아남은 쪽이 체력을 채운다(runCombatCore가 attackOne 뒤에)
   if (dealt > 0 && Du.t.alive && uEyeTry(X, Du)) { dealt = 0; fl(X, Du.uid, "빗나감", "miss"); lg(X, `[폭풍의 눈] ${ca.name}의 공격이 바람에 빗나갔다`, "good"); }   // v3.31
@@ -651,7 +651,7 @@ function attackOne(X, Au) {
     // 원래 피해로 쓰러지면 그대로 쓰러진다. 예전에는 코인 앞면이면 피해 2배라 공격이 큰 유닛에게 너무 셌다
     if (ab.crit && got > 0 && Du.t.alive && hpLeft(Du) > 1) { const cut = hpLeft(Du) - 1; Du.t.dmg += cut; got += cut; crit = true; fl(X, Du.uid, "치명 ♥1", "dmg big"); }
     if (ab.shred && Du.t.d > 0 && aA > 0) { const red = Math.min(aA, Du.t.d); Du.t.d -= red; applyFloor(Du); if (red) fl(X, Du.uid, "관통 ⛨−" + red, "debuff"); }
-    lg(X, `${ca.name}(공 ${aA}) → ${cd.name}(방 ${dd}): 피해 ${got}${crit ? " (치명)" : ""}${mesA ? ` [매혹 +${mesA}]` : ""}${arc.bonus ? ` [마력 공격 +${arc.bonus}]` : ""}`);
+    lg(X, `${ca.name}(공 ${aA}) → ${cd.name}(방 ${dd}): 피해 ${got}${crit ? " (치명)" : ""}${mesA ? ` [매혹 +${mesA}]` : ""}${arc.bonus ? ` [방어 이용 +${arc.bonus}]` : ""}`);
     // v3.13.2 [연쇄]: 이 공격으로 맞선 유닛을 쓰러뜨리고 피해가 남으면, 남은 피해로 대기열의 다음 상대 유닛 하나를 친다.
     // 그 유닛의 방어만큼 줄고(마력 공격은 여기에도 적용), 반격 · 가시는 없다. 가호에 줄어든 몫은 남은 피해에서 빠진다
     if (ab.chain && !Du.t.alive && got > hpBefore) {
@@ -670,7 +670,7 @@ function attackOne(X, Au) {
       if (pr > 0) { hurt(X, behind, pr, "꿰뚫기"); if (!behind.t.alive) { behind.t.killer = Au.uid; behind.t.killVia = "pierce"; } } else fl(X, behind.uid, "막음", "miss");
     }
     uOnHit(X, Au, Du, got);   // v3.31 [불씨 전염] · [계약의 낙인] 표시, 쓰러뜨린 유닛 기록
-    if (Du.t.thorns && Au.t.alive) {   // v3.84 같은 능력은 칸마다 따로: [가시 1] [가시 1]은 피해 1이 두 번(가시 2 한 번이 아님)
+    if (Du.t.thorns && Au.t.alive && got > 0) {   // 2026-11-24 (사용자 문구) 공격 당해 체력이 깎일 때만 · v3.84 같은 능력은 칸마다 따로: [가시 1] [가시 1]은 피해 1이 두 번(가시 2 한 번이 아님)
       const ps = fitPieces(Du.t.thornsP || [], Du.t.thorns);
       if (ps.length > 1) { thSplit = true; step(X, thr ? { act: Au.uid, tgt: Du.uid, hit: true, thr: thr.uid } : { act: Au.uid, tgt: Du.uid, hit: true }, 520); }
       ps.forEach((n, i) => { if (!Au.t.alive) return; if (i) step(X, { tgt: Au.uid }, PIECE_MS); const t = hurt(X, Au, n, "가시"); if (t) lg(X, `[가시${ps.length > 1 ? " " + n : ""}] ${ca.name} 피해 ${t}`); });
@@ -685,11 +685,11 @@ function attackOne(X, Au) {
   else step(X, thr ? { act: Au.uid, tgt: Du.uid, hit: true, thr: thr.uid } : { act: Au.uid, tgt: Du.uid, hit: true }, 520);
   if (Du.t.alive && Au.t.alive && !Du.t.rest && !C(Du).still && !Du.t.noCounter) {   // noCounter: 반격하지 않는 유닛 (v3.65 환각이 쓰다가 뺐다 — 지금 거는 곳 없음)
     if (ab.ranged) { lg(X, `[원거리] ${ca.name}은(는) 반격을 받지 않는다`, "sys"); return; }   // 2026-11-22 [요격](원거리에게도 반격)은 걷어냄 → 케라운 [전도]
-    const mesD = abilOf(Du).mesmer ? mrMesmer(X, Du, Au) : 0;   // 2026-11-24 [매혹]: 반격할 때도 맞붙은 상대 코인 개수만큼 공격 +
+    const mesD = abilOf(Du).mesmer ? mrMesmer(X, Du, Au) : 0;   // 2026-11-24 [매혹]: 반격할 때도 맞붙은 상대 코인 개수만큼 추가 피해
     const bash = abilOf(Du).bash ? Math.max(0, Du.t.d) : 0;   // v3.74 [방패 반격]: 반격 피해에 지금 방어를 더한다(관통에 깎인 뒤의 값)
     if (bash) lg(X, `[방패 반격] ${cd.name}의 반격에 방어 ${bash}를 더한다`, "sys");
     const cMagic = !!abilOf(Du).magic;   // v3.95 (사용자): [방어무시]는 반격에도 — 공격한 유닛의 방어를 0으로 친다
-    const back = abVeil(X, Du, Au, hit(Du.t.a + mesD + bash, cMagic ? 0 : Au.t.d) + spHunt(X, Du, Au) + kzConduct(X, Du, Au));   // 2026-11-22 [전도]도 반격에 · v3.81 [불꽃 사냥]은 반격에도 · v3.65 [그림자 걸음] · v3.95 [마력 공격]은 반격에 붙지 않는다(사용자)
+    const back = abVeil(X, Du, Au, hit(Du.t.a + bash, cMagic ? 0 : Au.t.d) + mesD + spHunt(X, Du, Au) + kzConduct(X, Du, Au));   // 2026-11-22 [전도]도 반격에 · v3.81 [불꽃 사냥]은 반격에도 · v3.65 [그림자 걸음] · v3.95 [마력 공격]은 반격에 붙지 않는다(사용자)
     const auHp = hpLeft(Au);   // 2026-11-17 [흡혈]: 반격 맞기 전 체력 (흡혈 상한)
     const g = back > 0 ? hurt(X, Au, back, "반격") : (fl(X, Au.uid, "반격 0", "miss"), 0);
     abLeech(X, Du, g, auHp);   // v3.65 [흡혈]: 반격도 맞붙은 피해
@@ -700,7 +700,7 @@ function attackOne(X, Au) {
     lg(X, `↺ ${cd.name}의 반격 → ${ca.name}: 피해 ${gc}${ccrit ? " (치명)" : ""}${cMagic && Au.t.d > 0 ? " [방어무시]" : ""}`);
     uOnHit(X, Du, Au, gc);   // v3.31 반격도 맞붙은 피해 (v3.65 기록 뒤에 — [출혈]이 반격 줄 다음에 찍히게)
     // v3.84.3 [가시]는 반격도 공격으로 친다(사용자): 반격받은 공격자에게 가시가 있으면 반격한 유닛이 가시만큼 체력을 잃는다(공격받을 때와 같이 칸마다 따로)
-    if (Au.t.thorns && Du.t.alive) {
+    if (Au.t.thorns && Du.t.alive && g > 0) {   // 2026-11-24 반격에 체력이 깎일 때만
       const ps = fitPieces(Au.t.thornsP || [], Au.t.thorns);
       if (ps.length) step(X, { act: Au.uid, counter: Du.uid }, 460);
       ps.forEach((n, i) => { if (!Du.t.alive) return; if (i) step(X, { tgt: Du.uid }, PIECE_MS); const t = hurt(X, Du, n, "가시"); if (t) lg(X, `[가시${ps.length > 1 ? " " + n : ""}] 반격한 ${cd.name} 피해 ${t}`); });
@@ -1767,7 +1767,7 @@ function mrMesmerN(u) {
 }
 function mrMesmer(X, me, foe) {
   const n = mrMesmerN(foe);
-  if (n > 0) fl(X, me.uid, "매혹 ⚔+" + n, "buff");
+  if (n > 0) fl(X, me.uid, "매혹 +" + n, "buff");
   return n;
 }
 function mrCalm(X, u) {

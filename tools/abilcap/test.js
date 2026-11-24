@@ -37,7 +37,7 @@ ok(c.ev('ABIL_CAP') === 3, '상한 3');
   ok(fr.filter(x => x).length === 2, '가시 두 번은 다른 수(차례로 보임) ' + JSON.stringify(fr)); }
 // 가시 한 칸이면 예전과 같은 한 번
 { const P = [c.side(0, ['G2-01']), c.side(1, ['IG2-4' && 'G2-01'])]; P[1].field[0].item = { id: 'IG2-4', coins: [] }; c.prep(P);
-  const d = P[1].field[0], a = P[0].field[0]; const X = c.ev('ctx')(P, 0, 1, []); a.t.h = 30; d.t.h = 30; a.t.noCoin = d.t.noCoin = true; d.t.ward = 0;
+  const d = P[1].field[0], a = P[0].field[0]; const X = c.ev('ctx')(P, 0, 1, []); a.t.h = 30; d.t.h = 30; a.t.noCoin = d.t.noCoin = true; d.t.ward = 0; d.t.d = 0; a.t.a = Math.max(1, a.t.a);   // 2026-11-24 가시는 체력이 깎일 때만
   c.ev('attackOne')(X, a); const th = X.rec.flatMap(r => r.floats).filter(f => f[0] === a.uid && /^가시/.test(f[1]));
   ok(th.length === 1 && /−2$/.test(th[0][1]), '[가시 2] 한 칸은 한 번 −2 ' + JSON.stringify(th.map(f => f[1]))); }
 

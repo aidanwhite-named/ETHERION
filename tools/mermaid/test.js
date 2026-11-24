@@ -65,15 +65,15 @@ T('씻김의 노래', `const d1 = mk("A2-01"), d2 = mk("A2-01"); d1.t.shield = t
 // 2026-11-24 [홀림]을 걷어냈다: 코인 뒷면 · 공방 교환 · 다시 세우기는 원래 효과만, [마력 공격]은 늘 N까지
 T('홀림 없음 · 코인 뒷면', `const a = setT(mk("G3-19"), 4, 0, 20), d = setT(mk("B2-01"), 0, 5, 30);
   const X = fight([side(0, ["MG-07", a]), side(1, [d])], 0);
-  ok(/\\[마력 공격 \\+1\\]/.test(logs(X)) && !/홀림/.test(logs(X)) && !d.t.charm, "코인 뒷면에 걸린 방 5 상대 → 마력 공격 +1(N)까지");
+  ok(/\\[방어 이용 \\+1\\]/.test(logs(X)) && !/홀림/.test(logs(X)) && !d.t.charm, "코인 뒷면에 걸린 방 5 상대 → 마력 공격 +1(N)까지");
   ok(!/홀림/.test(CARDS["MG-07"].text + CARDS["NG3-2"].text + CARDS["SG3-02"].text + CARDS["MC-03"].text + CARDS["MG-11"].text + CARDS["RS-G3-3"].text), "마법 글에 [홀림] 없음");
-  ok((typeof SPELL_BRIEF === "undefined" || Object.keys(SPELL_BRIEF).every(k => !/홀림/.test(SPELL_BRIEF[k]))) && !SPELL_KW["홀림"] && !/홀림/.test(ITEM_KW["마력 공격"]), "핸드 글 · 키워드 뜻에 홀림 없음");
+  ok((typeof SPELL_BRIEF === "undefined" || Object.keys(SPELL_BRIEF).every(k => !/홀림/.test(SPELL_BRIEF[k]))) && !SPELL_KW["홀림"] && !/홀림/.test(ITEM_KW["방어 이용"]), "핸드 글 · 키워드 뜻에 홀림 없음");
   ok(typeof mrCharm === "undefined", "엔진 mrCharm 없음");`);
 // 뒤집힌 물거울: 상대 앞 2기 공 ↔ 방
 T('뒤집힌 물거울', `const a = setT(mk("G3-19"), 4, 0, 30), e1 = setT(mk("B1-01"), 5, 1, 30), e2 = setT(mk("B1-02"), 3, 0, 30), e3 = setT(mk("B1-03"), 2, 0, 30);
   const X = fight([side(0, ["MG-11", a]), side(1, [e1, e2, e3])], 0);
   ok(e2.t.d === 3 && e2.t.a === 0 && e3.t.a === 2, "앞 2기 공방 교환 (" + [e1.t.a, e1.t.d, e2.t.a, e2.t.d] + ")");
-  ok(/\\[마력 공격 \\+1\\]/.test(logs(X)), "바뀐 방어 5에도 마력 공격은 N(1)까지");`);
+  ok(/\\[방어 이용 \\+1\\]/.test(logs(X)), "바뀐 방어 5에도 마력 공격은 N(1)까지");`);
 // 2026-11-24 [매혹]: 맞붙은 상대 카드의 코인 개수만큼 공격 +(최대 3), 공격 · 반격 모두
 T('매혹', `const cc = u => Math.min(3, (C(u).co || []).reduce((s, x) => s + x[1], 0));
   const id = Object.keys(CARDS).find(k => CARDS[k].type === "unit" && !CARDS[k].gift && (CARDS[k].co || []).reduce((s, x) => s + x[1], 0) === 2);
@@ -84,12 +84,12 @@ T('매혹', `const cc = u => Math.min(3, (C(u).co || []).reduce((s, x) => s + x[
   ok(a.t.a === 3, "스탯은 그대로(맞붙음 계산에만)");
   const b = setT(mk(id), 2, 0, 30); b.t.noCoin = true; const e = setT(mk("G3-01"), 1, 0, 30); e.item = { id: "PI-G3" }; e.t.noCoin = true;
   const X2 = fight([side(0, [b]), side(1, [e])], 0);
-  ok(b.t.dmg === 1 + 2, "반격도: 공 1 + 매혹 2 → 피해 3 (" + b.t.dmg + ")");
+  ok(b.t.dmg === 1 + 2, "반격도: 공 1 + 추가 피해 2 → 3 (" + b.t.dmg + ")");
   const big = Object.keys(CARDS).find(k => CARDS[k].type === "unit" && (CARDS[k].co || []).reduce((s, x) => s + x[1], 0) >= 5);
   ok(mrMesmerN(mk(big)) === 3, "코인 5개 상대도 +3까지");
-  ok(/코인 개수/.test(ITEM_KW["매혹"]) && !/홀림/.test(ITEM_KW["매혹"]), "매혹 글");`);
+  ok(/코인 개수만큼 추가 데미지/.test(ITEM_KW["매혹"]) && !/홀림/.test(ITEM_KW["매혹"]), "매혹 글");`);
 // 2026-11-24 말풍선 시점 라벨: 공격 · 방어 · 공방 (js/cards.js ABIL_WHEN)
-ok(ctx.ev('abilWhen("[마력 공격 2]") === "atk" && abilWhen("매혹") === "both" && abilWhen("가시 1 +1C") === "both" && abilWhen("방패 반격") === "def" && abilWhen("영혼 강탈") === "both" && abilWhen("강탈") === "both" && abilWhen("가호 2") === "" && abilWhen("수호") === ""'), '능력 시점 분류');
+ok(ctx.ev('abilWhen("[방어 이용 2]") === "atk" && abilWhen("매혹") === "both" && abilWhen("가시 1 +1C") === "both" && abilWhen("방패 반격") === "def" && abilWhen("영혼 강탈") === "both" && abilWhen("강탈") === "both" && abilWhen("가호 2") === "" && abilWhen("수호") === ""'), '능력 시점 분류');
 ok(ctx.ev('Object.values(ABIL_WHEN).flat().every(k => ITEM_KW[k] || SPELL_KW[k])'), '시점 표의 능력 이름은 모두 뜻이 있는 능력');
 // 치유를 걸어 주는 마법
 T('샘물 한 모금', `const d = setT(mk("G3-03"), 0, 0, 30), a1 = setT(mk("B1-01"), 3, 0, 9), a2 = setT(mk("B1-02"), 3, 0, 9);
@@ -158,5 +158,13 @@ T('밀려드는 너울', `const a = setT(mk("B1-01"), 3, 0, 20), a2 = setT(mk("B
   const P = [side(0, ["SG3-07", a, a2]), side(1, [t1, t2])]; const X = fight(P, 0);
   ok(/\\[너울\\] 심지 당번/.test(logs(X)) && abilOf(a2).swell, "마법이 건 [너울]로 맨 앞을 밀어냄");`);
 
-console.log(fail ? `✗ ${fail}/${n} 실패` : `✓ ${n}개 모두 통과`);
 process.exitCode = fail ? 1 : 0;
+
+// 2026-11-24 [가시]: 공격 당해 체력이 깎일 때만 (사용자 문구)
+T('가시 — 체력이 깎일 때만', `const a = setT(mk("B1-01"), 2, 0, 20), d = setT(mk("G3-01"), 0, 5, 20); d.t.thorns = 2; d.t.thornsP = [2]; d.t.noCoin = true; a.t.noCoin = true;
+  fight([side(0, [a]), side(1, [d])], 0); ok(d.t.dmg === 0 && a.t.dmg === 0, "방어 5에 막혀 체력이 안 깎이면 가시 없음 (" + a.t.dmg + ")");
+  const a2 = setT(mk("B1-01"), 4, 0, 20), d2 = setT(mk("G3-01"), 0, 1, 20); d2.t.thorns = 2; d2.t.thornsP = [2]; d2.t.noCoin = true; a2.t.noCoin = true;
+  fight([side(0, [a2]), side(1, [d2])], 0); ok(d2.t.dmg === 3 && a2.t.dmg === 2, "깎이면 가시 2 (" + a2.t.dmg + ")");`);
+ok(ctx.ev('WHEN_KO.both === "공/방" && ITEM_KW["방패 반격"].startsWith("방어/반격 시") && /^유닛에게 공격 당해 체력이 깎이면/.test(ITEM_KW["가시"]) && !ITEM_KW["마력 공격"] && ITEM_KW["방어 이용"] === "공격할 때 상대 방어를 더해서 체력을 깎는다(최대 {n})."'), '2026-11-24 사용자 문구');
+
+console.log(fail ? `✗ ${fail}/${n} 실패` : `✓ ${n}개 모두 통과`);
