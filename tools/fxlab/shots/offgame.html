@@ -1,0 +1,29 @@
+<!doctype html><meta charset="utf-8"><title>연출 끄기 한 판</title>
+<style>body{margin:0;background:#111}iframe{border:0}</style>
+<iframe id="f" width="1280" height="720" src="/index.html?offline"></iframe>
+<script>
+/* 2026-11-24 연출 끄기(fx-off) 한 판 자동 진행: 컴퓨터 ↔ 컴퓨터, 화면을 그리며(headless 아님) 끝까지 돌리고 log.txt 에 차례 · 오류 · 결과를 남긴다.
+   ?fx=off&a=G3&b=G1&speed=1  — serve.py 가 떠 있어야 한다. 헤드리스 Firefox 는 --screenshot 대신 창을 띄워 두고 log.txt 를 본다 */
+const Q=new URLSearchParams(location.search), fx=Q.get("fx")||"off", A=Q.get("a")||"G3", B=Q.get("b")||"G1", sp=+(Q.get("speed")||1);
+const log=m=>{new Image().src="/__log?"+encodeURIComponent("OFFGAME["+fx+"] "+m)};
+const f=document.getElementById("f");
+f.onload=()=>setTimeout(()=>{const w=f.contentWindow;try{
+  w.onerror=(m,s,l)=>log("ERR "+m+" "+s+":"+l);
+  w.addEventListener("unhandledrejection",e=>log("REJ "+(e.reason&&e.reason.stack||e.reason)));
+  w.localStorage.setItem("etherion.pref.bgm",'"off"');w.localStorage.setItem("etherion.pref.sfx",'"off"');
+  w.eval(`
+    Prefs.set("coinAuto", true); Prefs.set("fx", ${JSON.stringify(fx)}); applyFx(${JSON.stringify(fx)});
+    const t0 = performance.now(), deck = g => STARTER_DECKS[g];
+    startMatch({ mode: "ai", speed: ${sp}, p0: { name: "가", group: ${JSON.stringify(A)}, cards: deck(${JSON.stringify(A)}), isAI: true }, p1: { name: "나", group: ${JSON.stringify(B)}, cards: deck(${JSON.stringify(B)}), isAI: true } });
+    let lastTurn = 0, lastAt = performance.now(), steps = 0;
+    const tick = setInterval(() => {
+      if (!G) return;
+      if (G.turn !== lastTurn) { lastTurn = G.turn; lastAt = performance.now(); parent.__log("turn " + G.turn + " " + G.phase + " t=" + Math.round((performance.now() - t0) / 1000) + "s life " + G.players.map(p => p.life).join("/") + " html=" + document.documentElement.className); }
+      if (G.phase === "over") { clearInterval(tick); parent.__log("DONE winner=" + (G.winner != null ? G.players[G.winner].name : "-") + " reason=" + G.reason + " turns=" + G.turn + " time=" + Math.round((performance.now() - t0) / 1000) + "s fxOff=" + fxOff() + " RM=" + RM() + " fxlayer=" + ((document.getElementById("fx-layer") || {}).childElementCount)); }
+      else if (performance.now() - lastAt > 90000) { clearInterval(tick); parent.__log("STUCK turn " + G.turn + " phase " + G.phase); }
+      document.querySelectorAll(".modal button.primary, .modal .btn.primary").forEach(b => { if (G.phase !== "over") b.click(); });
+    }, 500);
+  `);
+}catch(e){log("BOOT "+e.message)}},400);
+window.__log=log;
+</script>

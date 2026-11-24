@@ -1,0 +1,15 @@
+<!doctype html><meta charset="utf-8"><title>설정 창 — 연출 끄기</title>
+<style>body{margin:0;background:#111;display:flex;gap:6px}iframe{border:0}</style><img id="slow" style="display:none">
+<script>
+/* 2026-11-24 설정 창의 '연출 — 끄기' 단추 캡처. PC(1280×720) · 폰 가로(1342×620, html.mobile appui). serve.py 필요 */
+const log=m=>{new Image().src="/__log?"+encodeURIComponent(m)};
+document.getElementById("slow").src="/__slow?s=8";
+[["pc",1280,720],["m",1342,620]].forEach(([k,W,H])=>{
+  const f=document.createElement("iframe");f.width=W;f.height=H;f.src="/index.html?offline";document.body.appendChild(f);
+  f.onload=()=>setTimeout(()=>{const w=f.contentWindow;try{
+    w.localStorage.setItem("etherion.pref.bgm",'"off"');w.localStorage.setItem("etherion.pref.sfx",'"off"');
+    w.eval((k==="m"?'document.documentElement.classList.add("mobile","appui");':'document.documentElement.classList.remove("mobile");')+'Prefs.set("fx","off"); applyFx("off"); showSettings(); setTimeout(()=>{const b=document.querySelector("[data-fx=off]"); parent.__log("SET '+k+' on="+(b&&b.classList.contains("on"))+" html="+document.documentElement.className); const p=b&&b.closest(".set-fx"); if(p) p.scrollIntoView({block:"center"});},500);');
+  }catch(e){log("SETERR "+e.message)}},600);
+});
+window.__log=log;
+</script>

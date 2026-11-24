@@ -641,7 +641,7 @@ function attackOne(X, Au) {
   X.clash = [Au, Du];   // v3.68 [치유]: 이 맞붙음에서 살아남은 쪽이 체력을 채운다(runCombatCore가 attackOne 뒤에)
   if (dealt > 0 && Du.t.alive && uEyeTry(X, Du)) { dealt = 0; fl(X, Du.uid, "빗나감", "miss"); lg(X, `[폭풍의 눈] ${ca.name}의 공격이 바람에 빗나갔다`, "good"); }   // v3.31
   dealt = abVeil(X, Au, Du, dealt);   // v3.65 [그림자 걸음]
-  let thSplit = false;   // v3.84 가시가 여러 칸이면 맞붙은 피해를 먼저 보이고 가시를 칸마다 차례로
+  let thSplit = false, xfx = {};   // xfx: 2026-11-24 [연쇄] · [꿰뚫기] 화면 연출용 표시(맞는 수의 fx.chain · fx.pierce = 그 유닛 uid, 판 셈과 무관)   // v3.84 가시가 여러 칸이면 맞붙은 피해를 먼저 보이고 가시를 칸마다 차례로
   if (!Du.t.alive) lg(X, `${cd.name}이(가) 투척에 쓰러져 공격은 빗나갔다`, "sys");
   else {
     const hpBefore = hpLeft(Du);
@@ -660,19 +660,19 @@ function attackOne(X, Au) {
         let nd = nx.t.d;
         if (ab.magic) nd = 0;
         const left = got - hpBefore, ch = hit(left, nd);
-        lg(X, `[연쇄] ${ca.name}의 남은 피해 ${left} → ${C(nx).name}(방 ${nd})`);
+        lg(X, `[연쇄] ${ca.name}의 남은 피해 ${left} → ${C(nx).name}(방 ${nd})`); xfx.chain = nx.uid;
         if (ch > 0) { hurt(X, nx, ch, "연쇄"); if (!nx.t.alive) { nx.t.killer = Au.uid; nx.t.killVia = "chain"; } } else fl(X, nx.uid, "연쇄 막음", "miss");
       }
     }
     if (behind && behind.t.alive) {
       const pr = hit(aA, behind.t.d);
-      lg(X, `[꿰뚫기] ${ca.name}의 공격이 ${C(behind).name}까지 꿰뚫었다 (공 ${aA} → 방 ${behind.t.d})`);
+      lg(X, `[꿰뚫기] ${ca.name}의 공격이 ${C(behind).name}까지 꿰뚫었다 (공 ${aA} → 방 ${behind.t.d})`); xfx.pierce = behind.uid;
       if (pr > 0) { hurt(X, behind, pr, "꿰뚫기"); if (!behind.t.alive) { behind.t.killer = Au.uid; behind.t.killVia = "pierce"; } } else fl(X, behind.uid, "막음", "miss");
     }
     uOnHit(X, Au, Du, got);   // v3.31 [불씨 전염] · [계약의 낙인] 표시, 쓰러뜨린 유닛 기록
     if (Du.t.thorns && Au.t.alive && got > 0) {   // 2026-11-24 (사용자 문구) 공격 당해 체력이 깎일 때만 · v3.84 같은 능력은 칸마다 따로: [가시 1] [가시 1]은 피해 1이 두 번(가시 2 한 번이 아님)
       const ps = fitPieces(Du.t.thornsP || [], Du.t.thorns);
-      if (ps.length > 1) { thSplit = true; step(X, thr ? { act: Au.uid, tgt: Du.uid, hit: true, thr: thr.uid } : { act: Au.uid, tgt: Du.uid, hit: true }, 520); }
+      if (ps.length > 1) { thSplit = true; step(X, Object.assign(thr ? { act: Au.uid, tgt: Du.uid, hit: true, thr: thr.uid } : { act: Au.uid, tgt: Du.uid, hit: true }, xfx), 520); }
       ps.forEach((n, i) => { if (!Au.t.alive) return; if (i) step(X, { tgt: Au.uid }, PIECE_MS); const t = hurt(X, Au, n, "가시"); if (t) lg(X, `[가시${ps.length > 1 ? " " + n : ""}] ${ca.name} 피해 ${t}`); });
     }
     spRiposte(X, Au, Du, blocked); spDrain(X, Au, Du);   // v3.81 [되받기] · [뿌리 흡수]: 맞붙어 공격받을 때(이 유닛이 쓰러져도)
@@ -682,7 +682,7 @@ function attackOne(X, Au) {
     kzShock(X, Au, Du);   // 2026-11-22 [감전 N]: 공격해 온 유닛의 공격 −N(이번 턴)
   }
   if (thSplit) step(X, { tgt: Au.uid }, PIECE_MS);
-  else step(X, thr ? { act: Au.uid, tgt: Du.uid, hit: true, thr: thr.uid } : { act: Au.uid, tgt: Du.uid, hit: true }, 520);
+  else step(X, Object.assign(thr ? { act: Au.uid, tgt: Du.uid, hit: true, thr: thr.uid } : { act: Au.uid, tgt: Du.uid, hit: true }, xfx), 520);
   if (Du.t.alive && Au.t.alive && !Du.t.rest && !C(Du).still && !Du.t.noCounter) {   // noCounter: 반격하지 않는 유닛 (v3.65 환각이 쓰다가 뺐다 — 지금 거는 곳 없음)
     if (ab.ranged) { lg(X, `[원거리] ${ca.name}은(는) 반격을 받지 않는다`, "sys"); return; }   // 2026-11-22 [요격](원거리에게도 반격)은 걷어냄 → 케라운 [전도]
     const mesD = abilOf(Du).mesmer ? mrMesmer(X, Du, Au) : 0;   // 2026-11-24 [매혹]: 반격할 때도 맞붙은 상대 코인 개수만큼 추가 피해
@@ -2995,7 +2995,7 @@ function mrSwell(X) {
   fl(X, Du.uid, "너울 · 밀려남", "debuff");
   lg(X, `[너울] ${C(Au).name}의 물살이 ${C(Du).name}을(를) ${C(w).name} 뒤로 밀어냈다`, "spell");
   if (typeof rareAuraSync === "function") rareAuraSync(X);
-  step(X, {}, 420);
+  step(X, { swell: { by: Au.uid, u: Du.uid, w: w.uid } }, 520);   // fx.swell: 화면이 물결 + 밀려나는 움직임을 그린다(js/game.js swellFx) — 420 → 520ms, 밀려나는 것이 보이게
 }
 Object.assign(SPELL_OPS, {
   mrTideNow(X, caster, it, k, op) {

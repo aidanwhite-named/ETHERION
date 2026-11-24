@@ -462,7 +462,7 @@ async function runCombat() {
     while (i < rec.length) {
       if (G !== myG || G.phase === "over") return;   // 2026-11-17 전투 재생 중에 항복하면 바로 멈춘다
       const s = rec[i];
-      s.dur = Math.round(s.dur * PACE);
+      s.dur = Math.round(s.dur * PACE * (fxOff() ? FX_OFF_PACE : 1));   // 2026-11-24 연출 끄기면 한 수를 짧게
       const prevSnap = i > 0 ? rec[i - 1].snap : null;
       applySnap(s.snap);
       G.fx = Object.assign({ dying: [] }, s.fx, { dur: s.dur, imp: impOf(s) });   // v3.14 imp: 대상마다 받은 피해 · 쓰러짐 (js/impact.js 세기)
@@ -475,12 +475,16 @@ async function runCombat() {
       /* v3.10.3 서순: 스탯은 연출이 맞는 순간에 바뀐다. 마법(날아가 맞는 때 · 대상마다)과 반격(되받아 치는 때)은
          바뀐 카드 · 생명을 바로 앞 수의 값으로 그려 두었다가, 맞는 순간에 그 카드만 새 값으로 바꾼다 (공격은 맞는 수에 이미 맞춰져 있다) */
       const counterHit = s.fx.counter != null && !RM();
-      const held = (fxSpell || counterHit) && prevSnap && G.speed !== 0 ? holdStats(prevSnap, s.snap) : null;
+      /* 2026-11-24 [연쇄] · [꿰뚫기]: 튀어 간 불꽃 · 창이 닿는 때(js/abilfx.js CHAIN_AT · PIERCE_AT)에 그 유닛의 숫자 · 글자를 바꾼다. 맞선 유닛은 바로 */
+      const xAt = {};
+      if (s.fx.hit && !RM() && typeof AbilFX !== "undefined") { if (s.fx.chain) xAt[s.fx.chain] = s.dur * kSpeed() * AbilFX.CHAIN_AT; if (s.fx.pierce) xAt[s.fx.pierce] = Math.max(xAt[s.fx.pierce] || 0, s.dur * kSpeed() * AbilFX.PIERCE_AT); }
+      const xHit = Object.keys(xAt).length > 0;
+      const held = (fxSpell || counterHit || xHit) && prevSnap && G.speed !== 0 ? holdStats(prevSnap, s.snap) : null;
       lightHoldFrame(s.floats);   // v3.90 이 수에서 모인 새벽빛은 빛 알갱이가 닿을 때 보인다
       render();
       const delays = fxSpell ? SpellFX.cast(s, casting) : null;
       const cd = counterHit ? s.dur * kSpeed() * 0.45 : 0;   // counterStrike가 상대를 치는 때 (dur × 0.45)
-      const hitAt = key => counterHit ? cd : ((delays && delays.get(key)) || 0);
+      const hitAt = key => counterHit ? cd : xHit ? (xAt[key] || 0) : ((delays && delays.get(key)) || 0);
       let maxD = 0;
       // 2026-11-16 이펙트 서순: 마법이 한 유닛에 해로운 효과를 여럿 주면 공격 ↓ → 방어 ↓ → 체력 ↓ 차례로 띄우고 숫자도 그때그때 바꾼다 (보이는 것만, 판 셈은 그대로)
       const stg = fxSpell && held && held.size ? harmStages(s.floats) : null, GAP = HARM_GAP * kSpeed();
@@ -1046,7 +1050,9 @@ let boardEl = null;
 const FX = { itemFront: new Set(), last: null, pd: null, drag: null, suppress: false, from: {}, sprite: null, charOut: new Set(), focusKey: null, zoomEl: null, zoomT: 0, arena: null, coinStop: null,
   drawing: new Set(), handHold: 0, handT: 0, clockHold: 0, shuffled: null, pin: null,
   hov: null, mx: -1, my: -1, selSeen: null, blood: {} };   // v2.6 올린 핸드 카드(uid)와 마지막 마우스 자리 (setHov·syncHov), 마지막으로 그린 고른 카드
-const RM = () => window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+const RM = () => document.documentElement.classList.contains("fx-off") || !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);   // 2026-11-24 설정 연출 '끄기'(html.fx-off, js/impact.js applyFx)도 움직임 줄이기와 같은 길
+const fxOff = () => document.documentElement.classList.contains("fx-off");
+const FX_OFF_PACE = 0.55;   // 연출 끄기: 전투 한 수의 길이 (숫자를 읽을 틈만 남긴다)
 const kSpeed = () => 1 / ((G && G.speed) || 1);
 const uidEl = uid => (boardEl ? boardEl.querySelector(`[data-uid="${uid}"]`) : null);
 const fxLayer = () => $("#fx-layer");
@@ -1240,9 +1246,10 @@ async function showSettings() {
     <p class="pick-label">연출 속도 <small class="muted">— 전투 장면·카드 이동·띠 모두 같이 빨라지거나 느려집니다 (전투 중에도 바꿀 수 있음)</small></p>
     <div class="speed set-speed">${SPEEDS.map(s => `<button type="button" class="btn xs ${(G ? G.speed : Prefs.get("speed", 1)) === s ? "on" : ""}" data-sp="${s}">×${s}</button>`).join("")}</div>
     ${document.documentElement.classList.contains("mobile")
-      ? `<p class="pick-label">연출 <small class="muted">— 폰 · 앱은 늘 저사양(가장 가벼운 연출)으로 돌아갑니다</small></p>`
-      : `<p class="pick-label">연출 <small class="muted">— 저사양: 가장 간소하게(그림자 · 흐림 최소, 되풀이 빛 멈춤, 불꽃 · 파편 캔버스 없음, 입자 절반). 중간: 부담을 줄인 기본 연출. 고사양: 좋은 그래픽카드 · CPU용(큰 빛 번짐 · 흐림, 빛 맥박, 목록 카드 광택, 입자 1.5배)</small></p>
-    <div class="speed set-fx">${[["low", "저사양"], ["lite", "중간 (기본)"], ["rich", "고사양"]].map(([v, n]) => `<button type="button" class="btn xs ${Prefs.get("fx", "lite") === v ? "on" : ""}" data-fx="${v}">${n}</button>`).join("")}</div>`}
+      ? `<p class="pick-label">연출 <small class="muted">— 폰 · 앱은 저사양(가장 가벼운 연출)으로 돌아갑니다. 끄기: 공격 · 마법 연출 없이 숫자만 바로 바뀌고 전투가 빨라집니다</small></p>
+    <div class="speed set-fx">${[["off", "끄기"], ["low", "저사양 (기본)"]].map(([v, n]) => `<button type="button" class="btn xs ${(Prefs.get("fx", "lite") === "off" ? "off" : "low") === v ? "on" : ""}" data-fx="${v}">${n}</button>`).join("")}</div>`
+      : `<p class="pick-label">연출 <small class="muted">— 끄기: 공격 · 마법 연출 없이 피해 숫자 · 체력만 바로 바뀌고 전투가 빨라집니다. 저사양: 가장 간소하게(그림자 · 흐림 최소, 되풀이 빛 멈춤, 불꽃 · 파편 캔버스 없음, 입자 절반). 중간: 부담을 줄인 기본 연출. 고사양: 좋은 그래픽카드 · CPU용(큰 빛 번짐 · 흐림, 빛 맥박, 목록 카드 광택, 입자 1.5배)</small></p>
+    <div class="speed set-fx">${[["off", "끄기"], ["low", "저사양"], ["lite", "중간 (기본)"], ["rich", "고사양"]].map(([v, n]) => `<button type="button" class="btn xs ${Prefs.get("fx", "lite") === v ? "on" : ""}" data-fx="${v}">${n}</button>`).join("")}</div>`}
     <p class="pick-label">전장 배경 <small class="muted">— 대전 화면의 배경 일러스트</small></p>
     <div class="speed set-battle-bg">${[["default", "칠룡환 (기본)"], ["war", "3파전 (거인·용·신)"], ["random", "무작위"]].map(([v, n]) => `<button type="button" class="btn xs ${curBg === v ? "on" : ""}" data-bbg="${v}">${n}</button>`).join("")}</div>
     <p class="pick-label">효과음 <small class="muted">— 누르기·놓기·맞기 소리 (파일 없이 합성, 터치 기기에서는 짧은 진동)</small></p>
@@ -2848,7 +2855,7 @@ function render() {
   syncHov();   // v2.6: 마우스 아래 핸드 카드를 다시 올린다 (다시 그리면 요소가 새것이라)
   FX.selSeen = G.sel && G.sel.kind === "hand" ? G.sel.uid : null;
   FX.from = {}; G.leave = {};
-  if (animOK) combatFx();
+  if (animOK || (fxOff() && G.phase === "combat")) combatFx();   // 2026-11-24 연출 끄기는 combatFx가 소리만
   shieldCoinFx();   // v3.32.4 보호막 코인 던지기
 }
 
@@ -3015,6 +3022,21 @@ function animFrom(el, from, to, rotDeg, kind, delay) {
       { offset: 0.5, translate: `${dx * 0.5}px ${dy * 0.5 + to.height * 0.05}px`, scale: `${(sx + 1) * 0.43} ${(sy + 1) * 0.43}`, rotate: `${rotDeg * 0.5}deg`, filter: "brightness(.6)" },
       Object.assign({ filter: "brightness(1)" }, end)];
     dur = FT.swap; ease = "cubic-bezier(.45,.05,.3,1)";
+  } else if (kind === "swell") {
+    // 2026-11-24 [너울] 밀려남: 물마루에 들려(살짝 뜨고 뒤로 젖혀짐) 뒤로 미끄러지다 조금 넘쳐 출렁이며 내려앉는다
+    const dir = dx > 0 ? -1 : 1, lift = to.height * 0.08;
+    kf = [Object.assign({ filter: "brightness(1)" }, start),
+      { offset: 0.18, translate: `${dx * 0.92}px ${dy * 0.92 - lift}px`, scale: "1.06 1.06", rotate: `${dir * 7}deg`, filter: "brightness(1.15) saturate(1.2) hue-rotate(-12deg)" },
+      { offset: 0.66, translate: `${-dx * 0.08}px ${-dy * 0.08 - lift * 0.5}px`, scale: "1.03 1.03", rotate: `${-dir * 4}deg`, filter: "brightness(1.08) hue-rotate(-8deg)" },
+      { offset: 0.84, translate: `${dx * 0.02}px ${lift * 0.15}px`, scale: "0.99 1.01", rotate: `${dir * 1.5}deg`, filter: "brightness(1)" },
+      Object.assign({ filter: "brightness(1)" }, end)];
+    dur = Math.max(FT.move * 2.4, 620); ease = "cubic-bezier(.3,.6,.35,1)";
+  } else if (kind === "swellIn") {
+    // 바꾼 유닛: 물 밑으로 가라앉듯 어두워지며 앞자리로 들어온다(밀려난 카드 아래로 지나감)
+    kf = [Object.assign({ filter: "brightness(1)" }, start),
+      { offset: 0.5, translate: `${dx * 0.5}px ${dy * 0.5 + to.height * 0.04}px`, scale: "0.9 0.9", rotate: "0deg", filter: "brightness(.62) saturate(.8)" },
+      Object.assign({ filter: "brightness(1)" }, end)];
+    dur = Math.max(FT.move * 2.4, 620); ease = "cubic-bezier(.45,.05,.3,1)";
   } else if (kind === "hand") {
     // v2.6 핸드 안에서 모이기·순서 바꾸기: 천천히 출발해 길게 멈춘다 (css/hand.css 내려놓기 곡선)
     kf = [start, end]; dur = FT.handMove; ease = "cubic-bezier(.3,.05,.15,1)";
@@ -3025,7 +3047,8 @@ function animFrom(el, from, to, rotDeg, kind, delay) {
   }
   if ((kind === "rise" || kind === "slam") && G && +el.dataset.p === G.viewer) holdHover(((delay || 0) + dur) * k + 80);
   el.classList.add("flying");
-  if (kind === "under") el.classList.add("under");
+  if (kind === "under" || kind === "swellIn") el.classList.add("under");
+  if (kind === "swell") el.classList.add("lift");
   if (kind === "lift") el.classList.add("lift");
   const an = el.animate(kf, { duration: dur * k, delay: (delay || 0) * k, easing: ease, fill: "backwards" });
   an.onfinish = () => {
@@ -3089,6 +3112,8 @@ function flipAll(before) {
       if (+uid === FX.lift) kind = "lift";
       else if (!(FX.pvUids && FX.pvUids.has(+uid))) kind = "under";
     }
+    const sw = ff && G.phase === "combat" && G.fx && G.fx.swell;   // 2026-11-24 [너울]: 밀려난 유닛은 물살에 들려 뒤로, 바꾼 유닛은 가라앉듯 앞으로 (js/abilfx.js)
+    if (sw && kind === "move" && (+uid === sw.u || +uid === sw.w)) { kind = +uid === sw.u ? "swell" : "swellIn"; if (+uid === sw.u) FX.swellR = { a: b.r, b: nr }; }
     if (kind === "move" && ff && !(FX.pvUids && FX.pvUids.has(+uid))) sfx("move");
     animFrom(el, b.r, nr, b.rot - newRot, kind, 0);
   }
@@ -3819,12 +3844,22 @@ function fizzleFx(z, dur) {
 }
 function combatFx() {
   const fx = G.fx;
+  if (fx && G.speed !== 0 && fxOff()) {   // 2026-11-24 연출 끄기: 그림은 없이 맞는 소리만 (효과음 설정은 따로)
+    if (fx.counter) atkSfx(fx.counter, "hit", 0.85);
+    else if (fx.act != null && fx.tgt != null && fx.hit) atkSfx(fx.act, "hit", typeof fx.tgt === "number" ? 1 : 1.1, atkKindOf(fx.act, fx.sn));
+    return;
+  }
   if (!fx || G.speed === 0 || RM()) return;
   const dur = (fx.dur || 450) * kSpeed();
   if (fx.fizzle) { fizzleFx(fx.fizzle, dur); return; }
   if (fx.conjure) { conjureFx(fx.conjure, dur, fx.pyre); return; }
   if (fx.reveal) { arenaArt(fx.reveal, "spell", dur * 1.8); revealFx(fx.reveal, dur); spellTitle(fx.reveal, dur * 1.75); if (typeof SpellFX !== "undefined") SpellFX.reveal(fx.reveal, dur, fx.chain); return; }
   if (fx.counter) { arenaArt(fx.counter, "counter", dur * 1.3); counterStrike(fx.counter, fx.act, dur); return; }
+  if (typeof AbilFX !== "undefined") {   // 2026-11-24 [연쇄] · [꿰뚫기] · [너울] 전용 연출 (js/abilfx.js)
+    if (fx.hit && fx.chain) AbilFX.chain(fx.act, fx.tgt, fx.chain, dur);
+    if (fx.hit && fx.pierce) AbilFX.pierce(fx.act, fx.tgt, fx.pierce, dur);
+    if (fx.swell) { AbilFX.swell(fx.swell, dur, FX.swellR); FX.swellR = null; return; }
+  }
   const ak = fx.act != null ? atkKindOf(fx.act, fx.sn) : null;   // v3.7.1 공격 소리 종류 (fx.sn = [사격])
   if (fx.sn && typeof fx.tgt === "number" && fxRich()) { if (!fx.hit) { arenaArt(fx.act, "attack", dur * 2.5); gunShot(fx.act, fx.tgt, dur, ak); } else gunHit(fx.act, fx.tgt, dur, ak); return; }   // 2026-11-24 고사양: [사격]은 총을 쏜다
   if (fx.act && fx.tgt != null && !fx.hit) { arenaArt(fx.act, "attack", dur * 2.5); strikeOut(fx.act, fx.tgt, dur, ak); if (fx.thr != null) throwShot(fx.act, fx.thr, dur); }

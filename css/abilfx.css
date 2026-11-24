@@ -1,0 +1,42 @@
+/* ETHERION — 능력 전용 연출 (2026-11-24, js/abilfx.js): [연쇄] 번개 불꽃 줄기 · [꿰뚫기] 빛의 창 · [너울] 물마루
+   색은 친 유닛의 원소색(--c). 저사양(html.fx-low · .lo)은 흐림 · 그림자 빛을 뺀다. 연출 끄기(fx-off)에서는 JS가 아예 만들지 않는다 */
+.abx-svg { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 82; pointer-events: none; overflow: visible; }
+.abx-svg path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.abx-bolt-glow { stroke-width: 18; opacity: .45; filter: blur(5px); }
+.abx-bolt { stroke-width: 6; filter: drop-shadow(0 0 4px currentColor); }
+.abx-bolt.thin { stroke-width: 2; }
+.abx-bolt-core { stroke: #fffbea; stroke-width: 2.4; }
+.abx-svg.lo .abx-bolt { filter: none; }
+.abx-chain-head { position: fixed; z-index: 83; pointer-events: none; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%;
+  background: radial-gradient(circle, #fff 0 28%, var(--c, #ffd27a) 55%, transparent 72%); box-shadow: 0 0 14px 6px var(--c, #ffd27a); }
+html.fx-low .abx-chain-head { box-shadow: 0 0 6px 2px var(--c, #ffd27a); }
+
+.abx-ring { position: fixed; z-index: 81; pointer-events: none; width: var(--s); height: var(--s); margin: calc(var(--s) / -2) 0 0 calc(var(--s) / -2); border-radius: 50%;
+  border: 3px solid var(--c, #ffd27a); box-shadow: 0 0 12px 2px var(--c, #ffd27a), inset 0 0 10px var(--c, #ffd27a); }
+.abx-ring-bolt { border-style: dashed; border-width: 4px; }
+.abx-ring-hole { border-width: 5px; background: radial-gradient(circle, rgba(255, 255, 240, .9) 0 18%, transparent 42%); }
+.abx-ring-thin { border-width: 2px; }
+.abx-ring-flat { height: calc(var(--s) * .34); margin-top: calc(var(--s) * -.17); border-color: #cff8ff; }
+html.fx-low .abx-ring { box-shadow: none; }
+
+.abx-spark { position: fixed; z-index: 83; pointer-events: none; width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; border-radius: 50%;
+  background: #fff; box-shadow: 0 0 6px 2px var(--c, #ffd27a); }
+html.fx-low .abx-spark { box-shadow: 0 0 3px 1px var(--c, #ffd27a); }
+
+/* 빛의 창: 왼쪽 끝(앞 유닛 가운데)에서 뒤 유닛까지 늘어난다. 창끝(i)은 오른쪽 끝 */
+.abx-spear { position: fixed; z-index: 82; pointer-events: none; height: var(--th); margin-top: calc(var(--th) / -2); transform-origin: 0 50%; border-radius: var(--th);
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--c, #ffd27a) 70%, #fff) 35%, #fff 92%);
+  box-shadow: 0 0 10px 3px var(--c, #ffd27a); }
+.abx-spear i { position: absolute; right: calc(var(--th) * -2.6); top: 50%; width: calc(var(--th) * 4); height: calc(var(--th) * 2.6); translate: 0 -50%;
+  background: #fff; clip-path: polygon(0 0, 100% 50%, 0 100%, 22% 50%); filter: drop-shadow(0 0 5px var(--c, #ffd27a)); }
+.abx-spear.glow { z-index: 81; background: linear-gradient(90deg, transparent, var(--c, #ffd27a) 60%, transparent); box-shadow: none; filter: blur(6px); }
+.abx-spear.lo { box-shadow: 0 0 4px 1px var(--c, #ffd27a); }
+.abx-spear.lo i { filter: none; }
+
+/* 물마루: 진행 방향(오른쪽)으로 말리는 파도 한 장 */
+.abx-wave { position: fixed; z-index: 82; pointer-events: none; transform-origin: 50% 70%; filter: drop-shadow(0 0 8px rgba(120, 230, 245, .7)); }
+.abx-wave > div, .abx-wave svg { width: 100%; height: 100%; display: block; }
+.abx-wave.lo { filter: none; }
+/* 물에 젖은 카드: 잠깐 푸른 빛이 돈다 */
+.card.abx-wet .c-frame { box-shadow: 0 0 0 2px rgba(150, 236, 248, .85), 0 0 18px 4px rgba(80, 210, 235, .55); }
+html.fx-low .card.abx-wet .c-frame { box-shadow: 0 0 0 2px rgba(150, 236, 248, .85); }

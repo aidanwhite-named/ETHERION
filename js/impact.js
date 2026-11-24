@@ -22,12 +22,17 @@
      충격파 캔버스 · 별 하늘 · 입장 관문 캔버스 · 메뉴 기울이기 없음 · 부서지는 조각은 그림 한 장 · 마법 입자 절반.
    fx-high = 큰 흐림 · 그림자 필터 그대로 + css/nopulse.css를 꺼서 빛 맥박이 돌아옴 + css/gradefx.css 목록 카드도 광택.
    새 효과를 만들 때: 무거운 것은 fxLow()(js/game.js) 또는 html.fx-low에서 줄이거나 끄는 길을 함께 둔다 */
+/* 2026-11-24 연출 끄기 "off" (사용자): 전투 연출(마법 발사체 · 마법 장면 · 효과 그림 · 타격감 · 사격 · 부서짐 · 카드 날기)을 그리지 않고
+   피해 숫자 · 체력만 바로 바뀐다. <html class> = fx-lite fx-low fx-off — 저사양의 가벼운 CSS 위에, js/game.js RM()이 참이 되어
+   '동작 줄이기(prefers-reduced-motion)' 길을 그대로 탄다. 전투 한 수의 길이도 줄인다(game.js FX_OFF_PACE). 폰 · 앱도 고를 수 있다(나머지는 늘 저사양) */
 function applyFx(v) {
   const c = document.documentElement.classList;
-  v = c.contains("mobile") ? "low" : v || (typeof Prefs !== "undefined" ? Prefs.get("fx", "lite") : "lite");
-  c.toggle("fx-lite", v !== "rich"); c.toggle("fx-low", v === "low"); c.toggle("fx-high", v === "rich");
+  v = v || (typeof Prefs !== "undefined" ? Prefs.get("fx", "lite") : "lite");
+  if (c.contains("mobile") && v !== "off") v = "low";
+  const off = v === "off";
+  c.toggle("fx-lite", v !== "rich"); c.toggle("fx-low", v === "low" || off); c.toggle("fx-high", v === "rich"); c.toggle("fx-off", off);
   const np = document.getElementById("css-nopulse"); if (np) np.disabled = v === "rich";
-  if (typeof Bg !== "undefined" && Bg.cv) Bg.setLite(v === "low");
+  if (typeof Bg !== "undefined" && Bg.cv) Bg.setLite(v === "low" || off);
 }
 applyFx();
 

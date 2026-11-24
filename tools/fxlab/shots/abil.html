@@ -1,0 +1,49 @@
+<!doctype html><meta charset="utf-8"><title>[연쇄] · [꿰뚫기] · [너울] 연출 프레임</title>
+<style>body{margin:0;background:#111;font:12px monospace;color:#fff}#g{display:flex;flex-wrap:wrap;gap:4px}.c{position:relative;overflow:hidden}.c b{position:absolute;z-index:9;left:4px;top:2px;background:#000a;padding:1px 4px}iframe{border:0;transform-origin:0 0}</style>
+<div id="g"></div><img id="slow" style="display:none">
+<script>
+/* 2026-11-24 능력 전용 연출(js/abilfx.js) 프레임 — 실제 render → combatFx 길로 부른다(한 수 dur = 520 × 1.75 = 910ms).
+   ?cells=chain:300,chain:470,pierce:220,...&fx=lite|rich&sc=0.5&crop=x,y,w,h&cols=3   serve.py 가 떠 있어야 한다 */
+const Q=new URLSearchParams(location.search), fx=Q.get("fx")||"lite", sc=+Q.get("sc")||0.5, cols=+Q.get("cols")||3;
+const cells=(Q.get("cells")||"chain:250,chain:420,chain:560,pierce:200,pierce:340,pierce:480,swell:150,swell:380,swell:640").split(",").map(x=>x.split(":"));
+const [cx,cy,cw,ch]=(Q.get("crop")||"260,40,720,420").split(",").map(Number), g=document.getElementById("g");
+g.style.width=(cw*sc+4)*cols+"px";
+document.getElementById("slow").src="/__slow?s="+(Q.get("slow")||12);
+const log=m=>{new Image().src="/__log?"+encodeURIComponent(m)};
+const NM={chain:"연쇄",pierce:"꿰뚫기",swell:"너울"};
+cells.forEach(([eff,t],i)=>{
+  const c=document.createElement("div");c.className="c";c.style.width=cw*sc+"px";c.style.height=ch*sc+"px";c.innerHTML=`<b>[${NM[eff]}] ${fx} ${t}ms</b>`;
+  const f=document.createElement("iframe");f.width=1280;f.height=720;f.style.transform=`scale(${sc}) translate(${-cx}px,${-cy}px)`;
+  f.src="/index.html?offline";f.onload=()=>setTimeout(()=>boot(f.contentWindow,eff,+t,i),300);c.appendChild(f);g.appendChild(c);
+});
+function boot(w,eff,t,i){
+  try{
+  w.onerror=(m,s,l)=>log("ABXERR"+i+" "+m+" "+s+":"+l);
+  w.localStorage.setItem("etherion.pref.bgm",'"off"');w.localStorage.setItem("etherion.pref.sfx",'"off"');
+  w.__frozen=false;const st=w.setTimeout.bind(w), raf=w.requestAnimationFrame.bind(w);
+  w.setTimeout=(fn,ms,...a)=>st(()=>{if(!w.__frozen&&typeof fn==="function")fn(...a)},ms);
+  w.requestAnimationFrame=fn=>raf(x=>{if(!w.__frozen)fn(x)});
+  w.__freeze=()=>{w.__frozen=true;for(const a of w.document.getAnimations())try{a.pause()}catch(e){}};
+  w.eval(`
+    document.documentElement.classList.remove("mobile");
+    Prefs.set("fx", ${JSON.stringify(fx)}); applyFx(${JSON.stringify(fx)});
+    UID=0;
+    G={mode:"ai",turn:2,attacker:0,rand:null,online:false,me:0,phase:"combat",log:[],sel:null,reg:{},fx:{dying:[]},viewer:0,control:null,speed:1,winner:null,reason:"",cfg:{mode:"ai"},players:null,ready:null,handoff:false,leave:{},inspect:null,showLog:false,econ:typeof newEcon==="function"?newEcon():null,rules:{},vlog:null,broken:[],kills:[0,0]};
+    setCombatRules({});
+    const me = ${JSON.stringify(eff)} === "swell" ? "G3-41" : ${JSON.stringify(eff)} === "chain" ? "A3-05" : "G1-10";
+    G.players=[mkPlayer(0,{name:"나",group:"G3",cards:{"G3-01":12}}),mkPlayer(1,{name:"상대",group:"G1",cards:{"G1-10":12},isAI:true})];
+    G.players[0].field[0]=mkInst(me);
+    ["G1-05","G1-08","G1-10"].forEach((id,k)=>{G.players[1].field[k]=mkInst(id)});
+    for(const p of G.players){draw(p,3,true);for(const it of p.field)if(isUnit(it))resetTurn(it,p.idx===G.attacker);}
+    mountBoard();render();
+    const act=G.players[0].field[0].uid, F=G.players[1].field, du=F[0].uid, nx=F[1].uid;
+    setTimeout(()=>{
+      const e=${JSON.stringify(eff)};
+      if (e==="swell") { [F[0],F[1]]=[F[1],F[0]]; G.fx={dying:[],swell:{by:act,u:du,w:nx},dur:910}; }
+      else G.fx=Object.assign({dying:[],act,tgt:du,hit:true,dur:910},e==="chain"?{chain:nx}:{pierce:nx});
+      render(); setTimeout(__freeze, ${t});
+    }, 600);
+  `);
+  }catch(e){log("ABXBOOT "+e.message)}
+}
+</script>
