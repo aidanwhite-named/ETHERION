@@ -8,7 +8,7 @@
 
 **그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(같은 개체 · 장소 · 배색, 다른 시점 · 새 구도 — 섬네일로 나란히 놓아 같은 개체이면서 한눈에 더 강한 다른 그림으로 읽히는지 본다).
 
-## 1. 그림 없는 카드 — 먼저 그린다 · 328장
+## 1. 그림 없는 카드 — 먼저 그린다 · 320장
 
 ### A1-04 · 피의 박쥐 떼
 모르카스의 그믐 · 유닛 · 레벨 1 · 일반 · 틀 `swarm` N X `violetshade` · 프롬프트 n2 → `tools/art/inbox/A1-04 피의 박쥐 떼.png`
@@ -3559,19 +3559,6 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-15 에일렌 뿔사슴.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-17 · 두꺼비 주술사
-베르단의 뿔 · 유닛 · 레벨 3 · 일반 · 틀 `back` B C `sporeglow` · 프롬프트 n2 → `tools/art/inbox/G2-17 두꺼비 주술사.png`
-
-```
-Landscape 5:4 painting. A broad warty toad shaman squats on a root with its back to us, moss growing along its spine, a wad of moss bulging one cheek, its staff hung with seed-rattles and snail shells laid across its knees. What it is talking to stands before it: a half-circle of old trees whose trunks all bend inward, crowns lowered like listening heads. A string of pale green breath-puffs drifts from its wide mouth up into the leaning branches. Night; the breath-puffs glow pale lime and light the undersides of the leaning branches and the edge of its mossy shoulders.
-Colour: spore night — black dark lit by blue-green and pale-lime (#58b85f) bioluminescence.
-Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: G2-17 두꺼비 주술사.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
 ### I3-3 · 실바니엘 장궁
 베르단의 뿔 · 아이템 · 레벨 3 · 일반 · 틀 `motion` N L `mossdeep` · 프롬프트 n2 → `tools/art/inbox/I3-3 실바니엘 장궁.png`
 
@@ -3648,32 +3635,6 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: G2-21 트렌트 전사.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### G2-22 · 가시숲 맨드레이크
-베르단의 뿔 · 유닛 · 레벨 4 · 일반 · 틀 `back` R R `sporeglow` · 프롬프트 n2 → `tools/art/inbox/G2-22 가시숲 맨드레이크.png`
-
-```
-Landscape 5:4 painting. A mandrake sunk waist-deep in black soil, seen from just behind: its gnarled, root-skinned shoulders and crown of broad leaves fill the right foreground, turned toward the right, forked root-arms braced on the ground as it screams. The scream shows as rings of shuddering air that bend the thorn thicket ahead of it, and at their far edge a dropped spade and an overturned lantern lie on a path that forks five ways into the briars. Night; cold blue-green fungus-light among the briars edges its leaves and catches the trembling rings of air.
-Colour: spore night — black dark lit by blue-green and pale-lime (#58b85f) bioluminescence.
-Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: G2-22 가시숲 맨드레이크.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### G2-23 · 드리엔의 사도
-베르단의 뿔 · 유닛 · 레벨 4 · 일반 · 틀 `close` L R `thorndark` · 프롬프트 n2 → `tools/art/inbox/G2-23 드리엔의 사도.png`
-
-```
-Landscape 5:4 painting. Close on the face of a dryad singing, on the right of the frame: smooth pale bark, eyes closed, lips parted, blossom-and-leaf hair lifted as if by her own breath. From her mouth a ribbon of leaves streams out to the left across the picture — fresh green ones first, and among them a few leaves burnt black, their edges still rimmed with ember-red. A single bead of sap runs down her cheek like a tear. Dark forest dusk behind her; a cool green skylight from above shapes her face, and the ember-edged leaves are the only warm sparks.
-Colour: thorn dark — near-black with deep green (#58b85f) and a few points of blood red.
-Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: G2-23 드리엔의 사도.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### G2-25 · 떨어진 베르단의 뿔가지
@@ -3975,32 +3936,6 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-10 어린 셀키.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-11 · 조수 점술 문어
-마렌시아의 노래 · 유닛 · 레벨 2 · 일반 · 틀 `over` L B `stormsea` · 프롬프트 n2 → `tools/art/inbox/G3-11 조수 점술 문어.png`
-
-```
-Landscape 5:4 painting. An octopus with wise golden eyes sits in a harbour rock pool at the bottom of the frame, seen over the hunched shoulders and straw hats of three fishermen, dark and close in the foreground. It has spread all eight arms at once — one on each tide-stained stone, one on a mooring ring, one on a floating cork — and from under its mantle a cloud of black ink is unrolling to the left. Behind the men, every boat is still hauled up on the shingle. Heavy slate morning before a blow; dull light from the open sea glints on wet skin and the spreading ink.
-Colour: storm sea — heavy green-blue (#4fb3ff), white spray and slate grey.
-Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: G3-11 조수 점술 문어.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### G3-12 · 산호등 거북
-마렌시아의 노래 · 유닛 · 레벨 2 · 일반 · 틀 `profile` R L `lagoon` · 프롬프트 n2 → `tools/art/inbox/G3-12 산호등 거북.png`
-
-```
-Landscape 5:4 painting. Strict side view underwater, flat as a painted frieze: a sea turtle swims rightward from the left of the frame, flippers mid-stroke, carrying a small living reef on its domed shell — pink and ochre coral, a waving anemone, a few striped fish keeping station above it. Near the crest one old break shows, a pale wedge where newer coral has grown back thicker and knobbier than all the rest. A level floor of pale sand runs along the bottom edge. Clear midday sun from above plays over shell and sand in bright nets; the water behind fades to deep blue.
-Colour: sunlit shallows — turquoise and water-blue (#4fb3ff) with pearl white, clear and bright over deep blue shadow.
-Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: G3-12 산호등 거북.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
 ### IG3-1 · 조개 부적
 마렌시아의 노래 · 아이템 · 레벨 2 · 일반 · 틀 `making` N L `glasscalm` · 프롬프트 n2 → `tools/art/inbox/IG3-1 조개 부적.png`
 
@@ -4118,32 +4053,6 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-16 해마 근위병.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-17 · 석호 치유 듀공
-마렌시아의 노래 · 유닛 · 레벨 3 · 일반 · 틀 `far` R C `moontide` · 프롬프트 n2 → `tools/art/inbox/G3-17 석호 치유 듀공.png`
-
-```
-Landscape 5:4 painting. Far across a night lagoon a plump grey dugong, small in the middle of the frame, swims to the right with a bandaged figure lying slack along its back, whiskered snout just clear of the surface. The water is so still that its wake reads like a drawing: one slow, perfect circle traced around the lagoon, almost closed. Mangrove shadows and the lamps of a distant stilt village rim the horizon. A low moon lays one silver path across the lagoon; the circular wake catches it as a thin bright line.
-Colour: moon tide — silver-blue (#4fb3ff) moonlight and pale mist.
-Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: G3-17 석호 치유 듀공.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### G3-18 · 물기둥 산호 정령
-마렌시아의 노래 · 유닛 · 레벨 3 · 일반 · 틀 `ground` L R `coraldawn` · 프롬프트 n2 → `tools/art/inbox/G3-18 물기둥 산호 정령.png`
-
-```
-Landscape 5:4 painting. A man-high figure of branching pink and orange coral, polyps glowing, stands in the right third of a reef flat, seen from a camera half-sunk at the waterline with foam and grit against the lens. It faces left with one antlered arm thrown upward. Just behind it a pillar of seawater has risen in the very same pose — same lean, same height, same crooked reach — like a shadow copying its owner. A small fish darts out of the lower corner. Warm early sun from the left lights the coral and shines through the standing water, which glows green-gold at its edges.
-Colour: coral dawn — coral pink and warm first light over water-blue (#4fb3ff).
-Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: G3-18 물기둥 산호 정령.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
 ### IG3-5 · 물방울 보주
 마렌시아의 노래 · 아이템 · 레벨 3 · 일반 · 틀 `bench` N C `coraldawn` · 프롬프트 n2 → `tools/art/inbox/IG3-5 물방울 보주.png`
 
@@ -4181,19 +4090,6 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: SG3-09 대해류.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### G3-24 · 소용돌이 켈피
-마렌시아의 노래 · 유닛 · 레벨 4 · 일반 · 틀 `high` R C `trench` · 프롬프트 n2 → `tools/art/inbox/G3-24 소용돌이 켈피.png`
-
-```
-Landscape 5:4 painting. Looking steeply down into a black tarn: at the centre a water horse stands chest-deep and tosses its long seaweed mane to the right, and the pool has begun to turn with it. Pale foam winds outward from its shoulders in a tightening spiral that already fills the frame; a lost riding boot and a single oar ride the outer coil. Its wet back is bare and broad, an easy seat, one ear turned up toward us. Night; a cold glow from under the water lights the spiral from below, leaving the horse a dark shape with a wet sheen.
-Colour: deep water — navy and black with small cold lights and a water-blue (#4fb3ff) glow.
-Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: G3-24 소용돌이 켈피.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### RG3-1 · 대해일
@@ -4274,7 +4170,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-36 샘물의 만조.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 34장
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 42장
 
 ### A1-02 · 그림자 도둑 — 그림 있음
 모르카스의 그믐 · 유닛 · 레벨 1 · 일반 · 틀 `inside` L R `candle` · 프롬프트 n2 → `tools/art/inbox/A1-02 그림자 도둑.png`
@@ -4716,4 +4612,108 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: G1-24 하이에나 무리장.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### G2-17 · 두꺼비 주술사 — 그림 있음
+베르단의 뿔 · 유닛 · 레벨 3 · 일반 · 틀 `back` B C `sporeglow` · 프롬프트 n2 → `tools/art/inbox/G2-17 두꺼비 주술사.png`
+
+```
+Landscape 5:4 painting. A broad warty toad shaman squats on a root with its back to us, moss growing along its spine, a wad of moss bulging one cheek, its staff hung with seed-rattles and snail shells laid across its knees. What it is talking to stands before it: a half-circle of old trees whose trunks all bend inward, crowns lowered like listening heads. A string of pale green breath-puffs drifts from its wide mouth up into the leaning branches. Night; the breath-puffs glow pale lime and light the undersides of the leaning branches and the edge of its mossy shoulders.
+Colour: spore night — black dark lit by blue-green and pale-lime (#58b85f) bioluminescence.
+Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: G2-17 두꺼비 주술사.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### G2-22 · 가시숲 맨드레이크 — 그림 있음
+베르단의 뿔 · 유닛 · 레벨 4 · 일반 · 틀 `back` R R `sporeglow` · 프롬프트 n2 → `tools/art/inbox/G2-22 가시숲 맨드레이크.png`
+
+```
+Landscape 5:4 painting. A mandrake sunk waist-deep in black soil, seen from just behind: its gnarled, root-skinned shoulders and crown of broad leaves fill the right foreground, turned toward the right, forked root-arms braced on the ground as it screams. The scream shows as rings of shuddering air that bend the thorn thicket ahead of it, and at their far edge a dropped spade and an overturned lantern lie on a path that forks five ways into the briars. Night; cold blue-green fungus-light among the briars edges its leaves and catches the trembling rings of air.
+Colour: spore night — black dark lit by blue-green and pale-lime (#58b85f) bioluminescence.
+Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: G2-22 가시숲 맨드레이크.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### G2-23 · 드리엔의 사도 — 그림 있음
+베르단의 뿔 · 유닛 · 레벨 4 · 일반 · 틀 `close` L R `thorndark` · 프롬프트 n2 → `tools/art/inbox/G2-23 드리엔의 사도.png`
+
+```
+Landscape 5:4 painting. Close on the face of a dryad singing, on the right of the frame: smooth pale bark, eyes closed, lips parted, blossom-and-leaf hair lifted as if by her own breath. From her mouth a ribbon of leaves streams out to the left across the picture — fresh green ones first, and among them a few leaves burnt black, their edges still rimmed with ember-red. A single bead of sap runs down her cheek like a tear. Dark forest dusk behind her; a cool green skylight from above shapes her face, and the ember-edged leaves are the only warm sparks.
+Colour: thorn dark — near-black with deep green (#58b85f) and a few points of blood red.
+Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: G2-23 드리엔의 사도.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### G3-11 · 조수 점술 문어 — 그림 있음
+마렌시아의 노래 · 유닛 · 레벨 2 · 일반 · 틀 `over` L B `stormsea` · 프롬프트 n2 → `tools/art/inbox/G3-11 조수 점술 문어.png`
+
+```
+Landscape 5:4 painting. An octopus with wise golden eyes sits in a harbour rock pool at the bottom of the frame, seen over the hunched shoulders and straw hats of three fishermen, dark and close in the foreground. It has spread all eight arms at once — one on each tide-stained stone, one on a mooring ring, one on a floating cork — and from under its mantle a cloud of black ink is unrolling to the left. Behind the men, every boat is still hauled up on the shingle. Heavy slate morning before a blow; dull light from the open sea glints on wet skin and the spreading ink.
+Colour: storm sea — heavy green-blue (#4fb3ff), white spray and slate grey.
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: G3-11 조수 점술 문어.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### G3-12 · 산호등 거북 — 그림 있음
+마렌시아의 노래 · 유닛 · 레벨 2 · 일반 · 틀 `profile` R L `lagoon` · 프롬프트 n2 → `tools/art/inbox/G3-12 산호등 거북.png`
+
+```
+Landscape 5:4 painting. Strict side view underwater, flat as a painted frieze: a sea turtle swims rightward from the left of the frame, flippers mid-stroke, carrying a small living reef on its domed shell — pink and ochre coral, a waving anemone, a few striped fish keeping station above it. Near the crest one old break shows, a pale wedge where newer coral has grown back thicker and knobbier than all the rest. A level floor of pale sand runs along the bottom edge. Clear midday sun from above plays over shell and sand in bright nets; the water behind fades to deep blue.
+Colour: sunlit shallows — turquoise and water-blue (#4fb3ff) with pearl white, clear and bright over deep blue shadow.
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: G3-12 산호등 거북.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### G3-17 · 석호 치유 듀공 — 그림 있음
+마렌시아의 노래 · 유닛 · 레벨 3 · 일반 · 틀 `far` R C `moontide` · 프롬프트 n2 → `tools/art/inbox/G3-17 석호 치유 듀공.png`
+
+```
+Landscape 5:4 painting. Far across a night lagoon a plump grey dugong, small in the middle of the frame, swims to the right with a bandaged figure lying slack along its back, whiskered snout just clear of the surface. The water is so still that its wake reads like a drawing: one slow, perfect circle traced around the lagoon, almost closed. Mangrove shadows and the lamps of a distant stilt village rim the horizon. A low moon lays one silver path across the lagoon; the circular wake catches it as a thin bright line.
+Colour: moon tide — silver-blue (#4fb3ff) moonlight and pale mist.
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: G3-17 석호 치유 듀공.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### G3-18 · 물기둥 산호 정령 — 그림 있음
+마렌시아의 노래 · 유닛 · 레벨 3 · 일반 · 틀 `ground` L R `coraldawn` · 프롬프트 n2 → `tools/art/inbox/G3-18 물기둥 산호 정령.png`
+
+```
+Landscape 5:4 painting. A man-high figure of branching pink and orange coral, polyps glowing, stands in the right third of a reef flat, seen from a camera half-sunk at the waterline with foam and grit against the lens. It faces left with one antlered arm thrown upward. Just behind it a pillar of seawater has risen in the very same pose — same lean, same height, same crooked reach — like a shadow copying its owner. A small fish darts out of the lower corner. Warm early sun from the left lights the coral and shines through the standing water, which glows green-gold at its edges.
+Colour: coral dawn — coral pink and warm first light over water-blue (#4fb3ff).
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: G3-18 물기둥 산호 정령.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### G3-24 · 소용돌이 켈피 — 그림 있음
+마렌시아의 노래 · 유닛 · 레벨 4 · 일반 · 틀 `high` R C `trench` · 프롬프트 n2 → `tools/art/inbox/G3-24 소용돌이 켈피.png`
+
+```
+Landscape 5:4 painting. Looking steeply down into a black tarn: at the centre a water horse stands chest-deep and tosses its long seaweed mane to the right, and the pool has begun to turn with it. Pale foam winds outward from its shoulders in a tightening spiral that already fills the frame; a lost riding boot and a single oar ride the outer coil. Its wet back is bare and broad, an easy seat, one ear turned up toward us. Night; a cold glow from under the water lights the spiral from below, leaving the horse a dark shape with a wet sheen.
+Colour: deep water — navy and black with small cold lights and a water-blue (#4fb3ff) glow.
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: G3-24 소용돌이 켈피.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```

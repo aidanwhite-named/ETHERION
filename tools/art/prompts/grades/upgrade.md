@@ -8,135 +8,7 @@
 
 **그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(같은 개체 · 장소 · 배색, 다른 시점 · 새 구도 — 섬네일로 나란히 놓아 같은 개체이면서 한눈에 더 강한 다른 그림으로 읽히는지 본다).
 
-## 1. 그림 없는 카드 — 먼저 그린다 · 9장
-
-### UP-G1-24 · 하이에나 대무리장
-고르바스의 발톱 · 유닛 · 레벨 5 · 강화 · 틀 `high` F C `firelit` · 원래 카드 `G1-24` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G1-24 하이에나 대무리장.png`
-
-```
-Landscape 5:4 painting. From above the bare mound, looking down: the same big scarred hyena stands at the centre with its head thrown back toward us, laughing, heavy jaws wide — huge and grizzled now, one ear torn to a stump, three healed claw scars across its muzzle, a necklace of knuckle-bones on its chest. Around the mound the whole pack stands in three closed rings, every head lowered toward it, and beyond them the night plain has gone still: a herd of antelope frozen in mid-step, the grass standing straight. The cooking fire at the mound's foot, fed to a blaze, lights its throat and the inner ring of faces; deep darkness beyond.
-Colour: firelit dark — deep darkness with warm ochre (#b88a5a) surfaces lit by one small flame.
-Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
-Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: UP-G1-24 하이에나 대무리장.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### UP-G2-17 · 두꺼비 대주술사
-베르단의 뿔 · 유닛 · 레벨 4 · 강화 · 틀 `low` F C `sporeglow` · 원래 카드 `G2-17` — 원래 카드 그림이 아직 없다: 원래 카드를 먼저 그리고 같은 대화에서 이어 그리면 가장 닮는다(그 뒤 다시 만들면 참조 줄로 바뀐다) · 프롬프트 n2 → `tools/art/inbox/UP-G2-17 두꺼비 대주술사.png`
-
-```
-Landscape 5:4 painting. Low in the leaf litter, looking up: the same broad warty toad shaman squats on its root facing us, grown as big as a boulder, moss thick down its spine, small mushrooms sprouting on its shoulders like epaulettes, a wad of moss bulging one cheek, its throat swollen huge in mid-chant. One webbed hand holds upright the staff hung with seed-rattles and snail shells. Behind it the old trees have pulled their roots from the soil and stand in a close ring, crowns bowed over it, and a great wreath of pale green breath-puffs coils up through all their branches. Night; the breath-puffs glow pale lime, lighting its swollen throat from within and the bowing branches above.
-Colour: spore night — black dark lit by blue-green and pale-lime (#58b85f) bioluminescence.
-Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
-Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-Continuity: this is the promoted form of a creature that has its own earlier card — its body, markings and belongings are exactly as described above.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: UP-G2-17 두꺼비 대주술사.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### UP-G2-22 · 맨드레이크 수문장
-베르단의 뿔 · 유닛 · 레벨 5 · 강화 · 틀 `front` F C `sporeglow` · 원래 카드 `G2-22` — 원래 카드 그림이 아직 없다: 원래 카드를 먼저 그리고 같은 대화에서 이어 그리면 가장 닮는다(그 뒤 다시 만들면 참조 줄로 바뀐다) · 프롬프트 n2 → `tools/art/inbox/UP-G2-22 맨드레이크 수문장.png`
-
-```
-Landscape 5:4 painting. Dead-on from the path: the same mandrake stands its full height on forked root-legs in the gateway of the thorn wood, facing us, soil still clinging to its feet — gnarled root-skinned body thickened like a trunk, crown of broad leaves flared wide, root-arms spread from post to post. Its mouth is open in a scream that shows as three rings of shuddering air rolling toward us, and at the sound the briars on both sides are swinging shut behind it like a gate of living thorn. A dropped spade and an overturned lantern lie on the path. Night; cold blue-green fungus-light among the briars edges its leaves and catches the trembling rings of air.
-Colour: spore night — black dark lit by blue-green and pale-lime (#58b85f) bioluminescence.
-Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
-Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-Continuity: this is the promoted form of a creature that has its own earlier card — its body, markings and belongings are exactly as described above.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: UP-G2-22 맨드레이크 수문장.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### UP-G2-23 · 드리엔의 대사도
-베르단의 뿔 · 유닛 · 레벨 5 · 강화 · 틀 `eye` L C `thorndark` · 원래 카드 `G2-23` — 원래 카드 그림이 아직 없다: 원래 카드를 먼저 그리고 같은 대화에서 이어 그리면 가장 닮는다(그 뒤 다시 만들면 참조 줄로 바뀐다) · 프롬프트 n2 → `tools/art/inbox/UP-G2-23 드리엔의 대사도.png`
-
-```
-Landscape 5:4 painting. From a few steps away in a burnt clearing at dusk: the same dryad stands at the centre, full figure, turned toward the left with both arms lifted, singing — smooth pale bark with a fine gold grain, eyes closed, her blossom-and-leaf hair risen into a crown in full flower, a mantle of living vines trailing from her shoulders. Three ribbons of leaves stream from her mouth and braid into one that circles the clearing, and wherever it passes the charred trunks break into bud and green shoots push up through the ash around her root-feet. Dark forest dusk; a cool green skylight from above shapes her, and a few ember-edged leaves are the only warm sparks.
-Colour: thorn dark — near-black with deep green (#58b85f) and a few points of blood red.
-Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
-Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-Continuity: this is the promoted form of a creature that has its own earlier card — its body, markings and belongings are exactly as described above.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: UP-G2-23 드리엔의 대사도.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### UP-G3-11 · 조수 예언 문어
-마렌시아의 노래 · 유닛 · 레벨 3 · 강화 · 틀 `low` F C `stormsea` · 원래 카드 `G3-11` — 원래 카드 그림이 아직 없다: 원래 카드를 먼저 그리고 같은 대화에서 이어 그리면 가장 닮는다(그 뒤 다시 만들면 참조 줄로 바뀐다) · 프롬프트 n2 → `tools/art/inbox/UP-G3-11 조수 예언 문어.png`
-
-```
-Landscape 5:4 painting. At the waterline of the same harbour, the camera half in the swell: the octopus with wise golden eyes rises at the centre facing us, grown as large as a fishing boat, its mantle domed above the surface like a crowned head. Seven of its arms are lifted high and spread like a fan; the eighth lies curled round a mooring ring. Behind it the sea obeys — the tide stands up in one smooth wall across the harbour mouth and holds there, while three fishermen in straw hats watch from the shingle at the right beside their hauled-up boats. Heavy slate storm light from the open sea glints on wet skin and on the green-blue wall of water, white spray along its crest.
-Colour: storm sea — heavy green-blue (#4fb3ff), white spray and slate grey.
-Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
-Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-Continuity: this is the promoted form of a creature that has its own earlier card — its body, markings and belongings are exactly as described above.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: UP-G3-11 조수 예언 문어.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### UP-G3-12 · 산호등 대거북
-마렌시아의 노래 · 유닛 · 레벨 3 · 강화 · 틀 `high` R C `lagoon` · 원래 카드 `G3-12` — 원래 카드 그림이 아직 없다: 원래 카드를 먼저 그리고 같은 대화에서 이어 그리면 가장 닮는다(그 뒤 다시 만들면 참조 줄로 바뀐다) · 프롬프트 n2 → `tools/art/inbox/UP-G3-12 산호등 대거북.png`
-
-```
-Landscape 5:4 painting. Looking down from a seabird's height over the sunlit lagoon: the same sea turtle swims toward the right at the centre, grown vast, its flippers showing pale through the clear water on either side. The reef on its domed shell has risen in three tiers of pink and ochre coral, the old break healed into the knobbiest crag at its crest, and the top tier stands out of the water as a small rocky island where sea-birds perch. A fishing canoe alongside is shorter than one flipper; shoals of striped fish and three young turtles follow in its shadow. Clear midday sun; turquoise shallows and pearl-white foam round the island, bright nets of light on the sand, deep blue beyond.
-Colour: sunlit shallows — turquoise and water-blue (#4fb3ff) with pearl white, clear and bright over deep blue shadow.
-Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
-Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-Continuity: this is the promoted form of a creature that has its own earlier card — its body, markings and belongings are exactly as described above.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: UP-G3-12 산호등 대거북.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### UP-G3-17 · 석호 대치유 듀공
-마렌시아의 노래 · 유닛 · 레벨 4 · 강화 · 틀 `close` L C `moontide` · 원래 카드 `G3-17` — 원래 카드 그림이 아직 없다: 원래 카드를 먼저 그리고 같은 대화에서 이어 그리면 가장 닮는다(그 뒤 다시 만들면 참조 줄로 바뀐다) · 프롬프트 n2 → `tools/art/inbox/UP-G3-17 석호 대치유 듀공.png`
-
-```
-Landscape 5:4 painting. Close at the waterline of the same night lagoon: the great grey dugong, broad as a ferry, fills the frame swimming toward the left, whiskered snout just clear of the surface, one small kind eye toward us. It breathes out, and a soft cloud of steam rolls across the water, mist rising wherever its breath has warmed the lagoon. Along its back three bandaged figures lie side by side; the nearest has sat up and is unwinding a bandage from a healed arm. Three rings of its wake widen behind. A low moon lays a silver path across the lagoon and shines through the pale mist of its breath.
-Colour: moon tide — silver-blue (#4fb3ff) moonlight and pale mist.
-Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
-Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-Continuity: this is the promoted form of a creature that has its own earlier card — its body, markings and belongings are exactly as described above.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: UP-G3-17 석호 대치유 듀공.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### UP-G3-18 · 물기둥 산호 조율사
-마렌시아의 노래 · 유닛 · 레벨 4 · 강화 · 틀 `back` B C `coraldawn` · 원래 카드 `G3-18` — 원래 카드 그림이 아직 없다: 원래 카드를 먼저 그리고 같은 대화에서 이어 그리면 가장 닮는다(그 뒤 다시 만들면 참조 줄로 바뀐다) · 프롬프트 n2 → `tools/art/inbox/UP-G3-18 물기둥 산호 조율사.png`
-
-```
-Landscape 5:4 painting. From behind, on the same reef flat at dawn: the figure of branching pink and orange coral stands at the centre with its back to us, grown taller than a mast, three great antlered branches rising from its shoulders, polyps glowing, both arms lifted like a conductor's. Before it the sea has stood up at its bidding: three pillars of seawater risen to exactly the same height and joined shoulder to shoulder into one smooth wall, fish hanging inside it. Beyond the wall the masts of three approaching boats show small, halted. Coral-pink first light shines through the standing water from beyond, glowing green-gold at its edges and rimming the coral branches.
-Colour: coral dawn — coral pink and warm first light over water-blue (#4fb3ff).
-Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
-Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-Continuity: this is the promoted form of a creature that has its own earlier card — its body, markings and belongings are exactly as described above.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: UP-G3-18 물기둥 산호 조율사.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### UP-G3-24 · 검은 갈기 켈피
-마렌시아의 노래 · 유닛 · 레벨 5 · 강화 · 틀 `low` F C `trench` · 원래 카드 `G3-24` — 원래 카드 그림이 아직 없다: 원래 카드를 먼저 그리고 같은 대화에서 이어 그리면 가장 닮는다(그 뒤 다시 만들면 참조 줄로 바뀐다) · 프롬프트 n2 → `tools/art/inbox/UP-G3-24 검은 갈기 켈피.png`
-
-```
-Landscape 5:4 painting. From the surface of the same black water, low among the foam: the water horse rears at the centre facing us, larger than a fishing boat, dark hide shining wet, forehooves lifted, and its long seaweed mane, grown black as the abyss, streams up and outward in three heavy coils. The water follows its hooves: a ring of current stands up around it like a wall, a whirlpool turned inside out, carrying three small boats tipped on their sides along its crest. Its eyes are two cold pale lights. Night; a cold blue glow from deep under the water lights the wall of current from below, leaving the horse a dark shape with a wet sheen.
-Colour: deep water — navy and black with small cold lights and a water-blue (#4fb3ff) glow.
-Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
-Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-Continuity: this is the promoted form of a creature that has its own earlier card — its body, markings and belongings are exactly as described above.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: UP-G3-24 검은 갈기 켈피.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 31장
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 40장
 
 ### UP-A1-09 · 모르크 거미 여왕 — 그림 있음
 모르카스의 그믐 · 유닛 · 레벨 3 · 강화 · 틀 `low` F C `eclipse` · 원래 카드 `A1-09` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-A1-09 모르크 거미 여왕.png`
@@ -570,4 +442,130 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: UP-G1-18 오우거 대주술사.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### UP-G1-24 · 하이에나 대무리장 — 그림 있음
+고르바스의 발톱 · 유닛 · 레벨 5 · 강화 · 틀 `high` F C `firelit` · 원래 카드 `G1-24` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G1-24 하이에나 대무리장.png`
+
+```
+Landscape 5:4 painting. From above the bare mound, looking down: the same big scarred hyena stands at the centre with its head thrown back toward us, laughing, heavy jaws wide — huge and grizzled now, one ear torn to a stump, three healed claw scars across its muzzle, a necklace of knuckle-bones on its chest. Around the mound the whole pack stands in three closed rings, every head lowered toward it, and beyond them the night plain has gone still: a herd of antelope frozen in mid-step, the grass standing straight. The cooking fire at the mound's foot, fed to a blaze, lights its throat and the inner ring of faces; deep darkness beyond.
+Colour: firelit dark — deep darkness with warm ochre (#b88a5a) surfaces lit by one small flame.
+Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
+Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: UP-G1-24 하이에나 대무리장.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### UP-G2-17 · 두꺼비 대주술사 — 그림 있음
+베르단의 뿔 · 유닛 · 레벨 4 · 강화 · 틀 `low` F C `sporeglow` · 원래 카드 `G2-17` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G2-17 두꺼비 대주술사.png`
+
+```
+Landscape 5:4 painting. Low in the leaf litter, looking up: the same broad warty toad shaman squats on its root facing us, grown as big as a boulder, moss thick down its spine, small mushrooms sprouting on its shoulders like epaulettes, a wad of moss bulging one cheek, its throat swollen huge in mid-chant. One webbed hand holds upright the staff hung with seed-rattles and snail shells. Behind it the old trees have pulled their roots from the soil and stand in a close ring, crowns bowed over it, and a great wreath of pale green breath-puffs coils up through all their branches. Night; the breath-puffs glow pale lime, lighting its swollen throat from within and the bowing branches above.
+Colour: spore night — black dark lit by blue-green and pale-lime (#58b85f) bioluminescence.
+Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
+Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: UP-G2-17 두꺼비 대주술사.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### UP-G2-22 · 맨드레이크 수문장 — 그림 있음
+베르단의 뿔 · 유닛 · 레벨 5 · 강화 · 틀 `front` F C `sporeglow` · 원래 카드 `G2-22` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G2-22 맨드레이크 수문장.png`
+
+```
+Landscape 5:4 painting. Dead-on from the path: the same mandrake stands its full height on forked root-legs in the gateway of the thorn wood, facing us, soil still clinging to its feet — gnarled root-skinned body thickened like a trunk, crown of broad leaves flared wide, root-arms spread from post to post. Its mouth is open in a scream that shows as three rings of shuddering air rolling toward us, and at the sound the briars on both sides are swinging shut behind it like a gate of living thorn. A dropped spade and an overturned lantern lie on the path. Night; cold blue-green fungus-light among the briars edges its leaves and catches the trembling rings of air.
+Colour: spore night — black dark lit by blue-green and pale-lime (#58b85f) bioluminescence.
+Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
+Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: UP-G2-22 맨드레이크 수문장.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### UP-G2-23 · 드리엔의 대사도 — 그림 있음
+베르단의 뿔 · 유닛 · 레벨 5 · 강화 · 틀 `eye` L C `thorndark` · 원래 카드 `G2-23` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G2-23 드리엔의 대사도.png`
+
+```
+Landscape 5:4 painting. From a few steps away in a burnt clearing at dusk: the same dryad stands at the centre, full figure, turned toward the left with both arms lifted, singing — smooth pale bark with a fine gold grain, eyes closed, her blossom-and-leaf hair risen into a crown in full flower, a mantle of living vines trailing from her shoulders. Three ribbons of leaves stream from her mouth and braid into one that circles the clearing, and wherever it passes the charred trunks break into bud and green shoots push up through the ash around her root-feet. Dark forest dusk; a cool green skylight from above shapes her, and a few ember-edged leaves are the only warm sparks.
+Colour: thorn dark — near-black with deep green (#58b85f) and a few points of blood red.
+Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
+Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: UP-G2-23 드리엔의 대사도.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### UP-G3-11 · 조수 예언 문어 — 그림 있음
+마렌시아의 노래 · 유닛 · 레벨 3 · 강화 · 틀 `low` F C `stormsea` · 원래 카드 `G3-11` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G3-11 조수 예언 문어.png`
+
+```
+Landscape 5:4 painting. At the waterline of the same harbour, the camera half in the swell: the octopus with wise golden eyes rises at the centre facing us, grown as large as a fishing boat, its mantle domed above the surface like a crowned head. Seven of its arms are lifted high and spread like a fan; the eighth lies curled round a mooring ring. Behind it the sea obeys — the tide stands up in one smooth wall across the harbour mouth and holds there, while three fishermen in straw hats watch from the shingle at the right beside their hauled-up boats. Heavy slate storm light from the open sea glints on wet skin and on the green-blue wall of water, white spray along its crest.
+Colour: storm sea — heavy green-blue (#4fb3ff), white spray and slate grey.
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: UP-G3-11 조수 예언 문어.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### UP-G3-12 · 산호등 대거북 — 그림 있음
+마렌시아의 노래 · 유닛 · 레벨 3 · 강화 · 틀 `high` R C `lagoon` · 원래 카드 `G3-12` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G3-12 산호등 대거북.png`
+
+```
+Landscape 5:4 painting. Looking down from a seabird's height over the sunlit lagoon: the same sea turtle swims toward the right at the centre, grown vast, its flippers showing pale through the clear water on either side. The reef on its domed shell has risen in three tiers of pink and ochre coral, the old break healed into the knobbiest crag at its crest, and the top tier stands out of the water as a small rocky island where sea-birds perch. A fishing canoe alongside is shorter than one flipper; shoals of striped fish and three young turtles follow in its shadow. Clear midday sun; turquoise shallows and pearl-white foam round the island, bright nets of light on the sand, deep blue beyond.
+Colour: sunlit shallows — turquoise and water-blue (#4fb3ff) with pearl white, clear and bright over deep blue shadow.
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: UP-G3-12 산호등 대거북.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### UP-G3-17 · 석호 대치유 듀공 — 그림 있음
+마렌시아의 노래 · 유닛 · 레벨 4 · 강화 · 틀 `close` L C `moontide` · 원래 카드 `G3-17` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G3-17 석호 대치유 듀공.png`
+
+```
+Landscape 5:4 painting. Close at the waterline of the same night lagoon: the great grey dugong, broad as a ferry, fills the frame swimming toward the left, whiskered snout just clear of the surface, one small kind eye toward us. It breathes out, and a soft cloud of steam rolls across the water, mist rising wherever its breath has warmed the lagoon. Along its back three bandaged figures lie side by side; the nearest has sat up and is unwinding a bandage from a healed arm. Three rings of its wake widen behind. A low moon lays a silver path across the lagoon and shines through the pale mist of its breath.
+Colour: moon tide — silver-blue (#4fb3ff) moonlight and pale mist.
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: UP-G3-17 석호 대치유 듀공.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### UP-G3-18 · 물기둥 산호 조율사 — 그림 있음
+마렌시아의 노래 · 유닛 · 레벨 4 · 강화 · 틀 `back` B C `coraldawn` · 원래 카드 `G3-18` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G3-18 물기둥 산호 조율사.png`
+
+```
+Landscape 5:4 painting. From behind, on the same reef flat at dawn: the figure of branching pink and orange coral stands at the centre with its back to us, grown taller than a mast, three great antlered branches rising from its shoulders, polyps glowing, both arms lifted like a conductor's. Before it the sea has stood up at its bidding: three pillars of seawater risen to exactly the same height and joined shoulder to shoulder into one smooth wall, fish hanging inside it. Beyond the wall the masts of three approaching boats show small, halted. Coral-pink first light shines through the standing water from beyond, glowing green-gold at its edges and rimming the coral branches.
+Colour: coral dawn — coral pink and warm first light over water-blue (#4fb3ff).
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: UP-G3-18 물기둥 산호 조율사.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### UP-G3-24 · 검은 갈기 켈피 — 그림 있음
+마렌시아의 노래 · 유닛 · 레벨 5 · 강화 · 틀 `low` F C `trench` · 원래 카드 `G3-24` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G3-24 검은 갈기 켈피.png`
+
+```
+Landscape 5:4 painting. From the surface of the same black water, low among the foam: the water horse rears at the centre facing us, larger than a fishing boat, dark hide shining wet, forehooves lifted, and its long seaweed mane, grown black as the abyss, streams up and outward in three heavy coils. The water follows its hooves: a ring of current stands up around it like a wall, a whirlpool turned inside out, carrying three small boats tipped on their sides along its crest. Its eyes are two cold pale lights. Night; a cold blue glow from deep under the water lights the wall of current from below, leaving the horse a dark shape with a wet sheen.
+Colour: deep water — navy and black with small cold lights and a water-blue (#4fb3ff) glow.
+Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: UP-G3-24 검은 갈기 켈피.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
