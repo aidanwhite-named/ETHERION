@@ -16,7 +16,7 @@
 
 const NET_KEY = "etherion.net.token";      // 이 브라우저의 로그인 토큰
 const NET_SERVER_KEY = "etherion.server";   // (선택) 파일로 연 게임이 붙을 서버 주소. 예: localStorage["etherion.server"] = "http://192.168.0.10:8787"
-const NET_PROTECTED = ["id", "admin", "guest", "created", "group", "owned", "collection", "gold", "ledger", "decks", "drafts", "fresh", "pilClaim", "spins", "pilSrv", "rewardDay", "rewardLog", "xp", "stats", "quests", "ach", "titles", "title", "book", "rank", "trial", "invitedBy", "seals", "orbs", "deck50"];   // v3.56 덱 50장 옮김 표시   // v3.54 순례의 인장   // v3.48 초대 체험 덱도   // v3.46 모험 수첩(js/quests.js)도 서버만   // v3.44 경험치 · 전적도 서버가 센다   // v3.39 spins · pilSrv · rewardDay: 서버가 정하는 보상
+const NET_PROTECTED = ["uid", "agree", "account", "seen", "adult", "id", "admin", "guest", "created", "group", "owned", "collection", "gold", "ledger", "decks", "drafts", "fresh", "pilClaim", "spins", "pilSrv", "rewardDay", "rewardLog", "xp", "stats", "quests", "ach", "titles", "title", "book", "rank", "trial", "invitedBy", "seals", "orbs", "deck50"];   // v3.56 덱 50장 옮김 표시   // v3.54 순례의 인장   // v3.48 초대 체험 덱도   // v3.46 모험 수첩(js/quests.js)도 서버만   // v3.44 경험치 · 전적도 서버가 센다   // v3.39 spins · pilSrv · rewardDay: 서버가 정하는 보상
 const NET_SYNC_OPS = ["questSync", "questClaim", "questReroll", "starClaim", "achClaim", "bookClaim", "titleSet", "rankClaim", "saveDeck", "buyCard", "sellCard", "draftAdd", "grantGroup", "revokeGroup", "grantAllCards", "restock", "pilgrimClaim", "upgradeCard", "fuseRare", "shopSet", "shopStock", "matchStart", "matchArcade", "matchEnd", "wheelSpin"];   // pilgrimClaim(v3.26): 순례 첫 승 — 서버가 날짜를 보고 추첨까지
 const NET_ASYNC_OPS = ["setDraft", "clearDraft", "grantCard", "addGold"];   // v3.39 grantCard · addGold는 필멸자만 (로그인한 모험가의 보상은 서버가 정한다 — 아래 install)   // v3.39 grantCard · addGold는 보내지 않는다 — 보상은 서버가 정한다(js/rewards.js)
 
@@ -109,6 +109,22 @@ const Net = {
     this.setToken(r.token);
     this.reset();
     this.apply(r, true);
+    return r;
+  },
+  /* v3.27 메일 인증 코드 (server/auth.js). authCode: 코드 메일 보내기 / authVerify: 가입한 주소면 로그인까지, 아니면 { need: "signup", ticket } */
+  page(name) { return (typeof location !== "undefined" && location.protocol === "file:" ? this.base + "/" : "") + name; },   // 처리방침 · 약관 주소 — 파일로 연 앱에서는 서버의 문서를 연다
+  authOn() { return !!(this.on && this.info && this.info.auth && this.info.auth.code); },
+  authCode(email) { return this.xhr("POST", "/api/auth/code", { email }) || { ok: false, msg: "서버가 답하지 않습니다." }; },
+  authVerify(email, code) {
+    const r = this.xhr("POST", "/api/auth/verify", { email, code });
+    if (!r || !r.ok) return r || { ok: false, msg: "서버가 답하지 않습니다." };
+    if (r.token) { this.setToken(r.token); this.reset(); this.apply(r, true); }
+    return r;
+  },
+  /* 계정 관리 요청 (js/account.js) — 응답에 스냅샷이 있으면 맞춘다 */
+  account(path, body) {
+    const r = this.xhr(body ? "POST" : "GET", "/api/account" + (path || ""), body || null) || { ok: false, msg: "서버가 답하지 않습니다." };
+    if (r.ok && r.me) { const u = Store.user(); if (u) u.account = r.me.account; }
     return r;
   },
   setToken(t) { this.token = t || null; try { if (t) localStorage.setItem(NET_KEY, t); else localStorage.removeItem(NET_KEY); } catch (e) {} },
@@ -223,7 +239,7 @@ const Net = {
     };
     Store.save = function () { N.softSoon(); if (typeof LevelUI !== "undefined") LevelUI.paint(); };
     Store.login = (id, pw) => { const r = N.auth("/api/login", { id, pw }); return r.ok ? null : r.msg || "로그인하지 못했습니다."; };
-    Store.register = (id, pw, groups, invite) => { const r = N.auth("/api/register", { id, pw, groups: Array.isArray(groups) ? groups : [groups], invite: invite || undefined }); N.lastInvite = r.ok ? r.invite || null : null; return r.ok ? null : r.msg || "등록하지 못했습니다."; };   // v3.48 invite: 친구 초대
+    Store.register = (id, pw, groups, invite, more) => { const r = N.auth("/api/register", Object.assign({ id, pw, groups: Array.isArray(groups) ? groups : [groups], invite: invite || undefined }, more || {})); /* more = { ticket, agree } — v3.27 이메일 확인 표 · 동의 */ N.lastInvite = r.ok ? r.invite || null : null; return r.ok ? null : r.msg || "등록하지 못했습니다."; };   // v3.48 invite: 친구 초대
     Store.guest = () => {
       const r = N.auth("/api/guest", {});
       if (!r.ok) { setTimeout(() => typeof toast === "function" && toast(r.msg || "서버에 닿지 않습니다.", "warn"), 0); return r.msg; }
@@ -388,9 +404,14 @@ const Net = {
       showLogin = function (...a) {
         const out = sl.apply(this, a);
         const box = document.querySelector(".gate-guest");
-        if (box && !document.querySelector(".net-note")) box.insertAdjacentHTML("afterend", `<p class="net-note muted small" style="text-align:center;margin-top:10px">● 서버 연결됨 — 모험가 정보는 서버(${esc(N.base.replace(/^https?:\/\//, ""))})에 저장됩니다</p>`);
+        if (box && !document.querySelector(".net-note")) box.insertAdjacentHTML("afterend", `<p class="net-note muted small" style="text-align:center;margin-top:10px">● 서버 연결됨 — 모험가 정보는 서버(${esc(N.base.replace(/^https?:\/\//, ""))})에 저장됩니다${N.info && N.info.legal ? ` · <a href="${Net.page("privacy.html")}" target="_blank" rel="noopener"><b>개인정보 처리방침</b></a> · <a href="${Net.page("terms.html")}" target="_blank" rel="noopener">이용약관</a>` : ""}</p>`);
         return out;
       };
+    }
+    /* v3.27 설정 창에 "계정 관리"(이메일 · 암호 · 탈퇴 — js/account.js) */
+    if (typeof showSettings === "function" && typeof Account !== "undefined") {
+      const ss = showSettings;
+      showSettings = function (...a) { const p = ss.apply(this, a); try { Account.hook(); } catch (e) { console.error(e); } return p; };
     }
   }
 };

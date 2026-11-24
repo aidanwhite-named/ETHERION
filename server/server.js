@@ -12,6 +12,11 @@
      POST /api/register {id,pw,groups}  새 모험가 → { ok, token, me, … }
      POST /api/login    {id,pw}         로그인
      POST /api/guest    {}              필멸자(기기마다 하나)
+     POST /api/auth/code   {email}        메일로 6자리 코드 (가입했든 아니든 같은 답)            — server/auth.js
+     POST /api/auth/verify {email, code}  가입한 주소면 로그인, 아니면 { need: "signup", ticket } → register에 ticket을 넣는다
+     POST /api/login    {id,pw}         id 자리에 이메일을 넣어도 된다
+     계정(로그인 뒤): GET /api/account · POST /api/account/code | email | password | logoutAll | delete
+     결제 대비(꺼져 있음): GET /api/billing/catalog · POST /api/billing/order                 — server/billing.js
      POST /api/logout
      GET  /api/me                       내 데이터 다시 받기(스냅샷)
      POST /api/ops      {cid, ops:[{seq, fn, target, args}]}   Store 작업(덱 저장 · 사기 · 팔기 · 보상 …)을 차례로
@@ -24,12 +29,16 @@ const path = require("path");
 const os = require("os");
 const crypto = require("crypto");
 const { load } = require("./rules.js");
+const { makeMailer } = require("./mailer.js");
+const { makeAuth, AUTH_LIMITS, LEGAL } = require("./auth.js");
+const { makeBilling } = require("./billing.js");
 
-const VERSION = "3.26";
+const VERSION = "3.27";
 const ROOT = path.join(__dirname, "..");
 const DATA_DIR = path.join(__dirname, "data");
 const DB_FILE = path.join(DATA_DIR, "db.json");
 const CONFIG_FILE = path.join(__dirname, "config.json");
+const WEB_PAGES = ["index.html", "privacy.html", "terms.html"];   // 맨 위 폴더에서 내주는 문서
 const WEB_DIRS = ["css", "js", "img", "audio", "fonts"];   // tools/android/build_apk.py의 WEB_DIRS와 같게 (게임 파일만 내준다)
 
 /* ---------- 설정 (처음 실행 때 config.json을 만든다) ---------- */
@@ -46,6 +55,15 @@ function loadConfig() {
     cfg.adminPassword = crypto.randomBytes(12).toString("base64url");
     fs.writeFileSync(CONFIG_PATH, JSON.stringify(cfg, null, 2) + "\n", { mode: 0o600 });
     console.log(`  관리자 암호를 새로 만들어 ${CONFIG_PATH} 의 adminPassword에 적었습니다. 그 파일을 열어 확인하세요.`);
+  }
+  /* 계정 열쇠(이메일 찾기 · 암호화, 코드 해시) — 없으면 한 번 만들어 config.json에 적는다. 이 파일은 db.json · 백업과 다른 곳에 따로 보관한다.
+     열쇠를 잃으면 이메일 로그인 · 메일 보내기를 못 한다(암호 로그인은 됨) */
+  if (!/^[0-9a-f]{64}$/.test(String(cfg.secret || "")) || !/^[0-9a-f]{64}$/.test(String(cfg.emailEncKey || ""))) {
+    if (!/^[0-9a-f]{64}$/.test(String(cfg.secret || ""))) cfg.secret = crypto.randomBytes(32).toString("hex");
+    if (!/^[0-9a-f]{64}$/.test(String(cfg.emailEncKey || ""))) cfg.emailEncKey = crypto.randomBytes(32).toString("hex");
+    let cur = {}; try { cur = JSON.parse(fs.readFileSync(CONFIG_PATH, "utf8")); } catch (e) {}
+    try { fs.writeFileSync(CONFIG_PATH, JSON.stringify(Object.assign(cur, { secret: cfg.secret, emailEncKey: cfg.emailEncKey }), null, 2) + "\n", { mode: 0o600 }); console.log(`  계정 열쇠를 새로 만들어 ${CONFIG_PATH} 에 적었습니다(secret · emailEncKey). 이 파일을 따로 안전하게 보관하세요.`); }
+    catch (e) { console.error("config.json에 계정 열쇠를 적지 못했습니다:", e.message); }
   }
   if (process.env.PORT) cfg.port = +process.env.PORT;
   if (process.argv.includes("--no-open")) cfg.openBrowser = false;
@@ -131,6 +149,8 @@ const LIMITS = {
   register: { n: 3, ms: 24 * 3600e3, local: 30 },   // 같은 주소에서 하루 새 모험가 3명
   guest: { n: 10, ms: 3600e3, local: 60 }     // 같은 주소에서 한 시간 필멸자 10명
 };
+Object.assign(LIMITS, AUTH_LIMITS);   // 메일 코드 요청 · 틀림 (server/auth.js)
+if (CFG.codeGapSec != null) LIMITS.codeGap.ms = Math.max(0, +CFG.codeGapSec || 0) * 1000;   // 같은 주소로 코드를 다시 받기까지(기본 60초) — 시험용으로 줄일 수 있다
 const hits = new Map();
 function ipOf(req) {
   const ra = String((req.socket && req.socket.remoteAddress) || "").replace(/^::ffff:/, "");
@@ -165,12 +185,14 @@ function checkPw(pw, stored) {
   const a = crypto.scryptSync(String(pw), salt, 32), b = Buffer.from(hex, "hex");
   return a.length === b.length && crypto.timingSafeEqual(a, b);
 }
+const tokenKey = t => crypto.createHash("sha256").update(String(t)).digest("hex");
 const SESSION_DAYS = 30, GUEST_DAYS = 14, SESSIONS_PER_USER = 10;   // v3.44 로그인은 30일(필멸자 14일) 안 쓰면 끝, 한 사람 10개까지
 function newSession(uid) {
   const mine = Object.keys(db.sessions).filter(k => db.sessions[k].uid === uid).sort((a, b) => db.sessions[a].seen - db.sessions[b].seen);
   for (const k of mine.slice(0, Math.max(0, mine.length - SESSIONS_PER_USER + 1))) delete db.sessions[k];
   const token = crypto.randomBytes(24).toString("base64url");
-  db.sessions[token] = { uid, at: Date.now(), seen: Date.now(), clients: {} };
+  db.sessions[tokenKey(token)] = { uid, at: Date.now(), seen: Date.now(), clients: {} };   // v3.27 db에는 토큰의 해시만 — db.json · 백업이 새어도 남의 로그인을 쓸 수 없다
+  if (db.users[uid]) db.users[uid].seen = Date.now();   // 마지막으로 들어온 때 (오래 안 온 계정 정리용)
   markDirty();
   return token;
 }
@@ -182,12 +204,19 @@ function sessionOld(s, u, now) {
 function sessionOf(req) {
   const h = req.headers.authorization || "";
   const m = /^Bearer\s+(\S+)$/.exec(h);
-  const s = m && Object.prototype.hasOwnProperty.call(db.sessions, m[1]) && db.sessions[m[1]];
+  const key = m ? tokenKey(m[1]) : "";
+  const s = m && Object.prototype.hasOwnProperty.call(db.sessions, key) && db.sessions[key];
   if (!s || !Object.prototype.hasOwnProperty.call(db.users, s.uid)) return null;
-  if (sessionOld(s, db.users[s.uid], Date.now())) { delete db.sessions[m[1]]; markDirty(); return null; }
+  if (sessionOld(s, db.users[s.uid], Date.now())) { delete db.sessions[key]; markDirty(); return null; }
   s.seen = Date.now();
-  return { token: m[1], s, u: db.users[s.uid] };
+  { const u = db.users[s.uid]; if (Date.now() - (u.seen || 0) > 86400e3) { u.seen = Date.now(); markDirty(); } }
+  return { key, s, u: db.users[s.uid] };
 }
+
+/* v3.27 예전 db의 로그인(토큰 원문이 열쇠)을 해시 열쇠로 옮긴다 — 로그인은 그대로 이어진다 */
+{ let n = 0; for (const k of Object.keys(db.sessions)) if (!/^[0-9a-f]{64}$/.test(k)) { db.sessions[tokenKey(k)] = db.sessions[k]; delete db.sessions[k]; n++; } if (n) markDirty(); }
+/* 이 모험가의 로그인을 모두 끊는다(keep = 남길 하나) */
+function dropSessions(uid, keep) { for (const k of Object.keys(db.sessions)) if (db.sessions[k].uid === uid && k !== keep) delete db.sessions[k]; markDirty(); }
 
 /* 오래 안 쓴 로그인 · 필멸자 정리 (켤 때와 6시간마다) */
 function pruneSessions() {
@@ -196,16 +225,18 @@ function pruneSessions() {
   const live = new Set(Object.values(db.sessions).map(s => s.uid));
   for (const id of Object.keys(db.users)) if (db.users[id].guest && !live.has(id)) { delete db.users[id]; g++; }
   if (n || g) { log("정리", `끝난 로그인 ${n}개 · 필멸자 ${g}명`); markDirty(); }
+  AUTH.prune(); BILL.prune();
 }
 setTimeout(pruneSessions, 0);   // 2026-11-17 켤 때 정리는 파일을 다 읽은 뒤에 — 바로 부르면 정리할 것이 있을 때 log의 t(404줄)가 아직 없어 서버가 켜지지 않았다
 setInterval(pruneSessions, 6 * 3600e3);
 
 /* ---------- 스냅샷: 응답마다 붙이는 내 데이터 ---------- */
-const strip = u => { const o = JSON.parse(JSON.stringify(u)); delete o.pw; return o; };
+/* 기기에 주는 사본: 암호 · 이메일(찾기 열쇠 · 암호문)은 빼고, 가린 주소와 암호가 있는지만 준다. 다른 모험가(관리자 보관소)의 사본에는 이메일을 아예 넣지 않는다 */
+const strip = (u, mine) => { const o = JSON.parse(JSON.stringify(u)); delete o.pw; delete o.email; if (mine && !u.guest && !u.admin) o.account = AUTH.publicOf(u); return o; };
 function unreadOf(uid) { const box = db.trade && db.trade.notices && db.trade.notices[uid]; return box ? box.filter(n => !n.read).length : 0; }
 function snapshot(u) {
-  const out = { me: strip(u), stock: db.stock || {}, shop: Store.shopCfg(), unread: unreadOf(u.id), rev: db.rev || 0, now: Date.now() };
-  if (u.admin) out.others = Object.values(db.users).filter(x => x.id !== u.id).map(strip);
+  const out = { me: strip(u, true), stock: db.stock || {}, shop: Store.shopCfg(), unread: unreadOf(u.id), rev: db.rev || 0, now: Date.now() };
+  if (u.admin) out.others = Object.values(db.users).filter(x => x.id !== u.id).map(x => strip(x));
   return out;
 }
 
@@ -214,13 +245,15 @@ const GUEST_RE = /^(손님|필멸자)/;   // v3.53 새 계정은 필멸자·XXXX
 function register(b, ip) {
   const id = String(b.id || "").trim();
   if (GUEST_RE.test(id)) return { ok: false, msg: "이 이름은 쓸 수 없습니다." };
-  if (String(b.pw || "").length < 4) return { ok: false, msg: "암호는 4자 이상으로 정해 주세요." };   // v3.44
+  /* v3.27 이메일 표(ticket: 메일 코드로 확인한 주소) · 암호(8자 이상, 이메일이 있으면 비워도 됨) · 동의 — server/auth.js */
+  const chk = AUTH.registerCheck(b, id);
+  if (chk.msg) return { ok: false, msg: chk.msg };
   if (limited("register", ip)) return { ok: false, msg: "이 곳에서 오늘 새 모험가를 너무 많이 만들었습니다. 내일 다시 해 주세요." };
-  const err = Store.register(id, String(b.pw || ""), b.groups);
+  const err = Store.register(id, chk.pw || crypto.randomBytes(12).toString("hex"), b.groups);
   db.session = null;
   if (err) return { ok: false, msg: err };
   const u = db.users[id];
-  u.pw = hashPw(b.pw);
+  AUTH.registerDone(u, chk);
   hit("register", ip);
   /* v3.48 친구 초대: 초대한 모험가의 저장한 덱을 7일 체험 덱으로 (js/quests.js inviteApply) */
   const inv = b.invite ? R.ctx.inviteParse(String(b.invite).slice(0, 200)) : null;
@@ -229,9 +262,17 @@ function register(b, ip) {
   return Object.assign({ ok: true, token: newSession(id), invite: ir }, snapshot(u));
 }
 function login(b, ip, req) {
-  const id = String(b.id || "").trim().slice(0, 40), pw = String(b.pw || "");
-  if (limited("loginFail", ip) || limited("loginFailId", id.toLowerCase())) return { ok: false, msg: "암호를 여러 번 틀렸습니다. 15분 뒤에 다시 해 주세요." };   // v3.44
-  const fail = msg => { hit("loginFail", ip); hit("loginFailId", id.toLowerCase()); log("로그인 실패", id, ip); return { ok: false, msg }; };
+  const typed = String(b.id || "").trim().slice(0, 254), pw = String(b.pw || "");
+  const byMail = typed.includes("@"), lim = byMail ? AUTH.emailKey(typed.toLowerCase()) : typed.toLowerCase();
+  if (limited("loginFail", ip) || limited("loginFailId", lim)) return { ok: false, msg: "암호를 여러 번 틀렸습니다. 15분 뒤에 다시 해 주세요." };   // v3.44
+  const fail = msg => { hit("loginFail", ip); hit("loginFailId", lim); log("로그인 실패", byMail ? "(이메일)" : typed.slice(0, 40), ip); return { ok: false, msg }; };
+  const id = byMail ? AUTH.idOfLogin(typed) : typed.slice(0, 40);   // v3.27 이름 자리에 이메일을 넣어도 된다
+  if (byMail) {   // 이메일로는 가입 여부를 알려 주지 않는다 — 없는 주소 · 틀린 암호 · 암호 없는 계정 모두 같은 답
+    const u = id ? db.users[id] : null;
+    if (!u || u.guest || u.admin || !u.pw || !checkPw(pw, u.pw)) return fail("이메일 또는 암호가 맞지 않습니다. 암호를 정하지 않았다면 '메일 코드로 로그인'을 눌러 주세요.");
+    log("로그인", id, "(이메일 + 암호)");
+    return Object.assign({ ok: true, token: newSession(id) }, snapshot(u));
+  }
   if (id.toLowerCase() === R.ADMIN_ID) {
     if (!adminPlaceOk(req)) { log("관리자 로그인 거절", "바깥 주소", ip); return { ok: false, msg: "관리자는 이 주소에서 로그인할 수 없습니다." }; }   // v3.45.2 adminFrom: "tailnet"
     const bad = adminPwProblem();
@@ -244,6 +285,7 @@ function login(b, ip, req) {
   }
   const u = Object.prototype.hasOwnProperty.call(db.users, id) ? db.users[id] : null;
   if (!u || u.guest) return fail("등록되지 않은 이름입니다. '새 모험가'로 등록하거나 '로그인 없이 시작'을 눌러 주세요.");
+  if (!u.pw) return fail(u.email ? "암호를 정하지 않은 모험가입니다. '메일 코드로 로그인'으로 들어와 주세요." : "암호가 맞지 않습니다.");
   if (!checkPw(pw, u.pw)) return fail("암호가 맞지 않습니다.");
   log("로그인", id);
   return Object.assign({ ok: true, token: newSession(id) }, snapshot(u));
@@ -279,11 +321,11 @@ const OPS = {
   shopSet: { admin: true, noTarget: true }, shopStock: { admin: true, noTarget: true }   // v3.37 관리자 상점: 공개 · 내림 · 기간 판매 · 재고 (js/economy.js)
 };
 /* 기기가 정하는 칸(전적 · 수레바퀴 표 · 원정 · 경험치 · 설정 따위). 이 밖의 칸(PROTECTED)은 서버만 바꾼다 */
-const PROTECTED = new Set(["id", "pw", "admin", "guest", "created", "group", "owned", "collection", "gold", "ledger", "decks", "drafts", "fresh", "pilClaim", "spins", "pilSrv", "rewardDay", "rewardLog", "xp", "stats", "quests", "ach", "titles", "title", "book", "rank", "trial", "invitedBy", "seals", "orbs", "deck50"]);   // v3.56 덱 50장 옮김 표시   // v3.54 순례의 인장   // v3.48 초대 체험 덱   // v3.46 모험 수첩도 서버만   // v3.44 경험치 · 전적도 서버만 (net.js NET_PROTECTED와 같게)   // v3.39 보상 칸도 서버만
+const PROTECTED = new Set(["uid", "email", "agree", "account", "seen", "adult", "id", "pw", "admin", "guest", "created", "group", "owned", "collection", "gold", "ledger", "decks", "drafts", "fresh", "pilClaim", "spins", "pilSrv", "rewardDay", "rewardLog", "xp", "stats", "quests", "ach", "titles", "title", "book", "rank", "trial", "invitedBy", "seals", "orbs", "deck50"]);   // v3.56 덱 50장 옮김 표시   // v3.54 순례의 인장   // v3.48 초대 체험 덱   // v3.46 모험 수첩도 서버만   // v3.44 경험치 · 전적도 서버만 (net.js NET_PROTECTED와 같게)   // v3.39 보상 칸도 서버만
 /* v3.45 PC · 폰 동시 접속: 기기는 바뀐 칸만 보낸다(patch) — 서버는 그 칸만 고치고, 기기가 지운 칸(drop)만 지운다.
    예전엔 기기가 가진 칸 전체로 통째로 바꿔서, 한 기기의 옛 사본(순례 · 원정 진행)이 다른 기기의 새 진행을 덮었다.
    patch를 모르는 예전 기기(이미 깐 PC 앱)는 칸 전체를 보내므로 덮어쓰기만 하고 지우지는 않는다. */
-const SOFT_BAD = new Set(["__proto__", "constructor", "prototype", "pw"]);
+const SOFT_BAD = new Set(["__proto__", "constructor", "prototype", "pw", "email"]);
 function softUpdate(u, a) {
   const fields = (a && a.fields && typeof a.fields === "object") ? a.fields : {};
   if (JSON.stringify(fields).length > 300000) return { ok: false, msg: "너무 큽니다." };
@@ -419,6 +461,41 @@ function logOp(me, fn, args, r) {
   else if (fn === "pilgrimClaim") log("순례", me.id, `첫 승 ${args[1]} ${args[0] === "gamble" ? "뽑기" : "받기"}`, r && r.ok ? (r.k === "card" ? `→ ${r.grade} ${name(r.id)}${r.gold ? ` (다 가져서 ${r.gold} 조각)` : ""}` : `→ ${r.gold} 조각`) : "→ 거절: " + (r && r.msg));
 }
 
+/* ---------- v3.27 계정(메일 코드 · 암호) · 결제 대비 틀 ---------- */
+const MAILER = makeMailer(CFG.mail, log);
+const AUTH = makeAuth({ db, CFG, markDirty, log, limited, hit, mailer: MAILER, hashPw, checkPw });
+const BILL = makeBilling({ db, CFG, markDirty, log,
+  grant: (u, give, why) => { if (give && give.gold > 0) Store.addGold(u, give.gold, why); },
+  takeBack: (u, give, why) => { const n = (give && give.gold) || 0; if (!n) return true; if (Store.gold(u) < n) return false; Store.addGold(u, -n, why); return true; } });
+AUTH.migrate();
+/* 메일 코드 확인: 가입한 주소면 로그인, 아니면 가입 표 */
+function authVerify(b, ip) {
+  const r = AUTH.authVerify(b, ip);
+  if (!r.ok || !r.user) return r;
+  if (r.user.admin || r.user.guest) return { ok: false, msg: "이 계정은 메일 코드로 들어올 수 없습니다." };
+  return Object.assign({ ok: true, token: newSession(r.user.id) }, snapshot(r.user));
+}
+/* 탈퇴: 계정 · 로그인 · 소식 · 못 끝낸 판을 지운다. 낸 주문이 있으면 그 장부만 계정 번호로 5년 남는다(billing.detach) */
+function wipeUser(u) {
+  BILL.detach(u);
+  dropSessions(u.id);
+  if (db.trade && db.trade.notices) delete db.trade.notices[u.id];
+  for (const id in db.matches || {}) if (db.matches[id].uid === u.id) delete db.matches[id];
+  delete db.users[u.id];
+}
+async function account(sess, route, body, ip) {
+  const u = sess.u, others = () => dropSessions(u.id, sess.key);
+  if (route === "/api/account") return Object.assign({ ok: true, account: AUTH.publicOf(u), orders: BILL.list(u.uid), mail: MAILER.real });
+  let r;
+  if (route === "/api/account/code") r = await AUTH.accountCode(u, body, ip);
+  else if (route === "/api/account/email") r = AUTH.accountEmail(u, body, ip, others);
+  else if (route === "/api/account/password") r = AUTH.accountPassword(u, body, ip, others);
+  else if (route === "/api/account/logoutAll") { others(); log("모든 기기에서 나감", u.id); r = { ok: true }; }
+  else if (route === "/api/account/delete") { r = AUTH.accountDelete(u, body, ip, id => TradeLocal.held(id).held, wipeUser); if (r.ok) return r; }
+  else return { ok: false, msg: "없는 주소입니다." };
+  return r.ok ? Object.assign(r, snapshot(u)) : r;
+}
+
 /* ---------- HTTP ---------- */
 const MIME = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json; charset=utf-8",
   ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp", ".gif": "image/gif", ".svg": "image/svg+xml", ".ico": "image/x-icon",
@@ -448,7 +525,7 @@ function serveFile(req, res, urlPath) {
   if (rel === "/" || rel === "") rel = "/index.html";
   const norm = path.normalize(rel).replace(/^[/\\]+/, "");
   const top = norm.split(/[/\\]/)[0];
-  if (norm !== "index.html" && !WEB_DIRS.includes(top)) { res.writeHead(404); return res.end("Not found"); }
+  if (!WEB_PAGES.includes(norm) && !WEB_DIRS.includes(top)) { res.writeHead(404); return res.end("Not found"); }
   const full = path.join(ROOT, norm);
   if (!full.startsWith(ROOT + path.sep)) { res.writeHead(403); return res.end(); }
   fs.stat(full, (err, st) => {
@@ -472,7 +549,10 @@ const server = http.createServer(async (req, res) => {
   if (req.method === "POST") { try { body = await readBody(req); } catch (e) { return send(res, 400, { ok: false, msg: "요청을 읽지 못했습니다." }); } }
   current = null;
   try {
-    if (route === "/api/hello") return send(res, 200, { ok: true, etherion: true, version: VERSION, now: Date.now() });
+    if (route === "/api/hello") return send(res, 200, { ok: true, etherion: true, version: VERSION, now: Date.now(), auth: { code: true, mail: MAILER.real, emailRequired: AUTH.emailRequired(), pwMin: AUTH.PW_MIN }, legal: LEGAL });
+    if (route === "/api/auth/code" && req.method === "POST") return send(res, 200, await AUTH.authCode(body, ipOf(req)));
+    if (route === "/api/auth/verify" && req.method === "POST") return send(res, 200, authVerify(body, ipOf(req)));
+    if (route === "/api/billing/catalog") return send(res, 200, BILL.catalog());
     if (route === "/api/register" && req.method === "POST") return send(res, 200, register(body, ipOf(req)));
     if (route === "/api/login" && req.method === "POST") return send(res, 200, login(body, ipOf(req), req));
     if (route === "/api/guest" && req.method === "POST") return send(res, 200, guest(ipOf(req)));
@@ -480,8 +560,10 @@ const server = http.createServer(async (req, res) => {
     if (!sess) return send(res, 401, { ok: false, auth: false, msg: "로그인이 필요합니다. (서버의 세션이 끝났습니다)" });
     if (sess.u.admin && !adminPlaceOk(req)) return send(res, 403, { ok: false, msg: "관리자는 이 주소에서 쓸 수 없습니다." });   // v3.45.2 adminFrom: "tailnet" — 관리자 토큰이 바깥에서 쓰이면 거절
     current = sess.u;
-    if (route === "/api/logout" && req.method === "POST") { delete db.sessions[sess.token]; markDirty(); log("나감", sess.u.id); return send(res, 200, { ok: true }); }
+    if (route === "/api/logout" && req.method === "POST") { delete db.sessions[sess.key]; markDirty(); log("나감", sess.u.id); return send(res, 200, { ok: true }); }
     if (route === "/api/me") return send(res, 200, Object.assign({ ok: true }, snapshot(sess.u)));
+    if (route === "/api/account" || (route.startsWith("/api/account/") && req.method === "POST")) return send(res, 200, await account(sess, route, body, ipOf(req)));
+    if (route === "/api/billing/order" && req.method === "POST") return send(res, 200, BILL.create(sess.u, body.sku));
     if (route === "/api/ops" && req.method === "POST") return send(res, 200, ops(sess, body));
     if (route === "/api/trade" && req.method === "POST") { const out = await tradeWait(sess, body); return send(res, 200, out); }
     return send(res, 404, { ok: false, msg: "없는 주소입니다." });
@@ -516,6 +598,7 @@ server.listen(CFG.port, CFG.host, () => {
   console.log(`  데이터      ${DB_PATH}  (모험가 ${Object.keys(db.users).length}명)`);
   console.log(`  규칙        게임 파일 ${R.files.length}개 · 카드 ${R.CARD_LIST.length}종`);
   { const bad = adminPwProblem(); console.log(`  관리자      ${bad ? "꺼짐 — " + bad + " (server/config.json의 adminPassword를 10자 이상으로)" : "admin / server/config.json의 adminPassword"}${CFG.adminFrom === "tailnet" ? " · 이 컴퓨터와 Tailscale 안에서만" : ""}`); }
+  console.log(`  메일        ${MAILER.real ? MAILER.provider + " — 인증 코드를 메일로 보냄" : "시험(코드를 이 창에 찍음) — 바깥에 열 때는 config.json의 mail을 채우세요"}${AUTH.emailRequired() ? " · 가입에 이메일 필수" : ""}`);
   console.log(`  끄기        이 창에서 Ctrl + C\n`);
   if (CFG.openBrowser) {
     const cmd = process.platform === "win32" ? `start "" "${url}"` : process.platform === "darwin" ? `open "${url}"` : null;

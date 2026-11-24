@@ -1,0 +1,34 @@
+/* v3.27 계정 — 입장 화면의 메일 코드 · 동의 줄, 계정 관리 창 (js/screens.js showLogin · js/account.js) */
+.gate-link { background: none; border: 0; padding: 2px 0; color: var(--gold-hi); font: inherit; font-size: 14px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; justify-self: center; }
+.gate-link:hover { color: #fff; }
+.gate-mail { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: end; }
+.gate-mail.three { grid-template-columns: minmax(0, 1.6fr) auto minmax(0, .8fr); align-items: center; }
+.gate .gate-mail.three label { grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: 10px; }
+.gate-mail .btn { font-size: 14px; padding: 7px 12px; white-space: nowrap; min-width: 92px; }
+.gate-mail .btn:disabled { opacity: .6; cursor: default; }
+.gate-hint { margin: 0; font-size: 13px; line-height: 1.45; color: var(--muted); }
+.gate-ok { margin: 0; font-size: 14px; color: #9fe0a8; }
+.gate-ok small { color: var(--muted); }
+.gate-agree { display: flex; flex-wrap: wrap; gap: 2px 18px; align-items: center; font-size: 13.5px; }
+.gate .gate-form .gate-agree label { display: inline-flex; grid-template-columns: none; align-items: center; gap: 6px; font-size: 13.5px; cursor: pointer; }
+.gate-agree input[type="checkbox"] { width: 17px; height: 17px; padding: 0; margin: 0; flex: none; accent-color: #c9a45a; }
+.gate-agree a, .net-note a { color: var(--gold-hi); }
+.gate-agree small { flex-basis: 100%; font-size: 11.5px; line-height: 1.4; color: var(--muted); }
+
+.modal.acc-modal { width: min(540px, 100%); }
+.acc-body { display: grid; gap: 10px; }
+.acc-row { margin: 0; } .acc-row.small { font-size: 12.5px; color: var(--muted); } .acc-row a { color: var(--gold-hi); }
+.acc-box { display: grid; gap: 7px; padding: 10px 12px; border: 1px solid var(--line, rgba(255, 255, 255, .14)); }
+.acc-box h4 { margin: 0; font-size: 15px; } .acc-box h4 small { font-weight: 400; font-size: 12px; }
+.acc-box label { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 8px; font-size: 13.5px; }
+.acc-box input { font-size: 15px; padding: 6px 10px; min-width: 0; }
+.acc-line { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: center; }
+.acc-box > .btn { justify-self: start; }
+.acc-danger { border-color: rgba(220, 90, 90, .5); }
+.acc-msg { margin: 0; min-height: 1.3em; font-size: 13.5px; color: #ff9c8a; } .acc-msg.good { color: #9fe0a8; }
+
+/* 서버 모드의 새 모험가: 이메일 줄 · 동의 줄이 더해진 만큼 머리글 한 줄과 "또는" 줄을 접어 한 화면에 담는다 */
+.gate.gate-srv-new .gate-lead, .gate.gate-srv-new .gate-or { display: none; }
+.gate.gate-srv-new .tabs { margin-top: 6px; }
+.gate.gate-srv-new .gate-form { gap: 6px; }
+.gate.gate-srv-new .btn.gate-guest { margin-top: 8px; }

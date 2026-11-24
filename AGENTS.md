@@ -240,6 +240,13 @@
 - 무효 마법(v3.32)은 `js/counterspells.js`(깃발마다 1장, 모두 고급). [무효] = 엔진 `SPELL_OPS.negate`(상대 전장에서 아직 발동하지 않은 마법 중 맨 앞을 부숨). 컴퓨터는 미리 굴리기로 [무효]를 볼 수 없어 `js/game.js` `negateHope`로 어림한다 — 상대 마법을 겨누는 새 효과를 만들면 거기도 본다. 시험 `node tools/counter/test.js`, 실험실 `node tools/counter/lab.js 1500`, 설명 `docs/COUNTERSPELLS_v3.32.md`.
 - 레어 마법(v3.24)은 `js/rarespells.js`(깃발마다 공격 · 방어 · 공용 1장). 새 마법의 세기는 마법 실험실 `node tools/highcards/lab_rare.js 2000 [카드 ID,...]`로 같은 레벨 기존 마법 · 유니크와 견준다(레어 목표는 `docs/RARESPELLS_v3.24.md` 2장). 새 카드 데이터 파일을 만들면 `index.html`(data.js ~ economy.js 사이)과 `tools/balance/harness.js`의 파일 목록에 함께 넣는다.
 
+## 계정 · 개인정보 (v3.27)
+- 설명과 남은 일은 `docs/ACCOUNT_PRIVACY.md`(법규 조사 · 설계 · 7장 구현). 서버 모드의 로그인은 **메일 코드 · 비밀번호 두 가지**: `server/auth.js`(코드 · 이메일 암호화 · 계정 관리 · 탈퇴) · `server/mailer.js`(코드 메일, 설정이 없으면 서버 창에 찍음) · `server/billing.js`(결제 대비 틀 — 꺼져 있음) · 화면 `js/screens.js` `showLogin` · `js/account.js` · `css/account.css` · 문서 `privacy.html` · `terms.html`.
+- **개인정보는 이메일 · 이름만.** 새 칸(생일 · 전화 · 기기 값 · 분석 도구)을 받게 만들지 않는다 — 받으려면 사용자에게 묻고 `privacy.html`과 동의 화면을 함께 고친다(`server/auth.js` `LEGAL` 날짜 올림).
+- 이메일 원문 · 인증 코드 · 로그인 토큰 · 암호를 db · 기록 · 스냅샷에 그대로 넣지 않는다(이메일은 `u.email.k` 찾기 값 + `enc` 암호문, 화면에는 가린 주소만 — `strip`이 `u.email`을 빼고 `account`를 붙인다). 계정 칸(`uid` · `email` · `agree` · `adult`)은 서버만 바꾼다(`PROTECTED` · `NET_PROTECTED`).
+- 결제를 붙일 때는 `server/billing.js`의 규칙을 지킨다: 금액 · 물건은 서버 목록에서만, 돈이 들어왔다는 것은 PG 서버의 알림만 믿음, 주문은 계정 번호(`u.uid`)로. 차례는 `ACCOUNT_PRIVACY.md` 7.2.
+- 시험 `node tools/auth/test.js`(임시 서버를 띄움, 진짜 db는 건드리지 않음).
+
 ## PC 앱 — Electron (v3.20.2)
 - PC 앱은 게임 폴더를 그대로 담는 Electron 껍데기다. 창 · 단축키 · 개발자 도구 막기는 `desktop/main.js`, 만들기는 `tools/desktop/build_exe.py`(파이썬 표준 라이브러리만, 사용법은 파일 맨 위). 게임 코드를 고치면 껍데기는 고칠 것 없고 exe만 다시 만든다.
 - 묶는 게임 파일 목록은 안드로이드와 같다(`build_apk.py`의 `web_files`를 그대로 부름). 게임에 새 폴더를 만들면 거기 `WEB_DIRS`에 넣는다.

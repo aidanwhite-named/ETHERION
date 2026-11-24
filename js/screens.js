@@ -291,14 +291,18 @@ function bindGroupGrid(wrap, def) {
   if (def) { const t = wrap.querySelector(`.grp-tile[data-g="${def}"]`); if (t) t.classList.add("on"); }
   return () => v;
 }
-function showLogin(tab) {
+function showLogin(tab, st) {
   App.screen = "login"; Bg.set("title");
+  /* v3.27 서버 모드: 이름(또는 이메일) + 암호, 또는 메일로 받은 6자리 코드. 새 모험가는 이메일 확인 · 동의 (js/net.js authCode · authVerify, server/auth.js) */
+  const srv = typeof Net !== "undefined" && Net.authOn() ? Net.info.auth : null;
+  st = st || {};
+  const codeTab = tab === "code" && !!srv; if (tab === "code") tab = "login";
   const invite = typeof DeckCode !== "undefined" && typeof Net !== "undefined" && Net.on ? DeckCode.pendingInvite() : "";   // v3.48 친구 초대 링크로 열림
   const invP = invite && typeof inviteParse === "function" ? inviteParse(invite) : null;
   tab = tab || (invP ? "new" : "login");
   let chosen = null;
   $("#app").innerHTML = `<section class="screen screen-login">
-    <div class="gate${tab === "login" ? " gate-login" : ""}">
+    <div class="gate${tab === "login" ? " gate-login" : ""}${srv && tab === "new" ? " gate-srv-new" : ""}">
       <p class="gate-eyebrow">The Lindear Ringstone</p>
       <h2 class="gate-title">린데어 환석</h2>
       <p class="gate-lead">성로의 중심 관문에 이름을 새기고 들어가세요.</p>
@@ -306,20 +310,33 @@ function showLogin(tab) {
         <button class="tab ${tab === "login" ? "on" : ""}" data-tab="login" role="tab">로그인</button>
         <button class="tab ${tab === "new" ? "on" : ""}" data-tab="new" role="tab">새 모험가</button>
       </div>
-      <form id="f-login" class="gate-form" ${tab === "login" ? "" : "hidden"}>
-        <label>이름<input id="li-id" autocomplete="username" maxlength="16" required></label>
+      <form id="f-login" class="gate-form" ${tab === "login" && !codeTab ? "" : "hidden"}>
+        <label>${srv ? "이름 또는 이메일" : "이름"}<input id="li-id" autocomplete="username" maxlength="${srv ? 254 : 16}" required></label>
         <label>암호<input id="li-pw" type="password" autocomplete="current-password" required></label>
         <p class="err" id="li-err"></p>
         <button class="btn primary wide" type="submit">관문 통과</button>
+        ${srv ? `<button type="button" class="gate-link" id="li-code">암호 없이 · 암호를 잊었다면 — 메일 코드로 로그인</button>` : ""}
       </form>
+      ${srv ? `<form id="f-code" class="gate-form" ${codeTab ? "" : "hidden"}>
+        <div class="gate-mail"><label>이메일<input id="lc-mail" type="email" autocomplete="email" maxlength="254" required></label><button type="button" class="btn" id="lc-send">코드 받기</button></div>
+        <label>코드 6자리<input id="lc-code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="메일로 온 숫자 6자리"></label>
+        <p class="gate-hint" id="lc-hint">이메일을 넣고 '코드 받기'를 누르면 6자리 코드가 메일로 갑니다(10분 동안). 처음 오는 주소면 새 모험가 등록으로 이어집니다.</p>
+        <p class="err" id="lc-err"></p>
+        <button class="btn primary wide" type="submit">코드로 관문 통과</button>
+        <button type="button" class="gate-link" id="lc-back">이름 · 암호로 로그인</button>
+      </form>` : ""}
       <form id="f-new" class="gate-form" ${tab === "new" ? "" : "hidden"}>
         ${(() => { const inv = typeof Net !== "undefined" && Net.on && typeof inviteParse === "function";   /* v3.55.4 한 화면에: 초대 코드 칸은 이름 · 암호와 한 줄, 설명은 그 아래 한 줄 */
-          return `<div class="two${inv ? " has-inv" : ""}"><label>이름<input id="nw-id" maxlength="16" required placeholder="2~16자"></label>
-        <label>암호<input id="nw-pw" type="password" required placeholder="2자 이상"></label>${inv ? `<label class="nw-inv">초대 코드<input id="nw-inv" maxlength="200" value="${esc(invite)}" placeholder="INV:친구이름:깃발"></label>` : ""}</div>${inv ? `<p class="nw-inv-hint">친구 초대 코드는 선택 — 받은 링크나 코드를 넣고 등록하면 친구의 덱을 ${TRIAL.days}일 동안 써 볼 수 있습니다</p>` : ""}`; })()}
+          const mail = !srv ? "" : st.ticket ? `<p class="gate-ok">✓ 이메일 확인됨 — ${esc(st.mask || "")} <small>(${st.minutes || 30}분 안에 등록해 주세요)</small></p>`
+            : `<div class="gate-mail three"><label>이메일<input id="nw-mail" type="email" autocomplete="email" maxlength="254" ${srv.emailRequired ? "required" : ""} placeholder="${srv.emailRequired ? "코드를 받을 주소" : "선택 — 코드 로그인 · 암호 찾기용"}"></label><button type="button" class="btn" id="nw-send">코드 받기</button><label>코드<input id="nw-code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="6자리"></label></div>`;
+          return `${mail}<div class="two${inv ? " has-inv" : ""}"><label>이름<input id="nw-id" maxlength="16" required placeholder="2~16자"></label>
+        <label>암호<input id="nw-pw" type="password" autocomplete="new-password" ${srv ? "" : "required"} placeholder="${srv ? `${srv.pwMin}자 이상${st.ticket || srv.emailRequired ? " (비우면 메일 코드로만)" : ""}` : "2자 이상"}"></label>${inv ? `<label class="nw-inv">초대 코드<input id="nw-inv" maxlength="200" value="${esc(invite)}" placeholder="INV:친구이름:깃발"></label>` : ""}</div>${inv ? `<p class="nw-inv-hint">친구 초대 코드는 선택 — 받은 링크나 코드를 넣고 등록하면 친구의 덱을 ${TRIAL.days}일 동안 써 볼 수 있습니다</p>` : ""}`; })()}
         <p class="pick-label">깃발을 최대 3개까지 무료로 고릅니다 — 진영마다 하나까지, 적어도 하나. 고른 깃발마다 기본 덱 ${RULES.deckSize}장과 그 단체의 다른 카드를 1장씩 받습니다. 고르지 않은 깃발은 쓸 수 없습니다. (고른 깃발을 다시 누르면 풀립니다)</p>
         ${groupGridHTML({ motto: true })}
         <p class="pick-sum" id="nw-sum"></p>
         ${invP ? `<p class="nw-inv-note">「${esc(invP.from)}」님의 초대 — 등록하면 ${esc(invP.from)}님의 <b>${esc(GROUPS[invP.group].name)}</b> 덱을 ${TRIAL.days}일 동안 내 덱처럼 쓸 수 있습니다.</p>` : ""}
+        ${srv ? `<div class="gate-agree"><label><input type="checkbox" id="ag-terms"><span><a href="${Net.page("terms.html")}" target="_blank" rel="noopener">이용약관</a> 동의</span></label><label><input type="checkbox" id="ag-priv"><span><a href="${Net.page("privacy.html")}" target="_blank" rel="noopener">개인정보 수집 · 이용</a> 동의</span></label><label><input type="checkbox" id="ag-age"><span>만 14세 이상입니다</span></label>
+          <small>수집: 이메일 · 모험가 이름 / 목적: 계정 만들기 · 로그인 · 꼭 필요한 알림 / 보유: 탈퇴할 때까지(2년 동안 들어오지 않으면 삭제). 동의하지 않을 수 있으며, 그러면 필멸자로만 이용할 수 있습니다.</small></div>` : ""}
         <p class="err" id="nw-err"></p>
         <button class="btn primary wide" type="submit">모험가 등록</button>
       </form>
@@ -328,7 +345,31 @@ function showLogin(tab) {
       ${Store.ok ? "" : '<p class="err">이 브라우저에서는 저장소를 쓸 수 없어 진행 상황이 저장되지 않습니다.</p>'}
     </div>
   </section>`;
-  $$(".tab").forEach(b => b.addEventListener("click", () => showLogin(b.dataset.tab)));
+  $$(".tab").forEach(b => b.addEventListener("click", () => showLogin(b.dataset.tab, b.dataset.tab === "new" ? st : null)));
+  if (srv) {
+    /* 코드 받기 단추: 보낸 뒤 60초 동안 쉰다 */
+    const sendBtn = (btn, mailEl, errEl, hintEl) => btn && btn.addEventListener("click", () => {
+      const r = Net.authCode(mailEl.value.trim());
+      errEl.textContent = r.ok ? "" : r.msg || "코드를 보내지 못했습니다.";
+      if (!r.ok) return;
+      if (hintEl) hintEl.textContent = `코드를 보냈습니다. 메일함(스팸함도)을 확인해 ${r.minutes || 10}분 안에 넣어 주세요.`; else toast("코드를 보냈습니다. 메일함(스팸함도)을 확인해 주세요.");
+      let left = 60; btn.disabled = true; const t0 = btn.textContent;
+      const tick = () => { if (!btn.isConnected) return; if (left <= 0) { btn.disabled = false; btn.textContent = t0; return; } btn.textContent = `다시 받기 ${left--}초`; setTimeout(tick, 1000); };
+      tick();
+    });
+    sendBtn($("#lc-send"), $("#lc-mail"), $("#lc-err"), $("#lc-hint"));
+    sendBtn($("#nw-send"), $("#nw-mail"), $("#nw-err"), null);
+    $("#li-code").addEventListener("click", () => showLogin("code"));
+    $("#lc-back").addEventListener("click", () => showLogin("login"));
+    $("#f-code").addEventListener("submit", e => {
+      e.preventDefault();
+      const r = Net.authVerify($("#lc-mail").value.trim(), $("#lc-code").value.trim());
+      if (!r.ok) { $("#lc-err").textContent = r.msg || "들어가지 못했습니다."; return; }
+      if (r.need === "signup") { toast("처음 오신 주소입니다. 이름과 깃발을 골라 등록해 주세요."); showLogin("new", { ticket: r.ticket, mask: r.email, minutes: r.minutes }); return; }
+      if (typeof FEEL !== "undefined") FEEL.play("login_ok", .8);
+      toast(`환영합니다, ${Store.user().id}.`); showLobby();
+    });
+  }
   const getChosen = bindFactionPicks($("#f-new"), $("#nw-sum"));
   $("#gate-guest").addEventListener("click", () => { Store.guest(); toast("필멸자로 들어왔습니다. 모든 덱을 쓸 수 있습니다."); showLobby(); });
   $("#f-login").addEventListener("submit", e => {
@@ -342,7 +383,21 @@ function showLogin(tab) {
     e.preventDefault();
     chosen = getChosen();
     const inv = $("#nw-inv") ? $("#nw-inv").value.trim() : "";
-    const err = Store.register($("#nw-id").value, $("#nw-pw").value, chosen, inv);
+    let more;
+    if (srv) {
+      const say = m => { $("#nw-err").textContent = m; };
+      if (!$("#ag-terms").checked || !$("#ag-priv").checked || !$("#ag-age").checked) return say("이용약관 · 개인정보 수집 · 이용에 동의하고 만 14세 이상임을 확인해 주세요.");
+      if (!st.ticket && $("#nw-mail") && $("#nw-mail").value.trim()) {   // 이메일을 넣었으면 코드를 먼저 확인한다
+        if (!$("#nw-code").value.trim()) return say("'코드 받기'를 누르고 메일로 온 6자리 코드를 넣어 주세요.");
+        const r = Net.authVerify($("#nw-mail").value.trim(), $("#nw-code").value.trim());
+        if (!r.ok) return say(r.msg || "이메일을 확인하지 못했습니다.");
+        if (r.token) { toast(`이미 모험가가 있는 이메일입니다. ${Store.user().id}(으)로 들어왔습니다.`); showLobby(); return; }
+        Object.assign(st, { ticket: r.ticket, mask: r.email, minutes: r.minutes });
+        const row = $("#f-new .gate-mail"); if (row) row.outerHTML = `<p class="gate-ok">✓ 이메일 확인됨 — ${esc(r.email || "")}</p>`;
+      }
+      more = { ticket: st.ticket || undefined, agree: { terms: true, privacy: true, age14: true } };
+    }
+    const err = Store.register($("#nw-id").value, $("#nw-pw").value, chosen, inv, more);
     if (err) { $("#nw-err").textContent = err; return; }
     toast(`${chosen.map(g => GROUPS[g].name).join(" · ")}의 깃발로 등록되었습니다.`);
     const ir = typeof Net !== "undefined" ? Net.lastInvite : null;   // v3.48 친구 초대 결과

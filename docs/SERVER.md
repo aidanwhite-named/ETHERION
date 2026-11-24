@@ -43,6 +43,10 @@
 | `adminHours` | 720 | 관리자 로그인이 유지되는 시간(안 쓴 채로). 일반 모험가는 30일 |
 | `openBrowser` | true | 켤 때 브라우저를 연다 |
 | `backupKeep` | 14 | 남길 하루 백업 수 |
+| `secret` · `emailEncKey` | (처음 켤 때 무작위) | v3.27 계정 열쇠 — 이메일 찾기 · 암호화, 코드 해시. **잃으면 이메일 로그인을 못 한다.** db 백업과 다른 곳에 따로 보관 |
+| `mail` | 없음 | `{ "provider": "resend" 또는 "brevo", "apiKey": "…", "from": "no-reply@도메인", "fromName": "ETHERION" }`. 없으면 코드를 서버 창에 찍는다 |
+| `requireEmail` | (mail이 있으면 true) | 가입에 이메일 확인을 꼭 받을지 |
+| `billing` | `{ "enabled": false }` | 결제 대비 틀. 켜지 않는다(`ACCOUNT_PRIVACY.md` 7.2) |
 
 명령으로 켤 때: `node server/server.js --port 9000 --no-open --data 다른곳/db.json` (시험용 따로 설정은 `--config 다른곳/config.json`).
 
@@ -68,7 +72,10 @@
 | 요청 | 하는 일 |
 |---|---|
 | `GET /api/hello` | 서버인지 확인(게임이 온라인 모드를 켤지 정함) |
-| `POST /api/register` · `login` · `guest` · `logout` | 계정. 응답에 토큰 + 스냅샷 |
+| `POST /api/register` · `login` · `guest` · `logout` | 계정. 응답에 토큰 + 스냅샷. v3.27: `register`에 `agree`(동의) · `ticket`(확인한 이메일), `login`의 id 자리에 이메일도 됨 |
+| `POST /api/auth/code` · `auth/verify` | v3.27 메일 인증 코드 — 가입한 주소면 로그인, 아니면 가입 표(`server/auth.js`) |
+| `GET /api/account` · `POST /api/account/code` · `email` · `password` · `logoutAll` · `delete` | v3.27 계정 관리 · 탈퇴 (화면 `js/account.js`) |
+| `GET /api/billing/catalog` · `POST /api/billing/order` | 결제 대비 틀 — 꺼져 있음(`server/billing.js`) |
 | `GET /api/me` | 스냅샷 다시 받기 |
 | `POST /api/ops` `{cid, ops:[{seq, fn, target, args}]}` | Store 작업을 차례로. `fn`은 `server.js`의 `OPS` + `soft` |
 | `POST /api/trade` `{fn, args}` | `TradeLocal`의 함수 이름 그대로(`TRADE_API.md` 4장의 표와 같은 일) |
@@ -97,5 +104,6 @@
 - **동기 요청**: 사고팔기 · 덱 저장은 서버의 답을 기다린다. 이 PC · 같은 와이파이는 몇 ms라 느껴지지 않지만, 인터넷 너머로는 누를 때 잠깐(0.1초쯤) 멈출 수 있다.
 - **PC 앱 · 안드로이드 앱은 아직 서버에 붙지 않는다**(파일로 열린 게임). 붙일 자리는 있다: 그 앱의 저장소에 `localStorage["etherion.server"] = "http://주소:8787"`을 넣으면 그 서버로 붙는다(설정 화면은 아직 없음).
 - **손님**은 브라우저마다 서버에 손님 계정(`손님·AB12`)이 하나씩 생긴다. 나가기를 누르면 그 손님은 다시 쓸 수 없다(관리자 보관소에 남음).
-- 암호 찾기는 없다. 채팅은 아직 서버를 거치지 않는다(`ChatNet`의 자리만 있음).
+- v3.27: 계정은 **메일 코드 · 비밀번호 두 가지로 로그인**한다(`docs/ACCOUNT_PRIVACY.md` 7장). 메일 업체를 `config.json`의 `mail`에 적기 전에는 **코드가 서버 창에 찍힌다**(집 안 시험용). 암호를 잊으면 메일 코드로 들어와 설정 → 계정 관리에서 다시 정한다(이메일을 연결하지 않은 계정은 암호 찾기가 없다). 시험 `node tools/auth/test.js`.
+- 채팅은 아직 서버를 거치지 않는다(`ChatNet`의 자리만 있음).
 - `http`라 주고받는 것이 암호화되지 않는다. 집 안 시험용이다. 바깥에 열 때는 Cloudflare 터널(https)을 쓴다.
