@@ -34,6 +34,13 @@
 - 시험 `node tools/auth/test.js` 70개 · 헤드리스 화면 확인(입장 화면 1366×768 · 1920×1080 한 화면, 등록 → 계정 관리 → 이메일 + 암호 로그인 흐름).
 - `server/auth.js` · `mailer.js` · `billing.js`(새로) · `server/server.js` · `js/account.js`(새로) · `js/net.js` · `js/screens.js` · `css/account.css`(새로) · `index.html` · `privacy.html` · `terms.html`(새로) · `tools/auth/test.js`(새로) · `docs/ACCOUNT_PRIVACY.md` · `SERVER.md` · `AGENTS.md`.
 
+## 마법 장면 효과음 21개 — sc_* (2026-11-24, 사용자, 버전 미정)
+- **요청**: 마법 장면 연출(0eb487e, `js/spellscene.js`) 세션이 넘김 — 사용자 "네, 넘겨줘". 호출부 `hook("sc_…")`는 이미 있었고 파일이 없어 조용했다.
+- **소리**(`tools/sfx/synth2/common.py` "마법 장면의 결", 맞는 순간은 sp_land · sp_area 가 맡으니 예고 · 이동 · 꽂힘만): 포 쏘아 올림 sc_cannon · 포탄 휘익 sc_whistle(낮고 옅게 — 대상마다 여러 번) · 불길 훑기 sc_fire · 해일 물마루 sc_wave · 화살 쏘아 올림 sc_arrows · 화살 꽂힘 sc_thunk(0.07초) · 돌풍 sc_gale · 먹구름 우르릉 sc_thunder · 땅 갈라짐 sc_crack · 함성 sc_roar · 덩굴 sc_vine · 망치 휘두름 sc_swing · 망치 찍힘 sc_anvil · 리벳 sc_rivets · 쇠판 철컥 sc_clamp · 피의 창 sc_lance · 낫 sc_reap · 혼 빨기 sc_drain · 해 뜸 합창 sc_choir · 날개 sc_wings · 물 차오름 sc_wash. 길이 0.07~1.0초, 피크 −4 dB(꽂힘 · 휘익 · 철컥은 −6~−8).
+- **잰 값(듣지 않고)**: 쇠 울림(3 kHz 위)이 0.1초 뒤 모루 −20 dB · 쇠판 −42 dB · 대포 −13 dB로 잦아듦. 처음 렌더에서 고음에 몰렸던 낫 · 피의 창 · 혼 빨기 · 날개는 낮은 바람 · 몸통을 더해 중심 3.1 → 1.8 kHz · 2.5 → 1.3 kHz · 1.9 → 0.5 kHz · 2.3 → 1.3 kHz.
+- 검사 `tools/sfx/test/spell_sfx.js`가 spellscene.js 가 부르는 sc_* 21개 파일도 본다. `js/spellscene.js`는 건드리지 않았다(때 그대로).
+- `audio/sfx/sc_*` 21 · `index.json` · `index.js` · `tools/sfx/synth2/common.py` · `tools/sfx/test/spell_sfx.js` · `AGENTS.md` · `index.html` `?v`
+
 ## 인어 마법 두 장의 효과음 — 밀려드는 너울 · 물때의 노래 (2026-11-24, 사용자, 버전 미정)
 - **사용자**: "밀려드는 너울과 물때의 노래의 효과음을 생성하는 프롬프트를 작성해놓고, 효과음을 만들어봐"
 - **소리 지시(프롬프트)**: `tools/sfx/notes/G3.json`에 두 장의 en · ko · cast — 너울 = 먼바다에서 낮게 구르며 모인 너울이 크고 어두운 물덩이로 솟아 앞줄을 무겁게 덮치고 되밀리는 물살이 조약돌을 끌며 뒤로 밀어냄, 물때의 노래 = 무녀들의 낮고 고요한 노래 위로 밀물은 따뜻하게 오르는 화음과 함께 차오르고 썰물은 깊은 한숨으로 빠짐. `node tools/sfx/build_sfx_prompts.js`로 `tools/sfx/prompts/`를 다시 뽑았다(다른 카드의 바뀐 자료도 함께 반영되어 배치 차례가 밀림).

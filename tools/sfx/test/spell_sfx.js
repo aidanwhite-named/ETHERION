@@ -34,6 +34,10 @@ for (const c of spells) {
   if (!has("sp_land_" + el)) fail(`맞는 소리 없음: sp_land_${el} (${c.id})`);
 }
 for (const k of ["sp_chain", "sp_area", "sp_finale", "sp_reveal"]) if (!has(k)) fail("공용 소리 없음: " + k);
+// 마법 장면 연출(js/spellscene.js)의 장면 소리 hook("sc_…") — 부르는 열쇠마다 파일이 있는가
+const scKeys = [...new Set([...fs.readFileSync(path.join(ROOT, "js/spellscene.js"), "utf8").matchAll(/hook\("(sc_[a-z]+)"/g)].map(m => m[1]))];
+for (const k of scKeys) if (!has(k)) fail("장면 소리 없음: " + k);
+console.log(`장면 소리 ${scKeys.length}개`);
 // 레거시 목록에 남아 있지만 다시 살릴 마법(tools/sfx/synth2/dump_cards.js MAKE_RETIRED)도 소리를 미리 갖춘다
 for (const id of ["SG3-07", "SG3-08"]) if (!has(id + ".cast")) fail(`다시 살릴 마법의 발동 소리 없음: ${id}`);
 const code = f => fs.readFileSync(path.join(ROOT, "js", f), "utf8");

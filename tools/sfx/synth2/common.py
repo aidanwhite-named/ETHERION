@@ -1018,3 +1018,199 @@ def _():
     m.add(horn(f * 2, 1.3, 0.02) * env_ad(1.3, 0.02, 0.45), at=t0, gain=-1, width=1)            # 낮은 금관 5도
     m.add(horn(f * 3, 1.3, 0.03) * env_ad(1.3, 0.03, 0.4), at=t0 + 0.01, gain=-4, width=1)
     return room(m, 1.5, 0.22, damp=4500)
+
+
+# ══ 마법 장면의 결 (2026-11-24, js/spellscene.js hook("sc_…")) ══════════════
+# 맞는 순간은 sp_land_<원소> · sp_area 가 맡는다. 여기는 그 앞뒤의 예고 · 이동 · 꽂힘만 — 짧게, 몸통 150~500 Hz,
+# 쇠 울림은 0.1초 안에 잦아들게. 키 하나가 장면 하나.
+SC = dict(peak_db=-4, crest=13.0, hpf=60, air_db=0, tail_db=-48)
+
+
+def _sc(key, max_len, **kw):
+    return recipe(key, **dict(SC, max_len=max_len, **kw))
+
+
+@_sc("sc_cannon", 0.6)
+def _():
+    m = M(0.8)   # 포를 쏘아 올림: 둔탁한 '퉁' + 하늘로 솟는 바람
+    m.add(punch(120, 50, 0.1, 2.4), gain=0)
+    m.add(lp(cannon(0.45), 1800), gain=-5)
+    m.add(norm(sweep(noise(0.4, "pink"), (500, 2200), 2)) * swell(0.4, 0.3, 1, 1.6), at=0.04, gain=-10, width=1)
+    return room(m, 0.5, 0.12, damp=5000)
+
+
+@_sc("sc_whistle", 0.32, peak_db=-8)
+def _():
+    m = M(0.4)   # 포탄이 떨어지며 내는 짧은 휘익(높이가 내려간다) — 여러 번 불려도 거슬리지 않게 낮고 옅게
+    t = tone((1300, 520), 0.3, harm=(1.0, 0.25)) * swell(0.3, 0.6, 1.4, 1.2)
+    m.add(t, gain=-4)
+    m.add(norm(sweep(noise(0.3), (1600, 700), 3)) * swell(0.3, 0.6, 1.4, 1.2), gain=-9)
+    return room(m, 0.2, 0.06)
+
+
+@_sc("sc_fire", 0.9)
+def _():
+    m = M(1.0)   # 불길이 훑고 지나감: 낮게 으르렁대는 화염 + 타닥임
+    m.add(fire_whoosh(0.8, 0.6, 0.35), gain=-2, width=1)
+    m.add(W.rumble(0.8, 0.6, 70, 380, 6, a=0.08), gain=-5, width=1)
+    m.add(sizzle(0.7, 50), at=0.1, gain=-14, width=1)
+    return room(m, 0.5, 0.12, damp=5000)
+
+
+@_sc("sc_wave", 1.0)
+def _():
+    m = M(1.1)   # 해일의 물마루가 밀려옴: 깊은 물덩이 + 부서지는 물보라는 옅게
+    m.add(W.deep_surge(0.95, 0.6, 58), gain=0, width=1)
+    m.add(wave(0.9, 0.5, 0.55), gain=-8, width=1)
+    m.add(bubbles(0.5, 10, 400, 1800), at=0.4, gain=-14, width=1)
+    return room(m, 0.6, 0.14, damp=5000)
+
+
+@_sc("sc_arrows", 0.5)
+def _():
+    m = M(0.6)   # 화살 쏘아 올림: 활시위 여럿이 잇달아 + 하늘로 솟는 깃 바람
+    for i in range(4):
+        m.add(lp(twang(0.35), 2500), at=0.02 * i + U(0, 0.01), gain=-4 - i, pan=-0.45 + 0.3 * i)
+    m.add(norm(sweep(noise(0.35), (900, 3200), 2.2)) * swell(0.35, 0.4, 1, 1.5), at=0.06, gain=-10, width=1)
+    return room(m, 0.3, 0.1)
+
+
+@_sc("sc_thunk", 0.09, peak_db=-7)
+def _():
+    m = M(0.12)   # 화살 한 발 꽂힘: 아주 짧은 나무 '툭'
+    m.add(knock(U(300, 360), 0.014, 0.4), gain=0)
+    m.add(punch(170, 90, 0.02, 1.6), gain=-6)
+    return m
+
+
+@_sc("sc_gale", 0.65)
+def _():
+    m = M(0.8)   # 돌풍: 낮게 휘몰아치는 기류
+    m.add(gust(0.6, 0.6, 0.45), gain=-4, width=1)
+    m.add(W.rumble(0.6, 0.6, 70, 420, 3, a=0.1), gain=-3, width=1)
+    return room(m, 0.4, 0.1)
+
+
+@_sc("sc_thunder", 0.7)
+def _():
+    m = M(0.9)   # 먹구름이 낌: 멀리서 낮게 구르는 우르릉(균열은 벼락이 맡음)
+    m.add(W.rumble(0.7, 0.7, 60, 360, 4, a=0.18), gain=0, width=1)
+    m.add(lp(thunder(0.7, 0.5), 900) * swell(0.7, 0.5, 1.4, 1.5), gain=-6, width=1)
+    return room(m, 0.6, 0.14, damp=4500)
+
+
+@_sc("sc_crack", 0.65)
+def _():
+    m = M(0.8)   # 땅에 금이 달림: 돌이 쩍쩍 갈라지는 낱알 + 낮은 땅울림
+    for i in range(6):
+        m.add(mixa(knock(U(220, 420), 0.02, 0.7), (snap(0.012, 900, 5000, 0.003), -8)), at=0.08 * i + U(0, 0.02), gain=-3 - 0.5 * i, pan=-0.5 + 0.2 * i)
+    m.add(rubble(0.5, 16, 500, 2500), at=0.05, gain=-12, width=1)
+    m.add(W.rumble(0.6, 0.6, 50, 260, 9, a=0.05), gain=-5, width=1)
+    return room(m, 0.4, 0.1)
+
+
+@_sc("sc_roar", 0.4)
+def _():
+    m = M(0.6)   # 함성 충격파 출발: 목 깊은 포효 + 낮은 금관 + 앞으로 밀리는 바람
+    m.add(growl(0.35, 90, 0.7), gain=-1)
+    m.add(horn(hz(40) * 2, 0.35, 0.02) * env_ad(0.35, 0.02, 0.15), gain=-6, width=1)
+    m.add(whoosh(0.3, 400, 1600, 600, 1.3, 0.6, 0.2), at=0.08, gain=-8)
+    return room(m, 0.3, 0.1)
+
+
+@_sc("sc_vine", 0.4)
+def _():
+    m = M(0.5)   # 덩굴이 자람: 줄기가 삐걱이며 뻗고 잎이 스침
+    m.add(creak(0.3, 170), gain=-2)
+    m.add(creak(0.22, 240), at=0.08, gain=-6, pan=0.3)
+    m.add(rustle(0.3, 30, 1500, 5000), at=0.03, gain=-11, width=1)
+    return room(m, 0.25, 0.08)
+
+
+@_sc("sc_swing", 0.3)
+def _():
+    m = M(0.4)   # 큰 망치를 휘두름: 무겁고 낮은 바람 가름
+    m.add(whoosh(0.26, 250, 1100, 400, 1.2, 0.75, 0.15), gain=0)
+    m.add(W.low_swell(0.24, 70, 200) * 0.8, gain=-4)
+    return m
+
+
+@_sc("sc_anvil", 0.35)
+def _():
+    m = M(0.5)   # 망치가 찍힌 순간: 짧은 쇠 '쾅'(울림은 0.1초 안에) + 몸통
+    m.add(clang(420, 0.07, 0.55, 6, 0.3, 0.06), gain=-3)
+    m.add(punch(140, 55, 0.08, 2.4), gain=0)
+    m.add(slap(0.1, 300, 2500, 0.03), gain=-6)
+    return room(m, 0.3, 0.1)
+
+
+@_sc("sc_rivets", 0.45)
+def _():
+    m = M(0.6)   # 리벳 일제 사격 시작: 쇠 장치가 다다닥 물려 돌아감
+    m.add(ratchet(9, 0.38, 900, accel=0.3), gain=-3)
+    m.add(seq(*[(0.042 * i, knock(U(260, 340), 0.012, 0.5), -2) for i in range(9)]), gain=-3)
+    return room(m, 0.25, 0.08)
+
+
+@_sc("sc_clamp", 0.22, peak_db=-6)
+def _():
+    m = M(0.3)   # 쇠판이 맞물린 순간: 짧은 '철컥'
+    m.add(knock(280, 0.025, 0.7), gain=0)
+    m.add(clink(1500, 0.03), at=0.012, gain=-9)
+    m.add(punch(160, 80, 0.03, 1.8), gain=-5)
+    return m
+
+
+@_sc("sc_lance", 0.32)
+def _():
+    m = M(0.4)   # 피의 창이 날아옴: 젖은 바람 가름 + 낮은 어둠
+    m.add(lp(whoosh(0.28, 500, 2200, 800, 1.6, 0.8, 0.2), 2500), gain=-5)
+    m.add(whoosh(0.28, 200, 800, 300, 1.2, 0.8, 0.05), gain=-1)
+    m.add(W.curse_drone(62, 0.3, 0.5) * swell(0.3, 0.8, 1.6, 1), gain=-3)
+    m.add(whisper(0.25, 1800) * swell(0.25, 0.7, 1.4, 1), gain=-13)
+    return m
+
+
+@_sc("sc_reap", 0.38)
+def _():
+    m = M(0.5)   # 낫이 지나감: 넓게 휘는 칼바람 + 서늘한 속삭임(쇠 울림은 아주 짧게)
+    m.add(lp(whoosh(0.3, 600, 2600, 900, 1.5, 0.55, 0.25), 2800), gain=-6, pan=-0.3)
+    m.add(whoosh(0.32, 220, 900, 320, 1.2, 0.55, 0.05), gain=0, pan=-0.2)   # 넓은 날이 무겁게 지나가는 몸통
+    m.add(lp(shing(0.12, 2200, 3, 0.03), 4000), at=0.13, gain=-10)
+    m.add(whisper(0.3, 2000) * env_ad(0.3, 0.03, 0.1), at=0.05, gain=-12)
+    return room(m, 0.3, 0.1)
+
+
+@_sc("sc_drain", 0.55)
+def _():
+    m = M(0.7)   # 혼이 빨려 나감: 거꾸로 빨아들이는 바람 + 낮게 조여드는 드론
+    m.add(lp(suck(0.5, 300, 1800), 2200), gain=-6, width=1)
+    m.add(W.curse_drone(58, 0.5, 0.5) * swell(0.5, 0.85, 1.6, 1), gain=0, width=1)
+    m.add(whisper(0.45, 2200) * swell(0.45, 0.6, 1.5, 1.2), gain=-13, width=1)
+    return room(m, 0.4, 0.1)
+
+
+@_sc("sc_choir", 0.7)
+def _():
+    m = M(0.9)   # 해가 뜸: 낮은 합창이 부풀며 따뜻한 화음으로 열림
+    m.add(lp(choir(hz(48), 0.65, 0.3), 1600) * swell(0.65, 0.7, 1.4, 1.4), gain=-2, width=1)
+    m.add(W.warm_chord("light", 0.65, True, 0.3), gain=-4, width=1)
+    m.add(air(0.5, 5000) * swell(0.5, 0.7, 1.5, 1.4), at=0.1, gain=-18, width=1)
+    return room(m, 0.6, 0.14, damp=6000)
+
+
+@_sc("sc_wings", 0.32)
+def _():
+    m = M(0.4)   # 날개가 펼쳐짐: 큰 깃이 퍼덕 + 퍼지는 바람
+    m.add(lp(flutter(2, 0.09, 300, 2500), 2200), gain=-4, width=1)
+    m.add(seq((0, punch(150, 70, 0.05, 1.8), 0), (0.09, punch(140, 65, 0.05, 1.8), -2)), gain=-2)   # 큰 깃이 공기를 치는 '퍽 퍽'
+    m.add(whoosh(0.25, 300, 1400, 500, 1.2, 0.4, 0.2), gain=-6, width=1)
+    return room(m, 0.3, 0.1)
+
+
+@_sc("sc_wash", 0.38)
+def _():
+    m = M(0.5)   # 물이 차오름: 아래에서 차오르는 물 + 작은 거품
+    m.add(W.deep_surge(0.35, 0.4, 60) * swell(0.35, 0.8, 1.6, 1), gain=0, width=1)
+    m.add(bubbles(0.3, 8, 400, 1600), at=0.05, gain=-10, width=1)
+    return room(m, 0.3, 0.1)
