@@ -74,8 +74,8 @@ T('뒤집힌 물거울', `const a = setT(mk("G3-19"), 4, 0, 30), e1 = setT(mk("B
   const X = fight([side(0, ["MG-11", a]), side(1, [e1, e2, e3])], 0);
   ok(e2.t.d === 3 && e2.t.a === 0 && e3.t.a === 2, "앞 2기 공방 교환 (" + [e1.t.a, e1.t.d, e2.t.a, e2.t.d] + ")");
   ok(/\\[방어 이용 \\+1\\]/.test(logs(X)), "바뀐 방어 5에도 마력 공격은 N(1)까지");`);
-// 2026-11-24 [매혹]: 맞붙은 상대 카드의 코인 개수만큼 공격 +(최대 3), 공격 · 반격 모두
-T('매혹', `const cc = u => Math.min(3, (C(u).co || []).reduce((s, x) => s + x[1], 0));
+// 2026-11-24 [매혹]: 맞붙은 상대 카드의 코인 개수만큼 추가 피해(상한 없음), 공격 · 반격 모두
+T('매혹', `const cc = u => (C(u).co || []).reduce((s, x) => s + x[1], 0);
   const id = Object.keys(CARDS).find(k => CARDS[k].type === "unit" && !CARDS[k].gift && (CARDS[k].co || []).reduce((s, x) => s + x[1], 0) === 2);
   const a = setT(mk("G3-01"), 3, 0, 30); a.item = { id: "PI-G3" }; a.t.gx = null; a.t.noCoin = true;
   const d = setT(mk(id), 0, 1, 30); d.t.noCoin = true;
@@ -86,7 +86,7 @@ T('매혹', `const cc = u => Math.min(3, (C(u).co || []).reduce((s, x) => s + x[
   const X2 = fight([side(0, [b]), side(1, [e])], 0);
   ok(b.t.dmg === 1 + 2, "반격도: 공 1 + 추가 피해 2 → 3 (" + b.t.dmg + ")");
   const big = Object.keys(CARDS).find(k => CARDS[k].type === "unit" && (CARDS[k].co || []).reduce((s, x) => s + x[1], 0) >= 5);
-  ok(mrMesmerN(mk(big)) === 3, "코인 5개 상대도 +3까지");
+  ok(mrMesmerN(mk(big)) >= 5, "코인 5개 상대면 +5(상한 없음)");
   ok(/코인 개수만큼 추가 데미지/.test(ITEM_KW["매혹"]) && !/홀림/.test(ITEM_KW["매혹"]), "매혹 글");`);
 // 2026-11-24 말풍선 시점 라벨: 공격 · 방어 · 공방 (js/cards.js ABIL_WHEN)
 ok(ctx.ev('abilWhen("[방어 이용 2]") === "atk" && abilWhen("매혹") === "both" && abilWhen("가시 1 +1C") === "both" && abilWhen("방패 반격") === "def" && abilWhen("영혼 강탈") === "both" && abilWhen("강탈") === "both" && abilWhen("가호 2") === "" && abilWhen("수호") === ""'), '능력 시점 분류');

@@ -50,6 +50,22 @@ const WORDING = (() => {
       .replace(/(^|[^리] ?)피해 ?(\d+)/g, (m, p, n) => `${p}♥−${n}`)
       .replace(/피해 = /g, "♥− ");
   }
+  /* ③ 2026-11-24 맺음말 (사용자 — "마법 설명을 전부 서술이 아니라 맺음말로. 깎음, 데미지, 공격, 감소, 줄임 이런 식으로"):
+     문장 끝 "~다"를 명사형으로 — 깎는다 → 깎음 · 준다 → 줌 · 줄어든다 → 줄어듦 · 있다 → 있음 · 된다 → 됨.
+     문장 끝 = 뒤에 "." · ")" · ":" · 글 끝, 또는 끝 괄호 "(…)." 앞. "바다" · "~마다"는 낱말이라 그대로. 분위기 글(desc)은 건드리지 않는다 */
+  const hj = ch => { const c = ch.charCodeAt(0) - 0xAC00; return c >= 0 && c < 11172 ? c % 28 : -1; };
+  const sj = (ch, j) => { const c = ch.charCodeAt(0) - 0xAC00; return String.fromCharCode(0xAC00 + c - (c % 28) + j); };
+  function nounWord(w) {
+    if (/(바|마)다$/.test(w)) return w;
+    const s = w.slice(0, -1), L = s.slice(-1);
+    if (s.length >= 2 && L === "는" && hj(s.slice(-2, -1)) > 0) return s.slice(0, -1) + "음";   // 깎는다 → 깎음
+    if (L === "든") return s.slice(0, -1) + "듦";   // 줄어든다 → 줄어듦
+    const j = hj(L); if (j < 0) return w;
+    if (j === 4 || j === 0) return s.slice(0, -1) + sj(L, 16);   // 준다 → 줌 · 이다 → 임
+    if (j === 8) return s.slice(0, -1) + sj(L, 10);   // ㄹ 받침 → ㄻ
+    return s + "음";   // 있다 → 있음
+  }
+  const nounEnd = t => typeof t === "string" ? t.replace(/([가-힣]+다)(?=[.):]|$|\([^()]*\)\s*(?:[.:]|$))/g, (m, w) => nounWord(w)) : t;   // "깎는다(최대 N)." 처럼 끝 괄호 앞도
   function apply() {
     const changed = [];
     for (const c of typeof CARD_LIST !== "undefined" ? CARD_LIST : []) {
@@ -68,8 +84,18 @@ const WORDING = (() => {
     const fix = o => { if (!o) return; for (const k in o) { const v = o[k]; if (typeof v === "string") o[k] = v.replace(/피해 (\d+)\(방어 무시\)를 준다/g, "체력 −$1").replace(/피해 (\d+)\(방어 무시\)/g, "체력 −$1"); else if (v && typeof v.text === "string") v.text = v.text.replace(/피해 (\d+)\(방어 무시\)를 준다/g, "체력 −$1").replace(/피해 (\d+)\(방어 무시\)/g, "체력 −$1"); } };
     if (typeof ITEM_KW !== "undefined") fix(ITEM_KW);
     if (typeof UNIQUE_ABIL !== "undefined") fix(UNIQUE_ABIL);
+    /* ③ 맺음말: 능력 뜻(말풍선 · 카드 면 · 매뉴얼) · 마법 글 · 아이템/타고난 능력 글 */
+    const ne = o => { if (o) for (const k in o) if (typeof o[k] === "string") o[k] = nounEnd(o[k]); };
+    for (const n of ["ITEM_KW", "ITEM_KW_SHORT", "ITEM_KW_GEN", "SPELL_KW", "UNIQUE_ABIL_SHORT"]) { try { ne(eval(n)); } catch (e) {} }
+    if (typeof UNIQUE_ABIL !== "undefined") for (const k in UNIQUE_ABIL) UNIQUE_ABIL[k].text = nounEnd(UNIQUE_ABIL[k].text);
+    if (typeof RARE_AURA !== "undefined") for (const g in RARE_AURA) RARE_AURA[g].text = nounEnd(RARE_AURA[g].text);
+    for (const c of typeof CARDS !== "undefined" ? Object.values(CARDS) : []) {   // 덱에 못 넣는 카드(CARD_LIST 밖)도 화면에 보일 수 있어 CARDS 전부
+      if (c.text && c.type !== "unit" && c.type !== "item") c.text = nounEnd(c.text);
+      for (const o of [c.item, c.gift]) if (o && o.evText) o.evText = nounEnd(o.evText);
+    }
+    if (typeof COUNTER_SPELLS !== "undefined") for (const c of COUNTER_SPELLS) if (c.text) c.text = nounEnd(c.text);
     return changed;
   }
   const changed = apply();
-  return { changed, units, hp, brief, backN };
+  return { changed, units, hp, brief, backN, nounEnd };
 })();

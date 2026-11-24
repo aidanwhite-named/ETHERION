@@ -632,7 +632,7 @@ function attackOne(X, Au) {
     else if (td > 0) { hurt(X, thr, td, "투척"); if (!thr.t.alive) thr.t.killer = Au.uid; }
     else fl(X, thr.uid, "투척 막음", "miss");
   }
-  const mesA = ab.mesmer ? mrMesmer(X, Au, Du) : 0, aA = Au.t.a;   // 2026-11-24 [매혹]: 맞붙은 상대 카드의 코인 개수만큼 추가 피해(최대 3, 방어에 막히지 않음)
+  const mesA = ab.mesmer ? mrMesmer(X, Au, Du) : 0, aA = Au.t.a;   // 2026-11-24 [매혹]: 맞붙은 상대 카드의 코인 개수만큼 추가 피해(방어에 막히지 않음)
   let dd = Du.t.d;
   if (ab.magic) dd = 0;   // 2026-11-16 [방어무시]: 공격할 때 상대 방어를 전부 무시한다
   const arc = mrArc(aA, ab.arcane > 0 ? Du.t.d : dd, ab.arcane);   // v3.95 [마력 공격 N]: 공격 + 상대 방어(N까지)
@@ -1758,12 +1758,11 @@ function mrArc(a, d, n) {
   return { dmg: a + bonus, bonus };
 }
 /* 2026-11-24 [매혹](노래 에픽 마렌시아의 비늘, 사용자 결정 — 홀림 디버프를 없애고 그 자체로): 맞붙을 때(공격 · 반격)
-   맞붙은 상대 유닛 카드에 그려진 코인 개수(유닛 코인 + 장착 아이템 코인, 앞면 · 뒷면 상관없음)만큼 그 맞붙음의 공격 +, 최대 MR_MESMER_MAX.
-   유닛 카드 코인은 대부분 2~3개라 상한 3이면 거의 그대로 센다. 스탯을 바꾸지 않고 그 맞붙음 피해 계산에만 더한다 */
-const MR_MESMER_MAX = 3;
+   맞붙은 상대 유닛 카드에 그려진 코인 개수(유닛 코인 + 장착 아이템 코인, 앞면 · 뒷면 상관없음)만큼 추가 피해(방어에 막히지 않음, 스탯은 그대로).
+   상한 없음(사용자 — "최대를 둘 필요는 없어"). 유닛 카드 코인은 대부분 2~3개, 가장 많은 카드가 5개 */
 function mrMesmerN(u) {
   const n = k => (k || []).reduce((s, x) => s + x[1], 0);
-  return Math.min(MR_MESMER_MAX, n(C(u).co) + (u.item && CARDS[u.item.id] ? n(CARDS[u.item.id].co) : 0));
+  return n(C(u).co) + (u.item && CARDS[u.item.id] ? n(CARDS[u.item.id].co) : 0);
 }
 function mrMesmer(X, me, foe) {
   const n = mrMesmerN(foe);

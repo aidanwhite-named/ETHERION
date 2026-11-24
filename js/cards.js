@@ -373,7 +373,7 @@ const ITEM_KW = {
   "굳건": "상대가 이 유닛의 자리를 바꾸거나(자리 바꾸기 · 다시 세우기) 빼앗거나(빼앗기 · 정신 지배 · 환각의 통제 · 세이렌의 노래) 행동 불가로 묶지 못한다.",
   "전도": "이번 턴 내 마법에 맞은 상대 유닛과 맞붙으면(공격 · 반격) 피해가 2 늘어난다. 마법이 피해를 겨눈 유닛이면 보호막 · 가호에 막혔어도 맞은 것으로 친다.",   // 2026-11-22 케라운, 옛 [요격]
   "감전": "이 유닛을 맞붙어 공격한 상대 유닛은 다음 턴 공격이 {n} 줄어든다(이 유닛이 쓰러져도). 여러 번 걸려도 더해지지 않는다.",
-  "매혹": "전투 시 상대 코인 개수만큼 추가 데미지(최대 3).",   // 2026-11-24 사용자 문구 — 맞붙음(공격 · 반격)마다, 상대 카드 코인 수(장착 아이템 포함 · 앞뒷면 상관없이), 방어에 막히지 않음(engine mrMesmer)
+  "매혹": "전투 시 상대 코인 개수만큼 추가 데미지.",   // 2026-11-24 사용자 문구 — 맞붙음(공격 · 반격)마다, 상대 카드 코인 수(장착 아이템 포함 · 앞뒷면 상관없이), 방어에 막히지 않음(engine mrMesmer)
   /* v3.81 스페셜 아이템 능력 — 규칙은 engine.js 끝 "v3.81 스페셜 아이템 능력" 절 */
   "불꽃 사냥": "화상이 붙은 상대 유닛과 맞붙으면(공격 · 반격) 피해가 그 화상 수치만큼 늘어난다.",
   "되받기": "맞붙어 공격받을 때, 이 유닛의 방어가 막아 낸 피해만큼 공격한 유닛의 체력이 깎인다(방어 무시). 이 유닛이 쓰러져도 되돌린다.",
@@ -394,10 +394,10 @@ if (typeof UNIQUE_ABIL !== "undefined") for (const k in UNIQUE_ABIL) ITEM_KW[UNI
 /* [점화] · [화염 갑주]의 번짐 글 {spread} — 계산식(N−1)을 보이지 않고 그 카드의 숫자로. 화상 1은 번지지 않으니 글을 뺀다.
    long: 긴 뜻(말풍선) · 짧은 뜻(카드 면). n이 없으면(일반 뜻 N) 말로 */
 function burnSpreadText(n, long) {
-  if (n == null || n === "" || isNaN(n)) return long ? " 수치가 2 이상이면 꺼질 때 양옆 유닛에게 1 적은 화상으로 번진다." : ", 양옆에 1 적은 화상으로 번짐(화상 1은 안 번짐)";
+  if (n == null || n === "" || isNaN(n)) return long ? " 수치가 2 이상이면 꺼질 때 양옆 유닛에게 1 적은 화상으로 번짐." : ", 양옆에 1 적은 화상으로 번짐(화상 1은 안 번짐)";
   n = +n; if (n < 2) return "";
   const m = n - 1, ro = /[036]$/.test(String(m)) ? "으로" : "로";   // 3으로 · 1로 · 2로
-  return long ? ` 꺼질 때 양옆 유닛에게 [화상 ${m}]${ro} 번진다.` : `, 양옆에 화상 ${m}${ro} 번진다`;
+  return long ? ` 꺼질 때 양옆 유닛에게 [화상 ${m}]${ro} 번짐.` : `, 양옆에 화상 ${m}${ro} 번짐`;
 }
 /* 카드에 적는 일반 뜻이 말풍선 문장과 달라야 하는 것만 (나머지는 ITEM_KW의 {n}을 N으로 바꿔 쓴다) */
 const ITEM_KW_GEN = {
@@ -417,7 +417,7 @@ function itemKwDesc(raw) {
     const parts = st.split("·").map(x => x.trim()), sts = parts.map(x => x.replace(/\s*\d+$/, "")), vs = parts.map(x => (x.match(/\d+$/) || [""])[0]);
     const set = parts.filter((x, i) => vs[i]).map((x, i) => `${sts[parts.indexOf(x)]}이(가) ${vs[parts.indexOf(x)]}`).join(", ");
     const w = sts.join("·");
-    return `장착하면 ${set}이 된다(유닛 카드의 값 · 코인과 상관없이). ` + ITEM_KW[key].replace(/\{S\}/g, w + josaEunNeun(w));
+    return `장착하면 ${set}이 됨(유닛 카드의 값 · 코인과 상관없이). ` + ITEM_KW[key].replace(/\{S\}/g, w + josaEunNeun(w));
   }
   return ITEM_KW[key].replace(/\{spread\}/g, burnSpreadText(isNaN(n) ? null : n, true)).replace(/\{S\}/g, st + josaEunNeun(st)).replace(/\{n\}/g, isNaN(n) ? "" : n).replace(/\{m\}/g, isNaN(n) ? "" : Math.max(0, 4 - n));
 }
@@ -432,7 +432,7 @@ function itemKwGeneric(raw) {
   if (!key) return null;
   const rest = name.slice(key.length), num = /\d/.test(rest), colon = rest.trim().startsWith(":");
   // v3.20 아이템 절대값 표시 "[고정: 공격 8]" → "[고정: 스탯 N]" = 장착하면 그 스탯이 N이 된 뒤 표시 규칙
-  if (PIN_KO_KEYS.includes(key) && num) return [`[${key}: 스탯 N]`, "장착하면 그 스탯이 N이 된다(유닛 카드의 값 · 코인과 상관없이). " + ITEM_KW[key].replace(/\{S\}/g, "그 스탯은")];
+  if (PIN_KO_KEYS.includes(key) && num) return [`[${key}: 스탯 N]`, "장착하면 그 스탯이 N이 됨(유닛 카드의 값 · 코인과 상관없이). " + ITEM_KW[key].replace(/\{S\}/g, "그 스탯은")];
   const label = key === "생명" ? "[생명 +N]" : `[${key}${num ? " N" : ""}${colon ? ": 스탯" : ""}]`;
   const text = (ITEM_KW_GEN[key] || ITEM_KW[key]).replace(/\{spread\}/g, burnSpreadText(null, true)).replace(/\{S\}/g, "그 스탯은").replace(/\{n\}/g, "N").replace(/\{m\}/g, "4 − N");
   return [label, text];
@@ -482,7 +482,7 @@ const ITEM_KW_SHORT = {   // v3.60 한 줄에 들도록 더 짧게 (크게 보�
   "굳건": "상대가 자리를 바꾸거나 빼앗거나 묶지 못함.",
   "전도": "내 마법에 맞은 상대와 맞붙으면 피해 +2(이번 턴).",
   "감전": "맞붙어 공격한 상대는 다음 턴 공격 −{n}.",
-  "매혹": "전투 시 상대 코인 개수만큼 추가 데미지(최대 3).",
+  "매혹": "전투 시 상대 코인 개수만큼 추가 데미지.",
   "불꽃 사냥": "화상 붙은 상대와 맞붙으면 피해 + 화상.",
   "되받기": "공격받을 때 방어가 막은 만큼 공격자 체력 −.",
   "과부하": "내 마법 발동마다 공격 +1(이번 턴, +3까지).",
@@ -517,7 +517,7 @@ const josaIGa = w => { const ch = w.charCodeAt(w.length - 1); return ch >= 0xAC0
 /* "[사격 2]" → ["[사격 2]", "공격 차례에 … 체력을 2 깎는다…"] (카드 면에 적는 숫자 넣은 짧은 뜻) */
 function itemKwCard(raw) {
   const name = raw.replace(/[\[\]]/g, "").trim();
-  if (/^고정 \d/.test(name)) { const v = name.slice(3); return [raw, `장착한 유닛의 공·방·체가 ${v}${numJosa(v)} 된다(코인 없음).`]; }
+  if (/^고정 \d/.test(name)) { const v = name.slice(3); return [raw, `장착한 유닛의 공·방·체가 ${v}${numJosa(v)} 됨(코인 없음).`]; }
   if (typeof UNIQUE_ABIL !== "undefined") for (const k in UNIQUE_ABIL) if (UNIQUE_ABIL[k].n === name)
     return [raw, (typeof UNIQUE_ABIL_SHORT !== "undefined" && UNIQUE_ABIL_SHORT[k]) || UNIQUE_ABIL[k].text];
   const key = Object.keys(ITEM_KW_SHORT).find(x => name === x || name.startsWith(x + " ") || name.startsWith(x + ":"));
