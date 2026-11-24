@@ -8,9 +8,9 @@
 
 **그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(같은 개체 · 장소 · 배색, 다른 시점 · 새 구도 — 섬네일로 나란히 놓아 같은 개체이면서 한눈에 더 강한 다른 그림으로 읽히는지 본다).
 
-## 1. 그림 없는 카드 — 먼저 그린다 · 17장
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 17장
 
-### TK-A1-1 · 봉랍 사역마
+### TK-A1-1 · 봉랍 사역마 — 그림 있음
 모르카스의 그믐 · 유닛 · 레벨 4 · 소환물 · 틀 `front` F C `bloodink` · 프롬프트 n2 → `tools/art/inbox/TK-A1-1 봉랍 사역마.png`
 
 ```
@@ -22,7 +22,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: TK-A1-1 봉랍 사역마.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### TK-A2-1 · 빛의 기사
+### TK-A2-1 · 빛의 기사 — 그림 있음
 솔란테의 새벽 · 유닛 · 레벨 4 · 소환물 · 틀 `front` F C `whitegold` · 프롬프트 n2 → `tools/art/inbox/TK-A2-1 빛의 기사.png`
 
 ```
@@ -34,7 +34,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: TK-A2-1 빛의 기사.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### TS-A3-1 · 별똥별 조각
+### TS-A3-1 · 별똥별 조각 — 그림 있음
 벨루미르의 별 · 공격 마법 · 레벨 1 · 소환물 · 틀 `impact` D B `starindigo` · 프롬프트 n2 → `tools/art/inbox/TS-A3-1 별똥별 조각.png`
 
 ```
@@ -46,7 +46,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: TS-A3-1 별똥별 조각.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### TS-A3-2 · 돌개바람
+### TS-A3-2 · 돌개바람 — 그림 있음
 벨루미르의 별 · 공격 마법 · 레벨 1 · 소환물 · 틀 `column` U R `thinair` · 프롬프트 n2 → `tools/art/inbox/TS-A3-2 돌개바람.png`
 
 ```
@@ -58,7 +58,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: TS-A3-2 돌개바람.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### TS-A3-3 · 불씨
+### TS-A3-3 · 불씨 — 그림 있음
 벨루미르의 별 · 공격 마법 · 레벨 1 · 소환물 · 틀 `macro` L L `stormcloud` · 프롬프트 n2 → `tools/art/inbox/TS-A3-3 불씨.png`
 
 ```
@@ -70,7 +70,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: TS-A3-3 불씨.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### TS-A3-4 · 쌍둥이 메아리
+### TS-A3-4 · 쌍둥이 메아리 — 그림 있음
 벨루미르의 별 · 공용 마법 · 레벨 1 · 소환물 · 틀 `ring` N C `aurora` · 프롬프트 n2 → `tools/art/inbox/TS-A3-4 쌍둥이 메아리.png`
 
 ```
@@ -82,7 +82,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: TS-A3-4 쌍둥이 메아리.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### TK-U-BOMB · 불붙은 화약통
+### TK-U-BOMB · 불붙은 화약통 — 그림 있음
 도르마크의 심장불 · 유닛 · 레벨 1 · 소환물 · 틀 `silhouette` N R `coldnight` · 프롬프트 n2 → `tools/art/inbox/TK-U-BOMB 불붙은 화약통.png`
 
 ```
@@ -94,7 +94,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: TK-U-BOMB 불붙은 화약통.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### TK-B2-1 · 파수 골렘
+### TK-B2-1 · 파수 골렘 — 그림 있음
 소르그림의 방패 · 유닛 · 레벨 3 · 소환물 · 틀 `eye` F C `forgeheart` · 프롬프트 n2 → `tools/art/inbox/TK-B2-1 파수 골렘.png`
 
 ```
@@ -106,7 +106,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: TK-B2-1 파수 골렘.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### TK-U-SCRAP · 고철 골렘
+### TK-U-SCRAP · 고철 골렘 — 그림 있음
 소르그림의 방패 · 유닛 · 레벨 3 · 소환물 · 틀 `ground` L R `patina` · 프롬프트 n2 → `tools/art/inbox/TK-U-SCRAP 고철 골렘.png`
 
 ```
@@ -118,7 +118,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: TK-U-SCRAP 고철 골렘.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### TK-G1-1 · 그림자 하이에나
+### TK-G1-1 · 그림자 하이에나 — 그림 있음
 고르바스의 발톱 · 유닛 · 레벨 2 · 소환물 · 틀 `pov` F C `strawgold` · 프롬프트 n2 → `tools/art/inbox/TK-G1-1 그림자 하이에나.png`
 
 ```
@@ -130,7 +130,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: TK-G1-1 그림자 하이에나.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### TK-U-WOLF · 잿빛 먼지 짐승
+### TK-U-WOLF · 잿빛 먼지 짐승 — 그림 있음
 고르바스의 발톱 · 유닛 · 레벨 2 · 소환물 · 틀 `eye` R R `redearth` · 프롬프트 n2 → `tools/art/inbox/TK-U-WOLF 잿빛 먼지 짐승.png`
 
 ```
@@ -142,7 +142,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: TK-U-WOLF 잿빛 먼지 짐승.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### TK-G1-2 · 우두머리 하이에나
+### TK-G1-2 · 우두머리 하이에나 — 그림 있음
 고르바스의 발톱 · 유닛 · 레벨 4 · 소환물 · 틀 `silhouette` L T `firelit` · 프롬프트 n2 → `tools/art/inbox/TK-G1-2 우두머리 하이에나.png`
 
 ```
@@ -154,7 +154,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: TK-G1-2 우두머리 하이에나.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### TK-G2-1 · 덩굴 방벽
+### TK-G2-1 · 덩굴 방벽 — 그림 있음
 베르단의 뿔 · 유닛 · 레벨 1 · 소환물 · 틀 `through` N R `rainmist` · 프롬프트 n2 → `tools/art/inbox/TK-G2-1 덩굴 방벽.png`
 
 ```
@@ -166,7 +166,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: TK-G2-1 덩굴 방벽.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### TK-U-ROOT · 뿌리
+### TK-U-ROOT · 뿌리 — 그림 있음
 베르단의 뿔 · 유닛 · 레벨 1 · 소환물 · 틀 `eye` F R `mossdeep` · 프롬프트 n2 → `tools/art/inbox/TK-U-ROOT 뿌리.png`
 
 ```
@@ -178,7 +178,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: TK-U-ROOT 뿌리.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### TK-U-SAPLING · 묘목
+### TK-U-SAPLING · 묘목 — 그림 있음
 베르단의 뿔 · 유닛 · 레벨 1 · 소환물 · 틀 `ground` L R `sunshaft` · 프롬프트 n2 → `tools/art/inbox/TK-U-SAPLING 묘목.png`
 
 ```
@@ -190,7 +190,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: TK-U-SAPLING 묘목.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### TK-U-TREE · 어린 고목
+### TK-U-TREE · 어린 고목 — 그림 있음
 베르단의 뿔 · 유닛 · 레벨 3 · 소환물 · 틀 `tilt` B C `autumnrot` · 프롬프트 n2 → `tools/art/inbox/TK-U-TREE 어린 고목.png`
 
 ```
@@ -202,7 +202,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: TK-U-TREE 어린 고목.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### TK-G3-1 · 물의 정령
+### TK-G3-1 · 물의 정령 — 그림 있음
 마렌시아의 노래 · 유닛 · 레벨 2 · 소환물 · 틀 `high` U C `glasscalm` · 프롬프트 n2 → `tools/art/inbox/TK-G3-1 물의 정령.png`
 
 ```

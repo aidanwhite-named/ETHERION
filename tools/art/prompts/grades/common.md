@@ -8,72 +8,7 @@
 
 **그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(같은 개체 · 장소 · 배색, 다른 시점 · 새 구도 — 섬네일로 나란히 놓아 같은 개체이면서 한눈에 더 강한 다른 그림으로 읽히는지 본다).
 
-## 1. 그림 없는 카드 — 먼저 그린다 · 320장
-
-### A1-04 · 피의 박쥐 떼
-모르카스의 그믐 · 유닛 · 레벨 1 · 일반 · 틀 `swarm` N X `violetshade` · 프롬프트 n2 → `tools/art/inbox/A1-04 피의 박쥐 떼.png`
-
-```
-Landscape 5:4 painting. The whole frame is a ceiling crowded with small black bats hanging upside down in overlapping rows among dusty rafters and cobwebs, wings folded like wet leather, red pin-prick eyes open here and there. We look straight up at them from beneath; at the centre of the pattern one bat has dropped loose and spreads its red-veined wings toward us, and from the lower edge a long quill pen is held up to it like an offered perch. Purple gloom of a tall archive hall, with a faint upward glow from an unseen desk lamp catching needle fangs and wing veins.
-Colour: violet shade — purple-black gloom with luminous violet (#8b5cf6) edges.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A1-04 피의 박쥐 떼.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A1-05 · 녹타르 구울
-모르카스의 그믐 · 유닛 · 레벨 1 · 일반 · 틀 `silhouette` R C `bonepale` · 프롬프트 n2 → `tools/art/inbox/A1-05 녹타르 구울.png`
-
-```
-Landscape 5:4 painting. At the far end of a narrow back alley a colourless glow fills an archway, and against it the black outline of a gaunt creature crawls on all fours toward the right — spine arched, elbows higher than its back, overlong arms ending in cracked nails, jaw hanging open. From its wrist dangles a broken debtor's tally-cord of knots. Overturned crates and one gnawed bone lie in the dark foreground. Flat ash-white mist-light from behind turns everything to silhouette; the only colour is two faint violet points where its eyes are.
-Colour: bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A1-05 녹타르 구울.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A1-06 · 값으로 떼인 그림자
-모르카스의 그믐 · 유닛 · 레벨 1 · 일반 · 틀 `ground` R R `violetshade` · 프롬프트 n2 → `tools/art/inbox/A1-06 값으로 떼인 그림자.png`
-
-```
-Landscape 5:4 painting. Camera resting on the cobblestones of an empty night street: a flat, paper-thin human shadow with frayed, torn edges slides along by itself toward the right, bending up the wall at the right side of the frame where its long arm stretches toward the sill of a shuttered window. Its feet end in ragged strips, as if cut away with shears. A lost glove and a puddle fill the near foreground. A faint violet seam glows along the shadow's cut edges; the street lies in purple-black gloom under a moonless sky.
-Colour: violet shade — purple-black gloom with luminous violet (#8b5cf6) edges.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A1-06 값으로 떼인 그림자.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### HA1-1 · 소매치기
-모르카스의 그믐 · 핸드 마법 · 레벨 1 · 일반 · 틀 `macro` R C `eclipse` · 프롬프트 n2 → `tools/art/inbox/HA1-1 소매치기.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. Extreme close-up of a handshake in a crowded night market, filling the centre of the frame: a broad, ringed merchant's hand on the left clasped by a thin grey-gloved hand reaching in from the right. In the gap between the palms the gloved fingers press a dull lead token into the merchant's grip. At the same instant a third hand of thin violet smoke, slipping out of the grey glove's cuff, slides a gold signet ring off his little finger and carries it away to the right. A thin cold rim of light from a stall lantern behind outlines both hands; the gold ring is one bright glint in violet haze.
-Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: HA1-1 소매치기.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### HA1-2 · 손끝 저주
-모르카스의 그믐 · 핸드 마법 · 레벨 1 · 일반 · 틀 `through` N C `violetshade` · 프롬프트 n2 → `tools/art/inbox/HA1-2 손끝 저주.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. Framed by the dark parted flaps of a campaign tent: inside, in the centre, a suit of plate armour waits on its wooden stand beside a cot, polished for the morning. On the left shoulder plate sits a single fingertip mark, small as a thumbprint and glowing dull violet, and from it hair-fine black veins are spreading across the steel like frost cracks. Under the blanket on the cot a sleeper lies curled, and three small puffs of violet breath hang above the pillow, one for each cough. Purple-black night inside the tent; the fingertip mark and the hanging breaths glow luminous violet on steel and canvas.
-Colour: violet shade — purple-black gloom with luminous violet (#8b5cf6) edges.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: HA1-2 손끝 저주.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
+## 1. 그림 없는 카드 — 먼저 그린다 · 315장
 
 ### MA-01 · 공포의 칼날
 모르카스의 그믐 · 공격 마법 · 레벨 1 · 일반 · 틀 `top` R L `candle` · 프롬프트 n2 → `tools/art/inbox/MA-01 공포의 칼날.png`
@@ -4170,7 +4105,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-36 샘물의 만조.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 42장
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 47장
 
 ### A1-02 · 그림자 도둑 — 그림 있음
 모르카스의 그믐 · 유닛 · 레벨 1 · 일반 · 틀 `inside` L R `candle` · 프롬프트 n2 → `tools/art/inbox/A1-02 그림자 도둑.png`
@@ -4183,6 +4118,71 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: A1-02 그림자 도둑.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A1-04 · 피의 박쥐 떼 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 1 · 일반 · 틀 `swarm` N X `violetshade` · 프롬프트 n2 → `tools/art/inbox/A1-04 피의 박쥐 떼.png`
+
+```
+Landscape 5:4 painting. The whole frame is a ceiling crowded with small black bats hanging upside down in overlapping rows among dusty rafters and cobwebs, wings folded like wet leather, red pin-prick eyes open here and there. We look straight up at them from beneath; at the centre of the pattern one bat has dropped loose and spreads its red-veined wings toward us, and from the lower edge a long quill pen is held up to it like an offered perch. Purple gloom of a tall archive hall, with a faint upward glow from an unseen desk lamp catching needle fangs and wing veins.
+Colour: violet shade — purple-black gloom with luminous violet (#8b5cf6) edges.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A1-04 피의 박쥐 떼.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A1-05 · 녹타르 구울 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 1 · 일반 · 틀 `silhouette` R C `bonepale` · 프롬프트 n2 → `tools/art/inbox/A1-05 녹타르 구울.png`
+
+```
+Landscape 5:4 painting. At the far end of a narrow back alley a colourless glow fills an archway, and against it the black outline of a gaunt creature crawls on all fours toward the right — spine arched, elbows higher than its back, overlong arms ending in cracked nails, jaw hanging open. From its wrist dangles a broken debtor's tally-cord of knots. Overturned crates and one gnawed bone lie in the dark foreground. Flat ash-white mist-light from behind turns everything to silhouette; the only colour is two faint violet points where its eyes are.
+Colour: bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A1-05 녹타르 구울.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A1-06 · 값으로 떼인 그림자 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 1 · 일반 · 틀 `ground` R R `violetshade` · 프롬프트 n2 → `tools/art/inbox/A1-06 값으로 떼인 그림자.png`
+
+```
+Landscape 5:4 painting. Camera resting on the cobblestones of an empty night street: a flat, paper-thin human shadow with frayed, torn edges slides along by itself toward the right, bending up the wall at the right side of the frame where its long arm stretches toward the sill of a shuttered window. Its feet end in ragged strips, as if cut away with shears. A lost glove and a puddle fill the near foreground. A faint violet seam glows along the shadow's cut edges; the street lies in purple-black gloom under a moonless sky.
+Colour: violet shade — purple-black gloom with luminous violet (#8b5cf6) edges.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A1-06 값으로 떼인 그림자.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### HA1-1 · 소매치기 — 그림 있음
+모르카스의 그믐 · 핸드 마법 · 레벨 1 · 일반 · 틀 `macro` R C `eclipse` · 프롬프트 n2 → `tools/art/inbox/HA1-1 소매치기.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. Extreme close-up of a handshake in a crowded night market, filling the centre of the frame: a broad, ringed merchant's hand on the left clasped by a thin grey-gloved hand reaching in from the right. In the gap between the palms the gloved fingers press a dull lead token into the merchant's grip. At the same instant a third hand of thin violet smoke, slipping out of the grey glove's cuff, slides a gold signet ring off his little finger and carries it away to the right. A thin cold rim of light from a stall lantern behind outlines both hands; the gold ring is one bright glint in violet haze.
+Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: HA1-1 소매치기.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### HA1-2 · 손끝 저주 — 그림 있음
+모르카스의 그믐 · 핸드 마법 · 레벨 1 · 일반 · 틀 `through` N C `violetshade` · 프롬프트 n2 → `tools/art/inbox/HA1-2 손끝 저주.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. Framed by the dark parted flaps of a campaign tent: inside, in the centre, a suit of plate armour waits on its wooden stand beside a cot, polished for the morning. On the left shoulder plate sits a single fingertip mark, small as a thumbprint and glowing dull violet, and from it hair-fine black veins are spreading across the steel like frost cracks. Under the blanket on the cot a sleeper lies curled, and three small puffs of violet breath hang above the pillow, one for each cough. Purple-black night inside the tent; the fingertip mark and the hanging breaths glow luminous violet on steel and canvas.
+Colour: violet shade — purple-black gloom with luminous violet (#8b5cf6) edges.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: HA1-2 손끝 저주.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### A1-09 · 모르크 그림자 거미 — 그림 있음

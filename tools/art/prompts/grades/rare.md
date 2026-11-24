@@ -8,22 +8,7 @@
 
 **그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(같은 개체 · 장소 · 배색, 다른 시점 · 새 구도 — 섬네일로 나란히 놓아 같은 개체이면서 한눈에 더 강한 다른 그림으로 읽히는지 본다).
 
-## 1. 그림 없는 카드 — 먼저 그린다 · 1장
-
-### MG-14 · 숲의 무게
-베르단의 뿔 · 공용 마법 · 레벨 3 · 레어 · 틀 `inside` R R `thorndark` · 프롬프트 n2 → `tools/art/inbox/MG-14 숲의 무게.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. We are inside a forest that is tipping over: every trunk around us leans at the same steep slant toward the right, roots tearing half out of the ground, canopy sliding like a single green roof. Leaves, birds' nests and loose stones pour sideways through the air. At the far right end of the lean, small and already bowed, the first of a row of shields is buckling under the nearest trunk while the next shield braces for its turn. Thorn-dark gloom under the sliding canopy, with a hard wedge of green daylight opening on the left where the roots have lifted.
-Colour: thorn dark — near-black with deep green (#58b85f) and a few points of blood red.
-Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
-Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: MG-14 숲의 무게.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 58장
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 59장
 
 ### RS-A1-1 · 피의 창 — 그림 있음
 모르카스의 그믐 · 공격 마법 · 레벨 2 · 레어 · 틀 `path` R L `bloodink` · 프롬프트 n2 → `tools/art/inbox/RS-A1-1 피의 창.png`
@@ -647,6 +632,19 @@ Rare — third of the six rarity tiers, clearly above superior. Mood: striking a
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: IR-G2 첫 고목의 껍질.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### MG-14 · 숲의 무게 — 그림 있음
+베르단의 뿔 · 공용 마법 · 레벨 3 · 레어 · 틀 `inside` R R `thorndark` · 프롬프트 n2 → `tools/art/inbox/MG-14 숲의 무게.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. We are inside a forest that is tipping over: every trunk around us leans at the same steep slant toward the right, roots tearing half out of the ground, canopy sliding like a single green roof. Leaves, birds' nests and loose stones pour sideways through the air. At the far right end of the lean, small and already bowed, the first of a row of shields is buckling under the nearest trunk while the next shield braces for its turn. Thorn-dark gloom under the sliding canopy, with a hard wedge of green daylight opening on the left where the roots have lifted.
+Colour: thorn dark — near-black with deep green (#58b85f) and a few points of blood red.
+Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
+Rare — third of the six rarity tiers, clearly above superior. Mood: striking and a little uncanny — the first visible touch of magic. Light: bolder contrast and deeper space, with a cool sapphire (#4ea8ff) rim light along the subject's contour. Saturation: clear and vivid wherever the light falls. Air: a thin luminous haze and a scattering of drifting ether motes close around the subject. Surfaces: fine ornament and precise, gleaming detail.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: MG-14 숲의 무게.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### RS-G2-3 · 끈질긴 이끼 — 그림 있음

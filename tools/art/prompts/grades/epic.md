@@ -8,22 +8,7 @@
 
 **그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(같은 개체 · 장소 · 배색, 다른 시점 · 새 구도 — 섬네일로 나란히 놓아 같은 개체이면서 한눈에 더 강한 다른 그림으로 읽히는지 본다).
 
-## 1. 그림 없는 카드 — 먼저 그린다 · 1장
-
-### PS-A2-2 · 질서의 빛
-솔란테의 새벽 · 공용 마법 · 레벨 2 · 에픽 · 틀 `top` N X `firstlight` · 프롬프트 n2 → `tools/art/inbox/PS-A2-2 질서의 빛.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. Straight down onto bare ground where a rank of mismatched weapons lies side by side, hilts aligned along the bottom: a huge cleaver, a pike, a hooked axe, a broadsword and, at one end, a small dagger. A ruler-straight bar of pale-gold light lies across them all at the height of the dagger's point. Below the bar every blade is solid steel; above it the longer blades have gone pale and glassy, mere outlines of themselves, already fading. Even blue-grey light on the ground; the bar is the one pale-gold line in the picture and casts thin shadows from the hilts.
-Colour: first light — cool blue-grey before dawn with a low band of pale gold (#ffe9a8).
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: PS-A2-2 질서의 빛.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 62장
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 63장
 
 ### US-A3-1 · 그믐의 계약서 — 그림 있음
 모르카스의 그믐 · 핸드 마법 · 레벨 1 · 에픽 · 틀 `far` N T `eclipse` · 프롬프트 n2 → `tools/art/inbox/US-A3-1 그믐의 계약서.png`
@@ -114,6 +99,19 @@ Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and cha
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: EP-A1-3 장막의 처형자.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### PS-A2-2 · 질서의 빛 — 그림 있음
+솔란테의 새벽 · 공용 마법 · 레벨 2 · 에픽 · 틀 `top` N X `firstlight` · 프롬프트 n2 → `tools/art/inbox/PS-A2-2 질서의 빛.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. Straight down onto bare ground where a rank of mismatched weapons lies side by side, hilts aligned along the bottom: a huge cleaver, a pike, a hooked axe, a broadsword and, at one end, a small dagger. A ruler-straight bar of pale-gold light lies across them all at the height of the dagger's point. Below the bar every blade is solid steel; above it the longer blades have gone pale and glassy, mere outlines of themselves, already fading. Even blue-grey light on the ground; the bar is the one pale-gold line in the picture and casts thin shadows from the hilts.
+Colour: first light — cool blue-grey before dawn with a low band of pale gold (#ffe9a8).
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: PS-A2-2 질서의 빛.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### EP-A2-1 · 새벽성 문지기 라마수 — 그림 있음
