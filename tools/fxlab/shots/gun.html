@@ -1,0 +1,45 @@
+<!doctype html><meta charset="utf-8"><title>[사격] 총 쏘기 프레임</title>
+<style>body{margin:0;background:#111;font:12px monospace;color:#fff}#g{display:flex;flex-wrap:wrap;gap:4px}.c{position:relative;overflow:hidden}.c b{position:absolute;z-index:9;left:4px;top:2px;background:#000a;padding:1px 4px}iframe{border:0;transform-origin:0 0}</style>
+<div id="g"></div><img id="slow" style="display:none">
+<script>
+/* 2026-11-24 [사격] 총 쏘기 연출(js/game.js gunShot · gunHit + js/fxart.js 무기 · 타격 그림) 프레임 — 깃발마다 한 칸.
+   ?flags=B1,B2,..&t=ms(총이 뜬 뒤 멈출 때, dur=450 기준 225ms 에 발사 · 450ms 에 명중)&fx=rich&sc=0.5&crop=x,y,w,h
+   tools/fxlab/shots/serve.py 가 떠 있어야 한다. 예) firefox --headless --screenshot out/gun.png "http://127.0.0.1:8791/h/gun.html?t=330" */
+const Q=new URLSearchParams(location.search), fx=Q.get("fx")||"rich", t=+Q.get("t")||330, sc=+Q.get("sc")||0.5;
+const flags=(Q.get("flags")||"B1,B2,B3,G1,G2,G3,A1,A2,A3").split(","), crop=(Q.get("crop")||"260,40,720,420").split(",").map(Number);
+const [cx,cy,cw,ch]=crop, g=document.getElementById("g");
+document.getElementById("slow").src="/__slow?s="+(Q.get("slow")||10);
+const log=m=>{new Image().src="/__log?"+encodeURIComponent(m)};
+flags.forEach((fl,i)=>{
+  const c=document.createElement("div");c.className="c";c.style.width=cw*sc+"px";c.style.height=ch*sc+"px";c.innerHTML=`<b>${fl} ${fx} ${t}ms</b>`;
+  const f=document.createElement("iframe");f.width=1280;f.height=720;f.style.transform=`scale(${sc}) translate(${-cx}px,${-cy}px)`;
+  f.src="/index.html?offline";f.onload=()=>setTimeout(()=>boot(f.contentWindow,fl,i),300);c.appendChild(f);g.appendChild(c);
+});
+function boot(w,fl,i){
+  try{
+  w.onerror=(m,s,l)=>log("GUNERR"+i+" "+m+" "+s+":"+l);
+  w.localStorage.setItem("etherion.pref.bgm",'"off"');w.localStorage.setItem("etherion.pref.sfx",'"off"');
+  w.__frozen=false;const st=w.setTimeout.bind(w), raf=w.requestAnimationFrame.bind(w);
+  w.setTimeout=(fn,ms,...a)=>st(()=>{if(!w.__frozen&&typeof fn==="function")fn(...a)},ms);
+  w.requestAnimationFrame=fn=>raf(x=>{if(!w.__frozen)fn(x)});
+  w.__freeze=()=>{w.__frozen=true;for(const a of w.document.getAnimations())try{a.pause()}catch(e){}};
+  w.eval(`
+    document.documentElement.classList.remove("mobile");
+    Prefs.set("fx", ${JSON.stringify(fx)}); applyFx(${JSON.stringify(fx)});
+    UID=0;
+    G={mode:"ai",turn:1,attacker:0,rand:null,online:false,me:0,phase:"combat",log:[],sel:null,reg:{},fx:{dying:[]},viewer:0,control:null,speed:1,winner:null,reason:"",cfg:{mode:"ai"},players:null,ready:null,handoff:false,leave:{},inspect:null,showLog:false,econ:typeof newEcon==="function"?newEcon():null,rules:{},vlog:null,broken:[],kills:[0,0]};
+    setCombatRules({});
+    const uOf=g=>Object.keys(CARDS).filter(id=>CARDS[id].group===g&&CARDS[id].type==="unit")[3];
+    G.players=[mkPlayer(0,{name:"나",group:${JSON.stringify(fl)},cards:{"B1-10":12}}),mkPlayer(1,{name:"상대",group:"G1",cards:{"G1-10":12},isAI:true})];
+    G.players[0].field[0]=mkInst(uOf(${JSON.stringify(fl)}));
+    ["G1-10","G1-05","G1-08"].forEach((id,k)=>{G.players[1].field[k]=mkInst(id)});
+    for(const p of G.players){draw(p,3,true);for(const it of p.field)if(isUnit(it))resetTurn(it,p.idx===G.attacker);}
+    mountBoard();render();
+    const act=G.players[0].field[0].uid, tgt=G.players[1].field[1].uid, ids=["FX-W-"+${JSON.stringify(fl)},"FX-H-"+FXArt.HIT_OF_FLAG[${JSON.stringify(fl)}]];
+    Promise.all(ids.map(id=>{const im=FXArt.load(id);return im.decode?im.decode().catch(()=>0):0})).then(()=>{
+      gunShot(act,tgt,450,"gun"); setTimeout(()=>gunHit(act,tgt,450,"gun"),450); setTimeout(__freeze,${t});
+    });
+  `);
+  }catch(e){log("GUNBOOT "+e.message)}
+}
+</script>

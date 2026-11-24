@@ -793,6 +793,7 @@ function startMatch(cfg) {
   setCombatRules(G.rules);
   if (G.online) G.viewer = G.me;
   G.players = [mkPlayer(0, cfg.p0), mkPlayer(1, cfg.p1)];
+  if (typeof FXArt !== "undefined" && !cfg.headless) FXArt.warm();   // 2026-11-24 두 깃발의 효과 그림을 쉬는 틈에 불러 둠
   for (const p of G.players) draw(p, RULES.handSize);
   if (typeof BLog !== "undefined") BLog.begin(G);   // v3.20.1 전투 로그: 판 머리(모드 · 덱 목록)
   const gname = p => (p.group ? GROUPS[p.group].name : FACTIONS[p.faction].name);
@@ -3456,14 +3457,23 @@ function gunShot(actUid, tgt, dur, kind) {
   if (!a || !t || !layer) return;
   const ar = a.getBoundingClientRect(), from = ctrOf(ar), to = ctrOf(t.getBoundingClientRect());
   const L0 = Math.hypot(to.x - from.x, to.y - from.y) || 1;
-  from.x += (to.x - from.x) / L0 * ar.height * 0.34; from.y += (to.y - from.y) / L0 * ar.height * 0.34;   // 총은 카드 가장자리(대상 쪽)에 뜬다 — 그림 한가운데를 가리지 않게
+  const art = typeof FXArt !== "undefined" ? FXArt.weapon(actUid, Math.max(110, ar.width * 1.05)) : null;   // 2026-11-24 깃발의 무기 그림(img/fx/FX-W-*) — 아직 안 불러졌으면 SVG 권총
+  const off0 = ar.height * (art ? 0.6 : 0.34);   // 무기 그림은 카드 밖(대상 쪽)으로 더 나가 뜬다 — 카드 그림과 겹쳐 묻히지 않게
+  from.x += (to.x - from.x) / L0 * off0; from.y += (to.y - from.y) / L0 * off0;   // 총은 카드 가장자리(대상 쪽)에 뜬다 — 그림 한가운데를 가리지 않게
   const dx = to.x - from.x, dy = to.y - from.y, L = Math.hypot(dx, dy) || 1, ux = dx / L, uy = dy / L;
   const ang = Math.atan2(dy, dx) * 180 / Math.PI, flip = Math.abs(ang) > 90 ? -1 : 1;
-  const w = Math.max(96, ar.width * 0.9);
+  let w = Math.max(96, ar.width * 0.9), half = w * 0.45, muzzle = true;
   const g = document.createElement("div");
-  g.className = "gun-ghost";
-  g.style.cssText = `left:${from.x - w / 2}px;top:${from.y - w * 0.25}px;width:${w}px;--el:${elColor(a)};rotate:${ang.toFixed(1)}deg`;   // 총 그림 120×60 → 높이 0.5w, 가운데가 쏘는 카드 위
-  g.innerHTML = `<div style="transform:scaleY(${flip})">${GUN_SVG}</div>`;
+  if (art) {
+    w = art.w; half = art.half; muzzle = art.muzzle;
+    g.className = "gun-ghost gun-art";
+    g.style.cssText = `left:${from.x - w / 2}px;top:${from.y - art.h / 2}px;width:${w}px;height:${art.h}px;--el:${elColor(a)};rotate:${ang.toFixed(1)}deg`;
+    const box = document.createElement("div"); box.style.transform = `scaleY(${flip})`; box.appendChild(art.el); g.appendChild(box);
+  } else {
+    g.className = "gun-ghost";
+    g.style.cssText = `left:${from.x - w / 2}px;top:${from.y - w * 0.25}px;width:${w}px;--el:${elColor(a)};rotate:${ang.toFixed(1)}deg`;   // 총 그림 120×60 → 높이 0.5w, 가운데가 쏘는 카드 위
+    g.innerHTML = `<div style="transform:scaleY(${flip})">${GUN_SVG}</div>`;
+  }
   layer.appendChild(g);
   const fireAt = 0.5;   // 겨누고(0~50%) 쏘고 반동, 남은 시간에 궤적이 대상에 닿는다
   g.animate([
@@ -3476,11 +3486,11 @@ function gunShot(actUid, tgt, dur, kind) {
   ], { duration: dur * 1.5, easing: "ease-out", fill: "forwards" });
   setTimeout(() => g.remove(), dur * 1.5 + 60);
   setTimeout(() => {
-    const mx = from.x + ux * w * 0.45, my = from.y + uy * w * 0.45, rest = Math.max(1, L - w * 0.45);   // 총구(그림 오른쪽 끝)
+    const mx = from.x + ux * half, my = from.y + uy * half, rest = Math.max(1, L - half);   // 총구(그림 오른쪽 끝)
     const fl = document.createElement("div");
     fl.className = "gun-flash"; fl.style.cssText = `left:${mx}px;top:${my}px;rotate:${ang.toFixed(1)}deg`;
-    layer.appendChild(fl);
-    fl.animate([{ opacity: 1, scale: "0.5 0.8" }, { offset: 0.3, opacity: 1, scale: "1.5 1.2" }, { opacity: 0, scale: "1.9 0.5" }], { duration: 240, easing: "ease-out", fill: "forwards" }).onfinish = () => fl.remove();   // 총구 불꽃
+    if (muzzle) layer.appendChild(fl);   // 활 · 쇠뇌는 총구 불꽃 없이 궤적만
+    if (muzzle) fl.animate([{ opacity: 1, scale: "0.5 0.8" }, { offset: 0.3, opacity: 1, scale: "1.5 1.2" }, { opacity: 0, scale: "1.9 0.5" }], { duration: 240, easing: "ease-out", fill: "forwards" }).onfinish = () => fl.remove();   // 총구 불꽃
     const tr = document.createElement("div");
     tr.className = "gun-tracer"; tr.style.cssText = `left:${mx}px;top:${my}px;width:${rest}px;rotate:${ang.toFixed(1)}deg`;
     layer.appendChild(tr);
@@ -3496,6 +3506,7 @@ function gunHit(actUid, tgt, dur, kind) {
   atkSfx(actUid, "hit", 1, kind);
   setTimeout(() => cardSfx(tgt, "def", 0.75), 70); abilSfx(actUid, tgt, false);
   if (typeof IMPACT !== "undefined") IMPACT.strike(uidEl(actUid), t, Object.assign({ col, light: true }, impInfo(tgt)));
+  if (typeof FXArt !== "undefined") FXArt.gunHitArt(actUid, t);   // 2026-11-24 깃발의 타격 그림(img/fx/FX-H-*)
 }
 function strikeHit(actUid, tgt, dur, kind) {
   const t = targetEl(tgt);

@@ -80,5 +80,31 @@ isOff = true; baseCalls.length = 0; made = 0;
 ctx.castNow({ floats: [[1, "−3", "dmg"], [2, "−3", "dmg"], [3, "−3", "dmg"]], dur: 800, fx: { spell: "SB1-09" } }, { uid: 20, id: "SB1-09" });
 t("움직임 줄이기 · 화면 없는 대전이면 장면을 만들지 않음", made === 0 && baseCalls.length === 1);
 
+/* 4) 전투 효과 그림(js/fxart.js, 2026-11-24): 그림 파일이 모두 있고, SpellFX.cast 를 감싸도 돌려주는 때는 그대로, 맞은 대상마다 그림을 띄움 */
+isOff = false; cls.clear();
+const fxJson = JSON.parse(fs.readFileSync(path.join(ROOT, "tools/art/fx_overlays.json"), "utf8"));
+for (const it of fxJson.items) t("img/fx/" + it.id + ".webp 있음", fs.existsSync(path.join(ROOT, "img/fx", it.id + ".webp")));
+let shown = [];
+const layerEl = fakeEl(); layerEl.appendChild = noop;
+ctx.document.getElementById = id => (id === "fx-layer" ? layerEl : null);
+ctx.Image = class { constructor() { this.complete = true; this.naturalWidth = 300; this.naturalHeight = 200; this.style = {}; } decode() { return Promise.resolve(); } cloneNode() { const c = new ctx.Image(); c.src = this.src; c.style = {}; c.animate = () => ({}); c.remove = noop; shown.push(this.src); return c; } };
+ctx.setTimeout = (fn, ms) => fn();
+vm.runInContext(`var kSpeed = () => 1, RM = () => false;` + fs.readFileSync(path.join(ROOT, "js/fxart.js"), "utf8") + "\nthis.FXA = FXArt;", ctx, { filename: "fxart.js" });
+t("FXArt 가 만들어짐", !!ctx.FXA && typeof ctx.FXA.weapon === "function");
+for (const g of ["A1", "A2", "A3", "B1", "B2", "B3", "G1", "G2", "G3"]) t("깃발 " + g + " 타격 그림이 json 에 있음", fxJson.items.some(it => it.id === "FX-H-" + ctx.FXA.HIT_OF_FLAG[g]) && fxJson.items.some(it => it.id === "FX-W-" + g));
+for (const tier of [["fx-low"], [], ["fx-high"]]) {
+  cls.clear(); tier.forEach(c => cls.add(c)); shown = []; baseCalls.length = 0;
+  const floats = [[1, "−3", "dmg"], [2, "−3", "dmg"], [11, "치유 1", "buff"], [12, "보호막", "shield"], [3, "⚔−1", "debuff"], [4, "막음", "miss"]];
+  const out = ctx.castNow({ floats, dur: 800, fx: { spell: "SB1-09" } }, { uid: 20, id: "SB1-09" });
+  const tag = "효과 그림 [" + (tier[0] || "중간") + "]";
+  t(tag + " 때를 그대로 돌려줌", !!out && [1, 2, 3, 4, 11, 12].every(u => out.has(String(u))), out && JSON.stringify([...out]));
+  t(tag + " 맞은 대상 · 회복 · 보호막 · 저주 그림", shown.some(s => /FX-H-/.test(s)) && shown.some(s => /FX-S-HEAL/.test(s)) && shown.some(s => /FX-S-SHIELD/.test(s)) && (tier[0] === "fx-low" ? !shown.some(s => /FX-S-CURSE/.test(s)) : shown.some(s => /FX-S-CURSE/.test(s))), JSON.stringify(shown));   // 저사양은 4기까지
+  t(tag + " 막힌 타격에는 그림 없음", shown.length <= 6 + 2);
+}
+isOff = true; shown = [];
+ctx.G.speed = 0;
+ctx.castNow({ floats: [[1, "−3", "dmg"]], dur: 800, fx: { spell: "SB1-09" } }, { uid: 20, id: "SB1-09" });
+t("배속 0 이면 효과 그림 없음", shown.length === 0);
+
 console.log(bad ? `실패 ${bad} / ${ok + bad}` : `통과 ${ok}개`);
 process.exit(bad ? 1 : 0);

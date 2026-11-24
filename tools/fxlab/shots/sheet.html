@@ -48,7 +48,7 @@ function boot(w,t,i){
         else setTimeout(__freeze,__T);
         if(__I===0)__log("CAST "+__TAG+" floats="+JSON.stringify(s.floats)+" delays="+JSON.stringify([...out]));
       }return out};}
-    runCombat();
+    {const go=()=>runCombat();if(typeof FXArt!=="undefined"){const ids=[];for(const k of ['FIRE','METEOR','STEEL','BOLT','QUAKE','THORN','WAVE','SHADOW','HOLY','WIND','ARROWS'])ids.push('FX-H-'+k);for(const k of ['HEAL','BUFF','SHIELD','WARD','CURSE','BLOOD'])ids.push('FX-S-'+k);for(const g of ['B1','B2','B3','G1','G2','G3','A1','A2','A3'])ids.push('FX-W-'+g);Promise.all(ids.map(id=>{const im=FXArt.load(id);return im.decode?im.decode().catch(()=>0):0})).then(()=>{__log('FXREADY '+ids.filter(id=>!FXArt.ready(id)).join(','));go()})}else go();}   // 2026-11-24 효과 그림(js/fxart.js)을 다 불러 둔 뒤 시작
     if(__I===0)setTimeout(()=>{__log('LOG '+G.log.slice(-14).map(x=>x.t||x[0]||JSON.stringify(x)).join(' / '))},7000);
   `);
   }catch(e){log("BOOTERR "+e.message)}

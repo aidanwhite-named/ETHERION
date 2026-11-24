@@ -1,0 +1,9 @@
+/* ETHERION — 전투 효과 그림 (js/fxart.js, 2026-11-24). img/fx/*.webp 투명 그림을 #fx-layer 위에 잠깐 띄운다.
+   움직이는 것은 transform · opacity 뿐. 저사양 · 중간은 보통 섞기, 고사양만 screen(빛이 더해지는 느낌)과 옅은 잔상. 흐림 · 그림자 없음 */
+.fxa { position: fixed; z-index: 2; pointer-events: none; user-select: none; max-width: none; will-change: transform, opacity; }
+.fxa-hi { mix-blend-mode: screen; }
+.fxa-ghost { opacity: .45; }
+.fxa-weapon { display: block; max-width: none; pointer-events: none; }
+/* 무기 그림을 쓸 때: 흐림 · 깃발 빛 없이 어두운 테두리만 — 밝은 카드 그림 위에서도 무기 모양이 보이게 */
+.gun-ghost.gun-art { filter: drop-shadow(0 0 3px rgba(0, 0, 0, .85)); }
+.gun-ghost.gun-art > div { display: flex; align-items: center; justify-content: center; }
