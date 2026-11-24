@@ -131,7 +131,9 @@ function commonJob(it, grp) {
 }
 
 /* ---------- 5. 만들기 ---------- */
-const live = Object.values(D.CARDS).filter(c => !D.RETIRED[c.id] && FLAGS.includes(c.group));
+/* 2026-11-24 아직 레거시 목록(js/retired.js)에 있지만 새 효과로 바꿔 다시 살릴 마법 — 소리를 미리 만든다(인어 밀려드는 너울 · 물때의 노래) */
+const MAKE_RETIRED = new Set(["SG3-07", "SG3-08"]);
+const live = Object.values(D.CARDS).filter(c => (!D.RETIRED[c.id] || MAKE_RETIRED.has(c.id)) && FLAGS.includes(c.group));
 const jobs = [], missing = [], wrong = [];
 const KIND_KEYS = { unit: ["atk", "def"], spell: ["cast"], item: ["equip"] };
 for (const c of live) {

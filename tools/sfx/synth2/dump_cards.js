@@ -19,9 +19,11 @@ src += "this.__o = { CARDS, RETIRED: (typeof RETIRED_CARDS !== 'undefined' ? RET
 vm.runInContext(src, ctx, { filename: "etherion-data" });
 const D = ctx.__o, NOTES = {};
 for (const f of FLAGS) { const p = path.join(ROOT, "tools/sfx/notes", f + ".json"); NOTES[f] = fs.existsSync(p) ? (JSON.parse(fs.readFileSync(p, "utf8")).cards || {}) : {}; }
+/* 2026-11-24 레거시 목록에 남아 있지만 새 효과로 다시 살릴 마법 — 소리를 미리 만든다 (build_sfx_prompts.js 와 같은 목록) */
+const MAKE_RETIRED = new Set(["SG3-07", "SG3-08"]);
 const out = [];
 for (const c of Object.values(D.CARDS)) {
-  if (D.RETIRED[c.id] || !FLAGS.includes(c.group)) continue;
+  if ((D.RETIRED[c.id] && !MAKE_RETIRED.has(c.id)) || !FLAGS.includes(c.group)) continue;
   const n = NOTES[c.group][c.id] || {};
   const tok = /^T[KS]-/.test(c.id);
   const kin = c.type === "unit" ? (c.kin || D.KIND[c.id] || (c.base && D.KIND[c.base]) || (c.special ? "" : D.KIND_DEF[c.group]) || "") : "";

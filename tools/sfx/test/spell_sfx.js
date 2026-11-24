@@ -34,6 +34,8 @@ for (const c of spells) {
   if (!has("sp_land_" + el)) fail(`맞는 소리 없음: sp_land_${el} (${c.id})`);
 }
 for (const k of ["sp_chain", "sp_area", "sp_finale", "sp_reveal"]) if (!has(k)) fail("공용 소리 없음: " + k);
+// 레거시 목록에 남아 있지만 다시 살릴 마법(tools/sfx/synth2/dump_cards.js MAKE_RETIRED)도 소리를 미리 갖춘다
+for (const id of ["SG3-07", "SG3-08"]) if (!has(id + ".cast")) fail(`다시 살릴 마법의 발동 소리 없음: ${id}`);
 const code = f => fs.readFileSync(path.join(ROOT, "js", f), "utf8");
 const g = code("game.js"), sf = code("spellfx.js"), fe = code("feel.js");
 if (!/function castHand[\s\S]{0,1200}FEEL\.card\(c\.id, "cast"/.test(g)) fail("계략 마법(castHand)이 발동 소리를 내지 않는다");

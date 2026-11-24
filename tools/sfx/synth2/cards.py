@@ -518,11 +518,81 @@ def item_equip(c):
     return finish(m.buf, crest=13.5, max_len=t_el + 0.75 + (0.3 if fancy else 0), tail_db=-52)
 
 
+# ══ 카드만의 마법 소리 (틀로는 성격이 안 나는 마법 — notes/<깃발>.json 의 cast 글을 손으로 옮김) ══
+def _fade_end(m, ln, f=0.45):
+    L, F = n_(ln), n_(f)
+    m.buf = m.buf[:, :L].copy()
+    if m.buf.shape[1] > L - F:
+        k = m.buf.shape[1] - (L - F)
+        m.buf[:, L - F:] *= np.cos(np.linspace(0, np.pi / 2, F))[:k] ** 2
+    return m
+
+
+def cast_rising_swell(c):
+    """SG3-07 밀려드는 너울 (2026-11-24): 먼바다에서 낮게 구르며 너울이 모임 → 크고 어두운 물덩이로 솟음 →
+    앞줄을 무겁게 덮침 → 되밀리는 물살이 조약돌을 끌며 뒤로 밀어냄(쏴아 길게) + 아군에게 [너울]이 실리는 짧은 오름."""
+    el, N = "water", lambda i, o=0: E.note("water", i, o)   # noqa: E731
+    m = Mix(3.0)
+    m.add(card_flick(0.05), gain=-12)
+    m.add(W.rumble(0.85, 0.6, 55, 300, 3.5, a=0.5), gain=-6, width=1)        # 먼바다의 낮은 구름
+    m.add(W.deep_surge(0.9, 0.7) * ((tt(0.9) / 0.9) ** 1.4), gain=-4, width=1)   # 아래에서 부풀어 오르는 물덩이
+    m.add(wave(0.8, 0.7, 0.92), at=0.05, gain=-9, width=1)                   # 솟는 물마루(끝에서 가장 큼)
+    t0 = 0.82                                                                 # 덮치는 순간
+    m.add(splash(0.85), at=t0, gain=0, pan=-0.1)
+    m.add(W.sub_boom(42, 1.1, 0.8, drop=2.2), at=t0, gain=-1)
+    m.add(punch(150, 55, 0.11, 2.4), at=t0, gain=-4)
+    m.add(W.deep_surge(1.3, 0.8), at=t0 + 0.02, gain=-6, width=1)
+    # 되밀리는 물살: 왼쪽 → 오른쪽(뒤)으로 끌려가는 조약돌 · 쏴아 하는 거품
+    for i in range(3):
+        m.add(rubble(0.4, 12, 600, 2600) * swell(0.4, 0.3, 1, 1.6), at=t0 + 0.22 + 0.13 * i, gain=-12 - i, pan=-0.5 + 0.5 * i)
+    m.add(W.rumble(0.9, 0.6, 60, 380, 4, a=0.15), at=t0 + 0.18, gain=-8, pan=0.35)
+    m.add(sw(hp(noise(1.1, "pink"), 1800) * env_ad(1.1, 0.12, 0.35), 0.25, 1.4, 1.6), at=t0 + 0.15, gain=-17, width=1)
+    m.add(bubbles(0.8, 14, 400, 2000), at=t0 + 0.12, gain=-12, width=1)
+    # 아군에게 [너울]이 실림: 물빛 음 셋이 오름
+    m.add(arp([E.SIG[el][0] + E.SIG[el][1][k] for k in (0, 2, 4)], 0.09, lambda f: E.voice(el, f, 0.35)), at=t0 + 0.45, gain=-11, width=1)
+    m.add(W.warm_chord(el, 1.2, True, 0.05), at=t0 + 0.4, gain=-11, width=1)
+    room(m, rt=1.2, mix=0.2, damp=6500)
+    _fade_end(m, 2.5)
+    return finish(m.buf, crest=13.5, max_len=2.5, tail_db=-54, hpf=32, air_db=0.5)
+
+
+def cast_tide_song(c):
+    """SG3-08 물때의 노래 (2026-11-24): 무녀들의 낮고 고요한 노래 위로 바다가 천천히 숨 쉰다 —
+    밀물은 따뜻하게 오르는 화음과 함께 차오르고(공격 +), 썰물은 깊게 울리는 한숨으로 빠진다(방어 +). 달빛처럼 고르게, 끝은 은은한 물결."""
+    el = "water"
+    m = Mix(3.2)
+    m.add(card_flick(0.05), gain=-12)
+    f = hz(41)   # 무녀의 낮은 노래(F2 언저리)
+    chant = choir(f * 2, 2.3, 0.35) * swell(2.3, 0.4, 1.3, 1.6)
+    m.add(lp(chant, 1600), at=0.04, gain=-7, width=1)
+    m.add(lp(choir(f * 3, 2.1, 0.45), 1700) * swell(2.1, 0.45, 1.3, 1.6), at=0.12, gain=-12, width=1)   # 5도 위 한 목소리
+    # 밀물: 물결이 차오르며 화음이 오른다
+    m.add(W.deep_surge(1.1, 0.5, 58) * swell(1.1, 0.7, 1.6, 1.3), at=0.0, gain=-9, width=1)
+    m.add(wave(1.0, 0.45, 0.7), at=0.05, gain=-12, width=1)
+    for i, k in enumerate((0, 1, 2, 4)):
+        m.add(E.voice(el, E.note(el, k, 0), 0.45), at=0.2 + 0.13 * i, gain=-9 + 0.6 * i, pan=-0.35 + 0.23 * i, width=1)
+    m.add(W.warm_chord(el, 1.2, True, 0.25), at=0.15, gain=-6, width=1)
+    t1 = 1.05   # 썰물: 깊은 한숨
+    m.add(W.gong_hum(E.note(el, 0, -1), 1.5, 0.6), at=t1, gain=-6, width=1)
+    m.add(W.sub_boom(52, 0.9, 0.5, drop=1.4), at=t1, gain=-12)
+    m.add(norm(sweep(noise(1.0, "pink"), (1400, 220), 0.9, "lp")) * swell(1.0, 0.2, 1, 1.6), at=t1, gain=-9, width=1)   # 쓸려 내려가는 물
+    m.add(rubble(0.6, 10, 500, 2000) * swell(0.6, 0.3, 1, 1.6), at=t1 + 0.1, gain=-16, pan=0.3)
+    for i, k in enumerate((4, 2, 1, 0)):
+        m.add(E.voice(el, E.note(el, k, -1), 0.5), at=t1 + 0.08 + 0.14 * i, gain=-10, pan=0.35 - 0.23 * i, width=1)
+    m.add(sw(twinkle(0.8, 8, 2500, 6500, 0.08), 0.5, 1.2, 1.5), at=t1 + 0.5, gain=-18, width=1)   # 달빛 물결이 은은하게
+    room(m, rt=1.3, mix=0.22, damp=6000)
+    _fade_end(m, 2.6, 0.6)
+    return finish(m.buf, crest=13.0, max_len=2.6, tail_db=-54, hpf=32, air_db=0.5)
+
+
+CAST_OWN = {"SG3-07": cast_rising_swell, "SG3-08": cast_tide_song}
+
+
 def render_card(c, part):
     if part == "atk":
         return unit_atk(c)
     if part == "def":
         return unit_def(c)
     if part == "cast":
-        return spell_cast(c)
+        return CAST_OWN[c["id"]](c) if c["id"] in CAST_OWN else spell_cast(c)
     return item_equip(c)

@@ -419,6 +419,16 @@
    "ko": "작은 물살 쏴 · 물로 흩어져 흘림",
    "atk": "a small sprite of water gathers with a bubbling burble, bounds forward with a quick skipping splash, then smacks the foe in a bright slap and a short spray of drops",
    "def": "it simply sloshes apart on contact: a soft liquid gloop, the blow passing through with a wet swish, and the pieces trickling back together with a gentle lapping"
+  },
+  "SG3-07": {
+   "en": "Rising Swell",
+   "ko": "먼바다의 너울이 부풀어 올라 앞을 덮치고, 버티던 적을 뒤로 떠밀어 냄",
+   "cast": "far out at sea a deep swell gathers with a low rolling rumble, heaves up into a huge dark wave that crashes heavily onto the front line, then a powerful undertow shoves and drags the shingle backward with a long seething wash"
+  },
+  "SG3-08": {
+   "en": "Song of the Tides",
+   "ko": "무녀들의 낮은 노래에 맞춰 밀물이 차오르고 썰물이 빠지며 아군의 힘이 물때를 따라 오름",
+   "cast": "a calm low chant of sea priestesses over the slow breathing of the tide: the water floods in on a warm rising chord, then draws back with a deep resonant sigh, steady and moonlit, ending on a soft glowing swell"
   }
  }
 }
