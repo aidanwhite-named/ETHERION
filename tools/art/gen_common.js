@@ -393,8 +393,8 @@ async function main() {
     // Import each card right away so img/cards and art_index.js stay up to date
     if (opts.autoImport && success) {
       try {
-        console.log('[Workflow] Running artmap.py import...');
-        const out = execSync('python3 tools/art/artmap.py import', { cwd: ROOT_DIR }).toString();
+        console.log('[Workflow] Running artmap.py import --model gemini...');
+        const out = execSync('python3 tools/art/artmap.py import --model gemini', { cwd: ROOT_DIR }).toString();
         console.log(out.trim());
       } catch (e) {
         console.error('[Workflow] artmap.py import error:', e.message);

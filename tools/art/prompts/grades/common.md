@@ -8,7 +8,7 @@
 
 **그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(같은 개체 · 장소 · 배색, 다른 시점 · 새 구도 — 섬네일로 나란히 놓아 같은 개체이면서 한눈에 더 강한 다른 그림으로 읽히는지 본다).
 
-## 1. 그림 없는 카드 — 먼저 그린다 · 315장
+## 1. 그림 없는 카드 — 먼저 그린다 · 263장
 
 ### MA-01 · 공포의 칼날
 모르카스의 그믐 · 공격 마법 · 레벨 1 · 일반 · 틀 `top` R L `candle` · 프롬프트 n2 → `tools/art/inbox/MA-01 공포의 칼날.png`
@@ -73,32 +73,6 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: SA1-02 그림자 손아귀.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A1-07 · 그림자 도플갱어
-모르카스의 그믐 · 유닛 · 레벨 2 · 일반 · 틀 `over` R X `bonepale` · 프롬프트 n2 → `tools/art/inbox/A1-07 그림자 도플갱어.png`
-
-```
-Landscape 5:4 painting. Over the shoulder of a cloaked traveller whose hood and raised lantern fill the right foreground: facing him from the left of a narrow canyon path, turned toward the right, stands his own likeness, only half finished. One half already wears his cloak, his beard, his startled look; the other half is still smooth, blank grey wax with a rippling mirror sheen and a hand whose five fingers are all the same length. Thin wisps of shadow run between the two like thread drawn off a spool. The lantern's pale flame drains the scene to bone-white and ash-grey, with one violet glimmer deep in the copy's unfinished eye.
-Colour: bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A1-07 그림자 도플갱어.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A1-08 · 계약의 서큐버스
-모르카스의 그믐 · 유닛 · 레벨 2 · 일반 · 틀 `close` L L `eclipse` · 프롬프트 n2 → `tools/art/inbox/A1-08 계약의 서큐버스.png`
-
-```
-Landscape 5:4 painting. Tight close-up at the left of the frame: a slender horned temptress in dark velvet, seen from the collarbone up and turned three-quarters toward the left, smiling with closed lips. Her thin tail curls up beside her cheek, its tip a gold quill nib beaded with ink, and she holds a rolled, ribbon-tied parchment against her chin like a finger asking for silence. Behind her, soft and out of focus, a sleeper's open hand lies on a pillow with a small balance-scale mark glowing on the palm. A thin cold rim of light traces her horns, cheek and one bat-wing edge from behind; her face stays in violet shadow.
-Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A1-08 계약의 서큐버스.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### HA1-3 · 저주 전염
@@ -231,19 +205,6 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SA1-06 피의 제물.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-17 · 모르카스의 밴시
-모르카스의 그믐 · 유닛 · 레벨 3 · 일반 · 틀 `over` B L `frostindigo` · 프롬프트 n2 → `tools/art/inbox/A1-17 모르카스의 밴시.png`
-
-```
-Landscape 5:4 painting. Close behind her and looking past her shoulder: a floating woman-spirit with long white hair and a tattered translucent gown hovers at the left of the frame, facing away from us toward a heavy house door at the right. Her head is thrown back, and the iron knocker, the lantern beside it and the frost on the step all tremble in rings spreading from her unseen mouth. Under the door a line of warm light shows two pairs of feet standing very still inside. Blue-violet frost-light outside, her hair and gown glowing like tarnished silver; the only warmth is the thin strip under the door.
-Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A1-17 모르카스의 밴시.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
 ### IA1-3 · 저주 인형
 모르카스의 그믐 · 아이템 · 레벨 3 · 일반 · 틀 `through` N L `candle` · 프롬프트 n2 → `tools/art/inbox/IA1-3 저주 인형.png`
 
@@ -283,71 +244,6 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: NA1-1 그림자 강탈.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-21 · 피의 라미아
-모르카스의 그믐 · 유닛 · 레벨 4 · 일반 · 틀 `through` R L `bloodink` · 프롬프트 n2 → `tools/art/inbox/A1-21 피의 라미아.png`
-
-```
-Landscape 5:4 painting. Glimpsed through the low gap beneath a stone altar slab: a pale woman's torso on thick dark-crimson snake coils lies curled in the hollow at the left, facing right, red slit eyes fixed on a row of tiny glass measures. Through a drain hole in the slab, single red drops fall into the last measure, and she slides one bead along a counting cord for each. The glass stands a finger short of its mark, and the tip of her tail is already sliding out toward a pair of kneeling knees at the right edge. A little candle-glow leaks down through the drain hole and catches the falling drops; her gold armlets and scales glint crimson in near-black shadow.
-Colour: blood and ink — black and deep crimson with a thread of violet (#8b5cf6).
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A1-21 피의 라미아.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A1-24 · 달 없는 늑대인간
-모르카스의 그믐 · 유닛 · 레벨 4 · 일반 · 틀 `high` L T `eclipse` · 프롬프트 n2 → `tools/art/inbox/A1-24 달 없는 늑대인간.png`
-
-```
-Landscape 5:4 painting. From high above, looking straight down into a round stone well in a bare courtyard: its still black water lies in the middle of the frame like a dark moon inside a pale rim. On the upper edge of the well a hulking black-furred werewolf crouches, turned to the left, one clawed hand braced on the stones, the torn sleeves of a shirt still hanging from its huge shoulders. Its wolf head bends over the water, where the reflected sky is crowded with stars around one round patch of pure black. Starlight only, under a moonless sky: a thin cold rim on the well's edge, on wet fur and claws; the rest is black and violet haze.
-Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A1-24 달 없는 늑대인간.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A1-42 · 흑요 갑주 해골
-모르카스의 그믐 · 유닛 · 레벨 4 · 일반 · 틀 `front` F X `frostindigo` · 프롬프트 n2 → `tools/art/inbox/A1-42 흑요 갑주 해골.png`
-
-```
-Landscape 5:4 painting. Dead-on and symmetrical: a suit of heavy black obsidian plate stands in a narrow canyon gateway and fills it from wall to wall, a tall slab of black stone planted before it as a shield. Rain is falling hard. It runs in at the armour's open collar and pours straight out again at the elbows, the hips and the knees in thin steady streams. Through a chipped gap in the breastplate show a few bleached ribs and the dark hollow behind them, and in the visor slit two violet lights look straight at us. Cold blue-violet night rain; the wet stone plates shine like tarnished silver and the two eye-lights glow steadily behind the falling water.
-Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A1-42 흑요 갑주 해골.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A1-25 · 장막의 삼두견
-모르카스의 그믐 · 유닛 · 레벨 5 · 일반 · 틀 `tilt` R C `violetshade` · 프롬프트 n2 → `tools/art/inbox/A1-25 장막의 삼두견.png`
-
-```
-Landscape 5:4 painting. Tilted frame, caught as it surges to its feet: a broad black hound the size of an ox, three heads on three spiked iron collars, fills the centre and faces right toward a hanging wall of darkness from which a small cloaked traveller has just stepped. Each head asks its own question: the lowest pushes its muzzle against his empty scabbard, the middle one snuffs at his open, bare hands, and the highest strains toward his hood, nostrils wide. Broken chains swing from the collars and violet embers drip from three sets of jaws. Purple-black gloom; six burning violet eyes and the dripping embers are the light, edging muzzles, collar spikes and the traveller's cloak.
-Colour: violet shade — purple-black gloom with luminous violet (#8b5cf6) edges.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A1-25 장막의 삼두견.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A1-28 · 찢기지 않는 계약서
-모르카스의 그믐 · 유닛 · 레벨 5 · 일반 · 틀 `ground` F C `frostindigo` · 프롬프트 n2 → `tools/art/inbox/A1-28 찢기지 않는 계약서.png`
-
-```
-Landscape 5:4 painting. Camera on the cold flagstones of an archive aisle between towering shelves. In the centre a parchment scroll as tall as a doorway stands on its own lower coil and sways toward us like a hooded snake, its curled edges hooked like claws, three red wax seals staring from its face like eyes. Its loose end has unrolled along the floor to our feet like a tongue. On it kneels a small clerk, his shears dropped beside him, a ribbon knotted round his wrist, his quill touching a single glowing red line. Blue-violet archive dusk with frost on the stones; the one red line glows and the seals gleam like tarnished coins.
-Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A1-28 찢기지 않는 계약서.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
 ### RA1-1 · 최후의 계약
 모르카스의 그믐 · 공용 마법 · 레벨 5 · 일반 · 틀 `after` N X `bonepale` · 프롬프트 n2 → `tools/art/inbox/RA1-1 최후의 계약.png`
 
@@ -361,58 +257,6 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: RA1-1 최후의 계약.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-29 · 심연의 어둑시니
-모르카스의 그믐 · 유닛 · 레벨 6 · 일반 · 틀 `eye` B L `candle` · 프롬프트 n2 → `tools/art/inbox/A1-29 심연의 어둑시니.png`
-
-```
-Landscape 5:4 painting. At eye level on a street cut into the canyon wall: a towering shape of gathered darkness in a long ash-grey mantle strides away from us down the left side of the frame, its shoulders higher than the iron lamp posts, its head lost in the dark above them. The three lamps nearest us are dark, each trailing a thread of smoke, and the one beside its shoulder is shrinking to a red wick as it passes. Far ahead the lamps still burn in a warm row, and small townsfolk hurry indoors and pull their shutters closed. Amber lamp pools ahead of it and black street behind; a faint violet glow leaks from the hem of its mantle.
-Colour: candle islands — small pools of amber light in vast dark, violet (#8b5cf6) in the shadows.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A1-29 심연의 어둑시니.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A1-30 · 모르카스의 칼
-모르카스의 그믐 · 유닛 · 레벨 6 · 일반 · 틀 `profile` L L `frostindigo` · 프롬프트 n2 → `tools/art/inbox/A1-30 모르카스의 칼.png`
-
-```
-Landscape 5:4 painting. Strict side view, flat as a frieze, along a frozen avenue: a black greatsword as long as a tall man glides leftward on its own at shoulder height, point first, at the left of the frame. A closed eye is carved on its guard, the cracked leather grip is worn into the shape of four fingers, and an empty sword-belt trails from the hilt, its buckle scoring the frost. Behind it, to the right, a bronze statue of a swordsman has been cut through at the waist, and its upper half is only now beginning to slide. Moonless blue-violet night; frost glitters like tarnished silver, and a thin red smoke along the blade's edge is the one warm colour.
-Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A1-30 모르카스의 칼.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A1-32 · 저주 군단의 리치
-모르카스의 그믐 · 유닛 · 레벨 6 · 일반 · 틀 `close` F C `bonepale` · 프롬프트 n2 → `tools/art/inbox/A1-32 저주 군단의 리치.png`
-
-```
-Landscape 5:4 painting. Tight on the head and shoulders, face-on in the centre: a yellowed skull under a dented iron crown, violet flames standing in both eye sockets, the frayed collar of a rotted robe around bare neck bones. Tied to one collarbone by a faded ribbon hang a blank brass archive tag and a blob of dark sealing wax, like the claim ticket for something left in safekeeping. One finger-bone is raised beside the jaw, pointing forward. Behind him, soft and grey, an endless column of the dead marches past in step, rank after rank into the mist. Flat ash-grey overcast drains bone, robe and marchers to one pale tone; the two violet eye-flames are the single colour.
-Colour: bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A1-32 저주 군단의 리치.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A1-43 · 감긴 눈의 저울
-모르카스의 그믐 · 유닛 · 레벨 6 · 일반 · 틀 `low` N C `violetshade` · 프롬프트 n2 → `tools/art/inbox/A1-43 감긴 눈의 저울.png`
-
-```
-Landscape 5:4 painting. From its foot, looking up: a balance of tarnished black bronze rises like a gate tower, its pillar climbing the centre of the frame to a great beam carved with one closed eye. The pan on the right hangs low over us, stacked as neatly as a merchant's weights with the blows it has taken: rows of arrowheads, snapped sword tips, a mace head. The pan on the left brims with dense shadow that spills over its rim like smoke. A spent arrow still quivers in the pillar, and at the plinth a small axeman, knee-high to it, backs away. Purple-black gloom under a moonless sky; luminous violet edges the beam, the chains and the lid of the carved eye.
-Colour: violet shade — purple-black gloom with luminous violet (#8b5cf6) edges.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A1-43 감긴 눈의 저울.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
 ### PN-A1-C3 · 계약에 묶인 시체 거인
 모르카스의 그믐 · 유닛 · 레벨 6 · 일반 · 틀 `back` B C `bonepale` · 프롬프트 n2 → `tools/art/inbox/PN-A1-C3 계약에 묶인 시체 거인.png`
 
@@ -424,71 +268,6 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: PN-A1-C3 계약에 묶인 시체 거인.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A1-34 · 대가의 집행자
-모르카스의 그믐 · 유닛 · 레벨 7 · 일반 · 틀 `far` R L `eclipse` · 프롬프트 n2 → `tools/art/inbox/A1-34 대가의 집행자.png`
-
-```
-Landscape 5:4 painting. Far off across the rooftops of a sleeping canyon town: at the left a robed figure three houses tall stands in the street, its head a smooth blank oval, heavy chains wound across its chest and a spiked iron weight hanging from one fist. With its other hand it has lifted the whole tiled roof off a narrow house, as one lifts the lid of a pot, and it bends to the right to look inside. In the opened attic a tiny man crouches under a table beside one lit candle. Along the street every shutter is closed tight. A thin cold band of light along the canyon rim behind outlines the oval head, the lifted roof and the chimneys; the town is silhouette in violet haze.
-Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
-Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A1-34 대가의 집행자.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A2-03 · 새벽 종다리 떼
-솔란테의 새벽 · 유닛 · 레벨 1 · 일반 · 틀 `silhouette` R R `firstlight` · 프롬프트 n2 → `tools/art/inbox/A2-03 새벽 종다리 떼.png`
-
-```
-Landscape 5:4 painting. Backlit against the first thin band of dawn, a row of small larks perches along the teeth of a battlement — black shapes with beaks wide open in song, all facing right toward the coming sun. One bird in the right of the frame still sleeps, head tucked under its wing, and in the sky exactly behind it a notch of night lingers, darker than the rest. Pale gold light rises from below the wall line; everything in front of it is clean black silhouette under a blue-grey sky.
-Colour: first light — cool blue-grey before dawn with a low band of pale gold (#ffe9a8).
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A2-03 새벽 종다리 떼.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A2-04 · 솜털 새끼 비둘기
-솔란테의 새벽 · 유닛 · 레벨 1 · 일반 · 틀 `eye` L C `rosedawn` · 프롬프트 n2 → `tools/art/inbox/A2-04 솜털 새끼 비둘기.png`
-
-```
-Landscape 5:4 painting. At eye level on a garden stair, a white dove fledgling has tripped on the worn top step and hangs in mid-tumble, stubby wings flung forward to the left, pink feet in the air — only three or four true feathers showing among the down on each wing. Under the chick a soft pane of warm light has slid out across the stones like a cushion and holds it a hand's breadth above the steps. Low pink-gold morning light slants across the garden from the left, with lilac shadow under the stair and the hedges.
-Colour: rose dawn — pink-gold (#ffe9a8) cloud light and lilac shadows.
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A2-04 솜털 새끼 비둘기.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A2-05 · 문장 독수리
-솔란테의 새벽 · 유닛 · 레벨 1 · 일반 · 틀 `back` B R `rosedawn` · 프롬프트 n2 → `tools/art/inbox/A2-05 문장 독수리.png`
-
-```
-Landscape 5:4 painting. From just behind a white eagle perched on an upturned helmet in the right foreground: its gold-edged wings are half open in a stiff, symmetrical crest pose, and it looks away from us at a great white banner hanging in the hall beyond. There, among the embroidered sun-rays, an eagle-shaped patch of bare unfaded linen and loose gold threads shows exactly where it used to be. Rose-gold dawn comes through the cloth from behind, so the empty patch glows brighter than the stitched parts around it.
-Colour: rose dawn — pink-gold (#ffe9a8) cloud light and lilac shadows.
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A2-05 문장 독수리.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A2-06 · 떠도는 후광
-솔란테의 새벽 · 유닛 · 레벨 1 · 일반 · 틀 `ground` L C `firstlight` · 프롬프트 n2 → `tools/art/inbox/A2-06 떠도는 후광.png`
-
-```
-Landscape 5:4 painting. Camera down in wet roadside grass, looking up a pilgrim road lined with knee-high stone saints in little niches. Over the nearest saint's bald stone head hovers a plain ring of golden light, far too wide for it and tilted like an oversized hat, already sliding off to the left toward the next statue in the row. Faint sparks trail from it and bead on the grass blades in the foreground. Blue-grey hour before sunrise; the ring is the warmest thing in sight and gilds the stone head beneath it.
-Colour: first light — cool blue-grey before dawn with a low band of pale gold (#ffe9a8).
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A2-06 떠도는 후광.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### MA-02 · 솔란테의 가호
@@ -554,32 +333,6 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: SA2-04 정의의 일격.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A2-07 · 맹세의 발키리
-솔란테의 새벽 · 유닛 · 레벨 2 · 일반 · 틀 `profile` L R `whitegold` · 프롬프트 n2 → `tools/art/inbox/A2-07 맹세의 발키리.png`
-
-```
-Landscape 5:4 painting. Strict side view, flat as a carved frieze, along the rail of a narrow stone bridge: at the right a winged shieldmaiden in gold scale armour drops out of the sky feet-first, great white wings swept straight up, her round wood-and-gold shield thrust out to the left. It meets a falling axe-blade that enters from the left edge, a hand's width above a young spearman who has slipped to one knee beneath it. Her spear is still held upright, unused. High clear morning sun from behind the viewer, flat and bright on white stone and feathers, with thin blue shadows.
-Colour: white and gold — sunlit ivory and soft pale gold (#ffe9a8), airy, with cool blue shadow.
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A2-07 맹세의 발키리.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A2-09 · 새벽 수탉 수호병
-솔란테의 새벽 · 유닛 · 레벨 2 · 일반 · 틀 `over` F C `glare` · 프롬프트 n2 → `tools/art/inbox/A2-09 새벽 수탉 수호병.png`
-
-```
-Landscape 5:4 painting. Over the dark, spiked shoulder of an advancing attacker in the near foreground: a line of the citadel's spearmen stands in blinding morning light. Dead centre in the front rank is the plainest of them — a young white rooster guard with a small red comb, an undecorated helmet a little too big for him and a spear with a mended shaft held under one wing — feet planted, looking straight at us. Behind him rise the taller plumes and gilded crests of every higher rank. The sun stands directly behind the line, burning its edges white and turning the attacker's shoulder into a black shape.
-Colour: holy glare — blinding white-gold (#ffe9a8) light with dark shapes in front of it.
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A2-09 새벽 수탉 수호병.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### IA2-1 · 압수한 흑요검
@@ -660,19 +413,6 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SA2-07 심판의 저울.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-16 · 새벽 순찰 사자
-솔란테의 새벽 · 유닛 · 레벨 3 · 일반 · 틀 `back` R R `firstlight` · 프롬프트 n2 → `tools/art/inbox/A2-16 새벽 순찰 사자.png`
-
-```
-Landscape 5:4 painting. From behind a great golden lion as it pads away up a ridge of plateau grass toward the upper right, tail low, mane spread like a fan of rays. Everything ahead of it is the blackest hour of night. Behind it, running from the bottom-left corner of the frame up to its hind paws, the strip of grass it has already walked glows soft gold, as if morning had arrived there first. The sun is still below the horizon; only the glowing track and the lion's mane light the scene, under a blue-black sky with one pale line at its edge.
-Colour: first light — cool blue-grey before dawn with a low band of pale gold (#ffe9a8).
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A2-16 새벽 순찰 사자.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
 ### I3-2 · 엘라드 탑 방패
 솔란테의 새벽 · 아이템 · 레벨 3 · 일반 · 틀 `pair` N L `whitegold` · 프롬프트 n2 → `tools/art/inbox/I3-2 엘라드 탑 방패.png`
 
@@ -738,32 +478,6 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: NA2-2 빛의 날개.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-20 · 알바트로스 날개기사
-솔란테의 새벽 · 유닛 · 레벨 4 · 일반 · 틀 `high` L R `firstlight` · 프롬프트 n2 → `tools/art/inbox/A2-20 알바트로스 날개기사.png`
-
-```
-Landscape 5:4 painting. Seen from high on the keep above: a great white albatross in a knight's breastplate stands at the right of a wide stair landing with both wings spread to their full span and curved forward like a roof. From this height the wings are two long white blades, black at the tips, and under their trailing feathers the helmets of a dozen smaller comrades are still ducking in, the last one running. A sword rides at its side, still deep in its scabbard, and its head is turned left, counting them. Grey-blue half-light before sunrise; a low gold band at the horizon catches only the upper edges of the feathers.
-Colour: first light — cool blue-grey before dawn with a low band of pale gold (#ffe9a8).
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A2-20 알바트로스 날개기사.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A2-21 · 맹세를 지키는 백조
-솔란테의 새벽 · 유닛 · 레벨 4 · 일반 · 틀 `under` F T `rosedawn` · 프롬프트 n2 → `tools/art/inbox/A2-21 맹세를 지키는 백조.png`
-
-```
-Landscape 5:4 painting. From under the surface of a clear cloister pond, looking up: the broad white belly of a great swan floats overhead in the upper part of the frame, riding low in the water, black webbed feet paddling slowly. From beneath both folded wings hang dozens of knotted cords, each ending in a small gold ring or a wax-sealed token, trailing down into the water like roots. Its long neck curves down through the surface and one calm eye regards us. Pink-gold dawn sky shimmers through the rippled surface above the swan, and the hanging rings catch it as they turn in lilac water.
-Colour: rose dawn — pink-gold (#ffe9a8) cloud light and lilac shadows.
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A2-21 맹세를 지키는 백조.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
 ### PN-A2-C2 · 엘라드의 오파님
 솔란테의 새벽 · 유닛 · 레벨 4 · 일반 · 틀 `through` F L `firstlight` · 프롬프트 n2 → `tools/art/inbox/PN-A2-C2 엘라드의 오파님.png`
 
@@ -775,32 +489,6 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: PN-A2-C2 엘라드의 오파님.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A2-27 · 새벽 유니콘
-솔란테의 새벽 · 유닛 · 레벨 5 · 일반 · 틀 `far` L R `rosedawn` · 프롬프트 n2 → `tools/art/inbox/A2-27 새벽 유니콘.png`
-
-```
-Landscape 5:4 painting. Far across a wide plateau at sunrise, a white unicorn gallops along the crest of a long ridge from right to left, small against the sky. The rising sun sits exactly on its back like a rider, so that horse and sun seem to travel together. Ahead of it, down on the darker plain at the far left, one tiny horseman is fleeing, and the unicorn's horn burns as a single needle of light aimed at him. The sun is the only light, low and pink-gold behind the ridge; long lilac shadows run toward the viewer across the grass.
-Colour: rose dawn — pink-gold (#ffe9a8) cloud light and lilac shadows.
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A2-27 새벽 유니콘.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A2-28 · 광장의 성자상
-솔란테의 새벽 · 유닛 · 레벨 5 · 일반 · 틀 `silhouette` R L `glare` · 프롬프트 n2 → `tools/art/inbox/A2-28 광장의 성자상.png`
-
-```
-Landscape 5:4 painting. Against a blazing morning sky, a larger-than-life stone saint strides to the right across an open plaza, left of centre, one heavy foot just lifted, robes carved in stiff folds, its blessing hand now closed into a fist. Along its shoulders and on its bald head sits a row of pigeons, riding calmly; one flaps to keep its balance. At the far left stands the empty plinth it stepped down from, with a few pigeons still waiting on it. The sun is directly behind the figure, so statue, birds and plinth are dark shapes rimmed in white-gold glare.
-Colour: holy glare — blinding white-gold (#ffe9a8) light with dark shapes in front of it.
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A2-28 광장의 성자상.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### RA2-1 · 심판의 날
@@ -816,45 +504,6 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: RA2-1 심판의 날.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-29 · 새벽성 발키리 대장
-솔란테의 새벽 · 유닛 · 레벨 6 · 일반 · 틀 `macro` R T `whitegold` · 프롬프트 n2 → `tools/art/inbox/A2-29 새벽성 발키리 대장.png`
-
-```
-Landscape 5:4 painting. Extreme close-up of a weathered hand in a dented gold gauntlet, coming in from the top of the frame, cutting one more small half-sun notch into a block of white wall-stone with the butt-spike of a spear. The stone, and every stone around it to the edges of the picture, is already crowded with hundreds of the same little notches, the oldest worn almost smooth. A single white feather, greyed at the tip, has drifted into the corner. Raking early sun from the left makes every notch a small crisp shadow in the pale stone.
-Colour: white and gold — sunlit ivory and soft pale gold (#ffe9a8), airy, with cool blue shadow.
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A2-29 새벽성 발키리 대장.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A2-30 · 새벽 삼족오
-솔란테의 새벽 · 유닛 · 레벨 6 · 일반 · 틀 `profile` L C `vigil` · 프롬프트 n2 → `tools/art/inbox/A2-30 새벽 삼족오.png`
-
-```
-Landscape 5:4 painting. Painted like a figure on a wall, in pure profile: a great three-legged crow of gold fire stands facing left in a snow-covered orchard, one burning wing folded across its breast, the other spread wide behind. Tucked against the folded wing, a small night sentry has fallen asleep on his feet, cheek resting in the flames, cloak and hair untouched; a sparrow roosts on one blazing feather above him, and the snow around the three clawed feet lies unmelted. Winter night; the wings are the only light, a steady gold glow that warms the sleeper's face and fades a few paces out across the snow.
-Colour: night vigil — darkness holding small warm flames with pale-gold (#ffe9a8) halos.
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A2-30 새벽 삼족오.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A2-31 · 네 얼굴의 케루빔
-솔란테의 새벽 · 유닛 · 레벨 6 · 일반 · 틀 `cut` R X `whitegold` · 프롬프트 n2 → `tools/art/inbox/A2-31 네 얼굴의 케루빔.png`
-
-```
-Landscape 5:4 painting. A wall cut away like a doll's house shows the inside of a white guard tower: a square central chamber with a low passage running off to each side. In the chamber stands a bulky four-winged guardian in gold-bronze plumage whose head has four faces — a lion's in profile watching the left passage, an eagle's watching the right, a calm human face toward us. In the right-hand passage a small cloaked figure creeps away and glances back, straight into the eagle's bright eye. Daylight falls in through the cut wall, pale and even on ivory stone; the passages darken toward their far ends.
-Colour: white and gold — sunlit ivory and soft pale gold (#ffe9a8), airy, with cool blue shadow.
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A2-31 네 얼굴의 케루빔.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
 ### PN-A2-C3 · 황혼 장벽 페가수스
 솔란테의 새벽 · 유닛 · 레벨 6 · 일반 · 틀 `close` L X `whitegold` · 프롬프트 n2 → `tools/art/inbox/PN-A2-C3 황혼 장벽 페가수스.png`
 
@@ -866,58 +515,6 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: PN-A2-C3 황혼 장벽 페가수스.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A2-33 · 대성당 색유리 수호자
-솔란테의 새벽 · 유닛 · 레벨 7 · 일반 · 틀 `far` F C `vigil` · 프롬프트 n2 → `tools/art/inbox/A2-33 대성당 색유리 수호자.png`
-
-```
-Landscape 5:4 painting. From the far end of a night-dark cathedral, looking down its whole length: at the other end stands a figure as tall as the vault, built from thousands of coloured glass panes and dark lead lines — a winged guardian holding a wing-shaped shield, facing us. It glows from within with stored daylight, like a lantern the size of a tower. A long crack runs across its breast, yet every pane beside the crack is as bright as the rest. At its ankles, a few night watchmen with lanterns are the size of its smallest panes. The figure's own held daylight throws soft jewel colours on the nearest pillars; the watchmen's lanterns are tiny warm points in the dark below.
-Colour: night vigil — darkness holding small warm flames with pale-gold (#ffe9a8) halos.
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A2-33 대성당 색유리 수호자.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A2-34 · 엘라드의 샛별
-솔란테의 새벽 · 유닛 · 레벨 7 · 일반 · 틀 `top` N C `rosedawn` · 프롬프트 n2 → `tools/art/inbox/A2-34 엘라드의 샛별.png`
-
-```
-Landscape 5:4 painting. Straight down from high above a walled courtyard at sunrise: a white-gold star with four long cross-shaped rays hangs over it, its rays reaching from wall to wall, a small luminous figure at its heart. Outside a wide circle beneath it, everything throws a long lilac dawn shadow — trees, a handcart, the well, three early risers. Inside the circle the same kinds of things stand on bare bright paving with their shadows simply missing. Low pink-gold sunrise from the right draws long lilac shadows everywhere except under the star, where the light is white and falls from straight above.
-Colour: rose dawn — pink-gold (#ffe9a8) cloud light and lilac shadows.
-Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A2-34 엘라드의 샛별.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A3-04 · 망루 부엉이
-벨루미르의 별 · 유닛 · 레벨 1 · 일반 · 틀 `close` L C `aurora` · 프롬프트 n2 → `tools/art/inbox/A3-04 망루 부엉이.png`
-
-```
-Landscape 5:4 painting. Tight close-up on a small round owl perched on a lookout parapet, its face filling the centre of the frame: indigo feathers dotted with silver points like a night sky, soft down ruffled by the wind, two huge gold eyes wide open and turned to the left. Beside it on the stone lie an old watchman's brass spyglass, lens cap still on, and a pair of wire spectacles. In each gold eye sits the same tiny reflection: a thin horizon line with one far spark of campfire. Deep night; slow teal-green and violet aurora ribbons overhead tint the feathers, and the eyes carry their own steady gold glow.
-Colour: aurora — teal-green (#9fe3d6) and violet ribbons of light over darkness.
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A3-04 망루 부엉이.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A3-05 · 바람 실프
-벨루미르의 별 · 유닛 · 레벨 1 · 일반 · 틀 `eye` R L `moonsilver` · 프롬프트 n2 → `tools/art/inbox/A3-05 바람 실프.png`
-
-```
-Landscape 5:4 painting. At eye level on a windswept plateau, as if crouched beside her: a small, slender wind spirit shaped like a half-transparent girl of moving air kneels behind a boulder in the left of the frame, looking right toward a far row of enemy tents. One airy hand counts on its fingers; in the turf at her knee stands her tally, small feathers stuck upright in groups of five. A sentry's torch is swinging her way, and her hair and legs have already unravelled into streaks of wind carrying leaves. A full moon behind thin cloud turns the grass and her body blue-silver; the small torch at the camp is the only warm point.
-Colour: moon silver — blue-silver monochrome under a full moon, sharp shadows, a breath of teal (#9fe3d6).
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A3-05 바람 실프.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### MA-07 · 치고 빠지기
@@ -957,19 +554,6 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: SA3-01 돌풍.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A3-09 · 바늘탑 조인 활잡이
-벨루미르의 별 · 유닛 · 레벨 2 · 일반 · 틀 `far` L L `duskrose` · 프롬프트 n2 → `tools/art/inbox/A3-09 바늘탑 조인 활잡이.png`
-
-```
-Landscape 5:4 painting. From far off, the sheer outer wall of a needle-thin stone tower rises through the left third of the frame, ringed by narrow wooden galleries, and on every gallery hangs one round straw target, a vertical row of them dwindling out of sight above and below. Small against the wall, a bird-headed archer with brown and white feathers glides down past them on half-open wings, pale-wood bow in hand, turned to the left toward the stone. Each target above carries a single arrow in its centre; the ones below wait clean. Sunset above the cloud sea: rose and peach light rakes the wall from the right, with deep teal shadow under each gallery.
-Colour: dusk above the clouds — rose and peach light with deep teal (#9fe3d6) shadows.
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A3-09 바늘탑 조인 활잡이.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### C2-1 · 견습 단궁
@@ -1063,45 +647,6 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SA3-04 시위 당기기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-13 · 폭풍 히포그리프
-벨루미르의 별 · 유닛 · 레벨 3 · 일반 · 틀 `profile` R X `duskrose` · 프롬프트 n2 → `tools/art/inbox/A3-13 폭풍 히포그리프.png`
-
-```
-Landscape 5:4 painting. A long flat side view under a low dark cloud ceiling: a hippogriff gallops through the air toward the right, eagle head and grey-white wings stretched forward, horse hindquarters and streaming tail behind, the whole animal spanning the middle of the frame. From its tail back to the left edge hangs a slanting veil of rain that ends exactly where the animal does. Below, a chalk road runs across the picture, dark and puddled behind it, white and dusty ahead, with a clean line between. Low evening sun slips under the cloud from the right, turning the dry road peach and the rain veil rose against teal shadow.
-Colour: dusk above the clouds — rose and peach light with deep teal (#9fe3d6) shadows.
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A3-13 폭풍 히포그리프.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A3-15 · 담비 저격수
-벨루미르의 별 · 유닛 · 레벨 3 · 일반 · 틀 `high` L C `stormcloud` · 프롬프트 n2 → `tools/art/inbox/A3-15 담비 저격수.png`
-
-```
-Landscape 5:4 painting. Looking down from above onto a narrow cliff ledge: a pine marten sniper kneels at the centre, lean and still, dark fur and short cloak blowing, a pale bib at its throat, a long elegant bow resting across its knee. A single arrow stands in its quiver. Its muzzle is lifted in a thin whistle. Far below it the canyon runs off to the left, planted with a line of ribbon poles, and the ribbons are swinging round one after another to point the same way, toward a small red gourd hung on a rope at the canyon's end. Flat grey-violet storm light with a silver drizzle hanging in the canyon; the ribbons are wind-teal and the gourd a single red point.
-Colour: storm cloud — grey-violet cloud and silver rain with wind-teal (#9fe3d6) gusts.
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A3-15 담비 저격수.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A3-41 · 고요의 구름고래
-벨루미르의 별 · 유닛 · 레벨 3 · 일반 · 틀 `cut` L C `thinair` · 프롬프트 n2 → `tools/art/inbox/A3-41 고요의 구름고래.png`
-
-```
-Landscape 5:4 painting. A cross-section through a whale made of cloud, swimming slowly to the left across the middle of a bright sky: the cut shows its soft billowing white hide as a thick rim and, inside, one great hollow of perfectly still air. Thin sharp streaks of wind slash in through its flank from outside and, once within, slow down, curl up and lie still. In the calm of the hollow a dropped feather hangs level and three small birds doze on a ledge of mist. Clear pale daylight all round; the whale's cloud glows white from within, and the tamed wind streaks show as soft teal.
-Colour: thin air — pale high-altitude daylight, white cloud and cool shadow, wind-teal (#9fe3d6) accents.
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A3-41 고요의 구름고래.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
 ### C3-1 · 폭풍의 활
 벨루미르의 별 · 아이템 · 레벨 3 · 일반 · 틀 `macro` N C `starindigo` · 프롬프트 n2 → `tools/art/inbox/C3-1 폭풍의 활.png`
 
@@ -1180,32 +725,6 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-A3-U1 별문자 부엉이.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-19 · 폭풍탑 조인 궁수
-벨루미르의 별 · 유닛 · 레벨 4 · 일반 · 틀 `silhouette` R C `moonsilver` · 프롬프트 n2 → `tools/art/inbox/A3-19 폭풍탑 조인 궁수.png`
-
-```
-Landscape 5:4 painting. Backlit against an enormous full moon, a rank of guild archers stands along a narrow stone causeway in clean black outline, all turned to the right: slim cloaked shapes with long ears, bows held upright, every chin lifted. In the centre of the row one outline differs: a crested feathered head with a hooked beak, wings folded along the arms, taloned feet gripping the stone. That beak is tilted a little higher than every chin beside it. The moon's disc behind them is the whole light, blue-silver, rimming feathers and bowstrings with a hair of white.
-Colour: moon silver — blue-silver monochrome under a full moon, sharp shadows, a breath of teal (#9fe3d6).
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A3-19 폭풍탑 조인 궁수.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A3-22 · 바람 타는 그리핀
-벨루미르의 별 · 유닛 · 레벨 4 · 일반 · 틀 `tilt` D R `aurora` · 프롬프트 n2 → `tools/art/inbox/A3-22 바람 타는 그리핀.png`
-
-```
-Landscape 5:4 painting. A steeply tilted frame, the horizon running corner to corner: in the right of the picture a griffin has just clapped its teal-grey wings shut and tips into a headfirst drop, golden beak down, tawny lion body stretched, golden foreclaws reaching. All around it the wind has stopped with the wings. Leaves, a paper kite and its string, thistle seeds and one of its own shed feathers hang motionless in the air where the gust left them, and far below the smoke of a single chimney stands in a perfectly straight column. Night, with teal-green and violet aurora ribbons behind the griffin; their glow edges the folded wings and each hanging seed.
-Colour: aurora — teal-green (#9fe3d6) and violet ribbons of light over darkness.
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A3-22 바람 타는 그리핀.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
 ### RA3-1 · 폭풍의 눈
 벨루미르의 별 · 공용 마법 · 레벨 4 · 일반 · 틀 `inside` N T `stormcloud` · 프롬프트 n2 → `tools/art/inbox/RA3-1 폭풍의 눈.png`
 
@@ -1230,149 +749,6 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: SA3-08 대폭풍.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A3-26 · 폭풍 사냥 히포그리프
-벨루미르의 별 · 유닛 · 레벨 5 · 일반 · 틀 `reflect` L B `stormcloud` · 프롬프트 n2 → `tools/art/inbox/A3-26 폭풍 사냥 히포그리프.png`
-
-```
-Landscape 5:4 painting. Low sun breaks through the storm and prints a shadow on the rain-slick rock of a mountain shelf, and the shadow is the picture: across the lower part of the frame lies the huge black shape of a hippogriff in a stoop toward the left, hooked beak open, wings spread, eagle talons reaching, horse hind legs and tail trailing. The shadow of its foreclaws has just closed over a running stag, the one solid creature in view, small at the left, legs stretched in full flight. Every puddle between them holds a piece of torn grey sky. One low shaft of pale sun from the right cuts under grey-violet storm cloud, silver-white on the wet stone, with rain still falling through it.
-Colour: storm cloud — grey-violet cloud and silver rain with wind-teal (#9fe3d6) gusts.
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A3-26 폭풍 사냥 히포그리프.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A3-28 · 별똥별 임프
-벨루미르의 별 · 유닛 · 레벨 5 · 일반 · 틀 `back` B L `starindigo` · 프롬프트 n2 → `tools/art/inbox/A3-28 별똥별 임프.png`
-
-```
-Landscape 5:4 painting. Close behind it: a gangly, child-sized imp made of white-hot sparks sits on the copper ball that tops a slender spire, in the left of the frame, legs dangling over the drop, small feathered wings folded, pointed ears pricked. Its back is to us and one thin arm is raised high, waving. Out in the huge sky it faces, a shooting star is crossing from right to left. The copper around its seat is dotted with small scorched rings, one for every night it has waited here. Clear indigo night crowded with stars; the imp's own glow warms the copper and trails a few sparks down the wind.
-Colour: star indigo — deep indigo night full of stars, wind-teal (#9fe3d6) streaks and silver.
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A3-28 별똥별 임프.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A3-29 · 활 당기는 사수자리
-벨루미르의 별 · 유닛 · 레벨 6 · 일반 · 틀 `under` R C `aurora` · 프롬프트 n2 → `tools/art/inbox/A3-29 활 당기는 사수자리.png`
-
-```
-Landscape 5:4 painting. From the bottom of a round observatory shaft, looking straight up through its open roof ring: the dark stone rim circles the frame, and the disc of sky inside is filled by one colossal archer made of stars, bright points joined by thin silver lines, half horse, half bowman, aimed toward the right. Its string has just been released, and a single star-arrow streaks from the bow. On the rim, tiny hooded heads peer up, and one small arm lifts a hoop of woven willow on a pole into the arrow's path. Teal-green and violet aurora ribbons ripple behind the star figure; the shaft walls below stay black with a faint green sheen.
-Colour: aurora — teal-green (#9fe3d6) and violet ribbons of light over darkness.
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A3-29 활 당기는 사수자리.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A3-30 · 폭풍 송골매
-벨루미르의 별 · 유닛 · 레벨 6 · 일반 · 틀 `eye` F C `thinair` · 프롬프트 n2 → `tools/art/inbox/A3-30 폭풍 송골매.png`
-
-```
-Landscape 5:4 painting. In a long archers' hall, at eye level down the length of the table: a falcon as tall as a man perches on the carved back of the head chair at the centre, facing us, slate-grey wings folded, white barred breast, yellow talons sunk in the wood, sharp eyes half-lidded. Along both sides, hooded guild members seen from behind hold out strips of meat on the tips of arrows. Through the tall open window behind the bird, a thunderhead waits close against the sill like a tethered horse. Pale high daylight pours through the window around the dark cloud, backlighting the falcon's shoulders and leaving the table in cool shade.
-Colour: thin air — pale high-altitude daylight, white cloud and cool shadow, wind-teal (#9fe3d6) accents.
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A3-30 폭풍 송골매.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A3-31 · 파편 군도의 명궁
-벨루미르의 별 · 유닛 · 레벨 6 · 일반 · 틀 `ground` F R `duskrose` · 프롬프트 n2 → `tools/art/inbox/A3-31 파편 군도의 명궁.png`
-
-```
-Landscape 5:4 painting. Camera on the turf of a small floating rock island, looking through a thicket of old arrows stuck in the ground at every angle, a hundred years of misses, shafts weathered silver, fletching rotted to threads. Beyond them, in the right of the frame, a tall weather-beaten mountain goat archer faces us, grey-streaked beard, swept-back horns worn smooth, a wool cloak over worn grey-green leathers, unstringing a plain pale-wood longbow. Behind his shoulder, on a neighbouring shard of rock adrift in the wind, a single dead pine holds one arrow in the exact middle of a knot. Dusk above the clouds: peach light from the left on his face and the old shafts, deep teal shadow pooling between the arrows.
-Colour: dusk above the clouds — rose and peach light with deep teal (#9fe3d6) shadows.
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A3-31 파편 군도의 명궁.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A3-32 · 회오리 텐구
-벨루미르의 별 · 유닛 · 레벨 6 · 일반 · 틀 `over` L C `thinair` · 프롬프트 n2 → `tools/art/inbox/A3-32 회오리 텐구.png`
-
-```
-Landscape 5:4 painting. Over the broad black-feathered shoulder of a towering tengu, whose crow beak and one glossy wing edge the right foreground: he has already lowered his lacquered bow and is idly scratching his neck with a fan of storm feathers. Ahead of him, receding to the left across a dry salt flat, three whirlwinds stand in a perfect row, each as tall as a watchtower, and each has a neat round hole punched through its waist. One thin vapour line runs through all three holes, and a shepherd's hut beside the nearest shows their size. Hard pale daylight at altitude under a thin white sky; the whirlwinds are bright dust columns with cool blue shadow down one side.
-Colour: thin air — pale high-altitude daylight, white cloud and cool shadow, wind-teal (#9fe3d6) accents.
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A3-32 회오리 텐구.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A3-33 · 별을 겨누는 자
-벨루미르의 별 · 유닛 · 레벨 7 · 일반 · 틀 `profile` U X `duskrose` · 프롬프트 n2 → `tools/art/inbox/A3-33 별을 겨누는 자.png`
-
-```
-Landscape 5:4 painting. A flat side view of the evening sky above a sea of cloud. From a torn hole in the cloud deck at the lower left, a white-hot streak climbs on a long diagonal to the upper right: a shooting star going the wrong way, its small blazing head leading, its tail of sparks spanning the entire frame and still dragging wisps of cloud upward. Along the bottom edge the tips of a few stone spires poke through the cloud, tiny beside it. Just ahead of its head, one early star has dimmed inside a faint ring. Rose and peach afterglow along the cloud tops, deep teal above; the streak is the brightest thing in the sky and whitens the rim of the cloud hole.
-Colour: dusk above the clouds — rose and peach light with deep teal (#9fe3d6) shadows.
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A3-33 별을 겨누는 자.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A3-35 · 하늘 찢는 로크
-벨루미르의 별 · 유닛 · 레벨 7 · 일반 · 틀 `high` R C `thinair` · 프롬프트 n2 → `tools/art/inbox/A3-35 하늘 찢는 로크.png`
-
-```
-Landscape 5:4 painting. High above a white sea of cloud, looking down on the back of a colossal bird in the centre of the frame: brown-grey wings spread so wide that a drifting sky-island with a watchtower fits beneath one wingtip, horn-coloured hooked beak pointed to the right. Behind it the cloud sea is split by one long straight cut, a canyon torn open in its wake all the way to the left edge, and at the bottom of the cut lie dark blue fields and a thread of river. Bright thin sunlight from the upper left; the cloud is dazzling white, the cut is cool blue shadow, and each great feather throws its own edge.
-Colour: thin air — pale high-altitude daylight, white cloud and cool shadow, wind-teal (#9fe3d6) accents.
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A3-35 하늘 찢는 로크.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### A3-36 · 폭풍탑 탑주
-벨루미르의 별 · 유닛 · 레벨 7 · 일반 · 틀 `back` B L `starindigo` · 프롬프트 n2 → `tools/art/inbox/A3-36 폭풍탑 탑주.png`
-
-```
-Landscape 5:4 painting. Seen from behind, in the left of the frame: a very tall giant whose body is grey storm cloud, shoulders trailing mist under a short wind-blown cloak, stands before the immense bronze door of a tower and turns a silver key as long as a forearm in its lock. Across his back hangs the oldest bow in the place, unstrung, its dark wood worn pale at the grip by many hands. Two small hooded apprentices wait at his knee, sharing one lantern and one yawn. Starry indigo night above the door; the apprentices' lantern throws warm light up the bronze and silvers the edge of the old bow.
-Colour: star indigo — deep indigo night full of stars, wind-teal (#9fe3d6) streaks and silver.
-Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: A3-36 폭풍탑 탑주.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### B1-02 · 화약 짐꾼
-도르마크의 심장불 · 유닛 · 레벨 1 · 일반 · 틀 `high` L T `ashfall` · 프롬프트 n2 → `tools/art/inbox/B1-02 화약 짐꾼.png`
-
-```
-Landscape 5:4 painting. Looking steeply down a stair hacked into a grey cliff: near the top of the frame a small soot-grey mule climbs leftward under two bulging powder sacks roped across its back, a load twice its own bulk, long ears flattened, one ember-rimmed hoof testing the next worn step. The rock face drops away beneath it through drifting ash to the bottom of the frame, where a hair-thin thread of lava glows in the gorge. A dislodged pebble hangs in the air below its hind hoof. Flat overcast noon, shadowless and pale; the distant lava thread is the only colour in the whole drop.
-Colour: ashfall — pale ash-grey and bone-white, muted, with one fierce accent of fire-orange (#ff6b3d).
-Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: B1-02 화약 짐꾼.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### B1-05 · 불꽃 임프
-도르마크의 심장불 · 유닛 · 레벨 1 · 일반 · 틀 `tilt` R L `brassglow` · 프롬프트 n2 → `tools/art/inbox/B1-05 불꽃 임프.png`
-
-```
-Landscape 5:4 painting. A tilted, lurching frame catches a knee-high imp of living flame in mid-hop at the lower left, cinder-black body cracked with glowing seams, whip tail of fire lashing as it bounds toward the right and glances back with a cheeky ember-eyed grin. Behind it the bristles of a straw broom sweep in from the left edge, already singed and smoking. Beyond stands a heavy iron-banded door, firmly shut. Warm lamplight from a caged lantern on the wall; the imp itself throws a second, flickering glow across the floorboards.
-Colour: furnace warmth — brass, copper and amber tones in sooty brown gloom, fire-orange (#ff6b3d) at the heart.
-Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: B1-05 불꽃 임프.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### HB1-1 · 탄약고 기습
@@ -1438,32 +814,6 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: SB1-03 불의 장막.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### B1-08 · 연막 정령
-도르마크의 심장불 · 유닛 · 레벨 2 · 일반 · 틀 `pov` F C `ember` · 프롬프트 n2 → `tools/art/inbox/B1-08 연막 정령.png`
-
-```
-Landscape 5:4 painting. First-person view from behind a shield rim: the viewer's own gloved hand presses a rag to the mouth at the bottom edge, and straight ahead, a few paces off, a body of thick gunpowder smoke as tall as a doorway drifts closer over churned ground. A vague grin opens in it, embers wink deep inside like slow eyes, and two long wispy arms unroll toward the cough. Night after a cannonade; the only light is the dull orange of the embers buried inside the smoke, glinting on the shield rim.
-Colour: embers in the dark — near-black and soot-brown, with small fierce glows of fire-orange (#ff6b3d).
-Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: B1-08 연막 정령.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### B1-10 · 포르탄 불개
-도르마크의 심장불 · 유닛 · 레벨 2 · 일반 · 틀 `ground` L R `ember` · 프롬프트 n2 → `tools/art/inbox/B1-10 포르탄 불개.png`
-
-```
-Landscape 5:4 painting. Ground-level view across wet cobblestones beneath a raised iron portcullis: a lean wolf-sized hound with smouldering ember-red fur lies on the right, chin on its soot-black paws, eyes fixed leftward on a pair of muddy boots striding past in the blurred foreground. Its half-open jaws leak a coal-red glow, and each breath lifts a curl of smoke toward the dark gate arch above. The only light is the hound's own glowing throat and fur tips, warming the cobbles and the iron teeth of the gate from below.
-Colour: embers in the dark — near-black and soot-brown, with small fierce glows of fire-orange (#ff6b3d).
-Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: B1-10 포르탄 불개.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### IB1-1 · 화승총 개머리판
@@ -1542,32 +892,6 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: PN-B1-C1 새끼 살라만더.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### B1-14 · 녹철 불원숭이
-도르마크의 심장불 · 유닛 · 레벨 3 · 일반 · 틀 `through` F L `magmadusk` · 프롬프트 n2 → `tools/art/inbox/B1-14 녹철 불원숭이.png`
-
-```
-Landscape 5:4 painting. Through a narrow notch between two rust-red boulders in the foreground we glimpse a wiry soot-dark monkey wedged deep in a crevice on the left, almost entirely hidden: one bright eye, a flattened crest of flame on its head, and a long arm cocked back with a red-hot pebble aimed straight at us. Three earlier stones lie cooling from orange to grey on the gravel just inside the gap. Dusk in the rusty hills, wine-dark and dim; the pebble and the pinched crest glow against the shadowed rock.
-Colour: magma dusk — wine-red and violet-brown gloom glowing fire-orange (#ff6b3d) from below.
-Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: B1-14 녹철 불원숭이.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### B1-16 · 잿너구리 폭파공
-도르마크의 심장불 · 유닛 · 레벨 3 · 일반 · 틀 `macro` N C `brassglow` · 프롬프트 n2 → `tools/art/inbox/B1-16 잿너구리 폭파공.png`
-
-```
-Landscape 5:4 painting. Extreme close-up of two soot-black raccoon paws at work on a workbench: long nimble fingers with small dark claws stretch a fuse cord along a stick cut with plain notches, a small knife already resting on the exact notch. A masked grey muzzle with singed whiskers and the tip of a ringed tail intrude at the top corner. Pushed aside behind the paws lies an abacus with its beads in a hopeless tangle, beside a bundle of charge sticks. A single oil lamp just out of frame throws warm amber light across the knuckles and the brass ferrule of the knife.
-Colour: furnace warmth — brass, copper and amber tones in sooty brown gloom, fire-orange (#ff6b3d) at the heart.
-Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: B1-16 잿너구리 폭파공.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### IB1-3 · 나팔 산탄총
@@ -4105,7 +3429,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-36 샘물의 만조.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 47장
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 99장
 
 ### A1-02 · 그림자 도둑 — 그림 있음
 모르카스의 그믐 · 유닛 · 레벨 1 · 일반 · 틀 `inside` L R `candle` · 프롬프트 n2 → `tools/art/inbox/A1-02 그림자 도둑.png`
@@ -4185,6 +3509,32 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: HA1-2 손끝 저주.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### A1-07 · 그림자 도플갱어 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 2 · 일반 · 틀 `over` R X `bonepale` · 프롬프트 n2 → `tools/art/inbox/A1-07 그림자 도플갱어.png`
+
+```
+Landscape 5:4 painting. Over the shoulder of a cloaked traveller whose hood and raised lantern fill the right foreground: facing him from the left of a narrow canyon path, turned toward the right, stands his own likeness, only half finished. One half already wears his cloak, his beard, his startled look; the other half is still smooth, blank grey wax with a rippling mirror sheen and a hand whose five fingers are all the same length. Thin wisps of shadow run between the two like thread drawn off a spool. The lantern's pale flame drains the scene to bone-white and ash-grey, with one violet glimmer deep in the copy's unfinished eye.
+Colour: bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A1-07 그림자 도플갱어.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A1-08 · 계약의 서큐버스 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 2 · 일반 · 틀 `close` L L `eclipse` · 프롬프트 n2 → `tools/art/inbox/A1-08 계약의 서큐버스.png`
+
+```
+Landscape 5:4 painting. Tight close-up at the left of the frame: a slender horned temptress in dark velvet, seen from the collarbone up and turned three-quarters toward the left, smiling with closed lips. Her thin tail curls up beside her cheek, its tip a gold quill nib beaded with ink, and she holds a rolled, ribbon-tied parchment against her chin like a finger asking for silence. Behind her, soft and out of focus, a sleeper's open hand lies on a pillow with a small balance-scale mark glowing on the palm. A thin cold rim of light traces her horns, cheek and one bat-wing edge from behind; her face stays in violet shadow.
+Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A1-08 계약의 서큐버스.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### A1-09 · 모르크 그림자 거미 — 그림 있음
 모르카스의 그믐 · 유닛 · 레벨 2 · 일반 · 틀 `under` R X `eclipse` · 프롬프트 n2 → `tools/art/inbox/A1-09 모르크 그림자 거미.png`
 
@@ -4224,6 +3574,19 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-15 피를 마시는 칼.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### A1-17 · 모르카스의 밴시 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 3 · 일반 · 틀 `over` B L `frostindigo` · 프롬프트 n2 → `tools/art/inbox/A1-17 모르카스의 밴시.png`
+
+```
+Landscape 5:4 painting. Close behind her and looking past her shoulder: a floating woman-spirit with long white hair and a tattered translucent gown hovers at the left of the frame, facing away from us toward a heavy house door at the right. Her head is thrown back, and the iron knocker, the lantern beside it and the frost on the step all tremble in rings spreading from her unseen mouth. Under the door a line of warm light shows two pairs of feet standing very still inside. Blue-violet frost-light outside, her hair and gown glowing like tarnished silver; the only warmth is the thin strip under the door.
+Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A1-17 모르카스의 밴시.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### A1-18 · 그림자 송곳니 — 그림 있음
 모르카스의 그믐 · 유닛 · 레벨 3 · 일반 · 틀 `reflect` L R `bonepale` · 프롬프트 n2 → `tools/art/inbox/A1-18 그림자 송곳니.png`
 
@@ -4237,6 +3600,19 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-18 그림자 송곳니.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### A1-21 · 피의 라미아 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 4 · 일반 · 틀 `through` R L `bloodink` · 프롬프트 n2 → `tools/art/inbox/A1-21 피의 라미아.png`
+
+```
+Landscape 5:4 painting. Glimpsed through the low gap beneath a stone altar slab: a pale woman's torso on thick dark-crimson snake coils lies curled in the hollow at the left, facing right, red slit eyes fixed on a row of tiny glass measures. Through a drain hole in the slab, single red drops fall into the last measure, and she slides one bead along a counting cord for each. The glass stands a finger short of its mark, and the tip of her tail is already sliding out toward a pair of kneeling knees at the right edge. A little candle-glow leaks down through the drain hole and catches the falling drops; her gold armlets and scales glint crimson in near-black shadow.
+Colour: blood and ink — black and deep crimson with a thread of violet (#8b5cf6).
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A1-21 피의 라미아.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### A1-23 · 계약 수확 사신 — 그림 있음
 모르카스의 그믐 · 유닛 · 레벨 4 · 일반 · 틀 `back` B B `bloodink` · 프롬프트 n2 → `tools/art/inbox/A1-23 계약 수확 사신.png`
 
@@ -4248,6 +3624,201 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: A1-23 계약 수확 사신.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A1-24 · 달 없는 늑대인간 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 4 · 일반 · 틀 `high` L T `eclipse` · 프롬프트 n2 → `tools/art/inbox/A1-24 달 없는 늑대인간.png`
+
+```
+Landscape 5:4 painting. From high above, looking straight down into a round stone well in a bare courtyard: its still black water lies in the middle of the frame like a dark moon inside a pale rim. On the upper edge of the well a hulking black-furred werewolf crouches, turned to the left, one clawed hand braced on the stones, the torn sleeves of a shirt still hanging from its huge shoulders. Its wolf head bends over the water, where the reflected sky is crowded with stars around one round patch of pure black. Starlight only, under a moonless sky: a thin cold rim on the well's edge, on wet fur and claws; the rest is black and violet haze.
+Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A1-24 달 없는 늑대인간.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A1-42 · 흑요 갑주 해골 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 4 · 일반 · 틀 `front` F X `frostindigo` · 프롬프트 n2 → `tools/art/inbox/A1-42 흑요 갑주 해골.png`
+
+```
+Landscape 5:4 painting. Dead-on and symmetrical: a suit of heavy black obsidian plate stands in a narrow canyon gateway and fills it from wall to wall, a tall slab of black stone planted before it as a shield. Rain is falling hard. It runs in at the armour's open collar and pours straight out again at the elbows, the hips and the knees in thin steady streams. Through a chipped gap in the breastplate show a few bleached ribs and the dark hollow behind them, and in the visor slit two violet lights look straight at us. Cold blue-violet night rain; the wet stone plates shine like tarnished silver and the two eye-lights glow steadily behind the falling water.
+Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A1-42 흑요 갑주 해골.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A1-25 · 장막의 삼두견 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 5 · 일반 · 틀 `tilt` R C `violetshade` · 프롬프트 n2 → `tools/art/inbox/A1-25 장막의 삼두견.png`
+
+```
+Landscape 5:4 painting. Tilted frame, caught as it surges to its feet: a broad black hound the size of an ox, three heads on three spiked iron collars, fills the centre and faces right toward a hanging wall of darkness from which a small cloaked traveller has just stepped. Each head asks its own question: the lowest pushes its muzzle against his empty scabbard, the middle one snuffs at his open, bare hands, and the highest strains toward his hood, nostrils wide. Broken chains swing from the collars and violet embers drip from three sets of jaws. Purple-black gloom; six burning violet eyes and the dripping embers are the light, edging muzzles, collar spikes and the traveller's cloak.
+Colour: violet shade — purple-black gloom with luminous violet (#8b5cf6) edges.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A1-25 장막의 삼두견.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A1-28 · 찢기지 않는 계약서 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 5 · 일반 · 틀 `ground` F C `frostindigo` · 프롬프트 n2 → `tools/art/inbox/A1-28 찢기지 않는 계약서.png`
+
+```
+Landscape 5:4 painting. Camera on the cold flagstones of an archive aisle between towering shelves. In the centre a parchment scroll as tall as a doorway stands on its own lower coil and sways toward us like a hooded snake, its curled edges hooked like claws, three red wax seals staring from its face like eyes. Its loose end has unrolled along the floor to our feet like a tongue. On it kneels a small clerk, his shears dropped beside him, a ribbon knotted round his wrist, his quill touching a single glowing red line. Blue-violet archive dusk with frost on the stones; the one red line glows and the seals gleam like tarnished coins.
+Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A1-28 찢기지 않는 계약서.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A1-29 · 심연의 어둑시니 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 6 · 일반 · 틀 `eye` B L `candle` · 프롬프트 n2 → `tools/art/inbox/A1-29 심연의 어둑시니.png`
+
+```
+Landscape 5:4 painting. At eye level on a street cut into the canyon wall: a towering shape of gathered darkness in a long ash-grey mantle strides away from us down the left side of the frame, its shoulders higher than the iron lamp posts, its head lost in the dark above them. The three lamps nearest us are dark, each trailing a thread of smoke, and the one beside its shoulder is shrinking to a red wick as it passes. Far ahead the lamps still burn in a warm row, and small townsfolk hurry indoors and pull their shutters closed. Amber lamp pools ahead of it and black street behind; a faint violet glow leaks from the hem of its mantle.
+Colour: candle islands — small pools of amber light in vast dark, violet (#8b5cf6) in the shadows.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A1-29 심연의 어둑시니.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A1-30 · 모르카스의 칼 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 6 · 일반 · 틀 `profile` L L `frostindigo` · 프롬프트 n2 → `tools/art/inbox/A1-30 모르카스의 칼.png`
+
+```
+Landscape 5:4 painting. Strict side view, flat as a frieze, along a frozen avenue: a black greatsword as long as a tall man glides leftward on its own at shoulder height, point first, at the left of the frame. A closed eye is carved on its guard, the cracked leather grip is worn into the shape of four fingers, and an empty sword-belt trails from the hilt, its buckle scoring the frost. Behind it, to the right, a bronze statue of a swordsman has been cut through at the waist, and its upper half is only now beginning to slide. Moonless blue-violet night; frost glitters like tarnished silver, and a thin red smoke along the blade's edge is the one warm colour.
+Colour: indigo frost — cold blue-violet (#8b5cf6) night air and tarnished silver.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A1-30 모르카스의 칼.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A1-32 · 저주 군단의 리치 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 6 · 일반 · 틀 `close` F C `bonepale` · 프롬프트 n2 → `tools/art/inbox/A1-32 저주 군단의 리치.png`
+
+```
+Landscape 5:4 painting. Tight on the head and shoulders, face-on in the centre: a yellowed skull under a dented iron crown, violet flames standing in both eye sockets, the frayed collar of a rotted robe around bare neck bones. Tied to one collarbone by a faded ribbon hang a blank brass archive tag and a blob of dark sealing wax, like the claim ticket for something left in safekeeping. One finger-bone is raised beside the jaw, pointing forward. Behind him, soft and grey, an endless column of the dead marches past in step, rank after rank into the mist. Flat ash-grey overcast drains bone, robe and marchers to one pale tone; the two violet eye-flames are the single colour.
+Colour: bone pale — ash-grey and bone-white drained of colour, with one violet (#8b5cf6) glow.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A1-32 저주 군단의 리치.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A1-43 · 감긴 눈의 저울 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 6 · 일반 · 틀 `low` N C `violetshade` · 프롬프트 n2 → `tools/art/inbox/A1-43 감긴 눈의 저울.png`
+
+```
+Landscape 5:4 painting. From its foot, looking up: a balance of tarnished black bronze rises like a gate tower, its pillar climbing the centre of the frame to a great beam carved with one closed eye. The pan on the right hangs low over us, stacked as neatly as a merchant's weights with the blows it has taken: rows of arrowheads, snapped sword tips, a mace head. The pan on the left brims with dense shadow that spills over its rim like smoke. A spent arrow still quivers in the pillar, and at the plinth a small axeman, knee-high to it, backs away. Purple-black gloom under a moonless sky; luminous violet edges the beam, the chains and the lid of the carved eye.
+Colour: violet shade — purple-black gloom with luminous violet (#8b5cf6) edges.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A1-43 감긴 눈의 저울.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A1-34 · 대가의 집행자 — 그림 있음
+모르카스의 그믐 · 유닛 · 레벨 7 · 일반 · 틀 `far` R L `eclipse` · 프롬프트 n2 → `tools/art/inbox/A1-34 대가의 집행자.png`
+
+```
+Landscape 5:4 painting. Far off across the rooftops of a sleeping canyon town: at the left a robed figure three houses tall stands in the street, its head a smooth blank oval, heavy chains wound across its chest and a spiked iron weight hanging from one fist. With its other hand it has lifted the whole tiled roof off a narrow house, as one lifts the lid of a pot, and it bends to the right to look inside. In the opened attic a tiny man crouches under a table beside one lit candle. Along the street every shutter is closed tight. A thin cold band of light along the canyon rim behind outlines the oval head, the lifted roof and the chimneys; the town is silhouette in violet haze.
+Colour: eclipse — a thin cold rim of light with everything else in silhouette, violet (#8b5cf6) haze.
+Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A1-34 대가의 집행자.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A2-03 · 새벽 종다리 떼 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 1 · 일반 · 틀 `silhouette` R R `firstlight` · 프롬프트 n2 → `tools/art/inbox/A2-03 새벽 종다리 떼.png`
+
+```
+Landscape 5:4 painting. Backlit against the first thin band of dawn, a row of small larks perches along the teeth of a battlement — black shapes with beaks wide open in song, all facing right toward the coming sun. One bird in the right of the frame still sleeps, head tucked under its wing, and in the sky exactly behind it a notch of night lingers, darker than the rest. Pale gold light rises from below the wall line; everything in front of it is clean black silhouette under a blue-grey sky.
+Colour: first light — cool blue-grey before dawn with a low band of pale gold (#ffe9a8).
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A2-03 새벽 종다리 떼.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A2-04 · 솜털 새끼 비둘기 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 1 · 일반 · 틀 `eye` L C `rosedawn` · 프롬프트 n2 → `tools/art/inbox/A2-04 솜털 새끼 비둘기.png`
+
+```
+Landscape 5:4 painting. At eye level on a garden stair, a white dove fledgling has tripped on the worn top step and hangs in mid-tumble, stubby wings flung forward to the left, pink feet in the air — only three or four true feathers showing among the down on each wing. Under the chick a soft pane of warm light has slid out across the stones like a cushion and holds it a hand's breadth above the steps. Low pink-gold morning light slants across the garden from the left, with lilac shadow under the stair and the hedges.
+Colour: rose dawn — pink-gold (#ffe9a8) cloud light and lilac shadows.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A2-04 솜털 새끼 비둘기.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A2-05 · 문장 독수리 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 1 · 일반 · 틀 `back` B R `rosedawn` · 프롬프트 n2 → `tools/art/inbox/A2-05 문장 독수리.png`
+
+```
+Landscape 5:4 painting. From just behind a white eagle perched on an upturned helmet in the right foreground: its gold-edged wings are half open in a stiff, symmetrical crest pose, and it looks away from us at a great white banner hanging in the hall beyond. There, among the embroidered sun-rays, an eagle-shaped patch of bare unfaded linen and loose gold threads shows exactly where it used to be. Rose-gold dawn comes through the cloth from behind, so the empty patch glows brighter than the stitched parts around it.
+Colour: rose dawn — pink-gold (#ffe9a8) cloud light and lilac shadows.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A2-05 문장 독수리.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A2-06 · 떠도는 후광 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 1 · 일반 · 틀 `ground` L C `firstlight` · 프롬프트 n2 → `tools/art/inbox/A2-06 떠도는 후광.png`
+
+```
+Landscape 5:4 painting. Camera down in wet roadside grass, looking up a pilgrim road lined with knee-high stone saints in little niches. Over the nearest saint's bald stone head hovers a plain ring of golden light, far too wide for it and tilted like an oversized hat, already sliding off to the left toward the next statue in the row. Faint sparks trail from it and bead on the grass blades in the foreground. Blue-grey hour before sunrise; the ring is the warmest thing in sight and gilds the stone head beneath it.
+Colour: first light — cool blue-grey before dawn with a low band of pale gold (#ffe9a8).
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A2-06 떠도는 후광.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A2-07 · 맹세의 발키리 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 2 · 일반 · 틀 `profile` L R `whitegold` · 프롬프트 n2 → `tools/art/inbox/A2-07 맹세의 발키리.png`
+
+```
+Landscape 5:4 painting. Strict side view, flat as a carved frieze, along the rail of a narrow stone bridge: at the right a winged shieldmaiden in gold scale armour drops out of the sky feet-first, great white wings swept straight up, her round wood-and-gold shield thrust out to the left. It meets a falling axe-blade that enters from the left edge, a hand's width above a young spearman who has slipped to one knee beneath it. Her spear is still held upright, unused. High clear morning sun from behind the viewer, flat and bright on white stone and feathers, with thin blue shadows.
+Colour: white and gold — sunlit ivory and soft pale gold (#ffe9a8), airy, with cool blue shadow.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A2-07 맹세의 발키리.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A2-09 · 새벽 수탉 수호병 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 2 · 일반 · 틀 `over` F C `glare` · 프롬프트 n2 → `tools/art/inbox/A2-09 새벽 수탉 수호병.png`
+
+```
+Landscape 5:4 painting. Over the dark, spiked shoulder of an advancing attacker in the near foreground: a line of the citadel's spearmen stands in blinding morning light. Dead centre in the front rank is the plainest of them — a young white rooster guard with a small red comb, an undecorated helmet a little too big for him and a spear with a mended shaft held under one wing — feet planted, looking straight at us. Behind him rise the taller plumes and gilded crests of every higher rank. The sun stands directly behind the line, burning its edges white and turning the attacker's shoulder into a black shape.
+Colour: holy glare — blinding white-gold (#ffe9a8) light with dark shapes in front of it.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A2-09 새벽 수탉 수호병.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### A2-11 · 어린 유니콘 — 그림 있음
@@ -4289,6 +3860,19 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-15 솔란테의 맹세자.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### A2-16 · 새벽 순찰 사자 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 3 · 일반 · 틀 `back` R R `firstlight` · 프롬프트 n2 → `tools/art/inbox/A2-16 새벽 순찰 사자.png`
+
+```
+Landscape 5:4 painting. From behind a great golden lion as it pads away up a ridge of plateau grass toward the upper right, tail low, mane spread like a fan of rays. Everything ahead of it is the blackest hour of night. Behind it, running from the bottom-left corner of the frame up to its hind paws, the strip of grass it has already walked glows soft gold, as if morning had arrived there first. The sun is still below the horizon; only the glowing track and the lion's mane light the scene, under a blue-black sky with one pale line at its edge.
+Colour: first light — cool blue-grey before dawn with a low band of pale gold (#ffe9a8).
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A2-16 새벽 순찰 사자.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### A2-17 · 진실을 묻는 스핑크스 — 그림 있음
 솔란테의 새벽 · 유닛 · 레벨 3 · 일반 · 틀 `high` L C `whitegold` · 프롬프트 n2 → `tools/art/inbox/A2-17 진실을 묻는 스핑크스.png`
 
@@ -4300,6 +3884,32 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: A2-17 진실을 묻는 스핑크스.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A2-20 · 알바트로스 날개기사 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 4 · 일반 · 틀 `high` L R `firstlight` · 프롬프트 n2 → `tools/art/inbox/A2-20 알바트로스 날개기사.png`
+
+```
+Landscape 5:4 painting. Seen from high on the keep above: a great white albatross in a knight's breastplate stands at the right of a wide stair landing with both wings spread to their full span and curved forward like a roof. From this height the wings are two long white blades, black at the tips, and under their trailing feathers the helmets of a dozen smaller comrades are still ducking in, the last one running. A sword rides at its side, still deep in its scabbard, and its head is turned left, counting them. Grey-blue half-light before sunrise; a low gold band at the horizon catches only the upper edges of the feathers.
+Colour: first light — cool blue-grey before dawn with a low band of pale gold (#ffe9a8).
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A2-20 알바트로스 날개기사.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A2-21 · 맹세를 지키는 백조 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 4 · 일반 · 틀 `under` F T `rosedawn` · 프롬프트 n2 → `tools/art/inbox/A2-21 맹세를 지키는 백조.png`
+
+```
+Landscape 5:4 painting. From under the surface of a clear cloister pond, looking up: the broad white belly of a great swan floats overhead in the upper part of the frame, riding low in the water, black webbed feet paddling slowly. From beneath both folded wings hang dozens of knotted cords, each ending in a small gold ring or a wax-sealed token, trailing down into the water like roots. Its long neck curves down through the surface and one calm eye regards us. Pink-gold dawn sky shimmers through the rippled surface above the swan, and the hanging rings catch it as they turn in lilac water.
+Colour: rose dawn — pink-gold (#ffe9a8) cloud light and lilac shadows.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A2-21 맹세를 지키는 백조.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### A2-22 · 새벽을 울리는 성종 — 그림 있음
@@ -4328,6 +3938,136 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-24 빛을 되비추는 거울.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### A2-27 · 새벽 유니콘 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 5 · 일반 · 틀 `far` L R `rosedawn` · 프롬프트 n2 → `tools/art/inbox/A2-27 새벽 유니콘.png`
+
+```
+Landscape 5:4 painting. Far across a wide plateau at sunrise, a white unicorn gallops along the crest of a long ridge from right to left, small against the sky. The rising sun sits exactly on its back like a rider, so that horse and sun seem to travel together. Ahead of it, down on the darker plain at the far left, one tiny horseman is fleeing, and the unicorn's horn burns as a single needle of light aimed at him. The sun is the only light, low and pink-gold behind the ridge; long lilac shadows run toward the viewer across the grass.
+Colour: rose dawn — pink-gold (#ffe9a8) cloud light and lilac shadows.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A2-27 새벽 유니콘.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A2-28 · 광장의 성자상 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 5 · 일반 · 틀 `silhouette` R L `glare` · 프롬프트 n2 → `tools/art/inbox/A2-28 광장의 성자상.png`
+
+```
+Landscape 5:4 painting. Against a blazing morning sky, a larger-than-life stone saint strides to the right across an open plaza, left of centre, one heavy foot just lifted, robes carved in stiff folds, its blessing hand now closed into a fist. Along its shoulders and on its bald head sits a row of pigeons, riding calmly; one flaps to keep its balance. At the far left stands the empty plinth it stepped down from, with a few pigeons still waiting on it. The sun is directly behind the figure, so statue, birds and plinth are dark shapes rimmed in white-gold glare.
+Colour: holy glare — blinding white-gold (#ffe9a8) light with dark shapes in front of it.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A2-28 광장의 성자상.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A2-29 · 새벽성 발키리 대장 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 6 · 일반 · 틀 `macro` R T `whitegold` · 프롬프트 n2 → `tools/art/inbox/A2-29 새벽성 발키리 대장.png`
+
+```
+Landscape 5:4 painting. Extreme close-up of a weathered hand in a dented gold gauntlet, coming in from the top of the frame, cutting one more small half-sun notch into a block of white wall-stone with the butt-spike of a spear. The stone, and every stone around it to the edges of the picture, is already crowded with hundreds of the same little notches, the oldest worn almost smooth. A single white feather, greyed at the tip, has drifted into the corner. Raking early sun from the left makes every notch a small crisp shadow in the pale stone.
+Colour: white and gold — sunlit ivory and soft pale gold (#ffe9a8), airy, with cool blue shadow.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A2-29 새벽성 발키리 대장.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A2-30 · 새벽 삼족오 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 6 · 일반 · 틀 `profile` L C `vigil` · 프롬프트 n2 → `tools/art/inbox/A2-30 새벽 삼족오.png`
+
+```
+Landscape 5:4 painting. Painted like a figure on a wall, in pure profile: a great three-legged crow of gold fire stands facing left in a snow-covered orchard, one burning wing folded across its breast, the other spread wide behind. Tucked against the folded wing, a small night sentry has fallen asleep on his feet, cheek resting in the flames, cloak and hair untouched; a sparrow roosts on one blazing feather above him, and the snow around the three clawed feet lies unmelted. Winter night; the wings are the only light, a steady gold glow that warms the sleeper's face and fades a few paces out across the snow.
+Colour: night vigil — darkness holding small warm flames with pale-gold (#ffe9a8) halos.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A2-30 새벽 삼족오.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A2-31 · 네 얼굴의 케루빔 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 6 · 일반 · 틀 `cut` R X `whitegold` · 프롬프트 n2 → `tools/art/inbox/A2-31 네 얼굴의 케루빔.png`
+
+```
+Landscape 5:4 painting. A wall cut away like a doll's house shows the inside of a white guard tower: a square central chamber with a low passage running off to each side. In the chamber stands a bulky four-winged guardian in gold-bronze plumage whose head has four faces — a lion's in profile watching the left passage, an eagle's watching the right, a calm human face toward us. In the right-hand passage a small cloaked figure creeps away and glances back, straight into the eagle's bright eye. Daylight falls in through the cut wall, pale and even on ivory stone; the passages darken toward their far ends.
+Colour: white and gold — sunlit ivory and soft pale gold (#ffe9a8), airy, with cool blue shadow.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A2-31 네 얼굴의 케루빔.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A2-33 · 대성당 색유리 수호자 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 7 · 일반 · 틀 `far` F C `vigil` · 프롬프트 n2 → `tools/art/inbox/A2-33 대성당 색유리 수호자.png`
+
+```
+Landscape 5:4 painting. From the far end of a night-dark cathedral, looking down its whole length: at the other end stands a figure as tall as the vault, built from thousands of coloured glass panes and dark lead lines — a winged guardian holding a wing-shaped shield, facing us. It glows from within with stored daylight, like a lantern the size of a tower. A long crack runs across its breast, yet every pane beside the crack is as bright as the rest. At its ankles, a few night watchmen with lanterns are the size of its smallest panes. The figure's own held daylight throws soft jewel colours on the nearest pillars; the watchmen's lanterns are tiny warm points in the dark below.
+Colour: night vigil — darkness holding small warm flames with pale-gold (#ffe9a8) halos.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A2-33 대성당 색유리 수호자.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A2-34 · 엘라드의 샛별 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 7 · 일반 · 틀 `top` N C `rosedawn` · 프롬프트 n2 → `tools/art/inbox/A2-34 엘라드의 샛별.png`
+
+```
+Landscape 5:4 painting. Straight down from high above a walled courtyard at sunrise: a white-gold star with four long cross-shaped rays hangs over it, its rays reaching from wall to wall, a small luminous figure at its heart. Outside a wide circle beneath it, everything throws a long lilac dawn shadow — trees, a handcart, the well, three early risers. Inside the circle the same kinds of things stand on bare bright paving with their shadows simply missing. Low pink-gold sunrise from the right draws long lilac shadows everywhere except under the star, where the light is white and falls from straight above.
+Colour: rose dawn — pink-gold (#ffe9a8) cloud light and lilac shadows.
+Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A2-34 엘라드의 샛별.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A3-04 · 망루 부엉이 — 그림 있음
+벨루미르의 별 · 유닛 · 레벨 1 · 일반 · 틀 `close` L C `aurora` · 프롬프트 n2 → `tools/art/inbox/A3-04 망루 부엉이.png`
+
+```
+Landscape 5:4 painting. Tight close-up on a small round owl perched on a lookout parapet, its face filling the centre of the frame: indigo feathers dotted with silver points like a night sky, soft down ruffled by the wind, two huge gold eyes wide open and turned to the left. Beside it on the stone lie an old watchman's brass spyglass, lens cap still on, and a pair of wire spectacles. In each gold eye sits the same tiny reflection: a thin horizon line with one far spark of campfire. Deep night; slow teal-green and violet aurora ribbons overhead tint the feathers, and the eyes carry their own steady gold glow.
+Colour: aurora — teal-green (#9fe3d6) and violet ribbons of light over darkness.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A3-04 망루 부엉이.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A3-05 · 바람 실프 — 그림 있음
+벨루미르의 별 · 유닛 · 레벨 1 · 일반 · 틀 `eye` R L `moonsilver` · 프롬프트 n2 → `tools/art/inbox/A3-05 바람 실프.png`
+
+```
+Landscape 5:4 painting. At eye level on a windswept plateau, as if crouched beside her: a small, slender wind spirit shaped like a half-transparent girl of moving air kneels behind a boulder in the left of the frame, looking right toward a far row of enemy tents. One airy hand counts on its fingers; in the turf at her knee stands her tally, small feathers stuck upright in groups of five. A sentry's torch is swinging her way, and her hair and legs have already unravelled into streaks of wind carrying leaves. A full moon behind thin cloud turns the grass and her body blue-silver; the small torch at the camp is the only warm point.
+Colour: moon silver — blue-silver monochrome under a full moon, sharp shadows, a breath of teal (#9fe3d6).
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A3-05 바람 실프.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A3-09 · 바늘탑 조인 활잡이 — 그림 있음
+벨루미르의 별 · 유닛 · 레벨 2 · 일반 · 틀 `far` L L `duskrose` · 프롬프트 n2 → `tools/art/inbox/A3-09 바늘탑 조인 활잡이.png`
+
+```
+Landscape 5:4 painting. From far off, the sheer outer wall of a needle-thin stone tower rises through the left third of the frame, ringed by narrow wooden galleries, and on every gallery hangs one round straw target, a vertical row of them dwindling out of sight above and below. Small against the wall, a bird-headed archer with brown and white feathers glides down past them on half-open wings, pale-wood bow in hand, turned to the left toward the stone. Each target above carries a single arrow in its centre; the ones below wait clean. Sunset above the cloud sea: rose and peach light rakes the wall from the right, with deep teal shadow under each gallery.
+Colour: dusk above the clouds — rose and peach light with deep teal (#9fe3d6) shadows.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A3-09 바늘탑 조인 활잡이.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### A3-10 · 깃화살 하피 — 그림 있음
 벨루미르의 별 · 유닛 · 레벨 2 · 일반 · 틀 `eye` B R `moonsilver` · 프롬프트 n2 → `tools/art/inbox/A3-10 깃화살 하피.png`
 
@@ -4354,6 +4094,32 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-11 새끼 그리핀.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### A3-13 · 폭풍 히포그리프 — 그림 있음
+벨루미르의 별 · 유닛 · 레벨 3 · 일반 · 틀 `profile` R X `duskrose` · 프롬프트 n2 → `tools/art/inbox/A3-13 폭풍 히포그리프.png`
+
+```
+Landscape 5:4 painting. A long flat side view under a low dark cloud ceiling: a hippogriff gallops through the air toward the right, eagle head and grey-white wings stretched forward, horse hindquarters and streaming tail behind, the whole animal spanning the middle of the frame. From its tail back to the left edge hangs a slanting veil of rain that ends exactly where the animal does. Below, a chalk road runs across the picture, dark and puddled behind it, white and dusty ahead, with a clean line between. Low evening sun slips under the cloud from the right, turning the dry road peach and the rain veil rose against teal shadow.
+Colour: dusk above the clouds — rose and peach light with deep teal (#9fe3d6) shadows.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A3-13 폭풍 히포그리프.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A3-15 · 담비 저격수 — 그림 있음
+벨루미르의 별 · 유닛 · 레벨 3 · 일반 · 틀 `high` L C `stormcloud` · 프롬프트 n2 → `tools/art/inbox/A3-15 담비 저격수.png`
+
+```
+Landscape 5:4 painting. Looking down from above onto a narrow cliff ledge: a pine marten sniper kneels at the centre, lean and still, dark fur and short cloak blowing, a pale bib at its throat, a long elegant bow resting across its knee. A single arrow stands in its quiver. Its muzzle is lifted in a thin whistle. Far below it the canyon runs off to the left, planted with a line of ribbon poles, and the ribbons are swinging round one after another to point the same way, toward a small red gourd hung on a rope at the canyon's end. Flat grey-violet storm light with a silver drizzle hanging in the canyon; the ribbons are wind-teal and the gourd a single red point.
+Colour: storm cloud — grey-violet cloud and silver rain with wind-teal (#9fe3d6) gusts.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A3-15 담비 저격수.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### A3-18 · 쌍둥이자리 궁수 — 그림 있음
 벨루미르의 별 · 유닛 · 레벨 3 · 일반 · 틀 `front` F X `starindigo` · 프롬프트 n2 → `tools/art/inbox/A3-18 쌍둥이자리 궁수.png`
 
@@ -4365,6 +4131,45 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: A3-18 쌍둥이자리 궁수.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A3-41 · 고요의 구름고래 — 그림 있음
+벨루미르의 별 · 유닛 · 레벨 3 · 일반 · 틀 `cut` L C `thinair` · 프롬프트 n2 → `tools/art/inbox/A3-41 고요의 구름고래.png`
+
+```
+Landscape 5:4 painting. A cross-section through a whale made of cloud, swimming slowly to the left across the middle of a bright sky: the cut shows its soft billowing white hide as a thick rim and, inside, one great hollow of perfectly still air. Thin sharp streaks of wind slash in through its flank from outside and, once within, slow down, curl up and lie still. In the calm of the hollow a dropped feather hangs level and three small birds doze on a ledge of mist. Clear pale daylight all round; the whale's cloud glows white from within, and the tamed wind streaks show as soft teal.
+Colour: thin air — pale high-altitude daylight, white cloud and cool shadow, wind-teal (#9fe3d6) accents.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A3-41 고요의 구름고래.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A3-19 · 폭풍탑 조인 궁수 — 그림 있음
+벨루미르의 별 · 유닛 · 레벨 4 · 일반 · 틀 `silhouette` R C `moonsilver` · 프롬프트 n2 → `tools/art/inbox/A3-19 폭풍탑 조인 궁수.png`
+
+```
+Landscape 5:4 painting. Backlit against an enormous full moon, a rank of guild archers stands along a narrow stone causeway in clean black outline, all turned to the right: slim cloaked shapes with long ears, bows held upright, every chin lifted. In the centre of the row one outline differs: a crested feathered head with a hooked beak, wings folded along the arms, taloned feet gripping the stone. That beak is tilted a little higher than every chin beside it. The moon's disc behind them is the whole light, blue-silver, rimming feathers and bowstrings with a hair of white.
+Colour: moon silver — blue-silver monochrome under a full moon, sharp shadows, a breath of teal (#9fe3d6).
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A3-19 폭풍탑 조인 궁수.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A3-22 · 바람 타는 그리핀 — 그림 있음
+벨루미르의 별 · 유닛 · 레벨 4 · 일반 · 틀 `tilt` D R `aurora` · 프롬프트 n2 → `tools/art/inbox/A3-22 바람 타는 그리핀.png`
+
+```
+Landscape 5:4 painting. A steeply tilted frame, the horizon running corner to corner: in the right of the picture a griffin has just clapped its teal-grey wings shut and tips into a headfirst drop, golden beak down, tawny lion body stretched, golden foreclaws reaching. All around it the wind has stopped with the wings. Leaves, a paper kite and its string, thistle seeds and one of its own shed feathers hang motionless in the air where the gust left them, and far below the smoke of a single chimney stands in a perfectly straight column. Night, with teal-green and violet aurora ribbons behind the griffin; their glow edges the folded wings and each hanging seed.
+Colour: aurora — teal-green (#9fe3d6) and violet ribbons of light over darkness.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A3-22 바람 타는 그리핀.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### A3-23 · 벨루미르의 별여우 — 그림 있음
@@ -4393,6 +4198,175 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-24 번개 화살 텐구.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### A3-26 · 폭풍 사냥 히포그리프 — 그림 있음
+벨루미르의 별 · 유닛 · 레벨 5 · 일반 · 틀 `reflect` L B `stormcloud` · 프롬프트 n2 → `tools/art/inbox/A3-26 폭풍 사냥 히포그리프.png`
+
+```
+Landscape 5:4 painting. Low sun breaks through the storm and prints a shadow on the rain-slick rock of a mountain shelf, and the shadow is the picture: across the lower part of the frame lies the huge black shape of a hippogriff in a stoop toward the left, hooked beak open, wings spread, eagle talons reaching, horse hind legs and tail trailing. The shadow of its foreclaws has just closed over a running stag, the one solid creature in view, small at the left, legs stretched in full flight. Every puddle between them holds a piece of torn grey sky. One low shaft of pale sun from the right cuts under grey-violet storm cloud, silver-white on the wet stone, with rain still falling through it.
+Colour: storm cloud — grey-violet cloud and silver rain with wind-teal (#9fe3d6) gusts.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A3-26 폭풍 사냥 히포그리프.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A3-28 · 별똥별 임프 — 그림 있음
+벨루미르의 별 · 유닛 · 레벨 5 · 일반 · 틀 `back` B L `starindigo` · 프롬프트 n2 → `tools/art/inbox/A3-28 별똥별 임프.png`
+
+```
+Landscape 5:4 painting. Close behind it: a gangly, child-sized imp made of white-hot sparks sits on the copper ball that tops a slender spire, in the left of the frame, legs dangling over the drop, small feathered wings folded, pointed ears pricked. Its back is to us and one thin arm is raised high, waving. Out in the huge sky it faces, a shooting star is crossing from right to left. The copper around its seat is dotted with small scorched rings, one for every night it has waited here. Clear indigo night crowded with stars; the imp's own glow warms the copper and trails a few sparks down the wind.
+Colour: star indigo — deep indigo night full of stars, wind-teal (#9fe3d6) streaks and silver.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A3-28 별똥별 임프.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A3-29 · 활 당기는 사수자리 — 그림 있음
+벨루미르의 별 · 유닛 · 레벨 6 · 일반 · 틀 `under` R C `aurora` · 프롬프트 n2 → `tools/art/inbox/A3-29 활 당기는 사수자리.png`
+
+```
+Landscape 5:4 painting. From the bottom of a round observatory shaft, looking straight up through its open roof ring: the dark stone rim circles the frame, and the disc of sky inside is filled by one colossal archer made of stars, bright points joined by thin silver lines, half horse, half bowman, aimed toward the right. Its string has just been released, and a single star-arrow streaks from the bow. On the rim, tiny hooded heads peer up, and one small arm lifts a hoop of woven willow on a pole into the arrow's path. Teal-green and violet aurora ribbons ripple behind the star figure; the shaft walls below stay black with a faint green sheen.
+Colour: aurora — teal-green (#9fe3d6) and violet ribbons of light over darkness.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A3-29 활 당기는 사수자리.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A3-30 · 폭풍 송골매 — 그림 있음
+벨루미르의 별 · 유닛 · 레벨 6 · 일반 · 틀 `eye` F C `thinair` · 프롬프트 n2 → `tools/art/inbox/A3-30 폭풍 송골매.png`
+
+```
+Landscape 5:4 painting. In a long archers' hall, at eye level down the length of the table: a falcon as tall as a man perches on the carved back of the head chair at the centre, facing us, slate-grey wings folded, white barred breast, yellow talons sunk in the wood, sharp eyes half-lidded. Along both sides, hooded guild members seen from behind hold out strips of meat on the tips of arrows. Through the tall open window behind the bird, a thunderhead waits close against the sill like a tethered horse. Pale high daylight pours through the window around the dark cloud, backlighting the falcon's shoulders and leaving the table in cool shade.
+Colour: thin air — pale high-altitude daylight, white cloud and cool shadow, wind-teal (#9fe3d6) accents.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A3-30 폭풍 송골매.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A3-31 · 파편 군도의 명궁 — 그림 있음
+벨루미르의 별 · 유닛 · 레벨 6 · 일반 · 틀 `ground` F R `duskrose` · 프롬프트 n2 → `tools/art/inbox/A3-31 파편 군도의 명궁.png`
+
+```
+Landscape 5:4 painting. Camera on the turf of a small floating rock island, looking through a thicket of old arrows stuck in the ground at every angle, a hundred years of misses, shafts weathered silver, fletching rotted to threads. Beyond them, in the right of the frame, a tall weather-beaten mountain goat archer faces us, grey-streaked beard, swept-back horns worn smooth, a wool cloak over worn grey-green leathers, unstringing a plain pale-wood longbow. Behind his shoulder, on a neighbouring shard of rock adrift in the wind, a single dead pine holds one arrow in the exact middle of a knot. Dusk above the clouds: peach light from the left on his face and the old shafts, deep teal shadow pooling between the arrows.
+Colour: dusk above the clouds — rose and peach light with deep teal (#9fe3d6) shadows.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A3-31 파편 군도의 명궁.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A3-32 · 회오리 텐구 — 그림 있음
+벨루미르의 별 · 유닛 · 레벨 6 · 일반 · 틀 `over` L C `thinair` · 프롬프트 n2 → `tools/art/inbox/A3-32 회오리 텐구.png`
+
+```
+Landscape 5:4 painting. Over the broad black-feathered shoulder of a towering tengu, whose crow beak and one glossy wing edge the right foreground: he has already lowered his lacquered bow and is idly scratching his neck with a fan of storm feathers. Ahead of him, receding to the left across a dry salt flat, three whirlwinds stand in a perfect row, each as tall as a watchtower, and each has a neat round hole punched through its waist. One thin vapour line runs through all three holes, and a shepherd's hut beside the nearest shows their size. Hard pale daylight at altitude under a thin white sky; the whirlwinds are bright dust columns with cool blue shadow down one side.
+Colour: thin air — pale high-altitude daylight, white cloud and cool shadow, wind-teal (#9fe3d6) accents.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A3-32 회오리 텐구.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A3-33 · 별을 겨누는 자 — 그림 있음
+벨루미르의 별 · 유닛 · 레벨 7 · 일반 · 틀 `profile` U X `duskrose` · 프롬프트 n2 → `tools/art/inbox/A3-33 별을 겨누는 자.png`
+
+```
+Landscape 5:4 painting. A flat side view of the evening sky above a sea of cloud. From a torn hole in the cloud deck at the lower left, a white-hot streak climbs on a long diagonal to the upper right: a shooting star going the wrong way, its small blazing head leading, its tail of sparks spanning the entire frame and still dragging wisps of cloud upward. Along the bottom edge the tips of a few stone spires poke through the cloud, tiny beside it. Just ahead of its head, one early star has dimmed inside a faint ring. Rose and peach afterglow along the cloud tops, deep teal above; the streak is the brightest thing in the sky and whitens the rim of the cloud hole.
+Colour: dusk above the clouds — rose and peach light with deep teal (#9fe3d6) shadows.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A3-33 별을 겨누는 자.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A3-35 · 하늘 찢는 로크 — 그림 있음
+벨루미르의 별 · 유닛 · 레벨 7 · 일반 · 틀 `high` R C `thinair` · 프롬프트 n2 → `tools/art/inbox/A3-35 하늘 찢는 로크.png`
+
+```
+Landscape 5:4 painting. High above a white sea of cloud, looking down on the back of a colossal bird in the centre of the frame: brown-grey wings spread so wide that a drifting sky-island with a watchtower fits beneath one wingtip, horn-coloured hooked beak pointed to the right. Behind it the cloud sea is split by one long straight cut, a canyon torn open in its wake all the way to the left edge, and at the bottom of the cut lie dark blue fields and a thread of river. Bright thin sunlight from the upper left; the cloud is dazzling white, the cut is cool blue shadow, and each great feather throws its own edge.
+Colour: thin air — pale high-altitude daylight, white cloud and cool shadow, wind-teal (#9fe3d6) accents.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A3-35 하늘 찢는 로크.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### A3-36 · 폭풍탑 탑주 — 그림 있음
+벨루미르의 별 · 유닛 · 레벨 7 · 일반 · 틀 `back` B L `starindigo` · 프롬프트 n2 → `tools/art/inbox/A3-36 폭풍탑 탑주.png`
+
+```
+Landscape 5:4 painting. Seen from behind, in the left of the frame: a very tall giant whose body is grey storm cloud, shoulders trailing mist under a short wind-blown cloak, stands before the immense bronze door of a tower and turns a silver key as long as a forearm in its lock. Across his back hangs the oldest bow in the place, unstrung, its dark wood worn pale at the grip by many hands. Two small hooded apprentices wait at his knee, sharing one lantern and one yawn. Starry indigo night above the door; the apprentices' lantern throws warm light up the bronze and silvers the edge of the old bow.
+Colour: star indigo — deep indigo night full of stars, wind-teal (#9fe3d6) streaks and silver.
+Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: A3-36 폭풍탑 탑주.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### B1-02 · 화약 짐꾼 — 그림 있음
+도르마크의 심장불 · 유닛 · 레벨 1 · 일반 · 틀 `high` L T `ashfall` · 프롬프트 n2 → `tools/art/inbox/B1-02 화약 짐꾼.png`
+
+```
+Landscape 5:4 painting. Looking steeply down a stair hacked into a grey cliff: near the top of the frame a small soot-grey mule climbs leftward under two bulging powder sacks roped across its back, a load twice its own bulk, long ears flattened, one ember-rimmed hoof testing the next worn step. The rock face drops away beneath it through drifting ash to the bottom of the frame, where a hair-thin thread of lava glows in the gorge. A dislodged pebble hangs in the air below its hind hoof. Flat overcast noon, shadowless and pale; the distant lava thread is the only colour in the whole drop.
+Colour: ashfall — pale ash-grey and bone-white, muted, with one fierce accent of fire-orange (#ff6b3d).
+Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: B1-02 화약 짐꾼.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### B1-05 · 불꽃 임프 — 그림 있음
+도르마크의 심장불 · 유닛 · 레벨 1 · 일반 · 틀 `tilt` R L `brassglow` · 프롬프트 n2 → `tools/art/inbox/B1-05 불꽃 임프.png`
+
+```
+Landscape 5:4 painting. A tilted, lurching frame catches a knee-high imp of living flame in mid-hop at the lower left, cinder-black body cracked with glowing seams, whip tail of fire lashing as it bounds toward the right and glances back with a cheeky ember-eyed grin. Behind it the bristles of a straw broom sweep in from the left edge, already singed and smoking. Beyond stands a heavy iron-banded door, firmly shut. Warm lamplight from a caged lantern on the wall; the imp itself throws a second, flickering glow across the floorboards.
+Colour: furnace warmth — brass, copper and amber tones in sooty brown gloom, fire-orange (#ff6b3d) at the heart.
+Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: B1-05 불꽃 임프.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### B1-08 · 연막 정령 — 그림 있음
+도르마크의 심장불 · 유닛 · 레벨 2 · 일반 · 틀 `pov` F C `ember` · 프롬프트 n2 → `tools/art/inbox/B1-08 연막 정령.png`
+
+```
+Landscape 5:4 painting. First-person view from behind a shield rim: the viewer's own gloved hand presses a rag to the mouth at the bottom edge, and straight ahead, a few paces off, a body of thick gunpowder smoke as tall as a doorway drifts closer over churned ground. A vague grin opens in it, embers wink deep inside like slow eyes, and two long wispy arms unroll toward the cough. Night after a cannonade; the only light is the dull orange of the embers buried inside the smoke, glinting on the shield rim.
+Colour: embers in the dark — near-black and soot-brown, with small fierce glows of fire-orange (#ff6b3d).
+Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: B1-08 연막 정령.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### B1-10 · 포르탄 불개 — 그림 있음
+도르마크의 심장불 · 유닛 · 레벨 2 · 일반 · 틀 `ground` L R `ember` · 프롬프트 n2 → `tools/art/inbox/B1-10 포르탄 불개.png`
+
+```
+Landscape 5:4 painting. Ground-level view across wet cobblestones beneath a raised iron portcullis: a lean wolf-sized hound with smouldering ember-red fur lies on the right, chin on its soot-black paws, eyes fixed leftward on a pair of muddy boots striding past in the blurred foreground. Its half-open jaws leak a coal-red glow, and each breath lifts a curl of smoke toward the dark gate arch above. The only light is the hound's own glowing throat and fur tips, warming the cobbles and the iron teeth of the gate from below.
+Colour: embers in the dark — near-black and soot-brown, with small fierce glows of fire-orange (#ff6b3d).
+Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: B1-10 포르탄 불개.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### B1-12 · 화서 무리 — 그림 있음
 도르마크의 심장불 · 유닛 · 레벨 2 · 일반 · 틀 `swarm` L X `whitehot` · 프롬프트 n2 → `tools/art/inbox/B1-12 화서 무리.png`
 
@@ -4404,6 +4378,32 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: B1-12 화서 무리.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### B1-14 · 녹철 불원숭이 — 그림 있음
+도르마크의 심장불 · 유닛 · 레벨 3 · 일반 · 틀 `through` F L `magmadusk` · 프롬프트 n2 → `tools/art/inbox/B1-14 녹철 불원숭이.png`
+
+```
+Landscape 5:4 painting. Through a narrow notch between two rust-red boulders in the foreground we glimpse a wiry soot-dark monkey wedged deep in a crevice on the left, almost entirely hidden: one bright eye, a flattened crest of flame on its head, and a long arm cocked back with a red-hot pebble aimed straight at us. Three earlier stones lie cooling from orange to grey on the gravel just inside the gap. Dusk in the rusty hills, wine-dark and dim; the pebble and the pinched crest glow against the shadowed rock.
+Colour: magma dusk — wine-red and violet-brown gloom glowing fire-orange (#ff6b3d) from below.
+Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: B1-14 녹철 불원숭이.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### B1-16 · 잿너구리 폭파공 — 그림 있음
+도르마크의 심장불 · 유닛 · 레벨 3 · 일반 · 틀 `macro` N C `brassglow` · 프롬프트 n2 → `tools/art/inbox/B1-16 잿너구리 폭파공.png`
+
+```
+Landscape 5:4 painting. Extreme close-up of two soot-black raccoon paws at work on a workbench: long nimble fingers with small dark claws stretch a fuse cord along a stick cut with plain notches, a small knife already resting on the exact notch. A masked grey muzzle with singed whiskers and the tip of a ringed tail intrude at the top corner. Pushed aside behind the paws lies an abacus with its beads in a hopeless tangle, beside a bundle of charge sticks. A single oil lamp just out of frame throws warm amber light across the knuckles and the brass ferrule of the knife.
+Colour: furnace warmth — brass, copper and amber tones in sooty brown gloom, fire-orange (#ff6b3d) at the heart.
+Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: B1-16 잿너구리 폭파공.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### B1-17 · 포대 거북 — 그림 있음
