@@ -40,6 +40,7 @@ const DB_FILE = path.join(DATA_DIR, "db.json");
 const CONFIG_FILE = path.join(__dirname, "config.json");
 const WEB_PAGES = ["index.html", "privacy.html", "terms.html"];   // 맨 위 폴더에서 내주는 문서
 const WEB_DIRS = ["css", "js", "img", "audio", "fonts"];   // tools/android/build_apk.py의 WEB_DIRS와 같게 (게임 파일만 내준다)
+const WEB_SKIP = ["audio/inbox", "audio/sfx_gpt_preview", "audio/sfx/preview_v395", "img/ui/src"].map(p => p.split("/").join(path.sep));   // 2026-11-25 게임에서 안 쓰는 원본 · 미리듣기 (build_apk.py SKIP_DIRS와 같게)
 
 /* ---------- 설정 (처음 실행 때 config.json을 만든다) ---------- */
 /* v3.45.2 관리자 암호는 공개 코드에 적힌 값을 쓰지 않는다 — 처음 켤 때 아무도 모르는 암호를 만들어 config.json에만 적는다(화면에 찍지 않음).
@@ -147,7 +148,8 @@ const LIMITS = {
   loginFail: { n: 10, ms: 15 * 60e3 },        // 같은 주소에서 암호 틀림 10번 → 15분 쉼
   loginFailId: { n: 20, ms: 15 * 60e3 },      // 같은 이름에 여러 주소에서 20번 → 15분 쉼 (남의 이름을 일부러 잠그기 어렵게 넉넉히)
   register: { n: 3, ms: 24 * 3600e3, local: 30 },   // 같은 주소에서 하루 새 모험가 3명
-  guest: { n: 10, ms: 3600e3, local: 60 }     // 같은 주소에서 한 시간 필멸자 10명
+  guest: { n: 10, ms: 3600e3, local: 60 },    // 같은 주소에서 한 시간 필멸자 10명
+  api: { n: 300, ms: 60e3 }                   // 2026-11-25 로그인한 요청(ops · trade · me …): 한 로그인에 1분 300번
 };
 Object.assign(LIMITS, AUTH_LIMITS);   // 메일 코드 요청 · 틀림 (server/auth.js)
 if (CFG.codeGapSec != null) LIMITS.codeGap.ms = Math.max(0, +CFG.codeGapSec || 0) * 1000;   // 같은 주소로 코드를 다시 받기까지(기본 60초) — 시험용으로 줄일 수 있다
@@ -241,10 +243,12 @@ function snapshot(u) {
 }
 
 /* ---------- 계정 ---------- */
+const NAME_RE = /^[\p{L}\p{N}\p{M} _\-·.]+$/u;   // 2026-11-25 새 이름에 쓸 수 있는 글자 (< > " ' & 따위는 뺌)
 const GUEST_RE = /^(손님|필멸자)/;   // v3.53 새 계정은 필멸자·XXXX, 예전 손님·XXXX도 그대로
 function register(b, ip) {
   const id = String(b.id || "").trim();
   if (GUEST_RE.test(id)) return { ok: false, msg: "이 이름은 쓸 수 없습니다." };
+  if (!NAME_RE.test(id)) return { ok: false, msg: "이름에는 글자 · 숫자 · 띄어쓰기와 _ - · . 만 쓸 수 있습니다." };   // 2026-11-25 이름이 남의 화면에 HTML로 들어가는 길을 미리 막음 (예전 계정은 그대로)
   /* v3.27 이메일 표(ticket: 메일 코드로 확인한 주소) · 암호(8자 이상, 이메일이 있으면 비워도 됨) · 동의 — server/auth.js */
   const chk = AUTH.registerCheck(b, id);
   if (chk.msg) return { ok: false, msg: chk.msg };
@@ -325,11 +329,18 @@ const PROTECTED = new Set(["uid", "email", "agree", "account", "seen", "adult", 
 /* v3.45 PC · 폰 동시 접속: 기기는 바뀐 칸만 보낸다(patch) — 서버는 그 칸만 고치고, 기기가 지운 칸(drop)만 지운다.
    예전엔 기기가 가진 칸 전체로 통째로 바꿔서, 한 기기의 옛 사본(순례 · 원정 진행)이 다른 기기의 새 진행을 덮었다.
    patch를 모르는 예전 기기(이미 깐 PC 앱)는 칸 전체를 보내므로 덮어쓰기만 하고 지우지는 않는다. */
+const SOFT_MAX_KEYS = 200, SOFT_MAX_BYTES = 1000000;   // 모험가 한 명의 기기 칸: 200개 · 1MB까지
 const SOFT_BAD = new Set(["__proto__", "constructor", "prototype", "pw", "email"]);
 function softUpdate(u, a) {
   const fields = (a && a.fields && typeof a.fields === "object") ? a.fields : {};
   if (JSON.stringify(fields).length > 300000) return { ok: false, msg: "너무 큽니다." };
   const okKey = k => !PROTECTED.has(k) && !SOFT_BAD.has(k);
+  /* 2026-11-25 기기가 정하는 칸 전체에 상한 — 새 칸 이름으로 계속 보내 db.json을 끝없이 키우는 것을 막는다 */
+  const next = {};
+  for (const k of Object.keys(u)) if (okKey(k)) next[k] = u[k];
+  if (a && a.patch) for (const k of (Array.isArray(a.drop) ? a.drop : [])) if (okKey(k)) delete next[k];
+  for (const k of Object.keys(fields)) if (okKey(k)) next[k] = fields[k];
+  if (Object.keys(next).length > SOFT_MAX_KEYS || JSON.stringify(next).length > SOFT_MAX_BYTES) { log("막음", u.id, "soft 칸이 너무 큼"); return { ok: false, msg: "저장할 칸이 너무 큽니다." }; }
   if (a && a.patch) for (const k of (Array.isArray(a.drop) ? a.drop : [])) if (okKey(k)) delete u[k];
   for (const k of Object.keys(fields)) if (okKey(k)) u[k] = fields[k];
   for (const id of (a.freshDrop || [])) if (u.fresh) delete u.fresh[id];
@@ -504,6 +515,11 @@ function cors(res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  /* 2026-11-25 보안 머리: 내용 종류 추측 막기 · 다른 사이트의 iframe에 넣기 막기 · 주소 새는 것 줄이기 */
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("X-Frame-Options", "SAMEORIGIN");
+  res.setHeader("Content-Security-Policy", "frame-ancestors 'self'; object-src 'none'; base-uri 'self'");
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
 }
 function send(res, code, obj) {
   const body = JSON.stringify(obj);
@@ -526,11 +542,17 @@ function serveFile(req, res, urlPath) {
   const norm = path.normalize(rel).replace(/^[/\\]+/, "");
   const top = norm.split(/[/\\]/)[0];
   if (!WEB_PAGES.includes(norm) && !WEB_DIRS.includes(top)) { res.writeHead(404); return res.end("Not found"); }
+  if (WEB_SKIP.some(d => norm === d || norm.startsWith(d + path.sep))) { res.writeHead(404); return res.end("Not found"); }
   const full = path.join(ROOT, norm);
   if (!full.startsWith(ROOT + path.sep)) { res.writeHead(403); return res.end(); }
   fs.stat(full, (err, st) => {
     if (err || !st.isFile()) { res.writeHead(404); return res.end("Not found"); }
-    res.writeHead(200, { "Content-Type": MIME[path.extname(full).toLowerCase()] || "application/octet-stream", "Content-Length": st.size, "Cache-Control": "no-cache" });
+    /* 2026-11-25 ETag · Last-Modified: 브라우저가 "바뀌었나?"만 묻고(304) 같으면 다시 받지 않는다 (no-cache는 늘 묻기) */
+    const etag = `"${st.size.toString(36)}-${Math.floor(st.mtimeMs).toString(36)}"`, lm = st.mtime.toUTCString();
+    const head = { "Cache-Control": "no-cache", "ETag": etag, "Last-Modified": lm };
+    const inm = req.headers["if-none-match"], ims = req.headers["if-modified-since"];
+    if (inm ? inm.split(",").some(t => t.trim() === etag) : ims && Date.parse(ims) >= Math.floor(st.mtimeMs / 1000) * 1000) { res.writeHead(304, head); return res.end(); }
+    res.writeHead(200, Object.assign({ "Content-Type": MIME[path.extname(full).toLowerCase()] || "application/octet-stream", "Content-Length": st.size }, head));
     if (req.method === "HEAD") return res.end();
     fs.createReadStream(full).pipe(res);
   });
@@ -559,6 +581,8 @@ const server = http.createServer(async (req, res) => {
     const sess = sessionOf(req);
     if (!sess) return send(res, 401, { ok: false, auth: false, msg: "로그인이 필요합니다. (서버의 세션이 끝났습니다)" });
     if (sess.u.admin && !adminPlaceOk(req)) return send(res, 403, { ok: false, msg: "관리자는 이 주소에서 쓸 수 없습니다." });   // v3.45.2 adminFrom: "tailnet" — 관리자 토큰이 바깥에서 쓰이면 거절
+    if (limited("api", sess.key)) return send(res, 429, { ok: false, msg: "요청이 너무 잦습니다. 잠시 뒤에 다시 해 주세요." });
+    hit("api", sess.key);
     current = sess.u;
     if (route === "/api/logout" && req.method === "POST") { delete db.sessions[sess.key]; markDirty(); log("나감", sess.u.id); return send(res, 200, { ok: true }); }
     if (route === "/api/me") return send(res, 200, Object.assign({ ok: true }, snapshot(sess.u)));
@@ -569,7 +593,7 @@ const server = http.createServer(async (req, res) => {
     return send(res, 404, { ok: false, msg: "없는 주소입니다." });
   } catch (e) {
     console.error(e);
-    return send(res, 500, { ok: false, msg: "서버 오류: " + e.message });
+    return send(res, 500, { ok: false, msg: "서버에서 문제가 생겼습니다. 잠시 뒤에 다시 해 주세요." });   // 2026-11-25 자세한 내용은 서버 기록에만
   } finally { current = null; }
 });
 

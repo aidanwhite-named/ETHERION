@@ -18,6 +18,9 @@ process.on("message", async job => {
   } catch (e) {
     out.error = String(e && e.message || e).slice(0, 200);
   }
-  process.send(out);
+  say(out);
 });
-process.send({ ready: true });
+/* 2026-11-25 서버(부모)가 먼저 꺼졌으면 보내지 않고 조용히 끝낸다 — 예전엔 EPIPE로 일꾼이 오류를 내며 죽었다 */
+function say(msg) { if (process.connected) process.send(msg, e => { if (e) process.exit(0); }); else process.exit(0); }
+process.on("disconnect", () => process.exit(0));
+say({ ready: true });

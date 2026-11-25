@@ -1,6 +1,6 @@
 /* ETHERION v3.10 — 온라인 대전 (친구와 두 기기에서)
    - 서버 없이 두 브라우저를 바로 잇는다(WebRTC). 처음 서로를 찾는 일만 PeerJS의 공개 중계(0.peerjs.com)를 빌린다.
-     PeerJS 스크립트는 처음 온라인 대전을 열 때 CDN에서 받는다 — 인터넷이 있어야 한다.
+     PeerJS 스크립트는 처음 온라인 대전을 열 때 js/vendor/peerjs.min.js에서 읽는다(없으면 CDN · SRI 확인). 중계 때문에 인터넷은 있어야 한다.
    - 방을 만든 쪽(host)이 0번, 들어온 쪽(guest)이 1번 플레이어. 두 기기는 같은 시드로 같은 판을 계산하고(js/game.js GRand · shuffleG),
      서로 '둔 수'만 주고받는다: 준비 단계의 행동(act) · 준비 완료(ready) · 멀리건(mull) · 코인 다시 던지기(coin).
    - 받은 수는 도착한 차례대로 줄(q)에 쌓였다가 그 수를 기다리는 곳(상대 준비 · 멀리건 · 코인 창)이 하나씩 꺼낸다.
@@ -11,7 +11,9 @@
 
 const ONLINE_VER = "3.10";
 const PEER_PREFIX = "etherion-v310-";
-const PEER_SRC = ["https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js", "https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"];
+/* 2026-11-25 PeerJS는 게임과 함께 낸 파일(js/vendor, npm 1.5.4 그대로)을 먼저 쓰고, 없을 때만 CDN — CDN 파일은 SRI로 내용이 같은지 확인한다 */
+const PEER_SRI = "sha384-nlUQ8ZqCbvStErob+biJNzSgltf6urV3VGqhfIfzhmg9RXmpeRm76ELw0pYnKlTR";
+const PEER_SRC = ["js/vendor/peerjs.min.js", "https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js", "https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"];
 const ROOM_ABC = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";   // 헷갈리는 글자(0 O 1 I L) 뺌
 const ACT_FNS = ["actPlace", "actEquip", "actCrystal", "actBurnHand", "actBurnField", "actMove", "actShuffle"];
 
@@ -46,6 +48,7 @@ const Online = {
     const tryOne = i => new Promise((res, rej) => {
       if (i >= PEER_SRC.length) { rej(new Error("load")); return; }
       const s = document.createElement("script"); s.src = PEER_SRC[i]; s.async = true;
+      if (/^https:/.test(PEER_SRC[i])) { s.integrity = PEER_SRI; s.crossOrigin = "anonymous"; }
       s.onload = () => (window.Peer ? res(window.Peer) : tryOne(i + 1).then(res, rej));
       s.onerror = () => { s.remove(); tryOne(i + 1).then(res, rej); };
       document.head.appendChild(s);
@@ -210,7 +213,7 @@ const Online = {
     this.q = []; this.waiters = []; this.sums = {}; this.wantAgain = this.foeAgain = false; this.warned = false; this.lastSeed = seed;
     if (this.ui) { this.ui.close(); this.ui = null; }
     document.querySelectorAll(".result, .modal-wrap").forEach(e => e.remove());
-    const name = (d, i) => String(d.name || (i ? "도전자" : "방장")).slice(0, 16);
+    const name = (d, i) => String(d.name || "").replace(/[<>&"'`]/g, "").slice(0, 16) || (i ? "도전자" : "방장");   // 2026-11-25 상대 기기가 보낸 이름은 HTML 글자를 빼고 씀
     const p0 = { name: name(decks[0], 0), group: decks[0].group, cards: decks[0].cards, rec: decks[0].rec };
     const p1 = { name: name(decks[1], 1), group: decks[1].group, cards: decks[1].cards, rec: decks[1].rec };
     if (p0.name === p1.name) p1.name += " ②";

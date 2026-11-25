@@ -31,7 +31,8 @@ MIN_SDK, TARGET_SDK = 24, 34
 # ---------------------------------------------------------------- 게임 파일
 WEB_DIRS = ["css", "js", "img", "audio", "fonts"]
 SKIP_EXT = {".mp3", ".md", ".txt", ".wav", ".psd", ".bak"}
-SKIP_DIRS = {os.path.join("img", "ui", "src")}          # 그림을 만드는 스크립트 (게임에서 안 씀)
+SKIP_DIRS = {os.path.join("img", "ui", "src"),          # 그림을 만드는 스크립트 (게임에서 안 씀)
+             os.path.join("audio", "inbox"), os.path.join("audio", "sfx_gpt_preview"), os.path.join("audio", "sfx", "preview_v395")}   # 2026-11-25 받은 소리 원본 · 미리듣기 (server.js WEB_SKIP과 같게)
 SKIP_FILES = {"img/ui/deck/card_back_plain.png"}       # v3.19.2 글씨 없는 카드 뒷면 원본 (tools/art/cardback_text.py 재료, 게임에서 안 씀)
 STORE_EXT = {".png", ".jpg", ".jpeg", ".webp", ".ogg", ".mp3", ".ttf", ".woff2", ".gif"}   # 이미 압축된 것
 
