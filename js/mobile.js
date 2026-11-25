@@ -59,6 +59,20 @@
   fit();
   addEventListener("orientationchange", () => setTimeout(fit, 120));
   addEventListener("resize", fit);
+  /* 2026-11-25 세로로 든 폰: 대기실 · 전장 · 덱 조정실 …은 가로 화면에 맞춘 앱식 배치라 세로에서는 깨진다(깃발 칸 폭 17px, 준비 완료가 화면 밖).
+     첫 화면 · 로그인은 세로에서도 멀쩡하니 그대로 두고, 그 밖의 화면에서는 "가로로 돌려 주세요" 안내로 덮는다(css/mobile.css .rotate-ask).
+     어느 화면인지는 #app 바로 아래 칸이 바뀔 때만 본다(<html class="rot-free"> = 세로에서도 쓰는 화면). 앱은 가로로 고정이라 뜨지 않는다 */
+  function rotateAsk() {
+    const app = document.getElementById("app"); if (!app || !document.body) return;
+    const ask = document.createElement("div");
+    ask.className = "rotate-ask"; ask.setAttribute("role", "alert");
+    ask.innerHTML = '<div class="ra-in"><svg class="ra-ico" viewBox="0 0 64 64" aria-hidden="true"><rect class="ra-ph" x="22" y="8" width="20" height="36" rx="3.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M12 50a22 22 0 0 0 40 0" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M52 50l1.5-8M52 50l-8-1" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><b>폰을 가로로 돌려 주세요</b><span>ETHERION의 대기실과 전장은 가로 화면에 맞춰져 있습니다.<br>화면 회전 잠금이 켜져 있으면 풀어 주세요.</span></div>';
+    document.body.appendChild(ask);
+    const sync = () => root.classList.toggle("rot-free", !!app.querySelector(":scope > .screen-title, :scope > .screen-login") || !app.firstElementChild);
+    new MutationObserver(sync).observe(app, { childList: true });
+    sync();
+  }
+  if (document.body && document.getElementById("app")) rotateAsk(); else addEventListener("DOMContentLoaded", rotateAsk);
   window.MobileFit = {
     LEVELS, get level() { return lv; },
     set(id) {

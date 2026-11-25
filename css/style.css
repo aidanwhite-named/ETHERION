@@ -1897,7 +1897,13 @@ body.is-dragging .hand-me .hand-slot .hand-card { transition: transform .2s ease
 #board .logdrawer.docked { right: auto; bottom: auto; height: auto; max-height: var(--ld-h); transform: none; transition: none; z-index: 30;
   border: 1px solid var(--line-gold); border-radius: 8px; background: rgba(8, 9, 15, .92); box-shadow: 0 12px 30px rgba(0, 0, 0, .55); }
 #board .logdrawer.docked.open { height: var(--ld-h); }
-.logdrawer.docked .ld-head { padding: 7px 10px; flex-wrap: nowrap; }
+/* 2026-11-25 붙박이 기록 상자는 칸이 하나인 grid인데, 칸의 최소 폭이 내용(줄바꿈 없는 마지막 기록 한 줄)이라 머리 줄 · 기록 줄이 상자(213~420px)를 넘어
+   상대 생명 칸 위에 그려졌다(긴 기록이면 220px쯤). 칸 폭을 상자에 묶는다 — 한 줄 글은 말줄임, 펼친 기록은 상자 안에서 줄바꿈 */
+#board .logdrawer.docked { grid-template-columns: minmax(0, 1fr); }
+.logdrawer.docked .ld-head { padding: 7px 10px; flex-wrap: nowrap; min-width: 0; }
+.logdrawer.docked.open .ld-head { flex-wrap: wrap; }   /* 펼치면 개발용 단추 셋이 나온다 — 좁은 상자에서는 아래 줄로 */
+.logdrawer.docked .ld-fold b { white-space: nowrap; }
+.logdrawer.docked .log { min-width: 0; overflow-wrap: anywhere; }
 .logdrawer.docked:not(.open) .ld-head { border-bottom: 0; }
 .logdrawer.docked:not(.open) .log, .logdrawer.docked:not(.open) .blog-btns, .logdrawer.docked .ld-close { display: none; }
 .logdrawer.docked .log { padding: 8px 12px; }

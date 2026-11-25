@@ -197,13 +197,18 @@ function typeIconHTML(c) {
   return `<i class="c-type t-${c.type} c-kind kind-${c.type}" data-tip="${tip(RITE_TIP[c.type] || "마법")}">${lv}</i>`;
 }
 /* 코인 줄: 공 · 방 · 체 아이콘 + 그 스탯의 코인 (+2● +●) — 판타지 마스터즈의 "+2C1 / =C1 / +C1" 자리 */
+/* 2026-11-25 코인 줄은 늘 한 줄: 공 · 방 · 체 세 칸이 다 있거나 코인 묶음이 여럿이면 셋째 칸이 다음 줄로 넘어갔다(핸드 14장).
+   줄 폭을 글자 크기(em)로 어림해 --cw로 주고, CSS(css/frames.css "코인 줄 한 줄")가 글 상자 폭(cqw)에 맞춰 그 줄만 줄인다 — 화면마다 재지 않는다.
+   어림: 칸 = 아이콘 .94 + 묶음마다 [부호 .55 + 숫자 .39(±2 이상) + 점 .74 + 겹친 점 .36 × (개수 − 1)], 묶음 사이 .08 */
 function coinLineHTML(co) {
+  let cw = 0;
   const parts = ["a", "d", "h"].map(k => {
     const marks = coinMarks(co, k); if (!marks.length) return "";
     const tip = marks.map(m => `코인 ${m.n}개 · 앞면마다 ${STAT_KO[k]} ${sgnNum(m.v)}`).join("\n");
+    cw += .94 + marks.reduce((s, m, i) => s + (i ? .08 : 0) + .55 + (Math.abs(m.v) > 1 ? .39 * String(Math.abs(m.v)).length : 0) + .74 + .36 * (m.n - 1), 0);
     return `<span class="cl-s cl-${k}" data-tip="${esc(tip)}">${statIco(k)}${coinGroupsHTML(marks)}</span>`;
   }).filter(Boolean);
-  return parts.length ? `<div class="c-coinline">${parts.join("")}</div>` : "";
+  return parts.length ? `<div class="c-coinline${parts.length > 2 ? " cl-n3" : ""}" style="--cw:${cw.toFixed(2)};--cg:${parts.length - 1}">${parts.join("")}</div>` : "";
 }
 /* 종족 줄(그림 바로 아래): 왼쪽 = 카드 종류 글씨(유닛 · 공격 마법 · 아이템, 종류 아이콘 색) + 유닛은 단체 · 아이템은 장착 클래스, 오른쪽 = 등급.
    v3.19.8: 맨 앞 종류 글씨를 굵고 조금 크게(.r-t). 아이템도 "아이템"이 보인다. 단체 온전한 이름 · 무구 · 각인 같은 아이템 종류는 말풍선으로 */
@@ -367,7 +372,7 @@ function cardHTML(c, opts) {
         <div class="c-art">${artHTML(c)}${specialFxHTML(gr)}${c.base ? upgradeMarkHTML(c, "c-upart") : ""}${opts.badges ? `<div class="c-badges">${opts.badges}</div>` : ""}${opts.artx || ""}</div>
       </div>
       <div class="c-low">
-        <div class="c-lowl">${raceLineHTML(c, gr)}<div class="c-box"><div class="c-boxin">${box}</div></div></div>
+        <div class="c-lowl">${raceLineHTML(c, gr)}<div class="c-box"><div class="c-boxin${box.includes('class="c-equip"') ? " bx-eq" : ""}">${box}</div></div></div>
         ${rcol}
       </div>
       ${foot}${framed ? frameEmblemHTML(c) : ""}
@@ -880,9 +885,16 @@ const Tip = {
   init() {
     if (this.el) return;
     this.el = document.createElement("div"); this.el.id = "tip"; this.el.hidden = true; document.body.appendChild(this.el);
+    /* 2026-11-25 손가락: 누르면 브라우저가 가짜 mouseover를 보내 말풍선이 뜨고, 다음에 다른 곳을 누를 때까지 화면에 남았다("전투 기록" · "설정"이 창 위에 떠 있음).
+       손가락으로 누른 직후에는 단추 · 누르는 칸(button · a · data-act) 위의 말풍선은 띄우지 않고, 그 밖의 것(스탯 · 능력 글)은 띄웠다가 2.6초 뒤 지운다. 다시 누르면 바로 지운다 */
+    document.addEventListener("pointerdown", e => { if (e.pointerType === "touch") { this.touchAt = performance.now(); clearTimeout(this.touchT); this.el.hidden = true; } }, true);
     document.addEventListener("mouseover", e => {
       const t = e.target.closest && e.target.closest("[data-tip]");
       if (!t || document.body.classList.contains("hover-hold")) { this.el.hidden = true; return; }   // v3.9.4 hover-hold: 카드가 전장으로 올라가는 중 (js/game.js holdHover)
+      const byTouch = performance.now() - (this.touchAt || -1e9) < 900;
+      if (byTouch && t.closest("button, a, [data-act], [data-nav]")) { this.el.hidden = true; return; }
+      clearTimeout(this.touchT);
+      if (byTouch) this.touchT = setTimeout(() => { this.el.hidden = true; }, 2600);
       const lines = t.dataset.tip.split("\n");
       // data-tip-kw: 줄마다 같은 크기로, 줄 앞의 [이름]만 금빛 굵게 (레벨·유지비 말풍선)
       const kw = t.hasAttribute("data-tip-kw");

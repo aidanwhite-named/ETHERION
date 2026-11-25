@@ -225,6 +225,15 @@ const BGM = {
     this.btnS = mk("snd-sfx", () => this.toggleSfx());
     document.body.appendChild(box);
     this.box = box; this.paint();
+    /* 2026-11-25 떠 있는 소리 단추를 숨길지는 CSS body:has(.tb-snd) … 대신 여기서 클래스로 붙인다(<html class="snd-off">).
+       body에 걸린 :has()는 화면 어디서 글자 하나 · 요소 하나만 바뀌어도 body를 다시 보게 했고, 다른 :has() 규칙과 겹쳐 문서 전체(전장 1,250개)의 스타일을 다시 계산했다 — 폰에서 턴마다 멈칫하던 까닭.
+       화면이 바뀔 때(#app 바로 아래)만 본다: 타이틀 · 상단 띠의 소리 아이콘이 있는 화면 · 전장(가운데 띠의 소리 단추, 폰은 설정 창)이면 숨김 */
+    const app = document.getElementById("app");
+    if (app) {
+      const sync = () => document.documentElement.classList.toggle("snd-off", !!app.querySelector(".screen-title, .screen-game, .tb-sound"));
+      new MutationObserver(sync).observe(app, { childList: true });
+      sync();
+    }
   },
   keep(key, v) {
     if (v !== undefined) { try { localStorage.setItem(key, JSON.stringify(v)); } catch (e) {} return v; }

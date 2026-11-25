@@ -298,6 +298,15 @@ html.fx-low .sc-rivetmark { box-shadow: 0 0 6px #ffe7a0, 0 1px 2px #000; }
 html.fx-low.fx-high .sc-bomb { box-shadow: 0 0 6px #ff8a3a, 0 0 6px rgba(255, 138, 58, .6); }
 html.fx-low.fx-high .sc-flame { filter: drop-shadow(0 0 3px rgba(255, 122, 42, .8)); }
 
+/* fxart.css */
+html.fx-low .gun-ghost.gun-art { filter: drop-shadow(0 0 3px rgba(0, 0, 0, .85)); }
+
+/* abilfx.css */
+html.fx-low .abx-bolt { filter: drop-shadow(0 0 3px currentColor); }
+html.fx-low .abx-wave { filter: drop-shadow(0 0 3px rgba(120, 230, 245, .7)); }
+html.fx-low .card.abx-wet .c-frame { box-shadow: 0 0 0 2px rgba(150, 236, 248, .85), 0 0 6px 4px rgba(80, 210, 235, .55); }
+html.fx-low.fx-low .card.abx-wet .c-frame { box-shadow: 0 0 0 2px rgba(150, 236, 248, .85); }
+
 /* depth.css */
 html.fx-low .topbar.realm { box-shadow: 0 1px 0 #2e2616, 0 2px 0 #1e190f, 0 2.8px 6px rgba(0, 0, 0, .62); }
 html.fx-low .tb-crest { filter: drop-shadow(0 1px 0 #6b4f1c) drop-shadow(0 2px 0 #3d2d10) drop-shadow(0 2.6px 3px rgba(0, 0, 0, .7)); }
@@ -520,6 +529,9 @@ html.fx-low .float.dmg.imp-num { text-shadow: -2px 0 rgba(0, 210, 255, .45), 2px
 @media (prefers-reduced-motion: reduce) {
 html.fx-low .float.dmg.imp-num { text-shadow: 0 1.5px 4px #000; }
 }
+
+/* mobile.css */
+html.fx-low.mobile .lay-swap .frow-bot .ether.altar .ether-sub { text-shadow: 0 1px 2px #000, 0 0 4px #000; }
 
 /* fmcard.css */
 html.fx-low .card.fm .c-type svg { filter: drop-shadow(0 0 .12em currentColor); }

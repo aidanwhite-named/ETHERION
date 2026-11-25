@@ -242,10 +242,11 @@ html.mobile .hand-me .card.fm.slim .c-cls { font-size: .66em; }
 .slot .card.fm .c-eq-ab { font-size: .52em; line-height: 1.2; padding: .05em .3em; border-width: .05em; }
 .slot .card.fm .c-eq-ab::before { font-size: .7em; margin-right: .14em; }
 /* 아이템을 단 유닛: 코인 줄 · 파란 능력 칩 · 금색 아이템 칩을 한 흐름으로 이어 붙여(왼쪽부터) 줄 수를 줄인다 */
-.slot .card.fm .c-boxin:has(> .c-equip) { flex-direction: row; flex-wrap: wrap; align-content: flex-start; gap: .1em; }
-.slot .card.fm .c-boxin:has(> .c-equip) > .c-chips, .slot .card.fm .c-boxin:has(> .c-equip) > .c-equip { display: contents; }
-.slot .card.fm .c-boxin:has(> .c-equip) > :not(.c-chips):not(.c-equip):not(.c-coinline) { flex: 1 0 100%; }
-.slot .card.fm .c-boxin:has(> .c-equip) > .c-coinline { flex: none; margin-right: .15em; }
+/* 2026-11-25 :has(> .c-equip) → .bx-eq (js/view.js cardHTML이 붙인다). ":has() 뒤에 > :not(…)"처럼 누구에게나 맞을 수 있는 규칙은 문서 전체를 다시 계산하게 한다 */
+.slot .card.fm .c-boxin.bx-eq { flex-direction: row; flex-wrap: wrap; align-content: flex-start; gap: .1em; }
+.slot .card.fm .c-boxin.bx-eq > .c-chips, .slot .card.fm .c-boxin.bx-eq > .c-equip { display: contents; }
+.slot .card.fm .c-boxin.bx-eq > :not(.c-chips):not(.c-equip):not(.c-coinline) { flex: 1 0 100%; }
+.slot .card.fm .c-boxin.bx-eq > .c-coinline { flex: none; margin-right: .15em; }
 
 /* ---- v3.59 스페셜 광휘 (js/view.js specialFxHTML, 가이드 3.4) ----
    스페셜은 진홍 등급 테두리에 더해 그림 자리를 꾸민다: 금 · 진홍 두 겹 안쪽 액자 + 네 모서리 금 장식(진홍 보석) + 그림 위로 천천히 떠오르는 금 · 진홍 · 에테르빛 불티.

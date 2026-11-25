@@ -208,3 +208,38 @@
 /* 마법 카드에서 [축전] 유닛으로 빨려 드는 빛 (plasmaDrain) */
 .plasma-spark { position: fixed; z-index: 86; width: 8px; height: 8px; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, #fff 0 30%, #9be6ff 55%, rgba(80, 170, 255, 0) 72%); }
 .plasma-spark.big { width: 14px; height: 14px; }
+
+/* 2026-11-25 PC 가운데 띠의 안내 글: 단계 글(ROUND · 공격 준비) 옆 151px(1366 화면은 110px)에 끼어 "끌어서 빈 칸 · 에테…"로 잘렸다.
+   단계 글 아래 줄로 내려 가운데 칸 폭을 다 쓴다(띠 높이 94px 안). 앱식 · 폰은 css/mobile.css */
+@media (min-width: 761px) {
+  html:not(.appui) .midbar.v7 .mb-center { flex-direction: column; align-items: flex-start; justify-content: center; gap: 5px; }
+  html:not(.appui) .midbar.v7 .actionbar { flex: none; width: 100%; padding-left: 2px; border-left: 0; }
+  html:not(.appui) .midbar.v7 .hint { white-space: normal; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-height: 1.3; word-break: keep-all; }   /* 긴 안내는 두 줄까지 */
+}
+
+/* 2026-11-25 PC 고른 카드 패널 (js/game.js placeFocus)
+   1) 패널 폭은 가운데 띠의 왼쪽 칸(.mb-well) 폭, 적어도 220px. 왼쪽 칸이 220px보다 좁은 화면(1366 폭 186px · 1440 폭 213px)에서는 패널이 단계 글(ROUND)과
+      안내 글 앞머리를 7~34px 덮었다 → 띠의 왼쪽 칸을 적어도 220px로. 단계 글 · 안내 글이 그만큼 오른쪽에서 시작한다(카드를 고르든 말든 같은 자리)
+   2) 두 깃발 사이 높이(1366 폭 132px · 1440 폭 168px · 1920 폭 175px)에 내용 260px이 들어가지 않아 [전장에 올리기 · 결정화 · 소각]이 잘려 있었다(스크롤해야 보임).
+      넘치면 placeFocus가 .f-tight를 붙인다: 이름 줄을 빼고(큰 카드가 오른쪽에 뜬다) 상태 한 칸 + 단추 한 줄(올리기 · 결정화 · 소각). 능력 뜻은 그 아래(넘치면 스크롤) */
+@media (min-width: 761px) {
+  html:not(.mobile) .midbar.v7 { grid-template-columns: max(var(--pile-w), 220px) minmax(0, 1fr) auto; }
+}
+.f-cta-pre { font-style: normal; }
+.focus.v7:not(.f-strip) .f-state b { white-space: normal; word-break: keep-all; }   /* 긴 이유("장착할 유닛이 없습니다. (… 전용 · 아이템이 없는 내 유닛)")가 한 줄로 패널 밖까지 나갔다 */
+.focus.v7.f-tight { gap: 5px; padding: 6px 10px 7px; }
+.focus.v7.f-tight .f-name { display: none; }
+.focus.v7.f-tight .f-head { min-height: 22px; }
+.focus.v7.f-tight .f-x { height: 22px; }
+.focus.v7.f-tight .f-box { flex-direction: row; flex-wrap: wrap; gap: 6px; }
+.focus.v7.f-tight .f-state { flex: 1 0 100%; box-sizing: border-box; gap: 7px; row-gap: 1px; padding: 4px 9px; line-height: 1.25; }
+.focus.v7.f-tight .f-state span { font-size: 12px; }
+.focus.v7.f-tight .f-cta { flex: 1 1 0; width: auto; min-width: 0; height: 34px; gap: 4px; padding: 0 4px 0 8px; font-size: 13.5px; }
+.focus.v7.f-tight .f-cta .ui-ico, .focus.v7.f-tight .f-cta-pre { display: none; }
+.focus.v7.f-tight .f-cost { height: 26px; gap: 5px; padding: 0 7px; font-size: 14px; }
+.focus.v7.f-tight .f-subs { flex: 0 0 auto; display: flex; gap: 6px; }
+.focus.v7.f-tight .f-subs:first-child, .focus.v7.f-tight .f-state + .f-subs { flex: 1 1 auto; }   /* 주 단추가 없으면(아이템 · 전장의 내 유닛) 보조 단추가 줄을 다 쓴다 */
+.focus.v7.f-tight .f-state + .f-subs .f-sub { flex: 1 1 0; }
+.focus.v7.f-tight .f-sub { height: 34px; gap: 5px; padding: 0 7px; font-size: 13px; }
+.focus.v7.f-tight .f-sub kbd, .focus.v7.f-tight .f-cta + .f-subs .f-sub .ui-ico { display: none; }
+.focus.v7.f-tight .f-info { flex: 1 0 100%; box-sizing: border-box; padding-top: 6px; }

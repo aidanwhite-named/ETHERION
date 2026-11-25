@@ -478,7 +478,7 @@ function headerHTML(title) {
         <button type="button" class="tb-nav tb-sound" data-nav="sound" title="소리 — 배경음 · 효과음 켜기/끄기와 음량" aria-label="소리">${typeof BGM !== "undefined" ? BGM.navIcon() : ""}</button>
         ${typeof LevelUI !== "undefined" ? shardChipHTML(u) : ""}
         ${sealHTML(u)}
-        <button type="button" class="tb-nav tb-exit" data-nav="logout" title="${App.screen === "editor" ? "덱 조정실에서 나가 대기실로" : App.screen !== "lobby" ? "대기실로" : OPEN_PLAY ? "처음으로" : "나가기"}">${menuIcon("exit")}<span>${OPEN_PLAY ? "처음으로" : "나가기"}</span></button>
+        <button type="button" class="tb-nav tb-exit" data-nav="logout" title="${App.screen === "editor" ? "덱 조정실에서 나가 대기실로" : App.screen !== "lobby" ? "대기실로" : OPEN_PLAY ? "처음으로" : "나가기"}">${menuIcon("exit")}<span>${App.screen !== "lobby" ? "대기실로" : OPEN_PLAY ? "처음으로" : "나가기"}</span></button>
         ${typeof showSettings === "function" ? `<button type="button" class="tb-nav tb-set" data-nav="settings" title="설정 — 화면 배치 · 연출 · 소리" aria-label="설정">${typeof uiIcon === "function" ? uiIcon("settings") : "⚙"}</button>` : ""}
       </div>
     </div>
@@ -503,11 +503,32 @@ function bindHeader(root, guard) {
       const back = App.screen === "editor" && root.querySelector("#ed-back");   // 2026-11-15 덱 조정실의 나가기 = 조정실에서 나가기(대기실로 단추와 같음 — 고치던 덱은 초안으로 남는다)
       if (back) { back.click(); return; }
       if (App.screen !== "lobby") { showLobby(); return; }   // 2026-11-17 순례 · 원정 · 상점 · 교역소 …의 나가기 = 대기실로 (처음 화면으로는 대기실에서만)
+      /* 2026-11-25 대기실의 나가기는 한 번 묻는다 — 다른 화면에서는 같은 단추가 "대기실로"라, 두 번 누르면 확인 없이 로그아웃되어 처음 화면으로 갔다 */
+      const u = Store.user();
+      const ok = await modal(`<h3>게임에서 나갈까요?</h3><p>처음 화면으로 돌아갑니다. ${u && u.guest ? "필멸자의 덱과 기록은 이 기기에 그대로 남습니다." : "다시 들어오려면 로그인해야 합니다."}</p>`,
+        [{ label: "머무르기", value: false }, { label: "나가기", value: true, cls: "primary" }]);
+      if (!ok || App.screen !== "lobby") return;
       Store.logout(); showTitle();
     }
   });
   fitTopbar();
 }
+/* 2026-11-25 Esc = 대기실로: 덱 조정실 · 순례 · 상점 · 교역소 · 퀘스트 …에서 Esc를 누르면 상단 띠의 나가기(대기실로)를 누른 것과 같다.
+   창(.modal-wrap) · 큰 카드 · 지도 · 연대기처럼 화면을 덮은 것이 있으면 그쪽이 먼저 닫히게 아무것도 하지 않는다(가운데 점이 #app 안인지로 본다). 글 칸에 쓰는 중에도 하지 않는다.
+   대기실 · 첫 화면 · 전장에서는 쓰지 않는다(대기실의 나가기는 로그아웃이라 키로는 하지 않는다). App.back()은 앱의 뒤로 단추가 부를 자리 */
+App.back = () => {
+  const btn = document.querySelector("#app > .screen:not(.screen-lobby):not(.screen-title):not(.screen-login):not(.screen-game) .topbar .tb-exit");
+  if (!btn || document.querySelector(".modal-wrap, .card-preview:not([hidden])")) return false;
+  const top = document.elementFromPoint(innerWidth / 2, innerHeight / 2);
+  if (!top || !top.closest("#app")) return false;
+  btn.click(); return true;
+};
+addEventListener("keydown", e => {
+  if (e.key !== "Escape" || e.repeat || e.defaultPrevented) return;
+  const ae = document.activeElement;
+  if (ae && /^(INPUT|TEXTAREA|SELECT)$/.test(ae.tagName)) return;
+  if (App.back()) { e.preventDefault(); e.stopPropagation(); }
+}, true);
 /* 2026-11-22 상단 띠 맞춤: 해상도 · 이름 길이 · 칭호 · 전적 자릿수가 달라도 양쪽 날개가 넘치거나 이름이 잘리지 않게,
    넘칠 때만 덜 중요한 것부터 한 단계씩 접는다(css/hud.css 맨 아래 .fitN). 화면 폭 기준(@media)은 바탕으로 그대로 남는다.
    오른쪽: 1 나가기 글자 → 2 "조각" → 3 "승률" → 4 승 · 패 → 5 칭호 → 6 전적 칸 → 7 이름(구슬만) → 8 소리 아이콘. 왼쪽: 1 튜토리얼 글자 → 2 보관소 글자 → 3 모든 글자(아이콘만) */

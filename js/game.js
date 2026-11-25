@@ -790,7 +790,7 @@ function startMatch(cfg) {
   G = {
     mode: cfg.mode, turn: 1, attacker: (rand || Math.random)() < 0.5 ? 0 : 1, rand, online: cfg.mode === "online", me: cfg.me || 0, phase: "setup", log: [], sel: null, reg: {},
     fx: { dying: [] }, viewer: 0, control: null, speed: cfg.speed != null ? cfg.speed : Prefs.get("speed", 1), winner: null, reason: "",
-    onExit: cfg.onExit, cfg, players: null, ready: null, handoff: false, leave: {}, inspect: null, showLog: Prefs.get("logOpen", false) === true,
+    onExit: cfg.onExit, cfg, players: null, ready: null, handoff: false, leave: {}, inspect: null, showLog: Prefs.get("logOpen", false) === true && !(typeof document !== "undefined" && isPhone()),   /* 2026-11-25 폰은 늘 닫힌 채 시작 — 폰의 기록은 서랍이라, 연 채로 끝낸 다음 판에 준비 완료 단추 · 시계 · 메뉴를 덮고 시작했다 */
     econ: typeof newEcon === "function" ? newEcon() : null, rules: cfg.rules || {},
     vlog: (cfg.verify || cfg.keepLog) && !cfg.replay ? [] : null, broken: [], kills: [0, 0]   // v3.40 검산 기록 · 부서진 카드(서버 검산이 센다) · v3.46 keepLog: 다시보기 기록 · kills: 쓰러뜨린 유닛
   };
@@ -931,10 +931,10 @@ const Guide = {
       const canC = crysLeft(p) > 0 && p.crystals.length < RULES.maxCrystals;
       if (!this.seen.ether) { L.push({ key: "ether", sel: "#crys" + me, side: "right", pulse: true, title: "에테르 · 결정화", text: "카드를 내는 힘입니다. <b>레벨 N 카드 = 에테르 N</b>. 처음에는 <b>0</b>이라 아무것도 낼 수 없습니다 — 핸드에서 <b>지금 안 쓸 카드 1장을 누른 뒤 빛나는 이 구슬을 누르세요</b>(끌어다 놓아도 됩니다). <b>결정</b>이 되어 바로, 그리고 매 턴 에테르가 1 늘어납니다. 바친 카드는 소각장으로 갑니다. " + (canC ? "<b>지금 먼저 해 보세요.</b>" : "") + " 결정화는 턴마다 1장씩(안 하면 쌓여서 나중에 한꺼번에 해도 됩니다). 쓰지 않은 에테르는 다음 턴으로 넘어가지 않으니, 전투 때 <b>코인 뒤집기</b>에 쓰세요." }); if (canC) this.seen.crys = true; }
       else if (!this.seen.crys && canC && p.hand.length) L.push({ key: "crys", sel: "#crys" + me, side: "right", pulse: true, title: "결정화", text: CRYS_GUIDE_TEXT });
-      if (!this.seen.hand) L.push({ key: "hand", sel: ".hand-me", side: "top", title: "핸드", text: "카드를 <b>누르면</b> 상대 전장 오른쪽에 크게(설명까지) 보이고, <b>더블클릭</b>하면 전장에 올라갑니다. 카드 오른쪽 아래 세로 숫자는 위부터 공격 · 방어 · 체력. 그림 아래 글 상자 맨 위 줄의 <b>+</b>와 겹친 동전은 맞붙을 때마다 던지는 코인 — 동전 하나에 앞면이면 +1, <b>+2●</b>처럼 앞에 숫자가 있으면 앞면마다 그 값입니다(동전 수가 곧 코인 수). 공격·방어·체력에 동전이 하나씩 있으면 <b>동전 하나</b>를 던져 셋에 함께 붙습니다." });
+      if (!this.seen.hand) L.push({ key: "hand", sel: ".hand-me", side: "top", title: "핸드", text: "카드를 <b>누르면</b> 상대 전장 오른쪽에 크게(설명까지) 보이고, " + (isPhone() ? "<b>두 번 누르면</b>" : "<b>더블클릭</b>하면") + " 전장에 올라갑니다. 카드 오른쪽 아래 세로 숫자는 위부터 공격 · 방어 · 체력. 그림 아래 글 상자 맨 위 줄의 <b>+</b>와 겹친 동전은 맞붙을 때마다 던지는 코인 — 동전 하나에 앞면이면 +1, <b>+2●</b>처럼 앞에 숫자가 있으면 앞면마다 그 값입니다(동전 수가 곧 코인 수). 공격·방어·체력에 동전이 하나씩 있으면 <b>동전 하나</b>를 던져 셋에 함께 붙습니다." });
       if (!this.seen.front) L.push({ key: "front", sel: `.frow-bot .slot[data-s="0"]`, side: "top", title: "맞붙는 순서", text: "내 유닛은 <b>1번 칸부터</b> 차례로 <b>상대의 맨 앞 유닛</b>과 맞붙습니다 (같은 번호끼리가 아닙니다). 피해 = 공격 − 방어. 체력이 0이 되면 쓰러지고, 남은 피해는 턴이 끝나면 낫습니다." });
       if (phase === "defPrep" && !this.seen.def) L.push({ key: "def", sel: ".frow-top .slots", side: "bottom", title: "방어", text: "상대의 배치가 보입니다. 상대 1번 칸 유닛이 내 맨 앞 유닛과 먼저 맞붙습니다. 막지 못한 공격은 생명으로 가지만, 대신 <b>다음 턴 에테르 +1</b>을 받습니다." });
-      if (!this.seen.ready) L.push({ key: "ready", sel: ".ready-btn", side: "left", title: "준비 완료", text: "다 놓았으면 누르세요 (Enter). 양쪽이 준비를 마치면 전투가 자동으로 진행됩니다." });
+      if (!this.seen.ready) L.push({ key: "ready", sel: ".ready-btn", side: "left", title: "준비 완료", text: "다 놓았으면 누르세요" + (isPhone() ? "" : " (Enter)") + ". 양쪽이 준비를 마치면 전투가 자동으로 진행됩니다." });
       return L;
     }
     return [];
@@ -1673,8 +1673,8 @@ function coinClash(info) {
     const ctlHTML = sd => !sd.coins.length ? "" : sd.kept ? `<div class="cs-cpu-state">운명이 봉인되어 있다</div>` : sd.human ? ""
       : `<div class="cs-cpu-state">${G.online ? "상대가 운명을 가늠하는 중…" : "운명을 가늠하는 중…"}</div>`;
     const rolls = sd => sd.human && sd.coins.length && !sd.kept;
-    const flipHTML = sd => rolls(sd) ? `<span class="cf-hint">운명 봉인을 누르면 코인이 멈춥니다</span><div class="cs-choice"><button type="button" class="btn primary cs-stop" data-side="${sd.who}">운명 봉인<small>Space · Enter</small></button></div>` : "";
-    const optsHTML = sd => rolls(sd) && sd === autoBox ? `<div class="cs-opts"><label class="cs-auto"><input type="checkbox" ${auto ? "checked" : ""}> 자동으로 봉인 <kbd>A</kbd></label><label class="cs-auto cs-noflip"><input type="checkbox" ${noFlip ? "checked" : ""}> 다시 던지기 건너뛰기</label></div>` : "";
+    const flipHTML = sd => rolls(sd) ? `<span class="cf-hint">운명 봉인을 누르면 코인이 멈춥니다</span><div class="cs-choice"><button type="button" class="btn primary cs-stop" data-side="${sd.who}">운명 봉인${isPhone() ? "" : "<small>Space · Enter</small>"}</button></div>` : "";
+    const optsHTML = sd => rolls(sd) && sd === autoBox ? `<div class="cs-opts"><label class="cs-auto"><input type="checkbox" ${auto ? "checked" : ""}> 자동으로 봉인${isPhone() ? "" : " <kbd>A</kbd>"}</label><label class="cs-auto cs-noflip"><input type="checkbox" ${noFlip ? "checked" : ""}> 다시 던지기 건너뛰기</label></div>` : "";
     /* v2.4.4 코인 창에 앞면 확률을 적는다. 코인 뒷면 마법(정화의 물결·대해류 등)은 −50%라 0% */
     const pct = p => Math.round(p * 100) + "%";
     const probHTML = sd => {
@@ -1841,7 +1841,7 @@ function coinClash(info) {
             ? `<span class="cf-hint"><i class="cf-eth"></i>${what} <b>에테르 1</b>로 다시 굴릴 수 있습니다. 굴릴 코인은 눌러서 바꿉니다 <small>(남은 에테르 ${ether(p)} · 한 번)</small></span>`
             : `<span class="cf-hint"><i class="cf-eth"></i>${what} <b>에테르 1</b>로 다시 굴릴 수 있습니다 <small>(남은 에테르 ${ether(p)} · 한 번)</small></span>`)
             + `<div class="cs-choice"><button type="button" class="btn primary cs-stop cs-reflip" data-side="${sd.who}"><span><i class="cf-eth"></i>다시 굴리기</span><small>에테르 1 · R</small></button>`
-            + `<button type="button" class="btn ghost cs-stop cs-pass" data-side="${sd.who}">굴리지 않고 넘어가기<small>에테르 안 씀 · Space · Enter</small></button></div>`;
+            + `<button type="button" class="btn ghost cs-stop cs-pass" data-side="${sd.who}">굴리지 않고 넘어가기<small>에테르 안 씀${isPhone() ? "" : " · Space · Enter"}</small></button></div>`;
         } else if (G.online) {
           // v3.10 상대 기기의 결정을 기다린다 (다시 굴린 결과도 그쪽에서 정해 보낸다)
           if (!sd.hide) box.innerHTML = `<span class="cf-hint ai">${esc(p.name)}이(가) 다시 굴릴지 정하는 중…</span>`;   // v3.12.6 가린 창은 아무 말 없이
@@ -2597,6 +2597,7 @@ function phaseText() {
   if (G.phase === "combat") return { t: "전투", who: `${A.name} → ${D.name}`, icon: "✦" };
   return { t: "경기 종료", who: G.winner != null ? G.players[G.winner].name + " 승리" : "", icon: "◆" };
 }
+const isPhone = () => document.documentElement.classList.contains("mobile");   // 폰 · 앱(js/mobile.js) — 손가락 말투 · 한 줄 패널
 function actionBarHTML(me) {
   if (G.phase === "combat") { const l = G.log[G.log.length - 1]; return `<div class="hint live">${l ? esc(l.text) : "전투가 진행 중입니다…"}</div>`; }
   if (G.control !== me.idx || G.handoff) {
@@ -2609,8 +2610,12 @@ function actionBarHTML(me) {
   if (s && s.kind === "field") return `<div class="hint">끌어서 자리 바꾸기 · <b>소각장</b>으로 보내기</div>`;
   const r = role(me);
   const short = ether(me) < 0 ? ` <b class="bad">유지비가 모자랍니다: 결정화하거나 유닛을 소각하세요.</b>` : "";
+  /* 2026-11-25 폰: 가운데 띠의 안내 글을 다시 보인다(css/mobile.css) — 손가락 말로, 두 줄까지. 유지비 경고는 그것만 */
+  if (isPhone()) return `<div class="hint">${short || (r === "atk"
+    ? "카드를 <b>두 번 누르거나 끌어서</b> 올리기 · 아이템은 유닛 위로"
+    : "상대 배치를 보고 막기 · 못 막은 공격은 생명 감소, 다음 턴 에테르 +1")}</div>`;
   return `<div class="hint">${r === "atk"
-    ? "더블클릭 또는 끌어서 유닛·공격 마법 올리기 · 아이템은 유닛 위로"
+    ? "<b>더블클릭</b> 또는 <b>끌어서</b> 유닛·공격 마법 올리기 · 아이템은 유닛 위로"
     : "상대 배치를 보고 막기 · 막지 못한 공격은 생명 감소, 대신 다음 턴 에테르 +1"}${short}</div>`;
 }
 function onField(uid) { return G.players.some(p => p.field.some(x => x && x.uid === uid)); }
@@ -2635,9 +2640,9 @@ const uiIcon = (k, cls) => `<svg class="ui-ico${cls ? " " + cls : ""}" viewBox="
 
 /* 고른 카드 패널: 위에 카드, 아래에 따로 떨어진 동작 상자(상태 한 줄 · 버튼 · 키워드 뜻) */
 /* 낼 수 없는 이유를 [제목, 자세히] 두 조각으로 */
-function shortWhy(why) {
+function shortWhy(why, brief) {   // brief: 고른 카드 패널(폰 .f-strip · PC .f-tight) — 꼬리말을 뺀다(결정화 단추가 바로 옆에 있고, 구슬 명판도 "여기를 눌러 결정화"로 바뀐다)
   let m;
-  if ((m = why.match(/필요 (\d+), 남은 에테르 (\d+)/))) return ["에테르 부족", `필요 ${m[1]} · 남음 ${m[2]}` + (/결정화하면/.test(why) ? " · 다른 카드를 결정화하면 +1" : "")];
+  if ((m = why.match(/필요 (\d+), 남은 에테르 (\d+)/))) return ["에테르 부족", `필요 ${m[1]} · 남음 ${m[2]}` + (!brief && /결정화하면/.test(why) ? " · 다른 카드를 결정화하면 +1" : "")];
   if (why.startsWith("지금은")) return ["지금은 낼 수 없음", ""];
   if (why.startsWith("공격 마법")) return ["공격 턴 전용", "내 공격 턴에만 사용"];
   if (why.startsWith("방어 마법")) return ["방어 턴 전용", "내 방어 턴에만 사용"];
@@ -2666,7 +2671,7 @@ function focusInst(inst) {
 }
 /* 고른 카드 패널 (v0.7)
    머리줄: 어디서 고른 카드인지 + 닫기(×, Esc) · 카드 · 상태 한 줄 · 주 버튼(전장에 올리기) · 보조 버튼 두 칸(결정화 · 소각) · 키워드 뜻 */
-const fSub = (act, label, key, cls, off, ico, tip) => `<button type="button" class="f-sub ${cls}" data-act="${act}"${off ? " disabled" : ""}${tip ? ` data-tip="${esc(tip)}"` : ""}>${uiIcon(ico)}<span>${label}</span><kbd>${key}</kbd></button>`;
+const fSub = (act, label, key, cls, off, ico, tip) => `<button type="button" class="f-sub ${cls}" data-act="${act}"${off ? " disabled" : ""}${tip ? ` data-tip="${esc(tip + (isPhone() ? "" : `\n단축키 ${key}`))}"` : ""}>${uiIcon(ico)}<span>${label}</span><kbd>${key}</kbd></button>`;
 function focusHTML(me, ctrl) {
   let c = null, inst = null, main = "", btns = [], state = null, bad = false, key = null, head = "";
   if (ctrl && G.sel && G.sel.kind === "hand") {
@@ -2675,13 +2680,13 @@ function focusHTML(me, ctrl) {
       c = C(it); key = "h" + it.uid; head = `핸드 · ${me.hand.indexOf(it) + 1}번째`;
       const why = canPlay(me, c);
       const maxed = me.crystals.length >= RULES.maxCrystals, done = crysLeft(me) <= 0;
-      if (c.type !== "item") main = `<button type="button" class="f-cta" data-act="do-place"${why ? " disabled" : ""}>${uiIcon("place")}<span>전장에 올리기</span><em class="f-cost" title="에테르 ${costOf(c)}"><i></i>${costOf(c)}</em></button>`;
+      if (c.type !== "item") main = `<button type="button" class="f-cta" data-act="do-place"${why ? " disabled" : ""}>${uiIcon("place")}<span>${isPhone() ? "" : '<i class="f-cta-pre">전장에 </i>'}올리기</span><em class="f-cost" title="에테르 ${costOf(c)}"><i></i>${costOf(c)}</em></button>`;
       btns = [
         fSub("do-crystal", "결정화", "C", "f-cry", maxed || done, "crystal", maxed ? "결정이 최대입니다." : done ? `결정화할 수 있는 장수를 다 썼습니다.\n한 턴에 ${RULES.crystalsPerTurn}장씩 쌓입니다.` : `이 카드를 결정으로 바칩니다.\n바로 에테르 +1(매 턴) · 카드는 소각장으로\n(지금 ${crysLeft(me)}장 더 할 수 있음)`),
         fSub("do-burn", "소각", "X", "f-burn", false, "burn", "이 카드를 소각장에 버립니다.")
       ];
       bad = !!why;
-      state = why ? shortWhy(why) : c.type === "item" ? ["장착 가능", "내 유닛 위로 끌어 놓기"] : c.type === "unit" ? ["낼 수 있음", "빈 칸으로 끌어 놓기"] : ["낼 수 있음", "앞 칸 유닛이 끝나면 발동"];
+      state = why ? shortWhy(why, true) : c.type === "item" ? ["장착 가능", "내 유닛 위로 끌어 놓기"] : c.type === "unit" ? ["낼 수 있음", "빈 칸으로 끌어 놓기"] : ["낼 수 있음", "앞 칸 유닛이 끝나면 발동"];
     }
   } else if (ctrl && G.sel && G.sel.kind === "field") {
     inst = me.field[G.sel.slot];
@@ -2702,7 +2707,7 @@ function focusHTML(me, ctrl) {
   const enter = FX.focusKey !== key; FX.focusKey = key;
   const info = focusInst(inst).concat(focusKws(c));
   const box = state || main || btns.length || info.length;
-  return `<aside class="focus v7${enter ? " enter" : ""}" data-focus>
+  return `<aside class="focus v7${enter ? " enter" : ""}${state ? " f-st" : ""}" data-focus>
     <div class="f-head"><span>${esc(head)}</span><button type="button" class="f-x" data-act="do-cancel" aria-label="닫기" data-tip="닫기 · Esc">${uiIcon("close")}<kbd>Esc</kbd></button></div>
     <div class="f-name"><span class="f-lv">${c.lv}</span><b>${esc(c.name)}</b></div>
     ${cardHTML(c, { size: "lg", cls: "f-card" })}
@@ -2726,6 +2731,19 @@ function placeFocus() {
   if (!fo) return;
   if (!matchMedia("(min-width: 761px)").matches) { fo.removeAttribute("style"); return; }
   const b = boardEl.getBoundingClientRect();
+  /* 2026-11-25 폰(html.mobile): 왼쪽 열의 두 깃발 사이는 82px뿐이라 낼 수 없는 이유와 [전장에 올리기 · 결정화 · 소각] 단추가 가려졌다(내용 260px).
+     폰에서는 고른 카드 패널을 가운데 띠의 빈 가운데에 한 줄로 놓는다(.f-strip, css/mobile.css): 상태 · 단추 · 닫기.
+     단계 글(ROUND · 공격 준비) 오른쪽에서 시작하고, 자리가 모자라면(16:9 폰) 왼쪽으로 넘어가 단계 글을 덮는다 */
+  if (isPhone() && !fo.classList.contains("v7")) return;   // 폰은 단축키 판(.focus-idle)을 그리지 않는다 — 자리를 재지 않는다
+  const mid = isPhone() ? boardEl.querySelector(".midbar") : null, tb = mid && mid.querySelector(".toolbar");
+  if (mid && tb) {
+    const m = mid.getBoundingClientRect(), ph = mid.querySelector(".phase"), right = tb.getBoundingClientRect().left - 8, min = m.left + 6;
+    fo.classList.add("f-strip");
+    fo.style.cssText = `top:${m.top - b.top + 2}px;height:${m.height - 4}px;max-height:none;width:max-content;max-width:${right - min}px;left:0`;
+    const w = fo.offsetWidth;
+    fo.style.left = (Math.max(min, Math.min(ph ? ph.getBoundingClientRect().right + 10 : min, right - w)) - b.left) + "px";
+    return;
+  }
   // v3.9.3: 왼쪽 열이 위에서부터 상대 소각장 · 상대 깃발/에테르 · (이 패널) · 내 깃발/에테르 · 내 소각장. 두 깃발 칸 사이에 맞춘다
   const ft = boardEl.querySelector(".frow-top .f-flag"), fb = boardEl.querySelector(".frow-bot .f-flag");
   if (ft && fb) {
@@ -2733,10 +2751,11 @@ function placeFocus() {
     const mw = boardEl.querySelector(".mb-well"), t = ft.getBoundingClientRect();
     const kids = el => Array.from(el.querySelectorAll(".nameplate, .eth-ring")).map(k => k.getBoundingClientRect());
     const kt = kids(ft), kb = kids(fb);
-    const y0 = (kt.length ? Math.max(...kt.map(r => r.bottom)) : t.bottom) + 14, y1 = (kb.length ? Math.min(...kb.map(r => r.top)) : fb.getBoundingClientRect().top) - 14;
+    const y0 = (kt.length ? Math.max(...kt.map(r => r.bottom)) : t.bottom) + 8, y1 = (kb.length ? Math.min(...kb.map(r => r.top)) : fb.getBoundingClientRect().top) - 8;   // 2026-11-25 위아래 틈 14 → 8px (1280×720에서 단추 줄이 13px 잘렸다)
     fo.style.left = (t.left - b.left) + "px"; fo.style.top = (y0 - b.top) + "px";
     fo.style.width = Math.max(mw ? mw.getBoundingClientRect().width : t.width, 220) + "px";
     fo.style.height = ""; fo.style.maxHeight = Math.max(80, y1 - y0) + "px";
+    focusTight(fo);
     return;
   }
   const top = boardEl.querySelector(".frow-top .f-well"), bot = boardEl.querySelector(".frow-bot .f-well");
@@ -2749,11 +2768,30 @@ function placeFocus() {
   fo.style.left = (w.left - b.left) + "px"; fo.style.top = (y0 - b.top) + "px";
   fo.style.width = W + "px";
   fo.style.height = ""; fo.style.maxHeight = Math.max(80, y1 - y0) + "px";
+  focusTight(fo);
+}
+/* 2026-11-25 PC: 고른 카드 패널의 내용이 두 깃발 사이 높이를 넘으면(거의 모든 PC 화면 — 내용 260px, 자리 132~175px) 촘촘한 배치(.f-tight, css/battle-v19.css)로:
+   이름 줄을 빼고 상태 + 단추 한 줄. 예전에는 [전장에 올리기 · 결정화 · 소각]이 잘려 패널 안을 스크롤해야 보였다 */
+const FOCUS_FULL_H = 270;   // 넓은 배치에서 핸드 카드 패널의 높이(이름 · 상태 두 줄 · 주 단추 · 보조 단추) — 자리가 이보다 낮은 화면은 어떤 카드를 고르든 촘촘한 배치(카드마다 모양이 바뀌지 않게)
+function focusTight(fo) {
+  if (!fo.classList.contains("v7")) return;
+  fo.classList.remove("f-tight");
+  if ((parseFloat(fo.style.maxHeight) || 0) < FOCUS_FULL_H || fo.scrollHeight > fo.clientHeight + 1) fo.classList.add("f-tight");
+}
+/* 2026-11-25 PC: 두 줄 결정화 명판(.cry-teach)은 구슬 칸보다 넓어 내 1번 칸 카드의 왼쪽 아래를 덮었다(1366 · 1440 폭에서 11~15px).
+   덮는 만큼만 왼쪽으로 민다(css/crys-hint.css --cry-dx, 꼭지는 그대로 구슬 가운데). 폰은 명판이 구슬 오른쪽 아래 깃발 밑이라 해당 없음(css/mobile.css) */
+function placeCry() {
+  if (!boardEl || isPhone() || !wideBoard()) return;
+  const pl = boardEl.querySelector(".frow-bot .ether.altar .cry-state.cry-teach"), s0 = pl && boardEl.querySelector('.frow-bot .slot[data-s="0"]');
+  if (!s0) return;
+  pl.style.removeProperty("--cry-dx");
+  const over = pl.getBoundingClientRect().right + 4 - s0.getBoundingClientRect().left;
+  if (over > 0) pl.style.setProperty("--cry-dx", -Math.ceil(over) + "px");
 }
 addEventListener("resize", () => {
   if (!(G && boardEl && document.body.contains(boardEl))) return;
   if (FX.swap != null && FX.swap !== wideBoard()) { render(); return; }   // v3.9.3: 760px 경계를 넘으면 왼쪽 열 배치가 바뀐다
-  placeFocus(); placeLog();
+  placeFocus(); placeLog(); placeCry();
   const z = $("#zoom"); if (z && !z.hidden) placeZoom(z);   // v3.9.8
 });
 /* v3.9.3: 넓은 화면이면 깃발 · 에테르를 전장 줄로, 소각장을 핸드 줄로 */
@@ -2767,6 +2805,7 @@ const LOGDOCK = { g: null, hr: null };
 function placeLog() {
   const d = boardEl && boardEl.querySelector("#logdrawer"); if (!d) return;
   const off = () => { if (d.classList.contains("docked")) { d.classList.remove("docked"); d.removeAttribute("style"); } };
+  if (isPhone()) return off();   // 2026-11-25 폰은 늘 서랍 — 자리를 재지 않는다(재면 방금 그린 화면의 배치를 그 자리에서 계산하게 된다)
   const hand = boardEl.querySelector(".prow-top .hand-opp"), deck = boardEl.querySelector(".frow-top .zone.deck"),
     info = boardEl.querySelector(".prow-top .pinfo"), mid = boardEl.querySelector(".midbar"), pb = d.offsetParent;
   if (document.documentElement.classList.contains("mobile") || !wideBoard() || !hand || !deck || !mid || !pb) return off();
@@ -2822,7 +2861,7 @@ function render() {
           <i class="tb-sep"></i>
           <button type="button" class="tb-btn${G.showLog ? " on" : ""}" data-act="log" aria-label="기록" data-tip="전투 기록">${uiIcon("log")}</button>
           <button type="button" class="tb-btn" data-act="rules" aria-label="규칙" data-tip="규칙">${uiIcon("rules")}</button>
-          ${typeof BGM !== "undefined" && BGM.tbHTML ? `<i class="tb-sep"></i>${BGM.tbHTML()}` : ""}
+          ${typeof BGM !== "undefined" && BGM.tbHTML && !isPhone() ? `<i class="tb-sep"></i>${BGM.tbHTML()}` : ""}<!-- 2026-11-25 폰: 소리 단추 둘은 뺀다(설정 창에 있다) — 남은 단추를 키운다(css/mobile.css) -->
           <i class="tb-sep"></i>
           <button type="button" class="tb-btn tb-danger" data-act="surrender" aria-label="${G.phase === "over" ? "나가기" : "항복"}" data-tip="${G.phase === "over" ? "나가기" : "항복"}">${uiIcon(G.phase === "over" ? "exit" : "flag")}</button>
           <i class="tb-sep"></i>
@@ -2835,7 +2874,7 @@ function render() {
   </div>
   ${G.rules.text ? `<div class="rule-chip" data-tip="${esc(`판 규칙 · ${G.rules.who || ""}\n${G.rules.text}`)}"><i>◆</i><b>${esc(G.rules.name)}</b><span>${esc(G.rules.text)}</span></div>` : ""}
   ${focusHTML(me, ctrl)}
-  <aside class="logdrawer${G.showLog ? " open" : ""}" id="logdrawer"><div class="ld-head"><button type="button" class="ld-fold" data-act="log" aria-expanded="${G.showLog}"><i class="ld-caret" aria-hidden="true">▸</i><b>전투 기록</b><span class="ld-last">${G.log.length ? esc(G.log[G.log.length - 1].text) : ""}</span></button>${typeof BLog !== "undefined" ? BLog.btnsHTML() : ""}<button class="btn xs ghost ld-close" data-act="log">닫기</button></div>
+  <aside class="logdrawer${G.showLog ? " open" : ""}" id="logdrawer"><div class="ld-head"><button type="button" class="ld-fold" data-act="log" aria-expanded="${G.showLog}"><i class="ld-caret" aria-hidden="true">▸</i><b>전투 기록</b><span class="ld-last">${G.log.length ? esc(G.log[G.log.length - 1].text) : ""}</span></button>${typeof BLog !== "undefined" && !isPhone() ? BLog.btnsHTML() : ""}<button class="btn xs ghost ld-close" data-act="log">닫기</button></div>
     <div class="log" id="log">${G.showLog ? logLinesHTML() : ""}</div></aside>
   ${G.handoff ? `<div class="handoff" data-act="handoff"><div><p class="ho-eyebrow">PASS THE SCROLL</p><h2>${esc(me.name)}의 차례</h2><p>${G.phase === "atkPrep" ? "공격 준비" : "방어 준비"}를 할 차례입니다. 상대가 화면을 보지 않을 때 눌러 주세요.</p><button class="btn primary">핸드 펼치기</button></div></div>` : ""}`;
   placeLog();   // 자리를 먼저 잡아야 스크롤 높이가 맞다
@@ -2843,7 +2882,7 @@ function render() {
   /* v3.32.1 폰 · 앱: 준비 완료 단추(+모래시계)를 가운데 띠에서 내 덱 왼쪽(f-piles)으로 옮긴다. 가운데 띠를 얇게 하고 그만큼 상대 전장 카드를 키운다(css/mobile.css) */
   if (swap && document.documentElement.classList.contains("appui")) { const rw = boardEl.querySelector(".mb-right .rd-wrap"), pl = boardEl.querySelector(".frow-bot .f-piles"); if (rw && pl) { rw.classList.add("rd-pile"); pl.prepend(rw); } }
   if (typeof Arcade !== "undefined" && !document.documentElement.classList.contains("mobile")) { Arcade.mount(boardEl); Arcade.place(boardEl); }   /* v3.20.5 폰 · 앱에서는 파친코 · 결정 상자를 두지 않는다 */
-  placeFocus();
+  placeFocus(); placeCry();
   if (typeof fitDescs === "function") fitDescs(boardEl);
   fitNameIds(boardEl);
   syncZoom();   // v3.9.8 누른 카드를 상대 전장 옆에 크게
@@ -3215,6 +3254,10 @@ function clockRunning() {
   if (!G || G.cfg.headless || G.phase === "over") return false;
   if (G.phase !== "atkPrep" && G.phase !== "defPrep") return false;
   if (G.control == null || G.control !== G.viewer || G.handoff) return false;
+  /* 2026-11-25 컴퓨터 대전 · 순례처럼 상대가 기다리지 않는 판은, 창(설정 · 규칙 · 확인)이 열려 있는 동안 시계를 멈춘다 — 설정을 읽다가 턴이 넘어갔다. 온라인은 그대로 흐른다 */
+  if (!G.online && document.querySelector(".modal-wrap")) return false;
+  /* 2026-11-25 첫 판 안내 말풍선(Guide)이 떠 있는 동안에도 멈춘다 — 말풍선 다섯(850자쯤)을 46초 안에 읽어야 했고, 읽다가 턴이 넘어갔다 */
+  if (!G.online && typeof Guide !== "undefined" && Guide.el && Guide.el.style.visibility !== "hidden") return false;
   return performance.now() >= FX.clockHold;
 }
 function clockState() {
@@ -4418,7 +4461,7 @@ function showResult() {
     ${econ && econ.lucky && econ.lucky.k === "card" && CARDS[econ.lucky.id] ? `<div class="res-lucky"><p><b>행운</b> 환석이 빛나더니 카드 한 장을 내놓았다 — <span class="grade-${econ.lucky.grade}">${GRADES[econ.lucky.grade] ? GRADES[econ.lucky.grade].name : ""}</span> 「${esc(CARDS[econ.lucky.id].name)}」${econ.lucky.gold ? ` (이미 다 가져서 ${fmtGold(econ.lucky.gold)})` : ""}</p>${cardHTML(CARDS[econ.lucky.id], { size: "md" })}</div>` : ""}
     ${econ && typeof LevelUI !== "undefined" ? LevelUI.resultHTML(econ.xp != null ? econ.xp : econ.total) : ""}
     ${reward ? `<div class="res-reward"><p>보상으로 카드 1장을 얻었습니다</p>${cardHTML(CARDS[reward], { size: "md" })}</div>` : ""}
-    <div class="res-btns">${G.cfg.exp ? `<button class="btn primary" data-r="lobby">${won ? "원정 계속" : "원정으로"}</button>` : G.cfg.pil ? `<button class="btn primary" data-r="lobby">순례길로</button>` : `<button class="btn primary" data-r="lobby">대기실로</button><button class="btn" data-r="again">한 번 더</button>`}<button class="btn ghost" data-r="board">전장 보기</button>${typeof BLog !== "undefined" ? `<button class="btn ghost" data-blog="dl" title="이 판의 개발용 전투 로그(.txt) 내려받기">⤓ 전투 로그</button>` : ""}</div>
+    <div class="res-btns">${G.cfg.exp ? `<button class="btn primary" data-r="lobby">${won ? "원정 계속" : "원정으로"}</button>` : G.cfg.pil ? `<button class="btn primary" data-r="lobby">순례길로</button>` : `<button class="btn primary" data-r="lobby">대기실로</button><button class="btn" data-r="again">한 번 더</button>`}<button class="btn ghost" data-r="board">전장 보기</button>${typeof BLog !== "undefined" && !isPhone() ? `<button class="btn ghost" data-blog="dl" title="이 판의 개발용 전투 로그(.txt) 내려받기">⤓ 전투 로그</button>` : ""}</div>
   </div>`;
   document.body.appendChild(wrap);
   if (econ && typeof LevelUI !== "undefined") LevelUI.playResult(wrap);

@@ -310,3 +310,111 @@ html.mobile .gate, html.mobile .topbar, html.mobile .modal-wrap, html.mobile .re
 html.mobile .topbar { background: rgba(9, 10, 17, .97); }
 html.mobile .modal-wrap { background: rgba(3, 4, 8, .84); }
 html.mobile .result { background: rgba(4, 4, 8, .9); }
+
+/* ---------- 2026-11-25 세로로 든 폰: 가로로 돌려 달라는 안내 (js/mobile.js rotateAsk) ----------
+   앱식 배치는 가로 전용이라 세로에서는 대기실 · 전장이 깨진다. 첫 화면 · 로그인(html.rot-free)만 세로 그대로 쓰고, 나머지는 이 안내로 덮는다.
+   모든 창(확인 창 9000대)보다 위. 가로로 돌리면 바로 사라진다 */
+.rotate-ask { display: none; }
+@media (orientation: portrait) {
+  html.mobile:not(.rot-free) .rotate-ask { position: fixed; inset: 0; z-index: 20000; display: grid; place-items: center; padding: 24px; background: #07080e; color: #f6e2a8; text-align: center; touch-action: none; }
+  html.mobile:not(.rot-free) .rotate-ask .ra-in { display: grid; justify-items: center; gap: 14px; max-width: 320px; }
+  html.mobile:not(.rot-free) .rotate-ask .ra-ico { width: 96px; height: 96px; color: #d9b46a; }
+  html.mobile:not(.rot-free) .rotate-ask .ra-ph { transform-origin: 32px 26px; animation: raTurn 2.4s ease-in-out infinite; }
+  html.mobile:not(.rot-free) .rotate-ask b { font-family: var(--kfont, var(--body)), serif; font-size: 22px; font-weight: 800; letter-spacing: .02em; }
+  html.mobile:not(.rot-free) .rotate-ask span { font-size: 15px; line-height: 1.6; color: #b9ad8c; word-break: keep-all; }
+  html.mobile:not(.rot-free), html.mobile:not(.rot-free) body { overflow: hidden; }
+  html.mobile:not(.rot-free) #app { max-width: 100vw; overflow: hidden; contain: paint; }   /* 깨진 배치가 화면보다 넓어져 브라우저가 화면을 줄여 보이지 않게(안내가 한쪽으로 밀렸다) */
+}
+@keyframes raTurn { 0%, 25% { transform: rotate(0deg); } 60%, 100% { transform: rotate(-90deg); } }
+
+/* ---------- 2026-11-25 폰 전장: 지금 할 일이 보이게 ----------
+   1) 가운데 띠의 안내 글(.actionbar)을 폰에서는 다시 보인다(v3.32.1에 앱식 배치에서 뺐던 것) — 띠의 빈 가운데에, 두 줄까지(js/game.js actionBarHTML의 폰 문구)
+   2) 고른 카드 패널은 가운데 띠 위에 한 줄(.f-strip, js/game.js placeFocus): 상태 두 줄 · 전장에 올리기 · 결정화 · 소각 · 닫기.
+      카드 이름 · 그림은 큰 카드가 보여 주므로 뺀다. 상태가 없으면(상대 카드 살펴보기) 머리 글("상대 전장 · 2번 칸")과 능력 뜻만. 자판 표시(Esc · C · X)는 폰에서 뺀다 */
+html.mobile .midbar.v7 .actionbar { display: block; padding-left: 12px; }
+html.mobile .midbar.v7 .hint { white-space: normal; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-height: 1.25; font-size: 13.5px; word-break: keep-all; }
+html.mobile .focus.v7.f-strip { flex-direction: row; align-items: center; gap: 7px; padding: 3px 6px 3px 9px; overflow: hidden; border-radius: 8px; }
+html.mobile .focus.v7.f-strip .f-head, html.mobile .focus.v7.f-strip .f-box { display: contents; }
+html.mobile .focus.v7.f-strip .f-name, html.mobile .focus.v7.f-strip > .f-card, html.mobile .focus.v7.f-strip.f-st .f-head > span { display: none; }
+html.mobile .focus.v7 kbd { display: none; }
+html.mobile .focus.v7.f-strip .f-head > span { order: 0; flex: none; font-size: 13px; }
+html.mobile .focus.v7.f-strip .f-state { order: 1; flex: none; flex-direction: column; flex-wrap: nowrap; align-items: flex-start; justify-content: center; gap: 1px; height: 36px; padding: 0 9px; }
+html.mobile .focus.v7.f-strip .f-state i { display: none; }
+html.mobile .focus.v7.f-strip .f-state b { font-size: 13.5px; line-height: 1.15; }
+html.mobile .focus.v7.f-strip .f-state span { margin: 0; font-size: 12px; line-height: 1.15; text-align: left; white-space: nowrap; }
+html.mobile .focus.v7.f-strip .f-cta { order: 2; flex: none; width: auto; height: 36px; gap: 6px; padding: 0 5px 0 10px; font-size: 14px; }
+html.mobile .focus.v7.f-strip .f-subs { order: 3; flex: none; display: flex; gap: 6px; }
+html.mobile .focus.v7.f-strip .f-sub { height: 36px; padding: 0 10px; gap: 5px; font-size: 14px; white-space: nowrap; }
+html.mobile .focus.v7.f-strip .f-info { order: 4; flex: 0 1 auto; min-width: 0; max-width: 300px; display: flex; align-items: baseline; gap: 6px; padding: 0; border: 0; font-size: 12.5px; white-space: nowrap; overflow: auto hidden; scrollbar-width: none; }
+html.mobile .focus.v7.f-strip .f-info dd { word-break: normal; }
+html.mobile .focus.v7.f-strip .f-x { order: 9; flex: none; width: 36px; height: 36px; justify-content: center; padding: 0; }
+html.mobile .focus.v7.f-strip .f-x .ui-ico { width: 14px; height: 14px; }
+
+/* ---------- 2026-11-25 폰 전장: 에테르 구슬은 작게 · 화면 가장자리로, 결정화 명판은 구슬 오른쪽 (사용자) ----------
+   구슬이 깃발 오른쪽(전장 칸 쪽)에 있어 16:9 폰에서는 상대 구슬이 상대 전장 1번 칸을 덮었고(깃발을 100px 늘린 탓),
+   내 구슬 아래의 두 줄 명판은 핸드 첫 카드의 왼쪽 위(레벨 숫자)를 덮었다.
+   - 구슬을 깃발 왼쪽(화면 가장자리)으로 옮기고 지름을 줄인다(내 구슬 95 → 약 80px, 상대 70 → 약 60px). 숫자는 구슬 안에서 더 크게(예전 크기 그대로 보임)
+   - 깃발은 구슬 오른쪽. 상대 깃발의 100px 늘림은 없앤다(구슬이 줄어든 만큼 깃발이 넓어진다)
+   - 결정화 명판 · 보조 글(.eth-foot)은 구슬 오른쪽 아래(내 깃발 밑)에 가로로. 명판도 구슬의 일부라 눌러도 · 끌어다 놓아도 결정화. 꼭지는 왼쪽(구슬)을 가리킨다
+   구슬의 놓는 칸(.ether.altar)은 줄 높이 그대로라 끌어 놓기 자리는 줄지 않는다 */
+html.mobile .lay-swap .f-flag > .pside { gap: 8px; }
+html.mobile .lay-swap .f-flag .ether.altar { order: -1; margin: 0; }
+html.mobile .lay-swap .frow-top .f-flag .pside { width: 100%; padding-right: 0; }
+html.mobile .lay-swap .frow-top .ether.altar { width: calc(var(--cw) * .68); }
+html.mobile .lay-swap .frow-bot .ether.altar { width: calc(var(--cw) * .9); justify-content: center; }
+html.mobile .lay-swap .frow-bot .eth-ring { width: min(100cqw, 100cqh); }
+html.mobile .lay-swap .eth-ring .eth-orb b { font-size: 31cqw; }
+html.mobile .lay-swap .frow-bot .nameplate.banner.bn-h { align-self: flex-start; height: calc(var(--cw) * .78); }
+html.mobile .lay-swap .frow-bot .ether.altar .eth-foot { position: absolute; left: calc(100% + 8px); bottom: 0; margin: 0; max-width: none; overflow: visible; flex-direction: column-reverse; flex-wrap: nowrap; align-items: flex-start; justify-content: flex-start; gap: 2px; }   /* 보조 글(보너스 · 유지비)은 명판 위에 — 옆에 두면 16:9 폰에서 내 전장 1번 칸에 닿는다 */
+html.mobile .lay-swap .frow-bot .ether.altar .ether-sub { padding-left: 4px; line-height: 1.2; text-shadow: 0 1px 2px #000, 0 0 4px #000; }
+html.mobile .lay-swap .frow-bot .ether.altar .cry-state.cry-teach { align-items: flex-start; gap: 1px; padding: 3px 11px 4px; }
+html.mobile .lay-swap .frow-bot .ether.altar .cry-state.cry-teach::before { left: -7px; top: 50%; margin: -6px 0 0; border-top: 0; border-bottom: 1.5px solid #8fdcff; }
+
+/* ---------- 2026-11-25 폰: 누르는 것은 크게 ----------
+   화면을 0.63배로 줄여 보이므로(js/mobile.js) 40px 단추는 실제 25px이었다. 자주 누르는 것만 키운다 */
+/* 전장 가운데 띠의 메뉴 단추: 소리 단추 둘을 뺀 자리(js/game.js render)만큼 넓게 — 50 × 34 → 68 × 42 (실제 43 × 26) */
+html.mobile .lay-swap .midbar.v7 .toolbar { height: 46px; }
+html.mobile .lay-swap .midbar.v7 .tb-btn { min-width: 68px; height: 42px; }
+html.mobile .lay-swap .midbar.v7 .tb-btn .ui-ico, html.mobile .lay-swap .midbar.v7 .tb-btn > svg { width: 27px; height: 27px; }
+html.mobile .lay-swap .midbar.v7 .tb-sep { margin: 0 4px; }
+/* 상단 띠의 나가기 · 설정 · 소리: 40 → 54px */
+html.mobile .topbar .tb-nav.tb-exit, html.mobile .topbar .tb-nav.tb-set, html.mobile .topbar .tb-nav.tb-sound { min-width: 54px; height: 54px; padding: 0 8px; justify-content: center; }
+html.mobile .topbar .tb-nav.tb-exit .m-ico { width: 26px; height: 26px; }
+/* 출정 창 닫기: 40 → 60px */
+html.mobile .deck-sheet .ds-x { width: 60px; height: 60px; top: 2px; right: 2px; font-size: 28px; }
+/* 전투 기록 서랍의 닫기 */
+html.mobile .logdrawer .ld-close { min-height: 40px; padding: 0 16px; font-size: 15px; }
+/* 상단 띠 왼쪽 길(대기실 · 상점 · 교역소 · 퀘스트 · 튜토리얼 · 지도 · 연대기): 폰에서는 글자가 다 들어가지 않아 아이콘만 남았다(무슨 단추인지 알 수 없음).
+   아이콘 아래에 작은 이름을 쌓는다 — 옆으로 놓을 때(628px)보다 좁아 19.5:9 · 16:9 폰 모두 들어간다. 그래도 넘치면 fitTopbar가 예전처럼 접는다(fit1 튜토리얼 → fit3 모두) */
+html.mobile.appui .topbar .tbw-left .tb-nav { flex-direction: column; justify-content: center; gap: 3px; min-width: 48px; padding: 0 5px; }
+html.mobile.appui .topbar .tbw-left .tb-nav .m-ico { width: 27px; height: 27px; }
+html.mobile.appui .topbar .tbw-left:not(.fit3) .tb-nav > .m-ico + span { display: block; font-size: 13px; line-height: 1; letter-spacing: 0; white-space: nowrap; }
+html.mobile.appui .topbar .tbw-left.fit1 .tb-nav[data-nav="tutorial"] > .m-ico + span { display: none; }
+html.mobile.appui .topbar .tbw-left .tb-div { display: none; }
+html.mobile.appui .topbar .tbw-left .tb-nav.on::after { display: none; }   /* 고른 메뉴의 마름모 표시는 이름과 겹친다 — 금빛 글자 · 아이콘으로 충분 */
+
+/* ---------- 2026-11-25 폰 · 앱식 덱 조정실 손질 ----------
+   - 게이지 눈금(6px × 50칸 = 480px)이 칸(245px)을 넘쳐 '대기실로 · 되돌리기' 단추 밑으로 깔렸다 → 눈금이 칸 폭을 나눠 쓴다
+   - 덱 이름이 "도르마크의 심"에서 잘렸다 → 이름 칸을 넓히고(게이지에서 덜어냄) 글자를 조금 줄인다
+   - 카드 묶음 머리(유닛 33)가 84px 높이라 카드가 한 줄의 윗부분만 보였다 → 폰에서는 머리 높이를 글자만큼만
+   - 덱 목록의 − · + 단추(실제 14px)와 비우기를 키운다 */
+html.appui .screen-editor .ed-name { flex: 0 1 300px; }
+html.appui .screen-editor .ed-name input { font-size: 15px; }
+html.appui .screen-editor .ed-gauge { flex: 1 1 300px; }
+html.appui .screen-editor .g-body { overflow: hidden; }
+html.appui .screen-editor .g-cells { width: 100%; gap: 1px; }
+html.appui .screen-editor .g-cell { flex: 1 1 0; width: auto; min-width: 2px; }
+html.appui .screen-editor .g-cell.notch { margin-right: 3px; }
+html.mobile .screen-editor .pool-grid.pool-grouped .pool-grp .pool-sec { min-height: 0; }
+html.mobile .screen-editor .dl-b { width: 30px; height: 30px; font-size: 18px; }
+html.mobile .screen-editor #ed-clear { min-height: 34px; padding: 0 14px; font-size: 13px; }
+html.mobile .screen-editor .dl-main .dl-type { display: none; }   /* 단추를 키운 만큼 이름 자리가 줄어 "포르탄 …"이 되었다 — 줄의 공/방/체 글은 빼고(카드를 누르면 보인다) 이름을 다 보인다 */
+/* 16:9 폰(레이아웃 폭 1200px 이하)은 머리 띠가 좁다: 눈금은 빼고 숫자(50/50) · 상태 글만, 단추 여백을 줄여 이름 칸을 남긴다 */
+@media (max-width: 1200px) {
+  html.mobile .screen-editor .g-cells { display: none; }
+  html.mobile .screen-editor .ed-gauge { flex: 0 1 170px; }
+  html.mobile .screen-editor .ed-name { flex: 1 1 200px; }
+  html.mobile .screen-editor .ed-btns { gap: 4px; }
+  html.mobile .screen-editor .ed-btns .btn { padding: 8px 8px; font-size: 13px; }
+  html.mobile .screen-editor .ed-name input { font-size: 13.5px; }
+}

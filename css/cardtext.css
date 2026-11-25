@@ -92,7 +92,7 @@ html.mobile .hand-me .card.fm.slim .c-cls { font-size: .78em; }
 .slot .card.fm .c-box .c-cls, .slot .card.fm .c-eq-ab { font-size: calc(.74em * var(--chs, 1)); line-height: 1.18; padding: 0 .12em !important; }
 .slot .card.fm .c-eq-ab::before { font-size: .7em; margin-right: .14em; vertical-align: .08em; }
 html.mobile .frow .card.fm .c-box .c-cls, html.mobile .frow .card.fm .c-eq-ab { font-size: calc(.78em * var(--chs, 1)); }
-.slot .card.fm .c-boxin:has(> .c-equip) { gap: .04em .1em; align-items: baseline; }
+.slot .card.fm .c-boxin.bx-eq { gap: .04em .1em; align-items: baseline; }
 /* 칩이 넘칠 때(js/view.js fitFieldBox): 분위기 글을 먼저 빼고(fit-noflv), --chs로 칩 글자를 줄인다. 다 들어가면 아래쪽 흐림을 끈다(fit-all) */
 .slot .card.fm .c-boxin.fit-noflv > .c-flv { display: none; }
 .slot .card.fm .c-boxin.fit-all { -webkit-mask-image: none; mask-image: none; }

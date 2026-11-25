@@ -45,6 +45,9 @@
   white-space: nowrap; line-height: 1.15; color: #effbff; border: 1.5px solid #8fdcff;
   background: linear-gradient(180deg, rgba(20, 52, 78, .97), rgba(7, 18, 32, .97));
   box-shadow: 0 0 0 1px rgba(0, 0, 0, .6), 0 0 16px rgba(143, 220, 255, .55), 0 3px 10px rgba(0, 0, 0, .75); }
+/* 2026-11-25 PC: 명판이 구슬 칸보다 넓어 내 1번 칸 카드의 왼쪽 아래를 덮으면(1366 · 1440 폭에서 11~15px) js/game.js placeCry가 덮는 만큼 --cry-dx로 왼쪽으로 민다. 꼭지는 그대로 구슬 가운데 */
+html:not(.mobile) .ether.altar .cry-state.cry-teach { transform: translateX(var(--cry-dx, 0px)); }
+html:not(.mobile) .ether.altar .cry-state.cry-teach::before { left: calc(50% - var(--cry-dx, 0px)); }
 .ether.altar .cry-state.cry-teach b { font-size: 1.06em; font-weight: 800; letter-spacing: .02em; text-shadow: 0 0 8px rgba(143, 220, 255, .9), 0 1px 2px #000; }
 .ether.altar .cry-state.cry-teach small { font-size: .74em; font-weight: 700; color: #c4ebff; }
 .ether.altar .cry-state.cry-teach::before { content: ""; position: absolute; left: 50%; top: -7px; width: 11px; height: 11px; margin-left: -6px; transform: rotate(45deg);

@@ -1,7 +1,7 @@
 /* ETHERION v3.36 — PC 대기실(예전 PC 배치, html:not(.appui)) 세 열의 높이를 맞춘다
    - 덱 보관함(왼쪽)의 높이 = 덱 보기(가운데) = 오른쪽 열. 높이는 js/screens.js fitLobbyCards가 덱 보관함을 재어 --lobby-h로 준다
    - 덱 보기: 덱 머리(이름 · 소개)를 빼고, 거르기 줄 아래 카드 40장이 그 높이에 다 들어가게 카드 폭을 고른다
-   - 오른쪽 열: 위 튜토리얼 · 매뉴얼 → 수레바퀴 → 대기실 채팅(남는 높이를 다 씀) → 아래 출정의 단 2 × 2
+   - 오른쪽 열: 위 출정의 단 2 × 2(2026-11-25 맨 아래 → 맨 위) → 수레바퀴 → 대기실 채팅(남는 높이를 다 씀)
    폰 · 앱식 배치(html.appui)는 css/mobile.css 그대로 */
 @media (min-width: 1181px) {
   html:not(.appui) .screen-lobby .lobby { align-items: start; }
@@ -18,17 +18,23 @@
   html:not(.appui) .screen-lobby .side-col > .lobby-help .lh-btn { justify-content: center; width: 100%; }
 
   /* 출정의 단 2 × 2 (원정 계속이 있으면 아래 한 줄을 다 쓴다) */
-  html:not(.appui) .screen-lobby .side-altar { flex: none; }
+  html:not(.appui) .screen-lobby .side-altar { flex: none; order: -1; }   /* 2026-11-25 출정의 단은 오른쪽 열 맨 위 — 맨 아래에 두면 첫 화면에서 안 보였다(1440×900에서 위에서 1,644px) */
   html:not(.appui) .screen-lobby .side-altar .altar-gates.g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   html:not(.appui) .screen-lobby .side-altar .g2-wide { grid-column: 1 / -1; }
   html:not(.appui) .screen-lobby .side-altar .btn.rite:not(.rb) { min-height: 76px; padding: 10px 8px; }
   html:not(.appui) .screen-lobby .side-altar .btn.rite b { font-size: 15px; letter-spacing: .02em; word-break: keep-all; }
   html:not(.appui) .screen-lobby .side-altar .btn.rite#go-edit .m-ico { color: var(--gold); }
 }
-/* 1180px 이하(두 열 · 한 열): 오른쪽 열이 아래로 내려가므로 출정의 단만 2 × 2로, 높이 맞춤은 없음 */
+/* 1180px 이하(두 열 · 한 열): 오른쪽 열이 아래로 내려간다. 높이 맞춤은 없음 */
 @media (max-width: 1180px) {
-  html:not(.appui) .screen-lobby .side-col { grid-column: 1 / -1; position: static; }
-  html:not(.appui) .screen-lobby .side-altar .altar-gates.g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+  /* 2026-11-25 오른쪽 열을 풀어(display: contents) 출정의 단만 맨 위 한 줄(단추 넷)로 올린다 — 수레바퀴 · 채팅은 예전처럼 아래 */
+  html:not(.appui) .screen-lobby .side-col { display: contents; }
+  html:not(.appui) .screen-lobby .side-col > * { grid-column: 1 / -1; }
+  html:not(.appui) .screen-lobby .side-col > .side-altar { order: -1; }
+  html:not(.appui) .screen-lobby .side-altar .altar-gates.g2 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
   html:not(.appui) .screen-lobby .side-altar .g2-wide { grid-column: 1 / -1; }
   html:not(.appui) .screen-lobby .side-col > .lobby-help { position: static; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
+}
+@media (max-width: 760px) {
+  html:not(.appui) .screen-lobby .side-altar .altar-gates.g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

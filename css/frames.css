@@ -102,6 +102,8 @@
 .card.fm.has-frame .c-emb .c-enum b { display: block; font: 900 .6em / 1 "Cinzel", serif; color: #fff6dd; transform: translateY(.14em);
   text-shadow: 0 .05em .1em #000, 0 0 .25em rgba(0, 0, 0, .9); }
 html.mobile .card.fm.has-frame .c-emb img { filter: none; }
+/* 2026-11-25 레벨 숫자 크게(사용자: 잘 안 보인다 — PC 핸드 8.5px · 폰 핸드 4.8px): 작은 카드(핸드 · 전장 · 목록)는 구슬과 숫자만 1.5배(숫자 .6em → .9em). 문장 그림은 그대로라 이름 · 레벨 아이콘 열을 덮지 않는다. 크게 보기(size-full)는 이미 커서 그대로 */
+.card.fm.has-frame:not(.size-full) .c-emb .c-orb, .card.fm.has-frame:not(.size-full) .c-emb .c-enum { transform: scale(1.5); }
 /* 진영별 문장(2026-11-21 사용자): 문장은 위 · 왼쪽이 잘려 오른쪽 아래만 보인다 — 그림 그대로면 용(용맥 맹약 G).
    신탁 성회(A)는 시계 방향 120° 돌려 신을, 거골 연합(B)은 좌우로 뒤집어 거인을 그 자리에. 구멍이 그림 정중앙이라 구슬 · 숫자는 그대로 */
 .card.fm.has-frame:is(.fr-A1, .fr-A2, .fr-A3) .c-emb img { transform: rotate(120deg); }
@@ -166,6 +168,18 @@ html.mobile .card.size-full.has-frame .c-art .c-spfx { box-shadow: inset 0 0 0 .
 .card.fm .c-coinline .sti, .slot .card.fm .c-coinline .sti { width: .86em; height: .86em; }
 .card.fm .c-coinline .coin-dot { width: .7em; height: .7em; }
 .card.fm.size-full .c-coinline .sti { width: 1em; height: 1em; }
+/* 2026-11-25 코인 줄 한 줄: 공 · 방 · 체 아이콘과 코인이 다음 줄로 넘어가지 않는다(사용자).
+   글 상자(.c-box)를 폭 기준 칸(container)으로 삼고, 줄 폭 어림 --cw(em, js/view.js coinLineHTML) · 칸 사이 수 --cg로 그 줄의 칸 글자만 상자 폭에 맞춰 줄인다.
+   맞는 줄은 그대로(min 1em). 세 칸짜리는 칸 사이를 조금 좁힌다. cqw를 모르는 옛 브라우저는 예전처럼 줄을 바꾼다 */
+@supports (width: 1cqw) {
+  .card.fm .c-box { container-type: inline-size; }
+  .card.fm .c-coinline { --cgap: .38em; --cwk: 1.015; }
+  .card.fm .c-coinline.cl-n3 { --cgap: .2em; }
+  .card.fm.size-full .c-coinline { --cgap: .7em; --cwk: 1.115; }
+  .card.fm.size-full.has-frame .c-box > .c-coinline { --cgap: .5em; }
+  .card.fm .c-coinline, .slot .card.fm .c-coinline, .card.fm.size-full .c-coinline, .card.fm.size-full.has-frame .c-box > .c-coinline { flex-wrap: nowrap; white-space: nowrap; column-gap: var(--cgap); }
+  .card.fm .c-coinline > .cl-s { flex: none; font-size: min(1em, calc((99cqw - var(--cg, 0) * var(--cgap)) / (var(--cw, 1) * var(--cwk)))); }
+}
 .card.has-brief .c-brief .sti { width: .96em; height: .96em; vertical-align: -.14em; margin: 0 .02em 0 .04em; }
 .card.has-brief .c-brief .cg { vertical-align: -.06em; font-size: 1em; }
 .card.has-brief .c-brief .cg .coin-dot { width: .78em; height: .78em; }
