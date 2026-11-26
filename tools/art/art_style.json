@@ -9,7 +9,7 @@
     "spell": "Landscape 5:4 painting of a spell — the magic itself is the subject.",
     "item": "Landscape 5:4 painting of one object — the object itself is the subject."
   },
-  "house": "ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.",
+  "house": "ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.",
   "saveAs": "Save the image file as: {file} — this is the name of the downloaded file only; the painting itself stays wordless.",
   "upgradeRef": "Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.",
   "upgradeNoRef": "Continuity: this is the promoted form of a creature that has its own earlier card — its body, markings and belongings are exactly as described above.",
@@ -49,7 +49,7 @@
       "en": "Common",
       "color": "#f4f1ea",
       "idea_ko": "1단 — 있는 그대로의 세계. 조용하고 담백하지만 정성껏 그린 그림. 빛은 장면에 쓴 광원뿐(덧붙인 빛 없음), 절제한 흙빛 색, 공기에는 먼지 · 연기 · 안개까지만, 닳고 손때 묻은 꾸밈없는 재질. 화려함이 아니라 관찰 · 질감 · 개성으로 좋은 그림.",
-      "finish": "Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.",
+      "finish": "Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.",
       "tier": 1
     },
     "uncommon": {
@@ -89,7 +89,7 @@
       "en": "Unique",
       "color": "#ff8a2a",
       "idea_ko": "5단 — 전설적이고 맹렬하다. 그 깃발에서 가장 대담한 그림. 연극 같은 명암과 깊은 어둠을 가르는 눈부신 주광, 주인공이 제 힘으로 그 깃발의 색으로 빛난다. 보석처럼 선명하고 깊은 색(깃발 색이 가장 진하게), 소용돌이치는 깃발 색 빛 알갱이 · 불꽃 · 일렁이는 안개 · 주인공을 휘감는 가는 금세공 빛줄, 이음매마다 깃발 색 빛이 새는 장인의 세공. 등급 줄의 `{banner}` · `{bannerName}`은 생성기가 그 카드 깃발의 색(이름 + 색값 · 이름)으로 바꿔 넣는다(2026-11-22 — 주황 금 불티가 모든 유니크를 불의 깃발처럼 붉게 만들어 고침).",
-      "finish": "Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its banner. Light: theatrical chiaroscuro, a brilliant key light against deep black, and the subject radiant with a power of its own in its banner colour, {banner}. Saturation: jewel-bright and deep, with {bannerName} at its fullest strength. Air: thick with swirling motes and sparks of {bannerName} light, a shimmering haze and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing {bannerName} at the seams.",
+      "finish": "Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its element. Light: theatrical chiaroscuro, a brilliant key light against deep black, and the subject radiant with a power of its own in its element colour, {banner}. Saturation: jewel-bright and deep, with {bannerName} at its fullest strength. Air: thick with swirling motes and sparks of {bannerName} light, a shimmering haze and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing {bannerName} at the seams.",
       "tier": 5
     },
     "special": {
@@ -154,7 +154,7 @@
       "en": "Dormak's Heartfire",
       "faction": "brass",
       "element": "fire",
-      "world": "Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.",
+      "world": "Setting, the land of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.",
       "palettes": {
         "ember": "embers in the dark — near-black and soot-brown, with small fierce glows of fire-orange (#ff6b3d)",
         "whitehot": "white-hot — a blinding yellow-white core falling through fire-orange (#ff6b3d) into deep crimson shadow",
@@ -183,7 +183,7 @@
       "en": "Sorgrim's Shield",
       "faction": "brass",
       "element": "metal",
-      "world": "Banner of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.",
+      "world": "Setting, the land of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.",
       "palettes": {
         "coldsteel": "cold steel — blue-grey (#a9b4c2) and slate shadow with crisp white highlights",
         "forgeheart": "forge heart — dark gunmetal and steel grey (#a9b4c2) with molten orange glowing in the seams",
@@ -212,7 +212,7 @@
       "en": "Keraun's Thunder",
       "faction": "brass",
       "element": "lightning",
-      "world": "Banner of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.",
+      "world": "Setting, the land of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.",
       "palettes": {
         "thunderhead": "thunderhead — black and rain-grey split by searing electric yellow (#ffd84a)",
         "cobalt": "cobalt night — deep blue dark with electric-yellow (#ffd84a) arcs and violet-white coronas",
@@ -240,7 +240,7 @@
       "en": "Gorvath's Claw",
       "faction": "verdant",
       "element": "earth",
-      "world": "Banner of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.",
+      "world": "Setting, the land of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.",
       "palettes": {
         "ochredust": "ochre dust — matte sandstone and clay browns (#b88a5a) in a sunlit dust haze",
         "bonemoon": "bone and moon — bone-white and grey-blue night with dry ochre (#b88a5a) earth",
@@ -269,7 +269,7 @@
       "en": "Verdan's Antler",
       "faction": "verdant",
       "element": "forest",
-      "world": "Banner of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.",
+      "world": "Setting, the land of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.",
       "palettes": {
         "mossdeep": "deep moss — saturated leaf-green (#58b85f) in heavy shade with wet bark browns",
         "sporeglow": "spore night — black dark lit by blue-green and pale-lime (#58b85f) bioluminescence",
@@ -297,7 +297,7 @@
       "en": "Marencia's Song",
       "faction": "verdant",
       "element": "water",
-      "world": "Banner of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.",
+      "world": "Setting, the land of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.",
       "palettes": {
         "lagoon": "sunlit shallows — turquoise and water-blue (#4fb3ff) with pearl white, clear and bright over deep blue shadow",
         "trench": "deep water — navy and black with small cold lights and a water-blue (#4fb3ff) glow",
@@ -326,7 +326,7 @@
       "en": "Morkas's New Moon",
       "faction": "arcane",
       "element": "dark",
-      "world": "Banner of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.",
+      "world": "Setting, the land of darkness: a sunless canyon under a moonless sky, ruled by a god of price — shadow, obsidian, candle smoke, wax seals, scales, chains and blood paid as coin.",
       "palettes": {
         "violetshade": "violet shade — purple-black gloom with luminous violet (#8b5cf6) edges",
         "bloodink": "blood and ink — black and deep crimson with a thread of violet (#8b5cf6)",
@@ -354,7 +354,7 @@
       "en": "Solante's Dawn",
       "faction": "arcane",
       "element": "light",
-      "world": "Banner of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.",
+      "world": "Setting, the land of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.",
       "palettes": {
         "firstlight": "first light — cool blue-grey before dawn with a low band of pale gold (#ffe9a8)",
         "whitegold": "white and gold — sunlit ivory and soft pale gold (#ffe9a8), airy, with cool blue shadow",
@@ -382,7 +382,7 @@
       "en": "Belumir's Star",
       "faction": "arcane",
       "element": "wind",
-      "world": "Banner of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.",
+      "world": "Setting, the land of wind: needle spires and drifting sky-islands above the clouds, where the stars are read like a book — thin air, feathers, silver, taut bowstrings, star charts and open night sky.",
       "palettes": {
         "starindigo": "star indigo — deep indigo night full of stars, wind-teal (#9fe3d6) streaks and silver",
         "thinair": "thin air — pale high-altitude daylight, white cloud and cool shadow, wind-teal (#9fe3d6) accents",
