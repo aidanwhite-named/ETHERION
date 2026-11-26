@@ -435,15 +435,19 @@ function fitBriefs(root, names) {
     const over = b => { const box = b.closest(".c-boxin") || b.closest(".c-box"), p = b.lastElementChild;
       return box && p && p.getBoundingClientRect().bottom > box.getBoundingClientRect().bottom + 0.5; };
     const shrink = (arr, steps) => { for (const s of steps) { if (!arr.length) break; for (const b of arr) b.style.setProperty("--bfs", s); arr = arr.filter(over); } return arr; };
-    let bad = shrink(list.filter(over), [0.95, 0.9, 0.85, 0.8]);
+    // 2026-11-26 폰 핸드는 문구 글자를 키웠다(css/frames.css 1.14em) — 줄이는 단계도 그만큼 더 내려가 긴 문구는 예전 크기(.8배 = 지금 .67배, 끝 .7배 = .59배)에 닿는다
+    const deep = document.documentElement.classList.contains("mobile") ? b => !!b.closest(".hand-me") : () => false;
+    const S1 = [0.95, 0.9, 0.85, 0.8], S1D = S1.concat(0.78, 0.75, 0.71, 0.67);
+    const shrink1 = arr => shrink(arr.filter(b => !deep(b)), S1).concat(shrink(arr.filter(deep), S1D));
+    let bad = shrink1(list.filter(over));
     // 2026-11-24 폰 핸드(글 상자 37~48px): .8배로도 넘치면 ① 키워드 칩 줄 ② 종류 띠(유닛 · 마법 종류 · 등급 줄)를 차례로 숨기고(크게 보기에는 그대로)
     // 그때마다 처음 크기부터 다시 맞춘다. 끝까지 넘치면 .7배까지
     for (const [cls, sel] of [["fit-nochip", ":scope > .c-chips"], ["fit-noband", ":scope > .c-band"]]) {
       const hand = bad.filter(b => b.closest(".hand-me") && b.parentElement.querySelector(sel));
       for (const b of hand) { b.parentElement.classList.add(cls); b.style.removeProperty("--bfs"); }
-      bad = bad.filter(b => !hand.includes(b)).concat(shrink(hand.filter(over), [0.95, 0.9, 0.85, 0.8]));
+      bad = bad.filter(b => !hand.includes(b)).concat(shrink1(hand.filter(over)));
     }
-    shrink(bad, [0.75, 0.7]);
+    shrink(bad.filter(b => !deep(b)), [0.75, 0.7]); shrink(bad.filter(deep), [0.63, 0.59]);
   }
   if (list.length || names) fitCardNames(scope);
 }
