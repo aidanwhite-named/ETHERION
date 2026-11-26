@@ -8,7 +8,7 @@
 
 **그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(같은 개체 · 장소 · 배색, 다른 시점 · 새 구도 — 섬네일로 나란히 놓아 같은 개체이면서 한눈에 더 강한 다른 그림으로 읽히는지 본다).
 
-## 1. 그림 없는 카드 — 먼저 그린다 · 263장
+## 1. 그림 없는 카드 — 먼저 그린다 · 262장
 
 ### MA-01 · 공포의 칼날
 모르카스의 그믐 · 공격 마법 · 레벨 1 · 일반 · 틀 `top` R L `candle` · 프롬프트 n2 → `tools/art/inbox/MA-01 공포의 칼날.png`
@@ -957,19 +957,6 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: RB1-1 화약통 깔기.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### B1-21 · 불엄니 멧돼지
-도르마크의 심장불 · 유닛 · 레벨 4 · 일반 · 틀 `tilt` L X `coldnight` · 프롬프트 n2 → `tools/art/inbox/B1-21 불엄니 멧돼지.png`
-
-```
-Landscape 5:4 painting. The frame is tipped along a steep scree slope as a hulking boar hurtles down it from upper right to lower left, smouldering bristles flattened by speed, cinder hooves locked and skidding in a spray of gravel. The red-hot tips of its long tusks draw two glowing streaks through the dark air behind it. Dead ahead in the lower left corner waits a squat stone gatepost. Clear cold night with a blue half-moon behind the ridge; the tusk-streaks and sparks under the hooves are the only warm light.
-Colour: cold night against fire — deep blue-indigo dark cut by warm fire-orange (#ff6b3d) light.
-Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
-Save the image file as: B1-21 불엄니 멧돼지.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### SB1-09 · 대포격
@@ -3429,7 +3416,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-36 샘물의 만조.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 99장
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 100장
 
 ### A1-02 · 그림자 도둑 — 그림 있음
 모르카스의 그믐 · 유닛 · 레벨 1 · 일반 · 틀 `inside` L R `candle` · 프롬프트 n2 → `tools/art/inbox/A1-02 그림자 도둑.png`
@@ -4430,6 +4417,19 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
 Save the image file as: B1-18 화약고 불개미.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### B1-21 · 불엄니 멧돼지 — 그림 있음
+도르마크의 심장불 · 유닛 · 레벨 4 · 일반 · 틀 `tilt` L X `coldnight` · 프롬프트 n2 → `tools/art/inbox/B1-21 불엄니 멧돼지.png`
+
+```
+Landscape 5:4 painting. The frame is tipped along a steep scree slope as a hulking boar hurtles down it from upper right to lower left, smouldering bristles flattened by speed, cinder hooves locked and skidding in a spray of gravel. The red-hot tips of its long tusks draw two glowing streaks through the dark air behind it. Dead ahead in the lower left corner waits a squat stone gatepost. Clear cold night with a blue half-moon behind the ridge; the tusk-streaks and sparks under the hooves are the only warm light.
+Colour: cold night against fire — deep blue-indigo dark cut by warm fire-orange (#ff6b3d) light.
+Banner of fire: a volcanic country warmed from below by a sleeping giant's heart-fire — basalt, obsidian, magma seams, drifting embers, soot and powder smoke.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the banner colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. Painting only, edge to edge, no lettering — the game adds its own frame and text.
+Save the image file as: B1-21 불엄니 멧돼지.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### B1-24 · 울버린 박격포수 — 그림 있음
