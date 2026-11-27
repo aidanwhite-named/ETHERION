@@ -132,6 +132,15 @@ html.mobile .card.fm.has-frame .c-emb img { filter: none; }
 .card.fm.size-full.has-frame .c-box .f-text > .f-flavor:last-child { height: 0; margin-bottom: 0; }
 html.mobile .card.fm.size-full.has-frame .c-box .f-text { font-size: .48em; line-height: 1.4; }
 html.mobile .card.fm.size-full.has-frame .c-box { max-height: calc((100% + 2 * var(--fbw)) * (var(--fb) - .44)); }   /* 글자를 키운 만큼 조금 더 자란다(44% 선) */
+/* 2026-11-28 PC 크게 보기 = 카드 아래 설명 판(사용자 — 설명창이 일러스트를 덮지 않게, js/view.js spillFullCard가 .spill을 붙이고 넘치는 문단을 옮긴다).
+   글 상자는 제자리 높이 그대로(위로 자라지 않음), 넘친 문단은 카드 폭만 한 판(.c-box.c-spill)에 담겨 카드 바로 아래에 붙는다 — 글꼴 · 글자 크기는 글 상자와 같다(같은 .c-box).
+   폰 · 앱과 spillFullCard를 부르지 않는 곳은 .spill이 없어 위 규칙(위로 자람) 그대로 */
+.card.fm.size-full.has-frame.spill { overflow: visible; }
+.card.fm.size-full.has-frame.spill .c-box:not(.c-spill) { max-height: calc((100% + 2 * var(--fbw)) * (var(--fb) - .684)); }
+.card.fm.size-full.has-frame .c-box.c-spill { position: absolute; left: 0 !important; right: 0 !important; top: calc(100% + .2em) !important; bottom: auto !important;
+  height: auto !important; min-height: 0 !important; max-height: none !important; overflow: visible !important; padding: .16em .28em .2em;
+  border-radius: .14em; background: rgba(9, 10, 15, .93); box-shadow: 0 0 0 1px rgba(217, 180, 106, .28), 0 .1em .4em rgba(0, 0, 0, .5); z-index: 3; }
+.card.fm.size-full.has-frame .c-box.c-spill .f-text > :last-child { margin-bottom: 0; }
 .card.fm.size-full.has-frame .c-box::-webkit-scrollbar-thumb { background: rgba(217, 180, 106, .45); border-radius: .1em; }
 .card.fm.size-full.has-frame .c-box > .c-coinline { font-size: .62em; gap: .1em .5em; margin: 0 0 .25em; }
 .card.fm.size-full.has-frame .c-box .f-text { font-size: .41em; line-height: 1.45; }

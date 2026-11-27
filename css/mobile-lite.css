@@ -636,6 +636,7 @@ html.fx-low .card.fm.has-frame .c-clsico i { filter: drop-shadow(0 .03em .06em #
 html.fx-low .card.fm.has-frame .c-emb img { filter: drop-shadow(0 .05em .12em rgba(0, 0, 0, .85)); }
 html.fx-low .card.fm.has-frame .c-emb .c-enum b { text-shadow: 0 .05em .1em #000, 0 0 .25em rgba(0, 0, 0, .9); }
 html.fx-low .card.fm.size-full.has-frame .c-box { box-shadow: 0 0 0 1px rgba(217, 180, 106, .28), 0 -1.4px 6px rgba(0, 0, 0, .55); }
+html.fx-low .card.fm.size-full.has-frame .c-box.c-spill { box-shadow: 0 0 0 1px rgba(217, 180, 106, .28), 0 1.5px 6px rgba(0, 0, 0, .5); }
 html.fx-low .card.size-full.has-frame .c-art .c-spfx { box-shadow: inset 0 0 0 .04em rgba(246, 217, 142, .9), inset 0 0 0 .11em rgba(255, 77, 115, .5), inset 0 0 6px rgba(255, 77, 115, .3); }
 html.fx-low.mobile .card.size-full.has-frame .c-art .c-spfx { box-shadow: inset 0 0 0 .04em rgba(246, 217, 142, .9), inset 0 0 0 .11em rgba(255, 77, 115, .5), inset 0 0 6px rgba(255, 77, 115, .3); }
 

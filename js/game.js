@@ -2832,6 +2832,155 @@ function placeLog() {
   d.style.left = (left - o.left) + "px"; d.style.top = (top - o.top) + "px"; d.style.width = (right - left) + "px";
   d.style.setProperty("--ld-h", (bottom - top) + "px");
 }
+/* ---------- 바뀐 곳만 갈아 끼우기 (2026-11-27, 사용자 — 카드를 옮길 때 · 마법을 쓸 때 버벅임) ----------
+   예전 render()는 전장 HTML을 통째로 갈아 끼웠다(boardEl.innerHTML). 카드 한 장을 옮겨도 요소 1,500여 개(그중 파친코 판이 690개)를
+   새로 만들고, 브라우저가 스타일 · 배치 · 그리기를 처음부터 다시 했다 — 보통 PC에서 한 번에 0.1~0.25초씩 멈칫.
+   이제 HTML은 예전 그대로 만들되 화면 밖(template)에서 읽고, 지난번과 견줘 바뀐 조각만 갈아 끼운다.
+     뼈대(SKEL)  줄 · 칸 · 핸드처럼 조각을 담는 틀 — 그대로 두고 속성만 맞춘 뒤 자식을 차례로 견준다
+     조각        뼈대의 자식(카드 · 명판 · 에테르 · 소각장 · 덱 · 단추 묶음 …) — 속 HTML이 지난번과 같고 그 뒤 아무도 손대지 않았으면 그대로 둔다(속성만 맞춤).
+                 다르면 조각째 새것으로 바꾼다(예전과 같은 새 요소 — 등장 애니메이션도 예전처럼 처음부터)
+   "손댔는지"는 MutationObserver가 본다: 그린 뒤에 스크립트가 조각 속을 고치면(revealStat · 생명 숫자 · 연출이 붙인 요소 …) 다음에 새것으로 바꾼다.
+   다시 그릴 때마다 똑같이 되풀이하는 자리 맞춤 · 글 맞춤(placeLog · fitDescs · Guide.place …)은 손댄 것으로 치지 않는다(render가 drop()).
+   전투 연출 클래스가 붙은 카드(FXCLS)와 끝 모습에 멈춰 있는 스크립트 애니메이션이 걸린 조각은 늘 새것으로(같은 연출이 잇달아 와도 다시 돌게).
+   끄기: localStorage etherion.pref.patch = false (예전처럼 통째로). 문제가 생기면 그 판은 저절로 통째로 그린다 */
+const PATCH = {
+  on: Prefs.get("patch", true) !== false && typeof MutationObserver !== "undefined" && typeof WeakMap !== "undefined" && typeof document !== "undefined" && !!document.createElement && "content" in document.createElement("template"),
+  SKEL: ".b-main, .prow, .frow, .slots, .slot, .f-piles, .f-flag, .f-well, .pside, .hand, .p-well, .midbar, .mb-center, .mb-right",
+  OPAQUE: "arc-host",   // 파친코 · 결정 상자 자리: 속은 Arcade가 맡는다(render가 건드리지 않고, 속이 바뀌어도 그대로 둔다)
+  FXCLS: /(?:^|\s)(?:acting|targeted|countering|revealing|aura-hit|aura-src|dying|hit)(?:\s|$)/,
+  FLYCLS: ["flying", "under", "lift"],   // animFrom이 날아가는 동안 붙이는 클래스 — 다시 그려도 끝날 때까지 남긴다
+  meta: typeof WeakMap !== "undefined" ? new WeakMap() : null,   // 요소 → { k 열쇠, skel 뼈대인지, inner 넣을 때의 속 HTML, dirty 손댐, opaque }
+  mo: null, root: null, key: null, full: true, refit: true, all: true, fresh: [], tpl: null, warned: false,
+  stat: { renders: 0, full: 0, kept: 0, swapped: 0 },
+  keyOf(n, cnt) {
+    if (n.dataset && n.dataset.uid) return "u" + n.dataset.uid;
+    if (n.id) return "#" + n.id;
+    const sig = n.tagName + "." + (n.classList[0] || "");
+    cnt[sig] = (cnt[sig] || 0) + 1;
+    return sig + "|" + cnt[sig];
+  },
+  isSkel(n) {
+    if (!n.matches(this.SKEL)) return false;
+    for (let c = n.firstChild; c; c = c.nextSibling) if (c.nodeType === 3 && c.nodeValue.trim()) return false;   // 글자가 바로 든 것은 조각으로
+    return true;
+  },
+  /* 새 요소를 화면에 넣은 뒤: 열쇠 · 속 HTML을 적어 둔다(뼈대면 그 안의 조각까지) */
+  adopt(n, k, inner) {
+    if (this.isSkel(n)) {
+      this.meta.set(n, { k, skel: true });
+      const cnt = {};
+      for (let c = n.firstElementChild; c; c = c.nextElementSibling) this.adopt(c, this.keyOf(c, cnt));
+    } else { this.meta.set(n, { k, skel: false, inner: inner != null ? inner : n.innerHTML, dirty: false, opaque: n.classList.contains(this.OPAQUE) }); this.fresh.push(n); }
+  },
+  attrs(o, n) {
+    const oa = o.attributes, na = n.attributes;
+    for (let i = oa.length - 1; i >= 0; i--) if (!n.hasAttribute(oa[i].name)) o.removeAttribute(oa[i].name);
+    for (let i = 0; i < na.length; i++) {
+      let v = na[i].value; const a = na[i].name;
+      if (a === "class") for (const c of this.FLYCLS) if (o.classList.contains(c) && !n.classList.contains(c)) v += " " + c;
+      if (o.getAttribute(a) !== v) o.setAttribute(a, v);
+    }
+  },
+  node(o, n, k) {   // 화면의 o와 새 n을 견준다 → 화면에 남는 쪽을 돌려준다
+    const m = this.meta.get(o);
+    let inner = null;
+    if (o.tagName === n.tagName) {
+      if (m.skel && this.isSkel(n)) { m.k = k; this.attrs(o, n); this.kids(o, n); return o; }
+      if (!m.skel && !m.dirty && !this.FXCLS.test(n.getAttribute("class") || "")) {
+        if (m.opaque ? n.classList.contains(this.OPAQUE) : m.inner === (inner = n.innerHTML)) { m.k = k; this.attrs(o, n); this.stat.kept++; return o; }
+      }
+    }
+    o.parentNode.replaceChild(n, o); this.adopt(n, k, inner); this.stat.swapped++;
+    return n;
+  },
+  kids(live, fresh) {
+    const old = new Map(), junk = [], list = [], cnt = {};
+    for (let c = live.firstElementChild; c; c = c.nextElementSibling) { const m = this.meta.get(c); if (m && !old.has(m.k)) old.set(m.k, c); else junk.push(c); }
+    for (const c of junk) c.remove();   // 그린 뒤에 스크립트가 끼워 넣은 것(예전에도 다시 그리면 사라졌다)
+    for (let c = fresh.firstElementChild; c; c = c.nextElementSibling) list.push(c);
+    let cur = live.firstElementChild;
+    for (const n of list) {
+      const k = this.keyOf(n, cnt), o = old.get(k);
+      if (o) {
+        old.delete(k);
+        const at = o === cur, r = this.node(o, n, k);
+        if (at) cur = r.nextElementSibling; else live.insertBefore(r, cur);
+      } else { live.insertBefore(n, cur); this.adopt(n, k); this.stat.swapped++; }
+    }
+    for (const o of old.values()) o.remove();
+  },
+  /* 그린 뒤에 스크립트가 고친 조각을 표시한다 */
+  mark(recs) {
+    for (const r of recs) {
+      const t = r.target;
+      for (let e = t.nodeType === 1 ? t : t.parentNode; e && e !== this.root; e = e.parentNode) {
+        const m = this.meta.get(e);
+        if (!m) continue;
+        if (!m.skel && !m.opaque && !(r.type === "attributes" && e === t)) m.dirty = true;   // 조각 자신의 속성은 다시 그릴 때 맞춘다
+        break;
+      }
+    }
+  },
+  flush() { if (this.mo) this.mark(this.mo.takeRecords()); },
+  drop() { if (this.mo) this.mo.takeRecords(); },
+  /* 끝 모습에 멈춰 있는(fill forwards · both) 스크립트 애니메이션이 걸린 조각은 새것으로 — 예전에는 다시 그리면 사라지던 상태 */
+  busy() {
+    if (!document.getAnimations || typeof CSSAnimation === "undefined") return;
+    for (const a of document.getAnimations()) {
+      if (a instanceof CSSAnimation || (typeof CSSTransition !== "undefined" && a instanceof CSSTransition)) continue;
+      const ef = a.effect, t = ef && ef.target;
+      if (!t || !this.root.contains(t)) continue;
+      const f = ef.getTiming().fill;
+      if (f !== "forwards" && f !== "both") continue;
+      for (let e = t; e && e !== this.root; e = e.parentNode) { const m = this.meta.get(e); if (m) { if (!m.skel && !m.opaque) m.dirty = true; break; } }
+    }
+  },
+  watch() {
+    if (this.root === boardEl && this.mo) return;
+    if (this.mo) this.mo.disconnect();
+    this.mo = new MutationObserver(recs => this.mark(recs));
+    this.mo.observe(boardEl, { subtree: true, childList: true, attributes: true, characterData: true });
+    this.root = boardEl;
+  },
+  /* render()가 부른다: html = 전장 전체, key = 보는 쪽(바뀌면 통째로) */
+  apply(html, key) {
+    this.stat.renders++;
+    if (!this.on) { boardEl.innerHTML = html; this.all = true; return; }
+    let full = this.full || this.root !== boardEl || this.key !== key || !boardEl.firstElementChild;
+    const tpl = this.tpl || (this.tpl = document.createElement("template"));
+    this.fresh = [];
+    if (!full) {
+      try { this.flush(); this.busy(); tpl.innerHTML = html; this.kids(boardEl, tpl.content); }
+      catch (e) { full = true; if (!this.warned) { this.warned = true; console.warn("render: 바뀐 곳만 갈아 끼우기 실패 — 통째로 그린다", e); } }
+    }
+    if (full) {
+      this.stat.full++;
+      tpl.innerHTML = html; boardEl.textContent = ""; this.fresh = [];
+      const cnt = {}, list = [];
+      for (let c = tpl.content.firstElementChild; c; c = c.nextElementSibling) list.push(c);
+      for (const n of list) { boardEl.appendChild(n); this.adopt(n, this.keyOf(n, cnt)); }
+    }
+    this.all = full || this.refit; this.full = false; this.refit = false; this.key = key;
+    this.watch(); this.drop();
+    // 예전에는 다시 그리면 누른 단추가 사라져 초점도 풀렸다 — 남아 있는 단추에 초점이 남아 Enter가 두 번 먹지 않게
+    const ae = document.activeElement; if (ae && ae !== document.body && boardEl.contains(ae) && ae.blur) ae.blur();
+  },
+  /* 글 맞춤: 새로 들어온 조각만(그대로 둔 카드는 지난번에 맞춘 그대로). 통째로 그렸거나 창 크기 · 글꼴이 바뀐 뒤에는 모두 */
+  fit() {
+    if (typeof fitDescs !== "function") return;
+    if (this.all || !this.on) { fitDescs(boardEl); return; }
+    // 예전 셈과 같게: 전장에 마법 문구(.c-brief)가 하나라도 있으면 카드 이름도 맞춘다(fitBriefs는 문구가 든 묶음만 이름을 맞춘다 — js/view.js)
+    const names = typeof fitCardNames === "function" && !!boardEl.querySelector(".card.fm .c-box .c-brief");
+    for (const el of this.fresh) {
+      if (!el.isConnected || !(el.classList.contains("card") || el.querySelector(".card"))) continue;
+      fitDescs(el);
+      if (names && !el.querySelector(".c-box .c-brief")) fitCardNames(el);
+    }
+  }
+};
+if (typeof addEventListener === "function") addEventListener("resize", () => { PATCH.refit = true; });
+if (typeof document !== "undefined" && document.fonts && document.fonts.ready) document.fonts.ready.then(() => { PATCH.refit = true; });
+
 function render() {
   if (!G || G.cfg.headless || !boardEl) return;
   const logOld = $("#log"), logKeep = logOld && logOld.scrollHeight - logOld.scrollTop - logOld.clientHeight > 24 ? logOld.scrollTop : null;   // v3.62.1 기록을 올려 읽는 중이면 그 자리를 지킨다
@@ -2849,7 +2998,7 @@ function render() {
   const swap = wideBoard(); FX.swap = swap;
   const sideTop = `<div class="pside">${nameplateHTML(them)}${etherHTML(them, false, ctrl)}</div>`;
   const sideBot = `<div class="pside">${nameplateHTML(me)}${etherHTML(me, true, ctrl)}</div>`;
-  boardEl.innerHTML = `
+  const html = `
   <div class="b-main${swap ? " lay-swap" : ""}">
     <div class="prow prow-top">${swap ? `<div class="p-well">${burnHTML(them, false)}</div>` : sideTop}${handHTML(them, true, false)}${infoHTML(them)}</div>
     ${fieldRowHTML(them, false, ctrl, swap ? sideTop : null)}
@@ -2885,17 +3034,19 @@ function render() {
   <aside class="logdrawer${G.showLog ? " open" : ""}" id="logdrawer"><div class="ld-head"><button type="button" class="ld-fold" data-act="log" aria-expanded="${G.showLog}"><i class="ld-caret" aria-hidden="true">▸</i><b>전투 기록</b><span class="ld-last">${G.log.length ? esc(G.log[G.log.length - 1].text) : ""}</span></button>${typeof BLog !== "undefined" && !isPhone() ? BLog.btnsHTML() : ""}<button class="btn xs ghost ld-close" data-act="log">닫기</button></div>
     <div class="log" id="log">${G.showLog ? logLinesHTML() : ""}</div></aside>
   ${G.handoff ? `<div class="handoff" data-act="handoff"><div><p class="ho-eyebrow">PASS THE SCROLL</p><h2>${esc(me.name)}의 차례</h2><p>${G.phase === "atkPrep" ? "공격 준비" : "방어 준비"}를 할 차례입니다. 상대가 화면을 보지 않을 때 눌러 주세요.</p><button class="btn primary">핸드 펼치기</button></div></div>` : ""}`;
+  PATCH.apply(html, key);   // 2026-11-27 바뀐 조각만 갈아 끼운다(예전: boardEl.innerHTML = …)
   placeLog();   // 자리를 먼저 잡아야 스크롤 높이가 맞다
   const lg_ = $("#log"); if (lg_) lg_.scrollTop = logKeep != null ? logKeep : lg_.scrollHeight;
   /* v3.32.1 폰 · 앱: 준비 완료 단추(+모래시계)를 가운데 띠에서 내 덱 왼쪽(f-piles)으로 옮긴다. 가운데 띠를 얇게 하고 그만큼 상대 전장 카드를 키운다(css/mobile.css) */
   if (swap && document.documentElement.classList.contains("appui")) { const rw = boardEl.querySelector(".mb-right .rd-wrap"), pl = boardEl.querySelector(".frow-bot .f-piles"); if (rw && pl) { rw.classList.add("rd-pile"); pl.prepend(rw); } }
   if (typeof Arcade !== "undefined" && !document.documentElement.classList.contains("mobile")) { Arcade.mount(boardEl); Arcade.place(boardEl); }   /* v3.20.5 폰 · 앱에서는 파친코 · 결정 상자를 두지 않는다 */
   placeFocus(); placeCry();
-  if (typeof fitDescs === "function") fitDescs(boardEl);
+  PATCH.fit();   // 2026-11-27 글 맞춤은 새로 들어온 카드만
   fitNameIds(boardEl);
   syncZoom();   // v3.9.8 누른 카드를 상대 전장 옆에 크게
   Guide.place();
   CrysHint.place();   // v3.19.8 결정화 손짓의 출발점
+  PATCH.drop();   // 여기까지의 자리 맞춤 · 글 맞춤은 다시 그릴 때마다 되풀이하는 것 — 조각을 "손댄 것"으로 치지 않는다
   FX.last = { g: G, key };
   if (before) flipAll(before);
   boardEl.classList.toggle("hand-locked", handLocked());
@@ -2986,7 +3137,8 @@ function capture() {
     const vis = el.matches(".card,.card-back") ? el : el.querySelector(".card,.card-back") || el;
     const hc = el.querySelector(".hand-card");
     // v2.6: 핸드 카드는 지금 보이는 변환(matrix, 움직이는 중이면 그 순간 값)도 기억한다 → settleHand 가 그 자세에서 새 자세로 잇는다
-    m.set(el.dataset.uid, { r: el.getBoundingClientRect(), hc: hc ? hc.getBoundingClientRect() : null, hm: hc ? getComputedStyle(hc).transform : null, zone: el.dataset.zone, p: +el.dataset.p, s: el.dataset.s, rot: +el.dataset.rot || 0, html: vis.outerHTML });
+    // 2026-11-27 html은 사라지는 카드(vanish)에만 쓰인다 — 다시 그릴 때마다 모든 카드를 글로 바꾸지 않고, 쓸 때 만든다(떼어 낸 요소도 그대로 읽힌다)
+    m.set(el.dataset.uid, { r: el.getBoundingClientRect(), hc: hc ? hc.getBoundingClientRect() : null, hm: hc ? getComputedStyle(hc).transform : null, zone: el.dataset.zone, p: +el.dataset.p, s: el.dataset.s, rot: +el.dataset.rot || 0, _h: null, get html() { return this._h != null ? this._h : (this._h = vis.outerHTML); } });
   });
   return m;
 }
@@ -3978,9 +4130,11 @@ function syncZoom() {
   const t = zoomTarget();
   if (!t) { hideZoom(); return; }
   const html = zoomHTML(t), fresh = z.hidden || z.dataset.key !== t.key;
-  if (fresh || z._html !== html) { z.innerHTML = html; z._html = html; }
+  const redo = fresh || z._html !== html;
+  if (redo) { z.innerHTML = html; z._html = html; }
   z.dataset.key = t.key;
   z.hidden = false; z.classList.add("pinned");
+  if (redo && typeof spillFullCard === "function") spillFullCard(z.querySelector(".card.size-full"));   // 2026-11-28 PC: 넘치는 능력 글은 카드 아래 설명 판으로(보이게 한 뒤에 잰다)
   if (fresh) { z.classList.remove("z-in"); void z.offsetWidth; z.classList.add("z-in"); }
   placeZoom(z);
 }

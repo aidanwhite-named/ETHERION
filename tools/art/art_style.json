@@ -14,6 +14,22 @@
   "upgradeRef": "Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.",
   "upgradeNoRef": "Continuity: this is the promoted form of a creature that has its own earlier card — its body, markings and belongings are exactly as described above.",
   "gradeLadder": "Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.",
+  "richLook": {
+    "_about": "에픽 · 유니크 · 스페셜(grades.<등급>.look = \"rich\")에만 쓰는 옛 g3 색감 · 화풍(2026-11-28, 사용자 — 세로 4:5였던 v3.95까지의 스페셜 그림이 화려하고 스페셜다웠다). 배색 줄은 카드가 고른 pal 대신 깃발의 g3 배색 + 밤하늘 남색 바탕, 화풍 줄은 g3 base 문장 + 이어진 한 장 문장. 장면(구도 · 크기 · 시점)은 그대로 카드 장면을 쓴다.",
+    "colour": "Colour: very dark night-blue (#07080d) base; palette {palette}.",
+    "house": "Dark fantasy trading card illustration for the card game ETHERION, painterly digital painting, rich brushwork, dramatic lighting, theme: night sky and golden runes. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.",
+    "palettes": {
+      "B1": "fire orange #ff6b3d with brass #d4893a and soot black",
+      "B2": "steel grey #a9b4c2, gunmetal, brass, molten forge orange inside the seams",
+      "B3": "electric yellow #ffd84a with copper, cobalt-blue sparks and dark brass",
+      "G1": "earth ochre #b88a5a, rust-red war paint, bone white",
+      "G2": "forest green #58b85f, deep moss, bark brown, bioluminescent spores",
+      "G3": "water blue #4fb3ff, aquamarine, pearl white, deep-sea navy",
+      "A1": "violet #8b5cf6, black, blood-red accents",
+      "A2": "holy light #ffe9a8, white, pale gold, soft sky blue",
+      "A3": "wind teal #9fe3d6, silver, white, starry indigo"
+    }
+  },
   "gradeOrder": [
     "token",
     "common",
@@ -70,25 +86,32 @@
       "ko": "에픽",
       "en": "Epic",
       "color": "#b46cff",
-      "idea_ko": "4단 — 웅장하고 힘이 가득하다. 세계가 주인공에 반응한다. 깊은 대기를 가르는 빛줄기, 주인공을 감싸고 주변까지 물들이는 은은한 기운, 깊고 진하게 빛나는 색, 움직이는 날씨와 그 바람에 실려 흐르는 보랏빛 비술 입자, 화려하고 귀한 재질과 정교한 세공.",
-      "finish": "Epic — fourth of the six rarity tiers, clearly above rare. Mood: grand and charged with power; the world itself reacts to the subject. Light: volumetric shafts through deep atmosphere, and a soft aura of energy around the subject that spills its glow onto everything near it. Saturation: rich, deep and glowing. Air: moving weather, with streams of violet (#b46cff) arcane motes carried on it. Surfaces: ornate and precious, intricately worked.",
-      "tier": 4
+      "idea_ko": "4단 — 영웅적이고 실물보다 크다, 영화 같은 한 컷(옛 g3 에픽의 결, 2026-11-28 n3). 색감 · 화풍은 옛 g3(밤하늘 남색 바탕 · 깃발 g3 배색 · 금빛 룬), 구도 · 크기는 카드 장면 그대로. 깃발 색이 주광 — 깊은 대기를 가르는 깃발 색 신광(볼류메트릭), 빛나는 눈 · 무기 · 심, 부드러운 번짐. 보라 비술 입자(약 15%), 몸을 감싸는 기운 · 움직이는 날씨 · 날리는 파편, 공중에 금빛 룬 불티 몇 점(스페셜의 룬 고리가 여기서 처음 기척만 보인다). 겹겹이 짠 화려한 세공.",
+      "finish": "Epic — heroic and larger than life, cinematic: one clear step below unique, above rare. Mood: awe, momentum, overwhelming force. Light: high-contrast cinematic lighting with {banner} light as the main light — volumetric god rays in {bannerName} cutting through deep atmosphere, glowing eyes, weapon or core, soft bloom; violet (#b46cff) arcane particles and a faint violet edge to the aura are a secondary touch, about 15% of the light. Saturation: rich and glowing, {bannerName} bright against the night-blue dark. Air: an energy aura wrapping the subject, moving weather and flying debris, a few faint golden rune sparks drifting in the air. Surfaces: ornate and layered, worn by battle and wrapped in magical energy.",
+      "tier": 4,
+      "look": "rich",
+      "ver": "n3"
     },
     "unique": {
       "ko": "유니크",
       "en": "Unique",
       "color": "#ff8a2a",
-      "idea_ko": "5단 — 전설적이고 맹렬하다. 그 깃발에서 가장 대담한 그림. 연극 같은 명암과 깊은 어둠을 가르는 눈부신 주광, 주인공이 제 힘으로 그 깃발의 색으로 빛난다. 보석처럼 선명하고 깊은 색(깃발 색이 가장 진하게), 소용돌이치는 깃발 색 빛 알갱이 · 불꽃 · 일렁이는 안개 · 주인공을 휘감는 가는 금세공 빛줄, 이음매마다 깃발 색 빛이 새는 장인의 세공. 등급 줄의 `{banner}` · `{bannerName}`은 생성기가 그 카드 깃발의 색(이름 + 색값 · 이름)으로 바꿔 넣는다(2026-11-22 — 주황 금 불티가 모든 유니크를 불의 깃발처럼 붉게 만들어 고침).",
-      "finish": "Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its element. Light: theatrical chiaroscuro, a brilliant key light against deep black, and the subject radiant with a power of its own in its element colour, {banner}. Saturation: jewel-bright and deep, with {bannerName} at its fullest strength. Air: thick with swirling motes and sparks of {bannerName} light, a shimmering haze and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing {bannerName} at the seams.",
-      "tier": 5
+      "idea_ko": "5단 — 그 깃발의 이름난 전설, 포스터로 걸 만한 영웅 그림(옛 g3 유니크의 결, 2026-11-28 n3). 색감 · 화풍은 옛 g3, 구도 · 크기는 카드 장면 그대로. 대가의 키아로스쿠로, 깃발 색이 주광 — 주인공 뒤에 후광 같은 깃발 색 역광과 천천히 도는 금빛 룬 고리 하나, 녹은 주황 금빛(#ff8a2a) 윤곽빛 · 불티는 곁들임(약 20% — 깃발 색이 그림의 색으로 남는다: 2026-11-22 주황이 모든 유니크를 불의 깃발처럼 붉게 만든 일이 있었다). 소용돌이치는 불티 · 빛 알갱이 · 금세공 빛줄, 깃발의 문장 장식 · 금 상감의 장인 세공. 등급 줄의 `{banner}` · `{bannerName}`은 생성기가 그 카드 깃발의 색으로 바꿔 넣는다.",
+      "finish": "Unique — a named legend of its banner, a hero image you would hang as a poster: one clear step below special, above epic. Mood: legendary, commanding, personal. Light: masterful chiaroscuro with {banner} light as the main light — a halo-like {bannerName} backlight behind the subject and one golden rune ring turning slowly behind it; molten orange-gold (#ff8a2a) rim light and embers are a secondary touch, about 20% of the light, so {bannerName} stays the colour of the picture. Saturation: rich and jewel-deep, {bannerName} glowing against the night-blue dark. Air: swirling embers and glowing motes, with gleaming threads of gold filigree light winding around the subject. Surfaces: masterwork — heraldic ornament of its banner, rich textures and gold inlay.",
+      "tier": 5,
+      "look": "rich",
+      "ver": "n3"
     },
     "special": {
       "ko": "스페셜",
       "en": "Special",
       "color": "#ff4d73",
-      "idea_ko": "6단(최고) — 눈에 보이는 신화. 가장 신비롭고 압도적이다. 깃발마다 하나뿐인 존재(유닛)와 성소의 유물(아이템) — 모든 카드 가운데 가장 화려하고 묘사가 가장 촘촘한 그림. 벨벳 같은 어둠에서 눈부신 흰 금빛까지 가는 극적인 명암, 주인공이 제 힘으로 깃발 색으로 타오르고, 광휘는 늘 주인공 **뒤에서** 겹겹이 오른다(흰 금빛 심 · 금세공의 큰 겹 후광 · 끝이 무지갯빛으로 갈라지는 긴 빛살 — 주인공 윤곽은 통째로 또렷하게). 보석 같은 가장 진한 색(깃발 색이 주, 금과 진홍 `#ff4d73` 반짝임이 곁들임). 안에서 빛나는 큰 구름이나 궁륭, 깃발 색 오로라 장막, 주인공 둘레를 도는 불티 · 빛 알갱이의 큰 소용돌이, 둘레의 모든 것이 주인공 쪽으로 기운다. 새기고 박아 넣은 가장 정교한 세공 — 주인공과 배경 전체가 촘촘하다. 등급 줄의 `{banner}` · `{bannerName}`은 생성기가 그 카드 깃발의 색으로 바꿔 넣는다(2026-11-28 두 번 고침: ① 못박혀 있던 진홍 + 금 고리가 깃발 색을 덮고 화면을 가로질러 주인공을 가려, 빛을 깃발 색으로 · 주인공 뒤로 옮김 ② 그렇게 그린 3장이 단색 · 민무늬로 밋밋해 — 겹 후광 · 금세공 · 무지갯빛 가장자리 · 소용돌이 · 정교한 세공을 되살리고 금 · 진홍을 곁들이는 색으로 돌려놓음).",
-      "finish": "Special — the highest of the six rarity tiers, unmistakably beyond every other: the most splendid, most richly detailed picture in the whole set. Mood: mythic, mysterious and overwhelming — sacred awe before a presence of immense power. Light: dramatic chiaroscuro from velvet black to blinding white-gold; the subject blazes with its own {banner} power, and behind it — always behind, its whole outline left sharp and unbroken — rises radiance in layers: a white-gold core, great concentric halos of fine gold filigree, and a corona of long rays that split into prismatic colour at their edges. Saturation: the richest, most jewel-like colour of any card — {bannerName} at full brilliance against deep black, set off by gold and glints of crimson (#ff4d73). Air: alive and immense — towering cloud or vaulted darkness lit from within, aurora veils of {bannerName} light, and a great vortex of sparks, embers and glowing motes wheeling around the subject while everything near it leans toward it. Surfaces: the most intricate detail of any card — engraved, inlaid and jewel-set; every surface of the subject and the whole background finely worked and glowing from within.",
-      "tier": 6
+      "idea_ko": "6단(최고) — 깃발에서 가장 중요한 키 아트(옛 g3 스페셜을 그대로 되살림, 2026-11-28 n3 — 사용자: 세로 4:5 시절 스페셜이 화려하고 스페셜다웠다). 색감 · 화풍은 옛 g3(밤하늘 남색 바탕 · 깃발 g3 배색 · 금빛 룬), 구도 · 크기는 카드 장면 그대로(옛 g4의 같은 웜즈아이 구도는 되살리지 않는다). 유닛: 주인공 자신에게서 터져 나오는 깃발 색 빛이 주광, 여러 각도로 도는 금빛 룬 고리 여러 겹 · 하늘을 가르는 빛기둥 · 진홍(#ff4d73) · 금 신성한 빛과 에테르 하늘색(#8fdcff) 불티가 빛의 약 30%, 불티 · 에테르 불꽃의 폭풍, 땅과 하늘이 반응, 주인공 앞뒤로 겹겹의 깊이, 제 힘으로 이루어진 몸 · 금세공 · 성당급 묘사. 아이템(finishItem): 유물 안에서 빛나는 깃발 색이 주광, 천천히 도는 금빛 룬 고리 하나와 진홍 · 금 빛줄기 하나 · 떠도는 에테르 불티 — 스페셜 존재보다 조용하되 어느 유니크보다 위. 룬 고리 · 신성한 빛은 주인공 뒤와 둘레에 서고 주인공 윤곽은 또렷하게(2026-11-28 고리가 화면을 가로질러 주인공을 가린 일이 있었다).",
+      "finish": "Special — the highest grade: the single most important image of its banner, key-art quality, clearly grander than any epic or unique card. Mood: sacred, transcendent, world-shaking. Light: {banner} light bursting from the subject itself is the main light; several golden rune rings orbit behind and around it at different angles, a pillar of light splits the sky, and divine crimson-rose (#ff4d73) and gold light with ether sky-blue (#8fdcff) sparks takes about 30% of the light — the rune rings and divine light are this grade's mark, and the subject's whole outline stays clear in front of them. Saturation: {bannerName} at full intensity against the night-blue dark, with crimson-rose and gold glowing beside it. Air: storms of embers and ether sparks, the ground and sky visibly reacting to its presence, layered depth in front of and behind the subject. Surfaces: transcendent — a body made of its own power, intricate gold filigree, cathedral-level detail.",
+      "tier": 6,
+      "finishItem": "Special — the highest grade: a sacred relic of the Three Thrones, key-art quality, clearly grander than any epic or unique item. Mood: sacred, reverent and ancient — the hush of a world-shaking relic of myth. Light: {banner} light glowing from within the relic is the main light; one slowly turning golden rune ring and a single shaft of crimson-rose (#ff4d73) and gold light with drifting ether sky-blue (#8fdcff) sparks — quieter than the special beings, still beyond any unique card; the rune ring and divine light stand behind and around the relic, its whole shape clear in front of them. Saturation: {bannerName} at full intensity against the night-blue dark, set off by gold and crimson-rose. Air: hushed and luminous — mist and soft light rising around the relic, its aura reaching far beyond it. Surfaces: an ancient mythic relic — engraved, jewel-set, intricate gold filigree, cathedral-level detail.",
+      "look": "rich",
+      "ver": "n3"
     }
   },
   "elements": {

@@ -653,12 +653,47 @@ function cardDetailHTML(c, inst) {
   const extra = instLines(inst);
   return `<div class="detail">${cardHTML(c, { size: "full" })}${extra ? `<div class="d-body">${extra}</div>` : ""}</div>`;
 }
+/* 2026-11-28 크게 보기 설명 판(PC, 사용자): 능력 글이 글 상자(카드 키의 68.4% 선부터)에 다 안 들어가면, 2026-11-26부터는 상자가 위로 자라 일러스트 아래쪽을 덮었다(706장 중 149장).
+   이제 넘치는 문단부터 카드 아래에 붙는 설명 판(.c-box.c-spill, 카드 폭)으로 옮긴다 — 일러스트 · 프레임은 가리지 않는다. 문단은 통째로 옮긴다(중간에서 자르지 않음).
+   서사 글(.f-flavor)은 옮기지 않는다 — 글 상자 끝에 남아 능력 글이 빠져나간 자리를 채운다(능력 글이 통째로 판으로 가도 상자가 비지 않는다. 넘치면 예전처럼 스크롤).
+   판은 카드 안에 두고(absolute, 카드 아래 끝 밑) 그 키만큼 카드에 아래 여백을 준다 — em이라 창이 카드 폭을 줄여 맞출 때 같이 줄어든다(placeZoom · fitCardModal · fitFullCard가 그대로 먹는다).
+   폰 · 앱(html.mobile)은 크게 본 카드가 화면 높이를 다 써 아래 자리가 없다 — 예전처럼 위로 자란다(css/frames.css). 이 함수를 부르지 않는 곳(교역소 목록)도 예전 그대로.
+   부르는 곳: 전투 크게 보기(js/game.js syncZoom) · 원본 카드 창(fitCardModal) · 카드 미리 보기(CardPreview). 다시 불러도 된다(처음 상태로 되돌리고 다시 잰다) */
+function spillFullCard(card) {
+  if (!card || !card.classList || !card.classList.contains("size-full") || !card.classList.contains("has-frame")) return;
+  if (document.documentElement.classList.contains("mobile")) return;
+  const box = card.querySelector(".c-box:not(.c-spill)"), text = box && box.querySelector(".f-text");
+  if (!text) return;
+  const old = card.querySelector(".c-spill");
+  if (old) { const ot = old.querySelector(".f-text"); while (ot && ot.firstChild) text.appendChild(ot.firstChild); old.remove(); }
+  card.style.marginBottom = ""; box.classList.remove("has-spill");
+  card.classList.add("spill");   // 글 상자는 제자리 높이 그대로(위로 자라지 않음)
+  const br = box.getBoundingClientRect();
+  if (!br.height) return;   // 아직 화면에 없다
+  const limit = br.bottom - (parseFloat(getComputedStyle(box).paddingBottom) || 0) + 0.5;
+  const ps = Array.from(text.children);
+  const i = ps.findIndex(p => !p.classList.contains("f-flavor") && p.getBoundingClientRect().bottom > limit);
+  if (i < 0) return;
+  const panel = document.createElement("div"), pt = document.createElement("div");
+  panel.className = "c-box c-spill"; pt.className = text.className;
+  for (const p of ps.slice(i)) if (!p.classList.contains("f-flavor")) pt.appendChild(p);
+  panel.appendChild(pt); card.appendChild(panel); box.classList.add("has-spill");
+  const fs = parseFloat(getComputedStyle(card).fontSize) || 16;
+  card.style.marginBottom = ((panel.getBoundingClientRect().bottom - card.getBoundingClientRect().bottom) / fs).toFixed(3) + "em";
+}
+/* 글꼴(고운바탕)이 늦게 들어오면 줄바꿈이 달라진다 — 떠 있는 카드를 한 번 다시 나눈다 */
+if (typeof document !== "undefined" && document.fonts && document.fonts.ready) document.fonts.ready.then(() => {
+  const cards = document.querySelectorAll(".card.size-full.spill"); if (!cards.length) return;
+  cards.forEach(spillFullCard);
+  const z = document.getElementById("zoom"); if (z && !z.hidden && typeof placeZoom === "function") placeZoom(z);
+});
 /* v3.60 원본 카드는 그림을 자르지 않아 글이 길면 카드가 길어진다 — 화면 높이(maxH)를 넘으면 카드 폭(--card-full)을 줄여 맞춘다 */
 function fitFullCard(card, maxH) {
   if (!card) return;
   card.style.removeProperty("--card-full");
   for (let i = 0; i < 3; i++) {
-    const h = card.offsetHeight; if (!h || h <= maxH + 0.5) break;
+    const h = card.offsetHeight + (parseFloat(getComputedStyle(card).marginBottom) || 0);   // 2026-11-28 카드 아래 설명 판(spillFullCard)까지
+    if (!h || h <= maxH + 0.5) break;
     card.style.setProperty("--card-full", Math.max(220, Math.floor(card.offsetWidth * maxH / h)) + "px");
   }
 }
@@ -673,9 +708,11 @@ function showCardModal(c, buttons, note) {
 function fitCardModal(wrap) {
   const m = wrap && wrap.querySelector(".modal"), card = m && m.querySelector(".card.size-full"); if (!card) return;
   card.style.removeProperty("--card-full");
+  spillFullCard(card);   // 2026-11-28 PC: 넘치는 능력 글은 카드 아래 설명 판으로
   const minW = Math.min(300, innerWidth - 72);   // 이보다 좁히면 글이 너무 작아진다 — 낮은 화면(폰 가로)에서는 창을 스크롤
   for (let i = 0; i < 4; i++) {   // 창이 넘쳐 스크롤이 생기면 넘친 만큼 카드 폭을 줄인다
-    const over = Math.max(m.scrollHeight - m.clientHeight, m.getBoundingClientRect().height - innerHeight + 16), h = card.offsetHeight;
+    const over = Math.max(m.scrollHeight - m.clientHeight, m.getBoundingClientRect().height - innerHeight + 16);
+    const h = card.offsetHeight + (parseFloat(getComputedStyle(card).marginBottom) || 0);   // 2026-11-28 카드 아래 설명 판도 카드 폭을 따라 줄어든다 — 함께 셈해야 지나치게 줄이지 않는다
     if (over <= 1 || !h) break;
     const w = Math.max(minW, Math.floor(card.offsetWidth * (h - over) / h) - 2);
     if (w >= card.offsetWidth) break;
@@ -854,7 +891,7 @@ const CardPreview = {
     const box = this.box;
     this.el = el;
     box.classList.toggle("pinned", this.pinned);
-    if (this.cur !== c.id) { this.unmove(); this.cur = c.id; box.innerHTML = cardHTML(c, { size: "full" }); box.hidden = false; fitFullCard(box.querySelector(".card"), innerHeight - 24); }
+    if (this.cur !== c.id) { this.unmove(); this.cur = c.id; box.innerHTML = cardHTML(c, { size: "full" }); box.hidden = false; spillFullCard(box.querySelector(".card")); fitFullCard(box.querySelector(".card"), innerHeight - 24); }
     if (this.pinned && !this.moved && this.spot) {   // 끌어 옮겨 둔 자리에서 다시 뜬다(카드 크기가 달라도 화면 안에 들게 당김)
       const w = box.offsetWidth;
       this.moved = true; box.classList.add("moved"); box.classList.remove("on-left"); box.style.right = "";

@@ -92,17 +92,22 @@ function promptBody(c, D) {
   const gk = gradeKey(c);
   if (LEGACY.has(gk)) return OLD[c.id] ? { prompt: OLD[c.id].prompt, ver: OLD[c.id].prompt_ver || S.legacyVersion } : { prompt: "", ver: S.legacyVersion, todo: "옛 프롬프트 없음" };
   const sc = SCENES[c.id], F = S.flags[c.group], G = S.grades[gk];
-  if (!sc || !F || !G) return { prompt: "", ver: S.version, todo: "장면 없음" };
+  const ver = (G && G.ver) || S.version;   // 등급마다 판을 따로 올릴 수 있다(에픽 · 유니크 · 스페셜 n3, 2026-11-28) — 다른 등급 그림이 "옛 프롬프트"로 바뀌지 않게
+  if (!sc || !F || !G) return { prompt: "", ver, todo: "장면 없음" };
+  /* look "rich" = 옛 g3(세로 4:5 시절) 색감 · 화풍(art_style.json richLook): 배색 줄은 깃발의 g3 배색 + 밤하늘 남색 바탕,
+     화풍 줄은 g3 문장. 장면(구도 · 크기 · 시점 · 빛 한 문장)은 카드 장면 그대로다 — 2026-11-28 사용자. */
+  const R = G.look === "rich" && S.richLook && S.richLook.palettes[c.group] ? S.richLook : null;
+  const finish = (typeOf(c) === "item" && G.finishItem) || G.finish;
   const L = [
     `${S.lead[typeOf(c)]} ${sentence(sc.scene)} ${sentence(sc.light)}`.trim(),
-    `Colour: ${sentence(F.palettes[sc.pal] || "")}`,
+    R ? R.colour.replace("{palette}", R.palettes[c.group]) : `Colour: ${sentence(F.palettes[sc.pal] || "")}`,
     F.world,
-    bannerFill(G.finish, F)
+    bannerFill(finish, F)
   ];
   if (S.gradeLadder && G.ladder !== false) L.push(S.gradeLadder);   // 여섯 등급의 차례 — 그림 AI가 이 등급의 화려함을 위아래 등급에 견주어 맞춘다
   if (gk === "upgrade") { const ref = c.base && hasArt(c.base) ? S.upgradeRef : (S.upgradeNoRef || S.upgradeRef); if (ref) L.push(ref); }   // 원래 카드 그림이 있으면 함께 넣는 줄, 없으면 장면 글만으로 잇는 줄(2026-11-22, 카드 머리말이 알려 준다)
-  L.push(S.house);
-  return { prompt: L.join("\n"), ver: S.version };
+  L.push(R ? R.house : S.house);
+  return { prompt: L.join("\n"), ver };
 }
 
 /* ---------- 4. 전장 그림 (ui_assets.json) ---------- */
@@ -119,7 +124,7 @@ function autoBlocks(jobs) {
   for (const j of jobs) { const k = cnt[j.grade] = cnt[j.grade] || { n: 0, unit: 0, spell: 0, item: 0, todo: 0 }; k.n++; k[j.type === "unit" ? "unit" : j.type === "item" ? "item" : "spell"]++; if (j.todo) k.todo++; }
   B.COUNTS = [`프롬프트 버전 **${S.version}** (${S.updated}) · 카드 ${jobs.length}장 (뺀 카드 제외, 소환물 포함)`, "",
     "| 등급 | 색 | 장수 | 유닛 · 마법 · 아이템 | 프롬프트 | 파일 |", "|---|---|---|---|---|---|",
-    ...S.gradeOrder.filter(g => cnt[g]).map(g => { const G = S.grades[g], k = cnt[g]; return `| ${G.ko} (${G.en}) | \`${G.color}\` | ${k.n} | ${k.unit} · ${k.spell} · ${k.item} | ${G.legacy ? `옛 ${S.legacyVersion} 그대로` : `${S.version}${k.todo ? ` (장면 없음 ${k.todo})` : ""}`} | \`prompts/grades/${g}.md\` |`; })].join("\n");
+    ...S.gradeOrder.filter(g => cnt[g]).map(g => { const G = S.grades[g], k = cnt[g]; return `| ${G.ko} (${G.en}) | \`${G.color}\` | ${k.n} | ${k.unit} · ${k.spell} · ${k.item} | ${G.legacy ? `옛 ${S.legacyVersion} 그대로` : `${G.ver || S.version}${k.todo ? ` (장면 없음 ${k.todo})` : ""}`} | \`prompts/grades/${g}.md\` |`; })].join("\n");
   B.GRADES = ["| 등급 | 뜻 | 프롬프트에 들어가는 등급 줄 |", "|---|---|---|",
     ...S.gradeOrder.filter(g => !S.grades[g].legacy).map(g => { const G = S.grades[g]; return `| ${G.ko} \`${g}\` | ${G.idea_ko} | ${G.finish} |`; }),
     "", `사다리 한 줄(소환물을 뺀 모든 카드, 등급 줄 바로 다음): \`${S.gradeLadder || ""}\``].join("\n");
@@ -192,8 +197,10 @@ function main() {
   for (const g of S.gradeOrder) {
     const list = byGrade[g]; if (!list) continue;
     const G = S.grades[g];
-    fs.writeFileSync(path.join(OUT, "grades", g + ".md"), [`# ${G.ko} (${G.en}) — 카드 일러스트 프롬프트 (${list.length}장, ${G.legacy ? "옛 " + S.legacyVersion : S.version})`, "",
-      `> ${G.idea_ko}`, "", ...(G.finish ? [`등급 줄(모든 ${G.ko} 프롬프트에 들어 있다): \`${G.finish}\``, ""] : []),
+    fs.writeFileSync(path.join(OUT, "grades", g + ".md"), [`# ${G.ko} (${G.en}) — 카드 일러스트 프롬프트 (${list.length}장, ${G.legacy ? "옛 " + S.legacyVersion : (G.ver || S.version)})`, "",
+      `> ${G.idea_ko}`, "", ...(G.finish ? [`등급 줄(모든 ${G.ko} 프롬프트에 들어 있다${G.finishItem ? " — 아이템은 아래 아이템 줄" : ""}): \`${G.finish}\``, ""] : []),
+      ...(G.finishItem ? [`아이템 등급 줄: \`${G.finishItem}\``, ""] : []),
+      ...(G.look === "rich" && S.richLook ? [`배색 · 화풍 줄은 옛 g3 색감(\`art_style.json\` \`richLook\`): \`${S.richLook.colour}\` · \`${S.richLook.house}\``, ""] : []),
       HOW, "",
       ...list.slice().sort((a, b) => a.group.localeCompare(b.group) || a.lv - b.lv || a.id.localeCompare(b.id)).map(cardMd)].join("\n"));
   }
