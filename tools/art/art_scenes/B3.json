@@ -391,9 +391,9 @@
     "light": "The bolt overexposes everything to white-yellow; engine, chain, gate and shields stand as flat black cut-outs with thin glowing rims."
   },
   "SP-B3": {
-    "shot": "top", "dir": "U", "place": "C", "pal": "thunderhead",
-    "scene": "Straight down into a generator pit as wide as a town square. At the centre stands a machine of glass vessels and copper hoops, lightning standing inside them in the shape of shoulders and arms, its clear dome head tipped back so the bright knot within and two lamp eyes look straight up at us. Around it six burnt-out sister frames lie slumped and black in a ring, each still cabled to the middle. Under the floor grating a pale root of light branches away. Between the cables, small as rivets, coated makers stand with upturned faces.",
-    "light": "Night rain falling into the pit; the machine's own yellow lightning and the pale glow under the grating light the black wrecks and the wet upturned faces."
+    "shot": "over", "dir": "F", "place": "C", "pal": "thunderhead",
+    "scene": "Over the shoulders of three makers at a gantry rail, small and dark in the foreground: a generator pit has been dug down to a sleeping giant's nerve — a branching trunk of white lightning thick as a river. On it a machine has stood up, chest level with the gantry: glass vessels caged in copper hoops, the nerve's lightning standing inside them as shoulders, arms and spread fingers, a clear dome head with two lamp eyes. One arm is raised and the storm overhead forks down into its palm. Six burnt-out sister frames lean black around its waist.",
+    "light": "Night rain; the nerve's white glare from below and the machine's searing yellow lightning light the black wrecks, the wet rail and the rims of the makers' coats."
   },
   "SR-B3": {
     "shot": "stand", "dir": "L", "place": "T", "pal": "greensky",

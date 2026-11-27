@@ -371,9 +371,9 @@
     "light": "The ring of light is the only source, blinding white-gold in the mirror of the blade; everything around the steel is dark."
   },
   "SP-A2": {
-    "shot": "far", "dir": "F", "place": "T", "pal": "glare",
-    "scene": "Before sunrise, from far out on the empty plain, a pilgrim road runs straight toward the horizon, and the horizon is a body. Along the top of the frame kneels a figure made wholly of daybreak, facing us: its two outspread wings are the whole band of first light, its upright sword a single ray climbing out of sight. The white citadel stands against its bent knee like a chess piece, towers dark against the glow. Overhead the night sky and its stars stop in a clean arc around the raised blade.",
-    "light": "White-gold glare pours from the kneeling figure along the horizon; citadel, road and a few pilgrim lanterns are dark shapes and sparks before it under lingering stars."
+    "shot": "low", "dir": "F", "place": "C", "pal": "glare",
+    "scene": "From the pilgrim road before sunrise, looking up: above a white citadel that reaches only to his knee, a knight of white-gold plate rises from one knee, facing us, and lifts his sword straight up, a single ray climbing out of sight. He is being raised — two vast hands of light are cupped beneath him, and behind him, filling the sky from edge to edge, bends a six-winged woman made of daybreak, her face the rising sun. Around the raised blade the night sky and its stars stop in a clean arc. Pilgrim lanterns dot the road like sparks.",
+    "light": "White-gold glare pours from the winged woman and the blade; the knight's plate blazes at its edges, and citadel, road and lanterns are dark shapes under lingering stars."
   },
   "SR-A2": {
     "shot": "making", "dir": "N", "place": "R", "pal": "stainedglass",

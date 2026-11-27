@@ -386,9 +386,9 @@
     "light": "Slate-grey storm light from above flattens the red clay, and each fang shows chalk-pale against it while ochre dust blows through the gaps."
   },
   "SP-G1": {
-    "shot": "tilt", "dir": "D", "place": "C", "pal": "ochredust",
-    "scene": "The whole frame tips as the plain lurches. At its centre, veiled in dust and seen from a far ridge level with his shoulders, a mesa-tall titan of cracked sandstone and granite kneels and sets the knuckles of a hide-strapped boulder fist against the earth like a knock on a door. Cracks race outward from the fist through a ring of standing stones that reach only to its lowest knuckle, and hide tents the size of pebbles slide askew below us. From his bowed head and shoulders a mane of grey ash pours away across the sky.",
-    "light": "Midday sun strained through tan dust falls in pale shafts across his sandstone shoulders, and the ash mane lays a long grey shadow over the plain."
+    "shot": "tilt", "dir": "L", "place": "C", "pal": "ochredust",
+    "scene": "The frame tips as the plain buckles. In its centre a titan of cracked sandstone and granite, mesa-tall, a mane of grey ash streaming behind him, leans to the left with heels ploughed deep and catches on one raised fist the descending claw of an earth dragon. The dragon fills the frame's left and top: a horned head lowered level with his, an eye as wide as his chest, and behind it a back that is a mountain range of boulders and pines. Around his knees a hundred standing stones lie toppled, and hide tents small as pebbles slide askew.",
+    "light": "Midday sun strained through tan dust falls in pale shafts across his sandstone shoulders and the dragon's rock-scaled brow; the ash mane lays a long grey shadow over the plain."
   },
   "SR-G1": {
     "shot": "nature", "dir": "U", "place": "C", "pal": "strawgold",

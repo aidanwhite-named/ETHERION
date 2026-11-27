@@ -24,16 +24,6 @@
     "unique",
     "special"
   ],
-  "drawOrder": [
-    "unique",
-    "epic",
-    "uncommon",
-    "common",
-    "upgrade",
-    "token",
-    "rare",
-    "special"
-  ],
   "grades": {
     "token": {
       "ko": "소환물",
@@ -96,8 +86,8 @@
       "ko": "스페셜",
       "en": "Special",
       "color": "#ff4d73",
-      "idea_ko": "6단(최고) — 눈에 보이는 신화. 가장 신비롭고 강렬하고 화려하다. 깃발마다 하나뿐인 존재(유닛)와 성소의 유물(아이템) — 주인공 자체가 광원이고 광휘가 겹겹이다(흰 불빛 심 · 넓은 후광 · 화면을 가로지르는 진홍과 금의 큰 고리와 긴 빛살). 모든 카드 가운데 가장 빛나는 무지갯빛 색, 불티의 폭풍과 에테르 빛의 장막이 공기를 채우고 땅 · 하늘 · 날씨가 주인공 쪽으로 휜다. 필멸의 솜씨를 넘어 안에서부터 빛나는 재질.",
-      "finish": "Special — the highest of the six rarity tiers, unmistakably beyond every other. Mood: mythic, mysterious and overwhelming — sacred awe. Light: the subject is itself a source of light, radiance in layers — a white-hot core, a wide halo, great rings and long rays of crimson (#ff4d73) and gold crossing the whole picture, blooming and refracting through the haze. Saturation: the most luminous, iridescent colour of any card, from velvet black to blinding white-gold. Air: filled with storms of sparks and veils of ether light, while land, sky and weather bend toward the subject. Surfaces: matter beyond mortal craft, glowing from within.",
+      "idea_ko": "6단(최고) — 눈에 보이는 신화. 가장 신비롭고 압도적이다. 깃발마다 하나뿐인 존재(유닛)와 성소의 유물(아이템) — 모든 카드 가운데 가장 화려하고 묘사가 가장 촘촘한 그림. 벨벳 같은 어둠에서 눈부신 흰 금빛까지 가는 극적인 명암, 주인공이 제 힘으로 깃발 색으로 타오르고, 광휘는 늘 주인공 **뒤에서** 겹겹이 오른다(흰 금빛 심 · 금세공의 큰 겹 후광 · 끝이 무지갯빛으로 갈라지는 긴 빛살 — 주인공 윤곽은 통째로 또렷하게). 보석 같은 가장 진한 색(깃발 색이 주, 금과 진홍 `#ff4d73` 반짝임이 곁들임). 안에서 빛나는 큰 구름이나 궁륭, 깃발 색 오로라 장막, 주인공 둘레를 도는 불티 · 빛 알갱이의 큰 소용돌이, 둘레의 모든 것이 주인공 쪽으로 기운다. 새기고 박아 넣은 가장 정교한 세공 — 주인공과 배경 전체가 촘촘하다. 등급 줄의 `{banner}` · `{bannerName}`은 생성기가 그 카드 깃발의 색으로 바꿔 넣는다(2026-11-28 두 번 고침: ① 못박혀 있던 진홍 + 금 고리가 깃발 색을 덮고 화면을 가로질러 주인공을 가려, 빛을 깃발 색으로 · 주인공 뒤로 옮김 ② 그렇게 그린 3장이 단색 · 민무늬로 밋밋해 — 겹 후광 · 금세공 · 무지갯빛 가장자리 · 소용돌이 · 정교한 세공을 되살리고 금 · 진홍을 곁들이는 색으로 돌려놓음).",
+      "finish": "Special — the highest of the six rarity tiers, unmistakably beyond every other: the most splendid, most richly detailed picture in the whole set. Mood: mythic, mysterious and overwhelming — sacred awe before a presence of immense power. Light: dramatic chiaroscuro from velvet black to blinding white-gold; the subject blazes with its own {banner} power, and behind it — always behind, its whole outline left sharp and unbroken — rises radiance in layers: a white-gold core, great concentric halos of fine gold filigree, and a corona of long rays that split into prismatic colour at their edges. Saturation: the richest, most jewel-like colour of any card — {bannerName} at full brilliance against deep black, set off by gold and glints of crimson (#ff4d73). Air: alive and immense — towering cloud or vaulted darkness lit from within, aurora veils of {bannerName} light, and a great vortex of sparks, embers and glowing motes wheeling around the subject while everything near it leans toward it. Surfaces: the most intricate detail of any card — engraved, inlaid and jewel-set; every surface of the subject and the whole background finely worked and glowing from within.",
       "tier": 6
     }
   },

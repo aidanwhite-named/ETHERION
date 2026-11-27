@@ -371,9 +371,9 @@
     "light": "Black cavern dark holding hundreds of small warm furnace mouths; steel glints at the edge of each pool and all along the moving lift chain."
   },
   "SP-B2": {
-    "shot": "reflect", "dir": "L", "place": "R", "pal": "mirror",
-    "scene": "Across a quenching pool as wide as a parade ground: the far rim crosses mid-frame, lined with small kneeling golems whose eye-lamps are just opening. Above it forge steam hides almost everything: a shadow as tall as the hall, the pale glow of something beating. Below, the black water shows what the steam conceals: upside-down in the right of the frame, a seated colossus of white steel turned toward the left, one hand on an anvil the size of a house, chest plates parted on a heart of silver valves and pistons.",
-    "light": "The heart's silver-white blaze lights the hall from inside the steam; each beat sends a bright ring across the black water and flashes on the white steel."
+    "shot": "profile", "dir": "L", "place": "R", "pal": "mirror",
+    "scene": "Side view inside a forge hall hollowed from a sleeping giant's arm: the back wall is that forearm, raw iron ore banded with bright sinews thick as bridges. One sinew has been drawn out white-hot like a cable into the open chest of a colossus of white steel standing on the right, facing left — there it ends in a heart of silver valves and pistons striking its first beat. The colossus raises a hammer broad as a bridge pier. Along a quenching pool at its feet kneel golems small as its toes, their eye-lamps opening in a wave.",
+    "light": "The heart's silver-white blaze and the glowing sinew light the hall, flashing on white steel and steam; each beat sends one bright ring across the black water."
   },
   "SR-B2": {
     "shot": "through", "dir": "R", "place": "B", "pal": "mirror",

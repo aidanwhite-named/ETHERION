@@ -6,11 +6,7 @@
 
 카드 하나의 ``` 안 글만 그림 AI에 붙여 넣는다(카드마다 새 대화). 프롬프트 맨 끝 줄이 파일 이름(`<카드ID> <카드 이름>.png`)을 알려 준다 — 나온 그림(가로 5:4)을 그 이름으로 `tools/art/inbox/`에 두고(이름이 달라도 카드 ID만 앞에 있으면 된다) → `python3 tools/art/artmap.py import`.
 
-**그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(같은 개체 · 장소 · 배색, 다른 시점 · 새 구도 — 섬네일로 나란히 놓아 같은 개체이면서 한눈에 더 강한 다른 그림으로 읽히는지 본다).
-
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 362장
-
-### A1-02 · 그림자 도둑 — 그림 있음
+### A1-02 · 그림자 도둑
 모르카스의 그믐 · 유닛 · 레벨 1 · 일반 · 틀 `inside` L R `candle` · 프롬프트 n2 → `tools/art/inbox/A1-02 그림자 도둑.png`
 
 ```
@@ -23,7 +19,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-02 그림자 도둑.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-04 · 피의 박쥐 떼 — 그림 있음
+### A1-04 · 피의 박쥐 떼
 모르카스의 그믐 · 유닛 · 레벨 1 · 일반 · 틀 `swarm` N X `violetshade` · 프롬프트 n2 → `tools/art/inbox/A1-04 피의 박쥐 떼.png`
 
 ```
@@ -36,7 +32,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-04 피의 박쥐 떼.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-05 · 녹타르 구울 — 그림 있음
+### A1-05 · 녹타르 구울
 모르카스의 그믐 · 유닛 · 레벨 1 · 일반 · 틀 `silhouette` R C `bonepale` · 프롬프트 n2 → `tools/art/inbox/A1-05 녹타르 구울.png`
 
 ```
@@ -49,7 +45,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-05 녹타르 구울.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-06 · 값으로 떼인 그림자 — 그림 있음
+### A1-06 · 값으로 떼인 그림자
 모르카스의 그믐 · 유닛 · 레벨 1 · 일반 · 틀 `ground` R R `violetshade` · 프롬프트 n2 → `tools/art/inbox/A1-06 값으로 떼인 그림자.png`
 
 ```
@@ -62,7 +58,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-06 값으로 떼인 그림자.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### HA1-1 · 소매치기 — 그림 있음
+### HA1-1 · 소매치기
 모르카스의 그믐 · 핸드 마법 · 레벨 1 · 일반 · 틀 `macro` R C `eclipse` · 프롬프트 n2 → `tools/art/inbox/HA1-1 소매치기.png`
 
 ```
@@ -75,7 +71,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: HA1-1 소매치기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### HA1-2 · 손끝 저주 — 그림 있음
+### HA1-2 · 손끝 저주
 모르카스의 그믐 · 핸드 마법 · 레벨 1 · 일반 · 틀 `through` N C `violetshade` · 프롬프트 n2 → `tools/art/inbox/HA1-2 손끝 저주.png`
 
 ```
@@ -88,7 +84,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: HA1-2 손끝 저주.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MA-01 · 공포의 칼날 — 그림 있음
+### MA-01 · 공포의 칼날
 모르카스의 그믐 · 공격 마법 · 레벨 1 · 일반 · 틀 `top` R L `candle` · 프롬프트 n2 → `tools/art/inbox/MA-01 공포의 칼날.png`
 
 ```
@@ -101,7 +97,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MA-01 공포의 칼날.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MA-04 · 피의 공명 — 그림 있음
+### MA-04 · 피의 공명
 모르카스의 그믐 · 공격 마법 · 레벨 1 · 일반 · 틀 `cut` U B `bloodink` · 프롬프트 n2 → `tools/art/inbox/MA-04 피의 공명.png`
 
 ```
@@ -114,7 +110,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MA-04 피의 공명.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PS-A1-1 · 영혼 착취 — 그림 있음
+### PS-A1-1 · 영혼 착취
 모르카스의 그믐 · 공격 마법 · 레벨 1 · 일반 · 틀 `swarm` L X `eclipse` · 프롬프트 n2 → `tools/art/inbox/PS-A1-1 영혼 착취.png`
 
 ```
@@ -127,7 +123,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PS-A1-1 영혼 착취.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PS-A1-2 · 역병의 족쇄 — 그림 있음
+### PS-A1-2 · 역병의 족쇄
 모르카스의 그믐 · 공용 마법 · 레벨 1 · 일반 · 틀 `macro` L R `frostindigo` · 프롬프트 n2 → `tools/art/inbox/PS-A1-2 역병의 족쇄.png`
 
 ```
@@ -140,7 +136,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PS-A1-2 역병의 족쇄.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SA1-02 · 그림자 손아귀 — 그림 있음
+### SA1-02 · 그림자 손아귀
 모르카스의 그믐 · 공용 마법 · 레벨 1 · 일반 · 틀 `impact` L C `candle` · 프롬프트 n2 → `tools/art/inbox/SA1-02 그림자 손아귀.png`
 
 ```
@@ -153,7 +149,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SA1-02 그림자 손아귀.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-07 · 그림자 도플갱어 — 그림 있음
+### A1-07 · 그림자 도플갱어
 모르카스의 그믐 · 유닛 · 레벨 2 · 일반 · 틀 `over` R X `bonepale` · 프롬프트 n2 → `tools/art/inbox/A1-07 그림자 도플갱어.png`
 
 ```
@@ -166,7 +162,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-07 그림자 도플갱어.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-08 · 계약의 서큐버스 — 그림 있음
+### A1-08 · 계약의 서큐버스
 모르카스의 그믐 · 유닛 · 레벨 2 · 일반 · 틀 `close` L L `eclipse` · 프롬프트 n2 → `tools/art/inbox/A1-08 계약의 서큐버스.png`
 
 ```
@@ -179,7 +175,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-08 계약의 서큐버스.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-09 · 모르크 그림자 거미 — 그림 있음
+### A1-09 · 모르크 그림자 거미
 모르카스의 그믐 · 유닛 · 레벨 2 · 일반 · 틀 `under` R X `eclipse` · 프롬프트 n2 → `tools/art/inbox/A1-09 모르크 그림자 거미.png`
 
 ```
@@ -192,7 +188,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-09 모르크 그림자 거미.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-11 · 계약단 쥐 병사 — 그림 있음
+### A1-11 · 계약단 쥐 병사
 모르카스의 그믐 · 유닛 · 레벨 2 · 일반 · 틀 `eye` R L `violetshade` · 프롬프트 n2 → `tools/art/inbox/A1-11 계약단 쥐 병사.png`
 
 ```
@@ -205,7 +201,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-11 계약단 쥐 병사.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### HA1-3 · 저주 전염 — 그림 있음
+### HA1-3 · 저주 전염
 모르카스의 그믐 · 핸드 마법 · 레벨 2 · 일반 · 틀 `before` N X `frostindigo` · 프롬프트 n2 → `tools/art/inbox/HA1-3 저주 전염.png`
 
 ```
@@ -218,7 +214,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: HA1-3 저주 전염.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### I2-3 · 그림자 투척 단검 — 그림 있음
+### I2-3 · 그림자 투척 단검
 모르카스의 그믐 · 아이템 · 레벨 2 · 일반 · 틀 `hand` D C `violetshade` · 프롬프트 n2 → `tools/art/inbox/I2-3 그림자 투척 단검.png`
 
 ```
@@ -231,7 +227,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: I2-3 그림자 투척 단검.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IA1-1 · 피의 서약 부적 — 그림 있음
+### IA1-1 · 피의 서약 부적
 모르카스의 그믐 · 아이템 · 레벨 2 · 일반 · 틀 `hung` N T `bloodink` · 프롬프트 n2 → `tools/art/inbox/IA1-1 피의 서약 부적.png`
 
 ```
@@ -244,7 +240,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IA1-1 피의 서약 부적.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IA1-2 · 흑요 단검 — 그림 있음
+### IA1-2 · 흑요 단검
 모르카스의 그믐 · 아이템 · 레벨 2 · 일반 · 틀 `used` N R `bloodink` · 프롬프트 n2 → `tools/art/inbox/IA1-2 흑요 단검.png`
 
 ```
@@ -257,7 +253,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IA1-2 흑요 단검.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MA-05 · 피의 저울 — 그림 있음
+### MA-05 · 피의 저울
 모르카스의 그믐 · 공용 마법 · 레벨 2 · 일반 · 틀 `impact` U R `bloodink` · 프롬프트 n2 → `tools/art/inbox/MA-05 피의 저울.png`
 
 ```
@@ -270,7 +266,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MA-05 피의 저울.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MA-09 · 지옥불 — 그림 있음
+### MA-09 · 지옥불
 모르카스의 그믐 · 공격 마법 · 레벨 2 · 일반 · 틀 `object` U L `violetshade` · 프롬프트 n2 → `tools/art/inbox/MA-09 지옥불.png`
 
 ```
@@ -283,7 +279,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MA-09 지옥불.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-A1-C1 · 어린 흡혈귀 — 그림 있음
+### PN-A1-C1 · 어린 흡혈귀
 모르카스의 그믐 · 유닛 · 레벨 2 · 일반 · 틀 `under` F C `bloodink` · 프롬프트 n2 → `tools/art/inbox/PN-A1-C1 어린 흡혈귀.png`
 
 ```
@@ -296,7 +292,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-A1-C1 어린 흡혈귀.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SA1-01 · 심연의 부름 — 그림 있음
+### SA1-01 · 심연의 부름
 모르카스의 그믐 · 공용 마법 · 레벨 2 · 일반 · 틀 `object` U R `bonepale` · 프롬프트 n2 → `tools/art/inbox/SA1-01 심연의 부름.png`
 
 ```
@@ -309,7 +305,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SA1-01 심연의 부름.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SA1-04 · 거울 환영 — 그림 있음
+### SA1-04 · 거울 환영
 모르카스의 그믐 · 공용 마법 · 레벨 2 · 일반 · 틀 `reflect` F C `candle` · 프롬프트 n2 → `tools/art/inbox/SA1-04 거울 환영.png`
 
 ```
@@ -322,7 +318,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SA1-04 거울 환영.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SA1-06 · 피의 제물 — 그림 있음
+### SA1-06 · 피의 제물
 모르카스의 그믐 · 공격 마법 · 레벨 2 · 일반 · 틀 `ring` N C `bloodink` · 프롬프트 n2 → `tools/art/inbox/SA1-06 피의 제물.png`
 
 ```
@@ -335,7 +331,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SA1-06 피의 제물.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-15 · 피를 마시는 칼 — 그림 있음
+### A1-15 · 피를 마시는 칼
 모르카스의 그믐 · 유닛 · 레벨 3 · 일반 · 틀 `ground` F B `frostindigo` · 프롬프트 n2 → `tools/art/inbox/A1-15 피를 마시는 칼.png`
 
 ```
@@ -348,7 +344,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-15 피를 마시는 칼.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-17 · 모르카스의 밴시 — 그림 있음
+### A1-17 · 모르카스의 밴시
 모르카스의 그믐 · 유닛 · 레벨 3 · 일반 · 틀 `over` B L `frostindigo` · 프롬프트 n2 → `tools/art/inbox/A1-17 모르카스의 밴시.png`
 
 ```
@@ -361,7 +357,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-17 모르카스의 밴시.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-18 · 그림자 송곳니 — 그림 있음
+### A1-18 · 그림자 송곳니
 모르카스의 그믐 · 유닛 · 레벨 3 · 일반 · 틀 `reflect` L R `bonepale` · 프롬프트 n2 → `tools/art/inbox/A1-18 그림자 송곳니.png`
 
 ```
@@ -374,7 +370,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-18 그림자 송곳니.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IA1-3 · 저주 인형 — 그림 있음
+### IA1-3 · 저주 인형
 모르카스의 그믐 · 아이템 · 레벨 3 · 일반 · 틀 `through` N L `candle` · 프롬프트 n2 → `tools/art/inbox/IA1-3 저주 인형.png`
 
 ```
@@ -387,7 +383,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IA1-3 저주 인형.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IA1-4 · 심연의 가면 — 그림 있음
+### IA1-4 · 심연의 가면
 모르카스의 그믐 · 아이템 · 레벨 3 · 일반 · 틀 `stand` F C `bonepale` · 프롬프트 n2 → `tools/art/inbox/IA1-4 심연의 가면.png`
 
 ```
@@ -400,7 +396,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IA1-4 심연의 가면.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### NA1-1 · 그림자 강탈 — 그림 있음
+### NA1-1 · 그림자 강탈
 모르카스의 그믐 · 공용 마법 · 레벨 3 · 일반 · 틀 `path` L X `frostindigo` · 프롬프트 n2 → `tools/art/inbox/NA1-1 그림자 강탈.png`
 
 ```
@@ -413,7 +409,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: NA1-1 그림자 강탈.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-21 · 피의 라미아 — 그림 있음
+### A1-21 · 피의 라미아
 모르카스의 그믐 · 유닛 · 레벨 4 · 일반 · 틀 `through` R L `bloodink` · 프롬프트 n2 → `tools/art/inbox/A1-21 피의 라미아.png`
 
 ```
@@ -426,7 +422,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-21 피의 라미아.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-23 · 계약 수확 사신 — 그림 있음
+### A1-23 · 계약 수확 사신
 모르카스의 그믐 · 유닛 · 레벨 4 · 일반 · 틀 `back` B B `bloodink` · 프롬프트 n2 → `tools/art/inbox/A1-23 계약 수확 사신.png`
 
 ```
@@ -439,7 +435,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-23 계약 수확 사신.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-24 · 달 없는 늑대인간 — 그림 있음
+### A1-24 · 달 없는 늑대인간
 모르카스의 그믐 · 유닛 · 레벨 4 · 일반 · 틀 `high` L T `eclipse` · 프롬프트 n2 → `tools/art/inbox/A1-24 달 없는 늑대인간.png`
 
 ```
@@ -452,7 +448,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-24 달 없는 늑대인간.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-42 · 흑요 갑주 해골 — 그림 있음
+### A1-42 · 흑요 갑주 해골
 모르카스의 그믐 · 유닛 · 레벨 4 · 일반 · 틀 `front` F X `frostindigo` · 프롬프트 n2 → `tools/art/inbox/A1-42 흑요 갑주 해골.png`
 
 ```
@@ -465,7 +461,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-42 흑요 갑주 해골.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-25 · 장막의 삼두견 — 그림 있음
+### A1-25 · 장막의 삼두견
 모르카스의 그믐 · 유닛 · 레벨 5 · 일반 · 틀 `tilt` R C `violetshade` · 프롬프트 n2 → `tools/art/inbox/A1-25 장막의 삼두견.png`
 
 ```
@@ -478,7 +474,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-25 장막의 삼두견.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-28 · 찢기지 않는 계약서 — 그림 있음
+### A1-28 · 찢기지 않는 계약서
 모르카스의 그믐 · 유닛 · 레벨 5 · 일반 · 틀 `ground` F C `frostindigo` · 프롬프트 n2 → `tools/art/inbox/A1-28 찢기지 않는 계약서.png`
 
 ```
@@ -491,7 +487,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-28 찢기지 않는 계약서.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### RA1-1 · 최후의 계약 — 그림 있음
+### RA1-1 · 최후의 계약
 모르카스의 그믐 · 공용 마법 · 레벨 5 · 일반 · 틀 `after` N X `bonepale` · 프롬프트 n2 → `tools/art/inbox/RA1-1 최후의 계약.png`
 
 ```
@@ -504,7 +500,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: RA1-1 최후의 계약.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-29 · 심연의 어둑시니 — 그림 있음
+### A1-29 · 심연의 어둑시니
 모르카스의 그믐 · 유닛 · 레벨 6 · 일반 · 틀 `eye` B L `candle` · 프롬프트 n2 → `tools/art/inbox/A1-29 심연의 어둑시니.png`
 
 ```
@@ -517,7 +513,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-29 심연의 어둑시니.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-30 · 모르카스의 칼 — 그림 있음
+### A1-30 · 모르카스의 칼
 모르카스의 그믐 · 유닛 · 레벨 6 · 일반 · 틀 `profile` L L `frostindigo` · 프롬프트 n2 → `tools/art/inbox/A1-30 모르카스의 칼.png`
 
 ```
@@ -530,7 +526,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-30 모르카스의 칼.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-32 · 저주 군단의 리치 — 그림 있음
+### A1-32 · 저주 군단의 리치
 모르카스의 그믐 · 유닛 · 레벨 6 · 일반 · 틀 `close` F C `bonepale` · 프롬프트 n2 → `tools/art/inbox/A1-32 저주 군단의 리치.png`
 
 ```
@@ -543,7 +539,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-32 저주 군단의 리치.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-43 · 감긴 눈의 저울 — 그림 있음
+### A1-43 · 감긴 눈의 저울
 모르카스의 그믐 · 유닛 · 레벨 6 · 일반 · 틀 `low` N C `violetshade` · 프롬프트 n2 → `tools/art/inbox/A1-43 감긴 눈의 저울.png`
 
 ```
@@ -556,7 +552,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-43 감긴 눈의 저울.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-A1-C3 · 계약에 묶인 시체 거인 — 그림 있음
+### PN-A1-C3 · 계약에 묶인 시체 거인
 모르카스의 그믐 · 유닛 · 레벨 6 · 일반 · 틀 `back` B C `bonepale` · 프롬프트 n2 → `tools/art/inbox/PN-A1-C3 계약에 묶인 시체 거인.png`
 
 ```
@@ -569,7 +565,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-A1-C3 계약에 묶인 시체 거인.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A1-34 · 대가의 집행자 — 그림 있음
+### A1-34 · 대가의 집행자
 모르카스의 그믐 · 유닛 · 레벨 7 · 일반 · 틀 `far` R L `eclipse` · 프롬프트 n2 → `tools/art/inbox/A1-34 대가의 집행자.png`
 
 ```
@@ -582,7 +578,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A1-34 대가의 집행자.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-03 · 새벽 종다리 떼 — 그림 있음
+### A2-03 · 새벽 종다리 떼
 솔란테의 새벽 · 유닛 · 레벨 1 · 일반 · 틀 `silhouette` R R `firstlight` · 프롬프트 n2 → `tools/art/inbox/A2-03 새벽 종다리 떼.png`
 
 ```
@@ -595,7 +591,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-03 새벽 종다리 떼.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-04 · 솜털 새끼 비둘기 — 그림 있음
+### A2-04 · 솜털 새끼 비둘기
 솔란테의 새벽 · 유닛 · 레벨 1 · 일반 · 틀 `eye` L C `rosedawn` · 프롬프트 n2 → `tools/art/inbox/A2-04 솜털 새끼 비둘기.png`
 
 ```
@@ -608,7 +604,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-04 솜털 새끼 비둘기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-05 · 문장 독수리 — 그림 있음
+### A2-05 · 문장 독수리
 솔란테의 새벽 · 유닛 · 레벨 1 · 일반 · 틀 `back` B R `rosedawn` · 프롬프트 n2 → `tools/art/inbox/A2-05 문장 독수리.png`
 
 ```
@@ -621,7 +617,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-05 문장 독수리.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-06 · 떠도는 후광 — 그림 있음
+### A2-06 · 떠도는 후광
 솔란테의 새벽 · 유닛 · 레벨 1 · 일반 · 틀 `ground` L C `firstlight` · 프롬프트 n2 → `tools/art/inbox/A2-06 떠도는 후광.png`
 
 ```
@@ -634,7 +630,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-06 떠도는 후광.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MA-02 · 솔란테의 가호 — 그림 있음
+### MA-02 · 솔란테의 가호
 솔란테의 새벽 · 방어 마법 · 레벨 1 · 일반 · 틀 `object` L R `rosedawn` · 프롬프트 n2 → `tools/art/inbox/MA-02 솔란테의 가호.png`
 
 ```
@@ -647,7 +643,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MA-02 솔란테의 가호.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MA-08 · 맹세의 고정 — 그림 있음
+### MA-08 · 맹세의 고정
 솔란테의 새벽 · 방어 마법 · 레벨 1 · 일반 · 틀 `symbol` N L `stainedglass` · 프롬프트 n2 → `tools/art/inbox/MA-08 맹세의 고정.png`
 
 ```
@@ -660,7 +656,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MA-08 맹세의 고정.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SA2-01 · 돌격 나팔 — 그림 있음
+### SA2-01 · 돌격 나팔
 솔란테의 새벽 · 공격 마법 · 레벨 1 · 일반 · 틀 `origin` B B `whitegold` · 프롬프트 n2 → `tools/art/inbox/SA2-01 돌격 나팔.png`
 
 ```
@@ -673,7 +669,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SA2-01 돌격 나팔.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SA2-02 · 인내의 기도 — 그림 있음
+### SA2-02 · 인내의 기도
 솔란테의 새벽 · 공용 마법 · 레벨 1 · 일반 · 틀 `after` N L `vigil` · 프롬프트 n2 → `tools/art/inbox/SA2-02 인내의 기도.png`
 
 ```
@@ -686,7 +682,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SA2-02 인내의 기도.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SA2-04 · 정의의 일격 — 그림 있음
+### SA2-04 · 정의의 일격
 솔란테의 새벽 · 공격 마법 · 레벨 1 · 일반 · 틀 `path` R X `glare` · 프롬프트 n2 → `tools/art/inbox/SA2-04 정의의 일격.png`
 
 ```
@@ -699,7 +695,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SA2-04 정의의 일격.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-07 · 맹세의 발키리 — 그림 있음
+### A2-07 · 맹세의 발키리
 솔란테의 새벽 · 유닛 · 레벨 2 · 일반 · 틀 `profile` L R `whitegold` · 프롬프트 n2 → `tools/art/inbox/A2-07 맹세의 발키리.png`
 
 ```
@@ -712,7 +708,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-07 맹세의 발키리.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-09 · 새벽 수탉 수호병 — 그림 있음
+### A2-09 · 새벽 수탉 수호병
 솔란테의 새벽 · 유닛 · 레벨 2 · 일반 · 틀 `over` F C `glare` · 프롬프트 n2 → `tools/art/inbox/A2-09 새벽 수탉 수호병.png`
 
 ```
@@ -725,7 +721,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-09 새벽 수탉 수호병.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-11 · 어린 유니콘 — 그림 있음
+### A2-11 · 어린 유니콘
 솔란테의 새벽 · 유닛 · 레벨 2 · 일반 · 틀 `tilt` F C `vigil` · 프롬프트 n2 → `tools/art/inbox/A2-11 어린 유니콘.png`
 
 ```
@@ -738,7 +734,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-11 어린 유니콘.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IA2-1 · 압수한 흑요검 — 그림 있음
+### IA2-1 · 압수한 흑요검
 솔란테의 새벽 · 아이템 · 레벨 2 · 일반 · 틀 `stand` L L `firstlight` · 프롬프트 n2 → `tools/art/inbox/IA2-1 압수한 흑요검.png`
 
 ```
@@ -751,7 +747,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IA2-1 압수한 흑요검.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IA2-2 · 은빛 방패 — 그림 있음
+### IA2-2 · 은빛 방패
 솔란테의 새벽 · 아이템 · 레벨 2 · 일반 · 틀 `hung` N R `whitegold` · 프롬프트 n2 → `tools/art/inbox/IA2-2 은빛 방패.png`
 
 ```
@@ -764,7 +760,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IA2-2 은빛 방패.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MA-10 · 순교의 서약 — 그림 있음
+### MA-10 · 순교의 서약
 솔란테의 새벽 · 방어 마법 · 레벨 2 · 일반 · 틀 `path` N X `vigil` · 프롬프트 n2 → `tools/art/inbox/MA-10 순교의 서약.png`
 
 ```
@@ -777,7 +773,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MA-10 순교의 서약.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-A2-C1 · 새벽성 작은 성상 — 그림 있음
+### PN-A2-C1 · 새벽성 작은 성상
 솔란테의 새벽 · 유닛 · 레벨 2 · 일반 · 틀 `macro` N C `vigil` · 프롬프트 n2 → `tools/art/inbox/PN-A2-C1 새벽성 작은 성상.png`
 
 ```
@@ -790,7 +786,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-A2-C1 새벽성 작은 성상.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### S2-1 · 빛의 성표 — 그림 있음
+### S2-1 · 빛의 성표
 솔란테의 새벽 · 아이템 · 레벨 2 · 일반 · 틀 `motion` R R `whitegold` · 프롬프트 n2 → `tools/art/inbox/S2-1 빛의 성표.png`
 
 ```
@@ -803,7 +799,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: S2-1 빛의 성표.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SA2-07 · 심판의 저울 — 그림 있음
+### SA2-07 · 심판의 저울
 솔란테의 새벽 · 공용 마법 · 레벨 2 · 일반 · 틀 `symbol` N C `stainedglass` · 프롬프트 n2 → `tools/art/inbox/SA2-07 심판의 저울.png`
 
 ```
@@ -816,7 +812,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SA2-07 심판의 저울.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### US-A2-1 · 성광의 검 — 그림 있음
+### US-A2-1 · 성광의 검
 솔란테의 새벽 · 공격 마법 · 레벨 2 · 일반 · 틀 `ring` N C `rosedawn` · 프롬프트 n2 → `tools/art/inbox/US-A2-1 성광의 검.png`
 
 ```
@@ -829,7 +825,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: US-A2-1 성광의 검.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-15 · 솔란테의 맹세자 — 그림 있음
+### A2-15 · 솔란테의 맹세자
 솔란테의 새벽 · 유닛 · 레벨 3 · 일반 · 틀 `reflect` F C `rosedawn` · 프롬프트 n2 → `tools/art/inbox/A2-15 솔란테의 맹세자.png`
 
 ```
@@ -842,7 +838,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-15 솔란테의 맹세자.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-16 · 새벽 순찰 사자 — 그림 있음
+### A2-16 · 새벽 순찰 사자
 솔란테의 새벽 · 유닛 · 레벨 3 · 일반 · 틀 `back` R R `firstlight` · 프롬프트 n2 → `tools/art/inbox/A2-16 새벽 순찰 사자.png`
 
 ```
@@ -855,7 +851,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-16 새벽 순찰 사자.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-17 · 진실을 묻는 스핑크스 — 그림 있음
+### A2-17 · 진실을 묻는 스핑크스
 솔란테의 새벽 · 유닛 · 레벨 3 · 일반 · 틀 `high` L C `whitegold` · 프롬프트 n2 → `tools/art/inbox/A2-17 진실을 묻는 스핑크스.png`
 
 ```
@@ -868,7 +864,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-17 진실을 묻는 스핑크스.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### I3-2 · 엘라드 탑 방패 — 그림 있음
+### I3-2 · 엘라드 탑 방패
 솔란테의 새벽 · 아이템 · 레벨 3 · 일반 · 틀 `pair` N L `whitegold` · 프롬프트 n2 → `tools/art/inbox/I3-2 엘라드 탑 방패.png`
 
 ```
@@ -881,7 +877,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: I3-2 엘라드 탑 방패.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IA2-5 · 솔란테의 성검 — 그림 있음
+### IA2-5 · 솔란테의 성검
 솔란테의 새벽 · 아이템 · 레벨 3 · 일반 · 틀 `reflect` N L `stainedglass` · 프롬프트 n2 → `tools/art/inbox/IA2-5 솔란테의 성검.png`
 
 ```
@@ -894,7 +890,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IA2-5 솔란테의 성검.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MA-14 · 새벽의 해방 — 그림 있음
+### MA-14 · 새벽의 해방
 솔란테의 새벽 · 공용 마법 · 레벨 3 · 일반 · 틀 `inside` L R `glare` · 프롬프트 n2 → `tools/art/inbox/MA-14 새벽의 해방.png`
 
 ```
@@ -907,7 +903,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MA-14 새벽의 해방.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### NA2-1 · 구원의 빛 — 그림 있음
+### NA2-1 · 구원의 빛
 솔란테의 새벽 · 공용 마법 · 레벨 3 · 일반 · 틀 `far` D L `rosedawn` · 프롬프트 n2 → `tools/art/inbox/NA2-1 구원의 빛.png`
 
 ```
@@ -920,7 +916,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: NA2-1 구원의 빛.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### NA2-2 · 빛의 날개 — 그림 있음
+### NA2-2 · 빛의 날개
 솔란테의 새벽 · 공용 마법 · 레벨 3 · 일반 · 틀 `macro` L C `whitegold` · 프롬프트 n2 → `tools/art/inbox/NA2-2 빛의 날개.png`
 
 ```
@@ -933,7 +929,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: NA2-2 빛의 날개.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-20 · 알바트로스 날개기사 — 그림 있음
+### A2-20 · 알바트로스 날개기사
 솔란테의 새벽 · 유닛 · 레벨 4 · 일반 · 틀 `high` L R `firstlight` · 프롬프트 n2 → `tools/art/inbox/A2-20 알바트로스 날개기사.png`
 
 ```
@@ -946,7 +942,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-20 알바트로스 날개기사.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-21 · 맹세를 지키는 백조 — 그림 있음
+### A2-21 · 맹세를 지키는 백조
 솔란테의 새벽 · 유닛 · 레벨 4 · 일반 · 틀 `under` F T `rosedawn` · 프롬프트 n2 → `tools/art/inbox/A2-21 맹세를 지키는 백조.png`
 
 ```
@@ -959,7 +955,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-21 맹세를 지키는 백조.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-22 · 새벽을 울리는 성종 — 그림 있음
+### A2-22 · 새벽을 울리는 성종
 솔란테의 새벽 · 유닛 · 레벨 4 · 일반 · 틀 `over` B L `firstlight` · 프롬프트 n2 → `tools/art/inbox/A2-22 새벽을 울리는 성종.png`
 
 ```
@@ -972,7 +968,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-22 새벽을 울리는 성종.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-24 · 빛을 되비추는 거울 — 그림 있음
+### A2-24 · 빛을 되비추는 거울
 솔란테의 새벽 · 유닛 · 레벨 4 · 일반 · 틀 `echo` L X `rosedawn` · 프롬프트 n2 → `tools/art/inbox/A2-24 빛을 되비추는 거울.png`
 
 ```
@@ -985,7 +981,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-24 빛을 되비추는 거울.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-A2-C2 · 엘라드의 오파님 — 그림 있음
+### PN-A2-C2 · 엘라드의 오파님
 솔란테의 새벽 · 유닛 · 레벨 4 · 일반 · 틀 `through` F L `firstlight` · 프롬프트 n2 → `tools/art/inbox/PN-A2-C2 엘라드의 오파님.png`
 
 ```
@@ -998,7 +994,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-A2-C2 엘라드의 오파님.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-27 · 새벽 유니콘 — 그림 있음
+### A2-27 · 새벽 유니콘
 솔란테의 새벽 · 유닛 · 레벨 5 · 일반 · 틀 `far` L R `rosedawn` · 프롬프트 n2 → `tools/art/inbox/A2-27 새벽 유니콘.png`
 
 ```
@@ -1011,7 +1007,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-27 새벽 유니콘.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-28 · 광장의 성자상 — 그림 있음
+### A2-28 · 광장의 성자상
 솔란테의 새벽 · 유닛 · 레벨 5 · 일반 · 틀 `silhouette` R L `glare` · 프롬프트 n2 → `tools/art/inbox/A2-28 광장의 성자상.png`
 
 ```
@@ -1024,7 +1020,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-28 광장의 성자상.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### RA2-1 · 심판의 날 — 그림 있음
+### RA2-1 · 심판의 날
 솔란테의 새벽 · 공용 마법 · 레벨 5 · 일반 · 틀 `under` D C `glare` · 프롬프트 n2 → `tools/art/inbox/RA2-1 심판의 날.png`
 
 ```
@@ -1037,7 +1033,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: RA2-1 심판의 날.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-29 · 새벽성 발키리 대장 — 그림 있음
+### A2-29 · 새벽성 발키리 대장
 솔란테의 새벽 · 유닛 · 레벨 6 · 일반 · 틀 `macro` R T `whitegold` · 프롬프트 n2 → `tools/art/inbox/A2-29 새벽성 발키리 대장.png`
 
 ```
@@ -1050,7 +1046,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-29 새벽성 발키리 대장.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-30 · 새벽 삼족오 — 그림 있음
+### A2-30 · 새벽 삼족오
 솔란테의 새벽 · 유닛 · 레벨 6 · 일반 · 틀 `profile` L C `vigil` · 프롬프트 n2 → `tools/art/inbox/A2-30 새벽 삼족오.png`
 
 ```
@@ -1063,7 +1059,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-30 새벽 삼족오.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-31 · 네 얼굴의 케루빔 — 그림 있음
+### A2-31 · 네 얼굴의 케루빔
 솔란테의 새벽 · 유닛 · 레벨 6 · 일반 · 틀 `cut` R X `whitegold` · 프롬프트 n2 → `tools/art/inbox/A2-31 네 얼굴의 케루빔.png`
 
 ```
@@ -1076,7 +1072,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-31 네 얼굴의 케루빔.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-A2-C3 · 황혼 장벽 페가수스 — 그림 있음
+### PN-A2-C3 · 황혼 장벽 페가수스
 솔란테의 새벽 · 유닛 · 레벨 6 · 일반 · 틀 `close` L X `whitegold` · 프롬프트 n2 → `tools/art/inbox/PN-A2-C3 황혼 장벽 페가수스.png`
 
 ```
@@ -1089,7 +1085,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-A2-C3 황혼 장벽 페가수스.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-33 · 대성당 색유리 수호자 — 그림 있음
+### A2-33 · 대성당 색유리 수호자
 솔란테의 새벽 · 유닛 · 레벨 7 · 일반 · 틀 `far` F C `vigil` · 프롬프트 n2 → `tools/art/inbox/A2-33 대성당 색유리 수호자.png`
 
 ```
@@ -1102,7 +1098,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-33 대성당 색유리 수호자.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A2-34 · 엘라드의 샛별 — 그림 있음
+### A2-34 · 엘라드의 샛별
 솔란테의 새벽 · 유닛 · 레벨 7 · 일반 · 틀 `top` N C `rosedawn` · 프롬프트 n2 → `tools/art/inbox/A2-34 엘라드의 샛별.png`
 
 ```
@@ -1115,7 +1111,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A2-34 엘라드의 샛별.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-04 · 망루 부엉이 — 그림 있음
+### A3-04 · 망루 부엉이
 벨루미르의 별 · 유닛 · 레벨 1 · 일반 · 틀 `close` L C `aurora` · 프롬프트 n2 → `tools/art/inbox/A3-04 망루 부엉이.png`
 
 ```
@@ -1128,7 +1124,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-04 망루 부엉이.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-05 · 바람 실프 — 그림 있음
+### A3-05 · 바람 실프
 벨루미르의 별 · 유닛 · 레벨 1 · 일반 · 틀 `eye` R L `moonsilver` · 프롬프트 n2 → `tools/art/inbox/A3-05 바람 실프.png`
 
 ```
@@ -1141,7 +1137,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-05 바람 실프.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MA-07 · 치고 빠지기 — 그림 있음
+### MA-07 · 치고 빠지기
 벨루미르의 별 · 공용 마법 · 레벨 1 · 일반 · 틀 `top` R X `moonsilver` · 프롬프트 n2 → `tools/art/inbox/MA-07 치고 빠지기.png`
 
 ```
@@ -1154,7 +1150,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MA-07 치고 빠지기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PS-A3-1 · 순환 — 그림 있음
+### PS-A3-1 · 순환
 벨루미르의 별 · 공용 마법 · 레벨 1 · 일반 · 틀 `ring` N C `starindigo` · 프롬프트 n2 → `tools/art/inbox/PS-A3-1 순환.png`
 
 ```
@@ -1167,7 +1163,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PS-A3-1 순환.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SA3-01 · 돌풍 — 그림 있음
+### SA3-01 · 돌풍
 벨루미르의 별 · 공격 마법 · 레벨 1 · 일반 · 틀 `impact` R R `thinair` · 프롬프트 n2 → `tools/art/inbox/SA3-01 돌풍.png`
 
 ```
@@ -1180,7 +1176,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SA3-01 돌풍.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-09 · 바늘탑 조인 활잡이 — 그림 있음
+### A3-09 · 바늘탑 조인 활잡이
 벨루미르의 별 · 유닛 · 레벨 2 · 일반 · 틀 `far` L L `duskrose` · 프롬프트 n2 → `tools/art/inbox/A3-09 바늘탑 조인 활잡이.png`
 
 ```
@@ -1193,7 +1189,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-09 바늘탑 조인 활잡이.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-10 · 깃화살 하피 — 그림 있음
+### A3-10 · 깃화살 하피
 벨루미르의 별 · 유닛 · 레벨 2 · 일반 · 틀 `eye` B R `moonsilver` · 프롬프트 n2 → `tools/art/inbox/A3-10 깃화살 하피.png`
 
 ```
@@ -1206,7 +1202,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-10 깃화살 하피.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-11 · 새끼 그리핀 — 그림 있음
+### A3-11 · 새끼 그리핀
 벨루미르의 별 · 유닛 · 레벨 2 · 일반 · 틀 `eye` F L `thinair` · 프롬프트 n2 → `tools/art/inbox/A3-11 새끼 그리핀.png`
 
 ```
@@ -1219,7 +1215,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-11 새끼 그리핀.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### C2-1 · 견습 단궁 — 그림 있음
+### C2-1 · 견습 단궁
 벨루미르의 별 · 아이템 · 레벨 2 · 일반 · 틀 `hung` N L `stormcloud` · 프롬프트 n2 → `tools/art/inbox/C2-1 견습 단궁.png`
 
 ```
@@ -1232,7 +1228,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: C2-1 견습 단궁.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### HA3-1 · 엄호 후퇴 — 그림 있음
+### HA3-1 · 엄호 후퇴
 벨루미르의 별 · 방어 마법 · 레벨 2 · 일반 · 틀 `path` R X `stormcloud` · 프롬프트 n2 → `tools/art/inbox/HA3-1 엄호 후퇴.png`
 
 ```
@@ -1245,7 +1241,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: HA3-1 엄호 후퇴.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MA-11 · 마무리 화살 — 그림 있음
+### MA-11 · 마무리 화살
 벨루미르의 별 · 공격 마법 · 레벨 2 · 일반 · 틀 `origin` B C `duskrose` · 프롬프트 n2 → `tools/art/inbox/MA-11 마무리 화살.png`
 
 ```
@@ -1258,7 +1254,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MA-11 마무리 화살.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MC-06 · 무장 해제 — 그림 있음
+### MC-06 · 무장 해제
 벨루미르의 별 · 공용 마법 · 레벨 2 · 일반 · 틀 `swarm` U X `aurora` · 프롬프트 n2 → `tools/art/inbox/MC-06 무장 해제.png`
 
 ```
@@ -1271,7 +1267,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MC-06 무장 해제.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-A3-C1 · 별자리 사냥개 — 그림 있음
+### PN-A3-C1 · 별자리 사냥개
 벨루미르의 별 · 유닛 · 레벨 2 · 일반 · 틀 `echo` R X `aurora` · 프롬프트 n2 → `tools/art/inbox/PN-A3-C1 별자리 사냥개.png`
 
 ```
@@ -1284,7 +1280,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-A3-C1 별자리 사냥개.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PS-A3-2 · 별의 모사 — 그림 있음
+### PS-A3-2 · 별의 모사
 벨루미르의 별 · 공용 마법 · 레벨 2 · 일반 · 틀 `far` N X `moonsilver` · 프롬프트 n2 → `tools/art/inbox/PS-A3-2 별의 모사.png`
 
 ```
@@ -1297,7 +1293,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PS-A3-2 별의 모사.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SA3-04 · 시위 당기기 — 그림 있음
+### SA3-04 · 시위 당기기
 벨루미르의 별 · 공격 마법 · 레벨 2 · 일반 · 틀 `before` L R `aurora` · 프롬프트 n2 → `tools/art/inbox/SA3-04 시위 당기기.png`
 
 ```
@@ -1310,7 +1306,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SA3-04 시위 당기기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-13 · 폭풍 히포그리프 — 그림 있음
+### A3-13 · 폭풍 히포그리프
 벨루미르의 별 · 유닛 · 레벨 3 · 일반 · 틀 `profile` R X `duskrose` · 프롬프트 n2 → `tools/art/inbox/A3-13 폭풍 히포그리프.png`
 
 ```
@@ -1323,7 +1319,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-13 폭풍 히포그리프.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-15 · 담비 저격수 — 그림 있음
+### A3-15 · 담비 저격수
 벨루미르의 별 · 유닛 · 레벨 3 · 일반 · 틀 `high` L C `stormcloud` · 프롬프트 n2 → `tools/art/inbox/A3-15 담비 저격수.png`
 
 ```
@@ -1336,7 +1332,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-15 담비 저격수.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-18 · 쌍둥이자리 궁수 — 그림 있음
+### A3-18 · 쌍둥이자리 궁수
 벨루미르의 별 · 유닛 · 레벨 3 · 일반 · 틀 `front` F X `starindigo` · 프롬프트 n2 → `tools/art/inbox/A3-18 쌍둥이자리 궁수.png`
 
 ```
@@ -1349,7 +1345,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-18 쌍둥이자리 궁수.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-41 · 고요의 구름고래 — 그림 있음
+### A3-41 · 고요의 구름고래
 벨루미르의 별 · 유닛 · 레벨 3 · 일반 · 틀 `cut` L C `thinair` · 프롬프트 n2 → `tools/art/inbox/A3-41 고요의 구름고래.png`
 
 ```
@@ -1362,7 +1358,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-41 고요의 구름고래.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### C3-1 · 폭풍의 활 — 그림 있음
+### C3-1 · 폭풍의 활
 벨루미르의 별 · 아이템 · 레벨 3 · 일반 · 틀 `macro` N C `starindigo` · 프롬프트 n2 → `tools/art/inbox/C3-1 폭풍의 활.png`
 
 ```
@@ -1375,7 +1371,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: C3-1 폭풍의 활.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IA3-4 · 회오리 화살통 — 그림 있음
+### IA3-4 · 회오리 화살통
 벨루미르의 별 · 아이템 · 레벨 3 · 일반 · 틀 `cut` U T `thinair` · 프롬프트 n2 → `tools/art/inbox/IA3-4 회오리 화살통.png`
 
 ```
@@ -1388,7 +1384,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IA3-4 회오리 화살통.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IA3-5 · 벨루미르의 장궁 — 그림 있음
+### IA3-5 · 벨루미르의 장궁
 벨루미르의 별 · 아이템 · 레벨 3 · 일반 · 틀 `shrine` N R `starindigo` · 프롬프트 n2 → `tools/art/inbox/IA3-5 벨루미르의 장궁.png`
 
 ```
@@ -1401,7 +1397,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IA3-5 벨루미르의 장궁.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### NA3-2 · 빗발치는 화살 — 그림 있음
+### NA3-2 · 빗발치는 화살
 벨루미르의 별 · 공격 마법 · 레벨 3 · 일반 · 틀 `under` D X `thinair` · 프롬프트 n2 → `tools/art/inbox/NA3-2 빗발치는 화살.png`
 
 ```
@@ -1414,7 +1410,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: NA3-2 빗발치는 화살.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### NA3-3 · 별빛 연사 — 그림 있음
+### NA3-3 · 별빛 연사
 벨루미르의 별 · 공격 마법 · 레벨 3 · 일반 · 틀 `transform` U X `starindigo` · 프롬프트 n2 → `tools/art/inbox/NA3-3 별빛 연사.png`
 
 ```
@@ -1427,7 +1423,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: NA3-3 별빛 연사.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-A3-U1 · 별문자 부엉이 — 그림 있음
+### PN-A3-U1 · 별문자 부엉이
 벨루미르의 별 · 유닛 · 레벨 3 · 일반 · 틀 `macro` R C `moonsilver` · 프롬프트 n2 → `tools/art/inbox/PN-A3-U1 별문자 부엉이.png`
 
 ```
@@ -1440,7 +1436,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-A3-U1 별문자 부엉이.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-19 · 폭풍탑 조인 궁수 — 그림 있음
+### A3-19 · 폭풍탑 조인 궁수
 벨루미르의 별 · 유닛 · 레벨 4 · 일반 · 틀 `silhouette` R C `moonsilver` · 프롬프트 n2 → `tools/art/inbox/A3-19 폭풍탑 조인 궁수.png`
 
 ```
@@ -1453,7 +1449,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-19 폭풍탑 조인 궁수.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-22 · 바람 타는 그리핀 — 그림 있음
+### A3-22 · 바람 타는 그리핀
 벨루미르의 별 · 유닛 · 레벨 4 · 일반 · 틀 `tilt` D R `aurora` · 프롬프트 n2 → `tools/art/inbox/A3-22 바람 타는 그리핀.png`
 
 ```
@@ -1466,7 +1462,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-22 바람 타는 그리핀.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-23 · 벨루미르의 별여우 — 그림 있음
+### A3-23 · 벨루미르의 별여우
 벨루미르의 별 · 유닛 · 레벨 4 · 일반 · 틀 `top` L L `moonsilver` · 프롬프트 n2 → `tools/art/inbox/A3-23 벨루미르의 별여우.png`
 
 ```
@@ -1479,7 +1475,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-23 벨루미르의 별여우.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-24 · 번개 화살 텐구 — 그림 있음
+### A3-24 · 번개 화살 텐구
 벨루미르의 별 · 유닛 · 레벨 4 · 일반 · 틀 `close` R L `stormcloud` · 프롬프트 n2 → `tools/art/inbox/A3-24 번개 화살 텐구.png`
 
 ```
@@ -1492,7 +1488,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-24 번개 화살 텐구.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### RA3-1 · 폭풍의 눈 — 그림 있음
+### RA3-1 · 폭풍의 눈
 벨루미르의 별 · 공용 마법 · 레벨 4 · 일반 · 틀 `inside` N T `stormcloud` · 프롬프트 n2 → `tools/art/inbox/RA3-1 폭풍의 눈.png`
 
 ```
@@ -1505,7 +1501,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: RA3-1 폭풍의 눈.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SA3-08 · 대폭풍 — 그림 있음
+### SA3-08 · 대폭풍
 벨루미르의 별 · 공용 마법 · 레벨 4 · 일반 · 틀 `top` R X `stormcloud` · 프롬프트 n2 → `tools/art/inbox/SA3-08 대폭풍.png`
 
 ```
@@ -1518,7 +1514,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SA3-08 대폭풍.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-26 · 폭풍 사냥 히포그리프 — 그림 있음
+### A3-26 · 폭풍 사냥 히포그리프
 벨루미르의 별 · 유닛 · 레벨 5 · 일반 · 틀 `reflect` L B `stormcloud` · 프롬프트 n2 → `tools/art/inbox/A3-26 폭풍 사냥 히포그리프.png`
 
 ```
@@ -1531,7 +1527,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-26 폭풍 사냥 히포그리프.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-28 · 별똥별 임프 — 그림 있음
+### A3-28 · 별똥별 임프
 벨루미르의 별 · 유닛 · 레벨 5 · 일반 · 틀 `back` B L `starindigo` · 프롬프트 n2 → `tools/art/inbox/A3-28 별똥별 임프.png`
 
 ```
@@ -1544,7 +1540,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-28 별똥별 임프.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-29 · 활 당기는 사수자리 — 그림 있음
+### A3-29 · 활 당기는 사수자리
 벨루미르의 별 · 유닛 · 레벨 6 · 일반 · 틀 `under` R C `aurora` · 프롬프트 n2 → `tools/art/inbox/A3-29 활 당기는 사수자리.png`
 
 ```
@@ -1557,7 +1553,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-29 활 당기는 사수자리.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-30 · 폭풍 송골매 — 그림 있음
+### A3-30 · 폭풍 송골매
 벨루미르의 별 · 유닛 · 레벨 6 · 일반 · 틀 `eye` F C `thinair` · 프롬프트 n2 → `tools/art/inbox/A3-30 폭풍 송골매.png`
 
 ```
@@ -1570,7 +1566,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-30 폭풍 송골매.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-31 · 파편 군도의 명궁 — 그림 있음
+### A3-31 · 파편 군도의 명궁
 벨루미르의 별 · 유닛 · 레벨 6 · 일반 · 틀 `ground` F R `duskrose` · 프롬프트 n2 → `tools/art/inbox/A3-31 파편 군도의 명궁.png`
 
 ```
@@ -1583,7 +1579,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-31 파편 군도의 명궁.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-32 · 회오리 텐구 — 그림 있음
+### A3-32 · 회오리 텐구
 벨루미르의 별 · 유닛 · 레벨 6 · 일반 · 틀 `over` L C `thinair` · 프롬프트 n2 → `tools/art/inbox/A3-32 회오리 텐구.png`
 
 ```
@@ -1596,7 +1592,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-32 회오리 텐구.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-33 · 별을 겨누는 자 — 그림 있음
+### A3-33 · 별을 겨누는 자
 벨루미르의 별 · 유닛 · 레벨 7 · 일반 · 틀 `profile` U X `duskrose` · 프롬프트 n2 → `tools/art/inbox/A3-33 별을 겨누는 자.png`
 
 ```
@@ -1609,7 +1605,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-33 별을 겨누는 자.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-35 · 하늘 찢는 로크 — 그림 있음
+### A3-35 · 하늘 찢는 로크
 벨루미르의 별 · 유닛 · 레벨 7 · 일반 · 틀 `high` R C `thinair` · 프롬프트 n2 → `tools/art/inbox/A3-35 하늘 찢는 로크.png`
 
 ```
@@ -1622,7 +1618,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-35 하늘 찢는 로크.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### A3-36 · 폭풍탑 탑주 — 그림 있음
+### A3-36 · 폭풍탑 탑주
 벨루미르의 별 · 유닛 · 레벨 7 · 일반 · 틀 `back` B L `starindigo` · 프롬프트 n2 → `tools/art/inbox/A3-36 폭풍탑 탑주.png`
 
 ```
@@ -1635,7 +1631,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: A3-36 폭풍탑 탑주.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B1-02 · 화약 짐꾼 — 그림 있음
+### B1-02 · 화약 짐꾼
 도르마크의 심장불 · 유닛 · 레벨 1 · 일반 · 틀 `high` L T `ashfall` · 프롬프트 n2 → `tools/art/inbox/B1-02 화약 짐꾼.png`
 
 ```
@@ -1648,7 +1644,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B1-02 화약 짐꾼.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B1-05 · 불꽃 임프 — 그림 있음
+### B1-05 · 불꽃 임프
 도르마크의 심장불 · 유닛 · 레벨 1 · 일반 · 틀 `tilt` R L `brassglow` · 프롬프트 n2 → `tools/art/inbox/B1-05 불꽃 임프.png`
 
 ```
@@ -1661,7 +1657,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B1-05 불꽃 임프.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### HB1-1 · 탄약고 기습 — 그림 있음
+### HB1-1 · 탄약고 기습
 도르마크의 심장불 · 핸드 마법 · 레벨 1 · 일반 · 틀 `symbol` N C `coldnight` · 프롬프트 n2 → `tools/art/inbox/HB1-1 탄약고 기습.png`
 
 ```
@@ -1674,7 +1670,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: HB1-1 탄약고 기습.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MB-01 · 산탄 포격 — 그림 있음
+### MB-01 · 산탄 포격
 도르마크의 심장불 · 공격 마법 · 레벨 1 · 일반 · 틀 `swarm` D X `ashfall` · 프롬프트 n2 → `tools/art/inbox/MB-01 산탄 포격.png`
 
 ```
@@ -1687,7 +1683,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MB-01 산탄 포격.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PS-B1-2 · 불붙은 각오 — 그림 있음
+### PS-B1-2 · 불붙은 각오
 도르마크의 심장불 · 공격 마법 · 레벨 1 · 일반 · 틀 `column` U C `ember` · 프롬프트 n2 → `tools/art/inbox/PS-B1-2 불붙은 각오.png`
 
 ```
@@ -1700,7 +1696,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PS-B1-2 불붙은 각오.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SB1-01 · 연막탄 — 그림 있음
+### SB1-01 · 연막탄
 도르마크의 심장불 · 방어 마법 · 레벨 1 · 일반 · 틀 `inside` N X `ashfall` · 프롬프트 n2 → `tools/art/inbox/SB1-01 연막탄.png`
 
 ```
@@ -1713,7 +1709,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SB1-01 연막탄.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SB1-03 · 불의 장막 — 그림 있음
+### SB1-03 · 불의 장막
 도르마크의 심장불 · 방어 마법 · 레벨 1 · 일반 · 틀 `origin` B C `whitehot` · 프롬프트 n2 → `tools/art/inbox/SB1-03 불의 장막.png`
 
 ```
@@ -1726,7 +1722,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SB1-03 불의 장막.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B1-08 · 연막 정령 — 그림 있음
+### B1-08 · 연막 정령
 도르마크의 심장불 · 유닛 · 레벨 2 · 일반 · 틀 `pov` F C `ember` · 프롬프트 n2 → `tools/art/inbox/B1-08 연막 정령.png`
 
 ```
@@ -1739,7 +1735,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B1-08 연막 정령.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B1-10 · 포르탄 불개 — 그림 있음
+### B1-10 · 포르탄 불개
 도르마크의 심장불 · 유닛 · 레벨 2 · 일반 · 틀 `ground` L R `ember` · 프롬프트 n2 → `tools/art/inbox/B1-10 포르탄 불개.png`
 
 ```
@@ -1752,7 +1748,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B1-10 포르탄 불개.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B1-12 · 화서 무리 — 그림 있음
+### B1-12 · 화서 무리
 도르마크의 심장불 · 유닛 · 레벨 2 · 일반 · 틀 `swarm` L X `whitehot` · 프롬프트 n2 → `tools/art/inbox/B1-12 화서 무리.png`
 
 ```
@@ -1765,7 +1761,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B1-12 화서 무리.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IB1-1 · 화승총 개머리판 — 그림 있음
+### IB1-1 · 화승총 개머리판
 도르마크의 심장불 · 아이템 · 레벨 2 · 일반 · 틀 `used` N R `ember` · 프롬프트 n2 → `tools/art/inbox/IB1-1 화승총 개머리판.png`
 
 ```
@@ -1778,7 +1774,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IB1-1 화승총 개머리판.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IB1-2 · 불씨 탄띠 — 그림 있음
+### IB1-2 · 불씨 탄띠
 도르마크의 심장불 · 아이템 · 레벨 2 · 일반 · 틀 `hung` N C `brassglow` · 프롬프트 n2 → `tools/art/inbox/IB1-2 불씨 탄띠.png`
 
 ```
@@ -1791,7 +1787,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IB1-2 불씨 탄띠.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MB-05 · 불씨 뿌리기 — 그림 있음
+### MB-05 · 불씨 뿌리기
 도르마크의 심장불 · 공격 마법 · 레벨 2 · 일반 · 틀 `macro` R T `ember` · 프롬프트 n2 → `tools/art/inbox/MB-05 불씨 뿌리기.png`
 
 ```
@@ -1804,7 +1800,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MB-05 불씨 뿌리기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MC-02 · 날 세우기 — 그림 있음
+### MC-02 · 날 세우기
 도르마크의 심장불 · 공격 마법 · 레벨 2 · 일반 · 틀 `reflect` R R `ashfall` · 프롬프트 n2 → `tools/art/inbox/MC-02 날 세우기.png`
 
 ```
@@ -1817,7 +1813,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MC-02 날 세우기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### NB1-1 · 철갑 포탄 — 그림 있음
+### NB1-1 · 철갑 포탄
 도르마크의 심장불 · 공격 마법 · 레벨 2 · 일반 · 틀 `path` R L `brassglow` · 프롬프트 n2 → `tools/art/inbox/NB1-1 철갑 포탄.png`
 
 ```
@@ -1830,7 +1826,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: NB1-1 철갑 포탄.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-B1-C1 · 새끼 살라만더 — 그림 있음
+### PN-B1-C1 · 새끼 살라만더
 도르마크의 심장불 · 유닛 · 레벨 2 · 일반 · 틀 `close` R B `brassglow` · 프롬프트 n2 → `tools/art/inbox/PN-B1-C1 새끼 살라만더.png`
 
 ```
@@ -1843,7 +1839,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-B1-C1 새끼 살라만더.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B1-14 · 녹철 불원숭이 — 그림 있음
+### B1-14 · 녹철 불원숭이
 도르마크의 심장불 · 유닛 · 레벨 3 · 일반 · 틀 `through` F L `magmadusk` · 프롬프트 n2 → `tools/art/inbox/B1-14 녹철 불원숭이.png`
 
 ```
@@ -1856,7 +1852,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B1-14 녹철 불원숭이.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B1-16 · 잿너구리 폭파공 — 그림 있음
+### B1-16 · 잿너구리 폭파공
 도르마크의 심장불 · 유닛 · 레벨 3 · 일반 · 틀 `macro` N C `brassglow` · 프롬프트 n2 → `tools/art/inbox/B1-16 잿너구리 폭파공.png`
 
 ```
@@ -1869,7 +1865,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B1-16 잿너구리 폭파공.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B1-17 · 포대 거북 — 그림 있음
+### B1-17 · 포대 거북
 도르마크의 심장불 · 유닛 · 레벨 3 · 일반 · 틀 `profile` R L `ashfall` · 프롬프트 n2 → `tools/art/inbox/B1-17 포대 거북.png`
 
 ```
@@ -1882,7 +1878,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B1-17 포대 거북.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B1-18 · 화약고 불개미 — 그림 있음
+### B1-18 · 화약고 불개미
 도르마크의 심장불 · 유닛 · 레벨 3 · 일반 · 틀 `cut` R B `ember` · 프롬프트 n2 → `tools/art/inbox/B1-18 화약고 불개미.png`
 
 ```
@@ -1895,7 +1891,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B1-18 화약고 불개미.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IB1-3 · 나팔 산탄총 — 그림 있음
+### IB1-3 · 나팔 산탄총
 도르마크의 심장불 · 아이템 · 레벨 3 · 일반 · 틀 `top` R X `ashfall` · 프롬프트 n2 → `tools/art/inbox/IB1-3 나팔 산탄총.png`
 
 ```
@@ -1908,7 +1904,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IB1-3 나팔 산탄총.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IB1-4 · 포수의 망원경 — 그림 있음
+### IB1-4 · 포수의 망원경
 도르마크의 심장불 · 아이템 · 레벨 3 · 일반 · 틀 `reflect` N L `magmadusk` · 프롬프트 n2 → `tools/art/inbox/IB1-4 포수의 망원경.png`
 
 ```
@@ -1921,7 +1917,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IB1-4 포수의 망원경.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MC-16 · 불신의 포화 — 그림 있음
+### MC-16 · 불신의 포화
 도르마크의 심장불 · 공용 마법 · 레벨 3 · 일반 · 틀 `top` N X `whitehot` · 프롬프트 n2 → `tools/art/inbox/MC-16 불신의 포화.png`
 
 ```
@@ -1934,7 +1930,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MC-16 불신의 포화.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-B1-U1 · 용광로 화로령 — 그림 있음
+### PN-B1-U1 · 용광로 화로령
 도르마크의 심장불 · 유닛 · 레벨 3 · 일반 · 틀 `profile` R L `ember` · 프롬프트 n2 → `tools/art/inbox/PN-B1-U1 용광로 화로령.png`
 
 ```
@@ -1947,7 +1943,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-B1-U1 용광로 화로령.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### RB1-1 · 화약통 깔기 — 그림 있음
+### RB1-1 · 화약통 깔기
 도르마크의 심장불 · 공용 마법 · 레벨 3 · 일반 · 틀 `cut` N B `magmadusk` · 프롬프트 n2 → `tools/art/inbox/RB1-1 화약통 깔기.png`
 
 ```
@@ -1960,7 +1956,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: RB1-1 화약통 깔기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B1-21 · 불엄니 멧돼지 — 그림 있음
+### B1-21 · 불엄니 멧돼지
 도르마크의 심장불 · 유닛 · 레벨 4 · 일반 · 틀 `tilt` L X `coldnight` · 프롬프트 n2 → `tools/art/inbox/B1-21 불엄니 멧돼지.png`
 
 ```
@@ -1973,7 +1969,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B1-21 불엄니 멧돼지.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B1-24 · 울버린 박격포수 — 그림 있음
+### B1-24 · 울버린 박격포수
 도르마크의 심장불 · 유닛 · 레벨 4 · 일반 · 틀 `low` R B `ashfall` · 프롬프트 n2 → `tools/art/inbox/B1-24 울버린 박격포수.png`
 
 ```
@@ -1986,7 +1982,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B1-24 울버린 박격포수.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SB1-09 · 대포격 — 그림 있음
+### SB1-09 · 대포격
 도르마크의 심장불 · 공격 마법 · 레벨 4 · 일반 · 틀 `transform` L X `ashfall` · 프롬프트 n2 → `tools/art/inbox/SB1-09 대포격.png`
 
 ```
@@ -1999,7 +1995,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SB1-09 대포격.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B1-26 · 화관의 불거인 — 그림 있음
+### B1-26 · 화관의 불거인
 도르마크의 심장불 · 유닛 · 레벨 5 · 일반 · 틀 `far` R L `ember` · 프롬프트 n2 → `tools/art/inbox/B1-26 화관의 불거인.png`
 
 ```
@@ -2012,7 +2008,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B1-26 화관의 불거인.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B1-27 · 폭렬 이프리트 — 그림 있음
+### B1-27 · 폭렬 이프리트
 도르마크의 심장불 · 유닛 · 레벨 5 · 일반 · 틀 `eye` L R `brassglow` · 프롬프트 n2 → `tools/art/inbox/B1-27 폭렬 이프리트.png`
 
 ```
@@ -2025,7 +2021,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B1-27 폭렬 이프리트.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-B1-U2 · 도르마크의 불거미 — 그림 있음
+### PN-B1-U2 · 도르마크의 불거미
 도르마크의 심장불 · 유닛 · 레벨 5 · 일반 · 틀 `through` L R `magmadusk` · 프롬프트 n2 → `tools/art/inbox/PN-B1-U2 도르마크의 불거미.png`
 
 ```
@@ -2038,7 +2034,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-B1-U2 도르마크의 불거미.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B1-30 · 용암 땅굴웜 — 그림 있음
+### B1-30 · 용암 땅굴웜
 도르마크의 심장불 · 유닛 · 레벨 6 · 일반 · 틀 `top` R T `ashfall` · 프롬프트 n2 → `tools/art/inbox/B1-30 용암 땅굴웜.png`
 
 ```
@@ -2051,7 +2047,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B1-30 용암 땅굴웜.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B1-32 · 탈라쿠스의 역청 괴물 — 그림 있음
+### B1-32 · 탈라쿠스의 역청 괴물
 도르마크의 심장불 · 유닛 · 레벨 6 · 일반 · 틀 `ground` B R `brassglow` · 프롬프트 n2 → `tools/art/inbox/B1-32 탈라쿠스의 역청 괴물.png`
 
 ```
@@ -2064,7 +2060,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B1-32 탈라쿠스의 역청 괴물.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-B1-C3 · 포격 폭탄벌레 — 그림 있음
+### PN-B1-C3 · 포격 폭탄벌레
 도르마크의 심장불 · 유닛 · 레벨 6 · 일반 · 틀 `pov` F C `whitehot` · 프롬프트 n2 → `tools/art/inbox/PN-B1-C3 포격 폭탄벌레.png`
 
 ```
@@ -2077,7 +2073,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-B1-C3 포격 폭탄벌레.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B1-34 · 화관 베히모스 — 그림 있음
+### B1-34 · 화관 베히모스
 도르마크의 심장불 · 유닛 · 레벨 7 · 일반 · 틀 `far` L T `magmadusk` · 프롬프트 n2 → `tools/art/inbox/B1-34 화관 베히모스.png`
 
 ```
@@ -2090,7 +2086,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B1-34 화관 베히모스.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B1-36 · 작렬의 사자왕 — 그림 있음
+### B1-36 · 작렬의 사자왕
 도르마크의 심장불 · 유닛 · 레벨 7 · 일반 · 틀 `front` F C `whitehot` · 프롬프트 n2 → `tools/art/inbox/B1-36 작렬의 사자왕.png`
 
 ```
@@ -2103,7 +2099,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B1-36 작렬의 사자왕.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-01 · 리벳 일꾼 — 그림 있음
+### B2-01 · 리벳 일꾼
 소르그림의 방패 · 유닛 · 레벨 1 · 일반 · 틀 `high` B L `lamplit` · 프롬프트 n2 → `tools/art/inbox/B2-01 리벳 일꾼.png`
 
 ```
@@ -2116,7 +2112,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-01 리벳 일꾼.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-02 · 톱니 태엽쥐 — 그림 있음
+### B2-02 · 톱니 태엽쥐
 소르그림의 방패 · 유닛 · 레벨 1 · 일반 · 틀 `over` L X `snowlight` · 프롬프트 n2 → `tools/art/inbox/B2-02 톱니 태엽쥐.png`
 
 ```
@@ -2129,7 +2125,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-02 톱니 태엽쥐.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-06 · 강철 문지기 갑옷 — 그림 있음
+### B2-06 · 강철 문지기 갑옷
 소르그림의 방패 · 유닛 · 레벨 1 · 일반 · 틀 `under` R R `patina` · 프롬프트 n2 → `tools/art/inbox/B2-06 강철 문지기 갑옷.png`
 
 ```
@@ -2142,7 +2138,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-06 강철 문지기 갑옷.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MB-02 · 리벳 보강 — 그림 있음
+### MB-02 · 리벳 보강
 소르그림의 방패 · 방어 마법 · 레벨 1 · 일반 · 틀 `transform` R X `mirror` · 프롬프트 n2 → `tools/art/inbox/MB-02 리벳 보강.png`
 
 ```
@@ -2155,7 +2151,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MB-02 리벳 보강.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MB-08 · 장갑 고정 — 그림 있음
+### MB-08 · 장갑 고정
 소르그림의 방패 · 방어 마법 · 레벨 1 · 일반 · 틀 `macro` N C `lamplit` · 프롬프트 n2 → `tools/art/inbox/MB-08 장갑 고정.png`
 
 ```
@@ -2168,7 +2164,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MB-08 장갑 고정.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PS-B2-1 · 강철 맹세 — 그림 있음
+### PS-B2-1 · 강철 맹세
 소르그림의 방패 · 방어 마법 · 레벨 1 · 일반 · 틀 `object` N B `patina` · 프롬프트 n2 → `tools/art/inbox/PS-B2-1 강철 맹세.png`
 
 ```
@@ -2181,7 +2177,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PS-B2-1 강철 맹세.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PS-B2-2 · 담금질 — 그림 있음
+### PS-B2-2 · 담금질
 소르그림의 방패 · 방어 마법 · 레벨 1 · 일반 · 틀 `cut` D C `forgeheart` · 프롬프트 n2 → `tools/art/inbox/PS-B2-2 담금질.png`
 
 ```
@@ -2194,7 +2190,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PS-B2-2 담금질.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SB2-02 · 리벳 사출 — 그림 있음
+### SB2-02 · 리벳 사출
 소르그림의 방패 · 공격 마법 · 레벨 1 · 일반 · 틀 `ring` N C `mirror` · 프롬프트 n2 → `tools/art/inbox/SB2-02 리벳 사출.png`
 
 ```
@@ -2207,7 +2203,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SB2-02 리벳 사출.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SB2-03 · 용접 수리 — 그림 있음
+### SB2-03 · 용접 수리
 소르그림의 방패 · 공용 마법 · 레벨 1 · 일반 · 틀 `inside` U C `coldsteel` · 프롬프트 n2 → `tools/art/inbox/SB2-03 용접 수리.png`
 
 ```
@@ -2220,7 +2216,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SB2-03 용접 수리.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-09 · 증기 골렘 — 그림 있음
+### B2-09 · 증기 골렘
 소르그림의 방패 · 유닛 · 레벨 2 · 일반 · 틀 `profile` R C `coldsteel` · 프롬프트 n2 → `tools/art/inbox/B2-09 증기 골렘.png`
 
 ```
@@ -2233,7 +2229,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-09 증기 골렘.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-12 · 단조 견습장인 — 그림 있음
+### B2-12 · 단조 견습장인
 소르그림의 방패 · 유닛 · 레벨 2 · 일반 · 틀 `macro` N C `forgeheart` · 프롬프트 n2 → `tools/art/inbox/B2-12 단조 견습장인.png`
 
 ```
@@ -2246,7 +2242,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-12 단조 견습장인.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-41 · 폭주 태엽 인형 — 그림 있음
+### B2-41 · 폭주 태엽 인형
 소르그림의 방패 · 유닛 · 레벨 2 · 일반 · 틀 `echo` R X `lamplit` · 프롬프트 n2 → `tools/art/inbox/B2-41 폭주 태엽 인형.png`
 
 ```
@@ -2259,7 +2255,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-41 폭주 태엽 인형.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IB2-1 · 리벳 각인 — 그림 있음
+### IB2-1 · 리벳 각인
 소르그림의 방패 · 아이템 · 레벨 2 · 일반 · 틀 `used` N C `patina` · 프롬프트 n2 → `tools/art/inbox/IB2-1 리벳 각인.png`
 
 ```
@@ -2272,7 +2268,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IB2-1 리벳 각인.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IB2-2 · 강철 장갑판 — 그림 있음
+### IB2-2 · 강철 장갑판
 소르그림의 방패 · 아이템 · 레벨 2 · 일반 · 틀 `hung` N R `coldsteel` · 프롬프트 n2 → `tools/art/inbox/IB2-2 강철 장갑판.png`
 
 ```
@@ -2285,7 +2281,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IB2-2 강철 장갑판.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MB-06 · 방열 철벽 — 그림 있음
+### MB-06 · 방열 철벽
 소르그림의 방패 · 방어 마법 · 레벨 2 · 일반 · 틀 `pov` F T `forgeheart` · 프롬프트 n2 → `tools/art/inbox/MB-06 방열 철벽.png`
 
 ```
@@ -2298,7 +2294,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MB-06 방열 철벽.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### NB2-2 · 방패벽 함성 — 그림 있음
+### NB2-2 · 방패벽 함성
 소르그림의 방패 · 방어 마법 · 레벨 2 · 일반 · 틀 `top` U C `snowlight` · 프롬프트 n2 → `tools/art/inbox/NB2-2 방패벽 함성.png`
 
 ```
@@ -2311,7 +2307,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: NB2-2 방패벽 함성.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-B2-C1 · 리벳 집게 게 — 그림 있음
+### PN-B2-C1 · 리벳 집게 게
 소르그림의 방패 · 유닛 · 레벨 2 · 일반 · 틀 `cut` L L `patina` · 프롬프트 n2 → `tools/art/inbox/PN-B2-C1 리벳 집게 게.png`
 
 ```
@@ -2324,7 +2320,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-B2-C1 리벳 집게 게.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SB2-06 · 압착 프레스 — 그림 있음
+### SB2-06 · 압착 프레스
 소르그림의 방패 · 공격 마법 · 레벨 2 · 일반 · 틀 `under` D C `patina` · 프롬프트 n2 → `tools/art/inbox/SB2-06 압착 프레스.png`
 
 ```
@@ -2337,7 +2333,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SB2-06 압착 프레스.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-16 · 장갑 태엽거미 — 그림 있음
+### B2-16 · 장갑 태엽거미
 소르그림의 방패 · 유닛 · 레벨 3 · 일반 · 틀 `reflect` L C `lamplit` · 프롬프트 n2 → `tools/art/inbox/B2-16 장갑 태엽거미.png`
 
 ```
@@ -2350,7 +2346,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-16 장갑 태엽거미.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-17 · 무쇠뿔 산양 — 그림 있음
+### B2-17 · 무쇠뿔 산양
 소르그림의 방패 · 유닛 · 레벨 3 · 일반 · 틀 `far` L R `coldsteel` · 프롬프트 n2 → `tools/art/inbox/B2-17 무쇠뿔 산양.png`
 
 ```
@@ -2363,7 +2359,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-17 무쇠뿔 산양.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-18 · 증기 콧김 황소 — 그림 있음
+### B2-18 · 증기 콧김 황소
 소르그림의 방패 · 유닛 · 레벨 3 · 일반 · 틀 `profile` R L `lamplit` · 프롬프트 n2 → `tools/art/inbox/B2-18 증기 콧김 황소.png`
 
 ```
@@ -2376,7 +2372,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-18 증기 콧김 황소.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IB2-4 · 오토마톤 심장 — 그림 있음
+### IB2-4 · 오토마톤 심장
 소르그림의 방패 · 아이템 · 레벨 3 · 일반 · 틀 `cut` N C `mirror` · 프롬프트 n2 → `tools/art/inbox/IB2-4 오토마톤 심장.png`
 
 ```
@@ -2389,7 +2385,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IB2-4 오토마톤 심장.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IB2-5 · 무쇠 방패 — 그림 있음
+### IB2-5 · 무쇠 방패
 소르그림의 방패 · 아이템 · 레벨 3 · 일반 · 틀 `stand` U R `snowlight` · 프롬프트 n2 → `tools/art/inbox/IB2-5 무쇠 방패.png`
 
 ```
@@ -2402,7 +2398,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IB2-5 무쇠 방패.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### M3-1 · 골렘의 룬 — 그림 있음
+### M3-1 · 골렘의 룬
 소르그림의 방패 · 아이템 · 레벨 3 · 일반 · 틀 `making` D C `forgeheart` · 프롬프트 n2 → `tools/art/inbox/M3-1 골렘의 룬.png`
 
 ```
@@ -2415,7 +2411,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: M3-1 골렘의 룬.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-19 · 걸어 다니는 모루 — 그림 있음
+### B2-19 · 걸어 다니는 모루
 소르그림의 방패 · 유닛 · 레벨 4 · 일반 · 틀 `tilt` F R `forgeheart` · 프롬프트 n2 → `tools/art/inbox/B2-19 걸어 다니는 모루.png`
 
 ```
@@ -2428,7 +2424,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-19 걸어 다니는 모루.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-22 · 쇠 먹는 불가사리 — 그림 있음
+### B2-22 · 쇠 먹는 불가사리
 소르그림의 방패 · 유닛 · 레벨 4 · 일반 · 틀 `high` R B `lamplit` · 프롬프트 n2 → `tools/art/inbox/B2-22 쇠 먹는 불가사리.png`
 
 ```
@@ -2441,7 +2437,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-22 쇠 먹는 불가사리.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-24 · 철골 가고일 — 그림 있음
+### B2-24 · 철골 가고일
 소르그림의 방패 · 유닛 · 레벨 4 · 일반 · 틀 `silhouette` R R `snowlight` · 프롬프트 n2 → `tools/art/inbox/B2-24 철골 가고일.png`
 
 ```
@@ -2454,7 +2450,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-24 철골 가고일.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-B2-C2 · 증기 굴착 두더지 — 그림 있음
+### PN-B2-C2 · 증기 굴착 두더지
 소르그림의 방패 · 유닛 · 레벨 4 · 일반 · 틀 `back` B C `lamplit` · 프롬프트 n2 → `tools/art/inbox/PN-B2-C2 증기 굴착 두더지.png`
 
 ```
@@ -2467,7 +2463,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-B2-C2 증기 굴착 두더지.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### RB2-1 · 공방 자폭 명령 — 그림 있음
+### RB2-1 · 공방 자폭 명령
 소르그림의 방패 · 공용 마법 · 레벨 4 · 일반 · 틀 `before` N X `lamplit` · 프롬프트 n2 → `tools/art/inbox/RB2-1 공방 자폭 명령.png`
 
 ```
@@ -2480,7 +2476,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: RB2-1 공방 자폭 명령.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-25 · 공방 수호 골렘 — 그림 있음
+### B2-25 · 공방 수호 골렘
 소르그림의 방패 · 유닛 · 레벨 5 · 일반 · 틀 `front` F C `coldsteel` · 프롬프트 n2 → `tools/art/inbox/B2-25 공방 수호 골렘.png`
 
 ```
@@ -2493,7 +2489,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-25 공방 수호 골렘.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-26 · 소르그림의 철갑 코뿔소 — 그림 있음
+### B2-26 · 소르그림의 철갑 코뿔소
 소르그림의 방패 · 유닛 · 레벨 5 · 일반 · 틀 `cut` L T `forgeheart` · 프롬프트 n2 → `tools/art/inbox/B2-26 소르그림의 철갑 코뿔소.png`
 
 ```
@@ -2506,7 +2502,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-26 소르그림의 철갑 코뿔소.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-27 · 두르크하임 근위장 — 그림 있음
+### B2-27 · 두르크하임 근위장
 소르그림의 방패 · 유닛 · 레벨 5 · 일반 · 틀 `close` L R `patina` · 프롬프트 n2 → `tools/art/inbox/B2-27 두르크하임 근위장.png`
 
 ```
@@ -2519,7 +2515,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-27 두르크하임 근위장.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-28 · 흐르는 수은 — 그림 있음
+### B2-28 · 흐르는 수은
 소르그림의 방패 · 유닛 · 레벨 5 · 일반 · 틀 `pov` F B `mirror` · 프롬프트 n2 → `tools/art/inbox/B2-28 흐르는 수은.png`
 
 ```
@@ -2532,7 +2528,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-28 흐르는 수은.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-30 · 철골 산맥 와이번 — 그림 있음
+### B2-30 · 철골 산맥 와이번
 소르그림의 방패 · 유닛 · 레벨 6 · 일반 · 틀 `ground` L T `snowlight` · 프롬프트 n2 → `tools/art/inbox/B2-30 철골 산맥 와이번.png`
 
 ```
@@ -2545,7 +2541,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-30 철골 산맥 와이번.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-32 · 걷는 무쇠 성채 — 그림 있음
+### B2-32 · 걷는 무쇠 성채
 소르그림의 방패 · 유닛 · 레벨 6 · 일반 · 틀 `inside` F R `snowlight` · 프롬프트 n2 → `tools/art/inbox/B2-32 걷는 무쇠 성채.png`
 
 ```
@@ -2558,7 +2554,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-32 걷는 무쇠 성채.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-43 · 자폭 오토마톤 — 그림 있음
+### B2-43 · 자폭 오토마톤
 소르그림의 방패 · 유닛 · 레벨 6 · 일반 · 틀 `top` N C `snowlight` · 프롬프트 n2 → `tools/art/inbox/B2-43 자폭 오토마톤.png`
 
 ```
@@ -2571,7 +2567,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-43 자폭 오토마톤.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-34 · 거대 증기 거상 — 그림 있음
+### B2-34 · 거대 증기 거상
 소르그림의 방패 · 유닛 · 레벨 7 · 일반 · 틀 `tilt` R R `forgeheart` · 프롬프트 n2 → `tools/art/inbox/B2-34 거대 증기 거상.png`
 
 ```
@@ -2584,7 +2580,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-34 거대 증기 거상.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-35 · 두르크하임 대장인 — 그림 있음
+### B2-35 · 두르크하임 대장인
 소르그림의 방패 · 유닛 · 레벨 7 · 일반 · 틀 `eye` R R `lamplit` · 프롬프트 n2 → `tools/art/inbox/B2-35 두르크하임 대장인.png`
 
 ```
@@ -2597,7 +2593,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-35 두르크하임 대장인.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B2-36 · 청동 수호 거인 — 그림 있음
+### B2-36 · 청동 수호 거인
 소르그림의 방패 · 유닛 · 레벨 7 · 일반 · 틀 `ground` R L `patina` · 프롬프트 n2 → `tools/art/inbox/B2-36 청동 수호 거인.png`
 
 ```
@@ -2610,7 +2606,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-36 청동 수호 거인.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-02 · 축전 견습생 — 그림 있음
+### B3-02 · 축전 견습생
 케라운의 벼락 · 유닛 · 레벨 1 · 일반 · 틀 `far` B R `thunderhead` · 프롬프트 n2 → `tools/art/inbox/B3-02 축전 견습생.png`
 
 ```
@@ -2623,7 +2619,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-02 축전 견습생.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-03 · 번개 반딧불 떼 — 그림 있음
+### B3-03 · 번개 반딧불 떼
 케라운의 벼락 · 유닛 · 레벨 1 · 일반 · 틀 `close` L R `greensky` · 프롬프트 n2 → `tools/art/inbox/B3-03 번개 반딧불 떼.png`
 
 ```
@@ -2636,7 +2632,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-03 번개 반딧불 떼.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-04 · 정전기 요정 — 그림 있음
+### B3-04 · 정전기 요정
 케라운의 벼락 · 유닛 · 레벨 1 · 일반 · 틀 `eye` L R `cobalt` · 프롬프트 n2 → `tools/art/inbox/B3-04 정전기 요정.png`
 
 ```
@@ -2649,7 +2645,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-04 정전기 요정.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-06 · 새끼 뇌조 — 그림 있음
+### B3-06 · 새끼 뇌조
 케라운의 벼락 · 유닛 · 레벨 1 · 일반 · 틀 `back` R L `cobalt` · 프롬프트 n2 → `tools/art/inbox/B3-06 새끼 뇌조.png`
 
 ```
@@ -2662,7 +2658,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-06 새끼 뇌조.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### HB3-1 · 예지 — 그림 있음
+### HB3-1 · 예지
 케라운의 벼락 · 핸드 마법 · 레벨 1 · 일반 · 틀 `before` N R `wetglass` · 프롬프트 n2 → `tools/art/inbox/HB3-1 예지.png`
 
 ```
@@ -2675,7 +2671,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: HB3-1 예지.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MB-03 · 축전 방출 — 그림 있음
+### MB-03 · 축전 방출
 케라운의 벼락 · 공용 마법 · 레벨 1 · 일반 · 틀 `pov` F L `cobalt` · 프롬프트 n2 → `tools/art/inbox/MB-03 축전 방출.png`
 
 ```
@@ -2688,7 +2684,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MB-03 축전 방출.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MB-07 · 과부하 회로 — 그림 있음
+### MB-07 · 과부하 회로
 케라운의 벼락 · 공격 마법 · 레벨 1 · 일반 · 틀 `path` R X `copperlab` · 프롬프트 n2 → `tools/art/inbox/MB-07 과부하 회로.png`
 
 ```
@@ -2701,7 +2697,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MB-07 과부하 회로.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### NB3-2 · 운명의 동전 — 그림 있음
+### NB3-2 · 운명의 동전
 케라운의 벼락 · 공용 마법 · 레벨 1 · 일반 · 틀 `symbol` L C `copperlab` · 프롬프트 n2 → `tools/art/inbox/NB3-2 운명의 동전.png`
 
 ```
@@ -2714,7 +2710,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: NB3-2 운명의 동전.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SB3-01 · 정전기 — 그림 있음
+### SB3-01 · 정전기
 케라운의 벼락 · 공격 마법 · 레벨 1 · 일반 · 틀 `object` L L `cobalt` · 프롬프트 n2 → `tools/art/inbox/SB3-01 정전기.png`
 
 ```
@@ -2727,7 +2723,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SB3-01 정전기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SB3-02 · 피뢰침 — 그림 있음
+### SB3-02 · 피뢰침
 케라운의 벼락 · 방어 마법 · 레벨 1 · 일반 · 틀 `cut` D R `thunderhead` · 프롬프트 n2 → `tools/art/inbox/SB3-02 피뢰침.png`
 
 ```
@@ -2740,7 +2736,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SB3-02 피뢰침.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SB3-03 · 충전 코일 — 그림 있음
+### SB3-03 · 충전 코일
 케라운의 벼락 · 공용 마법 · 레벨 1 · 일반 · 틀 `swarm` N X `copperlab` · 프롬프트 n2 → `tools/art/inbox/SB3-03 충전 코일.png`
 
 ```
@@ -2753,7 +2749,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SB3-03 충전 코일.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-09 · 전류 날다람쥐 — 그림 있음
+### B3-09 · 전류 날다람쥐
 케라운의 벼락 · 유닛 · 레벨 2 · 일반 · 틀 `silhouette` R R `wetglass` · 프롬프트 n2 → `tools/art/inbox/B3-09 전류 날다람쥐.png`
 
 ```
@@ -2766,7 +2762,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-09 전류 날다람쥐.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-10 · 피뢰침 까마귀 — 그림 있음
+### B3-10 · 피뢰침 까마귀
 케라운의 벼락 · 유닛 · 레벨 2 · 일반 · 틀 `close` F R `wetglass` · 프롬프트 n2 → `tools/art/inbox/B3-10 피뢰침 까마귀.png`
 
 ```
@@ -2779,7 +2775,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-10 피뢰침 까마귀.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-12 · 방전 요정 — 그림 있음
+### B3-12 · 방전 요정
 케라운의 벼락 · 유닛 · 레벨 2 · 일반 · 틀 `eye` B L `flash` · 프롬프트 n2 → `tools/art/inbox/B3-12 방전 요정.png`
 
 ```
@@ -2792,7 +2788,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-12 방전 요정.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### GN-B3-1 · 번개 바늘 — 그림 있음
+### GN-B3-1 · 번개 바늘
 케라운의 벼락 · 공격 마법 · 레벨 2 · 일반 · 틀 `macro` R C `copperlab` · 프롬프트 n2 → `tools/art/inbox/GN-B3-1 번개 바늘.png`
 
 ```
@@ -2805,7 +2801,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: GN-B3-1 번개 바늘.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IB3-1 · 구리 코일 — 그림 있음
+### IB3-1 · 구리 코일
 케라운의 벼락 · 아이템 · 레벨 2 · 일반 · 틀 `top` N T `copperlab` · 프롬프트 n2 → `tools/art/inbox/IB3-1 구리 코일.png`
 
 ```
@@ -2818,7 +2814,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IB3-1 구리 코일.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IB3-2 · 축전 장갑 — 그림 있음
+### IB3-2 · 축전 장갑
 케라운의 벼락 · 아이템 · 레벨 2 · 일반 · 틀 `hung` N L `wetglass` · 프롬프트 n2 → `tools/art/inbox/IB3-2 축전 장갑.png`
 
 ```
@@ -2831,7 +2827,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IB3-2 축전 장갑.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MB-11 · 낙뢰 조준 — 그림 있음
+### MB-11 · 낙뢰 조준
 케라운의 벼락 · 공격 마법 · 레벨 2 · 일반 · 틀 `top` N C `greensky` · 프롬프트 n2 → `tools/art/inbox/MB-11 낙뢰 조준.png`
 
 ```
@@ -2844,7 +2840,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MB-11 낙뢰 조준.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### NB3-1 · 연쇄 번개 — 그림 있음
+### NB3-1 · 연쇄 번개
 케라운의 벼락 · 공격 마법 · 레벨 2 · 일반 · 틀 `origin` B C `copperlab` · 프롬프트 n2 → `tools/art/inbox/NB3-1 연쇄 번개.png`
 
 ```
@@ -2857,7 +2853,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: NB3-1 연쇄 번개.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-B3-C1 · 새끼 뇌수 — 그림 있음
+### PN-B3-C1 · 새끼 뇌수
 케라운의 벼락 · 유닛 · 레벨 2 · 일반 · 틀 `through` R X `greensky` · 프롬프트 n2 → `tools/art/inbox/PN-B3-C1 새끼 뇌수.png`
 
 ```
@@ -2870,7 +2866,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-B3-C1 새끼 뇌수.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PS-B3-2 · 전극 교환 — 그림 있음
+### PS-B3-2 · 전극 교환
 케라운의 벼락 · 공용 마법 · 레벨 2 · 일반 · 틀 `under` R C `wetglass` · 프롬프트 n2 → `tools/art/inbox/PS-B3-2 전극 교환.png`
 
 ```
@@ -2883,7 +2879,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PS-B3-2 전극 교환.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SB3-04 · 전격 장막 — 그림 있음
+### SB3-04 · 전격 장막
 케라운의 벼락 · 방어 마법 · 레벨 2 · 일반 · 틀 `through` N C `flash` · 프롬프트 n2 → `tools/art/inbox/SB3-04 전격 장막.png`
 
 ```
@@ -2896,7 +2892,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SB3-04 전격 장막.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SB3-05 · 축전 방벽 — 그림 있음
+### SB3-05 · 축전 방벽
 케라운의 벼락 · 방어 마법 · 레벨 2 · 일반 · 틀 `after` D B `cobalt` · 프롬프트 n2 → `tools/art/inbox/SB3-05 축전 방벽.png`
 
 ```
@@ -2909,7 +2905,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SB3-05 축전 방벽.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SB3-06 · 뇌운 소환 — 그림 있음
+### SB3-06 · 뇌운 소환
 케라운의 벼락 · 공용 마법 · 레벨 2 · 일반 · 틀 `top` R L `thunderhead` · 프롬프트 n2 → `tools/art/inbox/SB3-06 뇌운 소환.png`
 
 ```
@@ -2922,7 +2918,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SB3-06 뇌운 소환.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-14 · 벼락 장어 — 그림 있음
+### B3-14 · 벼락 장어
 케라운의 벼락 · 유닛 · 레벨 3 · 일반 · 틀 `under` L R `greensky` · 프롬프트 n2 → `tools/art/inbox/B3-14 벼락 장어.png`
 
 ```
@@ -2935,7 +2931,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-14 벼락 장어.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-15 · 사슬 번개 정령 — 그림 있음
+### B3-15 · 사슬 번개 정령
 케라운의 벼락 · 유닛 · 레벨 3 · 일반 · 틀 `echo` F B `cobalt` · 프롬프트 n2 → `tools/art/inbox/B3-15 사슬 번개 정령.png`
 
 ```
@@ -2948,7 +2944,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-15 사슬 번개 정령.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-16 · 충전 거미 — 그림 있음
+### B3-16 · 충전 거미
 케라운의 벼락 · 유닛 · 레벨 3 · 일반 · 틀 `swarm` B T `thunderhead` · 프롬프트 n2 → `tools/art/inbox/B3-16 충전 거미.png`
 
 ```
@@ -2961,7 +2957,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-16 충전 거미.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-18 · 안경원숭이 공학자 — 그림 있음
+### B3-18 · 안경원숭이 공학자
 케라운의 벼락 · 유닛 · 레벨 3 · 일반 · 틀 `macro` F R `wetglass` · 프롬프트 n2 → `tools/art/inbox/B3-18 안경원숭이 공학자.png`
 
 ```
@@ -2974,7 +2970,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-18 안경원숭이 공학자.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-41 · 절연 방호기 — 그림 있음
+### B3-41 · 절연 방호기
 케라운의 벼락 · 유닛 · 레벨 3 · 일반 · 틀 `back` R L `greensky` · 프롬프트 n2 → `tools/art/inbox/B3-41 절연 방호기.png`
 
 ```
@@ -2987,7 +2983,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-41 절연 방호기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IB3-4 · 번개 병 — 그림 있음
+### IB3-4 · 번개 병
 케라운의 벼락 · 아이템 · 레벨 3 · 일반 · 틀 `motion` D R `flash` · 프롬프트 n2 → `tools/art/inbox/IB3-4 번개 병.png`
 
 ```
@@ -3000,7 +2996,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IB3-4 번개 병.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IB3-5 · 학술원 법전 — 그림 있음
+### IB3-5 · 학술원 법전
 케라운의 벼락 · 아이템 · 레벨 3 · 일반 · 틀 `through` U L `cobalt` · 프롬프트 n2 → `tools/art/inbox/IB3-5 학술원 법전.png`
 
 ```
@@ -3013,7 +3009,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IB3-5 학술원 법전.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-20 · 뇌침 전갈 — 그림 있음
+### B3-20 · 뇌침 전갈
 케라운의 벼락 · 유닛 · 레벨 4 · 일반 · 틀 `eye` F B `thunderhead` · 프롬프트 n2 → `tools/art/inbox/B3-20 뇌침 전갈.png`
 
 ```
@@ -3026,7 +3022,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-20 뇌침 전갈.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-22 · 전격 수호기 — 그림 있음
+### B3-22 · 전격 수호기
 케라운의 벼락 · 유닛 · 레벨 4 · 일반 · 틀 `back` L C `cobalt` · 프롬프트 n2 → `tools/art/inbox/B3-22 전격 수호기.png`
 
 ```
@@ -3039,7 +3035,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-22 전격 수호기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-23 · 병 속의 교수 두뇌 — 그림 있음
+### B3-23 · 병 속의 교수 두뇌
 케라운의 벼락 · 유닛 · 레벨 4 · 일반 · 틀 `over` B R `copperlab` · 프롬프트 n2 → `tools/art/inbox/B3-23 병 속의 교수 두뇌.png`
 
 ```
@@ -3052,7 +3048,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-23 병 속의 교수 두뇌.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-24 · 섬광 나방 — 그림 있음
+### B3-24 · 섬광 나방
 케라운의 벼락 · 유닛 · 레벨 4 · 일반 · 틀 `pov` F L `flash` · 프롬프트 n2 → `tools/art/inbox/B3-24 섬광 나방.png`
 
 ```
@@ -3065,7 +3061,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-24 섬광 나방.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### GN-B3-2 · 뇌명 포격 — 그림 있음
+### GN-B3-2 · 뇌명 포격
 케라운의 벼락 · 공격 마법 · 레벨 4 · 일반 · 틀 `impact` D L `flash` · 프롬프트 n2 → `tools/art/inbox/GN-B3-2 뇌명 포격.png`
 
 ```
@@ -3078,7 +3074,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: GN-B3-2 뇌명 포격.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-B3-C2 · 폭주 축전기 — 그림 있음
+### PN-B3-C2 · 폭주 축전기
 케라운의 벼락 · 유닛 · 레벨 4 · 일반 · 틀 `ground` L L `flash` · 프롬프트 n2 → `tools/art/inbox/PN-B3-C2 폭주 축전기.png`
 
 ```
@@ -3091,7 +3087,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-B3-C2 폭주 축전기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### RB3-1 · 케라운 대방전 — 그림 있음
+### RB3-1 · 케라운 대방전
 케라운의 벼락 · 공용 마법 · 레벨 4 · 일반 · 틀 `far` U X `flash` · 프롬프트 n2 → `tools/art/inbox/RB3-1 케라운 대방전.png`
 
 ```
@@ -3104,7 +3100,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: RB3-1 케라운 대방전.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SB3-09 · 벼락 폭풍 — 그림 있음
+### SB3-09 · 벼락 폭풍
 케라운의 벼락 · 공용 마법 · 레벨 4 · 일반 · 틀 `swarm` D X `cobalt` · 프롬프트 n2 → `tools/art/inbox/SB3-09 벼락 폭풍.png`
 
 ```
@@ -3117,7 +3113,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SB3-09 벼락 폭풍.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-25 · 케라운의 번개 정령 — 그림 있음
+### B3-25 · 케라운의 번개 정령
 케라운의 벼락 · 유닛 · 레벨 5 · 일반 · 틀 `top` R C `wetglass` · 프롬프트 n2 → `tools/art/inbox/B3-25 케라운의 번개 정령.png`
 
 ```
@@ -3130,7 +3126,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-25 케라운의 번개 정령.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-26 · 뇌전 박사 — 그림 있음
+### B3-26 · 뇌전 박사
 케라운의 벼락 · 유닛 · 레벨 5 · 일반 · 틀 `close` R X `copperlab` · 프롬프트 n2 → `tools/art/inbox/B3-26 뇌전 박사.png`
 
 ```
@@ -3143,7 +3139,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-26 뇌전 박사.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-27 · 대형 축전기 — 그림 있음
+### B3-27 · 대형 축전기
 케라운의 벼락 · 유닛 · 레벨 5 · 일반 · 틀 `far` B R `greensky` · 프롬프트 n2 → `tools/art/inbox/B3-27 대형 축전기.png`
 
 ```
@@ -3156,7 +3152,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-27 대형 축전기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-B3-U2 · 뇌명 고원의 뇌조 — 그림 있음
+### PN-B3-U2 · 뇌명 고원의 뇌조
 케라운의 벼락 · 유닛 · 레벨 5 · 일반 · 틀 `tilt` L X `thunderhead` · 프롬프트 n2 → `tools/art/inbox/PN-B3-U2 뇌명 고원의 뇌조.png`
 
 ```
@@ -3169,7 +3165,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-B3-U2 뇌명 고원의 뇌조.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-31 · 전격 요새 — 그림 있음
+### B3-31 · 전격 요새
 케라운의 벼락 · 유닛 · 레벨 6 · 일반 · 틀 `through` N B `wetglass` · 프롬프트 n2 → `tools/art/inbox/B3-31 전격 요새.png`
 
 ```
@@ -3182,7 +3178,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-31 전격 요새.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-32 · 천둥 폭풍 거인 — 그림 있음
+### B3-32 · 천둥 폭풍 거인
 케라운의 벼락 · 유닛 · 레벨 6 · 일반 · 틀 `profile` R R `flash` · 프롬프트 n2 → `tools/art/inbox/B3-32 천둥 폭풍 거인.png`
 
 ```
@@ -3195,7 +3191,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-32 천둥 폭풍 거인.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-B3-C3 · 절연 갑주 기관 — 그림 있음
+### PN-B3-C3 · 절연 갑주 기관
 케라운의 벼락 · 유닛 · 레벨 6 · 일반 · 틀 `profile` R L `wetglass` · 프롬프트 n2 → `tools/art/inbox/PN-B3-C3 절연 갑주 기관.png`
 
 ```
@@ -3208,7 +3204,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-B3-C3 절연 갑주 기관.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### B3-33 · 볼타리움 학장 — 그림 있음
+### B3-33 · 볼타리움 학장
 케라운의 벼락 · 유닛 · 레벨 7 · 일반 · 틀 `tilt` U C `cobalt` · 프롬프트 n2 → `tools/art/inbox/B3-33 볼타리움 학장.png`
 
 ```
@@ -3221,7 +3217,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B3-33 볼타리움 학장.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-01 · 결투장의 어린 들소 — 그림 있음
+### G1-01 · 결투장의 어린 들소
 고르바스의 발톱 · 유닛 · 레벨 1 · 일반 · 틀 `top` R L `firelit` · 프롬프트 n2 → `tools/art/inbox/G1-01 결투장의 어린 들소.png`
 
 ```
@@ -3234,7 +3230,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-01 결투장의 어린 들소.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-04 · 어린 하이에나 — 그림 있음
+### G1-04 · 어린 하이에나
 고르바스의 발톱 · 유닛 · 레벨 1 · 일반 · 틀 `inside` F L `ochredust` · 프롬프트 n2 → `tools/art/inbox/G1-04 어린 하이에나.png`
 
 ```
@@ -3247,7 +3243,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-04 어린 하이에나.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-05 · 초원 하이에나 — 그림 있음
+### G1-05 · 초원 하이에나
 고르바스의 발톱 · 유닛 · 레벨 1 · 일반 · 틀 `profile` R X `redearth` · 프롬프트 n2 → `tools/art/inbox/G1-05 초원 하이에나.png`
 
 ```
@@ -3260,7 +3256,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-05 초원 하이에나.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PS-G1-1 · 승전의 함성 — 그림 있음
+### PS-G1-1 · 승전의 함성
 고르바스의 발톱 · 공격 마법 · 레벨 1 · 일반 · 틀 `object` L L `ochredust` · 프롬프트 n2 → `tools/art/inbox/PS-G1-1 승전의 함성.png`
 
 ```
@@ -3273,7 +3269,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PS-G1-1 승전의 함성.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SG1-01 · 사냥감 몰이 — 그림 있음
+### SG1-01 · 사냥감 몰이
 고르바스의 발톱 · 공용 마법 · 레벨 1 · 일반 · 틀 `through` F C `stormslate` · 프롬프트 n2 → `tools/art/inbox/SG1-01 사냥감 몰이.png`
 
 ```
@@ -3286,7 +3282,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SG1-01 사냥감 몰이.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SG1-02 · 숨통 끊기 — 그림 있음
+### SG1-02 · 숨통 끊기
 고르바스의 발톱 · 방어 마법 · 레벨 1 · 일반 · 틀 `far` L X `redearth` · 프롬프트 n2 → `tools/art/inbox/SG1-02 숨통 끊기.png`
 
 ```
@@ -3299,7 +3295,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SG1-02 숨통 끊기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SG1-04 · 사냥감 표식 — 그림 있음
+### SG1-04 · 사냥감 표식
 고르바스의 발톱 · 공용 마법 · 레벨 1 · 일반 · 틀 `symbol` N R `firelit` · 프롬프트 n2 → `tools/art/inbox/SG1-04 사냥감 표식.png`
 
 ```
@@ -3312,7 +3308,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SG1-04 사냥감 표식.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-08 · 돌발톱 가고일 — 그림 있음
+### G1-08 · 돌발톱 가고일
 고르바스의 발톱 · 유닛 · 레벨 2 · 일반 · 틀 `back` B T `bonemoon` · 프롬프트 n2 → `tools/art/inbox/G1-08 돌발톱 가고일.png`
 
 ```
@@ -3325,7 +3321,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-08 돌발톱 가고일.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-10 · 돌엄니 멧돼지 — 그림 있음
+### G1-10 · 돌엄니 멧돼지
 고르바스의 발톱 · 유닛 · 레벨 2 · 일반 · 틀 `through` R R `stormslate` · 프롬프트 n2 → `tools/art/inbox/G1-10 돌엄니 멧돼지.png`
 
 ```
@@ -3338,7 +3334,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-10 돌엄니 멧돼지.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-11 · 흑요 창잡이 — 그림 있음
+### G1-11 · 흑요 창잡이
 고르바스의 발톱 · 유닛 · 레벨 2 · 일반 · 틀 `through` F C `firelit` · 프롬프트 n2 → `tools/art/inbox/G1-11 흑요 창잡이.png`
 
 ```
@@ -3351,7 +3347,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-11 흑요 창잡이.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-12 · 돌팔매 어린 거인 — 그림 있음
+### G1-12 · 돌팔매 어린 거인
 고르바스의 발톱 · 유닛 · 레벨 2 · 일반 · 틀 `echo` L R `stormslate` · 프롬프트 n2 → `tools/art/inbox/G1-12 돌팔매 어린 거인.png`
 
 ```
@@ -3364,7 +3360,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-12 돌팔매 어린 거인.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-41 · 방패 든 오우거 — 그림 있음
+### G1-41 · 방패 든 오우거
 고르바스의 발톱 · 유닛 · 레벨 2 · 일반 · 틀 `under` F T `stormslate` · 프롬프트 n2 → `tools/art/inbox/G1-41 방패 든 오우거.png`
 
 ```
@@ -3377,7 +3373,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-41 방패 든 오우거.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### I2-2 · 송곳니 광전 도끼 — 그림 있음
+### I2-2 · 송곳니 광전 도끼
 고르바스의 발톱 · 아이템 · 레벨 2 · 일반 · 틀 `used` D L `stormslate` · 프롬프트 n2 → `tools/art/inbox/I2-2 송곳니 광전 도끼.png`
 
 ```
@@ -3390,7 +3386,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: I2-2 송곳니 광전 도끼.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IG1-1 · 사냥꾼 발톱 — 그림 있음
+### IG1-1 · 사냥꾼 발톱
 고르바스의 발톱 · 아이템 · 레벨 2 · 일반 · 틀 `pair` N R `firelit` · 프롬프트 n2 → `tools/art/inbox/IG1-1 사냥꾼 발톱.png`
 
 ```
@@ -3403,7 +3399,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IG1-1 사냥꾼 발톱.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### M2-1 · 송곳니 문신 — 그림 있음
+### M2-1 · 송곳니 문신
 고르바스의 발톱 · 아이템 · 레벨 2 · 일반 · 틀 `hand` R R `bonemoon` · 프롬프트 n2 → `tools/art/inbox/M2-1 송곳니 문신.png`
 
 ```
@@ -3416,7 +3412,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: M2-1 송곳니 문신.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MG-04 · 원한의 일격 — 그림 있음
+### MG-04 · 원한의 일격
 고르바스의 발톱 · 공격 마법 · 레벨 2 · 일반 · 틀 `far` D T `bonemoon` · 프롬프트 n2 → `tools/art/inbox/MG-04 원한의 일격.png`
 
 ```
@@ -3429,7 +3425,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MG-04 원한의 일격.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MG-05 · 대지 진동 — 그림 있음
+### MG-05 · 대지 진동
 고르바스의 발톱 · 공격 마법 · 레벨 2 · 일반 · 틀 `cut` R X `ochredust` · 프롬프트 n2 → `tools/art/inbox/MG-05 대지 진동.png`
 
 ```
@@ -3442,7 +3438,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MG-05 대지 진동.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MG-13 · 뼈 부수기 — 그림 있음
+### MG-13 · 뼈 부수기
 고르바스의 발톱 · 공격 마법 · 레벨 2 · 일반 · 틀 `transform` L C `strawgold` · 프롬프트 n2 → `tools/art/inbox/MG-13 뼈 부수기.png`
 
 ```
@@ -3455,7 +3451,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MG-13 뼈 부수기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-13 · 자갈 코카트리스 — 그림 있음
+### G1-13 · 자갈 코카트리스
 고르바스의 발톱 · 유닛 · 레벨 3 · 일반 · 틀 `front` F B `ochredust` · 프롬프트 n2 → `tools/art/inbox/G1-13 자갈 코카트리스.png`
 
 ```
@@ -3468,7 +3464,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-13 자갈 코카트리스.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-15 · 흑요 발톱 바실리스크 — 그림 있음
+### G1-15 · 흑요 발톱 바실리스크
 고르바스의 발톱 · 유닛 · 레벨 3 · 일반 · 틀 `ground` R T `strawgold` · 프롬프트 n2 → `tools/art/inbox/G1-15 흑요 발톱 바실리스크.png`
 
 ```
@@ -3481,7 +3477,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-15 흑요 발톱 바실리스크.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-18 · 오우거 주술사 — 그림 있음
+### G1-18 · 오우거 주술사
 고르바스의 발톱 · 유닛 · 레벨 3 · 일반 · 틀 `silhouette` L L `strawgold` · 프롬프트 n2 → `tools/art/inbox/G1-18 오우거 주술사.png`
 
 ```
@@ -3494,7 +3490,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-18 오우거 주술사.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IG1-3 · 격노의 문신 — 그림 있음
+### IG1-3 · 격노의 문신
 고르바스의 발톱 · 아이템 · 레벨 3 · 일반 · 틀 `making` N C `redearth` · 프롬프트 n2 → `tools/art/inbox/IG1-3 격노의 문신.png`
 
 ```
@@ -3507,7 +3503,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IG1-3 격노의 문신.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MG-16 · 대지 붕괴 — 그림 있음
+### MG-16 · 대지 붕괴
 고르바스의 발톱 · 공격 마법 · 레벨 3 · 일반 · 틀 `inside` U X `redearth` · 프롬프트 n2 → `tools/art/inbox/MG-16 대지 붕괴.png`
 
 ```
@@ -3520,7 +3516,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MG-16 대지 붕괴.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-19 · 바위등 곰 기수 — 그림 있음
+### G1-19 · 바위등 곰 기수
 고르바스의 발톱 · 유닛 · 레벨 4 · 일반 · 틀 `over` B B `bonemoon` · 프롬프트 n2 → `tools/art/inbox/G1-19 바위등 곰 기수.png`
 
 ```
@@ -3533,7 +3529,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-19 바위등 곰 기수.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-23 · 전쟁북 오우거 — 그림 있음
+### G1-23 · 전쟁북 오우거
 고르바스의 발톱 · 유닛 · 레벨 4 · 일반 · 틀 `eye` F X `firelit` · 프롬프트 n2 → `tools/art/inbox/G1-23 전쟁북 오우거.png`
 
 ```
@@ -3546,7 +3542,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-23 전쟁북 오우거.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-24 · 하이에나 무리장 — 그림 있음
+### G1-24 · 하이에나 무리장
 고르바스의 발톱 · 유닛 · 레벨 4 · 일반 · 틀 `low` L L `firelit` · 프롬프트 n2 → `tools/art/inbox/G1-24 하이에나 무리장.png`
 
 ```
@@ -3559,7 +3555,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-24 하이에나 무리장.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-42 · 떨어진 고르바스의 비늘 — 그림 있음
+### G1-42 · 떨어진 고르바스의 비늘
 고르바스의 발톱 · 유닛 · 레벨 4 · 일반 · 틀 `profile` L R `bonemoon` · 프롬프트 n2 → `tools/art/inbox/G1-42 떨어진 고르바스의 비늘.png`
 
 ```
@@ -3572,7 +3568,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-42 떨어진 고르바스의 비늘.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### NG1-2 · 무리의 포효 — 그림 있음
+### NG1-2 · 무리의 포효
 고르바스의 발톱 · 공격 마법 · 레벨 4 · 일반 · 틀 `pov` F X `stormslate` · 프롬프트 n2 → `tools/art/inbox/NG1-2 무리의 포효.png`
 
 ```
@@ -3585,7 +3581,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: NG1-2 무리의 포효.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### RG1-1 · 우두머리 사냥 — 그림 있음
+### RG1-1 · 우두머리 사냥
 고르바스의 발톱 · 공용 마법 · 레벨 4 · 일반 · 틀 `after` N X `bonemoon` · 프롬프트 n2 → `tools/art/inbox/RG1-1 우두머리 사냥.png`
 
 ```
@@ -3598,7 +3594,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: RG1-1 우두머리 사냥.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-25 · 고르바스의 아이 — 그림 있음
+### G1-25 · 고르바스의 아이
 고르바스의 발톱 · 유닛 · 레벨 5 · 일반 · 틀 `reflect` N X `stormslate` · 프롬프트 n2 → `tools/art/inbox/G1-25 고르바스의 아이.png`
 
 ```
@@ -3611,7 +3607,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-25 고르바스의 아이.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-27 · 어미 동굴곰 — 그림 있음
+### G1-27 · 어미 동굴곰
 고르바스의 발톱 · 유닛 · 레벨 5 · 일반 · 틀 `far` R R `bonemoon` · 프롬프트 n2 → `tools/art/inbox/G1-27 어미 동굴곰.png`
 
 ```
@@ -3624,7 +3620,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-27 어미 동굴곰.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-28 · 초원 들소 떼 — 그림 있음
+### G1-28 · 초원 들소 떼
 고르바스의 발톱 · 유닛 · 레벨 5 · 일반 · 틀 `swarm` R X `strawgold` · 프롬프트 n2 → `tools/art/inbox/G1-28 초원 들소 떼.png`
 
 ```
@@ -3637,7 +3633,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-28 초원 들소 떼.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-32 · 흑요 거수 도마뱀 — 그림 있음
+### G1-32 · 흑요 거수 도마뱀
 고르바스의 발톱 · 유닛 · 레벨 6 · 일반 · 틀 `back` L B `redearth` · 프롬프트 n2 → `tools/art/inbox/G1-32 흑요 거수 도마뱀.png`
 
 ```
@@ -3650,7 +3646,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-32 흑요 거수 도마뱀.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-43 · 장벽 바위 정령 — 그림 있음
+### G1-43 · 장벽 바위 정령
 고르바스의 발톱 · 유닛 · 레벨 6 · 일반 · 틀 `ground` B X `ochredust` · 프롬프트 n2 → `tools/art/inbox/G1-43 장벽 바위 정령.png`
 
 ```
@@ -3663,7 +3659,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-43 장벽 바위 정령.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-G1-C3 · 바윗덩이 거구 — 그림 있음
+### PN-G1-C3 · 바윗덩이 거구
 고르바스의 발톱 · 유닛 · 레벨 6 · 일반 · 틀 `over` L C `firelit` · 프롬프트 n2 → `tools/art/inbox/PN-G1-C3 바윗덩이 거구.png`
 
 ```
@@ -3676,7 +3672,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-G1-C3 바윗덩이 거구.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-33 · 순례하는 바위 거인 — 그림 있음
+### G1-33 · 순례하는 바위 거인
 고르바스의 발톱 · 유닛 · 레벨 7 · 일반 · 틀 `far` R T `redearth` · 프롬프트 n2 → `tools/art/inbox/G1-33 순례하는 바위 거인.png`
 
 ```
@@ -3689,7 +3685,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-33 순례하는 바위 거인.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-35 · 대지 진동 웜 — 그림 있음
+### G1-35 · 대지 진동 웜
 고르바스의 발톱 · 유닛 · 레벨 7 · 일반 · 틀 `cut` R B `strawgold` · 프롬프트 n2 → `tools/art/inbox/G1-35 대지 진동 웜.png`
 
 ```
@@ -3702,7 +3698,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-35 대지 진동 웜.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G1-36 · 미노타우로스 대족장 — 그림 있음
+### G1-36 · 미노타우로스 대족장
 고르바스의 발톱 · 유닛 · 레벨 7 · 일반 · 틀 `high` B L `ochredust` · 프롬프트 n2 → `tools/art/inbox/G1-36 미노타우로스 대족장.png`
 
 ```
@@ -3715,7 +3711,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G1-36 미노타우로스 대족장.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-02 · 이끼 코다마 — 그림 있음
+### G2-02 · 이끼 코다마
 베르단의 뿔 · 유닛 · 레벨 1 · 일반 · 틀 `tilt` R R `mossdeep` · 프롬프트 n2 → `tools/art/inbox/G2-02 이끼 코다마.png`
 
 ```
@@ -3728,7 +3724,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-02 이끼 코다마.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-03 · 나무늘보 견습 궁수 — 그림 있음
+### G2-03 · 나무늘보 견습 궁수
 베르단의 뿔 · 유닛 · 레벨 1 · 일반 · 틀 `ground` L L `sunshaft` · 프롬프트 n2 → `tools/art/inbox/G2-03 나무늘보 견습 궁수.png`
 
 ```
@@ -3741,7 +3737,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-03 나무늘보 견습 궁수.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-05 · 어린 트렌트 — 그림 있음
+### G2-05 · 어린 트렌트
 베르단의 뿔 · 유닛 · 레벨 1 · 일반 · 틀 `over` F C `autumnrot` · 프롬프트 n2 → `tools/art/inbox/G2-05 어린 트렌트.png`
 
 ```
@@ -3754,7 +3750,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-05 어린 트렌트.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### NG2-3 · 숲의 재생 — 그림 있음
+### NG2-3 · 숲의 재생
 베르단의 뿔 · 공용 마법 · 레벨 1 · 일반 · 틀 `macro` L C `sunshaft` · 프롬프트 n2 → `tools/art/inbox/NG2-3 숲의 재생.png`
 
 ```
@@ -3767,7 +3763,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: NG2-3 숲의 재생.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PS-G2-2 · 뿌리 내림 — 그림 있음
+### PS-G2-2 · 뿌리 내림
 베르단의 뿔 · 방어 마법 · 레벨 1 · 일반 · 틀 `cut` D L `thorndark` · 프롬프트 n2 → `tools/art/inbox/PS-G2-2 뿌리 내림.png`
 
 ```
@@ -3780,7 +3776,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PS-G2-2 뿌리 내림.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SG2-01 · 덩굴 조이기 — 그림 있음
+### SG2-01 · 덩굴 조이기
 베르단의 뿔 · 공격 마법 · 레벨 1 · 일반 · 틀 `column` U L `autumnrot` · 프롬프트 n2 → `tools/art/inbox/SG2-01 덩굴 조이기.png`
 
 ```
@@ -3793,7 +3789,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SG2-01 덩굴 조이기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SG2-02 · 새순 갑옷 — 그림 있음
+### SG2-02 · 새순 갑옷
 베르단의 뿔 · 공용 마법 · 레벨 1 · 일반 · 틀 `before` L C `thorndark` · 프롬프트 n2 → `tools/art/inbox/SG2-02 새순 갑옷.png`
 
 ```
@@ -3806,7 +3802,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SG2-02 새순 갑옷.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SG2-03 · 가시 울타리 — 그림 있음
+### SG2-03 · 가시 울타리
 베르단의 뿔 · 방어 마법 · 레벨 1 · 일반 · 틀 `reflect` N C `sunshaft` · 프롬프트 n2 → `tools/art/inbox/SG2-03 가시 울타리.png`
 
 ```
@@ -3819,7 +3815,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SG2-03 가시 울타리.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-08 · 오소리 숲지기 — 그림 있음
+### G2-08 · 오소리 숲지기
 베르단의 뿔 · 유닛 · 레벨 2 · 일반 · 틀 `eye` R C `thorndark` · 프롬프트 n2 → `tools/art/inbox/G2-08 오소리 숲지기.png`
 
 ```
@@ -3832,7 +3828,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-08 오소리 숲지기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-09 · 숲 사티로스 — 그림 있음
+### G2-09 · 숲 사티로스
 베르단의 뿔 · 유닛 · 레벨 2 · 일반 · 틀 `profile` L X `rainmist` · 프롬프트 n2 → `tools/art/inbox/G2-09 숲 사티로스.png`
 
 ```
@@ -3845,7 +3841,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-09 숲 사티로스.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-11 · 갓버섯 보초 — 그림 있음
+### G2-11 · 갓버섯 보초
 베르단의 뿔 · 유닛 · 레벨 2 · 일반 · 틀 `under` U R `thorndark` · 프롬프트 n2 → `tools/art/inbox/G2-11 갓버섯 보초.png`
 
 ```
@@ -3858,7 +3854,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-11 갓버섯 보초.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IG2-1 · 가시 문신 — 그림 있음
+### IG2-1 · 가시 문신
 베르단의 뿔 · 아이템 · 레벨 2 · 일반 · 틀 `macro` N X `thorndark` · 프롬프트 n2 → `tools/art/inbox/IG2-1 가시 문신.png`
 
 ```
@@ -3871,7 +3867,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IG2-1 가시 문신.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IG2-2 · 나무껍질 각인 — 그림 있음
+### IG2-2 · 나무껍질 각인
 베르단의 뿔 · 아이템 · 레벨 2 · 일반 · 틀 `pair` N B `autumnrot` · 프롬프트 n2 → `tools/art/inbox/IG2-2 나무껍질 각인.png`
 
 ```
@@ -3884,7 +3880,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IG2-2 나무껍질 각인.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MG-08 · 뿌리 결박 — 그림 있음
+### MG-08 · 뿌리 결박
 베르단의 뿔 · 방어 마법 · 레벨 2 · 일반 · 틀 `far` N L `autumnrot` · 프롬프트 n2 → `tools/art/inbox/MG-08 뿌리 결박.png`
 
 ```
@@ -3897,7 +3893,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MG-08 뿌리 결박.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MG-10 · 고목의 장막 — 그림 있음
+### MG-10 · 고목의 장막
 베르단의 뿔 · 방어 마법 · 레벨 2 · 일반 · 틀 `swarm` D X `sunshaft` · 프롬프트 n2 → `tools/art/inbox/MG-10 고목의 장막.png`
 
 ```
@@ -3910,7 +3906,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MG-10 고목의 장막.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### NG2-1 · 뿌리 파고들기 — 그림 있음
+### NG2-1 · 뿌리 파고들기
 베르단의 뿔 · 공격 마법 · 레벨 2 · 일반 · 틀 `under` U C `sporeglow` · 프롬프트 n2 → `tools/art/inbox/NG2-1 뿌리 파고들기.png`
 
 ```
@@ -3923,7 +3919,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: NG2-1 뿌리 파고들기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-G2-C1 · 이끼 덮인 묘목 — 그림 있음
+### PN-G2-C1 · 이끼 덮인 묘목
 베르단의 뿔 · 유닛 · 레벨 2 · 일반 · 틀 `close` R L `rainmist` · 프롬프트 n2 → `tools/art/inbox/PN-G2-C1 이끼 덮인 묘목.png`
 
 ```
@@ -3936,7 +3932,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-G2-C1 이끼 덮인 묘목.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SG2-04 · 트렌트 행진 — 그림 있음
+### SG2-04 · 트렌트 행진
 베르단의 뿔 · 공격 마법 · 레벨 2 · 일반 · 틀 `transform` F L `sporeglow` · 프롬프트 n2 → `tools/art/inbox/SG2-04 트렌트 행진.png`
 
 ```
@@ -3949,7 +3945,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SG2-04 트렌트 행진.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SG2-05 · 수액 몰아주기 — 그림 있음
+### SG2-05 · 수액 몰아주기
 베르단의 뿔 · 공용 마법 · 레벨 2 · 일반 · 틀 `origin` R R `autumnrot` · 프롬프트 n2 → `tools/art/inbox/SG2-05 수액 몰아주기.png`
 
 ```
@@ -3962,7 +3958,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SG2-05 수액 몰아주기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SG2-07 · 엉겅퀴 요새 — 그림 있음
+### SG2-07 · 엉겅퀴 요새
 베르단의 뿔 · 방어 마법 · 레벨 2 · 일반 · 틀 `impact` R L `mossdeep` · 프롬프트 n2 → `tools/art/inbox/SG2-07 엉겅퀴 요새.png`
 
 ```
@@ -3975,7 +3971,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SG2-07 엉겅퀴 요새.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-13 · 고목 거미 — 그림 있음
+### G2-13 · 고목 거미
 베르단의 뿔 · 유닛 · 레벨 3 · 일반 · 틀 `through` L C `autumnrot` · 프롬프트 n2 → `tools/art/inbox/G2-13 고목 거미.png`
 
 ```
@@ -3988,7 +3984,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-13 고목 거미.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-15 · 에일렌 뿔사슴 — 그림 있음
+### G2-15 · 에일렌 뿔사슴
 베르단의 뿔 · 유닛 · 레벨 3 · 일반 · 틀 `inside` F R `mossdeep` · 프롬프트 n2 → `tools/art/inbox/G2-15 에일렌 뿔사슴.png`
 
 ```
@@ -4001,7 +3997,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-15 에일렌 뿔사슴.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-17 · 두꺼비 주술사 — 그림 있음
+### G2-17 · 두꺼비 주술사
 베르단의 뿔 · 유닛 · 레벨 3 · 일반 · 틀 `back` B C `sporeglow` · 프롬프트 n2 → `tools/art/inbox/G2-17 두꺼비 주술사.png`
 
 ```
@@ -4014,7 +4010,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-17 두꺼비 주술사.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### I3-3 · 실바니엘 장궁 — 그림 있음
+### I3-3 · 실바니엘 장궁
 베르단의 뿔 · 아이템 · 레벨 3 · 일반 · 틀 `motion` N L `mossdeep` · 프롬프트 n2 → `tools/art/inbox/I3-3 실바니엘 장궁.png`
 
 ```
@@ -4027,7 +4023,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: I3-3 실바니엘 장궁.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IG2-5 · 생명의 씨앗 — 그림 있음
+### IG2-5 · 생명의 씨앗
 베르단의 뿔 · 아이템 · 레벨 3 · 일반 · 틀 `stored` N X `sporeglow` · 프롬프트 n2 → `tools/art/inbox/IG2-5 생명의 씨앗.png`
 
 ```
@@ -4040,7 +4036,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IG2-5 생명의 씨앗.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MC-14 · 갑옷째 휘감기 — 그림 있음
+### MC-14 · 갑옷째 휘감기
 베르단의 뿔 · 공용 마법 · 레벨 3 · 일반 · 틀 `pov` F C `thorndark` · 프롬프트 n2 → `tools/art/inbox/MC-14 갑옷째 휘감기.png`
 
 ```
@@ -4053,7 +4049,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MC-14 갑옷째 휘감기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### RG2-1 · 숲의 정적 — 그림 있음
+### RG2-1 · 숲의 정적
 베르단의 뿔 · 공용 마법 · 레벨 3 · 일반 · 틀 `through` N C `rainmist` · 프롬프트 n2 → `tools/art/inbox/RG2-1 숲의 정적.png`
 
 ```
@@ -4066,7 +4062,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: RG2-1 숲의 정적.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-20 · 실바니엘 호랑이 — 그림 있음
+### G2-20 · 실바니엘 호랑이
 베르단의 뿔 · 유닛 · 레벨 4 · 일반 · 틀 `over` F R `sunshaft` · 프롬프트 n2 → `tools/art/inbox/G2-20 실바니엘 호랑이.png`
 
 ```
@@ -4079,7 +4075,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-20 실바니엘 호랑이.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-21 · 트렌트 전사 — 그림 있음
+### G2-21 · 트렌트 전사
 베르단의 뿔 · 유닛 · 레벨 4 · 일반 · 틀 `inside` L T `rainmist` · 프롬프트 n2 → `tools/art/inbox/G2-21 트렌트 전사.png`
 
 ```
@@ -4092,7 +4088,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-21 트렌트 전사.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-22 · 가시숲 맨드레이크 — 그림 있음
+### G2-22 · 가시숲 맨드레이크
 베르단의 뿔 · 유닛 · 레벨 4 · 일반 · 틀 `back` R R `sporeglow` · 프롬프트 n2 → `tools/art/inbox/G2-22 가시숲 맨드레이크.png`
 
 ```
@@ -4105,7 +4101,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-22 가시숲 맨드레이크.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-23 · 드리엔의 사도 — 그림 있음
+### G2-23 · 드리엔의 사도
 베르단의 뿔 · 유닛 · 레벨 4 · 일반 · 틀 `close` L R `thorndark` · 프롬프트 n2 → `tools/art/inbox/G2-23 드리엔의 사도.png`
 
 ```
@@ -4118,7 +4114,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-23 드리엔의 사도.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-25 · 떨어진 베르단의 뿔가지 — 그림 있음
+### G2-25 · 떨어진 베르단의 뿔가지
 베르단의 뿔 · 유닛 · 레벨 5 · 일반 · 틀 `top` R T `autumnrot` · 프롬프트 n2 → `tools/art/inbox/G2-25 떨어진 베르단의 뿔가지.png`
 
 ```
@@ -4131,7 +4127,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-25 떨어진 베르단의 뿔가지.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-26 · 에일렌의 코다마 — 그림 있음
+### G2-26 · 에일렌의 코다마
 베르단의 뿔 · 유닛 · 레벨 5 · 일반 · 틀 `low` L R `rainmist` · 프롬프트 n2 → `tools/art/inbox/G2-26 에일렌의 코다마.png`
 
 ```
@@ -4144,7 +4140,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-26 에일렌의 코다마.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-28 · 장벽 뿌리 거수 — 그림 있음
+### G2-28 · 장벽 뿌리 거수
 베르단의 뿔 · 유닛 · 레벨 5 · 일반 · 틀 `close` F C `sunshaft` · 프롬프트 n2 → `tools/art/inbox/G2-28 장벽 뿌리 거수.png`
 
 ```
@@ -4157,7 +4153,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-28 장벽 뿌리 거수.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-30 · 가시등 고슴도치 — 그림 있음
+### G2-30 · 가시등 고슴도치
 베르단의 뿔 · 유닛 · 레벨 6 · 일반 · 틀 `high` R R `mossdeep` · 프롬프트 n2 → `tools/art/inbox/G2-30 가시등 고슴도치.png`
 
 ```
@@ -4170,7 +4166,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-30 가시등 고슴도치.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-31 · 드리엔의 그린맨 — 그림 있음
+### G2-31 · 드리엔의 그린맨
 베르단의 뿔 · 유닛 · 레벨 6 · 일반 · 틀 `high` R T `rainmist` · 프롬프트 n2 → `tools/art/inbox/G2-31 드리엔의 그린맨.png`
 
 ```
@@ -4183,7 +4179,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-31 드리엔의 그린맨.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-32 · 태고림 거목 — 그림 있음
+### G2-32 · 태고림 거목
 베르단의 뿔 · 유닛 · 레벨 6 · 일반 · 틀 `high` N T `sunshaft` · 프롬프트 n2 → `tools/art/inbox/G2-32 태고림 거목.png`
 
 ```
@@ -4196,7 +4192,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-32 태고림 거목.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-G2-C3 · 늪가의 히드라 — 그림 있음
+### PN-G2-C3 · 늪가의 히드라
 베르단의 뿔 · 유닛 · 레벨 6 · 일반 · 틀 `reflect` F T `mossdeep` · 프롬프트 n2 → `tools/art/inbox/PN-G2-C3 늪가의 히드라.png`
 
 ```
@@ -4209,7 +4205,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-G2-C3 늪가의 히드라.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-33 · 첫 고목의 드라이어드 — 그림 있음
+### G2-33 · 첫 고목의 드라이어드
 베르단의 뿔 · 유닛 · 레벨 7 · 일반 · 틀 `front` F C `rainmist` · 프롬프트 n2 → `tools/art/inbox/G2-33 첫 고목의 드라이어드.png`
 
 ```
@@ -4222,7 +4218,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-33 첫 고목의 드라이어드.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-34 · 베르단의 뿔 기사 — 그림 있음
+### G2-34 · 베르단의 뿔 기사
 베르단의 뿔 · 유닛 · 레벨 7 · 일반 · 틀 `ground` R C `autumnrot` · 프롬프트 n2 → `tools/art/inbox/G2-34 베르단의 뿔 기사.png`
 
 ```
@@ -4235,7 +4231,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-34 베르단의 뿔 기사.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G2-36 · 에일렌의 균사 심장 — 그림 있음
+### G2-36 · 에일렌의 균사 심장
 베르단의 뿔 · 유닛 · 레벨 7 · 일반 · 틀 `close` N L `sporeglow` · 프롬프트 n2 → `tools/art/inbox/G2-36 에일렌의 균사 심장.png`
 
 ```
@@ -4248,7 +4244,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G2-36 에일렌의 균사 심장.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-02 · 물방울 운디네 — 그림 있음
+### G3-02 · 물방울 운디네
 마렌시아의 노래 · 유닛 · 레벨 1 · 일반 · 틀 `under` D C `lagoon` · 프롬프트 n2 → `tools/art/inbox/G3-02 물방울 운디네.png`
 
 ```
@@ -4261,7 +4257,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-02 물방울 운디네.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-03 · 석호의 새끼 돌고래 — 그림 있음
+### G3-03 · 석호의 새끼 돌고래
 마렌시아의 노래 · 유닛 · 레벨 1 · 일반 · 틀 `macro` R X `coraldawn` · 프롬프트 n2 → `tools/art/inbox/G3-03 석호의 새끼 돌고래.png`
 
 ```
@@ -4274,7 +4270,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-03 석호의 새끼 돌고래.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-04 · 진주조개 파수꾼 — 그림 있음
+### G3-04 · 진주조개 파수꾼
 마렌시아의 노래 · 유닛 · 레벨 1 · 일반 · 틀 `top` N C `lagoon` · 프롬프트 n2 → `tools/art/inbox/G3-04 진주조개 파수꾼.png`
 
 ```
@@ -4287,7 +4283,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-04 진주조개 파수꾼.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-06 · 물결 해마 — 그림 있음
+### G3-06 · 물결 해마
 마렌시아의 노래 · 유닛 · 레벨 1 · 일반 · 틀 `through` F L `coraldawn` · 프롬프트 n2 → `tools/art/inbox/G3-06 물결 해마.png`
 
 ```
@@ -4300,7 +4296,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-06 물결 해마.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MC-03 · 뒤바뀐 물길 — 그림 있음
+### MC-03 · 뒤바뀐 물길
 마렌시아의 노래 · 공용 마법 · 레벨 1 · 일반 · 틀 `top` L X `lagoon` · 프롬프트 n2 → `tools/art/inbox/MC-03 뒤바뀐 물길.png`
 
 ```
@@ -4313,7 +4309,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MC-03 뒤바뀐 물길.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MC-04 · 기원 — 그림 있음
+### MC-04 · 기원
 마렌시아의 노래 · 방어 마법 · 레벨 1 · 일반 · 틀 `before` R B `moontide` · 프롬프트 n2 → `tools/art/inbox/MC-04 기원.png`
 
 ```
@@ -4326,7 +4322,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MC-04 기원.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MG-03 · 샘물 한 모금 — 그림 있음
+### MG-03 · 샘물 한 모금
 마렌시아의 노래 · 공용 마법 · 레벨 1 · 일반 · 틀 `object` N R `coraldawn` · 프롬프트 n2 → `tools/art/inbox/MG-03 샘물 한 모금.png`
 
 ```
@@ -4339,7 +4335,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MG-03 샘물 한 모금.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### NG3-2 · 역류 — 그림 있음
+### NG3-2 · 역류
 마렌시아의 노래 · 공격 마법 · 레벨 1 · 일반 · 틀 `symbol` L L `trench` · 프롬프트 n2 → `tools/art/inbox/NG3-2 역류.png`
 
 ```
@@ -4352,7 +4348,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: NG3-2 역류.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PS-G3-1 · 물의 거울 — 그림 있음
+### PS-G3-1 · 물의 거울
 마렌시아의 노래 · 공용 마법 · 레벨 1 · 일반 · 틀 `macro` D C `stormsea` · 프롬프트 n2 → `tools/art/inbox/PS-G3-1 물의 거울.png`
 
 ```
@@ -4365,7 +4361,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PS-G3-1 물의 거울.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SG3-03 · 물의 장막 — 그림 있음
+### SG3-03 · 물의 장막
 마렌시아의 노래 · 방어 마법 · 레벨 1 · 일반 · 틀 `transform` R C `trench` · 프롬프트 n2 → `tools/art/inbox/SG3-03 물의 장막.png`
 
 ```
@@ -4378,7 +4374,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SG3-03 물의 장막.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-07 · 작살 든 해달 — 그림 있음
+### G3-07 · 작살 든 해달
 마렌시아의 노래 · 유닛 · 레벨 2 · 일반 · 틀 `over` L R `moontide` · 프롬프트 n2 → `tools/art/inbox/G3-07 작살 든 해달.png`
 
 ```
@@ -4391,7 +4387,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-07 작살 든 해달.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-09 · 셀레네아 나가 수비병 — 그림 있음
+### G3-09 · 셀레네아 나가 수비병
 마렌시아의 노래 · 유닛 · 레벨 2 · 일반 · 틀 `close` U T `moontide` · 프롬프트 n2 → `tools/art/inbox/G3-09 셀레네아 나가 수비병.png`
 
 ```
@@ -4404,7 +4400,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-09 셀레네아 나가 수비병.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-10 · 어린 셀키 — 그림 있음
+### G3-10 · 어린 셀키
 마렌시아의 노래 · 유닛 · 레벨 2 · 일반 · 틀 `ground` R X `coraldawn` · 프롬프트 n2 → `tools/art/inbox/G3-10 어린 셀키.png`
 
 ```
@@ -4417,7 +4413,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-10 어린 셀키.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-11 · 조수 점술 문어 — 그림 있음
+### G3-11 · 조수 점술 문어
 마렌시아의 노래 · 유닛 · 레벨 2 · 일반 · 틀 `over` L B `stormsea` · 프롬프트 n2 → `tools/art/inbox/G3-11 조수 점술 문어.png`
 
 ```
@@ -4430,7 +4426,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-11 조수 점술 문어.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-12 · 산호등 거북 — 그림 있음
+### G3-12 · 산호등 거북
 마렌시아의 노래 · 유닛 · 레벨 2 · 일반 · 틀 `profile` R L `lagoon` · 프롬프트 n2 → `tools/art/inbox/G3-12 산호등 거북.png`
 
 ```
@@ -4443,7 +4439,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-12 산호등 거북.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IG3-1 · 조개 부적 — 그림 있음
+### IG3-1 · 조개 부적
 마렌시아의 노래 · 아이템 · 레벨 2 · 일반 · 틀 `making` N L `glasscalm` · 프롬프트 n2 → `tools/art/inbox/IG3-1 조개 부적.png`
 
 ```
@@ -4456,7 +4452,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IG3-1 조개 부적.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IG3-2 · 샘물 병 — 그림 있음
+### IG3-2 · 샘물 병
 마렌시아의 노래 · 아이템 · 레벨 2 · 일반 · 틀 `hung` N T `moontide` · 프롬프트 n2 → `tools/art/inbox/IG3-2 샘물 병.png`
 
 ```
@@ -4469,7 +4465,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IG3-2 샘물 병.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IG3-3 · 산호 단검 — 그림 있음
+### IG3-3 · 산호 단검
 마렌시아의 노래 · 아이템 · 레벨 2 · 일반 · 틀 `motion` D X `lagoon` · 프롬프트 n2 → `tools/art/inbox/IG3-3 산호 단검.png`
 
 ```
@@ -4482,7 +4478,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IG3-3 산호 단검.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### MG-12 · 샘물의 축복 — 그림 있음
+### MG-12 · 샘물의 축복
 마렌시아의 노래 · 공용 마법 · 레벨 2 · 일반 · 틀 `swarm` R X `lagoon` · 프롬프트 n2 → `tools/art/inbox/MG-12 샘물의 축복.png`
 
 ```
@@ -4495,7 +4491,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MG-12 샘물의 축복.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PN-G3-C1 · 살아 있는 물거울 — 그림 있음
+### PN-G3-C1 · 살아 있는 물거울
 마렌시아의 노래 · 유닛 · 레벨 2 · 일반 · 틀 `low` F L `glasscalm` · 프롬프트 n2 → `tools/art/inbox/PN-G3-C1 살아 있는 물거울.png`
 
 ```
@@ -4508,7 +4504,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PN-G3-C1 살아 있는 물거울.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### PS-G3-2 · 썰물 — 그림 있음
+### PS-G3-2 · 썰물
 마렌시아의 노래 · 방어 마법 · 레벨 2 · 일반 · 틀 `origin` B R `glasscalm` · 프롬프트 n2 → `tools/art/inbox/PS-G3-2 썰물.png`
 
 ```
@@ -4521,7 +4517,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PS-G3-2 썰물.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-14 · 조수 상어 전사 — 그림 있음
+### G3-14 · 조수 상어 전사
 마렌시아의 노래 · 유닛 · 레벨 3 · 일반 · 틀 `reflect` R L `moontide` · 프롬프트 n2 → `tools/art/inbox/G3-14 조수 상어 전사.png`
 
 ```
@@ -4534,7 +4530,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-14 조수 상어 전사.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-15 · 넬리아의 정령 — 그림 있음
+### G3-15 · 넬리아의 정령
 마렌시아의 노래 · 유닛 · 레벨 3 · 일반 · 틀 `ground` R L `glasscalm` · 프롬프트 n2 → `tools/art/inbox/G3-15 넬리아의 정령.png`
 
 ```
@@ -4547,7 +4543,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-15 넬리아의 정령.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-16 · 해마 근위병 — 그림 있음
+### G3-16 · 해마 근위병
 마렌시아의 노래 · 유닛 · 레벨 3 · 일반 · 틀 `tilt` L R `trench` · 프롬프트 n2 → `tools/art/inbox/G3-16 해마 근위병.png`
 
 ```
@@ -4560,7 +4556,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-16 해마 근위병.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-17 · 석호 치유 듀공 — 그림 있음
+### G3-17 · 석호 치유 듀공
 마렌시아의 노래 · 유닛 · 레벨 3 · 일반 · 틀 `far` R C `moontide` · 프롬프트 n2 → `tools/art/inbox/G3-17 석호 치유 듀공.png`
 
 ```
@@ -4573,7 +4569,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-17 석호 치유 듀공.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-18 · 물기둥 산호 정령 — 그림 있음
+### G3-18 · 물기둥 산호 정령
 마렌시아의 노래 · 유닛 · 레벨 3 · 일반 · 틀 `ground` L R `coraldawn` · 프롬프트 n2 → `tools/art/inbox/G3-18 물기둥 산호 정령.png`
 
 ```
@@ -4586,7 +4582,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-18 물기둥 산호 정령.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IG3-5 · 물방울 보주 — 그림 있음
+### IG3-5 · 물방울 보주
 마렌시아의 노래 · 아이템 · 레벨 3 · 일반 · 틀 `bench` N C `coraldawn` · 프롬프트 n2 → `tools/art/inbox/IG3-5 물방울 보주.png`
 
 ```
@@ -4599,7 +4595,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IG3-5 물방울 보주.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### IG3-8 · 조수의 삼지창 — 그림 있음
+### IG3-8 · 조수의 삼지창
 마렌시아의 노래 · 아이템 · 레벨 3 · 일반 · 틀 `used` N C `glasscalm` · 프롬프트 n2 → `tools/art/inbox/IG3-8 조수의 삼지창.png`
 
 ```
@@ -4612,7 +4608,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IG3-8 조수의 삼지창.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### SG3-09 · 대해류 — 그림 있음
+### SG3-09 · 대해류
 마렌시아의 노래 · 공용 마법 · 레벨 3 · 일반 · 틀 `object` L L `stormsea` · 프롬프트 n2 → `tools/art/inbox/SG3-09 대해류.png`
 
 ```
@@ -4625,7 +4621,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SG3-09 대해류.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-24 · 소용돌이 켈피 — 그림 있음
+### G3-24 · 소용돌이 켈피
 마렌시아의 노래 · 유닛 · 레벨 4 · 일반 · 틀 `high` R C `trench` · 프롬프트 n2 → `tools/art/inbox/G3-24 소용돌이 켈피.png`
 
 ```
@@ -4638,7 +4634,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-24 소용돌이 켈피.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### RG3-1 · 대해일 — 그림 있음
+### RG3-1 · 대해일
 마렌시아의 노래 · 공용 마법 · 레벨 4 · 일반 · 틀 `cut` U B `trench` · 프롬프트 n2 → `tools/art/inbox/RG3-1 대해일.png`
 
 ```
@@ -4651,7 +4647,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: RG3-1 대해일.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-28 · 석호의 자장가 — 그림 있음
+### G3-28 · 석호의 자장가
 마렌시아의 노래 · 유닛 · 레벨 5 · 일반 · 틀 `far` L R `glasscalm` · 프롬프트 n2 → `tools/art/inbox/G3-28 석호의 자장가.png`
 
 ```
@@ -4664,7 +4660,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-28 석호의 자장가.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-42 · 해일 바다뱀 — 그림 있음
+### G3-42 · 해일 바다뱀
 마렌시아의 노래 · 유닛 · 레벨 5 · 일반 · 틀 `echo` R X `coraldawn` · 프롬프트 n2 → `tools/art/inbox/G3-42 해일 바다뱀.png`
 
 ```
@@ -4677,7 +4673,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-42 해일 바다뱀.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-29 · 넬리아의 현신 — 그림 있음
+### G3-29 · 넬리아의 현신
 마렌시아의 노래 · 유닛 · 레벨 6 · 일반 · 틀 `eye` F C `lagoon` · 프롬프트 n2 → `tools/art/inbox/G3-29 넬리아의 현신.png`
 
 ```
@@ -4690,7 +4686,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-29 넬리아의 현신.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-33 · 심해의 크라켄 — 그림 있음
+### G3-33 · 심해의 크라켄
 마렌시아의 노래 · 유닛 · 레벨 7 · 일반 · 틀 `cut` U B `trench` · 프롬프트 n2 → `tools/art/inbox/G3-33 심해의 크라켄.png`
 
 ```
@@ -4703,7 +4699,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: G3-33 심해의 크라켄.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### G3-36 · 샘물의 만조 — 그림 있음
+### G3-36 · 샘물의 만조
 마렌시아의 노래 · 유닛 · 레벨 7 · 일반 · 틀 `silhouette` L X `moontide` · 프롬프트 n2 → `tools/art/inbox/G3-36 샘물의 만조.png`
 
 ```

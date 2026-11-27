@@ -6,11 +6,7 @@
 
 카드 하나의 ``` 안 글만 그림 AI에 붙여 넣는다(카드마다 새 대화). 프롬프트 맨 끝 줄이 파일 이름(`<카드ID> <카드 이름>.png`)을 알려 준다 — 나온 그림(가로 5:4)을 그 이름으로 `tools/art/inbox/`에 두고(이름이 달라도 카드 ID만 앞에 있으면 된다) → `python3 tools/art/artmap.py import`.
 
-**그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(같은 개체 · 장소 · 배색, 다른 시점 · 새 구도 — 섬네일로 나란히 놓아 같은 개체이면서 한눈에 더 강한 다른 그림으로 읽히는지 본다).
-
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 18장
-
-### UN-A1 · 피의 서약자 — 그림 있음
+### UN-A1 · 피의 서약자
 모르카스의 그믐 · 유닛 · 레벨 6 · 유니크 · 틀 `pov` F R `violetshade` · 프롬프트 n2 → `tools/art/inbox/UN-A1 피의 서약자.png`
 
 ```
@@ -23,7 +19,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UN-A1 피의 서약자.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UN-A1-7 · 모르카스의 영혼 수확자 — 그림 있음
+### UN-A1-7 · 모르카스의 영혼 수확자
 모르카스의 그믐 · 유닛 · 레벨 6 · 유니크 · 틀 `through` F L `frostindigo` · 프롬프트 n2 → `tools/art/inbox/UN-A1-7 모르카스의 영혼 수확자.png`
 
 ```
@@ -36,7 +32,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UN-A1-7 모르카스의 영혼 수확자.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UN-A2 · 엘라드의 날개 방패 — 그림 있음
+### UN-A2 · 엘라드의 날개 방패
 솔란테의 새벽 · 유닛 · 레벨 6 · 유니크 · 틀 `reflect` R X `firstlight` · 프롬프트 n2 → `tools/art/inbox/UN-A2 엘라드의 날개 방패.png`
 
 ```
@@ -49,7 +45,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UN-A2 엘라드의 날개 방패.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UN-A2-7 · 솔란테의 새벽 사제 — 그림 있음
+### UN-A2-7 · 솔란테의 새벽 사제
 솔란테의 새벽 · 유닛 · 레벨 6 · 유니크 · 틀 `ground` L R `glare` · 프롬프트 n2 → `tools/art/inbox/UN-A2-7 솔란테의 새벽 사제.png`
 
 ```
@@ -62,7 +58,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UN-A2-7 솔란테의 새벽 사제.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UN-A3 · 바늘탑 별지기 — 그림 있음
+### UN-A3 · 바늘탑 별지기
 벨루미르의 별 · 유닛 · 레벨 6 · 유니크 · 틀 `reflect` R C `starindigo` · 프롬프트 n2 → `tools/art/inbox/UN-A3 바늘탑 별지기.png`
 
 ```
@@ -75,7 +71,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UN-A3 바늘탑 별지기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UN-A3-7 · 벨루미르의 주문 사냥꾼 — 그림 있음
+### UN-A3-7 · 벨루미르의 주문 사냥꾼
 벨루미르의 별 · 유닛 · 레벨 6 · 유니크 · 틀 `inside` F R `aurora` · 프롬프트 n2 → `tools/art/inbox/UN-A3-7 벨루미르의 주문 사냥꾼.png`
 
 ```
@@ -88,7 +84,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UN-A3-7 벨루미르의 주문 사냥꾼.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UN-B1 · 포르탄 포병대장 — 그림 있음
+### UN-B1 · 포르탄 포병대장
 도르마크의 심장불 · 유닛 · 레벨 6 · 유니크 · 틀 `top` N C `ember` · 프롬프트 n2 → `tools/art/inbox/UN-B1 포르탄 포병대장.png`
 
 ```
@@ -101,7 +97,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UN-B1 포르탄 포병대장.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UN-B1-7 · 탈라쿠스의 불씨 포수 — 그림 있음
+### UN-B1-7 · 탈라쿠스의 불씨 포수
 도르마크의 심장불 · 유닛 · 레벨 6 · 유니크 · 틀 `inside` F C `whitehot` · 프롬프트 n2 → `tools/art/inbox/UN-B1-7 탈라쿠스의 불씨 포수.png`
 
 ```
@@ -114,7 +110,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UN-B1-7 탈라쿠스의 불씨 포수.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UN-B2 · 브론의 첫 골렘 — 그림 있음
+### UN-B2 · 브론의 첫 골렘
 소르그림의 방패 · 유닛 · 레벨 6 · 유니크 · 틀 `inside` F C `snowlight` · 프롬프트 n2 → `tools/art/inbox/UN-B2 브론의 첫 골렘.png`
 
 ```
@@ -127,7 +123,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UN-B2 브론의 첫 골렘.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UN-B2-7 · 두르크하임 사슬 골렘 — 그림 있음
+### UN-B2-7 · 두르크하임 사슬 골렘
 소르그림의 방패 · 유닛 · 레벨 6 · 유니크 · 틀 `silhouette` N X `coldsteel` · 프롬프트 n2 → `tools/art/inbox/UN-B2-7 두르크하임 사슬 골렘.png`
 
 ```
@@ -140,7 +136,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UN-B2-7 두르크하임 사슬 골렘.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UN-B3 · 즈라크의 병지기 — 그림 있음
+### UN-B3 · 즈라크의 병지기
 케라운의 벼락 · 유닛 · 레벨 6 · 유니크 · 틀 `inside` F X `cobalt` · 프롬프트 n2 → `tools/art/inbox/UN-B3 즈라크의 병지기.png`
 
 ```
@@ -153,7 +149,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UN-B3 즈라크의 병지기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UN-B3-7 · 케라운 자기장 탑 — 그림 있음
+### UN-B3-7 · 케라운 자기장 탑
 케라운의 벼락 · 유닛 · 레벨 6 · 유니크 · 틀 `ground` L X `thunderhead` · 프롬프트 n2 → `tools/art/inbox/UN-B3-7 케라운 자기장 탑.png`
 
 ```
@@ -166,7 +162,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UN-B3-7 케라운 자기장 탑.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UN-G1 · 바위송곳니 대족장 — 그림 있음
+### UN-G1 · 바위송곳니 대족장
 고르바스의 발톱 · 유닛 · 레벨 6 · 유니크 · 틀 `back` B R `strawgold` · 프롬프트 n2 → `tools/art/inbox/UN-G1 바위송곳니 대족장.png`
 
 ```
@@ -179,7 +175,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UN-G1 바위송곳니 대족장.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UN-G1-7 · 가르운 약탈왕 — 그림 있음
+### UN-G1-7 · 가르운 약탈왕
 고르바스의 발톱 · 유닛 · 레벨 6 · 유니크 · 틀 `echo` L X `bonemoon` · 프롬프트 n2 → `tools/art/inbox/UN-G1-7 가르운 약탈왕.png`
 
 ```
@@ -192,7 +188,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UN-G1-7 가르운 약탈왕.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UN-G2 · 첫 고목의 가시지기 — 그림 있음
+### UN-G2 · 첫 고목의 가시지기
 베르단의 뿔 · 유닛 · 레벨 6 · 유니크 · 틀 `cut` F B `sporeglow` · 프롬프트 n2 → `tools/art/inbox/UN-G2 첫 고목의 가시지기.png`
 
 ```
@@ -205,7 +201,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UN-G2 첫 고목의 가시지기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UN-G2-7 · 베르단의 씨앗지기 — 그림 있음
+### UN-G2-7 · 베르단의 씨앗지기
 베르단의 뿔 · 유닛 · 레벨 6 · 유니크 · 틀 `silhouette` L L `rainmist` · 프롬프트 n2 → `tools/art/inbox/UN-G2-7 베르단의 씨앗지기.png`
 
 ```
@@ -218,7 +214,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UN-G2-7 베르단의 씨앗지기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UN-G3 · 샘물의 노래꾼 — 그림 있음
+### UN-G3 · 샘물의 노래꾼
 마렌시아의 노래 · 유닛 · 레벨 6 · 유니크 · 틀 `profile` L R `moontide` · 프롬프트 n2 → `tools/art/inbox/UN-G3 샘물의 노래꾼.png`
 
 ```
@@ -231,7 +227,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UN-G3 샘물의 노래꾼.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UN-G3-7 · 마렌시아의 세이렌 — 그림 있음
+### UN-G3-7 · 마렌시아의 세이렌
 마렌시아의 노래 · 유닛 · 레벨 6 · 유니크 · 틀 `pov` F C `lagoon` · 프롬프트 n2 → `tools/art/inbox/UN-G3-7 마렌시아의 세이렌.png`
 
 ```

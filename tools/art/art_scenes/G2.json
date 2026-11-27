@@ -401,9 +401,9 @@
     "light": "Soft silver rain-light from all sides, with grey-green mist swallowing the clearing's edge and small bright glints on wet thorns and arrowheads."
   },
   "SP-G2": {
-    "shot": "top", "dir": "U", "place": "R", "pal": "sporeglow",
-    "scene": "From the height of the moon, a burnt land lies straight below like a map: grey ash dotted with black stumps. Across it runs one line of footprints, each a lake-sized oval packed with full-grown trees and lit pale-lime from within, the oldest spilling forest over their edges. At its head, in the upper right, their maker walks on up the frame, an island of moving canopy veined with silver, and its long shadow on the ash shows what the leaves hide: a tall, slender shape with branching hair. A charred watchtower beside one print is seed-small.",
-    "light": "A waxing moon low on the left throws long shadows across the ash, silver on the walking canopy, while the footprints glow pale-lime and blue-green."
+    "shot": "profile", "dir": "R", "place": "C", "pal": "autumnrot",
+    "scene": "Side view of a burning forest's last fire front. A walking forest in the shape of a tall, slender woman strides to the right into the flames, filling the frame's height: legs of braided trunks, branching hair one moving canopy veined with silver, a mantle of thorned briar. The wall of fire breaks on her charred breast and outstretched arm and dies there. Behind her each footprint is already a lake-sized grove, and above them rests the vast mossy head of an antlered forest dragon, its antlers ancient oaks against a waxing moon. A charred watchtower reaches her ankle.",
+    "light": "Amber firelight from the right on her charred bark; a waxing moon behind the dragon's antlers rims her canopy in silver, and the new groves glow dark leaf-green."
   },
   "SR-G2": {
     "shot": "used", "dir": "L", "place": "R", "pal": "autumnrot",

@@ -406,9 +406,9 @@
     "light": "Rose and peach dusk slants in through the open doors from the left, with deep teal shadow under every peg."
   },
   "SP-A3": {
-    "shot": "tilt", "dir": "N", "place": "X", "pal": "starindigo",
-    "scene": "The sky has been tugged askew: the cloud sea's horizon slants steeply across the frame, and the needle spires along it lean like pins. Above them, spanning the frame from corner to corner, reclines a figure the size of the sky, drawn the way a constellation is drawn: bright points at brow, shoulders, elbows and knees, fine silver lines between, and clear dark wind for flesh. Between its two hands one constellation is half undone; stars slide like beads along a loosened silver thread while the fingers tie them into a new shape.",
-    "light": "Moonless indigo night dense with stars; the loosened thread and the figure's joint-stars shine silver, and teal wind streaks cross its dark body."
+    "shot": "tilt", "dir": "L", "place": "X", "pal": "starindigo",
+    "scene": "The cloud sea's horizon slants steeply and the needle spires along it lean like pins, reaching only to the knee of the archer among them. His body is streaming wind — limbs, long hair and mantle of pale teal and silver gusts, a bright star at brow and shoulders. He stands at full draw, aiming up to the left: his bow is a constellation untied and restrung, stars slid along one taut silver thread, its arrow a shaft of starlight. Behind him the night is a vast hooded robe set with a thousand open eyes, all turned on him.",
+    "light": "Moonless indigo night; the archer's wind-body glows pale teal and silver, the bow and arrow are the brightest lines in the sky, and the thousand eyes shine like stars."
   },
   "SR-A3": {
     "shot": "motion", "dir": "L", "place": "B", "pal": "aurora",

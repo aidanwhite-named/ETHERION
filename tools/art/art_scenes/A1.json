@@ -391,9 +391,9 @@
     "light": "Total eclipse: a thin cold ring of light rims helmet, shoulders and spear while everything else stays black in violet haze."
   },
   "SP-A1": {
-    "shot": "top", "dir": "B", "place": "L", "pal": "violetshade",
-    "scene": "Straight down from high above a canyon city: black roofs, bridges and stairs picked out by violet lamps. Every shadow in it, of towers, bridges and people small as grains, lies stretched toward one point in the left third, like compass needles toward a lodestone. There stands a figure taller than any spire: a body of gathered darkness under a thin crescent crown, face turned down and away, a train of night spilling from her shoulders through the streets like ink. Around her feet lies a ring of bare, bright paving, shadowless.",
-    "light": "Her crescent crown burns pale and the shadowless ring at her feet shines from within, the brightest things in the city; violet lamplight edges roofs and bridges in purple-black gloom."
+    "shot": "high", "dir": "F", "place": "L", "pal": "violetshade",
+    "scene": "Seen from the air, level with her shoulders: in the left third of a canyon city stands a colossal woman of gathered darkness under a thin crescent crown, its black roofs and bridges reaching only to her knees. She walks toward us, away from a faceless crowned shadow enthroned in the canyon's far wall, whose balance scale hangs level, one pan empty and one veiled. Every shadow in the city lies stretched toward her, and the nearest stream up into her raised hand as one long blade of night. Around her feet lies a ring of bright paving, shadowless.",
+    "light": "Her crescent crown burns pale and the shadowless ring at her feet shines from within; violet lamplight edges roofs, bridges, her dark outline and the rim of the throne behind."
   },
   "SR-A1": {
     "shot": "shrine", "dir": "R", "place": "L", "pal": "frostindigo",

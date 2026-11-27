@@ -19,8 +19,7 @@
      tools/art/prompts/grades/<등급>.md    등급별 · tools/art/prompts/cards/<깃발>.md 깃발별 (사람이 붙여 넣는 용)
      tools/art/prompts/ui.jsonl · ui.md    전장 그림 (ui_assets.json을 펼친 것)
      tools/art/PROMPT_GUIDE.md             <!-- AUTO:… --> 칸만 새로 채운다
-   새 카드를 만들었으면: node tools/art/scene_tool.js todo → 장면을 쓰고 → lint → 이 파일.
-   그리는 차례: 그림 없는 카드(art_style.json drawOrder 순) → 다시 그리기(장부 art_map.csv 상태 "다시") → 그림 있는 카드. */
+   새 카드를 만들었으면: node tools/art/scene_tool.js todo → 장면을 쓰고 → lint → 이 파일. */
 "use strict";
 const fs = require("fs"), path = require("path"), vm = require("vm");
 
@@ -47,7 +46,7 @@ function loadGame() {
   return ctx.__o;
 }
 
-/* ---------- 2. 장면 · 옛 프롬프트 · 장부 ---------- */
+/* ---------- 2. 장면 · 옛 프롬프트 ---------- */
 function loadScenes() {
   const dir = path.join(__dirname, "art_scenes"), all = {};
   if (!fs.existsSync(dir)) return all;
@@ -63,33 +62,8 @@ function loadLegacy() {
   for (const line of fs.readFileSync(p, "utf8").split("\n")) if (line.trim()) { const j = JSON.parse(line); M[j.id] = j; }
   return M;
 }
-function loadArtMap() {   // 장부 art_map.csv (상태 · 메모) — 작은 CSV 읽기
-  const p = path.join(__dirname, "art_map.csv");
-  if (!fs.existsSync(p)) return {};
-  const txt = fs.readFileSync(p, "utf8").replace(/^﻿/, ""), rows = [];
-  let row = [], cell = "", q = false;
-  for (let i = 0; i < txt.length; i++) {
-    const ch = txt[i];
-    if (q) { if (ch === '"') { if (txt[i + 1] === '"') { cell += '"'; i++; } else q = false; } else cell += ch; }
-    else if (ch === '"') q = true;
-    else if (ch === ",") { row.push(cell); cell = ""; }
-    else if (ch === "\n" || ch === "\r") { if (ch === "\r" && txt[i + 1] === "\n") i++; row.push(cell); rows.push(row); row = []; cell = ""; }
-    else cell += ch;
-  }
-  if (cell || row.length) { row.push(cell); rows.push(row); }
-  const head = rows.shift() || [], M = {};
-  for (const r of rows) { const o = {}; head.forEach((h, k) => o[h] = r[k] || ""); if (o.card_id) M[o.card_id] = o; }
-  return M;
-}
-const SCENES = loadScenes(), OLD = loadLegacy(), ART_MAP = loadArtMap();
+const SCENES = loadScenes(), OLD = loadLegacy();
 const hasArt = id => ["jpg", "png", "webp"].some(x => fs.existsSync(path.join(ROOT, "img", "cards", `${id}.${x}`)));
-const artState = id => !hasArt(id) ? "new" : (ART_MAP[id] && ART_MAP[id].status === "다시") ? "redo" : "have";   // new 먼저 · redo 다시 그리기 · have 그리지 않음
-const ART_RANK = { new: 0, redo: 1, have: 2 };
-const ART_SECTION = {
-  new: "## 1. 그림 없는 카드 — 먼저 그린다{n}",
-  redo: "## 2. 다시 그리기{n}\n\n> 이미 그림이 있어 게임은 그대로 돌아간다. 1번을 다 그린 뒤 그린다.",
-  have: "## 3. 그림 있음 — 그리지 않는다 (참고용){n}"
-};
 
 /* ---------- 3. 카드 → 프롬프트 ---------- */
 const isToken = c => /^T[KS]-/.test(c.id);
@@ -178,11 +152,9 @@ function fillGuide(B) {
 
 /* ---------- 6. 쓰기 ---------- */
 function cardMd(j) {
-  const note = ((ART_MAP[j.id] || {}).note || "").trim();
-  const st = j.art === "redo" ? ` — **다시 그리기**${note ? `: ${note}` : ""}` : j.art === "have" ? " — 그림 있음" : "";
   const frame = j.shot ? ` · 틀 \`${j.shot}\` ${j.dir || ""} ${j.place || ""} \`${j.pal || ""}\`` : "";
   const base = j.base ? ` · 원래 카드 \`${j.base}\`${j.refs ? " (그 그림을 함께 넣기)" : " — 원래 카드 그림이 아직 없다: 원래 카드를 먼저 그리고 같은 대화에서 이어 그리면 가장 닮는다(그 뒤 다시 만들면 참조 줄로 바뀐다)"}` : "";
-  return [`### ${j.id} · ${j.name}${st}`,
+  return [`### ${j.id} · ${j.name}`,
     `${S.flags[j.group] ? S.flags[j.group].ko : j.group} · ${TYPE_KO[j.type] || j.type} · 레벨 ${j.lv} · ${S.grades[j.grade].ko}${frame}${base} · 프롬프트 ${j.prompt_ver} → \`tools/art/inbox/${fileNameOf(j)}\``, "",
     ...(j.prompt ? ["```", j.prompt, "```"] : [`> **${j.todo}** — \`node tools/art/scene_tool.js todo ${j.group}\` 로 자료를 보고 \`tools/art/art_scenes/${j.group}.json\`에 장면을 쓴다.`]), ""].join("\n");
 }
@@ -201,40 +173,29 @@ function main() {
     if (c.base) { job.base = c.base; if (hasArt(c.base)) job.refs = [`img/cards/${c.base}.jpg`]; }
     if (sc && !LEGACY.has(job.grade)) { job.shot = sc.shot; job.dir = sc.dir; job.place = sc.place; job.pal = sc.pal; }
     if (P.todo) job.todo = P.todo;
-    job.art = artState(id);
     job.prompt = P.prompt;
     if (P.prompt) job.save_as = fileNameOf(c);   // 프롬프트 맨 끝 줄이 알려 주는 파일 이름(gen.py는 이 줄을 빼고 보낸다)
     jobs.push(job);
     (byGroup[c.group] = byGroup[c.group] || []).push(job);
     (byGrade[job.grade] = byGrade[job.grade] || []).push(job);
   }
-  const DRAW = S.drawOrder, drawRank = g => { const i = DRAW.indexOf(g); return i < 0 ? 99 : i; };
-  const artOrder = (a, b) => ART_RANK[a.art] - ART_RANK[b.art];
-  const sections = (list, inner) => {
-    const out = [];
-    for (const st of ["new", "redo", "have"]) {
-      const part = list.filter(j => j.art === st).sort(inner);
-      if (part.length) out.push(ART_SECTION[st].replace("{n}", ` · ${part.length}장`), "", ...part.map(cardMd));
-    }
-    return out;
-  };
-  const ORDER_NOTE = `**그리는 차례**: 1 그림 없는 카드(${DRAW.map(g => S.grades[g].ko).join(" → ")}) → 2 다시 그리기(장부 \`art_map.csv\` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(같은 개체 · 장소 · 배색, 다른 시점 · 새 구도 — 섬네일로 나란히 놓아 같은 개체이면서 한눈에 더 강한 다른 그림으로 읽히는지 본다).`;
+  const gradeRank = g => { const i = S.gradeOrder.indexOf(g); return i < 0 ? 99 : i; };
   const HOW = "카드 하나의 ``` 안 글만 그림 AI에 붙여 넣는다(카드마다 새 대화). 프롬프트 맨 끝 줄이 파일 이름(`<카드ID> <카드 이름>.png`)을 알려 준다 — 나온 그림(가로 5:4)을 그 이름으로 `tools/art/inbox/`에 두고(이름이 달라도 카드 ID만 앞에 있으면 된다) → `python3 tools/art/artmap.py import`.";
-  fs.writeFileSync(path.join(OUT, "cards.jsonl"), jobs.slice().sort((a, b) => artOrder(a, b) || drawRank(a.grade) - drawRank(b.grade) || a.id.localeCompare(b.id)).map(j => JSON.stringify(j)).join("\n") + "\n");
+  fs.writeFileSync(path.join(OUT, "cards.jsonl"), jobs.map(j => JSON.stringify(j)).join("\n") + "\n");
 
   for (const g of Object.keys(byGroup).sort()) {
     const F = S.flags[g] || {};
     fs.writeFileSync(path.join(OUT, "cards", g + ".md"), [`# ${g} ${F.ko || ""} — 카드 일러스트 프롬프트 (${byGroup[g].length}장, ${S.version})`, "",
-      HOW, "이 파일은 `node tools/art/build_prompts.js`가 만든다 — 손으로 고치지 않는다(장면은 `tools/art/art_scenes/" + g + ".json`, 규칙은 `tools/art/PROMPT_GUIDE.md`).", "", ORDER_NOTE, "",
-      ...sections(byGroup[g], (a, b) => drawRank(a.grade) - drawRank(b.grade) || a.id.localeCompare(b.id))].join("\n"));
+      HOW, "이 파일은 `node tools/art/build_prompts.js`가 만든다 — 손으로 고치지 않는다(장면은 `tools/art/art_scenes/" + g + ".json`, 규칙은 `tools/art/PROMPT_GUIDE.md`).", "",
+      ...byGroup[g].slice().sort((a, b) => gradeRank(a.grade) - gradeRank(b.grade) || a.id.localeCompare(b.id)).map(cardMd)].join("\n"));
   }
   for (const g of S.gradeOrder) {
     const list = byGrade[g]; if (!list) continue;
     const G = S.grades[g];
     fs.writeFileSync(path.join(OUT, "grades", g + ".md"), [`# ${G.ko} (${G.en}) — 카드 일러스트 프롬프트 (${list.length}장, ${G.legacy ? "옛 " + S.legacyVersion : S.version})`, "",
       `> ${G.idea_ko}`, "", ...(G.finish ? [`등급 줄(모든 ${G.ko} 프롬프트에 들어 있다): \`${G.finish}\``, ""] : []),
-      HOW, "", ORDER_NOTE, "",
-      ...sections(list, (a, b) => a.group.localeCompare(b.group) || a.lv - b.lv || a.id.localeCompare(b.id))].join("\n"));
+      HOW, "",
+      ...list.slice().sort((a, b) => a.group.localeCompare(b.group) || a.lv - b.lv || a.id.localeCompare(b.id)).map(cardMd)].join("\n"));
   }
 
   const ui = loadUI();
@@ -252,7 +213,5 @@ function main() {
   if (wc.length) console.log(`새 프롬프트 ${wc.length}장 · 평균 ${Math.round(wc.reduce((a, b) => a + b, 0) / wc.length)}단어 (가장 긴 것 ${Math.max(...wc)})`);
   const miss = jobs.filter(j => j.todo);
   if (miss.length) console.log(`※ 프롬프트가 없는 카드 ${miss.length}장 (node tools/art/scene_tool.js todo): ${miss.slice(0, 40).map(j => j.id).join(", ")}${miss.length > 40 ? " …" : ""}`);
-  const redo = jobs.filter(j => j.art === "redo");
-  console.log(`그릴 차례: 그림 없음 ${jobs.filter(j => j.art === "new").length}장${redo.length ? ` → 다시 그리기 ${redo.length}장(${redo.map(j => j.id).join(", ")})` : ""} · 그림 있음 ${jobs.filter(j => j.art === "have").length}장`);
 }
 main();

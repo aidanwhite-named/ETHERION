@@ -366,13 +366,13 @@
     "light": "Slate storm cloud and flying spray overhead; the column is the one pale source, silvering the flat lane and the wet back of the walking figure."
   },
   "SP-G3": {
-    "shot": "swarm", "dir": "N", "place": "T", "pal": "trench",
-    "scene": "Deep in the open sea the whole frame is hung with sleepers: sperm whales standing upright like grey pillars, slack-finned sharks, turtles, furled shoals — hundreds of bodies, edge to edge, all asleep and all tilted toward one place. Along the top the surface glows where a being of clear water leans down through it, a calm face, joined hands and hair as long as rivers, each whale the size of one of her fingers. From her lips pale rings sink through the sleepers into the dark, where one long curve far below is a closed eyelid.",
-    "light": "Navy-black depth lit only by the water-blue glow of her body at the surface and the pale sinking rings, with small cold glints on the sleepers' backs."
+    "shot": "under", "dir": "D", "place": "T", "pal": "trench",
+    "scene": "Deep under the sea, looking up past one dark curve — the eyelid of a sunken giant, wide as a reef, parted on a slit of dull red. Above it a being of clear, glowing water fills the frame: a calm face, hair as long as rivers, and two open hands pressing the lid closed, each finger as large as the sperm whales asleep between them. Her body pours like a sung note from the jaws of a translucent sea dragon coiled across the top. From her lips pale rings sink one inside another onto the lid.",
+    "light": "Navy-black depth lit by the water-blue glow of her body and the dragon's pale outline, with one dull red line at the eyelid and cold glints on the sleepers' backs."
   },
   "SR-G3": {
     "shot": "macro", "dir": "R", "place": "T", "pal": "moontide",
-    "scene": "Extreme close-up of a chalice's rim across the top of the frame: a lip of pearl nacre clasped by tiny pale coral branches. The water in it — one single tear, too large for the cup — stands above the lip in a trembling curve and keeps its own tide: a line of hair-fine white breakers runs around the rim toward the right, where one bright thread has just spilled over and slides down the bowl. Below, out of focus, it crosses a sea-stone altar scored by old blade marks and turns into the deepest first.",
+    "scene": "Extreme close-up of a chalice's rim across the top of the frame: a lip of pearl nacre clasped by tiny pale coral branches. The water in it — one single tear, too large for the cup — stands above the lip in a trembling curve and keeps its own tide: a line of hair-fine white breakers runs around the rim toward the right, where one bright thread has just spilled over and slides down the bowl. Below, out of focus, the thread runs across a sea-stone altar scored by old blade marks and pools in the deepest cut.",
     "light": "Silver-blue moonlight from behind and above shines through the standing water and pale mist, and each tiny breaker and the spilled thread carries a white glint."
   }
 }

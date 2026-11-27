@@ -42,7 +42,7 @@ def target_size(w, h):
 JPG_Q = 82
 COLS = ["card_id", "name", "grade", "grade_ko", "group", "type", "lv", "base", "status", "image",
         "art_ver", "prompt_ver", "source_file", "model", "added", "note"]
-HUMAN_STATUS = {"채택", "다시"}
+HUMAN_STATUS = {"채택"}
 
 try:
     from PIL import Image
@@ -71,7 +71,7 @@ def load_map():
 
 
 def save_map(rows):
-    draw = STYLE_DATA.get("drawOrder") or list(reversed(STYLE_DATA.get("gradeOrder", [])))
+    draw = list(reversed(STYLE_DATA.get("gradeOrder", [])))
     order = {g: i for i, g in enumerate(draw)}
     data = sorted(rows.values(), key=lambda r: (r["status"] == "빠진 카드", order.get(r["grade"], 99), r["group"], r["card_id"]))
     try:
@@ -123,7 +123,7 @@ def refresh(rows, jobs):
         if img:
             r["status"] = st if st in HUMAN_STATUS else "들어감"
         else:
-            r["status"] = "다시" if st == "다시" else "없음"
+            r["status"] = "없음"
         rows[cid] = r
     for cid, r in rows.items():
         if cid not in live:
@@ -209,7 +209,7 @@ def record(rows, jobs_by_id, cid, src_name, model):
     r["art_ver"] = jobs_by_id.get(cid, {}).get("prompt_ver", "")
     if model:
         r["model"] = model
-    if r.get("status") in ("다시", "채택"):
+    if r.get("status") == "채택":
         r["status"] = "들어감"
     rows[cid] = r
 
@@ -289,7 +289,7 @@ main{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:
 .thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .thumb .ph{color:var(--dim);font-size:12px;text-align:center;padding:8px}
 .badge{position:absolute;top:6px;right:6px;font-size:11px;padding:1px 7px;border-radius:999px;background:rgba(0,0,0,.7);border:1px solid var(--line)}
-.st-없음{color:#9a958a}.st-들어감{color:var(--ether);border-color:var(--ether)!important}.st-채택{color:#8fe3a0;border-color:#8fe3a0!important}.st-다시{color:#ff9b86;border-color:#ff9b86!important}
+.st-없음{color:#9a958a}.st-들어감{color:var(--ether);border-color:var(--ether)!important}.st-채택{color:#8fe3a0;border-color:#8fe3a0!important}
 .old{position:absolute;top:6px;left:6px;font-size:10px;padding:1px 6px;border-radius:4px;background:#3a2412;color:#ffcf8a}
 .meta{padding:8px 9px;display:flex;flex-direction:column;gap:3px;flex:1}
 .nm{color:var(--gold-hi);font-weight:700}.sub{color:var(--dim);font-size:12px}
@@ -308,12 +308,11 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
 </style></head><body>
 <header>
 <h1>ETHERION 일러스트 보드<small id="sum"></small></h1>
-<p style="margin:4px 0 8px;font-size:12px;color:#c9b98a">그리는 차례: 그림 없는 카드(유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물) 먼저 → <b style="color:#ff9b86">다시</b>(다시 그리기)</p>
 <div class="prog" id="prog"></div>
 <div class="bar">
 <select id="fg"><option value="">모든 깃발</option></select>
 <select id="ft"><option value="">모든 종류</option><option value="unit">유닛</option><option value="atk">공격 마법</option><option value="def">방어 마법</option><option value="any">공용 마법</option><option value="hand">핸드 마법</option><option value="item">아이템</option></select>
-<select id="fs"><option value="">모든 상태</option><option>없음</option><option>들어감</option><option>채택</option><option>다시</option></select>
+<select id="fs"><option value="">모든 상태</option><option>없음</option><option>들어감</option><option>채택</option></select>
 <input type="search" id="q" placeholder="카드 ID · 이름 찾기">
 </div></header>
 <main id="grid"></main>
@@ -330,16 +329,15 @@ for (const [id,f] of Object.entries(D.flags)) $("#fg").insertAdjacentHTML("befor
 ["fg","ft","fs","q"].forEach(k=>{ $("#"+k).value = grab(k); $("#"+k).addEventListener("input",()=>{stash(k,$("#"+k).value);draw()}); });
 function prog(){
   const by={}; for(const r of D.rows){ if(r.status==="빠진 카드")continue; const g=by[r.grade]=by[r.grade]||{n:0,a:0}; g.n++; if(r.image)g.a++; }
-  $("#prog").innerHTML = (D.drawOrder || D.order.slice().reverse()).filter(g=>by[g]).map(g=>{const G=D.grades[g]||{};const b=by[g];
+  $("#prog").innerHTML = D.order.slice().reverse().filter(g=>by[g]).map(g=>{const G=D.grades[g]||{};const b=by[g];
     return `<button class="chip${gradeOn.has(g)?" on":""}" style="--c:${G.color}" data-g="${g}">${G.ko} <b>${b.a}</b>/${b.n}</button>`}).join("");
   $("#prog").querySelectorAll(".chip").forEach(el=>el.onclick=()=>{const g=el.dataset.g; gradeOn.has(g)?gradeOn.delete(g):gradeOn.add(g); draw();});
   const all=D.rows.filter(r=>r.status!=="빠진 카드"); $("#sum").textContent = `그림 ${all.filter(r=>r.image).length} / ${all.length}장 · 프롬프트 ${D.ver} · ${D.made}`;
 }
 function rowsNow(){
   const fg=$("#fg").value, ft=$("#ft").value, fs=$("#fs").value, q=$("#q").value.trim().toLowerCase();
-  const drawOrd=g=>{const a=D.drawOrder||D.order.slice().reverse();const i=a.indexOf(g);return i<0?99:i;};
-  /* 그리는 차례: 그림 없음(유니크 → 에픽 → 레어 → 강화 → 고급 → 일반 → 소환물) 먼저 → 다시 → 그림 있음 */
-  const stRank=r=>r.status==="없음"?0:r.status==="다시"?1:2;
+  const drawOrd=g=>{const a=D.order.slice().reverse();const i=a.indexOf(g);return i<0?99:i;};
+  const stRank=r=>r.status==="없음"?0:1;
   return D.rows.filter(r=>r.status!=="빠진 카드" && (!gradeOn.size||gradeOn.has(r.grade)) && (!fg||r.group===fg) && (!ft||r.type===ft) && (!fs||r.status===fs)
     && (!q || r.card_id.toLowerCase().includes(q) || r.name.toLowerCase().includes(q)))
     .sort((a,b)=>stRank(a)-stRank(b) || drawOrd(a.grade)-drawOrd(b.grade) || a.group.localeCompare(b.group) || (+a.lv)-(+b.lv) || a.card_id.localeCompare(b.card_id));
@@ -389,7 +387,7 @@ def write_board(rows, jobs):
              for k, v in S.get("flags", {}).items()}
     grades = {k: {"ko": v.get("ko", ""), "color": v.get("color", "#888")} for k, v in S.get("grades", {}).items()}
     data = {"rows": out, "prompts": {j["id"]: j.get("prompt", "") for j in jobs}, "flags": flags, "grades": grades,
-            "order": S.get("gradeOrder", []), "drawOrder": S.get("drawOrder", []), "ver": S.get("version", ""), "made": time.strftime("%Y-%m-%d %H:%M")}
+            "order": S.get("gradeOrder", []), "ver": S.get("version", ""), "made": time.strftime("%Y-%m-%d %H:%M")}
     js = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     BOARD.write_text(BOARD_HTML.replace("__DATA__", js), encoding="utf-8")
 

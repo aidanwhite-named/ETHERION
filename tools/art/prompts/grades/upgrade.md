@@ -6,11 +6,7 @@
 
 카드 하나의 ``` 안 글만 그림 AI에 붙여 넣는다(카드마다 새 대화). 프롬프트 맨 끝 줄이 파일 이름(`<카드ID> <카드 이름>.png`)을 알려 준다 — 나온 그림(가로 5:4)을 그 이름으로 `tools/art/inbox/`에 두고(이름이 달라도 카드 ID만 앞에 있으면 된다) → `python3 tools/art/artmap.py import`.
 
-**그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(같은 개체 · 장소 · 배색, 다른 시점 · 새 구도 — 섬네일로 나란히 놓아 같은 개체이면서 한눈에 더 강한 다른 그림으로 읽히는지 본다).
-
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 40장
-
-### UP-A1-09 · 모르크 거미 여왕 — 그림 있음
+### UP-A1-09 · 모르크 거미 여왕
 모르카스의 그믐 · 유닛 · 레벨 3 · 강화 · 틀 `low` F C `eclipse` · 원래 카드 `A1-09` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-A1-09 모르크 거미 여왕.png`
 
 ```
@@ -24,7 +20,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-A1-09 모르크 거미 여왕.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-A1-11 · 계약단 쥐 선봉장 — 그림 있음
+### UP-A1-11 · 계약단 쥐 선봉장
 모르카스의 그믐 · 유닛 · 레벨 3 · 강화 · 틀 `low` F C `violetshade` · 원래 카드 `A1-11` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-A1-11 계약단 쥐 선봉장.png`
 
 ```
@@ -38,7 +34,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-A1-11 계약단 쥐 선봉장.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-A1-15 · 피를 마시는 마검 — 그림 있음
+### UP-A1-15 · 피를 마시는 마검
 모르카스의 그믐 · 유닛 · 레벨 4 · 강화 · 틀 `tilt` R C `frostindigo` · 원래 카드 `A1-15` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-A1-15 피를 마시는 마검.png`
 
 ```
@@ -52,7 +48,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-A1-15 피를 마시는 마검.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-A1-18 · 그림자 학살자 — 그림 있음
+### UP-A1-18 · 그림자 학살자
 모르카스의 그믐 · 유닛 · 레벨 4 · 강화 · 틀 `front` F C `bonepale` · 원래 카드 `A1-18` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-A1-18 그림자 학살자.png`
 
 ```
@@ -66,7 +62,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-A1-18 그림자 학살자.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-A1-23 · 대낫 사신 — 그림 있음
+### UP-A1-23 · 대낫 사신
 모르카스의 그믐 · 유닛 · 레벨 5 · 강화 · 틀 `low` L C `bloodink` · 원래 카드 `A1-23` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-A1-23 대낫 사신.png`
 
 ```
@@ -80,7 +76,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-A1-23 대낫 사신.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-A2-11 · 창뿔 유니콘 — 그림 있음
+### UP-A2-11 · 창뿔 유니콘
 솔란테의 새벽 · 유닛 · 레벨 3 · 강화 · 틀 `profile` R L `vigil` · 원래 카드 `A2-11` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-A2-11 창뿔 유니콘.png`
 
 ```
@@ -94,7 +90,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-A2-11 창뿔 유니콘.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-A2-15 · 솔란테의 서약 기사 — 그림 있음
+### UP-A2-15 · 솔란테의 서약 기사
 솔란테의 새벽 · 유닛 · 레벨 4 · 강화 · 틀 `low` L R `rosedawn` · 원래 카드 `A2-15` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-A2-15 솔란테의 서약 기사.png`
 
 ```
@@ -108,7 +104,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-A2-15 솔란테의 서약 기사.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-A2-17 · 황금 스핑크스 — 그림 있음
+### UP-A2-17 · 황금 스핑크스
 솔란테의 새벽 · 유닛 · 레벨 4 · 강화 · 틀 `front` F C `whitegold` · 원래 카드 `A2-17` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-A2-17 황금 스핑크스.png`
 
 ```
@@ -122,7 +118,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-A2-17 황금 스핑크스.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-A2-22 · 솔란테의 대성종 — 그림 있음
+### UP-A2-22 · 솔란테의 대성종
 솔란테의 새벽 · 유닛 · 레벨 5 · 강화 · 틀 `far` F T `firstlight` · 원래 카드 `A2-22` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-A2-22 솔란테의 대성종.png`
 
 ```
@@ -136,7 +132,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-A2-22 솔란테의 대성종.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-A2-24 · 빛의 대거울 — 그림 있음
+### UP-A2-24 · 빛의 대거울
 솔란테의 새벽 · 유닛 · 레벨 5 · 강화 · 틀 `low` F C `rosedawn` · 원래 카드 `A2-24` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-A2-24 빛의 대거울.png`
 
 ```
@@ -150,7 +146,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-A2-24 빛의 대거울.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-A3-10 · 속사 하피 — 그림 있음
+### UP-A3-10 · 속사 하피
 벨루미르의 별 · 유닛 · 레벨 3 · 강화 · 틀 `low` F C `moonsilver` · 원래 카드 `A3-10` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-A3-10 속사 하피.png`
 
 ```
@@ -164,7 +160,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-A3-10 속사 하피.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-A3-11 · 질풍 그리핀 — 그림 있음
+### UP-A3-11 · 질풍 그리핀
 벨루미르의 별 · 유닛 · 레벨 3 · 강화 · 틀 `profile` R C `thinair` · 원래 카드 `A3-11` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-A3-11 질풍 그리핀.png`
 
 ```
@@ -178,7 +174,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-A3-11 질풍 그리핀.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-A3-18 · 쌍둥이자리 궁수장 — 그림 있음
+### UP-A3-18 · 쌍둥이자리 궁수장
 벨루미르의 별 · 유닛 · 레벨 4 · 강화 · 틀 `profile` R L `starindigo` · 원래 카드 `A3-18` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-A3-18 쌍둥이자리 궁수장.png`
 
 ```
@@ -192,7 +188,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-A3-18 쌍둥이자리 궁수장.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-A3-23 · 별여우 순찰대장 — 그림 있음
+### UP-A3-23 · 별여우 순찰대장
 벨루미르의 별 · 유닛 · 레벨 5 · 강화 · 틀 `eye` L R `moonsilver` · 원래 카드 `A3-23` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-A3-23 별여우 순찰대장.png`
 
 ```
@@ -206,7 +202,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-A3-23 별여우 순찰대장.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-A3-24 · 번개 텐구 대장 — 그림 있음
+### UP-A3-24 · 번개 텐구 대장
 벨루미르의 별 · 유닛 · 레벨 5 · 강화 · 틀 `back` B C `stormcloud` · 원래 카드 `A3-24` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-A3-24 번개 텐구 대장.png`
 
 ```
@@ -220,7 +216,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-A3-24 번개 텐구 대장.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-B1-12 · 폭약 공병장 — 그림 있음
+### UP-B1-12 · 폭약 공병장
 도르마크의 심장불 · 유닛 · 레벨 3 · 강화 · 틀 `close` L R `whitehot` · 원래 카드 `B1-12` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B1-12 폭약 공병장.png`
 
 ```
@@ -234,7 +230,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-B1-12 폭약 공병장.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-B1-17 · 거포 거북 — 그림 있음
+### UP-B1-17 · 거포 거북
 도르마크의 심장불 · 유닛 · 레벨 4 · 강화 · 틀 `low` F C `ashfall` · 원래 카드 `B1-17` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B1-17 거포 거북.png`
 
 ```
@@ -248,7 +244,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-B1-17 거포 거북.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-B1-18 · 불개미 철벽대 — 그림 있음
+### UP-B1-18 · 불개미 철벽대
 도르마크의 심장불 · 유닛 · 레벨 4 · 강화 · 틀 `eye` F X `ember` · 원래 카드 `B1-18` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B1-18 불개미 철벽대.png`
 
 ```
@@ -262,7 +258,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-B1-18 불개미 철벽대.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-B1-24 · 박격포 명사수 — 그림 있음
+### UP-B1-24 · 박격포 명사수
 도르마크의 심장불 · 유닛 · 레벨 5 · 강화 · 틀 `over` R L `ashfall` · 원래 카드 `B1-24` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B1-24 박격포 명사수.png`
 
 ```
@@ -276,7 +272,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-B1-24 박격포 명사수.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-B2-12 · 단조 명장 — 그림 있음
+### UP-B2-12 · 단조 명장
 소르그림의 방패 · 유닛 · 레벨 3 · 강화 · 틀 `low` R C `forgeheart` · 원래 카드 `B2-12` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B2-12 단조 명장.png`
 
 ```
@@ -290,7 +286,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-B2-12 단조 명장.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-B2-17 · 무쇠뿔 산양왕 — 그림 있음
+### UP-B2-17 · 무쇠뿔 산양왕
 소르그림의 방패 · 유닛 · 레벨 4 · 강화 · 틀 `low` F C `coldsteel` · 원래 카드 `B2-17` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B2-17 무쇠뿔 산양왕.png`
 
 ```
@@ -304,7 +300,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-B2-17 무쇠뿔 산양왕.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-B2-18 · 증기 황소 우두머리 — 그림 있음
+### UP-B2-18 · 증기 황소 우두머리
 소르그림의 방패 · 유닛 · 레벨 4 · 강화 · 틀 `ground` F C `lamplit` · 원래 카드 `B2-18` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B2-18 증기 황소 우두머리.png`
 
 ```
@@ -318,7 +314,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-B2-18 증기 황소 우두머리.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-B2-22 · 쇠 먹는 불가사리 왕 — 그림 있음
+### UP-B2-22 · 쇠 먹는 불가사리 왕
 소르그림의 방패 · 유닛 · 레벨 5 · 강화 · 틀 `low` L C `lamplit` · 원래 카드 `B2-22` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B2-22 쇠 먹는 불가사리 왕.png`
 
 ```
@@ -332,7 +328,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-B2-22 쇠 먹는 불가사리 왕.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-B2-24 · 철골 가고일 수문장 — 그림 있음
+### UP-B2-24 · 철골 가고일 수문장
 소르그림의 방패 · 유닛 · 레벨 5 · 강화 · 틀 `low` F T `snowlight` · 원래 카드 `B2-24` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B2-24 철골 가고일 수문장.png`
 
 ```
@@ -346,7 +342,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-B2-24 철골 가고일 수문장.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-B3-12 · 방전 요정 여왕 — 그림 있음
+### UP-B3-12 · 방전 요정 여왕
 케라운의 벼락 · 유닛 · 레벨 3 · 강화 · 틀 `close` F C `flash` · 원래 카드 `B3-12` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B3-12 방전 요정 여왕.png`
 
 ```
@@ -360,7 +356,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-B3-12 방전 요정 여왕.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-B3-18 · 안경원숭이 수석공학자 — 그림 있음
+### UP-B3-18 · 안경원숭이 수석공학자
 케라운의 벼락 · 유닛 · 레벨 4 · 강화 · 틀 `high` L R `wetglass` · 원래 카드 `B3-18` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B3-18 안경원숭이 수석공학자.png`
 
 ```
@@ -374,7 +370,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-B3-18 안경원숭이 수석공학자.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-B3-22 · 전격 수호거상 — 그림 있음
+### UP-B3-22 · 전격 수호거상
 케라운의 벼락 · 유닛 · 레벨 5 · 강화 · 틀 `low` F C `cobalt` · 원래 카드 `B3-22` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B3-22 전격 수호거상.png`
 
 ```
@@ -388,7 +384,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-B3-22 전격 수호거상.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-B3-23 · 병 속의 원로교수 두뇌 — 그림 있음
+### UP-B3-23 · 병 속의 원로교수 두뇌
 케라운의 벼락 · 유닛 · 레벨 5 · 강화 · 틀 `front` F C `copperlab` · 원래 카드 `B3-23` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B3-23 병 속의 원로교수 두뇌.png`
 
 ```
@@ -402,7 +398,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-B3-23 병 속의 원로교수 두뇌.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-PN-B3-C2 · 길들인 축전기 — 그림 있음
+### UP-PN-B3-C2 · 길들인 축전기
 케라운의 벼락 · 유닛 · 레벨 5 · 강화 · 틀 `high` L C `flash` · 원래 카드 `PN-B3-C2` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-PN-B3-C2 길들인 축전기.png`
 
 ```
@@ -416,7 +412,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-PN-B3-C2 길들인 축전기.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-G1-11 · 흑요 창술사 — 그림 있음
+### UP-G1-11 · 흑요 창술사
 고르바스의 발톱 · 유닛 · 레벨 3 · 강화 · 틀 `low` R L `firelit` · 원래 카드 `G1-11` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G1-11 흑요 창술사.png`
 
 ```
@@ -430,7 +426,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-G1-11 흑요 창술사.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-G1-18 · 오우거 대주술사 — 그림 있음
+### UP-G1-18 · 오우거 대주술사
 고르바스의 발톱 · 유닛 · 레벨 4 · 강화 · 틀 `low` F C `strawgold` · 원래 카드 `G1-18` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G1-18 오우거 대주술사.png`
 
 ```
@@ -444,7 +440,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-G1-18 오우거 대주술사.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-G1-24 · 하이에나 대무리장 — 그림 있음
+### UP-G1-24 · 하이에나 대무리장
 고르바스의 발톱 · 유닛 · 레벨 5 · 강화 · 틀 `high` F C `firelit` · 원래 카드 `G1-24` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G1-24 하이에나 대무리장.png`
 
 ```
@@ -458,7 +454,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-G1-24 하이에나 대무리장.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-G2-17 · 두꺼비 대주술사 — 그림 있음
+### UP-G2-17 · 두꺼비 대주술사
 베르단의 뿔 · 유닛 · 레벨 4 · 강화 · 틀 `low` F C `sporeglow` · 원래 카드 `G2-17` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G2-17 두꺼비 대주술사.png`
 
 ```
@@ -472,7 +468,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-G2-17 두꺼비 대주술사.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-G2-22 · 맨드레이크 수문장 — 그림 있음
+### UP-G2-22 · 맨드레이크 수문장
 베르단의 뿔 · 유닛 · 레벨 5 · 강화 · 틀 `front` F C `sporeglow` · 원래 카드 `G2-22` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G2-22 맨드레이크 수문장.png`
 
 ```
@@ -486,7 +482,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-G2-22 맨드레이크 수문장.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-G2-23 · 드리엔의 대사도 — 그림 있음
+### UP-G2-23 · 드리엔의 대사도
 베르단의 뿔 · 유닛 · 레벨 5 · 강화 · 틀 `eye` L C `thorndark` · 원래 카드 `G2-23` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G2-23 드리엔의 대사도.png`
 
 ```
@@ -500,7 +496,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-G2-23 드리엔의 대사도.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-G3-11 · 조수 예언 문어 — 그림 있음
+### UP-G3-11 · 조수 예언 문어
 마렌시아의 노래 · 유닛 · 레벨 3 · 강화 · 틀 `low` F C `stormsea` · 원래 카드 `G3-11` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G3-11 조수 예언 문어.png`
 
 ```
@@ -514,7 +510,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-G3-11 조수 예언 문어.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-G3-12 · 산호등 대거북 — 그림 있음
+### UP-G3-12 · 산호등 대거북
 마렌시아의 노래 · 유닛 · 레벨 3 · 강화 · 틀 `high` R C `lagoon` · 원래 카드 `G3-12` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G3-12 산호등 대거북.png`
 
 ```
@@ -528,7 +524,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-G3-12 산호등 대거북.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-G3-17 · 석호 대치유 듀공 — 그림 있음
+### UP-G3-17 · 석호 대치유 듀공
 마렌시아의 노래 · 유닛 · 레벨 4 · 강화 · 틀 `close` L C `moontide` · 원래 카드 `G3-17` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G3-17 석호 대치유 듀공.png`
 
 ```
@@ -542,7 +538,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-G3-17 석호 대치유 듀공.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-G3-18 · 물기둥 산호 조율사 — 그림 있음
+### UP-G3-18 · 물기둥 산호 조율사
 마렌시아의 노래 · 유닛 · 레벨 4 · 강화 · 틀 `back` B C `coraldawn` · 원래 카드 `G3-18` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G3-18 물기둥 산호 조율사.png`
 
 ```
@@ -556,7 +552,7 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-G3-18 물기둥 산호 조율사.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UP-G3-24 · 검은 갈기 켈피 — 그림 있음
+### UP-G3-24 · 검은 갈기 켈피
 마렌시아의 노래 · 유닛 · 레벨 5 · 강화 · 틀 `low` F C `trench` · 원래 카드 `G3-24` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-G3-24 검은 갈기 켈피.png`
 
 ```

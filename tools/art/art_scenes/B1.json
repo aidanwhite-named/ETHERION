@@ -361,9 +361,9 @@
     "light": "Black smoke-filled sky; the ember-crusted blade is the light source, blinding yellow-white along its edge and sinking to crimson on the helmets beneath."
   },
   "SP-B1": {
-    "shot": "far", "dir": "R", "place": "L", "pal": "coldnight",
-    "scene": "Many miles away across a dark ash plain: the tallest peak of a volcanic range, at the left of the frame, is a seated figure of black basalt — knees drawn up like two spurs, shoulders in cloud, a furnace-bright fire showing through the cracks of its ribs. Its head turns to the right and it breathes out: the breath leaves as a level rank of fire-bolts, side by side like one battery's salvo, and along the skyline ahead every crater has lit in answer, one tall flame in each. At its ankle a fortress's chimneys stand small as stubble.",
-    "light": "Blue-black night with a low moon behind thin smoke; the rib-glow, the salvo and the lit craters string one line of orange across the indigo."
+    "shot": "profile", "dir": "R", "place": "C", "pal": "coldnight",
+    "scene": "Side view across a volcanic range that is the chest of a sleeping giant: ribs of black rock arch along the skyline, and between them a rift glows where its heart burns. Astride that rift stands a titan of cracked basalt, half as tall as the ribs, facing right with head thrown back — drinking: a river of white-gold fire climbs from the giant's heart into his open jaws, and his ribcage blazes furnace-bright. Along the range every crater has gone dark, its flame bent toward him. At his ankle a fortress's chimneys stand small as stubble.",
+    "light": "Blue-black night; the swallowed heart-fire is the only light, white-gold in the stream and orange through the cracks of his body, glowing up the undersides of the stone ribs."
   },
   "SR-B1": {
     "shot": "pair", "dir": "D", "place": "R", "pal": "ashfall",
