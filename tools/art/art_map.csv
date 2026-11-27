@@ -386,7 +386,7 @@ B2-26,소르그림의 철갑 코뿔소,common,일반,B2,unit,5,,들어감,img/ca
 B2-27,두르크하임 근위장,common,일반,B2,unit,5,,들어감,img/cards/B2-27.jpg,n2,n2,B2-27.png,gemini,2026-11-28 00:01,2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
 B2-28,흐르는 수은,common,일반,B2,unit,5,,들어감,img/cards/B2-28.jpg,n2,n2,B2-28.png,gemini,2026-11-28 00:01,2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
 B2-30,철골 산맥 와이번,common,일반,B2,unit,6,,들어감,img/cards/B2-30.jpg,n2,n2,B2-30.png,gemini,2026-11-26 23:29,
-B2-32,걷는 무쇠 성채,common,일반,B2,unit,6,,다시,img/cards/B2-32.jpg,n2,n2,B2-32.png,gemini,2026-11-26 23:29,2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
+B2-32,걷는 무쇠 성채,common,일반,B2,unit,6,,들어감,img/cards/B2-32.jpg,n2,n2,B2-32 걷는 무쇠 성채.png,gemini,2026-11-28 00:23,2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
 B2-34,거대 증기 거상,common,일반,B2,unit,7,,들어감,img/cards/B2-34.jpg,n2,n2,B2-34.png,gemini,2026-11-26 23:29,
 B2-35,두르크하임 대장인,common,일반,B2,unit,7,,들어감,img/cards/B2-35.jpg,n2,n2,B2-35.png,gemini,2026-11-28 00:04,2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
 B2-36,청동 수호 거인,common,일반,B2,unit,7,,들어감,img/cards/B2-36.jpg,n2,n2,B2-36.png,gemini,2026-11-26 23:29,
@@ -398,28 +398,28 @@ IB2-4,오토마톤 심장,common,일반,B2,item,3,,들어감,img/cards/IB2-4.jpg
 IB2-5,무쇠 방패,common,일반,B2,item,3,,들어감,img/cards/IB2-5.jpg,n2,n2,IB2-5.png,gemini,2026-11-26 23:32,
 M3-1,골렘의 룬,common,일반,B2,item,3,,들어감,img/cards/M3-1.jpg,n2,n2,M3-1.png,gemini,2026-11-26 23:32,
 MB-02,리벳 보강,common,일반,B2,def,1,,들어감,img/cards/MB-02.jpg,n2,n2,MB-02.png,gemini,2026-11-26 23:32,
-MB-06,방열 철벽,common,일반,B2,def,2,,다시,img/cards/MB-06.jpg,n2,n2,MB-06.png,gemini,2026-11-26 23:32,"2026-11-26 그림 안에 산맥 띠(명판)가 그려짐 — 깃발 줄 Banner 낱말 탓, 고친 프롬프트로 다시"
-MB-08,장갑 고정,common,일반,B2,def,1,,다시,img/cards/MB-08.jpg,n2,n2,MB-08.png,gemini,2026-11-26 23:32,"2026-11-26 그림 안에 산맥 띠(명판)가 그려짐 — 깃발 줄 Banner 낱말 탓, 고친 프롬프트로 다시"
+MB-06,방열 철벽,common,일반,B2,def,2,,들어감,img/cards/MB-06.jpg,n2,n2,MB-06 방열 철벽.png,gemini,2026-11-28 00:23,"2026-11-26 그림 안에 산맥 띠(명판)가 그려짐 — 깃발 줄 Banner 낱말 탓, 고친 프롬프트로 다시"
+MB-08,장갑 고정,common,일반,B2,def,1,,들어감,img/cards/MB-08.jpg,n2,n2,MB-08 장갑 고정.png,gemini,2026-11-28 00:23,"2026-11-26 그림 안에 산맥 띠(명판)가 그려짐 — 깃발 줄 Banner 낱말 탓, 고친 프롬프트로 다시"
 NB2-2,방패벽 함성,common,일반,B2,def,2,,들어감,img/cards/NB2-2.jpg,n2,n2,NB2-2.png,gemini,2026-11-26 23:32,
-PN-B2-C1,리벳 집게 게,common,일반,B2,unit,2,,다시,img/cards/PN-B2-C1.jpg,n2,n2,PN-B2-C1.png,gemini,2026-11-26 23:32,"2026-11-26 그림 안에 산맥 띠(명판)가 그려짐 — 깃발 줄 Banner 낱말 탓, 고친 프롬프트로 다시"
-PN-B2-C2,증기 굴착 두더지,common,일반,B2,unit,4,,다시,img/cards/PN-B2-C2.jpg,n2,n2,PN-B2-C2.png,gemini,2026-11-26 23:32,"2026-11-26 그림 안에 산맥 띠(명판)가 그려짐 — 깃발 줄 Banner 낱말 탓, 고친 프롬프트로 다시"
+PN-B2-C1,리벳 집게 게,common,일반,B2,unit,2,,들어감,img/cards/PN-B2-C1.jpg,n2,n2,PN-B2-C1 리벳 집게 게.png,gemini,2026-11-28 00:23,"2026-11-26 그림 안에 산맥 띠(명판)가 그려짐 — 깃발 줄 Banner 낱말 탓, 고친 프롬프트로 다시"
+PN-B2-C2,증기 굴착 두더지,common,일반,B2,unit,4,,들어감,img/cards/PN-B2-C2.jpg,n2,n2,PN-B2-C2 증기 굴착 두더지.png,gemini,2026-11-28 00:23,"2026-11-26 그림 안에 산맥 띠(명판)가 그려짐 — 깃발 줄 Banner 낱말 탓, 고친 프롬프트로 다시"
 PS-B2-1,강철 맹세,common,일반,B2,def,1,,들어감,img/cards/PS-B2-1.jpg,n2,n2,PS-B2-1.png,gemini,2026-11-26 23:31,
 PS-B2-2,담금질,common,일반,B2,def,1,,들어감,img/cards/PS-B2-2.jpg,n2,n2,PS-B2-2.png,gemini,2026-11-26 23:31,
-RB2-1,공방 자폭 명령,common,일반,B2,any,4,,다시,img/cards/RB2-1.jpg,n2,n2,RB2-1.png,gemini,2026-11-26 23:31,"2026-11-26 그림 아래에 깃발 풍경 띠가 그려짐 — 깃발 줄 Banner 낱말 탓, 고친 프롬프트로 다시"
+RB2-1,공방 자폭 명령,common,일반,B2,any,4,,들어감,img/cards/RB2-1.jpg,n2,n2,RB2-1 공방 자폭 명령.png,gemini,2026-11-28 00:23,"2026-11-26 그림 아래에 깃발 풍경 띠가 그려짐 — 깃발 줄 Banner 낱말 탓, 고친 프롬프트로 다시"
 SB2-02,리벳 사출,common,일반,B2,atk,1,,들어감,img/cards/SB2-02.jpg,n2,n2,SB2-02.png,gemini,2026-11-26 23:31,
 SB2-03,용접 수리,common,일반,B2,any,1,,들어감,img/cards/SB2-03.jpg,n2,n2,SB2-03.png,gemini,2026-11-26 23:31,
 SB2-06,압착 프레스,common,일반,B2,atk,2,,들어감,img/cards/SB2-06.jpg,n2,n2,SB2-06.png,gemini,2026-11-26 23:31,
 B3-02,축전 견습생,common,일반,B3,unit,1,,들어감,img/cards/B3-02.jpg,n2,n2,B3-02.png,gemini,2026-11-26 23:31,
 B3-03,번개 반딧불 떼,common,일반,B3,unit,1,,들어감,img/cards/B3-03.jpg,n2,n2,B3-03.png,gemini,2026-11-26 23:31,
-B3-04,정전기 요정,common,일반,B3,unit,1,,다시,img/cards/B3-04.jpg,n2,n2,B3-04.png,gemini,2026-11-26 23:31,"2026-11-26 그림 아래에 깃발 풍경 띠가 그려짐 — 깃발 줄 Banner 낱말 탓, 고친 프롬프트로 다시"
+B3-04,정전기 요정,common,일반,B3,unit,1,,들어감,img/cards/B3-04.jpg,n2,n2,B3-04 정전기 요정.png,gemini,2026-11-28 00:23,"2026-11-26 그림 아래에 깃발 풍경 띠가 그려짐 — 깃발 줄 Banner 낱말 탓, 고친 프롬프트로 다시"
 B3-06,새끼 뇌조,common,일반,B3,unit,1,,들어감,img/cards/B3-06.jpg,n2,n2,B3-06.png,gemini,2026-11-26 23:31,
 B3-09,전류 날다람쥐,common,일반,B3,unit,2,,들어감,img/cards/B3-09.jpg,n2,n2,B3-09.png,,2026-11-26 23:34,
 B3-10,피뢰침 까마귀,common,일반,B3,unit,2,,들어감,img/cards/B3-10.jpg,n2,n2,B3-10.png,,2026-11-26 23:34,
 B3-12,방전 요정,common,일반,B3,unit,2,,들어감,img/cards/B3-12.jpg,n2,n2,B3-12 방전 요정.png,gemini,2026-11-23 23:11,
-B3-14,벼락 장어,common,일반,B3,unit,3,,다시,img/cards/B3-14.jpg,n2,n2,B3-14.png,,2026-11-26 23:34,2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
+B3-14,벼락 장어,common,일반,B3,unit,3,,들어감,img/cards/B3-14.jpg,n2,n2,B3-14 벼락 장어.png,gemini,2026-11-28 00:23,2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
 B3-15,사슬 번개 정령,common,일반,B3,unit,3,,들어감,img/cards/B3-15.jpg,n2,n2,B3-15.png,,2026-11-26 23:34,
 B3-16,충전 거미,common,일반,B3,unit,3,,들어감,img/cards/B3-16.jpg,n2,n2,B3-16.png,,2026-11-26 23:34,
-B3-18,안경원숭이 공학자,common,일반,B3,unit,3,,다시,img/cards/B3-18.jpg,n2,n2,B3-18 안경원숭이 공학자.png,gemini,2026-11-23 23:11,2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
+B3-18,안경원숭이 공학자,common,일반,B3,unit,3,,들어감,img/cards/B3-18.jpg,n2,n2,B3-18 안경원숭이 공학자.png,gemini,2026-11-28 00:23,2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
 B3-20,뇌침 전갈,common,일반,B3,unit,4,,들어감,img/cards/B3-20.jpg,n2,n2,B3-20.png,,2026-11-26 23:34,
 B3-22,전격 수호기,common,일반,B3,unit,4,,들어감,img/cards/B3-22.jpg,n2,n2,B3-22 전격 수호기.png,gemini,2026-11-23 23:11,
 B3-23,병 속의 교수 두뇌,common,일반,B3,unit,4,,들어감,img/cards/B3-23.jpg,n2,n2,B3-23 병 속의 교수 두뇌.png,gemini,2026-11-23 23:11,
@@ -529,7 +529,7 @@ PN-G2-C1,이끼 덮인 묘목,common,일반,G2,unit,2,,들어감,img/cards/PN-G2
 PN-G2-C3,늪가의 히드라,common,일반,G2,unit,6,,들어감,img/cards/PN-G2-C3.jpg,n2,n2,PN-G2-C3 늪가의 히드라.png,gemini,2026-11-27 23:42,
 PS-G2-2,뿌리 내림,common,일반,G2,def,1,,들어감,img/cards/PS-G2-2.jpg,n2,n2,PS-G2-2 뿌리 내림.png,gemini,2026-11-27 23:42,
 RG2-1,숲의 정적,common,일반,G2,any,3,,들어감,img/cards/RG2-1.jpg,n2,n2,RG2-1 숲의 정적.png,gemini,2026-11-27 23:42,
-SG2-01,덩굴 조이기,common,일반,G2,atk,1,,없음,,,n2,,,,
+SG2-01,덩굴 조이기,common,일반,G2,atk,1,,들어감,img/cards/SG2-01.jpg,n2,n2,SG2-01 덩굴 조이기.png,gemini,2026-11-28 00:23,
 SG2-02,새순 갑옷,common,일반,G2,any,1,,들어감,img/cards/SG2-02.jpg,n2,n2,SG2-02 새순 갑옷.png,gemini,2026-11-27 23:42,
 SG2-03,가시 울타리,common,일반,G2,def,1,,들어감,img/cards/SG2-03.jpg,n2,n2,SG2-03 가시 울타리.png,gemini,2026-11-27 23:42,
 SG2-04,트렌트 행진,common,일반,G2,atk,2,,들어감,img/cards/SG2-04.jpg,n2,n2,SG2-04 트렌트 행진.png,gemini,2026-11-27 23:42,
@@ -544,7 +544,7 @@ G3-09,셀레네아 나가 수비병,common,일반,G3,unit,2,,들어감,img/cards
 G3-10,어린 셀키,common,일반,G3,unit,2,,들어감,img/cards/G3-10.jpg,n2,n2,G3-10.png,,2026-11-27 23:41,
 G3-11,조수 점술 문어,common,일반,G3,unit,2,,들어감,img/cards/G3-11.jpg,n2,n2,G3-11 조수 점술 문어.png,gemini,2026-11-24 09:25,
 G3-12,산호등 거북,common,일반,G3,unit,2,,들어감,img/cards/G3-12.jpg,n2,n2,G3-12 산호등 거북.png,gemini,2026-11-24 09:25,
-G3-14,조수 상어 전사,common,일반,G3,unit,3,,없음,,,n2,,,,
+G3-14,조수 상어 전사,common,일반,G3,unit,3,,들어감,img/cards/G3-14.jpg,n2,n2,G3-14 조수 상어 전사.png,gemini,2026-11-28 00:23,
 G3-15,넬리아의 정령,common,일반,G3,unit,3,,들어감,img/cards/G3-15.jpg,n2,n2,G3-15.png,,2026-11-27 23:41,
 G3-16,해마 근위병,common,일반,G3,unit,3,,들어감,img/cards/G3-16.jpg,n2,n2,G3-16.png,,2026-11-27 23:41,
 G3-17,석호 치유 듀공,common,일반,G3,unit,3,,들어감,img/cards/G3-17.jpg,n2,n2,G3-17 석호 치유 듀공.png,gemini,2026-11-24 09:25,
@@ -590,13 +590,13 @@ UP-B1-12,폭약 공병장,upgrade,강화,B1,unit,3,B1-12,들어감,img/cards/UP-
 UP-B1-17,거포 거북,upgrade,강화,B1,unit,4,B1-17,들어감,img/cards/UP-B1-17.jpg,n2,n2,UP-B1-17.png,,2026-11-22 19:41,
 UP-B1-18,불개미 철벽대,upgrade,강화,B1,unit,4,B1-18,들어감,img/cards/UP-B1-18.jpg,n2,n2,UP-B1-18.png,,2026-11-22 19:41,
 UP-B1-24,박격포 명사수,upgrade,강화,B1,unit,5,B1-24,들어감,img/cards/UP-B1-24.jpg,n2,n2,UP-B1-24.png,,2026-11-22 19:41,
-UP-B2-12,단조 명장,upgrade,강화,B2,unit,3,B2-12,다시,img/cards/UP-B2-12.jpg,n2,n2,UP-B2-12.png,,2026-11-22 19:41,2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
+UP-B2-12,단조 명장,upgrade,강화,B2,unit,3,B2-12,들어감,img/cards/UP-B2-12.jpg,n2,n2,UP-B2-12 단조 명장.png,gemini,2026-11-28 00:23,2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
 UP-B2-17,무쇠뿔 산양왕,upgrade,강화,B2,unit,4,B2-17,들어감,img/cards/UP-B2-17.jpg,n2,n2,UP-B2-17.png,,2026-11-22 19:41,
-UP-B2-18,증기 황소 우두머리,upgrade,강화,B2,unit,4,B2-18,다시,img/cards/UP-B2-18.jpg,n2,n2,UP-B2-18.png,,2026-11-22 19:41,2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
+UP-B2-18,증기 황소 우두머리,upgrade,강화,B2,unit,4,B2-18,들어감,img/cards/UP-B2-18.jpg,n2,n2,UP-B2-18 증기 황소 우두머리.png,gemini,2026-11-28 00:23,2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
 UP-B2-22,쇠 먹는 불가사리 왕,upgrade,강화,B2,unit,5,B2-22,들어감,img/cards/UP-B2-22.jpg,n2,n2,UP-B2-22.png,,2026-11-22 19:41,
 UP-B2-24,철골 가고일 수문장,upgrade,강화,B2,unit,5,B2-24,들어감,img/cards/UP-B2-24.jpg,n2,n2,UP-B2-24.png,,2026-11-22 19:41,
 UP-B3-12,방전 요정 여왕,upgrade,강화,B3,unit,3,B3-12,들어감,img/cards/UP-B3-12.jpg,n2,n2,UP-B3-12 방전 요정 여왕.png,gemini,2026-11-23 23:11,
-UP-B3-18,안경원숭이 수석공학자,upgrade,강화,B3,unit,4,B3-18,다시,img/cards/UP-B3-18.jpg,n2,n2,UP-B3-18 안경원숭이 수석공학자.png,gemini,2026-11-23 23:11,2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
+UP-B3-18,안경원숭이 수석공학자,upgrade,강화,B3,unit,4,B3-18,들어감,img/cards/UP-B3-18.jpg,n2,n2,UP-B3-18 안경원숭이 수석공학자.png,gemini,2026-11-28 00:23,2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
 UP-B3-22,전격 수호거상,upgrade,강화,B3,unit,5,B3-22,들어감,img/cards/UP-B3-22.jpg,n2,n2,UP-B3-22 전격 수호거상.png,gemini,2026-11-23 23:11,
 UP-B3-23,병 속의 원로교수 두뇌,upgrade,강화,B3,unit,5,B3-23,들어감,img/cards/UP-B3-23.jpg,n2,n2,UP-B3-23 병 속의 원로교수 두뇌.png,gemini,2026-11-23 23:11,
 UP-PN-B3-C2,길들인 축전기,upgrade,강화,B3,unit,5,PN-B3-C2,들어감,img/cards/UP-PN-B3-C2.jpg,n2,n2,UP-PN-B3-C2 길들인 축전기.png,gemini,2026-11-23 23:11,

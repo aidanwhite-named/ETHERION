@@ -8,53 +8,7 @@
 
 **그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(같은 개체 · 장소 · 배색, 다른 시점 · 새 구도 — 섬네일로 나란히 놓아 같은 개체이면서 한눈에 더 강한 다른 그림으로 읽히는지 본다).
 
-## 2. 다시 그리기 · 3장
-
-> 이미 그림이 있어 게임은 그대로 돌아간다. 1번을 다 그린 뒤 그린다.
-
-### UP-B2-12 · 단조 명장 — **다시 그리기**: 2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
-소르그림의 방패 · 유닛 · 레벨 3 · 강화 · 틀 `low` R C `forgeheart` · 원래 카드 `B2-12` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B2-12 단조 명장.png`
-
-```
-Landscape 5:4 painting. At the anvil of the same forge, seen from below: a great ape with gunmetal-grey fur, the apprentice grown into a master, stands at the centre turned toward the right, fur gone silver at the brow and wrists, the same iron ring on one wrist, a scorched leather apron on its chest. One broad calloused hand holds a glowing blade on the anvil with tongs; the other brings a heavy hammer down, sparks bursting at the strike. On the rack behind hang three hammers of rising size, the small plain one first, and a young ape works the bellows. The bed of coals behind pushes molten orange along its fur and the anvil's edge; dark gunmetal gloom fills the hall.
-Colour: forge heart — dark gunmetal and steel grey (#a9b4c2) with molten orange glowing in the seams.
-Setting, the land of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
-Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
-Save the image file as: UP-B2-12 단조 명장.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### UP-B2-18 · 증기 황소 우두머리 — **다시 그리기**: 2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
-소르그림의 방패 · 유닛 · 레벨 4 · 강화 · 틀 `ground` F C `lamplit` · 원래 카드 `B2-18` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B2-18 증기 황소 우두머리.png`
-
-```
-Landscape 5:4 painting. Camera on the cobbles of the same underground street: the polished bronze bull comes straight toward us at the head of a herd, grown to fill the height of the street, head low, the brass valve shrieking between its horns, three firebox doors glowing in a row along its riveted boiler belly. One forehoof has just struck the ground in front of the lens — the cobbles jump, cracks run outward, and steam bursts from both nostrils along the walls. Behind its shoulders three smaller bronze bulls follow in file, and every hanging lantern swings wildly. Swinging street lanterns throw small warm pools over black stone; bronze and steam catch amber, and the vault overhead stays dark.
-Colour: lamplight underground — small warm pools of light in black, steel grey (#a9b4c2) glinting at the edges.
-Setting, the land of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
-Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
-Save the image file as: UP-B2-18 증기 황소 우두머리.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### UP-B3-18 · 안경원숭이 수석공학자 — **다시 그리기**: 2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
-케라운의 벼락 · 유닛 · 레벨 4 · 강화 · 틀 `high` L R `wetglass` · 원래 카드 `B3-18` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B3-18 안경원숭이 수석공학자.png`
-
-```
-Landscape 5:4 painting. From a gallery above the same wet-windowed workshop, looking down: the tarsier engineer stands on a stool in the right of the frame, huge-eyed, facing left, brass goggles with three stacked lenses pushed up on its silvered brow, a rolled plan under one arm and one long slender finger with a round padded tip pointing. Under that finger a great machine of steel cogs and copper windings fills the floor, just beginning to turn, and three apprentices in aprons hurry along it with soldering irons. A cold mug and a smith's hammer sit on the bench beside the stool. Grey dawn through wet windows; beads of solder glow yellow along the machine and twinkle in the three lenses.
-Colour: rain grey — pale grey wet reflections with small electric-yellow (#ffd84a) sparks doubled in them.
-Setting, the land of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
-Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
-Save the image file as: UP-B3-18 안경원숭이 수석공학자.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 37장
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 40장
 
 ### UP-A1-09 · 모르크 거미 여왕 — 그림 있음
 모르카스의 그믐 · 유닛 · 레벨 3 · 강화 · 틀 `low` F C `eclipse` · 원래 카드 `A1-09` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-A1-09 모르크 거미 여왕.png`
@@ -322,6 +276,20 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UP-B1-24 박격포 명사수.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### UP-B2-12 · 단조 명장 — 그림 있음
+소르그림의 방패 · 유닛 · 레벨 3 · 강화 · 틀 `low` R C `forgeheart` · 원래 카드 `B2-12` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B2-12 단조 명장.png`
+
+```
+Landscape 5:4 painting. At the anvil of the same forge, seen from below: a great ape with gunmetal-grey fur, the apprentice grown into a master, stands at the centre turned toward the right, fur gone silver at the brow and wrists, the same iron ring on one wrist, a scorched leather apron on its chest. One broad calloused hand holds a glowing blade on the anvil with tongs; the other brings a heavy hammer down, sparks bursting at the strike. On the rack behind hang three hammers of rising size, the small plain one first, and a young ape works the bellows. The bed of coals behind pushes molten orange along its fur and the anvil's edge; dark gunmetal gloom fills the hall.
+Colour: forge heart — dark gunmetal and steel grey (#a9b4c2) with molten orange glowing in the seams.
+Setting, the land of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
+Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
+Save the image file as: UP-B2-12 단조 명장.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### UP-B2-17 · 무쇠뿔 산양왕 — 그림 있음
 소르그림의 방패 · 유닛 · 레벨 4 · 강화 · 틀 `low` F C `coldsteel` · 원래 카드 `B2-17` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B2-17 무쇠뿔 산양왕.png`
 
@@ -334,6 +302,20 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
 Save the image file as: UP-B2-17 무쇠뿔 산양왕.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### UP-B2-18 · 증기 황소 우두머리 — 그림 있음
+소르그림의 방패 · 유닛 · 레벨 4 · 강화 · 틀 `ground` F C `lamplit` · 원래 카드 `B2-18` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B2-18 증기 황소 우두머리.png`
+
+```
+Landscape 5:4 painting. Camera on the cobbles of the same underground street: the polished bronze bull comes straight toward us at the head of a herd, grown to fill the height of the street, head low, the brass valve shrieking between its horns, three firebox doors glowing in a row along its riveted boiler belly. One forehoof has just struck the ground in front of the lens — the cobbles jump, cracks run outward, and steam bursts from both nostrils along the walls. Behind its shoulders three smaller bronze bulls follow in file, and every hanging lantern swings wildly. Swinging street lanterns throw small warm pools over black stone; bronze and steam catch amber, and the vault overhead stays dark.
+Colour: lamplight underground — small warm pools of light in black, steel grey (#a9b4c2) glinting at the edges.
+Setting, the land of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
+Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
+Save the image file as: UP-B2-18 증기 황소 우두머리.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### UP-B2-22 · 쇠 먹는 불가사리 왕 — 그림 있음
@@ -376,6 +358,20 @@ Rarity ladder: common → superior → rare → epic → unique → special — 
 Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
 Save the image file as: UP-B3-12 방전 요정 여왕.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### UP-B3-18 · 안경원숭이 수석공학자 — 그림 있음
+케라운의 벼락 · 유닛 · 레벨 4 · 강화 · 틀 `high` L R `wetglass` · 원래 카드 `B3-18` (그 그림을 함께 넣기) · 프롬프트 n2 → `tools/art/inbox/UP-B3-18 안경원숭이 수석공학자.png`
+
+```
+Landscape 5:4 painting. From a gallery above the same wet-windowed workshop, looking down: the tarsier engineer stands on a stool in the right of the frame, huge-eyed, facing left, brass goggles with three stacked lenses pushed up on its silvered brow, a rolled plan under one arm and one long slender finger with a round padded tip pointing. Under that finger a great machine of steel cogs and copper windings fills the floor, just beginning to turn, and three apprentices in aprons hurry along it with soldering irons. A cold mug and a smith's hammer sit on the bench beside the stool. Grey dawn through wet windows; beads of solder glow yellow along the machine and twinkle in the three lenses.
+Colour: rain grey — pale grey wet reflections with small electric-yellow (#ffd84a) sparks doubled in them.
+Setting, the land of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
+Empowered — between rare and epic on the rarity ladder. Mood: risen and newly sure of its strength. The same individual a rank higher, at the height of its new title — larger in the frame, sturdier body, reinforced gear, commanding bearing. Light: teal (#3fe0c0) energy rising from the ground beneath it and glowing along its markings, horns, mane or the seams of its gear. Saturation: vivid. Air: a faint luminous haze with a few rising teal sparks.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+Continuity: the attached picture shows this same individual before its promotion — keep its body, face, markings, colours and the things it carries, and paint a wholly new picture of it grown stronger: the new viewpoint, pose and composition are the ones this scene describes.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
+Save the image file as: UP-B3-18 안경원숭이 수석공학자.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### UP-B3-22 · 전격 수호거상 — 그림 있음

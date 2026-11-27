@@ -8,156 +8,7 @@
 
 **그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(같은 개체 · 장소 · 배색, 다른 시점 · 새 구도 — 섬네일로 나란히 놓아 같은 개체이면서 한눈에 더 강한 다른 그림으로 읽히는지 본다).
 
-## 1. 그림 없는 카드 — 먼저 그린다 · 2장
-
-### SG2-01 · 덩굴 조이기
-베르단의 뿔 · 공격 마법 · 레벨 1 · 일반 · 틀 `column` U L `autumnrot` · 프롬프트 n2 → `tools/art/inbox/SG2-01 덩굴 조이기.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. One tall vertical on the left of the picture: a twisting pillar of vines as thick as ship's rope rises from the forest floor, and gripped in the middle of its coils is a single suit of the heaviest plate — breastplate squeezed to an hourglass, pauldrons folded like paper, rivets popping outward. Thin tendrils have threaded every seam and are pulling tight. One steel gauntlet has dropped among the autumn leaves at the pillar's foot. Amber late light from the right rakes across the pillar, catching the bent steel edges and the rust-coloured leaves below.
-Colour: autumn rot — russet, amber and mushroom-pale against dark leaf-green (#58b85f).
-Setting, the land of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
-Save the image file as: SG2-01 덩굴 조이기.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### G3-14 · 조수 상어 전사
-마렌시아의 노래 · 유닛 · 레벨 3 · 일반 · 틀 `reflect` R L `moontide` · 프롬프트 n2 → `tools/art/inbox/G3-14 조수 상어 전사.png`
-
-```
-Landscape 5:4 painting. A film of ebbing water on a dark stone slipway, seen from close above, holds the whole story upside down. Cropped at the knees along the top edge stand the grey legs of a shark-headed fighter; below them, in the left of the mirror, hangs the full reflection — broad shoulders, tall dorsal fin, a whalebone blade edged with teeth already swinging back toward the right. Three sets of wet boot prints hurry into the frame from that side, straight into the returning shallows. The moon low behind the figure turns the wet stone to silver and draws the reflection in hard dark shapes.
-Colour: moon tide — silver-blue (#4fb3ff) moonlight and pale mist.
-Setting, the land of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
-Save the image file as: G3-14 조수 상어 전사.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-## 2. 다시 그리기 · 9장
-
-> 이미 그림이 있어 게임은 그대로 돌아간다. 1번을 다 그린 뒤 그린다.
-
-### MB-08 · 장갑 고정 — **다시 그리기**: 2026-11-26 그림 안에 산맥 띠(명판)가 그려짐 — 깃발 줄 Banner 낱말 탓, 고친 프롬프트로 다시
-소르그림의 방패 · 방어 마법 · 레벨 1 · 일반 · 틀 `macro` N C `lamplit` · 프롬프트 n2 → `tools/art/inbox/MB-08 장갑 고정.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. The seam between two thick armour plates, enormously magnified, runs across the middle of the frame: a row of slotted screw heads sits along it, and all of them are turning the last quarter-turn at once, by themselves, thin curls of bright swarf lifting from each slot. The seam has closed to a hairline. Against it presses a thread of violet-black smoke — a curse hunting for a way in — which flattens, splays into searching fingers and slides off the steel like water off wax. Warm lamplight from the upper left rakes low across the plates, raising every screw slot and curl of swarf; the smoke absorbs it, dull violet-black.
-Colour: lamplight underground — small warm pools of light in black, steel grey (#a9b4c2) glinting at the edges.
-Setting, the land of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
-Save the image file as: MB-08 장갑 고정.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### MB-06 · 방열 철벽 — **다시 그리기**: 2026-11-26 그림 안에 산맥 띠(명판)가 그려짐 — 깃발 줄 Banner 낱말 탓, 고친 프롬프트로 다시
-소르그림의 방패 · 방어 마법 · 레벨 2 · 일반 · 틀 `pov` F T `forgeheart` · 프롬프트 n2 → `tools/art/inbox/MB-06 방열 철벽.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. First person, advancing across a frozen lake: along the far shore, across the upper part of the frame from end to end, stands a wall of tall iron plates planted edge to edge, each glowing from dull red at the foot to orange at the top, the air above it rippling. The ice has rotted back from it in a wide strip of open, steaming black water. Our own spear, thrust out ahead at the bottom of the frame, is glowing at the tip and beginning to droop like a candle, and the leather of our glove smokes. Grey dusk over the ice; the plate wall is the light source, pouring molten orange onto the steam, the black water and the sagging spear.
-Colour: forge heart — dark gunmetal and steel grey (#a9b4c2) with molten orange glowing in the seams.
-Setting, the land of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
-Save the image file as: MB-06 방열 철벽.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### PN-B2-C1 · 리벳 집게 게 — **다시 그리기**: 2026-11-26 그림 안에 산맥 띠(명판)가 그려짐 — 깃발 줄 Banner 낱말 탓, 고친 프롬프트로 다시
-소르그림의 방패 · 유닛 · 레벨 2 · 일반 · 틀 `cut` L L `patina` · 프롬프트 n2 → `tools/art/inbox/PN-B2-C1 리벳 집게 게.png`
-
-```
-Landscape 5:4 painting. A rust-water pool below a spoil tip, shown in cross-section: the orange surface line runs across the upper frame, and the cut shows cloudy red-brown water over a bed of silt strewn with dropped rivets. On the left a broad crab with a riveted iron shell faces left and reaches one heavy tong-like pincer for another rivet; the other pincer is pressing one into its own shell with a twist. The shell is studded in careful straight rows, front to back, with a single gap left to fill. Dull daylight filters down through rusty water, red-brown and dim; the rivet heads on the shell hold small steel-grey glints, green-blue weed at the edges.
-Colour: rust and verdigris — red-brown and green-blue patina over steel grey (#a9b4c2) in dim light.
-Setting, the land of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
-Save the image file as: PN-B2-C1 리벳 집게 게.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### PN-B2-C2 · 증기 굴착 두더지 — **다시 그리기**: 2026-11-26 그림 안에 산맥 띠(명판)가 그려짐 — 깃발 줄 Banner 낱말 탓, 고친 프롬프트로 다시
-소르그림의 방패 · 유닛 · 레벨 4 · 일반 · 틀 `back` B C `lamplit` · 프롬프트 n2 → `tools/art/inbox/PN-B2-C2 증기 굴착 두더지.png`
-
-```
-Landscape 5:4 painting. From behind, at the mouth of a fresh round burrow bored into an ore face: deep in the tunnel the broad dark-furred rump and stub tail of a bulky mole recede from us, steel claws flinging grit back, and the hot steam of its breath rolls out along the roof toward the camera. At the rim of the burrow, entering from both sides of the frame, three pairs of frost-stiff mittened hands are held open to the warm draught. A tin of tea has been set on the burrow's lip to heat. One lantern on the ground glows warm amber through the steam; the surrounding rock is black with frost glints, the mole a dark shape in lit fog.
-Colour: lamplight underground — small warm pools of light in black, steel grey (#a9b4c2) glinting at the edges.
-Setting, the land of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
-Save the image file as: PN-B2-C2 증기 굴착 두더지.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### RB2-1 · 공방 자폭 명령 — **다시 그리기**: 2026-11-26 그림 아래에 깃발 풍경 띠가 그려짐 — 깃발 줄 Banner 낱말 탓, 고친 프롬프트로 다시
-소르그림의 방패 · 공용 마법 · 레벨 4 · 일반 · 틀 `before` N X `lamplit` · 프롬프트 n2 → `tools/art/inbox/RB2-1 공방 자폭 명령.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. The held breath in a mine gallery: a rank of steel machines stands along the whole width of the frame, cropped at the shoulders so only their riveted chests and hanging hands show. In every chest, at the same instant, the furnace-heart has gone from orange to white, and hairline cracks are racing outward across each breastplate and up into the roof timbers. Dust begins to sift down, the lamps along the wall all swing the same way, and on the floor a brass command lever lies snapped off its post, its red wax seal broken. Small warm lamps along the gallery wall are being overpowered by the white hearts, which throw every rivet and roof prop into hard relief against black.
-Colour: lamplight underground — small warm pools of light in black, steel grey (#a9b4c2) glinting at the edges.
-Setting, the land of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
-Save the image file as: RB2-1 공방 자폭 명령.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### B2-32 · 걷는 무쇠 성채 — **다시 그리기**: 2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
-소르그림의 방패 · 유닛 · 레벨 6 · 일반 · 틀 `inside` F R `snowlight` · 프롬프트 n2 → `tools/art/inbox/B2-32 걷는 무쇠 성채.png`
-
-```
-Landscape 5:4 painting. From inside the dark gate tunnel of the underground city, looking out toward the daylight: the arch has been hacked far wider and taller than it was built — raw pale chisel scars, scaffolding and heaps of fresh rubble line both sides — and in the bright opening on the right the reason is coming in. A castle of stone battlements and iron plate walks toward us on four great piston legs, its corner turrets scraping the new arch and showering grit. Masons with barrows, ant-small by its feet, are still widening the far side. Snow-bright overcast daylight pours in through the gate behind the castle, turning it grey against white; the tunnel walls nearest us stay in shadow.
-Colour: mountain daylight — overcast snow-white and granite grey with steel-grey (#a9b4c2) metal.
-Setting, the land of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
-Save the image file as: B2-32 걷는 무쇠 성채.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### B3-04 · 정전기 요정 — **다시 그리기**: 2026-11-26 그림 아래에 깃발 풍경 띠가 그려짐 — 깃발 줄 Banner 낱말 탓, 고친 프롬프트로 다시
-케라운의 벼락 · 유닛 · 레벨 1 · 일반 · 틀 `eye` L R `cobalt` · 프롬프트 n2 → `tools/art/inbox/B3-04 정전기 요정.png`
-
-```
-Landscape 5:4 painting. Beside a heavy oak door at night, at eye level: on its brass doorknob, in the right of the frame, crouches a hand-sized sprite made of one crackling spark — spiky upright hair, flickering arc-wings, a wide mischievous grin turned to the left. From the left edge a bare fingertip reaches for the knob, and a thin jagged thread of light already bridges the last finger-width of air between them. A dark corridor; the sprite is the only lamp, throwing cobalt-blue shadows of knob and finger across the wood.
-Colour: cobalt night — deep blue dark with electric-yellow (#ffd84a) arcs and violet-white coronas.
-Setting, the land of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
-Save the image file as: B3-04 정전기 요정.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### B3-14 · 벼락 장어 — **다시 그리기**: 2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
-케라운의 벼락 · 유닛 · 레벨 3 · 일반 · 틀 `under` L R `greensky` · 프롬프트 n2 → `tools/art/inbox/B3-14 벼락 장어.png`
-
-```
-Landscape 5:4 painting. Looking up from the silty bed of a rust-stained river: a long dark eel slides leftward through the murk in the right of the frame, a row of glowing yellow organs running from gill to tail like a string of lamps. Flakes of rust drift around it. High above, the rippling surface shows the warped shape of a plank bridge and one bare foot held hesitating just over the water, toes curled back. Weak yellow-green daylight filters down through the rusty water; the eel's own stripes light the silt beneath its belly.
-Colour: storm green — eerie flat yellow-green light before the strike, with a few electric-yellow (#ffd84a) sparks.
-Setting, the land of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
-Save the image file as: B3-14 벼락 장어.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### B3-18 · 안경원숭이 공학자 — **다시 그리기**: 2026-11-26 그림 위·아래에 깃발 풍경 띠(명판)가 그려짐 — 고친 프롬프트로 다시
-케라운의 벼락 · 유닛 · 레벨 3 · 일반 · 틀 `macro` F R `wetglass` · 프롬프트 n2 → `tools/art/inbox/B3-18 안경원숭이 공학자.png`
-
-```
-Landscape 5:4 painting. A tarsier engineer's enormous amber eye, magnified again behind one brass goggle lens, fills the right half of the frame in extreme close-up and peers straight at us, fine fur curling over the rim. In front of the lens, sharp and enormous, two long slender fingers with round padded tips hold tweezers and thread a hair-thin copper wire between the teeth of a steel cogwheel. Out of focus behind: a cold mug and the head of a heavy smith's hammer. Grey dawn through a wet workshop window; one bead of solder glows yellow at the wire's end and twinkles in the lens.
-Colour: rain grey — pale grey wet reflections with small electric-yellow (#ffd84a) sparks doubled in them.
-Setting, the land of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
-Save the image file as: B3-18 안경원숭이 공학자.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 351장
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 362장
 
 ### A1-02 · 그림자 도둑 — 그림 있음
 모르카스의 그믐 · 유닛 · 레벨 1 · 일반 · 틀 `inside` L R `candle` · 프롬프트 n2 → `tools/art/inbox/A1-02 그림자 도둑.png`
@@ -2304,6 +2155,19 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MB-02 리벳 보강.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### MB-08 · 장갑 고정 — 그림 있음
+소르그림의 방패 · 방어 마법 · 레벨 1 · 일반 · 틀 `macro` N C `lamplit` · 프롬프트 n2 → `tools/art/inbox/MB-08 장갑 고정.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. The seam between two thick armour plates, enormously magnified, runs across the middle of the frame: a row of slotted screw heads sits along it, and all of them are turning the last quarter-turn at once, by themselves, thin curls of bright swarf lifting from each slot. The seam has closed to a hairline. Against it presses a thread of violet-black smoke — a curse hunting for a way in — which flattens, splays into searching fingers and slides off the steel like water off wax. Warm lamplight from the upper left rakes low across the plates, raising every screw slot and curl of swarf; the smoke absorbs it, dull violet-black.
+Colour: lamplight underground — small warm pools of light in black, steel grey (#a9b4c2) glinting at the edges.
+Setting, the land of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
+Save the image file as: MB-08 장갑 고정.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### PS-B2-1 · 강철 맹세 — 그림 있음
 소르그림의 방패 · 방어 마법 · 레벨 1 · 일반 · 틀 `object` N B `patina` · 프롬프트 n2 → `tools/art/inbox/PS-B2-1 강철 맹세.png`
 
@@ -2421,6 +2285,19 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: IB2-2 강철 장갑판.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### MB-06 · 방열 철벽 — 그림 있음
+소르그림의 방패 · 방어 마법 · 레벨 2 · 일반 · 틀 `pov` F T `forgeheart` · 프롬프트 n2 → `tools/art/inbox/MB-06 방열 철벽.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. First person, advancing across a frozen lake: along the far shore, across the upper part of the frame from end to end, stands a wall of tall iron plates planted edge to edge, each glowing from dull red at the foot to orange at the top, the air above it rippling. The ice has rotted back from it in a wide strip of open, steaming black water. Our own spear, thrust out ahead at the bottom of the frame, is glowing at the tip and beginning to droop like a candle, and the leather of our glove smokes. Grey dusk over the ice; the plate wall is the light source, pouring molten orange onto the steam, the black water and the sagging spear.
+Colour: forge heart — dark gunmetal and steel grey (#a9b4c2) with molten orange glowing in the seams.
+Setting, the land of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
+Save the image file as: MB-06 방열 철벽.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### NB2-2 · 방패벽 함성 — 그림 있음
 소르그림의 방패 · 방어 마법 · 레벨 2 · 일반 · 틀 `top` U C `snowlight` · 프롬프트 n2 → `tools/art/inbox/NB2-2 방패벽 함성.png`
 
@@ -2432,6 +2309,19 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
 Save the image file as: NB2-2 방패벽 함성.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### PN-B2-C1 · 리벳 집게 게 — 그림 있음
+소르그림의 방패 · 유닛 · 레벨 2 · 일반 · 틀 `cut` L L `patina` · 프롬프트 n2 → `tools/art/inbox/PN-B2-C1 리벳 집게 게.png`
+
+```
+Landscape 5:4 painting. A rust-water pool below a spoil tip, shown in cross-section: the orange surface line runs across the upper frame, and the cut shows cloudy red-brown water over a bed of silt strewn with dropped rivets. On the left a broad crab with a riveted iron shell faces left and reaches one heavy tong-like pincer for another rivet; the other pincer is pressing one into its own shell with a twist. The shell is studded in careful straight rows, front to back, with a single gap left to fill. Dull daylight filters down through rusty water, red-brown and dim; the rivet heads on the shell hold small steel-grey glints, green-blue weed at the edges.
+Colour: rust and verdigris — red-brown and green-blue patina over steel grey (#a9b4c2) in dim light.
+Setting, the land of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
+Save the image file as: PN-B2-C1 리벳 집게 게.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### SB2-06 · 압착 프레스 — 그림 있음
@@ -2564,6 +2454,32 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: B2-24 철골 가고일.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### PN-B2-C2 · 증기 굴착 두더지 — 그림 있음
+소르그림의 방패 · 유닛 · 레벨 4 · 일반 · 틀 `back` B C `lamplit` · 프롬프트 n2 → `tools/art/inbox/PN-B2-C2 증기 굴착 두더지.png`
+
+```
+Landscape 5:4 painting. From behind, at the mouth of a fresh round burrow bored into an ore face: deep in the tunnel the broad dark-furred rump and stub tail of a bulky mole recede from us, steel claws flinging grit back, and the hot steam of its breath rolls out along the roof toward the camera. At the rim of the burrow, entering from both sides of the frame, three pairs of frost-stiff mittened hands are held open to the warm draught. A tin of tea has been set on the burrow's lip to heat. One lantern on the ground glows warm amber through the steam; the surrounding rock is black with frost glints, the mole a dark shape in lit fog.
+Colour: lamplight underground — small warm pools of light in black, steel grey (#a9b4c2) glinting at the edges.
+Setting, the land of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
+Save the image file as: PN-B2-C2 증기 굴착 두더지.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### RB2-1 · 공방 자폭 명령 — 그림 있음
+소르그림의 방패 · 공용 마법 · 레벨 4 · 일반 · 틀 `before` N X `lamplit` · 프롬프트 n2 → `tools/art/inbox/RB2-1 공방 자폭 명령.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. The held breath in a mine gallery: a rank of steel machines stands along the whole width of the frame, cropped at the shoulders so only their riveted chests and hanging hands show. In every chest, at the same instant, the furnace-heart has gone from orange to white, and hairline cracks are racing outward across each breastplate and up into the roof timbers. Dust begins to sift down, the lamps along the wall all swing the same way, and on the floor a brass command lever lies snapped off its post, its red wax seal broken. Small warm lamps along the gallery wall are being overpowered by the white hearts, which throw every rivet and roof prop into hard relief against black.
+Colour: lamplight underground — small warm pools of light in black, steel grey (#a9b4c2) glinting at the edges.
+Setting, the land of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
+Save the image file as: RB2-1 공방 자폭 명령.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### B2-25 · 공방 수호 골렘 — 그림 있음
 소르그림의 방패 · 유닛 · 레벨 5 · 일반 · 틀 `front` F C `coldsteel` · 프롬프트 n2 → `tools/art/inbox/B2-25 공방 수호 골렘.png`
 
@@ -2627,6 +2543,19 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
 Save the image file as: B2-30 철골 산맥 와이번.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### B2-32 · 걷는 무쇠 성채 — 그림 있음
+소르그림의 방패 · 유닛 · 레벨 6 · 일반 · 틀 `inside` F R `snowlight` · 프롬프트 n2 → `tools/art/inbox/B2-32 걷는 무쇠 성채.png`
+
+```
+Landscape 5:4 painting. From inside the dark gate tunnel of the underground city, looking out toward the daylight: the arch has been hacked far wider and taller than it was built — raw pale chisel scars, scaffolding and heaps of fresh rubble line both sides — and in the bright opening on the right the reason is coming in. A castle of stone battlements and iron plate walks toward us on four great piston legs, its corner turrets scraping the new arch and showering grit. Masons with barrows, ant-small by its feet, are still widening the far side. Snow-bright overcast daylight pours in through the gate behind the castle, turning it grey against white; the tunnel walls nearest us stay in shadow.
+Colour: mountain daylight — overcast snow-white and granite grey with steel-grey (#a9b4c2) metal.
+Setting, the land of metal: mountains whose ore veins are a sleeping giant's iron sinews — raw ore, hammered steel, rivets, slag, forge-glow and the cold of deep halls.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
+Save the image file as: B2-32 걷는 무쇠 성채.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### B2-43 · 자폭 오토마톤 — 그림 있음
@@ -2705,6 +2634,19 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
 Save the image file as: B3-03 번개 반딧불 떼.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### B3-04 · 정전기 요정 — 그림 있음
+케라운의 벼락 · 유닛 · 레벨 1 · 일반 · 틀 `eye` L R `cobalt` · 프롬프트 n2 → `tools/art/inbox/B3-04 정전기 요정.png`
+
+```
+Landscape 5:4 painting. Beside a heavy oak door at night, at eye level: on its brass doorknob, in the right of the frame, crouches a hand-sized sprite made of one crackling spark — spiky upright hair, flickering arc-wings, a wide mischievous grin turned to the left. From the left edge a bare fingertip reaches for the knob, and a thin jagged thread of light already bridges the last finger-width of air between them. A dark corridor; the sprite is the only lamp, throwing cobalt-blue shadows of knob and finger across the wood.
+Colour: cobalt night — deep blue dark with electric-yellow (#ffd84a) arcs and violet-white coronas.
+Setting, the land of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
+Save the image file as: B3-04 정전기 요정.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### B3-06 · 새끼 뇌조 — 그림 있음
@@ -2980,6 +2922,19 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: SB3-06 뇌운 소환.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### B3-14 · 벼락 장어 — 그림 있음
+케라운의 벼락 · 유닛 · 레벨 3 · 일반 · 틀 `under` L R `greensky` · 프롬프트 n2 → `tools/art/inbox/B3-14 벼락 장어.png`
+
+```
+Landscape 5:4 painting. Looking up from the silty bed of a rust-stained river: a long dark eel slides leftward through the murk in the right of the frame, a row of glowing yellow organs running from gill to tail like a string of lamps. Flakes of rust drift around it. High above, the rippling surface shows the warped shape of a plank bridge and one bare foot held hesitating just over the water, toes curled back. Weak yellow-green daylight filters down through the rusty water; the eel's own stripes light the silt beneath its belly.
+Colour: storm green — eerie flat yellow-green light before the strike, with a few electric-yellow (#ffd84a) sparks.
+Setting, the land of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
+Save the image file as: B3-14 벼락 장어.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### B3-15 · 사슬 번개 정령 — 그림 있음
 케라운의 벼락 · 유닛 · 레벨 3 · 일반 · 틀 `echo` F B `cobalt` · 프롬프트 n2 → `tools/art/inbox/B3-15 사슬 번개 정령.png`
 
@@ -3004,6 +2959,19 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
 Save the image file as: B3-16 충전 거미.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### B3-18 · 안경원숭이 공학자 — 그림 있음
+케라운의 벼락 · 유닛 · 레벨 3 · 일반 · 틀 `macro` F R `wetglass` · 프롬프트 n2 → `tools/art/inbox/B3-18 안경원숭이 공학자.png`
+
+```
+Landscape 5:4 painting. A tarsier engineer's enormous amber eye, magnified again behind one brass goggle lens, fills the right half of the frame in extreme close-up and peers straight at us, fine fur curling over the rim. In front of the lens, sharp and enormous, two long slender fingers with round padded tips hold tweezers and thread a hair-thin copper wire between the teeth of a steel cogwheel. Out of focus behind: a cold mug and the head of a heavy smith's hammer. Grey dawn through a wet workshop window; one bead of solder glows yellow at the wire's end and twinkles in the lens.
+Colour: rain grey — pale grey wet reflections with small electric-yellow (#ffd84a) sparks doubled in them.
+Setting, the land of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
+Save the image file as: B3-18 안경원숭이 공학자.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### B3-41 · 절연 방호기 — 그림 있음
@@ -3812,6 +3780,19 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: PS-G2-2 뿌리 내림.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### SG2-01 · 덩굴 조이기 — 그림 있음
+베르단의 뿔 · 공격 마법 · 레벨 1 · 일반 · 틀 `column` U L `autumnrot` · 프롬프트 n2 → `tools/art/inbox/SG2-01 덩굴 조이기.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. One tall vertical on the left of the picture: a twisting pillar of vines as thick as ship's rope rises from the forest floor, and gripped in the middle of its coils is a single suit of the heaviest plate — breastplate squeezed to an hourglass, pauldrons folded like paper, rivets popping outward. Thin tendrils have threaded every seam and are pulling tight. One steel gauntlet has dropped among the autumn leaves at the pillar's foot. Amber late light from the right rakes across the pillar, catching the bent steel edges and the rust-coloured leaves below.
+Colour: autumn rot — russet, amber and mushroom-pale against dark leaf-green (#58b85f).
+Setting, the land of forest: a primeval wood kept by an antlered forest dragon — giant roots, moss, bark, thorns, fungi, vines and wounds that grow closed.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
+Save the image file as: SG2-01 덩굴 조이기.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### SG2-02 · 새순 갑옷 — 그림 있음
 베르단의 뿔 · 공용 마법 · 레벨 1 · 일반 · 틀 `before` L C `thorndark` · 프롬프트 n2 → `tools/art/inbox/SG2-02 새순 갑옷.png`
 
@@ -4538,6 +4519,19 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
 Save the image file as: PS-G3-2 썰물.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### G3-14 · 조수 상어 전사 — 그림 있음
+마렌시아의 노래 · 유닛 · 레벨 3 · 일반 · 틀 `reflect` R L `moontide` · 프롬프트 n2 → `tools/art/inbox/G3-14 조수 상어 전사.png`
+
+```
+Landscape 5:4 painting. A film of ebbing water on a dark stone slipway, seen from close above, holds the whole story upside down. Cropped at the knees along the top edge stand the grey legs of a shark-headed fighter; below them, in the left of the mirror, hangs the full reflection — broad shoulders, tall dorsal fin, a whalebone blade edged with teeth already swinging back toward the right. Three sets of wet boot prints hurry into the frame from that side, straight into the returning shallows. The moon low behind the figure turns the wet stone to silver and draws the reflection in hard dark shapes.
+Colour: moon tide — silver-blue (#4fb3ff) moonlight and pale mist.
+Setting, the land of water: lagoons, tides and deep sea that answer a sea dragon's song — clear water, foam, pearl, coral, kelp and sound made visible as ripples.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
+Save the image file as: G3-14 조수 상어 전사.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### G3-15 · 넬리아의 정령 — 그림 있음

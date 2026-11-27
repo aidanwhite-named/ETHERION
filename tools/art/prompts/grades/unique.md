@@ -8,11 +8,9 @@
 
 **그리는 차례**: 1 그림 없는 카드(유니크 → 에픽 → 고급 → 일반 → 강화 → 소환물 → 레어 → 스페셜) → 2 다시 그리기(장부 `art_map.csv` 상태 "다시") → 3 그림 있는 카드는 그리지 않는다. 강화는 원래 카드 그림을 먼저(같은 개체 · 장소 · 배색, 다른 시점 · 새 구도 — 섬네일로 나란히 놓아 같은 개체이면서 한눈에 더 강한 다른 그림으로 읽히는지 본다).
 
-## 2. 다시 그리기 · 2장
+## 3. 그림 있음 — 그리지 않는다 (참고용) · 18장
 
-> 이미 그림이 있어 게임은 그대로 돌아간다. 1번을 다 그린 뒤 그린다.
-
-### UN-A1 · 피의 서약자 — **다시 그리기**
+### UN-A1 · 피의 서약자 — 그림 있음
 모르카스의 그믐 · 유닛 · 레벨 6 · 유니크 · 틀 `pov` F R `violetshade` · 프롬프트 n2 → `tools/art/inbox/UN-A1 피의 서약자.png`
 
 ```
@@ -25,21 +23,6 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: UN-A1 피의 서약자.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
-### UN-A2 · 엘라드의 날개 방패 — **다시 그리기**
-솔란테의 새벽 · 유닛 · 레벨 6 · 유니크 · 틀 `reflect` R X `firstlight` · 프롬프트 n2 → `tools/art/inbox/UN-A2 엘라드의 날개 방패.png`
-
-```
-Landscape 5:4 painting. The pale stone flank of a citadel in the last blue of night fills the frame; across it falls one enormous shadow: a kneeling armoured figure with six wings flung wide, taller than the battlements. Inside the shadow's outline the stone is clean, and a weary garrison sits untouched at the wall's foot, small as chess pieces. Outside it, wall and ground bristle with iron siege bolts. The shadow's owner kneels at the far right edge, cropped by the frame — a winged colossus in white-gold plate behind a tower shield, bolts long as masts standing in her spread wings. The first low band of pale-gold dawn beyond the right edge throws her shadow leftward over cool blue-grey stone and gilds the rim of every feather.
-Colour: first light — cool blue-grey before dawn with a low band of pale gold (#ffe9a8).
-Setting, the land of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
-Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its element. Light: theatrical chiaroscuro, a brilliant key light against deep black, and the subject radiant with a power of its own in its element colour, pale gold (#ffe9a8). Saturation: jewel-bright and deep, with pale gold at its fullest strength. Air: thick with swirling motes and sparks of pale gold light, a shimmering haze and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing pale gold at the seams.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
-Save the image file as: UN-A2 엘라드의 날개 방패.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-## 3. 그림 있음 — 그리지 않는다 (참고용) · 16장
-
 ### UN-A1-7 · 모르카스의 영혼 수확자 — 그림 있음
 모르카스의 그믐 · 유닛 · 레벨 6 · 유니크 · 틀 `through` F L `frostindigo` · 프롬프트 n2 → `tools/art/inbox/UN-A1-7 모르카스의 영혼 수확자.png`
 
@@ -51,6 +34,19 @@ Unique — fifth of the six rarity tiers, second only to special. Mood: legendar
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
 Save the image file as: UN-A1-7 모르카스의 영혼 수확자.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
+### UN-A2 · 엘라드의 날개 방패 — 그림 있음
+솔란테의 새벽 · 유닛 · 레벨 6 · 유니크 · 틀 `reflect` R X `firstlight` · 프롬프트 n2 → `tools/art/inbox/UN-A2 엘라드의 날개 방패.png`
+
+```
+Landscape 5:4 painting. The pale stone flank of a citadel in the last blue of night fills the frame; across it falls one enormous shadow: a kneeling armoured figure with six wings flung wide, taller than the battlements. Inside the shadow's outline the stone is clean, and a weary garrison sits untouched at the wall's foot, small as chess pieces. Outside it, wall and ground bristle with iron siege bolts. The shadow's owner kneels at the far right edge, cropped by the frame — a winged colossus in white-gold plate behind a tower shield, bolts long as masts standing in her spread wings. The first low band of pale-gold dawn beyond the right edge throws her shadow leftward over cool blue-grey stone and gilds the rim of every feather.
+Colour: first light — cool blue-grey before dawn with a low band of pale gold (#ffe9a8).
+Setting, the land of light: a white citadel facing the first light of day, held together by oaths — pale stone, stained glass, candle wax, gilded shields, feathers and sunbeams with weight.
+Unique — fifth of the six rarity tiers, second only to special. Mood: legendary, fierce and intense — the most daring picture of its element. Light: theatrical chiaroscuro, a brilliant key light against deep black, and the subject radiant with a power of its own in its element colour, pale gold (#ffe9a8). Saturation: jewel-bright and deep, with pale gold at its fullest strength. Air: thick with swirling motes and sparks of pale gold light, a shimmering haze and fine threads of filigree light winding around the subject. Surfaces: masterwork detail everywhere, inlaid and glowing pale gold at the seams.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
+Save the image file as: UN-A2 엘라드의 날개 방패.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### UN-A2-7 · 솔란테의 새벽 사제 — 그림 있음
