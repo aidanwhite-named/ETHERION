@@ -45,9 +45,15 @@ const BGM = {
       try { if (JSON.parse(localStorage.getItem("etherion.pref.sfx")) === "user") FEEL.level = "user"; } catch (e) {}
     }
     try { const a = document.createElement("audio"); this.ext = a.canPlayType('audio/ogg; codecs="vorbis"') ? "ogg" : "mp3"; } catch (e) { this.ext = "mp3"; }
-    const unlock = () => { if (this.blocked) { this.blocked = false; this.unlockedAt = performance.now(); this.paint(); this.retry(); } };
+    const unlock = () => {
+      if (this.ac && this.ac.state && this.ac.state !== "running" && this.ac.state !== "closed") this.ac.resume().catch(() => {});
+      if (this.blocked) { this.blocked = false; this.unlockedAt = performance.now(); this.paint(); this.retry(); }
+    };
     addEventListener("pointerdown", unlock, { capture: true, passive: true });
     addEventListener("keydown", unlock, { capture: true });
+    /* 2026-11-27 iOS 사파리는 손가락을 댈 때(pointerdown · touchstart)가 아니라 뗄 때(touchend · click)만 소리를 허락한다 */
+    addEventListener("touchend", unlock, { capture: true, passive: true });
+    addEventListener("click", unlock, { capture: true });
     addEventListener("keydown", e => {
       const k = (e.key || "").toLowerCase();
       if (k !== "m" && k !== "n") return;
@@ -65,7 +71,10 @@ const BGM = {
     document.addEventListener("visibilitychange", () => {
       if (!this.cur) return;
       if (document.hidden) this.cur.el.pause();
-      else if (this.level !== "off" && !this.blocked) this.cur.el.play().catch(() => {});
+      else if (this.level !== "off" && !this.blocked) {
+        if (this.ac && this.ac.state && this.ac.state !== "running" && this.ac.state !== "closed") this.ac.resume().catch(() => {});   // iOS: 다른 앱에 다녀오면 "interrupted"
+        this.cur.el.play().catch(() => {});
+      }
     });
   },
 
@@ -96,7 +105,7 @@ const BGM = {
     if (!name) { this.stop(); return; }
     const el = new Audio(this.dir + name + "." + this.ext + "?v=" + this.ver);
     el.preload = "auto";
-    el.volume = 0;
+    this.sv(el, 0);
     const item = { el, name, scene };
     el.addEventListener("timeupdate", () => {   // 곡이 끝나기 4초 전부터 다음 곡으로 겹쳐 넘어감(타이틀은 같은 곡 처음으로)
       if (this.cur !== item || item.leaving || !el.duration) return;
@@ -159,8 +168,19 @@ const BGM = {
     const isElectron = typeof process !== "undefined" && process.versions && process.versions.electron;
     if (isFile && !isElectron) return;   // file:// 일반 브라우저에서는 CORS 무음 방지를 위해 직접 재생
     const ac = this.ctx(); if (!ac) return;
-    try { const src = ac.createMediaElementSource(el); src.connect(this.bus(ac)); el._bgmNode = src; } catch (e) {}
+    try {
+      const src = ac.createMediaElementSource(el);
+      if (this.ios) {   // iOS는 <audio>.volume 을 못 바꾼다(늘 1) — 음량 · 페이드 · 덕킹을 GainNode 로
+        const g = ac.createGain(); g.gain.value = el._bgmV != null ? el._bgmV : 0;
+        src.connect(g).connect(this.bus(ac)); el._bgmGain = g;
+      } else src.connect(this.bus(ac));
+      el._bgmNode = src;
+    } catch (e) {}
   },
+  ios: typeof navigator !== "undefined" && (/iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)),
+  /* 곡 음량 읽기 · 쓰기 (iOS는 GainNode, 그 밖은 <audio>.volume) */
+  gv(el) { return el._bgmGain ? el._bgmGain.gain.value : el._bgmV != null && this.ios ? el._bgmV : el.volume; },
+  sv(el, v) { v = Math.max(0, Math.min(1, v)); el._bgmV = v; if (el._bgmGain) el._bgmGain.gain.value = v; else el.volume = v; },
 
   stop() {
     if (this.cur) { this.fade(this.cur, 0, this.fadeMs, true); this.cur = null; }
@@ -172,14 +192,14 @@ const BGM = {
     /* setInterval: 화면 그리기(requestAnimationFrame)가 멈춰도 음량은 끝까지 바뀐다 */
     clearInterval(item.duckTimer); item.ducking = false;   // v3.14 누르던 중이면 그만 누르고 페이드가 맡는다
     item.fading = true;
-    const el = item.el, from = el.volume, t0 = performance.now();
+    const el = item.el, from = this.gv(el), t0 = performance.now();
     clearInterval(item.fadeTimer);
     item.fadeTimer = setInterval(() => {
       const k = Math.min(1, (performance.now() - t0) / ms);
-      el.volume = Math.max(0, Math.min(1, from + (to - from) * k));
+      this.sv(el, from + (to - from) * k);
       if (k < 1) return;
       clearInterval(item.fadeTimer); item.fading = false;
-      if (end) { el.pause(); if (el._bgmNode) { try { el._bgmNode.disconnect(); } catch (e) {} el._bgmNode = null; } el.removeAttribute("src"); el.load(); }
+      if (end) { el.pause(); if (el._bgmNode) { try { el._bgmNode.disconnect(); } catch (e) {} el._bgmNode = null; } if (el._bgmGain) { try { el._bgmGain.disconnect(); } catch (e) {} el._bgmGain = null; } el.removeAttribute("src"); el.load(); }
     }, 40);
   },
 
@@ -190,13 +210,13 @@ const BGM = {
     const base = this.vol[this.level]; if (!base) return;
     clearInterval(it.duckTimer);
     const low = base * (1 - Math.max(0, Math.min(0.9, depth))), t0 = performance.now(), dur = Math.max(120, ms || 300);
-    if (!it.ducking || it.el.volume > low) it.el.volume = low;
+    if (!it.ducking || this.gv(it.el) > low) this.sv(it.el, low);
     it.ducking = true;
-    const from = it.el.volume;
+    const from = this.gv(it.el);
     it.duckTimer = setInterval(() => {
       if (this.cur !== it || it.fading) { clearInterval(it.duckTimer); it.ducking = false; return; }
       const k = Math.min(1, (performance.now() - t0) / dur);
-      it.el.volume = Math.max(0, Math.min(1, from + (this.vol[this.level] - from) * k * k));
+      this.sv(it.el, from + (this.vol[this.level] - from) * k * k);
       if (k >= 1) { clearInterval(it.duckTimer); it.ducking = false; }
     }, 30);
   },
@@ -305,7 +325,7 @@ const BGM = {
     const was = this.level;
     this.level = "user";
     try { localStorage.setItem("etherion.pref.bgm", JSON.stringify("user")); } catch (e) {}
-    if (this.cur) { clearInterval(this.cur.fadeTimer); if (was === "off") this.fade(this.cur, this.vol.user, 400); else this.cur.el.volume = this.vol.user; }
+    if (this.cur) { clearInterval(this.cur.fadeTimer); if (was === "off") this.fade(this.cur, this.vol.user, 400); else this.sv(this.cur.el, this.vol.user); }
     else if (this.want) this.start(this.want);
     this.paint();
   },

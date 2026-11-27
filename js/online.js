@@ -122,7 +122,7 @@ const Online = {
   send(m) { try { if (this.conn && this.conn.open !== false) this.conn.send(m); } catch (e) { console.warn("[online] send", e); } },
   reset() {
     this.close();
-    Object.assign(this, { role: null, code: "", foeDeck: null, foeName: "", q: [], waiters: [], wantAgain: false, foeAgain: false, sums: {}, warned: false, byeSeen: false });
+    Object.assign(this, { role: null, code: "", foeDeck: null, foeName: "", q: [], waiters: [], wantAgain: false, foeAgain: false, sums: {}, warned: false, byeSeen: false, expect: null });
   },
   close() {
     const c = this.conn, p = this.peer; this.conn = null; this.peer = null;
@@ -193,6 +193,12 @@ const Online = {
       return;
     }
     if (!this.validDeck(m.deck)) { this.send({ t: "deny", why: "덱을 읽을 수 없습니다." }); return; }
+    /* 2026-11-26 방(js/rooms.js)에서 연 대전: 그 방의 도전자만 받는다 — 코드를 어림해 붙은 다른 사람은 돌려보내고 계속 기다린다 */
+    if (this.expect && String(m.deck.name || "") !== this.expect) {
+      this.send({ t: "deny", why: "이 방의 도전자가 아닙니다." });
+      setTimeout(() => { if (this.conn && !this.conn.local && !this.inMatch()) { const c = this.conn; this.conn = null; c.close(); } }, 400);
+      return;
+    }
     this.foeDeck = m.deck;
     this.startNew();
   },
@@ -212,6 +218,8 @@ const Online = {
     this.foeName = decks[1 - this.me].name;
     this.q = []; this.waiters = []; this.sums = {}; this.wantAgain = this.foeAgain = false; this.warned = false; this.lastSeed = seed;
     if (this.ui) { this.ui.close(); this.ui = null; }
+    const inRoom = typeof Rooms !== "undefined" && Rooms.inRoom();   // 2026-11-26 방에서 연 대전은 끝나면 방으로 돌아간다
+    if (inRoom) Rooms.onBegin();
     document.querySelectorAll(".result, .modal-wrap").forEach(e => e.remove());
     const name = (d, i) => String(d.name || "").replace(/[<>&"'`]/g, "").slice(0, 16) || (i ? "도전자" : "방장");   // 2026-11-25 상대 기기가 보낸 이름은 HTML 글자를 빼고 씀
     const p0 = { name: name(decks[0], 0), group: decks[0].group, cards: decks[0].cards, rec: decks[0].rec };
@@ -219,7 +227,7 @@ const Online = {
     if (p0.name === p1.name) p1.name += " ②";
     const cfg = { mode: "online", seed, me: this.me, p0, p1, trial: !!(this.deck && this.deck.trial) };   // v3.48 trial: 내 쪽이 체험 덱(서버 보상 검사)
     if (typeof App !== "undefined") { App.screen = "game"; if (typeof Bg !== "undefined") Bg.set("off"); }
-    cfg.onExit = () => { if (typeof App !== "undefined") App.screen = null; if (typeof showLobby === "function") showLobby(); };
+    cfg.onExit = () => { if (typeof App !== "undefined") App.screen = null; if (typeof Rooms !== "undefined" && Rooms.inRoom()) Rooms.back(); else if (inRoom && typeof showRooms === "function") showRooms(); else if (typeof showLobby === "function") showLobby(); };
     startMatch(cfg);
     if (typeof FEEL !== "undefined") FEEL.play("match_found", .9);
     toast(`${this.foeName}와(과) 연결되었습니다. 행운을!`, "good");
@@ -289,7 +297,7 @@ const Online = {
 
   /* ---------- 한 번 더 ---------- */
   rematch() {
-    if (!this.conn) { toast("상대와 연결이 끊어져 있습니다. 대기실에서 다시 방을 만들어 주세요.", "warn"); return; }
+    if (!this.conn) { toast(typeof Rooms !== "undefined" && Rooms.inRoom() ? "상대가 이미 방으로 돌아갔습니다. 방으로 돌아가 다시 준비해 주세요." : "상대와 연결이 끊어져 있습니다. 대기실에서 다시 방을 만들어 주세요.", "warn"); return; }
     this.wantAgain = true; this.send({ t: "again" });
     toast(this.foeAgain ? "새 판을 시작합니다." : `${this.foeName || "상대"}에게 한 번 더를 청했습니다. 상대도 누르면 시작합니다.`, "good");
     this.tryAgain();
@@ -304,7 +312,13 @@ const Online = {
 })();
 
 /* ---------- 대기실 창 ---------- */
+/* 2026-11-26 온라인 대전 = 방 목록(js/rooms.js). 서버 없이 연 게임(파일 · 로컬 앱) · #local 시험은 예전 번호 방식(onlineDirect) */
 async function startOnline(f, opts) {   // opts.trial = v3.48 친구 초대 체험 덱
+  if (typeof Rooms !== "undefined" && Rooms.on() && !(typeof Store !== "undefined" && Store.isGuest())) return Rooms.open(f, opts);
+  return onlineDirect(f, opts);
+}
+/* 번호로 직접 연결: 한 사람이 방을 열어 받은 다섯 글자 코드를 상대가 넣는다 (v3.10 방식 그대로) */
+async function onlineDirect(f, opts) {
   /* v3.37 필멸자는 온라인 대전을 하지 않는다(모든 카드를 빌려 쓰는 계정). 컴퓨터와 대전 · 순례 · 덱 꾸리기는 된다 */
   if (typeof Store !== "undefined" && Store.isGuest()) {
     await modal(`<h3>온라인 대전</h3><p>필멸자로는 온라인 대전을 할 수 없습니다. 필멸자는 모든 카드를 빌려 쓰는 계정이라 다른 모험가와 겨루지 않습니다.</p><p class="muted">'새 모험가'로 등록하면 온라인 대전 · 상점 · 교역소를 쓸 수 있습니다. 필멸자는 컴퓨터와 대전 · 순례 · 덱 꾸리기를 할 수 있습니다.</p>`, [{ label: "확인", value: null, cls: "primary" }]);
@@ -315,7 +329,7 @@ async function startOnline(f, opts) {   // opts.trial = v3.48 친구 초대 체�
   if (opts && opts.trial && !trial) { toast("체험 기간이 끝났습니다.", "warn"); return; }
   if (!trial && !Store.deckPlayable(u, f)) { toast(`저장된 ${RULES.deckSize}장 덱이 있어야 대전할 수 있습니다.`, "warn"); return; }
   const deck = { name: u.id, group: f, cards: trial ? trial.cards : Store.deck(u, f).cards, trial: !!trial, rec: { w: (u.stats && u.stats.w) || 0, l: (u.stats && u.stats.l) || 0 } };   // v3.47 rec: 상대 깃발 명판에 보일 전적(화면에만)
-  const v = await modal(`<h3>온라인 대전</h3>
+  const v = await modal(`<h3>${typeof Rooms !== "undefined" && Rooms.on() ? "번호로 직접 연결" : "온라인 대전"}</h3>
     <p class="muted">친구와 각자의 컴퓨터에서 겨룹니다. 한 사람이 방을 만들고, 받은 <b>방 코드</b>를 친구에게 알려 주세요. 덱은 지금 고른 <b>${esc(GROUPS[f].name)}</b> 덱을 씁니다.</p>
     <div class="ol-choose">
       <button type="button" class="ol-pick" data-v="host"><b>방 만들기</b><span>코드를 받아 친구를 기다립니다</span></button>

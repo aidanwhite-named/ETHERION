@@ -1242,7 +1242,10 @@ async function showSettings() {
   /* v3.32.3 PC에서만: 화면 배치(js/mobile.js AppUI). 폰 · 앱은 늘 앱식 */
   const lay = typeof AppUI !== "undefined" && !document.documentElement.classList.contains("mobile") ? `<p class="pick-label">화면 배치 <small class="muted">— PC 배치: 준비 완료는 가운데 띠, 큰 생명, 대기실에 덱 카드 목록. 앱식: 폰 · 앱과 같은 배치(대기실은 깃발만, 깃발을 누르면 출정 창)</small></p>
     <div class="speed set-layout">${[["classic", "PC 배치 (기본)"], ["app", "앱식"]].map(([v, n]) => `<button type="button" class="btn xs ${AppUI.pref === v ? "on" : ""}" data-lay="${v}">${n}</button>`).join("")}</div>` : "";
-  const html = `<h3>설정</h3>${mt}${lay}
+  /* 2026-11-27 언어(js/i18n.js): 고르면 그 말로 다시 읽는다(저장 · 판은 그대로). 말 이름은 늘 그 말로 적는다(번역하지 않음) */
+  const langs = typeof I18N !== "undefined" ? `<p class="pick-label">언어 <small class="muted" data-i18n-skip>Language · 言語 · 语言</small></p>
+    <div class="speed set-lang" data-i18n-skip>${I18N.LANGS.map(([v, n]) => `<button type="button" class="btn xs ${I18N.lang === v ? "on" : ""}" data-lang="${v}" lang="${v}">${n}</button>`).join("")}</div>` : "";
+  const html = `<h3>설정</h3>${langs}${mt}${lay}
     <p class="pick-label">연출 속도 <small class="muted">— 전투 장면·카드 이동·띠 모두 같이 빨라지거나 느려집니다 (전투 중에도 바꿀 수 있음)</small></p>
     <div class="speed set-speed">${SPEEDS.map(s => `<button type="button" class="btn xs ${(G ? G.speed : Prefs.get("speed", 1)) === s ? "on" : ""}" data-sp="${s}">×${s}</button>`).join("")}</div>
     ${document.documentElement.classList.contains("mobile")
@@ -1260,6 +1263,11 @@ async function showSettings() {
     <div class="speed set-tlimit">${[["on", "켜기 (기본)"], ["off", "끄기"]].map(([v, n]) => `<button type="button" class="btn xs ${(Prefs.get("turnLimitOff", false) === true ? "off" : "on") === v ? "on" : ""}" data-tl="${v}">${n}</button>`).join("")}</div>` : ""}`;
   await modal(html, [{ label: "닫기", value: true, cls: "primary" }], { cls: "wide set-modal", onOpen: w => {
     w.addEventListener("click", e => {
+      const lg = e.target.closest("[data-lang]");
+      if (lg && typeof I18N !== "undefined" && lg.dataset.lang !== I18N.lang) {
+        if (G && App.screen === "game") { toast("대전이 끝난 뒤에 언어를 바꿀 수 있습니다.", "warn"); return; }   // 다시 읽으면 판이 끊긴다
+        I18N.set(lg.dataset.lang); return;
+      }
       const b = e.target.closest("[data-sp]");
       if (b) { if (G) setSpeed(+b.dataset.sp); else Prefs.set("speed", +b.dataset.sp); const sp = G ? G.speed : Prefs.get("speed", 1); w.querySelectorAll("[data-sp]").forEach(x => x.classList.toggle("on", +x.dataset.sp === sp)); }
       const mtb = e.target.closest("[data-mt]");
@@ -4461,7 +4469,7 @@ function showResult() {
     ${econ && econ.lucky && econ.lucky.k === "card" && CARDS[econ.lucky.id] ? `<div class="res-lucky"><p><b>행운</b> 환석이 빛나더니 카드 한 장을 내놓았다 — <span class="grade-${econ.lucky.grade}">${GRADES[econ.lucky.grade] ? GRADES[econ.lucky.grade].name : ""}</span> 「${esc(CARDS[econ.lucky.id].name)}」${econ.lucky.gold ? ` (이미 다 가져서 ${fmtGold(econ.lucky.gold)})` : ""}</p>${cardHTML(CARDS[econ.lucky.id], { size: "md" })}</div>` : ""}
     ${econ && typeof LevelUI !== "undefined" ? LevelUI.resultHTML(econ.xp != null ? econ.xp : econ.total) : ""}
     ${reward ? `<div class="res-reward"><p>보상으로 카드 1장을 얻었습니다</p>${cardHTML(CARDS[reward], { size: "md" })}</div>` : ""}
-    <div class="res-btns">${G.cfg.exp ? `<button class="btn primary" data-r="lobby">${won ? "원정 계속" : "원정으로"}</button>` : G.cfg.pil ? `<button class="btn primary" data-r="lobby">순례길로</button>` : `<button class="btn primary" data-r="lobby">대기실로</button><button class="btn" data-r="again">한 번 더</button>`}<button class="btn ghost" data-r="board">전장 보기</button>${typeof BLog !== "undefined" && !isPhone() ? `<button class="btn ghost" data-blog="dl" title="이 판의 개발용 전투 로그(.txt) 내려받기">⤓ 전투 로그</button>` : ""}</div>
+    <div class="res-btns">${G.cfg.exp ? `<button class="btn primary" data-r="lobby">${won ? "원정 계속" : "원정으로"}</button>` : G.cfg.pil ? `<button class="btn primary" data-r="lobby">순례길로</button>` : `<button class="btn primary" data-r="lobby">${G.online && typeof Rooms !== "undefined" && Rooms.inRoom() ? "방으로" : "대기실로"}</button><button class="btn" data-r="again">한 번 더</button>`}<button class="btn ghost" data-r="board">전장 보기</button>${typeof BLog !== "undefined" && !isPhone() ? `<button class="btn ghost" data-blog="dl" title="이 판의 개발용 전투 로그(.txt) 내려받기">⤓ 전투 로그</button>` : ""}</div>
   </div>`;
   document.body.appendChild(wrap);
   if (econ && typeof LevelUI !== "undefined") LevelUI.playResult(wrap);

@@ -21,6 +21,7 @@
      GET  /api/me                       내 데이터 다시 받기(스냅샷)
      POST /api/ops      {cid, ops:[{seq, fn, target, args}]}   Store 작업(덱 저장 · 사기 · 팔기 · 보상 …)을 차례로
      POST /api/trade    {fn, args}      교역소(TradeLocal 함수 이름 그대로)
+     POST /api/room     {a, …}          온라인 대전 방: 목록 · 만들기 · 입장 · 준비 · 채팅 · 내보내기 (메모리에만, long-poll)   — server/rooms.js
    스냅샷(모든 응답에 붙음): { me(암호 뺌), stock, unread, rev, now, others(관리자만) } */
 "use strict";
 const http = require("http");
@@ -32,6 +33,7 @@ const { load } = require("./rules.js");
 const { makeMailer } = require("./mailer.js");
 const { makeAuth, AUTH_LIMITS, LEGAL } = require("./auth.js");
 const { makeBilling } = require("./billing.js");
+const { makeRooms, ROOM_LIMITS } = require("./rooms.js");
 
 const VERSION = "3.27";
 const ROOT = path.join(__dirname, "..");
@@ -46,7 +48,9 @@ const WEB_SKIP = ["audio/inbox", "audio/sfx_gpt_preview", "audio/sfx/preview_v39
 /* v3.45.2 관리자 암호는 공개 코드에 적힌 값을 쓰지 않는다 — 처음 켤 때 아무도 모르는 암호를 만들어 config.json에만 적는다(화면에 찍지 않음).
    adminFrom: "any" 어디서나 관리자 로그인 · "tailnet" 이 컴퓨터와 Tailscale 안(100.64.0.0/10)에서만 (Funnel · 터널로 들어온 바깥 주소는 거절)
    adminHours: 관리자 로그인이 유지되는 시간(안 쓰면 끝, 기본 720 = 30일, 일반 모험가와 같음) */
-const DEFAULT_CONFIG = { port: 8787, host: "0.0.0.0", adminPassword: "", openBrowser: true, backupKeep: 14, adminFrom: "any", adminHours: 720 };
+/* 2026-11-27 관리자 이름 · 암호 해시: adminId(기본 admin) · adminHash(scrypt 해시 — `node server/admin.js set <이름>`이 적는다. 암호 원문은 어디에도 두지 않는다).
+   adminHash가 있으면 그것만 쓰고 adminPassword(옛 방식, 원문)는 보지 않는다 */
+const DEFAULT_CONFIG = { port: 8787, host: "0.0.0.0", adminPassword: "", openBrowser: true, backupKeep: 14, adminFrom: "any", adminHours: 720, adminId: "admin", adminHash: "" };
 const CONFIG_PATH = (() => { const i = process.argv.indexOf("--config"); return i > 0 ? path.resolve(process.argv[i + 1]) : CONFIG_FILE; })();   // 시험 서버용 따로 설정
 function loadConfig() {
   let c = {};
@@ -74,6 +78,9 @@ function loadConfig() {
 }
 /* 공개 코드에 적힌 옛 기본값(etherion) · 짧은 암호면 관리자 로그인을 막는다 (v3.45.2) */
 function adminPwProblem() {
+  if (!ADMIN_NAME_OK) return "관리자 이름(adminId)이 올바르지 않습니다";
+  { const o = Object.prototype.hasOwnProperty.call(db.users, ADMIN_NAME) ? db.users[ADMIN_NAME] : null; if (o && !o.admin) return `「${ADMIN_NAME}」은 이미 있는 모험가 이름입니다 — 다른 관리자 이름을 정하세요`; }
+  if (CFG.adminHash) return /^scrypt\$[0-9a-f]{32}\$[0-9a-f]{64}$/.test(String(CFG.adminHash)) ? null : "관리자 암호 해시(adminHash)가 깨졌습니다 — node server/admin.js set 으로 다시 정하세요";
   const pw = String(CFG.adminPassword || "");
   if (!pw) return "관리자 암호가 정해지지 않았습니다";
   if (pw === "etherion" || pw === R.ADMIN_PW) return "관리자 암호가 공개된 기본값(etherion)입니다";
@@ -81,6 +88,9 @@ function adminPwProblem() {
   return null;
 }
 const CFG = loadConfig();
+const ADMIN_NAME = String(CFG.adminId || "admin").trim();   // 관리자로 로그인하는 이름 (db.users의 열쇠이기도 하다)
+const ADMIN_NAME_OK = ADMIN_NAME.length >= 2 && ADMIN_NAME.length <= 16 && /^[\p{L}\p{N}\p{M} _\-·.]+$/u.test(ADMIN_NAME) && !/^(손님|필멸자)/.test(ADMIN_NAME);
+const sameName = (a, b) => String(a).toLowerCase() === String(b).toLowerCase();
 const DB_PATH = CFG.dataFile || DB_FILE;
 const BACKUP_DIR = path.join(path.dirname(DB_PATH), "backup");   // 데이터 파일 옆 backup/
 
@@ -152,6 +162,7 @@ const LIMITS = {
   api: { n: 300, ms: 60e3 }                   // 2026-11-25 로그인한 요청(ops · trade · me …): 한 로그인에 1분 300번
 };
 Object.assign(LIMITS, AUTH_LIMITS);   // 메일 코드 요청 · 틀림 (server/auth.js)
+Object.assign(LIMITS, ROOM_LIMITS);   // 2026-11-26 온라인 대전 방: 방 만들기 · 채팅 · 틀린 비밀번호 · 입장 (server/rooms.js)
 if (CFG.codeGapSec != null) LIMITS.codeGap.ms = Math.max(0, +CFG.codeGapSec || 0) * 1000;   // 같은 주소로 코드를 다시 받기까지(기본 60초) — 시험용으로 줄일 수 있다
 const hits = new Map();
 function ipOf(req) {
@@ -247,7 +258,7 @@ const NAME_RE = /^[\p{L}\p{N}\p{M} _\-·.]+$/u;   // 2026-11-25 새 이름에 �
 const GUEST_RE = /^(손님|필멸자)/;   // v3.53 새 계정은 필멸자·XXXX, 예전 손님·XXXX도 그대로
 function register(b, ip) {
   const id = String(b.id || "").trim();
-  if (GUEST_RE.test(id)) return { ok: false, msg: "이 이름은 쓸 수 없습니다." };
+  if (GUEST_RE.test(id) || sameName(id, ADMIN_NAME)) return { ok: false, msg: "이 이름은 쓸 수 없습니다." };   // 관리자 이름(config.json adminId)으로는 등록하지 못한다
   if (!NAME_RE.test(id)) return { ok: false, msg: "이름에는 글자 · 숫자 · 띄어쓰기와 _ - · . 만 쓸 수 있습니다." };   // 2026-11-25 이름이 남의 화면에 HTML로 들어가는 길을 미리 막음 (예전 계정은 그대로)
   /* v3.27 이메일 표(ticket: 메일 코드로 확인한 주소) · 암호(8자 이상, 이메일이 있으면 비워도 됨) · 동의 — server/auth.js */
   const chk = AUTH.registerCheck(b, id);
@@ -265,6 +276,27 @@ function register(b, ip) {
   log("등록", id, (b.groups || []).join(" · "), ir ? (ir.ok ? `· 초대 ${ir.from} ${ir.group}` : `· 초대 실패: ${ir.msg}`) : "");
   return Object.assign({ ok: true, token: newSession(id), invite: ir }, snapshot(u));
 }
+/* 관리자 계정(db.users[ADMIN_NAME], admin: true) — 없으면 게임과 같은 모양으로 만든다. 관리자 이름을 바꿨으면 옛 admin 계정(덱 · 설정)을 그 이름으로 옮긴다.
+   관리자는 "칸"이 아니라 역할이다: 모든 카드는 Store.allCards(u.admin)가 그때그때 주므로 새 카드가 생겨도 손댈 것이 없다 */
+function adminUser() {
+  let u = Object.prototype.hasOwnProperty.call(db.users, ADMIN_NAME) ? db.users[ADMIN_NAME] : null;
+  if (u) return u.admin ? u : null;
+  if (ADMIN_NAME !== R.ADMIN_ID && db.users[R.ADMIN_ID] && db.users[R.ADMIN_ID].admin) { dropSessions(R.ADMIN_ID); u = db.users[R.ADMIN_ID]; }
+  else { Store.login(R.ADMIN_ID, R.ADMIN_PW); db.session = null; u = db.users[R.ADMIN_ID]; }
+  delete db.users[R.ADMIN_ID];
+  u.id = ADMIN_NAME; delete u.pw; db.users[ADMIN_NAME] = u;
+  markDirty();
+  return u;
+}
+/* 켤 때: 지금 관리자 이름이 아닌 관리자 계정 · 암호가 바뀐 관리자의 로그인을 끊는다 */
+function adminSweep() {
+  const tag = crypto.createHash("sha256").update(ADMIN_NAME + "|" + String(CFG.adminHash || CFG.adminPassword || "")).digest("hex").slice(0, 16);
+  const changed = db.adminTag !== tag; let n = 0;
+  for (const k of Object.keys(db.sessions)) { const u = db.users[db.sessions[k].uid]; if (u && u.admin && (changed || u.id !== ADMIN_NAME)) { delete db.sessions[k]; n++; } }
+  if (changed) { db.adminTag = tag; markDirty(); }
+  if (n) { log("관리자", `이름 · 암호가 바뀌어 관리자 로그인 ${n}개를 끊음`); markDirty(); }
+}
+setTimeout(adminSweep, 0);
 function login(b, ip, req) {
   const typed = String(b.id || "").trim().slice(0, 254), pw = String(b.pw || "");
   const byMail = typed.includes("@"), lim = byMail ? AUTH.emailKey(typed.toLowerCase()) : typed.toLowerCase();
@@ -277,15 +309,16 @@ function login(b, ip, req) {
     log("로그인", id, "(이메일 + 암호)");
     return Object.assign({ ok: true, token: newSession(id) }, snapshot(u));
   }
-  if (id.toLowerCase() === R.ADMIN_ID) {
+  if (sameName(id, ADMIN_NAME) || sameName(id, R.ADMIN_ID)) {
+    if (!sameName(id, ADMIN_NAME)) return fail("관리자 암호가 맞지 않습니다.");   // 관리자 이름을 바꿨으면 옛 이름(admin)으로는 못 들어온다
     if (!adminPlaceOk(req)) { log("관리자 로그인 거절", "바깥 주소", ip); return { ok: false, msg: "관리자는 이 주소에서 로그인할 수 없습니다." }; }   // v3.45.2 adminFrom: "tailnet"
     const bad = adminPwProblem();
-    if (bad) { log("관리자 로그인 막음", bad + " — server/config.json의 adminPassword를 10자 이상으로 바꾸고 서버를 다시 켜세요."); return fail("관리자 로그인이 꺼져 있습니다. 서버의 관리자 암호를 먼저 바꿔 주세요."); }
-    if (!sameText(pw, CFG.adminPassword)) return fail("관리자 암호가 맞지 않습니다.");
-    if (!db.users[R.ADMIN_ID]) { Store.login(R.ADMIN_ID, R.ADMIN_PW); db.session = null; }   // 게임과 같은 모양으로 관리자 계정을 만든다
-    const u = db.users[R.ADMIN_ID]; delete u.pw;
-    log("로그인", "admin");
-    return Object.assign({ ok: true, token: newSession(R.ADMIN_ID) }, snapshot(u));
+    if (bad) { log("관리자 로그인 막음", bad + " — node server/admin.js set <이름> 으로 관리자 암호를 정하고 서버를 다시 켜세요."); return fail("관리자 로그인이 꺼져 있습니다. 서버의 관리자 암호를 먼저 바꿔 주세요."); }
+    if (!(CFG.adminHash ? checkPw(pw, String(CFG.adminHash)) : sameText(pw, CFG.adminPassword))) return fail("관리자 암호가 맞지 않습니다.");
+    const u = adminUser();
+    if (!u) return fail("관리자 암호가 맞지 않습니다.");
+    log("로그인", u.id, "(관리자)");
+    return Object.assign({ ok: true, token: newSession(u.id) }, snapshot(u));
   }
   const u = Object.prototype.hasOwnProperty.call(db.users, id) ? db.users[id] : null;
   if (!u || u.guest) return fail("등록되지 않은 이름입니다. '새 모험가'로 등록하거나 '로그인 없이 시작'을 눌러 주세요.");
@@ -479,6 +512,8 @@ const BILL = makeBilling({ db, CFG, markDirty, log,
   grant: (u, give, why) => { if (give && give.gold > 0) Store.addGold(u, give.gold, why); },
   takeBack: (u, give, why) => { const n = (give && give.gold) || 0; if (!n) return true; if (Store.gold(u) < n) return false; Store.addGold(u, -n, why); return true; } });
 AUTH.migrate();
+/* ---------- 2026-11-26 온라인 대전 방 (server/rooms.js) — 메모리에만, 서버를 다시 켜면 사라진다 ---------- */
+const ROOMS = makeRooms({ R, log, limited, hit, hashPw, checkPw });
 /* 메일 코드 확인: 가입한 주소면 로그인, 아니면 가입 표 */
 function authVerify(b, ip) {
   const r = AUTH.authVerify(b, ip);
@@ -490,6 +525,7 @@ function authVerify(b, ip) {
 function wipeUser(u) {
   BILL.detach(u);
   dropSessions(u.id);
+  ROOMS.forget(u.id);
   if (db.trade && db.trade.notices) delete db.trade.notices[u.id];
   for (const id in db.matches || {}) if (db.matches[id].uid === u.id) delete db.matches[id];
   delete db.users[u.id];
@@ -584,7 +620,8 @@ const server = http.createServer(async (req, res) => {
     if (limited("api", sess.key)) return send(res, 429, { ok: false, msg: "요청이 너무 잦습니다. 잠시 뒤에 다시 해 주세요." });
     hit("api", sess.key);
     current = sess.u;
-    if (route === "/api/logout" && req.method === "POST") { delete db.sessions[sess.key]; markDirty(); log("나감", sess.u.id); return send(res, 200, { ok: true }); }
+    if (route === "/api/room" && req.method === "POST") { const out = await ROOMS.handle(sess.u, body, req); if (out === null) return res.end(); return send(res, 200, out); }   // 2026-11-26 방 (poll은 방이 바뀔 때까지 붙잡는다 — 기기가 먼저 끊으면 null)
+    if (route === "/api/logout" && req.method === "POST") { ROOMS.forget(sess.u.id); delete db.sessions[sess.key]; markDirty(); log("나감", sess.u.id); return send(res, 200, { ok: true }); }
     if (route === "/api/me") return send(res, 200, Object.assign({ ok: true }, snapshot(sess.u)));
     if (route === "/api/account" || (route.startsWith("/api/account/") && req.method === "POST")) return send(res, 200, await account(sess, route, body, ipOf(req)));
     if (route === "/api/billing/order" && req.method === "POST") return send(res, 200, BILL.create(sess.u, body.sku));
@@ -621,7 +658,7 @@ server.listen(CFG.port, CFG.host, () => {
   for (const ip of lanAddrs()) console.log(`  같은 와이파이  http://${ip}:${CFG.port}`);
   console.log(`  데이터      ${DB_PATH}  (모험가 ${Object.keys(db.users).length}명)`);
   console.log(`  규칙        게임 파일 ${R.files.length}개 · 카드 ${R.CARD_LIST.length}종`);
-  { const bad = adminPwProblem(); console.log(`  관리자      ${bad ? "꺼짐 — " + bad + " (server/config.json의 adminPassword를 10자 이상으로)" : "admin / server/config.json의 adminPassword"}${CFG.adminFrom === "tailnet" ? " · 이 컴퓨터와 Tailscale 안에서만" : ""}`); }
+  { const bad = adminPwProblem(); console.log(`  관리자      ${bad ? "꺼짐 — " + bad + " (node server/admin.js set <이름>)" : ADMIN_NAME + (CFG.adminHash ? " / 암호 해시(config.json adminHash — node server/admin.js set 으로 바꿈)" : " / server/config.json의 adminPassword")}${CFG.adminFrom === "tailnet" ? " · 이 컴퓨터와 Tailscale 안에서만" : ""}`); }
   console.log(`  메일        ${MAILER.real ? MAILER.provider + " — 인증 코드를 메일로 보냄" : "시험(코드를 이 창에 찍음) — 바깥에 열 때는 config.json의 mail을 채우세요"}${AUTH.emailRequired() ? " · 가입에 이메일 필수" : ""}`);
   console.log(`  끄기        이 창에서 Ctrl + C\n`);
   if (CFG.openBrowser) {

@@ -762,7 +762,7 @@ if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if
 function renderChat() {
   const box = $("#chat-log"); if (!box) return;
   const sys = `<div class="msg sys">◈ 대기실에 입장했습니다. 지금은 서버에 연결되어 있지 않아 메시지가 이 기기에만 남습니다.</div>`;
-  box.innerHTML = sys + ChatNet.history().slice(-80).map(m => `<div class="msg${m.from === Store.data.session ? " mine" : ""}"><span class="who">${m.admin ? '<i class="crown">♛</i>' : ""}${esc(m.from)}</span><span class="txt">${esc(m.text)}</span><time>${fmtTime(m.at)}</time></div>`).join("");
+  box.innerHTML = sys + ChatNet.history().slice(-80).map(m => `<div class="msg${m.from === Store.data.session ? " mine" : ""}"><span class="who" data-i18n-skip>${m.admin ? '<i class="crown">♛</i>' : ""}${esc(m.from)}</span><span class="txt" data-i18n-skip>${esc(m.text)}</span><time>${fmtTime(m.at)}</time></div>`).join("");
   box.scrollTop = box.scrollHeight;
 }
 ChatNet.onMessage(m => { if (App.screen === "lobby") renderChat(); const u = Store.user(); if (m && u && m.from !== u.id && typeof FEEL !== "undefined") FEEL.play("chat", .6); });

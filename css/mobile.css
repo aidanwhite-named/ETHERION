@@ -418,3 +418,60 @@ html.mobile .screen-editor .dl-main .dl-type { display: none; }   /* 단추를 �
   html.mobile .screen-editor .ed-btns .btn { padding: 8px 8px; font-size: 13px; }
   html.mobile .screen-editor .ed-name input { font-size: 13.5px; }
 }
+
+/* 2026-11-26 온라인 대전 방 (css/rooms.css · js/rooms.js) — 폰 · 앱 가로 화면: 방 목록 · 방 대기실이 한 화면에 들어오게
+   상단 띠 아래 높이를 그대로 쓰고(화면 전체는 굴리지 않음), 목록 · 채팅만 그 안에서 굴린다 */
+html.appui .rooms, html.appui .room { --rm-top: 70px; height: calc(100dvh - var(--rm-top)); min-height: 0; padding-block: 8px 8px; gap: 10px; }
+html.appui .rooms { grid-template-columns: minmax(0, 1fr) 300px; }
+html.appui .rm-frame { padding: 10px 12px 12px; }
+html.appui .rm-list { min-height: 0; gap: 6px; }
+html.appui .rm-table { min-height: 0; max-height: none; gap: 6px; }
+html.appui .rm-row { padding: 5px 12px; }
+html.appui .rm-row .rm-seal { width: 40px; height: 40px; }
+html.appui .rm-tools .btn { padding: 8px 14px; font-size: 14px; }
+html.appui .rm-empty { padding: 10px; }
+html.appui .rm-gate { width: 54px; height: 66px; border-radius: 27px 27px 0 0; }
+html.appui .rm-side { min-height: 0; gap: 8px; }
+html.appui .rm-me { padding-bottom: 8px; }
+html.appui .rm-side-foot .btn { padding: 8px 12px; }
+html.appui .room { grid-template-columns: minmax(0, 1fr) 300px; }
+html.appui .rr-main { gap: 6px; min-height: 0; grid-template-rows: auto minmax(0, 1fr) auto auto; }
+html.appui .rr-titlebar { padding: 5px 14px; }
+html.appui .rr-titlebar > b { font-size: 18px; }
+html.appui .rr-duel { grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr); gap: 4px; }
+html.appui .rr-vs b { font-size: 20px; }
+html.appui .rs-cloth { min-height: 0; padding: 6px 10px; gap: 10px; }
+html.appui .rs-cloth .rm-seal { width: 44px; height: 44px; }
+html.appui .rs-name { font-size: 20px; }
+html.appui .rs-lv { width: 42px; } html.appui .rs-lv b { font-size: 18px; }
+html.appui .rs-body { gap: 3px; padding: 6px 10px 8px; }
+html.appui .rs-flag b { font-size: 17px; }
+html.appui .rs-flag small { display: none; }
+html.appui .rs-score b { font-size: 24px; }
+html.appui .rs-tier { width: 22px; height: 22px; font-size: 14px; }
+html.appui .rs-state { padding: 3px 14px; font-size: 14px; }
+html.appui .rs-kick { margin-top: 2px; }
+html.appui .rr-deck { padding: 6px 10px; display: flex; align-items: center; gap: 10px; }
+html.appui .rr-deck .panel-title { margin: 0; flex: none; }
+html.appui .rr-deck .panel-title small, html.appui .rr-deck .panel-title::after { display: none; }
+html.appui .rm-picks.is-row { flex-wrap: nowrap; overflow-x: auto; flex: 1 1 auto; }
+html.appui .rm-picks.is-row .rm-pick { flex: 0 0 auto; padding: 4px 10px 4px 6px; }
+html.appui .rm-picks.is-row .rm-pick .rm-seal { width: 32px; height: 32px; }
+html.appui .rr-acts { padding: 6px 12px; gap: 10px; }
+html.appui .rr-btns .btn { min-width: 104px; padding: 9px 14px; font-size: 15px; }
+html.appui .rr-chat { position: static; height: auto; min-height: 0; }
+html.appui .rr-chat .chat-form { padding-top: 6px; }
+
+/* 2026-11-27 아이폰 · 아이패드 (js/mobile.js 가 붙이는 <html class="ios">, 홈 화면 웹 앱이면 .standalone)
+   - 아이패드는 화면이 커서 html.mobile 이 아니다 — 글자 부풀리기 · 두 번 눌러 확대 · 파란 칠 · 길게 눌러 메뉴는 여기서 막는다
+   - 노치 · 다이내믹 아일랜드(가로로 들면 왼쪽 또는 오른쪽): 전장(.b-main) · 첫 화면 · 로그인 · 상점 · 방 · 카일란 · 거래는 이미 env(safe-area-inset-*)로 비킨다.
+     나머지 화면은 #app 양옆을 노치만큼 띄운다. 노치 없는 기기 · 다른 브라우저는 env 값이 0이라 바뀌는 것이 없다
+   - 홈 바(아래 가로 줄)는 게임 화면 위에 얇게 떠 있을 뿐이라 비키지 않는다(앱은 prefersHomeIndicatorAutoHidden) */
+html.ios { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+html.ios, html.ios body { -webkit-tap-highlight-color: transparent; }
+html.ios button, html.ios a, html.ios #board, html.ios .card, html.ios .hand-card { touch-action: manipulation; }
+html.ios img { -webkit-user-drag: none; -webkit-touch-callout: none; }
+html.ios #app:has(> .screen-lobby, > .screen-editor, > .screen-exp, > .screen-journal, > .screen-admin) {
+  padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-area-inset-right, 0px); box-sizing: border-box; }
+/* 홈 화면 웹 앱은 상태 띠가 화면 위에 겹친다(black-translucent) — 세로로 든 첫 화면 · 로그인 · 돌려 달라는 안내만 세로에서 쓴다 */
+html.ios.standalone .rotate-ask { padding-top: max(24px, env(safe-area-inset-top, 0px)); padding-bottom: max(24px, env(safe-area-inset-bottom, 0px)); }

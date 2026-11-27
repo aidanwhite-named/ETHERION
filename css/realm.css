@@ -657,3 +657,8 @@ html.appui .screen-editor .pool-grid { --pc-gx: 6px; --pc-gy: 10px; --pg-pad: 7p
 @media (min-height: 940px) and (min-width: 900px) {
   .gate.gate-login { width: min(560px, 100%); }
 }
+
+/* 2026-11-27 (사용자) 관문의 큰 단추(관문 통과 · 코드로 관문 통과 · 모험가 등록 · 로그인 없이 시작): 칸 전체 폭이라 길고 얇았다 → 조금 짧게 가운데로, 조금 두껍게.
+   높이는 글자 크기에 맞춰(em) 낮은 화면의 작은 글자에서도 같은 비율로 */
+.gate .gate-form .btn.wide, .gate > .btn.wide.gate-guest { width: min(100%, max(64%, 300px)); justify-self: center; margin-inline: auto; }
+.gate .gate-form .btn.wide { min-height: 2.75em; font-weight: 800; }

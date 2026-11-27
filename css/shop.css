@@ -121,7 +121,7 @@
 .pach-top .pach-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 /* v1.0: 대기실 오른쪽 열 = 수레바퀴 + 채팅 */
 .side-col { position: sticky; top: 74px; }
-.side-col .chat { position: static; height: min(520px, calc(100vh - 300px)); }
+.side-col .chat { position: static; height: min(520px, calc(100vh - 300px)); height: min(520px, calc(100dvh - 300px)); }
 /* v1.4.3: 구매 · 판매 두 버튼 */
 .sc-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; width: 100%; }
 .sc-btns .btn { width: 100%; }

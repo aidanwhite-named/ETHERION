@@ -195,6 +195,26 @@
 - 두 기기가 같은 시드로 같은 판을 계산한다(`js/online.js`). **판의 결과를 바꾸는 난수는 `GRand()` · `shuffleG()`만 쓴다.** `Math.random`은 연출(흔들림 · 소리)에만.
 - 사람이 둘 수 있는 새 행동을 만들면 `js/online.js`의 `ACT_FNS`에 넣어 상대에게도 보낸다. 핸드 순서도 판에 영향이 있다(맨 왼쪽 카드를 겨냥하는 마법).
 
+## 온라인 대전 방 (2026-11-26, 사용자)
+- 서버 모드의 온라인 대전은 **방 목록 → 방 대기실 → 대전**이다. 화면은 `js/rooms.js`(`Rooms` · `showRooms` · `showRoom`) · `css/rooms.css`(폰은 `css/mobile.css` 끝), 서버는 `server/rooms.js`(`POST /api/room {a, …}` — list · create · join · quick · poll · flag · ready · chat · kick · leave · start · back). 방은 **서버 메모리에만** 있고(db.json에 쓰지 않음) 서버를 다시 켜면 사라진다.
+- **대전 연결은 예전 그대로 PeerJS**(`js/online.js`)다. 방장이 "대전 시작"을 누르면 `Online.host`로 Peer 코드를 열어 서버에 맡기고(`start {peer}`), 도전자는 방 소식(long-poll `poll {ver}`, 최대 20초 붙잡음)으로 받아 `Online.join` 한다. 방장은 `Online.expect`(그 방 도전자 이름)가 아닌 접속을 돌려보낸다. 판이 끝나면 `cfg.onExit`가 `Rooms.back()`으로 방에 돌아온다(둘 다 돌아와야 방이 대기로). **보상 · 전적 흐름(`rewards.js` `_pairEnd`)은 건드리지 않았다.**
+- 서버 없이 연 게임(파일 · 로컬 앱) · `#local` 시험 · 방 목록의 "번호로 직접 연결"은 예전 코드 창(`onlineDirect`)이다. `startOnline`이 둘을 가른다. 필멸자는 예전처럼 온라인 대전을 못 한다(서버도 거절).
+- 방 안의 레벨 · 전적 · **깃발 점수 = 덱 점수**(`js/grades.js` `deckScore`, 평가 S~D는 `DECK_TIERS`)는 서버가 저장된 덱으로 계산해 보낸다 — 기기가 보낸 값을 쓰지 않는다. **깃발 공개**를 끈 방은 대전이 시작될 때까지 서로의 깃발 · 덱 점수를 가린다(`view`의 `hide`).
+- 비밀번호는 서버에서만 검사하고 scrypt 해시로만 둔다. 방 제목 24자 · 채팅 200자(제어 글자 뺌, `clean`), 화면에는 `esc()`로만. 빈도 제한은 `ROOM_LIMITS`(server.js `LIMITS`에 합쳐짐). 응답 없는 사람은 45초(대전 중 90초) 뒤 내보내고, 방장이 나가면 남은 사람이 방장, 아무도 없으면 방을 지운다.
+- 방 단추 · 칸에 `data-trial` 속성을 쓰지 않는다(체험 덱 띠 `js/deckcode.js`가 문서 전체에서 잡는다 — 깃발 고르기는 `data-tr`). 상태 클래스는 `is-*` · `s-*`로 쓴다(`ready` · `play` 같은 흔한 이름은 전장 CSS와 겹친다).
+- 그림 자리(로비 배경 · 대기실 배경 · 빈 자리)는 `css/rooms.css` 맨 위 `--rm-art-*`, 프롬프트는 `tools/art/prompts/online_lobby.md`. 지금은 CSS 대체.
+- 시험: `node tools/rooms/test.js`(서버 API 58개) · `node tools/rooms/e2e.js [스크린샷 폴더]`(headless Chrome 창 둘로 방 만들기 → 입장 → 채팅 → 준비 → 한 판 → 전적 → 내보내기 · 나가기, PC · 폰 스크린샷. 임시 서버 · 임시 데이터). 이 맥의 headless Chrome은 WebRTC가 막혀 있어 e2e는 게임의 시험용 통로(BroadcastChannel)로 잇는다 — 진짜 PeerJS로 보려면 `--peerjs`.
+
+## 다국어 — 한국어 · English · 日本語 · 简体中文 (2026-11-27, 사용자)
+- **게임만** 옮긴다. 소설 · 연대기(`js/chronicle.js`) · 카일란(`js/kailan.js`) · 순례 대사 · 순례기(`js/pilgrimtext.js`, `.pg-say` 등)는 한국어로만 — `js/i18n.js` `SKIP_CLASS` · `data-i18n-skip` 속성. 채팅 · 이름 같은 사람 글에도 `data-i18n-skip`.
+- **데이터 · 규칙 · 서버는 한국어 그대로.** 말은 화면에 나가는 순간에만 바꾼다(`js/i18n.js`): innerHTML · textContent 등을 넣을 때 글 마디와 말풍선 속성을 사전으로 바꾸고(동기 — 글 맞춤이 바뀐 글을 잰다), 나머지는 MutationObserver. 그래서 **새 화면 글은 한국어로 그냥 쓰면 된다** — 사전에 없으면 한국어로 나올 뿐 깨지지 않는다. 코드에서 직접 번역이 필요하면 `I18N.t("한국어 {0}", 값)`.
+- 설정 창 "언어"(`showSettings`) → `localStorage etherion.pref.lang` = `"ko"|"en"|"ja"|"zh"`, 바꾸면 다시 읽는다(대전 중에는 막음). 한국어면 번역 파일을 읽지 않는다.
+- 파일: `js/i18n/glossary.js`(용어집 — 키워드 `KW` · 게임 낱말 · 깃발 · 고유명사 `TERM`, [en, ja, zh]) · `js/i18n/ui.<말>.js`(화면 글 `{ "한국어": "번역" }`, `{0}` = 숫자 · 이름 자리, 받은 글도 다시 번역) · `js/i18n/cards.<말>.js`(카드 ID → `n` 이름 · `t` 마법 글 · `f` 서사 · `k` 종류 · `b` 핸드 짧은 문구 · `h` 한국어 원문 지문) · `css/i18n.css`(일본어 · 중국어 줄바꿈 · 글꼴, CSS content 글). 번역 지침 `tools/i18n/TRANSLATION_GUIDE.md`.
+- **카드를 새로 만들거나 이름 · 글을 고치면**: `node tools/i18n/cards_src.js` → `node tools/i18n/prep.js` → `tools/i18n/work/cards_<깃발>.ko.json`을 지침대로 en · ja · zh로 옮겨 `node tools/i18n/validate.js <파일>` 통과 → `node tools/i18n/build.js` → `node tools/i18n/check.js`(카드 빠짐 · 숫자 · 코인 · 키워드 · 원문 바뀜 "~"이 없어야 한다).
+- **새 키워드**는 `glossary.js KW`에 한 줄. 카드 번역의 `[ ]` 안은 그 이름이어야 한다(check가 본다). `kwHTML`이 번역된 키워드 이름을 한국어로 되돌려 뜻을 찾는다(`I18N.kwKo`).
+- **새 화면 글**: `node tools/i18n/extract.js`(js · server의 한글 글 마디 → `ui_keys.json`) → `prep.js` → `work/ui_<n>.ko.json` 번역 → `validate.js` → `build.js`. 화면에서 못 찾은 글은 `node tools/i18n/shots.js <폴더> --miss`가 `miss.<말>.json`으로 모은다(headless Chrome, 말마다 PC · 폰 화면도 찍음).
+- 글 길이: 영어는 길고 일본어 · 중국어는 짧다. 카드 이름 en ≲22자 · ja ≲10자 · zh ≲8자. 핸드 · 큰 카드 맞춤(`fitBriefs` · `fitCardNames`)은 그대로 돈다.
+
 ## 소리 프롬프트 (2026-11-14, Gemini용)
 - **카드 · 전장 효과음은 v2 합성기 `tools/sfx/synth2/`로 만든다**(2026-11-21~, 프롬프트 문장을 옮기지 않는다 — 사용자: v1 소리가 둔탁했다). 카드 소리(`<ID>.atk · .def · .cast · .equip`)는 `cards.py`가 게임 자료(`dump_cards.js`: 깃발 원소 · 종류 · 레벨 · 등급 · 마법 ops · 아이템 아이콘)로 **틀 하나**(공격: 베기 · 찌르기 · 발톱 · 물기 · 내려치기 · 총 · 활 · 원소 타격 …, 방어: 쇠 · 나무 · 돌 · 껍질 · 깃 · 피함 …, 마법: 피해 · 강화 · 약화 · 보호막 · 치유 · 무효 · 속임수)를 고르고 원소의 색(`elements.py` — 깃발마다 음계 · 음색이 다르다) · 레벨의 무게 · 등급의 장식을 얹는다. `tools/sfx/notes/<깃발>.json`의 글은 틀을 가르는 낱말 힌트로만 읽는다. 전장 공용 소리 89키(카드 다루기 · 코인 · 명판 · 타격 · 능력)는 `common.py`의 손 레시피, 소리 재료는 `kit.py`. 실행 `~/develop/sfx-synth/.venv/bin/python tools/sfx/synth2/render2.py <폴더> [키 · 접두어* …] -j8`(고른 틀만 보기 `--plan`), 검사 `tools/sfx/synth/check.py <폴더>` · 밝기 통계 `tools/sfx/synth2/stats.py <폴더>`(직접 듣지 않으므로 대역 분포로 본다: 150 Hz 아래는 폰에서 안 들리니 몸통은 150~500 Hz, 2~6 kHz 가 비면 둔탁하다, 3 kHz 위 쇠 울림은 0.1초 안에 잦아들게). 만든 파일을 `audio/sfx/`에 넣고 `js/feel.js`의 `SND_ALL`(전부) 또는 `SND_VER`(몇 키)를 올린다. **새 카드를 만들면 render2.py 로 그 카드 키를 만든다.** 메뉴 · 상점 · 보상 · 미니게임 · 짧은 음악 69키는 아직 v1(아래).
 - **마법 소리 = 어택 + 저역 몸통 + 긴 꼬리, 연쇄는 차례마다 오름 (2026-11-24, 사용자 — "강력하고 웅장하게, 크거나 높은 소리가 아니라 그 마법에 맞게 느껴지는 소리")**: 마법 발동(`.cast`)은 `tools/sfx/synth2/weight.py`의 무게 층을 깐다 — 서브(40~60 Hz)는 늘 찌그러뜨린 배음(100~300 Hz)과 함께(폰에서도 무게가 들리게), 원소마다 결(불 = 부풀었다 터짐 · 번개 = 균열 뒤 굴러가는 천둥 · 물 = 깊은 물결 · 땅 = 꺼지는 쿵 · 어둠 = 낮은 불협 드론 · 빛 = 따뜻한 낮은 화음 · 바람 = 낮은 기류 · 쇠 = 낮은 징 · 숲 = 굵은 나무 울림), 회복 = 낮은 장화음 · 저주 = 단2도 드론 · 보호막 = 낮은 징. `.cast`만 마무리 저역 컷 32 Hz(다른 소리는 95 Hz 그대로). 맞는 순간 `sp_land_<원소>`(js/spellfx.js cast — 여러 대상을 차례로 칠수록 조금씩 높게, 셋 이상이면 끝에 `sp_area`), 잇단 마법(공격 · 반격 · 코인 없이 이어 발동)은 차례마다 발동 소리가 반음 절반씩 오르고(최대 +2반음) 둘째부터 `sp_chain`, 마지막 마법이 부서질 때 `sp_finale`(js/game.js runCombat `spellRun` · js/feel.js `chainRate` · `spellChain` · `spellFinale`). 계략(핸드) 마법도 castHand 에서 발동 소리. `.cast`를 다시 만들면 feel.js `SND_CAST`를 올린다. 마법 장면 연출(js/spellscene.js)의 장면 소리 `sc_*` 21개는 `common.py` "마법 장면의 결" — 맞는 순간은 sp_land 가 맡으니 예고 · 이동 · 꽂힘만 짧게. 검사 `node tools/sfx/test/spell_sfx.js`(모든 마법에 발동 · 맞는 · 연쇄 소리, spellscene.js 가 부르는 sc_* 파일).
@@ -231,7 +251,8 @@
 - 서버는 게임의 규칙 파일을 그대로 읽는다(`server/rules.js`: index.html의 `js/data.js` ~ `js/economy.js` + `js/trade.js` · `js/level.js`). **규칙을 서버에 따로 짜지 않는다** — Store · TradeLocal을 고치면 서버도 같다. 새 카드 데이터 파일은 index.html의 그 사이에 넣는다.
 - **보유 카드 · 지갑 · 덱 · 초안 · NEW는 Store 함수로만 고친다.** 화면에서 `u.collection` · `u.gold` · `u.decks`를 바로 고치면 서버에 가지 않고 되돌아간다.
 - 데이터를 바꾸는 Store 함수를 새로 만들면 `server/server.js` `OPS`와 `js/net.js` `NET_SYNC_OPS`(결과를 바로 씀) · `NET_ASYNC_OPS`(먼저 하고 알림)에 이름을 넣는다. 서버만 바꾸는 새 칸은 `PROTECTED`(server.js) · `NET_PROTECTED`(net.js) 두 곳. 새 교역소 요청 함수는 `TRADE_FNS`와 net.js의 TradeHttp 목록.
-- `server/data/`(모험가 데이터)와 `server/config.json`(관리자 암호)은 지우지 않고 git에 올리지 않는다. 시험은 `node server/server.js --no-open --port 다른번호 --data 다른곳/db.json`.
+- **관리자 계정(2026-11-27)**: 이름 · 암호는 `node server/admin.js set <이름>`(암호를 물어 `config.json`에 `adminId` + scrypt `adminHash`만 적음). **암호 원문을 코드 · 문서 · 시험 · 커밋 어디에도 적지 않는다(공개 저장소).** 관리자는 역할(`u.admin`)이다 — 모든 카드는 `Store.allCards`가 주므로 계정에 카드를 넣어 두지 않는다. 관리자와 둔 온라인 판은 시즌 등급 점수가 움직이지 않는다(`rewards.js` `_pairEnd`). 백업 · 서버 옮기기는 `node server/backup.js`(`config.json` + `data/` 묶음, 게임 폴더 밖). 설명 `docs/SERVER.md` 3 · 4.5 · 7장, 시험 `node tools/admin/test.js`.
+- `server/data/`(모험가 데이터)와 `server/config.json`(관리자 암호 해시 · 계정 열쇠)은 지우지 않고 git에 올리지 않는다. 시험은 `node server/server.js --no-open --port 다른번호 --data 다른곳/db.json`.
 - 게임 js나 서버 코드를 고치면 서버를 껐다 켠다(켤 때 규칙 파일을 읽는다). 맥미니 · 클라우드로 옮기는 법은 `docs/SERVER.md` 7장.
 
 ## 스탯 표시 (v3.20)
@@ -260,7 +281,7 @@
 
 ## 안드로이드 앱 (v3.15)
 - 앱은 게임 폴더를 그대로 담는 WebView 껍데기다(`android/`, 설명 `android/README.md`). 게임 코드를 고치면 앱 쪽은 고칠 것 없고, `tools/android/build_apk.py`로 APK만 다시 만든다.
-- v3.46.2 앱은 기본 서버 모드다: `build_apk.py`가 PC 앱과 같은 `tools/desktop/server.txt`(또는 `--server` · `--offline`)로 서버를 골라 `index.html?server=`로 연다(https만). 로컬 앱은 `--offline`. 맥 에뮬레이터 실행은 `tools/android/emulator.sh`, iOS 감싸개는 `tools/ios/`.
+- v3.46.2 앱은 기본 서버 모드다: `build_apk.py`가 PC 앱과 같은 `tools/desktop/server.txt`(또는 `--server` · `--offline`)로 서버를 골라 `index.html?server=`로 연다(https만). 로컬 앱은 `--offline`. 맥 에뮬레이터 실행은 `tools/android/emulator.sh`.
 - 앱 코드 `android/app/src/main/java/com/etherion/game/MainActivity.java`와 `build_apk.py`의 `build_dex()`(같은 코드를 바이트코드로 직접 적은 것)는 **함께 고친다**. 매니페스트도 `AndroidManifest.xml` ↔ `manifest()`.
 - 폰 화면 맞춤은 `js/mobile.js`(레이아웃 폭을 넓혀 줄여 보임). 폰 전용 배치를 새로 만들기보다 이 방식을 유지한다. 터치 손질은 `css/mobile.css`(`html.mobile`).
 - PC 대기실(v3.36, 예전 PC 배치): 세 열 높이 = 덱 보관함 높이(`fitLobbyCards`가 `--lobby-h`를 주고 카드 폭을 고름, 모양은 `css/lobby.css`). 출정의 단은 오른쪽 열 맨 위 `#side-altar`(`altarHTML(f, true)`, 2026-11-25 아래 → 위 — 첫 화면에서 보이게. 1180px 이하는 맨 위 한 줄), 튜토리얼 · 매뉴얼은 오른쪽 열 맨 위. 대전은 온라인만(`startPvP` → `startOnline`).
@@ -270,6 +291,10 @@
 - 폰 세로 · 폰 전장 패널(2026-11-25): 폰 브라우저를 세로로 들면 첫 화면 · 로그인 말고는 "가로로 돌려 주세요" 안내가 덮는다(`js/mobile.js` `rotateAsk`, `html.rot-free` = 세로에서도 쓰는 화면 — 세로용 화면을 새로 만들면 거기에 더한다). 폰 전장의 고른 카드 패널은 가운데 띠 위 한 줄(`.f-strip`, `js/game.js` `placeFocus`의 폰 가지 · `css/mobile.css` 맨 아래), 가운데 띠 안내 글은 `actionBarHTML`의 폰 문구. 폰인지는 `isPhone()`. 폰 전장 가운데 띠의 메뉴 단추는 다섯(속도 · 기록 · 규칙 · 항복 · 설정 — 소리 단추와 개발용 로그 단추는 폰에서 뺐다), 폰 상단 띠 왼쪽 길은 아이콘 아래 이름. Esc · 앱의 뒤로 단추가 부를 자리는 `App.back()`(js/screens.js — 대기실 밖 화면에서 대기실로). 턴 시계는 온라인이 아니면 창이 열려 있는 동안 멈춘다(`clockRunning`). 폰의 에테르 구슬은 깃발 왼쪽(화면 가장자리)에 작게, 결정화 명판은 구슬 오른쪽 아래(`css/mobile.css` 맨 아래 "에테르 구슬" 절) — 구슬을 전장 칸 쪽으로 되돌리거나 상대 깃발을 칸 밖으로 늘리지 않는다(16:9 폰에서 전장 1번 칸을 덮는다). 큰 카드가 준비 완료를 가리는 것은 그대로 둔다(사용자 결정 — 큰 카드를 줄이지 않는다).
 - 카드의 코인 줄(`.c-coinline`)은 늘 한 줄(2026-11-25): `coinLineHTML`의 폭 어림 `--cw` + `css/frames.css` "코인 줄 한 줄"(container · cqw). 코인 아이콘 · 점 크기를 바꾸면 어림 수(아이콘 .94 · 부호 .55 · 숫자 .39 · 점 .74 · 겹친 점 .36)도 함께 고친다.
 - `android/signing/` 의 서명 열쇠는 바꾸거나 지우지 않는다(바뀌면 폰에서 업데이트가 안 된다).
+
+## iOS (아이폰 · 아이패드, 2026-11-27)
+- 앱은 `ios/`의 Xcode 프로젝트(WKWebView 껍데기, 설명 `ios/README.md`). 게임 파일은 빌드 단계 `ios/scripts/copy_game.sh`가 복사하고(`build_apk.py` `web_files` + mp3), 서버는 안드로이드와 같은 `tools/desktop/server.txt`. 게임은 `etherion://localhost/`(WKURLSchemeHandler)로 열리고, 앱이 넣는 `window.ETHERION_SHELL = "ios"`를 `js/mobile.js`가 앱으로 본다(`js/net.js`는 `etherion:`도 `file:`처럼 `?server=`를 믿는다). 시뮬레이터 지름길 `tools/ios/run_sim.sh`.
+- 사파리 · 홈 화면 웹 앱: `index.html`의 apple 메타 · `img/app/`(아이콘 · manifest.json). `js/mobile.js`가 `html.ios`(아이폰 · 아이패드) · `html.standalone`(홈 화면에서 연 웹 앱)을 붙인다. iOS는 전체 화면 · 방향 고정을 하지 않고 세로면 "가로로 돌려 주세요". 아이폰 사파리는 주소창만큼 보이는 높이로 줄인다. iOS는 `<audio>.volume`을 못 바꿔 배경음 음량 · 페이드는 GainNode(`js/bgm.js` `gv` · `sv`), 소리 잠금 풀기는 touchend · click에서. 노치 여백은 `css/mobile.css` 맨 아래 iOS 절.
 
 ## 컴퓨터 (v3.24.4)
 - 보통은 `js/game.js` `aiPrep`, 어려움은 `js/aihard.js`. **수를 견줄 때는 같은 씨앗으로 굴린다**(보통 `spellGain`, 어려움 `hardEval`의 seeds) — 따로 굴리면 코인 운이 이득처럼 보여 헛수를 둔다.

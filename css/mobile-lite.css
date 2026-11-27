@@ -523,6 +523,18 @@ html.fx-low .ol-code { text-shadow: 0 0 4px rgba(217, 180, 106, .45); }
 html.fx-low .ol-spin { animation-name: none; }
 }
 
+/* rooms.css */
+html.fx-low .rm-frame { box-shadow: inset 0 0 0 3px rgba(6, 7, 12, .55), inset 0 0 0 4px rgba(217, 180, 106, .1), 0 2.3px 6px rgba(0, 0, 0, .42); }
+html.fx-low .rm-gate { box-shadow: inset 0 0 0 4px rgba(6, 7, 12, .6), inset 0 0 0 5px rgba(217, 180, 106, .16); }
+html.fx-low .rm-pick.on { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .35); }
+html.fx-low .rr-vs b { text-shadow: 0 0 4px rgba(217, 180, 106, .5); }
+html.fx-low .rr-seat { box-shadow: inset 0 0 0 3px rgba(6, 7, 12, .55), 0 2.5px 6px rgba(0, 0, 0, .4); }
+html.fx-low .rr-seat.is-ready { box-shadow: inset 0 0 0 3px rgba(6, 7, 12, .55), inset 0 0 0 4px rgba(246, 226, 168, .35), 0 0 6px rgba(217, 180, 106, .28); }
+html.fx-low .rs-name { text-shadow: 0 1px 3px rgba(0, 0, 0, .9); }
+@media (prefers-reduced-motion: reduce) {
+html.fx-low .rs-dots i { animation-name: none; }
+}
+
 /* impact.css */
 html.fx-low .imp-frame { -webkit-backdrop-filter: none; backdrop-filter: none; }
 html.fx-low .float.dmg.imp-num { text-shadow: -2px 0 rgba(0, 210, 255, .45), 2px 0 rgba(255, 0, 70, .55), 0 1.5px 4px #000, 0 0 4px currentColor; }

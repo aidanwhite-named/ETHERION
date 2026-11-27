@@ -288,7 +288,8 @@ const rbEsc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;
 /* 글 한 줄: 값을 채운다. 못 채운 값이 있으면 null */
 function rbFill(s, miss) {
   let bad = false;
-  const out = String(s).replace(/\{([\w.]+)\}/g, (m, k) => { const v = rbVal(k); if (v == null) { bad = true; if (miss) miss.push(k); return m; } return rbEsc(v); });
+  if (typeof I18N !== "undefined" && I18N.on) s = I18N.tr(s);   // 2026-11-27 다국어: 값을 채우기 전의 글(열쇠에 {값 이름}이 그대로 든 줄)로 번역
+  const out = String(s).replace(/\{([\w.]+)\}/g, (m, k) => { const v = rbVal(k); if (v == null) { bad = true; if (miss) miss.push(k); return m; } return rbEsc(typeof I18N !== "undefined" && I18N.on ? I18N.tr(String(v)) : v); });
   if (bad) return null;
   return out.replace(/\*\*(.+?)\*\*/g, "<b>$1</b>")
     .replace(/\[\[(mn|rb):([\w-]+)\|(.+?)\]\]/g, (m, kind, id, label) => `<a href="#" class="rb-link" data-${kind}="${id}">${label}</a>`);

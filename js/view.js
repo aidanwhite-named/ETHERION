@@ -382,12 +382,12 @@ function cardHTML(c, opts) {
 /* v3.9.9: 마법 카드의 짧은 문구 (js/briefs.js SPELL_BRIEF). 핸드 · 전장 카드(slim)의 그림 아래쪽에 겹쳐 보인다.
    한 줄 = 효과 하나("|"로 나눔). {대상} = 색 칩, ⚔⛨♥ = 공·방·체 아이콘, +1C×2 = 코인(+●●), [키워드] = 말풍선 */
 const BRIEF_TONE = { "적": "foe", "아군": "ally", "나": "ally", "뒤": "ally", "양쪽": "both", "대가": "cost", "제물": "cost", "핸드": "hand" };
-function spellBriefLine(line) {
+function spellBriefLine(line, tones) {   // tones: 2026-11-27 번역 문구일 때 대상 칩의 색(한국어 문구에서 읽은 차례대로)
   const re = /\{([^}]+)\}|\[([^\[\]]+)\]|([+−])(\d+)C(?:×(\d+))?|([⚔⛨♥])/g;
-  let out = "", at = 0, m;
+  let out = "", at = 0, m, ti = 0;
   while ((m = re.exec(line))) {
     out += esc(line.slice(at, m.index)); at = re.lastIndex;
-    if (m[1]) out += `<b class="sb-t sb-${BRIEF_TONE[m[1].split(" ")[0]] || "foe"}">${esc(m[1])}</b>`;
+    if (m[1]) out += `<b class="sb-t sb-${(tones && tones[ti++]) || BRIEF_TONE[m[1].split(" ")[0]] || "foe"}">${esc(m[1])}</b>`;
     else if (m[2]) out += kwHTML(m[0]);
     else if (m[3]) out += coinGroupsHTML([{ v: (m[3] === "−" ? -1 : 1) * +m[4], n: +(m[5] || 1) }]);
     else out += statIco({ "⚔": "a", "⛨": "d", "♥": "h" }[m[6]]);
@@ -397,6 +397,11 @@ function spellBriefLine(line) {
 function spellBriefHTML(c) {
   const src = typeof SPELL_BRIEF !== "undefined" && SPELL_BRIEF[c.id];
   if (!src) return "";
+  const loc = typeof I18N !== "undefined" && I18N.on ? I18N.brief(c.id) : null;   // 2026-11-27 다국어: 카드 ID 번역 문구(cards.<말>.js b)
+  if (loc) {
+    const ko = src.split("|"), tones = l => (l.match(/\{([^}]+)\}/g) || []).map(x => BRIEF_TONE[x.slice(1, -1).split(" ")[0]] || "foe");
+    return `<div class="c-brief">${loc.split("|").map((l, i) => `<p>${spellBriefLine(l, tones(ko[i] || ""))}</p>`).join("")}</div>`;
+  }
   return `<div class="c-brief">${src.split("|").map(l => `<p>${spellBriefLine(l)}</p>`).join("")}</div>`;
 }
 /* v3.31.4: 마법 글에서 "[보호막]·[가시]…가 꺼지고"처럼 상대의 능력을 끄는 키워드 (빨간 칩으로) */

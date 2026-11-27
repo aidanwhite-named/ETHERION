@@ -115,8 +115,8 @@ html.mobile .card.fm.has-frame .c-emb img { filter: none; }
 /* ---- 크게 보기(size-full, 2026-11-20): 5:7 고정 · 작은 카드와 같은 em 눈금(카드 폭 × .1). 글 상자 맨 위에 종류 띠(.c-band), 글은 원래 크기, 넘치면 상자 안에서 스크롤 ---- */
 .card.fm.size-full.has-frame { font-size: calc(var(--cw) * .1); aspect-ratio: 5 / 7; min-height: 0; }
 .card.fm.size-full.has-frame > .c-frame { position: absolute !important; inset: 0 !important; height: auto !important; min-height: 0; padding: 0; gap: 0; }
-.card-modal .card.fm.size-full.has-frame { --card-full: min(calc(100vw - 72px), clamp(300px, calc((100vh - 150px) / 1.4), 600px)); }
-.card-preview:has(.card.has-frame) { --card-full: clamp(300px, calc((100vh - 48px) / 1.4), 600px); }
+.card-modal .card.fm.size-full.has-frame { --card-full: min(calc(100vw - 72px), clamp(300px, calc((100vh - 150px) / 1.4), 600px)); --card-full: min(calc(100vw - 72px), clamp(300px, calc((100dvh - 150px) / 1.4), 600px)); }
+.card-preview:has(.card.has-frame) { --card-full: clamp(300px, calc((100vh - 48px) / 1.4), 600px); --card-full: clamp(300px, calc((100dvh - 48px) / 1.4), 600px); }
 .card.fm.size-full.has-frame .c-head { min-height: 0; padding: 0; }
 .card.fm.size-full.has-frame .c-hname { flex: 1; min-width: 0; display: flex; align-items: center; height: 100%; }
 .card.fm.size-full.has-frame .c-box { display: block; padding: .1em .16em .1em .2em; overflow-x: hidden !important; overflow-y: auto !important; overscroll-behavior: contain;

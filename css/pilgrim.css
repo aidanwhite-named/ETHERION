@@ -243,7 +243,7 @@ html.mobile .screen-pil .pg-route .xp-node small { font-size: 11px; }
 /* 가로 폰(앱): 지도 높이 = 화면 높이 − 위 칸(머리줄 · 머리말 · 탭), 지도 폭은 그 높이의 900/660. 오른쪽 칸(소식 · 다음 할 일)은 같은 높이 안에서
    스크롤하고, 단추 줄은 칸 아래에 붙어 늘 보인다 */
 @media (min-width: 761px) {
-  html.mobile .screen-pil { --pg-mh: max(250px, calc(100vh - var(--pg-top, 232px))); }
+  html.mobile .screen-pil { --pg-mh: max(250px, calc(100vh - var(--pg-top, 232px))); --pg-mh: max(250px, calc(100dvh - var(--pg-top, 232px))); }
   html.mobile .screen-pil .pg-way { grid-template-columns: auto minmax(300px, 1fr); gap: 10px; align-items: stretch; }
   html.mobile .screen-pil .pg-map { width: max-content; align-self: start; }
   html.mobile .screen-pil .pg-map-svg { height: var(--pg-mh); width: auto; }

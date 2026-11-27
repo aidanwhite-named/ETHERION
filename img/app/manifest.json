@@ -1,0 +1,19 @@
+{
+  "name": "ETHERION",
+  "short_name": "ETHERION",
+  "description": "ETHERION 카드 대전",
+  "lang": "ko",
+  "id": "../../index.html",
+  "start_url": "../../index.html",
+  "scope": "../../",
+  "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone"],
+  "orientation": "landscape",
+  "background_color": "#07080e",
+  "theme_color": "#07080e",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

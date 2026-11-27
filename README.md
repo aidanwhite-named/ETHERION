@@ -45,7 +45,7 @@
 
 - **관리자**: 이름 `admin`, 암호 `etherion` — 모든 단체 덱과 모든 카드를 보유. 관리자 보관소에서 단체별 도감과 모험가 관리.
 - **새 모험가**: 깃발을 최대 3개까지 무료로 골라 시작합니다 — 진영마다 하나까지(v1.4.4, v3.23).
-- 저장은 이 브라우저의 localStorage(키 `etherion.v3`). 서버로 열면(v3.22) 서버의 `server/data/db.json`이고, 관리자 암호는 `server/config.json`의 `adminPassword`.
+- 저장은 이 브라우저의 localStorage(키 `etherion.v3`). 서버로 열면(v3.22) 서버의 `server/data/db.json`이고, 관리자 이름 · 암호는 `node server/admin.js set <이름>`(해시만 `server/config.json`에).
 - **모험가 레벨**(v3.6): 벌어들인 환석 조각이 그대로 경험치(카드를 사도 줄지 않고, 판 값은 경험치가 아님). 최대 99, Lv 2 ≈ 10승. 화면 아래 가운데 판에 레벨 · 조각 · 경험치 막대. 곡선과 표는 [`docs/LEVELS.md`](docs/LEVELS.md).
 - **로그인 없이 시작**(v2.1): 입장 관문의 보라 버튼. 등록 없이 "손님"으로 들어가 9개 단체 덱과 모든 카드를 쓴다.
 - 로그인 화면 자체를 건너뛰고 관리자로 들어가는 시험 모드는 `js/store.js`의 `OPEN_PLAY`(지금 `false`).

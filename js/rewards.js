@@ -213,7 +213,8 @@ Object.assign(Store, {
     this._rewardNote(v, Object.assign({ id: oid, ok: !outV.skip }, outV));
     const outU = okU ? this._settle(u, m, id, { won: a.won, turns: a.turns, broken: a.broken, kills: both ? a.kills : 0, verified: true }) : { ok: true, skip: `같은 상대와는 하루 ${REWARD.pairDaily}판까지 보상을 받습니다.`, won: a.won, gold: 0, bonus: 0, brokenGold: 0, arcade: m.arcade, mile: [] };
     /* v3.46 온라인 등급: 두 사람 모두 보상을 받은 판만 (짜고 치기 막는 하루 판 수 제한 그대로) */
-    if (okU && okV && this.rankMatch && !outU.skip && !outV.skip) { const ru = { rank: Object.assign({}, u.rank) }, rv = { rank: Object.assign({}, v.rank) }; outU.rank = this.rankMatch(u, rv, a.won); outV.rank = this.rankMatch(v, ru, b.won); }
+    if (okU && okV && this.rankMatch && !outU.skip && !outV.skip && !u.admin && !v.admin) {   // 2026-11-27 관리자(모든 카드)와 둔 판은 등급 점수가 움직이지 않는다 (조각 보상은 그대로)
+    const ru = { rank: Object.assign({}, u.rank) }, rv = { rank: Object.assign({}, v.rank) }; outU.rank = this.rankMatch(u, rv, a.won); outV.rank = this.rankMatch(v, ru, b.won); }
     this.save();
     return outU;
   },

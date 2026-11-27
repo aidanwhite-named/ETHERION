@@ -18,7 +18,10 @@
   const root = document.documentElement;
   /* v3.32.6 PC 기본을 예전 배치로 되돌렸다. 저장 키도 새로(layout2): 전에 앱식을 골라 둔 PC도 한 번은 예전 배치로 열린다 */
   const KEY = "etherion.pref.layout2";
-  const read = () => { try { return JSON.parse(localStorage.getItem(KEY)) === "app" ? "app" : "classic"; } catch (e) { return "classic"; } };
+  /* 2026-11-27 아이패드(손가락으로 쓰는 큰 화면): 고른 적이 없으면 앱식이 기본 — PC 배치는 대기실이 아주 길게 늘어나 굴려야 한다(1024×768에서 8700px).
+     설정 "화면 배치"에서 PC 배치를 고르면 그것을 따른다 */
+  const IPAD = (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1) || /iPad/.test(navigator.userAgent);
+  const read = () => { try { const v = JSON.parse(localStorage.getItem(KEY)); return v === "app" || (v == null && IPAD) ? "app" : "classic"; } catch (e) { return IPAD ? "app" : "classic"; } };
   window.AppUI = {
     get on() { return root.classList.contains("appui"); },
     get pref() { return read(); },
@@ -31,7 +34,14 @@
   if (read() === "app") root.classList.add("appui");
 })();
 (function () {
-  const APP = location.protocol === "file:" && location.pathname.indexOf("/android_asset/") === 0;
+  /* 2026-11-27 아이폰 · 아이패드: iOS 앱(ios/, WKWebView)은 문서가 열리기 전에 window.ETHERION_SHELL = "ios" 를 넣는다 → 안드로이드 앱과 같이 다룬다.
+     아이패드 사파리는 맥인 척하므로(MacIntel) 손가락 수로 가린다. 홈 화면에서 연 웹 앱(standalone)은 주소창이 없다 */
+  const IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  const SHELL = window.ETHERION_SHELL === "ios";
+  const STANDALONE = navigator.standalone === true || !!(window.matchMedia && matchMedia("(display-mode: standalone), (display-mode: fullscreen)").matches);
+  const APP = (location.protocol === "file:" && location.pathname.indexOf("/android_asset/") === 0) || SHELL;
+  if (IOS) document.documentElement.classList.add("ios");
+  if (STANDALONE) document.documentElement.classList.add("standalone");
   const coarse = !!(window.matchMedia && matchMedia("(pointer: coarse)").matches);
   const small = Math.min(screen.width, screen.height) < 720;
   if (!APP && !(coarse && small)) return;
@@ -49,7 +59,11 @@
   function fit() {
     const a = screen.width, b = screen.height, H0 = LEVELS[lv];
     const land = APP || (window.matchMedia ? matchMedia("(orientation: landscape)").matches : a > b);
-    const W = land ? Math.max(a, b) : Math.min(a, b), H = land ? Math.min(a, b) : Math.max(a, b);
+    const W = land ? Math.max(a, b) : Math.min(a, b);
+    let H = land ? Math.min(a, b) : Math.max(a, b);
+    /* 아이폰 사파리(앱 · 홈 화면 웹 앱 말고): 가로로 들어도 위에 주소창이 남아 보이는 높이가 화면보다 작다(390 → 약 340).
+       screen 높이로 줄이면 아래가 잘리니, 보이는 칸의 가로세로 비(배율과 상관없음)로 실제 높이를 잰다 */
+    if (IOS && !APP && !STANDALONE && land && innerWidth > 0 && innerHeight > 0) H = Math.min(H, Math.round(W * innerHeight / innerWidth));
     const content = land && H < H0
       ? "width=" + Math.round(W * H0 / H) + ", user-scalable=no, viewport-fit=cover"
       : "width=device-width, initial-scale=1, viewport-fit=cover";
@@ -73,6 +87,23 @@
     sync();
   }
   if (document.body && document.getElementById("app")) rotateAsk(); else addEventListener("DOMContentLoaded", rotateAsk);
+  /* 2026-11-27 (사용자) 폰 브라우저: 접속하면 가로로 — 웹페이지는 폰을 마음대로 돌릴 수 없고, 전체 화면일 때만 방향을 고정할 수 있다(안드로이드 크롬).
+     그래서 첫 터치(브라우저가 사용자 동작일 때만 허락) 때 전체 화면 + 가로 고정을 해 본다. 아이폰 사파리는 이 기능이 없어 조용히 넘어가고 "가로로 돌려 주세요" 안내가 그대로 뜬다.
+     사용자가 뒤로 가기로 전체 화면을 나가면 다시 조르지 않는다 — 돌려 달라는 안내를 누를 때만 다시 해 본다. 앱은 원래 가로 고정이라 하지 않는다 */
+  /* iOS(아이폰 · 아이패드 사파리)는 문서 전체 화면 · 방향 고정이 없거나(아이폰) 반쪽이라(아이패드: 전체 화면은 되나 방향 고정은 안 됨) 아예 하지 않는다 —
+     세로면 "가로로 돌려 주세요" 안내가 맡는다. 홈 화면 웹 앱도 이미 주소창이 없으니 하지 않는다 */
+  if (!APP && !IOS && !STANDALONE) {
+    const el = root, so = screen.orientation;
+    const can = !!(el.requestFullscreen && so && typeof so.lock === "function");
+    let left = false;   // 사용자가 전체 화면을 스스로 나갔다
+    const go = () => {
+      if (!can || document.fullscreenElement) return;
+      let p; try { p = el.requestFullscreen({ navigationUI: "hide" }); } catch (e) { return; }
+      if (p && p.then) p.then(() => { try { const q = so.lock("landscape"); if (q && q.catch) q.catch(() => {}); } catch (e) {} }).catch(() => {});
+    };
+    addEventListener("click", e => { const ask = e.target && e.target.closest && e.target.closest(".rotate-ask"); if (ask) left = false; if (!left) go(); }, true);
+    document.addEventListener("fullscreenchange", () => { if (!document.fullscreenElement) left = true; setTimeout(fit, 120); });
+  }
   window.MobileFit = {
     LEVELS, get level() { return lv; },
     set(id) {

@@ -625,8 +625,9 @@ function spellKwDesc(inner) {
 }
 /* 글을 안전하게 적고, 뜻이 있는 [능력]에는 마우스를 올리면 설명이 뜨는 표시를 붙인다 */
 function kwHTML(text) {
+  if (typeof I18N !== "undefined" && I18N.on) text = I18N.tr(text);   // 2026-11-27 다국어: 마법 글을 통째로 번역 글로(js/i18n.js). [키워드]의 뜻은 한국어 이름으로 찾는다
   return coinNoteHTML(esc(text).replace(/\[([^\[\]]+)\]/g, (m, inner) => {
-    const d = spellKwDesc(inner);
+    const d = spellKwDesc(typeof I18N !== "undefined" && I18N.on ? I18N.kwKo(inner) : inner);
     return d ? `<span class="kw" title="" data-tip="${esc("[" + coinNotePlain(inner.trim()) + "]\n" + d)}">${m}</span>` : m;
   }));
 }

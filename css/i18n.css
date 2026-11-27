@@ -1,0 +1,38 @@
+/* ETHERION — 다국어 화면 손질 (2026-11-27, js/i18n.js). html.lang-en · lang-ja · lang-zh 일 때만 닿는다.
+   ① 일본어 · 중국어: 한국어용 word-break: keep-all 은 띄어쓰기가 없는 글을 한 줄로 붙여 버린다 → 글자 사이에서 줄바꿈
+   ② 일본어 · 중국어 글꼴: 한글 글꼴(한자 모양이 한국식)보다 그 말의 글꼴을 먼저. 앱(인터넷 없음)도 있으니 기기 글꼴만 쓴다.
+      applyFont가 html에 인라인으로 --kfont · --nfont를 주므로 !important
+   ③ 영어: 낱말이 길어 좁은 칸에서 넘치지 않게 낱말 안에서도 끊을 수 있게(overflow-wrap) · CSS content 글 */
+html.lang-ja *, html.lang-zh * { word-break: normal !important; line-break: auto; }
+html.lang-en * { word-break: normal !important; }
+html.lang-en .card, html.lang-ja .card, html.lang-zh .card { overflow-wrap: anywhere; }
+
+html.lang-ja {
+  --kfont: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "Noto Serif CJK JP", "Source Han Serif JP", "MS PMincho", serif !important;
+  --nfont: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "Noto Serif CJK JP", serif !important;
+  --body: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "Noto Serif CJK JP", "MS PMincho", serif;
+}
+html.lang-zh {
+  --kfont: "Songti SC", "STSong", "Noto Serif SC", "Noto Serif CJK SC", "Source Han Serif SC", "SimSun", serif !important;
+  --nfont: "Songti SC", "STSong", "Noto Serif SC", "Noto Serif CJK SC", "SimSun", serif !important;
+  --body: "Songti SC", "STSong", "Noto Serif SC", "Noto Serif CJK SC", "SimSun", serif;
+}
+
+/* CSS content 글 (css/style.css 코인 뒷면 · css/swap.css 셔플) */
+html.lang-en .cs-tails b::before { content: "Tails "; }
+html.lang-ja .cs-tails b::before { content: "裏 "; }
+html.lang-zh .cs-tails b::before { content: "反面 "; }
+html.lang-en .cs-coin.multi .cs-tails::before { content: "Tails"; }
+html.lang-ja .cs-coin.multi .cs-tails::before { content: "裏"; }
+html.lang-zh .cs-coin.multi .cs-tails::before { content: "反面"; }
+html.lang-en .lay-swap .f-piles > .shuffle-btn.v19:not(.used) .sh-txt small::after { content: "Life −1"; }
+html.lang-ja .lay-swap .f-piles > .shuffle-btn.v19:not(.used) .sh-txt small::after { content: "ライフ−1"; }
+html.lang-zh .lay-swap .f-piles > .shuffle-btn.v19:not(.used) .sh-txt small::after { content: "生命−1"; }
+
+/* 설정 창 언어 단추 */
+.set-lang .btn { min-width: 6.5em; }
+
+/* 생명 판 아래 핸드 · 새벽빛 이름: 영어 · 일본어가 한국어보다 길어 두 칸이 겹쳤다(폰) → 칸 안에서 줄이고 넘치면 … */
+html.lang-en .pstats .ps, html.lang-ja .pstats .ps, html.lang-zh .pstats .ps { min-width: 0; }
+html.lang-en .pstats .ps > span, html.lang-ja .pstats .ps > span, html.lang-zh .pstats .ps > span { display: block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; letter-spacing: 0; }
+html.lang-en .pstats .ps > span { font-size: .82em; }

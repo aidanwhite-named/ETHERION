@@ -112,7 +112,7 @@ const Net = {
     return r;
   },
   /* v3.27 메일 인증 코드 (server/auth.js). authCode: 코드 메일 보내기 / authVerify: 가입한 주소면 로그인까지, 아니면 { need: "signup", ticket } */
-  page(name) { return (typeof location !== "undefined" && location.protocol === "file:" ? this.base + "/" : "") + name; },   // 처리방침 · 약관 주소 — 파일로 연 앱에서는 서버의 문서를 연다
+  page(name) { return (typeof location !== "undefined" && (location.protocol === "file:" || location.protocol === "etherion:") ? this.base + "/" : "") + name; },   // 처리방침 · 약관 주소 — 파일로 연 앱에서는 서버의 문서를 연다
   authOn() { return !!(this.on && this.info && this.info.auth && this.info.auth.code); },
   authCode(email) { return this.xhr("POST", "/api/auth/code", { email }) || { ok: false, msg: "서버가 답하지 않습니다." }; },
   authVerify(email, code) {
@@ -424,7 +424,8 @@ const Net = {
   try { base = localStorage.getItem(NET_SERVER_KEY); } catch (e) {}
   /* v3.37 PC 앱: 빌드 때 넣은 서버 주소 (desktop/main.js). v3.45.2 파일로 연 게임(PC 앱 · 안드로이드)에서만 읽는다 —
      웹 주소에 ?server=가짜서버 를 붙인 링크로 남의 로그인(관리자 암호 포함)을 가짜 서버로 보내게 하는 길을 막음 */
-  if (location.protocol === "file:") { const m = /[?&]server=([^&#]+)/.exec(location.search); if (m) base = decodeURIComponent(m[1]); }
+  /* 2026-11-27 iOS 앱(ios/)은 게임 파일을 etherion:// 주소로 내준다(WKURLSchemeHandler) — 웹 링크로는 열 수 없는 주소라 file: 과 같이 믿는다 */
+  if (location.protocol === "file:" || location.protocol === "etherion:") { const m = /[?&]server=([^&#]+)/.exec(location.search); if (m) base = decodeURIComponent(m[1]); }
   if (!base && /^https?:$/.test(location.protocol)) base = location.origin;
   if (!base) return;
   base = base.replace(/\/+$/, "");
