@@ -19,6 +19,10 @@ img/cards/에 파일을 손으로 넣었으면:  python tools/art/artmap.py inde
 import csv, json, re, shutil, sys, time
 from pathlib import Path
 
+for _s in (sys.stdout, sys.stderr):   # 윈도 콘솔(cp949)이 — · 등 글자를 못 찍어 import가 도중에 멈추던 것을 막는다
+    try: _s.reconfigure(encoding="utf-8", errors="replace")
+    except AttributeError: pass
+
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
 JOBS = HERE / "prompts" / "cards.jsonl"
