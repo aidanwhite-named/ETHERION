@@ -29,6 +29,7 @@ const fs = require("fs");
 const path = require("path");
 const os = require("os");
 const crypto = require("crypto");
+const zlib = require("zlib");
 const { load } = require("./rules.js");
 const { makeMailer } = require("./mailer.js");
 const { makeAuth, AUTH_LIMITS, LEGAL } = require("./auth.js");
@@ -384,7 +385,7 @@ function runOp(me, op) {
   const fn = String(op.fn || "");
   let args = Array.isArray(op.args) ? op.args : [];
   if (fn === "soft") return softUpdate(me, args[0] || {});
-  const spec = OPS[fn];
+  const spec = Object.prototype.hasOwnProperty.call(OPS, fn) ? OPS[fn] : null;   // 2026-11-28 OPS에 적힌 이름만 — valueOf · constructor 같은 Object.prototype 이름으로 Store(= DB 전체)가 응답에 실려 나가던 구멍
   if (!spec || typeof Store[fn] !== "function") return { ok: false, msg: "모르는 작업입니다: " + fn };
   if (spec.admin && !me.admin) return { ok: false, msg: "관리자만 할 수 있습니다." };
   if (spec.adminOrGuest && !me.admin && !me.guest) return { ok: false, msg: "보상은 서버가 정합니다." };   // v3.39
@@ -570,25 +571,103 @@ function readBody(req) {
     req.on("error", bad);
   });
 }
+/* ---------- 2026-11-28 빨리 받기: 글 파일은 줄여서 보내고(br · gzip), 바뀌면 주소가 바뀌는 파일은 다시 묻지 않게 ----------
+   - 글 파일(html · js · css · json · svg · ttf)은 줄여 보낸다 — js + css 3.8MB → 1MB 안팎. 줄인 것은 메모리에 두고 파일이 바뀌면 다시 줄인다.
+   - index.html을 내줄 때 js · css 주소의 ?v= 를 그 파일의 꼬리표(크기-고친 때)로 바꿔 넣는다. 그 꼬리표로 온 요청은 "1년 · 안 바뀜"으로 답한다
+     → 다음 접속 때 140개 파일을 하나씩 "바뀌었나?" 묻지 않는다. 파일을 고치면 꼬리표가 달라져 새 주소가 되므로 옛 것이 남지 않는다(index.html의 ?v= 를 손으로 올리지 않아도 된다).
+   - 그림 · 소리 · 글꼴은 10분 동안 묻지 않고, 그 뒤 7일까지는 가진 것을 먼저 쓰고 뒤에서 확인한다(바꾼 그림은 그다음 열 때 보인다). 바로 보려면 강력 새로고침(Ctrl+Shift+R) */
+const ZIP_EXT = new Set([".html", ".js", ".css", ".json", ".svg", ".ttf", ".otf"]);
+const ZIP_MIN = 1024, ZIP_KEEP = 64 * 1024 * 1024;
+const zipCache = new Map();   // "br:경로" → { tag, buf }
+let zipBytes = 0;
+const CACHE_ASK = "no-cache", CACHE_FIXED = "public, max-age=31536000, immutable", CACHE_MEDIA = "public, max-age=600, stale-while-revalidate=604800";
+const fileTag = st => st.size.toString(36) + "-" + Math.floor(st.mtimeMs).toString(36);
+function encOf(req) {
+  const ae = String(req.headers["accept-encoding"] || "");
+  return /\bbr\b/.test(ae) ? "br" : /\bgzip\b/.test(ae) ? "gzip" : "";
+}
+function zipBuf(raw, enc, cb) {
+  if (enc === "br") zlib.brotliCompress(raw, { params: { [zlib.constants.BROTLI_PARAM_QUALITY]: 6, [zlib.constants.BROTLI_PARAM_SIZE_HINT]: raw.length } }, cb);
+  else zlib.gzip(raw, { level: 7 }, cb);
+}
+function zipped(full, tag, enc, cb) {
+  const key = enc + ":" + full, hit = zipCache.get(key);
+  if (hit && hit.tag === tag) return cb(null, hit.buf);
+  fs.readFile(full, (err, raw) => {
+    if (err) return cb(err);
+    zipBuf(raw, enc, (e2, buf) => {
+      if (e2) return cb(e2);
+      if (hit) zipBytes -= hit.buf.length;
+      if (zipBytes + buf.length > ZIP_KEEP) { zipCache.clear(); zipBytes = 0; }
+      zipCache.set(key, { tag, buf }); zipBytes += buf.length;
+      cb(null, buf);
+    });
+  });
+}
+/* index.html: js · css 주소에 파일 꼬리표를 넣은 판. 1초 동안은 만든 것을 다시 쓴다 */
+let indexMade = null;
+function stampedIndex() {
+  if (indexMade && Date.now() - indexMade.at < 1000) return indexMade;
+  const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8").replace(/\b(src|href)="((?:js|css|audio|img)\/[^"?#]+\.(?:js|css))(?:\?[^"#]*)?"/g, (m, attr, rel) => {
+    try { return `${attr}="${rel}?v=${fileTag(fs.statSync(path.join(ROOT, rel)))}"`; } catch (e) { return m; }
+  });
+  const buf = Buffer.from(html, "utf8");
+  return indexMade = { at: Date.now(), buf, tag: crypto.createHash("sha1").update(buf).digest("base64url").slice(0, 16), zip: {} };
+}
+function notChanged(req, etag, mtimeMs) {
+  const inm = req.headers["if-none-match"], ims = req.headers["if-modified-since"];
+  if (inm) return inm.split(",").some(t => t.trim().replace(/^W\//, "") === etag);
+  return !!ims && mtimeMs != null && Date.parse(ims) >= Math.floor(mtimeMs / 1000) * 1000;
+}
+function sendBuf(req, res, head, buf) {
+  head["Content-Length"] = buf.length;
+  res.writeHead(200, head);
+  res.end(req.method === "HEAD" ? undefined : buf);
+}
+function serveIndex(req, res) {
+  let made;
+  try { made = stampedIndex(); } catch (e) { res.writeHead(404); return res.end("Not found"); }
+  const enc = encOf(req), etag = `"${made.tag}${enc ? "-" + enc : ""}"`;
+  const head = { "Content-Type": MIME[".html"], "Cache-Control": CACHE_ASK, "ETag": etag, "Vary": "Accept-Encoding" };
+  if (notChanged(req, etag)) { res.writeHead(304, head); return res.end(); }
+  if (!enc) return sendBuf(req, res, head, made.buf);
+  head["Content-Encoding"] = enc;
+  if (made.zip[enc]) return sendBuf(req, res, head, made.zip[enc]);
+  zipBuf(made.buf, enc, (err, buf) => {
+    if (err) { delete head["Content-Encoding"]; return sendBuf(req, res, head, made.buf); }
+    made.zip[enc] = buf; sendBuf(req, res, head, buf);
+  });
+}
 function serveFile(req, res, urlPath) {
   let rel;
-  try { rel = decodeURIComponent(urlPath.split("?")[0]); }
+  const qi = urlPath.indexOf("?"), query = qi < 0 ? "" : urlPath.slice(qi + 1);
+  try { rel = decodeURIComponent(qi < 0 ? urlPath : urlPath.slice(0, qi)); }
   catch (e) { res.writeHead(400); return res.end("Bad request"); }   // 깨진 % 주소(예: /js/%E0%A4%A)로 서버가 꺼지던 것을 막음
   if (rel === "/" || rel === "") rel = "/index.html";
   const norm = path.normalize(rel).replace(/^[/\\]+/, "");
   const top = norm.split(/[/\\]/)[0];
   if (!WEB_PAGES.includes(norm) && !WEB_DIRS.includes(top)) { res.writeHead(404); return res.end("Not found"); }
   if (WEB_SKIP.some(d => norm === d || norm.startsWith(d + path.sep))) { res.writeHead(404); return res.end("Not found"); }
+  if (norm === "index.html") return serveIndex(req, res);
   const full = path.join(ROOT, norm);
   if (!full.startsWith(ROOT + path.sep)) { res.writeHead(403); return res.end(); }
   fs.stat(full, (err, st) => {
     if (err || !st.isFile()) { res.writeHead(404); return res.end("Not found"); }
     /* 2026-11-25 ETag · Last-Modified: 브라우저가 "바뀌었나?"만 묻고(304) 같으면 다시 받지 않는다 (no-cache는 늘 묻기) */
-    const etag = `"${st.size.toString(36)}-${Math.floor(st.mtimeMs).toString(36)}"`, lm = st.mtime.toUTCString();
-    const head = { "Cache-Control": "no-cache", "ETag": etag, "Last-Modified": lm };
-    const inm = req.headers["if-none-match"], ims = req.headers["if-modified-since"];
-    if (inm ? inm.split(",").some(t => t.trim() === etag) : ims && Date.parse(ims) >= Math.floor(st.mtimeMs / 1000) * 1000) { res.writeHead(304, head); return res.end(); }
-    res.writeHead(200, Object.assign({ "Content-Type": MIME[path.extname(full).toLowerCase()] || "application/octet-stream", "Content-Length": st.size }, head));
+    const ext = path.extname(full).toLowerCase(), tag = fileTag(st), lm = st.mtime.toUTCString();
+    const enc = ZIP_EXT.has(ext) && st.size >= ZIP_MIN ? encOf(req) : "";
+    const etag = `"${tag}${enc ? "-" + enc : ""}"`;
+    const fixed = /(?:^|&)v=([^&]*)/.exec(query);   // index.html에 넣어 준 꼬리표로 온 요청 = 이 주소의 내용은 바뀌지 않는다
+    const cache = fixed && fixed[1] === tag ? CACHE_FIXED : /^\.(?:js|css|json|html)$/.test(ext) ? CACHE_ASK : CACHE_MEDIA;
+    const head = { "Content-Type": MIME[ext] || "application/octet-stream", "Cache-Control": cache, "ETag": etag, "Last-Modified": lm };
+    if (ZIP_EXT.has(ext)) head["Vary"] = "Accept-Encoding";
+    if (notChanged(req, etag, st.mtimeMs)) { res.writeHead(304, head); return res.end(); }
+    if (enc) return zipped(full, tag, enc, (e2, buf) => {
+      if (e2) { res.writeHead(500); return res.end(); }
+      head["Content-Encoding"] = enc; sendBuf(req, res, head, buf);
+    });
+    head["Content-Length"] = st.size;
+    res.writeHead(200, head);
     if (req.method === "HEAD") return res.end();
     fs.createReadStream(full).pipe(res);
   });

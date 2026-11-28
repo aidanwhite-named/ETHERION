@@ -162,6 +162,8 @@ html.fx-low .cr-page.turn > article, html.fx-low .cr-lock, html.fx-low .cr-lock 
 }
 
 /* shop.css */
+html.fx-low .org-node .emblem.pic img { filter: drop-shadow(0 1.5px 3px rgba(0, 0, 0, .85)); }
+html.fx-low .org-node.rq > .org-art ~ b, html.fx-low .org-node.rq > .org-art ~ .en, html.fx-low .org-node.rq > .org-art ~ .role { text-shadow: 0 1px 3px #000, 0 0 4px rgba(0, 0, 0, .9); }
 html.fx-low .shop-wallet b { text-shadow: 0 0 4px rgba(240, 200, 120, .35); }
 html.fx-low .pach-cab { box-shadow: 0 1.2px 6px rgba(0, 0, 0, .55), inset 0 1px 0 rgba(255, 255, 255, .06), inset 0 0 0 1px rgba(217, 180, 106, .08); }
 html.fx-low .pach.armed .pach-cab { box-shadow: 0 1.2px 6px rgba(0, 0, 0, .55), inset 0 1px 0 rgba(255, 255, 255, .06), 0 0 6px rgba(217, 180, 106, .18); }
@@ -218,6 +220,7 @@ html.fx-low .coinstage.stopping .btn.cs-stop, html.fx-low .coinstage.deciding .b
 html.fx-low .cs-side.stopping .btn.cs-stop { animation-name: none; }
 html.fx-low .ed-filt.active { box-shadow: inset 0 0 0 1px rgba(217, 180, 106, .08), 0 0 6px rgba(217, 180, 106, .08); }
 html.fx-low .ed-filt.active .edf-tab::before { box-shadow: 0 0 6px rgba(217, 180, 106, .6); }
+html.fx-low .gate.gate-again { animation-name: none; }
 
 /* pilgrim.css */
 html.fx-low .pg-route .pg-arch .emblem { animation-name: none; }
@@ -260,7 +263,10 @@ html.fx-low .c-under > .card > .c-frame { box-shadow: 0 2.6px 6px rgba(0, 0, 0, 
 html.fx-low .card.item-front:not(.selected) > .c-under > .card > .c-frame { box-shadow: 0 0 0 .1em rgba(246, 226, 168, .55), 0 2px 6px rgba(0, 0, 0, .6); }
 html.fx-low .shield-flip .sf-coin { filter: drop-shadow(0 1.8px 3px rgba(0, 0, 0, .7)); }
 html.fx-low .shield-flip .sf-tag { box-shadow: 0 1.5px 6px rgba(0, 0, 0, .6); }
+html.fx-low .bd-ward b { text-shadow: 0 0 2px #000, 0 0 3px #000, 0 1px 1px #000; }
 html.fx-low .c-badges .bd.bd-plasma { box-shadow: 0 0 0 1px rgba(127, 214, 255, .55) inset; text-shadow: 0 0 4px #7fd6ff; }
+html.fx-low .c-badges .bd.bd-mana { box-shadow: 0 0 0 1px rgba(196, 140, 255, .6) inset; }
+html.fx-low .c-badges .bd.bd-mana b { text-shadow: 0 0 4px #b77dff; }
 html.fx-low .c-badges .bd.bd-blood { box-shadow: 0 0 0 1px rgba(220, 60, 60, .6) inset; text-shadow: 0 0 4px #ff3b3b; }
 html.fx-low .float.blood { text-shadow: 0 0 4px #b71c1c, 0 1px 2px #000; }
 
@@ -492,6 +498,26 @@ html.fx-low .tour-hole { box-shadow: 0 0 0 200vmax rgba(3, 4, 8, .72), 0 0 0 4px
 html.fx-low .help-wrap, html.fx-low .ls-page { animation-name: none; }
 }
 
+/* intro.css */
+html.fx-low .intro { box-shadow: 0 2px 6px rgba(0,0,0,.6), inset 0 0 0 4px rgba(217,180,106,.06); }
+html.fx-low .it-c { box-shadow: 0 2.6px 6px rgba(0,0,0,.55); }
+html.fx-low .it-lv { box-shadow: 0 1px 3px rgba(0,0,0,.7); }
+html.fx-low .it-orb-core { box-shadow: 0 0 6px rgba(143,220,255,.35); }
+html.fx-low .it-num { text-shadow: 0 1.3px 4px #0a2236; }
+html.fx-low .s0.t3 .it-orb-core { box-shadow: 0 0 6px rgba(143,220,255,.9); }
+html.fx-low .it-lens { box-shadow: 0 0 0 6px rgba(246,226,168,.15), 0 0 6px rgba(246,226,168,.5); }
+html.fx-low .s1.t2 .it-orb-core { box-shadow: 0 0 6px rgba(143,220,255,.85); }
+html.fx-low .it-win { filter: drop-shadow(0 0 3px rgba(246,226,168,.55)); }
+html.fx-low .it-fire { box-shadow: 0 0 6px rgba(255,138,46,.45); }
+html.fx-low .s3.t2 .it-fire { box-shadow: 0 0 6px rgba(255,138,46,.95); }
+html.fx-low .it-deck span { box-shadow: 0 2.4px 6px rgba(0,0,0,.5); }
+html.fx-low .s3.t1 .it-b0 { box-shadow: 0 0 0 2px #ffb02e, 0 0 6px rgba(255,138,46,.6); }
+html.fx-low .it-calc .l3 { text-shadow: 0 0 4px rgba(246,226,168,.5); }
+html.fx-low .s4.t2 .it-shat .d, html.fx-low .s4.t2 .it-shat .h, html.fx-low .s4.t2 .it-atk .a { box-shadow: 0 0 0 1px currentColor, 0 0 6px currentColor; }
+@media (prefers-reduced-motion: reduce) {
+html.fx-low .intro-wrap, html.fx-low .it-c, html.fx-low .it-lens, html.fx-low .it-eq, html.fx-low .it-cap li, html.fx-low .it-win, html.fx-low .it-calc p { animation-name: none !important; }
+}
+
 /* swap.css */
 html.fx-low .hand-me.guide-target { animation-name: none; }
 
@@ -632,7 +658,6 @@ html.fx-low .card.has-brief .c-brief .sb-t { text-shadow: 0 .06em .1em #000; }
 html.fx-low .card.fm.has-frame .c-pips .pip { filter: drop-shadow(0 .03em .05em #000); }
 html.fx-low .card.fm.has-frame .c-clsico i { filter: drop-shadow(0 .03em .06em #000); }
 html.fx-low .card.fm.has-frame .c-emb img { filter: drop-shadow(0 .05em .12em rgba(0, 0, 0, .85)); }
-html.fx-low .card.fm.has-frame .c-emb .c-enum b { text-shadow: 0 .05em .1em #000, 0 0 .25em rgba(0, 0, 0, .9); }
 html.fx-low .card.fm.size-full.has-frame .c-box { box-shadow: 0 0 0 1px rgba(217, 180, 106, .28), 0 -1.4px 6px rgba(0, 0, 0, .55); }
 html.fx-low .card.fm.size-full.has-frame .c-box.c-spill { box-shadow: 0 0 0 1px rgba(217, 180, 106, .28), 0 1.5px 6px rgba(0, 0, 0, .5); }
 html.fx-low .card.size-full.has-frame .c-art .c-spfx { box-shadow: inset 0 0 0 .04em rgba(246, 217, 142, .9), inset 0 0 0 .11em rgba(255, 77, 115, .5), inset 0 0 6px rgba(255, 77, 115, .3); }

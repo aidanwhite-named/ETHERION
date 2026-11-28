@@ -95,7 +95,9 @@ syncDpx(); addEventListener("resize", syncDpx);
 function framePips(c) {
   const up = c.type === "unit" ? c.up || 0 : 0, full = c.lv - up, img = `<img src="img/ui/pips/pip_${c.group}.png" alt="" draggable="false">`;
   let h = "";
-  for (let i = 0; i < c.lv; i++) h += `<i class="pip${i >= full ? " pip-up" : ""}">${img}</i>`;
+  // 2026-11-28 유지비 칸 = 속이 빈 굵은 외곽선(같은 깃발 모양 PIP, 색 · 굵기는 css/frames.css). 전에는 그림을 흐리게만 해서 어두운 열에서 안 보였다
+  const upSvg = pipSVG(PIP[c.group] ? c.group : "item", true);
+  for (let i = 0; i < c.lv; i++) h += i >= full ? `<i class="pip pip-up">${upSvg}</i>` : `<i class="pip">${img}</i>`;
   return `<div class="c-pips" style="--lvn:${Math.max(1, c.lv)}" data-tip="${esc(lvTip(c))}" data-tip-kw>${h}</div>`;
 }
 /* 프레임 카드의 종류 띠: 종류 줄(raceLineHTML) 끝에 클래스 · 마법 종류 아이콘 */
@@ -435,6 +437,14 @@ function fitDescs(root) {
 function fitBriefs(root, names) {
   const scope = fitScope(root);
   if (scope !== root) names = fitScope.names;
+  /* 2026-11-28 대기실 빨리 열기: content-visibility:auto 카드는 속을 잴 때마다 그 카드 하나만 따로 배치한다(카드마다 한 번씩 = 36장에 0.2초).
+     재는 동안만 visible로 두면 한 번에 배치한다(0.1초). 끝나면 되돌린다 */
+  const cv = Array.isArray(root) ? root : fitScope.auto;
+  if (cv) for (const c of cv) c.style.contentVisibility = "visible";
+  try { fitBriefsNow(scope, names); }
+  finally { if (cv) for (const c of cv) c.style.removeProperty("content-visibility"); }
+}
+function fitBriefsNow(scope, names) {
   const list = fitQ(scope, ".card.fm .c-box .c-brief");
   if (list.length) {
     for (const b of list) { if (b.style.getPropertyValue("--bfs")) b.style.removeProperty("--bfs"); b.parentElement.classList.remove("fit-nochip", "fit-noband"); }
@@ -476,17 +486,19 @@ function fitSmallBoxes(scope) {
 const FIT_LAZY = typeof ContentVisibilityAutoStateChangeEvent !== "undefined";
 const fitLater = new WeakMap();   // 화면 밖이라 미룬 카드 → 이름도 맞출지
 function fitScope(root) {
+  fitScope.auto = null;   // 지금 맞출 카드 가운데 content-visibility:auto인 것 (fitBriefs가 재는 동안 visible로)
   if (!FIT_LAZY || Array.isArray(root)) return root;
   const r = root || document, cards = r.querySelectorAll(".card.fm");
   if (!cards.length) return r;
   const vw = innerWidth, vh = innerHeight, near = [];
-  let later = null;
+  let later = null, auto = null;
   for (const c of cards) {
     if (getComputedStyle(c).contentVisibility !== "auto") { near.push(c); continue; }
     const b = c.getBoundingClientRect();   // 카드 자신의 자리만 읽는다(속은 재지 않음)
-    if (b.width && b.bottom > -vh / 4 && b.top < vh * 1.25 && b.right > -vw / 4 && b.left < vw * 1.25) { near.push(c); fitLater.delete(c); }   // 보이는 곳 + 조금. 그 밖은 브라우저가 첫 그림 때 알려 준다
+    if (b.width && b.bottom > -vh / 4 && b.top < vh * 1.25 && b.right > -vw / 4 && b.left < vw * 1.25) { near.push(c); (auto || (auto = [])).push(c); fitLater.delete(c); }   // 보이는 곳 + 조금. 그 밖은 브라우저가 첫 그림 때 알려 준다
     else (later || (later = [])).push(c);
   }
+  fitScope.auto = auto;
   if (!later) return r;   // 모두 화면 근처 = 예전과 같다
   fitScope.names = !!r.querySelector(".card.fm .c-box .c-brief");
   for (const c of later) fitLater.set(c, fitScope.names);

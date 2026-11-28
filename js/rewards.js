@@ -55,8 +55,19 @@ function rewardOrb(u, today, why, m) {
 Object.assign(Store, {
   _matches() {
     const D = this.data.matches = this.data.matches || {}, now = Date.now();
-    for (const id in D) if (now - D[id].at > REWARD.keepMs) delete D[id];
+    for (const id in D) if (now - D[id].at > REWARD.keepMs) { this._arcadeBack(D[id], "끝내지 않은 판"); delete D[id]; }
     return D;
+  },
+  /* 2026-11-28 작은 게임(파친코 · 결정)으로 받은 조각 · 구슬은 그 판이 서버가 확인한 판(검산 · 온라인 맞물림)으로 끝나야 남는다(m.kept).
+     판을 두지 않고 matchStart → matchArcade만 부르고 끝내지 않거나, 확인되지 못한 판이면 되돌린다. 필멸자의 조각은 쓸 곳이 없어 그대로 둔다 */
+  _arcadeBack(m, why) {
+    if (!m || m.kept || !(m.arcade > 0 || m.orb > 0)) return;
+    const u = Object.prototype.hasOwnProperty.call(this.data.users, m.uid) ? this.data.users[m.uid] : null;
+    if (u && !u.guest) {
+      if (m.arcade > 0) this.addGold(u, -m.arcade, "작은 게임 되돌림: " + why);
+      if (m.orb > 0 && this.addOrbs) this.addOrbs(u, -m.orb, "작은 게임 되돌림: " + why);
+    }
+    m.arcade = 0; m.orb = 0;
   },
   /* 판 시작: 서버가 판 번호를 준다. info = { mode: "ai"|"pil"|"exp"|"online", group, stage } */
   matchStart(u, info) {
@@ -65,14 +76,24 @@ Object.assign(Store, {
     const D = this._matches(), mine = Object.keys(D).filter(k => D[k].uid === u.id && !D[k].end).sort((a, b) => D[a].at - D[b].at);
     const today = rewardToday(u);
     if (!u.guest && today.starts >= REWARD.dailyStarts) return { ok: false, msg: `오늘 시작할 수 있는 판(${REWARD.dailyStarts}판)을 다 썼습니다.` };   // v3.44
-    today.starts++;
-    while (mine.length >= 3) delete D[mine.shift()];   // 끝내지 않은 판은 셋까지
-    const id = rewardRid();
     const mode = ["ai", "pil", "exp", "online"].includes(info.mode) ? info.mode : "ai";
+    const stage = Math.max(0, Math.min(20, Math.floor(+info.stage || 0)));
+    /* 2026-11-28 순례: 닫혀 있으면(PILGRIM.open) 서버도 받지 않는다 · 관문은 오늘 서버가 확인한 승리 다음 것까지만(앞 관문을 건너뛰고 숲부터 부르지 못한다) · 하루 PILGRIM.fights판 */
+    if (mode === "pil") {
+      if (typeof PILGRIM === "undefined" || !PILGRIM.open) return { ok: false, msg: "성로 순례는 지금 닫혀 있습니다." };
+      const P = u.pilSrv = u.pilSrv || {}, day = pilDayKey(Date.now());
+      if (P.gateDay !== day) { P.gateDay = day; P.gate = 0; P.fights = 0; }
+      if (stage > (P.gate || 0)) return { ok: false, msg: "아직 열리지 않은 관문입니다." };
+      if ((P.fights || 0) >= PILGRIM.fights) return { ok: false, msg: `오늘의 순례 ${PILGRIM.fights}판을 모두 썼습니다.` };
+      P.fights = (P.fights || 0) + 1;
+    }
+    today.starts++;
+    while (mine.length >= 3) { const k = mine.shift(); this._arcadeBack(D[k], "끝내지 않은 판"); delete D[k]; }   // 끝내지 않은 판은 셋까지
+    const id = rewardRid();
     const verify = !u.guest && (mode === "ai" || mode === "pil" || mode === "exp");   // v3.40 컴퓨터와 대전 · 순례는 서버가 판을 다시 돌려 검산한다 · v3.44 원정도
     const trial = !!info.trial && (mode === "ai" || mode === "online") && typeof trialDeckOf === "function" && trialDeckOf(u) && trialDeckOf(u).group === info.group;   // v3.48 친구 초대 체험 덱
-    D[id] = { uid: u.id, mode, trial, group: GROUPS[info.group] ? info.group : u.group,
-      stage: Math.max(0, Math.min(20, +info.stage || 0)), at: Date.now(), slot: {}, water: [], arcade: 0,
+    D[id] = { uid: u.id, mode, trial, group: Object.prototype.hasOwnProperty.call(GROUPS, info.group) ? info.group : u.group,
+      stage, at: Date.now(), slot: {}, water: [], arcade: 0,
       seed: verify ? (Math.random() * 4294967296) >>> 0 : null };
     this.save();
     return { ok: true, id, seed: D[id].seed, verify };
@@ -124,7 +145,7 @@ Object.assign(Store, {
     if (m.mode === "online" && !u.guest) return this._pairEnd(u, m, id, rep);   // v3.44 온라인: 두 사람의 보고가 맞물려야
     if (m.seed != null) {   // v3.40 검산할 판: 덱을 확인하고 서버 일꾼(server/replay.js)에 맡긴다 — 보상은 matchSettle이 나중에
       const bad = this._checkDecks(u, m, rep);
-      if (bad) { m.state = "bad"; this._rewardNote(u, { id, ok: false, msg: bad }); this.save(); return { ok: true, pending: false, skip: bad, gold: 0, bonus: 0, brokenGold: 0, arcade: m.arcade, mile: [] }; }
+      if (bad) { m.state = "bad"; this._arcadeBack(m, bad); this._rewardNote(u, { id, ok: false, msg: bad }); this.save(); return { ok: true, pending: false, skip: bad, gold: 0, bonus: 0, brokenGold: 0, arcade: m.arcade, mile: [] }; }
       m.state = "queued"; m.ai = rep.p1 && ["normal", "hard"].includes(rep.p1.ai) ? rep.p1.ai : null;   // v3.46 퀘스트(어려움 승리)
       m.job = { seed: m.seed, p0: { name: u.id, group: m.group, cards: rep.p0 && rep.p0.cards, isAI: false }, p1: { name: "AI", group: rep.p1.group, cards: rep.p1.cards, isAI: true, ai: m.mode === "exp" ? undefined : rep.p1.ai },
         rules: m.mode === "exp" ? rewardExpRule(rep.rules) : undefined,
@@ -138,7 +159,7 @@ Object.assign(Store, {
   matchSettle(u, id, res) {
     const m = this._matches()[id]; if (!m || m.uid !== u.id || m.state !== "queued") return null;
     m.state = "done"; delete m.job;
-    if (!res || res.error) { const msg = "판을 다시 두지 못했습니다" + (res && res.error ? ` (${res.error})` : ""); this._rewardNote(u, { id, ok: false, msg }); this.save(); return { ok: false, msg }; }
+    if (!res || res.error) { const msg = "판을 다시 두지 못했습니다" + (res && res.error ? ` (${res.error})` : ""); this._arcadeBack(m, "확인하지 못한 판"); this._rewardNote(u, { id, ok: false, msg }); this.save(); return { ok: false, msg }; }
     const out = this._settle(u, m, id, { won: res.winner === 0, turns: res.turn, broken: res.broken, kills: res.kills, verified: true });
     this._rewardNote(u, Object.assign({ id, ok: !out.skip }, out));
     return out;
@@ -155,9 +176,15 @@ Object.assign(Store, {
     const p0 = rep.p0 && rep.p0.cards, p1 = rep.p1 || {}, saved = m.trial ? trialDeckOf(u, m.at) : this.deck(u, m.group);   // v3.48 체험 덱이면 그 덱과 맞춰 본다
     const same = (a, b) => { const ka = Object.keys(a || {}).filter(k => a[k] > 0), kb = Object.keys(b || {}).filter(k => b[k] > 0); return ka.length === kb.length && ka.every(k => a[k] === b[k]); };
     if (!saved || !same(p0, saved.cards)) return "저장한 덱과 다른 덱으로 둔 판입니다.";
-    if (!GROUPS[p1.group] || !p1.cards) return "상대 덱이 올바르지 않습니다.";
+    if (!Object.prototype.hasOwnProperty.call(GROUPS, p1.group) || !p1.cards || typeof p1.cards !== "object") return "상대 덱이 올바르지 않습니다.";
     let n = 0; for (const id in p1.cards) { const k = p1.cards[id], c = CARDS[id]; if (!(k > 0)) continue; if (!c || c.group !== p1.group || k > maxCopiesOf(c)) return "상대 덱이 올바르지 않습니다."; n += k; }
     if (n !== RULES.deckSize) return "상대 덱이 올바르지 않습니다.";
+    /* 2026-11-28 상대 덱의 짜임: 컴퓨터 덱은 그 깃발의 기본 덱 · 정예 덱에서 같은 종류끼리만 바꿔 만든다(js/aideck.js) —
+       유닛 · 아이템 · 마법 장수가 둘 중 하나와 같고 레벨 합도 그 둘레여야 한다. 유닛이 한 장도 없는 덱을 상대로 보내 늘 이기던 구멍 */
+    { const shape = cards => { const o = { u: 0, i: 0, s: 0, lv: 0 }; for (const id in cards) { const c = CARDS[id], k = cards[id]; if (!c || !(k > 0)) continue; o[c.type === "unit" ? "u" : c.type === "item" ? "i" : "s"] += k; o.lv += k * (c.lv || 0); } return o; };
+      const mine1 = shape(p1.cards), drift = (typeof AIDECK !== "undefined" ? AIDECK.lvDrift : 4) + 1;
+      const bases = [STARTER_DECKS[p1.group]].concat(typeof HARD_DECKS !== "undefined" && HARD_DECKS[p1.group] ? [HARD_DECKS[p1.group]] : []).map(shape);
+      if (!bases.some(b => b.u === mine1.u && b.i === mine1.i && b.s === mine1.s && Math.abs(b.lv - mine1.lv) <= drift)) return "상대 덱의 짜임이 올바르지 않습니다."; }
     let scale = 1, ai = ["normal", "hard"].includes(p1.ai) ? p1.ai : null;
     if (m.mode === "pil" && typeof PILGRIM !== "undefined") { const forest = m.stage >= PILGRIM.gates - 1; scale = forest ? PILGRIM.forestScale || 1 : PILGRIM.scale[m.stage] || 1; if (p1.ai !== PILGRIM.ai) ai = null; if (forest && p1.group !== m.group) return "숲의 상대 깃발이 올바르지 않습니다."; }
     if (!ai) return "컴퓨터 난이도가 올바르지 않습니다.";
@@ -186,7 +213,7 @@ Object.assign(Store, {
   _pairEnd(u, m, id, rep) {
     const room = rep.room || {}, seed = room.seed >>> 0, foe = String(room.foe || "");
     const mine = cleanCards(rep.p0 && rep.p0.cards), saved = m.trial ? trialDeckOf(u, m.at) : this.deck(u, m.group);   // v3.48 체험 덱
-    const skip = msg => { m.state = "bad"; this._rewardNote(u, { id, ok: false, msg }); this.save(); return { ok: true, pending: false, skip: msg, gold: 0, bonus: 0, brokenGold: 0, arcade: m.arcade, mile: [] }; };
+    const skip = msg => { m.state = "bad"; this._arcadeBack(m, msg); this._rewardNote(u, { id, ok: false, msg }); this.save(); return { ok: true, pending: false, skip: msg, gold: 0, bonus: 0, brokenGold: 0, arcade: m.arcade, mile: [] }; };
     if (!foe || foe === u.id || !this.data.users[foe] || !room.seed) return skip("상대를 알 수 없는 판입니다.");
     if (!saved || JSON.stringify(cleanCards(saved.cards)) !== JSON.stringify(mine)) return skip("저장한 덱과 다른 덱으로 둔 판입니다.");
     const broken = (Array.isArray(rep.broken) ? rep.broken : []).filter(isCardId).slice(0, REWARD.maxBroken);
@@ -205,7 +232,8 @@ Object.assign(Store, {
       const cnt = {}; for (const k of a.broken) { cnt[k] = (cnt[k] || 0) + 1; if (cnt[k] > (pool[k] || 0)) { bad = "두 덱에 없는 카드가 부서졌다고 합니다."; break; } }
     }
     m.state = o.state = "done";
-    if (bad) { for (const [x, mid] of [[u, id], [v, oid]]) this._rewardNote(x, { id: mid, ok: false, msg: bad }); this.save(); return { ok: true, pending: false, skip: bad, gold: 0, bonus: 0, brokenGold: 0, arcade: m.arcade, mile: [] }; }
+    if (bad) { this._arcadeBack(m, bad); this._arcadeBack(o, bad); for (const [x, mid] of [[u, id], [v, oid]]) this._rewardNote(x, { id: mid, ok: false, msg: bad }); this.save(); return { ok: true, pending: false, skip: bad, gold: 0, bonus: 0, brokenGold: 0, arcade: m.arcade, mile: [] }; }
+    m.kept = o.kept = true;   // 두 사람의 보고가 맞물린 판: 작은 게임 조각은 남는다
     const pairOk = x => { const t = rewardToday(x, m.end), other = x === u ? foe : u.id; t.pairs[other] = (t.pairs[other] || 0) + 1; return t.pairs[other] <= REWARD.pairDaily; };
     const okU = pairOk(u), okV = pairOk(v);
     const both = a.kills != null && b.kills != null;   // 예전 기기(쓰러뜨린 수를 안 보냄)면 0
@@ -223,7 +251,7 @@ Object.assign(Store, {
     const D = this._matches(), now = Date.now(); let n = 0;
     for (const id in D) {
       const m = D[id]; if (m.state !== "pair" || now - m.end < REWARD.pairMs) continue;
-      m.state = "done"; n++;
+      m.state = "done"; n++; this._arcadeBack(m, "상대의 판 끝 보고가 없음");
       const u = this.data.users[m.uid]; if (u) this._rewardNote(u, { id, ok: false, msg: "상대의 판 끝 보고가 오지 않아 보상이 없습니다." });
     }
     if (n) this.save();
@@ -234,12 +262,13 @@ Object.assign(Store, {
     const won = !!rep.won, turns = Math.max(0, Math.min(REWARD.maxTurns, Math.floor(+rep.turns || 0)));
     const out = { ok: true, won, gold: 0, bonus: 0, brokenGold: 0, lucky: null, winCard: null, spins: 0, done: 0, mile: [], arcade: m.arcade };
     const day = pilDayKey(m.end), cnt = rewardToday(u, m.end);
+    if (rep.verified || u.guest) m.kept = true;   // 2026-11-28 서버가 확인한 판만 작은 게임 조각이 남는다 (_arcadeBack)
+    /* v3.44 판이 실제로 간 라운드보다 뒤의 작은 게임을 불렀으면 그 판의 작은 게임 조각을 되돌린다 (2026-11-28 너무 짧은 판에서도 먼저 본다) */
+    if (rep.verified && m.top && m.top > roundOfTurn(turns) + 1 && m.arcade > 0) { this.addGold(u, -m.arcade, "작은 게임 되돌림: 판에 없던 라운드"); out.arcade = m.arcade = 0; }
+    if (rep.verified && m.top && m.top > roundOfTurn(turns) + 1 && m.orb > 0 && this.addOrbs) { this.addOrbs(u, -m.orb, "작은 게임 되돌림: 판에 없던 라운드"); m.orb = 0; }   // v3.54 운명의 구슬도
     if (m.end - m.at < REWARD.minMs + turns * REWARD.perTurnMs || turns < 1) { out.skip = "판이 너무 짧아 보상이 없습니다."; this.save(); return out; }
     /* v3.44 전적은 서버가 센다(기기가 보낸 stats는 받지 않음). 서버가 확인한 판(검산 · 온라인 맞물림)만 */
     if (rep.verified || u.guest) { u.stats = u.stats || { w: 0, l: 0 }; if (won) u.stats.w = (u.stats.w || 0) + 1; else u.stats.l = (u.stats.l || 0) + 1; }
-    /* v3.44 판이 실제로 간 라운드보다 뒤의 작은 게임을 불렀으면 그 판의 작은 게임 조각을 되돌린다 */
-    if (rep.verified && m.top && m.top > roundOfTurn(turns) + 1 && m.arcade > 0) { this.addGold(u, -m.arcade, "작은 게임 되돌림: 판에 없던 라운드"); out.arcade = m.arcade = 0; }
-    if (rep.verified && m.top && m.top > roundOfTurn(turns) + 1 && m.orb > 0 && this.addOrbs) { this.addOrbs(u, -m.orb, "작은 게임 되돌림: 판에 없던 라운드"); m.orb = 0; }   // v3.54 운명의 구슬도
     if (cnt.n >= REWARD.dailyMatches) { out.skip = `오늘 보상을 받는 판(${REWARD.dailyMatches}판)을 다 썼습니다.`; this.save(); return out; }
     cnt.n++;
     const rate = m.mode === "pil" && typeof PILGRIM !== "undefined" ? PILGRIM.battleRate : m.mode === "online" ? ECON.rate.online : ECON.rate.ai;
@@ -269,6 +298,8 @@ Object.assign(Store, {
           if (ms.card) { const grade = pilRollGrade(ms.card) || Object.keys(ms.card).pop(), r = pilPickCard(u, grade); out.mile.push({ k: "step", n, card: r.id, grade, gold: r.gold }); }
         }
       }
+      if (P.gateDay !== day) { P.gateDay = day; P.gate = 0; P.fights = P.fights || 0; }
+      P.gate = Math.max(P.gate || 0, m.stage + 1);   // 2026-11-28 오늘 지난 관문 (matchStart가 다음 관문까지만 받는다)
       if (PILGRIM.seal && this.addSeals) { out.seals = PILGRIM.seal.win; this.addSeals(u, PILGRIM.seal.win, "순례 관문 승리"); }   // v3.54 순례의 인장
       if (m.stage >= PILGRIM.gates - 1 && P.doneDay !== day) { P.doneDay = day; this.addGold(u, PILGRIM.done, "순례 완주"); out.done = PILGRIM.done; if (PILGRIM.seal && this.addSeals) { out.seals = (out.seals || 0) + PILGRIM.seal.done; this.addSeals(u, PILGRIM.seal.done, "순례 완주"); } }
     }

@@ -274,12 +274,13 @@ Object.assign(Store, {
   starClaim(u, i) {
     u = u || this.user(); if (!questOk(u)) return { ok: false, msg: "받을 수 없는 계정입니다." };
     questFresh(u);
-    const Q = u.quests, s = QUEST.stars[Math.floor(+i)];
+    i = Math.floor(+i);   // 2026-11-28 몇째인지는 정수로만 — 1.1 · 1.2처럼 보내 같은 상자를 거듭 열던 구멍
+    const Q = u.quests, s = QUEST.stars[i];
     if (!s) return { ok: false, msg: "없는 상자입니다." };
-    Q.starGot = Q.starGot || [];
-    if (Q.starGot.includes(+i)) return { ok: false, msg: "이미 열었습니다." };
+    Q.starGot = (Array.isArray(Q.starGot) ? Q.starGot : []).map(x => Math.floor(+x)).filter((x, k, a) => a.indexOf(x) === k);
+    if (Q.starGot.includes(i)) return { ok: false, msg: "이미 열었습니다." };
     if ((Q.stars || 0) < s.n) return { ok: false, msg: `별이 ${s.n}개 있어야 엽니다.` };
-    Q.starGot.push(+i);
+    Q.starGot.push(i);
     const out = { ok: true };
     if (s.gold) { this.addGold(u, s.gold, `별 자리 ${s.n}`); out.gold = s.gold; }
     if (s.spins) { u.spins = (u.spins || 0) + s.spins; out.spins = s.spins; }

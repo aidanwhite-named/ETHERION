@@ -658,7 +658,7 @@ function renderDeckView() {
         <span class="dv-st ${playable ? "ok" : "bad"}">${playable ? "저장된 덱 · 출전 가능" : `출전 불가 · 덱 조정실에서 ${RULES.deckSize}장을 저장하세요`}</span></div>
       <div class="dv-grades" id="dv-grades" role="group" aria-label="등급으로 거르기"></div>
     </div>
-    <div class="dv-cards" id="dv-cards">${ids.map(id => cardHTML(CARDS[id], { size: "md", brief: true })).join("")}</div>`;
+    <div class="dv-cards" id="dv-cards">${ids.length ? cardHTML(CARDS[ids[0]], { size: "md", brief: true }) : ""}</div>`;   // 2026-11-28 대기실 빨리 열기: 먼저 한 장만 넣어 카드 폭을 정하고(fitLobbyCards) 나머지는 아래에서 — 다 그린 뒤 폭을 바꾸면 카드마다 다시 배치한다(0.2초)
   const side = $("#side-altar");   /* v3.36 출정의 단은 오른쪽 열 아래 2 × 2 */
   if (side) { side.innerHTML = altarHTML(f, true); bindAltar(side, f); }
   // 2026-11-17 덱 조정실과 같게: 카드를 누르면 큰 카드가 옆에 고정되고(창으로 가리지 않음), 다른 카드를 누르면 그 카드로 바뀌며, 큰 카드는 끌어 옮긴다. 빈 곳 · Esc면 닫힘 (js/view.js CardPreview)
@@ -668,8 +668,13 @@ function renderDeckView() {
     if (k && !k.disabled) { App.deckFilter = { type: k.dataset.dk, grade: "" }; applyDeckFilter(ids); }
     else if (g) { const v = g.dataset.dg; App.deckFilter.grade = App.deckFilter.grade === v ? "" : v; applyDeckFilter(ids); }
   });
+  const grid = $("#dv-cards");
+  applyDeckFilter(ids);   // 등급 칸을 먼저 채워야 카드 칸 높이가 정해진다
+  if (grid.firstElementChild) grid.firstElementChild.classList.remove("dv-off");   // 재는 한 장은 거르기와 상관없이 보이게
+  fitLobbyCards(ids.length);
+  grid.innerHTML = ids.map(id => cardHTML(CARDS[id], { size: "md", brief: true })).join("");
   applyDeckFilter(ids);
-  fitLobbyCards();
+  if (typeof fitBriefs === "function") fitBriefs(grid);   // 글을 키운 대기실 카드에서 긴 마법 문구만 줄인다
 }
 /* 출정의 단: 덱 조정실 · 컴퓨터와 대전 · 순례 · (원정 계속) · 대전. PC는 덱 보기 아래, 폰 · 앱은 깃발을 누르면 뜨는 출정 창(openDeckSheet) */
 function altarHTML(f, side) {
@@ -757,18 +762,18 @@ function applyDeckFilter(ids) {
   for (const el of grid.children) { const id = el.dataset.card; el.classList.toggle("dv-off", !(ofKind(id) && (!F.grade || gradeOf(id) === F.grade))); }
 }
 const DV_MIN_W = 116;
-function fitLobbyCards() {
+function fitLobbyCards(count) {   // count: 덱 보기를 처음 그릴 때(카드 한 장만 넣고 잰다) 덱 장수 — 글 맞춤은 부른 쪽이 카드를 다 넣은 뒤에
   /* v3.36 PC 대기실: 덱 보기 · 오른쪽 열의 높이 = 덱 보관함 높이(--lobby-h). 카드 40장이 그 칸에 다 들어가게 카드 폭을 고른다(줄이기도 한다) */
   const grid = $("#dv-cards"), dv = $("#deck-view"), vault = $(".screen-lobby .decks"), lobby = $(".screen-lobby .lobby");
   if (!grid || !dv || !vault || !lobby) return;
   grid.style.removeProperty("--card-md"); dv.style.removeProperty("min-height"); dv.classList.remove("dv-fit"); lobby.style.removeProperty("--lobby-h");
-  if (matchMedia("(max-width: 1180px)").matches) { if (typeof fitBriefs === "function") fitBriefs(grid); return; }
+  if (matchMedia("(max-width: 1180px)").matches) { if (!count && typeof fitBriefs === "function") fitBriefs(grid); return; }
   lobby.style.setProperty("--lobby-h", Math.round(vault.getBoundingClientRect().height) + "px");
   dv.classList.add("dv-fit");
   const first = grid.querySelector(":scope > :not(.dv-off)"); if (!first) return;   /* v3.7.5 거르기로 숨긴 카드는 크기가 0이라 보이는 첫 카드로 잰다 */
   const r0 = first.getBoundingClientRect(), ratio = r0.height / r0.width;
   const cs = getComputedStyle(grid), gx = parseFloat(cs.columnGap) || 0, gy = parseFloat(cs.rowGap) || 0;
-  const W = grid.clientWidth, H = grid.clientHeight, n = grid.children.length;   /* 거르기와 상관없이 40장 기준 — 거를 때 카드 크기가 바뀌지 않게 */
+  const W = grid.clientWidth, H = grid.clientHeight, n = count || grid.children.length;   /* 거르기와 상관없이 40장 기준 — 거를 때 카드 크기가 바뀌지 않게 */
   if (!(W > 0) || !(H > 0)) return;
   let best = 60;
   for (let w = 60; w <= 260; w++) {
@@ -779,7 +784,7 @@ function fitLobbyCards() {
      그 폭으로 다 들어가지 않으면 판 높이 맞추기를 풀고 덱 보기가 아래로 길어진다(화면을 스크롤해서 본다) */
   if (best < DV_MIN_W) { best = DV_MIN_W; dv.classList.remove("dv-fit"); }   // 오른쪽 열은 덱 보관함 높이(--lobby-h) 그대로
   grid.style.setProperty("--card-md", best + "px");
-  if (typeof fitBriefs === "function") fitBriefs(grid);   // 글을 키운 대기실 카드에서 긴 마법 문구만 줄인다
+  if (!count && typeof fitBriefs === "function") fitBriefs(grid);   // 글을 키운 대기실 카드에서 긴 마법 문구만 줄인다
 }
 addEventListener("resize", () => { clearTimeout(fitLobbyCards.t); fitLobbyCards.t = setTimeout(() => { if (App.screen === "lobby") fitLobbyCards(); }, 120); });
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (App.screen === "lobby") fitLobbyCards(); });
