@@ -783,6 +783,7 @@ async function aiPrep(p) {
 
 /* ---------- 경기 시작/흐름 ---------- */
 function startMatch(cfg) {
+  if (!cfg.headless && !cfg.replayView && !cfg.replay && cfg.mode !== "online" && typeof Intro !== "undefined" && Intro.need()) { Intro.open(() => startMatch(cfg)); return; }   // 2026-11-28 첫 대전 앞 한눈에 보기(js/intro.js)
   if (typeof FEEL !== "undefined" && !cfg.headless && !cfg.replayView) FEEL.play("sortie", .9);
   UID = 0;
   const rand = cfg.seed != null ? mulberry32(cfg.seed) : null;   // v3.10 온라인: 두 기기가 같은 시드

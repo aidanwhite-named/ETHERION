@@ -542,6 +542,7 @@ const Help = (() => {
     open() {
       const p = prog();
       const ch = [
+        ["intro", "0", "1분 만에 알기", "AT A GLANCE", "결정화 · 에테르와 레벨 · 이기는 법 · 소각과 셔플 · 카드 부수기를 움직이는 그림으로. 첫 대전 앞에 한 번 저절로 뜹니다.", "약 1분"],
         ["tour", "1", "대기실 둘러보기", "LOBBY TOUR", "덱 보관함 · 덱 보기 · 출정의 단 · 수레바퀴 · 상단 띠를 하나씩 짚어 봅니다.", "약 1분"],
         ["lesson", "2", "전투 배우기", "THE FIRST DUEL", "이기는 법, 한 턴의 흐름, 에테르, 카드 읽기, 맞붙는 순서, 코인, 마법과 아이템 — 그림 아홉 쪽.", "약 3분"],
         ["practice", "3", "연습 대전", "SPARRING", "지금 덱으로 컴퓨터와 한 판. 전장의 중요한 곳마다 짧은 안내가 뜹니다.", "한 판"]
@@ -554,7 +555,7 @@ const Help = (() => {
       w.addEventListener("click", e => {
         const b = e.target.closest("[data-c]"); if (!b) return;
         const c = b.dataset.c;
-        if (c === "tour") Tour.start(); else if (c === "lesson") Lesson.open(); else if (c === "practice") this.practice(); else if (c === "manual") Manual.open();
+        if (c === "intro") { close(); if (typeof Intro !== "undefined") Intro.open(); } else if (c === "tour") Tour.start(); else if (c === "lesson") Lesson.open(); else if (c === "practice") this.practice(); else if (c === "manual") Manual.open();
       });
       pset("tutSeen", 1); refreshDock();
     },

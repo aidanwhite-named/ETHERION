@@ -314,6 +314,7 @@ const Online = {
 /* ---------- 대기실 창 ---------- */
 /* 2026-11-26 온라인 대전 = 방 목록(js/rooms.js). 서버 없이 연 게임(파일 · 로컬 앱) · #local 시험은 예전 번호 방식(onlineDirect) */
 async function startOnline(f, opts) {   // opts.trial = v3.48 친구 초대 체험 덱
+  if (typeof Intro !== "undefined" && Intro.need()) return Intro.open(() => startOnline(f, opts));   // 2026-11-28 첫 대전 앞 한눈에 보기(js/intro.js)
   if (typeof Rooms !== "undefined" && Rooms.on() && !(typeof Store !== "undefined" && Store.isGuest())) return Rooms.open(f, opts);
   return onlineDirect(f, opts);
 }
