@@ -1752,9 +1752,6 @@ body.is-dragging .hand-me .hand-slot .hand-card { transition: transform .2s ease
 /* v1.6.1 코인 화면: 내 창(왼쪽)과 상대 창(오른쪽)이 VS를 사이에 두고 마주 선다 (js/game.js coinClash) */
 .coinstage { background: none; border: 0; box-shadow: none; padding: 0; gap: 22px; width: min(980px, 96vw); grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: stretch; }
 .coinstage::before { display: none; }
-/* 2026-11-28 한 유닛이 여러 유닛과 맞붙을 때 이미 코인을 정한 방어 쪽은 창이 없다 — 공격 쪽 창 하나만 가운데에 (js/game.js coinClash .cs-solo) */
-.coinstage.cs-solo { grid-template-columns: minmax(0, 1fr); width: min(490px, 96vw); }
-.coinstage.cs-solo > .cs-mid, .coinstage.cs-solo > .cs-side.cs-d { display: none; }
 .cs-side { position: relative; align-content: start; gap: 10px; padding: 16px 18px 22px; border-radius: 16px; overflow: hidden;
   background: linear-gradient(180deg, rgba(14, 14, 24, .96), rgba(8, 8, 14, .96)); border: 1px solid var(--line-gold);
   box-shadow: 0 30px 80px rgba(0, 0, 0, .8), inset 0 0 0 1px rgba(255, 255, 255, .04); }

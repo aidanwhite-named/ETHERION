@@ -1653,6 +1653,8 @@ function coinClash(info) {
   return new Promise(res => {
     const myG = G, layer = fxLayer();
     if (!layer || G.speed === 0) { res([]); return; }
+    // 2026-11-28 방어 코인이 이 전투에서 이미 정해졌으면 코인 창을 띄우지 않는다 (공격 쪽 코인은 조용히 굴린 결과 그대로, 다시 던지기 없음)
+    if (info.keptD && info.coinsD && info.coinsD.length) { res([]); return; }
     const k = kSpeed();
     const A = G.reg[info.a], D = G.reg[info.d];
     const human = pi => { const p = G.players[pi]; return !G.cfg.replayView && !!p && !p.isAI && (G.online ? p.idx === G.me : G.mode !== "ai" || p.idx === 0); };   // v3.46 다시보기는 누를 사람이 없다
@@ -1705,7 +1707,7 @@ function coinClash(info) {
       <div class="cs-res"></div></div><div class="cs-flip${rolls(sd) ? " cs-rolls" : ""}">${flipHTML(sd)}</div>${optsHTML(sd)}
       ${sd.coins.length && !sd.kept ? `<div class="cs-sand"><i></i></div>` : ""}</div>`;
     const st = document.createElement("div");
-    st.className = "coinstage" + (sides[1].kept ? " cs-solo" : "");   // 2026-11-28 이미 정해진 방어 코인은 창을 띄우지 않는다 — 공격 쪽 창 하나만
+    st.className = "coinstage";
     st.innerHTML = `${sideHTML(order[0], "left")}<div class="cs-mid"><div class="cs-vs">VS</div></div>${sideHTML(order[1], "right")}`;
     layer.appendChild(st);
     // v1.9.5 코인 창 1.5배. 화면이 작아 넘치면 들어갈 만큼만 키운다 (폭 760px 이하는 1배)
