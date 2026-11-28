@@ -33,8 +33,8 @@
 
 /* 에테르 구슬 확대 및 텍스트 비율 */
 .eth-ring .eth-orb { inset: 17%; }
-.eth-ring .eth-orb b { font-size: 26cqw; }
-.eth-ring .eth-orb span { font-size: 9cqw; }
+.eth-ring .eth-orb b { font-size: calc(var(--rw) * .26); }
+.eth-ring .eth-orb span { font-size: calc(var(--rw) * .09); }
 
 /* 아래 결정화 버튼/라벨: 용 꼬리 그림에 가리지 않도록 위치를 더 아래로 내리고 z-index 보장 */
 .ether.altar { justify-content: flex-start; }

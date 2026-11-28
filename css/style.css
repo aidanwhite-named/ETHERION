@@ -1194,20 +1194,21 @@ html:not(.appui) .screen-editor.ed-flow .editor .ed-deck { position: sticky; top
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* 에테르 제단: 가운데 정수 구슬, 둘레 마법진에 위대한 정수 1 + 결정 9 */
-.ether.altar { container-type: size; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; animation: none; }
+.ether.altar { --aw: var(--alt-bw, 150px); --ah: var(--alt-bh, 150px); contain: size layout style; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; animation: none; }
 .prow-bot .ether.altar, .prow-top .ether.altar { padding: 0; border: 0; }
-.eth-ring { position: relative; flex: none; width: min(100cqw, calc(100cqh - 22px)); aspect-ratio: 1; container-type: size; border-radius: 50%; }
-.prow-top .eth-ring { width: min(100cqw, 100cqh); }
+.prow-top .ether.altar, .frow-top .ether.altar { --aw: var(--alt-tw, 110px); --ah: var(--alt-th, 110px); }   /* 2026-11-28 제단의 폭 · 높이는 js/game.js syncBoxVars가 재서 #board에 준다(예전 cqw · cqh — 대전 부드럽게) */
+.eth-ring { --rw: min(var(--aw), calc(var(--ah) - 22px)); position: relative; flex: none; width: var(--rw); aspect-ratio: 1; contain: inline-size layout style; border-radius: 50%; }   /* --rw = 고리 지름. 고리 안의 크기는 모두 --rw의 몇 배(예전 cqw) */
+.prow-top .eth-ring { --rw: min(var(--aw), var(--ah)); }
 .eth-circle { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .ec-out { fill: rgba(7, 14, 26, .86); stroke: rgba(143, 220, 255, .6); stroke-width: 1.2; }
 .ec-rune { fill: none; stroke: rgba(143, 220, 255, .4); stroke-width: 1; stroke-dasharray: 1.2 2.4; transform-origin: 50px 50px; animation: spin 60s linear infinite; }
 .ec-in { fill: none; stroke: rgba(143, 220, 255, .28); stroke-width: .8; }
 .ec-star { fill: none; stroke: rgba(143, 220, 255, .16); stroke-width: .8; }
-.eth-ring .gem { position: absolute; left: 50%; top: 50%; width: 10.5cqw; margin: 0; transform: translate(-50%, -50%) rotate(var(--a)) translateY(-42.5cqw) rotate(calc(-1 * var(--a))) rotate(45deg); }
-.eth-ring .gem.essence { width: 12cqw; transform: translate(-50%, -50%) rotate(var(--a)) translateY(-42.5cqw) rotate(calc(-1 * var(--a))); }
+.eth-ring .gem { position: absolute; left: 50%; top: 50%; width: calc(var(--rw) * .105); margin: 0; transform: translate(-50%, -50%) rotate(var(--a)) translateY(calc(var(--rw) * -.425)) rotate(calc(-1 * var(--a))) rotate(45deg); }
+.eth-ring .gem.essence { width: calc(var(--rw) * .12); transform: translate(-50%, -50%) rotate(var(--a)) translateY(calc(var(--rw) * -.425)) rotate(calc(-1 * var(--a))); }
 .eth-ring .eth-orb { position: absolute; inset: 23%; width: auto; height: auto; max-height: none; }
-.eth-ring .eth-orb b { font-size: 22cqw; }
-.eth-ring .eth-orb span { font-size: 8.5cqw; }
+.eth-ring .eth-orb b { font-size: calc(var(--rw) * .22); }
+.eth-ring .eth-orb span { font-size: calc(var(--rw) * .085); }
 .ether.altar .eth-foot { justify-content: center; flex-wrap: nowrap; gap: 4px; max-width: 100%; overflow: hidden; }
 .ether.altar.valid { animation: none; }
 .ether.altar.valid .eth-ring { cursor: pointer; animation: altarPulse 1.4s ease-in-out infinite; }

@@ -40,13 +40,13 @@
 /* ───────── 5. 에테르 원반 (용을 뺌). 금속 고리 · 결정 소켓 · 안개가 도는 구슬 ───────── */
 .eth-ring { transform: none; perspective: none; transform-style: flat; border-radius: 50%; overflow: visible; }
 .eth-ring::before, .eth-ring::after { display: none; }
-.prow-bot .eth-ring { width: min(100cqw, calc(100cqh - 32px)); }
+.prow-bot .eth-ring { --rw: min(var(--aw), calc(var(--ah) - 32px)); }
 .ed-svg { position: absolute; inset: -4%; width: 108%; height: 108%; overflow: visible; filter: drop-shadow(0 7px 10px rgba(0, 0, 0, .7)); }
 .eth-ring .eth-orb { position: absolute; inset: 22%; width: auto; height: auto; max-height: none; transform: none; background: none; box-shadow: none; animation: none; display: grid; place-items: center; align-content: center; pointer-events: none; }
 .eth-ring .eth-orb::before, .eth-ring .eth-orb::after { display: none; }
-.eth-ring .eth-orb b { font-size: 24cqw; line-height: .95; color: #fff; text-shadow: 0 2px 4px rgba(0, 20, 40, .95), 0 0 16px rgba(143, 220, 255, .75); }
-.eth-ring .eth-orb span { font-size: 8cqw; color: #e2f6ff; text-shadow: 0 1px 3px rgba(0, 20, 40, .95); }
-.prow-top .eth-ring .eth-orb b { font-size: 26cqw; }
+.eth-ring .eth-orb b { font-size: calc(var(--rw) * .24); line-height: .95; color: #fff; text-shadow: 0 2px 4px rgba(0, 20, 40, .95), 0 0 16px rgba(143, 220, 255, .75); }
+.eth-ring .eth-orb span { font-size: calc(var(--rw) * .08); color: #e2f6ff; text-shadow: 0 1px 3px rgba(0, 20, 40, .95); }
+.prow-top .eth-ring .eth-orb b { font-size: calc(var(--rw) * .26); }
 .ed-mist { transform-origin: 100px 100px; animation: edSpin 28s linear infinite; }
 .ed-mist2 { transform-origin: 100px 100px; animation: edSpin 43s linear infinite reverse; }
 @keyframes edSpin { to { transform: rotate(360deg); } }

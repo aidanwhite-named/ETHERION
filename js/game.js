@@ -2807,9 +2807,32 @@ function placeCry() {
 addEventListener("resize", () => {
   if (!(G && boardEl && document.body.contains(boardEl))) return;
   if (FX.swap != null && FX.swap !== wideBoard()) { render(); return; }   // v3.9.3: 760px 경계를 넘으면 왼쪽 열 배치가 바뀐다
+  syncBoxVars();
   placeFocus(); placeLog(); placeCry();
   const z = $("#zoom"); if (z && !z.hidden) placeZoom(z);   // v3.9.8
 });
+/* 2026-11-28 대전 부드럽게: 핸드 줄 폭 · 에테르 제단 폭/높이 · 소각장 폭을 재서 #board의 변수로 준다.
+   예전에는 이 셋이 CSS 크기 기준 상자(container-type)였고 그 안의 크기를 cqw · cqh로 썼다 — 크기 기준 상자는 속이 조금만 바뀌어도
+   브라우저가 배치 도중에 그 안의 스타일을 다시 계산해서, 핸드에 카드 한 장이 들고 날 때마다 · 전장을 다시 그릴 때마다 수십 ms씩 멈칫했다
+   (4턴에 다시 그리기 합 2.4초 → 1.2초). 값은 창 크기 · 배치가 바뀔 때만 달라지므로 다시 그릴 때마다 재되 달라졌을 때만 쓴다.
+   CSS 쪽: --hand-w(css/hand-row.css) · --alt-bw/bh/tw/th(css/style.css .ether.altar → --aw · --ah → .eth-ring --rw) · --burn-bw/tw(css/relics.css).
+   이 상자들의 크기는 속과 상관없이 정해진다(contain: size · inline-size) — 그래서 한 번 재면 맞는다. 카드(.card.fm)는 그대로 크기 기준 상자다 */
+function syncBoxVars() {
+  if (!boardEl) return;
+  const box = el => {   // 안쪽 상자(content box) 크기 — cqw · cqh가 재던 것과 같게, 소수점까지
+    const cs = getComputedStyle(el), w = parseFloat(cs.width), h = parseFloat(cs.height);
+    if (!(w > 0) && !(h > 0)) return null;
+    if (cs.boxSizing !== "border-box") return [w, h];
+    const f = k => parseFloat(cs[k]) || 0;
+    return [w - f("paddingLeft") - f("paddingRight") - f("borderLeftWidth") - f("borderRightWidth"), h - f("paddingTop") - f("paddingBottom") - f("borderTopWidth") - f("borderBottomWidth")];
+  };
+  const v = {}, top = el => el.closest(".prow-top, .frow-top") ? "t" : "b";
+  const hand = boardEl.querySelector(".prow-bot .hand-me"), hb = hand && box(hand);
+  if (hb) v["--hand-w"] = hb[0];
+  for (const a of boardEl.querySelectorAll(".ether.altar")) { const b = box(a); if (b) { v["--alt-" + top(a) + "w"] = b[0]; v["--alt-" + top(a) + "h"] = b[1]; } }
+  for (const z of boardEl.querySelectorAll(".zone.burn")) { const b = box(z); if (b) v["--burn-" + top(z) + "w"] = b[0]; }
+  for (const k in v) { const px = (Math.round(v[k] * 100) / 100) + "px"; if (v[k] > 0 && boardEl.style.getPropertyValue(k) !== px) boardEl.style.setProperty(k, px); }
+}
 /* v3.9.3: 넓은 화면이면 깃발 · 에테르를 전장 줄로, 소각장을 핸드 줄로 */
 function wideBoard() { return !window.matchMedia || matchMedia("(min-width: 761px)").matches; }
 
@@ -3043,6 +3066,7 @@ function render() {
     <div class="log" id="log">${G.showLog ? logLinesHTML() : ""}</div></aside>
   ${G.handoff ? `<div class="handoff" data-act="handoff"><div><p class="ho-eyebrow">PASS THE SCROLL</p><h2>${esc(me.name)}의 차례</h2><p>${G.phase === "atkPrep" ? "공격 준비" : "방어 준비"}를 할 차례입니다. 상대가 화면을 보지 않을 때 눌러 주세요.</p><button class="btn primary">핸드 펼치기</button></div></div>` : ""}`;
   PATCH.apply(html, key);   // 2026-11-27 바뀐 조각만 갈아 끼운다(예전: boardEl.innerHTML = …)
+  syncBoxVars();   // 2026-11-28 핸드 줄 · 제단 · 소각장 크기 → #board 변수 (자리 맞춤 · 글 맞춤보다 먼저)
   placeLog();   // 자리를 먼저 잡아야 스크롤 높이가 맞다
   const lg_ = $("#log"); if (lg_) lg_.scrollTop = logKeep != null ? logKeep : lg_.scrollHeight;
   /* v3.32.1 폰 · 앱: 준비 완료 단추(+모래시계)를 가운데 띠에서 내 덱 왼쪽(f-piles)으로 옮긴다. 가운데 띠를 얇게 하고 그만큼 상대 전장 카드를 키운다(css/mobile.css) */

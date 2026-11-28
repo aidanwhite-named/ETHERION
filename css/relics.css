@@ -8,8 +8,8 @@
 .et-svg { position: absolute; inset: -9%; width: 118%; height: 118%; overflow: visible; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .6)); }
 .eth-ring .eth-orb { position: absolute; inset: 27%; width: auto; height: auto; max-height: none; transform: none; background: none; box-shadow: none; display: grid; place-items: center; align-content: center; pointer-events: none; }
 .eth-ring .eth-orb::before, .eth-ring .eth-orb::after { display: none; }
-.eth-ring .eth-orb b { font-size: 21cqw; line-height: 1; color: #fff; text-shadow: 0 2px 6px rgba(0, 30, 60, .95), 0 0 14px rgba(143, 220, 255, .6); }
-.eth-ring .eth-orb span { font-size: 7.5cqw; color: #d8f4ff; }
+.eth-ring .eth-orb b { font-size: calc(var(--rw) * .21); line-height: 1; color: #fff; text-shadow: 0 2px 6px rgba(0, 30, 60, .95), 0 0 14px rgba(143, 220, 255, .6); }
+.eth-ring .eth-orb span { font-size: calc(var(--rw) * .075); color: #d8f4ff; }
 
 .et-orb { filter: drop-shadow(0 0 10px rgba(143, 220, 255, .55)); transition: filter .3s; }
 .et-orb-hi { fill: #fff; opacity: .55; }
@@ -36,11 +36,12 @@
 @keyframes drPulse { 50% { filter: drop-shadow(0 0 22px rgba(143, 220, 255, .95)); } }
 .ether.altar.drop-hover .eth-ring { box-shadow: none; }
 .ether.altar.drop-hover .et-orb { filter: drop-shadow(0 0 0 3px var(--gold-hi)) drop-shadow(0 0 24px rgba(143, 220, 255, .9)); }
-.prow-top .eth-ring .eth-orb b { font-size: 22cqw; }
+.prow-top .eth-ring .eth-orb b { font-size: calc(var(--rw) * .22); }
 .prow-top .et-cr .cr-edge, .prow-top .et-ess .ess-edge, .prow-top .et-orb-hi, .prow-top .et-rim-in { display: none; }
 
 /* ───────── 2. 소각장 — 귀환의 불 (성화대) ───────── */
-.zone.burn { perspective: none; background: none; border: 0; box-shadow: none; overflow: visible; container-type: inline-size; }
+.zone.burn { perspective: none; background: none; border: 0; box-shadow: none; overflow: visible; --bw: var(--burn-bw, 120px); contain: inline-size layout style; }
+.prow-top .zone.burn, .frow-top .zone.burn { --bw: var(--burn-tw, 120px); }   /* 2026-11-28 소각장 폭은 js/game.js syncBoxVars가 재서 #board에 준다(예전 cqw) */
 .zone.burn.valid { border: 0; box-shadow: none; animation: none; }
 .pyre { position: absolute; inset: 0; pointer-events: none; }
 .py-svg { position: absolute; left: -12%; top: -6%; width: 124%; height: 112%; overflow: visible; }
@@ -59,7 +60,7 @@
 /* 마지막으로 태운 카드: 불 속에 서서 위부터 타 들어간다 */
 .pyre .burn-top { position: absolute; left: 29%; top: 27%; width: 42%; opacity: 1; transform: rotate(-3deg); transform-origin: 50% 100%;
   -webkit-mask-image: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, .4) 18%, #000 45%, #000 100%); mask-image: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, .4) 18%, #000 45%, #000 100%); }
-.pyre .burn-top .card { --cw: 42cqw; position: relative; inset: auto; width: var(--cw); }
+.pyre .burn-top .card { --cw: calc(var(--bw) * .42); position: relative; inset: auto; width: var(--cw); }
 .pyre .burn-top .card .c-frame { filter: grayscale(.9) brightness(.42) sepia(.4) contrast(1.15); }
 /* 불티: 주황으로 떠올라 하늘빛으로 식는다 (에테르로 돌아간다) */
 .py-spark { position: absolute; left: var(--x); top: 58%; width: calc(var(--cw) * .028); height: calc(var(--cw) * .028); border-radius: 50%; background: #ffd9a0; box-shadow: 0 0 calc(var(--cw) * .05) #ff7a2c; opacity: 0; animation: pySpark var(--t) var(--d) linear infinite; }

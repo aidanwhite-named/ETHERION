@@ -40,7 +40,7 @@
   .lay-swap .frow-bot .bn-h .pi-role { font-size: clamp(10px, calc(var(--cw) * .065), 13px); padding: 0 7px; }
   /* 에테르: 줄 높이에서 아래 이름표(결정화 가능 · 완료) 자리만 뺀 지름 */
   .lay-swap .frow-bot .ether.altar { width: min(calc(var(--cw) * 1.08), 46%); height: 100%; align-self: stretch; }  /* 46%: 칸이 좁아지는 4:3 화면에서 깃발 몫을 남긴다 */
-  .lay-swap .frow-bot .eth-ring { width: min(100cqw, calc(100cqh - 30px)); }
+  .lay-swap .frow-bot .eth-ring { --rw: min(var(--aw), calc(var(--ah) - 30px)); }
   .lay-swap .frow-bot .cry-state { font-size: clamp(12px, calc(var(--cw) * .08), 16px); padding: 2px 10px; border-radius: 11px; font-weight: 700; }
   .lay-swap .frow-bot .cry-state.ok { border-width: 1.5px; }
   .lay-swap .frow-bot .ether-sub { font-size: clamp(11px, calc(var(--cw) * .07), 14px); }
@@ -55,7 +55,7 @@
   .lay-swap .frow-top .bn-h .np-sub { font-size: clamp(10px, calc(var(--cw) * .068), 13px); }
   .lay-swap .frow-top .bn-h .pi-role { font-size: 11px; padding: 0 6px; }
   .lay-swap .frow-top .ether.altar { width: min(calc(var(--cw) * .8), 39%); aspect-ratio: 1; height: auto; align-self: center; }
-  .lay-swap .frow-top .eth-ring { width: min(100cqw, 100cqh); }
+  .lay-swap .frow-top .eth-ring { --rw: min(var(--aw), var(--ah)); }
   .lay-swap .frow-top .eth-foot { display: none; }
 
   /* ---------- 핸드 줄 왼쪽: 소각장 ---------- */

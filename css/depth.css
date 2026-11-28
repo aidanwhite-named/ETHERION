@@ -131,12 +131,12 @@
 .zone.burn .zone-count { top: auto; bottom: 6%; transform: translateX(-50%); }
 
 /* 에테르: 바닥에 누운 마법진 위로 뜬 구슬. 구슬·보석은 늘 정면을 본다 */
-.eth-ring { transform-style: preserve-3d; transform: perspective(calc(var(--cw) * 6)) rotateX(62deg) scale(1.1); container-type: inline-size; }
+.eth-ring { transform-style: preserve-3d; transform: perspective(calc(var(--cw) * 6)) rotateX(62deg) scale(1.1); }
 .eth-circle { filter: drop-shadow(0 0 6px rgba(143, 220, 255, .25)); }
 .eth-ring::before { content: ""; position: absolute; inset: 15%; border-radius: 50%; background: radial-gradient(circle, rgba(143, 220, 255, .42), rgba(30, 90, 140, .18) 52%, transparent 72%); }
-.eth-ring .gem { transform: translate(-50%, -50%) rotate(var(--a)) translateY(-42.5cqw) rotate(calc(-1 * var(--a))) translateZ(2.6cqw) rotateX(-62deg) rotate(45deg); }
-.eth-ring .gem.essence { transform: translate(-50%, -50%) rotate(var(--a)) translateY(-42.5cqw) rotate(calc(-1 * var(--a))) translateZ(2.6cqw) rotateX(-62deg); }
-.eth-ring .eth-orb { transform-style: preserve-3d; transform: translateZ(26cqw) rotateX(-62deg) scale(1.08); }
+.eth-ring .gem { transform: translate(-50%, -50%) rotate(var(--a)) translateY(calc(var(--rw) * -.425)) rotate(calc(-1 * var(--a))) translateZ(calc(var(--rw) * .026)) rotateX(-62deg) rotate(45deg); }
+.eth-ring .gem.essence { transform: translate(-50%, -50%) rotate(var(--a)) translateY(calc(var(--rw) * -.425)) rotate(calc(-1 * var(--a))) translateZ(calc(var(--rw) * .026)) rotateX(-62deg); }
+.eth-ring .eth-orb { transform-style: preserve-3d; transform: translateZ(calc(var(--rw) * .26)) rotateX(-62deg) scale(1.08); }
 .eth-ring .eth-orb::before, .eth-ring .eth-orb::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
 .eth-ring .eth-orb::before { inset: -20%; border: 1.5px dashed rgba(246, 226, 168, .75); animation: d3Orbit 11s linear infinite; }
 .eth-ring .eth-orb::after { inset: -34%; border: 1px dotted rgba(143, 220, 255, .85); animation: d3Orbit2 17s linear infinite; }
