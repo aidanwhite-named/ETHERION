@@ -77,7 +77,7 @@
 .seal-rec .sl-rate { color: var(--gold-hi, #f6e2a8); }
 .seal-rec > i { width: 4px; height: 4px; transform: rotate(45deg); background: var(--gold, #d9b46a); opacity: .7; }
 /* 레벨 구슬 (머리글자 봉인 대신) */
-.user-chip.seal.lv .seal-mark { flex-direction: column; align-content: center; gap: 0; line-height: 1; color: #2a1c06; text-shadow: 0 1px 0 rgba(255, 240, 200, .55);
+.user-chip.seal.lv .seal-mark { flex-direction: column; align-content: center; gap: 0; line-height: 1; padding-bottom: 4px;   /* 숫자 상자는 수학적으로 한가운데지만 위의 LV · 아래 그림자 탓에 눈에는 아래로 처져 보여 2px 올린다 */ color: #2a1c06; text-shadow: 0 1px 0 rgba(255, 240, 200, .55);
   background: radial-gradient(circle at 34% 30%, #fff3c9 0%, #d6aa52 48%, #7d5a1c 100%);
   box-shadow: 0 0 0 1px rgba(242, 215, 146, .7), 0 0 0 4px rgba(13, 16, 25, .9), 0 0 0 5px rgba(217, 180, 106, .45), 0 0 14px rgba(240, 200, 120, .35); }
 .user-chip.seal.lv .seal-mark small { display: block; font-size: 8px; font-weight: 700; letter-spacing: .14em; margin: -9px 0 1px .14em; }   /* LV 글자는 숫자 위에 얹기만 하고 자리를 차지하지 않는다: 숫자가 구슬 한가운데 */
