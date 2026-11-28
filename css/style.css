@@ -666,7 +666,7 @@ body.is-dragging .hand-me .hand-slot .hand-card { transform: translateY(var(--y)
 .sprite, .sprite-trail { position: fixed; pointer-events: none; color: color-mix(in srgb, var(--el) 55%, #fff); }
 .sprite { z-index: 76; filter: drop-shadow(0 0 10px var(--el)) drop-shadow(0 0 26px var(--el)) drop-shadow(0 8px 10px rgba(0, 0, 0, .7)); }
 .sprite svg, .sprite-trail svg { width: 100%; height: 100%; }
-.sprite img.sp-emb, .sprite-trail img.sp-emb { display: block; width: 100%; height: 100%; object-fit: contain; }   /* 2026-11-28 깃발 문장 그림 (js/game.js spriteArtHTML) */
+.sprite .sp-aim, .sprite-trail .sp-aim { display: block; width: 100%; height: 100%; }   /* 2026-11-28 뛰쳐나가는 칼 (js/game.js spriteArtHTML · aimSprite) — 칼끝을 과녁 쪽으로 돌리는 층 */
 .sprite-trail { z-index: 74; opacity: .45; filter: blur(2px) drop-shadow(0 0 12px var(--el)); animation: trailFade .32s ease-out forwards; }
 @keyframes trailFade { to { opacity: 0; transform: scale(.8); } }
 .slash { position: fixed; z-index: 80; width: var(--s); height: var(--s); margin: calc(var(--s) / -2) 0 0 calc(var(--s) / -2); pointer-events: none; transform: rotate(var(--rot)); }
@@ -875,6 +875,20 @@ body.is-dragging .focus { display: none; }
 .arena-art svg { width: 100%; height: 100%; filter: drop-shadow(0 0 40px var(--el)) drop-shadow(0 0 120px color-mix(in srgb, var(--el) 60%, transparent)); }
 .arena-art.counter { color: color-mix(in srgb, var(--el) 40%, #9fd3ff); }
 .arena-art.spell { color: color-mix(in srgb, var(--el) 40%, #c9b5ff); }
+/* 2026-11-28 공격 · 반격 컷인: 가운데를 가로지르는 띠 + 깃발 문장 (js/game.js flagCutIn). 움직임은 transform · opacity 뿐 */
+.arena-cut { position: fixed; left: 0; right: 0; top: 50%; height: 0; z-index: 62; pointer-events: none; display: grid; place-items: center; }
+.arena-cut > * { position: absolute; will-change: transform, opacity; opacity: 0; }
+.arena-cut .ac-band { left: 0; right: 0; top: calc(min(30vh, 260px) / -2); height: min(30vh, 260px);
+  background: linear-gradient(180deg, transparent, rgba(7, 8, 13, .78) 18%, rgba(7, 8, 13, .86) 50%, rgba(7, 8, 13, .78) 82%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--el) 50%, transparent), inset 0 -1px 0 color-mix(in srgb, var(--el) 50%, transparent); }
+.arena-cut .ac-band::before, .arena-cut .ac-band::after { content: ""; position: absolute; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--el) 70%, #fff) 30%, color-mix(in srgb, var(--el) 70%, #fff) 70%, transparent); }
+.arena-cut .ac-band::before { top: 14%; } .arena-cut .ac-band::after { bottom: 14%; }
+.arena-cut .ac-streak { left: 10vw; right: 10vw; top: -3px; height: 6px; border-radius: 3px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--el) 60%, #fff), transparent); }
+.arena-cut .ac-emb { width: min(34vh, 300px); height: min(34vh, 300px); top: calc(min(34vh, 300px) / -2); left: calc(50% - min(34vh, 300px) / 2); object-fit: contain;
+  filter: drop-shadow(0 0 18px color-mix(in srgb, var(--el) 70%, transparent)) drop-shadow(0 6px 10px rgba(0, 0, 0, .8)); }
+html.fx-low .arena-cut .ac-emb { filter: none; }
 
 /* 코인 던지기 화면 */
 .coinstage { position: fixed; left: 50%; top: 48%; transform: translate(-50%, -50%); z-index: 92; pointer-events: auto; display: grid; grid-template-columns: minmax(200px, 1fr) auto minmax(200px, 1fr); align-items: center; gap: 18px; width: min(900px, 94vw); padding: 18px 22px;

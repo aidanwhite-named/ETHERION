@@ -3645,12 +3645,21 @@ function trail(sp, ms) {
 /* ---------- 전투 연출: 카드 속 캐릭터가 뛰쳐나가 상대를 친다 ---------- */
 function targetEl(t) { return typeof t === "number" ? uidEl(t) : $("#" + t); }
 function elColor(el) { return (el && el.style.getPropertyValue("--el")) || "#ffd27a"; }
-/* 2026-11-28 뛰쳐나가는 모습 = 그 카드 깃발의 대표 문장 그림(img/ui/emblem/<ID>.png — 명판과 같은 그림이라 이미 불러져 있다).
-   깃발 그림이 없는 카드만 예전처럼 카드 속 문양(SVG) */
-function spriteArtHTML(uid, art) {
-  const it = uid != null && G && G.reg ? G.reg[uid] : null, c = it ? CARDS[it.id] : null;
-  const src = c && flagArt("emblem", c.group);
-  return src ? `<img class="sp-emb" src="${esc(src)}" alt="" draggable="false">` : art.outerHTML;
+/* 2026-11-28 뛰쳐나가는 모습 = 코드로 그린 칼(사용자: "문장 대신 칼 모양으로"). 칼끝이 위(↑)인 그림을 .sp-aim 이 과녁 쪽으로 돌린다(aimSprite).
+   칼날은 강철빛, 날 가운데 줄과 빛은 그 카드의 원소 빛(--el, .sprite의 color) */
+const SWORD_SVG = '<svg class="sp-sword" viewBox="0 0 100 100" aria-hidden="true">'
+  + '<path d="M50 3 L57.5 15 L56.5 66 L43.5 66 L42.5 15 Z" fill="#dfe6ee" stroke="#262b33" stroke-width="1.6" stroke-linejoin="round"/>'
+  + '<path d="M50 3 L57.5 15 L56.5 66 L50 66 Z" fill="#9aa5b3"/>'
+  + '<path d="M50 9 V63" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" opacity=".9"/>'
+  + '<path d="M29 65 Q50 70 71 65 L68 72 Q50 76 32 72 Z" fill="#d9b46a" stroke="#4a3412" stroke-width="1.5" stroke-linejoin="round"/>'
+  + '<rect x="45.5" y="73" width="9" height="15" rx="2.5" fill="#5a3b1e" stroke="#24170a" stroke-width="1.4"/>'
+  + '<path d="M45.5 77 H54.5 M45.5 81 H54.5 M45.5 85 H54.5" stroke="#8a5f30" stroke-width="1.1"/>'
+  + '<circle cx="50" cy="92" r="5.2" fill="#d9b46a" stroke="#4a3412" stroke-width="1.5"/><circle cx="50" cy="92" r="2" fill="currentColor"/></svg>';
+function spriteArtHTML() { return `<span class="sp-aim">${SWORD_SVG}</span>`; }
+/* 칼끝이 (dx, dy) 쪽을 보게 — 그림은 위를 보고 있으니 +90° */
+function aimSprite(s, dx, dy) {
+  const aim = s && s.el.querySelector(".sp-aim");
+  if (aim) aim.style.rotate = (Math.atan2(dy, dx) * 180 / Math.PI + 90).toFixed(1) + "deg";
 }
 function makeSprite(cardEl, uid) {
   const art = cardEl && cardEl.querySelector(".c-art > svg");
@@ -3681,6 +3690,7 @@ function strikeOut(actUid, tgt, dur, kind) {
   const tr = t.getBoundingClientRect(), from = ctrOf(s.r), to = ctrOf(tr);
   const stop = 0.86, dx = (to.x - from.x) * stop, dy = (to.y - from.y) * stop;
   const dir = dx >= 0 ? 1 : -1;
+  aimSprite(s, dx, dy);
   const an = s.el.animate([
     { translate: "0px 0px", scale: "1", rotate: "0deg" },
     { offset: 0.28, translate: `${-dx * 0.06}px ${-dy * 0.06 - 26}px`, scale: "1.4", rotate: `${-14 * dir}deg` },
@@ -3822,6 +3832,7 @@ function counterStrike(defUid, atkUid, dur) {
   const info = impInfo(atkUid);   // v3.13
   const ar = a.getBoundingClientRect(), from = ctrOf(s.r), to = ctrOf(ar);
   const dx = (to.x - from.x) * 0.84, dy = (to.y - from.y) * 0.84, dir = dx >= 0 ? 1 : -1;
+  aimSprite(s, dx, dy);
   const an = s.el.animate([
     { translate: "0px 0px", scale: "1", rotate: "0deg" },
     { offset: 0.38, translate: `${dx}px ${dy}px`, scale: "1.85", rotate: `${20 * dir}deg` },
@@ -3894,10 +3905,49 @@ function spellTitle(uid, ms) {
   ], { duration: Math.max(900, ms), easing: "ease-out", fill: "forwards" });
   an.onfinish = () => { t.remove(); if (FX.spellTitle === t) FX.spellTitle = null; };
 }
+/* 2026-11-28 공격 · 반격 컷인 = 그 카드 깃발의 문장(사용자). 화면 가운데를 가로지르는 띠가 열리고, 문장이 옆에서 미끄러져 들어와
+   잠깐 머문 뒤 반대쪽으로 빠져나간다(반격은 반대 방향). 움직임은 transform · opacity 뿐. 깃발 문장 그림이 없으면 false → 예전 카드 그림 */
+function flagCutIn(uid, kind, ms) {
+  const it = G && G.reg ? G.reg[uid] : null, c = it ? CARDS[it.id] : null;
+  const src = c && flagArt("emblem", c.group); if (!src) return false;
+  const layer = fxLayer();
+  if (FX.arena) { FX.arena.remove(); FX.arena = null; }
+  const el = uidEl(uid), dir = kind === "counter" ? -1 : 1;
+  const a = document.createElement("div");
+  a.className = "arena-cut " + kind;
+  a.style.setProperty("--el", elColor(el));
+  a.innerHTML = `<i class="ac-band"></i><i class="ac-streak"></i><img class="ac-emb" src="${esc(src)}" alt="" draggable="false">`;
+  layer.appendChild(a); FX.arena = a;
+  ms = Math.max(700, Math.min(ms, 1400));
+  const band = a.querySelector(".ac-band"), streak = a.querySelector(".ac-streak"), emb = a.querySelector(".ac-emb");
+  const o = { duration: ms, fill: "forwards" };
+  band.animate([
+    { opacity: 0, transform: "scaleY(0)" },
+    { opacity: 1, transform: "scaleY(1)", offset: 0.14 },
+    { opacity: 1, transform: "scaleY(1)", offset: 0.78 },
+    { opacity: 0, transform: "scaleY(.2)" }
+  ], Object.assign({ easing: "cubic-bezier(.2,.8,.3,1)" }, o));
+  streak.animate([
+    { opacity: 0, transform: `translateX(${-60 * dir}vw) scaleX(.4)` },
+    { opacity: 1, transform: "translateX(0) scaleX(1)", offset: 0.2 },
+    { opacity: 0.5, transform: `translateX(${8 * dir}vw) scaleX(1)`, offset: 0.78 },
+    { opacity: 0, transform: `translateX(${60 * dir}vw) scaleX(.4)` }
+  ], Object.assign({ easing: "ease-in-out" }, o));
+  const an = emb.animate([
+    { opacity: 0, transform: `translateX(${-55 * dir}vw) scale(.8) rotate(${-10 * dir}deg)` },
+    { opacity: 1, transform: `translateX(${2 * dir}vw) scale(1.08) rotate(0deg)`, offset: 0.18, easing: "cubic-bezier(.2,.9,.3,1.2)" },
+    { opacity: 1, transform: "translateX(0) scale(1) rotate(0deg)", offset: 0.26 },
+    { opacity: 1, transform: `translateX(${-2 * dir}vw) scale(1.03) rotate(0deg)`, offset: 0.76, easing: "cubic-bezier(.6,0,.9,.4)" },
+    { opacity: 0, transform: `translateX(${55 * dir}vw) scale(.9) rotate(${8 * dir}deg)` }
+  ], o);
+  an.onfinish = () => { a.remove(); if (FX.arena === a) FX.arena = null; };
+  return true;
+}
 /* 전장을 지배하는 일러스트: 공격·반격·마법 발동 때 그 카드의 그림이 화면 가운데에 크게,
    흐리게 떠올랐다가(페이드 인) 사라진다(페이드 아웃) */
 function arenaArt(uid, kind, ms) {
   const layer = fxLayer(); if (!layer || RM()) return;
+  if ((kind === "attack" || kind === "counter") && flagCutIn(uid, kind, ms)) return;
   const el = uidEl(uid), art = el && el.querySelector(".c-art > svg"); if (!art) return;
   if (FX.arena) { FX.arena.remove(); FX.arena = null; }
   const a = document.createElement("div");
