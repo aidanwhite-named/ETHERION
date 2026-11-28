@@ -43,18 +43,18 @@ const QUEST_DAILY = [
   { id: "win", w: 3, goal: 2, gold: 200, text: () => "대전에서 2번 이기기", on: ev => QM(ev) && ev.won ? 1 : 0 },
   { id: "kill", w: 3, goal: 15, gold: 150, text: () => "상대 유닛 15개 쓰러뜨리기", on: ev => QM(ev) ? ev.kills || 0 : 0 },
   { id: "flag", w: 2, goal: 1, gold: 200, flag: true, text: q => `「${GROUPS[q.flag] ? GROUPS[q.flag].name : q.flag}」 깃발로 이기기`, on: (ev, q) => QM(ev) && ev.won && ev.group === q.flag ? 1 : 0 },
-  { id: "pil", w: 2, goal: 1, gold: 200, text: () => "성로 순례의 관문 하나 이기기", on: ev => QM(ev) && ev.mode === "pil" && ev.won ? 1 : 0 },
+  { id: "pil", w: 2, need: () => PILGRIM.open, goal: 1, gold: 200, text: () => "성로 순례의 관문 하나 이기기", on: ev => QM(ev) && ev.mode === "pil" && ev.won ? 1 : 0 },
   { id: "hard", w: 2, goal: 1, gold: 250, text: () => "컴퓨터와 대전(어려움)에서 이기기", on: ev => QM(ev) && ev.mode === "ai" && ev.ai === "hard" && ev.won ? 1 : 0 },
   { id: "quick", w: 1, goal: 1, gold: 200, text: () => "14턴 안에 이기기", on: ev => QM(ev) && ev.won && ev.turns <= 14 ? 1 : 0 },
   { id: "long", w: 1, goal: 1, gold: 150, text: () => "20턴 넘게 버틴 판 마치기", on: ev => QM(ev) && ev.turns >= 20 ? 1 : 0 },
-  { id: "wheel", w: 2, goal: 2, gold: 100, text: () => "크로네아의 수레바퀴 2번 돌리기", on: ev => ev.k === "wheel" ? 1 : 0 },
+  { id: "wheel", w: 2, need: () => false, goal: 2, gold: 100, text: () => "크로네아의 수레바퀴 2번 돌리기", on: ev => ev.k === "wheel" ? 1 : 0 },
   { id: "online", w: 1, goal: 1, gold: 200, text: () => "온라인 대전 1판 마치기", on: ev => QM(ev) && ev.mode === "online" ? 1 : 0 }
 ];
 const QUEST_WEEKLY = [
   { id: "w_win", w: 3, goal: 10, gold: 1000, text: () => "이번 주 10번 이기기", on: ev => QM(ev) && ev.won ? 1 : 0 },
   { id: "w_play", w: 3, goal: 20, gold: 800, text: () => "이번 주 대전 20판 마치기", on: ev => QM(ev) ? 1 : 0 },
   { id: "w_kill", w: 3, goal: 100, gold: 900, text: () => "이번 주 상대 유닛 100개 쓰러뜨리기", on: ev => QM(ev) ? ev.kills || 0 : 0 },
-  { id: "w_pil", w: 2, goal: 3, gold: 1000, text: () => "성로 순례 첫 승 3일", on: ev => ev.k === "pilFirst" ? 1 : 0 },
+  { id: "w_pil", w: 2, need: () => PILGRIM.open, goal: 3, gold: 1000, text: () => "성로 순례 첫 승 3일", on: ev => ev.k === "pilFirst" ? 1 : 0 },
   { id: "w_hard", w: 2, goal: 3, gold: 1000, text: () => "컴퓨터와 대전(어려움)에서 3번 이기기", on: ev => QM(ev) && ev.mode === "ai" && ev.ai === "hard" && ev.won ? 1 : 0 },
   { id: "w_flags", w: 2, goal: 2, gold: 1000, need: u => Object.keys(u.owned || {}).filter(g => u.owned[g]).length >= 2,
     text: () => "서로 다른 깃발 2개로 이기기", on: (ev, q) => { if (!QM(ev) || !ev.won || !ev.group) return 0; q.seen = q.seen || []; if (q.seen.includes(ev.group)) return 0; q.seen.push(ev.group); return 1; } },

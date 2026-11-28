@@ -485,7 +485,7 @@ function sealTitle(u, R, I) {
 }
 function shardChipHTML(u) {
   const admin = Store.isAdmin(u);
-  return `<button type="button" class="tb-shard" data-nav="shop" title="환석 조각 ${admin ? "∞ (관리자)" : fmtGold(Store.gold(u))}\n전투 · 순례 · 수레바퀴로 모아 상점에서 카드를 삽니다. 누르면 상점으로.">
+  return `<button type="button" class="tb-shard" data-nav="shop" title="환석 조각 ${admin ? "∞ (관리자)" : fmtGold(Store.gold(u))}\n전투${PILGRIM.open ? " · 순례" : ""}로 모아 상점에서 카드를 삽니다. 누르면 상점으로.">
           <i class="shard" aria-hidden="true"></i><b>${admin ? "∞" : Store.gold(u).toLocaleString("ko-KR")}</b><small>조각</small></button>`;
 }
 function headerHTML(title) {
@@ -508,7 +508,7 @@ function headerHTML(title) {
       </div>
     </div>
   </header>${typeof LevelUI !== "undefined" ? "" : `
-  <div class="gold-dock"><span class="gold-chip" title="환석 조각 — 전투와 수레바퀴로 모아 상점에서 카드를 산다"><b>${fmtGold(Store.gold(u))}</b></span></div>`}`;   /* v3.1.4 환석 조각은 화면 아래 가운데 (css/hud.css). v3.6: 레벨 판(js/level.js LevelUI)이 있으면 그 판이 조각과 레벨을 함께 보인다 */
+  <div class="gold-dock"><span class="gold-chip" title="환석 조각 — 전투로 모아 상점에서 카드를 산다"><b>${fmtGold(Store.gold(u))}</b></span></div>`}`;   /* v3.1.4 환석 조각은 화면 아래 가운데 (css/hud.css). v3.6: 레벨 판(js/level.js LevelUI)이 있으면 그 판이 조각과 레벨을 함께 보인다 */
 }
 function bindHeader(root, guard) {
   root.querySelector(".topbar").addEventListener("click", async e => {
@@ -616,7 +616,6 @@ function showLobby() {
       </nav>
       <main class="deck-view" id="deck-view"></main>
       <aside class="side-col">
-      <div class="wheel-host" id="wheel-host"></div>
       <aside class="chat" aria-label="대기실 채팅">
         <div class="chat-head"><h3 class="panel-title">대기실 채팅</h3><span class="net off" title="서버 미연결: 메시지는 이 기기에만 저장됩니다">● 오프라인</span></div>
         <div class="chat-log" id="chat-log"></div>
@@ -634,11 +633,10 @@ function showLobby() {
     if (typeof FEEL !== "undefined") FEEL.play("flag_pick", .7);
     $$(".deck-tile", root).forEach(x => x.classList.toggle("on", x === b));
     if (lobbyCompact()) { openDeckSheet(b.dataset.g); return; }
-    renderDeckView();   // 2026-11-22 깃발을 바꿀 때는 덱 보기 · 출정의 단만 다시 그린다(상단 띠 · 채팅 · 수레바퀴는 그대로 — 예전엔 대기실 전체를 다시 그려 0.3초)
+    renderDeckView();   // 2026-11-22 깃발을 바꿀 때는 덱 보기 · 출정의 단만 다시 그린다(상단 띠 · 채팅은 그대로 — 예전엔 대기실 전체를 다시 그려 0.3초)
   }));
   renderDeckView();
   renderChat();
-  if (typeof Pachinko !== "undefined") Pachinko.mount($("#wheel-host"));
   $("#chat-form").addEventListener("submit", e => {
     e.preventDefault(); const v = $("#chat-in").value.trim(); if (!v) return;
     ChatNet.send(v); $("#chat-in").value = "";
@@ -676,21 +674,22 @@ function renderDeckView() {
 /* 출정의 단: 덱 조정실 · 컴퓨터와 대전 · 순례 · (원정 계속) · 대전. PC는 덱 보기 아래, 폰 · 앱은 깃발을 누르면 뜨는 출정 창(openDeckSheet) */
 function altarHTML(f, side) {
   const playable = Store.deckPlayable(Store.user(), f);
+  const pilOn = typeof PILGRIM !== "undefined" && PILGRIM.open;   /* 2026-11-28 순례 잠시 닫음(PILGRIM.open) */
   const expOn = typeof Exp !== "undefined" && Exp.get() && !Exp.get().over;   /* v3.26 대기실의 원정 자리는 순례로. 원정은 하던 것을 마칠 때만 보인다 */
   /* 2026-11-15 출정의 단 단추는 모두 같은 모양(금테 · 밤색 바탕, css/realm.css .altar .btn.rite) — 순례 금색 · 온라인 보라 · 컴퓨터와 대전 강조를 걷어냄 */
   /* v3.36 PC 대기실: 오른쪽 열 아래 2 × 2 — 덱 조정실 · 컴퓨터와 대전 / 순례 · 온라인 대전 (원정 계속은 아래 한 줄) */
   if (side) return `<div class="altar side-altar-in"><div class="altar-gates g2">
         <button class="btn rite" id="go-edit">${menuIcon("quill")}<b>덱 조정실</b><small>DECK</small></button>
         <button class="btn rite" id="go-ai" ${playable ? "" : "disabled"}>${menuIcon("duel")}<b>컴퓨터와 대전</b><small>SPARRING</small></button>
-        <button class="btn rite" id="go-pil" title="성로 순례 — 하루에 한 번 열리는 길. 여덟 관문과 망각의 숲">${menuIcon("road")}<b>순례</b><small>PILGRIMAGE</small></button>
-        <button class="btn rite" id="go-pvp" ${playable ? "" : "disabled"}>${menuIcon("banners")}<b>온라인 대전</b><small>ONLINE</small></button>
+        ${pilOn ? `<button class="btn rite" id="go-pil" title="성로 순례 — 하루에 한 번 열리는 길. 여덟 관문과 망각의 숲">${menuIcon("road")}<b>순례</b><small>PILGRIMAGE</small></button>` : ""}
+        <button class="btn rite${pilOn ? "" : " g2-wide"}" id="go-pvp" ${playable ? "" : "disabled"}>${menuIcon("banners")}<b>온라인 대전</b><small>ONLINE</small></button>
         ${expOn ? `<button class="btn rite g2-wide" id="go-exp" title="칠룡의 고리 원정 — 하던 원정을 마저 한다 (새 원정은 열리지 않음)">${menuIcon("ring")}<b>원정 계속</b><small>EXPEDITION</small></button>` : ""}
       </div></div>`;
   return `<div class="dv-actions altar">
       <button class="btn rite-side" id="go-edit">${menuIcon("quill")}<span>덱 조정실</span></button>
       <div class="altar-gates${expOn ? " n4" : ""}">
         <button class="btn rite" id="go-ai" ${playable ? "" : "disabled"}>${menuIcon("duel")}<b>컴퓨터와 대전</b><small>SPARRING</small></button>
-        <button class="btn rite" id="go-pil" title="성로 순례 — 하루에 한 번 열리는 길. 여덟 관문과 망각의 숲">${menuIcon("road")}<b>순례</b><small>PILGRIMAGE</small></button>
+        ${pilOn ? `<button class="btn rite" id="go-pil" title="성로 순례 — 하루에 한 번 열리는 길. 여덟 관문과 망각의 숲">${menuIcon("road")}<b>순례</b><small>PILGRIMAGE</small></button>` : ""}
         ${expOn ? `<button class="btn rite" id="go-exp" title="칠룡의 고리 원정 — 하던 원정을 마저 한다 (새 원정은 열리지 않음)">${menuIcon("ring")}<b>원정 계속</b><small>EXPEDITION</small></button>` : ""}
         <button class="btn rite" id="go-pvp" ${playable ? "" : "disabled"}>${menuIcon("banners")}<b>온라인 대전</b><small>ONLINE</small></button>
       </div>
@@ -1254,7 +1253,7 @@ function showEditor(f, focusId) {
   $("#ed-back").addEventListener("click", () => { if (dirty()) toast("고치던 덱은 초안으로 남아 있습니다. 다시 오면 이어서 고칠 수 있습니다."); showLobby(); });
   $("#ed-play").addEventListener("click", async () => {
     if (dirty() || !Store.deckPlayable(u, f)) { alarm(`${RULES.deckSize}장을 채우고 저장해야 게임에 들어갈 수 있습니다.`, "warn"); return; }
-    const v = await modal(`<h3>대전 방식</h3><p>저장된 「${esc(Store.deck(u, f).name)}」로 출전합니다.</p>`, [{ label: "취소", value: null }, { label: "온라인 대전", value: "pvp" }, { label: "순례", value: "pil" }, { label: "컴퓨터와 대전", value: "ai" }]   /* 2026-11-15 네 단추 모두 같은 모양 */);
+    const v = await modal(`<h3>대전 방식</h3><p>저장된 「${esc(Store.deck(u, f).name)}」로 출전합니다.</p>`, [{ label: "취소", value: null }, { label: "온라인 대전", value: "pvp" }, ...(PILGRIM.open ? [{ label: "순례", value: "pil" }] : []), { label: "컴퓨터와 대전", value: "ai" }]   /* 2026-11-15 네 단추 모두 같은 모양 */);
     if (v === "ai") startVsAI(f); else if (v === "pvp") startPvP(f);
     else if (v === "pil" && typeof showPilgrim === "function") { App.lobbyGroup = f; showPilgrim(f); }   // v3.34 순례도 덱 조정실에서 바로
   });

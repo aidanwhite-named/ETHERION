@@ -56,7 +56,6 @@ html.fx-low .drag-ghost { filter: drop-shadow(0 2.8px 3px rgba(0, 0, 0, .65)); }
 html.fx-low .float { text-shadow: 0 1.5px 4px #000, 0 0 4px currentColor; }
 html.fx-low .float.aim { text-shadow: 0 2px 4px #000, 0 0 4px rgba(0, 0, 0, .9), 0 0 4px rgba(255, 196, 80, .55); }
 html.fx-low .ether.boosted .eth-orb { box-shadow: 0 0 6px rgba(127, 227, 156, .8), inset 0 -2.6px 6px rgba(0, 0, 0, .45); }
-html.fx-low .hk { box-shadow: 0 1px 4px rgba(0, 0, 0, .6); }
 html.fx-low .screen-game::after { box-shadow: inset 0 0 6px rgba(0, 0, 0, .75), inset 0 0 0 1px rgba(217, 180, 106, .12); }
 html.fx-low .nameplate { box-shadow: 0 1.8px 6px rgba(0, 0, 0, .45), inset 0 0 0 1px rgba(255, 255, 255, .04); }
 html.fx-low .cry-state.ok { box-shadow: 0 0 6px rgba(143, 220, 255, .25); }
@@ -240,7 +239,6 @@ html.fx-low .pgm-leg.next, html.fx-low .pgm-node.cur .ring, html.fx-low .pgm-for
 
 /* battle-ui.css */
 html.fx-low .c-desc p { text-shadow: 0 1px 2px #000; }
-html.fx-low .hk-slot { box-shadow: 0 2px 6px rgba(0, 0, 0, .6); }
 
 /* battle-v19.css */
 html.fx-low .shuffle-btn.v19 { filter: drop-shadow(0 1.3px 3px rgba(0, 0, 0, .6)) drop-shadow(0 0 3px rgba(143, 111, 214, .28)); }

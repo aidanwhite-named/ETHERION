@@ -167,11 +167,26 @@ function pilAt(k) {
   if (P) { const o = k === "hub" ? P.find(x => x.id === "p_linde") : P.find(x => x.g === k && x.t !== "region"); if (o) return [o.x, o.y]; }
   return PIL_AT[k];
 }
+/* 2026-11-28 PC 오늘의 길은 스크롤 없는 한 화면(사용자 — "지도도 다른 배경도 안 움직이게"): 문서가 창보다 길면 넘친 만큼 지도를 줄이고,
+   오른쪽 칸(할 일 · 걸음 · 관문)이 지도보다 길면 지도를 그 높이까지 키운다. 두 칸 배치(.pg-way가 display: contents — css/pilgrim.css)에서만 */
+function pilFit() {
+  const s = document.querySelector(".pg-on-road .pg-map-svg"); if (!s) return;
+  s.style.height = "";
+  if (getComputedStyle(s.closest(".pg-way")).display !== "contents") return;
+  const over = document.scrollingElement.scrollHeight - innerHeight, fig = s.closest(".pg-map").getBoundingClientRect();
+  const last = [".pg-route", ".pg-week", ".pg-side"].map(k => document.querySelector(".pg-on-road " + k)).find(e => e && e.offsetParent);
+  const right = last.getBoundingClientRect().bottom - fig.top - (fig.height - s.getBoundingClientRect().height);
+  const h = s.getBoundingClientRect().height;
+  s.style.height = Math.round(Math.max(320, right, over > 0 ? h - over : h)) + "px";
+}
+if (typeof addEventListener === "function") addEventListener("resize", pilFit);
 function pilMapHTML(p, f) {
   if (pilBase == null) { try { pilBase = typeof Kailan !== "undefined" && Kailan.mapSVG ? Kailan.mapSVG() : ""; } catch (e) { console.error(e); pilBase = ""; } }
   const TX = PILGRIM_TEXT, n1 = v => Math.round(v * 10) / 10, route = p.route || [];
   const keys = ["hub"].concat(route, route.length ? ["forest"] : []);
   const pts = keys.map(pilAt), can = Pilgrim.canFight(p), o = [];
+  /* 2026-11-28 글씨를 키워 지도 가장자리(viewBox 100 ~ 1200)에 걸린 이름이 잘렸다 — 이름 가운데를 안쪽으로 민다(한 글자 ≈ 27px) */
+  const nmX = (x, s) => { const w = String(s).length * 27 / 2 + 6; return Math.round(Math.max(100 + w - x, Math.min(0, 1200 - w - x))); };
   /* 길: 지난 길은 금빛, 다음 길은 깜빡이는 점선, 남은 길은 흐린 점선 */
   for (let i = 0; i + 1 < pts.length; i++) {
     const [x0, y0] = pts[i], [x1, y1] = pts[i + 1], dx = x1 - x0, dy = y1 - y0, d = Math.hypot(dx, dy) || 1;
@@ -181,19 +196,19 @@ function pilMapHTML(p, f) {
   }
   /* 출발: 린데어 환석 */
   const [hx, hy] = pilAt("hub");
-  o.push(`<g class="pgm-hub" transform="translate(${hx} ${hy})"><circle r="10"/><circle r="3.6" class="c"/><text class="pgm-nm" y="30">${esc(TX.hub)}</text></g>`);
+  o.push(`<g class="pgm-hub" transform="translate(${hx} ${hy})"><circle r="14"/><circle r="5" class="c"/><text class="pgm-nm" x="${nmX(hx, TX.hub)}" y="44">${esc(TX.hub)}</text></g>`);
   /* 관문 */
   if (route.length) route.forEach((g, i) => {
     const [x, y] = pts[i + 1], O = GROUPS[g], st = i < p.stage ? " done" : i === p.stage && can ? " cur" : "";
-    o.push(`<g class="pgm-node${st}" style="--gc:${O.color}" transform="translate(${x} ${y})"><circle class="ring" r="19"/><circle class="dot" r="12.5"/><text class="num" y="5">${i + 1}</text><text class="pgm-nm" y="38">${esc(O.name)}</text></g>`);
+    o.push(`<g class="pgm-node${st}" style="--gc:${O.color}" transform="translate(${x} ${y})"><circle class="ring" r="27"/><circle class="dot" r="18"/><text class="num" y="8">${i + 1}</text><text class="pgm-nm" x="${nmX(x, O.name)}" y="54">${esc(O.name)}</text></g>`);
   });
-  else GROUP_IDS.filter(g => g !== f).forEach(g => { const [x, y] = pilAt(g); o.push(`<g class="pgm-node idle" style="--gc:${GROUPS[g].color}" transform="translate(${x} ${y})"><circle class="dot" r="9"/><text class="pgm-nm" y="30">${esc(GROUPS[g].name)}</text></g>`); });
+  else GROUP_IDS.filter(g => g !== f).forEach(g => { const [x, y] = pilAt(g); o.push(`<g class="pgm-node idle" style="--gc:${GROUPS[g].color}" transform="translate(${x} ${y})"><circle class="dot" r="13"/><text class="pgm-nm" x="${nmX(x, GROUPS[g].name)}" y="40">${esc(GROUPS[g].name)}</text></g>`); });
   /* 망각의 숲 */
   const [fx, fy] = pilAt("forest"), fst = p.stage >= PILGRIM.gates ? " done" : p.stage === PILGRIM.gates - 1 && can ? " cur" : "";
-  o.push(`<g class="pgm-forest${fst}" transform="translate(${fx} ${fy})"><circle class="ring" r="24"/><circle class="dot" r="15"/><text class="num" y="6">?</text><text class="pgm-nm" y="44">${esc(TX.forest.name)}</text></g>`);
+  o.push(`<g class="pgm-forest${fst}" transform="translate(${fx} ${fy})"><circle class="ring" r="34"/><circle class="dot" r="22"/><text class="num" y="9">?</text><text class="pgm-nm" x="${nmX(fx, TX.forest.name)}" y="62">${esc(TX.forest.name)}</text></g>`);
   /* 지금 서 있는 곳 */
   const [mx, my] = pts[Math.min(p.stage, pts.length - 1)] || [hx, hy];
-  o.push(`<g class="pgm-me" transform="translate(${mx} ${my - 30})"><path d="M0,-9L7,0L0,9L-7,0Z"/></g>`);
+  o.push(`<g class="pgm-me" transform="translate(${mx} ${my - 44})"><path d="M0,-13L10,0L0,13L-10,0Z"/></g>`);
   const passed = Math.min(p.stage, PILGRIM.gates - 1);
   return `<figure class="pg-map">
     <svg class="pg-map-svg" viewBox="100 27 1100 807" role="img" aria-label="오늘의 순례길 지도"><g class="pgm-base">${pilBase}</g>${o.join("")}</svg>
@@ -335,7 +350,7 @@ function showPilgrim(f) {
 
   $("#app").innerHTML = `<section class="screen screen-exp screen-pil">
     ${headerHTML("성로 순례")}
-    <div class="xp pg">
+    <div class="xp pg${tab === "road" ? " pg-on-road" : ""}">
       <div class="xp-head fac-${G_.faction}" style="--gc:${G_.color}">
         ${groupEmblem(f, "big")}
         <div><p class="eyebrow">PILGRIMAGE · ${esc(FA.name)}</p><h2>성로 순례</h2>
@@ -351,6 +366,7 @@ function showPilgrim(f) {
   </section>`;
   const root = $(".screen-pil");
   bindHeader(root);
+  pilFit(); requestAnimationFrame(pilFit);
   root.addEventListener("click", ev => {
     const t = ev.target.closest("[data-tab]");
     if (t) { App.pilTab = t.dataset.tab; showPilgrim(f); return; }

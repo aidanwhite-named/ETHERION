@@ -36,6 +36,28 @@
 .org-node.root .emblem.q { font-size: 24px; }
 .org-node.faction { padding-top: 12px; }
 .org-node.faction .caret { position: absolute; right: 7px; top: 6px; font-style: normal; font-size: 12px; color: var(--fc); opacity: .8; }
+/* 상점 · 진영 명판 그림 (2026-11-28, img/ui/shop/ · 프롬프트 tools/art/prompts/shop.md) — 명판 판 위 · 글자 아래. 아래쪽을 어둡게 눌러 이름이 읽히게 하고, 깎은 모서리 금 마름모 못은 다시 얹는다 */
+.org-art { position: absolute; inset: 1px; z-index: -1; pointer-events: none; clip-path: polygon(11.6px 0, 100% 0, 100% calc(100% - 11.6px), calc(100% - 11.6px) 100%, 0 100%, 0 11.6px); transition: filter .25s;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M5 0 10 5 5 10 0 5z' fill='%23d9b46a'/%3E%3C/svg%3E") 2.5px 2.5px / 6px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M5 0 10 5 5 10 0 5z' fill='%23d9b46a'/%3E%3C/svg%3E") right 2.5px bottom 2.5px / 6px no-repeat,
+    linear-gradient(180deg, rgba(7, 8, 13, .05) 0%, rgba(7, 8, 13, .12) 40%, rgba(7, 8, 13, .85) 100%),
+    var(--art) var(--art-pos, center 35%) / cover no-repeat, #07080d; }
+.org-art.a-lindear { --art: url("../img/ui/shop/shop_lindear.jpg"); --art-pos: center 48%; }
+.org-art.a-brass { --art: url("../img/ui/shop/shop_brass.jpg"); }
+.org-art.a-verdant { --art: url("../img/ui/shop/shop_verdant.jpg"); }
+.org-art.a-arcane { --art: url("../img/ui/shop/shop_arcane.jpg"); }
+html.mobile .org-art.a-lindear { --art: url("../img/ui/shop/shop_lindear_m.jpg"); }
+html.mobile .org-art.a-brass { --art: url("../img/ui/shop/shop_brass_m.jpg"); }
+html.mobile .org-art.a-verdant { --art: url("../img/ui/shop/shop_verdant_m.jpg"); }
+html.mobile .org-art.a-arcane { --art: url("../img/ui/shop/shop_arcane_m.jpg"); }
+.org-node.rq.on > .org-art { filter: brightness(1.1); }
+.org-node.rq:not(.on) > .org-art { filter: saturate(.9) brightness(.95); }
+.org-node.rq:not(.on):hover > .org-art { filter: brightness(1.1); }
+/* 상점 · 진영 문장 그림 (img/ui/emblem/shop_lindear · faction_<id>.png, 256² 투명) — 동그라미 테 · 바탕 없이 그림만 */
+.org-node .emblem.pic { background: none; border: 0; box-shadow: none; }
+.org-node .emblem.pic img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .85)); }
+.org-node.rq > .org-art ~ b, .org-node.rq > .org-art ~ .en, .org-node.rq > .org-art ~ .role { text-shadow: 0 1px 3px #000, 0 0 8px rgba(0, 0, 0, .9); }
 .org-node.group { padding: 8px 4px 8px; }
 .org-node.group .emblem { width: 34px; height: 34px; }
 .org-node.group b { font-size: 12.5px; }

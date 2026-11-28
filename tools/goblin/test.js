@@ -86,14 +86,14 @@ ok(CARDS['MB-04'].name === '도화선' && CARDS['SB1-05'].name === '기폭' && C
   ok(bl(b) === '1,1' && bl(e) === '1', `다음 턴: 2는 양옆에 1, 1은 번지지 않음 (가운데 ${bl(b)} · 끝 ${bl(e)})`);
   uK = u => u.t.keep; uK(a).scorch = 0; ok(ev('gbBurns')(a).length === 0, '다른 규칙이 화상을 지우면(정화) 목록도 꺼짐'); }
 var uK;
-/* v3.88 화약통 깔기: 이 마법 자리와 빈 칸마다 화약통 → 다음 턴 첫 공격 전 마주 보는 상대에 [화상 3] */
+/* v3.88 화약통 깔기: 이 마법 자리와 빈 칸마다 화약통 → 다음 턴 첫 공격 전 같은 칸 번호의 상대에 [화상 3] (2026-11-28) */
 { const P = [c.side(0, ['B1-12', 'RB1-1'], 30), c.side(1, ['B1-43', 'UP-B1-24', 'B2-24'], 30)]; c.prep(P);
   const X = ev('ctx')(P, 0, 1, []); ev('castSpell')(X, 0, P[0].field[1], 1); ev('packField')(P[0]);
   const kegs = P[0].field.filter(u => u && u.id === 'TK-U-BOMB');
   ok(kegs.length === 4 && kegs.every(k => k.t.keep.face === 3), '화약통 깔기: 빈 칸 3 + 마법 자리 1 = 화약통 4개');
   ev('uBombs')(ev('ctx')(P, 0, 1, []), () => {}); ok(P[0].field.filter(u => u && u.id === 'TK-U-BOMB' && u.t.alive).length === 4, '놓은 턴에는 터지지 않음');
   const X2 = ev('ctx')(P, 1, 2, []); ev('uBombs')(X2, () => {}); const F = P[1].field;
-  ok(sc(F[0]) === 0 && sc(F[1]) === 3 && sc(F[2]) === 9, `다음 턴: 마주 보는 상대에 [화상 3], 마주 보는 칸이 비면 가장 가까운 상대 (${F.slice(0, 3).map(sc)})`);
+  ok(sc(F[0]) === 0 && sc(F[1]) === 3 && sc(F[2]) === 3, `다음 턴: 같은 칸 번호의 상대에만 [화상 3], 그 칸이 비면 불발 (${F.slice(0, 3).map(sc)})`);
   ok(CARDS['RB1-1'].name === '화약통 깔기' && CARDS['RB1-1'].comeback && CARDS['RB1-1'].limit === 1 && CARDS['SB1-08'].name === '화약고 폭파' && CARDS['SB1-08'].type === 'any', '역전 마법 화약통 깔기 · 짝 화약고 폭파(공용)'); }
 /* v3.88 화약고 폭파: 화약통 N개를 터뜨려 부수고(화약통 저마다의 화상 없음), 상대 앞 N기 체력 −N² · [화상 2], 아군 전체 체력 −N */
 { const P = [c.side(0, ['B1-43', 'RB1-1', 'SB1-08'], 30), c.side(1, ['B1-43', 'UP-B1-24', 'B2-24', 'G1-01'], 30)]; c.prep(P);

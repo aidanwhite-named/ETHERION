@@ -94,11 +94,11 @@ html.mobile .tbw-left .tb-nav[data-nav="tutorial"] span { display: none; }
 .t-wallet b { display: block; font-family: var(--caps); font-size: 22px; color: var(--gold-hi); }
 .t-filters { display: grid; gap: 8px; margin-bottom: 16px; }
 .trade .chips, .trade-win .chips { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
-.trade .chip, .trade-win .chip { font-size: 13px; padding: 5px 12px; color: var(--ink-2); cursor: pointer; }
+.trade .chip, .trade-win .chip { font-size: 14px; padding: 6px 14px; color: var(--ink-2); cursor: pointer; }
 .trade .chip.on, .trade-win .chip.on { color: var(--gold-hi); }
 .trade .chip.sf-grade { color: var(--gr); }
-.trade .sf-label, .trade-win .sf-label { font-size: 12px; color: var(--muted); min-width: 34px; letter-spacing: .08em; }
-.t-q { margin-left: auto; width: min(260px, 100%); padding: 6px 10px; font-size: 13px; color: var(--ink); }
+.trade .sf-label, .trade-win .sf-label { font-size: 13px; color: var(--muted); min-width: 34px; letter-spacing: .08em; }
+.t-q { margin-left: auto; width: min(300px, 100%); padding: 8px 12px; font-size: 14px; color: var(--ink); }
 .t-none { margin: 0; padding: 14px 4px; color: var(--muted); font-size: 13px; }
 .t-empty { grid-column: 1 / -1; display: grid; justify-items: center; gap: 6px; padding: 60px 20px; text-align: center; color: var(--ink-2); }
 .t-empty .t-ico { width: 46px; height: 46px; color: var(--gold); opacity: .6; }
@@ -137,29 +137,40 @@ html.mobile .tbw-left .tb-nav[data-nav="tutorial"] span { display: none; }
 .tcard .card { cursor: pointer; }
 
 /* ---------- 게시판의 거래 칸 ---------- */
-.t-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(480px, 100%), 1fr)); gap: 18px; }
-.t-tile { position: relative; display: grid; align-content: start; gap: 10px; padding: 12px 14px 12px; cursor: pointer; border: 1px solid rgba(217, 180, 106, .26); border-radius: 3px;
+.t-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(540px, 100%), 1fr)); gap: 20px; }
+.t-list.big { grid-template-columns: repeat(auto-fill, minmax(min(700px, 100%), 1fr)); gap: 24px; }
+.t-howto { margin: -6px 0 14px; font-size: 14px; color: var(--ink-2); }
+.t-howto b { color: var(--gold-hi); font-weight: 600; }
+.trade .sf-label.t-sz { margin-left: 14px; }
+.t-tile { position: relative; display: grid; align-content: start; gap: 12px; padding: 14px 18px 14px; cursor: pointer; border: 1px solid rgba(217, 180, 106, .26); border-radius: 3px;
   background: radial-gradient(90% 60% at 30% 0%, color-mix(in srgb, var(--gr) 10%, transparent), transparent 70%), linear-gradient(180deg, rgba(22, 24, 38, .92), rgba(11, 12, 20, .92));
   box-shadow: inset 0 2px 0 color-mix(in srgb, var(--gr) 55%, transparent); transition: transform .15s, border-color .15s, box-shadow .15s; }
 .t-tile:hover, .t-tile:focus-visible { transform: translateY(-2px); border-color: rgba(217, 180, 106, .6); box-shadow: inset 0 2px 0 var(--gr), 0 12px 30px rgba(0, 0, 0, .5); outline: none; }
 .t-tile.mine { border-color: rgba(217, 180, 106, .5); }
 .t-tile.joined { border-color: rgba(127, 212, 154, .45); }
 .t-tile header { display: flex; align-items: center; gap: 10px; }
-.tt-by { margin-left: auto; font-size: 13px; color: var(--ink-2); }
+.tt-by { margin-left: auto; font-size: 15px; color: var(--ink-2); }
 .tt-by b { color: var(--gold-hi); }
-.tt-body { display: grid; grid-template-columns: minmax(0, 1.5fr) auto minmax(0, 1fr); gap: 10px; align-items: center; }
+.tt-body { display: grid; grid-template-columns: minmax(0, 1.5fr) auto minmax(0, 1fr); gap: 14px; align-items: stretch; }
+.tt-give, .tt-want, .tt-bid { padding: 8px 10px 10px; border: 1px solid rgba(217, 180, 106, .16); background: rgba(5, 6, 11, .4); }
+.tt-give { display: grid; align-content: start; gap: 4px; }
+.tt-give > .eyebrow { color: var(--gold-hi); }
+.tt-want > .eyebrow, .tt-bid > .eyebrow { color: var(--ether); }
+.t-tile .eyebrow { font-size: 13px; letter-spacing: .06em; }
 .tt-give .t-assets { align-items: flex-end; }
 .tt-arrow, .td-arrow { color: var(--gold); opacity: .8; display: grid; place-items: center; }
-.tt-arrow .t-ico { width: 28px; height: 28px; }
-.tt-want, .tt-bid { display: grid; gap: 4px; justify-items: start; align-content: center; }
+.tt-arrow .t-ico { width: 34px; height: 34px; }
+.tt-want, .tt-bid { display: grid; gap: 4px; justify-items: start; align-content: start; }
 .tt-want .t-assets { gap: 14px 8px; }
-.tt-bid .t-shards { font-size: 22px; }
-.tt-bid small { font-size: 12px; color: var(--muted); }
+.tt-bid .t-shards { font-size: 28px; margin-top: 8px; }
+.tt-bid small { font-size: 13px; color: var(--muted); }
 .tt-req { font-size: 12px; color: var(--arcane); line-height: 1.4; }
 .tt-open { color: var(--gold-hi); font-size: 15px; }
-.t-tile footer { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--ink-2); border-top: 1px solid rgba(217, 180, 106, .14); padding-top: 8px; }
+.t-tile footer { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--ink-2); border-top: 1px solid rgba(217, 180, 106, .14); padding-top: 8px; }
 .t-tile footer q { font-style: italic; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .tt-join { margin-left: auto; white-space: nowrap; }
+.tt-go { white-space: nowrap; padding: 5px 12px; font-weight: 700; color: var(--gold-hi); border: 1px solid rgba(217, 180, 106, .5); background: rgba(217, 180, 106, .1); transition: background .15s; }
+.t-tile:hover .tt-go, .t-tile:focus-visible .tt-go { background: rgba(217, 180, 106, .24); }
 .ok { color: var(--good); } .bad { color: var(--bad); } .warn { color: var(--warn); }
 
 /* ---------- 내 거래 · 소식 ---------- */
@@ -185,7 +196,9 @@ html.mobile .tbw-left .tb-nav[data-nav="tutorial"] span { display: none; }
 /* ---------- 거래 창 (상세 · 올리기 · 참여) ---------- */
 .t-wrap { align-items: start; overflow-y: auto; }
 .modal.trade-win { width: min(560px, 100%); max-height: none; overflow: visible; padding: 22px 24px 18px; gap: 14px; margin-block: 8px; }
-.modal.trade-win.wide { width: min(1320px, 100%); }
+.modal.trade-win.wide { width: min(1560px, 100%); }
+.modal.trade-win.compose { width: min(1760px, 100%); padding: 24px 28px 20px; }
+.trade-win.compose .td-head h3 { font-size: 28px; }
 .td-head { position: relative; display: grid; gap: 4px; padding-right: 40px; }
 .td-head > div { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .td-head h3 { margin: 0; font-size: 24px; }
@@ -229,7 +242,7 @@ html.mobile .tbw-left .tb-nav[data-nav="tutorial"] span { display: none; }
 .tco-side { display: grid; gap: 10px; min-width: 0; }
 .tco-side .panel-title { margin: 0; flex-wrap: wrap; }
 .tco-openchk { margin-left: auto; font-size: 12.5px; color: var(--ink-2); letter-spacing: 0; display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
-.tco-slots { display: flex; flex-wrap: wrap; gap: 20px 12px; min-height: 236px; align-content: flex-start; padding: 16px 12px 12px; border: 1px dashed rgba(217, 180, 106, .28); background: rgba(5, 6, 11, .45); }
+.tco-slots { display: flex; flex-wrap: wrap; gap: 22px 14px; min-height: 300px; align-content: flex-start; padding: 16px 12px 12px; border: 1px dashed rgba(217, 180, 106, .28); background: rgba(5, 6, 11, .45); }
 .s-want .tco-slots { border-color: rgba(143, 220, 255, .28); }
 .tco-shards { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .tco-shards input { width: 130px; padding: 6px 10px; font-family: var(--caps); font-size: 16px; color: var(--gold-hi); }
@@ -238,21 +251,22 @@ html.mobile .tbw-left .tb-nav[data-nav="tutorial"] span { display: none; }
 .tco-check { display: grid; gap: 4px; margin-top: 6px; font-size: 14px; }
 .tco-check .ok { color: var(--good); } .tco-check .no { color: var(--muted); }
 .tco-foot { display: grid; gap: 8px; border-top: 1px solid rgba(217, 180, 106, .2); padding-top: 12px; }
-.tco-foot p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--ink-2); }
+.tco-foot p { margin: 0; font-size: 15.5px; line-height: 1.6; color: var(--ink-2); }
 .tco-foot .modal-btns, .t-detail .modal-btns { justify-content: flex-end; }
+.tco-foot .btn { min-width: 130px; padding: 10px 18px; font-size: 16px; }
 
 /* 카드 고르기 */
 .tp-bar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 8px; }
-.tp-bar select, .tp-bar input { padding: 5px 8px; font-size: 13px; color: var(--ink); background: rgba(5, 6, 11, .75); border: 1px solid rgba(217, 180, 106, .22); }
+.tp-bar select, .tp-bar input { padding: 7px 10px; font-size: 14px; color: var(--ink); background: rgba(5, 6, 11, .75); border: 1px solid rgba(217, 180, 106, .22); }
 .tp-bar input { flex: 1; min-width: 140px; }
-.tp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 18px 8px; max-height: 360px; overflow-y: auto; padding: 14px 6px 8px; border: 1px solid rgba(217, 180, 106, .14); background: rgba(5, 6, 11, .35); scrollbar-width: thin; }
+.tp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(152px, 1fr)); gap: 20px 10px; max-height: max(420px, 58vh); overflow-y: auto; padding: 14px 6px 8px; border: 1px solid rgba(217, 180, 106, .14); background: rgba(5, 6, 11, .35); scrollbar-width: thin; }
 .tp-card { display: grid; justify-items: center; gap: 4px; padding: 0; border: 0; background: none; color: var(--ink-2); cursor: pointer; font: inherit; }
 .tp-card:hover:not(:disabled) .card { transform: translateY(-3px); }
 .tp-card .card { transition: transform .15s; }
-.tp-card small { font-size: 11.5px; }
+.tp-card small { font-size: 13px; }
 .tp-card small b { color: var(--gold-hi); }
 .tp-card.off { opacity: .4; cursor: not-allowed; }
-.tp-card .tc-grade { font-size: 10.5px; padding: 1px 6px; }
+.tp-card .tc-grade { font-size: 11.5px; padding: 1px 7px; }
 .tp-card .tc-top { top: -2px; }
 .tp-more { grid-column: 1 / -1; justify-self: center; }
 
@@ -268,7 +282,7 @@ html.mobile .tbw-left .tb-nav[data-nav="tutorial"] span { display: none; }
 .tl-side { display: grid; gap: 10px; align-content: start; padding: 12px 14px; border: 1px solid rgba(217, 180, 106, .24); background: rgba(5, 6, 11, .45); transition: border-color .2s, box-shadow .2s; }
 .tl-side .panel-title { margin: 0; align-items: center; flex-wrap: wrap; }
 .tl-side.locked { border-color: rgba(127, 212, 154, .7); box-shadow: 0 0 0 1px rgba(127, 212, 154, .35) inset, 0 0 24px rgba(127, 212, 154, .14); }
-.tl-offer { display: flex; flex-wrap: wrap; gap: 20px 12px; min-height: 250px; align-content: flex-start; padding-top: 12px; }
+.tl-offer { display: flex; flex-wrap: wrap; gap: 22px 14px; min-height: 310px; align-content: flex-start; padding-top: 12px; }
 .tl-offer > .t-assets { padding-top: 0; }
 .tl-lamp { font-size: 12px; letter-spacing: 0; padding: 2px 9px; border: 1px solid var(--line); color: var(--muted); }
 .tl-lamp:first-of-type { margin-left: auto; }
@@ -290,6 +304,7 @@ html.mobile .tbw-left .tb-nav[data-nav="tutorial"] span { display: none; }
 }
 @media (max-width: 640px) {
   .tt-body { grid-template-columns: minmax(0, 1fr); }
+  .t-list.big { grid-template-columns: minmax(0, 1fr); }
   .tt-arrow { transform: rotate(90deg); }
   .tl-gate { grid-template-columns: minmax(0, 1fr); }
   .td-offer { grid-template-columns: minmax(0, 1fr); }

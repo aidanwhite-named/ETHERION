@@ -17,7 +17,8 @@ const GLYPH = {
   elder: '<path d="M29 40h6v18h-6z"/><circle cx="32" cy="22" r="14"/><circle cx="20" cy="30" r="9"/><circle cx="44" cy="30" r="9"/><path d="M22 58c3-6 7-8 10-8s7 2 10 8z"/>',
   spring: '<path d="M32 5C21 22 14 31 14 40a18 18 0 0036 0c0-9-7-18-18-35z"/><path d="M20 42c4 3 8 3 12 0s8-3 12 0" fill="none" stroke="#000" stroke-opacity=".45" stroke-width="3" stroke-linecap="round"/>',
   abyss: '<path d="M3 32Q32 4 61 32 32 60 3 32z"/><path d="M32 14c4 6 5 12 5 18s-1 12-5 18c-4-6-5-12-5-18s1-12 5-18z" fill="#000" opacity=".7"/>',
-  radiant: '<circle cx="32" cy="30" r="11"/><g stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M32 6v7M32 47v4M8 30h7M49 30h7M15 13l5 5M44 42l5 5M49 13l-5 5M20 42l-5 5"/></g><path d="M30 34h4v26h-4z"/><path d="M24 50h16v3H24z"/>',
+  // 2026-11-28 날개 방패 + 해 + 검 + 후광 (깃발 문장 img/ui/emblem/A2.png와 같은 뜻. 예전: 해 아래 검 — 전구처럼 보였다)
+  radiant: '<ellipse cx="32" cy="6" rx="8" ry="2.4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20C14 12 8 9 1 9c2 3 3 5 5 7-3 0-4 1-5 3 3 1 5 2 7 3-3 1-4 2-5 4 3 1 6 1 9 1-2 2-3 3-3 5 3 0 6-1 10-2z"/><path d="M44 20c6-8 12-11 19-11-2 3-3 5-5 7 3 0 4 1 5 3-3 1-5 2-7 3 3 1 4 2 5 4-3 1-6 1-9 1 2 2 3 3 3 5-3 0-6-1-10-2z"/><path d="M32 12l14 4v14c0 11-6 19-14 24-8-5-14-13-14-24V16z"/><g stroke="#000" stroke-opacity=".45" stroke-linecap="round"><circle cx="32" cy="33" r="5.5" fill="none" stroke-width="2.5"/><path d="M32 41v2.5M21.5 33h2.5M40 33h2.5M24.6 25.6l1.7 1.7M37.7 38.7l1.7 1.7M39.4 25.6l-1.7 1.7M26.3 38.7l-1.7 1.7" stroke-width="2"/></g><path d="M31 15h2v32l-1 3-1-3z" fill="#000" opacity=".55"/><path d="M27 19h10v2.4H27z" fill="#000" opacity=".55"/>',
   storm: '<path d="M33 10c13 0 22 8 22 18 0 8-6 14-14 14-6 0-10-4-10-9 0-4 3-7 7-7" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path d="M31 54c-13 0-22-8-22-18 0-8 6-14 14-14 6 0 10 4 10 9 0 4-3 7-7 7" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" opacity=".7"/>',
   sword: '<path d="M50 6h8v8L30 42l-8-8z"/><path d="M16 36l12 12-4 4-3-3-7 7-4-4 7-7-3-3z"/><path d="M20 32l12 12" stroke="#000" stroke-opacity=".4" stroke-width="2"/>',
   shield: '<path d="M32 4 54 12v16c0 14-9 25-22 32C19 53 10 42 10 28V12z"/><path d="M32 12v40" stroke="#000" stroke-opacity=".35" stroke-width="3"/><path d="M18 26h28" stroke="#000" stroke-opacity=".35" stroke-width="3"/>',
@@ -454,7 +455,20 @@ function fitBriefs(root, names) {
     }
     shrink(bad.filter(b => !deep(b)), [0.75, 0.7]); shrink(bad.filter(deep), [0.63, 0.59]);
   }
+  fitSmallBoxes(scope);
   if (list.length || names) fitCardNames(scope);
+}
+/* 2026-11-28 덱 조정실 · 보관함 · 대기실의 작은 카드 글 상자(전장 · 핸드는 fitFieldBox): 아래쪽 흐림(mask) 때문에 다 들어간 글도 마지막 줄이 흐렸다(사용자).
+   넘치면 칩 글자(--chs)를 .8배까지 줄이고, 다 들어가면 흐림을 끈다(fit-all). 모두 재고 → 한꺼번에 고치기 */
+function fitSmallBoxes(scope) {
+  const L = fitQ(scope, ".card.fm:not(.size-full) .c-boxin").filter(bi => !bi.closest(".slot, .hand-me"));
+  if (!L.length) return;
+  for (const bi of L) { if (bi.style.getPropertyValue("--chs")) bi.style.removeProperty("--chs"); bi.classList.remove("fit-all"); }
+  const over = bi => bi.scrollHeight > bi.clientHeight + 1;
+  let bad = L.filter(over);
+  for (const s of [0.95, 0.9, 0.85, 0.8]) { if (!bad.length) break; for (const bi of bad) bi.style.setProperty("--chs", s); bad = bad.filter(over); }
+  const fits = L.filter(bi => !bad.includes(bi));
+  for (const bi of fits) bi.classList.add("fit-all");
 }
 /* 2026-11-22 메뉴 전환 빠르게: 메뉴의 카드 목록(덱 조정실 보관함 · 대기실 덱 보기 · 퀘스트 도감 …, css/perf.css)은 content-visibility:auto라
    화면 밖 카드는 브라우저가 배치 · 그리기를 건너뛴다. 글 맞춤이 그 카드들 속을 재면 건너뛴 일을 억지로 다 하게 되므로(덱 조정실 열기 0.5초),
@@ -725,7 +739,7 @@ function instLines(inst) {
   const cs = inst.t.coins || [];
   if (cs.length && cs[0].heads != null) lines.push(`<p class="d-coin">마지막으로 던진 코인: ${coinGroups(cs).map(o => `${o.parts.map(k => STAT_KO[k.st] + " " + sgnNum(k.v)).join("·")} ${o.heads ? "앞면" : "뒷면"}`).join(", ")}</p>`);
   if (abilOf(inst).u === "charge") lines.push(`<p class="d-type"><b>⚡ 플라즈마 ${Math.min(2, (inst.t.keep && inst.t.keep.charge) || 0)} / 2</b> 내 마법이 발동할 때마다 1. 2가 되면 다음 전투에 상대 모두 체력 −2.</p>`);   // v3.66.2
-  if (inst.t.keep && abilOf(inst).u === "scrap") lines.push(`<p class="d-type"><b>고철 ${Math.min(4, inst.t.keep.scrap || 0)} / 4</b> 4가 되면 전투가 끝날 때 빈 칸에 고철 골렘(3/2/5)을 세운다.</p>`);   // v3.31.1
+  if (inst.t.keep && abilOf(inst).u === "scrap") lines.push(`<p class="d-type"><b>고철 ${Math.min(3, inst.t.keep.scrap || 0)} / 3</b> 3이 되면 전투가 끝날 때 빈 칸에 고철 골렘(3/2/5)을 세운다.</p>`);   // v3.31.1
   // v3.33 표시(고정 · 버팀 · 눌림)는 말과 뜻 대신 수치 앞의 기호로 (itemTextPinned)
   if (inst.item) lines.push(`<p class="d-equip">장착 · ${esc(CARDS[inst.item.id].name)}<span>${esc(itemTextPinned(CARDS[inst.item.id].item))}</span></p>`);
   if (inst.item) {   // v3.84 능력 상한: 유닛 능력이 칸을 다 차지해 붙지 않는 아이템 능력은 "붙지 않음"으로 (js/cards.js ABIL_CAP)

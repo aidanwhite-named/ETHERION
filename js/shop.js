@@ -14,10 +14,10 @@ const SHOP = { node: "root", type: "all", lv: 0, grade: "", open: {}, toDeck: tr
 try { const v = localStorage.getItem("etherion.pref.shopToDeck"); if (v != null) SHOP.toDeck = v === "1"; } catch (e) {}
 
 function shopNodeHTML(kind, id, extra) {
-  if (kind === "root") return `<button type="button" class="org-node rq root${SHOP.node === "root" ? " on" : ""}" data-node="root"><i class="rq-plate" aria-hidden="true"></i><span class="emblem big q">⚖</span><b>린데어 상점</b><span class="en">Lindear Market · ${CARD_LIST.length}종</span></button>`;
+  if (kind === "root") return `<button type="button" class="org-node rq root${SHOP.node === "root" ? " on" : ""}" data-node="root"><i class="rq-plate" aria-hidden="true"></i><i class="org-art a-lindear" aria-hidden="true"></i><span class="emblem big pic"><img src="img/ui/emblem/shop_lindear.png" alt=""></span><b>린데어 상점</b><span class="en">Lindear Market · ${CARD_LIST.length}종</span></button>`;
   if (kind === "faction") {
     const F = FACTIONS[id], n = CARD_LIST.filter(c => c.faction === id).length;
-    return `<button type="button" class="org-node rq faction fac-${id}${SHOP.node === id ? " on" : ""}${SHOP.open[id] ? " open" : ""}" data-node="${id}" style="--gc:${F.color}"><i class="rq-plate" aria-hidden="true"></i><span class="emblem big" style="--gc:${F.color}">${factionCrestSVG(id)}</span><b>${F.name}</b><span class="en">${F.en}</span><span class="role">단체 3 · 카드 ${n}종</span><i class="caret">${SHOP.open[id] ? "▾" : "▸"}</i></button>`;
+    return `<button type="button" class="org-node rq faction fac-${id}${SHOP.node === id ? " on" : ""}${SHOP.open[id] ? " open" : ""}" data-node="${id}" style="--gc:${F.color}"><i class="rq-plate" aria-hidden="true"></i><i class="org-art a-${id}" aria-hidden="true"></i><span class="emblem big pic" style="--gc:${F.color}"><img src="img/ui/emblem/faction_${id}.png" alt=""></span><b>${F.name}</b><span class="en">${F.en}</span><span class="role">단체 3 · 카드 ${n}종</span><i class="caret">${SHOP.open[id] ? "▾" : "▸"}</i></button>`;
   }
   const G_ = GROUPS[id], n = cardsOfGroup(id).length;
   return `<button type="button" class="org-node rq group fac-${G_.faction}${SHOP.node === id ? " on" : ""}" data-node="${id}" style="--gc:${G_.color}"><i class="rq-plate" aria-hidden="true"></i>${groupEmblem(id)}<b>${G_.name}</b><span class="en">${G_.en}</span><span class="role">${G_.role} · ${ELEMENTS[G_.el].name} · ${n}종</span></button>`;

@@ -7,7 +7,7 @@
 
 const TradeUI = {
   tab: "board",
-  f: { kind: "", grade: "", q: "", sort: "end" },
+  f: { kind: "", grade: "", q: "", sort: "end", size: "big" },   // size: 게시판 카드 크기 "mid" | "big"
   timer: null,
   /* 상단 띠 '교역소' 옆 안 읽은 소식 점 */
   badge() {
@@ -72,6 +72,12 @@ function tAssetsHTML(a, o) {
   const cards = ids.map((id, i) => tCardHTML(id, { size: o.size, w: i === 0 && o.lead ? o.lead : o.w, n: a.cards[id], cls: i === 0 && o.lead ? "lead" : "" })).join("");
   const sh = a.shards ? `<div class="t-plate">${tShards(a.shards)}</div>` : "";
   return `<div class="t-assets${o.cls ? " " + o.cls : ""}">${cards}${sh}${!ids.length && !a.shards ? `<p class="t-none">${o.none || "없음"}</p>` : ""}</div>`;
+}
+
+/* 카드 고르기에서 누르면 먼저 큰 카드로 보여 준다 — "넣기"를 눌러야 거래 창에 들어간다. 돌려주는 값: 넣으면 true */
+async function tPickPreview(id, label, meta) {
+  const v = await showCardModal(CARDS[id], [{ label: "닫기", value: false }, { label, value: true, cls: "primary" }], meta);
+  return v === true;
 }
 
 /* ---------- 화면 ---------- */
@@ -170,9 +176,11 @@ async function tradeBoard(box) {
       <div class="chips"><span class="sf-label">방식</span>${chip("kind", "", "모두")}${chip("kind", "offer", "교환 제안")}${chip("kind", "auction", "경매")}</div>
       <div class="chips"><span class="sf-label">등급</span>${chip("grade", "", "모든 등급")}${GRADE_IDS.map(g => chip("grade", g, GRADES[g].name, ` style="--gr:${GRADES[g].color}"`)).join("")}</div>
       <div class="chips"><span class="sf-label">정렬</span>${chip("sort", "end", "마감 임박")}${chip("sort", "new", "새로 올라온")}${chip("sort", "hot", "참여 많은")}
+        <span class="sf-label t-sz">카드 크기</span>${chip("size", "mid", "보통")}${chip("size", "big", "크게")}
         <input id="tf-q" class="t-q" type="search" placeholder="카드 이름 · 모험가 찾기" value="${esc(F.q)}" autocomplete="off"></div>
     </div>
-    <div class="t-list" id="t-list"></div>`;
+    <p class="t-howto">거래 칸을 누르면 거래 창이 열립니다. <b>왼쪽 = 올린 사람이 주는 것</b>, <b>오른쪽 = 대신 원하는 것</b>(경매는 지금 입찰가)입니다.</p>
+    <div class="t-list${F.size === "big" ? " big" : ""}" id="t-list"></div>`;
   for (const b of box.querySelectorAll('.t-filters .chip[style*="--gr"]')) b.classList.add("sf-grade");
   await tradeBoardList();
 }
@@ -186,22 +194,22 @@ async function tradeBoardList() {
   el.innerHTML = list.length ? list.map(L => tTileHTML(L)).join("")
     : `<div class="t-empty">${tIcon("board")}<p>${r.list.length ? "조건에 맞는 거래가 없습니다." : "아직 올라온 거래가 없습니다."}</p><p class="muted small">왼쪽 <b>거래 올리기</b>로 내 카드를 걸고 원하는 카드나 조각을 적어 보세요. 다른 모험가는 이 게시판에서 참여합니다.</p></div>`;
 }
-/* 거래 칸: 위 = 방식 · 남은 시간 · 올린 이, 가운데 = 내놓은 것(첫 카드를 크게) ⇄ 원하는 것 / 최고 입찰 */
+/* 거래 칸: 위 = 방식 · 남은 시간 · 올린 이, 가운데 = 주는 것(첫 카드를 크게) ⇄ 원하는 것 / 최고 입찰, 아래 = 한마디 · 참여 수 · 열기 단추 */
 function tTileHTML(L) {
-  const G = L.top ? GRADES[L.top] : null;
+  const G = L.top ? GRADES[L.top] : null, big = TradeUI.f.size === "big";
   const wantSide = L.kind === "auction"
     ? `<div class="tt-bid"><span class="eyebrow">${L.best ? "최고 입찰" : "시작가"}</span>${tShards(L.best ? L.best.shards : L.want.shards)}<small>${L.best ? `${esc(L.best.by)} · 입찰 ${L.offers.length}번` : "아직 입찰 없음"}</small>
         ${TA.n(L.want) ? `<span class="tt-req">꼭 함께: ${TA.ids(L.want).map(id => esc(CARDS[id].name)).join(" · ")}</span>` : ""}</div>`
     : L.openWant ? `<div class="tt-bid"><span class="eyebrow">원하는 것</span><b class="tt-open">조건 없이 제안 받기</b></div>`
-    : `<div class="tt-want"><span class="eyebrow">원하는 것</span>${tAssetsHTML(L.want, { w: 84 })}</div>`;
+    : `<div class="tt-want"><span class="eyebrow">대신 원하는 것</span>${tAssetsHTML(L.want, { w: big ? 130 : 96 })}</div>`;
   return `<article class="t-tile k-${L.kind}${L.mine ? " mine" : ""}${L.myOffer ? " joined" : ""}" data-lid="${L.id}" style="--gr:${G ? G.color : "var(--gold)"}" tabindex="0">
     <header>${tKind(L.kind)}${tTimer(L.ends)}<span class="tt-by">${L.mine ? "<b>내 거래</b>" : esc(L.owner)}</span></header>
     <div class="tt-body">
-      <div class="tt-give">${tAssetsHTML(L.give, { w: 96, lead: 168 })}</div>
+      <div class="tt-give"><span class="eyebrow">${L.mine ? "내가 주는 것" : "주는 것"}</span>${tAssetsHTML(L.give, { w: big ? 130 : 100, lead: big ? 230 : 176 })}</div>
       <div class="tt-arrow" aria-hidden="true">${tIcon("trade")}</div>
       ${wantSide}
     </div>
-    <footer>${L.note ? `<q>${esc(L.note)}</q>` : `<span class="muted">#${L.id}</span>`}<span class="tt-join">${L.myOffer ? '<b class="ok">참여 중</b> · ' : ""}참여 ${L.open}</span></footer>
+    <footer>${L.note ? `<q>${esc(L.note)}</q>` : `<span class="muted">#${L.id}</span>`}<span class="tt-join">${L.myOffer ? '<b class="ok">참여 중</b> · ' : ""}참여 ${L.open}</span><span class="tt-go">${L.mine ? "내 거래 보기" : L.kind === "auction" ? "보고 입찰하기" : "보고 참여하기"} ›</span></footer>
   </article>`;
 }
 
@@ -242,7 +250,7 @@ function tradeWin(html, cls) {
   const wrap = document.createElement("div"); wrap.className = "modal-wrap t-wrap";
   wrap.innerHTML = `<div class="modal trade-win ${cls || ""}" role="dialog" aria-modal="true">${html}</div>`;
   document.body.appendChild(wrap);
-  const key = e => { if (e.key === "Escape" && [...TradeWins].pop() === w) w.close(); };
+  const key = e => { if (e.key === "Escape" && [...TradeWins].pop() === w && !document.querySelector(".modal-wrap:not(.t-wrap)")) w.close(); };
   const w = { el: wrap, box: wrap.firstElementChild, refresh: null, onClose: null,
     close() { if (!TradeWins.has(w)) return; TradeWins.delete(w); wrap.remove(); document.removeEventListener("keydown", key); if (w.onClose) w.onClose(); } };
   TradeWins.add(w);
@@ -296,15 +304,15 @@ function tDetailHTML(L) {
     ? `<div class="td-auction">
         <div><span class="eyebrow">${L.best ? "최고 입찰" : "시작가"}</span>${tShards(L.best ? L.best.shards : L.want.shards)}${L.best ? `<small>${esc(L.best.by)} · ${tAgo(L.best.at)}</small>` : ""}</div>
         ${open ? `<div><span class="eyebrow">다음 입찰</span>${tShards(L.minBid)}<small>최고가 + 5% (최소 ${TRADE.stepMin})</small></div>` : ""}
-        ${TA.n(L.want) ? `<div class="td-req"><span class="eyebrow">꼭 함께 낼 카드</span>${tAssetsHTML({ cards: L.want.cards, shards: 0 }, { w: 120 })}</div>` : ""}
+        ${TA.n(L.want) ? `<div class="td-req"><span class="eyebrow">꼭 함께 낼 카드</span>${tAssetsHTML({ cards: L.want.cards, shards: 0 }, { w: 150 })}</div>` : ""}
       </div>`
     : L.openWant ? `<p class="td-open">조건 없이 제안을 받습니다. 올린 사람이 마음에 드는 제안을 골라 성사시킵니다. 기한까지 고르지 않으면 닫힙니다.</p>`
-    : `${tAssetsHTML(L.want, { w: 150 })}<p class="td-rule">이 조건을 <b>모두</b> 채운 참여 중 <b>가장 먼저</b> 들어온 것이 기한에 성사됩니다. 조건과 다른 제안도 낼 수 있고, 올린 사람은 기한 전에 아무 참여나 골라 바로 성사시킬 수 있습니다.</p>`;
+    : `${tAssetsHTML(L.want, { w: 180 })}<p class="td-rule">이 조건을 <b>모두</b> 채운 참여 중 <b>가장 먼저</b> 들어온 것이 기한에 성사됩니다. 조건과 다른 제안도 낼 수 있고, 올린 사람은 기한 전에 아무 참여나 골라 바로 성사시킬 수 있습니다.</p>`;
   const offers = L.offers.slice().sort((a, b) => L.kind === "auction" ? b.shards - a.shards || a.at - b.at : a.at - b.at);
   const ost = { open: "", out: "밀림", withdrawn: "거둠", won: "성사", lost: "돌려받음" };
   const offerRow = o => `<div class="td-offer${o.state === "open" ? "" : " off"}${o.by === u.id ? " me" : ""}${o.state === "won" ? " won" : ""}">
       <span class="to-by"><b>${esc(o.by)}</b><small>${tAgo(o.at)}</small></span>
-      <span class="to-what">${TA.ids(o).map(id => tCardHTML(id, { w: 78, n: o.cards[id] })).join("")}${o.shards ? tShards(o.shards) : ""}</span>
+      <span class="to-what">${TA.ids(o).map(id => tCardHTML(id, { w: 100, n: o.cards[id] })).join("")}${o.shards ? tShards(o.shards) : ""}</span>
       <span class="to-tag">${L.kind === "offer" && !L.openWant ? (o.meets ? '<em class="meet">조건 충족</em>' : '<em class="other">다른 제안</em>') : ""}${ost[o.state] ? `<em class="st">${ost[o.state]}</em>` : ""}</span>
       <span class="to-btn">${open && L.mine && o.state === "open" && (L.kind === "offer" || (L.best && L.best.id === o.id)) ? `<button type="button" class="btn xs gold" data-tact="accept" data-oid="${o.id}">${L.kind === "auction" ? "지금 낙찰" : "이 참여와 성사"}</button>` : ""}</span>
     </div>`;
@@ -322,7 +330,7 @@ function tDetailHTML(L) {
       <button type="button" class="td-x" data-wclose="1" aria-label="닫기">✕</button>
     </header>
     <div class="td-cols">
-      <section class="td-give"><h4 class="panel-title">내놓은 것 <small>교역소가 맡아 둠 · 카드를 누르면 크게</small></h4>${tAssetsHTML(L.give, { size: "full", w: 270 })}</section>
+      <section class="td-give"><h4 class="panel-title">내놓은 것 <small>교역소가 맡아 둠 · 카드를 누르면 크게</small></h4>${tAssetsHTML(L.give, { size: "full", w: 320 })}</section>
       <div class="td-arrow" aria-hidden="true">${tIcon("trade")}</div>
       <section class="td-want"><h4 class="panel-title">${L.kind === "auction" ? "경매" : "원하는 것"}</h4>${wantHTML}</section>
     </div>
@@ -367,7 +375,7 @@ function tradeCompose(mode, L) {
           <label class="tco-note"><span class="sf-label">한마디</span><input id="tco-note" maxlength="${TRADE.noteMax}" placeholder="예: 비술 덱 짜는 중, 레어 마법 구해요" value="${esc(S.note)}"></label>
         </div>` : `
         <div class="tco-target">
-          <div><span class="eyebrow">${esc(L.owner)}님이 내놓은 것</span>${tAssetsHTML(L.give, { w: 132 })}</div>
+          <div><span class="eyebrow">${esc(L.owner)}님이 내놓은 것</span>${tAssetsHTML(L.give, { w: 170 })}</div>
           <div class="tco-cond">${L.kind === "auction" ? `<span class="eyebrow">입찰 조건</span><p>조각 <b>${fmtGold(L.minBid)}</b> 이상${TA.n(L.want) ? " + 꼭 함께: " + TA.ids(L.want).map(id => `「${esc(CARDS[id].name)}」${L.want.cards[id] > 1 ? " ×" + L.want.cards[id] : ""}`).join(" · ") : ""}</p><p class="muted small">더 높은 입찰이 들어오면 맡긴 것을 바로 돌려받습니다.</p>`
             : L.openWant ? `<span class="eyebrow">조건 없음</span><p>무엇이든 제안하세요. 올린 사람이 골라야 성사됩니다.</p>`
             : `<span class="eyebrow">원하는 것</span><div class="tco-check" id="tco-check"></div><p class="muted small">조건과 달라도 제안할 수 있습니다(올린 사람이 골라야 성사).</p>`}</div>
@@ -396,8 +404,8 @@ function tradeCompose(mode, L) {
     const slots = s => {
       const el = box.querySelector("#tco-slots-" + s); if (!el) return;
       const a = S[s], ids = TA.ids(a);
-      el.innerHTML = ids.map(id => tCardHTML(id, { w: 150, n: a.cards[id], x: lockCards[id] && s === "give" && a.cards[id] <= lockCards[id] ? null : s, lockTag: lockCards[id] && s === "give" ? "꼭 낼 카드" : "" })).join("")
-        || `<p class="t-none">${s === "want" && S.open ? "조건 없이 제안을 받습니다. 참여한 제안 중 하나를 골라 성사시키세요(기한까지 고르지 않으면 닫힘)." : s === "give" ? "아래에서 카드를 눌러 넣으세요." : S.kind === "auction" ? "입찰자가 꼭 함께 내야 할 카드가 있으면 넣으세요(없어도 됩니다)." : "받고 싶은 카드를 아래에서 찾아 넣으세요."}</p>`;
+      el.innerHTML = ids.map(id => tCardHTML(id, { w: 190, n: a.cards[id], x: lockCards[id] && s === "give" && a.cards[id] <= lockCards[id] ? null : s, lockTag: lockCards[id] && s === "give" ? "꼭 낼 카드" : "" })).join("")
+        || `<p class="t-none">${s === "want" && S.open ? "조건 없이 제안을 받습니다. 참여한 제안 중 하나를 골라 성사시키세요(기한까지 고르지 않으면 닫힘)." : s === "give" ? "아래에서 카드를 누르면 크게 보이고, <b>넣기</b>를 누르면 여기 들어옵니다." : S.kind === "auction" ? "입찰자가 꼭 함께 내야 할 카드가 있으면 넣으세요(없어도 됩니다)." : "받고 싶은 카드를 아래에서 찾아 누르고 <b>넣기</b>를 고르세요."}</p>`;
       const n = box.querySelector("#tco-n-" + s); if (n) n.textContent = `카드 ${TA.n(a)} / ${TRADE.maxCards}`;
     };
     const pick = s => {
@@ -415,7 +423,7 @@ function tradeCompose(mode, L) {
       const tile = c => {
         const r = room(s, c.id), have = (u.collection || {})[c.id] || 0, inDeck = Math.max(Store.deckUse(u, c.id), Store.draftUse(u, c.id));
         const meta = s === "give" ? (Store.tradeable(u, c.id) ? `거래 가능 <b>${Math.max(0, r)}</b> / 보유 ${have}` : `덱에 ${inDeck}장 · 걸 수 없음`) : `보유 ${have}`;
-        return `<button type="button" class="tp-card${r > 0 ? "" : " off"}" data-pick="${s}:${c.id}" ${r > 0 ? "" : "disabled"} title="${esc(c.name)} — ${GRADES[gradeOf(c)].name}">${tCardHTML(c.id, { w: 104 })}<small>${meta}</small></button>`;
+        return `<button type="button" class="tp-card${r > 0 ? "" : " off"}" data-pick="${s}:${c.id}" ${r > 0 ? "" : "disabled"} title="${esc(c.name)} — ${GRADES[gradeOf(c)].name} · 눌러서 크게 보기">${tCardHTML(c.id, { w: 140 })}<small>${meta}</small></button>`;
       };
       el.innerHTML = `<div class="tp-bar">
           ${[["all", "전체"], ["unit", "유닛"], ["spell", "마법"], ["item", "아이템"]].map(([k, l]) => `<button type="button" class="chip${P.type === k ? " on" : ""}" data-pt="${s}:type:${k}">${l}</button>`).join("")}
@@ -451,6 +459,10 @@ function tradeCompose(mode, L) {
       const p = t.closest("[data-pick]");
       if (p) {
         const [s, id] = p.dataset.pick.split(":"), a = S[s];
+        if (room(s, id) <= 0) return;
+        const meta = p.querySelector("small") ? p.querySelector("small").innerHTML : "";
+        if (!await tPickPreview(id, `${sideName(s)}에 넣기`, meta)) return;
+        if (!TradeWins.has(w)) return;
         if (TA.n(a) >= TRADE.maxCards) { toast(`한쪽에 카드는 ${TRADE.maxCards}장까지입니다.`, "warn"); return; }
         if (room(s, id) <= 0) return;
         if (s === "want" && S.give.cards[id]) { toast("내놓는 카드와 같은 카드는 원할 수 없습니다.", "warn"); return; }
@@ -530,13 +542,13 @@ function tradeLiveView(box) {
       <div class="tl-table">
         <section class="tl-side me${myLock ? " locked" : ""}">
           <h4 class="panel-title">나 <small>${esc(u.id)}</small>${lamp(myLock, myLock ? "확인함" : "확인 전")}${myGo ? lamp(true, "교환 누름") : ""}</h4>
-          <div class="tl-offer">${TA.ids(T.me.offer).map(id => tCardHTML(id, { w: 170, n: T.me.offer.cards[id], x: "live" })).join("") || '<p class="t-none">아래 내 카드에서 눌러 놓으세요.</p>'}</div>
+          <div class="tl-offer">${TA.ids(T.me.offer).map(id => tCardHTML(id, { w: 200, n: T.me.offer.cards[id], x: "live" })).join("") || '<p class="t-none">아래 내 카드를 누르면 크게 보이고, <b>놓기</b>를 누르면 여기 놓입니다.</p>'}</div>
           <div class="tco-shards"><span class="sf-label">조각</span><input type="number" min="0" step="10" id="tl-sh" value="${T.me.offer.shards || ""}" placeholder="0">${[10, 100, 1000].map(n => `<button type="button" class="btn xs" data-ladd="${n}">+${n}</button>`).join("")}<span class="muted small">지갑 ${fmtGold(Store.gold(u))}</span></div>
         </section>
         <div class="td-arrow" aria-hidden="true">${tIcon("trade")}</div>
         <section class="tl-side foe${foeLock ? " locked" : ""}">
           <h4 class="panel-title">${esc(T.foe.name || "상대")} <small>${T.foe.lv ? "Lv " + T.foe.lv : ""}</small>${lamp(foeLock, foeLock ? "확인함" : "확인 전")}${foeGo ? lamp(true, "교환 누름") : ""}</h4>
-          <div class="tl-offer">${tAssetsHTML(T.foe.offer, { w: 170, none: "상대가 아직 놓지 않았습니다." })}</div>
+          <div class="tl-offer">${tAssetsHTML(T.foe.offer, { w: 200, none: "상대가 아직 놓지 않았습니다." })}</div>
         </section>
       </div>
       <div class="tl-acts">
@@ -559,7 +571,9 @@ function tradeLiveView(box) {
       return;
     }
     const p = e.target.closest("[data-pick]");
-    if (p) { const id = p.dataset.pick.split(":")[1], o = TA.clean(T.me.offer); if (TA.n(o) >= TRADE.maxCards) { toast(`카드는 ${TRADE.maxCards}장까지입니다.`, "warn"); return; } if (Store.tradeable(u, id) - (o.cards[id] || 0) <= 0) return; o.cards[id] = (o.cards[id] || 0) + 1; T.put(o); return; }
+    if (p) { const id = p.dataset.pick.split(":")[1]; if (Store.tradeable(u, id) - (T.me.offer.cards[id] || 0) <= 0) return;
+      if (!await tPickPreview(id, "거래 창에 놓기", p.querySelector("small") ? p.querySelector("small").innerHTML : "")) return;
+      const o = TA.clean(T.me.offer); if (TA.n(o) >= TRADE.maxCards) { toast(`카드는 ${TRADE.maxCards}장까지입니다.`, "warn"); return; } if (Store.tradeable(u, id) - (o.cards[id] || 0) <= 0) return; o.cards[id] = (o.cards[id] || 0) + 1; T.put(o); return; }
     const un = e.target.closest("[data-unpick]");
     if (un) { const id = un.dataset.unpick.split(":")[1], o = TA.clean(T.me.offer); o.cards[id]--; T.put(o); return; }
     const ad = e.target.closest("[data-ladd]"); if (ad) { const o = TA.clean(T.me.offer); o.shards = Math.min(TRADE.maxShards, o.shards + +ad.dataset.ladd); T.put(o); return; }
@@ -587,7 +601,7 @@ function tlPick() {
   el.innerHTML = `<div class="tp-bar">${[["all", "전체"], ["unit", "유닛"], ["spell", "마법"], ["item", "아이템"]].map(([k, l]) => `<button type="button" class="chip${P.type === k ? " on" : ""}" data-pt="live:type:${k}">${l}</button>`).join("")}
       <select data-pg="live" aria-label="등급"><option value="">모든 등급</option>${GRADE_IDS.map(g => `<option value="${g}"${P.grade === g ? " selected" : ""}>${GRADES[g].name}</option>`).join("")}</select>
       <input type="search" data-pq="live" placeholder="내 카드 찾기" value="${esc(P.q)}" autocomplete="off"></div>
-    <div class="tp-grid">${shown.map(c => { const r = Store.tradeable(u, c.id) - (o.cards[c.id] || 0); return `<button type="button" class="tp-card${r > 0 ? "" : " off"}" data-pick="live:${c.id}" ${r > 0 ? "" : "disabled"}>${tCardHTML(c.id, { w: 104 })}<small>거래 가능 <b>${Math.max(0, r)}</b></small></button>`; }).join("") || '<p class="t-none">거래에 걸 수 있는 카드가 없습니다. 덱에 든 카드는 걸 수 없습니다.</p>'}
+    <div class="tp-grid">${shown.map(c => { const r = Store.tradeable(u, c.id) - (o.cards[c.id] || 0); return `<button type="button" class="tp-card${r > 0 ? "" : " off"}" data-pick="live:${c.id}" ${r > 0 ? "" : "disabled"} title="눌러서 크게 보기">${tCardHTML(c.id, { w: 140 })}<small>거래 가능 <b>${Math.max(0, r)}</b></small></button>`; }).join("") || '<p class="t-none">거래에 걸 수 있는 카드가 없습니다. 덱에 든 카드는 걸 수 없습니다.</p>'}
       ${list.length > shown.length ? `<button type="button" class="btn xs tp-more" data-more="live">${list.length - shown.length}장 더 보기</button>` : ""}</div>`;
   const g = el.querySelector(".tp-grid"); if (g) g.scrollTop = keep;
 }

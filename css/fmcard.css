@@ -211,8 +211,6 @@ html.mobile .hand-me .card.fm.slim .c-cls { font-size: .66em; }
 .scrap-pile .sp-1.on { color: #b9b2a6; }
 .scrap-pile .sp-2 { left: .62em; bottom: .92em; --rt: -6deg; transform: rotate(var(--rt)); }
 .scrap-pile .sp-2.on { color: #c79a5a; }
-.scrap-pile .sp-3 { left: .8em; bottom: 1.76em; width: 1.2em; height: 1.2em; --rt: 22deg; transform: rotate(var(--rt)); }
-.scrap-pile .sp-3.on { color: #a8735a; }
 .scrap-pile .sp-n { position: absolute; left: 3.5em; bottom: .1em; font-family: var(--caps); font-weight: 900; font-size: .78em; line-height: 1; color: #ffd9a8;
   text-shadow: 0 0 .25em #000, 0 .05em .1em #000; white-space: nowrap; }
 .scrap-pile .sp-n small { font-size: .7em; opacity: .7; }

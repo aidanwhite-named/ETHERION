@@ -79,7 +79,7 @@ function mkPlayer(idx, cfg) {
   shuffleG(deck);
   const group = cfg.group || null;
   return { idx, name: cfg.name, group, faction: group ? GROUPS[group].faction : cfg.faction, isAI: !!cfg.isAI, ai: cfg.isAI ? (cfg.ai || "normal") : null, deck, hand: [], field: Array(RULES.slots).fill(null),
-    burn: [], crystals: [], life: RULES.startLife, made: 0, crysBank: RULES.crystalsPerTurn /* 2026-11-22 첫 턴부터 1장 결정화(예전 0 — 2턴부터). 시작 에테르가 0이라 첫 턴에 결정화해야 카드를 낸다 */, spent: 0, reload: 0, reloadNow: 0, bonus: 0, bonusNow: 0, rec: recOf(cfg.rec), ...(group === "A2" ? { light: 0 } : {}) };   // 2026-11-22 천족(솔란테의 새벽) 깃발은 판 처음부터 [새벽빛]이 모인다(전: 인내의 기도로 켬)
+    burn: [], fell: [], crystals: [], life: RULES.startLife, made: 0, crysBank: RULES.crystalsPerTurn /* 2026-11-22 첫 턴부터 1장 결정화(예전 0 — 2턴부터). 시작 에테르가 0이라 첫 턴에 결정화해야 카드를 낸다 */, spent: 0, reload: 0, reloadNow: 0, bonus: 0, bonusNow: 0, rec: recOf(cfg.rec), ...(group === "A2" ? { light: 0 } : {}) };   // 2026-11-22 천족(솔란테의 새벽) 깃발은 판 처음부터 [새벽빛]이 모인다(전: 인내의 기도로 켬)
 }
 /* v3.47 깃발 명판의 전적 {w, l}: 화면에만 쓰는 값(판 결과 · 무작위와 상관없음). 이상한 값이면 없음 */
 function recOf(r) {
@@ -434,7 +434,7 @@ function checkEnd() {
    엔진은 실제 상태의 복제본 위에서 시드 난수로 돌므로, 뒤집은 뒤 같은 시드로 처음부터 다시 굴리면 그 교전까지는 똑같이 흘러가고
    그 코인만 바뀐 채 이어진다. 화면은 새 기록의 그 지점부터 이어서 보여 준다. */
 function cloneForCombat(p) {
-  return JSON.parse(JSON.stringify({ idx: p.idx, name: p.name, life: p.life, crystals: p.crystals, burn: p.burn, reload: p.reload, bonus: p.bonus || 0, light: p.light, field: p.field }));   // v3.86 light = 천족 [새벽빛]
+  return JSON.parse(JSON.stringify({ idx: p.idx, name: p.name, life: p.life, crystals: p.crystals, burn: p.burn, fell: p.fell || [], reload: p.reload, bonus: p.bonus || 0, light: p.light, field: p.field }));   // v3.86 light = 천족 [새벽빛]
 }
 async function runCombat() {
   const myG = G;
@@ -535,10 +535,10 @@ async function runCombat() {
     for (const s of rec) { for (const [t, c] of s.logs) log(t, c); if (typeof BLog !== "undefined") BLog.step(s); }
     if (rec.length) applySnap(rec[rec.length - 1].snap);
   }
-  // v3.31 [영혼 강탈] 빼앗은 카드는 핸드로, [돌아오는 물결] 카드는 덱 맨 위로 (전투 복제본에 모아 둔 것)
+  // v3.31 [영혼 강탈] 빼앗은 카드 · [돌아오는 물결] 소각장에서 꺼낸 카드는 핸드로 (전투 복제본에 모아 둔 것)
   X.P.forEach((q, i) => { const p = G.players[i];
     for (const id of q.gain || []) { p.hand.push(mkInst(id)); log(`${p.name}: [영혼 강탈] 「${CARDS[id].name}」을(를) 핸드에 넣었다`, "good"); }
-    for (const id of q.deckTop || []) { p.deck.push(id); log(`${p.name}: [돌아오는 물결] 「${CARDS[id].name}」이(가) 덱 맨 위로 돌아갔다`, "good"); } });
+    for (const id of q.back || []) { p.hand.push(mkInst(id)); log(`${p.name}: [돌아오는 물결] 「${CARDS[id].name}」을(를) 핸드에 넣었다`, "good"); } });
   if (G.broken) for (const b of X.broken || []) G.broken.push(b.id);   // v3.40 서버 검산이 세는 부서진 카드
   if (G.kills) for (const b of X.broken || []) if (b.how === "unit" && (b.p === 0 || b.p === 1)) G.kills[1 - b.p]++;   // v3.46 쓰러뜨린 상대 유닛 수 (퀘스트 · 업적)
   // 부서진 카드 → 가격의 2% (economy.js). 소각은 포함되지 않는다
@@ -640,7 +640,7 @@ function applySnap(sn) {
   sn.players.forEach((s, i) => {
     const p = G.players[i];
     p.field = s.field.map(uid => (uid ? G.reg[uid] : null));
-    p.life = s.life; p.crystals = s.crystals.slice(); p.burn = s.burn.slice(); p.reload = s.reload; p.bonus = s.bonus || 0;
+    p.life = s.life; p.crystals = s.crystals.slice(); p.burn = s.burn.slice(); p.fell = (s.fell || []).slice(); p.reload = s.reload; p.bonus = s.bonus || 0;
     if (s.light != null) p.light = s.light;   // v3.86 천족 [새벽빛] (판 내내 남음)
   });
   for (const uid in sn.units) if (G.reg[uid]) G.reg[uid].t = JSON.parse(JSON.stringify(sn.units[uid]));
@@ -1252,8 +1252,8 @@ async function showSettings() {
     ${document.documentElement.classList.contains("mobile")
       ? `<p class="pick-label">연출 <small class="muted">— 폰 · 앱은 저사양(가장 가벼운 연출)으로 돌아갑니다. 끄기: 공격 · 마법 연출 없이 숫자만 바로 바뀌고 전투가 빨라집니다</small></p>
     <div class="speed set-fx">${[["off", "끄기"], ["low", "저사양 (기본)"]].map(([v, n]) => `<button type="button" class="btn xs ${(Prefs.get("fx", "lite") === "off" ? "off" : "low") === v ? "on" : ""}" data-fx="${v}">${n}</button>`).join("")}</div>`
-      : `<p class="pick-label">연출 <small class="muted">— 끄기: 공격 · 마법 연출 없이 피해 숫자 · 체력만 바로 바뀌고 전투가 빨라집니다. 저사양: 가장 간소하게(그림자 · 흐림 최소, 되풀이 빛 멈춤, 불꽃 · 파편 캔버스 없음, 입자 절반). 중간: 부담을 줄인 기본 연출. 고사양: 좋은 그래픽카드 · CPU용(큰 빛 번짐 · 흐림, 빛 맥박, 목록 카드 광택, 입자 1.5배)</small></p>
-    <div class="speed set-fx">${[["off", "끄기"], ["low", "저사양"], ["lite", "중간 (기본)"], ["rich", "고사양"]].map(([v, n]) => `<button type="button" class="btn xs ${Prefs.get("fx", "lite") === v ? "on" : ""}" data-fx="${v}">${n}</button>`).join("")}</div>`}
+      : `<p class="pick-label">연출 <small class="muted">— 끄기: 공격 · 마법 연출 없이 피해 숫자 · 체력만 바로 바뀌고 전투가 빨라집니다. 저사양: 가장 간소하게(그림자 · 흐림 최소, 되풀이 빛 멈춤, 불꽃 · 파편 캔버스 없음, 입자 절반). 중간: 부담을 줄인 기본 연출.</small></p>
+    <div class="speed set-fx">${[["off", "끄기"], ["low", "저사양"], ["lite", "중간 (기본)"]].map(([v, n]) => `<button type="button" class="btn xs ${Prefs.get("fx", "lite") === v ? "on" : ""}" data-fx="${v}">${n}</button>`).join("")}</div>`}
     <p class="pick-label">전장 배경 <small class="muted">— 대전 화면의 배경 일러스트</small></p>
     <div class="speed set-battle-bg">${[["default", "칠룡환 (기본)"], ["war", "3파전 (거인·용·신)"], ["random", "무작위"]].map(([v, n]) => `<button type="button" class="btn xs ${curBg === v ? "on" : ""}" data-bbg="${v}">${n}</button>`).join("")}</div>
     <p class="pick-label">효과음 <small class="muted">— 누르기·놓기·맞기 소리 (파일 없이 합성, 터치 기기에서는 짧은 진동)</small></p>
@@ -2108,6 +2108,11 @@ const HOLY_SHIELD_ICO = '<svg class="hs-ico" viewBox="0 0 24 24" aria-hidden="tr
   + '<path d="M12 4l7.2 2.6v5.2c0 5-3.1 8.5-7.2 10.1-4.1-1.6-7.2-5.1-7.2-10.1V6.6z" fill="url(#hsG)" stroke="#15181f" stroke-width="1.5" stroke-linejoin="round"/>'
   + '<path d="M12 6l5.3 1.9v3.9c0 3.8-2.3 6.5-5.3 7.8-3-1.3-5.3-4-5.3-7.8V7.9z" fill="none" stroke="#7d8694" stroke-width=".8"/>'
   + '<path d="M12 8.4v8.2M8.8 11.3h6.4" stroke="#4a5260" stroke-width="1.8" stroke-linecap="round"/></svg>';
+/* 2026-11-28 [가호] 표시(.bd-ward): 금빛 후광 고리 + 빛살 — 은빛 보호막 방패와 갈라 읽히게. 이번 턴 가호를 쓰면 사라진다 */
+const WARD_ICO = '<svg class="hs-ico" viewBox="0 0 24 24" aria-hidden="true"><defs><radialGradient id="wdG" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff6d0"/><stop offset=".6" stop-color="#ffd76a"/><stop offset="1" stop-color="#c8901e"/></radialGradient></defs>'
+  + '<path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="#15181f" stroke-width="2.8" stroke-linecap="round"/>'
+  + '<path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="#ffe39a" stroke-width="1.3" stroke-linecap="round"/>'
+  + '<circle cx="12" cy="12" r="5.6" fill="url(#wdG)" stroke="#15181f" stroke-width="1.5"/><circle cx="12" cy="12" r="3.3" fill="none" stroke="#9a6a10" stroke-width=".9"/></svg>';
 function fieldCardHTML(it, p, s) {
   const c = C(it);
   const hidden = spellHidden(it, p);
@@ -2130,10 +2135,13 @@ function fieldCardHTML(it, p, s) {
   let badges = "";
   if (isUnit(it) && it.t) {
     if (it.t.shield) badges += `<span class="bd bd-sh" data-tip="◈ 보호막${it.t.shield === "half" ? " 코인" : ""}\n${esc(it.t.shield === "half" ? "이번 전투에서 처음 받는 피해의 절반(올림)을 막는다." : SPELL_KW["보호막"])}">${HOLY_SHIELD_ICO}</span>`;   // v3.57.5 코인 보호막은 절반 · v3.61.1 bd-sh: 검은 칩 없이 성스러운 방패 그림, 다른 표시보다 크게(css/battle-v19.css)
+    if (it.t.ward > 0 && !it.t.wardUsed) badges += `<span class="bd bd-ward" data-tip="${esc(`가호 ${it.t.ward}\n${itemKwDesc("[가호 " + it.t.ward + "]")}`)}">${WARD_ICO}<b>${it.t.ward}</b></span>`;   // 2026-11-28 가호가 남아 있는 동안(이번 턴 아직 안 씀)
     if (it.t.taunt) badges += `<span class="bd bd-guard" data-tip="수호\n${esc(SPELL_KW["수호"])}">${statIco("d")}</span>`;
     if (it.t.lock) badges += '<span class="bd bd-lock" data-tip="⚓ 저주 면역\n이번 턴 방어가 깎이지 않는다 (올리는 것은 붙음 · 피해는 받는다)">⚓</span>';
     { const pz = abilOf(it).u === "charge" ? Math.max(0, Math.min(2, (it.t.keep && it.t.keep.charge) || 0)) : 0;   // v3.66.2 [축전] 쌓인 플라즈마: 글자 없이 ⚡만(쌓인 만큼), 마우스를 올리면 뜻
       if (pz) badges += `<span class="bd bd-plasma" data-tip="${esc(`플라즈마: ${pz} / 2\n내 마법이 발동할 때마다 1씩 쌓인다(턴이 지나도 남음). 2가 되면 다음 전투가 시작될 때 상대 유닛 모두 체력 −2, 플라즈마는 0이 된다.`)}">${"⚡".repeat(pz)}</span>`; }
+    { const mn = abilOf(it).u === "absorb" ? Math.max(0, Math.min(4, (it.t.keep && it.t.keep.mana) || 0)) : 0;   // 2026-11-28 [마력 흡수] 쌓인 마력: 🔮 + 숫자
+      if (mn) badges += `<span class="bd bd-mana" data-tip="${esc(`마력: ${mn} / 4\n상대 마법이 발동할 때마다 1씩 쌓인다(턴이 지나도 남음). 다음 턴이 시작될 때 모은 마력이 그 턴의 에테르가 된다.`)}">🔮<b>${mn}</b></span>`; }
     if (it.t.thorns) { const ps = typeof fitPieces === "function" ? fitPieces(it.t.thornsP || [], it.t.thorns) : [it.t.thorns];   // v3.84 같은 능력은 칸마다 따로 — 칸이 여럿이면 "✶1+1"
       badges += `<span class="bd bd-thorn" data-tip="${esc(`✶${ps.join("+")} ${ps.map(n => "가시 " + n).join(" · ")}\n${itemKwDesc("[가시 " + ps[0] + "]")}${ps.length > 1 ? "\n칸마다 따로 — 공격해 온 유닛이 가시 피해를 하나씩 차례로 받는다" : ""}`)}">✶${ps.join("+")}</span>`; }
     { const fb = FX.blood[it.uid], nb = G.phase === "combat" || !fb ? (it.t.blood ? it.t.blood.length : 0) : fb.v.length;   // v3.87 [피의 맹세] 피(🩸): 전투 중엔 결속 · 옮겨 받은 피, 다음 턴 준비 때는 사라지며 공격이 오르는 동안(bloodRiseFx)
@@ -2174,17 +2182,16 @@ function fieldCardHTML(it, p, s) {
   return cardHTML(c, { size: "md", live, badges, extra: item, under, cls: cls.join(" "), attrs, slim: true, artx });
 }
 /* ---------- v3.31.1 [고철 골렘] 고철 더미 (css/fmcard.css 맨 아래) ----------
-   브론의 첫 골렘 그림 왼쪽 아래에 모은 고철(0~4)이 조각으로 쌓인다: 톱니 · 철판 · 볼트 · 굽은 관 순서로 아래 둘 → 가운데 → 꼭대기.
+   브론의 첫 골렘 그림 왼쪽 아래에 모은 고철(0~3)이 조각으로 쌓인다: 톱니 · 철판 · 볼트 순서로 아래 둘 → 가운데.
    빈 자리는 흐린 윤곽. 고철이 늘면 새 조각이 위에서 떨어져 앉는다 — 화면을 다시 그려도 끊기지 않게 음수 animation-delay로 이어 간다 */
 const SCRAP_SVG = [
   (() => { let d = ""; for (let i = 0; i < 16; i++) { const a = i * Math.PI / 8 - Math.PI / 16, r = i % 2 ? 7.4 : 10.2; d += (i ? "L" : "M") + (12 + r * Math.cos(a)).toFixed(1) + " " + (12 + r * Math.sin(a)).toFixed(1) + (i % 2 ? "" : "L" + (12 + r * Math.cos(a + Math.PI / 8 * .55)).toFixed(1) + " " + (12 + r * Math.sin(a + Math.PI / 8 * .55)).toFixed(1)); } return `<path d="${d}Z"/><circle cx="12" cy="12" r="3" fill="#000" fill-opacity=".55"/>`; })(),
   '<path d="M2.6 8.4 19.8 4.6l1.6 9.6-6 .4-1 4.8-11.4 1.4z"/><circle cx="6" cy="10.4" r="1.2" fill="#000" fill-opacity=".5"/><circle cx="16.8" cy="8.2" r="1.2" fill="#000" fill-opacity=".5"/><circle cx="7" cy="17" r="1.2" fill="#000" fill-opacity=".5"/>',
-  '<path d="M8.4 2.6h7.2l3.6 5.2-3.6 5.2H8.4L4.8 7.8z"/><path d="M10 13h4v8.4h-4z"/><path d="M10 15.2h4M10 17.6h4M10 20h4" stroke="#000" stroke-opacity=".45" stroke-width="1"/>',
-  '<path d="M3 15.5h7.5c2.2 0 3.5-1.3 3.5-3.5V4h5.5v8c0 5.3-3.7 9-9 9H3z"/><path d="M13 3h7.5v2.4H13zM2 14.6h2.4v7.4H2z"/>'
+  '<path d="M8.4 2.6h7.2l3.6 5.2-3.6 5.2H8.4L4.8 7.8z"/><path d="M10 13h4v8.4h-4z"/><path d="M10 15.2h4M10 17.6h4M10 20h4" stroke="#000" stroke-opacity=".45" stroke-width="1"/>'
 ];
 function scrapPileHTML(it) {
   if (!FX.scrap) { FX.scrap = new Map(); FX.scrapNew = new Map(); }
-  const n = Math.max(0, Math.min(4, (it.t.keep && it.t.keep.scrap) || 0)), seen = FX.scrap.get(it.uid), now = performance.now();
+  const n = Math.max(0, Math.min(3, (it.t.keep && it.t.keep.scrap) || 0)), seen = FX.scrap.get(it.uid), now = performance.now();
   if (seen != null && n > seen) FX.scrapNew.set(it.uid, { from: seen, t0: now });
   FX.scrap.set(it.uid, n);
   const fr = FX.scrapNew.get(it.uid), age = fr ? now - fr.t0 : Infinity;
@@ -2193,8 +2200,8 @@ function scrapPileHTML(it) {
     const st = drop ? ` style="animation-delay:${Math.round((i - fr.from) * 160 - age)}ms"` : "";
     return `<i class="sp sp-${i}${on ? " on" : ""}${drop ? " drop" : ""}"${st}><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${svg}</svg></i>`;
   }).join("");
-  const tip = `고철 ${n} / 4\n[고철 골렘] 이 유닛이 전장에 있는 동안 내 유닛(소환물 빼고)이 쓰러질 때마다 고철 1.\n4가 되면 전투가 끝날 때 빈 칸에 '고철 골렘'(3/2/5)을 세우고 고철 −4. 턴이 지나도 남는다.`;
-  return `<div class="scrap-pile${n >= 4 ? " full" : ""}" data-tip="${esc(tip)}">${bits}<b class="sp-n">${n}<small>/4</small></b></div>`;
+  const tip = `고철 ${n} / 3\n[고철 골렘] 이 유닛이 전장에 있는 동안 내 유닛(소환물 빼고)이 쓰러질 때마다 고철 1.\n3이 되면 전투가 끝날 때 빈 칸에 '고철 골렘'(3/2/5)을 세우고 고철 −3. 턴이 지나도 남는다.`;
+  return `<div class="scrap-pile${n >= 3 ? " full" : ""}" data-tip="${esc(tip)}">${bits}<b class="sp-n">${n}<small>/3</small></b></div>`;
 }
 /* v3.20 전장 유닛의 이번 턴 표시 { 스탯: "L"|"U"|"D" } — 유닛 · 아이템 · 마법이 건 것(t.floor) */
 function livePins(it) { const f = (it.t && it.t.floor) || {}, o = {}; for (const k in f) if (f[k] && f[k].m) o[k] = f[k].m; return o; }
@@ -2290,7 +2297,7 @@ function fieldRowHTML(p, isMe, ctrlAll, side) {
       if (FX.drag && FX.drag.kind === "field" && sel && sel.kind === "field" && sel.p === p.idx && s !== sel.slot) cls += " valid-move";
     }
     if (s === 0) cls += " front";
-    return `<div class="${cls}" data-act="slot" data-p="${p.idx}" data-s="${s}"><span class="slot-n">${s + 1}</span>${ctrl ? `<span class="hk hk-slot">${SLOT_KEYS[s].toUpperCase()}</span>` : ""}${it ? fieldCardHTML(it, p, s) : ""}</div>`;
+    return `<div class="${cls}" data-act="slot" data-p="${p.idx}" data-s="${s}"><span class="slot-n">${s + 1}</span>${it ? fieldCardHTML(it, p, s) : ""}</div>`;
   }).join("");
   const burn = side ? "" : burnHTML(p, ctrl);
   // v3.7.6: 덱은 정면을 본 네모난 카드 더미. 맨 위 카드 뒷면 아래로 옆면 몇 장(최대 4)만 비친다. 기울기·아치 감실(SHRINE_SVG)은 뺐다
@@ -2555,7 +2562,7 @@ function handHTML(p, hidden, ctrl) {
     if (FX.drawing.has(it.uid)) cls.push("drawing");
     const modTag = (it.mod ? `<span class="hand-mod" title="이 카드에 걸린 변화 (이 판 내내)">${Object.keys(it.mod).filter(k => it.mod[k]).map(k => statIco(k) + sgnNum(it.mod[k])).join(" ")}</span>` : "")
       + (it.hc ? `<span class="hand-mod hand-curse" title="이 카드에 걸린 [저주] — 전장에 오르면 첫 전투가 시작될 때 발동">${Object.keys(it.hc).filter(k => it.hc[k] > 0 && A1_CURSE[k]).map(k => A1_CURSE[k].ko + " " + it.hc[k]).join(" · ")}</span>` : "");   // v3.95 핸드의 [저주] (engine A1_CURSE)
-    return `<div class="${cls.join(" ")}" data-act="hand" data-uid="${it.uid}" data-zone="hand" data-p="${p.idx}" data-rot="${rot}" style="--i:${si};--n:${S};--k:${k};--d:${d};--r:${rot}deg;--y:${y}%;--sk:${straightK(rot)};--pk:${pushK(i, act, pw)};z-index:${si + 1}" title="${why && ctrl ? esc(why) : "누르면 크게 보기 · 끌어서 내기"}"><div class="hand-card">${cardHTML(c, { size: "md", slim: true, live: handLive(it) })}${modTag}${si < 9 ? `<span class="hk hk-hand">${si + 1}</span>` : ""}</div></div>`;
+    return `<div class="${cls.join(" ")}" data-act="hand" data-uid="${it.uid}" data-zone="hand" data-p="${p.idx}" data-rot="${rot}" style="--i:${si};--n:${S};--k:${k};--d:${d};--r:${rot}deg;--y:${y}%;--sk:${straightK(rot)};--pk:${pushK(i, act, pw)};z-index:${si + 1}" title="${why && ctrl ? esc(why) : "누르면 크게 보기 · 끌어서 내기"}"><div class="hand-card">${cardHTML(c, { size: "md", slim: true, live: handLive(it) })}${modTag}</div></div>`;
   }).join("") || '<div class="hand-empty">핸드 없음</div>'}</div>`;
 }
 /* ---------- v2.6 묵직한 핸드 (css/hand.css) ----------

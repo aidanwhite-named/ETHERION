@@ -20,11 +20,6 @@
 .card.has-desc .c-art > svg { transform: translateY(-18%); }
 .slot .card.has-desc .c-art > svg { opacity: .55; }
 
-/* ---------- 전장 칸 단축키: 오른쪽 아래 모서리에 걸친 꼬리표 ---------- */
-.hk-slot { left: auto; top: auto; right: -.55em; bottom: -.55em; z-index: 8; opacity: .85; font-size: max(10px, calc(var(--cw) * .072)); padding: .16em .38em; border-radius: 4px;
-  background: rgba(14, 12, 20, .92); color: var(--gold-hi); border: 1px solid rgba(217, 180, 106, .55); box-shadow: 0 2px 6px rgba(0, 0, 0, .6); }
-.slot:not(:has(.card, .card-back)) .hk-slot { opacity: .5; }
-.slot.valid .hk-slot, .slot.valid-equip .hk-slot, .slot.valid-move .hk-slot { opacity: 1; background: linear-gradient(180deg, #f6e2a8, #c99a48); color: #1b1406; }
 
 /* ---------- 라운드 ---------- */
 .midbar.v7 .ph-round { align-items: center; cursor: help; }

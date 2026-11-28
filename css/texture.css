@@ -15,20 +15,6 @@
 .cg .coin-dot { border-color: rgba(96, 56, 4, .95); }
 .cg small { color: #fff0b8; }
 
-/* ───────── 2. 핸드 번호: 평소 숨김 · 마우스를 올린 카드 · 고른 카드 · 숫자 키를 누른 뒤 2.4초 ───────── */
-.hk-hand { top: -1.05em; opacity: 0; transform: translate(-50%, .35em) scale(.85); transition: opacity .16s, transform .16s;
-  color: var(--gold-hi); background: linear-gradient(180deg, #342e44, #120f1c); border: 1px solid rgba(217, 180, 106, .75);
-  box-shadow: 0 .12em 0 #050409, 0 .25em .5em rgba(0, 0, 0, .6), inset 0 1px 0 rgba(255, 240, 200, .25); border-radius: .3em; }
-.hand-me .hand-slot:hover .hk-hand, .hand-me .hand-slot.selected .hk-hand, #board.keys-on .hk-hand { opacity: 1; transform: translate(-50%, 0) scale(1); }
-/* 숫자 키로 고를 수 있다는 작은 표시 (핸드 줄 왼쪽 아래) */
-.hand-keys { position: absolute; left: 0; bottom: 10px; z-index: 70; display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px 4px 7px;
-  font-family: var(--caps); font-size: 13px; font-weight: 700; letter-spacing: .06em; color: rgba(246, 226, 168, .78);
-  background: linear-gradient(180deg, rgba(30, 27, 42, .9), rgba(10, 9, 16, .9)); border: 1px solid rgba(217, 180, 106, .32); border-radius: 6px;
-  box-shadow: 0 2px 0 #050409, 0 4px 10px rgba(0, 0, 0, .5); cursor: help; opacity: .8; transition: opacity .15s; }
-.hand-keys:hover, #board.keys-on .hand-keys { opacity: 1; color: var(--gold-hi); border-color: rgba(217, 180, 106, .7); }
-.hand-keys svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; }
-.hand-keys svg rect { stroke-width: 1.6; }
-@media (hover: none) { .hand-keys { display: none; } }
 
 /* ───────── 3. 카드 뒷면: 진짜 카드 (그림은 js/view.js CARD_BACK_SVG) ───────── */
 .card-back:not(.field-back) {

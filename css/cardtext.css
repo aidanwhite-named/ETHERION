@@ -77,7 +77,9 @@
 .card.fm.size-full .c-art { flex: 1; aspect-ratio: 4 / 5; height: auto; min-height: 0; }
 .card.fm.size-full .c-side { align-self: stretch; }
 
-.card.fm .c-box .c-cls { font-size: .74em; line-height: 1.18; }
+.card.fm .c-box .c-cls { font-size: calc(.74em * var(--chs, 1)); line-height: 1.18; }
+/* 2026-11-28 덱 조정실 · 보관함 작은 카드(js/view.js fitSmallBoxes): 글이 다 들어가면 아래쪽 흐림을 끈다 */
+.card.fm:not(.size-full) .c-boxin.fit-all { -webkit-mask-image: none; mask-image: none; }
 .card.fm .c-chips { gap: .04em .1em; }
 html.mobile .hand-me .card.fm.slim .c-cls { font-size: .78em; }
 
@@ -119,7 +121,7 @@ html.mobile .hand-me .card.fm .c-box .c-brief { font-size: calc(.94em * var(--bf
    대전 화면 카드(.slot · .hand-me)는 그대로 */
 .screen-lobby .dv-cards .card.fm .c-name { font-size: 1em; }
 .screen-lobby .dv-cards .card.fm .c-race { font-size: .68em; }
-.screen-lobby .dv-cards .card.fm .c-box .c-cls { font-size: .86em; line-height: 1.16; }
+.screen-lobby .dv-cards .card.fm .c-box .c-cls { font-size: calc(.86em * var(--chs, 1)); line-height: 1.16; }
 .screen-lobby .dv-cards .card.fm .c-box .c-brief { font-size: calc(.98em * var(--bfs, 1)); }
 .screen-lobby .dv-cards .card.fm .c-coinline { font-size: 1em; }
 

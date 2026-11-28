@@ -25,19 +25,18 @@ ok(ev('uniqueBlock({ "UN-B1": 1, "UN-B1-7": 1 }, "UN-B2")') && !ev('uniqueBlock(
 T('덱 검사', `const u = { collection: {}, decks: {}, admin: true }; const d = Object.assign({}, STARTER_DECKS.B1); const ks = Object.keys(d).filter(k => CARDS[k].type === "unit" && d[k] === 1).slice(0, 2); for (const k of ks) delete d[k]; d["UN-B1"] = 1; d["UN-B1-7"] = 1; ok(Store.validateDeck(u, "B1", d).ok, "유니크 2종 덱은 저장됨: " + Store.validateDeck(u, "B1", d).msg); d["SP-B1"] ? 0 : 0;`);
 
 // 1 시한 화약
-T('시한 화약', `const big = mk("A1-30"); const ub = mk("UN-B1"); ub.t.h = 1;
-  const P = [side(0, [big]), side(1, [ub])]; let X = fight(P, 0, 2);
-  const bomb = findId(P[1], "TK-U-BOMB"); ok(!!bomb && !findId(P[1], "UN-B1"), "시한 화약: 쓰러지면 화약통");
-  next(P); const f0 = P[0].field.filter(Boolean).map(u => u.uid);
-  P[0].field = [mk("A1-30"), mk("A1-30"), mk("A1-30"), null, null]; X = fight(P, 1, 3);
-  ok(/화약통이 터졌다/.test(logs(X)) && !findId(P[1], "TK-U-BOMB"), "시한 화약: 다음 턴 전투 시작에 터짐");`);
-T('시한 화약 · 마법 뒤', `const big = mk("A1-30"); const ub = mk("UN-B1"); ub.t.h = 1;
-  const P = [side(0, [big]), side(1, [ub])]; fight(P, 0, 2); next(P);
-  P[0].field = [mk("NB1-1"), mk("A1-30"), mk("A1-30"), null, null]; const X = fight(P, 0, 3); const L = logs(X);
-  ok(!/화약통이 터졌다/.test(L) && !findId(P[1], "TK-U-BOMB"), "시한 화약: 전투 시작 마법(철갑 포탄)에 먼저 부서지면 불발");
-  next(P); const b2 = mk("TK-U-BOMB"); b2.t.keep = { fuse: 3 }; P[1].field = [mk("A1-30"), b2, null, null, null];
+T('시한 화약', `const big = mk("A1-30"); const ub = mk("UN-B1"); ub.t.h = 1; const r = mk("A1-30");
+  const P = [side(0, [big]), side(1, [ub, r, mk("A1-30")])]; r.t.h = 99; P[1].field[2].t.h = 99; for (const u of P[0].field) if (u) u.t.h = 99;
+  let X = fight(P, 0, 2); const F = P[1].field;
+  ok(!findId(P[1], "UN-B1") && F[0] && F[0].id === "TK-U-BOMB" && F[1] === r && F.slice(3).every(u => u && u.id === "TK-U-BOMB"), "시한 화약: 쓰러진 제 자리(1번) + 빈 칸마다 화약통 (" + F.map(u => u && u.id) + ")");
+  ok(!logs(X).includes("화약통이 터졌다") && !P[0].field.some(u => u && u.t.keep && u.t.keep.scorch > 0), "시한 화약: 놓인 턴에는 터지지 않음");
+  next(P); X = fight(P, 1, 3); const L = logs(X); const sc = u => (u && u.t.keep && u.t.keep.scorch) || 0;
+  ok(L.includes("[시한 화약] 불붙은 화약통이 터졌다") && sc(big) === 3 && L.split("[시한 화약] 불붙은 화약통이 터졌다 → 맞은 유닛 없음").length === 3, "시한 화약: 다음 턴 같은 칸 번호(1번)의 상대에 [화상 3], 맞은편이 빈 화약통 2개는 불발 (" + sc(big) + ")");
+  ok(!findId(P[1], "TK-U-BOMB"), "시한 화약: 터진 화약통은 사라짐");`);
+T('화약통 깔기 · 마법 뒤', `const P = [side(0, []), side(1, [])];
+  const b2 = mk("TK-U-BOMB"); b2.t.keep = { fuse: 3, face: 3 }; P[1].field = [mk("A1-30"), b2, null, null, null];
   P[0].field = [mk("MB-04"), mk("A1-30"), null, null, null]; const Y = fight(P, 0, 4); const M = logs(Y);
-  ok(/화약통이 터졌다/.test(M) && M.indexOf("도화선") >= 0 && M.indexOf("도화선") < M.indexOf("화약통이 터졌다"), "시한 화약: 시작 마법이 먼저 발동한 뒤 터짐");`);
+  ok(/화약통이 터졌다/.test(M) && M.indexOf("도화선") >= 0 && M.indexOf("도화선") < M.indexOf("화약통이 터졌다"), "화약통 깔기: 다음 턴 시작 마법이 먼저 발동한 뒤 터짐");`);
 // 2 불씨 전염
 T('불씨 전염', `const e = mk("UN-B1-7"); const tg = mk("G2-36"); tg.t.h = 40; const P = [side(0, [e]), side(1, [tg])]; fight(P, 0, 2);
   ok(tg.t.keep.ember === 2, "불씨: 맞은 유닛에 불씨");
@@ -50,6 +49,16 @@ T('고철 골렘', `const g = mk("UN-B2"); const w1 = mk("B2-01"), w2 = mk("B2-0
 // 4 강철 사슬
 T('강철 사슬', `const L = mk("UN-B2-7"), m = mk("B2-36"); const P = [side(0, ["A1-30"]), side(1, [m, L])]; const X = fight(P, 0, 2);
   ok(/강철 사슬/.test(logs(X)) && L.t.dmg > 0, "강철 사슬: 앞 유닛이 받는 피해의 절반을 대신 받음 " + L.t.dmg + "/" + m.t.dmg);`);
+// 2026-11-28 사슬 몫은 골렘 방어만큼 줄고, 마법은 그대로, 여러 유닛을 치는 마법에는 나누지 않음
+T('강철 사슬 · 방어 · 마법', `const run = (id) => { const L = mk("UN-B2-7"), m = mk("B2-36"); m.t.h = 99; m.t.a = 50; m.t.d = 0; L.t.h = 99; fight([side(0, [id]), side(1, [m, L])], 0, 2); return [L.t.dmg, m.t.dmg, L.t.d]; };
+  const [a, b, d] = run("NB1-1"); ok(b === 1 && a === Math.max(0, 2 - d), "강철 사슬: 물리 피해 3 → 앞 1 · 사슬 2 − 방어 " + a + "/" + b);
+  const [c, e] = run("RS-A1-1"); ok(c === 3 && e === 3, "강철 사슬: 단일 마법 피해 6 → 3 · 3 (방어로 줄지 않음) " + c + "/" + e);
+  const [f, g] = run("SB1-09"); ok(f === 3 && g === 3, "강철 사슬: 전체 마법에는 나누지 않음 " + f + "/" + g);`);
+T('강철 사슬 · 방어와 마법', `const mkS = () => { const m = mk("B2-36"), g = mk("UN-B2-7"); m.t.h = 50; g.t.h = 50; const P = [side(0, ["A1-30"]), side(1, [m, g])]; return { X: ctx(P, 0, 2, [], { seed: 1 }), m, g }; };
+  let s = mkS(); hurt(s.X, s.m, 8); ok(s.m.t.dmg === 4 && s.g.t.dmg === 4 - s.g.t.d, "강철 사슬: 맞붙은 피해의 절반을 나눠 받고 제 방어만큼 줄인다 " + s.g.t.dmg);
+  s = mkS(); s.X.casting = 1; s.X.castBy = 0; s.X.linkSolo = true; hurt(s.X, s.m, 8); ok(s.m.t.dmg === 4 && s.g.t.dmg === 4, "강철 사슬: 단일 마법 피해는 방어로 줄지 않는다");
+  s = mkS(); s.X.casting = 1; s.X.castBy = 0; s.X.linkSolo = false; hurt(s.X, s.m, 8); ok(s.m.t.dmg === 8 && s.g.t.dmg === 0, "강철 사슬: 여러 유닛을 치는 마법에는 발동하지 않는다");
+  ok(!linkSoloOp({ op: "dmg", area: { t: "all" } }) && linkSoloOp({ op: "dmg", area: { t: "back", n: 1 } }), "강철 사슬: 대상 1기 효과만 단일 피해");`);
 // 5 축전
 T('축전', `const c = mk("UN-B3"); c.t.keep.charge = 2; const P = [side(0, [c]), side(1, ["A2-01", "A2-02"])]; const X = fight(P, 0, 2);
   ok(/모은 (번개|플라즈마)를 풀었다/.test(logs(X)) && c.t.keep.charge === 0, "축전: 충전 3이면 전투 시작에 전체 피해");
@@ -66,7 +75,9 @@ T('전리품', `const l = mk("UN-G1-7"); const v = mk("A2-01"); v.item = { uid: 
   const P = [side(0, [l]), side(1, [v])]; const X = fight(P, 0, 2);
   ok(l.item && l.item.id === "IA2-1" && l.item.from === 1 && !P[1].burn.includes("IA2-1"), "전리품: 아이템을 빼앗아 장착");`);
 T('전리품 성장', `const l = mk("UN-G1-7"); const P = [side(0, [l]), side(1, ["B1-04"])]; fight(P, 0, 2); ok(l.t.keep.grow && l.t.keep.grow.a === 1, "전리품: 아이템 없는 유닛을 쓰러뜨리면 공격 +1"); const a0 = CARDS["UN-G1-7"].a; resetTurn(l); ok(l.t.a === a0 + 1, "전리품: 다음 턴에도 +1 남음");`);
-T('폭풍의 눈 회피', `let miss = 0; for (let s = 1; s <= 30; s++) { const P = [side(0, ["B1-34"]), side(1, ["UN-A3"])]; const X = fight(P, 0, 2, s); if (/바람에 빗나갔다/.test(logs(X))) miss++; } ok(miss > 5 && miss < 30, "폭풍의 눈: 이 유닛을 친 공격이 코인 앞면이면 빗나감 (" + miss + "/30)");`);
+T('폭풍의 눈 회피', `let heads = 0, good = 0; for (let s = 1; s <= 30; s++) { const P = [side(0, ["B1-34", "B1-34", "B1-34"]), side(1, ["UN-A3"])]; const L = logs(fight(P, 0, 2, s));
+    const h = /\\[폭풍의 눈\\][^\\n]*앞면/.test(L), m = (L.match(/빗나갔다/g) || []).length; if (h) heads++; if (h ? m === 1 : m === 0) good++; }
+  ok(heads > 5 && heads < 30 && good === 30, "폭풍의 눈: 전투 시작 코인 앞면이면 이 유닛을 친 첫 공격 하나만 빗나가고, 뒷면이면 빗나감 없음 (앞면 " + heads + "/30 · 맞음 " + good + "/30)");`);
 // 9 다시 자라는 뿌리
 T('다시 자라는 뿌리', `const r = mk("UN-G2"); r.t.h = 1; const P = [side(0, ["B1-34"]), side(1, [r])]; fight(P, 0, 2);
   ok(!!findId(P[1], "TK-U-ROOT") && !P[1].burn.includes("UN-G2"), "뿌리: 쓰러지면 뿌리가 남음");
@@ -77,8 +88,12 @@ T('씨앗', `const s = mk("UN-G2-7"); const P = [side(0, [s]), side(1, [])]; fig
   ok(!!findId(P[0], "TK-U-SAPLING"), "씨앗: 전투가 끝나면 묘목");
   next(P); fight(P, 1, 3); ok(!!findId(P[0], "TK-U-TREE"), "씨앗: 한 턴 지난 묘목은 어린 고목");`);
 // 11 돌아오는 물결
-T('돌아오는 물결', `const t = mk("UN-G3"); const v = mk("G3-01"); v.t.h = 1; const P = [side(0, ["A1-30"]), side(1, [v, t])]; const X = fight(P, 0, 2);
-  ok((P[1].deckTop || []).includes("G3-01") && !P[1].burn.includes("G3-01"), "물결: 쓰러진 내 유닛은 덱 맨 위로");`);
+T('돌아오는 물결', `const mkP = sp => { const t = mk("UN-G3"); const P = [side(0, []), side(1, sp.concat([t]))]; P[1].burn = ["G3-01", "G3-08", "G3-19"]; P[1].fell = ["G3-08", "G3-01"]; return P; };
+  let P = mkP(["MB-01", "MB-01"]); const X = fight(P, 1, 2);
+  ok(/발동/.test(logs(X)) && JSON.stringify(P[1].back) === '["G3-01"]' && !P[1].burn.includes("G3-01") && P[1].burn.includes("G3-08"), "물결: 마법 발동 때 가장 최근 쓰러진 유닛 1장만 핸드로(턴에 한 번) " + JSON.stringify(P[1].back));
+  P = mkP([]); fight(P, 1, 2); ok(!(P[1].back || []).length, "물결: 마법이 없으면 발동하지 않음");
+  P = mkP(["MB-01"]); P[1].fell = []; fight(P, 1, 2); ok(!(P[1].back || []).length && ["G3-01", "G3-08", "G3-19"].every(id => P[1].burn.includes(id)), "물결: 쓰러지지 않고 소각장에 간 카드(결정화 등)는 가져오지 않음");
+  const v = mk("G3-01"); v.t.h = 1; P = [side(0, ["A1-30"]), side(1, [v, mk("UN-G3")])]; fight(P, 0, 2); ok(P[1].burn.includes("G3-01") && (P[1].fell || []).includes("G3-01"), "물결: 쓰러진 유닛은 소각장으로(기록에 남음)");`);
 // 12 세이렌의 노래
 T('세이렌', `const s = mk("UN-G3-7"); const v = mk("B1-04"); const P = [side(0, [s]), side(1, [v])]; fight(P, 0, 2);
   ok(P[0].field.includes(v) && v.t.alive && v.from === 1 && s.t.keep.sang, "세이렌: 쓰러질 상대 유닛이 내 편으로");`);
@@ -86,17 +101,30 @@ T('세이렌', `const s = mk("UN-G3-7"); const v = mk("B1-04"); const P = [side(
 T('낙인', `const b = mk("UN-A1"); const v = mk("G2-36"); const P = [side(0, [b]), side(1, [v])]; fight(P, 0, 2);
   ok(v.t.keep.brand && uUpkeepOf(v) === (CARDS["G2-36"].up || 0) + 1, "낙인: 유지비 +1");`);
 // 14 영혼 강탈
-T('영혼 강탈', `const s = mk("UN-A1-7"); const P = [side(0, [s]), side(1, ["B1-04", "B1-03"])]; fight(P, 0, 2);
-  ok((P[0].gain || []).length === 1 && !P[1].burn.includes((P[0].gain || [])[0]), "영혼 강탈: 턴마다 한 장 핸드로 " + JSON.stringify(P[0].gain));`);
+T('영혼 강탈', `let s = mk("UN-A1-7"); let P = [side(0, [s]), side(1, ["B1-04", "B1-03"])]; fight(P, 0, 2);
+  ok(!(P[0].gain || []).length && P[1].burn.includes("B1-04"), "영혼 강탈: 공격으로 쓰러뜨린 카드는 소각장으로 " + JSON.stringify(P[0].gain));
+  s = mk("UN-A1-7"); s.t.h = 20; P = [side(0, ["B1-04", "B1-03"]), side(1, [s])]; fight(P, 0, 2);
+  ok((P[1].gain || []).length === 1 && !P[0].burn.includes(P[1].gain[0]), "영혼 강탈: 반격으로 쓰러뜨린 카드가 턴에 한 장 핸드로 " + JSON.stringify(P[1].gain) + " " + JSON.stringify(P[0].burn));
+  next(P); s.t.h = 20; P[0].field = [mk("B1-04"), null, null, null, null]; fight(P, 0, 3);
+  ok((P[1].gain || []).length === 2, "영혼 강탈: 다음 턴에 다시 " + JSON.stringify(P[1].gain));`);
 // 15 날개 그늘
-T('날개 그늘', `const w = mk("UN-A2"); const v = mk("A2-01"); const P = [side(0, ["A1-30"]), side(1, [v, w])]; const X = fight(P, 0, 2);
-  ok(/날개 그늘/.test(logs(X)) && P[1].field.includes(v), "날개 그늘: 쓰러질 피해를 대신 받음");`);
+T('날개 그늘', `const w = mk("UN-A2"); const v = mk("A2-01"); const P = [side(0, ["A1-30"]), side(1, [v, w])]; P[1].light = 30; const X = fight(P, 0, 2);
+  ok(/날개 그늘/.test(logs(X)) && P[1].field.includes(v) && P[1].light < 30, "날개 그늘: 앞 유닛이 쓰러질 공격 피해를 새벽빛으로 줄임 " + P[1].light);`);
+T('날개 그늘 · 새벽빛 없음', `const w = mk("UN-A2"); const v = mk("B1-04"); v.t.h = 1; const P = [side(0, ["A1-30"]), side(1, [v, w])]; P[1].light = 0; const X = fight(P, 0, 2);
+  ok(!/날개 그늘/.test(logs(X)) && !P[1].field.includes(v), "날개 그늘: 새벽빛이 없으면 발동 안 함");`);
+T('날개 그늘 · 맨 앞이 날개면 안 지킴', `const w = mk("UN-A2"); w.t.h = 1; const P = [side(0, ["A1-30"]), side(1, [w, mk("B1-04")])]; P[1].light = 30; const X = fight(P, 0, 2);
+  ok(!/날개 그늘/.test(logs(X)) && P[1].light === 30, "날개 그늘: 제 뒤 유닛 · 자신은 지키지 않음");`);
 // 16 새벽의 부활
-T('새벽의 부활', `const d = mk("UN-A2-7"); const v = mk("A2-21"); v.t.h = 1; const P = [side(0, ["A1-30"]), side(1, [v, d])]; fight(P, 0, 2);
-  ok(!!findId(P[1], "A2-21") && !P[1].burn.includes("A2-21") && d.t.keep.dawn === 1, "새벽의 부활: 쓰러진 유닛이 되살아남");`);
+T('새벽의 부활', `const d = mk("UN-A2-7"); d.t.h = 1; const P = [side(0, ["A1-30"]), side(1, [d])]; const hi = CARDS["A2-01"].lv > CARDS["A2-21"].lv ? "A2-01" : "A2-21", lo = hi === "A2-01" ? "A2-21" : "A2-01"; P[1].burn = [hi, lo, "MB-01"]; P[1].fell = [hi, lo]; fight(P, 0, 2);
+  ok(!!findId(P[1], hi) && !P[1].burn.includes(hi) && P[1].burn.includes(lo) && P[1].burn.includes("UN-A2-7") && !findId(P[1], "UN-A2-7"), "새벽의 부활: 쓰러지면 쓰러진 유닛 중 가장 높은 레벨이 되살아남 " + JSON.stringify(P[1].burn));`);
+T('새벽의 부활 · 쓰러진 유닛만', `const d = mk("UN-A2-7"); d.t.h = 1; const P = [side(0, ["A1-30"]), side(1, [d])]; P[1].burn = ["UN-A2", "A2-21"]; P[1].fell = ["A2-21"]; fight(P, 0, 2);
+  ok(CARDS["UN-A2"].lv > CARDS["A2-21"].lv && !!findId(P[1], "A2-21") && P[1].burn.includes("UN-A2"), "새벽의 부활: 결정화 등으로 간 더 높은 유닛은 고르지 않음 " + JSON.stringify(P[1].burn));`);
+T('새벽의 부활 · 살아 있으면 없음', `const d = mk("UN-A2-7"); const P = [side(0, []), side(1, [d])]; P[1].burn = ["A2-21"]; fight(P, 0, 2);
+  ok(P[1].burn.includes("A2-21") && !findId(P[1], "A2-21"), "새벽의 부활: 살아 있으면 발동 안 함");`);
 // 17 폭풍의 눈
-T('폭풍의 눈', `let miss = 0, tries = 0; for (let s = 1; s <= 40; s++) { const P = [side(0, ["MB-01"]), side(1, ["UN-A3", "A3-01"])]; const X = fight(P, 0, 2, s); tries++; if (/빗나갔다/.test(logs(X))) miss++; }
-  ok(miss > 5 && miss < tries, "폭풍의 눈: 상대 마법이 코인 앞면이면 빗나감 (" + miss + "/" + tries + ")");`);
+T('폭풍의 눈', `let heads = 0, good = 0; for (let s = 1; s <= 40; s++) { const P = [side(0, ["MB-01"]), side(1, ["UN-A3", "A3-01"])]; const L = logs(fight(P, 0, 2, s));
+    const h = /\\[폭풍의 눈\\][^\\n]*앞면/.test(L); if (h) heads++; if (h === /마법이 [^\\n]*빗나갔다/.test(L)) good++; }
+  ok(heads > 5 && heads < 40 && good === 40, "폭풍의 눈: 전투 시작 코인 앞면이면 상대 마법이 빗나가고, 뒷면이면 맞는다 (앞면 " + heads + "/40 · 맞음 " + good + "/40)");`);
 // 18 마력 흡수
 T('마력 흡수', `const a = mk("UN-A3-7"); const P = [side(0, ["MB-01"]), side(1, [a])]; fight(P, 0, 2);
   ok(a.t.keep.mana === 1, "마력 흡수: 상대 마법마다 마력 1");`);

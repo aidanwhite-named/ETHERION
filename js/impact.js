@@ -28,6 +28,7 @@
 function applyFx(v) {
   const c = document.documentElement.classList;
   v = v || (typeof Prefs !== "undefined" ? Prefs.get("fx", "lite") : "lite");
+  if (v === "rich") { v = "lite"; if (typeof Prefs !== "undefined") Prefs.set("fx", "lite"); }   // 2026-11-28 고사양은 설정에서 뺐다(중간과 눈에 띄는 차이가 적음 — 더 다듬은 뒤 되살린다, 사용자). 저장된 "rich"는 중간으로 옮긴다. fx-high 길의 코드는 그대로 둔다
   if (c.contains("mobile") && v !== "off") v = "low";
   const off = v === "off";
   c.toggle("fx-lite", v !== "rich"); c.toggle("fx-low", v === "low" || off); c.toggle("fx-high", v === "rich"); c.toggle("fx-off", off);

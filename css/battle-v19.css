@@ -200,8 +200,15 @@
    빛 · 움직임 · 필터 없음. 테두리에 색을 두르면 등급 색(레어 파랑)과 겹쳐 쓰지 않는다. 막고 나면 보호막이 사라지므로 표시도 함께 없어진다 */
 .c-badges .bd.bd-sh { font-size: 2em; padding: 0; background: none; border: 0; line-height: 0; }
 .bd-sh .hs-ico { display: block; width: 1em; height: 1em; }
+/* 2026-11-28 [가호] 표시(js/game.js WARD_ICO, .bd-ward): 금빛 후광 그림 + 오른쪽 아래 수치. 보호막처럼 칩 없이, 조금 작게 */
+.c-badges .bd.bd-ward { position: relative; font-size: 1.7em; padding: 0; background: none; border: 0; line-height: 0; }
+.bd-ward .hs-ico { display: block; width: 1em; height: 1em; }
+.bd-ward b { position: absolute; right: -.12em; bottom: -.08em; font-size: .42em; line-height: 1; font-weight: 900; color: #fff3c4; text-shadow: 0 0 2px #000, 0 0 3px #000, 0 1px 1px #000; }
 /* v3.66.2 [축전] 플라즈마(js/game.js fieldCardHTML .bd-plasma): 글자 없이 ⚡만, 쌓인 만큼. 보호막 · 가시 표시와 같은 세로 줄에 따로 한 칸 */
 .c-badges .bd.bd-plasma { letter-spacing: -.12em; padding: .15em .32em .15em .2em; background: rgba(8, 18, 40, .78); box-shadow: 0 0 0 1px rgba(127, 214, 255, .55) inset; text-shadow: 0 0 6px #7fd6ff; }
+/* 2026-11-28 [마력 흡수] 쌓인 마력(js/game.js fieldCardHTML .bd-mana): 🔮 + 숫자 */
+.c-badges .bd.bd-mana { gap: .1em; padding: .15em .34em .15em .22em; background: rgba(28, 10, 44, .8); box-shadow: 0 0 0 1px rgba(196, 140, 255, .6) inset; }
+.c-badges .bd.bd-mana b { color: #e2c6ff; text-shadow: 0 0 6px #b77dff; }
 /* v3.87 [피의 맹세] 피(js/game.js .bd-blood): 🩸만, 개수만큼(4개부터 🩸×N). 다음 턴 준비 때 하나씩 사라지며 공격이 오른다(bloodRiseFx) */
 .c-badges .bd.bd-blood { letter-spacing: -.18em; padding: .15em .34em .15em .18em; background: rgba(40, 6, 8, .8); box-shadow: 0 0 0 1px rgba(220, 60, 60, .6) inset; text-shadow: 0 0 6px #ff3b3b; }
 .float.blood { color: #ff8a80; text-shadow: 0 0 8px #b71c1c, 0 1px 2px #000; }

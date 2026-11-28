@@ -116,7 +116,7 @@ Style: dark fantasy card game art, painterly digital painting with rich texture,
 Stay true to the banner: elegant and ominous, no holy light, no cartoon devils, no gore.
 ```
 
-### A2 성광 천족 · Radiant Seraphs (비술 · 빛 `#ffe9a8`) — 지금 문양: 빛과 검
+### A2 성광 천족 · Radiant Seraphs (비술 · 빛 `#ffe9a8`) — 지금 문양: 후광 아래 날개 방패, 방패에 해와 검 (2026-11-28, 전: 빛과 검)
 **서사**: 흰 성벽의 새벽성 엘라드에 사는 천족과 인간 기사다. 동료 대신 맞고 지킨다. 근원은 여섯 빛 날개를 단 새벽의 어머니, 여신 솔란테다. "빛은 등 뒤의 동료를 지킨다."
 ```
 Heraldic emblem of the Radiant Seraphs and the holy knights of a white-walled dawn citadel.

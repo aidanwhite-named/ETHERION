@@ -175,22 +175,9 @@ const Pachinko = {
   }
 };
 
-/* 진영 문장 (단체 문양과 헷갈리지 않게 따로): 마름모 룬 고리 안에 작은 원 셋(세 단체) */
-/* 진영 문장 (v3.33): 진영마다 실루엣이 다르다 — 셋 다 "세 단체"를 셋으로 품는다.
-   아다만트 = 톱니바퀴 + 가운데 세 리벳 · 푸른숲 = 세 잎 · 비술 = 초승달 + 별 셋.
-   (예전에는 셋 다 같은 마름모에 가운데 표시만 달라 파친코 릴에서 색으로만 갈렸다) */
+/* 진영 문장 (2026-11-28): 그린 문장 그림 img/ui/emblem/faction_<id>.png(256² 투명, 프롬프트 tools/art/prompts/shop.md 6~8).
+   거골 = 거인 뼈를 문 톱니바퀴와 세 불빛 · 용맥 = 세 잎을 감싼 용 · 신탁 = 손바닥이 받는 그믐달과 별 셋.
+   부르는 곳의 "svg" 크기 규칙을 그대로 쓰게 svg 안에 그림을 담는다 */
 function factionCrestSVG(f) {
-  const leaf = 'M32 33C23 25 24 12 32 4c8 8 9 21 0 29z';
-  const star = (x, y, r) => `<path d="M${x} ${y - r}L${x + r * .32} ${y - r * .32} ${x + r} ${y} ${x + r * .32} ${y + r * .32} ${x} ${y + r} ${x - r * .32} ${y + r * .32} ${x - r} ${y} ${x - r * .32} ${y - r * .32}z"/>`;
-  const art = {
-    brass: `<circle cx="32" cy="32" r="23" fill="none" stroke="currentColor" stroke-width="8" stroke-dasharray="7.2 7.2"/>
-      <circle cx="32" cy="32" r="18" fill="none" stroke="currentColor" stroke-width="6"/>
-      <circle cx="32" cy="25" r="3.6"/><circle cx="25.9" cy="35.5" r="3.6"/><circle cx="38.1" cy="35.5" r="3.6"/>`,
-    verdant: `<g><path d="${leaf}"/><path d="${leaf}" transform="rotate(120 32 33)"/><path d="${leaf}" transform="rotate(240 32 33)"/></g>
-      <g stroke="#000" stroke-opacity=".4" stroke-width="1.8" stroke-linecap="round" fill="none"><path d="M32 30V10"/><path d="M32 30V10" transform="rotate(120 32 33)"/><path d="M32 30V10" transform="rotate(240 32 33)"/></g>
-      <circle cx="32" cy="33" r="4.5"/>`,
-    arcane: `<path d="M32.8 6.1A26 26 0 1 0 53.9 42.3 21 21 0 0 1 32.8 6.1z"/>
-      ${star(44, 17, 5.5)}${star(52, 28, 7)}${star(41, 34, 5)}`
-  };
-  return `<svg viewBox="0 0 64 64" aria-hidden="true" fill="currentColor">${art[f] || ""}</svg>`;
+  return `<svg viewBox="0 0 64 64" aria-hidden="true"><image href="img/ui/emblem/faction_${f}.png" width="64" height="64"/></svg>`;
 }

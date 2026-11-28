@@ -86,7 +86,7 @@ function jrCardOdds(t) {
 
 /* ---------- 업적 · 칭호 ---------- */
 function jrAch(u) {
-  const cats = [...new Set(ACHIEVEMENTS.map(a => a.cat))];
+  const cats = [...new Set(ACHIEVEMENTS.map(a => a.cat))].filter(c => c !== "순례" || PILGRIM.open);   /* 2026-11-28 순례 잠시 닫음 */
   const done = ACHIEVEMENTS.filter(a => u.ach.got[a.id]).length;
   const item = a => {
     const v = a.v(u), got = !!u.ach.got[a.id], can = !got && v >= a.goal;
