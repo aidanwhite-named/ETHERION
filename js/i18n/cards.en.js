@@ -158,7 +158,7 @@ const I18N_CARDS = {
 "B3-23": {"n":"Professor in a Jar","f":"The Academy's longest lecturer shed his body for a jar. Lectures grew longer; dozing students still wake to a jolt.","k":"Brain in a Jar","h":"1x6suyv"},
 "B3-24": {"n":"Flash Moth","f":"Opens its wings only when lightning strikes. One flap bursts with blinding light; a scholar who peered close went blind for days.","k":"Lightning Moth","h":"5hs1n6"},
 "B3-25": {"n":"Keraun's Bolt Spirit","f":"On nights Keraun dreams, lightning leapt up his nerves and took form. Every needle in its path goes mad.","k":"Lightning Spirit","h":"rcaa0j"},
-"B3-26": {"n":"Doctor of Thunder","f":"A giant salamander who earned a doctorate by surviving lightning strikes. The scars on its body are its diploma.","k":"Giant Salamander","h":"15lnftb"},
+"B3-26": {"n":"Doctor of Thunder","f":"An old tortoise who earned a doctorate by surviving lightning strikes. Academy scholars read the forked cracks on its shell like an oracle.","k":"Thunder Tortoise","h":"17vnm06"},
 "B3-27": {"n":"Great Capacitor","f":"A huge capacitor beneath Voltarium. Everyone dreads the day its lightning is released at once.","k":"Capacitor","h":"1wwgtvc"},
 "B3-29": {"n":"Keraun's Thundercloud","f":"A dark cloud that never leaves Thunderroar Plateau. Spells cast beneath it get a handful of lightning added.","k":"Thundercloud","h":"oynd1"},
 "B3-31": {"n":"Shock Fortress","f":"A fortress walled with lightning instead of stone. Those nearing Voltarium feel their hair rise before they reach the fence.","k":"Thunder Tower","h":"bgvujq"},

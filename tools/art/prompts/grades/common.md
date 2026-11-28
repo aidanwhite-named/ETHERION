@@ -3130,7 +3130,7 @@ Save the image file as: B3-25 케라운의 번개 정령.png — this is the nam
 케라운의 벼락 · 유닛 · 레벨 5 · 일반 · 틀 `close` R X `copperlab` · 프롬프트 n2 → `tools/art/inbox/B3-26 뇌전 박사.png`
 
 ```
-Landscape 5:4 painting. An elderly giant salamander scholar, broad flat head and tiny bright eyes, holds one bare foreleg up across the whole width of the frame like a certificate, in a tight close-up. Branching fern-like lightning scars run from the stubby fingertips over the leg, up the thick neck and across the smooth wet crown, each faintly lit from inside. The wide face, turned three-quarters to the right, wears the calm pride of someone showing a diploma; cracked brass goggles are pushed up on the forehead. A warm amber study lamp from the left; the scars carry their own thin yellow light along the damp skin.
+Landscape 5:4 painting. An ancient land tortoise scholar, enormous and high-domed, in a tight close-up that fills the frame with its shell and long wrinkled neck. The dark shell plates are cracked all over in branching fern-like lightning patterns, like oracle bones read by fire, each crack faintly lit from inside; around it on a cluttered study floor lie open notebooks copying those same crack patterns. The old beaked face, turned three-quarters to the right on its stretched neck, wears the calm pride of someone showing a diploma; cracked brass goggles sit pushed up on its wrinkled brow. A warm amber study lamp from the left; the cracks carry their own thin yellow light across the weathered shell.
 Colour: copper warmth — copper, amber glass and electric-yellow (#ffd84a) filament glow.
 Setting, the land of lightning: a storm plateau where a sleeping giant's nerves spark up through the ground — forked bolts, fulgurite glass, copper, glass jars of captive lightning, rain and ozone haze.
 Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
@@ -3516,6 +3516,19 @@ ETHERION card art — painterly dark-fantasy illustration: confident visible bru
 Save the image file as: MG-16 대지 붕괴.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
+### NG1-2 · 무리의 포효
+고르바스의 발톱 · 공격 마법 · 레벨 3 · 일반 · 틀 `pov` F X `stormslate` · 프롬프트 n2 → `tools/art/inbox/NG1-2 무리의 포효.png`
+
+```
+Landscape 5:4 painting of a spell — the magic itself is the subject. Coming straight at us across the plain: a wall of sound made visible — a curved front of dust, torn grass and skipping pebbles as wide as the horizon, already bending back the long lances planted along the bottom of the frame and stripping the plumes from them. Behind the front, small on a long low ridge, an unbroken row of howling shapes stands with heads thrown back, crowded from one end of the ridge to the other. Slate storm sky; the dust front is lit from above in dull grey-brown, darkest at its base where the grit flies thickest.
+Colour: steppe storm — slate grey and muted earth brown (#b88a5a), flying grit.
+Setting, the land of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
+Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
+Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
+ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
+Save the image file as: NG1-2 무리의 포효.png — this is the name of the downloaded file only; the painting itself stays wordless.
+```
+
 ### G1-19 · 바위등 곰 기수
 고르바스의 발톱 · 유닛 · 레벨 4 · 일반 · 틀 `over` B B `bonemoon` · 프롬프트 n2 → `tools/art/inbox/G1-19 바위등 곰 기수.png`
 
@@ -3566,19 +3579,6 @@ Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly
 Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
 ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
 Save the image file as: G1-42 떨어진 고르바스의 비늘.png — this is the name of the downloaded file only; the painting itself stays wordless.
-```
-
-### NG1-2 · 무리의 포효
-고르바스의 발톱 · 공격 마법 · 레벨 4 · 일반 · 틀 `pov` F X `stormslate` · 프롬프트 n2 → `tools/art/inbox/NG1-2 무리의 포효.png`
-
-```
-Landscape 5:4 painting of a spell — the magic itself is the subject. Coming straight at us across the plain: a wall of sound made visible — a curved front of dust, torn grass and skipping pebbles as wide as the horizon, already bending back the long lances planted along the bottom of the frame and stripping the plumes from them. Behind the front, small on a long low ridge, an unbroken row of howling shapes stands with heads thrown back, crowded from one end of the ridge to the other. Slate storm sky; the dust front is lit from above in dull grey-brown, darkest at its base where the grit flies thickest.
-Colour: steppe storm — slate grey and muted earth brown (#b88a5a), flying grit.
-Setting, the land of earth: wind-scoured steppe and broken highlands on the back of a mountain-sized earth dragon — raw rock, dry clay, dust, bone, hide and tall dry grass.
-Common — the quietest of the six rarity tiers. Mood: grounded, honest, quietly beautiful. Light: only the light the scene itself names, natural and soft. Saturation: restrained and earthy, the palette's key colour its one clear accent. Air: clear and ordinary — dust, smoke or mist at most. Surfaces: plain, worn, well-used materials, lovingly observed.
-Rarity ladder: common → superior → rare → epic → unique → special — each tier looks one clear step more radiant, mysterious and splendid than the tier below, and never outshines the tier above. Every tier is finished, beautiful work: the scene decides what is shown, the tier decides how splendid it looks.
-ETHERION card art — painterly dark-fantasy illustration: confident visible brushwork, deep shadow masses, luminous colour, a clear shape that reads at small size. One continuous painting from edge to edge — no border, frame, title strip or plaque, and no lettering.
-Save the image file as: NG1-2 무리의 포효.png — this is the name of the downloaded file only; the painting itself stays wordless.
 ```
 
 ### RG1-1 · 우두머리 사냥

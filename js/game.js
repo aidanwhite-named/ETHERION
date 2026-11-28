@@ -1705,7 +1705,7 @@ function coinClash(info) {
       <div class="cs-res"></div></div><div class="cs-flip${rolls(sd) ? " cs-rolls" : ""}">${flipHTML(sd)}</div>${optsHTML(sd)}
       ${sd.coins.length && !sd.kept ? `<div class="cs-sand"><i></i></div>` : ""}</div>`;
     const st = document.createElement("div");
-    st.className = "coinstage";
+    st.className = "coinstage" + (sides[1].kept ? " cs-solo" : "");   // 2026-11-28 이미 정해진 방어 코인은 창을 띄우지 않는다 — 공격 쪽 창 하나만
     st.innerHTML = `${sideHTML(order[0], "left")}<div class="cs-mid"><div class="cs-vs">VS</div></div>${sideHTML(order[1], "right")}`;
     layer.appendChild(st);
     // v1.9.5 코인 창 1.5배. 화면이 작아 넘치면 들어갈 만큼만 키운다 (폭 760px 이하는 1배)
@@ -3643,7 +3643,14 @@ function trail(sp, ms) {
 /* ---------- 전투 연출: 카드 속 캐릭터가 뛰쳐나가 상대를 친다 ---------- */
 function targetEl(t) { return typeof t === "number" ? uidEl(t) : $("#" + t); }
 function elColor(el) { return (el && el.style.getPropertyValue("--el")) || "#ffd27a"; }
-function makeSprite(cardEl) {
+/* 2026-11-28 뛰쳐나가는 모습 = 그 카드 깃발의 대표 문장 그림(img/ui/emblem/<ID>.png — 명판과 같은 그림이라 이미 불러져 있다).
+   깃발 그림이 없는 카드만 예전처럼 카드 속 문양(SVG) */
+function spriteArtHTML(uid, art) {
+  const it = uid != null && G && G.reg ? G.reg[uid] : null, c = it ? CARDS[it.id] : null;
+  const src = c && flagArt("emblem", c.group);
+  return src ? `<img class="sp-emb" src="${esc(src)}" alt="" draggable="false">` : art.outerHTML;
+}
+function makeSprite(cardEl, uid) {
   const art = cardEl && cardEl.querySelector(".c-art > svg");
   if (!art) return null;
   const ar = art.getBoundingClientRect();
@@ -3651,7 +3658,7 @@ function makeSprite(cardEl) {
   sp.className = "sprite";
   sp.style.cssText = `left:${ar.left}px;top:${ar.top}px;width:${ar.width}px;height:${ar.height}px`;
   sp.style.setProperty("--el", elColor(cardEl));
-  sp.innerHTML = art.outerHTML;
+  sp.innerHTML = spriteArtHTML(uid, art);
   fxLayer().appendChild(sp);
   return { el: sp, r: ar };
 }
@@ -3666,7 +3673,7 @@ function strikeOut(actUid, tgt, dur, kind) {
   clearSprite();
   const a = uidEl(actUid), t = targetEl(tgt);
   if (!a || !t) return;
-  const s = makeSprite(a); if (!s) return;
+  const s = makeSprite(a, actUid); if (!s) return;
   setCharOut(actUid, true);
   a.animate([{ scale: "1" }, { scale: "1.06" }, { scale: "1" }], { duration: dur, easing: "ease-out" });
   const tr = t.getBoundingClientRect(), from = ctrOf(s.r), to = ctrOf(tr);
@@ -3808,7 +3815,7 @@ function strikeHit(actUid, tgt, dur, kind) {
 function counterStrike(defUid, atkUid, dur) {
   const d = uidEl(defUid), a = uidEl(atkUid);
   if (!d || !a) return;
-  const s = makeSprite(d); if (!s) return;
+  const s = makeSprite(d, defUid); if (!s) return;
   setCharOut(defUid, true);
   const info = impInfo(atkUid);   // v3.13
   const ar = a.getBoundingClientRect(), from = ctrOf(s.r), to = ctrOf(ar);
