@@ -107,13 +107,16 @@ Stay true to the banner: water and song, no fire, no heavy plate armour.
 
 ### A1 심연 마족 · Abyssal Fiends (비술 · 암흑 `#8b5cf6`) — 지금 문양: 심연(눈)
 **서사**: 해 없는 협곡의 그림자 도시 녹타르의 계약자다. 대가(생명)를 내고 무엇이든 얻는다. 근원은 눈을 감고 저울을 든 얼굴 없는 신, 침묵의 군주 모르카스다. "대가를 치르면 무엇이든 얻는다."
+(2026-11-28 다시 그려 넣음 — Gemini. 첫 그림은 눈이 떠 있었다 → 감은 눈을 "아래로 굽은 눈꺼풀 선 + 늘어진 속눈썹 + 꿰맨 세 땀"으로 생김새째 적었다. 두 번째 그림은 체크무늬 "투명 바탕"이 그림으로 박혔고, 가는 선 · 검은 물체뿐이라 64px에서 묻혔다 → **굵은 덩어리 · 밝은 보랏빛 테두리 빛 · 밑동에 고인 보랏빛 연기 · 1:1 · 단색 `#07080d` 바탕**으로 고쳐 쓴 아래 글로 그린 세 번째 그림을 넣었다. B1 · A2 그림을 참고로 함께 넣는다. 받은 원본 · 바탕 지운 큰 판 · 예전 그림은 `tools/art/out/emblem/`.)
 ```
-Heraldic emblem of the Abyssal Fiends, demon pact-makers of a shadow city in a sunless canyon.
-Centre: a pair of balanced scales of black iron and obsidian, perfectly level; above the beam, a single large CLOSED eye drawn in thin violet light (the sign of the faceless Silent Lord Morkas).
-Frame: two long curved demon horns sweeping up on both sides like a crown, a rolled contract scroll hanging from one pan of the scales and sealed with a drop of blood-red wax, fine chains draped between the horns, wisps of shadow smoke curling from below.
-Palette: violet #8b5cf6, black, obsidian, blood-red accents; cold violet underlight and deep shadow.
-Style: dark fantasy card game art, painterly digital painting with rich texture, dramatic rim light in the banner's element colour, small gold accents; the same finish as a premium card illustration, not a flat icon. Bold readable silhouette that still reads at 48 pixels, fine painterly detail inside. Centred, the emblem fills about 80% of the width and 90% of the height, slightly taller than wide; isolated on a transparent background. No circle badge, no square frame, no shield outline unless described, no text, no letters, no numbers, no runes as text, no signature, no watermark.
-Stay true to the banner: elegant and ominous, no holy light, no cartoon devils, no gore.
+Heraldic emblem of the Abyssal Fiends, demon pact-makers of a shadow city in a sunless canyon. One bold, compact, heavy emblem with a strong solid silhouette, packed close together like the attached reference emblems.
+Centre: a massive pair of ornate balance scales forged from polished black obsidian and dark iron, thick beam, wide deep pans, heavy pillar and base, every edge lit by bright violet rim light, perfectly level. Above the beam floats the sign of the faceless Silent Lord Morkas: one large eye peacefully shut, drawn as a thick, brightly glowing violet line, a single smooth downward-curving eyelid with a row of long lashes hanging beneath it like a sleeping crescent, three small stitches sealing the eyelid, wrapped in a strong violet glow.
+Frame: two thick curved demon horns rising close on both sides of the scales like a crown, glossy black with glowing violet edges; a rolled parchment contract hanging from one pan, sealed with blood-red wax; heavy chains draped between the horns; dense swirling violet-lit smoke pooling around the base, holding the whole emblem together as one mass.
+Palette: bright violet #8b5cf6 glow and rim light against glossy black, obsidian, small gold fittings, blood-red wax; high contrast, the violet light clearly visible.
+Style: dark fantasy card game art, painterly digital painting with rich texture, dramatic violet rim light, small gold accents; the same glossy finish as a premium card illustration. Bold readable silhouette that still reads at 48 pixels, fine painterly detail inside. Square 1:1 image, the emblem centred, filling about 80% of the width and 90% of the height.
+Background: plain flat very dark background, solid colour #07080d, completely even.
+Stay true to the banner: elegant and ominous.
+Match the attached reference exactly in rendering style, framing, scale, lighting and level of detail; only the subject, materials and colours change.
 ```
 
 ### A2 성광 천족 · Radiant Seraphs (비술 · 빛 `#ffe9a8`) — 지금 문양: 후광 아래 날개 방패, 방패에 해와 검 (2026-11-28, 전: 빛과 검)

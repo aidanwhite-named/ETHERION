@@ -577,7 +577,8 @@ if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitTopbar)
 
 /* v3.1 덱 보관함의 덱 상자 (가이드 2.16): 단체 문장 뒤에 부채꼴로 펼친 카드 뒷면 셋 = "덱", 고른 덱은 문장 둘레에 점선 고리가 돈다 */
 function deckSealHTML(g) {
-  return `<span class="dt-seal" aria-hidden="true"><i class="dt-fan"><i></i><i></i><i></i></i>${groupEmblem(g)}<svg class="dt-ring" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 4.2"/><path d="M32 .5l2.2 2.2-2.2 2.2-2.2-2.2z" fill="currentColor"/></svg></span>`;
+  /* 2026-11-28 문장 = 깃발 대표 문장 그림(img/ui/emblem/<ID>.png, 전장 명판과 같은 그림 · 프롬프트 tools/art/prompts/flags.md 1절). 예전: 금테 원 + 임시 문양(glyphSVG) */
+  return `<span class="dt-seal" aria-hidden="true"><i class="dt-fan"><i></i><i></i><i></i></i><span class="emblem pic gem-${g}" style="--gc:${GROUPS[g].color}"><img src="img/ui/emblem/${g}.png?v=2" alt="" decoding="async"></span><svg class="dt-ring" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 4.2"/><path d="M32 .5l2.2 2.2-2.2 2.2-2.2-2.2z" fill="currentColor"/></svg></span>`;
 }
 /* 덱 장수 계기판 10칸(한 칸 = 덱 장수의 1/10). 덱 조정실 계기판과 같은 색 규칙: 모자람 = 에테르 하늘빛, 저장된 덱 = 금 */
 function vaultGaugeHTML(n, ready) {
@@ -586,6 +587,17 @@ function vaultGaugeHTML(n, ready) {
 }
 const LOCK_MINI = '<svg class="lk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>';
 
+/* 2026-11-28 PC 대기실 접기: 왼쪽 덱 보관함 → 깃발 문장만 남은 좁은 띠, 오른쪽 열(출정의 단 · 채팅) → 출정 단추 아이콘만 남은 좁은 띠.
+   넓어진 가운데 덱 보기에 카드를 더 크게 그린다(fitLobbyCards). 접은 상태는 etherion.pref.lobbyFold에 남는다. 1180px 이하 · 앱식 배치에서는 쓰지 않는다(css/lobby.css) */
+const lobbyFold = () => { try { return JSON.parse(localStorage.getItem("etherion.pref.lobbyFold")) || {}; } catch (e) { return {}; } };
+const lobbyFoldCls = () => { const f = lobbyFold(); return (f.vault ? " fold-vault" : "") + (f.side ? " fold-side" : ""); };
+function toggleLobbyFold(k) {
+  const f = lobbyFold(); f[k] = !f[k];
+  try { localStorage.setItem("etherion.pref.lobbyFold", JSON.stringify(f)); } catch (e) {}
+  const lobby = $(".screen-lobby .lobby"); if (!lobby) return;
+  lobby.classList.toggle("fold-" + k, !!f[k]);
+  fitLobbyCards();
+}
 function showLobby() {
   App.screen = "lobby"; Bg.set("calm");
   if (typeof Titans !== "undefined") Titans.mode(0);   /* v3.5.8: 대기실에는 배경 그림(3D 세 존재)을 두지 않는다 */
@@ -595,8 +607,9 @@ function showLobby() {
   const f = App.lobbyGroup;
   $("#app").innerHTML = `<section class="screen screen-lobby">
     ${headerHTML("대기실")}
-    <div class="lobby">
+    <div class="lobby${lobbyFoldCls()}">
       <nav class="decks" aria-label="내 덱">
+        <button type="button" class="lf-tog lf-vault" data-fold="vault" title="덱 보관함 접기 · 펴기" aria-label="덱 보관함 접기 · 펴기"><i aria-hidden="true"></i></button>
         <h3 class="panel-title">덱 보관함 <small>단체마다 덱 하나</small><em class="dk-hint">깃발을 누르면 출정 · 덱 조정</em></h3>
         ${typeof trialBannerHTML === "function" ? trialBannerHTML(u) : ""}
         ${Object.values(FACTIONS).map(F => `<div class="deck-fac fac-${F.id}"><p class="df-head"><span class="df-crest">${typeof factionCrestSVG === "function" ? factionCrestSVG(F.id) : ""}</span>${F.name}<small>${F.en}</small></p>
@@ -616,6 +629,7 @@ function showLobby() {
       </nav>
       <main class="deck-view" id="deck-view"></main>
       <aside class="side-col">
+      <button type="button" class="lf-tog lf-side" data-fold="side" title="채팅 · 출정의 단 접기 · 펴기" aria-label="채팅 · 출정의 단 접기 · 펴기"><i aria-hidden="true"></i></button>
       <aside class="chat" aria-label="대기실 채팅">
         <div class="chat-head"><h3 class="panel-title">대기실 채팅</h3><span class="net off" title="서버 미연결: 메시지는 이 기기에만 저장됩니다">● 오프라인</span></div>
         <div class="chat-log" id="chat-log"></div>
@@ -627,6 +641,7 @@ function showLobby() {
   </section>`;   /* v3.55.4 튜토리얼 · 매뉴얼 · 룰북 명판은 뺐다 — 튜토리얼은 상단 띠, 매뉴얼 · 룰북은 연대기 머리 */
   const root = $(".screen-lobby");
   bindHeader(root);
+  $$(".lf-tog", root).forEach(b => b.addEventListener("click", () => toggleLobbyFold(b.dataset.fold)));
   $$(".deck-tile", root).forEach(b => b.addEventListener("click", () => {
     if (b.classList.contains("locked")) { toast("보유하지 않은 덱입니다.", "warn"); return; }
     App.lobbyGroup = b.dataset.g;
@@ -684,10 +699,10 @@ function altarHTML(f, side) {
   /* 2026-11-15 출정의 단 단추는 모두 같은 모양(금테 · 밤색 바탕, css/realm.css .altar .btn.rite) — 순례 금색 · 온라인 보라 · 컴퓨터와 대전 강조를 걷어냄 */
   /* v3.36 PC 대기실: 오른쪽 열 아래 2 × 2 — 덱 조정실 · 컴퓨터와 대전 / 순례 · 온라인 대전 (원정 계속은 아래 한 줄) */
   if (side) return `<div class="altar side-altar-in"><div class="altar-gates g2">
-        <button class="btn rite" id="go-edit">${menuIcon("quill")}<b>덱 조정실</b><small>DECK</small></button>
-        <button class="btn rite" id="go-ai" ${playable ? "" : "disabled"}>${menuIcon("duel")}<b>컴퓨터와 대전</b><small>SPARRING</small></button>
+        <button class="btn rite" id="go-edit" title="덱 조정실">${menuIcon("quill")}<b>덱 조정실</b><small>DECK</small></button>
+        <button class="btn rite" id="go-ai" title="컴퓨터와 대전" ${playable ? "" : "disabled"}>${menuIcon("duel")}<b>컴퓨터와 대전</b><small>SPARRING</small></button>
         ${pilOn ? `<button class="btn rite" id="go-pil" title="성로 순례 — 하루에 한 번 열리는 길. 여덟 관문과 망각의 숲">${menuIcon("road")}<b>순례</b><small>PILGRIMAGE</small></button>` : ""}
-        <button class="btn rite${pilOn ? "" : " g2-wide"}" id="go-pvp" ${playable ? "" : "disabled"}>${menuIcon("banners")}<b>온라인 대전</b><small>ONLINE</small></button>
+        <button class="btn rite${pilOn ? "" : " g2-wide"}" id="go-pvp" title="온라인 대전"${playable ? "" : "disabled"}>${menuIcon("banners")}<b>온라인 대전</b><small>ONLINE</small></button>
         ${expOn ? `<button class="btn rite g2-wide" id="go-exp" title="칠룡의 고리 원정 — 하던 원정을 마저 한다 (새 원정은 열리지 않음)">${menuIcon("ring")}<b>원정 계속</b><small>EXPEDITION</small></button>` : ""}
       </div></div>`;
   return `<div class="dv-actions altar">
@@ -761,15 +776,31 @@ function applyDeckFilter(ids) {
   grid.classList.toggle("dv-filtered", F.type !== "all" || !!F.grade);
   for (const el of grid.children) { const id = el.dataset.card; el.classList.toggle("dv-off", !(ofKind(id) && (!F.grade || gradeOf(id) === F.grade))); }
 }
-const DV_MIN_W = 116;
+const DV_MIN_W = 116, DV_FOLD_W = 210;   // DV_FOLD_W: 대기실 양옆을 접었을 때 카드 폭의 목표(열 수를 이 폭에 가깝게 고른다)
 function fitLobbyCards(count) {   // count: 덱 보기를 처음 그릴 때(카드 한 장만 넣고 잰다) 덱 장수 — 글 맞춤은 부른 쪽이 카드를 다 넣은 뒤에
   /* v3.36 PC 대기실: 덱 보기 · 오른쪽 열의 높이 = 덱 보관함 높이(--lobby-h). 카드 40장이 그 칸에 다 들어가게 카드 폭을 고른다(줄이기도 한다) */
   const grid = $("#dv-cards"), dv = $("#deck-view"), vault = $(".screen-lobby .decks"), lobby = $(".screen-lobby .lobby");
   if (!grid || !dv || !vault || !lobby) return;
-  grid.style.removeProperty("--card-md"); dv.style.removeProperty("min-height"); dv.classList.remove("dv-fit"); lobby.style.removeProperty("--lobby-h");
+  grid.style.removeProperty("--card-md"); grid.style.removeProperty("--dv-cols"); dv.style.removeProperty("min-height"); dv.classList.remove("dv-fit", "dv-scroll"); lobby.style.removeProperty("--lobby-h");
   if (matchMedia("(max-width: 1180px)").matches) { if (!count && typeof fitBriefs === "function") fitBriefs(grid); return; }
-  lobby.style.setProperty("--lobby-h", Math.round(vault.getBoundingClientRect().height) + "px");
+  const folded = lobby.classList.contains("fold-vault") || lobby.classList.contains("fold-side");
+  let lh = vault.getBoundingClientRect().height;
+  /* 2026-11-28 한쪽이라도 접었으면: 덱 보기 높이 = 창 아래 끝까지(아래 여백 24px), 카드는 폭 기준으로 크게(DV_FOLD_W 안팎) 그리고 덱 보기 안에서 스크롤한다.
+     접지 않았을 때처럼 "덱 전부를 한 화면 높이에" 넣으면 칸을 넓혀도 줄 수가 그대로라 카드가 커지지 않았다(1920×1080에서 116px 그대로) */
+  if (folded) lh = Math.max(innerHeight - lobby.getBoundingClientRect().top - (parseFloat(getComputedStyle(lobby).paddingTop) || 0) - 24, 480);
+  lobby.style.setProperty("--lobby-h", Math.round(lh) + "px");
   dv.classList.add("dv-fit");
+  if (folded) {
+    const cs = getComputedStyle(grid), gx = parseFloat(cs.columnGap) || 0, W = grid.clientWidth;
+    if (W > 0) {
+      const cols = Math.max(3, Math.round((W + gx) / (DV_FOLD_W + gx)));
+      grid.style.setProperty("--dv-cols", cols);   // 열 수를 CSS에 고정(css/lobby.css .dv-scroll) — 소수점 반올림으로 한 열이 넘쳐 줄어드는 일이 없게
+      grid.style.setProperty("--card-md", Math.max(DV_MIN_W, Math.floor((W + gx) / cols - gx) - 1) + "px");
+      dv.classList.add("dv-scroll");
+    }
+    if (!count && typeof fitBriefs === "function") fitBriefs(grid);
+    return;
+  }
   const first = grid.querySelector(":scope > :not(.dv-off)"); if (!first) return;   /* v3.7.5 거르기로 숨긴 카드는 크기가 0이라 보이는 첫 카드로 잰다 */
   const r0 = first.getBoundingClientRect(), ratio = r0.height / r0.width;
   const cs = getComputedStyle(grid), gx = parseFloat(cs.columnGap) || 0, gy = parseFloat(cs.rowGap) || 0;

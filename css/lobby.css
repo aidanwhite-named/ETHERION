@@ -38,3 +38,55 @@
 @media (max-width: 760px) {
   html:not(.appui) .screen-lobby .side-altar .altar-gates.g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* 2026-11-28 접기 (js/screens.js toggleLobbyFold): 왼쪽 덱 보관함 → 깃발 문장 띠, 오른쪽 열 → 출정 단추 아이콘 띠. 가운데 덱 보기가 넓어져 카드가 커진다 */
+.lf-tog { display: none; }
+@media (min-width: 1181px) {
+  html:not(.appui) .screen-lobby .lobby { --lv-w: 400px; --ls-w: 300px; grid-template-columns: var(--lv-w) minmax(0, 1fr) var(--ls-w); }   /* 폭은 css/style.css .lobby와 같게 */
+  html:not(.appui) .screen-lobby .lobby.fold-vault { --lv-w: 84px !important; }
+  html:not(.appui) .screen-lobby .lobby.fold-side { --ls-w: 84px !important; }
+}
+@media (min-width: 1181px) and (max-width: 1500px) {
+  html:not(.appui) .screen-lobby .lobby { --lv-w: 330px; --ls-w: 280px; }
+}
+@media (min-width: 1181px) {
+
+  html:not(.appui) .screen-lobby .lf-tog { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; background: rgba(8, 9, 15, .75); border: 1px solid rgba(217, 180, 106, .45); border-radius: 3px; color: var(--gold); cursor: pointer; transition: background .15s, border-color .15s; }
+  html:not(.appui) .screen-lobby .lf-tog:hover { background: rgba(217, 180, 106, .16); border-color: var(--gold); }
+  html:not(.appui) .screen-lobby .lf-tog i { width: 9px; height: 9px; border: solid currentColor; border-width: 0 0 2px 2px; }
+  /* 화살표: 펴진 왼쪽은 ◀(왼쪽으로 접기), 접힌 왼쪽은 ▶. 오른쪽은 반대 */
+  html:not(.appui) .screen-lobby .lf-vault i { rotate: 45deg; translate: 2px 0; }
+  html:not(.appui) .screen-lobby .fold-vault .lf-vault i { rotate: -135deg; translate: -2px 0; }
+  html:not(.appui) .screen-lobby .lf-side i { rotate: -135deg; translate: -2px 0; }
+  html:not(.appui) .screen-lobby .fold-side .lf-side i { rotate: 45deg; translate: 2px 0; }
+
+  /* 덱 보관함: 접기 단추는 오른쪽 위 구석 */
+  html:not(.appui) .screen-lobby .decks { position: relative; }
+  html:not(.appui) .screen-lobby .lf-vault { position: absolute; top: 12px; right: 12px; z-index: 3; }
+  html:not(.appui) .screen-lobby .decks .panel-title { padding-right: 36px; }
+  /* 접은 덱 보관함: 깃발 문장만 세로로 */
+  html:not(.appui) .screen-lobby .fold-vault .decks { padding: 52px 8px 12px; gap: 8px; height: var(--lobby-h, auto); align-content: start; overflow-y: auto; scrollbar-width: none; }
+  html:not(.appui) .screen-lobby .fold-vault .lf-vault { left: 50%; right: auto; translate: -50% 0; }
+  html:not(.appui) .screen-lobby .fold-vault .decks > :not(.deck-fac):not(.lf-tog) { display: none; }
+  html:not(.appui) .screen-lobby .fold-vault .deck-fac { display: grid; gap: 8px; }
+  html:not(.appui) .screen-lobby .fold-vault .df-head { display: none; }
+  html:not(.appui) .screen-lobby .fold-vault .deck-tile.rq { min-height: 0; padding: 6px !important; gap: 0 !important; justify-content: center; }
+  html:not(.appui) .screen-lobby .fold-vault .deck-tile .dt-body,
+  html:not(.appui) .screen-lobby .fold-vault .deck-tile .dt-mark { display: none; }
+  html:not(.appui) .screen-lobby .fold-vault .deck-tile .dt-seal { margin: 6px 0 0; }
+
+  /* 접었을 때 덱 보기: 카드를 크게 그리고 덱 보기 안에서 스크롤 (js/screens.js fitLobbyCards → .dv-scroll) */
+  html:not(.appui) .screen-lobby .deck-view.dv-fit.dv-scroll .dv-cards { grid-template-columns: repeat(var(--dv-cols, 6), minmax(0, 1fr)); overflow-y: auto; scrollbar-gutter: stable; align-content: start; padding: 4px 0 8px; scrollbar-width: thin; scrollbar-color: rgba(217, 180, 106, .45) transparent; }
+
+  /* 오른쪽 열: 접기 단추는 맨 위 오른쪽 끝 */
+  html:not(.appui) .screen-lobby .lf-side { order: -2; align-self: flex-end; flex: none; }
+  html:not(.appui) .screen-lobby .side-col { min-width: 0; }
+  /* 접은 오른쪽 열: 채팅은 감추고 출정 단추는 아이콘만 세로로(단추 이름은 마우스를 올리면 뜬다) */
+  html:not(.appui) .screen-lobby .fold-side .lf-side { align-self: center; }
+  html:not(.appui) .screen-lobby .fold-side .side-col > :not(.side-altar):not(.lf-tog) { display: none; }
+  html:not(.appui) .screen-lobby .fold-side .side-altar .altar-gates.g2 { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  html:not(.appui) .screen-lobby .fold-side .side-altar .btn.rite:not(.rb) { min-height: 64px; padding: 8px 4px; }
+  html:not(.appui) .screen-lobby .fold-side .side-altar .btn.rite b,
+  html:not(.appui) .screen-lobby .fold-side .side-altar .btn.rite small { display: none; }
+  html:not(.appui) .screen-lobby .fold-side .side-altar .btn.rite .m-ico { width: 28px; height: 28px; margin: 0; }
+}

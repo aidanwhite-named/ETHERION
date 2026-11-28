@@ -2406,7 +2406,7 @@ if (typeof addEventListener === "function") addEventListener("resize", () => Cry
    emblem = 단체 대표 문장(정사각, 투명) — 명판의 문장 방패 자리에 코드 방패 대신 들어간다
    plate  = 명판 천(가로 4:1, 투명) — 코드로 그린 천 · 장대 대신 바탕에 깔린다. 아이디 · 전적은 그 위에 글자로
    v3.48.1 받은 그림만 쓴다 — has에 적힌 깃발만 그림, 나머지는 지금처럼 코드 그림. 새 그림을 받으면 파일을 넣고(문장 320×320 · 천 1200×300 PNG, 원본은 tools/art/out/raw/ui/) has에 ID를 더한다 */
-const FLAG_ART = { emblem: "img/ui/emblem/{id}.png?v=1", plate: "img/ui/banner/{id}.png?v=1",
+const FLAG_ART = { emblem: "img/ui/emblem/{id}.png?v=2", plate: "img/ui/banner/{id}.png?v=1",
   has: { emblem: ["A1", "A2", "A3", "B1", "B2", "B3", "G1", "G2", "G3"], plate: ["A1", "A2", "A3", "B1", "B2", "B3", "G1", "G2", "G3"] } };
 const flagArt = (k, g) => (FLAG_ART[k] && g && FLAG_ART.has[k].includes(g) ? FLAG_ART[k].replace("{id}", g) : "");
 /* 명판 둘째 줄: 사람은 "12승 8패 · 승률 60%", 컴퓨터는 단체 이름 · 컴퓨터 */

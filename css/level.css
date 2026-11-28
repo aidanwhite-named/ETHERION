@@ -25,7 +25,7 @@
   box-shadow: 0 0 0 1px rgba(242, 215, 146, .7), 0 0 0 4px rgba(13, 16, 25, .9), 0 0 0 5px rgba(217, 180, 106, .45), 0 0 14px rgba(240, 200, 120, .35);
   color: #2a1c06; font-family: var(--caps); line-height: 1; text-shadow: 0 1px 0 rgba(255, 240, 200, .55);
 }
-.lv-orb small, .rx-orb small { font-size: 8px; font-weight: 700; letter-spacing: .14em; margin-bottom: 1px; }
+.lv-orb small, .rx-orb small { font-size: 8px; font-weight: 700; letter-spacing: .14em; margin: -9px 0 1px; }   /* LV 는 숫자 위에 얹기만: 숫자가 구슬 한가운데 */
 .lv-orb b, .rx-orb b { font-size: 18px; font-weight: 800; font-variant-numeric: tabular-nums; }
 
 .lv-body { flex: 1; min-width: 0; display: grid; gap: 5px; }
@@ -96,7 +96,7 @@
 @media (max-width: 760px) {
   :root { --lv-w: 320px; }
   .lv-hud { bottom: 8px; padding: 6px 14px 7px 8px; gap: 9px; width: min(var(--lv-w), calc(100vw - 104px)); }
-  .lv-orb { width: 36px; height: 36px; } .lv-orb b { font-size: 15px; } .lv-orb small { font-size: 7px; }
+  .lv-orb { width: 36px; height: 36px; } .lv-orb b { font-size: 15px; } .lv-orb small { font-size: 7px; margin-top: -8px; }
   .lv-gold b { font-size: 16px; }
   .lv-next { display: none; }
 }

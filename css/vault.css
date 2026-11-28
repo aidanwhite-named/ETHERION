@@ -59,6 +59,9 @@
 .dt-seal .emblem { position: relative; z-index: 1; width: 50px !important; height: 50px !important; background: radial-gradient(circle at 38% 32%, color-mix(in srgb, var(--c) 34%, #1a1a2a), #0b0b14 72%); border: 1.5px solid color-mix(in srgb, var(--c) 75%, transparent);
   box-shadow: 0 0 0 2.5px rgba(8, 9, 15, .95), 0 0 0 3.5px rgba(217, 180, 106, .5), 0 4px 10px rgba(0, 0, 0, .6), inset 0 0 12px color-mix(in srgb, var(--c) 30%, transparent); }
 .dt-seal .emblem svg { filter: drop-shadow(0 0 4px color-mix(in srgb, var(--c) 70%, transparent)); }
+/* 2026-11-28 문장 그림(js/screens.js deckSealHTML): 금테 원 · 바탕 없이 그림만, 카드 부채 앞에 조금 크게 */
+.dt-seal .emblem.pic { width: 64px !important; height: 64px !important; background: none; border: 0; box-shadow: none; }
+.dt-seal .emblem.pic img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .9)) drop-shadow(0 0 6px color-mix(in srgb, var(--gc) 35%, transparent)); }
 .dt-fan { position: absolute; inset: 0; pointer-events: none; }
 .dt-fan > i { position: absolute; left: 50%; top: 50%; width: 32px; height: 44px; margin: -36px 0 0 -16px; border-radius: 3px; transform-origin: 50% 100%;
   background: radial-gradient(circle at 50% 42%, transparent 5px, rgba(217, 180, 106, .45) 5.5px 6.3px, transparent 7px), repeating-linear-gradient(45deg, rgba(122, 95, 208, .18) 0 1.5px, transparent 1.5px 4px), radial-gradient(circle at 50% 40%, #2a2140, #110e1b);
