@@ -24,7 +24,7 @@ const I18N = (() => {
     if (v && LI[v] != null) lang = v;
   } catch (e) {}
   const on = lang !== "ko";
-  const V = "i1";
+  const V = "i2";
   if (on && typeof document !== "undefined" && document.readyState === "loading") {
     document.documentElement.lang = lang === "zh" ? "zh-CN" : lang;
     document.documentElement.classList.add("lang-" + lang);

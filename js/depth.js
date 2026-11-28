@@ -3,11 +3,12 @@
    - 마우스를 따라 패널이 살짝 돌고, 마우스 밑 카드는 기울며 빛이 따라온다.
    - 상점(v3.5.2) · 대기실 · 덱 조정실(v3.5.3)의 패널은 기울이지 않는다(카드 목록이 기울거나 밀려 보였다).
    - 대기실 덱 보기의 카드는 마우스 밑에서도 기울지 않는다(v3.7.4).
+   - 입장 관문(.gate)도 기울이지 않는다(2026-11-28 사용자 — 이름을 쓰고 깃발을 누를 때 판이 마우스를 따라 흔들려 보였다).
    - 패널은 transform만 바꾼다(글자 다시 그리기 없음). 움직임이 멎으면 계산도 멈춘다. */
 "use strict";
 
 const Depth = (() => {
-  const PANELS = ".vault-preview,.users,.xp-head,.xp-route,.xp-card,.gate";
+  const PANELS = ".vault-preview,.users,.xp-head,.xp-route,.xp-card";
   const SIDE_DEG = 3.2, FOLLOW_DEG = 1.8, CARD_DEG = 13, CARD_LIFT = 26, NARROW = 900;
   const reduced = () => !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
   const off = () => innerWidth <= NARROW || document.documentElement.classList.contains("fx-low");   // v3.46 폰 · 앱(2026-11-22 연출 저사양)은 기울이기 없음

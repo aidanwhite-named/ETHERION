@@ -271,17 +271,39 @@ function groupGridHTML(opts) {
   opts = opts || {};
   return `<div class="grp-pick${opts.small ? " small" : ""}">${opts.random ? `<button type="button" class="grp-tile rnd on" data-g="random"><span class="emblem q">?</span><b>무작위</b><span class="en">Random</span></button>` : ""}
     ${Object.values(FACTIONS).map(F => `<div class="grp-col fac-${F.id}"><p class="grp-fac">${F.name}<small>${F.en}</small></p>
-      ${F.groups.map(g => { const G = GROUPS[g]; return `<button type="button" class="grp-tile" data-g="${g}" style="--gc:${G.color}">${groupEmblem(g)}<b>${G.name}</b><span class="en">${G.en}</span><span class="role">${G.role} · ${ELEMENTS[G.el].name}</span>${opts.motto ? `<span class="motto">${G.motto}</span>` : ""}</button>`; }).join("")}
+      ${F.groups.map(g => { const G = GROUPS[g]; return `<button type="button" class="grp-tile" data-g="${g}" style="--gc:${G.color}">${groupEmblem(g)}<b>${G.name}</b><span class="en">${G.en}</span><span class="role">${G.role} · ${ELEMENTS[G.el].name}</span>${opts.motto ? `<span class="motto">${G.motto}</span>` : ""}${opts.lore ? '<i class="gt-pick" aria-hidden="true">선택함</i>' : ""}</button>`; }).join("")}
     </div>`).join("")}</div>`;
 }
-/* 새 모험가: 진영(세로 열)마다 하나까지, 1~3개를 무료로 고른다. 같은 진영의 다른 깃발을 누르면 바뀌고, 고른 깃발을 다시 누르면 풀린다(v3.23) */
-function bindFactionPicks(wrap, sumEl) {
+/* 새 모험가: 진영(세로 열)마다 하나까지, 1~3개를 무료로 고른다. 같은 진영의 다른 깃발을 고르면 바뀌고, 고른 깃발은 풀 수 있다(v3.23)
+   2026-11-28 (사용자) 깃발을 누르면 먼저 아래 이야기 판(loreEl)에 그 깃발의 세계관이 나오고, 판의 단추로 고른다 / 바꾼다 / 푼다 */
+function bindFactionPicks(wrap, sumEl, loreEl) {
   const pick = {};
-  const show = () => {
-    $$(".grp-tile", wrap).forEach(x => x.classList.toggle("on", pick[GROUPS[x.dataset.g].faction] === x.dataset.g));
-    if (sumEl) { const n = Object.keys(pick).length; sumEl.innerHTML = Object.values(FACTIONS).map(F => `<span class="${pick[F.id] ? "ok" : ""}">${F.name}: <b>${pick[F.id] ? GROUPS[pick[F.id]].name : "고르지 않음"}</b></span>`).join(" · ") + ` <small>(${n}/3 · 무료)</small>`; }
+  let view = null;
+  const lore = () => {
+    if (!loreEl) return;
+    if (!view) { loreEl.innerHTML = `<p class="gl-empty">깃발을 누르면 그 깃발의 이야기가 여기에 펼쳐집니다.</p>`; loreEl.style.removeProperty("--gc"); return; }
+    const G = GROUPS[view], F = FACTIONS[G.faction], cur = pick[G.faction];
+    const btn = cur === view ? ["선택 풀기", ""] : cur ? [`이 깃발로 바꾸기`, " primary"] : ["이 깃발 선택", " primary"];
+    loreEl.style.setProperty("--gc", G.color);
+    loreEl.innerHTML = `<div class="gl-head">${groupEmblem(view)}<div><b>${G.name}</b><span class="en">${G.en}</span><span class="gl-meta">${F.name} · ${G.role} · ${ELEMENTS[G.el].name}</span></div></div>
+      <div class="gl-body"><p class="gl-motto">“${G.motto}”</p><p class="gl-blurb">${G.blurb}</p></div>
+      <div class="gl-act"><button type="button" class="btn${btn[1]}" id="gl-pick">${btn[0]}</button>${cur && cur !== view ? `<small>지금 ${F.name}: ${GROUPS[cur].name}</small>` : ""}</div>`;
+    loreEl.querySelector("#gl-pick").addEventListener("click", () => {
+      if (pick[G.faction] === view) delete pick[G.faction]; else pick[G.faction] = view;
+      if (typeof FEEL !== "undefined") FEEL.play("ui_deck", .6);
+      show();
+    });
   };
-  $$(".grp-tile", wrap).forEach(b => b.addEventListener("click", () => { const f = GROUPS[b.dataset.g].faction; if (pick[f] === b.dataset.g) delete pick[f]; else pick[f] = b.dataset.g; show(); }));
+  const show = () => {
+    $$(".grp-tile", wrap).forEach(x => { x.classList.toggle("on", pick[GROUPS[x.dataset.g].faction] === x.dataset.g); x.classList.toggle("viewing", x.dataset.g === view); });
+    if (sumEl) { const n = Object.keys(pick).length; sumEl.innerHTML = Object.values(FACTIONS).map(F => `<span class="${pick[F.id] ? "ok" : ""}">${F.name}: <b>${pick[F.id] ? GROUPS[pick[F.id]].name : "고르지 않음"}</b></span>`).join(" · ") + ` <small>(${n}/3 · 무료)</small>`; }
+    lore();
+  };
+  $$(".grp-tile", wrap).forEach(b => b.addEventListener("click", () => {
+    if (loreEl) view = b.dataset.g;
+    else { const f = GROUPS[b.dataset.g].faction; if (pick[f] === b.dataset.g) delete pick[f]; else pick[f] = b.dataset.g; }
+    show();
+  }));
   show();
   return () => Object.keys(FACTIONS).map(f => pick[f]).filter(Boolean);
 }
@@ -292,6 +314,7 @@ function bindGroupGrid(wrap, def) {
   return () => v;
 }
 function showLogin(tab, st) {
+  const again = App.screen === "login";   // 2026-11-28 탭을 바꿔 다시 그릴 때는 판이 다시 날아들지 않는다(css .gate-again)
   App.screen = "login"; Bg.set("title");
   /* v3.27 서버 모드: 이름(또는 이메일) + 암호, 또는 메일로 받은 6자리 코드. 새 모험가는 이메일 확인 · 동의 (js/net.js authCode · authVerify, server/auth.js) */
   const srv = typeof Net !== "undefined" && Net.authOn() ? Net.info.auth : null;
@@ -302,10 +325,11 @@ function showLogin(tab, st) {
   tab = tab || (invP ? "new" : "login");
   let chosen = null;
   $("#app").innerHTML = `<section class="screen screen-login">
-    <div class="gate${tab === "login" ? " gate-login" : ""}${srv && tab === "new" ? " gate-srv-new" : ""}">
-      <p class="gate-eyebrow">The Lindear Ringstone</p>
-      <h2 class="gate-title">린데어 환석</h2>
-      <p class="gate-lead">성로의 중심 관문에 이름을 새기고 들어가세요.</p>
+    <div class="gate${tab === "login" ? " gate-login" : ""}${srv && tab === "new" ? " gate-srv-new" : ""}${again ? " gate-again" : ""}">
+      <div class="gate-land" aria-hidden="true"><b>LINDEAR</b><span>린데어</span></div>
+      <p class="gate-eyebrow">The First Milestone</p>
+      <h2 class="gate-title">모험가의 첫 돌</h2>
+      <p class="gate-lead">길의 첫 돌에 이름을 새기고 모험을 떠나세요.</p>
       <div class="tabs" role="tablist">
         <button class="tab ${tab === "login" ? "on" : ""}" data-tab="login" role="tab">로그인</button>
         <button class="tab ${tab === "new" ? "on" : ""}" data-tab="new" role="tab">새 모험가</button>
@@ -331,8 +355,9 @@ function showLogin(tab, st) {
             : `<div class="gate-mail three"><label>이메일<input id="nw-mail" type="email" autocomplete="email" maxlength="254" ${srv.emailRequired ? "required" : ""} placeholder="${srv.emailRequired ? "코드를 받을 주소" : "선택 — 코드 로그인 · 암호 찾기용"}"></label><button type="button" class="btn" id="nw-send">코드 받기</button><label>코드<input id="nw-code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="6자리"></label></div>`;
           return `${mail}<div class="two${inv ? " has-inv" : ""}"><label>이름<input id="nw-id" maxlength="16" required placeholder="2~16자"></label>
         <label>암호<input id="nw-pw" type="password" autocomplete="new-password" ${srv ? "" : "required"} placeholder="${srv ? `${srv.pwMin}자 이상${st.ticket || srv.emailRequired ? " (비우면 메일 코드로만)" : ""}` : "2자 이상"}"></label>${inv ? `<label class="nw-inv">초대 코드<input id="nw-inv" maxlength="200" value="${esc(invite)}" placeholder="INV:친구이름:깃발"></label>` : ""}</div>${inv ? `<p class="nw-inv-hint">친구 초대 코드는 선택 — 받은 링크나 코드를 넣고 등록하면 친구의 덱을 ${TRIAL.days}일 동안 써 볼 수 있습니다</p>` : ""}`; })()}
-        <p class="pick-label">깃발을 최대 3개까지 무료로 고릅니다 — 진영마다 하나까지, 적어도 하나. 고른 깃발마다 기본 덱 ${RULES.deckSize}장과 그 단체의 다른 카드를 1장씩 받습니다. 고르지 않은 깃발은 쓸 수 없습니다. (고른 깃발을 다시 누르면 풀립니다)</p>
-        ${groupGridHTML({ motto: true })}
+        <p class="pick-label">깃발을 최대 3개까지 무료로 고릅니다 — 진영마다 하나까지, 적어도 하나. 고른 깃발마다 기본 덱 ${RULES.deckSize}장과 그 단체의 다른 카드를 1장씩 받습니다. 고르지 않은 깃발은 쓸 수 없습니다. (깃발을 누르면 이야기를 보고 고를 수 있습니다)</p>
+        ${groupGridHTML({ lore: true })}
+        <div class="grp-lore" id="nw-lore" aria-live="polite"></div>
         <p class="pick-sum" id="nw-sum"></p>
         ${invP ? `<p class="nw-inv-note">「${esc(invP.from)}」님의 초대 — 등록하면 ${esc(invP.from)}님의 <b>${esc(GROUPS[invP.group].name)}</b> 덱을 ${TRIAL.days}일 동안 내 덱처럼 쓸 수 있습니다.</p>` : ""}
         ${srv ? `<div class="gate-agree"><label><input type="checkbox" id="ag-terms"><span><a href="${Net.page("terms.html")}" target="_blank" rel="noopener">이용약관</a> 동의</span></label><label><input type="checkbox" id="ag-priv"><span><a href="${Net.page("privacy.html")}" target="_blank" rel="noopener">개인정보 수집 · 이용</a> 동의</span></label><label><input type="checkbox" id="ag-age"><span>만 14세 이상입니다</span></label>
@@ -370,7 +395,7 @@ function showLogin(tab, st) {
       toast(`환영합니다, ${Store.user().id}.`); showLobby();
     });
   }
-  const getChosen = bindFactionPicks($("#f-new"), $("#nw-sum"));
+  const getChosen = bindFactionPicks($("#f-new"), $("#nw-sum"), $("#nw-lore"));
   $("#gate-guest").addEventListener("click", () => { Store.guest(); toast("필멸자로 들어왔습니다. 모든 덱을 쓸 수 있습니다."); showLobby(); });
   $("#f-login").addEventListener("submit", e => {
     e.preventDefault();

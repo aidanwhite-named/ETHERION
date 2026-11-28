@@ -39,11 +39,23 @@ const Replays = {
   },
   play(i) {
     const r = this.all()[i]; if (!r) return toast("기록을 찾지 못했습니다.", "warn");
+    this.view(r, { onExit: () => { App.screen = null; showJournal("replay"); } });
+  },
+  /* 2026-11-28 (사용자) 다시보기 화면: 위 가운데 표에 속도 ×1 ~ ×4 (이 판에서만 — 설정의 연출 속도는 그대로). o = { onExit, back: 끝 창 단추 이름 } */
+  SPEEDS: [1, 2, 3, 4],
+  view(r, o) {
+    o = o || {};
     App.screen = "game"; Bg.set("off");
-    const tag = document.createElement("div"); tag.id = "replay-tag"; tag.innerHTML = `<b>다시보기</b><small>${r.won ? "이긴 판" : "진 판"} · ${r.turn}턴 — 나가기는 오른쪽 위 메뉴</small>`;
+    const tag = document.createElement("div"); tag.id = "replay-tag";
+    tag.innerHTML = `<b>다시보기</b><small>${r.won ? "이긴 판" : "진 판"} · ${r.turn}턴 — 나가기는 오른쪽 위 메뉴</small><span class="rp-speed" role="group" aria-label="다시보기 속도">${this.SPEEDS.map(s => `<button type="button" class="btn xs${s === 1 ? " on" : ""}" data-rsp="${s}">×${s}</button>`).join("")}</span>`;
+    tag.addEventListener("click", e => {
+      const b = e.target.closest("[data-rsp]"); if (!b || !G || !G.cfg.replayView) return;
+      G.speed = +b.dataset.rsp; render();
+      tag.querySelectorAll("[data-rsp]").forEach(x => x.classList.toggle("on", x === b));
+    });
     document.body.appendChild(tag);
     startMatch({ mode: "ai", seed: r.seed, p0: r.p0, p1: r.p1, rules: r.rules || undefined, replay: r.log.slice(), replayAll: r.log.slice(), replayView: true, expect: { won: r.won, turn: r.turn },
-      onExit: () => { tag.remove(); App.screen = null; showJournal("replay"); } });
+      speed: 1, replayBack: o.back, onExit: () => { tag.remove(); if (o.onExit) o.onExit(); } });
   }
 };
 

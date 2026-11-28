@@ -140,7 +140,7 @@ const Online = {
       case "hello": return this.onHello(m);
       case "start": return this.onStart(m);
       case "deny": toast(m.why || "들어갈 수 없습니다.", "warn"); if (this.ui) this.ui.fail(m.why); this.reset(); return;
-      case "surrender": return this.foeGone(`${this.foeName || "상대"}이(가) 항복했습니다.`);
+      case "surrender": return this.foeGone(`${this.foeName || "상대"}이(가) 나갔습니다.`);
       case "bye":
         this.foeAgain = false; this.byeSeen = true;
         if (this.inMatch() && G.phase !== "over") this.foeGone(`${this.foeName || "상대"}이(가) 경기를 떠났습니다.`);

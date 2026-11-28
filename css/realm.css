@@ -662,3 +662,64 @@ html.appui .screen-editor .pool-grid { --pc-gx: 6px; --pc-gy: 10px; --pg-pad: 7p
    높이는 글자 크기에 맞춰(em) 낮은 화면의 작은 글자에서도 같은 비율로 */
 .gate .gate-form .btn.wide, .gate > .btn.wide.gate-guest { width: min(100%, max(64%, 300px)); justify-self: center; margin-inline: auto; }
 .gate .gate-form .btn.wide { min-height: 2.75em; font-weight: 800; }
+
+/* 2026-11-28 (사용자) 입장 판 = "모험가의 첫 돌" (예전 "린데어 환석"). 린데어는 판 뒤에 옅은 큰 글씨로 깐다(.gate-land).
+   탭을 바꿔 다시 그릴 때는 판이 다시 날아들지 않는다(.gate-again) · 판은 마우스를 따라 기울지 않는다(js/depth.js PANELS에서 뺌).
+   새 모험가의 깃발 칸은 모두 같은 크기 · 글은 한 줄씩(넘치면 …), 누르면 아래 이야기 판(.grp-lore, 높이 고정)에 세계관이 나오고 거기서 고른다 */
+.gate { isolation: isolate; }
+.gate.gate-again { animation: none; }
+.gate-land { position: absolute; inset: 0; z-index: -1; display: grid; place-content: center; justify-items: center; pointer-events: none; overflow: hidden; border-radius: inherit; }
+.gate-land b { font-family: var(--caps); font-weight: 700; font-size: 118px; line-height: 1; letter-spacing: .2em; margin-right: -.2em; color: rgba(217, 180, 106, .075); }
+.gate-land span { margin-top: 10px; font-size: 30px; letter-spacing: .9em; margin-right: -.9em; color: rgba(217, 180, 106, .09); }
+.gate.gate-login .gate-land b { font-size: 62px; }
+.gate.gate-login .gate-land span { font-size: 20px; }
+
+.gate .grp-pick .grp-tile { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 1px; height: 62px; min-height: 0; box-sizing: border-box; padding: 4px 10px 4px 54px; overflow: hidden; text-align: left; }
+.gate .grp-pick .grp-tile .emblem { left: 9px; width: 38px; height: 38px; }
+.gate .grp-pick .grp-tile b, .gate .grp-pick .grp-tile .en, .gate .grp-pick .grp-tile .role { display: block; max-width: 100%; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.25; }
+.gate .grp-pick .grp-tile .role::before { content: none; }
+.gate .grp-pick .grp-tile.viewing:not(.on) { border-color: color-mix(in srgb, var(--fc) 70%, transparent); background: color-mix(in srgb, var(--fc) 7%, transparent); }
+.gate .grp-pick .grp-tile .gt-pick { display: none; position: absolute; right: 6px; top: 5px; padding: 0 6px; border-radius: 2px; font-style: normal; font-size: 10.5px; font-weight: 800; line-height: 1.6; color: #120f08; background: var(--fc); }
+.gate .grp-pick .grp-tile.on .gt-pick { display: block; }
+.gate .grp-pick .grp-tile.on { padding-right: 58px; }
+.gate .pick-sum { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.grp-lore { --gc: var(--gold); display: grid; grid-template-columns: 220px minmax(0, 1fr) auto; align-items: center; gap: 6px 18px; height: 112px; box-sizing: border-box; padding: 10px 16px; overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--gc) 40%, transparent); border-left: 3px solid var(--gc); border-radius: 3px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--gc) 12%, rgba(8, 9, 15, .72)), rgba(8, 9, 15, .55)); }
+.grp-lore .gl-empty { grid-column: 1 / -1; margin: 0; text-align: center; color: var(--muted); font-size: 14px; }
+.grp-lore .gl-head { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.grp-lore .gl-head .emblem { width: 48px; height: 48px; }
+.grp-lore .gl-head > div { min-width: 0; }
+.grp-lore .gl-head b { display: block; font-size: 17px; color: #fff3d6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.grp-lore .gl-head .en { display: block; font-family: var(--caps); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--gc); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.grp-lore .gl-meta { display: block; font-size: 12.5px; color: var(--ink-2); white-space: nowrap; }
+.grp-lore .gl-body { min-width: 0; max-height: 92px; overflow-y: auto; }
+.grp-lore .gl-motto { margin: 0 0 3px; font-size: 14px; color: color-mix(in srgb, var(--gc) 55%, #fff); }
+.grp-lore .gl-blurb { margin: 0; font-size: 13px; line-height: 1.5; color: var(--ink); }
+.grp-lore .gl-act { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.grp-lore .gl-act .btn { min-width: 132px; font-size: 15px; padding: 8px 16px; }
+.grp-lore .gl-act small { font-size: 11px; color: var(--muted); white-space: nowrap; }
+@media (min-height: 940px) and (min-width: 900px) {
+  .gate .grp-pick .grp-tile { height: 68px; }
+  .grp-lore { height: 124px; }
+  .grp-lore .gl-body { max-height: 104px; }
+  .grp-lore .gl-blurb { font-size: 14px; }
+}
+@media (max-width: 560px) {
+  .gate-land b { font-size: 44px; }
+  .gate-land span { font-size: 16px; }
+  .gate.gate-login .gate-land b { font-size: 40px; }
+  .gate .grp-pick .grp-tile, .gate .grp-pick .grp-tile.on { align-items: center; height: 78px; padding: 3px; text-align: center; }
+  .gate .grp-pick .grp-tile .emblem { width: 22px; height: 22px; }
+  .gate .grp-pick .grp-tile .gt-pick { right: 2px; top: 2px; padding: 0 3px; font-size: 8.5px; }
+  .gate .pick-sum { white-space: normal; min-height: 2.7em; }
+  .grp-lore { grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto minmax(0, 1fr); height: 184px; padding: 8px 10px; gap: 4px 10px; }
+  .grp-lore .gl-body { grid-column: 1 / -1; grid-row: 2; max-height: none; height: 100%; }
+  .grp-lore .gl-act { grid-column: 2; grid-row: 1; }
+  .grp-lore .gl-head .emblem { width: 34px; height: 34px; }
+  .grp-lore .gl-head b { font-size: 15px; }
+  .grp-lore .gl-act .btn { min-width: 0; font-size: 13px; padding: 6px 10px; }
+  .grp-lore .gl-act small { display: none; }
+  .grp-lore .gl-blurb { font-size: 12px; }
+}

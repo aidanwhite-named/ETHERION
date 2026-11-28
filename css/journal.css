@@ -107,6 +107,10 @@
 .jr-rp-main small { color: var(--muted); font-size: 12px; }
 #replay-tag { position: fixed; left: 50%; top: 8px; transform: translateX(-50%); z-index: 60; display: flex; gap: 10px; align-items: baseline; padding: 6px 14px; border: 1px solid var(--gold); border-radius: 3px; background: rgba(10, 10, 18, .9); pointer-events: none; }
 #replay-tag b { color: var(--gold-hi); letter-spacing: .1em; } #replay-tag small { color: var(--ink-2); font-size: 12px; }
+/* 2026-11-28 다시보기 속도 ×1 ~ ×4 (js/replays.js view) — 표는 눌리지 않고 단추만 눌린다 */
+#replay-tag .rp-speed { display: inline-flex; gap: 4px; margin-left: 4px; pointer-events: auto; }
+#replay-tag .rp-speed .btn { padding: 2px 9px; font-size: 12.5px; min-width: 36px; }
+#replay-tag .rp-speed .btn.on { border-color: var(--gold-hi); color: var(--gold-hi); box-shadow: 0 0 0 1px var(--gold) inset, 0 0 10px rgba(217, 180, 106, .45); }
 
 /* 덱 코드 창 */
 .dc-modal .dc-row { display: grid; gap: 4px; margin: 10px 0; text-align: left; }

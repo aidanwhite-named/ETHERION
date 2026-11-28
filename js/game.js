@@ -941,7 +941,7 @@ const Guide = {
     return [];
   },
   maybe(phase, p) {
-    if (!this.on() && !this.tail() || G.cfg.headless || G.mode === "hotseat" && p.idx !== 0) return;
+    if (!this.on() && !this.tail() || G.cfg.headless || G.cfg.replayView || G.mode === "hotseat" && p.idx !== 0) return;   // 2026-11-28 다시보기에는 첫 판 안내를 띄우지 않는다
     const L = this.steps(phase, p);
     if (!L.length) return;
     this.queue = L; this.next();
@@ -1011,7 +1011,7 @@ function replayPrep(p) {
 /* v3.46 다시보기 끝: 기록과 같게 흘렀는지 알려 주고 퀘스트로 */
 async function replayResult() {
   const myG = G, x = G.cfg.expect || {}, won = G.winner === 0, same = x.won == null || (x.won === won && x.turn === G.turn);
-  await modal(`<h3>다시보기 끝</h3><p>${won ? "이긴 판" : "진 판"} · ${G.turn}턴</p>${same ? "" : '<p class="muted small">게임이 바뀌어(카드 · 규칙 고침) 기록과 다르게 흘렀습니다.</p>'}`, [{ label: "퀘스트로", value: 1, cls: "primary" }], { dismiss: false });
+  await modal(`<h3>다시보기 끝</h3><p>${won ? "이긴 판" : "진 판"} · ${G.turn}턴</p>${same ? "" : '<p class="muted small">게임이 바뀌어(카드 · 규칙 고침) 기록과 다르게 흘렀습니다.</p>'}`, [{ label: G.cfg.replayBack || "퀘스트로", value: 1, cls: "primary" }], { dismiss: false });
   if (G === myG) exitMatch();
 }
 /* v3.46 다시보기: 기록한 수를 하나씩, 사이를 두고 보여 준다 */
@@ -3021,7 +3021,7 @@ function render() {
           <button type="button" class="tb-btn" data-act="rules" aria-label="규칙" data-tip="규칙">${uiIcon("rules")}</button>
           ${typeof BGM !== "undefined" && BGM.tbHTML && !isPhone() ? `<i class="tb-sep"></i>${BGM.tbHTML()}` : ""}<!-- 2026-11-25 폰: 소리 단추 둘은 뺀다(설정 창에 있다) — 남은 단추를 키운다(css/mobile.css) -->
           <i class="tb-sep"></i>
-          <button type="button" class="tb-btn tb-danger" data-act="surrender" aria-label="${G.phase === "over" ? "나가기" : "항복"}" data-tip="${G.phase === "over" ? "나가기" : "항복"}">${uiIcon(G.phase === "over" ? "exit" : "flag")}</button>
+          <button type="button" class="tb-btn tb-danger" data-act="surrender" aria-label="나가기" data-tip="나가기">${uiIcon("exit")}</button>
           <i class="tb-sep"></i>
           <button type="button" class="tb-btn" data-act="settings" aria-label="설정" data-tip="설정\n속도·연출·소리">${uiIcon("settings")}</button><!-- 2026-11-22 톱니는 맨 오른쪽(상단 띠와 같은 자리) -->
         </div>
@@ -4567,18 +4567,20 @@ async function finishPrep(me) {
   G.sel = null; G.inspect = null; Guide.hide(); const r = G.ready; G.ready = null; G.control = null; render(); if (r) r();
 }
 
+/* 2026-11-28 (사용자) 항복 단추 → 나가기 단추: 묻고 나면 패배로 기록하고(예전 항복과 같은 정산) 결과 화면 없이 바로 판에서 나간다(G.quit → showResult) */
 async function surrender() {
-  if (G.phase === "over") { exitMatch(); return; }
-  const v = await modal(`<h3>항복할까요?</h3><p>지금 항복하면 이 경기는 패배로 기록됩니다.</p>`, [{ label: "계속 싸우기", value: false }, { label: "항복", value: true, cls: "danger" }], { cls: "turn-modal" });
+  if (G.phase === "over" || G.cfg.replayView) { exitMatch(); return; }   // 다시보기는 기록이 없으니 묻지 않고 바로 나간다
+  const v = await modal(`<h3>게임에서 나갈까요?</h3><p>지금 나가면 이 경기는 패배로 기록됩니다.</p>`, [{ label: "계속 싸우기", value: false }, { label: "나가기", value: true, cls: "danger" }], { cls: "turn-modal" });
   if (!v || !G || G.phase === "over") return;
   sfx("surrender");
   const loser = G.mode === "hotseat" ? (G.control != null ? G.control : G.viewer) : G.online ? G.me : 0;
-  G.winner = 1 - loser; G.reason = `${G.players[loser].name}이(가) 항복했습니다.`; G.phase = "over";
+  G.winner = 1 - loser; G.reason = `${G.players[loser].name}이(가) 나갔습니다.`; G.phase = "over"; G.quit = true;
   if (G.online) { Online.send({ t: "surrender" }); Online.flush(); }   // 2026-11-17 상대 차례(상대 준비 · 코인 결정)를 기다리던 것도 풀어 판이 끝나게
   if (FX.coinAbort) FX.coinAbort();   // 2026-11-17 코인 창이 떠 있으면 닫는다 — 전투 재생은 G.phase를 보고 멈춘다
   G.fx = { dying: [] };   // 멈춘 전투 연출의 남은 표시를 지운다
   if (G.ready) { const r = G.ready; G.ready = null; r(); }
   render();
+  if (!G.cfg.headless) showResult();   // 나가기: 컴퓨터 · 전투 재생이 끝나기를 기다리지 않고 바로(판 흐름은 G !== myG를 보고 멈춘다)
 }
 function exitMatch() { if (G && typeof BLog !== "undefined") BLog.end(G, "판을 끝내지 않고 나감");   /* v3.20.1 */ if (G && G.online) Online.leave(); const cb = G && G.onExit; Guide.hide(); CrysHint.hide(); setCombatRules({}); G = null; boardEl = null; if (cb) cb(); }
 
@@ -4611,6 +4613,9 @@ function showResult() {
   const won = G.mode === "ai" ? G.winner === 0 : G.online ? G.winner === G.me : true;
   const reward = typeof onMatchEnd === "function" ? onMatchEnd(G) : null;
   const econ = econSettle(G);
+  if (G.quit) { exitMatch(); return; }   // 나가기: 정산만 하고 결과 화면 없이 나간다
+  /* 2026-11-28 (사용자) 전장 보기 = 이 판 다시보기(onMatchEnd가 남긴 기록 — 컴퓨터와 대전 · 순례 · 원정만, 온라인은 없음). 전투 로그 단추는 뺐다 */
+  const rp0 = typeof Replays !== "undefined" && !G.online ? Replays.all()[0] : null, rp = rp0 && G.cfg.seed != null && rp0.seed === (G.cfg.seed >>> 0) && rp0.turn === G.turn ? rp0 : null;
   const wrap = document.createElement("div");
   wrap.className = "result " + (won ? "win" : "lose");
   if (typeof FEEL !== "undefined") FEEL.play(won ? "victory" : "defeat");
@@ -4624,7 +4629,7 @@ function showResult() {
     ${econ && econ.lucky && econ.lucky.k === "card" && CARDS[econ.lucky.id] ? `<div class="res-lucky"><p><b>행운</b> 환석이 빛나더니 카드 한 장을 내놓았다 — <span class="grade-${econ.lucky.grade}">${GRADES[econ.lucky.grade] ? GRADES[econ.lucky.grade].name : ""}</span> 「${esc(CARDS[econ.lucky.id].name)}」${econ.lucky.gold ? ` (이미 다 가져서 ${fmtGold(econ.lucky.gold)})` : ""}</p>${cardHTML(CARDS[econ.lucky.id], { size: "md" })}</div>` : ""}
     ${econ && typeof LevelUI !== "undefined" ? LevelUI.resultHTML(econ.xp != null ? econ.xp : econ.total) : ""}
     ${reward ? `<div class="res-reward"><p>보상으로 카드 1장을 얻었습니다</p>${cardHTML(CARDS[reward], { size: "md" })}</div>` : ""}
-    <div class="res-btns">${G.cfg.exp ? `<button class="btn primary" data-r="lobby">${won ? "원정 계속" : "원정으로"}</button>` : G.cfg.pil ? `<button class="btn primary" data-r="lobby">순례길로</button>` : `<button class="btn primary" data-r="lobby">${G.online && typeof Rooms !== "undefined" && Rooms.inRoom() ? "방으로" : "대기실로"}</button><button class="btn" data-r="again">한 번 더</button>`}<button class="btn ghost" data-r="board">전장 보기</button>${typeof BLog !== "undefined" && !isPhone() ? `<button class="btn ghost" data-blog="dl" title="이 판의 개발용 전투 로그(.txt) 내려받기">⤓ 전투 로그</button>` : ""}</div>
+    <div class="res-btns">${G.cfg.exp ? `<button class="btn primary" data-r="lobby">${won ? "원정 계속" : "원정으로"}</button>` : G.cfg.pil ? `<button class="btn" data-r="home">나가기</button><button class="btn primary" data-r="lobby">순례길로</button>` : `<button class="btn primary" data-r="lobby">${G.online && typeof Rooms !== "undefined" && Rooms.inRoom() ? "방으로" : "대기실로"}</button><button class="btn" data-r="again">한 번 더</button>`}${rp ? `<button class="btn ghost" data-r="board" title="이 판을 처음부터 다시 봅니다 — 속도 ×1 ~ ×4">전장 보기</button>` : ""}</div>
   </div>`;
   document.body.appendChild(wrap);
   if (econ && typeof LevelUI !== "undefined") LevelUI.playResult(wrap);
@@ -4635,11 +4640,16 @@ function showResult() {
     const rk = { rare: "reveal_rare", epic: "reveal_epic", unique: "reveal_unique", special: "reveal_special" }[rg];
     if (lk || reward) setTimeout(() => FEEL.play(rk || "card_get"), 1900);
   }
+  /* 다시보기에서 돌아오면 G는 이미 비어 있다(g0 · 그 onExit로 이어 간다) */
+  const g0 = G, cb0 = G.onExit;
+  const leave = home => { if (G === g0) { if (home) g0.onExit = null; exitMatch(); } else if (!home && cb0) cb0(); if (home) { App.screen = null; showLobby(); } };
   wrap.addEventListener("click", e => {
     const b = e.target.closest("[data-r]"); if (!b) return;
+    if (b.dataset.r === "board") { wrap.style.display = "none"; Replays.view(rp, { back: "결과로", onExit: () => { wrap.style.display = ""; } }); return; }
     wrap.remove();
-    if (b.dataset.r === "lobby") exitMatch();
-    else if (b.dataset.r === "again" && G.online) { Online.rematch(); }
-    else if (b.dataset.r === "again") { const cfg = Object.assign({}, G.cfg); startMatch(cfg); }
+    if (b.dataset.r === "lobby") leave(false);
+    else if (b.dataset.r === "home") leave(true);
+    else if (b.dataset.r === "again" && g0.online) { Online.rematch(); }
+    else if (b.dataset.r === "again") { const cfg = Object.assign({}, g0.cfg); startMatch(cfg); }
   });
 }
